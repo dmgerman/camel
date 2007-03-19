@@ -97,7 +97,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"sendTo ("
+literal|"sendTo("
 operator|+
 name|destination
 operator|+

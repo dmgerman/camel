@@ -216,6 +216,40 @@ return|return
 name|predicate
 return|;
 block|}
+DECL|method|createProcessor ()
+specifier|public
+name|FilterProcessor
+argument_list|<
+name|E
+argument_list|>
+name|createProcessor
+parameter_list|()
+block|{
+comment|// lets create a single processor for all child predicates
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|childProcessor
+init|=
+name|super
+operator|.
+name|createProcessor
+argument_list|()
+decl_stmt|;
+return|return
+operator|new
+name|FilterProcessor
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|predicate
+argument_list|,
+name|childProcessor
+argument_list|)
+return|;
+block|}
 DECL|method|addProcessor (Processor<E> processor)
 specifier|public
 name|void
@@ -235,6 +269,9 @@ name|addProcessor
 argument_list|(
 operator|new
 name|FilterProcessor
+argument_list|<
+name|E
+argument_list|>
 argument_list|(
 name|predicate
 argument_list|,
