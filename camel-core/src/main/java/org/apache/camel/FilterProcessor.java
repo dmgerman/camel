@@ -124,6 +124,32 @@ operator|+
 name|processor
 return|;
 block|}
+DECL|method|getPredicate ()
+specifier|public
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+name|getPredicate
+parameter_list|()
+block|{
+return|return
+name|predicate
+return|;
+block|}
+DECL|method|getProcessor ()
+specifier|public
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|getProcessor
+parameter_list|()
+block|{
+return|return
+name|processor
+return|;
+block|}
 block|}
 end_class
 

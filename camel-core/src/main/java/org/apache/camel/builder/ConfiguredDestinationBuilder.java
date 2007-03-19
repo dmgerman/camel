@@ -123,16 +123,17 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProcessor ()
+DECL|method|createProcessors ()
 specifier|public
-name|Processor
-argument_list|<
-name|E
-argument_list|>
-name|createProcessor
+name|void
+name|createProcessors
 parameter_list|()
 block|{
-return|return
+name|getParent
+argument_list|()
+operator|.
+name|addProcessor
+argument_list|(
 operator|new
 name|SendProcessor
 argument_list|<
@@ -141,7 +142,8 @@ argument_list|>
 argument_list|(
 name|destination
 argument_list|)
-return|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

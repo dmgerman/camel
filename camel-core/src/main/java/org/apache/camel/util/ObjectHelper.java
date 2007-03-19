@@ -67,6 +67,39 @@ name|b
 argument_list|)
 return|;
 block|}
+DECL|method|notNull (Object value, String name)
+specifier|public
+specifier|static
+name|void
+name|notNull
+parameter_list|(
+name|Object
+name|value
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+block|{
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|NullPointerException
+argument_list|(
+literal|"No "
+operator|+
+name|name
+operator|+
+literal|" specified"
+argument_list|)
+throw|;
+block|}
+block|}
 block|}
 end_class
 

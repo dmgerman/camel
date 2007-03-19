@@ -14,6 +14,20 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A helper class for working with predicates  *  * @version $Revision$  */
 end_comment
@@ -24,39 +38,6 @@ specifier|public
 class|class
 name|Predicates
 block|{
-DECL|method|notNull (Object value, String name)
-specifier|public
-specifier|static
-name|void
-name|notNull
-parameter_list|(
-name|Object
-name|value
-parameter_list|,
-name|String
-name|name
-parameter_list|)
-block|{
-if|if
-condition|(
-name|value
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|NullPointerException
-argument_list|(
-literal|"No "
-operator|+
-name|name
-operator|+
-literal|" specified"
-argument_list|)
-throw|;
-block|}
-block|}
 comment|/**      * A helper method to combine multiple predicates by a logical AND      */
 DECL|method|and (final Predicate<E> left, final Predicate<E> right)
 specifier|public
@@ -85,6 +66,8 @@ argument_list|>
 name|right
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
 name|notNull
 argument_list|(
 name|left
@@ -92,6 +75,8 @@ argument_list|,
 literal|"left"
 argument_list|)
 expr_stmt|;
+name|ObjectHelper
+operator|.
 name|notNull
 argument_list|(
 name|right
@@ -162,6 +147,8 @@ argument_list|>
 name|right
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
 name|notNull
 argument_list|(
 name|left
@@ -169,6 +156,8 @@ argument_list|,
 literal|"left"
 argument_list|)
 expr_stmt|;
+name|ObjectHelper
+operator|.
 name|notNull
 argument_list|(
 name|right
