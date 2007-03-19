@@ -129,6 +129,25 @@ name|Object
 argument_list|>
 name|lazyHeaders
 decl_stmt|;
+DECL|method|DefaultJmsExchange ()
+specifier|public
+name|DefaultJmsExchange
+parameter_list|()
+block|{     }
+DECL|method|DefaultJmsExchange (Message message)
+specifier|public
+name|DefaultJmsExchange
+parameter_list|(
+name|Message
+name|message
+parameter_list|)
+block|{
+name|setRequest
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getHeader (String name)
 specifier|public
 parameter_list|<
