@@ -48,6 +48,18 @@ name|LinkedBlockingQueue
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Component
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the component that manages {@link QueueEndpoint}.  It holds the   * list of named queues that queue endpoints reference.  *  * @version $Revision: 519973 $  */
 end_comment
@@ -60,6 +72,11 @@ name|QueueComponent
 parameter_list|<
 name|E
 parameter_list|>
+implements|implements
+name|Component
+argument_list|<
+name|E
+argument_list|>
 block|{
 DECL|field|registry
 specifier|private

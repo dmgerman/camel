@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -81,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of {@link org.apache.camel.EndpointResolver}  *  * @version $Revision$  */
+comment|/**  * An implementation of {@link org.apache.camel.EndpointResolver} that delegates to   * other {@link EndpointResolver} which are selected based on the uri prefix.  *   * The delegate {@link EndpointResolver} are associated with uri prefixes by   * adding a property file with the same uri prefix in the  * META-INF/services/org/apache/camel/EndpointResolver/  * directory on the classpath.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -111,17 +123,76 @@ argument_list|(
 literal|"META-INF/services/org/apache/camel/EndpointResolver/"
 argument_list|)
 decl_stmt|;
-DECL|method|resolve (CamelContainer container, String uri)
+DECL|method|resolveEndpoint (CamelContainer container, String uri)
 specifier|public
 name|Endpoint
 argument_list|<
 name|E
 argument_list|>
-name|resolve
+name|resolveEndpoint
 parameter_list|(
 name|CamelContainer
 name|container
 parameter_list|,
+name|String
+name|uri
+parameter_list|)
+block|{
+name|EndpointResolver
+name|resolver
+init|=
+name|getDelegate
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+return|return
+name|resolver
+operator|.
+name|resolveEndpoint
+argument_list|(
+name|container
+argument_list|,
+name|uri
+argument_list|)
+return|;
+block|}
+DECL|method|resolveComponent (CamelContainer container, String uri)
+specifier|public
+name|Component
+name|resolveComponent
+parameter_list|(
+name|CamelContainer
+name|container
+parameter_list|,
+name|String
+name|uri
+parameter_list|)
+block|{
+name|EndpointResolver
+name|resolver
+init|=
+name|getDelegate
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+return|return
+name|resolver
+operator|.
+name|resolveComponent
+argument_list|(
+name|container
+argument_list|,
+name|uri
+argument_list|)
+return|;
+block|}
+DECL|method|getDelegate (String uri)
+specifier|private
+name|EndpointResolver
+name|getDelegate
+parameter_list|(
 name|String
 name|uri
 parameter_list|)
@@ -137,11 +208,16 @@ argument_list|(
 name|uri
 argument_list|,
 literal|":"
+argument_list|,
+literal|2
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
 name|splitURI
+index|[
+literal|1
+index|]
 operator|==
 literal|null
 condition|)
@@ -198,16 +274,7 @@ throw|;
 block|}
 return|return
 name|resolver
-operator|.
-name|resolve
-argument_list|(
-name|container
-argument_list|,
-name|uri
-argument_list|)
 return|;
-comment|// EndpointResolvers could be more recusive in nature if we resolved the reset of the of the URI
-comment|//return resolver.resolve(container, splitURI[1]);
 block|}
 block|}
 end_class

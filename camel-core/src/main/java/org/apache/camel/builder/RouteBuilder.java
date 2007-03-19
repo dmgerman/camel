@@ -287,7 +287,7 @@ decl_stmt|;
 return|return
 name|er
 operator|.
-name|resolve
+name|resolveEndpoint
 argument_list|(
 name|c
 argument_list|,

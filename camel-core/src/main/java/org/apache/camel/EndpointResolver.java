@@ -27,14 +27,27 @@ parameter_list|<
 name|E
 parameter_list|>
 block|{
-comment|/**      * Resolves the given uri or returns null if no endpoint could be found      */
-DECL|method|resolve (CamelContainer container, String uri)
+comment|/**      * Resolves the component for a given uri or returns null if now component handles it.      */
+DECL|method|resolveComponent (CamelContainer container, String uri)
+specifier|public
+name|Component
+name|resolveComponent
+parameter_list|(
+name|CamelContainer
+name|container
+parameter_list|,
+name|String
+name|uri
+parameter_list|)
+function_decl|;
+comment|/**      * Resolves the endpoint for a given uri or returns null if no endpoint could be found      */
+DECL|method|resolveEndpoint (CamelContainer container, String uri)
 specifier|public
 name|Endpoint
 argument_list|<
 name|E
 argument_list|>
-name|resolve
+name|resolveEndpoint
 parameter_list|(
 name|CamelContainer
 name|container
