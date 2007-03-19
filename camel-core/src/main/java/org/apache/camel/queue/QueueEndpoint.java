@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.seda
+DECL|package|org.apache.camel.queue
 package|package
 name|org
 operator|.
@@ -12,9 +12,31 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|seda
+name|queue
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Queue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContainer
+import|;
+end_import
 
 begin_import
 import|import
@@ -44,61 +66,15 @@ name|DefaultExchange
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ExchangeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContainer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Queue
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentLinkedQueue
-import|;
-end_import
-
 begin_comment
-comment|/**  * Represents a SEDA endpoint using an internal {@link Queue}  * object to process inbound exchanges.  *  * @version $Revision$  */
+comment|/**  * Represents a queue endpoint that uses a {@link Queue}  * object to process inbound exchanges.  *  * @version $Revision: 519973 $  */
 end_comment
 
 begin_class
-DECL|class|SedaEndpoint
+DECL|class|QueueEndpoint
 specifier|public
 class|class
-name|SedaEndpoint
+name|QueueEndpoint
 parameter_list|<
 name|E
 parameter_list|>
@@ -111,34 +87,14 @@ block|{
 DECL|field|queue
 specifier|private
 name|Queue
+argument_list|<
+name|E
+argument_list|>
 name|queue
 decl_stmt|;
-DECL|method|SedaEndpoint (String uri, CamelContainer container)
+DECL|method|QueueEndpoint (String uri, CamelContainer container, Queue<E> queue)
 specifier|public
-name|SedaEndpoint
-parameter_list|(
-name|String
-name|uri
-parameter_list|,
-name|CamelContainer
-name|container
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|uri
-argument_list|,
-name|container
-argument_list|,
-operator|new
-name|ConcurrentLinkedQueue
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|SedaEndpoint (String uri, CamelContainer container, Queue queue)
-specifier|public
-name|SedaEndpoint
+name|QueueEndpoint
 parameter_list|(
 name|String
 name|uri
@@ -147,6 +103,9 @@ name|CamelContainer
 name|container
 parameter_list|,
 name|Queue
+argument_list|<
+name|E
+argument_list|>
 name|queue
 parameter_list|)
 block|{
@@ -187,6 +146,8 @@ name|E
 name|createExchange
 parameter_list|()
 block|{
+comment|// How can we create a specific Exchange if we are generic??
+comment|// perhaps it would be better if we did not impement this.
 return|return
 operator|(
 name|E
@@ -199,6 +160,9 @@ block|}
 DECL|method|getQueue ()
 specifier|public
 name|Queue
+argument_list|<
+name|E
+argument_list|>
 name|getQueue
 parameter_list|()
 block|{
