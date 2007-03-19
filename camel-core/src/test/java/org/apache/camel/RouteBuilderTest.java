@@ -1560,6 +1560,7 @@ argument_list|>
 argument_list|()
 block|{         }
 decl_stmt|;
+comment|// START SNIPPET: e7
 specifier|final
 name|InterceptorProcessor
 argument_list|<
@@ -1573,9 +1574,47 @@ argument_list|<
 name|Exchange
 argument_list|>
 argument_list|()
-block|{    	         }
+block|{
+specifier|public
+name|void
+name|onExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"START of onExchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+name|next
+operator|.
+name|onExchange
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"END of onExchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 decl_stmt|;
-comment|// START SNIPPET: e7
 name|RouteBuilder
 argument_list|<
 name|Exchange
