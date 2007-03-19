@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -147,15 +159,15 @@ specifier|private
 name|Destination
 name|destination
 decl_stmt|;
-DECL|method|JmsEndpoint (String uri, ExchangeConverter exchangeConverter, Destination destination, JmsOperations template)
+DECL|method|JmsEndpoint (String uri, CamelContainer container, Destination destination, JmsOperations template)
 specifier|public
 name|JmsEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|ExchangeConverter
-name|exchangeConverter
+name|CamelContainer
+name|container
 parameter_list|,
 name|Destination
 name|destination
@@ -168,7 +180,7 @@ name|super
 argument_list|(
 name|uri
 argument_list|,
-name|exchangeConverter
+name|container
 argument_list|)
 expr_stmt|;
 name|this

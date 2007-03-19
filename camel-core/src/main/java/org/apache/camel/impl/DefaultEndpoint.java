@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -90,20 +102,20 @@ specifier|private
 name|String
 name|endpointUri
 decl_stmt|;
-DECL|field|exchangeConverter
+DECL|field|container
 specifier|private
-name|ExchangeConverter
-name|exchangeConverter
+name|CamelContainer
+name|container
 decl_stmt|;
-DECL|method|DefaultEndpoint (String endpointUri, ExchangeConverter exchangeConverter)
+DECL|method|DefaultEndpoint (String endpointUri, CamelContainer container)
 specifier|protected
 name|DefaultEndpoint
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|ExchangeConverter
-name|exchangeConverter
+name|CamelContainer
+name|container
 parameter_list|)
 block|{
 name|this
@@ -114,9 +126,9 @@ name|endpointUri
 expr_stmt|;
 name|this
 operator|.
-name|exchangeConverter
+name|container
 operator|=
-name|exchangeConverter
+name|container
 expr_stmt|;
 block|}
 DECL|method|hashCode ()
@@ -207,14 +219,14 @@ return|return
 name|endpointUri
 return|;
 block|}
-DECL|method|getExchangeConverter ()
+DECL|method|getContainer ()
 specifier|public
-name|ExchangeConverter
-name|getExchangeConverter
+name|CamelContainer
+name|getContainer
 parameter_list|()
 block|{
 return|return
-name|exchangeConverter
+name|container
 return|;
 block|}
 comment|/**      * Converts the given exchange to the specified exchange type      */
@@ -254,6 +266,9 @@ argument_list|)
 return|;
 block|}
 return|return
+name|getContainer
+argument_list|()
+operator|.
 name|getExchangeConverter
 argument_list|()
 operator|.

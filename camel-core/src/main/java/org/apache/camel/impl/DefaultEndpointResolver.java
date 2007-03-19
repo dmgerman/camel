@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|seda
 operator|.
 name|SedaEndpoint
@@ -84,29 +96,25 @@ argument_list|<
 name|E
 argument_list|>
 block|{
-DECL|field|exchangeConverter
+DECL|field|container
 specifier|private
-name|ExchangeConverter
-name|exchangeConverter
+specifier|final
+name|CamelContainer
+name|container
 decl_stmt|;
-DECL|method|DefaultEndpointResolver ()
-specifier|public
-name|DefaultEndpointResolver
-parameter_list|()
-block|{     }
-DECL|method|DefaultEndpointResolver (ExchangeConverter exchangeConverter)
+DECL|method|DefaultEndpointResolver (CamelContainer container)
 specifier|public
 name|DefaultEndpointResolver
 parameter_list|(
-name|ExchangeConverter
-name|exchangeConverter
+name|CamelContainer
+name|container
 parameter_list|)
 block|{
 name|this
 operator|.
-name|exchangeConverter
+name|container
 operator|=
-name|exchangeConverter
+name|container
 expr_stmt|;
 block|}
 DECL|method|resolve (String uri)
@@ -131,61 +139,8 @@ argument_list|>
 argument_list|(
 name|uri
 argument_list|,
-name|getExchangeConverter
-argument_list|()
+name|container
 argument_list|)
-return|;
-block|}
-DECL|method|getExchangeConverter ()
-specifier|public
-name|ExchangeConverter
-name|getExchangeConverter
-parameter_list|()
-block|{
-if|if
-condition|(
-name|exchangeConverter
-operator|==
-literal|null
-condition|)
-block|{
-name|exchangeConverter
-operator|=
-name|createExchangeConverter
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|exchangeConverter
-return|;
-block|}
-DECL|method|setExchangeConverter (ExchangeConverter exchangeConverter)
-specifier|public
-name|void
-name|setExchangeConverter
-parameter_list|(
-name|ExchangeConverter
-name|exchangeConverter
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exchangeConverter
-operator|=
-name|exchangeConverter
-expr_stmt|;
-block|}
-comment|/**      * Lazily create a default exchange converter implementation      */
-DECL|method|createExchangeConverter ()
-specifier|protected
-name|ExchangeConverter
-name|createExchangeConverter
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultExchangeConverter
-argument_list|()
 return|;
 block|}
 block|}

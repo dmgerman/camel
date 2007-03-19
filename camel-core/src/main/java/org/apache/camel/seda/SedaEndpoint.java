@@ -58,6 +58,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContainer
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -101,22 +113,22 @@ specifier|private
 name|Queue
 name|queue
 decl_stmt|;
-DECL|method|SedaEndpoint (String uri, ExchangeConverter exchangeConverter)
+DECL|method|SedaEndpoint (String uri, CamelContainer container)
 specifier|public
 name|SedaEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|ExchangeConverter
-name|exchangeConverter
+name|CamelContainer
+name|container
 parameter_list|)
 block|{
 name|this
 argument_list|(
 name|uri
 argument_list|,
-name|exchangeConverter
+name|container
 argument_list|,
 operator|new
 name|ConcurrentLinkedQueue
@@ -124,15 +136,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SedaEndpoint (String uri, ExchangeConverter exchangeConverter, Queue queue)
+DECL|method|SedaEndpoint (String uri, CamelContainer container, Queue queue)
 specifier|public
 name|SedaEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|ExchangeConverter
-name|exchangeConverter
+name|CamelContainer
+name|container
 parameter_list|,
 name|Queue
 name|queue
@@ -142,7 +154,7 @@ name|super
 argument_list|(
 name|uri
 argument_list|,
-name|exchangeConverter
+name|container
 argument_list|)
 expr_stmt|;
 name|this
