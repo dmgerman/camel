@@ -236,7 +236,7 @@ name|DefaultExchangeConverter
 argument_list|()
 return|;
 block|}
-DECL|method|getOrCreateComponent (String componentName, Callable<Component> factory)
+DECL|method|getOrCreateComponent (String componentName, Callable<Component<E>> factory)
 specifier|public
 name|Component
 name|getOrCreateComponent
@@ -247,6 +247,9 @@ parameter_list|,
 name|Callable
 argument_list|<
 name|Component
+argument_list|<
+name|E
+argument_list|>
 argument_list|>
 name|factory
 parameter_list|)
