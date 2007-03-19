@@ -345,8 +345,6 @@ argument_list|()
 decl_stmt|;
 name|Enumeration
 name|names
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
