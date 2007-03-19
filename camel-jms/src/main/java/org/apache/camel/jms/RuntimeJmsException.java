@@ -38,6 +38,16 @@ name|RuntimeJmsException
 extends|extends
 name|RuntimeException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|2141493732308871761L
+decl_stmt|;
 DECL|method|RuntimeJmsException (String message, JMSException cause)
 specifier|public
 name|RuntimeJmsException

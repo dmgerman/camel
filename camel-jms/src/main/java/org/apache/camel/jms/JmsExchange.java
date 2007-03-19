@@ -71,6 +71,10 @@ extends|extends
 name|Exchange
 argument_list|<
 name|Message
+argument_list|,
+name|Message
+argument_list|,
+name|Message
 argument_list|>
 block|{
 comment|/**      * Creates the JMS message for this exchange so that it can be sent to      * a JMS endpoint.      */

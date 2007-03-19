@@ -35,14 +35,15 @@ interface|interface
 name|Exchange
 parameter_list|<
 name|M
+parameter_list|,
+name|R
+parameter_list|,
+name|F
 parameter_list|>
 block|{
 comment|/**      * Accesses a specific header      */
 DECL|method|getHeader (String name)
-parameter_list|<
-name|T
-parameter_list|>
-name|T
+name|Object
 name|getHeader
 parameter_list|(
 name|String
@@ -80,13 +81,13 @@ parameter_list|()
 function_decl|;
 comment|/**      * Returns the response message      */
 DECL|method|getResponse ()
-name|M
+name|R
 name|getResponse
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the fault message      */
 DECL|method|getFault ()
-name|M
+name|F
 name|getFault
 parameter_list|()
 function_decl|;

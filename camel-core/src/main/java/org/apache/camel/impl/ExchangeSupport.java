@@ -40,11 +40,19 @@ class|class
 name|ExchangeSupport
 parameter_list|<
 name|M
+parameter_list|,
+name|R
+parameter_list|,
+name|F
 parameter_list|>
 implements|implements
 name|Exchange
 argument_list|<
 name|M
+argument_list|,
+name|R
+argument_list|,
+name|F
 argument_list|>
 block|{
 DECL|field|request
@@ -54,12 +62,12 @@ name|request
 decl_stmt|;
 DECL|field|response
 specifier|private
-name|M
+name|R
 name|response
 decl_stmt|;
 DECL|field|fault
 specifier|private
-name|M
+name|F
 name|fault
 decl_stmt|;
 DECL|field|exception
@@ -95,7 +103,7 @@ expr_stmt|;
 block|}
 DECL|method|getFault ()
 specifier|public
-name|M
+name|F
 name|getFault
 parameter_list|()
 block|{
@@ -103,12 +111,12 @@ return|return
 name|fault
 return|;
 block|}
-DECL|method|setFault (M fault)
+DECL|method|setFault (F fault)
 specifier|public
 name|void
 name|setFault
 parameter_list|(
-name|M
+name|F
 name|fault
 parameter_list|)
 block|{
@@ -147,7 +155,7 @@ expr_stmt|;
 block|}
 DECL|method|getResponse ()
 specifier|public
-name|M
+name|R
 name|getResponse
 parameter_list|()
 block|{
@@ -155,12 +163,12 @@ return|return
 name|response
 return|;
 block|}
-DECL|method|setResponse (M response)
+DECL|method|setResponse (R response)
 specifier|public
 name|void
 name|setResponse
 parameter_list|(
-name|M
+name|R
 name|response
 parameter_list|)
 block|{

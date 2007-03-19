@@ -147,7 +147,7 @@ name|createExchange
 parameter_list|()
 block|{
 comment|// How can we create a specific Exchange if we are generic??
-comment|// perhaps it would be better if we did not impement this.
+comment|// perhaps it would be better if we did not implement this.
 return|return
 operator|(
 name|E

@@ -115,6 +115,10 @@ extends|extends
 name|ExchangeSupport
 argument_list|<
 name|Message
+argument_list|,
+name|Message
+argument_list|,
+name|Message
 argument_list|>
 implements|implements
 name|JmsExchange
@@ -150,10 +154,7 @@ expr_stmt|;
 block|}
 DECL|method|getHeader (String name)
 specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|T
+name|Object
 name|getHeader
 parameter_list|(
 name|String
@@ -188,9 +189,6 @@ decl_stmt|;
 try|try
 block|{
 return|return
-operator|(
-name|T
-operator|)
 name|value
 return|;
 block|}

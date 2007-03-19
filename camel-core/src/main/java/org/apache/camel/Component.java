@@ -25,8 +25,40 @@ interface|interface
 name|Component
 parameter_list|<
 name|E
+parameter_list|,
+name|EP
+extends|extends
+name|Endpoint
+parameter_list|<
+name|E
 parameter_list|>
-block|{  }
+parameter_list|>
+block|{
+comment|/** 	 * Asks the component to activate the delivery of {@link Exchange} objects 	 * from the {@link Endpoint} to the {@link Processor}. 	 */
+DECL|method|activate (EP endpoint, Processor<E> processor)
+name|void
+name|activate
+parameter_list|(
+name|EP
+name|endpoint
+parameter_list|,
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|processor
+parameter_list|)
+function_decl|;
+comment|/** 	 * Stops the delivery of messages from a previously activated  	 * {@link Endpoint}. 	 */
+DECL|method|deactivate (EP endpoint)
+name|void
+name|deactivate
+parameter_list|(
+name|EP
+name|endpoint
+parameter_list|)
+function_decl|;
+block|}
 end_interface
 
 end_unit

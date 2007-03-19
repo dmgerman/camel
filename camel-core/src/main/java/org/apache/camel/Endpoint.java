@@ -34,7 +34,7 @@ name|String
 name|getEndpointUri
 parameter_list|()
 function_decl|;
-comment|/**      * Sends the mesage exchange to this endpoint      */
+comment|/**      * Sends the message exchange to this endpoint      */
 DECL|method|send (E exchange)
 name|void
 name|send

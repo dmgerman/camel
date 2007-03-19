@@ -38,6 +38,16 @@ name|MessagePropertyAcessException
 extends|extends
 name|RuntimeJmsException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|3996286386119163309L
+decl_stmt|;
 DECL|field|propertyName
 specifier|private
 name|String

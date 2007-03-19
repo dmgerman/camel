@@ -236,7 +236,7 @@ name|DefaultExchangeConverter
 argument_list|()
 return|;
 block|}
-DECL|method|getOrCreateComponent (String componentName, Callable<Component<E>> factory)
+DECL|method|getOrCreateComponent (String componentName, Callable<Component<E,? extends Endpoint<E>>> factory)
 specifier|public
 name|Component
 name|getOrCreateComponent
@@ -249,6 +249,13 @@ argument_list|<
 name|Component
 argument_list|<
 name|E
+argument_list|,
+name|?
+extends|extends
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
 argument_list|>
 argument_list|>
 name|factory
@@ -324,6 +331,35 @@ argument_list|)
 throw|;
 block|}
 block|}
+return|return
+name|component
+return|;
+block|}
+block|}
+DECL|method|getComponent (String componentName)
+specifier|public
+name|Component
+name|getComponent
+parameter_list|(
+name|String
+name|componentName
+parameter_list|)
+block|{
+synchronized|synchronized
+init|(
+name|components
+init|)
+block|{
+name|Component
+name|component
+init|=
+name|components
+operator|.
+name|get
+argument_list|(
+name|componentName
+argument_list|)
+decl_stmt|;
 return|return
 name|component
 return|;
