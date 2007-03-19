@@ -169,9 +169,7 @@ name|DefaultEndpointResolver
 argument_list|<
 name|E
 argument_list|>
-argument_list|(
-name|this
-argument_list|)
+argument_list|()
 return|;
 block|}
 comment|/**      * Lazily create a default exchange converter implementation      */

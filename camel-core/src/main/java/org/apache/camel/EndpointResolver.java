@@ -28,7 +28,7 @@ name|E
 parameter_list|>
 block|{
 comment|/**      * Resolves the given uri or returns null if no endpoint could be found      */
-DECL|method|resolve (String uri)
+DECL|method|resolve (CamelContainer container, String uri)
 specifier|public
 name|Endpoint
 argument_list|<
@@ -36,6 +36,9 @@ name|E
 argument_list|>
 name|resolve
 parameter_list|(
+name|CamelContainer
+name|container
+parameter_list|,
 name|String
 name|uri
 parameter_list|)
