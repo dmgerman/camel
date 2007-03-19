@@ -182,6 +182,22 @@ name|toString
 argument_list|()
 return|;
 block|}
+DECL|method|getProcessors ()
+specifier|public
+name|Collection
+argument_list|<
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+argument_list|>
+name|getProcessors
+parameter_list|()
+block|{
+return|return
+name|processors
+return|;
+block|}
 block|}
 end_class
 
