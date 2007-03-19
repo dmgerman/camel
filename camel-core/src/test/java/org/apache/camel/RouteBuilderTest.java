@@ -136,6 +136,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
 name|RouteBuilder
 argument_list|<
 name|Exchange
@@ -167,6 +168,7 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
+comment|// END SNIPPET: e1
 name|Map
 argument_list|<
 name|Endpoint
@@ -328,6 +330,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e2
 name|RouteBuilder
 argument_list|<
 name|Exchange
@@ -369,6 +372,7 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
+comment|// END SNIPPET: e2
 name|Map
 argument_list|<
 name|Endpoint
@@ -552,6 +556,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e3
 name|RouteBuilder
 argument_list|<
 name|Exchange
@@ -619,6 +624,7 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
+comment|// END SNIPPET: e3
 name|Map
 argument_list|<
 name|Endpoint
@@ -864,6 +870,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e4
 name|RouteBuilder
 argument_list|<
 name|Exchange
@@ -895,6 +902,7 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
+comment|// END SNIPPET: e4
 name|Map
 argument_list|<
 name|Endpoint
@@ -1032,6 +1040,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e5
 name|RouteBuilder
 argument_list|<
 name|Exchange
@@ -1073,6 +1082,7 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
+comment|// END SNIPPET: e5
 name|Map
 argument_list|<
 name|Endpoint
