@@ -157,12 +157,12 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"seda://a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda://b"
+literal|"seda:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -260,7 +260,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -309,7 +309,7 @@ name|assertEquals
 argument_list|(
 literal|"Endpoint URI"
 argument_list|,
-literal|"seda://b"
+literal|"seda:b"
 argument_list|,
 name|sendProcessor
 operator|.
@@ -351,7 +351,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"seda://a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|filter
@@ -366,7 +366,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda://b"
+literal|"seda:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -475,7 +475,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -535,7 +535,7 @@ name|assertEquals
 argument_list|(
 literal|"Endpoint URI"
 argument_list|,
-literal|"seda://b"
+literal|"seda:b"
 argument_list|,
 name|sendProcessor
 operator|.
@@ -577,7 +577,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"seda://a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|choice
@@ -595,7 +595,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda://b"
+literal|"seda:b"
 argument_list|)
 operator|.
 name|when
@@ -610,7 +610,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda://c"
+literal|"seda:c"
 argument_list|)
 operator|.
 name|otherwise
@@ -618,7 +618,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"seda://d"
+literal|"seda:d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -727,7 +727,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -824,7 +824,7 @@ operator|.
 name|getProcessor
 argument_list|()
 argument_list|,
-literal|"seda://b"
+literal|"seda:b"
 argument_list|)
 expr_stmt|;
 name|FilterProcessor
@@ -847,7 +847,7 @@ operator|.
 name|getProcessor
 argument_list|()
 argument_list|,
-literal|"seda://c"
+literal|"seda:c"
 argument_list|)
 expr_stmt|;
 name|assertSendTo
@@ -857,7 +857,7 @@ operator|.
 name|getOtherwise
 argument_list|()
 argument_list|,
-literal|"seda://d"
+literal|"seda:d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -871,6 +871,42 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e4
+specifier|final
+name|Processor
+argument_list|<
+name|Exchange
+argument_list|>
+name|myProcessor
+init|=
+operator|new
+name|Processor
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|()
+block|{
+specifier|public
+name|void
+name|onExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Called with exchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+decl_stmt|;
 name|RouteBuilder
 argument_list|<
 name|Exchange
@@ -891,7 +927,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"seda://a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|process
@@ -922,17 +958,6 @@ operator|.
 name|getRouteMap
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Created map: "
-operator|+
-name|routeMap
-argument_list|)
-expr_stmt|;
 name|Set
 argument_list|<
 name|Map
@@ -1005,7 +1030,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -1061,7 +1086,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"seda://a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|filter
@@ -1185,7 +1210,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
