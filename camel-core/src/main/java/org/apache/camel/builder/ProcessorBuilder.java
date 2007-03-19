@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * An interface representing a builder of a {@link Processor}  *   * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -55,12 +55,6 @@ extends|extends
 name|Exchange
 parameter_list|>
 block|{
-DECL|method|createProcessors ()
-specifier|public
-name|void
-name|createProcessors
-parameter_list|()
-function_decl|;
 DECL|method|createProcessor ()
 specifier|public
 name|Processor

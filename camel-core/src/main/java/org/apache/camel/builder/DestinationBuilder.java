@@ -355,6 +355,46 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Adds the custom processor to this destination      */
+DECL|method|process (Processor<E> processor)
+specifier|public
+name|ProcessorBuilder
+argument_list|<
+name|E
+argument_list|>
+name|process
+parameter_list|(
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|processor
+parameter_list|)
+block|{
+name|ConstantProcessorBuilder
+argument_list|<
+name|E
+argument_list|>
+name|answer
+init|=
+operator|new
+name|ConstantProcessorBuilder
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|processor
+argument_list|)
+decl_stmt|;
+name|addProcessBuilder
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Creates a predicate which is applied and only if it is true then      * the exchange is forwarded to the destination      *      * @return the builder for a predicate      */
 DECL|method|filter (Predicate<E> predicate)
 specifier|public
@@ -617,30 +657,6 @@ argument_list|(
 name|answer
 argument_list|)
 return|;
-block|}
-block|}
-DECL|method|createProcessors ()
-specifier|public
-name|void
-name|createProcessors
-parameter_list|()
-block|{
-for|for
-control|(
-name|ProcessorBuilder
-argument_list|<
-name|E
-argument_list|>
-name|processBuilder
-range|:
-name|processBuilders
-control|)
-block|{
-name|processBuilder
-operator|.
-name|createProcessors
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 DECL|method|getProcessors ()
