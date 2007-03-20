@@ -444,7 +444,10 @@ block|{
 return|return
 operator|new
 name|DefaultJmsExchange
+argument_list|(
+name|getContainer
 argument_list|()
+argument_list|)
 return|;
 block|}
 DECL|method|createExchange (Message message)
@@ -460,27 +463,10 @@ return|return
 operator|new
 name|DefaultJmsExchange
 argument_list|(
+name|getContainer
+argument_list|()
+argument_list|,
 name|message
-argument_list|)
-return|;
-block|}
-DECL|method|createMessageListener (Processor<Exchange> processor)
-specifier|protected
-name|MessageListener
-name|createMessageListener
-parameter_list|(
-name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
-name|processor
-parameter_list|)
-block|{
-return|return
-operator|new
-name|MessageListenerProcessor
-argument_list|(
-name|processor
 argument_list|)
 return|;
 block|}

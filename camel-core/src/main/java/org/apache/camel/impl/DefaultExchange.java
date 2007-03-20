@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -34,7 +46,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|HashMap
 import|;
 end_import
 
@@ -44,7 +56,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Map
 import|;
 end_import
 
@@ -84,6 +96,20 @@ name|Object
 argument_list|>
 name|headers
 decl_stmt|;
+DECL|method|DefaultExchange (CamelContainer container)
+specifier|public
+name|DefaultExchange
+parameter_list|(
+name|CamelContainer
+name|container
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|container
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getHeader (String name)
 specifier|public
 name|Object

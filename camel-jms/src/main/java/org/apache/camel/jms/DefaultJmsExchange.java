@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|InvalidHeaderTypeException
 import|;
 end_import
@@ -133,19 +145,36 @@ name|Object
 argument_list|>
 name|lazyHeaders
 decl_stmt|;
-DECL|method|DefaultJmsExchange ()
-specifier|public
-name|DefaultJmsExchange
-parameter_list|()
-block|{     }
-DECL|method|DefaultJmsExchange (Message message)
+DECL|method|DefaultJmsExchange (CamelContainer container)
 specifier|public
 name|DefaultJmsExchange
 parameter_list|(
+name|CamelContainer
+name|container
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|container
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|DefaultJmsExchange (CamelContainer container, Message message)
+specifier|public
+name|DefaultJmsExchange
+parameter_list|(
+name|CamelContainer
+name|container
+parameter_list|,
 name|Message
 name|message
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|container
+argument_list|)
+expr_stmt|;
 name|setRequest
 argument_list|(
 name|message

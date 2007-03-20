@@ -28,6 +28,18 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContainer
+import|;
+end_import
+
 begin_comment
 comment|/**  * A base class useful for implementing other typesafe exchanges  *  * @version $Revision$  */
 end_comment
@@ -80,6 +92,27 @@ specifier|private
 name|String
 name|exchangeId
 decl_stmt|;
+DECL|field|container
+specifier|protected
+specifier|final
+name|CamelContainer
+name|container
+decl_stmt|;
+DECL|method|ExchangeSupport (CamelContainer container)
+specifier|public
+name|ExchangeSupport
+parameter_list|(
+name|CamelContainer
+name|container
+parameter_list|)
+block|{
+name|this
+operator|.
+name|container
+operator|=
+name|container
+expr_stmt|;
+block|}
 DECL|method|getException ()
 specifier|public
 name|Exception
@@ -209,6 +242,16 @@ name|exchangeId
 operator|=
 name|id
 expr_stmt|;
+block|}
+DECL|method|getContainer ()
+specifier|public
+name|CamelContainer
+name|getContainer
+parameter_list|()
+block|{
+return|return
+name|container
+return|;
 block|}
 block|}
 end_class

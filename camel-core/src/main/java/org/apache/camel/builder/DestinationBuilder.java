@@ -548,6 +548,50 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Creates a dynamic<a href="http://activemq.apache.org/camel/recipient-list.html">Recipient List</a> pattern.      *       * @param valueBuilder      */
+DECL|method|recipientList (ValueBuilder<E> valueBuilder)
+specifier|public
+name|RecipientListBuilder
+argument_list|<
+name|E
+argument_list|>
+name|recipientList
+parameter_list|(
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|valueBuilder
+parameter_list|)
+block|{
+name|RecipientListBuilder
+argument_list|<
+name|E
+argument_list|>
+name|answer
+init|=
+operator|new
+name|RecipientListBuilder
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|this
+argument_list|,
+name|valueBuilder
+argument_list|)
+decl_stmt|;
+name|addProcessBuilder
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|// Properties
+comment|//-------------------------------------------------------------------------
 DECL|method|getBuilder ()
 specifier|public
 name|RouteBuilder

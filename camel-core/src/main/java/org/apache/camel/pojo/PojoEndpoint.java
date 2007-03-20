@@ -251,7 +251,10 @@ block|{
 return|return
 operator|new
 name|PojoExchange
+argument_list|(
+name|getContainer
 argument_list|()
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -390,8 +393,7 @@ decl_stmt|;
 name|PojoExchange
 name|exchange
 init|=
-operator|new
-name|PojoExchange
+name|createExchange
 argument_list|()
 decl_stmt|;
 name|exchange

@@ -96,6 +96,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -127,6 +139,8 @@ class|class
 name|QueueEndpoint
 parameter_list|<
 name|E
+extends|extends
+name|Exchange
 parameter_list|>
 extends|extends
 name|DefaultEndpoint
@@ -234,7 +248,10 @@ name|E
 operator|)
 operator|new
 name|DefaultExchange
+argument_list|(
+name|getContainer
 argument_list|()
+argument_list|)
 return|;
 block|}
 DECL|method|getQueue ()

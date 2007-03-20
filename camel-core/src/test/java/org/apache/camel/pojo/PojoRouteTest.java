@@ -104,20 +104,6 @@ name|PojoRouteTest
 extends|extends
 name|TestCase
 block|{
-DECL|class|StringExchange
-specifier|static
-class|class
-name|StringExchange
-extends|extends
-name|DefaultExchange
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|,
-name|String
-argument_list|>
-block|{		 	}
 DECL|method|testJmsRoute ()
 specifier|public
 name|void

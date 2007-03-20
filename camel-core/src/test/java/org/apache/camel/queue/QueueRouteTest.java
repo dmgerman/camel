@@ -139,7 +139,22 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-block|{		 	}
+block|{
+DECL|method|StringExchange (CamelContainer container)
+specifier|public
+name|StringExchange
+parameter_list|(
+name|CamelContainer
+name|container
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|container
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testJmsRoute ()
 specifier|public
 name|void
@@ -262,7 +277,9 @@ name|exchange
 init|=
 operator|new
 name|StringExchange
-argument_list|()
+argument_list|(
+name|container
+argument_list|)
 decl_stmt|;
 name|exchange
 operator|.
