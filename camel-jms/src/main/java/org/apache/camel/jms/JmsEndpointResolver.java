@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Callable
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -105,6 +93,18 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Callable
 import|;
 end_import
 
@@ -278,7 +278,7 @@ index|]
 expr_stmt|;
 name|rc
 index|[
-literal|0
+literal|1
 index|]
 operator|=
 name|splitURI
@@ -291,7 +291,7 @@ else|else
 block|{
 name|rc
 index|[
-literal|0
+literal|1
 index|]
 operator|=
 name|splitURI
@@ -309,7 +309,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|resolveJmsComponent (final CamelContainer container, String componentName)
+DECL|method|resolveJmsComponent (final CamelContainer container, final String componentName)
 specifier|private
 name|JmsComponent
 name|resolveJmsComponent
@@ -318,6 +318,7 @@ specifier|final
 name|CamelContainer
 name|container
 parameter_list|,
+specifier|final
 name|String
 name|componentName
 parameter_list|)

@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -48,19 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContainer
+name|Processor
 import|;
 end_import
 
@@ -75,6 +75,20 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
 import|;
 end_import
 
@@ -106,6 +120,36 @@ DECL|field|container
 specifier|private
 name|CamelContainer
 name|container
+decl_stmt|;
+DECL|field|inboundProcessor
+specifier|private
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|inboundProcessor
+decl_stmt|;
+DECL|field|activated
+specifier|private
+name|AtomicBoolean
+name|activated
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|false
+argument_list|)
+decl_stmt|;
+DECL|field|deactivated
+specifier|private
+name|AtomicBoolean
+name|deactivated
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 DECL|method|DefaultEndpoint (String endpointUri, CamelContainer container)
 specifier|protected
@@ -280,6 +324,102 @@ name|exchange
 argument_list|)
 return|;
 block|}
+DECL|method|activate ()
+specifier|public
+name|void
+name|activate
+parameter_list|()
+block|{
+if|if
+condition|(
+name|activated
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+name|doActivate
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|deactivate ()
+specifier|public
+name|void
+name|deactivate
+parameter_list|()
+block|{
+if|if
+condition|(
+name|deactivated
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+name|doDeactivate
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+comment|/**      * The processor used to process inbound message exchanges      */
+DECL|method|getInboundProcessor ()
+specifier|public
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|getInboundProcessor
+parameter_list|()
+block|{
+return|return
+name|inboundProcessor
+return|;
+block|}
+DECL|method|setInboundProcessor (Processor<E> inboundProcessor)
+specifier|public
+name|void
+name|setInboundProcessor
+parameter_list|(
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|inboundProcessor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|inboundProcessor
+operator|=
+name|inboundProcessor
+expr_stmt|;
+name|activate
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Called at most once by the container to activate the endpoint      */
+DECL|method|doActivate ()
+specifier|protected
+name|void
+name|doActivate
+parameter_list|()
+block|{     }
+comment|/**      * Called at most once by the container to deactivate the endpoint      */
+DECL|method|doDeactivate ()
+specifier|protected
+name|void
+name|doDeactivate
+parameter_list|()
+block|{     }
 block|}
 end_class
 

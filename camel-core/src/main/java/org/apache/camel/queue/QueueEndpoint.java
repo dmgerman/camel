@@ -18,11 +18,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Queue
+name|camel
+operator|.
+name|CamelContainer
 import|;
 end_import
 
@@ -34,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|Processor
 import|;
 end_import
 
@@ -63,6 +65,16 @@ operator|.
 name|impl
 operator|.
 name|DefaultExchange
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Queue
 import|;
 end_import
 
@@ -139,6 +151,21 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|setInboundProcessor (Processor<E> processor)
+specifier|public
+name|void
+name|setInboundProcessor
+parameter_list|(
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|processor
+parameter_list|)
+block|{
+comment|// TODO lets start a thread to process inbound requests
+comment|// if we don't already have one
 block|}
 DECL|method|createExchange ()
 specifier|public

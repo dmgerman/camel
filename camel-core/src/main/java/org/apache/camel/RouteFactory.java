@@ -14,57 +14,36 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|RouteBuilder
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents a component which manages a set of {@link Endpoint} objects.  *  * @version $Revision: 519901 $  */
+comment|/**  * A simple callback that POJOs can implement to be called back by the  * {@link CamelContainer} with a properly configured {@link RouteBuilder}  * to build routes  *  * @version $Revision: $  */
 end_comment
 
 begin_interface
-DECL|interface|Component
+DECL|interface|RouteFactory
 specifier|public
 interface|interface
-name|Component
-parameter_list|<
-name|E
-parameter_list|,
-name|EP
-extends|extends
-name|Endpoint
-parameter_list|<
-name|E
-parameter_list|>
-parameter_list|>
+name|RouteFactory
 block|{
-comment|/**      * The CamelContainer is injected into the component when it is added to it      */
-DECL|method|setContainer (CamelContainer container)
+DECL|method|build (RouteBuilder builder)
 name|void
-name|setContainer
+name|build
 parameter_list|(
-name|CamelContainer
-name|container
-parameter_list|)
-function_decl|;
-comment|/** 	 * Asks the component to activate the delivery of {@link Exchange} objects 	 * from the {@link Endpoint} to the {@link Processor}. 	 */
-DECL|method|activate (EP endpoint, Processor<E> processor)
-name|void
-name|activate
-parameter_list|(
-name|EP
-name|endpoint
-parameter_list|,
-name|Processor
-argument_list|<
-name|E
-argument_list|>
-name|processor
-parameter_list|)
-function_decl|;
-comment|/** 	 * Stops the delivery of messages from a previously activated  	 * {@link Endpoint}. 	 */
-DECL|method|deactivate (EP endpoint)
-name|void
-name|deactivate
-parameter_list|(
-name|EP
-name|endpoint
+name|RouteBuilder
+name|builder
 parameter_list|)
 function_decl|;
 block|}

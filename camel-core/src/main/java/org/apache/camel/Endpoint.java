@@ -43,10 +43,34 @@ name|E
 name|exchange
 parameter_list|)
 function_decl|;
+comment|/**      * Sets the processor for inbound messages      */
+DECL|method|setInboundProcessor (Processor<E> processor)
+name|void
+name|setInboundProcessor
+parameter_list|(
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|processor
+parameter_list|)
+function_decl|;
 comment|/**      * Create a new exchange for communicating with this endpoint      */
 DECL|method|createExchange ()
 name|E
 name|createExchange
+parameter_list|()
+function_decl|;
+comment|/**      * Called by the container when an endpoint is activiated      */
+DECL|method|activate ()
+name|void
+name|activate
+parameter_list|()
+function_decl|;
+comment|/**      * Called by the container when the endpoint is deactivated      */
+DECL|method|deactivate ()
+name|void
+name|deactivate
 parameter_list|()
 function_decl|;
 block|}

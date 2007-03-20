@@ -18,31 +18,17 @@ end_package
 
 begin_import
 import|import
-name|javax
+name|com
 operator|.
-name|jms
+name|sun
 operator|.
-name|Destination
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
+name|jndi
 operator|.
-name|jms
+name|toolkit
 operator|.
-name|JMSException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
+name|url
 operator|.
-name|jms
-operator|.
-name|Session
+name|Uri
 import|;
 end_import
 
@@ -86,13 +72,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|jms
+name|camel
 operator|.
-name|core
+name|util
 operator|.
-name|JmsTemplate
+name|ObjectHelper
 import|;
 end_import
 
@@ -106,7 +92,7 @@ name|jms
 operator|.
 name|core
 operator|.
-name|SessionCallback
+name|JmsTemplate
 import|;
 end_import
 
@@ -140,17 +126,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|javax
 operator|.
-name|sun
+name|jms
 operator|.
-name|jndi
-operator|.
-name|toolkit
-operator|.
-name|url
-operator|.
-name|Uri
+name|ConnectionFactory
 import|;
 end_import
 
@@ -171,17 +151,8 @@ argument_list|,
 name|JmsEndpoint
 argument_list|>
 block|{
-DECL|field|template
-specifier|private
-name|JmsTemplate
-name|template
-init|=
-operator|new
-name|JmsTemplate
-argument_list|()
-decl_stmt|;
 DECL|field|QUEUE_PREFIX
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -190,7 +161,7 @@ init|=
 literal|"queue/"
 decl_stmt|;
 DECL|field|TOPIC_PREFIX
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -203,6 +174,95 @@ specifier|private
 name|CamelContainer
 name|container
 decl_stmt|;
+DECL|field|template
+specifier|private
+name|JmsTemplate
+name|template
+decl_stmt|;
+comment|/**      * Static builder method      */
+DECL|method|jmsComponent ()
+specifier|public
+specifier|static
+name|JmsComponent
+name|jmsComponent
+parameter_list|()
+block|{
+return|return
+operator|new
+name|JmsComponent
+argument_list|()
+return|;
+block|}
+comment|/**      * Static builder method      */
+DECL|method|jmsComponent (JmsTemplate template)
+specifier|public
+specifier|static
+name|JmsComponent
+name|jmsComponent
+parameter_list|(
+name|JmsTemplate
+name|template
+parameter_list|)
+block|{
+return|return
+operator|new
+name|JmsComponent
+argument_list|(
+name|template
+argument_list|)
+return|;
+block|}
+comment|/**      * Static builder method      */
+DECL|method|jmsComponent (ConnectionFactory connectionFactory)
+specifier|public
+specifier|static
+name|JmsComponent
+name|jmsComponent
+parameter_list|(
+name|ConnectionFactory
+name|connectionFactory
+parameter_list|)
+block|{
+return|return
+name|jmsComponent
+argument_list|(
+operator|new
+name|JmsTemplate
+argument_list|(
+name|connectionFactory
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|JmsComponent ()
+specifier|protected
+name|JmsComponent
+parameter_list|()
+block|{
+name|this
+operator|.
+name|template
+operator|=
+operator|new
+name|JmsTemplate
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|JmsComponent (JmsTemplate template)
+specifier|protected
+name|JmsComponent
+parameter_list|(
+name|JmsTemplate
+name|template
+parameter_list|)
+block|{
+name|this
+operator|.
+name|template
+operator|=
+name|template
+expr_stmt|;
+block|}
 DECL|method|JmsComponent (CamelContainer container)
 specifier|public
 name|JmsComponent
@@ -211,6 +271,9 @@ name|CamelContainer
 name|container
 parameter_list|)
 block|{
+name|this
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|container
@@ -260,6 +323,15 @@ name|String
 name|path
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|container
+argument_list|,
+literal|"container"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|path
@@ -337,52 +409,7 @@ argument_list|(
 name|subject
 argument_list|)
 expr_stmt|;
-name|Destination
-name|destination
-init|=
-operator|(
-name|Destination
-operator|)
-name|template
-operator|.
-name|execute
-argument_list|(
-operator|new
-name|SessionCallback
-argument_list|()
-block|{
-specifier|public
-name|Object
-name|doInJms
-parameter_list|(
-name|Session
-name|session
-parameter_list|)
-throws|throws
-name|JMSException
-block|{
-return|return
-name|template
-operator|.
-name|getDestinationResolver
-argument_list|()
-operator|.
-name|resolveDestinationName
-argument_list|(
-name|session
-argument_list|,
-name|subject
-argument_list|,
-name|template
-operator|.
-name|isPubSubDomain
-argument_list|()
-argument_list|)
-return|;
-block|}
-block|}
-argument_list|)
-decl_stmt|;
+comment|/*         Destination destination = (Destination) template.execute(new SessionCallback() {             public Object doInJms(Session session) throws JMSException {                 return template.getDestinationResolver().resolveDestinationName(session, subject, template.isPubSubDomain());             }         });         */
 name|AbstractMessageListenerContainer
 name|listenerContainer
 init|=
@@ -391,6 +418,37 @@ argument_list|(
 name|template
 argument_list|)
 decl_stmt|;
+name|listenerContainer
+operator|.
+name|setDestinationName
+argument_list|(
+name|subject
+argument_list|)
+expr_stmt|;
+name|listenerContainer
+operator|.
+name|setPubSubDomain
+argument_list|(
+name|template
+operator|.
+name|isPubSubDomain
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|listenerContainer
+operator|.
+name|setConnectionFactory
+argument_list|(
+name|template
+operator|.
+name|getConnectionFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// TODO support optional parameters
+comment|// selector
+comment|// messageConverter
+comment|// durableSubscriberName
 return|return
 operator|new
 name|JmsEndpoint
@@ -398,8 +456,6 @@ argument_list|(
 name|uri
 argument_list|,
 name|container
-argument_list|,
-name|destination
 argument_list|,
 name|template
 argument_list|,
@@ -433,6 +489,32 @@ operator|=
 name|template
 expr_stmt|;
 block|}
+DECL|method|getContainer ()
+specifier|public
+name|CamelContainer
+name|getContainer
+parameter_list|()
+block|{
+return|return
+name|container
+return|;
+block|}
+DECL|method|setContainer (CamelContainer container)
+specifier|public
+name|void
+name|setContainer
+parameter_list|(
+name|CamelContainer
+name|container
+parameter_list|)
+block|{
+name|this
+operator|.
+name|container
+operator|=
+name|container
+expr_stmt|;
+block|}
 DECL|method|createMessageListenerContainer (JmsTemplate template)
 specifier|protected
 name|AbstractMessageListenerContainer
@@ -443,6 +525,7 @@ name|template
 parameter_list|)
 block|{
 comment|// TODO use an enum to auto-switch container types?
+comment|//return new SimpleMessageListenerContainer();
 return|return
 operator|new
 name|DefaultMessageListenerContainer
