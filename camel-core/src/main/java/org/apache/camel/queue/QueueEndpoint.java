@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a queue endpoint that uses a {@link Queue}  * object to process inbound exchanges.  *  * @version $Revision: 519973 $  */
+comment|/**  * Represents a queue endpoint that uses a {@link Queue}  * object to process inbound exchanges.  *  * @org.apache.xbean.XBean  * @version $Revision: 519973 $  */
 end_comment
 
 begin_class

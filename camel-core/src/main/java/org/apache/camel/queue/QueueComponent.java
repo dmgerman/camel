@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link QueueEndpoint}.  It holds the   * list of named queues that queue endpoints reference.  *  * @version $Revision: 519973 $  */
+comment|/**  * Represents the component that manages {@link QueueEndpoint}.  It holds the   * list of named queues that queue endpoints reference.  *  * @org.apache.xbean.XBean  * @version $Revision: 519973 $  */
 end_comment
 
 begin_class

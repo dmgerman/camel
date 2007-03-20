@@ -138,13 +138,30 @@ return|;
 block|}
 block|}
 decl_stmt|;
-DECL|method|testSimpleRoute ()
-specifier|public
-name|void
-name|testSimpleRoute
+DECL|field|interceptor1
+specifier|private
+name|InterceptorProcessor
+argument_list|<
+name|Exchange
+argument_list|>
+name|interceptor1
+decl_stmt|;
+DECL|field|interceptor2
+specifier|private
+name|InterceptorProcessor
+argument_list|<
+name|Exchange
+argument_list|>
+name|interceptor2
+decl_stmt|;
+DECL|method|buildSimpleRoute ()
+specifier|protected
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|buildSimpleRoute
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// START SNIPPET: e1
 name|RouteBuilder
@@ -179,6 +196,27 @@ block|}
 block|}
 decl_stmt|;
 comment|// END SNIPPET: e1
+return|return
+name|builder
+return|;
+block|}
+DECL|method|testSimpleRoute ()
+specifier|public
+name|void
+name|testSimpleRoute
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|builder
+init|=
+name|buildSimpleRoute
+argument_list|()
+decl_stmt|;
 name|Map
 argument_list|<
 name|Endpoint
@@ -332,13 +370,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testSimpleRouteWithHeaderPredicate ()
-specifier|public
-name|void
-name|testSimpleRouteWithHeaderPredicate
+DECL|method|buildSimpleRouteWithHeaderPredicate ()
+specifier|protected
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|buildSimpleRouteWithHeaderPredicate
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// START SNIPPET: e2
 name|RouteBuilder
@@ -383,6 +422,27 @@ block|}
 block|}
 decl_stmt|;
 comment|// END SNIPPET: e2
+return|return
+name|builder
+return|;
+block|}
+DECL|method|testSimpleRouteWithHeaderPredicate ()
+specifier|public
+name|void
+name|testSimpleRouteWithHeaderPredicate
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|builder
+init|=
+name|buildSimpleRouteWithHeaderPredicate
+argument_list|()
+decl_stmt|;
 name|Map
 argument_list|<
 name|Endpoint
@@ -558,13 +618,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testSimpleRouteWithChoice ()
-specifier|public
-name|void
-name|testSimpleRouteWithChoice
+DECL|method|buildSimpleRouteWithChoice ()
+specifier|protected
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|buildSimpleRouteWithChoice
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// START SNIPPET: e3
 name|RouteBuilder
@@ -635,6 +696,27 @@ block|}
 block|}
 decl_stmt|;
 comment|// END SNIPPET: e3
+return|return
+name|builder
+return|;
+block|}
+DECL|method|testSimpleRouteWithChoice ()
+specifier|public
+name|void
+name|testSimpleRouteWithChoice
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|builder
+init|=
+name|buildSimpleRouteWithChoice
+argument_list|()
+decl_stmt|;
 name|Map
 argument_list|<
 name|Endpoint
@@ -872,22 +954,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testCustomProcessor ()
-specifier|public
-name|void
-name|testCustomProcessor
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// START SNIPPET: e4
-specifier|final
-name|Processor
+DECL|method|buildCustomProcessor ()
+specifier|protected
+name|RouteBuilder
 argument_list|<
 name|Exchange
 argument_list|>
+name|buildCustomProcessor
+parameter_list|()
+block|{
+comment|// START SNIPPET: e4
 name|myProcessor
-init|=
+operator|=
 operator|new
 name|Processor
 argument_list|<
@@ -916,7 +994,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-decl_stmt|;
+expr_stmt|;
 name|RouteBuilder
 argument_list|<
 name|Exchange
@@ -949,6 +1027,27 @@ block|}
 block|}
 decl_stmt|;
 comment|// END SNIPPET: e4
+return|return
+name|builder
+return|;
+block|}
+DECL|method|testCustomProcessor ()
+specifier|public
+name|void
+name|testCustomProcessor
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|builder
+init|=
+name|buildCustomProcessor
+argument_list|()
+decl_stmt|;
 name|Map
 argument_list|<
 name|Endpoint
@@ -1067,13 +1166,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testCustomProcessorWithFilter ()
-specifier|public
-name|void
-name|testCustomProcessorWithFilter
+DECL|method|buildCustomProcessorWithFilter ()
+specifier|protected
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|buildCustomProcessorWithFilter
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// START SNIPPET: e5
 name|RouteBuilder
@@ -1118,6 +1218,27 @@ block|}
 block|}
 decl_stmt|;
 comment|// END SNIPPET: e5
+return|return
+name|builder
+return|;
+block|}
+DECL|method|testCustomProcessorWithFilter ()
+specifier|public
+name|void
+name|testCustomProcessorWithFilter
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|builder
+init|=
+name|buildCustomProcessorWithFilter
+argument_list|()
+decl_stmt|;
 name|Map
 argument_list|<
 name|Endpoint
@@ -1279,13 +1400,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testWireTap ()
-specifier|public
-name|void
-name|testWireTap
+DECL|method|buildWireTap ()
+specifier|protected
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|buildWireTap
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// START SNIPPET: e6
 name|RouteBuilder
@@ -1322,6 +1444,27 @@ block|}
 block|}
 decl_stmt|;
 comment|// END SNIPPET: e6
+return|return
+name|builder
+return|;
+block|}
+DECL|method|testWireTap ()
+specifier|public
+name|void
+name|testWireTap
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|builder
+init|=
+name|buildWireTap
+argument_list|()
+decl_stmt|;
 name|Map
 argument_list|<
 name|Endpoint
@@ -1537,21 +1680,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testRouteWithInterceptor ()
-specifier|public
-name|void
-name|testRouteWithInterceptor
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-specifier|final
-name|InterceptorProcessor
+DECL|method|buildRouteWithInterceptor ()
+specifier|protected
+name|RouteBuilder
 argument_list|<
 name|Exchange
 argument_list|>
+name|buildRouteWithInterceptor
+parameter_list|()
+block|{
 name|interceptor1
-init|=
+operator|=
 operator|new
 name|InterceptorProcessor
 argument_list|<
@@ -1559,15 +1698,10 @@ name|Exchange
 argument_list|>
 argument_list|()
 block|{         }
-decl_stmt|;
+expr_stmt|;
 comment|// START SNIPPET: e7
-specifier|final
-name|InterceptorProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 name|interceptor2
-init|=
+operator|=
 operator|new
 name|InterceptorProcessor
 argument_list|<
@@ -1614,7 +1748,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-decl_stmt|;
+expr_stmt|;
 name|RouteBuilder
 argument_list|<
 name|Exchange
@@ -1663,6 +1797,27 @@ block|}
 block|}
 decl_stmt|;
 comment|// END SNIPPET: e7
+return|return
+name|builder
+return|;
+block|}
+DECL|method|testRouteWithInterceptor ()
+specifier|public
+name|void
+name|testRouteWithInterceptor
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|builder
+init|=
+name|buildRouteWithInterceptor
+argument_list|()
+decl_stmt|;
 name|Map
 argument_list|<
 name|Endpoint
