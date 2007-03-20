@@ -188,10 +188,10 @@ operator|=
 name|queue
 expr_stmt|;
 block|}
-DECL|method|send (E exchange)
+DECL|method|onExchange (E exchange)
 specifier|public
 name|void
-name|send
+name|onExchange
 parameter_list|(
 name|E
 name|exchange

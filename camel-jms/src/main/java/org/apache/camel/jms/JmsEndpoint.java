@@ -349,16 +349,16 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-name|send
+name|onExchange
 argument_list|(
 name|jmsExchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|send (final JmsExchange exchange)
+DECL|method|onExchange (final JmsExchange exchange)
 specifier|public
 name|void
-name|send
+name|onExchange
 parameter_list|(
 specifier|final
 name|JmsExchange

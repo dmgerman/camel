@@ -40,16 +40,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|Callable
@@ -321,6 +311,11 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
+name|routes
+argument_list|(
+name|builder
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Adds a component to the container if there is not currently a component already registered.      */
 DECL|method|addComponent (String componentName, final Component<E> component)

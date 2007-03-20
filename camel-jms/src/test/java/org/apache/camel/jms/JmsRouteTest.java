@@ -309,7 +309,7 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|send
+name|onExchange
 argument_list|(
 name|exchange2
 argument_list|)

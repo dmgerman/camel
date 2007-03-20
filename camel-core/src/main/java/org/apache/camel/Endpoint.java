@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents an endpoint on which messages can be exchanged  *  * @version $Revision$  */
+comment|/**  * Represents an endpoint that can send and receive message exchanges  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -26,18 +26,23 @@ name|Endpoint
 parameter_list|<
 name|E
 parameter_list|>
+extends|extends
+name|Processor
+argument_list|<
+name|E
+argument_list|>
 block|{
-comment|/**      * Returns the string representation of the URI      */
+comment|/**      * Returns the string representation of the endpoint URI      */
 DECL|method|getEndpointUri ()
 specifier|public
 name|String
 name|getEndpointUri
 parameter_list|()
 function_decl|;
-comment|/**      * Sends the message exchange to this endpoint      */
-DECL|method|send (E exchange)
+comment|/**      * Sends an outbound exchange to the endpoint      */
+DECL|method|onExchange (E exchange)
 name|void
-name|send
+name|onExchange
 parameter_list|(
 name|E
 name|exchange
@@ -49,7 +54,7 @@ name|E
 name|createExchange
 parameter_list|()
 function_decl|;
-comment|/**      * Called by the container to Activate the endpoint.  Once activated,      * the endpoint will start delivering messages inbound exchanges      * it receives to the specified processor.      *       * @throws IllegalStateException is the Endpoint has already been activated.      */
+comment|/**      * Called by the container to Activate the endpoint.  Once activated,      * the endpoint will start delivering inbound message exchanges      * that are received to the specified processor.      *      * The processor must be thread safe ( or stateless ) since some endpoints       * may choose to deliver exchanges concurrently to the processor.      *       * @throws IllegalStateException if the Endpoint has already been activated.      */
 DECL|method|activate (Processor<E> processor)
 specifier|public
 name|void
