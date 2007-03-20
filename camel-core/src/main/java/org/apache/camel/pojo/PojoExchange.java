@@ -42,6 +42,18 @@ name|CamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 519901 $  */
 end_comment
@@ -54,22 +66,17 @@ name|PojoExchange
 extends|extends
 name|DefaultExchange
 block|{
-DECL|field|invocation
-specifier|private
-name|PojoInvocation
-name|invocation
-decl_stmt|;
-DECL|method|PojoExchange (CamelContext container)
+DECL|method|PojoExchange (CamelContext context)
 specifier|public
 name|PojoExchange
 parameter_list|(
 name|CamelContext
-name|container
+name|context
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|container
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -108,6 +115,23 @@ argument_list|(
 name|invocation
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|newInstance ()
+specifier|public
+name|Exchange
+name|newInstance
+parameter_list|()
+block|{
+return|return
+operator|new
+name|PojoExchange
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+return|;
 block|}
 block|}
 end_class

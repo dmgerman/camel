@@ -93,6 +93,13 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Creates a copy of this message so that it can be used and possibly modified further in another exchange      *       * @return a new message instance copied from this message      */
+DECL|method|copy ()
+specifier|public
+name|Message
+name|copy
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

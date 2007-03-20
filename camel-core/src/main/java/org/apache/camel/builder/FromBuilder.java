@@ -594,6 +594,48 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/splitter.html">Splitter</a> pattern      * where an expression is evaluated to iterate through each of the parts of a message and then each part is then send to some endpoint.      *      * @param valueBuilder the builder for the value used as the expression on which to split      * @return the builder      */
+DECL|method|splitter (ValueBuilder<E> valueBuilder)
+specifier|public
+name|SplitterBuilder
+argument_list|<
+name|E
+argument_list|>
+name|splitter
+parameter_list|(
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|valueBuilder
+parameter_list|)
+block|{
+name|SplitterBuilder
+argument_list|<
+name|E
+argument_list|>
+name|answer
+init|=
+operator|new
+name|SplitterBuilder
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|this
+argument_list|,
+name|valueBuilder
+argument_list|)
+decl_stmt|;
+name|addProcessBuilder
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getBuilder ()

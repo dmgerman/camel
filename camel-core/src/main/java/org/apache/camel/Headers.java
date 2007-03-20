@@ -66,6 +66,12 @@ argument_list|>
 name|getHeaders
 parameter_list|()
 function_decl|;
+comment|/**      * Creates a copy of the headers so that we can append them to another exchange      */
+DECL|method|copy ()
+name|Headers
+name|copy
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

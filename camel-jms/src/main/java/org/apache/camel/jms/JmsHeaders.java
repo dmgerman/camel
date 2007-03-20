@@ -42,6 +42,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|HeadersSupport
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|jms
@@ -99,8 +113,8 @@ DECL|class|JmsHeaders
 specifier|public
 class|class
 name|JmsHeaders
-implements|implements
-name|Headers
+extends|extends
+name|HeadersSupport
 block|{
 DECL|field|message
 specifier|private

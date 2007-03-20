@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultExchange
@@ -167,6 +179,23 @@ name|message
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|newInstance ()
+specifier|public
+name|Exchange
+name|newInstance
+parameter_list|()
+block|{
+return|return
+operator|new
+name|DefaultJmsExchange
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+return|;
 block|}
 DECL|method|createMessage (Session session)
 specifier|public

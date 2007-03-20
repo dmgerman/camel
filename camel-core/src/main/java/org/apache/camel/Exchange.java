@@ -97,6 +97,12 @@ argument_list|>
 name|getContext
 parameter_list|()
 function_decl|;
+comment|/**      * Creates a copy of the current message exchange so that it can be forwarded to another      * destination      */
+DECL|method|copy ()
+name|Exchange
+name|copy
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

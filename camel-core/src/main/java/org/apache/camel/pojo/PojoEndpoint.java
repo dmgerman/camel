@@ -444,6 +444,9 @@ name|exchange
 operator|.
 name|getOut
 argument_list|()
+operator|.
+name|getBody
+argument_list|()
 return|;
 block|}
 throw|throw
