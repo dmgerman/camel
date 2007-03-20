@@ -69,7 +69,7 @@ parameter_list|)
 block|{
 name|destination
 operator|.
-name|send
+name|onExchange
 argument_list|(
 name|exchange
 argument_list|)

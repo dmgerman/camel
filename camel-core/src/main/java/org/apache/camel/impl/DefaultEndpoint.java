@@ -130,7 +130,7 @@ argument_list|>
 name|inboundProcessor
 decl_stmt|;
 DECL|field|activated
-specifier|private
+specifier|protected
 name|AtomicBoolean
 name|activated
 init|=
@@ -141,7 +141,7 @@ literal|false
 argument_list|)
 decl_stmt|;
 DECL|field|deactivated
-specifier|private
+specifier|protected
 name|AtomicBoolean
 name|deactivated
 init|=
@@ -348,6 +348,13 @@ literal|true
 argument_list|)
 condition|)
 block|{
+name|deactivated
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|inboundProcessor
@@ -390,6 +397,13 @@ literal|true
 argument_list|)
 condition|)
 block|{
+name|activated
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|doDeactivate
 argument_list|()
 expr_stmt|;
