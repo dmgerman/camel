@@ -2234,13 +2234,13 @@ expr_stmt|;
 comment|/* TODO             assertTrue("Processor should be a FilterProcessor but was: " + processor + " with type: " + processor.getClass().getName(), processor instanceof FilterProcessor);             FilterProcessor filterProcessor = (FilterProcessor) processor;              SendProcessor sendProcessor = (SendProcessor) filterProcessor.getProcessor();             assertEquals("Endpoint URI", "queue:b", sendProcessor.getDestination().getEndpointUri());             */
 block|}
 block|}
-DECL|method|buildStaticReceipentList ()
+DECL|method|buildStaticRecipientList ()
 specifier|protected
 name|RouteBuilder
 argument_list|<
 name|Exchange
 argument_list|>
-name|buildStaticReceipentList
+name|buildStaticRecipientList
 parameter_list|()
 block|{
 comment|// START SNIPPET: e8
@@ -2284,16 +2284,16 @@ return|return
 name|builder
 return|;
 block|}
-DECL|method|buildDynamicReceipentList ()
+DECL|method|buildDynamicRecipientList ()
 specifier|protected
 name|RouteBuilder
 argument_list|<
 name|Exchange
 argument_list|>
-name|buildDynamicReceipentList
+name|buildDynamicRecipientList
 parameter_list|()
 block|{
-comment|// START SNIPPET: e8
+comment|// START SNIPPET: e9
 name|RouteBuilder
 argument_list|<
 name|Exchange
@@ -2328,7 +2328,7 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
-comment|// END SNIPPET: e8
+comment|// END SNIPPET: e9
 return|return
 name|builder
 return|;
@@ -2347,7 +2347,7 @@ name|Exchange
 argument_list|>
 name|builder
 init|=
-name|buildDynamicReceipentList
+name|buildDynamicRecipientList
 argument_list|()
 decl_stmt|;
 name|Map
