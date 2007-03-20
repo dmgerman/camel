@@ -169,7 +169,7 @@ name|invocation
 init|=
 name|exchange
 operator|.
-name|getRequest
+name|getInvocation
 argument_list|()
 decl_stmt|;
 try|try
@@ -194,7 +194,10 @@ argument_list|)
 decl_stmt|;
 name|exchange
 operator|.
-name|setResponse
+name|getOut
+argument_list|()
+operator|.
+name|setBody
 argument_list|(
 name|response
 argument_list|)
@@ -208,7 +211,7 @@ parameter_list|)
 block|{
 name|exchange
 operator|.
-name|setFault
+name|setException
 argument_list|(
 name|e
 operator|.
@@ -398,7 +401,7 @@ argument_list|()
 decl_stmt|;
 name|exchange
 operator|.
-name|setRequest
+name|setInvocation
 argument_list|(
 name|invocation
 argument_list|)
@@ -418,7 +421,7 @@ name|fault
 init|=
 name|exchange
 operator|.
-name|getFault
+name|getException
 argument_list|()
 decl_stmt|;
 if|if
@@ -439,7 +442,7 @@ block|}
 return|return
 name|exchange
 operator|.
-name|getResponse
+name|getOut
 argument_list|()
 return|;
 block|}

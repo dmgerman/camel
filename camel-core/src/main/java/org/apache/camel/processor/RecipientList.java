@@ -311,9 +311,15 @@ argument_list|()
 decl_stmt|;
 name|endpoint
 operator|=
+operator|(
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+operator|)
 name|exchange
 operator|.
-name|getContainer
+name|getContext
 argument_list|()
 operator|.
 name|endpoint

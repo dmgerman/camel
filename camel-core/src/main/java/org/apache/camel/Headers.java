@@ -25,73 +25,46 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an inbound or outbound message as part of an {@link Exchange}  *  * @version $Revision$  */
+comment|/**  * Represents the available headers on a message or message exchange.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
-DECL|interface|Message
+DECL|interface|Headers
 specifier|public
 interface|interface
-name|Message
-block|{
-comment|/**      * Access the headers on the message      */
-DECL|method|getHeaders ()
-specifier|public
 name|Headers
+block|{
+comment|/**      * Accesses a specific header      *      * @param name      * @return object header associated with the name      */
+DECL|method|getHeader (String name)
+name|Object
+name|getHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Sets a header on the exchange      *      * @param name  of the header      * @param value to associate with the name      */
+DECL|method|setHeader (String name, Object value)
+name|void
+name|setHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+function_decl|;
+comment|/**      * Returns all of the headers associated with the request      *      * @return all the headers in a Map      */
+DECL|method|getHeaders ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|getHeaders
 parameter_list|()
-function_decl|;
-comment|/**      * Returns the body of the message as a POJO      *      * @returns the body of the message      */
-DECL|method|getBody ()
-specifier|public
-name|Object
-name|getBody
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the body as the specified type      *      * @param type the type that the body i      * @return the body of the message as the specified type      */
-DECL|method|getBody (Class<T> type)
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|T
-name|getBody
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
-function_decl|;
-comment|/**      * Sets the body of the message      */
-DECL|method|setBody (Object body)
-specifier|public
-name|void
-name|setBody
-parameter_list|(
-name|Object
-name|body
-parameter_list|)
-function_decl|;
-comment|/**      * Sets the body of the message as a specific type      */
-DECL|method|setBody (Object body, Class<T> type)
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|void
-name|setBody
-parameter_list|(
-name|Object
-name|body
-parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
 function_decl|;
 block|}
 end_interface

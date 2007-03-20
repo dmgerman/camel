@@ -94,9 +94,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|Exchange
 import|;
 end_import
 
@@ -108,9 +106,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|builder
 operator|.
-name|DefaultExchange
+name|RouteBuilder
 import|;
 end_import
 
@@ -126,35 +124,6 @@ name|QueueRouteTest
 extends|extends
 name|TestCase
 block|{
-DECL|class|StringExchange
-specifier|static
-class|class
-name|StringExchange
-extends|extends
-name|DefaultExchange
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|,
-name|String
-argument_list|>
-block|{
-DECL|method|StringExchange (CamelContext container)
-specifier|public
-name|StringExchange
-parameter_list|(
-name|CamelContext
-name|container
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|container
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 DECL|method|testJmsRoute ()
 specifier|public
 name|void
@@ -214,7 +183,7 @@ argument_list|(
 operator|new
 name|Processor
 argument_list|<
-name|StringExchange
+name|Exchange
 argument_list|>
 argument_list|()
 block|{
@@ -222,8 +191,8 @@ specifier|public
 name|void
 name|onExchange
 parameter_list|(
-name|StringExchange
-name|exchange
+name|Exchange
+name|e
 parameter_list|)
 block|{
 name|System
@@ -234,9 +203,9 @@ name|println
 argument_list|(
 literal|"Received exchange: "
 operator|+
-name|exchange
+name|e
 operator|.
-name|getRequest
+name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -261,7 +230,7 @@ expr_stmt|;
 comment|// now lets fire in a message
 name|Endpoint
 argument_list|<
-name|StringExchange
+name|Exchange
 argument_list|>
 name|endpoint
 init|=
@@ -272,16 +241,21 @@ argument_list|(
 literal|"queue:test.a"
 argument_list|)
 decl_stmt|;
-name|StringExchange
+name|Exchange
 name|exchange
 init|=
-operator|new
-name|StringExchange
-argument_list|(
-name|container
-argument_list|)
+name|endpoint
+operator|.
+name|createExchange
+argument_list|()
 decl_stmt|;
 name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
 operator|.
 name|setHeader
 argument_list|(

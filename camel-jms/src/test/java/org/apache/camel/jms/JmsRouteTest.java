@@ -253,7 +253,7 @@ literal|"Received exchange: "
 operator|+
 name|exchange
 operator|.
-name|getRequest
+name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -299,6 +299,12 @@ argument_list|()
 decl_stmt|;
 comment|//exchange2.setInBody("Hello there!")
 name|exchange2
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
 operator|.
 name|setHeader
 argument_list|(

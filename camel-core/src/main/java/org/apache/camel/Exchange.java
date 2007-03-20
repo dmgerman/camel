@@ -25,7 +25,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the base interface of an exchange  *  * @version $Revision$  * @param<M> message or payload type  * @param<R> message or payload type for a response (for request/response exchange)  * @param<F> fault type  */
+comment|/**  * Represents the base exchange interface providing access to the request, response and fault {@link Message} instances.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -33,13 +33,6 @@ DECL|interface|Exchange
 specifier|public
 interface|interface
 name|Exchange
-parameter_list|<
-name|M
-parameter_list|,
-name|R
-parameter_list|,
-name|F
-parameter_list|>
 block|{
 comment|/**      * Returns the exchange id      * @return the unique id of the exchange      */
 DECL|method|getExchangeId ()
@@ -56,78 +49,52 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Accesses a specific header      * @param name       * @return object header associated with the name      */
-DECL|method|getHeader (String name)
-name|Object
-name|getHeader
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-function_decl|;
-comment|/**      * Sets a header on the exchange      * @param name of the header       * @param value to associate with the name      */
-DECL|method|setHeader (String name, Object value)
-name|void
-name|setHeader
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|Object
-name|value
-parameter_list|)
-function_decl|;
-comment|/**      * Returns all of the headers associated with the request      * @return all the headers in a Map      */
+comment|/**      * Returns the exchange headers      */
 DECL|method|getHeaders ()
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|Headers
 name|getHeaders
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the request message      * @return the message      */
-DECL|method|getRequest ()
-name|M
-name|getRequest
+comment|/**      * Returns the inbound request message      * @return the message      */
+DECL|method|getIn ()
+name|Message
+name|getIn
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the response message      * @return the response      */
-DECL|method|getResponse ()
-name|R
-name|getResponse
+comment|/**      * Returns the aresponse message      * @return the response      */
+DECL|method|getOut ()
+name|Message
+name|getOut
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the fault message      * @return the fault      */
 DECL|method|getFault ()
-name|F
+name|Message
 name|getFault
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the exception associated with this exchange      * @return the exception (or null if no faults)      */
 DECL|method|getException ()
-name|Exception
+name|Throwable
 name|getException
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the exception associated with this exchange      * @param e       */
-DECL|method|setException (Exception e)
+comment|/**      * Sets the exception associated with this exchange      * @param e      */
+DECL|method|setException (Throwable e)
 name|void
 name|setException
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the container so that a processor can resolve endpoints from URIs      *      * @return the container which owns this exchange      */
-DECL|method|getContainer ()
+DECL|method|getContext ()
 name|CamelContext
 argument_list|<
 name|Exchange
 argument_list|>
-name|getContainer
+name|getContext
 parameter_list|()
 function_decl|;
 block|}
