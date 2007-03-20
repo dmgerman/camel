@@ -457,6 +457,8 @@ name|uri
 argument_list|,
 name|container
 argument_list|,
+name|subject
+argument_list|,
 name|template
 argument_list|,
 name|listenerContainer

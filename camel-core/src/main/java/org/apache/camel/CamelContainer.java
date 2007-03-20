@@ -374,6 +374,39 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Resolves the given URI to an endpoint      */
+DECL|method|endpoint (String uri)
+specifier|public
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|endpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|EndpointResolver
+argument_list|<
+name|E
+argument_list|>
+name|er
+init|=
+name|getEndpointResolver
+argument_list|()
+decl_stmt|;
+return|return
+name|er
+operator|.
+name|resolveEndpoint
+argument_list|(
+name|this
+argument_list|,
+name|uri
+argument_list|)
+return|;
+block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
 DECL|method|getEndpointResolver ()
