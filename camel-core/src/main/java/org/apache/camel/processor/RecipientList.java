@@ -210,7 +210,7 @@ name|iter
 init|=
 name|ObjectHelper
 operator|.
-name|createIterator
+name|iterator
 argument_list|(
 name|receipientList
 argument_list|)

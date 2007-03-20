@@ -332,6 +332,42 @@ name|type
 argument_list|)
 return|;
 block|}
+DECL|method|isNull ()
+specifier|public
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+name|isNull
+parameter_list|()
+block|{
+return|return
+name|PredicateBuilder
+operator|.
+name|isNull
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
+DECL|method|isNotNull ()
+specifier|public
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+name|isNotNull
+parameter_list|()
+block|{
+return|return
+name|PredicateBuilder
+operator|.
+name|isNotNull
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
 DECL|method|getExpression ()
 specifier|public
 name|Expression

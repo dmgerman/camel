@@ -122,10 +122,10 @@ specifier|private
 name|CamelContext
 name|container
 decl_stmt|;
-DECL|method|setContainer (CamelContext container)
+DECL|method|setContext (CamelContext container)
 specifier|public
 name|void
-name|setContainer
+name|setContext
 parameter_list|(
 name|CamelContext
 name|container

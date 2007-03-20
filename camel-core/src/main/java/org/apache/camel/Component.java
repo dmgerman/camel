@@ -27,13 +27,13 @@ parameter_list|<
 name|E
 parameter_list|>
 block|{
-comment|/**      * The CamelContainer is injected into the component when it is added to it      */
-DECL|method|setContainer (CamelContext container)
+comment|/**      * The {@link CamelContext} is injected into the component when it is added to it      */
+DECL|method|setContext (CamelContext context)
 name|void
-name|setContainer
+name|setContext
 parameter_list|(
 name|CamelContext
-name|container
+name|context
 parameter_list|)
 function_decl|;
 block|}

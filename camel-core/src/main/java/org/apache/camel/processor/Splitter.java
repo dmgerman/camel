@@ -202,7 +202,7 @@ decl_stmt|;
 name|Iterator
 name|iter
 init|=
-name|createIterator
+name|iterator
 argument_list|(
 name|value
 argument_list|)

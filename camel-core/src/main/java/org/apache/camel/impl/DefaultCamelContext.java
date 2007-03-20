@@ -285,6 +285,13 @@ name|componentName
 argument_list|)
 throw|;
 block|}
+name|component
+operator|.
+name|setContext
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|components
 operator|.
 name|put
@@ -425,7 +432,7 @@ argument_list|)
 expr_stmt|;
 name|component
 operator|.
-name|setContainer
+name|setContext
 argument_list|(
 name|this
 argument_list|)

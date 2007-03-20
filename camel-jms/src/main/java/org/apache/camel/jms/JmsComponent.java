@@ -552,10 +552,10 @@ return|return
 name|container
 return|;
 block|}
-DECL|method|setContainer (CamelContext container)
+DECL|method|setContext (CamelContext container)
 specifier|public
 name|void
-name|setContainer
+name|setContext
 parameter_list|(
 name|CamelContext
 name|container
