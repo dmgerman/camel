@@ -24,6 +24,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
 name|FilterProcessor
 import|;
 end_import

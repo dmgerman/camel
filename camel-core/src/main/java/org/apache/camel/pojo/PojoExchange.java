@@ -18,40 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|ExchangeSupport
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -72,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -95,11 +61,11 @@ argument_list|,
 name|Throwable
 argument_list|>
 block|{
-DECL|method|PojoExchange (CamelContainer container)
+DECL|method|PojoExchange (CamelContext container)
 specifier|public
 name|PojoExchange
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|)
 block|{

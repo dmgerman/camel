@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -179,7 +179,7 @@ argument_list|>
 block|{
 DECL|field|container
 specifier|private
-name|CamelContainer
+name|CamelContext
 argument_list|<
 name|E
 argument_list|>
@@ -253,11 +253,11 @@ specifier|protected
 name|RouteBuilder
 parameter_list|()
 block|{     }
-DECL|method|RouteBuilder (CamelContainer<E> container)
+DECL|method|RouteBuilder (CamelContext<E> container)
 specifier|protected
 name|RouteBuilder
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 argument_list|<
 name|E
 argument_list|>
@@ -292,7 +292,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|CamelContainer
+name|CamelContext
 argument_list|<
 name|E
 argument_list|>
@@ -463,7 +463,7 @@ comment|// Properties
 comment|//-----------------------------------------------------------------------
 DECL|method|getContainer ()
 specifier|public
-name|CamelContainer
+name|CamelContext
 argument_list|<
 name|E
 argument_list|>
@@ -487,12 +487,12 @@ return|return
 name|container
 return|;
 block|}
-DECL|method|setContainer (CamelContainer<E> container)
+DECL|method|setContainer (CamelContext<E> container)
 specifier|public
 name|void
 name|setContainer
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 argument_list|<
 name|E
 argument_list|>
@@ -664,7 +664,7 @@ block|}
 block|}
 DECL|method|createContainer ()
 specifier|protected
-name|CamelContainer
+name|CamelContext
 argument_list|<
 name|E
 argument_list|>
@@ -673,7 +673,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|CamelContainer
+name|CamelContext
 argument_list|<
 name|E
 argument_list|>

@@ -89,14 +89,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the container used to configure routes and the policies to use.  *  * @version $Revision$  * @org.apache.xbean.XBean element="container" rootElement="true"  */
+comment|/**  * Represents the context used to configure routes and the policies to use.  *  * @version $Revision$  * @org.apache.xbean.XBean element="container" rootElement="true"  */
 end_comment
 
 begin_class
-DECL|class|CamelContainer
+DECL|class|CamelContext
 specifier|public
 class|class
-name|CamelContainer
+name|CamelContext
 parameter_list|<
 name|E
 extends|extends

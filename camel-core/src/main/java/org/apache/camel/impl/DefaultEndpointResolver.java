@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -123,7 +123,7 @@ argument_list|(
 literal|"META-INF/services/org/apache/camel/EndpointResolver/"
 argument_list|)
 decl_stmt|;
-DECL|method|resolveEndpoint (CamelContainer container, String uri)
+DECL|method|resolveEndpoint (CamelContext container, String uri)
 specifier|public
 name|Endpoint
 argument_list|<
@@ -131,7 +131,7 @@ name|E
 argument_list|>
 name|resolveEndpoint
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|,
 name|String
@@ -157,12 +157,12 @@ name|uri
 argument_list|)
 return|;
 block|}
-DECL|method|resolveComponent (CamelContainer container, String uri)
+DECL|method|resolveComponent (CamelContext container, String uri)
 specifier|public
 name|Component
 name|resolveComponent
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|,
 name|String

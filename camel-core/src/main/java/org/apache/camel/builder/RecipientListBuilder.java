@@ -60,6 +60,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
 name|RecipientList
 import|;
 end_import

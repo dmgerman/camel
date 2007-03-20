@@ -72,7 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -171,14 +171,14 @@ operator|.
 name|Activation
 name|activation
 decl_stmt|;
-DECL|method|QueueEndpoint (String uri, CamelContainer container, BlockingQueue<E> queue)
+DECL|method|QueueEndpoint (String uri, CamelContext container, BlockingQueue<E> queue)
 specifier|public
 name|QueueEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|,
 name|BlockingQueue
@@ -249,7 +249,7 @@ operator|)
 operator|new
 name|DefaultExchange
 argument_list|(
-name|getContainer
+name|getContext
 argument_list|()
 argument_list|)
 return|;

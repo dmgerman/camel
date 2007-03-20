@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -59,6 +59,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|processor
 operator|.
 name|InterceptorProcessor
 import|;
@@ -75,20 +77,6 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
 import|;
 end_import
 
@@ -112,11 +100,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CamelContainer
+name|CamelContext
 name|container
 init|=
 operator|new
-name|CamelContainer
+name|CamelContext
 argument_list|()
 decl_stmt|;
 name|PojoComponent

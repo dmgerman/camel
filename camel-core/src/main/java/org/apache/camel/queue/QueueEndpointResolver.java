@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -148,13 +148,13 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/** 	 * Finds the {@see QueueComponent} specified by the uri.  If the {@see QueueComponent}  	 * object do not exist, it will be created. 	 *  	 * @see org.apache.camel.EndpointResolver#resolveComponent(org.apache.camel.CamelContainer, java.lang.String) 	 */
-DECL|method|resolveComponent (CamelContainer container, String uri)
+comment|/** 	 * Finds the {@see QueueComponent} specified by the uri.  If the {@see QueueComponent}  	 * object do not exist, it will be created. 	 *  	 * @see org.apache.camel.EndpointResolver#resolveComponent(org.apache.camel.CamelContext, java.lang.String) 	 */
+DECL|method|resolveComponent (CamelContext container, String uri)
 specifier|public
 name|Component
 name|resolveComponent
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|,
 name|String
@@ -182,8 +182,8 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Finds the {@see QueueEndpoint} specified by the uri.  If the {@see QueueEndpoint} or it's associated 	 * {@see QueueComponent} object do not exist, they will be created. 	 *  	 * @see org.apache.camel.EndpointResolver#resolveEndpoint(org.apache.camel.CamelContainer, java.lang.String) 	 */
-DECL|method|resolveEndpoint (CamelContainer container, String uri)
+comment|/** 	 * Finds the {@see QueueEndpoint} specified by the uri.  If the {@see QueueEndpoint} or it's associated 	 * {@see QueueComponent} object do not exist, they will be created. 	 *  	 * @see org.apache.camel.EndpointResolver#resolveEndpoint(org.apache.camel.CamelContext, java.lang.String) 	 */
+DECL|method|resolveEndpoint (CamelContext container, String uri)
 specifier|public
 name|Endpoint
 argument_list|<
@@ -191,7 +191,7 @@ name|E
 argument_list|>
 name|resolveEndpoint
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|,
 name|String
@@ -343,7 +343,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|resolveQueueComponent (CamelContainer container, String componentName)
+DECL|method|resolveQueueComponent (CamelContext container, String componentName)
 specifier|private
 name|QueueComponent
 argument_list|<
@@ -351,7 +351,7 @@ name|E
 argument_list|>
 name|resolveQueueComponent
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|,
 name|String

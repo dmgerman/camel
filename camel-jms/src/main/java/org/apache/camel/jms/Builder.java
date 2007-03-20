@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Some helper builder methods for the easy configuration of the {@link org.apache.camel.CamelContainer} via Java code.  *  * @version $Revision: $  */
+comment|/**  * Some helper builder methods for the easy configuration of the {@link org.apache.camel.CamelContext} via Java code.  *  * @version $Revision: $  */
 end_comment
 
 begin_class

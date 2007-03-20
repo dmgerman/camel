@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -116,10 +116,10 @@ specifier|private
 name|String
 name|endpointUri
 decl_stmt|;
-DECL|field|container
+DECL|field|context
 specifier|private
-name|CamelContainer
-name|container
+name|CamelContext
+name|context
 decl_stmt|;
 DECL|field|inboundProcessor
 specifier|private
@@ -151,14 +151,14 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-DECL|method|DefaultEndpoint (String endpointUri, CamelContainer container)
+DECL|method|DefaultEndpoint (String endpointUri, CamelContext container)
 specifier|protected
 name|DefaultEndpoint
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|)
 block|{
@@ -170,7 +170,7 @@ name|endpointUri
 expr_stmt|;
 name|this
 operator|.
-name|container
+name|context
 operator|=
 name|container
 expr_stmt|;
@@ -263,14 +263,14 @@ return|return
 name|endpointUri
 return|;
 block|}
-DECL|method|getContainer ()
+DECL|method|getContext ()
 specifier|public
-name|CamelContainer
-name|getContainer
+name|CamelContext
+name|getContext
 parameter_list|()
 block|{
 return|return
-name|container
+name|context
 return|;
 block|}
 comment|/**      * Converts the given exchange to the specified exchange type      */
@@ -310,7 +310,7 @@ argument_list|)
 return|;
 block|}
 return|return
-name|getContainer
+name|getContext
 argument_list|()
 operator|.
 name|getExchangeConverter

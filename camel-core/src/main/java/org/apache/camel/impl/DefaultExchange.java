@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -96,11 +96,11 @@ name|Object
 argument_list|>
 name|headers
 decl_stmt|;
-DECL|method|DefaultExchange (CamelContainer container)
+DECL|method|DefaultExchange (CamelContext container)
 specifier|public
 name|DefaultExchange
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|)
 block|{

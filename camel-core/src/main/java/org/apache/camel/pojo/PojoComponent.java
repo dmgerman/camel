@@ -34,7 +34,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -107,7 +107,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|container
 specifier|private
-name|CamelContainer
+name|CamelContext
 name|container
 decl_stmt|;
 DECL|method|registerPojo (String uri, Object pojo)
@@ -207,12 +207,12 @@ name|uri
 argument_list|)
 return|;
 block|}
-DECL|method|setContainer (CamelContainer container)
+DECL|method|setContainer (CamelContext container)
 specifier|public
 name|void
 name|setContainer
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|)
 block|{
@@ -225,7 +225,7 @@ expr_stmt|;
 block|}
 DECL|method|getContainer ()
 specifier|public
-name|CamelContainer
+name|CamelContext
 name|getContainer
 parameter_list|()
 block|{

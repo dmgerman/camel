@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -145,11 +145,11 @@ name|Object
 argument_list|>
 name|lazyHeaders
 decl_stmt|;
-DECL|method|DefaultJmsExchange (CamelContainer container)
+DECL|method|DefaultJmsExchange (CamelContext container)
 specifier|public
 name|DefaultJmsExchange
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|)
 block|{
@@ -159,11 +159,11 @@ name|container
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DefaultJmsExchange (CamelContainer container, Message message)
+DECL|method|DefaultJmsExchange (CamelContext container, Message message)
 specifier|public
 name|DefaultJmsExchange
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|,
 name|Message

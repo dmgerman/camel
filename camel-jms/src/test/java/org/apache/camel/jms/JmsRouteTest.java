@@ -46,7 +46,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -168,11 +168,11 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-name|CamelContainer
+name|CamelContext
 name|container
 init|=
 operator|new
-name|CamelContainer
+name|CamelContext
 argument_list|()
 decl_stmt|;
 comment|// lets configure some componnets

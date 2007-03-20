@@ -40,7 +40,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -138,12 +138,12 @@ name|getName
 argument_list|()
 decl_stmt|;
 comment|/** 	 * Finds the {@see JmsComponent} specified by the uri.  If the {@see JmsComponent} 	 * object do not exist, it will be created. 	 */
-DECL|method|resolveComponent (CamelContainer container, String uri)
+DECL|method|resolveComponent (CamelContext container, String uri)
 specifier|public
 name|Component
 name|resolveComponent
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|,
 name|String
@@ -172,12 +172,12 @@ argument_list|)
 return|;
 block|}
 comment|/** 	 * Finds the {@see QueueEndpoint} specified by the uri.  If the {@see QueueEndpoint} or it's associated 	 * {@see QueueComponent} object do not exist, they will be created. 	 */
-DECL|method|resolveEndpoint (CamelContainer container, String uri)
+DECL|method|resolveEndpoint (CamelContext container, String uri)
 specifier|public
 name|JmsEndpoint
 name|resolveEndpoint
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|,
 name|String
@@ -309,13 +309,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|resolveJmsComponent (final CamelContainer container, final String componentName)
+DECL|method|resolveJmsComponent (final CamelContext container, final String componentName)
 specifier|private
 name|JmsComponent
 name|resolveJmsComponent
 parameter_list|(
 specifier|final
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|,
 specifier|final

@@ -4,15 +4,29 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel
+DECL|package|org.apache.camel.processor
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|processor
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
 
 begin_comment
 comment|/**  * @version $Revision: 519941 $  */

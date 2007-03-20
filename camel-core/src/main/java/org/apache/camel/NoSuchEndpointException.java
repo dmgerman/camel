@@ -14,6 +14,20 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|RecipientList
+import|;
+end_import
+
 begin_comment
 comment|/**  * A runtime exception thrown if a routing processor such as a {@link RecipientList} is unable to resolve  * an {@link Endpoint} from a URI.  *  * @version $Revision$  */
 end_comment

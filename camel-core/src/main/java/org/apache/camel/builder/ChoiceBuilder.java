@@ -24,6 +24,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
 name|ChoiceProcessor
 import|;
 end_import
@@ -35,6 +37,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|processor
 operator|.
 name|FilterProcessor
 import|;

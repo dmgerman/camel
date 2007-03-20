@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -37,18 +37,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
 import|;
 end_import
 
@@ -224,14 +212,14 @@ specifier|private
 name|String
 name|destination
 decl_stmt|;
-DECL|method|JmsEndpoint (String endpointUri, CamelContainer container, String destination, JmsOperations template, AbstractMessageListenerContainer listenerContainer)
+DECL|method|JmsEndpoint (String endpointUri, CamelContext container, String destination, JmsOperations template, AbstractMessageListenerContainer listenerContainer)
 specifier|public
 name|JmsEndpoint
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|,
 name|String
@@ -445,7 +433,7 @@ return|return
 operator|new
 name|DefaultJmsExchange
 argument_list|(
-name|getContainer
+name|getContext
 argument_list|()
 argument_list|)
 return|;
@@ -463,7 +451,7 @@ return|return
 operator|new
 name|DefaultJmsExchange
 argument_list|(
-name|getContainer
+name|getContext
 argument_list|()
 argument_list|,
 name|message

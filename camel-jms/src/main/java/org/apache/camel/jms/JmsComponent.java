@@ -40,7 +40,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -179,7 +179,7 @@ literal|"topic/"
 decl_stmt|;
 DECL|field|container
 specifier|private
-name|CamelContainer
+name|CamelContext
 name|container
 decl_stmt|;
 DECL|field|template
@@ -314,11 +314,11 @@ operator|=
 name|template
 expr_stmt|;
 block|}
-DECL|method|JmsComponent (CamelContainer container)
+DECL|method|JmsComponent (CamelContext container)
 specifier|public
 name|JmsComponent
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|)
 block|{
@@ -544,7 +544,7 @@ expr_stmt|;
 block|}
 DECL|method|getContainer ()
 specifier|public
-name|CamelContainer
+name|CamelContext
 name|getContainer
 parameter_list|()
 block|{
@@ -552,12 +552,12 @@ return|return
 name|container
 return|;
 block|}
-DECL|method|setContainer (CamelContainer container)
+DECL|method|setContainer (CamelContext container)
 specifier|public
 name|void
 name|setContainer
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|)
 block|{

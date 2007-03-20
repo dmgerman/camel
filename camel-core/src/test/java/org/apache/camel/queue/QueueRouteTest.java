@@ -58,7 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -140,11 +140,11 @@ argument_list|,
 name|String
 argument_list|>
 block|{
-DECL|method|StringExchange (CamelContainer container)
+DECL|method|StringExchange (CamelContext container)
 specifier|public
 name|StringExchange
 parameter_list|(
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|)
 block|{
@@ -173,11 +173,11 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-name|CamelContainer
+name|CamelContext
 name|container
 init|=
 operator|new
-name|CamelContainer
+name|CamelContext
 argument_list|()
 decl_stmt|;
 comment|// lets add some routes

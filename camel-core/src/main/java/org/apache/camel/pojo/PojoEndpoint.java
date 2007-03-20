@@ -72,7 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContainer
+name|CamelContext
 import|;
 end_import
 
@@ -117,14 +117,14 @@ specifier|final
 name|PojoComponent
 name|component
 decl_stmt|;
-DECL|method|PojoEndpoint (String uri, CamelContainer container, PojoComponent component, Object pojo)
+DECL|method|PojoEndpoint (String uri, CamelContext container, PojoComponent component, Object pojo)
 specifier|public
 name|PojoEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|CamelContainer
+name|CamelContext
 name|container
 parameter_list|,
 name|PojoComponent
@@ -252,7 +252,7 @@ return|return
 operator|new
 name|PojoExchange
 argument_list|(
-name|getContainer
+name|getContext
 argument_list|()
 argument_list|)
 return|;

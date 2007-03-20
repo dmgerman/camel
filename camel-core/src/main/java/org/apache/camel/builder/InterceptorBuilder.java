@@ -56,6 +56,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
 name|InterceptorProcessor
 import|;
 end_import
