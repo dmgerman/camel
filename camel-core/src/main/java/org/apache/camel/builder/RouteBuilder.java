@@ -171,6 +171,11 @@ name|E
 extends|extends
 name|Exchange
 parameter_list|>
+extends|extends
+name|BuilderSupport
+argument_list|<
+name|E
+argument_list|>
 block|{
 DECL|field|container
 specifier|private

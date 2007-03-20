@@ -18,26 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -96,6 +76,26 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -110,20 +110,17 @@ name|E
 extends|extends
 name|Exchange
 parameter_list|>
+extends|extends
+name|BuilderSupport
+argument_list|<
+name|E
+argument_list|>
 implements|implements
 name|ProcessorBuilder
 argument_list|<
 name|E
 argument_list|>
 block|{
-DECL|field|parent
-specifier|private
-name|DestinationBuilder
-argument_list|<
-name|E
-argument_list|>
-name|parent
-decl_stmt|;
 DECL|field|builder
 specifier|private
 name|RouteBuilder
@@ -211,12 +208,6 @@ name|from
 operator|=
 name|from
 expr_stmt|;
-name|this
-operator|.
-name|parent
-operator|=
-name|this
-expr_stmt|;
 block|}
 DECL|method|DestinationBuilder (DestinationBuilder<E> parent)
 specifier|public
@@ -229,12 +220,6 @@ argument_list|>
 name|parent
 parameter_list|)
 block|{
-name|this
-operator|.
-name|parent
-operator|=
-name|parent
-expr_stmt|;
 name|this
 operator|.
 name|builder
@@ -275,19 +260,6 @@ name|endpoint
 argument_list|(
 name|uri
 argument_list|)
-return|;
-block|}
-DECL|method|getParent ()
-specifier|public
-name|DestinationBuilder
-argument_list|<
-name|E
-argument_list|>
-name|getParent
-parameter_list|()
-block|{
-return|return
-name|parent
 return|;
 block|}
 comment|/**      * Sends the exchange to the given endpoint URI      */

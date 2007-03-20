@@ -250,36 +250,6 @@ name|childProcessor
 argument_list|)
 return|;
 block|}
-DECL|method|addProcessor (Processor<E> processor)
-specifier|public
-name|void
-name|addProcessor
-parameter_list|(
-name|Processor
-argument_list|<
-name|E
-argument_list|>
-name|processor
-parameter_list|)
-block|{
-name|getParent
-argument_list|()
-operator|.
-name|addProcessor
-argument_list|(
-operator|new
-name|FilterProcessor
-argument_list|<
-name|E
-argument_list|>
-argument_list|(
-name|predicate
-argument_list|,
-name|processor
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 
