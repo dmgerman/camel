@@ -245,7 +245,7 @@ operator|=
 name|container
 expr_stmt|;
 block|}
-comment|/**      * Called on initialisation to to build the required destinationBuilders      */
+comment|/**      * Called on initialization to to build the required destinationBuilders      */
 DECL|method|configure ()
 specifier|public
 specifier|abstract

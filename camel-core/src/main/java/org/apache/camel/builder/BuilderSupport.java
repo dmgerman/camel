@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for implementation inheritence  *  * @version $Revision: $  */
+comment|/**  * Base class for implementation inheritance  *  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -126,8 +126,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the inbound message body as a specific type      */
-DECL|method|bodyAs (Class type)
+DECL|method|bodyAs (Class<T> type)
 specifier|public
+parameter_list|<
+name|T
+parameter_list|>
 name|ValueBuilder
 argument_list|<
 name|E
@@ -135,6 +138,9 @@ argument_list|>
 name|bodyAs
 parameter_list|(
 name|Class
+argument_list|<
+name|T
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -195,8 +201,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the outbound message body as a specific type      */
-DECL|method|outBody (Class type)
+DECL|method|outBody (Class<T> type)
 specifier|public
+parameter_list|<
+name|T
+parameter_list|>
 name|ValueBuilder
 argument_list|<
 name|E
@@ -204,6 +213,9 @@ argument_list|>
 name|outBody
 parameter_list|(
 name|Class
+argument_list|<
+name|T
+argument_list|>
 name|type
 parameter_list|)
 block|{

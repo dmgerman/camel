@@ -14,16 +14,6 @@ name|camel
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents an inbound or outbound message as part of an {@link Exchange}  *  * @version $Revision$  */
 end_comment
@@ -41,14 +31,14 @@ name|Headers
 name|getHeaders
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the body of the message as a POJO      *      * @returns the body of the message      */
+comment|/**      * Returns the body of the message as a POJO      *      * @return the body of the message      */
 DECL|method|getBody ()
 specifier|public
 name|Object
 name|getBody
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the body as the specified type      *      * @param type the type that the body i      * @return the body of the message as the specified type      */
+comment|/**      * Returns the body as the specified type      *      * @param type the type that the body      * @return the body of the message as the specified type      */
 DECL|method|getBody (Class<T> type)
 specifier|public
 parameter_list|<

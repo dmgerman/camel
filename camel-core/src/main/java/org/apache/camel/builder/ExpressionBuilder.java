@@ -288,13 +288,15 @@ block|}
 return|;
 block|}
 comment|/**      * Returns the expression for the exchanges inbound message body converted to the given type      */
-DECL|method|bodyExpression (final Class type)
+DECL|method|bodyExpression (final Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
 name|E
 extends|extends
 name|Exchange
+parameter_list|,
+name|T
 parameter_list|>
 name|Expression
 argument_list|<
@@ -304,6 +306,9 @@ name|bodyExpression
 parameter_list|(
 specifier|final
 name|Class
+argument_list|<
+name|T
+argument_list|>
 name|type
 parameter_list|)
 block|{

@@ -14,16 +14,6 @@ name|camel
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the base exchange interface providing access to the request, response and fault {@link Message} instances.  *  * @version $Revision$  */
 end_comment
