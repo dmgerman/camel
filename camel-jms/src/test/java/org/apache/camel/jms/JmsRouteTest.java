@@ -128,6 +128,30 @@ name|Session
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -148,6 +172,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|CountDownLatch
+name|latch
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
 name|CamelContainer
 name|container
 init|=
@@ -155,17 +189,6 @@ operator|new
 name|CamelContainer
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Created container: "
-operator|+
-name|container
-argument_list|)
-expr_stmt|;
 comment|// lets configure some componnets
 name|JmsTemplate
 name|template
@@ -268,6 +291,11 @@ name|getRequest
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 argument_list|)
@@ -316,11 +344,25 @@ name|exchange2
 argument_list|)
 expr_stmt|;
 comment|// now lets sleep for a while
-name|Thread
+name|boolean
+name|received
+init|=
+name|latch
 operator|.
-name|sleep
+name|await
 argument_list|(
-literal|3000
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Did not recieve the message!"
+argument_list|,
+name|received
 argument_list|)
 expr_stmt|;
 comment|// TODO
