@@ -134,6 +134,16 @@ name|ConnectionFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Session
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -231,6 +241,49 @@ name|JmsTemplate
 argument_list|(
 name|connectionFactory
 argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Static builder method      */
+DECL|method|jmsComponentClientAcknowledge (ConnectionFactory connectionFactory)
+specifier|public
+specifier|static
+name|JmsComponent
+name|jmsComponentClientAcknowledge
+parameter_list|(
+name|ConnectionFactory
+name|connectionFactory
+parameter_list|)
+block|{
+name|JmsTemplate
+name|template
+init|=
+operator|new
+name|JmsTemplate
+argument_list|(
+name|connectionFactory
+argument_list|)
+decl_stmt|;
+name|template
+operator|.
+name|setSessionTransacted
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|setSessionAcknowledgeMode
+argument_list|(
+name|Session
+operator|.
+name|CLIENT_ACKNOWLEDGE
+argument_list|)
+expr_stmt|;
+return|return
+name|jmsComponent
+argument_list|(
+name|template
 argument_list|)
 return|;
 block|}
