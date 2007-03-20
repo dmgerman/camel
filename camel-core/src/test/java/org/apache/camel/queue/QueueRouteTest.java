@@ -112,6 +112,20 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultCamelContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 520220 $  */
 end_comment
@@ -146,13 +160,16 @@ name|CamelContext
 name|container
 init|=
 operator|new
-name|CamelContext
+name|DefaultCamelContext
+argument_list|<
+name|Exchange
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// lets add some routes
 name|container
 operator|.
-name|routes
+name|setRoutes
 argument_list|(
 operator|new
 name|RouteBuilder
@@ -236,7 +253,7 @@ name|endpoint
 init|=
 name|container
 operator|.
-name|endpoint
+name|resolveEndpoint
 argument_list|(
 literal|"queue:test.a"
 argument_list|)

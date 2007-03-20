@@ -322,7 +322,7 @@ operator|.
 name|getContext
 argument_list|()
 operator|.
-name|endpoint
+name|resolveEndpoint
 argument_list|(
 name|uri
 argument_list|)
