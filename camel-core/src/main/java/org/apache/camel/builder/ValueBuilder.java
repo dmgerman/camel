@@ -52,30 +52,6 @@ name|Predicate
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Predicates
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Expressions
-import|;
-end_import
-
 begin_comment
 comment|/**  * A builder of expressions or predicates based on values.  *  * @version $Revision: $  */
 end_comment
@@ -135,7 +111,7 @@ name|E
 argument_list|>
 name|right
 init|=
-name|Expressions
+name|ExpressionBuilder
 operator|.
 name|constantExpression
 argument_list|(
@@ -143,7 +119,7 @@ name|value
 argument_list|)
 decl_stmt|;
 return|return
-name|Predicates
+name|PredicateBuilder
 operator|.
 name|isNotEqualTo
 argument_list|(
@@ -171,7 +147,7 @@ name|E
 argument_list|>
 name|right
 init|=
-name|Expressions
+name|ExpressionBuilder
 operator|.
 name|constantExpression
 argument_list|(
@@ -179,7 +155,7 @@ name|value
 argument_list|)
 decl_stmt|;
 return|return
-name|Predicates
+name|PredicateBuilder
 operator|.
 name|isEqualTo
 argument_list|(
@@ -207,7 +183,7 @@ name|E
 argument_list|>
 name|right
 init|=
-name|Expressions
+name|ExpressionBuilder
 operator|.
 name|constantExpression
 argument_list|(
@@ -215,7 +191,7 @@ name|value
 argument_list|)
 decl_stmt|;
 return|return
-name|Predicates
+name|PredicateBuilder
 operator|.
 name|isLessThan
 argument_list|(
@@ -243,7 +219,7 @@ name|E
 argument_list|>
 name|right
 init|=
-name|Expressions
+name|ExpressionBuilder
 operator|.
 name|constantExpression
 argument_list|(
@@ -251,7 +227,7 @@ name|value
 argument_list|)
 decl_stmt|;
 return|return
-name|Predicates
+name|PredicateBuilder
 operator|.
 name|isLessThanOrEqualTo
 argument_list|(
@@ -279,7 +255,7 @@ name|E
 argument_list|>
 name|right
 init|=
-name|Expressions
+name|ExpressionBuilder
 operator|.
 name|constantExpression
 argument_list|(
@@ -287,7 +263,7 @@ name|value
 argument_list|)
 decl_stmt|;
 return|return
-name|Predicates
+name|PredicateBuilder
 operator|.
 name|isGreaterThan
 argument_list|(
@@ -315,7 +291,7 @@ name|E
 argument_list|>
 name|right
 init|=
-name|Expressions
+name|ExpressionBuilder
 operator|.
 name|constantExpression
 argument_list|(
@@ -323,7 +299,7 @@ name|value
 argument_list|)
 decl_stmt|;
 return|return
-name|Predicates
+name|PredicateBuilder
 operator|.
 name|isGreaterThanOrEqualTo
 argument_list|(

@@ -4,25 +4,51 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel
+DECL|package|org.apache.camel.builder
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|builder
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Expression
+import|;
+end_import
 
 begin_comment
 comment|/**  * @version $Revision: $  */
 end_comment
 
 begin_class
-DECL|class|Expressions
+DECL|class|ExpressionBuilder
 specifier|public
 class|class
-name|Expressions
+name|ExpressionBuilder
 block|{
 comment|/**      * Returns an expression for the header value with the given name      *      * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
 DECL|method|headerExpression (final String headerName)

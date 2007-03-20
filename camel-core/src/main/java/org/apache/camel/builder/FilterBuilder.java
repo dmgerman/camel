@@ -62,18 +62,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Predicates
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -155,7 +143,7 @@ name|this
 operator|.
 name|predicate
 operator|=
-name|Predicates
+name|PredicateBuilder
 operator|.
 name|and
 argument_list|(
@@ -190,7 +178,7 @@ name|this
 operator|.
 name|predicate
 operator|=
-name|Predicates
+name|PredicateBuilder
 operator|.
 name|or
 argument_list|(

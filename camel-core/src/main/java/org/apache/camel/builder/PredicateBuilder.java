@@ -4,15 +4,53 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel
+DECL|package|org.apache.camel.builder
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|builder
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Predicate
+import|;
+end_import
 
 begin_import
 import|import
@@ -45,14 +83,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for working with predicates  *  * @version $Revision$  */
+comment|/**  * A helper class for working with predicates  *  * @version $Revision: 520261 $  */
 end_comment
 
 begin_class
-DECL|class|Predicates
+DECL|class|PredicateBuilder
 specifier|public
 class|class
-name|Predicates
+name|PredicateBuilder
 block|{
 comment|/**      * A helper method to combine multiple predicates by a logical AND      */
 DECL|method|and (final Predicate<E> left, final Predicate<E> right)
