@@ -25,7 +25,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the base interface of an exchange  *  * @version $Revision$  */
+comment|/**  * Represents the base interface of an exchange  *  * @version $Revision$  * @param<M> message or payload type  * @param<R> message or payload type for a response (for request/response exchange)  * @param<F> fault type  */
 end_comment
 
 begin_interface
@@ -41,7 +41,7 @@ parameter_list|,
 name|F
 parameter_list|>
 block|{
-comment|/**      * Accesses a specific header      */
+comment|/**      * Accesses a specific header      * @param name       * @return object header associated with the name      */
 DECL|method|getHeader (String name)
 name|Object
 name|getHeader
@@ -50,7 +50,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Sets a header on the exchange      */
+comment|/**      * Sets a header on the exchange      * @param name of the header       * @param value to associate with the name      */
 DECL|method|setHeader (String name, Object value)
 name|void
 name|setHeader
@@ -62,7 +62,7 @@ name|Object
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Returns all of the headers associated with the request      */
+comment|/**      * Returns all of the headers associated with the request      * @return all the headers in a Map      */
 DECL|method|getHeaders ()
 name|Map
 argument_list|<
@@ -73,31 +73,31 @@ argument_list|>
 name|getHeaders
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the request message      */
+comment|/**      * Returns the request message      * @return the message      */
 DECL|method|getRequest ()
 name|M
 name|getRequest
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the response message      */
+comment|/**      * Returns the response message      * @return the response      */
 DECL|method|getResponse ()
 name|R
 name|getResponse
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the fault message      */
+comment|/**      * Returns the fault message      * @return the fault      */
 DECL|method|getFault ()
 name|F
 name|getFault
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the exception associated with this exchange      */
+comment|/**      * Returns the exception associated with this exchange      * @return the exception (or null if no faults)      */
 DECL|method|getException ()
 name|Exception
 name|getException
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the exception associated with this exchange      */
+comment|/**      * Sets the exception associated with this exchange      * @param e       */
 DECL|method|setException (Exception e)
 name|void
 name|setException
