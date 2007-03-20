@@ -75,6 +75,11 @@ specifier|private
 name|Exception
 name|exception
 decl_stmt|;
+DECL|field|exchangeId
+specifier|private
+name|String
+name|exchangeId
+decl_stmt|;
 DECL|method|getException ()
 specifier|public
 name|Exception
@@ -177,6 +182,32 @@ operator|.
 name|response
 operator|=
 name|response
+expr_stmt|;
+block|}
+DECL|method|getExchangeId ()
+specifier|public
+name|String
+name|getExchangeId
+parameter_list|()
+block|{
+return|return
+name|exchangeId
+return|;
+block|}
+DECL|method|setExchangeId (String id)
+specifier|public
+name|void
+name|setExchangeId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exchangeId
+operator|=
+name|id
 expr_stmt|;
 block|}
 block|}

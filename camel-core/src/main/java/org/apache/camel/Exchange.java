@@ -41,6 +41,21 @@ parameter_list|,
 name|F
 parameter_list|>
 block|{
+comment|/**      * Returns the exchange id      * @return the unique id of the exchange      */
+DECL|method|getExchangeId ()
+name|String
+name|getExchangeId
+parameter_list|()
+function_decl|;
+comment|/**      * Set the exchange id      * @param id      */
+DECL|method|setExchangeId (String id)
+name|void
+name|setExchangeId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
 comment|/**      * Accesses a specific header      * @param name       * @return object header associated with the name      */
 DECL|method|getHeader (String name)
 name|Object
