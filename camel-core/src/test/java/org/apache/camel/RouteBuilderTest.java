@@ -2624,7 +2624,7 @@ argument_list|>
 name|buildSplitter
 parameter_list|()
 block|{
-comment|// START SNIPPET: e9
+comment|// START SNIPPET: splitter
 name|RouteBuilder
 argument_list|<
 name|Exchange
@@ -2671,7 +2671,7 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
-comment|// END SNIPPET: e9
+comment|// END SNIPPET: splitter
 return|return
 name|builder
 return|;
