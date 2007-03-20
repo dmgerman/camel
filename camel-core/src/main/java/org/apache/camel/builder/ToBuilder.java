@@ -71,17 +71,17 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ConfiguredDestinationBuilder
+DECL|class|ToBuilder
 specifier|public
 class|class
-name|ConfiguredDestinationBuilder
+name|ToBuilder
 parameter_list|<
 name|E
 extends|extends
 name|Exchange
 parameter_list|>
 extends|extends
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -94,11 +94,11 @@ name|E
 argument_list|>
 name|destination
 decl_stmt|;
-DECL|method|ConfiguredDestinationBuilder (DestinationBuilder<E> parent, Endpoint<E> endpoint)
+DECL|method|ToBuilder (FromBuilder<E> parent, Endpoint<E> endpoint)
 specifier|public
-name|ConfiguredDestinationBuilder
+name|ToBuilder
 parameter_list|(
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>

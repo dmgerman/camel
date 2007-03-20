@@ -86,7 +86,7 @@ argument_list|<
 name|E
 argument_list|>
 implements|implements
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>
@@ -100,15 +100,15 @@ name|E
 argument_list|>
 name|valueBuilder
 decl_stmt|;
-DECL|method|RecipientListBuilder (DestinationBuilder<E> destinationBuilder, ValueBuilder<E> valueBuilder)
+DECL|method|RecipientListBuilder (FromBuilder<E> fromBuilder, ValueBuilder<E> valueBuilder)
 specifier|public
 name|RecipientListBuilder
 parameter_list|(
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
-name|destinationBuilder
+name|fromBuilder
 parameter_list|,
 name|ValueBuilder
 argument_list|<

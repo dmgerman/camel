@@ -55,7 +55,7 @@ extends|extends
 name|Exchange
 parameter_list|>
 implements|implements
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>

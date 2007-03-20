@@ -45,10 +45,10 @@ comment|/**  * An interface representing a builder of a {@link Processor}  *   *
 end_comment
 
 begin_interface
-DECL|interface|ProcessorBuilder
+DECL|interface|ProcessorFactory
 specifier|public
 interface|interface
-name|ProcessorBuilder
+name|ProcessorFactory
 parameter_list|<
 name|E
 extends|extends

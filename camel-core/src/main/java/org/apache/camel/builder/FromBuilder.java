@@ -117,10 +117,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|DestinationBuilder
+DECL|class|FromBuilder
 specifier|public
 class|class
-name|DestinationBuilder
+name|FromBuilder
 parameter_list|<
 name|E
 extends|extends
@@ -132,7 +132,7 @@ argument_list|<
 name|E
 argument_list|>
 implements|implements
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>
@@ -174,30 +174,30 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|processBuilders
+DECL|field|processFactories
 specifier|private
 name|List
 argument_list|<
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>
 argument_list|>
-name|processBuilders
+name|processFactories
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|DestinationBuilder (RouteBuilder<E> builder, Endpoint<E> from)
+DECL|method|FromBuilder (RouteBuilder<E> builder, Endpoint<E> from)
 specifier|public
-name|DestinationBuilder
+name|FromBuilder
 parameter_list|(
 name|RouteBuilder
 argument_list|<
@@ -225,11 +225,11 @@ operator|=
 name|from
 expr_stmt|;
 block|}
-DECL|method|DestinationBuilder (DestinationBuilder<E> parent)
+DECL|method|FromBuilder (FromBuilder<E> parent)
 specifier|public
-name|DestinationBuilder
+name|FromBuilder
 parameter_list|(
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -281,7 +281,7 @@ block|}
 comment|/**      * Sends the exchange to the given endpoint URI      */
 DECL|method|to (String uri)
 specifier|public
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>
@@ -304,7 +304,7 @@ block|}
 comment|/**      * Sends the exchange to the given endpoint      */
 DECL|method|to (Endpoint<E> endpoint)
 specifier|public
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>
@@ -317,14 +317,14 @@ argument_list|>
 name|endpoint
 parameter_list|)
 block|{
-name|ConfiguredDestinationBuilder
+name|ToBuilder
 argument_list|<
 name|E
 argument_list|>
 name|answer
 init|=
 operator|new
-name|ConfiguredDestinationBuilder
+name|ToBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -346,7 +346,7 @@ block|}
 comment|/**      * Sends the exchange to the given endpoint URI      */
 DECL|method|to (String... uris)
 specifier|public
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>
@@ -357,7 +357,7 @@ modifier|...
 name|uris
 parameter_list|)
 block|{
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>
@@ -391,7 +391,7 @@ block|}
 comment|/**      * Sends the exchange to the given endpoint      */
 DECL|method|to (Endpoint<E>.... endpoints)
 specifier|public
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>
@@ -405,7 +405,7 @@ modifier|...
 name|endpoints
 parameter_list|)
 block|{
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>
@@ -439,7 +439,7 @@ block|}
 comment|/**      * Adds the custom processor to this destination      */
 DECL|method|process (Processor<E> processor)
 specifier|public
-name|ProcessorBuilder
+name|ConstantProcessorBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -479,7 +479,7 @@ block|}
 comment|/**      * Creates a predicate which is applied and only if it is true then      * the exchange is forwarded to the destination      *      * @return the builder for a predicate      */
 DECL|method|filter (Predicate<E> predicate)
 specifier|public
-name|PredicateBuilder
+name|FilterBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -492,14 +492,14 @@ argument_list|>
 name|predicate
 parameter_list|)
 block|{
-name|PredicateBuilder
+name|FilterBuilder
 argument_list|<
 name|E
 argument_list|>
 name|answer
 init|=
 operator|new
-name|PredicateBuilder
+name|FilterBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -622,23 +622,23 @@ return|return
 name|from
 return|;
 block|}
-DECL|method|addProcessBuilder (ProcessorBuilder<E> processBuilder)
+DECL|method|addProcessBuilder (ProcessorFactory<E> processFactory)
 specifier|public
 name|void
 name|addProcessBuilder
 parameter_list|(
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>
-name|processBuilder
+name|processFactory
 parameter_list|)
 block|{
-name|processBuilders
+name|processFactories
 operator|.
 name|add
 argument_list|(
-name|processBuilder
+name|processFactory
 argument_list|)
 expr_stmt|;
 block|}
@@ -692,13 +692,13 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>
-name|processBuilder
+name|processFactory
 range|:
-name|processBuilders
+name|processFactories
 control|)
 block|{
 name|Processor
@@ -707,7 +707,7 @@ name|E
 argument_list|>
 name|processor
 init|=
-name|processBuilder
+name|processFactory
 operator|.
 name|createProcessor
 argument_list|()
@@ -725,7 +725,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"No processor created for processBuilder: "
 operator|+
-name|processBuilder
+name|processFactory
 argument_list|)
 throw|;
 block|}

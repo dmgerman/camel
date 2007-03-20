@@ -101,7 +101,7 @@ extends|extends
 name|Exchange
 parameter_list|>
 implements|implements
-name|ProcessorBuilder
+name|ProcessorFactory
 argument_list|<
 name|E
 argument_list|>
@@ -131,7 +131,7 @@ decl_stmt|;
 DECL|field|parent
 specifier|private
 specifier|final
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -139,17 +139,17 @@ name|parent
 decl_stmt|;
 DECL|field|target
 specifier|private
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
 name|target
 decl_stmt|;
-DECL|method|InterceptorBuilder (DestinationBuilder<E> parent)
+DECL|method|InterceptorBuilder (FromBuilder<E> parent)
 specifier|public
 name|InterceptorBuilder
 parameter_list|(
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -191,7 +191,7 @@ return|;
 block|}
 DECL|method|target ()
 specifier|public
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -203,7 +203,7 @@ operator|.
 name|target
 operator|=
 operator|new
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>

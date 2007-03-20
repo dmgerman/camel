@@ -57,17 +57,17 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ChoicePredicateBuilder
+DECL|class|WhenBuilder
 specifier|public
 class|class
-name|ChoicePredicateBuilder
+name|WhenBuilder
 parameter_list|<
 name|E
 extends|extends
 name|Exchange
 parameter_list|>
 extends|extends
-name|PredicateBuilder
+name|FilterBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -81,9 +81,9 @@ name|E
 argument_list|>
 name|parent
 decl_stmt|;
-DECL|method|ChoicePredicateBuilder (ChoiceBuilder<E> parent, Predicate<E> predicate)
+DECL|method|WhenBuilder (ChoiceBuilder<E> parent, Predicate<E> predicate)
 specifier|public
-name|ChoicePredicateBuilder
+name|WhenBuilder
 parameter_list|(
 name|ChoiceBuilder
 argument_list|<

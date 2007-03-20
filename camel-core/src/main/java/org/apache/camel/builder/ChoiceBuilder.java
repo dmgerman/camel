@@ -115,7 +115,7 @@ extends|extends
 name|Exchange
 parameter_list|>
 extends|extends
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -123,7 +123,7 @@ block|{
 DECL|field|parent
 specifier|private
 specifier|final
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -133,7 +133,7 @@ DECL|field|predicateBuilders
 specifier|private
 name|List
 argument_list|<
-name|ChoicePredicateBuilder
+name|WhenBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -143,7 +143,7 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ChoicePredicateBuilder
+name|WhenBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -152,17 +152,17 @@ argument_list|()
 decl_stmt|;
 DECL|field|otherwise
 specifier|private
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
 name|otherwise
 decl_stmt|;
-DECL|method|ChoiceBuilder (DestinationBuilder<E> parent)
+DECL|method|ChoiceBuilder (FromBuilder<E> parent)
 specifier|public
 name|ChoiceBuilder
 parameter_list|(
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -184,7 +184,7 @@ block|}
 comment|/**      * Adds a predicate which if it is true then the message exchange is sent to the given destination      *      * @return a builder for creating a when predicate clause and action      */
 DECL|method|when (Predicate<E> predicate)
 specifier|public
-name|ChoicePredicateBuilder
+name|WhenBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -197,14 +197,14 @@ argument_list|>
 name|predicate
 parameter_list|)
 block|{
-name|ChoicePredicateBuilder
+name|WhenBuilder
 argument_list|<
 name|E
 argument_list|>
 name|answer
 init|=
 operator|new
-name|ChoicePredicateBuilder
+name|WhenBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -227,7 +227,7 @@ return|;
 block|}
 DECL|method|otherwise ()
 specifier|public
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -239,7 +239,7 @@ operator|.
 name|otherwise
 operator|=
 operator|new
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -255,7 +255,7 @@ DECL|method|getPredicateBuilders ()
 specifier|public
 name|List
 argument_list|<
-name|ChoicePredicateBuilder
+name|WhenBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -269,7 +269,7 @@ return|;
 block|}
 DECL|method|getOtherwise ()
 specifier|public
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -312,7 +312,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ChoicePredicateBuilder
+name|WhenBuilder
 argument_list|<
 name|E
 argument_list|>

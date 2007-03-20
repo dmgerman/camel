@@ -72,33 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
 import|;
 end_import
 
@@ -185,21 +159,21 @@ name|E
 argument_list|>
 name|container
 decl_stmt|;
-DECL|field|destinationBuilders
+DECL|field|fromBuilders
 specifier|private
 name|List
 argument_list|<
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
 argument_list|>
-name|destinationBuilders
+name|fromBuilders
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -325,7 +299,7 @@ return|;
 block|}
 DECL|method|from (String uri)
 specifier|public
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -347,7 +321,7 @@ return|;
 block|}
 DECL|method|from (Endpoint<E> endpoint)
 specifier|public
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -360,14 +334,14 @@ argument_list|>
 name|endpoint
 parameter_list|)
 block|{
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
 name|answer
 init|=
 operator|new
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -377,7 +351,7 @@ argument_list|,
 name|endpoint
 argument_list|)
 decl_stmt|;
-name|destinationBuilders
+name|fromBuilders
 operator|.
 name|add
 argument_list|(
@@ -465,7 +439,7 @@ DECL|method|getDestinationBuilders ()
 specifier|public
 name|List
 argument_list|<
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -477,7 +451,7 @@ name|checkInitialized
 argument_list|()
 expr_stmt|;
 return|return
-name|destinationBuilders
+name|fromBuilders
 return|;
 block|}
 comment|// Implementation methods
@@ -532,13 +506,13 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
-name|destinationBuilder
+name|fromBuilder
 range|:
-name|destinationBuilders
+name|fromBuilders
 control|)
 block|{
 name|Endpoint
@@ -547,7 +521,7 @@ name|E
 argument_list|>
 name|from
 init|=
-name|destinationBuilder
+name|fromBuilder
 operator|.
 name|getFrom
 argument_list|()
@@ -558,7 +532,7 @@ name|E
 argument_list|>
 name|processor
 init|=
-name|destinationBuilder
+name|fromBuilder
 operator|.
 name|createProcessor
 argument_list|()
@@ -576,7 +550,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"No processor created for DestinationBuilder: "
 operator|+
-name|destinationBuilder
+name|fromBuilder
 argument_list|)
 throw|;
 block|}

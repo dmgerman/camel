@@ -83,17 +83,17 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|PredicateBuilder
+DECL|class|FilterBuilder
 specifier|public
 class|class
-name|PredicateBuilder
+name|FilterBuilder
 parameter_list|<
 name|E
 extends|extends
 name|Exchange
 parameter_list|>
 extends|extends
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -106,11 +106,11 @@ name|E
 argument_list|>
 name|predicate
 decl_stmt|;
-DECL|method|PredicateBuilder (DestinationBuilder<E> builder, Predicate<E> predicate)
+DECL|method|FilterBuilder (FromBuilder<E> builder, Predicate<E> predicate)
 specifier|public
-name|PredicateBuilder
+name|FilterBuilder
 parameter_list|(
-name|DestinationBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -138,7 +138,7 @@ block|}
 comment|/**      * Adds another predicate using a logican AND      */
 DECL|method|and (Predicate<E> predicate)
 specifier|public
-name|PredicateBuilder
+name|FilterBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -173,7 +173,7 @@ block|}
 comment|/**      * Adds another predicate using a logican OR      */
 DECL|method|or (Predicate<E> predicate)
 specifier|public
-name|PredicateBuilder
+name|FilterBuilder
 argument_list|<
 name|E
 argument_list|>
