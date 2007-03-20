@@ -157,8 +157,6 @@ implements|implements
 name|Component
 argument_list|<
 name|JmsExchange
-argument_list|,
-name|JmsEndpoint
 argument_list|>
 block|{
 DECL|field|QUEUE_PREFIX

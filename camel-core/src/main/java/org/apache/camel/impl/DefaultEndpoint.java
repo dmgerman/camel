@@ -324,11 +324,17 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|activate ()
+DECL|method|activate (Processor<E> inboundProcessor)
 specifier|public
 name|void
 name|activate
-parameter_list|()
+parameter_list|(
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|inboundProcessor
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -342,9 +348,28 @@ literal|true
 argument_list|)
 condition|)
 block|{
+name|this
+operator|.
+name|inboundProcessor
+operator|=
+name|inboundProcessor
+expr_stmt|;
 name|doActivate
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Endpoint is already active: "
+operator|+
+name|getEndpointUri
+argument_list|()
+argument_list|)
+throw|;
 block|}
 block|}
 DECL|method|deactivate ()
@@ -401,9 +426,6 @@ operator|.
 name|inboundProcessor
 operator|=
 name|inboundProcessor
-expr_stmt|;
-name|activate
-argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Called at most once by the container to activate the endpoint      */

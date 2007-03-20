@@ -22,7 +22,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|Queue
+name|concurrent
+operator|.
+name|BlockingQueue
 import|;
 end_import
 
@@ -207,7 +209,7 @@ literal|0
 index|]
 argument_list|)
 decl_stmt|;
-name|Queue
+name|BlockingQueue
 argument_list|<
 name|E
 argument_list|>
@@ -357,13 +359,6 @@ argument_list|<
 name|Component
 argument_list|<
 name|E
-argument_list|,
-name|?
-extends|extends
-name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|>
 argument_list|()
@@ -372,13 +367,6 @@ specifier|public
 name|Component
 argument_list|<
 name|E
-argument_list|,
-name|?
-extends|extends
-name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|call
 parameter_list|()

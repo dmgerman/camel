@@ -43,10 +43,17 @@ name|E
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the processor for inbound messages      */
-DECL|method|setInboundProcessor (Processor<E> processor)
+comment|/**      * Create a new exchange for communicating with this endpoint      */
+DECL|method|createExchange ()
+name|E
+name|createExchange
+parameter_list|()
+function_decl|;
+comment|/**      * Called by the container to Activate the endpoint.  Once activated,      * the endpoint will start delivering messages inbound exchanges      * it receives to the specified processor.      *       * @throws IllegalStateException is the Endpoint has already been activated.      */
+DECL|method|activate (Processor<E> processor)
+specifier|public
 name|void
-name|setInboundProcessor
+name|activate
 parameter_list|(
 name|Processor
 argument_list|<
@@ -54,18 +61,8 @@ name|E
 argument_list|>
 name|processor
 parameter_list|)
-function_decl|;
-comment|/**      * Create a new exchange for communicating with this endpoint      */
-DECL|method|createExchange ()
-name|E
-name|createExchange
-parameter_list|()
-function_decl|;
-comment|/**      * Called by the container when an endpoint is activiated      */
-DECL|method|activate ()
-name|void
-name|activate
-parameter_list|()
+throws|throws
+name|IllegalStateException
 function_decl|;
 comment|/**      * Called by the container when the endpoint is deactivated      */
 DECL|method|deactivate ()

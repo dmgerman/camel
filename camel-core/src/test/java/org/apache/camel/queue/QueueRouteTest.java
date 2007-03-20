@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.jms
+DECL|package|org.apache.camel.queue
 package|package
 name|org
 operator|.
@@ -12,9 +12,33 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|jms
+name|queue
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
 
 begin_import
 import|import
@@ -23,18 +47,6 @@ operator|.
 name|framework
 operator|.
 name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|activemq
-operator|.
-name|ActiveMQConnectionFactory
 import|;
 end_import
 
@@ -89,67 +101,45 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|jms
+name|impl
 operator|.
-name|JmsComponent
-operator|.
-name|jmsComponentClientAcknowledge
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|ConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
+name|DefaultExchange
 import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * @version $Revision: 520220 $  */
 end_comment
 
 begin_class
-DECL|class|JmsRouteTest
+DECL|class|QueueRouteTest
 specifier|public
 class|class
-name|JmsRouteTest
+name|QueueRouteTest
 extends|extends
 name|TestCase
 block|{
+DECL|class|StringExchange
+specifier|static
+class|class
+name|StringExchange
+extends|extends
+name|DefaultExchange
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|,
+name|String
+argument_list|>
+block|{		 	}
 DECL|method|testJmsRoute ()
 specifier|public
 name|void
@@ -175,28 +165,6 @@ operator|new
 name|CamelContainer
 argument_list|()
 decl_stmt|;
-comment|// lets configure some componnets
-name|ConnectionFactory
-name|connectionFactory
-init|=
-operator|new
-name|ActiveMQConnectionFactory
-argument_list|(
-literal|"vm://localhost?broker.persistent=false"
-argument_list|)
-decl_stmt|;
-name|container
-operator|.
-name|addComponent
-argument_list|(
-literal|"activemq"
-argument_list|,
-name|jmsComponentClientAcknowledge
-argument_list|(
-name|connectionFactory
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// lets add some routes
 name|container
 operator|.
@@ -213,17 +181,17 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"jms:activemq:test.a"
+literal|"queue:test.a"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jms:activemq:test.b"
+literal|"queue:test.b"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jms:activemq:test.b"
+literal|"queue:test.b"
 argument_list|)
 operator|.
 name|process
@@ -231,7 +199,7 @@ argument_list|(
 operator|new
 name|Processor
 argument_list|<
-name|JmsExchange
+name|StringExchange
 argument_list|>
 argument_list|()
 block|{
@@ -239,7 +207,7 @@ specifier|public
 name|void
 name|onExchange
 parameter_list|(
-name|JmsExchange
+name|StringExchange
 name|exchange
 parameter_list|)
 block|{
@@ -278,7 +246,7 @@ expr_stmt|;
 comment|// now lets fire in a message
 name|Endpoint
 argument_list|<
-name|JmsExchange
+name|StringExchange
 argument_list|>
 name|endpoint
 init|=
@@ -286,19 +254,17 @@ name|container
 operator|.
 name|endpoint
 argument_list|(
-literal|"jms:activemq:test.a"
+literal|"queue:test.a"
 argument_list|)
 decl_stmt|;
-name|JmsExchange
-name|exchange2
+name|StringExchange
+name|exchange
 init|=
-name|endpoint
-operator|.
-name|createExchange
+operator|new
+name|StringExchange
 argument_list|()
 decl_stmt|;
-comment|//exchange2.setInBody("Hello there!")
-name|exchange2
+name|exchange
 operator|.
 name|setHeader
 argument_list|(
@@ -311,7 +277,7 @@ name|endpoint
 operator|.
 name|send
 argument_list|(
-name|exchange2
+name|exchange
 argument_list|)
 expr_stmt|;
 comment|// now lets sleep for a while
