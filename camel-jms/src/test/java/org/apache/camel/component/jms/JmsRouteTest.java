@@ -4,13 +4,15 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.jms
+DECL|package|org.apache.camel.component.jms
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|component
 operator|.
 name|jms
 package|;
@@ -23,6 +25,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|component
 operator|.
 name|jms
 operator|.
@@ -133,6 +137,22 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsExchange
 import|;
 end_import
 
