@@ -373,7 +373,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Installs the given error handler builder      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
+comment|/**      * Installs the given error handler builder      *      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|RouteBuilder
@@ -540,7 +540,7 @@ name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
-name|fromBuilder
+name|builder
 range|:
 name|fromBuilders
 control|)
@@ -551,7 +551,7 @@ name|E
 argument_list|>
 name|from
 init|=
-name|fromBuilder
+name|builder
 operator|.
 name|getFrom
 argument_list|()
@@ -562,10 +562,12 @@ name|E
 argument_list|>
 name|processor
 init|=
-name|fromBuilder
-operator|.
-name|createProcessor
-argument_list|()
+name|makeProcessor
+argument_list|(
+name|from
+argument_list|,
+name|builder
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -580,7 +582,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"No processor created for DestinationBuilder: "
 operator|+
-name|fromBuilder
+name|builder
 argument_list|)
 throw|;
 block|}
@@ -594,6 +596,35 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Factory method to create the underlying {@link Processor} for the given builder applying any      * necessary interceptors.      *      * @param from    the endpoint which starts the route      * @param builder the builder which is the factory of the processor      * @return      */
+DECL|method|makeProcessor (Endpoint<E> from, FromBuilder<E> builder)
+specifier|protected
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|makeProcessor
+parameter_list|(
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|from
+parameter_list|,
+name|FromBuilder
+argument_list|<
+name|E
+argument_list|>
+name|builder
+parameter_list|)
+block|{
+return|return
+name|builder
+operator|.
+name|createProcessor
+argument_list|()
+return|;
 block|}
 DECL|method|createContainer ()
 specifier|protected
