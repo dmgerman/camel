@@ -93,6 +93,15 @@ name|Exchange
 name|copy
 parameter_list|()
 function_decl|;
+comment|/**      * Copies the data into this exchange from the given exchange      *      * #param source is the source from which headers and messages will be copied       */
+DECL|method|copyFrom (Exchange source)
+name|void
+name|copyFrom
+parameter_list|(
+name|Exchange
+name|source
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

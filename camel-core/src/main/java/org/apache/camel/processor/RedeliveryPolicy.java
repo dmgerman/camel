@@ -94,6 +94,22 @@ specifier|public
 name|RedeliveryPolicy
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"RedeliveryPolicy[maximumRedeliveries="
+operator|+
+name|maximumRedeliveries
+operator|+
+literal|"]"
+return|;
+block|}
 DECL|method|copy ()
 specifier|public
 name|RedeliveryPolicy

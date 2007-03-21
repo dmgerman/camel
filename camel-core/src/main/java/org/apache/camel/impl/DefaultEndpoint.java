@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A default endpoint useful for implementation inheritence  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -104,6 +104,8 @@ class|class
 name|DefaultEndpoint
 parameter_list|<
 name|E
+extends|extends
+name|Exchange
 parameter_list|>
 implements|implements
 name|Endpoint
@@ -408,6 +410,32 @@ name|doDeactivate
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+DECL|method|createExchange (E exchange)
+specifier|public
+name|E
+name|createExchange
+parameter_list|(
+name|E
+name|exchange
+parameter_list|)
+block|{
+name|E
+name|answer
+init|=
+name|createExchange
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|copyFrom
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
 block|}
 comment|/**      * The processor used to process inbound message exchanges      */
 DECL|method|getInboundProcessor ()

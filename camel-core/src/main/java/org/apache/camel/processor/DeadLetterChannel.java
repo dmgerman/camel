@@ -210,6 +210,30 @@ operator|=
 name|redeliveryPolicy
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"DeadLetterChannel["
+operator|+
+name|output
+operator|+
+literal|", "
+operator|+
+name|deadLetter
+operator|+
+literal|", "
+operator|+
+name|redeliveryPolicy
+operator|+
+literal|"]"
+return|;
+block|}
 DECL|method|onExchange (E exchange)
 specifier|public
 name|void
@@ -317,6 +341,34 @@ expr_stmt|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
+comment|/**      * Returns the output processor      */
+DECL|method|getOutput ()
+specifier|public
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|getOutput
+parameter_list|()
+block|{
+return|return
+name|output
+return|;
+block|}
+comment|/**      * Returns the dead letter that message exchanges will be sent to if the redelivery attempts fail      */
+DECL|method|getDeadLetter ()
+specifier|public
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|getDeadLetter
+parameter_list|()
+block|{
+return|return
+name|deadLetter
+return|;
+block|}
 DECL|method|getRedeliveryPolicy ()
 specifier|public
 name|RedeliveryPolicy

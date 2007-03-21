@@ -54,6 +54,15 @@ name|E
 name|createExchange
 parameter_list|()
 function_decl|;
+comment|/**      * Creates a new exchange for communicating with this exchange using the given exchange to pre-populate the values      * of the headers and messages      */
+DECL|method|createExchange (E exchange)
+name|E
+name|createExchange
+parameter_list|(
+name|E
+name|exchange
+parameter_list|)
+function_decl|;
 comment|/**      * Called by the container to Activate the endpoint.  Once activated,      * the endpoint will start delivering inbound message exchanges      * that are received to the specified processor.      *      * The processor must be thread safe ( or stateless ) since some endpoints       * may choose to deliver exchanges concurrently to the processor.      *       * @throws IllegalStateException if the Endpoint has already been activated.      */
 DECL|method|activate (Processor<E> processor)
 name|void

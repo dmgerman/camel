@@ -281,7 +281,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Body"
+literal|"body"
 return|;
 block|}
 block|}
@@ -348,7 +348,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"BodyAs["
+literal|"bodyAs["
 operator|+
 name|type
 operator|.
@@ -411,7 +411,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"OutBody"
+literal|"outBody"
 return|;
 block|}
 block|}

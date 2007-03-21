@@ -40,6 +40,18 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for implementation inheritance  *  * @version $Revision: $  */
 end_comment
@@ -56,6 +68,21 @@ extends|extends
 name|Exchange
 parameter_list|>
 block|{
+DECL|field|errorHandlerBuilder
+specifier|private
+name|ErrorHandlerBuilder
+argument_list|<
+name|E
+argument_list|>
+name|errorHandlerBuilder
+decl_stmt|;
+DECL|method|BuilderSupport ()
+specifier|protected
+name|BuilderSupport
+parameter_list|()
+block|{     }
+comment|// Builder methods
+comment|//-------------------------------------------------------------------------
 comment|/**      * Returns a predicate and value builder for headers on an exchange      */
 DECL|method|header (String name)
 specifier|public
@@ -242,6 +269,91 @@ argument_list|(
 name|expression
 argument_list|)
 return|;
+block|}
+comment|// Properties
+comment|//-------------------------------------------------------------------------
+DECL|method|BuilderSupport (BuilderSupport<E> parent)
+specifier|protected
+name|BuilderSupport
+parameter_list|(
+name|BuilderSupport
+argument_list|<
+name|E
+argument_list|>
+name|parent
+parameter_list|)
+block|{
+if|if
+condition|(
+name|parent
+operator|.
+name|errorHandlerBuilder
+operator|!=
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|errorHandlerBuilder
+operator|=
+name|parent
+operator|.
+name|errorHandlerBuilder
+operator|.
+name|copy
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|getErrorHandlerBuilder ()
+specifier|public
+name|ErrorHandlerBuilder
+argument_list|<
+name|E
+argument_list|>
+name|getErrorHandlerBuilder
+parameter_list|()
+block|{
+if|if
+condition|(
+name|errorHandlerBuilder
+operator|==
+literal|null
+condition|)
+block|{
+name|errorHandlerBuilder
+operator|=
+operator|new
+name|DeadLetterChannelBuilder
+argument_list|<
+name|E
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|errorHandlerBuilder
+return|;
+block|}
+comment|/**      * Sets the error handler to use with processors created by this builder      */
+DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder<E> errorHandlerBuilder)
+specifier|public
+name|void
+name|setErrorHandlerBuilder
+parameter_list|(
+name|ErrorHandlerBuilder
+argument_list|<
+name|E
+argument_list|>
+name|errorHandlerBuilder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|errorHandlerBuilder
+operator|=
+name|errorHandlerBuilder
+expr_stmt|;
 block|}
 block|}
 end_class
