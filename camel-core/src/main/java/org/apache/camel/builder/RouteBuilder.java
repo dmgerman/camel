@@ -165,13 +165,13 @@ argument_list|<
 name|E
 argument_list|>
 block|{
-DECL|field|container
+DECL|field|context
 specifier|private
 name|CamelContext
 argument_list|<
 name|E
 argument_list|>
-name|container
+name|context
 decl_stmt|;
 DECL|field|fromBuilders
 specifier|private
@@ -241,7 +241,7 @@ specifier|protected
 name|RouteBuilder
 parameter_list|()
 block|{     }
-DECL|method|RouteBuilder (CamelContext<E> container)
+DECL|method|RouteBuilder (CamelContext<E> context)
 specifier|protected
 name|RouteBuilder
 parameter_list|(
@@ -249,14 +249,14 @@ name|CamelContext
 argument_list|<
 name|E
 argument_list|>
-name|container
+name|context
 parameter_list|)
 block|{
 name|this
 operator|.
-name|container
+name|context
 operator|=
-name|container
+name|context
 expr_stmt|;
 block|}
 comment|/**      * Called on initialization to to build the required destinationBuilders      */
@@ -286,7 +286,7 @@ name|E
 argument_list|>
 name|c
 init|=
-name|getContainer
+name|getContext
 argument_list|()
 decl_stmt|;
 name|EndpointResolver
@@ -376,51 +376,73 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Installs the given error handler builder      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
+DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
+specifier|public
+name|RouteBuilder
+argument_list|<
+name|E
+argument_list|>
+name|errorHandler
+parameter_list|(
+name|ErrorHandlerBuilder
+name|errorHandlerBuilder
+parameter_list|)
+block|{
+name|setErrorHandlerBuilder
+argument_list|(
+name|errorHandlerBuilder
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
-DECL|method|getContainer ()
+DECL|method|getContext ()
 specifier|public
 name|CamelContext
 argument_list|<
 name|E
 argument_list|>
-name|getContainer
+name|getContext
 parameter_list|()
 block|{
 if|if
 condition|(
-name|container
+name|context
 operator|==
 literal|null
 condition|)
 block|{
-name|container
+name|context
 operator|=
 name|createContainer
 argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|container
+name|context
 return|;
 block|}
-DECL|method|setContainer (CamelContext<E> container)
+DECL|method|setContext (CamelContext<E> context)
 specifier|public
 name|void
-name|setContainer
+name|setContext
 parameter_list|(
 name|CamelContext
 argument_list|<
 name|E
 argument_list|>
-name|container
+name|context
 parameter_list|)
 block|{
 name|this
 operator|.
-name|container
+name|context
 operator|=
-name|container
+name|context
 expr_stmt|;
 block|}
 comment|/**      * Returns the routing map from inbound endpoints to processors      */

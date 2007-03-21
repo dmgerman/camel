@@ -24,20 +24,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|CompositeProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -51,6 +37,44 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|CompositeProcessor
 import|;
 end_import
 
@@ -104,19 +128,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|processor
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
+name|RecipientList
 import|;
 end_import
 
@@ -136,7 +150,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Collection
 import|;
 end_import
 
@@ -146,7 +160,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|List
 import|;
 end_import
 
@@ -250,6 +264,11 @@ argument_list|>
 name|from
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|builder
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|builder
@@ -274,6 +293,11 @@ argument_list|>
 name|parent
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|parent
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|builder
@@ -788,7 +812,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a dynamic<a href="http://activemq.apache.org/camel/recipient-list.html">Recipient List</a> pattern.      *       * @param valueBuilder      */
+comment|/**      * Creates a dynamic<a href="http://activemq.apache.org/camel/recipient-list.html">Recipient List</a> pattern.      *      * @param valueBuilder is the builder of the expression used in the {@link RecipientList} to decide the destinations      */
 DECL|method|recipientList (ValueBuilder<E> valueBuilder)
 specifier|public
 name|RecipientListBuilder
@@ -870,6 +894,28 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
+return|;
+block|}
+comment|/**      * Installs the given error handler builder      *      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
+DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
+specifier|public
+name|FromBuilder
+argument_list|<
+name|E
+argument_list|>
+name|errorHandler
+parameter_list|(
+name|ErrorHandlerBuilder
+name|errorHandlerBuilder
+parameter_list|)
+block|{
+name|setErrorHandlerBuilder
+argument_list|(
+name|errorHandlerBuilder
+argument_list|)
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 comment|// Properties

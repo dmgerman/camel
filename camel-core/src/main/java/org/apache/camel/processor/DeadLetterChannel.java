@@ -83,7 +83,7 @@ extends|extends
 name|Exchange
 parameter_list|>
 implements|implements
-name|Processor
+name|ErrorHandler
 argument_list|<
 name|E
 argument_list|>

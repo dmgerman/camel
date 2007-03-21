@@ -36,6 +36,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
 name|RouteBuilderTest
 import|;
 end_import
