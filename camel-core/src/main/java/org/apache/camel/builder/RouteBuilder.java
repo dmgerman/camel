@@ -278,7 +278,9 @@ name|void
 name|configure
 parameter_list|()
 function_decl|;
-DECL|method|from (String uri)
+annotation|@
+name|Fluent
+DECL|method|from ( @luentArgR) String uri)
 specifier|public
 name|FromBuilder
 argument_list|<
@@ -286,6 +288,11 @@ name|E
 argument_list|>
 name|from
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"uri"
+argument_list|)
 name|String
 name|uri
 parameter_list|)
@@ -300,7 +307,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|from (Endpoint<E> endpoint)
+annotation|@
+name|Fluent
+DECL|method|from ( @luentArgR) Endpoint<E> endpoint)
 specifier|public
 name|FromBuilder
 argument_list|<
@@ -308,6 +317,11 @@ name|E
 argument_list|>
 name|from
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"endpoint"
+argument_list|)
 name|Endpoint
 argument_list|<
 name|E
