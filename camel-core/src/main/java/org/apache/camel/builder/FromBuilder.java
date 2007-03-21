@@ -776,6 +776,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Configures whether or not the error handler is inherited by every processing node (or just the top most one)      *      * @param value the falg as to whether error handlers should be inherited or not      * @return the current builder      */
+DECL|method|inheritErrorHandler (boolean value)
+specifier|public
+name|FromBuilder
+argument_list|<
+name|E
+argument_list|>
+name|inheritErrorHandler
+parameter_list|(
+name|boolean
+name|value
+parameter_list|)
+block|{
+name|setInheritErrorHandler
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getBuilder ()
