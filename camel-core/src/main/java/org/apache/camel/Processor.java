@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A processor of a message exchange.  *   * @version $Revision$  */
+comment|/**  * Implements the<a href="http://activemq.apache.org/camel/event-driven-consumer.html">Event Driven Consumer</a>  * pattern to process message exchanges  *  * @version $Revision$  */
 end_comment
 
 begin_interface
