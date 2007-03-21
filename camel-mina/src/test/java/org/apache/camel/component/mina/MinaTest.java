@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -201,7 +213,7 @@ name|void
 name|onExchange
 parameter_list|(
 name|MinaExchange
-name|exchange
+name|e
 parameter_list|)
 block|{
 name|System
@@ -212,7 +224,7 @@ name|println
 argument_list|(
 literal|"Received exchange: "
 operator|+
-name|exchange
+name|e
 operator|.
 name|getIn
 argument_list|()
@@ -251,18 +263,29 @@ literal|"mina:vm:8080"
 argument_list|)
 decl_stmt|;
 name|MinaExchange
-name|exchange2
+name|exchange
 init|=
 name|endpoint
 operator|.
 name|createExchange
 argument_list|()
 decl_stmt|;
-comment|//exchange2.setInBody("Hello there!")
-name|exchange2
+name|Message
+name|message
+init|=
+name|exchange
 operator|.
 name|getIn
 argument_list|()
+decl_stmt|;
+name|message
+operator|.
+name|setBody
+argument_list|(
+literal|"Hello there!"
+argument_list|)
+expr_stmt|;
+name|message
 operator|.
 name|getHeaders
 argument_list|()
@@ -278,7 +301,7 @@ name|endpoint
 operator|.
 name|onExchange
 argument_list|(
-name|exchange2
+name|exchange
 argument_list|)
 expr_stmt|;
 comment|// now lets sleep for a while
@@ -298,7 +321,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Did not recieve the message!"
+literal|"Did not receive the message!"
 argument_list|,
 name|received
 argument_list|)

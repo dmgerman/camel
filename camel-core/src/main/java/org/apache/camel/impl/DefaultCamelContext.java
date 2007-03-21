@@ -18,6 +18,32 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -45,32 +71,6 @@ operator|.
 name|concurrent
 operator|.
 name|Callable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
 import|;
 end_import
 
@@ -231,7 +231,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Removes a previously added component.      * @param componentName      * @return the previously added component or null if it had not been previously added.      */
+comment|/**      * Removes a previously added component.      *      * @param componentName      * @return the previously added component or null if it had not been previously added.      */
 DECL|method|removeComponent (String componentName)
 specifier|public
 name|Component
@@ -256,7 +256,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.       *       * @param componentName      * @param factory used to create a new component instance if the component was not previously added.      * @return      */
+comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.      *      * @param componentName      * @param factory       used to create a new component instance if the component was not previously added.      * @return      */
 DECL|method|getOrCreateComponent (String componentName, Callable<Component<E>> factory)
 specifier|public
 name|Component
