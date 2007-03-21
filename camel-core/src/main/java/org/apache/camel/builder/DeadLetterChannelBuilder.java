@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Expression
 import|;
 end_import
@@ -60,9 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|RedeliveryPolicy
+name|Processor
 import|;
 end_import
 
@@ -94,8 +80,22 @@ name|RecipientList
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|RedeliveryPolicy
+import|;
+end_import
+
 begin_comment
-comment|/**  * A builder of a<a href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter Channel</a>  *   * @version $Revision$  */
+comment|/**  * A builder of a<a href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter Channel</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -108,11 +108,6 @@ name|E
 extends|extends
 name|Exchange
 parameter_list|>
-extends|extends
-name|BuilderSupport
-argument_list|<
-name|E
-argument_list|>
 implements|implements
 name|ErrorHandlerBuilder
 argument_list|<
@@ -164,6 +159,30 @@ specifier|public
 name|DeadLetterChannelBuilder
 parameter_list|()
 block|{     }
+DECL|method|DeadLetterChannelBuilder (Processor<E> processor)
+specifier|public
+name|DeadLetterChannelBuilder
+parameter_list|(
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|processor
+parameter_list|)
+block|{
+name|this
+argument_list|(
+operator|new
+name|ConstantProcessorBuilder
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|processor
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|DeadLetterChannelBuilder (ProcessorFactory<E> deadLetterFactory)
 specifier|public
 name|DeadLetterChannelBuilder
@@ -264,6 +283,144 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|// Builder methods
+comment|//-------------------------------------------------------------------------
+DECL|method|backOffMultiplier (double backOffMultiplier)
+specifier|public
+name|DeadLetterChannelBuilder
+argument_list|<
+name|E
+argument_list|>
+name|backOffMultiplier
+parameter_list|(
+name|double
+name|backOffMultiplier
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|backOffMultiplier
+argument_list|(
+name|backOffMultiplier
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|collisionAvoidancePercent (short collisionAvoidancePercent)
+specifier|public
+name|DeadLetterChannelBuilder
+argument_list|<
+name|E
+argument_list|>
+name|collisionAvoidancePercent
+parameter_list|(
+name|short
+name|collisionAvoidancePercent
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|collisionAvoidancePercent
+argument_list|(
+name|collisionAvoidancePercent
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|initialRedeliveryDelay (long initialRedeliveryDelay)
+specifier|public
+name|DeadLetterChannelBuilder
+argument_list|<
+name|E
+argument_list|>
+name|initialRedeliveryDelay
+parameter_list|(
+name|long
+name|initialRedeliveryDelay
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|initialRedeliveryDelay
+argument_list|(
+name|initialRedeliveryDelay
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|maximumRedeliveries (int maximumRedeliveries)
+specifier|public
+name|DeadLetterChannelBuilder
+argument_list|<
+name|E
+argument_list|>
+name|maximumRedeliveries
+parameter_list|(
+name|int
+name|maximumRedeliveries
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|maximumRedeliveries
+argument_list|(
+name|maximumRedeliveries
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|useCollisionAvoidance ()
+specifier|public
+name|DeadLetterChannelBuilder
+argument_list|<
+name|E
+argument_list|>
+name|useCollisionAvoidance
+parameter_list|()
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|useCollisionAvoidance
+argument_list|()
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|useExponentialBackOff ()
+specifier|public
+name|DeadLetterChannelBuilder
+argument_list|<
+name|E
+argument_list|>
+name|useExponentialBackOff
+parameter_list|()
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|useExponentialBackOff
+argument_list|()
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|// Properties
+comment|//-------------------------------------------------------------------------
 DECL|method|getRedeliveryPolicy ()
 specifier|public
 name|RedeliveryPolicy
@@ -389,7 +546,7 @@ return|return
 name|defaultDeadLetterEndpoint
 return|;
 block|}
-comment|/**       * Sets the default dead letter endpoint used       */
+comment|/**      * Sets the default dead letter endpoint used      */
 DECL|method|setDefaultDeadLetterEndpoint (Processor<E> defaultDeadLetterEndpoint)
 specifier|public
 name|void

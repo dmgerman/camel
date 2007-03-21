@@ -165,14 +165,6 @@ argument_list|<
 name|E
 argument_list|>
 block|{
-DECL|field|context
-specifier|private
-name|CamelContext
-argument_list|<
-name|E
-argument_list|>
-name|context
-decl_stmt|;
 DECL|field|fromBuilders
 specifier|private
 name|List
@@ -240,7 +232,13 @@ DECL|method|RouteBuilder ()
 specifier|protected
 name|RouteBuilder
 parameter_list|()
-block|{     }
+block|{
+name|this
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|RouteBuilder (CamelContext<E> context)
 specifier|protected
 name|RouteBuilder
@@ -252,11 +250,10 @@ argument_list|>
 name|context
 parameter_list|)
 block|{
-name|this
-operator|.
+name|super
+argument_list|(
 name|context
-operator|=
-name|context
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Called on initialization to to build the required destinationBuilders      */
@@ -409,6 +406,17 @@ argument_list|>
 name|getContext
 parameter_list|()
 block|{
+name|CamelContext
+argument_list|<
+name|E
+argument_list|>
+name|context
+init|=
+name|super
+operator|.
+name|getContext
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|context
@@ -421,29 +429,15 @@ operator|=
 name|createContainer
 argument_list|()
 expr_stmt|;
+name|setContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|context
 return|;
-block|}
-DECL|method|setContext (CamelContext<E> context)
-specifier|public
-name|void
-name|setContext
-parameter_list|(
-name|CamelContext
-argument_list|<
-name|E
-argument_list|>
-name|context
-parameter_list|)
-block|{
-name|this
-operator|.
-name|context
-operator|=
-name|context
-expr_stmt|;
 block|}
 comment|/**      * Returns the routing map from inbound endpoints to processors      */
 DECL|method|getRouteMap ()

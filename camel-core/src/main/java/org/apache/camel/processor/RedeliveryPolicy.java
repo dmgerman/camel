@@ -26,6 +26,16 @@ name|Random
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_comment
 comment|// Code taken from the ActiveMQ codebase
 end_comment
@@ -39,7 +49,18 @@ DECL|class|RedeliveryPolicy
 specifier|public
 class|class
 name|RedeliveryPolicy
+implements|implements
+name|Cloneable
+implements|,
+name|Serializable
 block|{
+DECL|field|randomNumberGenerator
+specifier|protected
+specifier|static
+specifier|transient
+name|Random
+name|randomNumberGenerator
+decl_stmt|;
 DECL|field|maximumRedeliveries
 specifier|protected
 name|int
@@ -82,12 +103,6 @@ name|boolean
 name|useCollisionAvoidance
 init|=
 literal|false
-decl_stmt|;
-DECL|field|randomNumberGenerator
-specifier|protected
-specifier|static
-name|Random
-name|randomNumberGenerator
 decl_stmt|;
 DECL|method|RedeliveryPolicy ()
 specifier|public
@@ -485,23 +500,18 @@ condition|(
 name|useCollisionAvoidance
 condition|)
 block|{
-if|if
-condition|(
-name|randomNumberGenerator
-operator|==
-literal|null
-condition|)
-block|{
-name|initRandomNumberGenerator
-argument_list|()
-expr_stmt|;
-block|}
 comment|/*              * First random determines +/-, second random determines how far to              * go in that direction. -cgs              */
+name|Random
+name|random
+init|=
+name|getRandomNumberGenerator
+argument_list|()
+decl_stmt|;
 name|double
 name|variance
 init|=
 operator|(
-name|randomNumberGenerator
+name|random
 operator|.
 name|nextBoolean
 argument_list|()
@@ -512,7 +522,7 @@ operator|-
 name|collisionAvoidanceFactor
 operator|)
 operator|*
-name|randomNumberGenerator
+name|random
 operator|.
 name|nextDouble
 argument_list|()
@@ -582,12 +592,12 @@ operator|=
 name|useExponentialBackOff
 expr_stmt|;
 block|}
-DECL|method|initRandomNumberGenerator ()
+DECL|method|getRandomNumberGenerator ()
 specifier|protected
 specifier|static
 specifier|synchronized
-name|void
-name|initRandomNumberGenerator
+name|Random
+name|getRandomNumberGenerator
 parameter_list|()
 block|{
 if|if
@@ -604,6 +614,9 @@ name|Random
 argument_list|()
 expr_stmt|;
 block|}
+return|return
+name|randomNumberGenerator
+return|;
 block|}
 block|}
 end_class

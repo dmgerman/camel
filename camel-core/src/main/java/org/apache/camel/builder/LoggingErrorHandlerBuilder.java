@@ -124,11 +124,6 @@ name|E
 extends|extends
 name|Exchange
 parameter_list|>
-extends|extends
-name|BuilderSupport
-argument_list|<
-name|E
-argument_list|>
 implements|implements
 name|ErrorHandlerBuilder
 argument_list|<

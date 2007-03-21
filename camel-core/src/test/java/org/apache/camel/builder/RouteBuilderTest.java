@@ -2893,36 +2893,6 @@ name|getOutput
 argument_list|()
 return|;
 block|}
-DECL|method|assertEndpointUri (Endpoint<Exchange> endpoint, String uri)
-specifier|protected
-name|void
-name|assertEndpointUri
-parameter_list|(
-name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
-name|endpoint
-parameter_list|,
-name|String
-name|uri
-parameter_list|)
-block|{
-name|assertEquals
-argument_list|(
-literal|"Endoint uri for: "
-operator|+
-name|endpoint
-argument_list|,
-name|uri
-argument_list|,
-name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 
