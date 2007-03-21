@@ -137,6 +137,8 @@ parameter_list|,
 name|String
 name|uri
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|EndpointResolver
 name|resolver
@@ -168,6 +170,8 @@ parameter_list|,
 name|String
 name|uri
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|EndpointResolver
 name|resolver

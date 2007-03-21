@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jms
+DECL|package|org.apache.camel.component.mina
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|jms
+name|mina
 package|;
 end_package
 
@@ -24,25 +24,9 @@ name|org
 operator|.
 name|apache
 operator|.
-name|axis
-operator|.
-name|transport
-operator|.
-name|jms
-operator|.
-name|JMSEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|camel
 operator|.
-name|CamelContext
+name|EndpointResolver
 import|;
 end_import
 
@@ -66,7 +50,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointResolver
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -88,20 +86,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -112,19 +96,29 @@ name|Callable
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
-comment|/**  * An implementation of {@link EndpointResolver} that creates  * {@link JMSEndpoint} objects.  *  * The syntax for a JMS URI looks like:  *  *<pre><code>jms:[component:]destination</code></pre>  * the component is optional, and if it is not specified, the default component name  * is assumed.  *  * @version $Revision:520964 $  */
+comment|/**  * An implementation of {@link EndpointResolver} that creates  * {@link MinaEndpoint} objects.  *  * The syntax for a MINA URI looks like:  *  *<pre><code>mina:</code></pre>  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
-DECL|class|JmsEndpointResolver
+DECL|class|MinaEndpointResolver
 specifier|public
 class|class
-name|JmsEndpointResolver
+name|MinaEndpointResolver
 implements|implements
 name|EndpointResolver
 argument_list|<
-name|JmsExchange
+name|MinaExchange
 argument_list|>
 block|{
 DECL|field|DEFAULT_COMPONENT_NAME
@@ -134,14 +128,14 @@ specifier|final
 name|String
 name|DEFAULT_COMPONENT_NAME
 init|=
-name|JmsEndpointResolver
+name|MinaEndpointResolver
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/** 	 * Finds the {@see JmsComponent} specified by the uri.  If the {@see JmsComponent} 	 * object do not exist, it will be created. 	 */
+comment|/** 	 * Finds the {@link MinaComponent} specified by the uri.  If the {@link MinaComponent} 	 * object do not exist, it will be created. 	 */
 DECL|method|resolveComponent (CamelContext container, String uri)
 specifier|public
 name|Component
@@ -155,8 +149,8 @@ name|uri
 parameter_list|)
 block|{
 name|String
-name|id
 index|[]
+name|id
 init|=
 name|getEndpointId
 argument_list|(
@@ -164,7 +158,7 @@ name|uri
 argument_list|)
 decl_stmt|;
 return|return
-name|resolveJmsComponent
+name|resolveMinaComponent
 argument_list|(
 name|container
 argument_list|,
@@ -175,10 +169,10 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Finds the {@see QueueEndpoint} specified by the uri.  If the {@see QueueEndpoint} or it's associated 	 * {@see QueueComponent} object do not exist, they will be created. 	 */
+comment|/** 	 * Finds the {@link MinaEndpoint} specified by the uri.  If the {@link MinaEndpoint} or it's associated 	 * {@see QueueComponent} object do not exist, they will be created. 	 */
 DECL|method|resolveEndpoint (CamelContext container, String uri)
 specifier|public
-name|JmsEndpoint
+name|MinaEndpoint
 name|resolveEndpoint
 parameter_list|(
 name|CamelContext
@@ -187,24 +181,26 @@ parameter_list|,
 name|String
 name|uri
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|String
-name|id
 index|[]
+name|urlParts
 init|=
 name|getEndpointId
 argument_list|(
 name|uri
 argument_list|)
 decl_stmt|;
-name|JmsComponent
+name|MinaComponent
 name|component
 init|=
-name|resolveJmsComponent
+name|resolveMinaComponent
 argument_list|(
 name|container
 argument_list|,
-name|id
+name|urlParts
 index|[
 literal|0
 index|]
@@ -217,14 +213,11 @@ name|createEndpoint
 argument_list|(
 name|uri
 argument_list|,
-name|id
-index|[
-literal|1
-index|]
+name|urlParts
 argument_list|)
 return|;
 block|}
-comment|/** 	 * @return an array that looks like: [componentName,endpointName]  	 */
+comment|/** 	 * @return an array that looks like: [componentName,endpointName] 	 */
 DECL|method|getEndpointId (String uri)
 specifier|private
 name|String
@@ -313,14 +306,14 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|resolveJmsComponent (final CamelContext container, final String componentName)
+DECL|method|resolveMinaComponent (final CamelContext context, final String componentName)
 specifier|private
-name|JmsComponent
-name|resolveJmsComponent
+name|MinaComponent
+name|resolveMinaComponent
 parameter_list|(
 specifier|final
 name|CamelContext
-name|container
+name|context
 parameter_list|,
 specifier|final
 name|String
@@ -330,7 +323,7 @@ block|{
 name|Component
 name|rc
 init|=
-name|container
+name|context
 operator|.
 name|getOrCreateComponent
 argument_list|(
@@ -339,12 +332,12 @@ argument_list|,
 operator|new
 name|Callable
 argument_list|<
-name|JmsComponent
+name|MinaComponent
 argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|JmsComponent
+name|MinaComponent
 name|call
 parameter_list|()
 throws|throws
@@ -352,9 +345,9 @@ name|Exception
 block|{
 return|return
 operator|new
-name|JmsComponent
+name|MinaComponent
 argument_list|(
-name|container
+name|context
 argument_list|)
 return|;
 block|}
@@ -363,7 +356,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|(
-name|JmsComponent
+name|MinaComponent
 operator|)
 name|rc
 return|;

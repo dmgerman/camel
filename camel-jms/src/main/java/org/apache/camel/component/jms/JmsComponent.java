@@ -78,6 +78,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|DefaultComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -147,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -155,8 +169,8 @@ DECL|class|JmsComponent
 specifier|public
 class|class
 name|JmsComponent
-implements|implements
-name|Component
+extends|extends
+name|DefaultComponent
 argument_list|<
 name|JmsExchange
 argument_list|>
@@ -178,11 +192,6 @@ name|String
 name|TOPIC_PREFIX
 init|=
 literal|"topic/"
-decl_stmt|;
-DECL|field|container
-specifier|private
-name|CamelContext
-name|container
 decl_stmt|;
 DECL|field|template
 specifier|private
@@ -316,22 +325,26 @@ operator|=
 name|template
 expr_stmt|;
 block|}
-DECL|method|JmsComponent (CamelContext container)
+DECL|method|JmsComponent (CamelContext context)
 specifier|public
 name|JmsComponent
 parameter_list|(
 name|CamelContext
-name|container
+name|context
 parameter_list|)
 block|{
-name|this
-argument_list|()
+name|super
+argument_list|(
+name|context
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|container
+name|template
 operator|=
-name|container
+operator|new
+name|JmsTemplate
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createEndpoint (Uri uri)
@@ -380,7 +393,8 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|container
+name|getContext
+argument_list|()
 argument_list|,
 literal|"container"
 argument_list|)
@@ -508,7 +522,8 @@ name|JmsEndpoint
 argument_list|(
 name|uri
 argument_list|,
-name|container
+name|getContext
+argument_list|()
 argument_list|,
 name|subject
 argument_list|,
@@ -542,32 +557,6 @@ operator|.
 name|template
 operator|=
 name|template
-expr_stmt|;
-block|}
-DECL|method|getContainer ()
-specifier|public
-name|CamelContext
-name|getContainer
-parameter_list|()
-block|{
-return|return
-name|container
-return|;
-block|}
-DECL|method|setContext (CamelContext container)
-specifier|public
-name|void
-name|setContext
-parameter_list|(
-name|CamelContext
-name|container
-parameter_list|)
-block|{
-name|this
-operator|.
-name|container
-operator|=
-name|container
 expr_stmt|;
 block|}
 DECL|method|createMessageListenerContainer (JmsTemplate template)

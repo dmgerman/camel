@@ -14,6 +14,16 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A resolver of endpoints from a String URI  *  * @version $Revision$  */
 end_comment
@@ -39,6 +49,8 @@ parameter_list|,
 name|String
 name|uri
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 comment|/**      * Resolves the endpoint for a given uri or returns null if no endpoint could be found      */
 DECL|method|resolveEndpoint (CamelContext container, String uri)
@@ -55,6 +67,8 @@ parameter_list|,
 name|String
 name|uri
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 block|}
 end_interface
