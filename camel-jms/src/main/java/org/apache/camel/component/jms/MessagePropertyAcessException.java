@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.pojo
+DECL|package|org.apache.camel.component.jms
 package|package
 name|org
 operator|.
@@ -12,79 +12,85 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|pojo
+name|component
+operator|.
+name|jms
 package|;
 end_package
 
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|JMSException
+import|;
+end_import
+
+begin_comment
+comment|/**  * @version $Revision$  */
+end_comment
+
 begin_class
-DECL|class|SayService
+DECL|class|MessagePropertyAcessException
 specifier|public
 class|class
-name|SayService
-implements|implements
-name|ISay
+name|MessagePropertyAcessException
+extends|extends
+name|RuntimeJmsException
 block|{
-DECL|field|message
-name|String
-name|message
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
 init|=
-literal|"Hello"
+operator|-
+literal|3996286386119163309L
 decl_stmt|;
-DECL|method|SayService ()
+DECL|field|propertyName
+specifier|private
+name|String
+name|propertyName
+decl_stmt|;
+DECL|method|MessagePropertyAcessException (String propertyName, JMSException e)
 specifier|public
-name|SayService
-parameter_list|()
-block|{ 	}
-DECL|method|SayService (String message)
-specifier|public
-name|SayService
+name|MessagePropertyAcessException
 parameter_list|(
 name|String
-name|message
+name|propertyName
+parameter_list|,
+name|JMSException
+name|e
 parameter_list|)
 block|{
+name|super
+argument_list|(
+literal|"Error accessing header: "
+operator|+
+name|propertyName
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
-name|message
+name|propertyName
 operator|=
-name|message
+name|propertyName
 expr_stmt|;
 block|}
-DECL|method|say ()
+DECL|method|getPropertyName ()
 specifier|public
 name|String
-name|say
+name|getPropertyName
 parameter_list|()
 block|{
 return|return
-name|message
+name|propertyName
 return|;
-block|}
-DECL|method|getMessage ()
-specifier|public
-name|String
-name|getMessage
-parameter_list|()
-block|{
-return|return
-name|message
-return|;
-block|}
-DECL|method|setMessage (String message)
-specifier|public
-name|void
-name|setMessage
-parameter_list|(
-name|String
-name|message
-parameter_list|)
-block|{
-name|this
-operator|.
-name|message
-operator|=
-name|message
-expr_stmt|;
 block|}
 block|}
 end_class

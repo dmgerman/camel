@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.jms
+DECL|package|org.apache.camel.component.jms
 package|package
 name|org
 operator|.
@@ -12,57 +12,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
 name|jms
 package|;
 end_package
 
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|JMSException
-import|;
-end_import
-
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Some helper builder methods for the easy configuration of the {@link org.apache.camel.CamelContext} via Java code.  *  * @version $Revision: $  */
 end_comment
 
 begin_class
-DECL|class|MessagePropertyNamesAcessException
+DECL|class|Builder
 specifier|public
 class|class
-name|MessagePropertyNamesAcessException
-extends|extends
-name|RuntimeJmsException
+name|Builder
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|6744171518099741324L
-decl_stmt|;
-DECL|method|MessagePropertyNamesAcessException (JMSException e)
+DECL|method|jmsComponent ()
 specifier|public
-name|MessagePropertyNamesAcessException
-parameter_list|(
-name|JMSException
-name|e
-parameter_list|)
+specifier|static
+name|JmsComponent
+name|jmsComponent
+parameter_list|()
 block|{
-name|super
-argument_list|(
-literal|"Failed to acess the JMS message property names"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
+return|return
+operator|new
+name|JmsComponent
+argument_list|()
+return|;
 block|}
 block|}
 end_class

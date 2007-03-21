@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.jms
+DECL|package|org.apache.camel.component.pojo
 package|package
 name|org
 operator|.
@@ -12,77 +12,84 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|jms
+name|component
+operator|.
+name|pojo
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|Session
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|JMSException
-import|;
-end_import
-
-begin_comment
-comment|/**  * @version $Revision$  */
-end_comment
-
-begin_interface
-DECL|interface|JmsExchange
+begin_class
+DECL|class|SayService
 specifier|public
-interface|interface
-name|JmsExchange
-extends|extends
-name|Exchange
+class|class
+name|SayService
+implements|implements
+name|ISay
 block|{
-comment|/**      * Creates the JMS message for this exchange so that it can be sent to      * a JMS endpoint.      */
-DECL|method|createMessage (Session session)
-name|Message
-name|createMessage
+DECL|field|message
+name|String
+name|message
+init|=
+literal|"Hello"
+decl_stmt|;
+DECL|method|SayService ()
+specifier|public
+name|SayService
+parameter_list|()
+block|{ 	}
+DECL|method|SayService (String message)
+specifier|public
+name|SayService
 parameter_list|(
-name|Session
-name|session
+name|String
+name|message
 parameter_list|)
-throws|throws
-name|JMSException
-function_decl|;
+block|{
+name|this
+operator|.
+name|message
+operator|=
+name|message
+expr_stmt|;
 block|}
-end_interface
+DECL|method|say ()
+specifier|public
+name|String
+name|say
+parameter_list|()
+block|{
+return|return
+name|message
+return|;
+block|}
+DECL|method|getMessage ()
+specifier|public
+name|String
+name|getMessage
+parameter_list|()
+block|{
+return|return
+name|message
+return|;
+block|}
+DECL|method|setMessage (String message)
+specifier|public
+name|void
+name|setMessage
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|this
+operator|.
+name|message
+operator|=
+name|message
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

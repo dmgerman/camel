@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.jms
+DECL|package|org.apache.camel.component.jms
 package|package
 name|org
 operator|.
@@ -12,9 +12,43 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
 name|jms
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Session
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Message
+import|;
+end_import
 
 begin_import
 import|import
@@ -30,45 +64,27 @@ begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
 
-begin_class
-DECL|class|RuntimeJmsException
+begin_interface
+DECL|interface|JmsExchange
 specifier|public
-class|class
-name|RuntimeJmsException
+interface|interface
+name|JmsExchange
 extends|extends
-name|RuntimeException
+name|Exchange
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|2141493732308871761L
-decl_stmt|;
-DECL|method|RuntimeJmsException (String message, JMSException cause)
-specifier|public
-name|RuntimeJmsException
+comment|/**      * Creates the JMS message for this exchange so that it can be sent to      * a JMS endpoint.      */
+DECL|method|createMessage (Session session)
+name|Message
+name|createMessage
 parameter_list|(
-name|String
-name|message
-parameter_list|,
-name|JMSException
-name|cause
+name|Session
+name|session
 parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|,
-name|cause
-argument_list|)
-expr_stmt|;
+throws|throws
+name|JMSException
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

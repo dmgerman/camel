@@ -4,13 +4,15 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.jms
+DECL|package|org.apache.camel.component.jms
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|component
 operator|.
 name|jms
 package|;
@@ -31,10 +33,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|MessagePropertyAcessException
+DECL|class|MessagePropertyNamesAcessException
 specifier|public
 class|class
-name|MessagePropertyAcessException
+name|MessagePropertyNamesAcessException
 extends|extends
 name|RuntimeJmsException
 block|{
@@ -46,49 +48,23 @@ name|long
 name|serialVersionUID
 init|=
 operator|-
-literal|3996286386119163309L
+literal|6744171518099741324L
 decl_stmt|;
-DECL|field|propertyName
-specifier|private
-name|String
-name|propertyName
-decl_stmt|;
-DECL|method|MessagePropertyAcessException (String propertyName, JMSException e)
+DECL|method|MessagePropertyNamesAcessException (JMSException e)
 specifier|public
-name|MessagePropertyAcessException
+name|MessagePropertyNamesAcessException
 parameter_list|(
-name|String
-name|propertyName
-parameter_list|,
 name|JMSException
 name|e
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"Error accessing header: "
-operator|+
-name|propertyName
+literal|"Failed to acess the JMS message property names"
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|propertyName
-operator|=
-name|propertyName
-expr_stmt|;
-block|}
-DECL|method|getPropertyName ()
-specifier|public
-name|String
-name|getPropertyName
-parameter_list|()
-block|{
-return|return
-name|propertyName
-return|;
 block|}
 block|}
 end_class

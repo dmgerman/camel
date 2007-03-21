@@ -1,10 +1,10 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.jms
+DECL|package|org.apache.camel.component.queue
 package|package
 name|org
 operator|.
@@ -12,23 +12,33 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|jms
+name|component
+operator|.
+name|queue
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|axis
+name|concurrent
 operator|.
-name|transport
+name|BlockingQueue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|jms
+name|util
 operator|.
-name|JMSEndpoint
+name|concurrent
+operator|.
+name|Callable
 import|;
 end_import
 
@@ -64,6 +74,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|EndpointResolver
 import|;
 end_import
@@ -76,9 +98,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|queue
-operator|.
-name|QueueComponent
+name|Exchange
 import|;
 end_import
 
@@ -96,31 +116,24 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Callable
-import|;
-end_import
-
 begin_comment
-comment|/**  * An implementation of {@link EndpointResolver} that creates  * {@link JMSEndpoint} objects.  *  * The syntax for a JMS URI looks like:  *  *<pre><code>jms:[component:]destination</code></pre>  * the component is optional, and if it is not specified, the default component name  * is assumed.  *  * @version $Revision$  */
+comment|/**  * An implementation of {@link EndpointResolver} that creates   * {@link QueueEndpoint} objects.  *  * The syntax for a Queue URI looks like:  *   *<pre><code>queue:[component:]queuename</code></pre>  * the component is optional, and if it is not specified, the default component name  * is assumed.  *   * @version $Revision: 519901 $  */
 end_comment
 
 begin_class
-DECL|class|JmsEndpointResolver
+DECL|class|QueueEndpointResolver
 specifier|public
 class|class
-name|JmsEndpointResolver
+name|QueueEndpointResolver
+parameter_list|<
+name|E
+extends|extends
+name|Exchange
+parameter_list|>
 implements|implements
 name|EndpointResolver
 argument_list|<
-name|JmsExchange
+name|E
 argument_list|>
 block|{
 DECL|field|DEFAULT_COMPONENT_NAME
@@ -137,7 +150,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/** 	 * Finds the {@see JmsComponent} specified by the uri.  If the {@see JmsComponent} 	 * object do not exist, it will be created. 	 */
+comment|/** 	 * Finds the {@see QueueComponent} specified by the uri.  If the {@see QueueComponent}  	 * object do not exist, it will be created. 	 *  	 * @see org.apache.camel.EndpointResolver#resolveComponent(org.apache.camel.CamelContext, java.lang.String) 	 */
 DECL|method|resolveComponent (CamelContext container, String uri)
 specifier|public
 name|Component
@@ -160,7 +173,7 @@ name|uri
 argument_list|)
 decl_stmt|;
 return|return
-name|resolveJmsComponent
+name|resolveQueueComponent
 argument_list|(
 name|container
 argument_list|,
@@ -171,10 +184,13 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Finds the {@see QueueEndpoint} specified by the uri.  If the {@see QueueEndpoint} or it's associated 	 * {@see QueueComponent} object do not exist, they will be created. 	 */
+comment|/** 	 * Finds the {@see QueueEndpoint} specified by the uri.  If the {@see QueueEndpoint} or it's associated 	 * {@see QueueComponent} object do not exist, they will be created. 	 *  	 * @see org.apache.camel.EndpointResolver#resolveEndpoint(org.apache.camel.CamelContext, java.lang.String) 	 */
 DECL|method|resolveEndpoint (CamelContext container, String uri)
 specifier|public
-name|JmsEndpoint
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
 name|resolveEndpoint
 parameter_list|(
 name|CamelContext
@@ -193,10 +209,13 @@ argument_list|(
 name|uri
 argument_list|)
 decl_stmt|;
-name|JmsComponent
+name|QueueComponent
+argument_list|<
+name|E
+argument_list|>
 name|component
 init|=
-name|resolveJmsComponent
+name|resolveQueueComponent
 argument_list|(
 name|container
 argument_list|,
@@ -206,17 +225,34 @@ literal|0
 index|]
 argument_list|)
 decl_stmt|;
-return|return
+name|BlockingQueue
+argument_list|<
+name|E
+argument_list|>
+name|queue
+init|=
 name|component
 operator|.
-name|createEndpoint
+name|getOrCreateQueue
 argument_list|(
-name|uri
-argument_list|,
 name|id
 index|[
 literal|1
 index|]
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|QueueEndpoint
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|uri
+argument_list|,
+name|container
+argument_list|,
+name|queue
 argument_list|)
 return|;
 block|}
@@ -291,7 +327,7 @@ else|else
 block|{
 name|rc
 index|[
-literal|1
+literal|0
 index|]
 operator|=
 name|splitURI
@@ -309,16 +345,17 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|resolveJmsComponent (final CamelContext container, final String componentName)
+DECL|method|resolveQueueComponent (CamelContext container, String componentName)
 specifier|private
-name|JmsComponent
-name|resolveJmsComponent
+name|QueueComponent
+argument_list|<
+name|E
+argument_list|>
+name|resolveQueueComponent
 parameter_list|(
-specifier|final
 name|CamelContext
 name|container
 parameter_list|,
-specifier|final
 name|String
 name|componentName
 parameter_list|)
@@ -335,12 +372,18 @@ argument_list|,
 operator|new
 name|Callable
 argument_list|<
-name|JmsComponent
+name|Component
+argument_list|<
+name|E
+argument_list|>
 argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|JmsComponent
+name|Component
+argument_list|<
+name|E
+argument_list|>
 name|call
 parameter_list|()
 throws|throws
@@ -348,10 +391,11 @@ name|Exception
 block|{
 return|return
 operator|new
-name|JmsComponent
-argument_list|(
-name|container
-argument_list|)
+name|QueueComponent
+argument_list|<
+name|E
+argument_list|>
+argument_list|()
 return|;
 block|}
 block|}
@@ -359,7 +403,10 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|(
-name|JmsComponent
+name|QueueComponent
+argument_list|<
+name|E
+argument_list|>
 operator|)
 name|rc
 return|;

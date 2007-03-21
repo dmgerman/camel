@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.jms
+DECL|package|org.apache.camel.component.jms
 package|package
 name|org
 operator|.
@@ -12,32 +12,62 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
 name|jms
 package|;
 end_package
 
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|JMSException
+import|;
+end_import
+
 begin_comment
-comment|/**  * Some helper builder methods for the easy configuration of the {@link org.apache.camel.CamelContext} via Java code.  *  * @version $Revision: $  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|Builder
+DECL|class|RuntimeJmsException
 specifier|public
 class|class
-name|Builder
+name|RuntimeJmsException
+extends|extends
+name|RuntimeException
 block|{
-DECL|method|jmsComponent ()
-specifier|public
+DECL|field|serialVersionUID
+specifier|private
 specifier|static
-name|JmsComponent
-name|jmsComponent
-parameter_list|()
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|2141493732308871761L
+decl_stmt|;
+DECL|method|RuntimeJmsException (String message, JMSException cause)
+specifier|public
+name|RuntimeJmsException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|JMSException
+name|cause
+parameter_list|)
 block|{
-return|return
-operator|new
-name|JmsComponent
-argument_list|()
-return|;
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
