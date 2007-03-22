@@ -399,7 +399,7 @@ block|}
 comment|/**      * Sends the exchange to a list of endpoints using the {@link MulticastProcessor} pattern      */
 annotation|@
 name|Fluent
-DECL|method|to (@luentArgR) String... uris)
+DECL|method|to ( @luentArgvalue=R, attribute=false, element=true) String... uris)
 specifier|public
 name|ProcessorFactory
 argument_list|<
@@ -410,7 +410,17 @@ parameter_list|(
 annotation|@
 name|FluentArg
 argument_list|(
-literal|"uris"
+name|value
+operator|=
+literal|"uri"
+argument_list|,
+name|attribute
+operator|=
+literal|false
+argument_list|,
+name|element
+operator|=
+literal|true
 argument_list|)
 name|String
 modifier|...
@@ -430,7 +440,7 @@ block|}
 comment|/**      * Sends the exchange to a list of endpoints using the {@link MulticastProcessor} pattern      */
 annotation|@
 name|Fluent
-DECL|method|to (@luentArgR) Endpoint<E>.... endpoints)
+DECL|method|to ( @luentArgvalue=R, attribute=false, element=true) Endpoint<E>.... endpoints)
 specifier|public
 name|ProcessorFactory
 argument_list|<
@@ -441,7 +451,17 @@ parameter_list|(
 annotation|@
 name|FluentArg
 argument_list|(
-literal|"endpoints"
+name|value
+operator|=
+literal|"endpoint"
+argument_list|,
+name|attribute
+operator|=
+literal|false
+argument_list|,
+name|element
+operator|=
+literal|true
 argument_list|)
 name|Endpoint
 argument_list|<
@@ -715,6 +735,11 @@ block|}
 comment|/**      * Creates a choice of one or more predicates with an otherwise clause      *      * @return the builder for a choice expression      */
 annotation|@
 name|Fluent
+argument_list|(
+name|nestedActions
+operator|=
+literal|true
+argument_list|)
 DECL|method|choice ()
 specifier|public
 name|ChoiceBuilder

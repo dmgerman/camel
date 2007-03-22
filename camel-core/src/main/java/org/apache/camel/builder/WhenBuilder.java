@@ -114,7 +114,9 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|to (Endpoint<E> endpoint)
+annotation|@
+name|Fluent
+DECL|method|to (@luentArgR) Endpoint<E> endpoint)
 specifier|public
 name|ChoiceBuilder
 argument_list|<
@@ -122,6 +124,11 @@ name|E
 argument_list|>
 name|to
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"endpoint"
+argument_list|)
 name|Endpoint
 argument_list|<
 name|E
@@ -142,7 +149,9 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|to (String uri)
+annotation|@
+name|Fluent
+DECL|method|to (@luentArgR) String uri)
 specifier|public
 name|ChoiceBuilder
 argument_list|<
@@ -150,6 +159,11 @@ name|E
 argument_list|>
 name|to
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"uri"
+argument_list|)
 name|String
 name|uri
 parameter_list|)

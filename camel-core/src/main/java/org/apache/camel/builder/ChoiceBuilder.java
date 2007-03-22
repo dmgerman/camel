@@ -182,7 +182,14 @@ name|parent
 expr_stmt|;
 block|}
 comment|/**      * Adds a predicate which if it is true then the message exchange is sent to the given destination      *      * @return a builder for creating a when predicate clause and action      */
-DECL|method|when (Predicate<E> predicate)
+annotation|@
+name|Fluent
+argument_list|(
+name|nestedActions
+operator|=
+literal|true
+argument_list|)
+DECL|method|when ( @luentArgvalue=R,element=true) Predicate<E> predicate)
 specifier|public
 name|WhenBuilder
 argument_list|<
@@ -190,6 +197,17 @@ name|E
 argument_list|>
 name|when
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+name|value
+operator|=
+literal|"predicate"
+argument_list|,
+name|element
+operator|=
+literal|true
+argument_list|)
 name|Predicate
 argument_list|<
 name|E
@@ -225,6 +243,13 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Fluent
+argument_list|(
+name|nestedActions
+operator|=
+literal|true
+argument_list|)
 DECL|method|otherwise ()
 specifier|public
 name|FromBuilder
