@@ -106,6 +106,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
 begin_comment
 comment|/**  * An implementation of {@link EndpointResolver} that creates  * {@link MinaEndpoint} objects.  *  * The syntax for a MINA URI looks like:  *  *<pre><code>mina:</code></pre>  *  * @version $Revision:520964 $  */
 end_comment
@@ -183,6 +193,8 @@ name|uri
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|URISyntaxException
 block|{
 name|String
 index|[]

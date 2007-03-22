@@ -126,6 +126,8 @@ specifier|protected
 name|void
 name|doActivate
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|super
 operator|.

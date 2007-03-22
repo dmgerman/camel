@@ -75,7 +75,7 @@ argument_list|>
 name|processor
 parameter_list|)
 throws|throws
-name|IllegalStateException
+name|Exception
 function_decl|;
 comment|/**      * Called by the container when the endpoint is deactivated      */
 DECL|method|deactivate ()

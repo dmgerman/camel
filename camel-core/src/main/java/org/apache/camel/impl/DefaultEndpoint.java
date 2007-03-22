@@ -92,6 +92,16 @@ name|AtomicBoolean
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A default endpoint useful for implementation inheritence  *   * @version $Revision$  */
 end_comment
@@ -337,6 +347,8 @@ name|E
 argument_list|>
 name|inboundProcessor
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -476,6 +488,8 @@ specifier|protected
 name|void
 name|doActivate
 parameter_list|()
+throws|throws
+name|Exception
 block|{     }
 comment|/**      * Called at most once by the container to deactivate the endpoint      */
 DECL|method|doDeactivate ()

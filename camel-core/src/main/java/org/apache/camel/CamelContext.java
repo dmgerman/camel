@@ -128,6 +128,8 @@ specifier|public
 name|void
 name|activateEndpoints
 parameter_list|()
+throws|throws
+name|Exception
 function_decl|;
 comment|/**      * Deactivates all the starting endpoints in that were added as routes.      */
 DECL|method|deactivateEndpoints ()
