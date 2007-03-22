@@ -207,7 +207,14 @@ argument_list|>
 name|createHeaders
 parameter_list|()
 block|{
-return|return
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|map
+init|=
 operator|new
 name|HashMap
 argument_list|<
@@ -216,8 +223,31 @@ argument_list|,
 name|Object
 argument_list|>
 argument_list|()
+decl_stmt|;
+name|populateInitialHeaders
+argument_list|(
+name|map
+argument_list|)
+expr_stmt|;
+return|return
+name|map
 return|;
 block|}
+comment|/**      * A strategy method populate the initial set of headers on an inbound message from an underlying binding      *      * @param map is the empty header map to populate      */
+DECL|method|populateInitialHeaders (Map<String, Object> map)
+specifier|protected
+name|void
+name|populateInitialHeaders
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|map
+parameter_list|)
+block|{     }
 block|}
 end_class
 
