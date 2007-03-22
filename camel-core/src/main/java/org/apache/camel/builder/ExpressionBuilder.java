@@ -141,7 +141,7 @@ name|header
 operator|=
 name|exchange
 operator|.
-name|getHeader
+name|getProperty
 argument_list|(
 name|headerName
 argument_list|)

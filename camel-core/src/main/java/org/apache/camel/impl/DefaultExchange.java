@@ -255,10 +255,10 @@ return|return
 name|context
 return|;
 block|}
-DECL|method|getHeader (String name)
+DECL|method|getProperty (String name)
 specifier|public
 name|Object
-name|getHeader
+name|getProperty
 parameter_list|(
 name|String
 name|name
@@ -284,10 +284,10 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|setHeader (String name, Object value)
+DECL|method|setProperty (String name, Object value)
 specifier|public
 name|void
-name|setHeader
+name|setProperty
 parameter_list|(
 name|String
 name|name

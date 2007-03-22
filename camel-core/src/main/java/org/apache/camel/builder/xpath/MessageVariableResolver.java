@@ -208,7 +208,7 @@ name|answer
 operator|=
 name|exchange
 operator|.
-name|getHeader
+name|getProperty
 argument_list|(
 name|localPart
 argument_list|)

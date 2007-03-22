@@ -49,19 +49,19 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Accesses a specific header on this exchange      *      * @param name      * @return object header associated with the name      */
-DECL|method|getHeader (String name)
+comment|/**      * Returns a property associated with this exchange by name      *      * @param name the name of the property      * @return the value of the given header or null if there is no property for the given name      */
+DECL|method|getProperty (String name)
 name|Object
-name|getHeader
+name|getProperty
 parameter_list|(
 name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Sets a header on the exchange      *      * @param name  of the header      * @param value to associate with the name      */
-DECL|method|setHeader (String name, Object value)
+comment|/**      * Sets a property on the exchange      *      * @param name of the property      * @param value to associate with the name      */
+DECL|method|setProperty (String name, Object value)
 name|void
-name|setHeader
+name|setProperty
 parameter_list|(
 name|String
 name|name
@@ -70,7 +70,7 @@ name|Object
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Returns all of the headers associated with the exchange      *      * @return all the headers in a Map      */
+comment|/**      * Returns all of the properties associated with the exchange      *      * @return all the headers in a Map      */
 DECL|method|getHeaders ()
 name|Map
 argument_list|<
