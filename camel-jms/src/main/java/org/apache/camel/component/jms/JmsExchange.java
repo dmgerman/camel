@@ -224,13 +224,7 @@ annotation|@
 name|Override
 DECL|method|createInMessage ()
 specifier|protected
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
+name|JmsMessage
 name|createInMessage
 parameter_list|()
 block|{
@@ -244,13 +238,7 @@ annotation|@
 name|Override
 DECL|method|createOutMessage ()
 specifier|protected
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
+name|JmsMessage
 name|createOutMessage
 parameter_list|()
 block|{

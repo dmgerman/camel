@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jms
+DECL|package|org.apache.camel.component.jbi
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|jms
+name|jbi
 package|;
 end_package
 
@@ -34,19 +34,11 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|jms
+name|apache
 operator|.
-name|JMSException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
+name|camel
 operator|.
 name|Message
 import|;
@@ -54,11 +46,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|javax
 operator|.
-name|util
+name|jbi
 operator|.
-name|Enumeration
+name|messaging
+operator|.
+name|NormalizedMessage
 import|;
 end_import
 
@@ -68,7 +62,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Iterator
 import|;
 end_import
 
@@ -83,53 +77,53 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a {@link org.apache.camel.Message} for working with JMS  *  * @version $Revision:520964 $  */
+comment|/**  * A JBI {@link Message} which provides access to the underlying JBI features such as {@link #getNormalizedMessage()}  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|JmsMessage
+DECL|class|JbiMessage
 specifier|public
 class|class
-name|JmsMessage
+name|JbiMessage
 extends|extends
 name|DefaultMessage
 block|{
-DECL|field|jmsMessage
+DECL|field|normalizedMessage
 specifier|private
-name|Message
-name|jmsMessage
+name|NormalizedMessage
+name|normalizedMessage
 decl_stmt|;
-DECL|method|JmsMessage ()
+DECL|method|JbiMessage ()
 specifier|public
-name|JmsMessage
+name|JbiMessage
 parameter_list|()
 block|{     }
-DECL|method|JmsMessage (Message jmsMessage)
+DECL|method|JbiMessage (NormalizedMessage normalizedMessage)
 specifier|public
-name|JmsMessage
+name|JbiMessage
 parameter_list|(
-name|Message
-name|jmsMessage
+name|NormalizedMessage
+name|normalizedMessage
 parameter_list|)
 block|{
 name|this
 operator|.
-name|jmsMessage
+name|normalizedMessage
 operator|=
-name|jmsMessage
+name|normalizedMessage
 expr_stmt|;
 block|}
 annotation|@
 name|Override
 DECL|method|getExchange ()
 specifier|public
-name|JmsExchange
+name|JbiExchange
 name|getExchange
 parameter_list|()
 block|{
 return|return
 operator|(
-name|JmsExchange
+name|JbiExchange
 operator|)
 name|super
 operator|.
@@ -137,31 +131,31 @@ name|getExchange
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the underlying JMS message      *      * @return the underlying JMS message      */
-DECL|method|getJmsMessage ()
+comment|/**      * Returns the underlying JBI message      *      * @return the underlying JBI message      */
+DECL|method|getNormalizedMessage ()
 specifier|public
-name|Message
-name|getJmsMessage
+name|NormalizedMessage
+name|getNormalizedMessage
 parameter_list|()
 block|{
 return|return
-name|jmsMessage
+name|normalizedMessage
 return|;
 block|}
-DECL|method|setJmsMessage (Message jmsMessage)
+DECL|method|setNormalizedMessage (NormalizedMessage normalizedMessage)
 specifier|public
 name|void
-name|setJmsMessage
+name|setNormalizedMessage
 parameter_list|(
-name|Message
-name|jmsMessage
+name|NormalizedMessage
+name|normalizedMessage
 parameter_list|)
 block|{
 name|this
 operator|.
-name|jmsMessage
+name|normalizedMessage
 operator|=
-name|jmsMessage
+name|normalizedMessage
 expr_stmt|;
 block|}
 DECL|method|getHeader (String name)
@@ -180,39 +174,20 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|jmsMessage
+name|normalizedMessage
 operator|!=
 literal|null
 condition|)
 block|{
-try|try
-block|{
 name|answer
 operator|=
-name|jmsMessage
+name|normalizedMessage
 operator|.
-name|getObjectProperty
+name|getProperty
 argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|JMSException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|MessagePropertyAcessException
-argument_list|(
-name|name
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 if|if
 condition|(
@@ -239,13 +214,13 @@ annotation|@
 name|Override
 DECL|method|newInstance ()
 specifier|public
-name|JmsMessage
+name|JbiMessage
 name|newInstance
 parameter_list|()
 block|{
 return|return
 operator|new
-name|JmsMessage
+name|JbiMessage
 argument_list|()
 return|;
 block|}
@@ -259,7 +234,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|jmsMessage
+name|normalizedMessage
 operator|!=
 literal|null
 condition|)
@@ -271,12 +246,12 @@ operator|.
 name|getBinding
 argument_list|()
 operator|.
-name|extractBodyFromJms
+name|extractBodyFromJbi
 argument_list|(
 name|getExchange
 argument_list|()
 argument_list|,
-name|jmsMessage
+name|normalizedMessage
 argument_list|)
 return|;
 block|}
@@ -302,65 +277,47 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|jmsMessage
+name|normalizedMessage
 operator|!=
 literal|null
 condition|)
 block|{
-name|Enumeration
-name|names
-decl_stmt|;
-try|try
-block|{
-name|names
-operator|=
-name|jmsMessage
+name|Iterator
+name|iter
+init|=
+name|normalizedMessage
 operator|.
 name|getPropertyNames
 argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|JMSException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|MessagePropertyNamesAcessException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
 while|while
 condition|(
-name|names
+name|iter
 operator|.
-name|hasMoreElements
+name|hasNext
 argument_list|()
 condition|)
 block|{
 name|String
 name|name
 init|=
-name|names
+name|iter
 operator|.
-name|nextElement
+name|next
 argument_list|()
 operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-try|try
-block|{
 name|Object
 name|value
 init|=
-name|jmsMessage
+name|normalizedMessage
 operator|.
-name|getObjectProperty
+name|getProperty
 argument_list|(
 name|name
 argument_list|)
@@ -374,23 +331,6 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|JMSException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|MessagePropertyAcessException
-argument_list|(
-name|name
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 block|}
