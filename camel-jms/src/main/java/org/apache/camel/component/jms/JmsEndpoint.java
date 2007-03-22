@@ -386,10 +386,8 @@ init|=
 name|getBinding
 argument_list|()
 operator|.
-name|createJmsMessage
+name|makeJmsMessage
 argument_list|(
-name|exchange
-argument_list|,
 name|exchange
 operator|.
 name|getIn
