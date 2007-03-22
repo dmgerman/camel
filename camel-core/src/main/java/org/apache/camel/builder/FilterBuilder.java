@@ -123,7 +123,7 @@ operator|=
 name|predicate
 expr_stmt|;
 block|}
-comment|/**      * Adds another predicate using a logican AND      */
+comment|/**      * Adds another predicate using a logical AND      */
 DECL|method|and (Predicate<E> predicate)
 specifier|public
 name|FilterBuilder
@@ -158,7 +158,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds another predicate using a logican OR      */
+comment|/**      * Adds another predicate using a logical OR      */
 DECL|method|or (Predicate<E> predicate)
 specifier|public
 name|FilterBuilder

@@ -37,44 +37,49 @@ import|;
 end_import
 
 begin_class
-DECL|class|RouteBuilderStatement
+DECL|class|BuilderStatement
 specifier|public
 class|class
-name|RouteBuilderStatement
+name|BuilderStatement
 block|{
 DECL|field|actions
 specifier|private
 name|ArrayList
 argument_list|<
-name|RouteBuilderAction
+name|BuilderAction
 argument_list|>
 name|actions
 decl_stmt|;
-DECL|method|create (BeanFactory beanFactory, Object builder)
+DECL|field|returnType
+specifier|private
+name|Class
+name|returnType
+decl_stmt|;
+DECL|method|create (BeanFactory beanFactory, Object rootBuilder)
 specifier|public
-name|void
+name|Object
 name|create
 parameter_list|(
 name|BeanFactory
 name|beanFactory
 parameter_list|,
 name|Object
-name|builder
+name|rootBuilder
 parameter_list|)
 block|{
 name|Object
 name|currentBuilder
 init|=
-name|builder
+name|rootBuilder
 decl_stmt|;
-name|RouteBuilderAction
+name|BuilderAction
 name|lastAction
 init|=
 literal|null
 decl_stmt|;
 for|for
 control|(
-name|RouteBuilderAction
+name|BuilderAction
 name|action
 range|:
 name|actions
@@ -83,7 +88,7 @@ block|{
 comment|// The last action may have left us without a builder to invoke next!
 if|if
 condition|(
-name|builder
+name|currentBuilder
 operator|==
 literal|null
 condition|)
@@ -92,7 +97,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid route configuration.  The '"
+literal|"Invalid configuration.  The '"
 operator|+
 name|lastAction
 operator|.
@@ -118,6 +123,8 @@ name|invoke
 argument_list|(
 name|beanFactory
 argument_list|,
+name|rootBuilder
+argument_list|,
 name|currentBuilder
 argument_list|)
 expr_stmt|;
@@ -126,12 +133,15 @@ operator|=
 name|action
 expr_stmt|;
 block|}
+return|return
+name|currentBuilder
+return|;
 block|}
 DECL|method|getActions ()
 specifier|public
 name|ArrayList
 argument_list|<
-name|RouteBuilderAction
+name|BuilderAction
 argument_list|>
 name|getActions
 parameter_list|()
@@ -140,14 +150,14 @@ return|return
 name|actions
 return|;
 block|}
-DECL|method|setActions (ArrayList<RouteBuilderAction> actions)
+DECL|method|setActions (ArrayList<BuilderAction> actions)
 specifier|public
 name|void
 name|setActions
 parameter_list|(
 name|ArrayList
 argument_list|<
-name|RouteBuilderAction
+name|BuilderAction
 argument_list|>
 name|actions
 parameter_list|)
@@ -157,6 +167,32 @@ operator|.
 name|actions
 operator|=
 name|actions
+expr_stmt|;
+block|}
+DECL|method|getReturnType ()
+specifier|public
+name|Class
+name|getReturnType
+parameter_list|()
+block|{
+return|return
+name|returnType
+return|;
+block|}
+DECL|method|setReturnType (Class returnType)
+specifier|public
+name|void
+name|setReturnType
+parameter_list|(
+name|Class
+name|returnType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|returnType
+operator|=
+name|returnType
 expr_stmt|;
 block|}
 block|}

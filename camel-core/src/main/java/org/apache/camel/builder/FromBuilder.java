@@ -18,6 +18,36 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -131,36 +161,6 @@ operator|.
 name|processor
 operator|.
 name|RecipientList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -624,7 +624,7 @@ parameter_list|(
 annotation|@
 name|FluentArg
 argument_list|(
-literal|"processor"
+literal|"ref"
 argument_list|)
 name|Processor
 argument_list|<
@@ -660,7 +660,7 @@ block|}
 comment|/**      * Creates a predicate which is applied and only if it is true then      * the exchange is forwarded to the destination      *      * @return the builder for a predicate      */
 annotation|@
 name|Fluent
-DECL|method|filter (@luentArgR) Predicate<E> predicate)
+DECL|method|filter ( @luentArgvalue=R,element=true) Predicate<E> predicate)
 specifier|public
 name|FilterBuilder
 argument_list|<
@@ -671,7 +671,13 @@ parameter_list|(
 annotation|@
 name|FluentArg
 argument_list|(
+name|value
+operator|=
 literal|"predicate"
+argument_list|,
+name|element
+operator|=
+literal|true
 argument_list|)
 name|Predicate
 argument_list|<

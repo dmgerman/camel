@@ -42,11 +42,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|beans
+name|camel
 operator|.
-name|BeanWrapperImpl
+name|builder
+operator|.
+name|FluentArg
 import|;
 end_import
 
@@ -71,7 +73,17 @@ name|Class
 argument_list|>
 name|parameters
 decl_stmt|;
-DECL|method|MethodInfo (Method method, LinkedHashMap<String, Class> parameters)
+DECL|field|annotations
+specifier|final
+name|LinkedHashMap
+argument_list|<
+name|String
+argument_list|,
+name|FluentArg
+argument_list|>
+name|annotations
+decl_stmt|;
+DECL|method|MethodInfo (Method method, LinkedHashMap<String, Class> parameters, LinkedHashMap<String, FluentArg> annotations)
 specifier|public
 name|MethodInfo
 parameter_list|(
@@ -85,6 +97,14 @@ argument_list|,
 name|Class
 argument_list|>
 name|parameters
+parameter_list|,
+name|LinkedHashMap
+argument_list|<
+name|String
+argument_list|,
+name|FluentArg
+argument_list|>
+name|annotations
 parameter_list|)
 block|{
 name|this
@@ -98,6 +118,12 @@ operator|.
 name|parameters
 operator|=
 name|parameters
+expr_stmt|;
+name|this
+operator|.
+name|annotations
+operator|=
+name|annotations
 expr_stmt|;
 block|}
 DECL|method|getName ()

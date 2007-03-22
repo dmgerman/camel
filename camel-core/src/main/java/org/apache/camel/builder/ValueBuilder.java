@@ -93,7 +93,22 @@ operator|=
 name|expression
 expr_stmt|;
 block|}
-DECL|method|isNotEqualTo (Object value)
+DECL|method|getExpression ()
+specifier|public
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
+block|}
+annotation|@
+name|Fluent
+DECL|method|isNotEqualTo (@luentArgR) Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -101,6 +116,11 @@ name|E
 argument_list|>
 name|isNotEqualTo
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"value"
+argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -129,7 +149,9 @@ name|right
 argument_list|)
 return|;
 block|}
-DECL|method|isEqualTo (Object value)
+annotation|@
+name|Fluent
+DECL|method|isEqualTo (@luentArgR) Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -137,6 +159,11 @@ name|E
 argument_list|>
 name|isEqualTo
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"value"
+argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -165,7 +192,9 @@ name|right
 argument_list|)
 return|;
 block|}
-DECL|method|isLessThan (Object value)
+annotation|@
+name|Fluent
+DECL|method|isLessThan (@luentArgR) Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -173,6 +202,11 @@ name|E
 argument_list|>
 name|isLessThan
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"value"
+argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -201,7 +235,9 @@ name|right
 argument_list|)
 return|;
 block|}
-DECL|method|isLessThanOrEqualTo (Object value)
+annotation|@
+name|Fluent
+DECL|method|isLessThanOrEqualTo (@luentArgR) Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -209,6 +245,11 @@ name|E
 argument_list|>
 name|isLessThanOrEqualTo
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"value"
+argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -237,7 +278,9 @@ name|right
 argument_list|)
 return|;
 block|}
-DECL|method|isGreaterThan (Object value)
+annotation|@
+name|Fluent
+DECL|method|isGreaterThan (@luentArgR) Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -245,6 +288,11 @@ name|E
 argument_list|>
 name|isGreaterThan
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"value"
+argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -273,7 +321,9 @@ name|right
 argument_list|)
 return|;
 block|}
-DECL|method|isGreaterThanOrEqualTo (Object value)
+annotation|@
+name|Fluent
+DECL|method|isGreaterThanOrEqualTo (@luentArgR) Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -281,6 +331,11 @@ name|E
 argument_list|>
 name|isGreaterThanOrEqualTo
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"value"
+argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -309,7 +364,9 @@ name|right
 argument_list|)
 return|;
 block|}
-DECL|method|isInstanceOf (Class type)
+annotation|@
+name|Fluent
+DECL|method|isInstanceOf (@luentArgR) Class type)
 specifier|public
 name|Predicate
 argument_list|<
@@ -317,6 +374,11 @@ name|E
 argument_list|>
 name|isInstanceOf
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"class"
+argument_list|)
 name|Class
 name|type
 parameter_list|)
@@ -332,6 +394,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Fluent
 DECL|method|isNull ()
 specifier|public
 name|Predicate
@@ -350,6 +414,8 @@ name|expression
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Fluent
 DECL|method|isNotNull ()
 specifier|public
 name|Predicate
@@ -368,19 +434,8 @@ name|expression
 argument_list|)
 return|;
 block|}
-DECL|method|getExpression ()
-specifier|public
-name|Expression
-argument_list|<
-name|E
-argument_list|>
-name|getExpression
-parameter_list|()
-block|{
-return|return
-name|expression
-return|;
-block|}
+annotation|@
+name|Fluent
 DECL|method|tokenize ()
 specifier|public
 name|ValueBuilder
@@ -397,7 +452,9 @@ literal|"\n"
 argument_list|)
 return|;
 block|}
-DECL|method|tokenize (String token)
+annotation|@
+name|Fluent
+DECL|method|tokenize (@luentArgR) String token)
 specifier|public
 name|ValueBuilder
 argument_list|<
@@ -405,6 +462,11 @@ name|E
 argument_list|>
 name|tokenize
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"token"
+argument_list|)
 name|String
 name|token
 parameter_list|)

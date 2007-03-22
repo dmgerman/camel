@@ -104,7 +104,7 @@ DECL|field|routes
 specifier|private
 name|ArrayList
 argument_list|<
-name|RouteBuilderStatement
+name|BuilderStatement
 argument_list|>
 name|routes
 decl_stmt|;
@@ -128,7 +128,7 @@ DECL|field|routes
 specifier|private
 name|ArrayList
 argument_list|<
-name|RouteBuilderStatement
+name|BuilderStatement
 argument_list|>
 name|routes
 decl_stmt|;
@@ -147,7 +147,7 @@ parameter_list|()
 block|{
 for|for
 control|(
-name|RouteBuilderStatement
+name|BuilderStatement
 name|routeFactory
 range|:
 name|routes
@@ -168,7 +168,7 @@ DECL|method|getRoutes ()
 specifier|public
 name|ArrayList
 argument_list|<
-name|RouteBuilderStatement
+name|BuilderStatement
 argument_list|>
 name|getRoutes
 parameter_list|()
@@ -177,14 +177,14 @@ return|return
 name|routes
 return|;
 block|}
-DECL|method|setRoutes (ArrayList<RouteBuilderStatement> routes)
+DECL|method|setRoutes (ArrayList<BuilderStatement> routes)
 specifier|public
 name|void
 name|setRoutes
 parameter_list|(
 name|ArrayList
 argument_list|<
-name|RouteBuilderStatement
+name|BuilderStatement
 argument_list|>
 name|routes
 parameter_list|)
@@ -288,7 +288,7 @@ DECL|method|getRoutes ()
 specifier|public
 name|ArrayList
 argument_list|<
-name|RouteBuilderStatement
+name|BuilderStatement
 argument_list|>
 name|getRoutes
 parameter_list|()
@@ -297,14 +297,14 @@ return|return
 name|routes
 return|;
 block|}
-DECL|method|setRoutes (ArrayList<RouteBuilderStatement> routes)
+DECL|method|setRoutes (ArrayList<BuilderStatement> routes)
 specifier|public
 name|void
 name|setRoutes
 parameter_list|(
 name|ArrayList
 argument_list|<
-name|RouteBuilderStatement
+name|BuilderStatement
 argument_list|>
 name|routes
 parameter_list|)

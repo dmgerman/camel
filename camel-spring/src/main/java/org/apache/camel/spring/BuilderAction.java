@@ -87,10 +87,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|RouteBuilderAction
+DECL|class|BuilderAction
 specifier|public
 class|class
-name|RouteBuilderAction
+name|BuilderAction
 block|{
 DECL|field|methodInfo
 specifier|private
@@ -109,9 +109,9 @@ name|Object
 argument_list|>
 name|parameterValues
 decl_stmt|;
-DECL|method|RouteBuilderAction (MethodInfo methodInfo, HashMap<String, Object> parameterValues)
+DECL|method|BuilderAction (MethodInfo methodInfo, HashMap<String, Object> parameterValues)
 specifier|public
-name|RouteBuilderAction
+name|BuilderAction
 parameter_list|(
 name|MethodInfo
 name|methodInfo
@@ -138,7 +138,7 @@ operator|=
 name|parameterValues
 expr_stmt|;
 block|}
-DECL|method|invoke (BeanFactory beanFactory, Object builder)
+DECL|method|invoke (BeanFactory beanFactory, Object rootBuilder, Object contextBuilder)
 specifier|public
 name|Object
 name|invoke
@@ -147,7 +147,10 @@ name|BeanFactory
 name|beanFactory
 parameter_list|,
 name|Object
-name|builder
+name|rootBuilder
+parameter_list|,
+name|Object
+name|contextBuilder
 parameter_list|)
 block|{
 name|SimpleTypeConverter
@@ -260,6 +263,38 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|==
+name|BuilderStatement
+operator|.
+name|class
+condition|)
+block|{
+name|BuilderStatement
+name|bs
+init|=
+operator|(
+name|BuilderStatement
+operator|)
+name|value
+decl_stmt|;
+name|value
+operator|=
+name|bs
+operator|.
+name|create
+argument_list|(
+name|beanFactory
+argument_list|,
+name|rootBuilder
+argument_list|)
+expr_stmt|;
+block|}
 name|args
 index|[
 name|pos
@@ -285,7 +320,7 @@ name|method
 operator|.
 name|invoke
 argument_list|(
-name|builder
+name|contextBuilder
 argument_list|,
 name|args
 argument_list|)
