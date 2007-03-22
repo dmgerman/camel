@@ -831,7 +831,7 @@ block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/splitter.html">Splitter</a> pattern      * where an expression is evaluated to iterate through each of the parts of a message and then each part is then send to some endpoint.      *      * @param receipients the builder for the value used as the expression on which to split      * @return the builder      */
 annotation|@
 name|Fluent
-DECL|method|splitter (@luentArgR) ValueBuilder<E> receipients)
+DECL|method|splitter (@luentArgvalue=R, element=true) ValueBuilder<E> receipients)
 specifier|public
 name|SplitterBuilder
 argument_list|<
@@ -842,7 +842,13 @@ parameter_list|(
 annotation|@
 name|FluentArg
 argument_list|(
-literal|"receipients"
+name|value
+operator|=
+literal|"recipients"
+argument_list|,
+name|element
+operator|=
+literal|true
 argument_list|)
 name|ValueBuilder
 argument_list|<
