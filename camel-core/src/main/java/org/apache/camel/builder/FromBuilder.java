@@ -906,6 +906,11 @@ return|;
 block|}
 annotation|@
 name|Fluent
+argument_list|(
+name|nestedActions
+operator|=
+literal|true
+argument_list|)
 DECL|method|intercept ()
 specifier|public
 name|InterceptorBuilder

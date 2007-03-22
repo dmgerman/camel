@@ -163,7 +163,12 @@ operator|=
 name|parent
 expr_stmt|;
 block|}
-DECL|method|add (InterceptorProcessor<E> intercept)
+annotation|@
+name|Fluent
+argument_list|(
+literal|"interceptor"
+argument_list|)
+DECL|method|add (@luentArgR) InterceptorProcessor<E> interceptor)
 specifier|public
 name|InterceptorBuilder
 argument_list|<
@@ -171,24 +176,36 @@ name|E
 argument_list|>
 name|add
 parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"ref"
+argument_list|)
 name|InterceptorProcessor
 argument_list|<
 name|E
 argument_list|>
-name|intercept
+name|interceptor
 parameter_list|)
 block|{
 name|intercepts
 operator|.
 name|add
 argument_list|(
-name|intercept
+name|interceptor
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Fluent
+argument_list|(
+name|callOnElementEnd
+operator|=
+literal|true
+argument_list|)
 DECL|method|target ()
 specifier|public
 name|FromBuilder

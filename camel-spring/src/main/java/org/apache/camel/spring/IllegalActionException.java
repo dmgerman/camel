@@ -13,10 +13,10 @@ package|;
 end_package
 
 begin_class
-DECL|class|IllegalRouteException
+DECL|class|IllegalActionException
 specifier|public
 class|class
-name|IllegalRouteException
+name|IllegalActionException
 extends|extends
 name|IllegalArgumentException
 block|{
@@ -42,9 +42,9 @@ specifier|final
 name|String
 name|previousAction
 decl_stmt|;
-DECL|method|IllegalRouteException (String actionName, String previousAction)
+DECL|method|IllegalActionException (String actionName, String previousAction)
 specifier|public
-name|IllegalRouteException
+name|IllegalActionException
 parameter_list|(
 name|String
 name|actionName

@@ -381,6 +381,16 @@ name|getName
 argument_list|()
 return|;
 block|}
+DECL|method|getMethodInfo ()
+specifier|public
+name|MethodInfo
+name|getMethodInfo
+parameter_list|()
+block|{
+return|return
+name|methodInfo
+return|;
+block|}
 block|}
 end_class
 

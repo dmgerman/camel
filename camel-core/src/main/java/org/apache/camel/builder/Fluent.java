@@ -87,7 +87,34 @@ DECL|annotation|Fluent
 specifier|public
 annotation_defn|@interface
 name|Fluent
-block|{ }
+block|{
+comment|/** 	 * Used to change the default element name of the action. 	 * @return 	 */
+DECL|method|value ()
+name|String
+name|value
+parameter_list|()
+default|default
+literal|""
+function_decl|;
+comment|/**  	 * Should nested elements be evaluated against the current builder. 	 * @return 	 */
+DECL|method|nestedActions ()
+DECL|field|false
+name|boolean
+name|nestedActions
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+comment|/**  	 * Should this method be called at the end of the evaluating the  	 * element. 	 * @return 	 */
+DECL|method|callOnElementEnd ()
+DECL|field|false
+name|boolean
+name|callOnElementEnd
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+block|}
 end_annotation_defn
 
 end_unit
