@@ -69,6 +69,19 @@ name|Object
 name|getBody
 parameter_list|()
 block|{
+if|if
+condition|(
+name|body
+operator|==
+literal|null
+condition|)
+block|{
+name|body
+operator|=
+name|createBody
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|body
 return|;
@@ -287,6 +300,17 @@ name|Message
 name|newInstance
 parameter_list|()
 function_decl|;
+comment|/**      * A factory method to allow a provider to lazily create the message body for inbound messages from other sources      *      * @return the value of the message body or null if there is no value available      */
+DECL|method|createBody ()
+specifier|protected
+name|Object
+name|createBody
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 
