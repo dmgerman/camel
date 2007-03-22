@@ -199,6 +199,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|binding
+specifier|private
+name|JmsBinding
+name|binding
+decl_stmt|;
 DECL|field|template
 specifier|private
 name|JmsOperations
@@ -317,10 +322,10 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|send (Exchange exchange)
+DECL|method|onExchange (Exchange exchange)
 specifier|public
 name|void
-name|send
+name|onExchange
 parameter_list|(
 name|Exchange
 name|exchange
@@ -378,10 +383,18 @@ block|{
 name|Message
 name|message
 init|=
+name|getBinding
+argument_list|()
+operator|.
+name|createJmsMessage
+argument_list|(
+name|exchange
+argument_list|,
 name|exchange
 operator|.
-name|createMessage
-argument_list|(
+name|getIn
+argument_list|()
+argument_list|,
 name|session
 argument_list|)
 decl_stmt|;
@@ -415,16 +428,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getTemplate ()
-specifier|public
-name|JmsOperations
-name|getTemplate
-parameter_list|()
-block|{
-return|return
-name|template
-return|;
-block|}
 DECL|method|createExchange ()
 specifier|public
 name|JmsExchange
@@ -436,6 +439,9 @@ operator|new
 name|JmsExchange
 argument_list|(
 name|getContext
+argument_list|()
+argument_list|,
+name|getBinding
 argument_list|()
 argument_list|)
 return|;
@@ -456,10 +462,68 @@ argument_list|(
 name|getContext
 argument_list|()
 argument_list|,
+name|getBinding
+argument_list|()
+argument_list|,
 name|message
 argument_list|)
 return|;
 block|}
+comment|// Properties
+comment|//-------------------------------------------------------------------------
+DECL|method|getBinding ()
+specifier|public
+name|JmsBinding
+name|getBinding
+parameter_list|()
+block|{
+if|if
+condition|(
+name|binding
+operator|==
+literal|null
+condition|)
+block|{
+name|binding
+operator|=
+operator|new
+name|JmsBinding
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|binding
+return|;
+block|}
+comment|/**      * Sets the binding used to convert from a Camel message to and from a JMS message      *      * @param binding the binding to use      */
+DECL|method|setBinding (JmsBinding binding)
+specifier|public
+name|void
+name|setBinding
+parameter_list|(
+name|JmsBinding
+name|binding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|binding
+operator|=
+name|binding
+expr_stmt|;
+block|}
+DECL|method|getTemplate ()
+specifier|public
+name|JmsOperations
+name|getTemplate
+parameter_list|()
+block|{
+return|return
+name|template
+return|;
+block|}
+comment|// Implementation methods
+comment|//-------------------------------------------------------------------------
 DECL|method|doActivate ()
 specifier|protected
 name|void
