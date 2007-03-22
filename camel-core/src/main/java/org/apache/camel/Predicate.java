@@ -27,10 +27,10 @@ parameter_list|<
 name|E
 parameter_list|>
 block|{
-comment|/**      * Evaluates the predicate on the message exchange      *      * @param exchange the message exchange      * @return true if the predicate matches      */
-DECL|method|evaluate (E exchange)
+comment|/**      * Evaluates the predicate on the message exchange and returns true      * if this exchange matches the predicate      *      * @param exchange the message exchange      * @return true if the predicate matches      */
+DECL|method|matches (E exchange)
 name|boolean
-name|evaluate
+name|matches
 parameter_list|(
 name|E
 name|exchange

@@ -117,7 +117,7 @@ if|if
 condition|(
 name|predicate
 operator|.
-name|evaluate
+name|matches
 argument_list|(
 name|exchange
 argument_list|)

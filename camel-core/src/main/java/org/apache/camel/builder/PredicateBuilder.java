@@ -146,7 +146,7 @@ argument_list|()
 block|{
 specifier|public
 name|boolean
-name|evaluate
+name|matches
 parameter_list|(
 name|E
 name|exchange
@@ -155,14 +155,14 @@ block|{
 return|return
 name|left
 operator|.
-name|evaluate
+name|matches
 argument_list|(
 name|exchange
 argument_list|)
 operator|&&
 name|right
 operator|.
-name|evaluate
+name|matches
 argument_list|(
 name|exchange
 argument_list|)
@@ -244,7 +244,7 @@ argument_list|()
 block|{
 specifier|public
 name|boolean
-name|evaluate
+name|matches
 parameter_list|(
 name|E
 name|exchange
@@ -253,14 +253,14 @@ block|{
 return|return
 name|left
 operator|.
-name|evaluate
+name|matches
 argument_list|(
 name|exchange
 argument_list|)
 operator|||
 name|right
 operator|.
-name|evaluate
+name|matches
 argument_list|(
 name|exchange
 argument_list|)
@@ -341,7 +341,7 @@ argument_list|()
 block|{
 specifier|public
 name|boolean
-name|evaluate
+name|matches
 parameter_list|(
 name|E
 name|exchange
@@ -449,7 +449,7 @@ argument_list|()
 block|{
 specifier|public
 name|boolean
-name|evaluate
+name|matches
 parameter_list|(
 name|E
 name|exchange
@@ -558,7 +558,7 @@ argument_list|()
 block|{
 specifier|public
 name|boolean
-name|evaluate
+name|matches
 parameter_list|(
 name|E
 name|exchange
@@ -668,7 +668,7 @@ argument_list|()
 block|{
 specifier|public
 name|boolean
-name|evaluate
+name|matches
 parameter_list|(
 name|E
 name|exchange
@@ -778,7 +778,7 @@ argument_list|()
 block|{
 specifier|public
 name|boolean
-name|evaluate
+name|matches
 parameter_list|(
 name|E
 name|exchange
@@ -888,7 +888,7 @@ argument_list|()
 block|{
 specifier|public
 name|boolean
-name|evaluate
+name|matches
 parameter_list|(
 name|E
 name|exchange
@@ -995,7 +995,7 @@ argument_list|()
 block|{
 specifier|public
 name|boolean
-name|evaluate
+name|matches
 parameter_list|(
 name|E
 name|exchange
@@ -1080,7 +1080,7 @@ argument_list|()
 block|{
 specifier|public
 name|boolean
-name|evaluate
+name|matches
 parameter_list|(
 name|E
 name|exchange
@@ -1157,7 +1157,7 @@ argument_list|()
 block|{
 specifier|public
 name|boolean
-name|evaluate
+name|matches
 parameter_list|(
 name|E
 name|exchange
@@ -1248,7 +1248,7 @@ argument_list|()
 block|{
 specifier|public
 name|boolean
-name|evaluate
+name|matches
 parameter_list|(
 name|E
 name|exchange
