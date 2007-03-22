@@ -167,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -433,7 +433,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|DefaultJmsExchange
+name|JmsExchange
 argument_list|(
 name|getContext
 argument_list|()
@@ -451,7 +451,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|DefaultJmsExchange
+name|JmsExchange
 argument_list|(
 name|getContext
 argument_list|()
