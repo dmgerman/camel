@@ -776,7 +776,7 @@ block|}
 comment|/**      * Creates a dynamic<a href="http://activemq.apache.org/camel/recipient-list.html">Recipient List</a> pattern.      *      * @param receipients is the builder of the expression used in the {@link RecipientList} to decide the destinations      */
 annotation|@
 name|Fluent
-DECL|method|recipientList (@luentArgR) ValueBuilder<E> receipients)
+DECL|method|recipientList ( @luentArgvalue=R,element=true) ValueBuilder<E> receipients)
 specifier|public
 name|RecipientListBuilder
 argument_list|<
@@ -787,7 +787,13 @@ parameter_list|(
 annotation|@
 name|FluentArg
 argument_list|(
-literal|"receipients"
+name|value
+operator|=
+literal|"recipients"
+argument_list|,
+name|element
+operator|=
+literal|true
 argument_list|)
 name|ValueBuilder
 argument_list|<
