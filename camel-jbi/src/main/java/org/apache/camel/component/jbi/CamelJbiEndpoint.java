@@ -102,12 +102,20 @@ specifier|private
 name|JbiEndpoint
 name|jbiEndpoint
 decl_stmt|;
-DECL|method|CamelJbiEndpoint (JbiEndpoint jbiEndpoint)
+DECL|field|binding
+specifier|private
+name|JbiBinding
+name|binding
+decl_stmt|;
+DECL|method|CamelJbiEndpoint (JbiEndpoint jbiEndpoint, JbiBinding binding)
 specifier|public
 name|CamelJbiEndpoint
 parameter_list|(
 name|JbiEndpoint
 name|jbiEndpoint
+parameter_list|,
+name|JbiBinding
+name|binding
 parameter_list|)
 block|{
 name|this
@@ -115,6 +123,12 @@ operator|.
 name|jbiEndpoint
 operator|=
 name|jbiEndpoint
+expr_stmt|;
+name|this
+operator|.
+name|binding
+operator|=
+name|binding
 expr_stmt|;
 name|this
 operator|.
@@ -146,7 +160,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|/*          * ToDo          */
+name|jbiEndpoint
+operator|.
+name|onExchange
+argument_list|(
+operator|new
+name|JbiExchange
+argument_list|(
+name|jbiEndpoint
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|binding
+argument_list|,
+name|exchange
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|processInOut (MessageExchange exchange,NormalizedMessage in,NormalizedMessage out)
 specifier|protected

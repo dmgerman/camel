@@ -60,6 +60,11 @@ name|CamelJbiEndpoint
 index|[]
 name|endpoints
 decl_stmt|;
+DECL|field|binding
+specifier|private
+name|JbiBinding
+name|binding
+decl_stmt|;
 comment|/**      * @return the endpoints      */
 DECL|method|getEndpoints ()
 specifier|public
@@ -129,6 +134,36 @@ operator|.
 name|class
 block|}
 return|;
+block|}
+comment|/**      * @return the binding      */
+DECL|method|getBinding ()
+specifier|public
+name|JbiBinding
+name|getBinding
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|binding
+return|;
+block|}
+comment|/**      * @param binding the binding to set      */
+DECL|method|setBinding (JbiBinding binding)
+specifier|public
+name|void
+name|setBinding
+parameter_list|(
+name|JbiBinding
+name|binding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|binding
+operator|=
+name|binding
+expr_stmt|;
 block|}
 block|}
 end_class
