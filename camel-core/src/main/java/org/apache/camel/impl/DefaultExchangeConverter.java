@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangeConverter
+name|Exchange
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|ExchangeConverter
 import|;
 end_import
 

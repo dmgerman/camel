@@ -20,30 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
 name|junit
 operator|.
 name|framework
@@ -84,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Exchange
 import|;
 end_import
 
@@ -96,7 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|Processor
 import|;
 end_import
 
@@ -125,6 +101,30 @@ operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
 import|;
 end_import
 
@@ -271,9 +271,6 @@ decl_stmt|;
 name|exchange
 operator|.
 name|getIn
-argument_list|()
-operator|.
-name|getHeaders
 argument_list|()
 operator|.
 name|setHeader

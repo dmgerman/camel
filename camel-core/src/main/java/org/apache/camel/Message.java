@@ -14,6 +14,16 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * Implements the<a href="http://activemq.apache.org/camel/message.html">Message</a>  * pattern and represents an inbound or outbound message as part of an {@link Exchange}  *   * @version $Revision$  */
 end_comment
@@ -24,10 +34,35 @@ specifier|public
 interface|interface
 name|Message
 block|{
-comment|/**      * Access the headers on the message      */
+comment|/**      * Accesses a specific header      *      * @param name      * @return object header associated with the name      */
+DECL|method|getHeader (String name)
+name|Object
+name|getHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Sets a header on the message      *      * @param name  of the header      * @param value to associate with the name      */
+DECL|method|setHeader (String name, Object value)
+name|void
+name|setHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+function_decl|;
+comment|/**      * Returns all of the headers associated with the message      *      * @return all the headers in a Map      */
 DECL|method|getHeaders ()
-specifier|public
-name|Headers
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|getHeaders
 parameter_list|()
 function_decl|;
@@ -85,7 +120,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Creates a copy of this message so that it can be used and possibly modified further in another exchange      *       * @return a new message instance copied from this message      */
 DECL|method|copy ()
-specifier|public
 name|Message
 name|copy
 parameter_list|()

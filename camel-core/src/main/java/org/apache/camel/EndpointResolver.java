@@ -14,16 +14,6 @@ name|camel
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
 comment|/**  * A resolver of endpoints from a String URI  *  * @version $Revision$  */
 end_comment

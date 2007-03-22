@@ -289,7 +289,7 @@ name|void
 name|onExchange
 parameter_list|(
 name|JmsExchange
-name|exchange
+name|e
 parameter_list|)
 block|{
 name|System
@@ -300,7 +300,7 @@ name|println
 argument_list|(
 literal|"Received exchange: "
 operator|+
-name|exchange
+name|e
 operator|.
 name|getIn
 argument_list|()
@@ -339,7 +339,7 @@ literal|"jms:activemq:test.a"
 argument_list|)
 decl_stmt|;
 name|JmsExchange
-name|exchange2
+name|exchange
 init|=
 name|endpoint
 operator|.
@@ -347,12 +347,9 @@ name|createExchange
 argument_list|()
 decl_stmt|;
 comment|//exchange2.setInBody("Hello there!")
-name|exchange2
+name|exchange
 operator|.
 name|getIn
-argument_list|()
-operator|.
-name|getHeaders
 argument_list|()
 operator|.
 name|setHeader
@@ -366,7 +363,7 @@ name|endpoint
 operator|.
 name|onExchange
 argument_list|(
-name|exchange2
+name|exchange
 argument_list|)
 expr_stmt|;
 comment|// now lets sleep for a while

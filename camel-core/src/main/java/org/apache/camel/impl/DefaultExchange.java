@@ -48,19 +48,27 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Headers
+name|Message
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|Message
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -84,7 +92,12 @@ name|context
 decl_stmt|;
 DECL|field|headers
 specifier|private
-name|Headers
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|headers
 decl_stmt|;
 DECL|field|in
@@ -161,13 +174,19 @@ parameter_list|)
 block|{
 name|setHeaders
 argument_list|(
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
 name|exchange
 operator|.
 name|getHeaders
 argument_list|()
-operator|.
-name|copy
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|setIn
@@ -236,9 +255,66 @@ return|return
 name|context
 return|;
 block|}
+DECL|method|getHeader (String name)
+specifier|public
+name|Object
+name|getHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+if|if
+condition|(
+name|headers
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|headers
+operator|.
+name|get
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+DECL|method|setHeader (String name, Object value)
+specifier|public
+name|void
+name|setHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+name|getHeaders
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|name
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getHeaders ()
 specifier|public
-name|Headers
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|getHeaders
 parameter_list|()
 block|{
@@ -252,7 +328,12 @@ block|{
 name|headers
 operator|=
 operator|new
-name|DefaultHeaders
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
@@ -260,12 +341,17 @@ return|return
 name|headers
 return|;
 block|}
-DECL|method|setHeaders (Headers headers)
+DECL|method|setHeaders (Map<String, Object> headers)
 specifier|public
 name|void
 name|setHeaders
 parameter_list|(
-name|Headers
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|headers
 parameter_list|)
 block|{
@@ -314,6 +400,11 @@ name|in
 operator|=
 name|in
 expr_stmt|;
+name|configureMessage
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getOut ()
 specifier|public
@@ -352,6 +443,11 @@ operator|.
 name|out
 operator|=
 name|out
+expr_stmt|;
+name|configureMessage
+argument_list|(
+name|out
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getException ()
@@ -405,6 +501,11 @@ name|fault
 operator|=
 name|fault
 expr_stmt|;
+name|configureMessage
+argument_list|(
+name|fault
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getExchangeId ()
 specifier|public
@@ -432,6 +533,7 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+comment|/**      * Factory method used to lazily create the IN message      */
 DECL|method|createInMessage ()
 specifier|protected
 name|Message
@@ -444,6 +546,7 @@ name|DefaultMessage
 argument_list|()
 return|;
 block|}
+comment|/**      * Factory method to lazily create the OUT message      */
 DECL|method|createOutMessage ()
 specifier|protected
 name|Message
@@ -455,6 +558,40 @@ operator|new
 name|DefaultMessage
 argument_list|()
 return|;
+block|}
+comment|/**      * Configures the message after it has been set on the exchange      */
+DECL|method|configureMessage (Message message)
+specifier|protected
+name|void
+name|configureMessage
+parameter_list|(
+name|Message
+name|message
+parameter_list|)
+block|{
+if|if
+condition|(
+name|message
+operator|instanceof
+name|MessageSupport
+condition|)
+block|{
+name|MessageSupport
+name|messageSupport
+init|=
+operator|(
+name|MessageSupport
+operator|)
+name|message
+decl_stmt|;
+name|messageSupport
+operator|.
+name|setExchange
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

@@ -191,9 +191,6 @@ name|answer
 operator|=
 name|message
 operator|.
-name|getHeaders
-argument_list|()
-operator|.
 name|getHeader
 argument_list|(
 name|localPart
@@ -210,9 +207,6 @@ block|{
 name|answer
 operator|=
 name|exchange
-operator|.
-name|getHeaders
-argument_list|()
 operator|.
 name|getHeader
 argument_list|(

@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|LoggingLevel
+name|LoggingErrorHandler
 import|;
 end_import
 
@@ -78,7 +78,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|LoggingErrorHandler
+name|LoggingLevel
 import|;
 end_import
 

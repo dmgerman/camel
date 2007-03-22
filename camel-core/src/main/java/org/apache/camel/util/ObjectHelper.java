@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
+name|Arrays
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
+name|Collections
 import|;
 end_import
 
@@ -52,7 +52,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|Iterator
 import|;
 end_import
 

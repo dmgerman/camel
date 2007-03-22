@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicInteger
-import|;
-end_import
-
-begin_import
-import|import
 name|junit
 operator|.
 name|framework
@@ -74,27 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|builder
 operator|.
-name|pojo
-operator|.
-name|PojoExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|pojo
-operator|.
-name|ISay
+name|RouteBuilder
 import|;
 end_import
 
@@ -128,15 +96,15 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
+name|concurrent
 operator|.
-name|builder
+name|atomic
 operator|.
-name|RouteBuilder
+name|AtomicInteger
 import|;
 end_import
 

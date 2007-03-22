@@ -455,9 +455,6 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getHeaders
-argument_list|()
-operator|.
 name|setHeader
 argument_list|(
 name|header

@@ -24,23 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|ChoiceProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|FilterProcessor
+name|Exchange
 import|;
 end_import
 
@@ -64,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|Processor
 import|;
 end_import
 
@@ -76,17 +60,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|processor
+operator|.
+name|ChoiceProcessor
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|camel
+operator|.
+name|processor
+operator|.
+name|FilterProcessor
 import|;
 end_import
 
@@ -97,6 +87,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 

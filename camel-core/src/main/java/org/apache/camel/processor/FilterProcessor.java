@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Predicate
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Predicate
+name|Processor
 import|;
 end_import
 

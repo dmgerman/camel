@@ -112,6 +112,18 @@ name|xml
 operator|.
 name|xpath
 operator|.
+name|XPathConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|xpath
+operator|.
 name|XPathExpression
 import|;
 end_import
@@ -125,18 +137,6 @@ operator|.
 name|xpath
 operator|.
 name|XPathExpressionException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|xpath
-operator|.
-name|XPathConstants
 import|;
 end_import
 

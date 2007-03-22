@@ -670,9 +670,6 @@ argument_list|()
 decl_stmt|;
 name|message
 operator|.
-name|getHeaders
-argument_list|()
-operator|.
 name|setHeader
 argument_list|(
 literal|"name"

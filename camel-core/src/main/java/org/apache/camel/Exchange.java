@@ -14,6 +14,16 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the base exchange interface providing access to the request, response and fault {@link Message} instances.  *  * @version $Revision$  */
 end_comment
@@ -39,9 +49,35 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the exchange headers      */
+comment|/**      * Accesses a specific header on this exchange      *      * @param name      * @return object header associated with the name      */
+DECL|method|getHeader (String name)
+name|Object
+name|getHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Sets a header on the exchange      *      * @param name  of the header      * @param value to associate with the name      */
+DECL|method|setHeader (String name, Object value)
+name|void
+name|setHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+function_decl|;
+comment|/**      * Returns all of the headers associated with the exchange      *      * @return all the headers in a Map      */
 DECL|method|getHeaders ()
-name|Headers
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|getHeaders
 parameter_list|()
 function_decl|;

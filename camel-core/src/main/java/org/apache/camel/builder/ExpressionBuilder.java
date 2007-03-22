@@ -46,7 +46,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|StringTokenizer
+name|ArrayList
 import|;
 end_import
 
@@ -66,7 +66,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|StringTokenizer
 import|;
 end_import
 
@@ -124,9 +124,6 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getHeaders
-argument_list|()
-operator|.
 name|getHeader
 argument_list|(
 name|headerName
@@ -143,9 +140,6 @@ comment|// lets try the exchange header
 name|header
 operator|=
 name|exchange
-operator|.
-name|getHeaders
-argument_list|()
 operator|.
 name|getHeader
 argument_list|(

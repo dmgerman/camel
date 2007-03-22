@@ -20,9 +20,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|io
 operator|.
-name|Random
+name|Serializable
 import|;
 end_import
 
@@ -30,9 +30,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|Serializable
+name|Random
 import|;
 end_import
 

@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Expression
 import|;
 end_import
 
@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Expression
+name|Processor
 import|;
 end_import
 
@@ -64,7 +64,23 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|*
+name|iterator
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|notNull
 import|;
 end_import
 
