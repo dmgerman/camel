@@ -595,6 +595,32 @@ operator|!=
 literal|null
 return|;
 block|}
+DECL|method|isNotNullOrBlank (String text)
+specifier|public
+specifier|static
+name|boolean
+name|isNotNullOrBlank
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|text
+operator|!=
+literal|null
+operator|&&
+name|text
+operator|.
+name|trim
+argument_list|()
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+return|;
+block|}
 block|}
 end_class
 
