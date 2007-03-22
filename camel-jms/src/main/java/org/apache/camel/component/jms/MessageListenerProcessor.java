@@ -48,7 +48,7 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|MessageListener
+name|Message
 import|;
 end_import
 
@@ -58,12 +58,12 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|Message
+name|MessageListener
 import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a JMS {@link MessageListener} which can be used directly with any JMS client  * or derived from to create an MDB for processing messages using a {@link Processor}  *    * @version $Revision$  */
+comment|/**  * Represents a JMS {@link MessageListener} which can be used directly with any JMS client  * or derived from to create an MDB for processing messages using a {@link Processor}  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class

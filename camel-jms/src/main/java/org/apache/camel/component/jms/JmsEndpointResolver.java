@@ -78,22 +78,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|queue
-operator|.
-name|QueueComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -113,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of {@link EndpointResolver} that creates  * {@link JMSEndpoint} objects.  *  * The syntax for a JMS URI looks like:  *  *<pre><code>jms:[component:]destination</code></pre>  * the component is optional, and if it is not specified, the default component name  * is assumed.  *  * @version $Revision:520964 $  */
+comment|/**  * An implementation of {@link EndpointResolver} that creates  * {@link JMSEndpoint} objects.  *<p/>  * The syntax for a JMS URI looks like:  *<p/>  *<pre><code>jms:[component:]destination</code></pre>  * the component is optional, and if it is not specified, the default component name  * is assumed.  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -141,7 +125,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/** 	 * Finds the {@see JmsComponent} specified by the uri.  If the {@see JmsComponent} 	 * object do not exist, it will be created. 	 */
+comment|/**      * Finds the {@see JmsComponent} specified by the uri.  If the {@see JmsComponent}      * object do not exist, it will be created.      */
 DECL|method|resolveComponent (CamelContext container, String uri)
 specifier|public
 name|Component
@@ -175,7 +159,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Finds the {@see QueueEndpoint} specified by the uri.  If the {@see QueueEndpoint} or it's associated 	 * {@see QueueComponent} object do not exist, they will be created. 	 */
+comment|/**      * Finds the {@see QueueEndpoint} specified by the uri.  If the {@see QueueEndpoint} or it's associated      * {@see QueueComponent} object do not exist, they will be created.      */
 DECL|method|resolveEndpoint (CamelContext container, String uri)
 specifier|public
 name|JmsEndpoint
@@ -224,7 +208,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/** 	 * @return an array that looks like: [componentName,endpointName]  	 */
+comment|/**      * @return an array that looks like: [componentName,endpointName]      */
 DECL|method|getEndpointId (String uri)
 specifier|private
 name|String

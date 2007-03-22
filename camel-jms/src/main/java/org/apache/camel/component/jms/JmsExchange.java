@@ -62,32 +62,12 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|JMSException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
 name|Message
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|Session
-import|;
-end_import
-
 begin_comment
-comment|/**  * Represents an {@ilnk Exchange} for working with JMS  *   * @version $Revision:520964 $  */
+comment|/**  * Represents an {@ilnk Exchange} for working with JMS  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class

@@ -176,7 +176,7 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|TextMessage
+name|ObjectMessage
 import|;
 end_import
 
@@ -186,7 +186,7 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|ObjectMessage
+name|TextMessage
 import|;
 end_import
 
