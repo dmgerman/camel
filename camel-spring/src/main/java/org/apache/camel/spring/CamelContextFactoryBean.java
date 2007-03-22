@@ -172,13 +172,18 @@ name|singleton
 init|=
 literal|true
 decl_stmt|;
-DECL|field|routeBuilders
+DECL|field|routeBuilder
+specifier|private
+name|RouteBuilder
+name|routeBuilder
+decl_stmt|;
+DECL|field|additionalBuilders
 specifier|private
 name|List
 argument_list|<
 name|RouteBuilder
 argument_list|>
-name|routeBuilders
+name|additionalBuilders
 init|=
 operator|new
 name|ArrayList
@@ -318,37 +323,30 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-DECL|method|getRouteBuilders ()
+DECL|method|getRouteBuilder ()
 specifier|public
-name|List
-argument_list|<
 name|RouteBuilder
-argument_list|>
-name|getRouteBuilders
+name|getRouteBuilder
 parameter_list|()
 block|{
 return|return
-name|routeBuilders
+name|routeBuilder
 return|;
 block|}
-comment|/**      * Sets the {@link RouteBuilder} instances to be installed in this context      *      * @param routeBuilders the route builders to activate on startup      */
-DECL|method|setRouteBuilders (List<RouteBuilder> routeBuilders)
+DECL|method|setRouteBuilder (RouteBuilder routeBuilder)
 specifier|public
 name|void
-name|setRouteBuilders
+name|setRouteBuilder
 parameter_list|(
-name|List
-argument_list|<
 name|RouteBuilder
-argument_list|>
-name|routeBuilders
+name|routeBuilder
 parameter_list|)
 block|{
 name|this
 operator|.
-name|routeBuilders
+name|routeBuilder
 operator|=
-name|routeBuilders
+name|routeBuilder
 expr_stmt|;
 block|}
 DECL|method|getApplicationContext ()
@@ -419,18 +417,32 @@ control|(
 name|RouteBuilder
 name|routeBuilder
 range|:
-name|routeBuilders
+name|additionalBuilders
 control|)
 block|{
 name|getContext
 argument_list|()
 operator|.
-name|setRoutes
+name|addRoutes
 argument_list|(
 name|routeBuilder
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|routeBuilder
+operator|!=
+literal|null
+condition|)
+name|getContext
+argument_list|()
+operator|.
+name|addRoutes
+argument_list|(
+name|routeBuilder
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Strategy method to try find {@link RouteBuilder} instances on the classpath      */
 DECL|method|findRouteBuiders ()
@@ -469,8 +481,7 @@ name|finder
 operator|.
 name|appendBuilders
 argument_list|(
-name|getRouteBuilders
-argument_list|()
+name|additionalBuilders
 argument_list|)
 expr_stmt|;
 block|}

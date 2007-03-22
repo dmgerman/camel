@@ -174,12 +174,43 @@ name|RouteBuilder
 name|builder
 parameter_list|)
 function_decl|;
-DECL|method|setRoutes (final RouteFactory factory)
+DECL|method|setRoutes (RouteFactory factory)
 specifier|public
 name|void
 name|setRoutes
 parameter_list|(
-specifier|final
+name|RouteFactory
+name|factory
+parameter_list|)
+function_decl|;
+DECL|method|addRoutes (Map<Endpoint, Processor> routes)
+specifier|public
+name|void
+name|addRoutes
+parameter_list|(
+name|Map
+argument_list|<
+name|Endpoint
+argument_list|,
+name|Processor
+argument_list|>
+name|routes
+parameter_list|)
+function_decl|;
+DECL|method|addRoutes (RouteBuilder builder)
+specifier|public
+name|void
+name|addRoutes
+parameter_list|(
+name|RouteBuilder
+name|builder
+parameter_list|)
+function_decl|;
+DECL|method|addRoutes (RouteFactory factory)
+specifier|public
+name|void
+name|addRoutes
+parameter_list|(
 name|RouteFactory
 name|factory
 parameter_list|)
