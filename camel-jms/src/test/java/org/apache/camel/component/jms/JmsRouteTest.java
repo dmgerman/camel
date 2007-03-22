@@ -219,9 +219,6 @@ name|container
 init|=
 operator|new
 name|DefaultCamelContext
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// lets configure some componnets

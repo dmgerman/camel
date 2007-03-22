@@ -227,14 +227,11 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|RouteBuilder (CamelContext<E> context)
+DECL|method|RouteBuilder (CamelContext context)
 specifier|protected
 name|RouteBuilder
 parameter_list|(
 name|CamelContext
-argument_list|<
-name|E
-argument_list|>
 name|context
 parameter_list|)
 block|{
@@ -380,16 +377,10 @@ comment|//----------------------------------------------------------------------
 DECL|method|getContext ()
 specifier|public
 name|CamelContext
-argument_list|<
-name|E
-argument_list|>
 name|getContext
 parameter_list|()
 block|{
 name|CamelContext
-argument_list|<
-name|E
-argument_list|>
 name|context
 init|=
 name|super
@@ -609,18 +600,12 @@ block|}
 DECL|method|createContainer ()
 specifier|protected
 name|CamelContext
-argument_list|<
-name|E
-argument_list|>
 name|createContainer
 parameter_list|()
 block|{
 return|return
 operator|new
 name|DefaultCamelContext
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 return|;
 block|}

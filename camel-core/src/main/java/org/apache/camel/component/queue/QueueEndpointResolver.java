@@ -373,9 +373,6 @@ operator|new
 name|Callable
 argument_list|<
 name|Component
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 block|{

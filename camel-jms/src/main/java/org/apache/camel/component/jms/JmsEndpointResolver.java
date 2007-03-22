@@ -338,9 +338,6 @@ name|componentName
 argument_list|,
 operator|new
 name|Callable
-argument_list|<
-name|JmsComponent
-argument_list|>
 argument_list|()
 block|{
 specifier|public

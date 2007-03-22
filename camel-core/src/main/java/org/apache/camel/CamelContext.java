@@ -59,16 +59,11 @@ DECL|interface|CamelContext
 specifier|public
 interface|interface
 name|CamelContext
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 block|{
 comment|// Component Management Methods
 comment|//-----------------------------------------------------------------------
 comment|/**      * Adds a component to the container.      */
-DECL|method|addComponent (String componentName, final Component<E> component)
+DECL|method|addComponent (String componentName, Component component)
 specifier|public
 name|void
 name|addComponent
@@ -76,11 +71,7 @@ parameter_list|(
 name|String
 name|componentName
 parameter_list|,
-specifier|final
 name|Component
-argument_list|<
-name|E
-argument_list|>
 name|component
 parameter_list|)
 function_decl|;
@@ -104,7 +95,7 @@ name|componentName
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.       *       * @param componentName      * @param factory used to create a new component instance if the component was not previously added.      * @return      */
-DECL|method|getOrCreateComponent (String componentName, Callable<Component<E>> factory)
+DECL|method|getOrCreateComponent (String componentName, Callable<Component> factory)
 specifier|public
 name|Component
 name|getOrCreateComponent
@@ -115,9 +106,6 @@ parameter_list|,
 name|Callable
 argument_list|<
 name|Component
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|factory
 parameter_list|)
@@ -128,9 +116,6 @@ comment|/**      * Resolves the given URI to an endpoint      */
 DECL|method|resolveEndpoint (String uri)
 specifier|public
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|resolveEndpoint
 parameter_list|(
 name|String
@@ -158,19 +143,13 @@ specifier|public
 name|Map
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|getRoutes
 parameter_list|()
 function_decl|;
-DECL|method|setRoutes (Map<Endpoint<E>, Processor<E>> routes)
+DECL|method|setRoutes (Map<Endpoint, Processor> routes)
 specifier|public
 name|void
 name|setRoutes
@@ -178,27 +157,18 @@ parameter_list|(
 name|Map
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|routes
 parameter_list|)
 function_decl|;
-DECL|method|setRoutes (RouteBuilder<E> builder)
+DECL|method|setRoutes (RouteBuilder builder)
 specifier|public
 name|void
 name|setRoutes
 parameter_list|(
 name|RouteBuilder
-argument_list|<
-name|E
-argument_list|>
 name|builder
 parameter_list|)
 function_decl|;
@@ -217,9 +187,6 @@ comment|//----------------------------------------------------------------------
 DECL|method|getEndpointResolver ()
 specifier|public
 name|EndpointResolver
-argument_list|<
-name|E
-argument_list|>
 name|getEndpointResolver
 parameter_list|()
 function_decl|;

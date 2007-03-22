@@ -117,9 +117,6 @@ function_decl|;
 comment|/**      * Returns the container so that a processor can resolve endpoints from URIs      *      * @return the container which owns this exchange      */
 DECL|method|getContext ()
 name|CamelContext
-argument_list|<
-name|Exchange
-argument_list|>
 name|getContext
 parameter_list|()
 function_decl|;

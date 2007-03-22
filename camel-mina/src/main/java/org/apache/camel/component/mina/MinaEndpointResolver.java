@@ -331,9 +331,6 @@ name|componentName
 argument_list|,
 operator|new
 name|Callable
-argument_list|<
-name|MinaComponent
-argument_list|>
 argument_list|()
 block|{
 specifier|public
