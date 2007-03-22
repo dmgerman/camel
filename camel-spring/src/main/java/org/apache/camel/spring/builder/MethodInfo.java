@@ -4,7 +4,7 @@ comment|/**  *   */
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring
+DECL|package|org.apache.camel.spring.builder
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|spring
+operator|.
+name|builder
 package|;
 end_package
 

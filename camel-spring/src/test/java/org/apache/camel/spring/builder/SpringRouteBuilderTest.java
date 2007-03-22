@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring
+DECL|package|org.apache.camel.spring.builder
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|spring
+operator|.
+name|builder
 package|;
 end_package
 
@@ -133,7 +135,7 @@ operator|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/spring/spring_route_builder_test.xml"
+literal|"org/apache/camel/spring/builder/spring_route_builder_test.xml"
 argument_list|)
 expr_stmt|;
 block|}
