@@ -565,15 +565,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|endpoints
-operator|.
-name|put
-argument_list|(
-name|uri
-argument_list|,
-name|answer
-argument_list|)
-expr_stmt|;
+comment|// TODO temporarily disabled caching due to POJO test failure
+comment|// endpoints.put(uri, answer);
 block|}
 block|}
 catch|catch
