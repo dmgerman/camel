@@ -68,16 +68,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -118,6 +108,37 @@ name|jmsMessage
 operator|=
 name|jmsMessage
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+if|if
+condition|(
+name|jmsMessage
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|"JmsMessage: "
+operator|+
+name|jmsMessage
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|"JmsMessage: "
+operator|+
+name|getBody
+argument_list|()
+return|;
+block|}
 block|}
 annotation|@
 name|Override

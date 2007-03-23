@@ -99,6 +99,21 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Message: "
+operator|+
+name|getBody
+argument_list|()
+return|;
+block|}
 DECL|method|setHeader (String name, Object value)
 specifier|public
 name|void

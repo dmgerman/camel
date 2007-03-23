@@ -115,6 +115,37 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+if|if
+condition|(
+name|normalizedMessage
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|"JbiMessage: "
+operator|+
+name|normalizedMessage
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|"JbiMessage: "
+operator|+
+name|getBody
+argument_list|()
+return|;
+block|}
+block|}
+annotation|@
+name|Override
 DECL|method|getExchange ()
 specifier|public
 name|JbiExchange

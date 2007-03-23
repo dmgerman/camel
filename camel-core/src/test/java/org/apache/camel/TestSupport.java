@@ -184,7 +184,7 @@ block|}
 comment|/**      * Asserts the In message on the exchange contains the expected value      */
 DECL|method|assertInMessageHeader (Exchange exchange, String name, Object expected)
 specifier|protected
-name|void
+name|Object
 name|assertInMessageHeader
 parameter_list|(
 name|Exchange
@@ -197,6 +197,7 @@ name|Object
 name|expected
 parameter_list|)
 block|{
+return|return
 name|assertMessageHeader
 argument_list|(
 name|exchange
@@ -208,12 +209,12 @@ name|name
 argument_list|,
 name|expected
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 comment|/**      * Asserts the Out message on the exchange contains the expected value      */
 DECL|method|assertOutMessageHeader (Exchange exchange, String name, Object expected)
 specifier|protected
-name|void
+name|Object
 name|assertOutMessageHeader
 parameter_list|(
 name|Exchange
@@ -226,6 +227,7 @@ name|Object
 name|expected
 parameter_list|)
 block|{
+return|return
 name|assertMessageHeader
 argument_list|(
 name|exchange
@@ -237,11 +239,11 @@ name|name
 argument_list|,
 name|expected
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|assertMessageHeader (Message message, String name, Object expected)
 specifier|protected
-name|void
+name|Object
 name|assertMessageHeader
 parameter_list|(
 name|Message
@@ -279,11 +281,14 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+return|return
+name|value
+return|;
 block|}
 comment|/**      * Asserts that the given expression when evaluated returns the given answer      */
 DECL|method|assertExpression (Expression expression, Exchange exchange, Object expected)
 specifier|protected
-name|void
+name|Object
 name|assertExpression
 parameter_list|(
 name|Expression
@@ -338,11 +343,14 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+return|return
+name|value
+return|;
 block|}
 comment|/**      * Asserts that the predicate returns the expected value on the exchange      */
 DECL|method|assertPredicate (Predicate expression, Exchange exchange, boolean expected)
 specifier|protected
-name|void
+name|boolean
 name|assertPredicate
 parameter_list|(
 name|Predicate
@@ -397,6 +405,9 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+return|return
+name|value
+return|;
 block|}
 block|}
 end_class

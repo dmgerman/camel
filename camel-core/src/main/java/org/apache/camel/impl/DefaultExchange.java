@@ -140,6 +140,22 @@ operator|=
 name|context
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Exchange["
+operator|+
+name|in
+operator|+
+literal|"]"
+return|;
+block|}
 DECL|method|copy ()
 specifier|public
 name|Exchange
