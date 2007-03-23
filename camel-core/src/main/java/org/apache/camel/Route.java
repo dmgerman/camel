@@ -50,8 +50,8 @@ name|Exchange
 parameter_list|>
 block|{
 DECL|field|properties
-specifier|final
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -116,6 +116,26 @@ name|processor
 operator|=
 name|processor
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Route["
+operator|+
+name|endpoint
+operator|+
+literal|" -> "
+operator|+
+name|processor
+operator|+
+literal|"]"
+return|;
 block|}
 DECL|method|getEndpoint ()
 specifier|public
