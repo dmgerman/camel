@@ -68,7 +68,7 @@ name|PojoExchange
 argument_list|>
 block|{
 DECL|field|registry
-specifier|private
+specifier|protected
 specifier|final
 name|HashMap
 argument_list|<
@@ -88,7 +88,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|activatedEndpoints
-specifier|private
+specifier|protected
 specifier|final
 name|HashMap
 argument_list|<
@@ -151,6 +151,28 @@ argument_list|(
 name|uri
 argument_list|)
 return|;
+block|}
+DECL|method|unregisterPojo (String uri)
+specifier|public
+name|void
+name|unregisterPojo
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|registry
+operator|.
+name|remove
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+name|unregisterActivation
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|registerActivation (String uri, PojoEndpoint endpoint)
 specifier|public
