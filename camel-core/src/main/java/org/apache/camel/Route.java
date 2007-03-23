@@ -14,8 +14,28 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A route defines the processing used on an inbound message exchange  * from a specific {@see Endpoint}  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -29,9 +49,30 @@ extends|extends
 name|Exchange
 parameter_list|>
 block|{
+DECL|field|properties
+specifier|final
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
+literal|16
+argument_list|)
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
-specifier|final
 name|Endpoint
 argument_list|<
 name|E
@@ -40,7 +81,6 @@ name|endpoint
 decl_stmt|;
 DECL|field|processor
 specifier|private
-specifier|final
 name|Processor
 argument_list|<
 name|E
@@ -90,6 +130,25 @@ return|return
 name|endpoint
 return|;
 block|}
+DECL|method|setEndpoint (Endpoint<E> endpoint)
+specifier|public
+name|void
+name|setEndpoint
+parameter_list|(
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|endpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
+block|}
 DECL|method|getProcessor ()
 specifier|public
 name|Processor
@@ -101,6 +160,41 @@ parameter_list|()
 block|{
 return|return
 name|processor
+return|;
+block|}
+DECL|method|setProcessor (Processor<E> processor)
+specifier|public
+name|void
+name|setProcessor
+parameter_list|(
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|processor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|processor
+operator|=
+name|processor
+expr_stmt|;
+block|}
+comment|/** 	 * This property map is used to associate information about 	 * the route. 	 *  	 * @return 	 */
+DECL|method|getProperties ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getProperties
+parameter_list|()
+block|{
+return|return
+name|properties
 return|;
 block|}
 block|}
