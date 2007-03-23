@@ -184,7 +184,7 @@ argument_list|>
 argument_list|(
 name|exchange
 operator|.
-name|getHeaders
+name|getProperties
 argument_list|()
 argument_list|)
 argument_list|)
@@ -296,7 +296,7 @@ name|Object
 name|value
 parameter_list|)
 block|{
-name|getHeaders
+name|getProperties
 argument_list|()
 operator|.
 name|put
@@ -307,7 +307,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getHeaders ()
+DECL|method|getProperties ()
 specifier|public
 name|Map
 argument_list|<
@@ -315,7 +315,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|getHeaders
+name|getProperties
 parameter_list|()
 block|{
 if|if

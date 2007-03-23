@@ -71,14 +71,14 @@ name|value
 parameter_list|)
 function_decl|;
 comment|/**      * Returns all of the properties associated with the exchange      *      * @return all the headers in a Map      */
-DECL|method|getHeaders ()
+DECL|method|getProperties ()
 name|Map
 argument_list|<
 name|String
 argument_list|,
 name|Object
 argument_list|>
-name|getHeaders
+name|getProperties
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the inbound request message      * @return the message      */
