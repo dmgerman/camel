@@ -68,6 +68,18 @@ name|MessageExchange
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|jbi
+operator|.
+name|messaging
+operator|.
+name|NormalizedMessage
+import|;
+end_import
+
 begin_comment
 comment|/**  * An {@link Exchange} working with JBI which exposes the underlying JBI features such as the   * JBI {@link #getMessageExchange()}  *  * @version $Revision$  */
 end_comment
@@ -189,17 +201,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the underlying JBI message exchange for an inbound exchange      * or null for outbound messages      *      * @return the inbound message exchange      */
-DECL|method|getMessageExchange ()
-specifier|public
-name|MessageExchange
-name|getMessageExchange
-parameter_list|()
-block|{
-return|return
-name|messageExchange
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|getIn ()
@@ -265,6 +266,66 @@ return|return
 name|binding
 return|;
 block|}
+comment|// Expose JBI features
+comment|//-------------------------------------------------------------------------
+comment|/**      * Returns the underlying JBI message exchange for an inbound exchange      * or null for outbound messages      *      * @return the inbound message exchange      */
+DECL|method|getMessageExchange ()
+specifier|public
+name|MessageExchange
+name|getMessageExchange
+parameter_list|()
+block|{
+return|return
+name|messageExchange
+return|;
+block|}
+comment|/**      * Returns the underlying In {@link NormalizedMessage}      *      * @return the In message      */
+DECL|method|getInMessage ()
+specifier|public
+name|NormalizedMessage
+name|getInMessage
+parameter_list|()
+block|{
+return|return
+name|getIn
+argument_list|()
+operator|.
+name|getNormalizedMessage
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns the underlying Out {@link NormalizedMessage}      *      * @return the Out message      */
+DECL|method|getOutMessage ()
+specifier|public
+name|NormalizedMessage
+name|getOutMessage
+parameter_list|()
+block|{
+return|return
+name|getOut
+argument_list|()
+operator|.
+name|getNormalizedMessage
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns the underlying Fault {@link NormalizedMessage}      *      * @return the Fault message      */
+DECL|method|getFaultMessage ()
+specifier|public
+name|NormalizedMessage
+name|getFaultMessage
+parameter_list|()
+block|{
+return|return
+name|getFault
+argument_list|()
+operator|.
+name|getNormalizedMessage
+argument_list|()
+return|;
+block|}
+comment|// Implementation methods
+comment|//-------------------------------------------------------------------------
 annotation|@
 name|Override
 DECL|method|createInMessage ()

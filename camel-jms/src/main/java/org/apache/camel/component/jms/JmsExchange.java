@@ -220,6 +220,55 @@ name|binding
 argument_list|)
 return|;
 block|}
+comment|// Expose JMS APIs
+comment|//-------------------------------------------------------------------------
+comment|/**      * Return the underlying JMS In message      *      * @return the JMS In message      */
+DECL|method|getInMessage ()
+specifier|public
+name|Message
+name|getInMessage
+parameter_list|()
+block|{
+return|return
+name|getIn
+argument_list|()
+operator|.
+name|getJmsMessage
+argument_list|()
+return|;
+block|}
+comment|/**      * Return the underlying JMS Out message      *      * @return the JMS out message      */
+DECL|method|getOutMessage ()
+specifier|public
+name|Message
+name|getOutMessage
+parameter_list|()
+block|{
+return|return
+name|getOut
+argument_list|()
+operator|.
+name|getJmsMessage
+argument_list|()
+return|;
+block|}
+comment|/**      * Return the underlying JMS Fault message      *      * @return the JMS fault message      */
+DECL|method|getFaultMessage ()
+specifier|public
+name|Message
+name|getFaultMessage
+parameter_list|()
+block|{
+return|return
+name|getOut
+argument_list|()
+operator|.
+name|getJmsMessage
+argument_list|()
+return|;
+block|}
+comment|// Implementation methods
+comment|//-------------------------------------------------------------------------
 annotation|@
 name|Override
 DECL|method|createInMessage ()
