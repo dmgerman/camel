@@ -38,19 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Expression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Predicate
+name|TestSupport
 import|;
 end_import
 
@@ -68,7 +56,7 @@ name|script
 operator|.
 name|ScriptBuilder
 operator|.
-name|*
+name|groovy
 import|;
 end_import
 
@@ -138,7 +126,7 @@ specifier|public
 class|class
 name|GroovyTest
 extends|extends
-name|ScriptTestSupport
+name|TestSupport
 block|{
 DECL|field|log
 specifier|private
@@ -207,34 +195,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testPredicateUsingScriptAttribute ()
-specifier|public
-name|void
-name|testPredicateUsingScriptAttribute
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertPredicate
-argument_list|(
-name|groovy
-argument_list|(
-literal|"request.headers.name == hacker"
-argument_list|)
-operator|.
-name|attribute
-argument_list|(
-literal|"hacker"
-argument_list|,
-literal|"James"
-argument_list|)
-argument_list|,
-name|exchange
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|testPredicateEvaluation ()
 specifier|public
 name|void
@@ -272,6 +232,62 @@ argument_list|(
 name|groovy
 argument_list|(
 literal|"request.headers.name == 'James'"
+argument_list|)
+argument_list|,
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testProcessorMutatesTheExchange ()
+specifier|public
+name|void
+name|testProcessorMutatesTheExchange
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|groovy
+argument_list|(
+literal|"request.headers.myNewHeader = 'ABC'"
+argument_list|)
+operator|.
+name|onExchange
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|assertInMessageHeader
+argument_list|(
+name|exchange
+argument_list|,
+literal|"myNewHeader"
+argument_list|,
+literal|"ABC"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testPredicateUsingScriptAttribute ()
+specifier|public
+name|void
+name|testPredicateUsingScriptAttribute
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertPredicate
+argument_list|(
+name|groovy
+argument_list|(
+literal|"request.headers.name == hacker"
+argument_list|)
+operator|.
+name|attribute
+argument_list|(
+literal|"hacker"
+argument_list|,
+literal|"James"
 argument_list|)
 argument_list|,
 name|exchange
@@ -346,124 +362,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|/**      * Asserts that the given expression when evaluated returns the given answer      */
-DECL|method|assertExpression (Expression expression, Exchange exchange, Object expected)
-specifier|protected
-name|void
-name|assertExpression
-parameter_list|(
-name|Expression
-name|expression
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|,
-name|Object
-name|expected
-parameter_list|)
-block|{
-name|Object
-name|value
-init|=
-name|expression
-operator|.
-name|evaluate
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Evaluated expression: "
-operator|+
-name|expression
-operator|+
-literal|" on exchange: "
-operator|+
-name|exchange
-operator|+
-literal|" result: "
-operator|+
-name|value
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Expression: "
-operator|+
-name|expression
-operator|+
-literal|" on Exchange: "
-operator|+
-name|exchange
-argument_list|,
-name|expected
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Asserts that the predicate returns the expected value on the exchange      */
-DECL|method|assertPredicate (Predicate expression, Exchange exchange, boolean expected)
-specifier|protected
-name|void
-name|assertPredicate
-parameter_list|(
-name|Predicate
-name|expression
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|,
-name|boolean
-name|expected
-parameter_list|)
-block|{
-name|boolean
-name|value
-init|=
-name|expression
-operator|.
-name|matches
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Evaluated predicate: "
-operator|+
-name|expression
-operator|+
-literal|" on exchange: "
-operator|+
-name|exchange
-operator|+
-literal|" result: "
-operator|+
-name|value
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Predicate: "
-operator|+
-name|expression
-operator|+
-literal|" on Exchange: "
-operator|+
-name|exchange
-argument_list|,
-name|expected
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

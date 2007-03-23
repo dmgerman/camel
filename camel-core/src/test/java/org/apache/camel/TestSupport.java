@@ -181,6 +181,223 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Asserts the In message on the exchange contains the expected value      */
+DECL|method|assertInMessageHeader (Exchange exchange, String name, Object expected)
+specifier|protected
+name|void
+name|assertInMessageHeader
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|Object
+name|expected
+parameter_list|)
+block|{
+name|assertMessageHeader
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|,
+name|name
+argument_list|,
+name|expected
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Asserts the Out message on the exchange contains the expected value      */
+DECL|method|assertOutMessageHeader (Exchange exchange, String name, Object expected)
+specifier|protected
+name|void
+name|assertOutMessageHeader
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|Object
+name|expected
+parameter_list|)
+block|{
+name|assertMessageHeader
+argument_list|(
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+argument_list|,
+name|name
+argument_list|,
+name|expected
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|assertMessageHeader (Message message, String name, Object expected)
+specifier|protected
+name|void
+name|assertMessageHeader
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|Object
+name|expected
+parameter_list|)
+block|{
+name|Object
+name|value
+init|=
+name|message
+operator|.
+name|getHeader
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Header: "
+operator|+
+name|name
+operator|+
+literal|" on Message: "
+operator|+
+name|message
+argument_list|,
+name|expected
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Asserts that the given expression when evaluated returns the given answer      */
+DECL|method|assertExpression (Expression expression, Exchange exchange, Object expected)
+specifier|protected
+name|void
+name|assertExpression
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|expected
+parameter_list|)
+block|{
+name|Object
+name|value
+init|=
+name|expression
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Evaluated expression: "
+operator|+
+name|expression
+operator|+
+literal|" on exchange: "
+operator|+
+name|exchange
+operator|+
+literal|" result: "
+operator|+
+name|value
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Expression: "
+operator|+
+name|expression
+operator|+
+literal|" on Exchange: "
+operator|+
+name|exchange
+argument_list|,
+name|expected
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Asserts that the predicate returns the expected value on the exchange      */
+DECL|method|assertPredicate (Predicate expression, Exchange exchange, boolean expected)
+specifier|protected
+name|void
+name|assertPredicate
+parameter_list|(
+name|Predicate
+name|expression
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|boolean
+name|expected
+parameter_list|)
+block|{
+name|boolean
+name|value
+init|=
+name|expression
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Evaluated predicate: "
+operator|+
+name|expression
+operator|+
+literal|" on exchange: "
+operator|+
+name|exchange
+operator|+
+literal|" result: "
+operator|+
+name|value
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Predicate: "
+operator|+
+name|expression
+operator|+
+literal|" on Exchange: "
+operator|+
+name|exchange
+argument_list|,
+name|expected
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
