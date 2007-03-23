@@ -178,6 +178,8 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// HC: The getBinding() interesting because it illustrates the impedance miss-match between
+comment|// HTTP's stream oriented protocol, and Camels more message oriented protocol exchanges.
 comment|// now lets output to the response
 name|endpoint
 operator|.

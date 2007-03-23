@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -142,25 +152,21 @@ comment|// Route Management Methods
 comment|//-----------------------------------------------------------------------
 DECL|method|getRoutes ()
 specifier|public
-name|Map
+name|List
 argument_list|<
-name|Endpoint
-argument_list|,
-name|Processor
+name|Route
 argument_list|>
 name|getRoutes
 parameter_list|()
 function_decl|;
-DECL|method|setRoutes (Map<Endpoint, Processor> routes)
+DECL|method|setRoutes (List<Route> routes)
 specifier|public
 name|void
 name|setRoutes
 parameter_list|(
-name|Map
+name|List
 argument_list|<
-name|Endpoint
-argument_list|,
-name|Processor
+name|Route
 argument_list|>
 name|routes
 parameter_list|)
@@ -183,16 +189,14 @@ name|RouteFactory
 name|factory
 parameter_list|)
 function_decl|;
-DECL|method|addRoutes (Map<Endpoint, Processor> routes)
+DECL|method|addRoutes (List<Route> routes)
 specifier|public
 name|void
 name|addRoutes
 parameter_list|(
-name|Map
+name|List
 argument_list|<
-name|Endpoint
-argument_list|,
-name|Processor
+name|Route
 argument_list|>
 name|routes
 parameter_list|)
