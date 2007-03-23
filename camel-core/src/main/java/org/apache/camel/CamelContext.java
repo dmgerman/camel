@@ -54,6 +54,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|Callable
@@ -146,6 +156,15 @@ DECL|method|deactivateEndpoints ()
 specifier|public
 name|void
 name|deactivateEndpoints
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the collection of all active endpoints currently registered      */
+DECL|method|getEndpoints ()
+name|Collection
+argument_list|<
+name|Endpoint
+argument_list|>
+name|getEndpoints
 parameter_list|()
 function_decl|;
 comment|// Route Management Methods

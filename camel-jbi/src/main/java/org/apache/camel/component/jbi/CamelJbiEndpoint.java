@@ -160,10 +160,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|jbiEndpoint
-operator|.
-name|onExchange
-argument_list|(
+comment|// lets use the inbound processor to handle the exchange
+name|JbiExchange
+name|camelExchange
+init|=
 operator|new
 name|JbiExchange
 argument_list|(
@@ -176,6 +176,15 @@ name|binding
 argument_list|,
 name|exchange
 argument_list|)
+decl_stmt|;
+name|jbiEndpoint
+operator|.
+name|getInboundProcessor
+argument_list|()
+operator|.
+name|onExchange
+argument_list|(
+name|camelExchange
 argument_list|)
 expr_stmt|;
 block|}

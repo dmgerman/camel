@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE  * file distributed with this work for additional information regarding copyright ownership. The ASF licenses this file  * to You under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the  * License. You may obtain a copy of the License at  *   * http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the  * specific language governing permissions and limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE  * file distributed with this work for additional information regarding copyright ownership. The ASF licenses this file  * to You under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the  * License. You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the  * specific language governing permissions and limitations under the License.  */
 end_comment
 
 begin_package
@@ -20,11 +20,49 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|EndpointResolver
 import|;
 end_import
 
@@ -42,8 +80,28 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
-comment|/**  * Deploys the camel endpoints within JBI  *   * @version $Revision: 426415 $  */
+comment|/**  * Deploys the camel endpoints within JBI  *  * @version $Revision: 426415 $  */
 end_comment
 
 begin_class
@@ -53,71 +111,62 @@ class|class
 name|CamelJbiComponent
 extends|extends
 name|DefaultComponent
+implements|implements
+name|Component
+argument_list|<
+name|JbiExchange
+argument_list|>
+implements|,
+name|EndpointResolver
 block|{
-DECL|field|endpoints
-specifier|private
-name|CamelJbiEndpoint
-index|[]
-name|endpoints
-decl_stmt|;
 DECL|field|binding
 specifier|private
 name|JbiBinding
 name|binding
 decl_stmt|;
-comment|/**      * @return the endpoints      */
-DECL|method|getEndpoints ()
-specifier|public
-name|CamelJbiEndpoint
-index|[]
-name|getEndpoints
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|endpoints
-return|;
-block|}
-comment|/**      * @param endpoints the endpoints to set      */
-DECL|method|setEndpoints (CamelJbiEndpoint[] endpoints)
-specifier|public
-name|void
-name|setEndpoints
-parameter_list|(
-name|CamelJbiEndpoint
-index|[]
-name|endpoints
-parameter_list|)
-block|{
-name|this
-operator|.
-name|endpoints
-operator|=
-name|endpoints
-expr_stmt|;
-block|}
+DECL|field|context
+specifier|private
+name|CamelContext
+name|context
+decl_stmt|;
 comment|/**      * @return List of endpoints      * @see org.apache.servicemix.common.DefaultComponent#getConfiguredEndpoints()      */
-DECL|method|getConfiguredEndpoints ()
 annotation|@
 name|Override
+DECL|method|getConfiguredEndpoints ()
 specifier|protected
 name|List
+argument_list|<
+name|CamelJbiEndpoint
+argument_list|>
 name|getConfiguredEndpoints
 parameter_list|()
 block|{
-return|return
-name|asList
-argument_list|(
-name|getEndpoints
+comment|// TODO need to register to the context for new endpoints...
+name|List
+argument_list|<
+name|CamelJbiEndpoint
+argument_list|>
+name|answer
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|CamelJbiEndpoint
+argument_list|>
 argument_list|()
-argument_list|)
+decl_stmt|;
+comment|//        Collection<Endpoint> endpoints = camelContext.getEndpoints();
+comment|//        for (Endpoint endpoint : endpoints) {
+comment|//          answer.add(createJbiEndpoint(endpoint));
+comment|//        }
+return|return
+name|answer
 return|;
 block|}
 comment|/**      * @return Class[]      * @see org.apache.servicemix.common.DefaultComponent#getEndpointClasses()      */
-DECL|method|getEndpointClasses ()
 annotation|@
 name|Override
+DECL|method|getEndpointClasses ()
 specifier|protected
 name|Class
 index|[]
@@ -142,9 +191,21 @@ name|JbiBinding
 name|getBinding
 parameter_list|()
 block|{
+if|if
+condition|(
+name|binding
+operator|==
+literal|null
+condition|)
+block|{
+name|binding
+operator|=
+operator|new
+name|JbiBinding
+argument_list|()
+expr_stmt|;
+block|}
 return|return
-name|this
-operator|.
 name|binding
 return|;
 block|}
@@ -163,6 +224,122 @@ operator|.
 name|binding
 operator|=
 name|binding
+expr_stmt|;
+block|}
+comment|// Resolve Camel Endpoints
+comment|//-------------------------------------------------------------------------
+DECL|method|resolveComponent (CamelContext context, String uri)
+specifier|public
+name|Component
+name|resolveComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+literal|null
+return|;
+block|}
+DECL|method|resolveEndpoint (CamelContext context, String uri)
+specifier|public
+name|Endpoint
+name|resolveEndpoint
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|uri
+operator|.
+name|startsWith
+argument_list|(
+literal|"jbi:"
+argument_list|)
+condition|)
+block|{
+name|uri
+operator|=
+name|uri
+operator|.
+name|substring
+argument_list|(
+literal|"jbi:"
+operator|.
+name|length
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|JbiEndpoint
+name|camelEndpoint
+init|=
+operator|new
+name|JbiEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|context
+argument_list|,
+name|getComponentContext
+argument_list|()
+argument_list|,
+name|getBinding
+argument_list|()
+argument_list|)
+decl_stmt|;
+comment|// lets expose this endpoint now in JBI
+comment|// TODO there could already be a component registered in JBI for this??
+name|CamelJbiEndpoint
+name|jbiEndpoint
+init|=
+operator|new
+name|CamelJbiEndpoint
+argument_list|(
+name|camelEndpoint
+argument_list|,
+name|getBinding
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|addEndpoint
+argument_list|(
+name|jbiEndpoint
+argument_list|)
+expr_stmt|;
+return|return
+name|camelEndpoint
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+DECL|method|setContext (CamelContext context)
+specifier|public
+name|void
+name|setContext
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|this
+operator|.
+name|context
+operator|=
+name|context
 expr_stmt|;
 block|}
 block|}
