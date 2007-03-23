@@ -54,6 +54,7 @@ end_comment
 
 begin_class
 DECL|class|PollingSchedule
+specifier|public
 class|class
 name|PollingSchedule
 block|{
@@ -101,6 +102,7 @@ init|=
 literal|true
 decl_stmt|;
 DECL|method|PollingSchedule (String name,Date time)
+specifier|public
 name|PollingSchedule
 parameter_list|(
 name|String
@@ -127,6 +129,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|PollingSchedule (String name,Date time,long period)
+specifier|public
 name|PollingSchedule
 parameter_list|(
 name|String
@@ -155,6 +158,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|PollingSchedule (String name,long delay)
+specifier|public
 name|PollingSchedule
 parameter_list|(
 name|String
@@ -180,6 +184,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|PollingSchedule (String name,long delay,long period)
+specifier|public
 name|PollingSchedule
 parameter_list|(
 name|String
@@ -206,6 +211,11 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|PollingSchedule ()
+specifier|public
+name|PollingSchedule
+parameter_list|()
+block|{     }
 DECL|method|PollingSchedule (String name,Date time,long delay,long period,boolean fixedRate)
 name|PollingSchedule
 parameter_list|(
@@ -457,6 +467,216 @@ block|}
 return|return
 name|result
 return|;
+block|}
+comment|/**      * @return the daemon      */
+DECL|method|isDaemon ()
+specifier|public
+name|boolean
+name|isDaemon
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|daemon
+return|;
+block|}
+comment|/**      * @param daemon the daemon to set      */
+DECL|method|setDaemon (boolean daemon)
+specifier|public
+name|void
+name|setDaemon
+parameter_list|(
+name|boolean
+name|daemon
+parameter_list|)
+block|{
+name|this
+operator|.
+name|daemon
+operator|=
+name|daemon
+expr_stmt|;
+block|}
+comment|/**      * @return the delay      */
+DECL|method|getDelay ()
+specifier|public
+name|long
+name|getDelay
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|delay
+return|;
+block|}
+comment|/**      * @param delay the delay to set      */
+DECL|method|setDelay (long delay)
+specifier|public
+name|void
+name|setDelay
+parameter_list|(
+name|long
+name|delay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delay
+operator|=
+name|delay
+expr_stmt|;
+block|}
+comment|/**      * @return the fixedRate      */
+DECL|method|isFixedRate ()
+specifier|public
+name|boolean
+name|isFixedRate
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|fixedRate
+return|;
+block|}
+comment|/**      * @param fixedRate the fixedRate to set      */
+DECL|method|setFixedRate (boolean fixedRate)
+specifier|public
+name|void
+name|setFixedRate
+parameter_list|(
+name|boolean
+name|fixedRate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fixedRate
+operator|=
+name|fixedRate
+expr_stmt|;
+block|}
+comment|/**      * @return the name      */
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|name
+return|;
+block|}
+comment|/**      * @param name the name to set      */
+DECL|method|setName (String name)
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
+block|}
+comment|/**      * @return the period      */
+DECL|method|getPeriod ()
+specifier|public
+name|long
+name|getPeriod
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|period
+return|;
+block|}
+comment|/**      * @param period the period to set      */
+DECL|method|setPeriod (long period)
+specifier|public
+name|void
+name|setPeriod
+parameter_list|(
+name|long
+name|period
+parameter_list|)
+block|{
+name|this
+operator|.
+name|period
+operator|=
+name|period
+expr_stmt|;
+block|}
+comment|/**      * @return the time      */
+DECL|method|getTime ()
+specifier|public
+name|Date
+name|getTime
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|time
+return|;
+block|}
+comment|/**      * @param time the time to set      */
+DECL|method|setTime (Date time)
+specifier|public
+name|void
+name|setTime
+parameter_list|(
+name|Date
+name|time
+parameter_list|)
+block|{
+name|this
+operator|.
+name|time
+operator|=
+name|time
+expr_stmt|;
+block|}
+comment|/**      * @return the timer      */
+DECL|method|getTimer ()
+specifier|public
+name|Timer
+name|getTimer
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|timer
+return|;
+block|}
+comment|/**      * @param timer the timer to set      */
+DECL|method|setTimer (Timer timer)
+specifier|public
+name|void
+name|setTimer
+parameter_list|(
+name|Timer
+name|timer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timer
+operator|=
+name|timer
+expr_stmt|;
 block|}
 block|}
 end_class
