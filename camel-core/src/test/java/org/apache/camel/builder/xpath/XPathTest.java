@@ -486,7 +486,6 @@ name|expected
 argument_list|)
 return|;
 block|}
-comment|/*         Object value = assertExpression(expression, expected, xml);          log.debug("Evaluated xpath: " + xpath + " on XML: " + xml + " result: " + value);     }       protected Object assertExpression(Expression expression, String expected, String xml) {         Exchange exchange = createExchange(xml);         Object value = expression.evaluate(exchange);         assertEquals("Expression: " + expression, expected, value);         return value;     }     */
 DECL|method|assertPredicate (String xpath, String xml, boolean expected)
 specifier|protected
 name|void
@@ -524,10 +523,7 @@ argument_list|,
 name|expected
 argument_list|)
 expr_stmt|;
-comment|//boolean value = assertPredicate(predicate, expected, xml);
-comment|//log.debug("Evaluated xpath: " + xpath + " on XML: " + xml + " result: " + value);
 block|}
-comment|/*     protected boolean assertPredicate(Predicate predicate, boolean expected, String xml) {         Exchange exchange = createExchange(xml);         boolean value = predicate.matches(exchange);         assertEquals("Predicate: " + predicate, expected, value);         return value;     }     */
 DECL|method|createExchange (String xml)
 specifier|protected
 name|Exchange
