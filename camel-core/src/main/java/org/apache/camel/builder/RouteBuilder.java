@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of destinationBuilders using a typesafe Java DLS.  *  * @version $Revision$  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  * which is used to build {@link Route} instances in a @{link CamelContext} for smart routing.  *  * @version $Revision$  */
 end_comment
 
 begin_class
