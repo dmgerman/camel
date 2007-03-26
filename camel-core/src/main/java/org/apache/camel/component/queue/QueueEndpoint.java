@@ -260,7 +260,7 @@ return|;
 block|}
 DECL|method|getQueue ()
 specifier|public
-name|Queue
+name|BlockingQueue
 argument_list|<
 name|E
 argument_list|>

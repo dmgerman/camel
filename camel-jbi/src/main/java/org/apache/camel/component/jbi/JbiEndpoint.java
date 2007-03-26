@@ -234,6 +234,7 @@ operator|.
 name|doActivate
 argument_list|()
 expr_stmt|;
+comment|// TODO once the inbound is activated we need to register a JBI endpoint
 block|}
 DECL|method|createExchange ()
 specifier|public

@@ -120,10 +120,10 @@ name|PojoRouteTest
 extends|extends
 name|TestCase
 block|{
-DECL|method|testJmsRoute ()
+DECL|method|testPojoRoutes ()
 specifier|public
 name|void
-name|testJmsRoute
+name|testPojoRoutes
 parameter_list|()
 throws|throws
 name|Exception
@@ -362,10 +362,15 @@ argument_list|,
 name|rc
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception as we are using an inactive endpoint"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|IllegalStateException
 name|expected
 parameter_list|)
 block|{

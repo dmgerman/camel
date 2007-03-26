@@ -106,7 +106,7 @@ name|uri
 argument_list|)
 decl_stmt|;
 return|return
-name|resolveQueueComponent
+name|resolvePojoComponent
 argument_list|(
 name|container
 argument_list|,
@@ -142,7 +142,7 @@ decl_stmt|;
 name|PojoComponent
 name|component
 init|=
-name|resolveQueueComponent
+name|resolvePojoComponent
 argument_list|(
 name|container
 argument_list|,
@@ -179,10 +179,10 @@ name|pojo
 argument_list|)
 return|;
 block|}
-DECL|method|resolveQueueComponent (CamelContext container, String componentName)
+DECL|method|resolvePojoComponent (CamelContext container, String componentName)
 specifier|private
 name|PojoComponent
-name|resolveQueueComponent
+name|resolvePojoComponent
 parameter_list|(
 name|CamelContext
 name|container

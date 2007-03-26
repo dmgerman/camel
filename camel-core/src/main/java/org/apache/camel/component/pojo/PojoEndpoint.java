@@ -156,7 +156,7 @@ operator|=
 name|pojo
 expr_stmt|;
 block|}
-comment|/** 	 *  This causes us to invoke the endpoint Pojo using reflection. 	 */
+comment|/**      * This causes us to invoke the endpoint Pojo using reflection.      */
 DECL|method|onExchange (PojoExchange exchange)
 specifier|public
 name|void
@@ -298,7 +298,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a Proxy object that can be used to deliver inbound PojoExchanges.      *       * @param interfaces      * @return      */
+comment|/**      * Creates a Proxy object that can be used to deliver inbound PojoExchanges.      *      * @param interfaces      * @return      */
 DECL|method|createInboundProxy (Class interfaces[])
 specifier|public
 name|Object
@@ -309,34 +309,6 @@ name|interfaces
 index|[]
 parameter_list|)
 block|{
-specifier|final
-name|PojoEndpoint
-name|endpoint
-init|=
-name|component
-operator|.
-name|lookupActivation
-argument_list|(
-name|getEndpointUri
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|endpoint
-operator|==
-literal|null
-condition|)
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"The endpoint has not been activated yet: "
-operator|+
-name|getEndpointUri
-argument_list|()
-argument_list|)
-throw|;
 return|return
 name|Proxy
 operator|.
@@ -382,6 +354,17 @@ name|get
 argument_list|()
 condition|)
 block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"The endpoint is not active: "
+operator|+
+name|getEndpointUri
+argument_list|()
+argument_list|)
+throw|;
+block|}
 name|PojoInvocation
 name|invocation
 init|=
@@ -408,8 +391,6 @@ argument_list|(
 name|invocation
 argument_list|)
 expr_stmt|;
-name|endpoint
-operator|.
 name|getInboundProcessor
 argument_list|()
 operator|.
@@ -450,17 +431,6 @@ operator|.
 name|getBody
 argument_list|()
 return|;
-block|}
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"The endpoint is not active: "
-operator|+
-name|getEndpointUri
-argument_list|()
-argument_list|)
-throw|;
 block|}
 block|}
 argument_list|)

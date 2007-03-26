@@ -28,9 +28,9 @@ name|E
 parameter_list|>
 block|{
 comment|/**      * The {@link CamelContext} is injected into the component when it is added to it      */
-DECL|method|setContext (CamelContext context)
+DECL|method|setCamelContext (CamelContext context)
 name|void
-name|setContext
+name|setCamelContext
 parameter_list|(
 name|CamelContext
 name|context

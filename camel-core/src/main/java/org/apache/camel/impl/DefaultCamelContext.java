@@ -245,7 +245,7 @@ throw|;
 block|}
 name|component
 operator|.
-name|setContext
+name|setCamelContext
 argument_list|(
 name|this
 argument_list|)
@@ -405,7 +405,7 @@ argument_list|)
 expr_stmt|;
 name|component
 operator|.
-name|setContext
+name|setCamelContext
 argument_list|(
 name|this
 argument_list|)
@@ -565,8 +565,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO temporarily disabled caching due to POJO test failure
-comment|// endpoints.put(uri, answer);
+name|endpoints
+operator|.
+name|put
+argument_list|(
+name|uri
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 catch|catch

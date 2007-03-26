@@ -179,64 +179,6 @@ name|getContent
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a JBI {@link MessageExchange} from the given Camel {@link Exchange}      *      */
-DECL|method|makeJbiMessageExchange (Exchange camelExchange, Destination jbiDestination)
-specifier|public
-name|MessageExchange
-name|makeJbiMessageExchange
-parameter_list|(
-name|Exchange
-name|camelExchange
-parameter_list|,
-name|Destination
-name|jbiDestination
-parameter_list|)
-throws|throws
-name|MessagingException
-block|{
-name|MessageExchange
-name|jbiExchange
-init|=
-name|createJbiMessageExchange
-argument_list|(
-name|camelExchange
-argument_list|,
-name|jbiDestination
-argument_list|)
-decl_stmt|;
-name|NormalizedMessage
-name|normalizedMessage
-init|=
-name|jbiExchange
-operator|.
-name|getMessage
-argument_list|(
-literal|"in"
-argument_list|)
-decl_stmt|;
-name|normalizedMessage
-operator|.
-name|setContent
-argument_list|(
-name|getJbiInContent
-argument_list|(
-name|camelExchange
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|addJbiHeaders
-argument_list|(
-name|jbiExchange
-argument_list|,
-name|normalizedMessage
-argument_list|,
-name|camelExchange
-argument_list|)
-expr_stmt|;
-return|return
-name|jbiExchange
-return|;
-block|}
 DECL|method|makeJbiMessageExchange (Exchange camelExchange, MessageExchangeFactory exchangeFactory)
 specifier|public
 name|MessageExchange
@@ -318,6 +260,64 @@ return|return
 name|jbiExchange
 return|;
 block|}
+comment|/**      * Creates a JBI {@link MessageExchange} from the given Camel {@link Exchange}      *      */
+DECL|method|makeJbiMessageExchange (Exchange camelExchange, Destination jbiDestination)
+specifier|public
+name|MessageExchange
+name|makeJbiMessageExchange
+parameter_list|(
+name|Exchange
+name|camelExchange
+parameter_list|,
+name|Destination
+name|jbiDestination
+parameter_list|)
+throws|throws
+name|MessagingException
+block|{
+name|MessageExchange
+name|jbiExchange
+init|=
+name|createJbiMessageExchange
+argument_list|(
+name|camelExchange
+argument_list|,
+name|jbiDestination
+argument_list|)
+decl_stmt|;
+name|NormalizedMessage
+name|normalizedMessage
+init|=
+name|jbiExchange
+operator|.
+name|getMessage
+argument_list|(
+literal|"in"
+argument_list|)
+decl_stmt|;
+name|normalizedMessage
+operator|.
+name|setContent
+argument_list|(
+name|getJbiInContent
+argument_list|(
+name|camelExchange
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|addJbiHeaders
+argument_list|(
+name|jbiExchange
+argument_list|,
+name|normalizedMessage
+argument_list|,
+name|camelExchange
+argument_list|)
+expr_stmt|;
+return|return
+name|jbiExchange
+return|;
+block|}
 DECL|method|createJbiMessageExchange (Exchange camelExchange, MessageExchangeFactory exchangeFactory)
 specifier|protected
 name|MessageExchange
@@ -332,7 +332,7 @@ parameter_list|)
 throws|throws
 name|MessagingException
 block|{
-comment|// TODO we should deal with other forms of MEM
+comment|// TODO we should deal with other forms of MEP
 return|return
 name|exchangeFactory
 operator|.
@@ -354,7 +354,7 @@ parameter_list|)
 throws|throws
 name|MessagingException
 block|{
-comment|// TODO we should deal with other forms of MEM
+comment|// TODO we should deal with other forms of MEP
 return|return
 name|jbiDestination
 operator|.

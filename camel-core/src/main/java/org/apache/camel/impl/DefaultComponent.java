@@ -107,10 +107,10 @@ return|return
 name|context
 return|;
 block|}
-DECL|method|setContext (CamelContext context)
+DECL|method|setCamelContext (CamelContext context)
 specifier|public
 name|void
-name|setContext
+name|setCamelContext
 parameter_list|(
 name|CamelContext
 name|context
