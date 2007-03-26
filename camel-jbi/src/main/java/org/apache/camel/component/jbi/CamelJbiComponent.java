@@ -609,7 +609,7 @@ name|endpointUri
 operator|.
 name|startsWith
 argument_list|(
-literal|"service:"
+literal|"endpoint:"
 argument_list|)
 condition|)
 block|{
@@ -621,7 +621,7 @@ name|endpointUri
 operator|.
 name|substring
 argument_list|(
-literal|"service:"
+literal|"endpoint:"
 operator|.
 name|length
 argument_list|()
@@ -659,7 +659,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Expected syntax service:serviceNamespace:serviceName:endpointName but was given: "
+literal|"Expected syntax endpoint:[serviceNamespace]:[serviceName]:[endpointName] but was given: "
 operator|+
 name|endpointUri
 operator|+

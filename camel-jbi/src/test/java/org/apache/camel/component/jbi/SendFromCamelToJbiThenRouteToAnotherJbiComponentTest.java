@@ -229,12 +229,12 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"jbi:service:serviceNamespace:serviceA:endpointA"
+literal|"jbi:endpoint:serviceNamespace:serviceA:endpointA"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jbi:service:serviceNamespace:serviceB"
+literal|"jbi:endpoint:serviceNamespace:serviceB:endpointB"
 argument_list|)
 expr_stmt|;
 block|}

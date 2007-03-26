@@ -254,7 +254,7 @@ specifier|protected
 name|String
 name|startEndpointUri
 init|=
-literal|"jbi:service:serviceNamespace:serviceA"
+literal|"jbi:endpoint:serviceNamespace:serviceA:endpointA"
 decl_stmt|;
 comment|/**      * Sends an exchange to the endpoint      */
 DECL|method|sendExchange (Object expectedBody)
