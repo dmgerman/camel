@@ -32,15 +32,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|jbi
 operator|.
-name|servicemix
+name|messaging
 operator|.
-name|client
-operator|.
-name|Destination
+name|MessageExchange
 import|;
 end_import
 
@@ -52,7 +50,7 @@ name|jbi
 operator|.
 name|messaging
 operator|.
-name|MessageExchange
+name|MessageExchangeFactory
 import|;
 end_import
 
@@ -77,18 +75,6 @@ operator|.
 name|messaging
 operator|.
 name|NormalizedMessage
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jbi
-operator|.
-name|messaging
-operator|.
-name|MessageExchangeFactory
 import|;
 end_import
 
@@ -122,6 +108,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|StringReader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -135,16 +131,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|StringReader
 import|;
 end_import
 

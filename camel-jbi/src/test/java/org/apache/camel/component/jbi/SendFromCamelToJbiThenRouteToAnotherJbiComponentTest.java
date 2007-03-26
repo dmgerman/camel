@@ -115,10 +115,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SendFromCamelToJbiTest
+DECL|class|SendFromCamelToJbiThenRouteToAnotherJbiComponentTest
 specifier|public
 class|class
-name|SendFromCamelToJbiTest
+name|SendFromCamelToJbiThenRouteToAnotherJbiComponentTest
 extends|extends
 name|JbiTestSupport
 block|{
@@ -227,7 +227,16 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// no routes required
+name|from
+argument_list|(
+literal|"jbi:service:serviceNamespace:serviceA:endpointA"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"jbi:service:serviceNamespace:serviceB"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 return|;
@@ -267,7 +276,7 @@ name|QName
 argument_list|(
 literal|"serviceNamespace"
 argument_list|,
-literal|"serviceA"
+literal|"serviceB"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -275,7 +284,7 @@ name|activationSpec
 operator|.
 name|setEndpoint
 argument_list|(
-literal|"endpointA"
+literal|"endpointB"
 argument_list|)
 expr_stmt|;
 name|activationSpec

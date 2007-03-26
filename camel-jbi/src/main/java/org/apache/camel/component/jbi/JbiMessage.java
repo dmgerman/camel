@@ -26,9 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultMessage
+name|Message
 import|;
 end_import
 
@@ -40,7 +38,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
+name|impl
+operator|.
+name|DefaultMessage
 import|;
 end_import
 

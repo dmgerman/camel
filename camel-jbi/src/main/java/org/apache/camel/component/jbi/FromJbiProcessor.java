@@ -24,9 +24,9 @@ name|org
 operator|.
 name|apache
 operator|.
-name|servicemix
+name|camel
 operator|.
-name|MessageExchangeListener
+name|CamelContext
 import|;
 end_import
 
@@ -48,9 +48,9 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|servicemix
 operator|.
-name|CamelContext
+name|MessageExchangeListener
 import|;
 end_import
 

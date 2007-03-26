@@ -30,18 +30,6 @@ name|RuntimeCamelException
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|jbi
-operator|.
-name|messaging
-operator|.
-name|MessagingException
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
