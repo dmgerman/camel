@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Consumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -74,7 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
+name|impl
+operator|.
+name|DefaultConsumer
 import|;
 end_import
 
@@ -103,20 +117,6 @@ operator|.
 name|impl
 operator|.
 name|DefaultProducer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultConsumer
 import|;
 end_import
 
@@ -207,6 +207,8 @@ throws|throws
 name|Exception
 block|{
 return|return
+name|startService
+argument_list|(
 operator|new
 name|DefaultProducer
 argument_list|<
@@ -233,6 +235,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+argument_list|)
 return|;
 block|}
 DECL|method|createConsumer (final Processor<Exchange> processor)
@@ -254,6 +257,8 @@ throws|throws
 name|Exception
 block|{
 return|return
+name|startService
+argument_list|(
 operator|new
 name|DefaultConsumer
 argument_list|<
@@ -295,6 +300,17 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|">>>>Êactivated endpoint: "
+operator|+
+name|jbiEndpoint
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -313,6 +329,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+argument_list|)
 return|;
 block|}
 comment|/*     public void onExchange(Exchange exchange) {         if (getInboundProcessor() != null) {             getInboundProcessor().onExchange(exchange);         } else {             toJbiProcessor.onExchange(exchange);        }     }     */

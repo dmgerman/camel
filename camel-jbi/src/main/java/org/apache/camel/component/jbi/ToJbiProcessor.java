@@ -231,6 +231,17 @@ operator|+
 name|destinationUri
 argument_list|)
 expr_stmt|;
+operator|new
+name|Exception
+argument_list|()
+operator|.
+name|printStackTrace
+argument_list|(
+name|System
+operator|.
+name|out
+argument_list|)
+expr_stmt|;
 name|URIResolver
 operator|.
 name|configureExchange
