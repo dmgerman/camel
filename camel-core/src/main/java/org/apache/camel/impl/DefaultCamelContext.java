@@ -36,9 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|builder
 operator|.
-name|ServiceHelper
+name|RouteBuilder
 import|;
 end_import
 
@@ -50,9 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|util
 operator|.
-name|RouteBuilder
+name|ServiceHelper
 import|;
 end_import
 
@@ -766,6 +766,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|routes
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Route
@@ -851,6 +858,7 @@ argument_list|(
 name|service
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

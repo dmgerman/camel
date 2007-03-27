@@ -26,9 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultExchange
+name|CamelContext
 import|;
 end_import
 
@@ -40,7 +38,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|impl
+operator|.
+name|DefaultExchange
 import|;
 end_import
 
@@ -82,7 +82,7 @@ name|cxf
 operator|.
 name|transport
 operator|.
-name|Destination
+name|Conduit
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|cxf
 operator|.
 name|transport
 operator|.
-name|Conduit
+name|Destination
 import|;
 end_import
 

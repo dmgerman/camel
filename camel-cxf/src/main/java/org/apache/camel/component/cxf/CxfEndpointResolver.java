@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointResolver
+name|CamelContext
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|EndpointResolver
 import|;
 end_import
 
@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of {@link EndpointResolver} that creates  * {@link CxfEndpoint} objects.  *  * The syntax for a MINA URI looks like:  *  *<pre><code>mina:</code></pre>  *  * @version $Revision:520964 $  */
+comment|/**  * An implementation of {@link EndpointResolver} that creates  * {@link CxfEndpoint} objects.  *<p/>  * The syntax for a MINA URI looks like:  *<p/>  *<pre><code>mina:</code></pre>  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -129,7 +129,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/** 	 * Finds the {@link CxfComponent} specified by the uri.  If the {@link CxfComponent} 	 * object do not exist, it will be created. 	 */
+comment|/**      * Finds the {@link CxfComponent} specified by the uri.  If the {@link CxfComponent}      * object do not exist, it will be created.      */
 DECL|method|resolveComponent (CamelContext container, String uri)
 specifier|public
 name|Component
@@ -163,7 +163,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Finds the {@link CxfEndpoint} specified by the uri.  If the {@link CxfEndpoint} or it's associated 	 * {@see QueueComponent} object do not exist, they will be created. 	 */
+comment|/**      * Finds the {@link CxfEndpoint} specified by the uri.  If the {@link CxfEndpoint} or it's associated      * {@see QueueComponent} object do not exist, they will be created.      */
 DECL|method|resolveEndpoint (CamelContext container, String uri)
 specifier|public
 name|CxfEndpoint
@@ -213,7 +213,7 @@ name|urlParts
 argument_list|)
 return|;
 block|}
-comment|/** 	 * @return an array that looks like: [componentName,endpointName] 	 */
+comment|/**      * @return an array that looks like: [componentName,endpointName]      */
 DECL|method|getEndpointId (String uri)
 specifier|private
 name|String

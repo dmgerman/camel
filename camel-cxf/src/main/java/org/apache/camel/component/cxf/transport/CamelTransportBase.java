@@ -28,7 +28,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|CamelContext
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Exchange
 import|;
 end_import
 
@@ -202,7 +202,7 @@ name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|populateIncomingContext (Exchange exchange, MessageImpl inMessage, String jmsServerRequestHeaders)
+DECL|method|populateIncomingContext (Exchange exchange, MessageImpl inMessage, String camelServerRequestHeaders)
 specifier|public
 name|void
 name|populateIncomingContext
@@ -214,7 +214,7 @@ name|MessageImpl
 name|inMessage
 parameter_list|,
 name|String
-name|jmsServerRequestHeaders
+name|camelServerRequestHeaders
 parameter_list|)
 block|{      }
 DECL|method|getReplyDestination ()
@@ -271,7 +271,7 @@ comment|// TODO
 block|}
 block|}
 block|}
-comment|/**      * Populates a Camel exchange with a payload      *      * @param payload the message payload, expected to be either of type      * String or byte[] depending on payload type      * @param replyTo the ReplyTo destination if any      * @param exchange the underlying exchange to marshal to      */
+comment|/**      * Populates a Camel exchange with a payload      *      * @param payload  the message payload, expected to be either of type      *                 String or byte[] depending on payload type      * @param replyTo  the ReplyTo destination if any      * @param exchange the underlying exchange to marshal to      */
 DECL|method|marshal (Object payload, String replyTo, Exchange exchange)
 specifier|protected
 name|void
@@ -354,7 +354,7 @@ expr|class
 argument_list|)
 return|;
 block|}
-comment|/*     protected JMSMessageHeadersType populateIncomingContext(javax.jms.Message message,                                                             org.apache.cxf.message.Message inMessage,                                                      String headerType)  throws JMSException {         JMSMessageHeadersType headers = null;          headers = (JMSMessageHeadersType)inMessage.get(headerType);          if (headers == null) {             headers = new JMSMessageHeadersType();             inMessage.put(headerType, headers);         }          headers.setJMSCorrelationID(message.getJMSCorrelationID());         headers.setJMSDeliveryMode(new Integer(message.getJMSDeliveryMode()));         headers.setJMSExpiration(new Long(message.getJMSExpiration()));         headers.setJMSMessageID(message.getJMSMessageID());         headers.setJMSPriority(new Integer(message.getJMSPriority()));         headers.setJMSRedelivered(Boolean.valueOf(message.getJMSRedelivered()));         headers.setJMSTimeStamp(new Long(message.getJMSTimestamp()));         headers.setJMSType(message.getJMSType());          List<JMSPropertyType> props = headers.getProperty();         Enumeration enm = message.getPropertyNames();         while (enm.hasMoreElements()) {             String name = (String)enm.nextElement();             String val = message.getStringProperty(name);             JMSPropertyType prop = new JMSPropertyType();             prop.setName(name);             prop.setValue(val);             props.add(prop);         }          return headers;     }      protected int getJMSDeliveryMode(JMSMessageHeadersType headers) {         int deliveryMode = Message.DEFAULT_DELIVERY_MODE;          if (headers != null&& headers.isSetJMSDeliveryMode()) {             deliveryMode = headers.getJMSDeliveryMode();         }         return deliveryMode;     }      protected int getJMSPriority(JMSMessageHeadersType headers) {         int priority = Message.DEFAULT_PRIORITY;         if (headers != null&& headers.isSetJMSPriority()) {             priority = headers.getJMSPriority();         }         return priority;     }      protected long getTimeToLive(JMSMessageHeadersType headers) {         long ttl = -1;         if (headers != null&& headers.isSetTimeToLive()) {             ttl = headers.getTimeToLive();         }         return ttl;     }      protected String getCorrelationId(JMSMessageHeadersType headers) {         String correlationId  = null;         if (headers != null&& headers.isSetJMSCorrelationID()) {             correlationId = headers.getJMSCorrelationID();         }         return correlationId;     }       protected String getAddrUriFromJMSAddrPolicy() {         AddressType jmsAddressPolicy = transport.getJMSAddress();         return "jms:" + jmsAddressPolicy.getJndiConnectionFactoryName()                         + "#"                         + jmsAddressPolicy.getJndiDestinationName();     }      protected String getReplyTotAddrUriFromJMSAddrPolicy() {         AddressType jmsAddressPolicy = transport.getJMSAddress();         return "jms:"                         + jmsAddressPolicy.getJndiConnectionFactoryName()                         + "#"                         + jmsAddressPolicy.getJndiReplyDestinationName();     }      protected boolean isDestinationStyleQueue() {         return JMSConstants.CAMEL_QUEUE.equals(             transport.getJMSAddress().getDestinationStyle().value());     }     */
+comment|/*     protected CamelMessageHeadersType populateIncomingContext(javax.camel.Message message,                                                             org.apache.cxf.message.Message inMessage,                                                      String headerType)  throws CamelException {         CamelMessageHeadersType headers = null;          headers = (CamelMessageHeadersType)inMessage.get(headerType);          if (headers == null) {             headers = new CamelMessageHeadersType();             inMessage.put(headerType, headers);         }          headers.setCamelCorrelationID(message.getCamelCorrelationID());         headers.setCamelDeliveryMode(new Integer(message.getCamelDeliveryMode()));         headers.setCamelExpiration(new Long(message.getCamelExpiration()));         headers.setCamelMessageID(message.getCamelMessageID());         headers.setCamelPriority(new Integer(message.getCamelPriority()));         headers.setCamelRedelivered(Boolean.valueOf(message.getCamelRedelivered()));         headers.setCamelTimeStamp(new Long(message.getCamelTimestamp()));         headers.setCamelType(message.getCamelType());          List<CamelPropertyType> props = headers.getProperty();         Enumeration enm = message.getPropertyNames();         while (enm.hasMoreElements()) {             String name = (String)enm.nextElement();             String val = message.getStringProperty(name);             CamelPropertyType prop = new CamelPropertyType();             prop.setName(name);             prop.setValue(val);             props.add(prop);         }          return headers;     }      protected int getCamelDeliveryMode(CamelMessageHeadersType headers) {         int deliveryMode = Message.DEFAULT_DELIVERY_MODE;          if (headers != null&& headers.isSetCamelDeliveryMode()) {             deliveryMode = headers.getCamelDeliveryMode();         }         return deliveryMode;     }      protected int getCamelPriority(CamelMessageHeadersType headers) {         int priority = Message.DEFAULT_PRIORITY;         if (headers != null&& headers.isSetCamelPriority()) {             priority = headers.getCamelPriority();         }         return priority;     }      protected long getTimeToLive(CamelMessageHeadersType headers) {         long ttl = -1;         if (headers != null&& headers.isSetTimeToLive()) {             ttl = headers.getTimeToLive();         }         return ttl;     }      protected String getCorrelationId(CamelMessageHeadersType headers) {         String correlationId  = null;         if (headers != null&& headers.isSetCamelCorrelationID()) {             correlationId = headers.getCamelCorrelationID();         }         return correlationId;     }       protected String getAddrUriFromCamelAddrPolicy() {         AddressType camelAddressPolicy = transport.getCamelAddress();         return "camel:" + camelAddressPolicy.getJndiConnectionFactoryName()                         + "#"                         + camelAddressPolicy.getJndiDestinationName();     }      protected String getReplyTotAddrUriFromCamelAddrPolicy() {         AddressType camelAddressPolicy = transport.getCamelAddress();         return "camel:"                         + camelAddressPolicy.getJndiConnectionFactoryName()                         + "#"                         + camelAddressPolicy.getJndiReplyDestinationName();     }      protected boolean isDestinationStyleQueue() {         return CamelConstants.CAMEL_QUEUE.equals(             transport.getCamelAddress().getDestinationStyle().value());     }     */
 block|}
 end_class
 

@@ -40,6 +40,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -65,18 +77,6 @@ operator|.
 name|camel
 operator|.
 name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
 import|;
 end_import
 
@@ -365,7 +365,7 @@ specifier|final
 name|String
 name|BASE_BEAN_NAME_SUFFIX
 init|=
-literal|".jms-destination-base"
+literal|".camel-destination-base"
 decl_stmt|;
 DECL|field|LOG
 specifier|private
@@ -670,7 +670,7 @@ operator|.
 name|CAMEL_SERVER_REQUEST_HEADERS
 argument_list|)
 expr_stmt|;
-comment|//inMessage.put(JMSConstants.CAMEL_SERVER_RESPONSE_HEADERS, new JMSMessageHeadersType());
+comment|//inMessage.put(CamelConstants.CAMEL_SERVER_RESPONSE_HEADERS, new CamelMessageHeadersType());
 name|inMessage
 operator|.
 name|put
@@ -713,7 +713,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|".jms-destination"
+literal|".camel-destination"
 return|;
 block|}
 DECL|method|initConfig ()
