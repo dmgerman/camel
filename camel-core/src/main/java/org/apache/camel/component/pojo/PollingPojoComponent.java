@@ -88,7 +88,7 @@ parameter_list|)
 block|{
 name|super
 operator|.
-name|registerPojo
+name|addService
 argument_list|(
 name|uri
 argument_list|,
@@ -123,7 +123,7 @@ parameter_list|)
 block|{
 name|super
 operator|.
-name|registerPojo
+name|addService
 argument_list|(
 name|uri
 argument_list|,
@@ -172,7 +172,7 @@ parameter_list|)
 block|{
 name|super
 operator|.
-name|registerPojo
+name|addService
 argument_list|(
 name|uri
 argument_list|,
@@ -223,7 +223,7 @@ parameter_list|)
 block|{
 name|super
 operator|.
-name|registerPojo
+name|addService
 argument_list|(
 name|uri
 argument_list|,
@@ -274,7 +274,7 @@ parameter_list|)
 block|{
 name|super
 operator|.
-name|registerPojo
+name|addService
 argument_list|(
 name|uri
 argument_list|,
@@ -330,7 +330,7 @@ parameter_list|)
 block|{
 name|super
 operator|.
-name|registerPojo
+name|addService
 argument_list|(
 name|uri
 argument_list|,
@@ -376,20 +376,13 @@ name|PojoEndpoint
 name|endpoint
 parameter_list|)
 block|{
-name|super
-operator|.
-name|registerActivation
-argument_list|(
-name|uri
-argument_list|,
-name|endpoint
-argument_list|)
-expr_stmt|;
+comment|//        super.registerActivation(uri,endpoint);
+comment|//        if(endpoint instanceof PollingPojoEndpoint){
 if|if
 condition|(
 name|endpoint
 operator|instanceof
-name|PollingPojoEndpoint
+name|PojoEndpoint
 condition|)
 block|{
 name|PollingSchedule
@@ -422,10 +415,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|unregisterActivation (String uri)
+DECL|method|removeConsumer (String uri)
 specifier|public
 name|void
-name|unregisterActivation
+name|removeConsumer
 parameter_list|(
 name|String
 name|uri
@@ -433,7 +426,7 @@ parameter_list|)
 block|{
 name|super
 operator|.
-name|unregisterActivation
+name|removeConsumer
 argument_list|(
 name|uri
 argument_list|)

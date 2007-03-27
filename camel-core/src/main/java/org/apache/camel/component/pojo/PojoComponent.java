@@ -67,7 +67,7 @@ argument_list|<
 name|PojoExchange
 argument_list|>
 block|{
-DECL|field|registry
+DECL|field|services
 specifier|protected
 specifier|final
 name|HashMap
@@ -76,7 +76,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|registry
+name|services
 init|=
 operator|new
 name|HashMap
@@ -87,23 +87,23 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|activatedEndpoints
+DECL|field|consumers
 specifier|protected
 specifier|final
 name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|PojoEndpoint
+name|PojoConsumer
 argument_list|>
-name|activatedEndpoints
+name|consumers
 init|=
 operator|new
 name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|PojoEndpoint
+name|PojoConsumer
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -112,10 +112,10 @@ specifier|private
 name|CamelContext
 name|container
 decl_stmt|;
-DECL|method|registerPojo (String uri, Object pojo)
+DECL|method|addService (String uri, Object pojo)
 specifier|public
 name|void
-name|registerPojo
+name|addService
 parameter_list|(
 name|String
 name|uri
@@ -124,7 +124,7 @@ name|Object
 name|pojo
 parameter_list|)
 block|{
-name|registry
+name|services
 operator|.
 name|put
 argument_list|(
@@ -134,17 +134,39 @@ name|pojo
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|lookupRegisteredPojo (String uri)
+DECL|method|removeService (String uri)
+specifier|public
+name|void
+name|removeService
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|services
+operator|.
+name|remove
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+name|removeConsumer
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getService (String uri)
 specifier|public
 name|Object
-name|lookupRegisteredPojo
+name|getService
 parameter_list|(
 name|String
 name|uri
 parameter_list|)
 block|{
 return|return
-name|registry
+name|services
 operator|.
 name|get
 argument_list|(
@@ -152,41 +174,18 @@ name|uri
 argument_list|)
 return|;
 block|}
-DECL|method|unregisterPojo (String uri)
-specifier|public
+DECL|method|addConsumer (String uri, PojoConsumer endpoint)
 name|void
-name|unregisterPojo
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-name|registry
-operator|.
-name|remove
-argument_list|(
-name|uri
-argument_list|)
-expr_stmt|;
-name|unregisterActivation
-argument_list|(
-name|uri
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|registerActivation (String uri, PojoEndpoint endpoint)
-specifier|public
-name|void
-name|registerActivation
+name|addConsumer
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|PojoEndpoint
+name|PojoConsumer
 name|endpoint
 parameter_list|)
 block|{
-name|activatedEndpoints
+name|consumers
 operator|.
 name|put
 argument_list|(
@@ -196,16 +195,15 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|unregisterActivation (String uri)
-specifier|public
+DECL|method|removeConsumer (String uri)
 name|void
-name|unregisterActivation
+name|removeConsumer
 parameter_list|(
 name|String
 name|uri
 parameter_list|)
 block|{
-name|activatedEndpoints
+name|consumers
 operator|.
 name|remove
 argument_list|(
@@ -213,17 +211,17 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|lookupActivation (String uri)
+DECL|method|getConsumer (String uri)
 specifier|public
-name|PojoEndpoint
-name|lookupActivation
+name|PojoConsumer
+name|getConsumer
 parameter_list|(
 name|String
 name|uri
 parameter_list|)
 block|{
 return|return
-name|activatedEndpoints
+name|consumers
 operator|.
 name|get
 argument_list|(

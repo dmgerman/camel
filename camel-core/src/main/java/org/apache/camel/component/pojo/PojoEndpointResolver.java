@@ -157,7 +157,7 @@ name|pojo
 init|=
 name|component
 operator|.
-name|lookupRegisteredPojo
+name|getService
 argument_list|(
 name|id
 index|[
@@ -171,11 +171,12 @@ name|PojoEndpoint
 argument_list|(
 name|uri
 argument_list|,
-name|container
+name|id
+index|[
+literal|1
+index|]
 argument_list|,
 name|component
-argument_list|,
-name|pojo
 argument_list|)
 return|;
 block|}

@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -37,18 +51,6 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
 import|;
 end_import
 
@@ -94,20 +96,6 @@ name|InterceptorProcessor
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicInteger
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision: 520220 $  */
 end_comment
@@ -144,20 +132,7 @@ argument_list|()
 decl_stmt|;
 name|component
 operator|.
-name|registerPojo
-argument_list|(
-literal|"hello"
-argument_list|,
-operator|new
-name|SayService
-argument_list|(
-literal|"Hello!"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|component
-operator|.
-name|registerPojo
+name|addService
 argument_list|(
 literal|"bye"
 argument_list|,
@@ -256,7 +231,6 @@ argument_list|(
 literal|"pojo:default:bye"
 argument_list|)
 expr_stmt|;
-comment|//                from("pojo:default:bye").intercept(tracingInterceptor).target().to("pojo:default:hello");
 block|}
 block|}
 argument_list|)
@@ -266,7 +240,54 @@ operator|.
 name|activateEndpoints
 argument_list|()
 expr_stmt|;
-comment|/* TODO                  // now lets fire in a message         PojoEndpoint endpoint = (PojoEndpoint) container.resolveEndpoint("pojo:default:hello");         ISay proxy = (ISay) endpoint.createInboundProxy(new Class[]{ISay.class});         String rc = proxy.say();         assertEquals("Good Bye!", rc);          try { 			endpoint = (PojoEndpoint) container.resolveEndpoint("pojo:default:bye"); 			proxy = (ISay) endpoint.createInboundProxy(new Class[]{ISay.class}); 			rc = proxy.say(); 			assertEquals("Hello!", rc);             fail("Should have thrown an exception as we are using an inactive endpoint");          } catch (IllegalStateException expected) { 			// since bye is not active. 		} 		*/
+comment|// now lets fire in a message
+name|PojoConsumer
+name|consumer
+init|=
+name|component
+operator|.
+name|getConsumer
+argument_list|(
+literal|"hello"
+argument_list|)
+decl_stmt|;
+name|ISay
+name|proxy
+init|=
+name|consumer
+operator|.
+name|createProxy
+argument_list|(
+name|ISay
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|String
+name|rc
+init|=
+name|proxy
+operator|.
+name|say
+argument_list|()
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Good Bye!"
+argument_list|,
+name|rc
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|hitCount
+operator|.
+name|get
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|container
 operator|.
 name|deactivateEndpoints
