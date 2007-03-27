@@ -140,6 +140,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|mina
+operator|.
+name|common
+operator|.
+name|IoServiceConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -222,7 +236,13 @@ specifier|final
 name|IoConnector
 name|connector
 decl_stmt|;
-DECL|method|MinaEndpoint (String endpointUri, CamelContext container, SocketAddress address, IoAcceptor acceptor, IoConnector connector)
+DECL|field|config
+specifier|private
+specifier|final
+name|IoServiceConfig
+name|config
+decl_stmt|;
+DECL|method|MinaEndpoint (String endpointUri, CamelContext container, SocketAddress address, IoAcceptor acceptor, IoConnector connector, IoServiceConfig config)
 specifier|public
 name|MinaEndpoint
 parameter_list|(
@@ -240,6 +260,9 @@ name|acceptor
 parameter_list|,
 name|IoConnector
 name|connector
+parameter_list|,
+name|IoServiceConfig
+name|config
 parameter_list|)
 block|{
 name|super
@@ -248,6 +271,12 @@ name|endpointUri
 argument_list|,
 name|container
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|config
+operator|=
+name|config
 expr_stmt|;
 name|this
 operator|.
@@ -402,6 +431,16 @@ parameter_list|()
 block|{
 return|return
 name|connector
+return|;
+block|}
+DECL|method|getConfig ()
+specifier|public
+name|IoServiceConfig
+name|getConfig
+parameter_list|()
+block|{
+return|return
+name|config
 return|;
 block|}
 comment|// Implementation methods

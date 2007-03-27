@@ -310,6 +310,11 @@ argument_list|(
 name|address
 argument_list|,
 name|handler
+argument_list|,
+name|endpoint
+operator|.
+name|getConfig
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
