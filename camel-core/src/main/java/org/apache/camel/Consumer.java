@@ -4,47 +4,34 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|processor
 package|;
 end_package
 
 begin_comment
-comment|/**  * Used to configure the logging levels  *  * @version $Revision$  */
+comment|/**  * Represents a consumer of an endpoint  *  * @version $Revision$  */
 end_comment
 
-begin_enum
-DECL|enum|LoggingLevel
+begin_interface
+DECL|interface|Consumer
 specifier|public
-enum|enum
-name|LoggingLevel
-block|{
-DECL|enumConstant|DEBUG
-DECL|enumConstant|ERROR
-DECL|enumConstant|FATAL
-DECL|enumConstant|INFO
-DECL|enumConstant|TRACE
-DECL|enumConstant|WARN
-name|DEBUG
-block|,
-name|ERROR
-block|,
-name|FATAL
-block|,
-name|INFO
-block|,
-name|TRACE
-block|,
-name|WARN
-block|; }
-end_enum
+interface|interface
+name|Consumer
+parameter_list|<
+name|E
+extends|extends
+name|Exchange
+parameter_list|>
+extends|extends
+name|Service
+block|{ }
+end_interface
 
 end_unit
 

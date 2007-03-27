@@ -240,6 +240,8 @@ name|E
 argument_list|>
 name|createProcessor
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// The target is required.
 if|if

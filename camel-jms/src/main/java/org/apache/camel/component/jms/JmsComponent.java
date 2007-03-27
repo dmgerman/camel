@@ -465,45 +465,6 @@ name|subject
 argument_list|)
 expr_stmt|;
 comment|/*         Destination destination = (Destination) template.execute(new SessionCallback() {             public Object doInJms(Session session) throws JMSException {                 return template.getDestinationResolver().resolveDestinationName(session, subject, template.isPubSubDomain());             }         });         */
-name|AbstractMessageListenerContainer
-name|listenerContainer
-init|=
-name|createMessageListenerContainer
-argument_list|(
-name|template
-argument_list|)
-decl_stmt|;
-name|listenerContainer
-operator|.
-name|setDestinationName
-argument_list|(
-name|subject
-argument_list|)
-expr_stmt|;
-name|listenerContainer
-operator|.
-name|setPubSubDomain
-argument_list|(
-name|template
-operator|.
-name|isPubSubDomain
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|listenerContainer
-operator|.
-name|setConnectionFactory
-argument_list|(
-name|template
-operator|.
-name|getConnectionFactory
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// TODO support optional parameters
-comment|// selector
-comment|// messageConverter
-comment|// durableSubscriberName
 return|return
 operator|new
 name|JmsEndpoint
@@ -516,8 +477,6 @@ argument_list|,
 name|subject
 argument_list|,
 name|template
-argument_list|,
-name|listenerContainer
 argument_list|)
 return|;
 block|}
@@ -546,23 +505,6 @@ name|template
 operator|=
 name|template
 expr_stmt|;
-block|}
-DECL|method|createMessageListenerContainer (JmsTemplate template)
-specifier|protected
-name|AbstractMessageListenerContainer
-name|createMessageListenerContainer
-parameter_list|(
-name|JmsTemplate
-name|template
-parameter_list|)
-block|{
-comment|// TODO use an enum to auto-switch container types?
-comment|//return new SimpleMessageListenerContainer();
-return|return
-operator|new
-name|DefaultMessageListenerContainer
-argument_list|()
-return|;
 block|}
 comment|/**      * A strategy method allowing the URI destination to be translated into the actual JMS destination name      * (say by looking up in JNDI or something)      */
 DECL|method|convertPathToActualDestination (String path)

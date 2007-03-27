@@ -25,12 +25,9 @@ interface|interface
 name|Endpoint
 parameter_list|<
 name|E
-parameter_list|>
 extends|extends
-name|Processor
-argument_list|<
-name|E
-argument_list|>
+name|Exchange
+parameter_list|>
 block|{
 comment|/**      * Returns the string representation of the endpoint URI      */
 DECL|method|getEndpointUri ()
@@ -38,15 +35,6 @@ specifier|public
 name|String
 name|getEndpointUri
 parameter_list|()
-function_decl|;
-comment|/**      * Sends an outbound exchange to the endpoint      */
-DECL|method|onExchange (E exchange)
-name|void
-name|onExchange
-parameter_list|(
-name|E
-name|exchange
-parameter_list|)
 function_decl|;
 comment|/**      * Create a new exchange for communicating with this endpoint      */
 DECL|method|createExchange ()
@@ -88,6 +76,34 @@ DECL|method|getContext ()
 name|CamelContext
 name|getContext
 parameter_list|()
+function_decl|;
+comment|/**      * Creates a new producer which is used send messages into the endpoint      *      * @return a newly created producer      */
+DECL|method|createProducer ()
+name|Producer
+argument_list|<
+name|E
+argument_list|>
+name|createProducer
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Creates a new consumer which consumes messages from the endpoint using the given processor      *      * @return a newly created consumer      */
+DECL|method|createConsumer (Processor<E> processor)
+name|Consumer
+argument_list|<
+name|E
+argument_list|>
+name|createConsumer
+parameter_list|(
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|processor
+parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 block|}
 end_interface

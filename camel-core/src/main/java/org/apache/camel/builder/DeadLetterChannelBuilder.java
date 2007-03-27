@@ -254,6 +254,8 @@ name|E
 argument_list|>
 name|processor
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Processor
 argument_list|<

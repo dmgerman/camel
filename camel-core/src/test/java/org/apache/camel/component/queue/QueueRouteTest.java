@@ -84,6 +84,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -140,10 +152,10 @@ name|QueueRouteTest
 extends|extends
 name|TestCase
 block|{
-DECL|method|testJmsRoute ()
+DECL|method|testSedaQueue ()
 specifier|public
 name|void
-name|testJmsRoute
+name|testSedaQueue
 parameter_list|()
 throws|throws
 name|Exception
@@ -168,7 +180,7 @@ decl_stmt|;
 comment|// lets add some routes
 name|container
 operator|.
-name|setRoutes
+name|addRoutes
 argument_list|(
 operator|new
 name|RouteBuilder
@@ -277,7 +289,18 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
+name|Producer
+argument_list|<
+name|Exchange
+argument_list|>
+name|producer
+init|=
 name|endpoint
+operator|.
+name|createProducer
+argument_list|()
+decl_stmt|;
+name|producer
 operator|.
 name|onExchange
 argument_list|(

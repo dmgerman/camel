@@ -25,6 +25,8 @@ interface|interface
 name|EndpointResolver
 parameter_list|<
 name|E
+extends|extends
+name|Exchange
 parameter_list|>
 block|{
 comment|/**      * Resolves the component for a given uri or returns null if now component handles it.      */

@@ -1116,6 +1116,8 @@ name|E
 argument_list|>
 name|createProcessor
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|List
 argument_list|<
@@ -1245,6 +1247,8 @@ name|E
 argument_list|>
 name|processFactory
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Processor
 argument_list|<

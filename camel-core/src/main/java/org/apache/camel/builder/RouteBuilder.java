@@ -404,6 +404,8 @@ argument_list|>
 argument_list|>
 name|getRouteList
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|checkInitialized
 argument_list|()
@@ -412,8 +414,8 @@ return|return
 name|routes
 return|;
 block|}
-comment|/**      * Returns the destinationBuilders which have been created      */
-DECL|method|getDestinationBuilders ()
+comment|/**      * Returns the builders which have been created      */
+DECL|method|getFromBuilders ()
 specifier|public
 name|List
 argument_list|<
@@ -422,8 +424,10 @@ argument_list|<
 name|E
 argument_list|>
 argument_list|>
-name|getDestinationBuilders
+name|getFromBuilders
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|checkInitialized
 argument_list|()
@@ -439,6 +443,8 @@ specifier|protected
 name|void
 name|checkInitialized
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -476,6 +482,8 @@ argument_list|>
 argument_list|>
 name|routes
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 for|for
 control|(
@@ -568,6 +576,8 @@ name|E
 argument_list|>
 name|builder
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 return|return
 name|builder

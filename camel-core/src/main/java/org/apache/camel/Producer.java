@@ -4,82 +4,60 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.builder
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|builder
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Provides a channel on which clients can create and invoke exchanges on the endpoint  *  * @version $Revision$  */
 end_comment
 
 begin_interface
-DECL|interface|ErrorHandlerBuilder
+DECL|interface|Producer
 specifier|public
 interface|interface
-name|ErrorHandlerBuilder
+name|Producer
 parameter_list|<
 name|E
 extends|extends
 name|Exchange
 parameter_list|>
-block|{
-comment|/**      * Creates a copy of this builder      */
-DECL|method|copy ()
-name|ErrorHandlerBuilder
+extends|extends
+name|Processor
 argument_list|<
 name|E
 argument_list|>
-name|copy
+extends|,
+name|Service
+block|{
+DECL|method|getEndpoint ()
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|getEndpoint
 parameter_list|()
 function_decl|;
-comment|/**      * Creates the error handler interceptor      */
-DECL|method|createErrorHandler (Processor<E> processor)
-name|Processor
-argument_list|<
+comment|/**      * Creates a new exchange to send to this endpoint      *      * @return a newly created exchange      */
+DECL|method|createExchange ()
 name|E
-argument_list|>
-name|createErrorHandler
+name|createExchange
+parameter_list|()
+function_decl|;
+comment|/**      * Creates a new exchange for communicating with this exchange using the given exchange to pre-populate the values      * of the headers and messages      */
+DECL|method|createExchange (E exchange)
+name|E
+name|createExchange
 parameter_list|(
-name|Processor
-argument_list|<
 name|E
-argument_list|>
-name|processor
+name|exchange
 parameter_list|)
-throws|throws
-name|Exception
 function_decl|;
 block|}
 end_interface

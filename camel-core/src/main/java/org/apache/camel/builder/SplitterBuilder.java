@@ -132,6 +132,8 @@ name|E
 argument_list|>
 name|createProcessor
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// lets create a single processor for all child predicates
 name|Processor

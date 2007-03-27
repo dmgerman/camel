@@ -36,6 +36,44 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ProducerCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -178,7 +216,15 @@ specifier|private
 name|JbiBinding
 name|binding
 decl_stmt|;
-DECL|method|CamelJbiEndpoint (ServiceUnit serviceUnit, QName service, String endpoint, Endpoint camelEndpoint, JbiBinding binding)
+DECL|field|processor
+specifier|private
+name|Processor
+argument_list|<
+name|Exchange
+argument_list|>
+name|processor
+decl_stmt|;
+DECL|method|CamelJbiEndpoint (ServiceUnit serviceUnit, QName service, String endpoint, Endpoint camelEndpoint, JbiBinding binding, Processor<Exchange> processor)
 specifier|public
 name|CamelJbiEndpoint
 parameter_list|(
@@ -196,6 +242,12 @@ name|camelEndpoint
 parameter_list|,
 name|JbiBinding
 name|binding
+parameter_list|,
+name|Processor
+argument_list|<
+name|Exchange
+argument_list|>
+name|processor
 parameter_list|)
 block|{
 name|super
@@ -206,6 +258,12 @@ name|service
 argument_list|,
 name|endpoint
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|processor
+operator|=
+name|processor
 expr_stmt|;
 name|this
 operator|.
@@ -220,7 +278,7 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|CamelJbiEndpoint (ServiceUnit serviceUnit, Endpoint camelEndpoint, JbiBinding binding)
+DECL|method|CamelJbiEndpoint (ServiceUnit serviceUnit, Endpoint camelEndpoint, JbiBinding binding, Processor<Exchange> processor)
 specifier|public
 name|CamelJbiEndpoint
 parameter_list|(
@@ -232,6 +290,12 @@ name|camelEndpoint
 parameter_list|,
 name|JbiBinding
 name|binding
+parameter_list|,
+name|Processor
+argument_list|<
+name|Exchange
+argument_list|>
+name|processor
 parameter_list|)
 block|{
 name|this
@@ -248,6 +312,8 @@ argument_list|,
 name|camelEndpoint
 argument_list|,
 name|binding
+argument_list|,
+name|processor
 argument_list|)
 expr_stmt|;
 block|}
@@ -283,7 +349,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|// lets use the inbound processor to handle the exchange
 name|JbiExchange
 name|camelExchange
 init|=
@@ -300,7 +365,7 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-name|camelEndpoint
+name|processor
 operator|.
 name|onExchange
 argument_list|(

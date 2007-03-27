@@ -54,6 +54,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -63,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a Pipeline pattern where the output of the previous step is sent as input to the next step when working  * with request/response message exchanges.  *    * @version $Revision$  */
+comment|/**  * Creates a Pipeline pattern where the output of the previous step is sent as input to the next step when working  * with request/response message exchanges.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -76,23 +88,17 @@ name|E
 extends|extends
 name|Exchange
 parameter_list|>
+extends|extends
+name|MulticastProcessor
+argument_list|<
+name|E
+argument_list|>
 implements|implements
 name|Processor
 argument_list|<
 name|E
 argument_list|>
 block|{
-DECL|field|endpoints
-specifier|private
-name|Collection
-argument_list|<
-name|Endpoint
-argument_list|<
-name|E
-argument_list|>
-argument_list|>
-name|endpoints
-decl_stmt|;
 DECL|method|Pipeline (Collection<Endpoint<E>> endpoints)
 specifier|public
 name|Pipeline
@@ -106,12 +112,13 @@ argument_list|>
 argument_list|>
 name|endpoints
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|this
-operator|.
+name|super
+argument_list|(
 name|endpoints
-operator|=
-name|endpoints
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|onExchange (E exchange)
@@ -135,13 +142,14 @@ literal|true
 decl_stmt|;
 for|for
 control|(
-name|Endpoint
+name|Producer
 argument_list|<
 name|E
 argument_list|>
-name|endpoint
+name|producer
 range|:
-name|endpoints
+name|getProducers
+argument_list|()
 control|)
 block|{
 if|if
@@ -160,13 +168,13 @@ name|nextExchange
 operator|=
 name|createNextExchange
 argument_list|(
-name|endpoint
+name|producer
 argument_list|,
 name|nextExchange
 argument_list|)
 expr_stmt|;
 block|}
-name|endpoint
+name|producer
 operator|.
 name|onExchange
 argument_list|(
@@ -175,17 +183,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy method to create the next exchange from the      *      * @param endpoint the endpoint the exchange will be sent to      * @param previousExchange the previous exchange      * @return a new exchange      */
-DECL|method|createNextExchange (Endpoint<E> endpoint, E previousExchange)
+comment|/**      * Strategy method to create the next exchange from the      *      * @param producer         the producer used to send to the endpoint      * @param previousExchange the previous exchange      * @return a new exchange      */
+DECL|method|createNextExchange (Producer<E> producer, E previousExchange)
 specifier|protected
 name|E
 name|createNextExchange
 parameter_list|(
-name|Endpoint
+name|Producer
 argument_list|<
 name|E
 argument_list|>
-name|endpoint
+name|producer
 parameter_list|,
 name|E
 name|previousExchange
@@ -194,7 +202,7 @@ block|{
 name|E
 name|answer
 init|=
-name|endpoint
+name|producer
 operator|.
 name|createExchange
 argument_list|(
@@ -266,7 +274,8 @@ block|{
 return|return
 literal|"Pipeline"
 operator|+
-name|endpoints
+name|getEndpoints
+argument_list|()
 return|;
 block|}
 block|}

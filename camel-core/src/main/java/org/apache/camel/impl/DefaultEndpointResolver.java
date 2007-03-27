@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|FactoryFinder
@@ -103,6 +115,8 @@ class|class
 name|DefaultEndpointResolver
 parameter_list|<
 name|E
+extends|extends
+name|Exchange
 parameter_list|>
 implements|implements
 name|EndpointResolver

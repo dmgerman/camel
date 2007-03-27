@@ -4,47 +4,42 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|processor
 package|;
 end_package
 
 begin_comment
-comment|/**  * Used to configure the logging levels  *  * @version $Revision$  */
+comment|/**  * Represents the core lifecycle API for POJOs which can be started and stopped  *  * @version $Revision$  */
 end_comment
 
-begin_enum
-DECL|enum|LoggingLevel
+begin_interface
+DECL|interface|Service
 specifier|public
-enum|enum
-name|LoggingLevel
+interface|interface
+name|Service
 block|{
-DECL|enumConstant|DEBUG
-DECL|enumConstant|ERROR
-DECL|enumConstant|FATAL
-DECL|enumConstant|INFO
-DECL|enumConstant|TRACE
-DECL|enumConstant|WARN
-name|DEBUG
-block|,
-name|ERROR
-block|,
-name|FATAL
-block|,
-name|INFO
-block|,
-name|TRACE
-block|,
-name|WARN
-block|; }
-end_enum
+DECL|method|start ()
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+DECL|method|stop ()
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+block|}
+end_interface
 
 end_unit
 

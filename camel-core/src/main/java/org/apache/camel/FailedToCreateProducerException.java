@@ -4,47 +4,77 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|processor
 package|;
 end_package
 
 begin_comment
-comment|/**  * Used to configure the logging levels  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
-begin_enum
-DECL|enum|LoggingLevel
+begin_class
+DECL|class|FailedToCreateProducerException
 specifier|public
-enum|enum
-name|LoggingLevel
+class|class
+name|FailedToCreateProducerException
+extends|extends
+name|RuntimeCamelException
 block|{
-DECL|enumConstant|DEBUG
-DECL|enumConstant|ERROR
-DECL|enumConstant|FATAL
-DECL|enumConstant|INFO
-DECL|enumConstant|TRACE
-DECL|enumConstant|WARN
-name|DEBUG
-block|,
-name|ERROR
-block|,
-name|FATAL
-block|,
-name|INFO
-block|,
-name|TRACE
-block|,
-name|WARN
-block|; }
-end_enum
+DECL|field|endpoint
+specifier|private
+specifier|final
+name|Endpoint
+name|endpoint
+decl_stmt|;
+DECL|method|FailedToCreateProducerException (Endpoint endpoint, Throwable cause)
+specifier|public
+name|FailedToCreateProducerException
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"Failed to create Producer for endpoint: "
+operator|+
+name|endpoint
+operator|+
+literal|". Reason: "
+operator|+
+name|cause
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
+block|}
+DECL|method|getEndpoint ()
+specifier|public
+name|Endpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|endpoint
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

@@ -72,6 +72,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -110,6 +124,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ProducerCache
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -132,6 +160,8 @@ name|E
 extends|extends
 name|Exchange
 parameter_list|>
+extends|extends
+name|ServiceSupport
 implements|implements
 name|Processor
 argument_list|<
@@ -146,6 +176,21 @@ argument_list|<
 name|E
 argument_list|>
 name|expression
+decl_stmt|;
+DECL|field|producerCache
+specifier|private
+name|ProducerCache
+argument_list|<
+name|E
+argument_list|>
+name|producerCache
+init|=
+operator|new
+name|ProducerCache
+argument_list|<
+name|E
+argument_list|>
+argument_list|()
 decl_stmt|;
 DECL|method|RecipientList (Expression<E> expression)
 specifier|public
@@ -246,7 +291,12 @@ argument_list|,
 name|recipient
 argument_list|)
 decl_stmt|;
+name|producerCache
+operator|.
+name|getProducer
+argument_list|(
 name|endpoint
+argument_list|)
 operator|.
 name|onExchange
 argument_list|(
@@ -281,6 +331,28 @@ name|recipient
 argument_list|)
 return|;
 block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|producerCache
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
 block|}
 end_class
 

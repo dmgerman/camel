@@ -46,6 +46,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -82,6 +110,8 @@ name|E
 extends|extends
 name|Exchange
 parameter_list|>
+extends|extends
+name|ServiceSupport
 implements|implements
 name|ErrorHandler
 argument_list|<
@@ -406,7 +436,7 @@ return|return
 name|redeliveryCountHeader
 return|;
 block|}
-comment|/**      * Sets the message header name to be used to append the redelivery count value when a message has been redelivered      *      * @param redeliveryCountHeader the header name to use to append the redelivery count or null if you wish to disable      * this feature      */
+comment|/**      * Sets the message header name to be used to append the redelivery count value when a message has been redelivered      *      * @param redeliveryCountHeader the header name to use to append the redelivery count or null if you wish to disable      *                              this feature      */
 DECL|method|setRedeliveryCountHeader (String redeliveryCountHeader)
 specifier|public
 name|void
@@ -538,6 +568,42 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|output
+argument_list|,
+name|deadLetter
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|stopServices
+argument_list|(
+name|deadLetter
+argument_list|,
+name|output
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

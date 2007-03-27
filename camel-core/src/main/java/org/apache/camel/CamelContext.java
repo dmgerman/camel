@@ -34,27 +34,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -71,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface used to represent the context used to configure routes and the   * policies to use during message exchanges between endpoints.  *  * @version $Revision$  */
+comment|/**  * Interface used to represent the context used to configure routes and the  * policies to use during message exchanges between endpoints.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -104,7 +94,7 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
-comment|/**      * Removes a previously added component.      * @param componentName      * @return the previously added component or null if it had not been previously added.      */
+comment|/**      * Removes a previously added component.      *      * @param componentName      * @return the previously added component or null if it had not been previously added.      */
 DECL|method|removeComponent (String componentName)
 specifier|public
 name|Component
@@ -114,7 +104,7 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.       *       * @param componentName      * @param factory used to create a new component instance if the component was not previously added.      * @return      */
+comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.      *      * @param componentName      * @param factory       used to create a new component instance if the component was not previously added.      * @return      */
 DECL|method|getOrCreateComponent (String componentName, Callable<Component> factory)
 specifier|public
 name|Component
@@ -157,6 +147,8 @@ specifier|public
 name|void
 name|deactivateEndpoints
 parameter_list|()
+throws|throws
+name|Exception
 function_decl|;
 comment|/**      * Returns the collection of all active endpoints currently registered      */
 DECL|method|getEndpoints ()
@@ -190,24 +182,6 @@ argument_list|>
 name|routes
 parameter_list|)
 function_decl|;
-DECL|method|setRoutes (RouteBuilder builder)
-specifier|public
-name|void
-name|setRoutes
-parameter_list|(
-name|RouteBuilder
-name|builder
-parameter_list|)
-function_decl|;
-DECL|method|setRoutes (RouteFactory factory)
-specifier|public
-name|void
-name|setRoutes
-parameter_list|(
-name|RouteFactory
-name|factory
-parameter_list|)
-function_decl|;
 DECL|method|addRoutes (List<Route> routes)
 specifier|public
 name|void
@@ -228,6 +202,8 @@ parameter_list|(
 name|RouteBuilder
 name|builder
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 DECL|method|addRoutes (RouteFactory factory)
 specifier|public
@@ -237,6 +213,8 @@ parameter_list|(
 name|RouteFactory
 name|factory
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 comment|// Properties
 comment|//-----------------------------------------------------------------------
