@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.pojo
+DECL|package|org.apache.camel.component.pojo.timer
 package|package
 name|org
 operator|.
@@ -15,8 +15,32 @@ operator|.
 name|component
 operator|.
 name|pojo
+operator|.
+name|timer
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Callable
+import|;
+end_import
 
 begin_import
 import|import
@@ -62,6 +86,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|pojo
+operator|.
+name|PojoExchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -69,20 +109,34 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of {@link EndpointResolver} that creates   * {@link PojoEndpoint} objects.  *  * The synatax for a Pojo URI looks like:  *   *<pre><code>pojo:component:queuename</code></pre>  *   * @version $Revision: 519901 $  */
+comment|/**  * An implementation of {@link EndpointResolver} that creates   * {@link TimerEndpoint} objects.  TimerEndpoint objects can only   * be consumed.  *  * The synatax for a Timer URI looks like:  *   *<pre><code>timer:[component:]timer-name?options</code></pre>  *   *   * @version $Revision: 519901 $  */
 end_comment
 
 begin_class
-DECL|class|PojoEndpointResolver
+DECL|class|TimerEndpointResolver
 specifier|public
 class|class
-name|PojoEndpointResolver
+name|TimerEndpointResolver
 implements|implements
 name|EndpointResolver
 argument_list|<
 name|PojoExchange
 argument_list|>
 block|{
+DECL|field|DEFAULT_COMPONENT_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_COMPONENT_NAME
+init|=
+name|TimerComponent
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 comment|/** 	 * Finds the {@see QueueComponent} specified by the uri.  If the {@see QueueComponent}  	 * object do not exist, it will be created. 	 *  	 * @see org.apache.camel.EndpointResolver#resolveComponent(org.apache.camel.CamelContext, java.lang.String) 	 */
 DECL|method|resolveComponent (CamelContext container, String uri)
 specifier|public
@@ -106,7 +160,7 @@ name|uri
 argument_list|)
 decl_stmt|;
 return|return
-name|resolvePojoComponent
+name|resolveTimerComponent
 argument_list|(
 name|container
 argument_list|,
@@ -117,10 +171,10 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Finds the {@see QueueEndpoint} specified by the uri.  If the {@see QueueEndpoint} or it's associated 	 * {@see QueueComponent} object do not exist, they will be created. 	 *  	 * @see org.apache.camel.EndpointResolver#resolveEndpoint(org.apache.camel.CamelContext, java.lang.String) 	 */
+comment|/** 	 * Finds the {@see QueueEndpoint} specified by the uri.  If the {@see QueueEndpoint} or it's associated 	 * {@see QueueComponent} object do not exist, they will be created. 	 * @throws URISyntaxException  	 *  	 * @see org.apache.camel.EndpointResolver#resolveEndpoint(org.apache.camel.CamelContext, java.lang.String) 	 */
 DECL|method|resolveEndpoint (CamelContext container, String uri)
 specifier|public
-name|PojoEndpoint
+name|TimerEndpoint
 name|resolveEndpoint
 parameter_list|(
 name|CamelContext
@@ -129,6 +183,8 @@ parameter_list|,
 name|String
 name|uri
 parameter_list|)
+throws|throws
+name|URISyntaxException
 block|{
 name|String
 name|id
@@ -139,10 +195,10 @@ argument_list|(
 name|uri
 argument_list|)
 decl_stmt|;
-name|PojoComponent
+name|TimerComponent
 name|component
 init|=
-name|resolvePojoComponent
+name|resolveTimerComponent
 argument_list|(
 name|container
 argument_list|,
@@ -166,10 +222,10 @@ name|component
 argument_list|)
 return|;
 block|}
-comment|/** 	 * PojoEndpointResolver subclasses can override to provide a custom PojoEndpoint implementation. 	 */
-DECL|method|createEndpoint (String uri, String pojoId, PojoComponent component)
+comment|/** 	 * PojoEndpointResolver subclasses can override to provide a custom PojoEndpoint implementation. 	 * @throws URISyntaxException  	 */
+DECL|method|createEndpoint (String uri, String pojoId, TimerComponent component)
 specifier|protected
-name|PojoEndpoint
+name|TimerEndpoint
 name|createEndpoint
 parameter_list|(
 name|String
@@ -178,13 +234,15 @@ parameter_list|,
 name|String
 name|pojoId
 parameter_list|,
-name|PojoComponent
+name|TimerComponent
 name|component
 parameter_list|)
+throws|throws
+name|URISyntaxException
 block|{
 return|return
 operator|new
-name|PojoEndpoint
+name|TimerEndpoint
 argument_list|(
 name|uri
 argument_list|,
@@ -194,10 +252,10 @@ name|component
 argument_list|)
 return|;
 block|}
-DECL|method|resolvePojoComponent (CamelContext container, String componentName)
+DECL|method|resolveTimerComponent (CamelContext container, String componentName)
 specifier|private
-name|PojoComponent
-name|resolvePojoComponent
+name|TimerComponent
+name|resolveTimerComponent
 parameter_list|(
 name|CamelContext
 name|container
@@ -211,31 +269,36 @@ name|rc
 init|=
 name|container
 operator|.
-name|getComponent
+name|getOrCreateComponent
 argument_list|(
 name|componentName
+argument_list|,
+operator|new
+name|Callable
+argument_list|<
+name|Component
+argument_list|>
+argument_list|()
+block|{
+specifier|public
+name|Component
+name|call
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|TimerComponent
+argument_list|()
+return|;
+block|}
+block|}
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|rc
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Invalid URI, pojo component does not exist: "
-operator|+
-name|componentName
-argument_list|)
-throw|;
-block|}
 return|return
 operator|(
-name|PojoComponent
+name|TimerComponent
 operator|)
 name|rc
 return|;
@@ -256,7 +319,7 @@ name|rc
 index|[]
 init|=
 block|{
-literal|null
+name|DEFAULT_COMPONENT_NAME
 block|,
 literal|null
 block|}
@@ -309,15 +372,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Invalid URI, component not specified in URI: "
-operator|+
-name|uri
-argument_list|)
-throw|;
+name|rc
+index|[
+literal|1
+index|]
+operator|=
+name|splitURI
+index|[
+literal|1
+index|]
+expr_stmt|;
 block|}
 return|return
 name|rc
