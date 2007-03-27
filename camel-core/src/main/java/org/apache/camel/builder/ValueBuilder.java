@@ -396,6 +396,36 @@ return|;
 block|}
 annotation|@
 name|Fluent
+DECL|method|matchesRegex (@luentArgR) String regex)
+specifier|public
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+name|matchesRegex
+parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"regex"
+argument_list|)
+name|String
+name|regex
+parameter_list|)
+block|{
+return|return
+name|PredicateBuilder
+operator|.
+name|regex
+argument_list|(
+name|expression
+argument_list|,
+name|regex
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Fluent
 DECL|method|isNull ()
 specifier|public
 name|Predicate
