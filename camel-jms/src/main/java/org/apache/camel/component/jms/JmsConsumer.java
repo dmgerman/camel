@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Consumer
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
+name|Processor
 import|;
 end_import
 
@@ -60,34 +60,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|jms
@@ -95,16 +67,6 @@ operator|.
 name|listener
 operator|.
 name|AbstractMessageListenerContainer
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|Message
 import|;
 end_import
 

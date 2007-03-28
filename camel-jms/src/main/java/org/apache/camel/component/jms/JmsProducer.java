@@ -26,9 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultProducer
+name|Exchange
 import|;
 end_import
 
@@ -40,7 +38,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|impl
+operator|.
+name|DefaultProducer
 import|;
 end_import
 
@@ -82,7 +82,7 @@ name|jms
 operator|.
 name|core
 operator|.
-name|MessageCreator
+name|JmsOperations
 import|;
 end_import
 
@@ -96,7 +96,17 @@ name|jms
 operator|.
 name|core
 operator|.
-name|JmsOperations
+name|MessageCreator
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|JMSException
 import|;
 end_import
 
@@ -117,16 +127,6 @@ operator|.
 name|jms
 operator|.
 name|Session
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|JMSException
 import|;
 end_import
 

@@ -24,22 +24,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|axis
-operator|.
-name|transport
-operator|.
-name|jms
-operator|.
-name|JMSEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|camel
 operator|.
 name|CamelContext
@@ -97,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of {@link EndpointResolver} that creates  * {@link JMSEndpoint} objects.  *<p/>  * The syntax for a JMS URI looks like:  *<p/>  *<pre><code>jms:[component:]destination</code></pre>  * the component is optional, and if it is not specified, the default component name  * is assumed.  *  * @version $Revision:520964 $  */
+comment|/**  * An implementation of {@link EndpointResolver} that creates  * {@link JmsEndpoint} objects.  *<p/>  * The syntax for a JMS URI looks like:  *<p/>  *<pre><code>jms:[component:]destination</code></pre>  * the component is optional, and if it is not specified, the default component name  * is assumed.  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class

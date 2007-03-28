@@ -84,32 +84,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ProducerCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -145,6 +119,20 @@ operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ProducerCache
 import|;
 end_import
 
@@ -202,7 +190,7 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|TextMessage
+name|ObjectMessage
 import|;
 end_import
 
@@ -212,7 +200,7 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|ObjectMessage
+name|TextMessage
 import|;
 end_import
 
