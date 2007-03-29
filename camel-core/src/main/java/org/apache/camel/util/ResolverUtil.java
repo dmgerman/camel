@@ -603,8 +603,6 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{
-name|ResolverUtil
-operator|.
 name|log
 operator|.
 name|warn
@@ -701,11 +699,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|ResolverUtil
-operator|.
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Scanning for classes in ["
 operator|+
@@ -762,8 +758,6 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{
-name|ResolverUtil
-operator|.
 name|log
 operator|.
 name|warn
@@ -998,8 +992,6 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{
-name|ResolverUtil
-operator|.
 name|log
 operator|.
 name|error
@@ -1067,8 +1059,6 @@ init|=
 name|getClassLoader
 argument_list|()
 decl_stmt|;
-name|ResolverUtil
-operator|.
 name|log
 operator|.
 name|trace
@@ -1125,8 +1115,6 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|ResolverUtil
-operator|.
 name|log
 operator|.
 name|warn
