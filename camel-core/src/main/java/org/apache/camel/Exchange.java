@@ -58,6 +58,24 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Returns a property associated with this exchange by name and specifying the type required      *      * @param name the name of the property      * @param type the type of the property      * @return the value of the given header or null if there is no property for the given name or      * null if it cannot be converted to the given type      */
+DECL|method|getProperty (String name, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Sets a property on the exchange      *      * @param name of the property      * @param value to associate with the name      */
 DECL|method|setProperty (String name, Object value)
 name|void

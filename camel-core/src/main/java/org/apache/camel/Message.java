@@ -43,6 +43,24 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Returns a header associated with this message by name and specifying the type required      *      * @param name the name of the header      * @param type the type of the header      * @return the value of the given header or null if there is no property for the given name or it cannot be      * converted to the given type      */
+DECL|method|getHeader (String name, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Sets a header on the message      *      * @param name  of the header      * @param value to associate with the name      */
 DECL|method|setHeader (String name, Object value)
 name|void

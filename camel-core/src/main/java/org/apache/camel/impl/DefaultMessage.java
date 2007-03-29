@@ -70,6 +70,21 @@ name|Object
 argument_list|>
 name|headers
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Message: "
+operator|+
+name|getBody
+argument_list|()
+return|;
+block|}
 DECL|method|getHeader (String name)
 specifier|public
 name|Object
@@ -99,19 +114,48 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|toString ()
+DECL|method|getHeader (String name, Class<T> type)
 specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getHeader
+parameter_list|(
 name|String
-name|toString
-parameter_list|()
+name|name
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
 block|{
+name|Object
+name|value
+init|=
+name|getHeader
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
 return|return
-literal|"Message: "
-operator|+
-name|getBody
+name|getExchange
 argument_list|()
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|type
+argument_list|,
+name|value
+argument_list|)
 return|;
 block|}
 DECL|method|setHeader (String name, Object value)
