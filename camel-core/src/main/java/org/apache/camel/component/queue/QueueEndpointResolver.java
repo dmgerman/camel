@@ -233,13 +233,8 @@ name|queue
 init|=
 name|component
 operator|.
-name|getOrCreateQueue
-argument_list|(
-name|id
-index|[
-literal|1
-index|]
-argument_list|)
+name|createQueue
+argument_list|()
 decl_stmt|;
 return|return
 operator|new
