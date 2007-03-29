@@ -585,6 +585,30 @@ name|defaultValue
 return|;
 block|}
 block|}
+comment|/**      * Returns the type name of the given type or null if the type variable is null      */
+DECL|method|name (Class type)
+specifier|public
+specifier|static
+name|String
+name|name
+parameter_list|(
+name|Class
+name|type
+parameter_list|)
+block|{
+return|return
+name|type
+operator|!=
+literal|null
+condition|?
+name|type
+operator|.
+name|getName
+argument_list|()
+else|:
+literal|null
+return|;
+block|}
 block|}
 end_class
 
