@@ -40,16 +40,16 @@ specifier|public
 interface|interface
 name|TypeConverterRegistry
 block|{
-comment|/**      * Allows a new type converter to be bregistered      *      * @param fromType      the type to convert from      * @param toType        the type to convert to      * @param typeConverter the type converter to use      */
-DECL|method|addTypeConverter (Class fromType, Class toType, TypeConverter typeConverter)
+comment|/**      * Allows a new type converter to be bregistered      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @param typeConverter the type converter to use      */
+DECL|method|addTypeConverter (Class toType, Class fromType, TypeConverter typeConverter)
 name|void
 name|addTypeConverter
 parameter_list|(
 name|Class
-name|fromType
+name|toType
 parameter_list|,
 name|Class
-name|toType
+name|fromType
 parameter_list|,
 name|TypeConverter
 name|typeConverter

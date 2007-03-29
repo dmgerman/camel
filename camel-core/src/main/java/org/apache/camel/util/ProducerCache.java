@@ -285,7 +285,7 @@ block|}
 comment|/**      * Sends an exchange to an endpoint using a supplied @{link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
 DECL|method|send (Endpoint<E> endpoint, Processor<E> processor)
 specifier|public
-name|void
+name|E
 name|send
 parameter_list|(
 name|Endpoint
@@ -336,6 +336,9 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+return|return
+name|exchange
+return|;
 block|}
 DECL|method|doStop ()
 specifier|protected

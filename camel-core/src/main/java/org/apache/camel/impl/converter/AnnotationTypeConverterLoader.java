@@ -834,9 +834,9 @@ name|registry
 operator|.
 name|addTypeConverter
 argument_list|(
-name|fromType
-argument_list|,
 name|toType
+argument_list|,
+name|fromType
 argument_list|,
 operator|new
 name|StaticMethodTypeConverter
@@ -870,9 +870,9 @@ name|registry
 operator|.
 name|addTypeConverter
 argument_list|(
-name|fromType
-argument_list|,
 name|toType
+argument_list|,
+name|fromType
 argument_list|,
 operator|new
 name|InstanceMethodTypeConverter

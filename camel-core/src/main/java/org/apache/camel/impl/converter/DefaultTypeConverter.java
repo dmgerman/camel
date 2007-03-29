@@ -257,7 +257,7 @@ expr_stmt|;
 name|TypeConverter
 name|converter
 init|=
-name|getConverter
+name|getOrFindTypeConverter
 argument_list|(
 name|toType
 argument_list|,
@@ -316,16 +316,16 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|addTypeConverter (Class fromType, Class toType, TypeConverter typeConverter)
+DECL|method|addTypeConverter (Class toType, Class fromType, TypeConverter typeConverter)
 specifier|public
 name|void
 name|addTypeConverter
 parameter_list|(
 name|Class
-name|fromType
+name|toType
 parameter_list|,
 name|Class
-name|toType
+name|fromType
 parameter_list|,
 name|TypeConverter
 name|typeConverter
@@ -337,9 +337,9 @@ init|=
 operator|new
 name|TypeMapping
 argument_list|(
-name|fromType
-argument_list|,
 name|toType
+argument_list|,
+name|fromType
 argument_list|)
 decl_stmt|;
 synchronized|synchronized
@@ -389,16 +389,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getTypeConverter (Class fromType, Class toType)
+DECL|method|getTypeConverter (Class toType, Class fromType)
 specifier|public
 name|TypeConverter
 name|getTypeConverter
 parameter_list|(
 name|Class
-name|fromType
+name|toType
 parameter_list|,
 name|Class
-name|toType
+name|fromType
 parameter_list|)
 block|{
 name|TypeMapping
@@ -407,9 +407,9 @@ init|=
 operator|new
 name|TypeMapping
 argument_list|(
-name|fromType
-argument_list|,
 name|toType
+argument_list|,
+name|fromType
 argument_list|)
 decl_stmt|;
 synchronized|synchronized
@@ -467,13 +467,13 @@ operator|=
 name|injector
 expr_stmt|;
 block|}
-DECL|method|getConverter (Class toType, Object value)
+DECL|method|getOrFindTypeConverter (Class toType, Object value)
 specifier|protected
 parameter_list|<
 name|T
 parameter_list|>
 name|TypeConverter
-name|getConverter
+name|getOrFindTypeConverter
 parameter_list|(
 name|Class
 name|toType
@@ -508,9 +508,9 @@ init|=
 operator|new
 name|TypeMapping
 argument_list|(
-name|fromType
-argument_list|,
 name|toType
+argument_list|,
+name|fromType
 argument_list|)
 decl_stmt|;
 name|TypeConverter
@@ -625,9 +625,9 @@ name|converter
 init|=
 name|getTypeConverter
 argument_list|(
-name|fromType
-argument_list|,
 name|toSuperClass
+argument_list|,
+name|fromType
 argument_list|)
 decl_stmt|;
 if|if
@@ -659,9 +659,9 @@ name|converter
 init|=
 name|getTypeConverter
 argument_list|(
-name|fromType
-argument_list|,
 name|type
+argument_list|,
+name|fromType
 argument_list|)
 decl_stmt|;
 if|if
@@ -677,6 +677,13 @@ return|;
 block|}
 block|}
 comment|// lets try the super classes of the from type
+if|if
+condition|(
+name|fromType
+operator|!=
+literal|null
+condition|)
+block|{
 name|Class
 name|fromSuperClass
 init|=
@@ -702,7 +709,25 @@ name|class
 argument_list|)
 condition|)
 block|{
-return|return
+name|TypeConverter
+name|converter
+init|=
+name|getTypeConverter
+argument_list|(
+name|toType
+argument_list|,
+name|fromSuperClass
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|converter
+operator|==
+literal|null
+condition|)
+block|{
+name|converter
+operator|=
 name|findTypeConverter
 argument_list|(
 name|toType
@@ -711,7 +736,19 @@ name|fromSuperClass
 argument_list|,
 name|value
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|converter
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|converter
 return|;
+block|}
 block|}
 for|for
 control|(
@@ -729,9 +766,9 @@ name|converter
 init|=
 name|getTypeConverter
 argument_list|(
-name|type
-argument_list|,
 name|toType
+argument_list|,
+name|type
 argument_list|)
 decl_stmt|;
 if|if
@@ -744,6 +781,7 @@ block|{
 return|return
 name|converter
 return|;
+block|}
 block|}
 block|}
 comment|// TODO look at constructors of toType?
@@ -811,36 +849,36 @@ specifier|static
 class|class
 name|TypeMapping
 block|{
-DECL|field|fromType
-name|Class
-name|fromType
-decl_stmt|;
 DECL|field|toType
 name|Class
 name|toType
 decl_stmt|;
-DECL|method|TypeMapping (Class fromType, Class toType)
+DECL|field|fromType
+name|Class
+name|fromType
+decl_stmt|;
+DECL|method|TypeMapping (Class toType, Class fromType)
 specifier|public
 name|TypeMapping
 parameter_list|(
 name|Class
-name|fromType
+name|toType
 parameter_list|,
 name|Class
-name|toType
+name|fromType
 parameter_list|)
 block|{
 name|this
 operator|.
-name|fromType
+name|toType
 operator|=
-name|fromType
+name|toType
 expr_stmt|;
 name|this
 operator|.
-name|toType
+name|fromType
 operator|=
-name|toType
+name|fromType
 expr_stmt|;
 block|}
 DECL|method|getFromType ()

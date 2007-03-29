@@ -157,7 +157,7 @@ block|}
 comment|/**      * Sends the exchange to the given endpoint      *      * @param endpointUri the endpoint URI to send the exchange to      * @param exchange the exchange to send      */
 DECL|method|send (String endpointUri, E exchange)
 specifier|public
-name|void
+name|E
 name|send
 parameter_list|(
 name|String
@@ -182,11 +182,14 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+return|return
+name|exchange
+return|;
 block|}
 comment|/**      * Sends an exchange to an endpoint using a supplied @{link Processor} to populate the exchange      *      * @param endpointUri the endpoint URI to send the exchange to      * @param processor the transformer used to populate the new exchange      */
 DECL|method|send (String endpointUri, Processor<E> processor)
 specifier|public
-name|void
+name|E
 name|send
 parameter_list|(
 name|String
@@ -207,18 +210,19 @@ argument_list|(
 name|endpointUri
 argument_list|)
 decl_stmt|;
+return|return
 name|send
 argument_list|(
 name|endpoint
 argument_list|,
 name|processor
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 comment|/**      * Sends the exchange to the given endpoint      *      * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      */
 DECL|method|send (Endpoint<E> endpoint, E exchange)
 specifier|public
-name|void
+name|E
 name|send
 parameter_list|(
 name|Endpoint
@@ -240,11 +244,14 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+return|return
+name|exchange
+return|;
 block|}
 comment|/**      * Sends an exchange to an endpoint using a supplied @{link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
 DECL|method|send (Endpoint<E> endpoint, Processor<E> processor)
 specifier|public
-name|void
+name|E
 name|send
 parameter_list|(
 name|Endpoint
@@ -260,6 +267,7 @@ argument_list|>
 name|processor
 parameter_list|)
 block|{
+return|return
 name|producerCache
 operator|.
 name|send
@@ -268,7 +276,7 @@ name|endpoint
 argument_list|,
 name|processor
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|getProducer (Endpoint<E> endpoint)
 specifier|public
@@ -292,6 +300,16 @@ name|getProducer
 argument_list|(
 name|endpoint
 argument_list|)
+return|;
+block|}
+DECL|method|getContext ()
+specifier|public
+name|CamelContext
+name|getContext
+parameter_list|()
+block|{
+return|return
+name|context
 return|;
 block|}
 DECL|method|resolveMandatoryEndpoint (String endpointUri)

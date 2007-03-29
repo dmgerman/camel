@@ -82,6 +82,16 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -120,10 +130,10 @@ operator|new
 name|DefaultTypeConverter
 argument_list|()
 decl_stmt|;
-DECL|method|testConvert ()
+DECL|method|testConvertStringAndBytes ()
 specifier|public
 name|void
-name|testConvert
+name|testConvertStringAndBytes
 parameter_list|()
 throws|throws
 name|Exception
@@ -160,7 +170,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-comment|// lets now convert back again
 name|String
 name|text
 init|=
@@ -180,6 +189,57 @@ argument_list|(
 literal|"Converted to String"
 argument_list|,
 literal|"foo"
+argument_list|,
+name|text
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testConvertStringAndStreams ()
+specifier|public
+name|void
+name|testConvertStringAndStreams
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|InputStream
+name|inputStream
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|InputStream
+operator|.
+name|class
+argument_list|,
+literal|"bar"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|inputStream
+argument_list|)
+expr_stmt|;
+name|String
+name|text
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|,
+name|inputStream
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Converted to String"
+argument_list|,
+literal|"bar"
 argument_list|,
 name|text
 argument_list|)
