@@ -74,9 +74,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|converter
 operator|.
-name|ObjectHelper
+name|ObjectConverter
 import|;
 end_import
 
@@ -222,26 +222,6 @@ name|URL
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  * A builder class for creating {@link Processor}, {@link Expression} and {@link Predicate} objects using  * the JSR 223 scripting engine.  *  * @version $Revision$  */
 end_comment
@@ -384,7 +364,7 @@ name|exchange
 parameter_list|)
 block|{
 return|return
-name|ObjectHelper
+name|ObjectConverter
 operator|.
 name|toBoolean
 argument_list|(

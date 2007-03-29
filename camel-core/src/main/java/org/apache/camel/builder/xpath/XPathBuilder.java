@@ -86,9 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|converter
 operator|.
-name|ObjectHelper
+name|ObjectConverter
 import|;
 end_import
 
@@ -362,7 +362,7 @@ name|exchange
 parameter_list|)
 block|{
 return|return
-name|ObjectHelper
+name|ObjectConverter
 operator|.
 name|toBoolean
 argument_list|(

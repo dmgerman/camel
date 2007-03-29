@@ -60,25 +60,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|converter
 operator|.
-name|ServiceSupport
+name|ObjectConverter
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|impl
 operator|.
-name|ObjectHelper
-operator|.
-name|iterator
+name|ServiceSupport
 import|;
 end_import
 
@@ -248,6 +246,8 @@ decl_stmt|;
 name|Iterator
 name|iter
 init|=
+name|ObjectConverter
+operator|.
 name|iterator
 argument_list|(
 name|value
