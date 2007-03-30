@@ -335,6 +335,11 @@ argument_list|(
 name|destination
 argument_list|)
 expr_stmt|;
+synchronized|synchronized
+init|(
+name|conduit
+init|)
+block|{
 name|conduit
 operator|.
 name|send
@@ -376,6 +381,7 @@ argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
