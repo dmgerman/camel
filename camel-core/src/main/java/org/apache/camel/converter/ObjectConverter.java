@@ -218,9 +218,7 @@ argument_list|)
 return|;
 block|}
 return|return
-name|value
-operator|!=
-literal|null
+literal|false
 return|;
 block|}
 block|}

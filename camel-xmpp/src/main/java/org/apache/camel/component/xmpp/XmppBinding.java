@@ -170,18 +170,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|String
+name|id
+init|=
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|id
+operator|!=
+literal|null
+condition|)
+block|{
 name|message
 operator|.
 name|setProperty
 argument_list|(
 literal|"exchangeId"
 argument_list|,
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
+name|id
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Extracts the body from the XMPP message      *      * @param exchange      * @param message      */
 DECL|method|extractBodyFromXmpp (XmppExchange exchange, Message message)

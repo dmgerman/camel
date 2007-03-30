@@ -304,9 +304,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|">>>> "
+literal|">>>> message: "
 operator|+
 name|message
+operator|.
+name|getBody
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
