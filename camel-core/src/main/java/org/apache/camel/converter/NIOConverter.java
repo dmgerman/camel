@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some core java.nio based converters  *  * @version $Revision$  */
+comment|/**  * Some core java.nio based   *<a href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
