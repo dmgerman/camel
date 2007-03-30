@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultConsumer
@@ -38,9 +50,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|cxf
 operator|.
-name|Processor
+name|message
+operator|.
+name|Message
 import|;
 end_import
 
@@ -54,9 +68,7 @@ name|cxf
 operator|.
 name|transport
 operator|.
-name|local
-operator|.
-name|LocalDestination
+name|Destination
 import|;
 end_import
 
@@ -82,14 +94,16 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|message
+name|transport
 operator|.
-name|Message
+name|local
+operator|.
+name|LocalTransportFactory
 import|;
 end_import
 
 begin_comment
-comment|/**  * A consumer of exchanges for a service in CXF  *  * @version $Revision$ */
+comment|/**  * A consumer of exchanges for a service in CXF  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -108,12 +122,18 @@ specifier|private
 name|CxfEndpoint
 name|endpoint
 decl_stmt|;
+DECL|field|transportFactory
+specifier|private
+specifier|final
+name|LocalTransportFactory
+name|transportFactory
+decl_stmt|;
 DECL|field|destination
 specifier|private
-name|LocalDestination
+name|Destination
 name|destination
 decl_stmt|;
-DECL|method|CxfConsumer (CxfEndpoint endpoint, Processor<CxfExchange> processor)
+DECL|method|CxfConsumer (CxfEndpoint endpoint, Processor<CxfExchange> processor, LocalTransportFactory transportFactory)
 specifier|public
 name|CxfConsumer
 parameter_list|(
@@ -125,6 +145,9 @@ argument_list|<
 name|CxfExchange
 argument_list|>
 name|processor
+parameter_list|,
+name|LocalTransportFactory
+name|transportFactory
 parameter_list|)
 block|{
 name|super
@@ -139,6 +162,12 @@ operator|.
 name|endpoint
 operator|=
 name|endpoint
+expr_stmt|;
+name|this
+operator|.
+name|transportFactory
+operator|=
+name|transportFactory
 expr_stmt|;
 block|}
 annotation|@
@@ -158,13 +187,7 @@ argument_list|()
 expr_stmt|;
 name|destination
 operator|=
-operator|(
-name|LocalDestination
-operator|)
-name|endpoint
-operator|.
-name|getLocalTransportFactory
-argument_list|()
+name|transportFactory
 operator|.
 name|getDestination
 argument_list|(

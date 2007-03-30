@@ -76,11 +76,21 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|transport
+name|BusException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|local
+name|apache
 operator|.
-name|LocalTransportFactory
+name|cxf
+operator|.
+name|message
+operator|.
+name|Message
 import|;
 end_import
 
@@ -108,9 +118,11 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|message
+name|transport
 operator|.
-name|Message
+name|local
+operator|.
+name|LocalTransportFactory
 import|;
 end_import
 
@@ -208,6 +220,9 @@ operator|new
 name|CxfProducer
 argument_list|(
 name|this
+argument_list|,
+name|getLocalTransportFactory
+argument_list|()
 argument_list|)
 argument_list|)
 return|;
@@ -238,6 +253,9 @@ argument_list|(
 name|this
 argument_list|,
 name|processor
+argument_list|,
+name|getLocalTransportFactory
+argument_list|()
 argument_list|)
 argument_list|)
 return|;
@@ -354,6 +372,8 @@ specifier|public
 name|LocalTransportFactory
 name|getLocalTransportFactory
 parameter_list|()
+throws|throws
+name|BusException
 block|{
 return|return
 name|component

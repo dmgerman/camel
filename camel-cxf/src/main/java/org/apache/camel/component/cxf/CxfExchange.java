@@ -368,6 +368,34 @@ return|return
 name|exchange
 return|;
 block|}
+DECL|method|getInMessage ()
+specifier|public
+name|Message
+name|getInMessage
+parameter_list|()
+block|{
+return|return
+name|getIn
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+return|;
+block|}
+DECL|method|getOutMessage ()
+specifier|public
+name|Message
+name|getOutMessage
+parameter_list|()
+block|{
+return|return
+name|getOut
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+return|;
+block|}
 DECL|method|getOutFaultMessage ()
 specifier|public
 name|Message
@@ -382,20 +410,6 @@ name|getOutFaultMessage
 argument_list|()
 return|;
 block|}
-DECL|method|getInMessage ()
-specifier|public
-name|Message
-name|getInMessage
-parameter_list|()
-block|{
-return|return
-name|getExchange
-argument_list|()
-operator|.
-name|getInMessage
-argument_list|()
-return|;
-block|}
 DECL|method|getInFaultMessage ()
 specifier|public
 name|Message
@@ -407,20 +421,6 @@ name|getExchange
 argument_list|()
 operator|.
 name|getInFaultMessage
-argument_list|()
-return|;
-block|}
-DECL|method|getOutMessage ()
-specifier|public
-name|Message
-name|getOutMessage
-parameter_list|()
-block|{
-return|return
-name|getExchange
-argument_list|()
-operator|.
-name|getOutMessage
 argument_list|()
 return|;
 block|}
