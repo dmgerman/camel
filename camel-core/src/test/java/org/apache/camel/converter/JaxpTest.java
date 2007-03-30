@@ -183,13 +183,17 @@ argument_list|,
 name|document
 argument_list|)
 decl_stmt|;
-name|assertEquals
+comment|// The preamble changes a little under Java 1.6 it adds a standalone="no" attribute.
+name|assertTrue
 argument_list|(
 literal|"Converted to String"
 argument_list|,
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?><hello>world!</hello>"
-argument_list|,
 name|text
+operator|.
+name|endsWith
+argument_list|(
+literal|"?><hello>world!</hello>"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
