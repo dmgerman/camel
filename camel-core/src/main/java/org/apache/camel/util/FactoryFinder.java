@@ -392,10 +392,8 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|NoFactoryAvailableException
 argument_list|(
-literal|"Could not find factory class for resource: "
-operator|+
 name|uri
 argument_list|)
 throw|;

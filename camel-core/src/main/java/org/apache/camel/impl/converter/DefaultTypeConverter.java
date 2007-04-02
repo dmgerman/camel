@@ -247,6 +247,24 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|DefaultTypeConverter (Injector injector)
+specifier|public
+name|DefaultTypeConverter
+parameter_list|(
+name|Injector
+name|injector
+parameter_list|)
+block|{
+name|this
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|injector
+operator|=
+name|injector
+expr_stmt|;
+block|}
 DECL|method|convertTo (Class<T> toType, Object value)
 specifier|public
 parameter_list|<
