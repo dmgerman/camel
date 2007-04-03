@@ -665,16 +665,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|camelContext
-operator|.
-name|addComponent
-argument_list|(
-literal|"foo"
-argument_list|,
-name|createJpaComponent
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|startServices
 argument_list|(
 name|client
@@ -689,13 +679,7 @@ name|camelContext
 operator|.
 name|resolveEndpoint
 argument_list|(
-literal|"jpa:"
-operator|+
-name|SendEmail
-operator|.
-name|class
-operator|.
-name|getName
+name|getEndpointUri
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -739,23 +723,21 @@ name|getTemplate
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|createJpaComponent ()
+DECL|method|getEndpointUri ()
 specifier|protected
-name|JpaComponent
-name|createJpaComponent
+name|String
+name|getEndpointUri
 parameter_list|()
 block|{
-comment|// TODO zap this!
-name|JpaComponent
-name|answer
-init|=
-operator|new
-name|JpaComponent
-argument_list|()
-decl_stmt|;
-comment|/*         Properties properties = new Properties();         properties.setProperty("openjpa.ConnectionDriverName", "org.apache.derby.jdbc.EmbeddedDriver");         properties.setProperty("openjpa.ConnectionURL", "jdbc:derby:target/derby;create=true");         properties.setProperty("openjpa.jdbc.SynchronizeMappings", "buildSchema");         properties.setProperty("openjpa.Log", "DefaultLevel=WARN,SQL=TRACE");         answer.setEntityManagerProperties(properties); */
 return|return
-name|answer
+literal|"jpa:"
+operator|+
+name|SendEmail
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 return|;
 block|}
 annotation|@

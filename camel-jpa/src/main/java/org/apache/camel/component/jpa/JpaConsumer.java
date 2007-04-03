@@ -437,6 +437,21 @@ operator|=
 name|createQueryFactory
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|queryFactory
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No queryType property configured on this consumer, nor an entityType configured on the endpoint so cannot consume"
+argument_list|)
+throw|;
+block|}
 block|}
 return|return
 name|queryFactory
