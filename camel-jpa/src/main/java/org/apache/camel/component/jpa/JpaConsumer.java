@@ -100,7 +100,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|Query
+name|EntityTransaction
 import|;
 end_import
 
@@ -110,7 +110,17 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|EntityTransaction
+name|LockModeType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|Query
 import|;
 end_import
 
@@ -302,6 +312,14 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|lockEntity
+argument_list|(
+name|result
+argument_list|)
+condition|)
+block|{
 comment|// lets turn the result into an exchange and fire it into the processor
 name|Exchange
 name|exchange
@@ -329,6 +347,7 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|transaction
 operator|.
@@ -508,6 +527,86 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+block|}
+comment|/**      * A strategy method to lock an object with an exclusive lock so that it can be processed      *      * @param entity the entity to be locked      * @return true if the entity was locked      */
+DECL|method|lockEntity (Object entity)
+specifier|protected
+name|boolean
+name|lockEntity
+parameter_list|(
+name|Object
+name|entity
+parameter_list|)
+block|{
+try|try
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Acquiring exclusive lock on entity: "
+operator|+
+name|entity
+argument_list|)
+expr_stmt|;
+block|}
+name|entityManager
+operator|.
+name|lock
+argument_list|(
+name|entity
+argument_list|,
+name|LockModeType
+operator|.
+name|WRITE
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Failed to achieve lock on entity: "
+operator|+
+name|entity
+operator|+
+literal|". Reason: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+literal|false
+return|;
+block|}
 block|}
 DECL|method|createQueryFactory ()
 specifier|protected
