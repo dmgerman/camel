@@ -26,19 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|impl
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Component
+name|DefaultComponent
 import|;
 end_import
 
@@ -61,8 +51,8 @@ DECL|class|PojoComponent
 specifier|public
 class|class
 name|PojoComponent
-implements|implements
-name|Component
+extends|extends
+name|DefaultComponent
 argument_list|<
 name|PojoExchange
 argument_list|>
@@ -106,11 +96,6 @@ argument_list|,
 name|PojoConsumer
 argument_list|>
 argument_list|()
-decl_stmt|;
-DECL|field|container
-specifier|private
-name|CamelContext
-name|container
 decl_stmt|;
 DECL|method|addService (String uri, Object pojo)
 specifier|public
@@ -227,32 +212,6 @@ name|get
 argument_list|(
 name|uri
 argument_list|)
-return|;
-block|}
-DECL|method|setCamelContext (CamelContext container)
-specifier|public
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|container
-parameter_list|)
-block|{
-name|this
-operator|.
-name|container
-operator|=
-name|container
-expr_stmt|;
-block|}
-DECL|method|getContainer ()
-specifier|public
-name|CamelContext
-name|getContainer
-parameter_list|()
-block|{
-return|return
-name|container
 return|;
 block|}
 block|}

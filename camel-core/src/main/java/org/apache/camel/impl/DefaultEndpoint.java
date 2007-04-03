@@ -72,31 +72,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Consumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Component
 import|;
 end_import
 
@@ -132,9 +120,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|IOException
+name|concurrent
+operator|.
+name|ScheduledExecutorService
 import|;
 end_import
 
@@ -164,18 +154,16 @@ specifier|private
 name|String
 name|endpointUri
 decl_stmt|;
+DECL|field|component
+specifier|private
+specifier|final
+name|Component
+name|component
+decl_stmt|;
 DECL|field|context
 specifier|private
 name|CamelContext
 name|context
-decl_stmt|;
-DECL|field|inboundProcessor
-specifier|private
-name|Processor
-argument_list|<
-name|E
-argument_list|>
-name|inboundProcessor
 decl_stmt|;
 DECL|field|activated
 specifier|protected
@@ -199,15 +187,15 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-DECL|method|DefaultEndpoint (String endpointUri, CamelContext container)
+DECL|method|DefaultEndpoint (String endpointUri, Component component)
 specifier|protected
 name|DefaultEndpoint
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|CamelContext
-name|container
+name|Component
+name|component
 parameter_list|)
 block|{
 name|this
@@ -218,9 +206,18 @@ name|endpointUri
 expr_stmt|;
 name|this
 operator|.
+name|component
+operator|=
+name|component
+expr_stmt|;
+name|this
+operator|.
 name|context
 operator|=
-name|container
+name|component
+operator|.
+name|getCamelContext
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|hashCode ()
@@ -321,6 +318,30 @@ return|return
 name|context
 return|;
 block|}
+DECL|method|getComponent ()
+specifier|public
+name|Component
+name|getComponent
+parameter_list|()
+block|{
+return|return
+name|component
+return|;
+block|}
+DECL|method|getExecutorService ()
+specifier|public
+name|ScheduledExecutorService
+name|getExecutorService
+parameter_list|()
+block|{
+return|return
+name|getComponent
+argument_list|()
+operator|.
+name|getExecutorService
+argument_list|()
+return|;
+block|}
 comment|/**      * Converts the given exchange to the specified exchange type      */
 DECL|method|convertTo (Class<E> type, Exchange exchange)
 specifier|public
@@ -372,93 +393,6 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|activate (Processor<E> inboundProcessor)
-specifier|public
-name|void
-name|activate
-parameter_list|(
-name|Processor
-argument_list|<
-name|E
-argument_list|>
-name|inboundProcessor
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|activated
-operator|.
-name|compareAndSet
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-condition|)
-block|{
-name|deactivated
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|inboundProcessor
-operator|=
-name|inboundProcessor
-expr_stmt|;
-name|doActivate
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"Endpoint is already active: "
-operator|+
-name|getEndpointUri
-argument_list|()
-argument_list|)
-throw|;
-block|}
-block|}
-DECL|method|deactivate ()
-specifier|public
-name|void
-name|deactivate
-parameter_list|()
-block|{
-if|if
-condition|(
-name|deactivated
-operator|.
-name|compareAndSet
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-condition|)
-block|{
-name|activated
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|doDeactivate
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 DECL|method|createExchange (E exchange)
 specifier|public
 name|E
@@ -485,55 +419,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * The processor used to process inbound message exchanges      */
-DECL|method|getInboundProcessor ()
-specifier|public
-name|Processor
-argument_list|<
-name|E
-argument_list|>
-name|getInboundProcessor
-parameter_list|()
-block|{
-return|return
-name|inboundProcessor
-return|;
-block|}
-DECL|method|setInboundProcessor (Processor<E> inboundProcessor)
-specifier|public
-name|void
-name|setInboundProcessor
-parameter_list|(
-name|Processor
-argument_list|<
-name|E
-argument_list|>
-name|inboundProcessor
-parameter_list|)
-block|{
-name|this
-operator|.
-name|inboundProcessor
-operator|=
-name|inboundProcessor
-expr_stmt|;
-block|}
-comment|/**      * Called at most once by the container to activate the endpoint      */
-DECL|method|doActivate ()
-specifier|protected
-name|void
-name|doActivate
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
-comment|/**      * Called at most once by the container to deactivate the endpoint      */
-DECL|method|doDeactivate ()
-specifier|protected
-name|void
-name|doDeactivate
-parameter_list|()
-block|{     }
+comment|/**      * A helper method to reduce the clutter of implementors of {@link #createProducer()} and {@link #createConsumer(Processor)}      */
 DECL|method|startService (T service)
 specifier|protected
 parameter_list|<

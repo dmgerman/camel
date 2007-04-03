@@ -245,7 +245,7 @@ argument_list|>
 argument_list|(
 name|uri
 argument_list|,
-name|container
+name|component
 argument_list|,
 name|queue
 argument_list|)

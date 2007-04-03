@@ -337,6 +337,18 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
+DECL|field|entityName
+specifier|protected
+name|String
+name|entityName
+init|=
+name|SendEmail
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 DECL|field|queryText
 specifier|protected
 name|String
@@ -344,12 +356,7 @@ name|queryText
 init|=
 literal|"select o from "
 operator|+
-name|SendEmail
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
+name|entityName
 operator|+
 literal|" o"
 decl_stmt|;
@@ -379,6 +386,19 @@ operator|.
 name|begin
 argument_list|()
 expr_stmt|;
+comment|// lets delete any exiting records before the test
+name|entityManager
+operator|.
+name|createQuery
+argument_list|(
+literal|"delete from "
+operator|+
+name|entityName
+argument_list|)
+operator|.
+name|executeUpdate
+argument_list|()
+expr_stmt|;
 name|List
 name|results
 init|=
@@ -405,6 +425,11 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|transaction
+operator|.
+name|commit
+argument_list|()
 expr_stmt|;
 comment|// lets produce some objects
 name|client
@@ -445,11 +470,6 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-expr_stmt|;
-name|transaction
-operator|.
-name|commit
-argument_list|()
 expr_stmt|;
 comment|// now lets assert that there is a result
 name|transaction
@@ -508,6 +528,15 @@ name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|transaction
+operator|.
+name|commit
+argument_list|()
+expr_stmt|;
+name|transaction
+operator|=
+literal|null
+expr_stmt|;
 comment|// now lets create a consumer to consume it
 name|consumer
 operator|=
@@ -562,7 +591,7 @@ name|latch
 operator|.
 name|await
 argument_list|(
-literal|5
+literal|50
 argument_list|,
 name|TimeUnit
 operator|.
@@ -571,7 +600,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Did not recieve the message!"
+literal|"Did not receive the message!"
 argument_list|,
 name|received
 argument_list|)

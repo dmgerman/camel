@@ -165,9 +165,6 @@ argument_list|(
 name|uri
 argument_list|,
 name|jbiComponent
-operator|.
-name|getCamelContext
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -331,24 +328,6 @@ block|}
 block|}
 argument_list|)
 return|;
-block|}
-comment|/*     public void onExchange(Exchange exchange) {         if (getInboundProcessor() != null) {             getInboundProcessor().onExchange(exchange);         } else {             toJbiProcessor.onExchange(exchange);        }     }     */
-annotation|@
-name|Override
-DECL|method|doActivate ()
-specifier|protected
-name|void
-name|doActivate
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doActivate
-argument_list|()
-expr_stmt|;
-comment|// lets create and activate the endpoint in JBI
 block|}
 DECL|method|createExchange ()
 specifier|public

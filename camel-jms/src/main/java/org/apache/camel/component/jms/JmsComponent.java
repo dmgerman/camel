@@ -389,10 +389,10 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
-literal|"container"
+literal|"camelContext"
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -473,8 +473,7 @@ name|JmsEndpoint
 argument_list|(
 name|uri
 argument_list|,
-name|getContext
-argument_list|()
+name|this
 argument_list|,
 name|subject
 argument_list|,

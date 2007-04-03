@@ -160,15 +160,18 @@ name|E
 argument_list|>
 name|queue
 decl_stmt|;
-DECL|method|QueueEndpoint (String uri, CamelContext container, BlockingQueue<E> queue)
+DECL|method|QueueEndpoint (String uri, QueueComponent<E> component, BlockingQueue<E> queue)
 specifier|public
 name|QueueEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|CamelContext
-name|container
+name|QueueComponent
+argument_list|<
+name|E
+argument_list|>
+name|component
 parameter_list|,
 name|BlockingQueue
 argument_list|<
@@ -181,7 +184,7 @@ name|super
 argument_list|(
 name|uri
 argument_list|,
-name|container
+name|component
 argument_list|)
 expr_stmt|;
 name|this

@@ -282,22 +282,22 @@ specifier|private
 name|String
 name|participant
 decl_stmt|;
-DECL|method|XmppEndpoint (String uri, CamelContext context)
+DECL|method|XmppEndpoint (String uri, XmppComponent component)
 specifier|public
 name|XmppEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|CamelContext
-name|context
+name|XmppComponent
+name|component
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|uri
 argument_list|,
-name|context
+name|component
 argument_list|)
 expr_stmt|;
 block|}

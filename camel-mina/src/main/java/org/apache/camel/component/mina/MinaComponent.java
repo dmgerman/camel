@@ -528,8 +528,7 @@ name|MinaEndpoint
 argument_list|(
 name|uri
 argument_list|,
-name|getContext
-argument_list|()
+name|this
 argument_list|,
 name|address
 argument_list|,
@@ -616,8 +615,7 @@ name|MinaEndpoint
 argument_list|(
 name|uri
 argument_list|,
-name|getContext
-argument_list|()
+name|this
 argument_list|,
 name|address
 argument_list|,
@@ -704,8 +702,7 @@ name|MinaEndpoint
 argument_list|(
 name|uri
 argument_list|,
-name|getContext
-argument_list|()
+name|this
 argument_list|,
 name|address
 argument_list|,

@@ -22,40 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Component
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -70,8 +36,32 @@ name|PojoExchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents the component that manages {@link TimerEndpoint}.  It holds the  * list of {@link TimerConsumer} objects that are started.  *   * @version $Revision: 519973 $  */
+comment|/**  * Represents the component that manages {@link TimerEndpoint}.  It holds the  * list of {@link TimerConsumer} objects that are started.  *  * @version $Revision: 519973 $  */
 end_comment
 
 begin_class
@@ -79,8 +69,8 @@ DECL|class|TimerComponent
 specifier|public
 class|class
 name|TimerComponent
-implements|implements
-name|Component
+extends|extends
+name|DefaultComponent
 argument_list|<
 name|PojoExchange
 argument_list|>
@@ -100,11 +90,6 @@ argument_list|<
 name|TimerConsumer
 argument_list|>
 argument_list|()
-decl_stmt|;
-DECL|field|container
-specifier|private
-name|CamelContext
-name|container
 decl_stmt|;
 DECL|method|addConsumer (TimerConsumer consumer)
 name|boolean
@@ -138,32 +123,6 @@ name|remove
 argument_list|(
 name|consumer
 argument_list|)
-return|;
-block|}
-DECL|method|setCamelContext (CamelContext container)
-specifier|public
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|container
-parameter_list|)
-block|{
-name|this
-operator|.
-name|container
-operator|=
-name|container
-expr_stmt|;
-block|}
-DECL|method|getContainer ()
-specifier|public
-name|CamelContext
-name|getContainer
-parameter_list|()
-block|{
-return|return
-name|container
 return|;
 block|}
 block|}

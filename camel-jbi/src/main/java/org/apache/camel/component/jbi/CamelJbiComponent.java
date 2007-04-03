@@ -180,6 +180,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|servicemix
+operator|.
+name|executors
+operator|.
+name|Executor
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|jbi
@@ -252,6 +266,30 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledThreadPoolExecutor
+import|;
+end_import
+
 begin_comment
 comment|/**  * Deploys the camel endpoints within JBI  *  * @version $Revision: 426415 $  */
 end_comment
@@ -280,6 +318,11 @@ DECL|field|camelContext
 specifier|private
 name|CamelContext
 name|camelContext
+decl_stmt|;
+DECL|field|executorService
+specifier|private
+name|ScheduledExecutorService
+name|executorService
 decl_stmt|;
 comment|/**      * @return List of endpoints      * @see org.apache.servicemix.common.DefaultComponent#getConfiguredEndpoints()      */
 annotation|@
@@ -648,6 +691,32 @@ name|camelContext
 operator|=
 name|camelContext
 expr_stmt|;
+block|}
+DECL|method|getExecutorService ()
+specifier|public
+name|ScheduledExecutorService
+name|getExecutorService
+parameter_list|()
+block|{
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+name|executorService
+operator|=
+operator|new
+name|ScheduledThreadPoolExecutor
+argument_list|(
+literal|5
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|executorService
+return|;
 block|}
 comment|/**      * Returns a JBI endpoint created for the given Camel endpoint      */
 DECL|method|activateJbiEndpoint (JbiEndpoint camelEndpoint, Processor<Exchange> processor)

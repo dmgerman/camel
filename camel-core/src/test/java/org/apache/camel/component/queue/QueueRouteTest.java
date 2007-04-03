@@ -324,7 +324,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Did not recieve the message!"
+literal|"Did not receive the message!"
 argument_list|,
 name|received
 argument_list|)

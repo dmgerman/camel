@@ -221,15 +221,15 @@ specifier|private
 name|JmsConfiguration
 name|configuration
 decl_stmt|;
-DECL|method|JmsEndpoint (String uri, CamelContext context, String destination, boolean pubSubDomain, JmsConfiguration configuration)
+DECL|method|JmsEndpoint (String uri, JmsComponent component, String destination, boolean pubSubDomain, JmsConfiguration configuration)
 specifier|public
 name|JmsEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|CamelContext
-name|context
+name|JmsComponent
+name|component
 parameter_list|,
 name|String
 name|destination
@@ -245,7 +245,7 @@ name|super
 argument_list|(
 name|uri
 argument_list|,
-name|context
+name|component
 argument_list|)
 expr_stmt|;
 name|this

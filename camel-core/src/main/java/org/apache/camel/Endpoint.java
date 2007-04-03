@@ -14,6 +14,18 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
 begin_comment
 comment|/**  * Implements the<a href="http://activemq.apache.org/camel/message-endpoint.html">Message Endpoint</a>  * pattern and represents an endpoint that can send and receive message exchanges  *  * @version $Revision$  */
 end_comment
@@ -51,26 +63,6 @@ name|E
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Called by the container to Activate the endpoint.  Once activated,      * the endpoint will start delivering inbound message exchanges      * that are received to the specified processor.      *      * The processor must be thread safe ( or stateless ) since some endpoints       * may choose to deliver exchanges concurrently to the processor.      *       * @throws IllegalStateException if the Endpoint has already been activated.      */
-DECL|method|activate (Processor<E> processor)
-name|void
-name|activate
-parameter_list|(
-name|Processor
-argument_list|<
-name|E
-argument_list|>
-name|processor
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Called by the container when the endpoint is deactivated      */
-DECL|method|deactivate ()
-name|void
-name|deactivate
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the context which created the endpoint      *      * @return the context which created the endpoint      */
 DECL|method|getContext ()
 name|CamelContext
@@ -104,6 +96,12 @@ name|processor
 parameter_list|)
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * Returns the executor for this endpoint which typically defaults to the components executor      *      * @return the executor for this endpoint      */
+DECL|method|getExecutorService ()
+name|ScheduledExecutorService
+name|getExecutorService
+parameter_list|()
 function_decl|;
 block|}
 end_interface

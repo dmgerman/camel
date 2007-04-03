@@ -203,9 +203,6 @@ argument_list|(
 name|uri
 argument_list|,
 name|component
-operator|.
-name|getContext
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -242,6 +239,8 @@ throws|throws
 name|Exception
 block|{
 return|return
+name|startService
+argument_list|(
 operator|new
 name|JpaProducer
 argument_list|(
@@ -252,6 +251,7 @@ argument_list|()
 argument_list|,
 name|getProducerExpression
 argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -273,6 +273,8 @@ throws|throws
 name|Exception
 block|{
 return|return
+name|startService
+argument_list|(
 operator|new
 name|JpaConsumer
 argument_list|(
@@ -282,6 +284,7 @@ name|processor
 argument_list|,
 name|createEntityManager
 argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}

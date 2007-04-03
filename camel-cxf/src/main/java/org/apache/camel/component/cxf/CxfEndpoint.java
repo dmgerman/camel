@@ -184,9 +184,6 @@ argument_list|(
 name|uri
 argument_list|,
 name|component
-operator|.
-name|getContext
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

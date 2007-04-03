@@ -72,7 +72,7 @@ DECL|method|SendEmail ()
 specifier|public
 name|SendEmail
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|SendEmail (String address)
 specifier|public
 name|SendEmail
@@ -86,6 +86,28 @@ argument_list|(
 name|address
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"SendEmail[id: "
+operator|+
+name|getId
+argument_list|()
+operator|+
+literal|" address: "
+operator|+
+name|getAddress
+argument_list|()
+operator|+
+literal|"]"
+return|;
 block|}
 annotation|@
 name|Id

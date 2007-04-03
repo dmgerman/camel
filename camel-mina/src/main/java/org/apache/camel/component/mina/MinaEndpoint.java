@@ -201,23 +201,6 @@ argument_list|<
 name|MinaExchange
 argument_list|>
 block|{
-DECL|field|log
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|log
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|MinaEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|acceptor
 specifier|private
 specifier|final
@@ -242,15 +225,15 @@ specifier|final
 name|IoServiceConfig
 name|config
 decl_stmt|;
-DECL|method|MinaEndpoint (String endpointUri, CamelContext container, SocketAddress address, IoAcceptor acceptor, IoConnector connector, IoServiceConfig config)
+DECL|method|MinaEndpoint (String endpointUri, MinaComponent component, SocketAddress address, IoAcceptor acceptor, IoConnector connector, IoServiceConfig config)
 specifier|public
 name|MinaEndpoint
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|CamelContext
-name|container
+name|MinaComponent
+name|component
 parameter_list|,
 name|SocketAddress
 name|address
@@ -269,7 +252,7 @@ name|super
 argument_list|(
 name|endpointUri
 argument_list|,
-name|container
+name|component
 argument_list|)
 expr_stmt|;
 name|this
@@ -442,38 +425,6 @@ block|{
 return|return
 name|config
 return|;
-block|}
-comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
-annotation|@
-name|Override
-DECL|method|doActivate ()
-specifier|protected
-name|void
-name|doActivate
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doActivate
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doDeactivate ()
-specifier|protected
-name|void
-name|doDeactivate
-parameter_list|()
-block|{
-name|acceptor
-operator|.
-name|unbindAll
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_class

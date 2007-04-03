@@ -230,7 +230,7 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 literal|"context"
@@ -244,8 +244,7 @@ name|XmppEndpoint
 argument_list|(
 name|uri
 argument_list|,
-name|getContext
-argument_list|()
+name|this
 argument_list|)
 decl_stmt|;
 name|URI

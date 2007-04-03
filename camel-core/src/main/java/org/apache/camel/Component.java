@@ -14,6 +14,18 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a component which manages a set of {@link Endpoint} objects.  *  * @version $Revision: 519901 $  */
 end_comment
@@ -27,6 +39,12 @@ parameter_list|<
 name|E
 parameter_list|>
 block|{
+comment|/**      * Returns the context      *      * @return the context of this component      */
+DECL|method|getCamelContext ()
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+function_decl|;
 comment|/**      * The {@link CamelContext} is injected into the component when it is added to it      */
 DECL|method|setCamelContext (CamelContext context)
 name|void
@@ -35,6 +53,12 @@ parameter_list|(
 name|CamelContext
 name|context
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the executor for this endpoint which typically defaults to the components executor      *      * @return the executor for this endpoint      */
+DECL|method|getExecutorService ()
+name|ScheduledExecutorService
+name|getExecutorService
+parameter_list|()
 function_decl|;
 block|}
 end_interface

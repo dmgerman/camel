@@ -152,22 +152,22 @@ specifier|private
 name|HttpBinding
 name|binding
 decl_stmt|;
-DECL|method|HttpEndpoint (String uri, CamelContext camelContext)
+DECL|method|HttpEndpoint (String uri, HttpComponent component)
 specifier|protected
 name|HttpEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|CamelContext
-name|camelContext
+name|HttpComponent
+name|component
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|uri
 argument_list|,
-name|camelContext
+name|component
 argument_list|)
 expr_stmt|;
 block|}

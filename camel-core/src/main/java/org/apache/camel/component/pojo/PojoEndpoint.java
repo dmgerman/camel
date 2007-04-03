@@ -152,9 +152,6 @@ argument_list|(
 name|uri
 argument_list|,
 name|component
-operator|.
-name|getContainer
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
