@@ -256,22 +256,13 @@ name|createTransactionStrategy
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Invoked whenever we should be polled      */
-DECL|method|run ()
-specifier|public
-specifier|synchronized
+DECL|method|poll ()
+specifier|protected
 name|void
-name|run
+name|poll
 parameter_list|()
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Starting to poll for new database entities to process"
-argument_list|)
-expr_stmt|;
-try|try
+throws|throws
+name|Exception
 block|{
 name|template
 operator|.
@@ -387,25 +378,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeException
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Caught: "
-operator|+
-name|e
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------

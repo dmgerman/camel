@@ -54,6 +54,34 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -111,6 +139,23 @@ argument_list|>
 implements|implements
 name|Runnable
 block|{
+DECL|field|log
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PollingConsumer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|initialDelay
 specifier|private
 name|long
@@ -171,6 +216,45 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Invoked whenever we should be polled      */
+DECL|method|run ()
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Starting to poll"
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|poll
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Caught: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
@@ -280,6 +364,16 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
+comment|/**      * The polling method which is invoked periodically to poll this consumer      *       * @throws Exception      */
+DECL|method|poll ()
+specifier|protected
+specifier|abstract
+name|void
+name|poll
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 annotation|@
 name|Override
 DECL|method|doStart ()
