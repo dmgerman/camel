@@ -98,6 +98,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|ExpressionBuilder
@@ -166,6 +180,16 @@ name|EntityManagerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -215,6 +239,11 @@ argument_list|<
 name|?
 argument_list|>
 name|entityType
+decl_stmt|;
+DECL|field|consumerProperties
+specifier|private
+name|Map
+name|consumerProperties
 decl_stmt|;
 DECL|method|JpaEndpoint (String uri, JpaComponent component)
 specifier|public
@@ -307,9 +336,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
-name|startService
-argument_list|(
+name|JpaConsumer
+name|consumer
+init|=
 operator|new
 name|JpaConsumer
 argument_list|(
@@ -317,6 +346,28 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|consumerProperties
+operator|!=
+literal|null
+condition|)
+block|{
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+name|consumer
+argument_list|,
+name|consumerProperties
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|startService
+argument_list|(
+name|consumer
 argument_list|)
 return|;
 block|}
@@ -449,6 +500,32 @@ operator|.
 name|entityType
 operator|=
 name|entityType
+expr_stmt|;
+block|}
+DECL|method|getConsumerProperties ()
+specifier|public
+name|Map
+name|getConsumerProperties
+parameter_list|()
+block|{
+return|return
+name|consumerProperties
+return|;
+block|}
+DECL|method|setConsumerProperties (Map consumerProperties)
+specifier|public
+name|void
+name|setConsumerProperties
+parameter_list|(
+name|Map
+name|consumerProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumerProperties
+operator|=
+name|consumerProperties
 expr_stmt|;
 block|}
 comment|// Implementation methods

@@ -32,6 +32,16 @@ name|javax
 operator|.
 name|persistence
 operator|.
+name|Id
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
 name|GeneratedValue
 import|;
 end_import
@@ -42,21 +52,32 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|Id
+name|NamedQuery
 import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a task which is added to the database, then removed from the database when it is consumed  *  * @version $Revision$  */
+comment|/**  * Represents a task which has multiple steps so that it can move from stage to stage  *  * @version $Revision$  */
 end_comment
 
 begin_class
 annotation|@
 name|Entity
-DECL|class|SendEmail
+annotation|@
+name|NamedQuery
+argument_list|(
+name|name
+operator|=
+literal|"step1"
+argument_list|,
+name|query
+operator|=
+literal|"select x from MultiSteps x where x.step = 1"
+argument_list|)
+DECL|class|MultiSteps
 specifier|public
 class|class
-name|SendEmail
+name|MultiSteps
 block|{
 DECL|field|id
 specifier|private
@@ -68,14 +89,19 @@ specifier|private
 name|String
 name|address
 decl_stmt|;
-DECL|method|SendEmail ()
+DECL|field|step
+specifier|private
+name|int
+name|step
+decl_stmt|;
+DECL|method|MultiSteps ()
 specifier|public
-name|SendEmail
+name|MultiSteps
 parameter_list|()
 block|{     }
-DECL|method|SendEmail (String address)
+DECL|method|MultiSteps (String address)
 specifier|public
-name|SendEmail
+name|MultiSteps
 parameter_list|(
 name|String
 name|address
@@ -84,6 +110,11 @@ block|{
 name|setAddress
 argument_list|(
 name|address
+argument_list|)
+expr_stmt|;
+name|setStep
+argument_list|(
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -96,9 +127,14 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"SendEmail[id: "
+literal|"MultiSteps[id: "
 operator|+
 name|getId
+argument_list|()
+operator|+
+literal|" step: "
+operator|+
+name|getStep
 argument_list|()
 operator|+
 literal|" address: "
@@ -163,6 +199,32 @@ operator|.
 name|address
 operator|=
 name|address
+expr_stmt|;
+block|}
+DECL|method|getStep ()
+specifier|public
+name|int
+name|getStep
+parameter_list|()
+block|{
+return|return
+name|step
+return|;
+block|}
+DECL|method|setStep (int step)
+specifier|public
+name|void
+name|setStep
+parameter_list|(
+name|int
+name|step
+parameter_list|)
+block|{
+name|this
+operator|.
+name|step
+operator|=
+name|step
 expr_stmt|;
 block|}
 block|}

@@ -94,20 +94,6 @@ name|orm
 operator|.
 name|jpa
 operator|.
-name|JpaTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|orm
-operator|.
-name|jpa
-operator|.
 name|JpaCallback
 import|;
 end_import
@@ -138,7 +124,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|Query
+name|PersistenceException
 import|;
 end_import
 
@@ -148,7 +134,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|PersistenceException
+name|Query
 import|;
 end_import
 
@@ -218,6 +204,21 @@ argument_list|<
 name|Object
 argument_list|>
 name|deleteHandler
+decl_stmt|;
+DECL|field|query
+specifier|private
+name|String
+name|query
+decl_stmt|;
+DECL|field|namedQuery
+specifier|private
+name|String
+name|namedQuery
+decl_stmt|;
+DECL|field|nativeQuery
+specifier|private
+name|String
+name|nativeQuery
 decl_stmt|;
 DECL|method|JpaConsumer (JpaEndpoint endpoint, Processor<Exchange> processor)
 specifier|public
@@ -484,9 +485,87 @@ operator|=
 name|deleteHandler
 expr_stmt|;
 block|}
+DECL|method|getNamedQuery ()
+specifier|public
+name|String
+name|getNamedQuery
+parameter_list|()
+block|{
+return|return
+name|namedQuery
+return|;
+block|}
+DECL|method|setNamedQuery (String namedQuery)
+specifier|public
+name|void
+name|setNamedQuery
+parameter_list|(
+name|String
+name|namedQuery
+parameter_list|)
+block|{
+name|this
+operator|.
+name|namedQuery
+operator|=
+name|namedQuery
+expr_stmt|;
+block|}
+DECL|method|getNativeQuery ()
+specifier|public
+name|String
+name|getNativeQuery
+parameter_list|()
+block|{
+return|return
+name|nativeQuery
+return|;
+block|}
+DECL|method|setNativeQuery (String nativeQuery)
+specifier|public
+name|void
+name|setNativeQuery
+parameter_list|(
+name|String
+name|nativeQuery
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nativeQuery
+operator|=
+name|nativeQuery
+expr_stmt|;
+block|}
+DECL|method|getQuery ()
+specifier|public
+name|String
+name|getQuery
+parameter_list|()
+block|{
+return|return
+name|query
+return|;
+block|}
+DECL|method|setQuery (String query)
+specifier|public
+name|void
+name|setQuery
+parameter_list|(
+name|String
+name|query
+parameter_list|)
+block|{
+name|this
+operator|.
+name|query
+operator|=
+name|query
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-comment|/**      * A strategy method to lock an object with an exclusive lock so that it can be processed      *      * @param entity the entity to be locked      * @param entityManager      * @return true if the entity was locked      */
+comment|/**      * A strategy method to lock an object with an exclusive lock so that it can be processed      *      * @param entity        the entity to be locked      * @param entityManager      * @return true if the entity was locked      */
 DECL|method|lockEntity (Object entity, EntityManager entityManager)
 specifier|protected
 name|boolean
@@ -575,6 +654,58 @@ name|QueryFactory
 name|createQueryFactory
 parameter_list|()
 block|{
+if|if
+condition|(
+name|query
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|QueryBuilder
+operator|.
+name|query
+argument_list|(
+name|query
+argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|namedQuery
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|QueryBuilder
+operator|.
+name|namedQuery
+argument_list|(
+name|namedQuery
+argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|nativeQuery
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|QueryBuilder
+operator|.
+name|nativeQuery
+argument_list|(
+name|nativeQuery
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 name|Class
 argument_list|<
 name|?
@@ -614,6 +745,7 @@ operator|+
 literal|" x"
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 DECL|method|createDeleteHandler ()
