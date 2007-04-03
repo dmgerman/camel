@@ -784,7 +784,7 @@ return|return
 name|rc
 return|;
 block|}
-comment|/**      * @param uri      * @param rc      * @param ssp      * @param p      * @throws URISyntaxException      */
+comment|/**      * @param uri      * @param rc      * @param ssp      * @throws URISyntaxException      */
 DECL|method|parseComposite (URI uri, CompositeData rc, String ssp)
 specifier|private
 specifier|static
@@ -1108,7 +1108,7 @@ name|EMPTY_MAP
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @param componentString      * @return      */
+comment|/**      * @param str      * @return      */
 DECL|method|splitComponents (String str)
 specifier|private
 specifier|static
