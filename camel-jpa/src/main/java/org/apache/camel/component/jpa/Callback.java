@@ -18,39 +18,27 @@ name|jpa
 package|;
 end_package
 
-begin_import
-import|import
-name|javax
-operator|.
-name|persistence
-operator|.
-name|EntityManager
-import|;
-end_import
-
 begin_comment
-comment|/**  * A strategy for deleting entity beans which have been processed; either by a real delete or by an update of some  * application specific properties so that the entity bean will not be found in future polling queries.  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_interface
-DECL|interface|DeleteHandler
+DECL|interface|Callback
 specifier|public
 interface|interface
-name|DeleteHandler
+name|Callback
 parameter_list|<
-name|T
+name|R
+parameter_list|,
+name|P
 parameter_list|>
 block|{
-comment|/**      * Deletes the entity bean after it has been processed either by actually      * deleting the object or updating it in a way so that future queries do not return this object again.      *      * @param entityManager      * @param entityBean the entity bean that has been processed and should be deleted      */
-DECL|method|deleteObject (EntityManager entityManager, Object entityBean)
-name|void
-name|deleteObject
+DECL|method|callback (P parameter)
+name|R
+name|callback
 parameter_list|(
-name|EntityManager
-name|entityManager
-parameter_list|,
-name|Object
-name|entityBean
+name|P
+name|parameter
 parameter_list|)
 function_decl|;
 block|}

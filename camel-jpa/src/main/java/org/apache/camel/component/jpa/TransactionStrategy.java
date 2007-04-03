@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel.component.jpa
 package|package
 name|org
 operator|.
@@ -12,23 +12,70 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|component
+operator|.
+name|jpa
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|orm
+operator|.
+name|jpa
+operator|.
+name|JpaCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|EntityManager
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents a factory or po  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_interface
-DECL|interface|Provider
+DECL|interface|TransactionStrategy
 specifier|public
 interface|interface
-name|Provider
-parameter_list|<
-name|T
-parameter_list|>
-block|{ }
+name|TransactionStrategy
+extends|extends
+name|Service
+block|{
+DECL|method|execute (JpaCallback callback)
+specifier|public
+name|Object
+name|execute
+parameter_list|(
+name|JpaCallback
+name|callback
+parameter_list|)
+function_decl|;
+block|}
 end_interface
 
 end_unit

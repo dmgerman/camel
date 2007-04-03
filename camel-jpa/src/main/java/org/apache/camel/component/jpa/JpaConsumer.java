@@ -86,11 +86,29 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|persistence
+name|springframework
 operator|.
-name|EntityManager
+name|orm
+operator|.
+name|jpa
+operator|.
+name|JpaTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|orm
+operator|.
+name|jpa
+operator|.
+name|JpaCallback
 import|;
 end_import
 
@@ -100,7 +118,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|EntityTransaction
+name|EntityManager
 import|;
 end_import
 
@@ -121,6 +139,16 @@ operator|.
 name|persistence
 operator|.
 name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|PersistenceException
 import|;
 end_import
 
@@ -172,11 +200,11 @@ specifier|final
 name|JpaEndpoint
 name|endpoint
 decl_stmt|;
-DECL|field|entityManager
+DECL|field|template
 specifier|private
 specifier|final
-name|EntityManager
-name|entityManager
+name|TransactionStrategy
+name|template
 decl_stmt|;
 DECL|field|queryFactory
 specifier|private
@@ -191,12 +219,7 @@ name|Object
 argument_list|>
 name|deleteHandler
 decl_stmt|;
-DECL|field|transaction
-specifier|private
-name|EntityTransaction
-name|transaction
-decl_stmt|;
-DECL|method|JpaConsumer (JpaEndpoint endpoint, Processor<Exchange> processor, EntityManager entityManager)
+DECL|method|JpaConsumer (JpaEndpoint endpoint, Processor<Exchange> processor)
 specifier|public
 name|JpaConsumer
 parameter_list|(
@@ -208,9 +231,6 @@ argument_list|<
 name|Exchange
 argument_list|>
 name|processor
-parameter_list|,
-name|EntityManager
-name|entityManager
 parameter_list|)
 block|{
 name|super
@@ -228,9 +248,12 @@ name|endpoint
 expr_stmt|;
 name|this
 operator|.
-name|entityManager
+name|template
 operator|=
-name|entityManager
+name|endpoint
+operator|.
+name|createTransactionStrategy
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Invoked whenever we should be polled      */
@@ -248,19 +271,25 @@ argument_list|(
 literal|"Starting to poll for new database entities to process"
 argument_list|)
 expr_stmt|;
-name|transaction
-operator|=
-name|entityManager
-operator|.
-name|getTransaction
-argument_list|()
-expr_stmt|;
-name|transaction
-operator|.
-name|begin
-argument_list|()
-expr_stmt|;
 try|try
+block|{
+name|template
+operator|.
+name|execute
+argument_list|(
+operator|new
+name|JpaCallback
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|doInJpa
+parameter_list|(
+name|EntityManager
+name|entityManager
+parameter_list|)
+throws|throws
+name|PersistenceException
 block|{
 name|Query
 name|query
@@ -270,7 +299,7 @@ argument_list|()
 operator|.
 name|createQuery
 argument_list|(
-name|this
+name|entityManager
 argument_list|)
 decl_stmt|;
 name|configureParameters
@@ -317,6 +346,8 @@ condition|(
 name|lockEntity
 argument_list|(
 name|result
+argument_list|,
+name|entityManager
 argument_list|)
 condition|)
 block|{
@@ -342,21 +373,19 @@ argument_list|()
 operator|.
 name|deleteObject
 argument_list|(
-name|this
+name|entityManager
 argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|transaction
-operator|.
-name|commit
-argument_list|()
-expr_stmt|;
-name|transaction
-operator|=
+return|return
 literal|null
+return|;
+block|}
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -376,33 +405,10 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|transaction
-operator|!=
-literal|null
-condition|)
-block|{
-name|transaction
-operator|.
-name|rollback
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
-DECL|method|getEntityManager ()
-specifier|public
-name|EntityManager
-name|getEntityManager
-parameter_list|()
-block|{
-return|return
-name|entityManager
-return|;
-block|}
 DECL|method|getEndpoint ()
 specifier|public
 name|JpaEndpoint
@@ -493,49 +499,17 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-specifier|synchronized
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|transaction
-operator|!=
-literal|null
-condition|)
-block|{
-name|transaction
-operator|.
-name|rollback
-argument_list|()
-expr_stmt|;
-block|}
-name|entityManager
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
-block|}
-comment|/**      * A strategy method to lock an object with an exclusive lock so that it can be processed      *      * @param entity the entity to be locked      * @return true if the entity was locked      */
-DECL|method|lockEntity (Object entity)
+comment|/**      * A strategy method to lock an object with an exclusive lock so that it can be processed      *      * @param entity the entity to be locked      * @param entityManager      * @return true if the entity was locked      */
+DECL|method|lockEntity (Object entity, EntityManager entityManager)
 specifier|protected
 name|boolean
 name|lockEntity
 parameter_list|(
 name|Object
 name|entity
+parameter_list|,
+name|EntityManager
+name|entityManager
 parameter_list|)
 block|{
 try|try
@@ -677,17 +651,14 @@ specifier|public
 name|void
 name|deleteObject
 parameter_list|(
-name|JpaConsumer
-name|consumer
+name|EntityManager
+name|entityManager
 parameter_list|,
 name|Object
 name|entityBean
 parameter_list|)
 block|{
-name|consumer
-operator|.
-name|getEntityManager
-argument_list|()
+name|entityManager
 operator|.
 name|remove
 argument_list|(

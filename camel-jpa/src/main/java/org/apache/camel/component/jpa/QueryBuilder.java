@@ -30,11 +30,11 @@ end_import
 
 begin_import
 import|import
-name|java
+name|javax
 operator|.
-name|util
+name|persistence
 operator|.
-name|Arrays
+name|EntityManager
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Arrays
 import|;
 end_import
 
@@ -116,15 +116,12 @@ specifier|protected
 name|Query
 name|makeQueryObject
 parameter_list|(
-name|JpaConsumer
-name|consumer
+name|EntityManager
+name|entityManager
 parameter_list|)
 block|{
 return|return
-name|consumer
-operator|.
-name|getEntityManager
-argument_list|()
+name|entityManager
 operator|.
 name|createQuery
 argument_list|(
@@ -174,15 +171,12 @@ specifier|protected
 name|Query
 name|makeQueryObject
 parameter_list|(
-name|JpaConsumer
-name|consumer
+name|EntityManager
+name|entityManager
 parameter_list|)
 block|{
 return|return
-name|consumer
-operator|.
-name|getEntityManager
-argument_list|()
+name|entityManager
 operator|.
 name|createNamedQuery
 argument_list|(
@@ -230,15 +224,12 @@ specifier|protected
 name|Query
 name|makeQueryObject
 parameter_list|(
-name|JpaConsumer
-name|consumer
+name|EntityManager
+name|entityManager
 parameter_list|)
 block|{
 return|return
-name|consumer
-operator|.
-name|getEntityManager
-argument_list|()
+name|entityManager
 operator|.
 name|createNativeQuery
 argument_list|(
@@ -312,8 +303,8 @@ specifier|public
 name|void
 name|populateQuery
 parameter_list|(
-name|JpaConsumer
-name|consumer
+name|EntityManager
+name|entityManager
 parameter_list|,
 name|Query
 name|query
@@ -392,8 +383,8 @@ specifier|public
 name|void
 name|populateQuery
 parameter_list|(
-name|JpaConsumer
-name|consumer
+name|EntityManager
+name|entityManager
 parameter_list|,
 name|Query
 name|query
@@ -490,13 +481,13 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|createQuery (JpaConsumer consumer)
+DECL|method|createQuery (EntityManager entityManager)
 specifier|public
 name|Query
 name|createQuery
 parameter_list|(
-name|JpaConsumer
-name|consumer
+name|EntityManager
+name|entityManager
 parameter_list|)
 block|{
 name|Query
@@ -504,12 +495,12 @@ name|query
 init|=
 name|makeQueryObject
 argument_list|(
-name|consumer
+name|entityManager
 argument_list|)
 decl_stmt|;
 name|populateQuery
 argument_list|(
-name|consumer
+name|entityManager
 argument_list|,
 name|query
 argument_list|)
@@ -547,13 +538,13 @@ argument_list|()
 return|;
 block|}
 block|}
-DECL|method|populateQuery (JpaConsumer consumer, Query query)
+DECL|method|populateQuery (EntityManager entityManager, Query query)
 specifier|protected
 name|void
 name|populateQuery
 parameter_list|(
-name|JpaConsumer
-name|consumer
+name|EntityManager
+name|entityManager
 parameter_list|,
 name|Query
 name|query
@@ -570,21 +561,21 @@ name|parameterBuilder
 operator|.
 name|populateQuery
 argument_list|(
-name|consumer
+name|entityManager
 argument_list|,
 name|query
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|makeQueryObject (JpaConsumer consumer)
+DECL|method|makeQueryObject (EntityManager entityManager)
 specifier|protected
 specifier|abstract
 name|Query
 name|makeQueryObject
 parameter_list|(
-name|JpaConsumer
-name|consumer
+name|EntityManager
+name|entityManager
 parameter_list|)
 function_decl|;
 comment|/**      * A plugin strategy to populate the query with parameters      */
@@ -595,14 +586,14 @@ specifier|static
 class|class
 name|ParameterBuilder
 block|{
-DECL|method|populateQuery (JpaConsumer consumer, Query query)
+DECL|method|populateQuery (EntityManager entityManager, Query query)
 specifier|public
 specifier|abstract
 name|void
 name|populateQuery
 parameter_list|(
-name|JpaConsumer
-name|consumer
+name|EntityManager
+name|entityManager
 parameter_list|,
 name|Query
 name|query

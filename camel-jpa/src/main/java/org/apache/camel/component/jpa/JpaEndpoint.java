@@ -134,11 +134,35 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|orm
+operator|.
+name|jpa
+operator|.
+name|JpaTemplate
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|persistence
 operator|.
 name|EntityManager
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|EntityManagerFactory
 import|;
 end_import
 
@@ -162,6 +186,11 @@ specifier|private
 specifier|final
 name|JpaComponent
 name|component
+decl_stmt|;
+DECL|field|template
+specifier|private
+name|JpaTemplate
+name|template
 decl_stmt|;
 DECL|field|producerExpression
 specifier|private
@@ -211,6 +240,15 @@ name|component
 operator|=
 name|component
 expr_stmt|;
+name|this
+operator|.
+name|template
+operator|=
+name|component
+operator|.
+name|getTemplate
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|createExchange ()
 specifier|public
@@ -246,9 +284,6 @@ name|JpaProducer
 argument_list|(
 name|this
 argument_list|,
-name|createEntityManager
-argument_list|()
-argument_list|,
 name|getProducerExpression
 argument_list|()
 argument_list|)
@@ -281,15 +316,38 @@ argument_list|(
 name|this
 argument_list|,
 name|processor
-argument_list|,
-name|createEntityManager
-argument_list|()
 argument_list|)
 argument_list|)
 return|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
+DECL|method|getTemplate ()
+specifier|public
+name|JpaTemplate
+name|getTemplate
+parameter_list|()
+block|{
+return|return
+name|template
+return|;
+block|}
+DECL|method|setTemplate (JpaTemplate template)
+specifier|public
+name|void
+name|setTemplate
+parameter_list|(
+name|JpaTemplate
+name|template
+parameter_list|)
+block|{
+name|this
+operator|.
+name|template
+operator|=
+name|template
+expr_stmt|;
+block|}
 DECL|method|getProducerExpression ()
 specifier|public
 name|Expression
@@ -407,6 +465,33 @@ operator|.
 name|createEntityManager
 argument_list|()
 return|;
+block|}
+DECL|method|createTransactionStrategy ()
+specifier|protected
+name|TransactionStrategy
+name|createTransactionStrategy
+parameter_list|()
+block|{
+name|EntityManagerFactory
+name|emf
+init|=
+name|component
+operator|.
+name|getEntityManagerFactory
+argument_list|()
+decl_stmt|;
+return|return
+name|JpaTemplateTransactionStrategy
+operator|.
+name|newInstance
+argument_list|(
+name|emf
+argument_list|,
+name|getTemplate
+argument_list|()
+argument_list|)
+return|;
+comment|//return new DefaultTransactionStrategy(emf);
 block|}
 DECL|method|createProducerExpression ()
 specifier|protected
