@@ -1,0 +1,105 @@
+begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
+begin_package
+DECL|package|org.apache.camel
+package|package
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+package|;
+end_package
+
+begin_comment
+comment|/**  * An exception thrown if a value could not be converted to the required type  *  * @version $Revision$  */
+end_comment
+
+begin_class
+DECL|class|NoTypeConversionAvailableException
+specifier|public
+class|class
+name|NoTypeConversionAvailableException
+extends|extends
+name|RuntimeCamelException
+block|{
+DECL|field|value
+specifier|private
+specifier|final
+name|Object
+name|value
+decl_stmt|;
+DECL|field|type
+specifier|private
+specifier|final
+name|Class
+name|type
+decl_stmt|;
+DECL|method|NoTypeConversionAvailableException (Object value, Class type)
+specifier|public
+name|NoTypeConversionAvailableException
+parameter_list|(
+name|Object
+name|value
+parameter_list|,
+name|Class
+name|type
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"No converter available to convert value: "
+operator|+
+name|value
+operator|+
+literal|" to the required type: "
+operator|+
+name|type
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|value
+operator|=
+name|value
+expr_stmt|;
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+block|}
+comment|/**      * Returns the value which could not be converted      *      * @return the value that could not be converted      */
+DECL|method|getValue ()
+specifier|public
+name|Object
+name|getValue
+parameter_list|()
+block|{
+return|return
+name|value
+return|;
+block|}
+comment|/**      * Returns the required type      *      * @return the required type      */
+DECL|method|getType ()
+specifier|public
+name|Class
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
+block|}
+end_class
+
+end_unit
+

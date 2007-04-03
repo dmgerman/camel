@@ -267,6 +267,8 @@ DECL|class|DefaultCamelContext
 specifier|public
 class|class
 name|DefaultCamelContext
+extends|extends
+name|ServiceSupport
 implements|implements
 name|CamelContext
 implements|,
@@ -628,32 +630,6 @@ return|return
 name|component
 return|;
 block|}
-block|}
-comment|// Endpoint Management Methods
-comment|//-----------------------------------------------------------------------
-DECL|method|start ()
-specifier|public
-name|void
-name|start
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|activateEndpoints
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|stop ()
-specifier|public
-name|void
-name|stop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|deactivateEndpoints
-argument_list|()
-expr_stmt|;
 block|}
 comment|// Endpoint Management Methods
 comment|//-----------------------------------------------------------------------
@@ -1282,6 +1258,30 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-----------------------------------------------------------------------
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|activateEndpoints
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|deactivateEndpoints
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * Lazily create a default implementation      */
 DECL|method|createEndpointResolver ()
 specifier|protected
