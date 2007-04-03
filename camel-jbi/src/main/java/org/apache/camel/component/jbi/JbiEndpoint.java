@@ -297,17 +297,6 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|">>>>Êactivated endpoint: "
-operator|+
-name|jbiEndpoint
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

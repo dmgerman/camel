@@ -220,28 +220,6 @@ argument_list|,
 name|exchangeFactory
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"#### Configuring exchange with: "
-operator|+
-name|destinationUri
-argument_list|)
-expr_stmt|;
-operator|new
-name|Exception
-argument_list|()
-operator|.
-name|printStackTrace
-argument_list|(
-name|System
-operator|.
-name|out
-argument_list|)
-expr_stmt|;
 name|URIResolver
 operator|.
 name|configureExchange
@@ -251,27 +229,6 @@ argument_list|,
 name|componentContext
 argument_list|,
 name|destinationUri
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"#### service: "
-operator|+
-name|messageExchange
-operator|.
-name|getService
-argument_list|()
-operator|+
-literal|" endpoint: "
-operator|+
-name|messageExchange
-operator|.
-name|getEndpoint
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|deliveryChannel
