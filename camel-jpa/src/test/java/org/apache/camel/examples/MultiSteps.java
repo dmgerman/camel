@@ -18,6 +18,50 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jpa
+operator|.
+name|Consumed
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|persistence
@@ -57,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a task which has multiple steps so that it can move from stage to stage  *  * @version $Revision$  */
+comment|/**  * Represents a task which has multiple steps so that it can move from stage to stage  * with the method annotated with {@link @Consumed} being invoked when the Camel consumer  * has processed the entity bean  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -79,6 +123,23 @@ specifier|public
 class|class
 name|MultiSteps
 block|{
+DECL|field|log
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|MultiSteps
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|id
 specifier|private
 name|Long
@@ -225,6 +286,34 @@ operator|.
 name|step
 operator|=
 name|step
+expr_stmt|;
+block|}
+comment|/**      * This method is invoked after the entity bean is processed successfully by a Camel endpoint      */
+annotation|@
+name|Consumed
+DECL|method|goToNextStep ()
+specifier|public
+name|void
+name|goToNextStep
+parameter_list|()
+block|{
+name|setStep
+argument_list|(
+name|getStep
+argument_list|()
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Invoked the completion complete method. Now updated the step to: "
+operator|+
+name|getStep
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
