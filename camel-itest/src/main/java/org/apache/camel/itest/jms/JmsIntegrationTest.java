@@ -408,12 +408,12 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"jms:activemq:test"
+literal|"jms:test"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"pojo:default:listener"
+literal|"pojo:listener"
 argument_list|)
 expr_stmt|;
 block|}
@@ -422,7 +422,7 @@ argument_list|)
 expr_stmt|;
 name|container
 operator|.
-name|activateEndpoints
+name|start
 argument_list|()
 expr_stmt|;
 comment|// Send a message to the JMS endpoint
@@ -436,7 +436,7 @@ name|container
 operator|.
 name|resolveEndpoint
 argument_list|(
-literal|"jms:activemq:test"
+literal|"jms:test"
 argument_list|)
 decl_stmt|;
 name|Producer
@@ -506,9 +506,25 @@ name|SECONDS
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|tearDown ()
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|container
 operator|.
-name|deactivateEndpoints
+name|stop
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
