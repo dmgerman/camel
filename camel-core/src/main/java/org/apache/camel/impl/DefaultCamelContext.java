@@ -324,10 +324,6 @@ DECL|field|componentResolver
 specifier|private
 name|ComponentResolver
 name|componentResolver
-init|=
-operator|new
-name|DefaultComponentResolver
-argument_list|()
 decl_stmt|;
 comment|/**      * Adds a component to the container.      */
 DECL|method|addComponent (String componentName, final Component component)
@@ -665,7 +661,8 @@ block|{
 name|Component
 name|component
 init|=
-name|componentResolver
+name|getComponentResolver
+argument_list|()
 operator|.
 name|resolveComponent
 argument_list|(
@@ -1049,6 +1046,45 @@ operator|=
 name|injector
 expr_stmt|;
 block|}
+DECL|method|getComponentResolver ()
+specifier|public
+name|ComponentResolver
+name|getComponentResolver
+parameter_list|()
+block|{
+if|if
+condition|(
+name|componentResolver
+operator|==
+literal|null
+condition|)
+block|{
+name|componentResolver
+operator|=
+name|createComponentResolver
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|componentResolver
+return|;
+block|}
+DECL|method|setComponentResolver (ComponentResolver componentResolver)
+specifier|public
+name|void
+name|setComponentResolver
+parameter_list|(
+name|ComponentResolver
+name|componentResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|componentResolver
+operator|=
+name|componentResolver
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-----------------------------------------------------------------------
 DECL|method|doStart ()
@@ -1296,6 +1332,19 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+comment|/**      * Lazily create a default implementation      */
+DECL|method|createComponentResolver ()
+specifier|protected
+name|ComponentResolver
+name|createComponentResolver
+parameter_list|()
+block|{
+return|return
+operator|new
+name|DefaultComponentResolver
+argument_list|()
+return|;
 block|}
 block|}
 end_class

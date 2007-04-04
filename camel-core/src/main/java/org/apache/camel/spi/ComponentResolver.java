@@ -95,6 +95,8 @@ parameter_list|,
 name|CamelContext
 name|context
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 block|}
 end_interface
