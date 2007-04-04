@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default endpoint useful for implementation inheritence  *   * @version $Revision$  */
+comment|/**  * A default endpoint useful for implementation inheritance  *   * @version $Revision$  */
 end_comment
 
 begin_class

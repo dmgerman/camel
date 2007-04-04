@@ -156,6 +156,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|executor
+specifier|private
+specifier|final
+name|ScheduledExecutorService
+name|executor
+decl_stmt|;
 DECL|field|initialDelay
 specifier|private
 name|long
@@ -192,7 +198,7 @@ name|?
 argument_list|>
 name|future
 decl_stmt|;
-DECL|method|PollingConsumer (Endpoint<E> endpoint, Processor<E> processor)
+DECL|method|PollingConsumer (Endpoint<E> endpoint, Processor<E> processor, ScheduledExecutorService executor)
 specifier|public
 name|PollingConsumer
 parameter_list|(
@@ -207,6 +213,9 @@ argument_list|<
 name|E
 argument_list|>
 name|processor
+parameter_list|,
+name|ScheduledExecutorService
+name|executor
 parameter_list|)
 block|{
 name|super
@@ -216,6 +225,25 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|executor
+operator|=
+name|executor
+expr_stmt|;
+if|if
+condition|(
+name|executor
+operator|==
+literal|null
+condition|)
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"A non null ScheduledExecutorService must be provided."
+argument_list|)
+throw|;
 block|}
 comment|/**      * Invoked whenever we should be polled      */
 DECL|method|run ()
@@ -384,15 +412,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ScheduledExecutorService
-name|executor
-init|=
-name|getEndpoint
-argument_list|()
-operator|.
-name|getExecutorService
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|isUseFixedDelay
