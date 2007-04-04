@@ -214,7 +214,7 @@ argument_list|)
 expr_stmt|;
 name|container
 operator|.
-name|activateEndpoints
+name|start
 argument_list|()
 expr_stmt|;
 comment|// now lets wait for the timer to fire a few times.
@@ -241,7 +241,7 @@ argument_list|)
 expr_stmt|;
 name|container
 operator|.
-name|deactivateEndpoints
+name|stop
 argument_list|()
 expr_stmt|;
 block|}

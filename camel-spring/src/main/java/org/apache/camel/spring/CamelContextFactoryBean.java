@@ -262,7 +262,7 @@ comment|// now lets activate the routes
 name|getContext
 argument_list|()
 operator|.
-name|activateEndpoints
+name|start
 argument_list|()
 expr_stmt|;
 block|}
@@ -277,7 +277,7 @@ block|{
 name|getContext
 argument_list|()
 operator|.
-name|deactivateEndpoints
+name|stop
 argument_list|()
 expr_stmt|;
 block|}

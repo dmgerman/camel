@@ -157,22 +157,6 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Activates all the starting endpoints in that were added as routes.      */
-DECL|method|activateEndpoints ()
-name|void
-name|activateEndpoints
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Deactivates all the starting endpoints in that were added as routes.      */
-DECL|method|deactivateEndpoints ()
-name|void
-name|deactivateEndpoints
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * Returns the collection of all active endpoints currently registered      */
 DECL|method|getEndpoints ()
 name|Collection

@@ -305,7 +305,7 @@ name|Exception
 block|{
 name|camelContext
 operator|.
-name|deactivateEndpoints
+name|stop
 argument_list|()
 expr_stmt|;
 block|}

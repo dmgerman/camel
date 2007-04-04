@@ -597,7 +597,7 @@ argument_list|)
 expr_stmt|;
 name|camelContext
 operator|.
-name|activateEndpoints
+name|start
 argument_list|()
 expr_stmt|;
 block|}
@@ -618,7 +618,7 @@ argument_list|()
 expr_stmt|;
 name|camelContext
 operator|.
-name|deactivateEndpoints
+name|stop
 argument_list|()
 expr_stmt|;
 name|super
