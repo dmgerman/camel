@@ -215,7 +215,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"pojo:default:hello"
+literal|"pojo:hello"
 argument_list|)
 operator|.
 name|intercept
@@ -228,7 +228,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"pojo:default:bye"
+literal|"pojo:bye"
 argument_list|)
 expr_stmt|;
 block|}

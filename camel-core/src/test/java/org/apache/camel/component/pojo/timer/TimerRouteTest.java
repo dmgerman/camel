@@ -200,12 +200,12 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"timer:foo?fixedRate=true&delay=0&period=500"
+literal|"timer://foo?fixedRate=true&delay=0&period=500"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"pojo:default:bar"
+literal|"pojo:bar"
 argument_list|)
 expr_stmt|;
 block|}

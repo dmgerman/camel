@@ -130,7 +130,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|PersistenceException
+name|EntityManagerFactory
 import|;
 end_import
 
@@ -140,7 +140,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|EntityManagerFactory
+name|PersistenceException
 import|;
 end_import
 

@@ -62,13 +62,13 @@ name|ScheduledExecutorService
 name|getExecutorService
 parameter_list|()
 function_decl|;
-comment|/**      * Attempt to create an endpoint for the given URI if the component is capable of handling the URI      *      * @param uri the URI to create      * @return a newly created endpoint or null if this component cannot create instances of the given      * uri      */
-DECL|method|createEndpoint (String uri)
+comment|/**      * Attempt to resolve an endpoint for the given URI if the component is capable of handling the URI      *      * @param uri the URI to create      * @return a newly created endpoint or null if this component cannot create instances of the given      * uri      */
+DECL|method|resolveEndpoint (String uri)
 name|Endpoint
 argument_list|<
 name|E
 argument_list|>
-name|createEndpoint
+name|resolveEndpoint
 parameter_list|(
 name|String
 name|uri

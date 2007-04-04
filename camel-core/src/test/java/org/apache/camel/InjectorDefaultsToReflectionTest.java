@@ -48,9 +48,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|converter
-operator|.
-name|Injector
+name|ReflectionInjector
 import|;
 end_import
 
@@ -62,11 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|converter
-operator|.
-name|ReflectionInjector
+name|Injector
 import|;
 end_import
 

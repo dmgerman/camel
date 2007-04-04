@@ -24,7 +24,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|Query
+name|EntityManager
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|EntityManager
+name|Query
 import|;
 end_import
 

@@ -41,7 +41,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Deletes the entity bean after it has been processed either by actually      * deleting the object or updating it in a way so that future queries do not return this object again.      *      * @param entityManager      * @param entityBean the entity bean that has been processed and should be deleted      */
+comment|/**      * Deletes the entity bean after it has been processed either by actually      * deleting the object or updating it in a way so that future queries do not return this object again.      *      * @param entityManager      * @param entityBean    the entity bean that has been processed and should be deleted      */
 DECL|method|deleteObject (EntityManager entityManager, Object entityBean)
 name|void
 name|deleteObject

@@ -30,6 +30,20 @@ name|TypeConverter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Injector
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment

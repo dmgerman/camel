@@ -62,18 +62,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -124,20 +112,6 @@ name|apache
 operator|.
 name|servicemix
 operator|.
-name|common
-operator|.
-name|ServiceUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|servicemix
-operator|.
 name|jbi
 operator|.
 name|util
@@ -175,20 +149,6 @@ operator|.
 name|resolver
 operator|.
 name|URIResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|servicemix
-operator|.
-name|executors
-operator|.
-name|Executor
 import|;
 end_import
 
@@ -596,13 +556,13 @@ return|;
 block|}
 comment|// Resolve Camel Endpoints
 comment|//-------------------------------------------------------------------------
-DECL|method|createEndpoint (String uri)
+DECL|method|resolveEndpoint (String uri)
 specifier|public
 name|Endpoint
 argument_list|<
 name|Exchange
 argument_list|>
-name|createEndpoint
+name|resolveEndpoint
 parameter_list|(
 name|String
 name|uri

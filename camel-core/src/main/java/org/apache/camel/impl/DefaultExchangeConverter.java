@@ -36,6 +36,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
 name|ExchangeConverter
 import|;
 end_import

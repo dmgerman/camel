@@ -76,7 +76,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|Id
+name|GeneratedValue
 import|;
 end_import
 
@@ -86,7 +86,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|GeneratedValue
+name|Id
 import|;
 end_import
 

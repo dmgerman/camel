@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jpa
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|jpa
+name|spi
 package|;
 end_package
 
@@ -26,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|Component
 import|;
 end_import
 
@@ -34,35 +32,68 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|orm
+name|camel
 operator|.
-name|jpa
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|JpaCallback
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultComponentResolver
 import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Represents a resolver of components from a URI to be able to auto-load them using some  * discovery mechanism like {@link DefaultComponentResolver}  *  * @version $Revision$  */
 end_comment
 
 begin_interface
-DECL|interface|TransactionStrategy
+DECL|interface|ComponentResolver
 specifier|public
 interface|interface
-name|TransactionStrategy
+name|ComponentResolver
+parameter_list|<
+name|E
 extends|extends
-name|Service
+name|Exchange
+parameter_list|>
 block|{
-DECL|method|execute (JpaCallback callback)
-specifier|public
-name|Object
-name|execute
+comment|/**      * Attempts to resolve the component for the given URI      *      * @param uri the URI to resolve      * @param context the context to load the component if it can be resolved      * @return the component which is added to the context or null if it can not be resolved      */
+DECL|method|resolveComponent (String uri, CamelContext context)
+name|Component
+argument_list|<
+name|E
+argument_list|>
+name|resolveComponent
 parameter_list|(
-name|JpaCallback
-name|callback
+name|String
+name|uri
+parameter_list|,
+name|CamelContext
+name|context
 parameter_list|)
 function_decl|;
 block|}

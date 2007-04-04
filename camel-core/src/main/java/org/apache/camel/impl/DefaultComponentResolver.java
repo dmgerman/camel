@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Component
+name|CamelContext
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointResolver
+name|Component
 import|;
 end_import
 
@@ -60,23 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|spi
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|converter
-operator|.
-name|Injector
+name|ComponentResolver
 import|;
 end_import
 
@@ -104,7 +90,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|NoFactoryAvailableException
 import|;
 end_import
 
@@ -118,12 +104,12 @@ name|camel
 operator|.
 name|util
 operator|.
-name|NoFactoryAvailableException
+name|ObjectHelper
 import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of {@link org.apache.camel.EndpointResolver} that delegates to  * other {@link EndpointResolver} which are selected based on the uri prefix.  *<p/>  * The delegate {@link EndpointResolver} are associated with uri prefixes by  * adding a property file with the same uri prefix in the  * META-INF/services/org/apache/camel/EndpointResolver/  * directory on the classpath.  *  * @version $Revision$  */
+comment|/**  * The default implementation of {@link ComponentResolver}  * which tries to find components by using the URI scheme prefix and searching for a file of the URI  * scheme name in the<b>META-INF/services/org/apache/camel/component/</b>  * directory on the classpath.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -136,11 +122,16 @@ name|E
 extends|extends
 name|Exchange
 parameter_list|>
+implements|implements
+name|ComponentResolver
+argument_list|<
+name|E
+argument_list|>
 block|{
 DECL|field|componentFactory
+specifier|protected
 specifier|static
 specifier|final
-specifier|private
 name|FactoryFinder
 name|componentFactory
 init|=

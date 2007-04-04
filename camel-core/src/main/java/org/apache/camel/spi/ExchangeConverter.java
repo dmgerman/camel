@@ -4,63 +4,56 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spi
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
-comment|/**  * A resolver of endpoints from a String URI  *  * @version $Revision$  */
+comment|/**  * This converter is capable of converting from an exchange to another type  *  * @version $Revision$  */
 end_comment
 
 begin_interface
-DECL|interface|EndpointResolver
+DECL|interface|ExchangeConverter
 specifier|public
 interface|interface
-name|EndpointResolver
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
+name|ExchangeConverter
 block|{
-comment|/**      * Resolves the component for a given uri or returns null if now component handles it.      */
-DECL|method|resolveComponent (CamelContext container, String uri)
-specifier|public
-name|Component
-name|resolveComponent
+DECL|method|convertTo (Class<T> type, Exchange exchange)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|convertTo
 parameter_list|(
-name|CamelContext
-name|container
-parameter_list|,
-name|String
-name|uri
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Resolves the endpoint for a given uri or returns null if no endpoint could be found      */
-DECL|method|resolveEndpoint (CamelContext container, String uri)
-specifier|public
-name|Endpoint
+name|Class
 argument_list|<
-name|E
+name|T
 argument_list|>
-name|resolveEndpoint
-parameter_list|(
-name|CamelContext
-name|container
+name|type
 parameter_list|,
-name|String
-name|uri
+name|Exchange
+name|exchange
 parameter_list|)
-throws|throws
-name|Exception
 function_decl|;
 block|}
 end_interface

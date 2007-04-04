@@ -241,13 +241,13 @@ return|return
 name|EMPTY_ARRAY
 return|;
 block|}
-DECL|method|createEndpoint (String uri)
+DECL|method|resolveEndpoint (String uri)
 specifier|public
 name|Endpoint
 argument_list|<
 name|E
 argument_list|>
-name|createEndpoint
+name|resolveEndpoint
 parameter_list|(
 name|String
 name|uri

@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jpa
+DECL|package|org.apache.camel.impl
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|jpa
+name|impl
 package|;
 end_package
 
@@ -26,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -34,39 +32,89 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|orm
+name|camel
 operator|.
-name|jpa
+name|spi
 operator|.
-name|JpaCallback
+name|Injector
 import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A simple implementation of {@link Injector} which just uses reflection to instantiate new objects  * using their zero argument constructor. For more complex implementations try the Spring or Guice implementations.  *  * @version $Revision$  */
 end_comment
 
-begin_interface
-DECL|interface|TransactionStrategy
+begin_class
+DECL|class|ReflectionInjector
 specifier|public
-interface|interface
-name|TransactionStrategy
-extends|extends
-name|Service
+class|class
+name|ReflectionInjector
+parameter_list|<
+name|T
+parameter_list|>
+implements|implements
+name|Injector
+argument_list|<
+name|T
+argument_list|>
 block|{
-DECL|method|execute (JpaCallback callback)
+DECL|method|newInstance (Class<T> type)
 specifier|public
-name|Object
-name|execute
+name|T
+name|newInstance
 parameter_list|(
-name|JpaCallback
-name|callback
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
 parameter_list|)
-function_decl|;
+block|{
+try|try
+block|{
+return|return
+name|type
+operator|.
+name|newInstance
+argument_list|()
+return|;
 block|}
-end_interface
+catch|catch
+parameter_list|(
+name|InstantiationException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalAccessException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
+end_class
 
 end_unit
 

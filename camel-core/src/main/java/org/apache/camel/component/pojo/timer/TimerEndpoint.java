@@ -226,18 +226,18 @@ name|daemon
 init|=
 literal|true
 decl_stmt|;
-DECL|method|TimerEndpoint (String fullURI, String timerPartURI, TimerComponent component)
+DECL|method|TimerEndpoint (String fullURI, TimerComponent component, String timerPartURI)
 specifier|public
 name|TimerEndpoint
 parameter_list|(
 name|String
 name|fullURI
 parameter_list|,
-name|String
-name|timerPartURI
-parameter_list|,
 name|TimerComponent
 name|component
+parameter_list|,
+name|String
+name|timerPartURI
 parameter_list|)
 throws|throws
 name|URISyntaxException

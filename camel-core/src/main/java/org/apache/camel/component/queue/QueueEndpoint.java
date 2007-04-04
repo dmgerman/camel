@@ -160,7 +160,7 @@ name|E
 argument_list|>
 name|queue
 decl_stmt|;
-DECL|method|QueueEndpoint (String uri, QueueComponent<E> component, BlockingQueue<E> queue)
+DECL|method|QueueEndpoint (String uri, QueueComponent<E> component)
 specifier|public
 name|QueueEndpoint
 parameter_list|(
@@ -172,12 +172,6 @@ argument_list|<
 name|E
 argument_list|>
 name|component
-parameter_list|,
-name|BlockingQueue
-argument_list|<
-name|E
-argument_list|>
-name|queue
 parameter_list|)
 block|{
 name|super
@@ -191,7 +185,10 @@ name|this
 operator|.
 name|queue
 operator|=
-name|queue
+name|component
+operator|.
+name|createQueue
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createProducer ()

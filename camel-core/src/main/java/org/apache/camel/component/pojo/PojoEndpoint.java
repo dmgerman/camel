@@ -133,18 +133,18 @@ specifier|final
 name|String
 name|pojoId
 decl_stmt|;
-DECL|method|PojoEndpoint (String uri, String pojoId, PojoComponent component)
+DECL|method|PojoEndpoint (String uri, PojoComponent component, String pojoId)
 specifier|public
 name|PojoEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|String
-name|pojoId
-parameter_list|,
 name|PojoComponent
 name|component
+parameter_list|,
+name|String
+name|pojoId
 parameter_list|)
 block|{
 name|super

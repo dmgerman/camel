@@ -36,11 +36,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|converter
+name|spi
 operator|.
 name|Injector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ExchangeConverter
 import|;
 end_import
 
@@ -224,11 +236,6 @@ name|Exception
 function_decl|;
 comment|// Properties
 comment|//-----------------------------------------------------------------------
-DECL|method|getEndpointResolver ()
-name|EndpointResolver
-name|getEndpointResolver
-parameter_list|()
-function_decl|;
 DECL|method|getExchangeConverter ()
 name|ExchangeConverter
 name|getExchangeConverter

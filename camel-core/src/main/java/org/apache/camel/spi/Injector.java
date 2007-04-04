@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl.converter
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
@@ -12,44 +12,25 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|converter
+name|spi
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
 begin_comment
-comment|/**  * A simple implementation of {@link Injector} which just uses reflection to instantiate new objects  * using their zero argument constructor. For more complex implementations try the Spring or Guice implementations.  *  * @version $Revision$  */
+comment|/**  * A pluggable strategy for creating and possibly dependency injecting objects  * which could be implemented using straight forward reflection or using Spring or Guice to perform dependency injection.  *  * @version $Revision$  */
 end_comment
 
-begin_class
-DECL|class|ReflectionInjector
+begin_interface
+DECL|interface|Injector
 specifier|public
-class|class
-name|ReflectionInjector
+interface|interface
+name|Injector
 parameter_list|<
 name|T
 parameter_list|>
-implements|implements
-name|Injector
-argument_list|<
-name|T
-argument_list|>
 block|{
+comment|/**      * Instantiates a new instance of the given type possibly injecting values into the object in the process      *      * @param type the type of object to create      * @return a newly created instance      */
 DECL|method|newInstance (Class<T> type)
-specifier|public
 name|T
 name|newInstance
 parameter_list|(
@@ -59,50 +40,9 @@ name|T
 argument_list|>
 name|type
 parameter_list|)
-block|{
-try|try
-block|{
-return|return
-name|type
-operator|.
-name|newInstance
-argument_list|()
-return|;
+function_decl|;
 block|}
-catch|catch
-parameter_list|(
-name|InstantiationException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalAccessException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

@@ -38,9 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|converter
+name|spi
 operator|.
 name|Injector
 import|;
