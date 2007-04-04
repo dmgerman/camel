@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -216,7 +204,7 @@ argument_list|)
 block|{
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|E
 name|exchange

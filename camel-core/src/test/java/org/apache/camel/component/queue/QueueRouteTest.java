@@ -217,7 +217,7 @@ argument_list|()
 block|{
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|Exchange
 name|e
@@ -302,7 +302,7 @@ argument_list|()
 decl_stmt|;
 name|producer
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|exchange
 argument_list|)

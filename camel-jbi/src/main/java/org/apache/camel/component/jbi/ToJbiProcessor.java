@@ -181,10 +181,10 @@ operator|=
 name|destinationUri
 expr_stmt|;
 block|}
-DECL|method|onExchange (Exchange exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|Exchange
 name|exchange

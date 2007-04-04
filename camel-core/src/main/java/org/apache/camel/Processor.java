@@ -28,9 +28,9 @@ name|E
 parameter_list|>
 block|{
 comment|/**      * Processes the message exchange      */
-DECL|method|onExchange (E exchange)
+DECL|method|process (E exchange)
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|E
 name|exchange

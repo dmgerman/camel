@@ -106,16 +106,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -276,7 +266,7 @@ argument_list|)
 decl_stmt|;
 name|producer
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|exchange
 argument_list|)
@@ -323,7 +313,7 @@ decl_stmt|;
 comment|// lets populate using the processor callback
 name|processor
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|exchange
 argument_list|)
@@ -331,7 +321,7 @@ expr_stmt|;
 comment|// now lets dispatch
 name|producer
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|exchange
 argument_list|)

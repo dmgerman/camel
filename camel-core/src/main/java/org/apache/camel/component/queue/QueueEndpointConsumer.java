@@ -226,7 +226,7 @@ try|try
 block|{
 name|processor
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|exchange
 argument_list|)

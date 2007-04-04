@@ -53,10 +53,10 @@ argument_list|<
 name|Exchange
 argument_list|>
 block|{
-DECL|method|onExchange (Exchange exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|Exchange
 name|exchange
@@ -75,7 +75,7 @@ argument_list|)
 expr_stmt|;
 name|next
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|exchange
 argument_list|)

@@ -144,38 +144,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|mina
-operator|.
-name|common
-operator|.
-name|IoServiceConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|mina
-operator|.
-name|transport
-operator|.
-name|socket
-operator|.
-name|nio
-operator|.
-name|SocketConnectorConfig
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|net
@@ -246,10 +214,10 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
-DECL|method|onExchange (MinaExchange exchange)
+DECL|method|process (MinaExchange exchange)
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|MinaExchange
 name|exchange

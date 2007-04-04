@@ -331,7 +331,7 @@ decl_stmt|;
 name|getProcessor
 argument_list|()
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|exchange
 argument_list|)

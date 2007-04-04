@@ -288,7 +288,7 @@ block|{
 name|getProcessor
 argument_list|()
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|endpoint
 operator|.

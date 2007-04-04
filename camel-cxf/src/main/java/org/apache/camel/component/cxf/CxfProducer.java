@@ -272,10 +272,10 @@ operator|=
 name|transportFactory
 expr_stmt|;
 block|}
-DECL|method|onExchange (CxfExchange exchange)
+DECL|method|process (CxfExchange exchange)
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|CxfExchange
 name|exchange

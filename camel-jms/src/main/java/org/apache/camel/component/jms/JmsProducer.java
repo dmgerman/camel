@@ -227,16 +227,16 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-name|onExchange
+name|process
 argument_list|(
 name|jmsExchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onExchange (final JmsExchange exchange)
+DECL|method|process (final JmsExchange exchange)
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 specifier|final
 name|JmsExchange

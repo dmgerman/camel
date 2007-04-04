@@ -178,7 +178,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|PojoExchange
 name|exchange
@@ -186,7 +186,7 @@ parameter_list|)
 block|{
 name|super
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|exchange
 argument_list|)

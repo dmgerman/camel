@@ -218,10 +218,10 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|onExchange (E exchange)
+DECL|method|process (E exchange)
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|E
 name|exchange
@@ -231,7 +231,7 @@ try|try
 block|{
 name|output
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|exchange
 argument_list|)

@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultProducer
@@ -239,16 +227,16 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-name|onExchange
+name|process
 argument_list|(
 name|xmppExchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onExchange (XmppExchange exchange)
+DECL|method|process (XmppExchange exchange)
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|XmppExchange
 name|exchange

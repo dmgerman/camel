@@ -533,7 +533,7 @@ argument_list|()
 block|{
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|Exchange
 name|exchange

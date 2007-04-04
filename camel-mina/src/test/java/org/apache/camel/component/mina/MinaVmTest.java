@@ -255,7 +255,7 @@ argument_list|()
 expr_stmt|;
 name|producer
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|exchange
 argument_list|)
@@ -368,7 +368,7 @@ argument_list|()
 block|{
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|MinaExchange
 name|e

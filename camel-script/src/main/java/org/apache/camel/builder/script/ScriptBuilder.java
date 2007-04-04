@@ -375,10 +375,10 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|onExchange (E exchange)
+DECL|method|process (E exchange)
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|E
 name|exchange

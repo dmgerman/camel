@@ -247,10 +247,10 @@ name|getEndpoints
 argument_list|()
 return|;
 block|}
-DECL|method|onExchange (E exchange)
+DECL|method|process (E exchange)
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|E
 name|exchange
@@ -279,7 +279,7 @@ argument_list|)
 decl_stmt|;
 name|producer
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|copy
 argument_list|)

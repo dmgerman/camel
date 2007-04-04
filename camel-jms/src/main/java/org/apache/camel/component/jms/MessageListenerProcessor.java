@@ -137,7 +137,7 @@ argument_list|)
 decl_stmt|;
 name|processor
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|exchange
 argument_list|)

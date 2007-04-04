@@ -264,10 +264,10 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|onExchange (E exchange)
+DECL|method|process (E exchange)
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|E
 name|exchange
@@ -320,7 +320,7 @@ try|try
 block|{
 name|output
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|exchange
 argument_list|)
@@ -363,7 +363,7 @@ do|;
 comment|// now lets send to the dead letter queue
 name|deadLetter
 operator|.
-name|onExchange
+name|process
 argument_list|(
 name|exchange
 argument_list|)
