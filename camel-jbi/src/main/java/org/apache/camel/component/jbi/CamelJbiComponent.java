@@ -304,10 +304,8 @@ name|DefaultComponent
 implements|implements
 name|Component
 argument_list|<
-name|JbiExchange
+name|Exchange
 argument_list|>
-implements|,
-name|EndpointResolver
 block|{
 DECL|field|binding
 specifier|private
@@ -598,37 +596,17 @@ return|;
 block|}
 comment|// Resolve Camel Endpoints
 comment|//-------------------------------------------------------------------------
-DECL|method|resolveComponent (CamelContext context, String uri)
-specifier|public
-name|Component
-name|resolveComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|String
-name|uri
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-literal|null
-return|;
-block|}
-DECL|method|resolveEndpoint (CamelContext context, String uri)
+DECL|method|createEndpoint (String uri)
 specifier|public
 name|Endpoint
-name|resolveEndpoint
+argument_list|<
+name|Exchange
+argument_list|>
+name|createEndpoint
 parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
 name|String
 name|uri
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(

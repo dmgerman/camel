@@ -37,6 +37,8 @@ interface|interface
 name|Component
 parameter_list|<
 name|E
+extends|extends
+name|Exchange
 parameter_list|>
 block|{
 comment|/**      * Returns the context      *      * @return the context of this component      */
@@ -59,6 +61,20 @@ DECL|method|getExecutorService ()
 name|ScheduledExecutorService
 name|getExecutorService
 parameter_list|()
+function_decl|;
+comment|/**      * Attempt to create an endpoint for the given URI if the component is capable of handling the URI      *      * @param uri the URI to create      * @return a newly created endpoint or null if this component cannot create instances of the given      * uri      */
+DECL|method|createEndpoint (String uri)
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|createEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 block|}
 end_interface

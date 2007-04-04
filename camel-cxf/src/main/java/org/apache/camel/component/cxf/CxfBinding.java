@@ -250,6 +250,13 @@ operator|.
 name|getOut
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|response
+operator|!=
+literal|null
+condition|)
+block|{
 name|out
 operator|.
 name|setMessage
@@ -267,6 +274,7 @@ name|response
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

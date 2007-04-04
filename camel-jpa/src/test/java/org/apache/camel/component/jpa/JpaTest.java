@@ -730,7 +730,7 @@ name|getEndpointUri
 parameter_list|()
 block|{
 return|return
-literal|"jpa:"
+literal|"jpa://"
 operator|+
 name|SendEmail
 operator|.
