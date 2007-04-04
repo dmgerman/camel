@@ -34,27 +34,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|net
 operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ComponentResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Component
+name|URI
 import|;
 end_import
 
@@ -78,9 +62,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|ObjectHelper
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ComponentResolver
 import|;
 end_import
 
@@ -93,16 +89,6 @@ operator|.
 name|context
 operator|.
 name|ApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URI
 import|;
 end_import
 

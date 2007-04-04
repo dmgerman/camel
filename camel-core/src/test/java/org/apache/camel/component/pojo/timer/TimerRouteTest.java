@@ -179,7 +179,7 @@ name|container
 operator|.
 name|addComponent
 argument_list|(
-literal|"default"
+literal|"pojo"
 argument_list|,
 name|component
 argument_list|)

@@ -149,24 +149,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getUriPrefixes ()
-specifier|public
-name|String
-index|[]
-name|getUriPrefixes
-parameter_list|()
-block|{
-return|return
-operator|new
-name|String
-index|[]
-block|{
-literal|"timer"
-block|}
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|Endpoint

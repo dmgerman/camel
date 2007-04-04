@@ -198,24 +198,6 @@ comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 annotation|@
 name|Override
-DECL|method|getUriPrefixes ()
-specifier|public
-name|String
-index|[]
-name|getUriPrefixes
-parameter_list|()
-block|{
-return|return
-operator|new
-name|String
-index|[]
-block|{
-literal|"jpa"
-block|}
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createEndpoint (String uri, String path, Map options)
 specifier|protected
 name|Endpoint

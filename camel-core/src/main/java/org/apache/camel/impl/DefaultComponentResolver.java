@@ -265,12 +265,7 @@ name|type
 argument_list|)
 condition|)
 block|{
-name|Component
-argument_list|<
-name|E
-argument_list|>
-name|answer
-init|=
+return|return
 operator|(
 name|Component
 argument_list|<
@@ -286,20 +281,6 @@ name|newInstance
 argument_list|(
 name|type
 argument_list|)
-decl_stmt|;
-comment|// lets add the component using the prefix
-name|context
-operator|.
-name|addComponent
-argument_list|(
-name|scheme
-argument_list|,
-name|answer
-argument_list|)
-expr_stmt|;
-comment|// TODO should we start it?
-return|return
-name|answer
 return|;
 block|}
 else|else
