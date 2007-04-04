@@ -681,6 +681,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|component
+argument_list|)
+expr_stmt|;
 name|answer
 operator|=
 name|component
@@ -699,6 +706,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
 name|endpoints
 operator|.
 name|put
