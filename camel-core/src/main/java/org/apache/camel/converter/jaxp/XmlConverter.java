@@ -405,10 +405,10 @@ end_comment
 begin_class
 annotation|@
 name|Converter
-DECL|class|JaxpConverter
+DECL|class|XmlConverter
 specifier|public
 class|class
-name|JaxpConverter
+name|XmlConverter
 block|{
 DECL|field|DEFAULT_CHARSET_PROPERTY
 specifier|public
@@ -482,14 +482,14 @@ operator|=
 name|cl
 expr_stmt|;
 block|}
-DECL|method|JaxpConverter ()
+DECL|method|XmlConverter ()
 specifier|public
-name|JaxpConverter
+name|XmlConverter
 parameter_list|()
 block|{     }
-DECL|method|JaxpConverter (DocumentBuilderFactory documentBuilderFactory)
+DECL|method|XmlConverter (DocumentBuilderFactory documentBuilderFactory)
 specifier|public
-name|JaxpConverter
+name|XmlConverter
 parameter_list|(
 name|DocumentBuilderFactory
 name|documentBuilderFactory
