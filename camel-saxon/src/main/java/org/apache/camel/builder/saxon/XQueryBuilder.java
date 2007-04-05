@@ -176,7 +176,7 @@ name|converter
 operator|.
 name|jaxp
 operator|.
-name|JaxpConverter
+name|XmlConverter
 import|;
 end_import
 
@@ -422,11 +422,11 @@ argument_list|()
 decl_stmt|;
 DECL|field|converter
 specifier|private
-name|JaxpConverter
+name|XmlConverter
 name|converter
 init|=
 operator|new
-name|JaxpConverter
+name|XmlConverter
 argument_list|()
 decl_stmt|;
 DECL|field|resultsFormat

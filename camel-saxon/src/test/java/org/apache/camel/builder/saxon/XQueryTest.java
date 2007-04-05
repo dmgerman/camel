@@ -160,29 +160,51 @@ name|result
 init|=
 name|xquery
 argument_list|(
-literal|"//product[@type = 'beer']"
+literal|".//product[@type = 'beer']/*"
 argument_list|)
-operator|.
-name|asList
-argument_list|()
 operator|.
 name|evaluate
 argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|assertTrue
 argument_list|(
-literal|"Returned: "
+literal|"Should be a document but was: "
 operator|+
+name|className
+argument_list|(
 name|result
 argument_list|)
+argument_list|,
+name|result
+operator|instanceof
+name|Document
+argument_list|)
 expr_stmt|;
-comment|/*          assertTrue("Should be a document but was: " + className(result), result instanceof Document);          Document doc = (Document) result;         assertEquals("Root document element name", "", doc.getDocumentElement().getLocalName()); */
+name|Document
+name|doc
+init|=
+operator|(
+name|Document
+operator|)
+name|result
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Root document element name"
+argument_list|,
+literal|"stella"
+argument_list|,
+name|doc
+operator|.
+name|getDocumentElement
+argument_list|()
+operator|.
+name|getLocalName
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
