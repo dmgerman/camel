@@ -732,6 +732,33 @@ else|:
 literal|null
 return|;
 block|}
+comment|/**      * Returns the type name of the given value      */
+DECL|method|className (Object value)
+specifier|public
+specifier|static
+name|String
+name|className
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|name
+argument_list|(
+name|value
+operator|!=
+literal|null
+condition|?
+name|value
+operator|.
+name|getClass
+argument_list|()
+else|:
+literal|null
+argument_list|)
+return|;
+block|}
 comment|/**      * Attempts to load the given class name using the thread context class loader      * or the class loader used to load this class      *      * @param name the name of the class to load      * @return the class or null if it could not be loaded      */
 DECL|method|loadClass (String name)
 specifier|public

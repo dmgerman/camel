@@ -94,6 +94,18 @@ name|Document
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|Source
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -132,10 +144,10 @@ operator|new
 name|DefaultTypeConverter
 argument_list|()
 decl_stmt|;
-DECL|method|testConvert ()
+DECL|method|testConvertToDocument ()
 specifier|public
 name|void
-name|testConvert
+name|testConvertToDocument
 parameter_list|()
 throws|throws
 name|Exception
@@ -194,6 +206,43 @@ name|endsWith
 argument_list|(
 literal|"?><hello>world!</hello>"
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testConvertToSource ()
+specifier|public
+name|void
+name|testConvertToSource
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Source
+name|source
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|Source
+operator|.
+name|class
+argument_list|,
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?><hello>world!</hello>"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|source
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Found document: "
+operator|+
+name|source
 argument_list|)
 expr_stmt|;
 block|}
