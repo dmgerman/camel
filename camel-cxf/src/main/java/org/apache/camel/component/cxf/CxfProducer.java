@@ -342,7 +342,7 @@ init|)
 block|{
 name|conduit
 operator|.
-name|send
+name|prepare
 argument_list|(
 name|m
 argument_list|)

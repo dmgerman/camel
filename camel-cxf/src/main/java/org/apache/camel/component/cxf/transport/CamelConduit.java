@@ -439,10 +439,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// prepare the message for send out , not actually send out the message
-DECL|method|send (Message message)
+DECL|method|prepare (Message message)
 specifier|public
 name|void
-name|send
+name|prepare
 parameter_list|(
 name|Message
 name|message

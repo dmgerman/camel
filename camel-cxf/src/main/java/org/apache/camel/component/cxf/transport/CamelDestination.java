@@ -820,10 +820,10 @@ block|{
 comment|// shouldn't be called for a back channel conduit
 block|}
 comment|/**          * Send an outbound message, assumed to contain all the name-value          * mappings of the corresponding input message (if any).          *          * @param message the message to be sent.          */
-DECL|method|send (Message message)
+DECL|method|prepare (Message message)
 specifier|public
 name|void
-name|send
+name|prepare
 parameter_list|(
 name|Message
 name|message
