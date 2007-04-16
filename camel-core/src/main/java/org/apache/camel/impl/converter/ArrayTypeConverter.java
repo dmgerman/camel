@@ -83,14 +83,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A type converter which is used to create derived types of arrays  * from collections  *  * @version $Revision: $  */
+comment|/**  * A type converter which is used to convert to and from array types particularly for derived types of array  * component types and dealing with primitive array types.  *  * @version $Revision: $  */
 end_comment
 
 begin_class
-DECL|class|ToArrayTypeConverter
+DECL|class|ArrayTypeConverter
 specifier|public
 class|class
-name|ToArrayTypeConverter
+name|ArrayTypeConverter
 implements|implements
 name|TypeConverter
 block|{
