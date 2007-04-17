@@ -1115,7 +1115,7 @@ name|observer
 expr_stmt|;
 block|}
 DECL|method|getMessageObserver ()
-specifier|protected
+specifier|public
 specifier|synchronized
 name|MessageObserver
 name|getMessageObserver
