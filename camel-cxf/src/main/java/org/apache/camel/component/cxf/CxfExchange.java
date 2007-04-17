@@ -438,18 +438,23 @@ name|getDestination
 argument_list|()
 return|;
 block|}
-DECL|method|getConduit ()
+DECL|method|getConduit (Message message)
 specifier|public
 name|Conduit
 name|getConduit
-parameter_list|()
+parameter_list|(
+name|Message
+name|message
+parameter_list|)
 block|{
 return|return
 name|getExchange
 argument_list|()
 operator|.
 name|getConduit
-argument_list|()
+argument_list|(
+name|message
+argument_list|)
 return|;
 block|}
 annotation|@
