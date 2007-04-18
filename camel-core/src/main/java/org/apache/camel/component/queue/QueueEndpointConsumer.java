@@ -199,7 +199,7 @@ argument_list|()
 operator|.
 name|poll
 argument_list|(
-literal|100
+literal|1000
 argument_list|,
 name|TimeUnit
 operator|.
