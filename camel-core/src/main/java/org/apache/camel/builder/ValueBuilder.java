@@ -66,6 +66,11 @@ name|E
 extends|extends
 name|Exchange
 parameter_list|>
+implements|implements
+name|ExpressionFactory
+argument_list|<
+name|E
+argument_list|>
 block|{
 DECL|field|expression
 specifier|private
@@ -100,6 +105,19 @@ argument_list|<
 name|E
 argument_list|>
 name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
+block|}
+DECL|method|createExpression ()
+specifier|public
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+name|createExpression
 parameter_list|()
 block|{
 return|return

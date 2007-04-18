@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.builder
+DECL|package|org.apache.camel.processor.idempotent
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|processor
+operator|.
+name|idempotent
 package|;
 end_package
 
@@ -24,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Expression
 import|;
 end_import
@@ -48,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Exchange
 import|;
 end_import
 
@@ -60,104 +50,89 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|RecipientList
+name|RuntimeCamelException
 import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a dynamic<a href="http://activemq.apache.org/camel/recipient-list.html">Recipient List</a> pattern.  *  * @version $Revision$  */
+comment|/**  * An exception thrown if no message ID could be found on a message which is to be used with the  *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|RecipientListBuilder
+DECL|class|NoMessageIdException
 specifier|public
 class|class
-name|RecipientListBuilder
-parameter_list|<
-name|E
+name|NoMessageIdException
 extends|extends
-name|Exchange
-parameter_list|>
-extends|extends
-name|BuilderSupport
-argument_list|<
-name|E
-argument_list|>
-implements|implements
-name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
+name|RuntimeCamelException
 block|{
-DECL|field|expressionFactory
+DECL|field|exchange
 specifier|private
 specifier|final
-name|ExpressionFactory
-argument_list|<
-name|E
-argument_list|>
-name|expressionFactory
+name|Exchange
+name|exchange
 decl_stmt|;
-DECL|method|RecipientListBuilder (FromBuilder<E> parent, ExpressionFactory<E> expressionFactory)
+DECL|field|expression
+specifier|private
+specifier|final
+name|Expression
+name|expression
+decl_stmt|;
+DECL|method|NoMessageIdException (Exchange exchange, Expression expression)
 specifier|public
-name|RecipientListBuilder
+name|NoMessageIdException
 parameter_list|(
-name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
-name|parent
+name|Exchange
+name|exchange
 parameter_list|,
-name|ExpressionFactory
-argument_list|<
-name|E
-argument_list|>
-name|expressionFactory
+name|Expression
+name|expression
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|parent
+literal|"No message ID could be found using expression: "
+operator|+
+name|expression
+operator|+
+literal|" on message exchange: "
+operator|+
+name|exchange
 argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|expressionFactory
+name|exchange
 operator|=
-name|expressionFactory
+name|exchange
+expr_stmt|;
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
 expr_stmt|;
 block|}
-DECL|method|createProcessor ()
+comment|/**      * The exchange which caused this failure      */
+DECL|method|getExchange ()
 specifier|public
-name|Processor
-argument_list|<
-name|E
-argument_list|>
-name|createProcessor
+name|Exchange
+name|getExchange
 parameter_list|()
 block|{
-name|Expression
-argument_list|<
-name|E
-argument_list|>
-name|expression
-init|=
-name|expressionFactory
-operator|.
-name|createExpression
-argument_list|()
-decl_stmt|;
 return|return
-operator|new
-name|RecipientList
-argument_list|<
-name|E
-argument_list|>
-argument_list|(
+name|exchange
+return|;
+block|}
+comment|/**      * The expression which was used      */
+DECL|method|getExpression ()
+specifier|public
+name|Expression
+name|getExpression
+parameter_list|()
+block|{
+return|return
 name|expression
-argument_list|)
 return|;
 block|}
 block|}

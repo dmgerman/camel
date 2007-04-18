@@ -18,36 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -67,6 +37,18 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Expression
 import|;
 end_import
 
@@ -161,6 +143,68 @@ operator|.
 name|processor
 operator|.
 name|RecipientList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|idempotent
+operator|.
+name|IdempotentConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|idempotent
+operator|.
+name|MessageIdRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -320,7 +364,7 @@ block|}
 comment|/**      * Sends the exchange to the given endpoint URI      */
 annotation|@
 name|Fluent
-DECL|method|to (@luentArgR) String uri)
+DECL|method|to (@luentArgR)String uri)
 specifier|public
 name|ProcessorFactory
 argument_list|<
@@ -350,7 +394,7 @@ block|}
 comment|/**      * Sends the exchange to the given endpoint      */
 annotation|@
 name|Fluent
-DECL|method|to (@luentArgR) Endpoint<E> endpoint)
+DECL|method|to (@luentArgR)Endpoint<E> endpoint)
 specifier|public
 name|ProcessorFactory
 argument_list|<
@@ -399,7 +443,7 @@ block|}
 comment|/**      * Sends the exchange to a list of endpoints using the {@link MulticastProcessor} pattern      */
 annotation|@
 name|Fluent
-DECL|method|to ( @luentArgvalue=R, attribute=false, element=true) String... uris)
+DECL|method|to ( @luentArgvalue = R, attribute = false, element = true) String... uris)
 specifier|public
 name|ProcessorFactory
 argument_list|<
@@ -440,7 +484,7 @@ block|}
 comment|/**      * Sends the exchange to a list of endpoints using the {@link MulticastProcessor} pattern      */
 annotation|@
 name|Fluent
-DECL|method|to ( @luentArgvalue=R, attribute=false, element=true) Endpoint<E>.... endpoints)
+DECL|method|to ( @luentArgvalue = R, attribute = false, element = true) Endpoint<E>.... endpoints)
 specifier|public
 name|ProcessorFactory
 argument_list|<
@@ -484,7 +528,7 @@ block|}
 comment|/**      * Sends the exchange to a list of endpoint using the {@link MulticastProcessor} pattern      */
 annotation|@
 name|Fluent
-DECL|method|to (@luentArgR) Collection<Endpoint<E>> endpoints)
+DECL|method|to (@luentArgR)Collection<Endpoint<E>> endpoints)
 specifier|public
 name|ProcessorFactory
 argument_list|<
@@ -526,7 +570,7 @@ block|}
 comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message will get processed by each endpoint in turn      * and for request/response the output of one endpoint will be the input of the next endpoint      */
 annotation|@
 name|Fluent
-DECL|method|pipeline (@luentArgR) String... uris)
+DECL|method|pipeline (@luentArgR)String... uris)
 specifier|public
 name|ProcessorFactory
 argument_list|<
@@ -557,7 +601,7 @@ block|}
 comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message will get processed by each endpoint in turn      * and for request/response the output of one endpoint will be the input of the next endpoint      */
 annotation|@
 name|Fluent
-DECL|method|pipeline (@luentArgR) Endpoint<E>.... endpoints)
+DECL|method|pipeline (@luentArgR)Endpoint<E>.... endpoints)
 specifier|public
 name|ProcessorFactory
 argument_list|<
@@ -591,7 +635,7 @@ block|}
 comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message will get processed by each endpoint in turn      * and for request/response the output of one endpoint will be the input of the next endpoint      */
 annotation|@
 name|Fluent
-DECL|method|pipeline (@luentArgR) Collection<Endpoint<E>> endpoints)
+DECL|method|pipeline (@luentArgR)Collection<Endpoint<E>> endpoints)
 specifier|public
 name|ProcessorFactory
 argument_list|<
@@ -630,10 +674,96 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates an {@link IdempotentConsumer} to avoid duplicate messages      */
+annotation|@
+name|Fluent
+DECL|method|idempotentConsumer ( @luentArgR)Expression<E> messageIdExpression, @FluentArg(R)MessageIdRepository messageIdRepository)
+specifier|public
+name|IdempotentConsumerBuilder
+argument_list|<
+name|E
+argument_list|>
+name|idempotentConsumer
+parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"messageIdExpression"
+argument_list|)
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+name|messageIdExpression
+parameter_list|,
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"MessageIdRepository"
+argument_list|)
+name|MessageIdRepository
+name|messageIdRepository
+parameter_list|)
+block|{
+return|return
+operator|(
+name|IdempotentConsumerBuilder
+argument_list|<
+name|E
+argument_list|>
+operator|)
+name|addProcessBuilder
+argument_list|(
+operator|new
+name|IdempotentConsumerBuilder
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|this
+argument_list|,
+name|messageIdExpression
+argument_list|,
+name|messageIdRepository
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates an {@link IdempotentConsumer} to avoid duplicate messages      */
+DECL|method|idempotentConsumer (ExpressionFactory<E> messageIdExpressionFactory, MessageIdRepository messageIdRepository)
+specifier|public
+name|IdempotentConsumerBuilder
+argument_list|<
+name|E
+argument_list|>
+name|idempotentConsumer
+parameter_list|(
+name|ExpressionFactory
+argument_list|<
+name|E
+argument_list|>
+name|messageIdExpressionFactory
+parameter_list|,
+name|MessageIdRepository
+name|messageIdRepository
+parameter_list|)
+block|{
+return|return
+name|idempotentConsumer
+argument_list|(
+name|messageIdExpressionFactory
+operator|.
+name|createExpression
+argument_list|()
+argument_list|,
+name|messageIdRepository
+argument_list|)
+return|;
+block|}
 comment|/**      * Adds the custom processor to this destination      */
 annotation|@
 name|Fluent
-DECL|method|process (@luentArgR) Processor<E> processor)
+DECL|method|process (@luentArgR)Processor<E> processor)
 specifier|public
 name|ConstantProcessorBuilder
 argument_list|<
@@ -680,7 +810,7 @@ block|}
 comment|/**      * Creates a predicate which is applied and only if it is true then      * the exchange is forwarded to the destination      *      * @return the builder for a predicate      */
 annotation|@
 name|Fluent
-DECL|method|filter ( @luentArgvalue=R,element=true) Predicate<E> predicate)
+DECL|method|filter ( @luentArgvalue = R, element = true) Predicate<E> predicate)
 specifier|public
 name|FilterBuilder
 argument_list|<
@@ -776,7 +906,7 @@ block|}
 comment|/**      * Creates a dynamic<a href="http://activemq.apache.org/camel/recipient-list.html">Recipient List</a> pattern.      *      * @param receipients is the builder of the expression used in the {@link RecipientList} to decide the destinations      */
 annotation|@
 name|Fluent
-DECL|method|recipientList ( @luentArgvalue=R,element=true) ValueBuilder<E> receipients)
+DECL|method|recipientList ( @luentArgvalue = R, element = true) ValueBuilder<E> receipients)
 specifier|public
 name|RecipientListBuilder
 argument_list|<
@@ -831,7 +961,7 @@ block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/splitter.html">Splitter</a> pattern      * where an expression is evaluated to iterate through each of the parts of a message and then each part is then send to some endpoint.      *      * @param receipients the builder for the value used as the expression on which to split      * @return the builder      */
 annotation|@
 name|Fluent
-DECL|method|splitter (@luentArgvalue=R, element=true) ValueBuilder<E> receipients)
+DECL|method|splitter (@luentArgvalue = R, element = true)ValueBuilder<E> receipients)
 specifier|public
 name|SplitterBuilder
 argument_list|<
@@ -886,7 +1016,7 @@ block|}
 comment|/**      * Installs the given error handler builder      *      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
 annotation|@
 name|Fluent
-DECL|method|errorHandler (@luentArgR) ErrorHandlerBuilder errorHandlerBuilder)
+DECL|method|errorHandler (@luentArgR)ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|FromBuilder
 argument_list|<
@@ -915,7 +1045,7 @@ block|}
 comment|/**      * Configures whether or not the error handler is inherited by every processing node (or just the top most one)      *      * @param condition the falg as to whether error handlers should be inherited or not      * @return the current builder      */
 annotation|@
 name|Fluent
-DECL|method|inheritErrorHandler (@luentArgR) boolean condition)
+DECL|method|inheritErrorHandler (@luentArgR)boolean condition)
 specifier|public
 name|FromBuilder
 argument_list|<
@@ -983,7 +1113,7 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|intercept (@luentArgR) InterceptorProcessor<E> interceptor)
+DECL|method|intercept (@luentArgR)InterceptorProcessor<E> interceptor)
 specifier|public
 name|InterceptorBuilder
 argument_list|<
@@ -1261,6 +1391,38 @@ operator|.
 name|createProcessor
 argument_list|()
 decl_stmt|;
+name|processor
+operator|=
+name|wrapProcessor
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+return|return
+name|wrapInErrorHandler
+argument_list|(
+name|processor
+argument_list|)
+return|;
+block|}
+comment|/**      * A strategy method to allow newly created processors to be wrapped in an error handler. This feature      * could be disabled for child builders such as {@link IdempotentConsumerBuilder} which will rely on the      * {@link FromBuilder} to perform the error handling to avoid doubly-wrapped processors with 2 nested error handlers      */
+DECL|method|wrapInErrorHandler (Processor<E> processor)
+specifier|protected
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|wrapInErrorHandler
+parameter_list|(
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|processor
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 return|return
 name|getErrorHandlerBuilder
 argument_list|()
@@ -1269,6 +1431,26 @@ name|createErrorHandler
 argument_list|(
 name|processor
 argument_list|)
+return|;
+block|}
+comment|/**      * A strategy method which allows derived classes to wrap the child processor in some kind of interceptor such as      * a filter for the {@link IdempotentConsumerBuilder}.      *      * @param processor the processor which can be wrapped      * @return the original processor or a new wrapped interceptor      */
+DECL|method|wrapProcessor (Processor<E> processor)
+specifier|protected
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|wrapProcessor
+parameter_list|(
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|processor
+parameter_list|)
+block|{
+return|return
+name|processor
 return|;
 block|}
 DECL|method|getProcessors ()

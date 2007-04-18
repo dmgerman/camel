@@ -86,16 +86,16 @@ argument_list|<
 name|E
 argument_list|>
 block|{
-DECL|field|valueBuilder
+DECL|field|expressionFactory
 specifier|private
 specifier|final
-name|ValueBuilder
+name|ExpressionFactory
 argument_list|<
 name|E
 argument_list|>
-name|valueBuilder
+name|expressionFactory
 decl_stmt|;
-DECL|method|SplitterBuilder (FromBuilder<E> parent, ValueBuilder<E> valueBuilder)
+DECL|method|SplitterBuilder (FromBuilder<E> parent, ExpressionFactory<E> expressionFactory)
 specifier|public
 name|SplitterBuilder
 parameter_list|(
@@ -105,11 +105,11 @@ name|E
 argument_list|>
 name|parent
 parameter_list|,
-name|ValueBuilder
+name|ExpressionFactory
 argument_list|<
 name|E
 argument_list|>
-name|valueBuilder
+name|expressionFactory
 parameter_list|)
 block|{
 name|super
@@ -119,9 +119,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|valueBuilder
+name|expressionFactory
 operator|=
-name|valueBuilder
+name|expressionFactory
 expr_stmt|;
 block|}
 DECL|method|createProcessor ()
@@ -153,9 +153,9 @@ name|E
 argument_list|>
 name|expression
 init|=
-name|valueBuilder
+name|expressionFactory
 operator|.
-name|getExpression
+name|createExpression
 argument_list|()
 decl_stmt|;
 return|return
