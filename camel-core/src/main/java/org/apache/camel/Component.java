@@ -14,18 +14,6 @@ name|camel
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ScheduledExecutorService
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a component which manages a set of {@link Endpoint} objects.  *  * @version $Revision: 519901 $  */
 end_comment
@@ -55,12 +43,6 @@ parameter_list|(
 name|CamelContext
 name|context
 parameter_list|)
-function_decl|;
-comment|/**      * Returns the executor for this endpoint which typically defaults to the components executor      *      * @return the executor for this endpoint      */
-DECL|method|getExecutorService ()
-name|ScheduledExecutorService
-name|getExecutorService
-parameter_list|()
 function_decl|;
 comment|/**      * Attempt to resolve an endpoint for the given URI if the component is capable of handling the URI      *      * @param uri the URI to create      * @return a newly created endpoint or null if this component cannot create instances of the given      * uri      */
 DECL|method|resolveEndpoint (String uri)
