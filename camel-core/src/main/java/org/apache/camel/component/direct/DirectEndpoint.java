@@ -176,9 +176,9 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|allowMutlipleConsumers
+DECL|field|allowMultipleConsumers
 name|boolean
-name|allowMutlipleConsumers
+name|allowMultipleConsumers
 init|=
 literal|true
 decl_stmt|;
@@ -327,7 +327,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|allowMutlipleConsumers
+name|allowMultipleConsumers
 operator|&&
 operator|!
 name|consumers
@@ -408,20 +408,20 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|isAllowMutlipleConsumers ()
+DECL|method|isAllowMultipleConsumers ()
 specifier|public
 name|boolean
-name|isAllowMutlipleConsumers
+name|isAllowMultipleConsumers
 parameter_list|()
 block|{
 return|return
-name|allowMutlipleConsumers
+name|allowMultipleConsumers
 return|;
 block|}
-DECL|method|setAllowMutlipleConsumers (boolean allowMutlipleConsumers)
+DECL|method|setAllowMultipleConsumers (boolean allowMutlipleConsumers)
 specifier|public
 name|void
-name|setAllowMutlipleConsumers
+name|setAllowMultipleConsumers
 parameter_list|(
 name|boolean
 name|allowMutlipleConsumers
@@ -429,7 +429,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|allowMutlipleConsumers
+name|allowMultipleConsumers
 operator|=
 name|allowMutlipleConsumers
 expr_stmt|;
