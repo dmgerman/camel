@@ -409,6 +409,45 @@ return|return
 name|value
 return|;
 block|}
+comment|/**      * Resolves an endpoint and asserts that it is found      */
+DECL|method|resolveMandatoryEndpoint (CamelContext context, String uri)
+specifier|protected
+name|Endpoint
+argument_list|<
+name|Exchange
+argument_list|>
+name|resolveMandatoryEndpoint
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|String
+name|uri
+parameter_list|)
+block|{
+name|Endpoint
+name|endpoint
+init|=
+name|context
+operator|.
+name|resolveEndpoint
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"No endpoint found for URI: "
+operator|+
+name|uri
+argument_list|,
+name|endpoint
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
+return|;
+block|}
 block|}
 end_class
 
