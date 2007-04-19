@@ -100,7 +100,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DelegateProcess
+name|DelegateProcessor
 import|;
 end_import
 
@@ -1113,7 +1113,7 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|intercept (@luentArgR)DelegateProcess<E> interceptor)
+DECL|method|intercept (@luentArgR)DelegateProcessor<E> interceptor)
 specifier|public
 name|FromBuilder
 argument_list|<
@@ -1126,7 +1126,7 @@ name|FluentArg
 argument_list|(
 literal|"interceptor"
 argument_list|)
-name|DelegateProcess
+name|DelegateProcessor
 argument_list|<
 name|E
 argument_list|>

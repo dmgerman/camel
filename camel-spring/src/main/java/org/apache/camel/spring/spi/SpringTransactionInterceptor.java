@@ -40,7 +40,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DelegateProcess
+name|DelegateProcessor
 import|;
 end_import
 
@@ -228,7 +228,7 @@ return|;
 block|}
 return|return
 operator|new
-name|DelegateProcess
+name|DelegateProcessor
 argument_list|<
 name|E
 argument_list|>

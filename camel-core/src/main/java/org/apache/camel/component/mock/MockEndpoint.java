@@ -831,24 +831,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds the expection which will be invoked when enough messages are received      */
-DECL|method|expects (Runnable runnable)
-specifier|public
-name|void
-name|expects
-parameter_list|(
-name|Runnable
-name|runnable
-parameter_list|)
-block|{
-name|tests
-operator|.
-name|add
-argument_list|(
-name|runnable
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Adds an expectation that the given body values are received by this endpoint      */
 DECL|method|expectedBodiesReceived (Object... bodies)
 specifier|public
@@ -886,6 +868,24 @@ block|}
 name|expectedBodiesReceived
 argument_list|(
 name|bodyList
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Adds the expection which will be invoked when enough messages are received      */
+DECL|method|expects (Runnable runnable)
+specifier|public
+name|void
+name|expects
+parameter_list|(
+name|Runnable
+name|runnable
+parameter_list|)
+block|{
+name|tests
+operator|.
+name|add
+argument_list|(
+name|runnable
 argument_list|)
 expr_stmt|;
 block|}

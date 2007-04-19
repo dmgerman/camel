@@ -75,10 +75,10 @@ comment|/**  * A Delegate pattern which delegates processing to a nested process
 end_comment
 
 begin_class
-DECL|class|DelegateProcess
+DECL|class|DelegateProcessor
 specifier|public
 class|class
-name|DelegateProcess
+name|DelegateProcessor
 parameter_list|<
 name|E
 parameter_list|>
@@ -98,14 +98,14 @@ name|E
 argument_list|>
 name|next
 decl_stmt|;
-DECL|method|DelegateProcess ()
+DECL|method|DelegateProcessor ()
 specifier|public
-name|DelegateProcess
+name|DelegateProcessor
 parameter_list|()
 block|{     }
-DECL|method|DelegateProcess (Processor<E> next)
+DECL|method|DelegateProcessor (Processor<E> next)
 specifier|public
-name|DelegateProcess
+name|DelegateProcessor
 parameter_list|(
 name|Processor
 argument_list|<
@@ -170,7 +170,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"intercept("
+literal|"delegate("
 operator|+
 name|next
 operator|+

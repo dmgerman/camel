@@ -58,7 +58,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DelegateProcess
+name|DelegateProcessor
 import|;
 end_import
 
@@ -111,7 +111,7 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|DelegateProcess
+name|DelegateProcessor
 argument_list|<
 name|E
 argument_list|>
@@ -121,7 +121,7 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|DelegateProcess
+name|DelegateProcessor
 argument_list|<
 name|E
 argument_list|>
@@ -168,7 +168,7 @@ name|Fluent
 argument_list|(
 literal|"interceptor"
 argument_list|)
-DECL|method|add (@luentArgR) DelegateProcess<E> interceptor)
+DECL|method|add (@luentArgR) DelegateProcessor<E> interceptor)
 specifier|public
 name|InterceptorBuilder
 argument_list|<
@@ -181,7 +181,7 @@ name|FluentArg
 argument_list|(
 literal|"ref"
 argument_list|)
-name|DelegateProcess
+name|DelegateProcessor
 argument_list|<
 name|E
 argument_list|>
@@ -258,7 +258,7 @@ literal|"target provided."
 argument_list|)
 throw|;
 comment|// Interceptors are optional
-name|DelegateProcess
+name|DelegateProcessor
 argument_list|<
 name|E
 argument_list|>
@@ -266,7 +266,7 @@ name|first
 init|=
 literal|null
 decl_stmt|;
-name|DelegateProcess
+name|DelegateProcessor
 argument_list|<
 name|E
 argument_list|>
@@ -276,7 +276,7 @@ literal|null
 decl_stmt|;
 for|for
 control|(
-name|DelegateProcess
+name|DelegateProcessor
 argument_list|<
 name|E
 argument_list|>

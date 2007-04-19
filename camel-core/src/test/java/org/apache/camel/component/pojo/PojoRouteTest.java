@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicInteger
-import|;
-end_import
-
-begin_import
-import|import
 name|junit
 operator|.
 name|framework
@@ -79,20 +65,6 @@ operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|DelegateProcess
 import|;
 end_import
 

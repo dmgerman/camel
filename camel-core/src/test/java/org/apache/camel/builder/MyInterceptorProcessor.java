@@ -38,7 +38,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DelegateProcess
+name|DelegateProcessor
 import|;
 end_import
 
@@ -48,7 +48,7 @@ specifier|public
 class|class
 name|MyInterceptorProcessor
 extends|extends
-name|DelegateProcess
+name|DelegateProcessor
 argument_list|<
 name|Exchange
 argument_list|>
