@@ -457,6 +457,13 @@ specifier|private
 name|ComponentResolver
 name|componentResolver
 decl_stmt|;
+DECL|field|autoCreateComponents
+specifier|private
+name|boolean
+name|autoCreateComponents
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Adds a component to the container.      */
 DECL|method|addComponent (String componentName, final Component component)
 specifier|public
@@ -514,27 +521,100 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getComponent (String componentName)
+DECL|method|getComponent (String name)
 specifier|public
 name|Component
 name|getComponent
 parameter_list|(
 name|String
-name|componentName
+name|name
 parameter_list|)
 block|{
+comment|// synchronize the look up and auto create so that 2 threads can't
+comment|// concurrently auto create the same component.
 synchronized|synchronized
 init|(
 name|components
 init|)
 block|{
-return|return
+name|Component
+name|component
+init|=
 name|components
 operator|.
 name|get
 argument_list|(
-name|componentName
+name|name
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|component
+operator|==
+literal|null
+operator|&&
+name|autoCreateComponents
+condition|)
+block|{
+try|try
+block|{
+name|component
+operator|=
+name|getComponentResolver
+argument_list|()
+operator|.
+name|resolveComponent
+argument_list|(
+name|name
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|addComponent
+argument_list|(
+name|name
+argument_list|,
+name|component
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|isStarted
+argument_list|()
+condition|)
+block|{
+comment|// If the component is looked up after the context is started,
+comment|// lets start it up.
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|component
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Could not auto create component: "
+operator|+
+name|name
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+return|return
+name|component
 return|;
 block|}
 block|}
@@ -619,7 +699,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|RuntimeCamelException
 argument_list|(
 literal|"Factory failed to create the "
 operator|+
@@ -654,7 +734,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|RuntimeCamelException
 argument_list|(
 literal|"Factory failed to create the "
 operator|+
@@ -786,68 +866,11 @@ decl_stmt|;
 name|Component
 name|component
 init|=
-literal|null
+name|getComponent
+argument_list|(
+name|scheme
+argument_list|)
 decl_stmt|;
-comment|// synchronize the look up and auto create so that 2 threads can't
-comment|// concurrently auto create the same component.
-synchronized|synchronized
-init|(
-name|components
-init|)
-block|{
-name|component
-operator|=
-name|components
-operator|.
-name|get
-argument_list|(
-name|scheme
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|component
-operator|==
-literal|null
-condition|)
-block|{
-name|component
-operator|=
-name|getComponentResolver
-argument_list|()
-operator|.
-name|resolveComponent
-argument_list|(
-name|uri
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-name|addComponent
-argument_list|(
-name|scheme
-argument_list|,
-name|component
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|isStarted
-argument_list|()
-condition|)
-block|{
-comment|// If the component is looked up after the context is started,
-comment|// lets start it up.
-name|ServiceHelper
-operator|.
-name|startServices
-argument_list|(
-name|component
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
 comment|// Ask the component to resolve the endpoint.
 if|if
 condition|(
@@ -1515,6 +1538,32 @@ operator|new
 name|DefaultComponentResolver
 argument_list|()
 return|;
+block|}
+DECL|method|isAutoCreateComponents ()
+specifier|public
+name|boolean
+name|isAutoCreateComponents
+parameter_list|()
+block|{
+return|return
+name|autoCreateComponents
+return|;
+block|}
+DECL|method|setAutoCreateComponents (boolean autoCreateComponents)
+specifier|public
+name|void
+name|setAutoCreateComponents
+parameter_list|(
+name|boolean
+name|autoCreateComponents
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoCreateComponents
+operator|=
+name|autoCreateComponents
+expr_stmt|;
 block|}
 block|}
 end_class

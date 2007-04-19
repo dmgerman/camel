@@ -81,8 +81,8 @@ extends|extends
 name|Exchange
 parameter_list|>
 block|{
-comment|/**      * Attempts to resolve the component for the given URI      *      * @param uri the URI to resolve      * @param context the context to load the component if it can be resolved      * @return the component which is added to the context or null if it can not be resolved      */
-DECL|method|resolveComponent (String uri, CamelContext context)
+comment|/**      * Attempts to resolve the component for the given URI      *      * @param name the component name to resolve      * @param context the context to load the component if it can be resolved      * @return the component which is added to the context or null if it can not be resolved      */
+DECL|method|resolveComponent (String name, CamelContext context)
 name|Component
 argument_list|<
 name|E
@@ -90,7 +90,7 @@ argument_list|>
 name|resolveComponent
 parameter_list|(
 name|String
-name|uri
+name|name
 parameter_list|,
 name|CamelContext
 name|context

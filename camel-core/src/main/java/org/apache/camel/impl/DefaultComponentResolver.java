@@ -94,20 +94,6 @@ name|NoFactoryAvailableException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * The default implementation of {@link ComponentResolver}  * which tries to find components by using the URI scheme prefix and searching for a file of the URI  * scheme name in the<b>META-INF/services/org/apache/camel/component/</b>  * directory on the classpath.  *  * @version $Revision$  */
 end_comment
@@ -141,7 +127,7 @@ argument_list|(
 literal|"META-INF/services/org/apache/camel/component/"
 argument_list|)
 decl_stmt|;
-DECL|method|resolveComponent (String uri, CamelContext context)
+DECL|method|resolveComponent (String name, CamelContext context)
 specifier|public
 name|Component
 argument_list|<
@@ -150,55 +136,12 @@ argument_list|>
 name|resolveComponent
 parameter_list|(
 name|String
-name|uri
+name|name
 parameter_list|,
 name|CamelContext
 name|context
 parameter_list|)
 block|{
-name|String
-name|splitURI
-index|[]
-init|=
-name|ObjectHelper
-operator|.
-name|splitOnCharacter
-argument_list|(
-name|uri
-argument_list|,
-literal|":"
-argument_list|,
-literal|2
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|splitURI
-index|[
-literal|1
-index|]
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Invalid URI, it did not contain a scheme: "
-operator|+
-name|uri
-argument_list|)
-throw|;
-block|}
-name|String
-name|scheme
-init|=
-name|splitURI
-index|[
-literal|0
-index|]
-decl_stmt|;
 name|Class
 name|type
 decl_stmt|;
@@ -210,7 +153,7 @@ name|componentFactory
 operator|.
 name|findClass
 argument_list|(
-name|scheme
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -236,7 +179,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Invalid URI, no EndpointResolver registered for scheme : "
 operator|+
-name|scheme
+name|name
 argument_list|,
 name|e
 argument_list|)

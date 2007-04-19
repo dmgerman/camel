@@ -114,6 +114,7 @@ name|Component
 name|component
 parameter_list|)
 function_decl|;
+comment|/**      * Gets a component from the container by name.      */
 DECL|method|getComponent (String componentName)
 name|Component
 name|getComponent

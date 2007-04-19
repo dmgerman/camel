@@ -19,6 +19,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|notNull
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -57,22 +73,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|notNull
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -95,16 +95,6 @@ operator|.
 name|context
 operator|.
 name|ApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URI
 import|;
 end_import
 
@@ -163,13 +153,13 @@ operator|=
 name|nextResolver
 expr_stmt|;
 block|}
-DECL|method|resolveComponent (String uri, CamelContext context)
+DECL|method|resolveComponent (String name, CamelContext context)
 specifier|public
 name|Component
 name|resolveComponent
 parameter_list|(
 name|String
-name|uri
+name|name
 parameter_list|,
 name|CamelContext
 name|context
@@ -177,18 +167,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|String
-name|scheme
-init|=
-operator|new
-name|URI
-argument_list|(
-name|uri
-argument_list|)
-operator|.
-name|getScheme
-argument_list|()
-decl_stmt|;
 name|Object
 name|bean
 init|=
@@ -202,7 +180,7 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-name|scheme
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -243,7 +221,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Bean with name: "
 operator|+
-name|bean
+name|name
 operator|+
 literal|" in spring context is not a Component: "
 operator|+
@@ -268,7 +246,7 @@ name|nextResolver
 operator|.
 name|resolveComponent
 argument_list|(
-name|uri
+name|name
 argument_list|,
 name|context
 argument_list|)
