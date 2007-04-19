@@ -62,9 +62,37 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExpressionHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -110,6 +138,8 @@ name|E
 extends|extends
 name|Exchange
 parameter_list|>
+extends|extends
+name|ServiceSupport
 implements|implements
 name|Processor
 argument_list|<
@@ -322,6 +352,40 @@ block|{
 return|return
 name|nextProcessor
 return|;
+block|}
+comment|// Implementation methods
+comment|//-------------------------------------------------------------------------
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|nextProcessor
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|stopServices
+argument_list|(
+name|nextProcessor
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * A strategy method to allow derived classes to overload the behaviour of processing a duplicate message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
 DECL|method|onDuplicateMessage (E exchange, String messageId)
