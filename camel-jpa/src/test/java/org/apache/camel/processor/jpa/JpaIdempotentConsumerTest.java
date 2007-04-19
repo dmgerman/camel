@@ -216,21 +216,18 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createRouteBuilder (final String endpointUri, final Processor<Exchange> processor)
+DECL|method|createRouteBuilder (final String fromUri, final String toUri)
 specifier|protected
 name|RouteBuilder
 name|createRouteBuilder
 parameter_list|(
 specifier|final
 name|String
-name|endpointUri
+name|fromUri
 parameter_list|,
 specifier|final
-name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
-name|processor
+name|String
+name|toUri
 parameter_list|)
 block|{
 comment|// START SNIPPET: idempotent
@@ -249,7 +246,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-name|endpointUri
+name|fromUri
 argument_list|)
 operator|.
 name|idempotentConsumer
@@ -272,9 +269,9 @@ literal|"myProcessorName"
 argument_list|)
 argument_list|)
 operator|.
-name|process
+name|to
 argument_list|(
-name|processor
+name|toUri
 argument_list|)
 expr_stmt|;
 block|}
