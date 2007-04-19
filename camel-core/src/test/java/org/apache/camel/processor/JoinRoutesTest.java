@@ -332,7 +332,7 @@ name|resolveMandatoryEndpoint
 argument_list|(
 name|context
 argument_list|,
-literal|"queue:a"
+literal|"direct:a"
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
@@ -374,7 +374,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|choice
@@ -395,7 +395,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:b"
+literal|"direct:b"
 argument_list|)
 operator|.
 name|when
@@ -413,7 +413,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:c"
+literal|"direct:c"
 argument_list|)
 operator|.
 name|otherwise
@@ -421,12 +421,12 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"queue:d"
+literal|"direct:d"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"queue:b"
+literal|"direct:b"
 argument_list|)
 operator|.
 name|to
@@ -436,7 +436,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"queue:c"
+literal|"direct:c"
 argument_list|)
 operator|.
 name|to
@@ -446,7 +446,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"queue:d"
+literal|"direct:d"
 argument_list|)
 operator|.
 name|to

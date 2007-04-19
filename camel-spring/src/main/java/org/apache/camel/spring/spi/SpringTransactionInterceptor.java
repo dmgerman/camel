@@ -38,6 +38,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|DelegateProcess
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Interceptor
@@ -172,7 +186,7 @@ operator|=
 name|template
 expr_stmt|;
 block|}
-DECL|method|addIntercetors (final Processor<E> processor)
+DECL|method|addIntercetors (Processor<E> processor)
 specifier|public
 name|Processor
 argument_list|<
@@ -180,7 +194,6 @@ name|E
 argument_list|>
 name|addIntercetors
 parameter_list|(
-specifier|final
 name|Processor
 argument_list|<
 name|E
@@ -215,11 +228,13 @@ return|;
 block|}
 return|return
 operator|new
-name|Processor
+name|DelegateProcess
 argument_list|<
 name|E
 argument_list|>
-argument_list|()
+argument_list|(
+name|processor
+argument_list|)
 block|{
 specifier|public
 name|void
@@ -246,9 +261,7 @@ name|TransactionStatus
 name|status
 parameter_list|)
 block|{
-name|processor
-operator|.
-name|process
+name|processNext
 argument_list|(
 name|exchange
 argument_list|)
@@ -268,7 +281,8 @@ block|{
 return|return
 literal|"SpringTransaction["
 operator|+
-name|processor
+name|getNext
+argument_list|()
 operator|+
 literal|"]"
 return|;

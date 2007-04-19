@@ -258,11 +258,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|receivedCounter
-specifier|private
-name|int
-name|receivedCounter
-decl_stmt|;
 DECL|field|expectedCount
 specifier|private
 name|int
@@ -345,12 +340,13 @@ DECL|field|latch
 specifier|private
 name|CountDownLatch
 name|latch
+decl_stmt|;
+DECL|field|sleepForEmptyTest
+specifier|private
+name|long
+name|sleepForEmptyTest
 init|=
-operator|new
-name|CountDownLatch
-argument_list|(
-literal|1
-argument_list|)
+literal|0L
 decl_stmt|;
 DECL|method|assertIsSatisfied (MockEndpoint... endpoints)
 specifier|public
@@ -589,7 +585,7 @@ name|InterruptedException
 block|{
 name|assertIsSatisfied
 argument_list|(
-literal|1000
+name|sleepForEmptyTest
 argument_list|)
 expr_stmt|;
 block|}
@@ -634,6 +630,13 @@ literal|0
 condition|)
 block|{
 comment|// lets wait a little bit just in case
+if|if
+condition|(
+name|timeoutForEmptyEndpoints
+operator|>
+literal|0
+condition|)
+block|{
 name|Thread
 operator|.
 name|sleep
@@ -642,6 +645,7 @@ name|timeoutForEmptyEndpoints
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 if|if
 condition|(
 name|expectedCount
@@ -649,6 +653,12 @@ operator|>=
 literal|0
 condition|)
 block|{
+name|int
+name|receivedCounter
+init|=
+name|getReceivedCounter
+argument_list|()
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Expected message count"
@@ -901,7 +911,11 @@ name|getReceivedCounter
 parameter_list|()
 block|{
 return|return
-name|receivedCounter
+name|getExchangesReceived
+argument_list|()
+operator|.
+name|size
+argument_list|()
 return|;
 block|}
 DECL|method|getExchangesReceived ()
@@ -927,6 +941,33 @@ return|return
 name|expectedCount
 return|;
 block|}
+DECL|method|getSleepForEmptyTest ()
+specifier|public
+name|long
+name|getSleepForEmptyTest
+parameter_list|()
+block|{
+return|return
+name|sleepForEmptyTest
+return|;
+block|}
+comment|/**      * Allows a sleep to be specified to wait to check that this endpoint really is empty when      * {@link #expectedMessageCount(int)} is called with zero      *      * @param sleepForEmptyTest the milliseconds to sleep for to determine that this endpoint really is empty      */
+DECL|method|setSleepForEmptyTest (long sleepForEmptyTest)
+specifier|public
+name|void
+name|setSleepForEmptyTest
+parameter_list|(
+name|long
+name|sleepForEmptyTest
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sleepForEmptyTest
+operator|=
+name|sleepForEmptyTest
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 DECL|method|onExchange (Exchange exchange)
@@ -941,6 +982,15 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Received exchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
 name|exchangesReceived
 operator|.
 name|add
@@ -948,19 +998,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|latch
-operator|!=
-literal|null
-condition|)
-block|{
-name|latch
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
-block|}
 name|Processor
 argument_list|<
 name|Exchange
@@ -971,8 +1008,8 @@ name|processors
 operator|.
 name|get
 argument_list|(
-operator|++
-name|receivedCounter
+name|getReceivedCounter
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -988,6 +1025,19 @@ name|process
 argument_list|(
 name|exchange
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|latch
+operator|!=
+literal|null
+condition|)
+block|{
+name|latch
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 block|}
 block|}

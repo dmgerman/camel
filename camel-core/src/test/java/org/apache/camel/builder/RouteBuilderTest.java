@@ -128,7 +128,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|InterceptorProcessor
+name|DelegateProcess
 import|;
 end_import
 
@@ -284,7 +284,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|interceptor1
 specifier|protected
-name|InterceptorProcessor
+name|DelegateProcess
 argument_list|<
 name|Exchange
 argument_list|>
@@ -292,7 +292,7 @@ name|interceptor1
 decl_stmt|;
 DECL|field|interceptor2
 specifier|protected
-name|InterceptorProcessor
+name|DelegateProcess
 argument_list|<
 name|Exchange
 argument_list|>
@@ -1533,7 +1533,7 @@ block|{
 name|interceptor1
 operator|=
 operator|new
-name|InterceptorProcessor
+name|DelegateProcess
 argument_list|<
 name|Exchange
 argument_list|>
@@ -1695,7 +1695,7 @@ argument_list|(
 name|route
 argument_list|)
 decl_stmt|;
-name|InterceptorProcessor
+name|DelegateProcess
 argument_list|<
 name|Exchange
 argument_list|>
@@ -1703,7 +1703,7 @@ name|p1
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|InterceptorProcessor
+name|DelegateProcess
 operator|.
 name|class
 argument_list|,
@@ -1717,7 +1717,7 @@ operator|.
 name|getNext
 argument_list|()
 expr_stmt|;
-name|InterceptorProcessor
+name|DelegateProcess
 argument_list|<
 name|Exchange
 argument_list|>
@@ -1725,7 +1725,7 @@ name|p2
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|InterceptorProcessor
+name|DelegateProcess
 operator|.
 name|class
 argument_list|,

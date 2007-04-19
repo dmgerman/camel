@@ -92,7 +92,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|InterceptorProcessor
+name|DelegateProcess
 import|;
 end_import
 
@@ -161,14 +161,14 @@ name|AtomicInteger
 argument_list|()
 decl_stmt|;
 specifier|final
-name|InterceptorProcessor
+name|DelegateProcess
 argument_list|<
 name|PojoExchange
 argument_list|>
 name|tracingInterceptor
 init|=
 operator|new
-name|InterceptorProcessor
+name|DelegateProcess
 argument_list|<
 name|PojoExchange
 argument_list|>

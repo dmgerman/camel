@@ -507,7 +507,7 @@ name|resolveMandatoryEndpoint
 argument_list|(
 name|context
 argument_list|,
-literal|"queue:a"
+literal|"direct:a"
 argument_list|)
 expr_stmt|;
 name|x
@@ -573,7 +573,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|choice

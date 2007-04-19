@@ -110,7 +110,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|InterceptorProcessor
+name|DelegateProcess
 import|;
 end_import
 
@@ -157,14 +157,14 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|final
-name|InterceptorProcessor
+name|DelegateProcess
 argument_list|<
 name|Exchange
 argument_list|>
 name|interceptor1
 init|=
 operator|new
-name|InterceptorProcessor
+name|DelegateProcess
 argument_list|<
 name|Exchange
 argument_list|>
@@ -205,14 +205,14 @@ block|}
 block|}
 decl_stmt|;
 specifier|final
-name|InterceptorProcessor
+name|DelegateProcess
 argument_list|<
 name|Exchange
 argument_list|>
 name|interceptor2
 init|=
 operator|new
-name|InterceptorProcessor
+name|DelegateProcess
 argument_list|<
 name|Exchange
 argument_list|>

@@ -419,7 +419,7 @@ expr_stmt|;
 name|String
 name|fromUri
 init|=
-literal|"queue:test.a"
+literal|"direct:test.a"
 decl_stmt|;
 name|String
 name|toUri

@@ -36,6 +36,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Interceptor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ServiceSupport
@@ -57,14 +71,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: 519941 $  */
+comment|/**  * A Delegate pattern which delegates processing to a nested processor which can be useful for implementation inheritence  * when writing an {@link Interceptor}  *  * @version $Revision: 519941 $  */
 end_comment
 
 begin_class
-DECL|class|InterceptorProcessor
+DECL|class|DelegateProcess
 specifier|public
 class|class
-name|InterceptorProcessor
+name|DelegateProcess
 parameter_list|<
 name|E
 parameter_list|>
@@ -84,15 +98,48 @@ name|E
 argument_list|>
 name|next
 decl_stmt|;
-DECL|method|InterceptorProcessor ()
+DECL|method|DelegateProcess ()
 specifier|public
-name|InterceptorProcessor
+name|DelegateProcess
 parameter_list|()
 block|{     }
+DECL|method|DelegateProcess (Processor<E> next)
+specifier|public
+name|DelegateProcess
+parameter_list|(
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|next
+parameter_list|)
+block|{
+name|this
+operator|.
+name|next
+operator|=
+name|next
+expr_stmt|;
+block|}
 DECL|method|process (E exchange)
 specifier|public
 name|void
 name|process
+parameter_list|(
+name|E
+name|exchange
+parameter_list|)
+block|{
+name|processNext
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|processNext (E exchange)
+specifier|protected
+name|void
+name|processNext
 parameter_list|(
 name|E
 name|exchange
