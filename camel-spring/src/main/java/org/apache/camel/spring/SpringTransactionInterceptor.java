@@ -150,6 +150,26 @@ specifier|private
 name|TransactionTemplate
 name|template
 decl_stmt|;
+DECL|method|SpringTransactionInterceptor ()
+specifier|public
+name|SpringTransactionInterceptor
+parameter_list|()
+block|{     }
+DECL|method|SpringTransactionInterceptor (TransactionTemplate template)
+specifier|public
+name|SpringTransactionInterceptor
+parameter_list|(
+name|TransactionTemplate
+name|template
+parameter_list|)
+block|{
+name|this
+operator|.
+name|template
+operator|=
+name|template
+expr_stmt|;
+block|}
 DECL|method|addIntercetors (final Processor<E> processor)
 specifier|public
 name|Processor
