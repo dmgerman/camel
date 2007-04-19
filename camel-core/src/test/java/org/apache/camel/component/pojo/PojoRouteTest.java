@@ -223,9 +223,6 @@ argument_list|(
 name|tracingInterceptor
 argument_list|)
 operator|.
-name|target
-argument_list|()
-operator|.
 name|to
 argument_list|(
 literal|"pojo:bye"

@@ -1115,7 +1115,7 @@ annotation|@
 name|Fluent
 DECL|method|intercept (@luentArgR)InterceptorProcessor<E> interceptor)
 specifier|public
-name|InterceptorBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -1162,6 +1162,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
+operator|.
+name|target
+argument_list|()
 return|;
 block|}
 comment|// Properties
