@@ -17,6 +17,24 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|idempotent
+operator|.
+name|MemoryMessageIdRepository
+operator|.
+name|memoryMessageIdRepository
+import|;
+end_import
+
+begin_import
 import|import
 name|junit
 operator|.
@@ -111,22 +129,6 @@ operator|.
 name|camel
 operator|.
 name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|idempotent
-operator|.
-name|MemoryMessageIdRepository
 import|;
 end_import
 
@@ -255,14 +257,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|container
+DECL|field|context
 specifier|protected
 name|CamelContext
-name|container
-init|=
-operator|new
-name|DefaultCamelContext
-argument_list|()
+name|context
 decl_stmt|;
 DECL|field|latch
 specifier|protected
@@ -507,6 +505,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|=
+name|createContext
+argument_list|()
+expr_stmt|;
 specifier|final
 name|Processor
 argument_list|<
@@ -584,7 +587,7 @@ init|=
 literal|"queue:test.a"
 decl_stmt|;
 comment|// lets add some routes
-name|container
+name|context
 operator|.
 name|addRoutes
 argument_list|(
@@ -598,7 +601,7 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|=
-name|container
+name|context
 operator|.
 name|resolveEndpoint
 argument_list|(
@@ -614,11 +617,25 @@ argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
-name|container
+name|context
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|createContext ()
+specifier|protected
+name|CamelContext
+name|createContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|DefaultCamelContext
+argument_list|()
+return|;
 block|}
 DECL|method|createRouteBuilder (final String endpointUri, final Processor<Exchange> processor)
 specifier|protected
@@ -659,8 +676,6 @@ argument_list|(
 literal|"messageId"
 argument_list|)
 argument_list|,
-name|MemoryMessageIdRepository
-operator|.
 name|memoryMessageIdRepository
 argument_list|()
 argument_list|)
@@ -689,7 +704,7 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|container
+name|context
 operator|.
 name|stop
 argument_list|()

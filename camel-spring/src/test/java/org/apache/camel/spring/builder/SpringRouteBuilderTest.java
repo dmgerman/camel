@@ -615,6 +615,57 @@ return|return
 name|builder
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|buildIdempotentConsumer ()
+specifier|protected
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|buildIdempotentConsumer
+parameter_list|()
+block|{
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|builder
+init|=
+operator|(
+name|RouteBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+operator|)
+name|ctx
+operator|.
+name|getBean
+argument_list|(
+literal|"buildIdempotentConsumer"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|builder
+argument_list|)
+expr_stmt|;
+return|return
+name|builder
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|testIdempotentConsumer ()
+specifier|public
+name|void
+name|testIdempotentConsumer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// TODO
+block|}
 block|}
 end_class
 

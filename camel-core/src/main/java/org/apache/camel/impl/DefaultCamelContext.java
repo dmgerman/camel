@@ -1417,9 +1417,7 @@ name|finder
 init|=
 operator|new
 name|FactoryFinder
-argument_list|(
-literal|"META-INF/services/org/apache/camel/"
-argument_list|)
+argument_list|()
 decl_stmt|;
 try|try
 block|{
