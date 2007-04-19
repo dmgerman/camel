@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.camel.spring
+DECL|package|org.apache.camel.spring.xml
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|camel
 operator|.
 name|spring
+operator|.
+name|xml
 package|;
 end_package
 
@@ -22,7 +24,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|builder
+name|xml
 operator|.
 name|CamelBeanDefinitionParser
 import|;

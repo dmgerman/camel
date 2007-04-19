@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.builder
+DECL|package|org.apache.camel.spring.xml
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|builder
+name|xml
 package|;
 end_package
 
@@ -103,10 +103,10 @@ comment|/**  * TODO: re-implement the route building logic using spring and   * 
 end_comment
 
 begin_class
-DECL|class|SpringRouteBuilderTest
+DECL|class|XmlRouteBuilderTest
 specifier|public
 class|class
-name|SpringRouteBuilderTest
+name|XmlRouteBuilderTest
 extends|extends
 name|RouteBuilderTest
 block|{

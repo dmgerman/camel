@@ -225,7 +225,7 @@ name|getObjectType
 parameter_list|()
 block|{
 return|return
-name|CamelContext
+name|SpringCamelContext
 operator|.
 name|class
 return|;
@@ -288,6 +288,8 @@ specifier|public
 name|CamelContext
 name|getContext
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -298,9 +300,13 @@ condition|)
 block|{
 name|context
 operator|=
-operator|new
-name|DefaultCamelContext
+name|SpringCamelContext
+operator|.
+name|springCamelContext
+argument_list|(
+name|getApplicationContext
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 return|return
