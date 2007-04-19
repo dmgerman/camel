@@ -117,12 +117,13 @@ throws|throws
 name|Exception
 block|{
 name|CamelContext
-name|container
+name|camelContext
 init|=
 operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+comment|// START SNIPPET: register
 name|PojoComponent
 name|component
 init|=
@@ -130,6 +131,15 @@ operator|new
 name|PojoComponent
 argument_list|()
 decl_stmt|;
+name|camelContext
+operator|.
+name|addComponent
+argument_list|(
+literal|"pojo"
+argument_list|,
+name|component
+argument_list|)
+expr_stmt|;
 name|component
 operator|.
 name|addService
@@ -143,64 +153,10 @@ literal|"Good Bye!"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|container
-operator|.
-name|addComponent
-argument_list|(
-literal|"default"
-argument_list|,
-name|component
-argument_list|)
-expr_stmt|;
-specifier|final
-name|AtomicInteger
-name|hitCount
-init|=
-operator|new
-name|AtomicInteger
-argument_list|()
-decl_stmt|;
-specifier|final
-name|DelegateProcess
-argument_list|<
-name|PojoExchange
-argument_list|>
-name|tracingInterceptor
-init|=
-operator|new
-name|DelegateProcess
-argument_list|<
-name|PojoExchange
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|PojoExchange
-name|exchange
-parameter_list|)
-block|{
-name|super
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-name|hitCount
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-decl_stmt|;
-comment|// lets add some routes
-name|container
+comment|// END SNIPPET: register
+comment|// START SNIPPET: route
+comment|// lets add simple route
+name|camelContext
 operator|.
 name|addRoutes
 argument_list|(
@@ -218,11 +174,6 @@ argument_list|(
 literal|"pojo:hello"
 argument_list|)
 operator|.
-name|intercept
-argument_list|(
-name|tracingInterceptor
-argument_list|)
-operator|.
 name|to
 argument_list|(
 literal|"pojo:bye"
@@ -232,12 +183,13 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|container
+comment|// END SNIPPET: route
+name|camelContext
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// now lets fire in a message
+comment|// START SNIPPET: invoke
 name|PojoConsumer
 name|consumer
 init|=
@@ -275,17 +227,8 @@ argument_list|,
 name|rc
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|hitCount
-operator|.
-name|get
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|container
+comment|// END SNIPPET: invoke
+name|camelContext
 operator|.
 name|stop
 argument_list|()
