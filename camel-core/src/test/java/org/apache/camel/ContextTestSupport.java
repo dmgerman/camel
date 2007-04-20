@@ -178,6 +178,8 @@ specifier|protected
 name|CamelContext
 name|createCamelContext
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 return|return
 operator|new

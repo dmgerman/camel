@@ -189,10 +189,10 @@ name|applicationContext
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|createContext ()
+DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
-name|createContext
+name|createCamelContext
 parameter_list|()
 throws|throws
 name|Exception
@@ -216,19 +216,11 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createRouteBuilder (final String fromUri, final String toUri)
+DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
 name|createRouteBuilder
-parameter_list|(
-specifier|final
-name|String
-name|fromUri
-parameter_list|,
-specifier|final
-name|String
-name|toUri
-parameter_list|)
+parameter_list|()
 block|{
 comment|// START SNIPPET: idempotent
 return|return
@@ -246,7 +238,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-name|fromUri
+literal|"direct:start"
 argument_list|)
 operator|.
 name|idempotentConsumer
@@ -271,7 +263,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|toUri
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}

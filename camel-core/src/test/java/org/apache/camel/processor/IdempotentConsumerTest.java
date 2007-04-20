@@ -412,7 +412,7 @@ name|startEndpoint
 operator|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"direct:test.a"
+literal|"direct:start"
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
@@ -444,7 +444,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"direct:test.a"
+literal|"direct:start"
 argument_list|)
 operator|.
 name|idempotentConsumer
