@@ -853,7 +853,10 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Received message: "
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|">>>> message: "
 operator|+
 name|counter
 operator|+
@@ -1023,7 +1026,10 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Received exchange: "
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|">>>> "
 operator|+
 name|exchange
 argument_list|)
