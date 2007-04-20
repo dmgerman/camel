@@ -760,12 +760,12 @@ name|messageIdRepository
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds the custom processor to this destination      */
+comment|/**      * Adds the custom processor to this destination which could be a final destination, or could be a transformation in a pipeline      */
 annotation|@
 name|Fluent
 DECL|method|process (@luentArgR)Processor<E> processor)
 specifier|public
-name|ConstantProcessorBuilder
+name|FromBuilder
 argument_list|<
 name|E
 argument_list|>
@@ -804,7 +804,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|answer
+name|this
 return|;
 block|}
 comment|/**      * Creates a predicate which is applied and only if it is true then      * the exchange is forwarded to the destination      *      * @return the builder for a predicate      */
@@ -981,6 +981,64 @@ operator|=
 literal|true
 argument_list|)
 name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|receipients
+parameter_list|)
+block|{
+name|SplitterBuilder
+argument_list|<
+name|E
+argument_list|>
+name|answer
+init|=
+operator|new
+name|SplitterBuilder
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|this
+argument_list|,
+name|receipients
+operator|.
+name|getExpression
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|addProcessBuilder
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/splitter.html">Splitter</a> pattern      * where an expression is evaluated to iterate through each of the parts of a message and then each part is then send to some endpoint.      *      * @param receipients the expression on which to split      * @return the builder      */
+annotation|@
+name|Fluent
+DECL|method|splitter (@luentArgvalue = R, element = true) Expression<E> receipients)
+specifier|public
+name|SplitterBuilder
+argument_list|<
+name|E
+argument_list|>
+name|splitter
+parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+name|value
+operator|=
+literal|"recipients"
+argument_list|,
+name|element
+operator|=
+literal|true
+argument_list|)
+name|Expression
 argument_list|<
 name|E
 argument_list|>
