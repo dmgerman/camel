@@ -363,6 +363,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: example
 name|from
 argument_list|(
 literal|"direct:a"
@@ -377,6 +378,7 @@ argument_list|,
 literal|"direct:z"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: example
 name|from
 argument_list|(
 literal|"direct:x"
