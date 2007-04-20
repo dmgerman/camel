@@ -683,6 +683,43 @@ name|run
 argument_list|()
 expr_stmt|;
 block|}
+for|for
+control|(
+name|Throwable
+name|failure
+range|:
+name|failures
+control|)
+block|{
+if|if
+condition|(
+name|failure
+operator|!=
+literal|null
+condition|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Caught: "
+operator|+
+name|failure
+argument_list|,
+name|failure
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+literal|"Failed due to caught exception: "
+operator|+
+name|failure
+argument_list|)
+throw|;
+block|}
+block|}
 block|}
 comment|/**      * Specifies the expected number of message exchanges that should be received by this endpoint      *      * @param expectedCount the number of message exchanges that should be expected by this endpoint      */
 DECL|method|expectedMessageCount (int expectedCount)
