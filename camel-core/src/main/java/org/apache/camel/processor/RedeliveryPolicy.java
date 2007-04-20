@@ -172,7 +172,7 @@ parameter_list|)
 block|{
 return|return
 name|redeliveryCounter
-operator|<=
+operator|<
 name|getMaximumRedeliveries
 argument_list|()
 return|;

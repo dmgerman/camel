@@ -661,7 +661,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Expected message count"
+literal|"Received message count"
 argument_list|,
 name|expectedCount
 argument_list|,
@@ -702,22 +702,25 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Caught: "
+literal|"Caught on "
+operator|+
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|" Exception: "
 operator|+
 name|failure
 argument_list|,
 name|failure
 argument_list|)
 expr_stmt|;
-throw|throw
-operator|new
-name|AssertionError
+name|fail
 argument_list|(
 literal|"Failed due to caught exception: "
 operator|+
 name|failure
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -929,6 +932,150 @@ name|runnable
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Adds an assertion to the given message index      *      * @param messageIndex the number of the message      * @return the assertion clause      */
+DECL|method|message (final int messageIndex)
+specifier|public
+name|AssertionClause
+name|message
+parameter_list|(
+specifier|final
+name|int
+name|messageIndex
+parameter_list|)
+block|{
+name|AssertionClause
+name|clause
+init|=
+operator|new
+name|AssertionClause
+argument_list|()
+block|{
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+name|applyAssertionOn
+argument_list|(
+name|messageIndex
+argument_list|,
+name|assertExchangeReceived
+argument_list|(
+name|messageIndex
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+decl_stmt|;
+name|expects
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
+return|return
+name|clause
+return|;
+block|}
+comment|/**      * Adds an assertion to all the received messages      *      * @param messageIndex the number of the message      * @return the assertion clause      */
+DECL|method|allMessages ()
+specifier|public
+name|AssertionClause
+name|allMessages
+parameter_list|()
+block|{
+name|AssertionClause
+name|clause
+init|=
+operator|new
+name|AssertionClause
+argument_list|()
+block|{
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|list
+init|=
+name|getExchangesReceived
+argument_list|()
+decl_stmt|;
+name|int
+name|index
+init|=
+literal|0
+decl_stmt|;
+for|for
+control|(
+name|Exchange
+name|exchange
+range|:
+name|list
+control|)
+block|{
+name|applyAssertionOn
+argument_list|(
+name|index
+operator|++
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+decl_stmt|;
+name|expects
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
+return|return
+name|clause
+return|;
+block|}
+comment|/**      * Asserts that the given index of message is received (starting at zero)      */
+DECL|method|assertExchangeReceived (int index)
+specifier|public
+name|Exchange
+name|assertExchangeReceived
+parameter_list|(
+name|int
+name|index
+parameter_list|)
+block|{
+name|int
+name|count
+init|=
+name|getReceivedCounter
+argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Not enough messages received. Was: "
+operator|+
+name|count
+argument_list|,
+name|count
+operator|>
+name|index
+argument_list|)
+expr_stmt|;
+return|return
+name|getExchangesReceived
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|count
+argument_list|)
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getFailures ()
@@ -1127,9 +1274,7 @@ name|actualValue
 argument_list|)
 condition|)
 block|{
-throw|throw
-operator|new
-name|AssertionError
+name|fail
 argument_list|(
 name|message
 operator|+
@@ -1143,7 +1288,7 @@ name|actualValue
 operator|+
 literal|">"
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 DECL|method|assertTrue (String message, boolean predicate)
@@ -1164,14 +1309,34 @@ operator|!
 name|predicate
 condition|)
 block|{
+name|fail
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|fail (Object message)
+specifier|protected
+name|void
+name|fail
+parameter_list|(
+name|Object
+name|message
+parameter_list|)
+block|{
 throw|throw
 operator|new
 name|AssertionError
 argument_list|(
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|" "
+operator|+
 name|message
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 end_class
