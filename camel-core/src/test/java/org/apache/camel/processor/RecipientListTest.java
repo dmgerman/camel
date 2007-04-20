@@ -111,10 +111,10 @@ comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|RecipientTest
+DECL|class|RecipientListTest
 specifier|public
 class|class
-name|RecipientTest
+name|RecipientListTest
 extends|extends
 name|ContextTestSupport
 block|{
