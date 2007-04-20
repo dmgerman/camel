@@ -1532,10 +1532,10 @@ return|return
 name|getBuilder
 argument_list|()
 operator|.
-name|getTransactionInterceptor
+name|getTransactionPolicy
 argument_list|()
 operator|.
-name|addIntercetors
+name|wrap
 argument_list|(
 name|processor
 argument_list|)

@@ -38,7 +38,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Interceptor
+name|Policy
 import|;
 end_import
 
@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Delegate pattern which delegates processing to a nested processor which can be useful for implementation inheritence  * when writing an {@link Interceptor}  *  * @version $Revision: 519941 $  */
+comment|/**  * A Delegate pattern which delegates processing to a nested processor which can be useful for implementation inheritence  * when writing an {@link Policy}  *  * @version $Revision: 519941 $  */
 end_comment
 
 begin_class

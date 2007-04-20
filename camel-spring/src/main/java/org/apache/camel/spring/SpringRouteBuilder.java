@@ -52,7 +52,7 @@ name|spring
 operator|.
 name|spi
 operator|.
-name|SpringTransactionInterceptor
+name|SpringTransactionPolicy
 import|;
 end_import
 
@@ -147,10 +147,10 @@ argument_list|,
 name|transactionTemplateName
 argument_list|)
 decl_stmt|;
-name|setTransactionInterceptor
+name|setTransactionPolicy
 argument_list|(
 operator|new
-name|SpringTransactionInterceptor
+name|SpringTransactionPolicy
 argument_list|(
 name|template
 argument_list|)

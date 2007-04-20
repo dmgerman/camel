@@ -47,21 +47,21 @@ comment|/**  * A strategy capable of applying interceptors to a processor  *  * 
 end_comment
 
 begin_interface
-DECL|interface|Interceptor
+DECL|interface|Policy
 specifier|public
 interface|interface
-name|Interceptor
+name|Policy
 parameter_list|<
 name|E
 parameter_list|>
 block|{
-comment|/**      * Adds any applicable interceptors to the given processor      *      * @param processor the processor to be intercepted      * @return either the original processor or a processor wrapped in one or more interceptors      */
-DECL|method|addIntercetors (Processor<E> processor)
+comment|/**      * Wraps any applicable interceptors around the given processor      *      * @param processor the processor to be intercepted      * @return either the original processor or a processor wrapped in one or more interceptors      */
+DECL|method|wrap (Processor<E> processor)
 name|Processor
 argument_list|<
 name|E
 argument_list|>
-name|addIntercetors
+name|wrap
 parameter_list|(
 name|Processor
 argument_list|<

@@ -54,7 +54,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Interceptor
+name|Policy
 import|;
 end_import
 
@@ -131,15 +131,15 @@ comment|/**  * Wraps the processor in a Spring transaction  *  * @version $Revis
 end_comment
 
 begin_class
-DECL|class|SpringTransactionInterceptor
+DECL|class|SpringTransactionPolicy
 specifier|public
 class|class
-name|SpringTransactionInterceptor
+name|SpringTransactionPolicy
 parameter_list|<
 name|E
 parameter_list|>
 implements|implements
-name|Interceptor
+name|Policy
 argument_list|<
 name|E
 argument_list|>
@@ -156,7 +156,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|SpringTransactionInterceptor
+name|SpringTransactionPolicy
 operator|.
 name|class
 argument_list|)
@@ -166,14 +166,14 @@ specifier|private
 name|TransactionTemplate
 name|template
 decl_stmt|;
-DECL|method|SpringTransactionInterceptor ()
+DECL|method|SpringTransactionPolicy ()
 specifier|public
-name|SpringTransactionInterceptor
+name|SpringTransactionPolicy
 parameter_list|()
 block|{     }
-DECL|method|SpringTransactionInterceptor (TransactionTemplate template)
+DECL|method|SpringTransactionPolicy (TransactionTemplate template)
 specifier|public
-name|SpringTransactionInterceptor
+name|SpringTransactionPolicy
 parameter_list|(
 name|TransactionTemplate
 name|template
@@ -186,13 +186,13 @@ operator|=
 name|template
 expr_stmt|;
 block|}
-DECL|method|addIntercetors (Processor<E> processor)
+DECL|method|wrap (Processor<E> processor)
 specifier|public
 name|Processor
 argument_list|<
 name|E
 argument_list|>
-name|addIntercetors
+name|wrap
 parameter_list|(
 name|Processor
 argument_list|<

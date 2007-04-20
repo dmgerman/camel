@@ -26,7 +26,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Interceptor
+name|Policy
 import|;
 end_import
 
@@ -43,30 +43,30 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an {@link Interceptor} which adds no interceptors.  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents an {@link Policy} which adds no interceptors.  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|NoInterceptor
+DECL|class|NoPolicy
 specifier|public
 class|class
-name|NoInterceptor
+name|NoPolicy
 parameter_list|<
 name|E
 parameter_list|>
 implements|implements
-name|Interceptor
+name|Policy
 argument_list|<
 name|E
 argument_list|>
 block|{
-DECL|method|addIntercetors (Processor<E> processor)
+DECL|method|wrap (Processor<E> processor)
 specifier|public
 name|Processor
 argument_list|<
 name|E
 argument_list|>
-name|addIntercetors
+name|wrap
 parameter_list|(
 name|Processor
 argument_list|<

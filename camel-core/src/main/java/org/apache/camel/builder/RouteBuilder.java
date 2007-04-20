@@ -170,7 +170,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Interceptor
+name|Policy
 import|;
 end_import
 
@@ -226,7 +226,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|NoInterceptor
+name|NoPolicy
 import|;
 end_import
 
@@ -304,13 +304,13 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|transactionInterceptor
+DECL|field|transactionPolicy
 specifier|private
-name|Interceptor
+name|Policy
 argument_list|<
 name|E
 argument_list|>
-name|transactionInterceptor
+name|transactionPolicy
 decl_stmt|;
 DECL|method|RouteBuilder ()
 specifier|protected
@@ -469,22 +469,22 @@ name|this
 return|;
 block|}
 comment|/**      * Specifies the transaction interceptor to be used for routes created from this builder      *      * @param interceptor the transaction interceptor to use      * @return the current builder      */
-DECL|method|transactionInterceptor (Interceptor<E> interceptor)
+DECL|method|transactionPolicy (Policy<E> interceptor)
 specifier|public
 name|RouteBuilder
 argument_list|<
 name|E
 argument_list|>
-name|transactionInterceptor
+name|transactionPolicy
 parameter_list|(
-name|Interceptor
+name|Policy
 argument_list|<
 name|E
 argument_list|>
 name|interceptor
 parameter_list|)
 block|{
-name|setTransactionInterceptor
+name|setTransactionPolicy
 argument_list|(
 name|interceptor
 argument_list|)
@@ -575,41 +575,41 @@ return|return
 name|fromBuilders
 return|;
 block|}
-DECL|method|getTransactionInterceptor ()
+DECL|method|getTransactionPolicy ()
 specifier|public
-name|Interceptor
+name|Policy
 argument_list|<
 name|E
 argument_list|>
-name|getTransactionInterceptor
+name|getTransactionPolicy
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 if|if
 condition|(
-name|transactionInterceptor
+name|transactionPolicy
 operator|==
 literal|null
 condition|)
 block|{
-name|transactionInterceptor
+name|transactionPolicy
 operator|=
-name|createTransactionInterceptor
+name|createTransactionPolicy
 argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|transactionInterceptor
+name|transactionPolicy
 return|;
 block|}
 comment|/**      * Sets the interceptor used wrap processors in a transaction      */
-DECL|method|setTransactionInterceptor (Interceptor<E> transactionInterceptor)
+DECL|method|setTransactionPolicy (Policy<E> transactionInterceptor)
 specifier|public
 name|void
-name|setTransactionInterceptor
+name|setTransactionPolicy
 parameter_list|(
-name|Interceptor
+name|Policy
 argument_list|<
 name|E
 argument_list|>
@@ -618,7 +618,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|transactionInterceptor
+name|transactionPolicy
 operator|=
 name|transactionInterceptor
 expr_stmt|;
@@ -787,13 +787,13 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Factory method      */
-DECL|method|createTransactionInterceptor ()
+DECL|method|createTransactionPolicy ()
 specifier|protected
-name|Interceptor
+name|Policy
 argument_list|<
 name|E
 argument_list|>
-name|createTransactionInterceptor
+name|createTransactionPolicy
 parameter_list|()
 throws|throws
 name|Exception
@@ -809,7 +809,7 @@ try|try
 block|{
 return|return
 operator|(
-name|Interceptor
+name|Policy
 argument_list|<
 name|E
 argument_list|>
@@ -818,7 +818,7 @@ name|finder
 operator|.
 name|newInstance
 argument_list|(
-literal|"TransactionInterceptor"
+literal|"TransactionPolicy"
 argument_list|,
 name|getContext
 argument_list|()
@@ -837,7 +837,7 @@ block|{
 comment|// lets use the default
 return|return
 operator|new
-name|NoInterceptor
+name|NoPolicy
 argument_list|<
 name|E
 argument_list|>
