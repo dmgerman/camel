@@ -265,8 +265,6 @@ name|MockEndpoint
 operator|)
 name|resolveMandatoryEndpoint
 argument_list|(
-name|context
-argument_list|,
 literal|"mock:x"
 argument_list|)
 expr_stmt|;
@@ -277,8 +275,6 @@ name|MockEndpoint
 operator|)
 name|resolveMandatoryEndpoint
 argument_list|(
-name|context
-argument_list|,
 literal|"mock:y"
 argument_list|)
 expr_stmt|;
@@ -289,8 +285,6 @@ name|MockEndpoint
 operator|)
 name|resolveMandatoryEndpoint
 argument_list|(
-name|context
-argument_list|,
 literal|"mock:z"
 argument_list|)
 expr_stmt|;

@@ -229,8 +229,6 @@ name|MockEndpoint
 operator|)
 name|resolveMandatoryEndpoint
 argument_list|(
-name|context
-argument_list|,
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
