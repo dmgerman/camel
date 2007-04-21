@@ -957,6 +957,10 @@ parameter_list|()
 block|{
 name|applyAssertionOn
 argument_list|(
+name|MockEndpoint
+operator|.
+name|this
+argument_list|,
 name|messageIndex
 argument_list|,
 name|assertExchangeReceived
@@ -977,7 +981,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Adds an assertion to all the received messages      *      * @param messageIndex the number of the message      * @return the assertion clause      */
+comment|/**      * Adds an assertion to all the received messages      *      * @return the assertion clause      */
 DECL|method|allMessages ()
 specifier|public
 name|AssertionClause
@@ -1020,6 +1024,10 @@ control|)
 block|{
 name|applyAssertionOn
 argument_list|(
+name|MockEndpoint
+operator|.
+name|this
+argument_list|,
 name|index
 operator|++
 argument_list|,
@@ -1072,7 +1080,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|count
+name|index
 argument_list|)
 return|;
 block|}

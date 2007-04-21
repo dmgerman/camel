@@ -43,6 +43,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -116,6 +128,26 @@ name|ValueBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * A builder of assertions on message exchanges  *  * @version $Revision: 1.1 $  */
 end_comment
@@ -134,12 +166,58 @@ parameter_list|>
 implements|implements
 name|Runnable
 block|{
+DECL|field|predicates
+specifier|private
+name|List
+argument_list|<
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+argument_list|>
+name|predicates
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|// Builder methods
 comment|//-------------------------------------------------------------------------
+comment|/**      * Adds the given predicate to this assertion clause      */
+DECL|method|predicate (Predicate<E> predicate)
+specifier|public
+name|AssertionClause
+argument_list|<
+name|E
+argument_list|>
+name|predicate
+parameter_list|(
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+name|predicate
+parameter_list|)
+block|{
+name|addPredicate
+argument_list|(
+name|predicate
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Returns a predicate and value builder for headers on an exchange      */
 annotation|@
 name|Fluent
-DECL|method|header (@luentArgR) String name)
+DECL|method|header (@luentArgR)String name)
 specifier|public
 name|ValueBuilder
 argument_list|<
@@ -169,10 +247,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
+name|PredicateValueBuilder
 argument_list|(
 name|expression
 argument_list|)
@@ -183,10 +258,7 @@ annotation|@
 name|Fluent
 DECL|method|body ()
 specifier|public
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
+name|PredicateValueBuilder
 name|body
 parameter_list|()
 block|{
@@ -201,10 +273,7 @@ argument_list|()
 decl_stmt|;
 return|return
 operator|new
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
+name|PredicateValueBuilder
 argument_list|(
 name|expression
 argument_list|)
@@ -213,15 +282,12 @@ block|}
 comment|/**      * Returns a predicate and value builder for the inbound message body as a specific type      */
 annotation|@
 name|Fluent
-DECL|method|bodyAs (@luentArgR) Class<T> type)
+DECL|method|bodyAs (@luentArgR)Class<T> type)
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
+name|PredicateValueBuilder
 name|bodyAs
 parameter_list|(
 annotation|@
@@ -249,10 +315,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
+name|PredicateValueBuilder
 argument_list|(
 name|expression
 argument_list|)
@@ -263,10 +326,7 @@ annotation|@
 name|Fluent
 DECL|method|outBody ()
 specifier|public
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
+name|PredicateValueBuilder
 name|outBody
 parameter_list|()
 block|{
@@ -281,10 +341,7 @@ argument_list|()
 decl_stmt|;
 return|return
 operator|new
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
+name|PredicateValueBuilder
 argument_list|(
 name|expression
 argument_list|)
@@ -293,15 +350,12 @@ block|}
 comment|/**      * Returns a predicate and value builder for the outbound message body as a specific type      */
 annotation|@
 name|Fluent
-DECL|method|outBody (@luentArgR) Class<T> type)
+DECL|method|outBody (@luentArgR)Class<T> type)
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
+name|PredicateValueBuilder
 name|outBody
 parameter_list|(
 annotation|@
@@ -329,29 +383,144 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
+name|PredicateValueBuilder
 argument_list|(
 name|expression
 argument_list|)
 return|;
 block|}
 comment|/**      * Performs any assertions on the given exchange      */
-DECL|method|applyAssertionOn (int index, Exchange exchange)
+DECL|method|applyAssertionOn (MockEndpoint endpoint, int index, E exchange)
 specifier|protected
 name|void
 name|applyAssertionOn
 parameter_list|(
+name|MockEndpoint
+name|endpoint
+parameter_list|,
 name|int
 name|index
 parameter_list|,
-name|Exchange
+name|E
 name|exchange
 parameter_list|)
 block|{
-comment|// TODO perform the predicate on the given exchange
+for|for
+control|(
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+name|predicate
+range|:
+name|predicates
+control|)
+block|{
+if|if
+condition|(
+operator|!
+name|predicate
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+name|endpoint
+operator|.
+name|fail
+argument_list|(
+literal|"Message "
+operator|+
+name|index
+operator|+
+literal|" failed Predicate "
+operator|+
+name|predicate
+operator|+
+literal|" with "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+DECL|method|addPredicate (Predicate<E> predicate)
+specifier|protected
+name|void
+name|addPredicate
+parameter_list|(
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+name|predicate
+parameter_list|)
+block|{
+name|predicates
+operator|.
+name|add
+argument_list|(
+name|predicate
+argument_list|)
+expr_stmt|;
+block|}
+DECL|class|PredicateValueBuilder
+specifier|protected
+class|class
+name|PredicateValueBuilder
+extends|extends
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+block|{
+DECL|method|PredicateValueBuilder (Expression<E> expression)
+specifier|public
+name|PredicateValueBuilder
+parameter_list|(
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+name|expression
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|onNewPredicate (Predicate<E> predicate)
+specifier|protected
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+name|onNewPredicate
+parameter_list|(
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+name|predicate
+parameter_list|)
+block|{
+comment|//addPredicate(predicate);
+name|predicates
+operator|.
+name|add
+argument_list|(
+name|predicate
+argument_list|)
+expr_stmt|;
+return|return
+name|predicate
+return|;
+block|}
 block|}
 block|}
 end_class

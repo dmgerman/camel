@@ -157,6 +157,8 @@ name|value
 argument_list|)
 decl_stmt|;
 return|return
+name|onNewPredicate
+argument_list|(
 name|PredicateBuilder
 operator|.
 name|isNotEqualTo
@@ -164,6 +166,7 @@ argument_list|(
 name|expression
 argument_list|,
 name|right
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -200,6 +203,8 @@ name|value
 argument_list|)
 decl_stmt|;
 return|return
+name|onNewPredicate
+argument_list|(
 name|PredicateBuilder
 operator|.
 name|isEqualTo
@@ -207,6 +212,7 @@ argument_list|(
 name|expression
 argument_list|,
 name|right
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -243,6 +249,8 @@ name|value
 argument_list|)
 decl_stmt|;
 return|return
+name|onNewPredicate
+argument_list|(
 name|PredicateBuilder
 operator|.
 name|isLessThan
@@ -250,6 +258,7 @@ argument_list|(
 name|expression
 argument_list|,
 name|right
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -286,6 +295,8 @@ name|value
 argument_list|)
 decl_stmt|;
 return|return
+name|onNewPredicate
+argument_list|(
 name|PredicateBuilder
 operator|.
 name|isLessThanOrEqualTo
@@ -293,6 +304,7 @@ argument_list|(
 name|expression
 argument_list|,
 name|right
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -329,6 +341,8 @@ name|value
 argument_list|)
 decl_stmt|;
 return|return
+name|onNewPredicate
+argument_list|(
 name|PredicateBuilder
 operator|.
 name|isGreaterThan
@@ -336,6 +350,7 @@ argument_list|(
 name|expression
 argument_list|,
 name|right
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -372,6 +387,8 @@ name|value
 argument_list|)
 decl_stmt|;
 return|return
+name|onNewPredicate
+argument_list|(
 name|PredicateBuilder
 operator|.
 name|isGreaterThanOrEqualTo
@@ -379,6 +396,7 @@ argument_list|(
 name|expression
 argument_list|,
 name|right
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -402,6 +420,8 @@ name|type
 parameter_list|)
 block|{
 return|return
+name|onNewPredicate
+argument_list|(
 name|PredicateBuilder
 operator|.
 name|isInstanceOf
@@ -409,6 +429,7 @@ argument_list|(
 name|expression
 argument_list|,
 name|type
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -432,6 +453,8 @@ name|regex
 parameter_list|)
 block|{
 return|return
+name|onNewPredicate
+argument_list|(
 name|PredicateBuilder
 operator|.
 name|regex
@@ -439,6 +462,7 @@ argument_list|(
 name|expression
 argument_list|,
 name|regex
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -454,11 +478,14 @@ name|isNull
 parameter_list|()
 block|{
 return|return
+name|onNewPredicate
+argument_list|(
 name|PredicateBuilder
 operator|.
 name|isNull
 argument_list|(
 name|expression
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -474,11 +501,14 @@ name|isNotNull
 parameter_list|()
 block|{
 return|return
+name|onNewPredicate
+argument_list|(
 name|PredicateBuilder
 operator|.
 name|isNotNull
 argument_list|(
 name|expression
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -610,6 +640,26 @@ name|String
 operator|.
 name|class
 argument_list|)
+return|;
+block|}
+comment|/**      * A stategy method to allow derived classes to deal with the newly created predicate      * in different ways      */
+DECL|method|onNewPredicate (Predicate<E> predicate)
+specifier|protected
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+name|onNewPredicate
+parameter_list|(
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+name|predicate
+parameter_list|)
+block|{
+return|return
+name|predicate
 return|;
 block|}
 block|}

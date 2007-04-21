@@ -169,6 +169,7 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
+comment|//successEndpoint.message(0).header(DeadLetterChannel.REDELIVERED).isEqualTo(true);
 name|deadEndpoint
 operator|.
 name|expectedMessageCount
