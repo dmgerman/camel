@@ -291,13 +291,13 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|exchangesReceived
+DECL|field|receivedExchanges
 specifier|private
 name|List
 argument_list|<
 name|Exchange
 argument_list|>
-name|exchangesReceived
+name|receivedExchanges
 init|=
 operator|new
 name|ArrayList
@@ -810,7 +810,7 @@ block|{
 name|Exchange
 name|exchange
 init|=
-name|getExchangesReceived
+name|getReceivedExchanges
 argument_list|()
 operator|.
 name|get
@@ -1006,7 +1006,7 @@ name|Exchange
 argument_list|>
 name|list
 init|=
-name|getExchangesReceived
+name|getReceivedExchanges
 argument_list|()
 decl_stmt|;
 name|int
@@ -1075,7 +1075,7 @@ name|index
 argument_list|)
 expr_stmt|;
 return|return
-name|getExchangesReceived
+name|getReceivedExchanges
 argument_list|()
 operator|.
 name|get
@@ -1106,24 +1106,24 @@ name|getReceivedCounter
 parameter_list|()
 block|{
 return|return
-name|getExchangesReceived
+name|getReceivedExchanges
 argument_list|()
 operator|.
 name|size
 argument_list|()
 return|;
 block|}
-DECL|method|getExchangesReceived ()
+DECL|method|getReceivedExchanges ()
 specifier|public
 name|List
 argument_list|<
 name|Exchange
 argument_list|>
-name|getExchangesReceived
+name|getReceivedExchanges
 parameter_list|()
 block|{
 return|return
-name|exchangesReceived
+name|receivedExchanges
 return|;
 block|}
 DECL|method|getExpectedCount ()
@@ -1189,7 +1189,7 @@ operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
-name|exchangesReceived
+name|receivedExchanges
 operator|.
 name|add
 argument_list|(
