@@ -729,37 +729,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an {@link IdempotentConsumer} to avoid duplicate messages      */
-DECL|method|idempotentConsumer (ExpressionFactory<E> messageIdExpressionFactory, MessageIdRepository messageIdRepository)
-specifier|public
-name|IdempotentConsumerBuilder
-argument_list|<
-name|E
-argument_list|>
-name|idempotentConsumer
-parameter_list|(
-name|ExpressionFactory
-argument_list|<
-name|E
-argument_list|>
-name|messageIdExpressionFactory
-parameter_list|,
-name|MessageIdRepository
-name|messageIdRepository
-parameter_list|)
-block|{
-return|return
-name|idempotentConsumer
-argument_list|(
-name|messageIdExpressionFactory
-operator|.
-name|createExpression
-argument_list|()
-argument_list|,
-name|messageIdRepository
-argument_list|)
-return|;
-block|}
 comment|/**      * Creates a predicate which is applied and only if it is true then      * the exchange is forwarded to the destination      *      * @return the builder for a predicate      */
 annotation|@
 name|Fluent
@@ -1242,34 +1211,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
-return|;
-block|}
-comment|/**      * Adds a processor which sets the body on the IN message      */
-annotation|@
-name|Fluent
-DECL|method|setBody (ExpressionFactory<E> expressionFactory)
-specifier|public
-name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
-name|setBody
-parameter_list|(
-name|ExpressionFactory
-argument_list|<
-name|E
-argument_list|>
-name|expressionFactory
-parameter_list|)
-block|{
-return|return
-name|setBody
-argument_list|(
-name|expressionFactory
-operator|.
-name|createExpression
-argument_list|()
-argument_list|)
 return|;
 block|}
 comment|/**      * Adds a processor which sets the body on the OUT message      */

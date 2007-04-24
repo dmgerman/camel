@@ -56,10 +56,6 @@ begin_comment
 comment|/**  * A builder of expressions or predicates based on values.  *  * @version $Revision: $  */
 end_comment
 
-begin_comment
-comment|//public class ValueBuilder<E extends Exchange> implements Expression<E>, ExpressionFactory<E> {
-end_comment
-
 begin_class
 DECL|class|ValueBuilder
 specifier|public
@@ -71,7 +67,7 @@ extends|extends
 name|Exchange
 parameter_list|>
 implements|implements
-name|ExpressionFactory
+name|Expression
 argument_list|<
 name|E
 argument_list|>
@@ -127,19 +123,6 @@ argument_list|<
 name|E
 argument_list|>
 name|getExpression
-parameter_list|()
-block|{
-return|return
-name|expression
-return|;
-block|}
-DECL|method|createExpression ()
-specifier|public
-name|Expression
-argument_list|<
-name|E
-argument_list|>
-name|createExpression
 parameter_list|()
 block|{
 return|return
@@ -936,29 +919,6 @@ name|E
 argument_list|>
 operator|)
 name|value
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|value
-operator|instanceof
-name|ExpressionFactory
-condition|)
-block|{
-name|ExpressionFactory
-name|expressionFactory
-init|=
-operator|(
-name|ExpressionFactory
-operator|)
-name|value
-decl_stmt|;
-return|return
-name|expressionFactory
-operator|.
-name|createExpression
-argument_list|()
 return|;
 block|}
 else|else
