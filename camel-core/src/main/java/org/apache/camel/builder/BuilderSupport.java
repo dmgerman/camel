@@ -18,26 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -69,18 +49,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Expression
 import|;
 end_import
 
@@ -140,8 +108,28 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
-comment|/**  * Base class for implementation inheritance  *  * @version $Revision: $  */
+comment|/**  * Base class for implementation inheritance for different clauses in the   *<a href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -243,12 +231,242 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// Helper methods
+comment|// Builder methods
 comment|//-------------------------------------------------------------------------
+comment|/**      * Returns a value builder for the given header      */
+annotation|@
+name|Fluent
+DECL|method|header (@luentArgR)String name)
+specifier|public
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|header
+parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"name"
+argument_list|)
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+expr|<
+name|E
+operator|>
+name|header
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a predicate and value builder for the inbound body on an exchange      */
+annotation|@
+name|Fluent
+DECL|method|body ()
+specifier|public
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|body
+parameter_list|()
+block|{
+return|return
+name|Builder
+operator|.
+expr|<
+name|E
+operator|>
+name|body
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns a predicate and value builder for the inbound message body as a specific type      */
+annotation|@
+name|Fluent
+DECL|method|bodyAs (@luentArgR)Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|bodyAs
+parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"class"
+argument_list|)
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+expr|<
+name|E
+operator|,
+name|T
+operator|>
+name|bodyAs
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a predicate and value builder for the outbound body on an exchange      */
+annotation|@
+name|Fluent
+DECL|method|outBody ()
+specifier|public
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|outBody
+parameter_list|()
+block|{
+return|return
+name|Builder
+operator|.
+expr|<
+name|E
+operator|>
+name|outBody
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns a predicate and value builder for the outbound message body as a specific type      */
+annotation|@
+name|Fluent
+DECL|method|outBody (@luentArgR)Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|outBody
+parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"class"
+argument_list|)
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+expr|<
+name|E
+operator|,
+name|T
+operator|>
+name|outBody
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a value builder for the given system property      */
+annotation|@
+name|Fluent
+DECL|method|systemProperty (@luentArgR)String name)
+specifier|public
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|systemProperty
+parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"name"
+argument_list|)
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+expr|<
+name|E
+operator|>
+name|systemProperty
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a value builder for the given system property      */
+annotation|@
+name|Fluent
+DECL|method|systemProperty ( @luentArgR)String name, @FluentArg(R)String defaultValue)
+specifier|public
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|systemProperty
+parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"name"
+argument_list|)
+name|String
+name|name
+parameter_list|,
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"defaultValue"
+argument_list|)
+name|String
+name|defaultValue
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+expr|<
+name|E
+operator|>
+name|systemProperty
+argument_list|(
+name|name
+argument_list|,
+name|defaultValue
+argument_list|)
+return|;
+block|}
 comment|/**      * Resolves the given URI to an endpoint      */
 annotation|@
 name|Fluent
-DECL|method|endpoint (@luentArgR) String uri)
+DECL|method|endpoint (@luentArgR)String uri)
 specifier|public
 name|Endpoint
 argument_list|<
@@ -278,7 +496,7 @@ block|}
 comment|/**      * Resolves the list of URIs into a list of {@link Endpoint} instances      */
 annotation|@
 name|Fluent
-DECL|method|endpoints (@luentArgR) String... uris)
+DECL|method|endpoints (@luentArgR)String... uris)
 specifier|public
 name|List
 argument_list|<
@@ -344,7 +562,7 @@ block|}
 comment|/**      * Helper method to create a list of {@link Endpoint} instances      */
 annotation|@
 name|Fluent
-DECL|method|endpoints (@luentArgR) Endpoint<E>.... endpoints)
+DECL|method|endpoints (@luentArgR)Endpoint<E>.... endpoints)
 specifier|public
 name|List
 argument_list|<
@@ -410,220 +628,6 @@ return|return
 name|answer
 return|;
 block|}
-comment|// Builder methods
-comment|//-------------------------------------------------------------------------
-comment|/**      * Returns a predicate and value builder for headers on an exchange      */
-annotation|@
-name|Fluent
-DECL|method|header (@luentArgR) String name)
-specifier|public
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
-name|header
-parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"name"
-argument_list|)
-name|String
-name|name
-parameter_list|)
-block|{
-name|Expression
-argument_list|<
-name|E
-argument_list|>
-name|expression
-init|=
-name|ExpressionBuilder
-operator|.
-name|headerExpression
-argument_list|(
-name|name
-argument_list|)
-decl_stmt|;
-return|return
-operator|new
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
-argument_list|(
-name|expression
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for the inbound body on an exchange      */
-annotation|@
-name|Fluent
-DECL|method|body ()
-specifier|public
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
-name|body
-parameter_list|()
-block|{
-name|Expression
-argument_list|<
-name|E
-argument_list|>
-name|expression
-init|=
-name|ExpressionBuilder
-operator|.
-name|bodyExpression
-argument_list|()
-decl_stmt|;
-return|return
-operator|new
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
-argument_list|(
-name|expression
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for the inbound message body as a specific type      */
-annotation|@
-name|Fluent
-DECL|method|bodyAs (@luentArgR) Class<T> type)
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
-name|bodyAs
-parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"class"
-argument_list|)
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
-block|{
-name|Expression
-argument_list|<
-name|E
-argument_list|>
-name|expression
-init|=
-name|ExpressionBuilder
-operator|.
-name|bodyExpression
-argument_list|(
-name|type
-argument_list|)
-decl_stmt|;
-return|return
-operator|new
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
-argument_list|(
-name|expression
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for the outbound body on an exchange      */
-annotation|@
-name|Fluent
-DECL|method|outBody ()
-specifier|public
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
-name|outBody
-parameter_list|()
-block|{
-name|Expression
-argument_list|<
-name|E
-argument_list|>
-name|expression
-init|=
-name|ExpressionBuilder
-operator|.
-name|bodyExpression
-argument_list|()
-decl_stmt|;
-return|return
-operator|new
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
-argument_list|(
-name|expression
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for the outbound message body as a specific type      */
-annotation|@
-name|Fluent
-DECL|method|outBody (@luentArgR) Class<T> type)
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
-name|outBody
-parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"class"
-argument_list|)
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
-block|{
-name|Expression
-argument_list|<
-name|E
-argument_list|>
-name|expression
-init|=
-name|ExpressionBuilder
-operator|.
-name|bodyExpression
-argument_list|(
-name|type
-argument_list|)
-decl_stmt|;
-return|return
-operator|new
-name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
-argument_list|(
-name|expression
-argument_list|)
-return|;
-block|}
 comment|/**      * Creates a disabled error handler for removing the default error handler      */
 annotation|@
 name|Fluent
@@ -669,7 +673,7 @@ block|}
 comment|/**      * Creates an error handler which just logs errors      */
 annotation|@
 name|Fluent
-DECL|method|loggingErrorHandler (@luentArgR) String log)
+DECL|method|loggingErrorHandler (@luentArgR)String log)
 specifier|public
 name|LoggingErrorHandlerBuilder
 argument_list|<
@@ -701,7 +705,7 @@ block|}
 comment|/**      * Creates an error handler which just logs errors      */
 annotation|@
 name|Fluent
-DECL|method|loggingErrorHandler (@luentArgR) Log log)
+DECL|method|loggingErrorHandler (@luentArgR)Log log)
 specifier|public
 name|LoggingErrorHandlerBuilder
 argument_list|<
@@ -732,7 +736,7 @@ block|}
 comment|/**      * Creates an error handler which just logs errors      */
 annotation|@
 name|Fluent
-DECL|method|loggingErrorHandler (@luentArgR) Log log, @FluentArg(R) LoggingLevel level)
+DECL|method|loggingErrorHandler ( @luentArgR)Log log, @FluentArg(R)LoggingLevel level)
 specifier|public
 name|LoggingErrorHandlerBuilder
 argument_list|<
@@ -792,7 +796,7 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|deadLetterChannel (@luentArgR) String deadLetterUri)
+DECL|method|deadLetterChannel (@luentArgR)String deadLetterUri)
 specifier|public
 name|DeadLetterChannelBuilder
 argument_list|<
@@ -821,7 +825,7 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|deadLetterChannel (@luentArgR) Endpoint<E> deadLetterEndpoint)
+DECL|method|deadLetterChannel (@luentArgR)Endpoint<E> deadLetterEndpoint)
 specifier|public
 name|DeadLetterChannelBuilder
 argument_list|<

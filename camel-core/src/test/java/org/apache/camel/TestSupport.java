@@ -348,13 +348,87 @@ name|value
 return|;
 block|}
 comment|/**      * Asserts that the predicate returns the expected value on the exchange      */
-DECL|method|assertPredicate (Predicate expression, Exchange exchange, boolean expected)
+DECL|method|assertPredicateMatches (Predicate predicate, Exchange exchange)
+specifier|protected
+name|void
+name|assertPredicateMatches
+parameter_list|(
+name|Predicate
+name|predicate
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|assertPredicate
+argument_list|(
+name|predicate
+argument_list|,
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Asserts that the predicate returns the expected value on the exchange      */
+DECL|method|assertPredicateDoesNotMatch (Predicate predicate, Exchange exchange)
+specifier|protected
+name|void
+name|assertPredicateDoesNotMatch
+parameter_list|(
+name|Predicate
+name|predicate
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+try|try
+block|{
+name|predicate
+operator|.
+name|assertMatches
+argument_list|(
+literal|"Predicate should match"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|AssertionError
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Caught expected assertion error: "
+operator|+
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+name|assertPredicate
+argument_list|(
+name|predicate
+argument_list|,
+name|exchange
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Asserts that the predicate returns the expected value on the exchange      */
+DECL|method|assertPredicate (Predicate predicate, Exchange exchange, boolean expected)
 specifier|protected
 name|boolean
 name|assertPredicate
 parameter_list|(
 name|Predicate
-name|expression
+name|predicate
 parameter_list|,
 name|Exchange
 name|exchange
@@ -363,10 +437,25 @@ name|boolean
 name|expected
 parameter_list|)
 block|{
+if|if
+condition|(
+name|expected
+condition|)
+block|{
+name|predicate
+operator|.
+name|assertMatches
+argument_list|(
+literal|"Predicate failed"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 name|boolean
 name|value
 init|=
-name|expression
+name|predicate
 operator|.
 name|matches
 argument_list|(
@@ -379,7 +468,7 @@ name|debug
 argument_list|(
 literal|"Evaluated predicate: "
 operator|+
-name|expression
+name|predicate
 operator|+
 literal|" on exchange: "
 operator|+
@@ -394,7 +483,7 @@ name|assertEquals
 argument_list|(
 literal|"Predicate: "
 operator|+
-name|expression
+name|predicate
 operator|+
 literal|" on Exchange: "
 operator|+

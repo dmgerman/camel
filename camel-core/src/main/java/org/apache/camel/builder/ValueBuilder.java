@@ -124,9 +124,11 @@ return|return
 name|expression
 return|;
 block|}
+comment|// Predicate builders
+comment|//-------------------------------------------------------------------------
 annotation|@
 name|Fluent
-DECL|method|isNotEqualTo (@luentArgR) Object value)
+DECL|method|isNotEqualTo (@luentArgR)Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -149,9 +151,7 @@ name|E
 argument_list|>
 name|right
 init|=
-name|ExpressionBuilder
-operator|.
-name|constantExpression
+name|asExpression
 argument_list|(
 name|value
 argument_list|)
@@ -172,7 +172,7 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|isEqualTo (@luentArgR) Object value)
+DECL|method|isEqualTo (@luentArgR)Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -195,9 +195,7 @@ name|E
 argument_list|>
 name|right
 init|=
-name|ExpressionBuilder
-operator|.
-name|constantExpression
+name|asExpression
 argument_list|(
 name|value
 argument_list|)
@@ -218,7 +216,7 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|isLessThan (@luentArgR) Object value)
+DECL|method|isLessThan (@luentArgR)Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -241,9 +239,7 @@ name|E
 argument_list|>
 name|right
 init|=
-name|ExpressionBuilder
-operator|.
-name|constantExpression
+name|asExpression
 argument_list|(
 name|value
 argument_list|)
@@ -264,7 +260,7 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|isLessThanOrEqualTo (@luentArgR) Object value)
+DECL|method|isLessThanOrEqualTo (@luentArgR)Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -287,9 +283,7 @@ name|E
 argument_list|>
 name|right
 init|=
-name|ExpressionBuilder
-operator|.
-name|constantExpression
+name|asExpression
 argument_list|(
 name|value
 argument_list|)
@@ -310,7 +304,7 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|isGreaterThan (@luentArgR) Object value)
+DECL|method|isGreaterThan (@luentArgR)Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -333,9 +327,7 @@ name|E
 argument_list|>
 name|right
 init|=
-name|ExpressionBuilder
-operator|.
-name|constantExpression
+name|asExpression
 argument_list|(
 name|value
 argument_list|)
@@ -356,7 +348,7 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|isGreaterThanOrEqualTo (@luentArgR) Object value)
+DECL|method|isGreaterThanOrEqualTo (@luentArgR)Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -379,9 +371,7 @@ name|E
 argument_list|>
 name|right
 init|=
-name|ExpressionBuilder
-operator|.
-name|constantExpression
+name|asExpression
 argument_list|(
 name|value
 argument_list|)
@@ -402,7 +392,7 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|isInstanceOf (@luentArgR) Class type)
+DECL|method|isInstanceOf (@luentArgR)Class type)
 specifier|public
 name|Predicate
 argument_list|<
@@ -435,7 +425,7 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|matchesRegex (@luentArgR) String regex)
+DECL|method|matchesRegex (@luentArgR)String regex)
 specifier|public
 name|Predicate
 argument_list|<
@@ -512,6 +502,37 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a predicate which is true if this expression matches the given regular expression      *      * @param regex the regular expression to match      * @return a predicate which evaluates to true if the expression matches the regex      */
+annotation|@
+name|Fluent
+DECL|method|regex (String regex)
+specifier|public
+name|Predicate
+argument_list|<
+name|E
+argument_list|>
+name|regex
+parameter_list|(
+name|String
+name|regex
+parameter_list|)
+block|{
+return|return
+name|onNewPredicate
+argument_list|(
+name|PredicateBuilder
+operator|.
+name|regex
+argument_list|(
+name|expression
+argument_list|,
+name|regex
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|// Transformers
+comment|//-------------------------------------------------------------------------
 annotation|@
 name|Fluent
 DECL|method|tokenize ()
@@ -532,7 +553,7 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|tokenize (@luentArgR) String token)
+DECL|method|tokenize (@luentArgR)String token)
 specifier|public
 name|ValueBuilder
 argument_list|<
@@ -575,10 +596,171 @@ name|newExp
 argument_list|)
 return|;
 block|}
+comment|/**      * Tokenizes the string conversion of this expression using the given regular expression      */
+annotation|@
+name|Fluent
+DECL|method|regexTokenize (@luentArgR)String regex)
+specifier|public
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|regexTokenize
+parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"regex"
+argument_list|)
+name|String
+name|regex
+parameter_list|)
+block|{
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+name|newExp
+init|=
+name|ExpressionBuilder
+operator|.
+name|regexTokenize
+argument_list|(
+name|expression
+argument_list|,
+name|regex
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|newExp
+argument_list|)
+return|;
+block|}
+comment|/**      * Replaces all occurrencies of the regular expression with the given replacement      */
+annotation|@
+name|Fluent
+DECL|method|regexReplaceAll (@luentArgR)String regex, @FluentArg(R)String replacement)
+specifier|public
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|regexReplaceAll
+parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"regex"
+argument_list|)
+name|String
+name|regex
+parameter_list|,
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"replacement"
+argument_list|)
+name|String
+name|replacement
+parameter_list|)
+block|{
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+name|newExp
+init|=
+name|ExpressionBuilder
+operator|.
+name|regexReplaceAll
+argument_list|(
+name|expression
+argument_list|,
+name|regex
+argument_list|,
+name|replacement
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|newExp
+argument_list|)
+return|;
+block|}
+comment|/**      * Replaces all occurrencies of the regular expression with the given replacement      */
+annotation|@
+name|Fluent
+DECL|method|regexReplaceAll (@luentArgR)String regex, @FluentArg(R)Expression<E> replacement)
+specifier|public
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|regexReplaceAll
+parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"regex"
+argument_list|)
+name|String
+name|regex
+parameter_list|,
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"replacement"
+argument_list|)
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+name|replacement
+parameter_list|)
+block|{
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+name|newExp
+init|=
+name|ExpressionBuilder
+operator|.
+name|regexReplaceAll
+argument_list|(
+name|expression
+argument_list|,
+name|regex
+argument_list|,
+name|replacement
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|newExp
+argument_list|)
+return|;
+block|}
 comment|/**      * Converts the current value to the given type using the registered type converters      *      * @param type the type to convert the value to      * @return the current builder      */
 annotation|@
 name|Fluent
-DECL|method|convertTo (@luentArgR) Class type)
+DECL|method|convertTo (@luentArgR)Class type)
 specifier|public
 name|ValueBuilder
 argument_list|<
@@ -642,6 +824,8 @@ name|class
 argument_list|)
 return|;
 block|}
+comment|// Implementation methods
+comment|//-------------------------------------------------------------------------
 comment|/**      * A stategy method to allow derived classes to deal with the newly created predicate      * in different ways      */
 DECL|method|onNewPredicate (Predicate<E> predicate)
 specifier|protected
@@ -661,6 +845,70 @@ block|{
 return|return
 name|predicate
 return|;
+block|}
+DECL|method|asExpression (Object value)
+specifier|protected
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+name|asExpression
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+name|value
+operator|instanceof
+name|Expression
+condition|)
+block|{
+return|return
+operator|(
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+operator|)
+name|value
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|value
+operator|instanceof
+name|ExpressionFactory
+condition|)
+block|{
+name|ExpressionFactory
+name|expressionFactory
+init|=
+operator|(
+name|ExpressionFactory
+operator|)
+name|value
+decl_stmt|;
+return|return
+name|expressionFactory
+operator|.
+name|createExpression
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+name|ExpressionBuilder
+operator|.
+name|constantExpression
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
 block|}
 block|}
 end_class
