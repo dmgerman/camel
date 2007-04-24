@@ -129,6 +129,21 @@ return|return
 name|expression
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|expression
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
 comment|// Predicate builders
 comment|//-------------------------------------------------------------------------
 annotation|@
