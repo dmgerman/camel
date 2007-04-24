@@ -48,11 +48,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|builder
 operator|.
-name|spi
-operator|.
-name|SpringTransactionPolicy
+name|RouteBuilder
 import|;
 end_import
 
@@ -64,9 +62,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|spring
 operator|.
-name|RouteBuilder
+name|spi
+operator|.
+name|SpringTransactionPolicy
 import|;
 end_import
 
@@ -123,13 +123,13 @@ name|ApplicationContext
 name|applicationContext
 decl_stmt|;
 comment|/**      * Configures a transaction interceptor on routes created by this builder using the named spring bean      * for the {@link TransactionTemplate} to use for the transaction      *      * @param transactionTemplateName the name of the spring bean in the application context which is the      *                                {@link TransactionTemplate} to use      * @return this builder      */
-DECL|method|transactionInterceptor (String transactionTemplateName)
+DECL|method|transactionPolicy (String transactionTemplateName)
 specifier|public
 name|SpringRouteBuilder
 argument_list|<
 name|E
 argument_list|>
-name|transactionInterceptor
+name|transactionPolicy
 parameter_list|(
 name|String
 name|transactionTemplateName

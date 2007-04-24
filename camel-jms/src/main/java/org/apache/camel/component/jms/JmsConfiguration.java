@@ -273,6 +273,15 @@ name|TRANSACTED
 init|=
 literal|"TRANSACTED"
 decl_stmt|;
+DECL|field|CLIENT_ACKNOWLEDGE
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|CLIENT_ACKNOWLEDGE
+init|=
+literal|"CLIENT_ACKNOWLEDGE"
+decl_stmt|;
 DECL|field|connectionFactory
 specifier|private
 name|ConnectionFactory

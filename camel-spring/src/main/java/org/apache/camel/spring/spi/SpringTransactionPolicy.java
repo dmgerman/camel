@@ -279,7 +279,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"SpringTransaction["
+literal|"SpringTransactionPolicy["
 operator|+
 name|getNext
 argument_list|()
