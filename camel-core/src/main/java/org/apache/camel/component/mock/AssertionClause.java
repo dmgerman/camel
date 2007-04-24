@@ -509,10 +509,7 @@ argument_list|>
 name|predicate
 parameter_list|)
 block|{
-comment|//addPredicate(predicate);
-name|predicates
-operator|.
-name|add
+name|addPredicate
 argument_list|(
 name|predicate
 argument_list|)

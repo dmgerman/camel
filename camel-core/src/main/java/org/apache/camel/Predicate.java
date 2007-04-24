@@ -36,6 +36,20 @@ name|E
 name|exchange
 parameter_list|)
 function_decl|;
+comment|/**      * Allows this predicate to be used nicely in testing to generate      * a nicely formatted exception and message if this predicate does not      * match for the given exchange.      *      * @param text the description to use in the exception message      * @param exchange the exchange to evaluate the expression on      * @throws AssertionError if the predicate does not match      */
+DECL|method|assertMatches (String text, E exchange)
+name|void
+name|assertMatches
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|E
+name|exchange
+parameter_list|)
+throws|throws
+name|AssertionError
+function_decl|;
 block|}
 end_interface
 
