@@ -186,6 +186,44 @@ specifier|private
 name|RedeliveryPolicy
 name|redeliveryPolicy
 decl_stmt|;
+DECL|field|logger
+specifier|private
+name|Logger
+argument_list|<
+name|E
+argument_list|>
+name|logger
+decl_stmt|;
+DECL|method|createDefaultLogger ()
+specifier|public
+specifier|static
+parameter_list|<
+name|E
+extends|extends
+name|Exchange
+parameter_list|>
+name|Logger
+argument_list|<
+name|E
+argument_list|>
+name|createDefaultLogger
+parameter_list|()
+block|{
+return|return
+operator|new
+name|Logger
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|log
+argument_list|,
+name|LoggingLevel
+operator|.
+name|ERROR
+argument_list|)
+return|;
+block|}
 DECL|method|DeadLetterChannel (Processor<E> output, Processor<E> deadLetter)
 specifier|public
 name|DeadLetterChannel
@@ -212,10 +250,18 @@ argument_list|,
 operator|new
 name|RedeliveryPolicy
 argument_list|()
+argument_list|,
+name|DeadLetterChannel
+operator|.
+expr|<
+name|E
+operator|>
+name|createDefaultLogger
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DeadLetterChannel (Processor<E> output, Processor<E> deadLetter, RedeliveryPolicy redeliveryPolicy)
+DECL|method|DeadLetterChannel (Processor<E> output, Processor<E> deadLetter, RedeliveryPolicy redeliveryPolicy, Logger<E> logger)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
@@ -233,6 +279,12 @@ name|deadLetter
 parameter_list|,
 name|RedeliveryPolicy
 name|redeliveryPolicy
+parameter_list|,
+name|Logger
+argument_list|<
+name|E
+argument_list|>
+name|logger
 parameter_list|)
 block|{
 name|this
@@ -252,6 +304,12 @@ operator|.
 name|redeliveryPolicy
 operator|=
 name|redeliveryPolicy
+expr_stmt|;
+name|this
+operator|.
+name|logger
+operator|=
+name|logger
 expr_stmt|;
 block|}
 annotation|@
@@ -339,9 +397,9 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
-name|log
+name|logger
 operator|.
-name|error
+name|log
 argument_list|(
 literal|"On delivery attempt: "
 operator|+
@@ -437,6 +495,39 @@ operator|.
 name|redeliveryPolicy
 operator|=
 name|redeliveryPolicy
+expr_stmt|;
+block|}
+DECL|method|getLogger ()
+specifier|public
+name|Logger
+argument_list|<
+name|E
+argument_list|>
+name|getLogger
+parameter_list|()
+block|{
+return|return
+name|logger
+return|;
+block|}
+comment|/**      * Sets the logger strategy; which {@link Log} to use and which {@link LoggingLevel} to use      */
+DECL|method|setLogger (Logger<E> logger)
+specifier|public
+name|void
+name|setLogger
+parameter_list|(
+name|Logger
+argument_list|<
+name|E
+argument_list|>
+name|logger
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logger
+operator|=
+name|logger
 expr_stmt|;
 block|}
 comment|// Implementation methods

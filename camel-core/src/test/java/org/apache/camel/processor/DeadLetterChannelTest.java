@@ -478,6 +478,13 @@ name|initialRedeliveryDelay
 argument_list|(
 literal|1
 argument_list|)
+operator|.
+name|loggingLevel
+argument_list|(
+name|LoggingLevel
+operator|.
+name|DEBUG
+argument_list|)
 argument_list|)
 operator|.
 name|process

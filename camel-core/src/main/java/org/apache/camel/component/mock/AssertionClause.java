@@ -416,35 +416,20 @@ range|:
 name|predicates
 control|)
 block|{
-if|if
-condition|(
-operator|!
 name|predicate
 operator|.
-name|matches
+name|assertMatches
 argument_list|(
-name|exchange
-argument_list|)
-condition|)
-block|{
 name|endpoint
 operator|.
-name|fail
-argument_list|(
-literal|"Message "
+name|getEndpointUri
+argument_list|()
 operator|+
-name|index
-operator|+
-literal|" failed Predicate "
-operator|+
-name|predicate
-operator|+
-literal|" with "
-operator|+
+literal|" "
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|addPredicate (Predicate<E> predicate)
