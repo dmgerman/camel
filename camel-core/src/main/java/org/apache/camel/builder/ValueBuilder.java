@@ -56,6 +56,10 @@ begin_comment
 comment|/**  * A builder of expressions or predicates based on values.  *  * @version $Revision: $  */
 end_comment
 
+begin_comment
+comment|//public class ValueBuilder<E extends Exchange> implements Expression<E>, ExpressionFactory<E> {
+end_comment
+
 begin_class
 DECL|class|ValueBuilder
 specifier|public
@@ -97,6 +101,24 @@ name|expression
 operator|=
 name|expression
 expr_stmt|;
+block|}
+DECL|method|evaluate (E exchange)
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|E
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|expression
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|)
+return|;
 block|}
 DECL|method|getExpression ()
 specifier|public
@@ -531,7 +553,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|// Transformers
+comment|// Expression builders
 comment|//-------------------------------------------------------------------------
 annotation|@
 name|Fluent
@@ -821,6 +843,47 @@ argument_list|(
 name|String
 operator|.
 name|class
+argument_list|)
+return|;
+block|}
+comment|/**      * Appends the string evaluation of this expression with the given value      * @param value the value or expression to append      * @return the current builder      */
+annotation|@
+name|Fluent
+DECL|method|append (@luentArgR) Object value)
+specifier|public
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+name|append
+parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"value"
+argument_list|)
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|ExpressionBuilder
+operator|.
+name|append
+argument_list|(
+name|expression
+argument_list|,
+name|asExpression
+argument_list|(
+name|value
+argument_list|)
+argument_list|)
 argument_list|)
 return|;
 block|}
