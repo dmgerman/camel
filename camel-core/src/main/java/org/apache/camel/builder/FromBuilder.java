@@ -1909,10 +1909,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|wrapInTransactionInterceptor
-argument_list|(
 name|processor
-argument_list|)
 return|;
 block|}
 comment|/**      * Creates the processor and wraps it in any necessary interceptors and error handlers      */
@@ -1981,37 +1978,6 @@ name|getErrorHandlerBuilder
 argument_list|()
 operator|.
 name|createErrorHandler
-argument_list|(
-name|processor
-argument_list|)
-return|;
-block|}
-comment|/**      * A strategy method which allows transaction interceptors to be applied to a processor      */
-DECL|method|wrapInTransactionInterceptor (Processor<E> processor)
-specifier|protected
-name|Processor
-argument_list|<
-name|E
-argument_list|>
-name|wrapInTransactionInterceptor
-parameter_list|(
-name|Processor
-argument_list|<
-name|E
-argument_list|>
-name|processor
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-name|getBuilder
-argument_list|()
-operator|.
-name|getTransactionPolicy
-argument_list|()
-operator|.
-name|wrap
 argument_list|(
 name|processor
 argument_list|)

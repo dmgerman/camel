@@ -926,6 +926,7 @@ name|cacheLevel
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
 if|if
 condition|(
 name|cacheName
@@ -938,6 +939,19 @@ operator|.
 name|setCacheLevelName
 argument_list|(
 name|cacheName
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Default to CACHE_CONSUMER unless specified.  This works best with most JMS providers.
+name|listenerContainer
+operator|.
+name|setCacheLevel
+argument_list|(
+name|DefaultMessageListenerContainer
+operator|.
+name|CACHE_CONSUMER
 argument_list|)
 expr_stmt|;
 block|}
