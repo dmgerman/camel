@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|LRUCache
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -38,8 +52,38 @@ name|HashSet
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|LinkedHashMap
+import|;
+end_import
+
 begin_comment
-comment|/**  * A simple memory implementation of {@link MessageIdRepository}; though warning this could use up lots of RAM!  *  * @version $Revision: 1.1 $  */
+comment|/**  * A memory based implementation of {@link MessageIdRepository}.  * Care should be taken to use a suitable underlying {@link Map} to avoid this class being a memory leak  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -50,12 +94,12 @@ name|MemoryMessageIdRepository
 implements|implements
 name|MessageIdRepository
 block|{
-DECL|field|set
+DECL|field|cache
 specifier|private
-name|Set
-name|set
+name|Map
+name|cache
 decl_stmt|;
-comment|/**      * Creates a new MemoryMessageIdRepository with a memory based respository      */
+comment|/**      * Creates a new MemoryMessageIdRepository with a memory based respository.<b>Warning</b> this      * method should only really be used for testing as it will involve keeping all message IDs in RAM.      */
 DECL|method|memoryMessageIdRepository ()
 specifier|public
 specifier|static
@@ -67,41 +111,63 @@ return|return
 name|memoryMessageIdRepository
 argument_list|(
 operator|new
-name|HashSet
+name|HashMap
 argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new MemoryMessageIdRepository using the given {@link Set} to use to store the      * processed Message ID objects      */
-DECL|method|memoryMessageIdRepository (Set set)
+comment|/**      * Creates a new MemoryMessageIdRepository with a memory based respository.<b>Warning</b> this      * method should only really be used for testing as it will involve keeping all message IDs in RAM.      */
+DECL|method|memoryMessageIdRepository (int cacheSize)
 specifier|public
 specifier|static
 name|MessageIdRepository
 name|memoryMessageIdRepository
 parameter_list|(
-name|Set
-name|set
+name|int
+name|cacheSize
+parameter_list|)
+block|{
+return|return
+name|memoryMessageIdRepository
+argument_list|(
+operator|new
+name|LRUCache
+argument_list|(
+name|cacheSize
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a new MemoryMessageIdRepository using the given {@link Map} to use to store the      * processed Message ID objects. Warning be cafeful of the implementation of Map you use as      * if you are not careful it could be a memory leak.      */
+DECL|method|memoryMessageIdRepository (Map cache)
+specifier|public
+specifier|static
+name|MessageIdRepository
+name|memoryMessageIdRepository
+parameter_list|(
+name|Map
+name|cache
 parameter_list|)
 block|{
 return|return
 operator|new
 name|MemoryMessageIdRepository
 argument_list|(
-name|set
+name|cache
 argument_list|)
 return|;
 block|}
-DECL|method|MemoryMessageIdRepository (Set set)
+DECL|method|MemoryMessageIdRepository (Map set)
 specifier|public
 name|MemoryMessageIdRepository
 parameter_list|(
-name|Set
+name|Map
 name|set
 parameter_list|)
 block|{
 name|this
 operator|.
-name|set
+name|cache
 operator|=
 name|set
 expr_stmt|;
@@ -117,14 +183,14 @@ parameter_list|)
 block|{
 synchronized|synchronized
 init|(
-name|set
+name|cache
 init|)
 block|{
 if|if
 condition|(
-name|set
+name|cache
 operator|.
-name|contains
+name|containsKey
 argument_list|(
 name|messageId
 argument_list|)
@@ -136,10 +202,12 @@ return|;
 block|}
 else|else
 block|{
-name|set
+name|cache
 operator|.
-name|add
+name|put
 argument_list|(
+name|messageId
+argument_list|,
 name|messageId
 argument_list|)
 expr_stmt|;
