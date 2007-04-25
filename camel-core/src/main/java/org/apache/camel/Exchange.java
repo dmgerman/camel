@@ -25,7 +25,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the base exchange interface providing access to the request, response and fault {@link Message} instances.  *  * @version $Revision$  */
+comment|/**  * The base message exchange interface providing access to the request, response and fault {@link Message} instances.  * Different providers such as JMS, JBI, CXF and HTTP can provide their own derived API to expose the underlying transport  * semantics to avoid the leaky abstractions of generic APIs.  *  * @version $Revision$  */
 end_comment
 
 begin_interface

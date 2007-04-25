@@ -38,7 +38,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Injector
+name|ExchangeConverter
 import|;
 end_import
 
@@ -52,7 +52,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ExchangeConverter
+name|Injector
 import|;
 end_import
 
@@ -169,6 +169,7 @@ parameter_list|()
 function_decl|;
 comment|// Route Management Methods
 comment|//-----------------------------------------------------------------------
+comment|/**      * Returns the current routes in this context      *      * @return the current routes in this context      */
 DECL|method|getRoutes ()
 name|List
 argument_list|<
@@ -177,6 +178,7 @@ argument_list|>
 name|getRoutes
 parameter_list|()
 function_decl|;
+comment|/**      * Sets the routes for this context, replacing any current routes      *      * @param routes the new routes to use      */
 DECL|method|setRoutes (List<Route> routes)
 name|void
 name|setRoutes
@@ -188,17 +190,19 @@ argument_list|>
 name|routes
 parameter_list|)
 function_decl|;
-DECL|method|addRoutes (List<Route> routes)
+comment|/**      * Adds a collection of routes to this context      *      * @param routes the routes to add      */
+DECL|method|addRoutes (Collection<Route> routes)
 name|void
 name|addRoutes
 parameter_list|(
-name|List
+name|Collection
 argument_list|<
 name|Route
 argument_list|>
 name|routes
 parameter_list|)
 function_decl|;
+comment|/**      * Adds a collection of routes to this context using the given builder      * to build them      *      * @param builder the builder which will create the routes and add them to this context      * @throws Exception if the routes could not be created for whatever reason      */
 DECL|method|addRoutes (RouteBuilder builder)
 name|void
 name|addRoutes
@@ -209,18 +213,9 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|addRoutes (RouteFactory factory)
-name|void
-name|addRoutes
-parameter_list|(
-name|RouteFactory
-name|factory
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 comment|// Properties
 comment|//-----------------------------------------------------------------------
+comment|/**      * Returns the converter of exchanges from one type to another      * @return      */
 DECL|method|getExchangeConverter ()
 name|ExchangeConverter
 name|getExchangeConverter

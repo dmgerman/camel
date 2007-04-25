@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a component which manages a set of {@link Endpoint} objects.  *  * @version $Revision: 519901 $  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/component.html">component</a> is a factory of {@link Endpoint} objects.  *  * @version $Revision: 519901 $  */
 end_comment
 
 begin_interface

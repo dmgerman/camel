@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents an arbitrary expression evaluated on a message exchange  *  * @version $Revision: $  */
+comment|/**  * An<a href="http://activemq.apache.org/camel/expression.html">expression</a>  * provides a plugin strategy for evaluating expressions on a message exchange to support things like  *<a href="http://activemq.apache.org/camel/scripting-languages.html">scripting languages</a>,  *<a href="http://activemq.apache.org/camel/xquery.html">XQuery</a>  * or<a href="http://activemq.apache.org/camel/sql.html">SQL</a> as well  * as any arbitrary Java expression.  *  *  * @version $Revision: $  */
 end_comment
 
 begin_interface

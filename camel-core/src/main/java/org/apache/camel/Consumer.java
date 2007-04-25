@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a consumer of an endpoint  *  * @version $Revision$  */
+comment|/**  * A consumer of message exchanges from an {@link Endpoint}  *  * @version $Revision$  */
 end_comment
 
 begin_interface

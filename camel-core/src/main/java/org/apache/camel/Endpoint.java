@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Implements the<a href="http://activemq.apache.org/camel/message-endpoint.html">Message Endpoint</a>  * pattern and represents an endpoint that can send and receive message exchanges  *  * @version $Revision$  */
+comment|/**  * An<a href="http://activemq.apache.org/camel/endpoint.html">endpoint</a> implements the   *<a href="http://activemq.apache.org/camel/message-endpoint.html">Message Endpoint</a>  * pattern and represents an endpoint that can send and receive message exchanges  *  * @see Exchange, Message  * @version $Revision$  */
 end_comment
 
 begin_interface
