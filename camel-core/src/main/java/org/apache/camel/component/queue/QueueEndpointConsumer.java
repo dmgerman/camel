@@ -220,6 +220,10 @@ condition|(
 name|exchange
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|isStopping
+argument_list|()
 condition|)
 block|{
 try|try
