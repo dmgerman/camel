@@ -233,6 +233,31 @@ name|Injector
 name|getInjector
 parameter_list|()
 function_decl|;
+comment|/**      * Adds the endpoint to the context using the given URI      *      * @param uri the URI to be used to resolve this endpoint      * @param endpoint the endpoint to be added to the context      * @return the old endpoint that was previously registered to the context if there was      * already an endpoint for that URI      * @throws Exception if the new endpoint could not be started or the old endpoint could not be stopped      */
+DECL|method|addEndpoint (String uri, Endpoint endpoint)
+name|Endpoint
+name|addEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Endpoint
+name|endpoint
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Removes the endpoint with the given URI      *      * @param uri the URI to be used to remove      * @return the endpoint that was removed or null if there is no endpoint for this URI      * @throws Exception if endpoint could not be stopped      */
+DECL|method|removeEndpoint (String uri)
+name|Endpoint
+name|removeEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_interface
 
