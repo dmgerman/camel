@@ -253,16 +253,10 @@ block|}
 block|}
 decl_stmt|;
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -319,7 +313,7 @@ name|endpoint
 init|=
 name|container
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 literal|"direct:a"
 argument_list|)

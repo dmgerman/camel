@@ -18,13 +18,21 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|Exchange
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -80,26 +88,6 @@ name|FilterProcessor
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -109,24 +97,13 @@ DECL|class|ChoiceBuilder
 specifier|public
 class|class
 name|ChoiceBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|parent
 specifier|private
 specifier|final
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|parent
 decl_stmt|;
 DECL|field|predicateBuilders
@@ -134,9 +111,6 @@ specifier|private
 name|List
 argument_list|<
 name|WhenBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|predicateBuilders
 init|=
@@ -144,28 +118,19 @@ operator|new
 name|ArrayList
 argument_list|<
 name|WhenBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|otherwise
 specifier|private
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|otherwise
 decl_stmt|;
-DECL|method|ChoiceBuilder (FromBuilder<E> parent)
+DECL|method|ChoiceBuilder (FromBuilder parent)
 specifier|public
 name|ChoiceBuilder
 parameter_list|(
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|parent
 parameter_list|)
 block|{
@@ -189,12 +154,9 @@ name|nestedActions
 operator|=
 literal|true
 argument_list|)
-DECL|method|when ( @luentArgvalue=R,element=true) Predicate<E> predicate)
+DECL|method|when ( @luentArgvalue=R,element=true) Predicate predicate)
 specifier|public
 name|WhenBuilder
-argument_list|<
-name|E
-argument_list|>
 name|when
 parameter_list|(
 annotation|@
@@ -209,23 +171,14 @@ operator|=
 literal|true
 argument_list|)
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|predicate
 parameter_list|)
 block|{
 name|WhenBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|WhenBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -253,9 +206,6 @@ argument_list|)
 DECL|method|otherwise ()
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|otherwise
 parameter_list|()
 block|{
@@ -265,9 +215,6 @@ name|otherwise
 operator|=
 operator|new
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|parent
 argument_list|)
@@ -281,9 +228,6 @@ specifier|public
 name|List
 argument_list|<
 name|WhenBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|getPredicateBuilders
 parameter_list|()
@@ -295,9 +239,6 @@ block|}
 DECL|method|getOtherwise ()
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|getOtherwise
 parameter_list|()
 block|{
@@ -310,9 +251,6 @@ name|Override
 DECL|method|createProcessor ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|createProcessor
 parameter_list|()
 throws|throws
@@ -321,9 +259,6 @@ block|{
 name|List
 argument_list|<
 name|FilterProcessor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|filters
 init|=
@@ -331,18 +266,12 @@ operator|new
 name|ArrayList
 argument_list|<
 name|FilterProcessor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
 control|(
 name|WhenBuilder
-argument_list|<
-name|E
-argument_list|>
 name|predicateBuilder
 range|:
 name|predicateBuilders
@@ -360,9 +289,6 @@ argument_list|)
 expr_stmt|;
 block|}
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|otherwiseProcessor
 init|=
 literal|null
@@ -385,9 +311,6 @@ block|}
 return|return
 operator|new
 name|ChoiceProcessor
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|filters
 argument_list|,

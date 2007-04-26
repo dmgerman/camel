@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|Message
 import|;
 end_import
 
@@ -61,18 +61,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
 import|;
 end_import
 
@@ -299,9 +287,6 @@ decl_stmt|;
 return|return
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public

@@ -408,7 +408,7 @@ name|JmsEndpoint
 operator|)
 name|container
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 literal|"jms:test"
 argument_list|)

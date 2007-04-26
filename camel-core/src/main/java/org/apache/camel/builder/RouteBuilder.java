@@ -134,25 +134,14 @@ specifier|public
 specifier|abstract
 class|class
 name|RouteBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|BuilderSupport
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|fromBuilders
 specifier|private
 name|List
 argument_list|<
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|fromBuilders
 init|=
@@ -160,9 +149,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -182,9 +168,6 @@ specifier|private
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|routes
 init|=
@@ -192,9 +175,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Route
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -236,9 +216,6 @@ name|Fluent
 DECL|method|from ( @luentArgR) String uri)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|from
 parameter_list|(
 annotation|@
@@ -262,12 +239,9 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|from ( @luentArgR) Endpoint<E> endpoint)
+DECL|method|from ( @luentArgR) Endpoint endpoint)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|from
 parameter_list|(
 annotation|@
@@ -276,23 +250,14 @@ argument_list|(
 literal|"endpoint"
 argument_list|)
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -314,9 +279,6 @@ comment|/**      * Installs the given error handler builder      *      * @param
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|RouteBuilder
-argument_list|<
-name|E
-argument_list|>
 name|errorHandler
 parameter_list|(
 name|ErrorHandlerBuilder
@@ -336,9 +298,6 @@ comment|/**      * Configures whether or not the error handler is inherited by e
 DECL|method|inheritErrorHandler (boolean value)
 specifier|public
 name|RouteBuilder
-argument_list|<
-name|E
-argument_list|>
 name|inheritErrorHandler
 parameter_list|(
 name|boolean
@@ -398,9 +357,6 @@ specifier|public
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|getRouteList
 parameter_list|()
@@ -420,9 +376,6 @@ specifier|public
 name|List
 argument_list|<
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|getFromBuilders
 parameter_list|()
@@ -468,7 +421,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|populateRoutes (List<Route<E>> routes)
+DECL|method|populateRoutes (List<Route> routes)
 specifier|protected
 name|void
 name|populateRoutes
@@ -476,9 +429,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|routes
 parameter_list|)
@@ -488,18 +438,12 @@ block|{
 for|for
 control|(
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|builder
 range|:
 name|fromBuilders
 control|)
 block|{
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|from
 init|=
 name|builder
@@ -508,9 +452,6 @@ name|getFrom
 argument_list|()
 decl_stmt|;
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 init|=
 name|makeProcessor
@@ -543,9 +484,6 @@ name|add
 argument_list|(
 operator|new
 name|Route
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|from
 argument_list|,
@@ -556,24 +494,15 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Factory method to create the underlying {@link Processor} for the given builder applying any      * necessary interceptors.      *      * @param from    the endpoint which starts the route      * @param builder the builder which is the factory of the processor      * @return      */
-DECL|method|makeProcessor (Endpoint<E> from, FromBuilder<E> builder)
+DECL|method|makeProcessor (Endpoint from, FromBuilder builder)
 specifier|protected
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|makeProcessor
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|from
 parameter_list|,
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|builder
 parameter_list|)
 throws|throws

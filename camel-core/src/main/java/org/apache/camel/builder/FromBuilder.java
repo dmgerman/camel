@@ -266,9 +266,6 @@ name|Exchange
 parameter_list|>
 extends|extends
 name|BuilderSupport
-argument_list|<
-name|E
-argument_list|>
 implements|implements
 name|ProcessorFactory
 argument_list|<
@@ -287,17 +284,11 @@ decl_stmt|;
 DECL|field|builder
 specifier|private
 name|RouteBuilder
-argument_list|<
-name|E
-argument_list|>
 name|builder
 decl_stmt|;
 DECL|field|from
 specifier|private
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|from
 decl_stmt|;
 DECL|field|processors
@@ -305,9 +296,6 @@ specifier|private
 name|List
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|processors
 init|=
@@ -315,9 +303,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -326,9 +311,6 @@ specifier|private
 name|List
 argument_list|<
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|processFactories
 init|=
@@ -336,26 +318,17 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|FromBuilder (RouteBuilder<E> builder, Endpoint<E> from)
+DECL|method|FromBuilder (RouteBuilder builder, Endpoint from)
 specifier|public
 name|FromBuilder
 parameter_list|(
 name|RouteBuilder
-argument_list|<
-name|E
-argument_list|>
 name|builder
 parameter_list|,
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|from
 parameter_list|)
 block|{
@@ -377,14 +350,11 @@ operator|=
 name|from
 expr_stmt|;
 block|}
-DECL|method|FromBuilder (FromBuilder<E> parent)
+DECL|method|FromBuilder (FromBuilder parent)
 specifier|public
 name|FromBuilder
 parameter_list|(
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|parent
 parameter_list|)
 block|{
@@ -418,9 +388,6 @@ name|Fluent
 DECL|method|to (@luentArgR)String uri)
 specifier|public
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|to
 parameter_list|(
 annotation|@
@@ -445,12 +412,9 @@ block|}
 comment|/**      * Sends the exchange to the given endpoint      */
 annotation|@
 name|Fluent
-DECL|method|to (@luentArgR)Endpoint<E> endpoint)
+DECL|method|to (@luentArgR)Endpoint endpoint)
 specifier|public
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|to
 parameter_list|(
 annotation|@
@@ -459,23 +423,14 @@ argument_list|(
 literal|"endpoint"
 argument_list|)
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{
 name|ToBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|ToBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -497,9 +452,6 @@ name|Fluent
 DECL|method|to ( @luentArgvalue = R, attribute = false, element = true) String... uris)
 specifier|public
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|to
 parameter_list|(
 annotation|@
@@ -535,12 +487,9 @@ block|}
 comment|/**      * Sends the exchange to a list of endpoints using the {@link MulticastProcessor} pattern      */
 annotation|@
 name|Fluent
-DECL|method|to ( @luentArgvalue = R, attribute = false, element = true) Endpoint<E>.... endpoints)
+DECL|method|to ( @luentArgvalue = R, attribute = false, element = true) Endpoint... endpoints)
 specifier|public
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|to
 parameter_list|(
 annotation|@
@@ -559,9 +508,6 @@ operator|=
 literal|true
 argument_list|)
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 modifier|...
 name|endpoints
 parameter_list|)
@@ -579,12 +525,9 @@ block|}
 comment|/**      * Sends the exchange to a list of endpoint using the {@link MulticastProcessor} pattern      */
 annotation|@
 name|Fluent
-DECL|method|to (@luentArgR)Collection<Endpoint<E>> endpoints)
+DECL|method|to (@luentArgR)Collection<Endpoint> endpoints)
 specifier|public
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|to
 parameter_list|(
 annotation|@
@@ -595,9 +538,6 @@ argument_list|)
 name|Collection
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|endpoints
 parameter_list|)
@@ -607,9 +547,6 @@ name|addProcessBuilder
 argument_list|(
 operator|new
 name|MulticastBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -624,9 +561,6 @@ name|Fluent
 DECL|method|pipeline (@luentArgR)String... uris)
 specifier|public
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|pipeline
 parameter_list|(
 annotation|@
@@ -652,12 +586,9 @@ block|}
 comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message will get processed by each endpoint in turn      * and for request/response the output of one endpoint will be the input of the next endpoint      */
 annotation|@
 name|Fluent
-DECL|method|pipeline (@luentArgR)Endpoint<E>.... endpoints)
+DECL|method|pipeline (@luentArgR)Endpoint... endpoints)
 specifier|public
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|pipeline
 parameter_list|(
 annotation|@
@@ -666,9 +597,6 @@ argument_list|(
 literal|"endpoints"
 argument_list|)
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 modifier|...
 name|endpoints
 parameter_list|)
@@ -686,12 +614,9 @@ block|}
 comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message will get processed by each endpoint in turn      * and for request/response the output of one endpoint will be the input of the next endpoint      */
 annotation|@
 name|Fluent
-DECL|method|pipeline (@luentArgR)Collection<Endpoint<E>> endpoints)
+DECL|method|pipeline (@luentArgR)Collection<Endpoint> endpoints)
 specifier|public
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|pipeline
 parameter_list|(
 annotation|@
@@ -702,9 +627,6 @@ argument_list|)
 name|Collection
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|endpoints
 parameter_list|)
@@ -714,9 +636,6 @@ name|addProcessBuilder
 argument_list|(
 operator|new
 name|PipelineBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -728,12 +647,9 @@ block|}
 comment|/**      * Creates an {@link IdempotentConsumer} to avoid duplicate messages      */
 annotation|@
 name|Fluent
-DECL|method|idempotentConsumer ( @luentArgR)Expression<E> messageIdExpression, @FluentArg(R)MessageIdRepository messageIdRepository)
+DECL|method|idempotentConsumer ( @luentArgR)Expression messageIdExpression, @FluentArg(R)MessageIdRepository messageIdRepository)
 specifier|public
 name|IdempotentConsumerBuilder
-argument_list|<
-name|E
-argument_list|>
 name|idempotentConsumer
 parameter_list|(
 annotation|@
@@ -742,9 +658,6 @@ argument_list|(
 literal|"messageIdExpression"
 argument_list|)
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|messageIdExpression
 parameter_list|,
 annotation|@
@@ -759,17 +672,11 @@ block|{
 return|return
 operator|(
 name|IdempotentConsumerBuilder
-argument_list|<
-name|E
-argument_list|>
 operator|)
 name|addProcessBuilder
 argument_list|(
 operator|new
 name|IdempotentConsumerBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -783,12 +690,9 @@ block|}
 comment|/**      * Creates a predicate which is applied and only if it is true then      * the exchange is forwarded to the destination      *      * @return the builder for a predicate      */
 annotation|@
 name|Fluent
-DECL|method|filter ( @luentArgvalue = R, element = true) Predicate<E> predicate)
+DECL|method|filter ( @luentArgvalue = R, element = true) Predicate predicate)
 specifier|public
 name|FilterBuilder
-argument_list|<
-name|E
-argument_list|>
 name|filter
 parameter_list|(
 annotation|@
@@ -803,23 +707,14 @@ operator|=
 literal|true
 argument_list|)
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|predicate
 parameter_list|)
 block|{
 name|FilterBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|FilterBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -846,23 +741,14 @@ argument_list|)
 DECL|method|choice ()
 specifier|public
 name|ChoiceBuilder
-argument_list|<
-name|E
-argument_list|>
 name|choice
 parameter_list|()
 block|{
 name|ChoiceBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|ChoiceBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|)
@@ -879,12 +765,9 @@ block|}
 comment|/**      * Creates a dynamic<a href="http://activemq.apache.org/camel/recipient-list.html">Recipient List</a> pattern.      *      * @param receipients is the builder of the expression used in the {@link RecipientList} to decide the destinations      */
 annotation|@
 name|Fluent
-DECL|method|recipientList ( @luentArgvalue = R, element = true) ValueBuilder<E> receipients)
+DECL|method|recipientList ( @luentArgvalue = R, element = true) ValueBuilder receipients)
 specifier|public
 name|RecipientListBuilder
-argument_list|<
-name|E
-argument_list|>
 name|recipientList
 parameter_list|(
 annotation|@
@@ -899,23 +782,14 @@ operator|=
 literal|true
 argument_list|)
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|receipients
 parameter_list|)
 block|{
 name|RecipientListBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|RecipientListBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -934,12 +808,9 @@ block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/splitter.html">Splitter</a> pattern      * where an expression is evaluated to iterate through each of the parts of a message and then each part is then send to some endpoint.      *      * @param receipients the builder for the value used as the expression on which to split      * @return the builder      */
 annotation|@
 name|Fluent
-DECL|method|splitter (@luentArgvalue = R, element = true)ValueBuilder<E> receipients)
+DECL|method|splitter (@luentArgvalue = R, element = true)ValueBuilder receipients)
 specifier|public
 name|SplitterBuilder
-argument_list|<
-name|E
-argument_list|>
 name|splitter
 parameter_list|(
 annotation|@
@@ -954,23 +825,14 @@ operator|=
 literal|true
 argument_list|)
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|receipients
 parameter_list|)
 block|{
 name|SplitterBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|SplitterBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -992,12 +854,9 @@ block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/splitter.html">Splitter</a> pattern      * where an expression is evaluated to iterate through each of the parts of a message and then each part is then send to some endpoint.      *      * @param receipients the expression on which to split      * @return the builder      */
 annotation|@
 name|Fluent
-DECL|method|splitter (@luentArgvalue = R, element = true) Expression<E> receipients)
+DECL|method|splitter (@luentArgvalue = R, element = true) Expression receipients)
 specifier|public
 name|SplitterBuilder
-argument_list|<
-name|E
-argument_list|>
 name|splitter
 parameter_list|(
 annotation|@
@@ -1012,23 +871,14 @@ operator|=
 literal|true
 argument_list|)
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|receipients
 parameter_list|)
 block|{
 name|SplitterBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|SplitterBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -1050,9 +900,6 @@ name|Fluent
 DECL|method|errorHandler (@luentArgR)ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|errorHandler
 parameter_list|(
 annotation|@
@@ -1079,9 +926,6 @@ name|Fluent
 DECL|method|inheritErrorHandler (@luentArgR)boolean condition)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|inheritErrorHandler
 parameter_list|(
 annotation|@
@@ -1112,23 +956,14 @@ argument_list|)
 DECL|method|intercept ()
 specifier|public
 name|InterceptorBuilder
-argument_list|<
-name|E
-argument_list|>
 name|intercept
 parameter_list|()
 block|{
 name|InterceptorBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|InterceptorBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|)
@@ -1148,9 +983,6 @@ name|Fluent
 DECL|method|trace ()
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|trace
 parameter_list|()
 block|{
@@ -1167,9 +999,6 @@ name|Fluent
 DECL|method|trace (@luentArgR)String category)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|trace
 parameter_list|(
 annotation|@
@@ -1198,7 +1027,7 @@ argument_list|(
 operator|new
 name|DelegateProcessor
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 argument_list|()
 block|{
@@ -1208,7 +1037,7 @@ specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -1231,12 +1060,9 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|intercept (@luentArgR)DelegateProcessor<E> interceptor)
+DECL|method|intercept (@luentArgR)DelegateProcessor interceptor)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|intercept
 parameter_list|(
 annotation|@
@@ -1245,23 +1071,14 @@ argument_list|(
 literal|"interceptor"
 argument_list|)
 name|DelegateProcessor
-argument_list|<
-name|E
-argument_list|>
 name|interceptor
 parameter_list|)
 block|{
 name|InterceptorBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|InterceptorBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|)
@@ -1295,23 +1112,14 @@ argument_list|)
 DECL|method|policies ()
 specifier|public
 name|PolicyBuilder
-argument_list|<
-name|E
-argument_list|>
 name|policies
 parameter_list|()
 block|{
 name|PolicyBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|PolicyBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|)
@@ -1327,12 +1135,9 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|policy (@luentArgR)Policy<E> policy)
+DECL|method|policy (@luentArgR)Policy policy)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|policy
 parameter_list|(
 annotation|@
@@ -1341,23 +1146,14 @@ argument_list|(
 literal|"policy"
 argument_list|)
 name|Policy
-argument_list|<
-name|E
-argument_list|>
 name|policy
 parameter_list|)
 block|{
 name|PolicyBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|PolicyBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|)
@@ -1386,12 +1182,9 @@ comment|//----------------------------------------------------------------------
 comment|/**      * Adds the custom processor to this destination which could be a final destination, or could be a transformation in a pipeline      */
 annotation|@
 name|Fluent
-DECL|method|process (@luentArgR)Processor<E> processor)
+DECL|method|process (@luentArgR)Processor processor)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|process
 parameter_list|(
 annotation|@
@@ -1400,9 +1193,6 @@ argument_list|(
 literal|"ref"
 argument_list|)
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -1418,18 +1208,12 @@ block|}
 comment|/**      * Adds a processor which sets the body on the IN message      */
 annotation|@
 name|Fluent
-DECL|method|setBody (Expression<E> expression)
+DECL|method|setBody (Expression expression)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|setBody
 parameter_list|(
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -1450,18 +1234,12 @@ block|}
 comment|/**      * Adds a processor which sets the body on the OUT message      */
 annotation|@
 name|Fluent
-DECL|method|setOutBody (Expression<E> expression)
+DECL|method|setOutBody (Expression expression)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|setOutBody
 parameter_list|(
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -1482,21 +1260,15 @@ block|}
 comment|/**      * Adds a processor which sets the header on the IN message      */
 annotation|@
 name|Fluent
-DECL|method|setHeader (String name, Expression<E> expression)
+DECL|method|setHeader (String name, Expression expression)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|setHeader
 parameter_list|(
 name|String
 name|name
 parameter_list|,
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -1519,21 +1291,15 @@ block|}
 comment|/**      * Adds a processor which sets the header on the OUT message      */
 annotation|@
 name|Fluent
-DECL|method|setOutHeader (String name, Expression<E> expression)
+DECL|method|setOutHeader (String name, Expression expression)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|setOutHeader
 parameter_list|(
 name|String
 name|name
 parameter_list|,
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -1556,21 +1322,15 @@ block|}
 comment|/**      * Adds a processor which sets the exchange property      */
 annotation|@
 name|Fluent
-DECL|method|setProperty (String name, Expression<E> expression)
+DECL|method|setProperty (String name, Expression expression)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|setProperty
 parameter_list|(
 name|String
 name|name
 parameter_list|,
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -1596,9 +1356,6 @@ name|Fluent
 DECL|method|convertBodyTo (Class type)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|convertBodyTo
 parameter_list|(
 name|Class
@@ -1609,16 +1366,10 @@ name|addProcessorBuilder
 argument_list|(
 name|ProcessorBuilder
 operator|.
-expr|<
-name|E
-operator|>
 name|setBody
 argument_list|(
 name|Builder
 operator|.
-expr|<
-name|E
-operator|>
 name|body
 argument_list|()
 operator|.
@@ -1639,9 +1390,6 @@ name|Fluent
 DECL|method|convertOutBodyTo (Class type)
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|convertOutBodyTo
 parameter_list|(
 name|Class
@@ -1652,16 +1400,10 @@ name|addProcessorBuilder
 argument_list|(
 name|ProcessorBuilder
 operator|.
-expr|<
-name|E
-operator|>
 name|setOutBody
 argument_list|(
 name|Builder
 operator|.
-expr|<
-name|E
-operator|>
 name|outBody
 argument_list|()
 operator|.
@@ -1681,9 +1423,6 @@ comment|//----------------------------------------------------------------------
 DECL|method|getBuilder ()
 specifier|public
 name|RouteBuilder
-argument_list|<
-name|E
-argument_list|>
 name|getBuilder
 parameter_list|()
 block|{
@@ -1694,9 +1433,6 @@ block|}
 DECL|method|getFrom ()
 specifier|public
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|getFrom
 parameter_list|()
 block|{
@@ -1704,18 +1440,12 @@ return|return
 name|from
 return|;
 block|}
-DECL|method|addProcessBuilder (ProcessorFactory<E> processFactory)
+DECL|method|addProcessBuilder (ProcessorFactory processFactory)
 specifier|public
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|addProcessBuilder
 parameter_list|(
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|processFactory
 parameter_list|)
 block|{
@@ -1730,15 +1460,12 @@ return|return
 name|processFactory
 return|;
 block|}
-DECL|method|addProcessorBuilder (Processor<E> processor)
+DECL|method|addProcessorBuilder (Processor processor)
 specifier|protected
 name|void
 name|addProcessorBuilder
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -1746,24 +1473,18 @@ name|addProcessBuilder
 argument_list|(
 operator|new
 name|ConstantProcessorBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|processor
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addProcessor (Processor<E> processor)
+DECL|method|addProcessor (Processor processor)
 specifier|public
 name|void
 name|addProcessor
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -1778,9 +1499,6 @@ block|}
 DECL|method|createProcessor ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|createProcessor
 parameter_list|()
 throws|throws
@@ -1789,9 +1507,6 @@ block|{
 name|List
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|answer
 init|=
@@ -1799,27 +1514,18 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
 control|(
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|processFactory
 range|:
 name|processFactories
 control|)
 block|{
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 init|=
 name|makeProcessor
@@ -1867,9 +1573,6 @@ literal|null
 return|;
 block|}
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 init|=
 literal|null
@@ -1900,9 +1603,6 @@ name|processor
 operator|=
 operator|new
 name|CompositeProcessor
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|answer
 argument_list|)
@@ -1913,27 +1613,18 @@ name|processor
 return|;
 block|}
 comment|/**      * Creates the processor and wraps it in any necessary interceptors and error handlers      */
-DECL|method|makeProcessor (ProcessorFactory<E> processFactory)
+DECL|method|makeProcessor (ProcessorFactory processFactory)
 specifier|protected
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|makeProcessor
 parameter_list|(
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|processFactory
 parameter_list|)
 throws|throws
 name|Exception
 block|{
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 init|=
 name|processFactory
@@ -1956,18 +1647,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * A strategy method to allow newly created processors to be wrapped in an error handler. This feature      * could be disabled for child builders such as {@link IdempotentConsumerBuilder} which will rely on the      * {@link FromBuilder} to perform the error handling to avoid doubly-wrapped processors with 2 nested error handlers      */
-DECL|method|wrapInErrorHandler (Processor<E> processor)
+DECL|method|wrapInErrorHandler (Processor processor)
 specifier|protected
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|wrapInErrorHandler
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws
@@ -1984,18 +1669,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * A strategy method which allows derived classes to wrap the child processor in some kind of interceptor such as      * a filter for the {@link IdempotentConsumerBuilder}.      *      * @param processor the processor which can be wrapped      * @return the original processor or a new wrapped interceptor      */
-DECL|method|wrapProcessor (Processor<E> processor)
+DECL|method|wrapProcessor (Processor processor)
 specifier|protected
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|wrapProcessor
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -2008,9 +1687,6 @@ specifier|public
 name|List
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|getProcessors
 parameter_list|()

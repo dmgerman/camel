@@ -209,7 +209,7 @@ name|endpoint
 init|=
 name|container
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 name|uri
 argument_list|)

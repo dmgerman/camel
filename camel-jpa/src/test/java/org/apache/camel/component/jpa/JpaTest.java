@@ -677,7 +677,7 @@ name|value
 init|=
 name|camelContext
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 name|getEndpointUri
 argument_list|()

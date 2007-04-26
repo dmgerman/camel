@@ -282,15 +282,30 @@ name|CLIENT_ACKNOWLEDGE
 init|=
 literal|"CLIENT_ACKNOWLEDGE"
 decl_stmt|;
+comment|// General Setting used for both the JmsTemplate and JMS Container
 DECL|field|connectionFactory
 specifier|private
 name|ConnectionFactory
 name|connectionFactory
 decl_stmt|;
-DECL|field|producerConnectionFactory
+DECL|field|acknowledgementMode
 specifier|private
-name|ConnectionFactory
-name|producerConnectionFactory
+name|int
+name|acknowledgementMode
+init|=
+operator|-
+literal|1
+decl_stmt|;
+DECL|field|acknowledgementModeName
+specifier|private
+name|String
+name|acknowledgementModeName
+decl_stmt|;
+comment|// Used to configure the spring Container
+DECL|field|exceptionListener
+specifier|private
+name|ExceptionListener
+name|exceptionListener
 decl_stmt|;
 DECL|field|consumerType
 specifier|private
@@ -300,11 +315,6 @@ init|=
 name|ConsumerType
 operator|.
 name|Default
-decl_stmt|;
-DECL|field|useVersion102
-specifier|private
-name|boolean
-name|useVersion102
 decl_stmt|;
 DECL|field|autoStartup
 specifier|private
@@ -316,58 +326,36 @@ specifier|private
 name|boolean
 name|acceptMessagesWhileStopping
 decl_stmt|;
-DECL|field|consumerClientId
+DECL|field|clientId
 specifier|private
 name|String
-name|consumerClientId
+name|clientId
 decl_stmt|;
 DECL|field|durableSubscriptionName
 specifier|private
 name|String
 name|durableSubscriptionName
 decl_stmt|;
-DECL|field|exceptionListener
-specifier|private
-name|ExceptionListener
-name|exceptionListener
-decl_stmt|;
-DECL|field|producerAcknowledgementMode
-specifier|private
-name|String
-name|producerAcknowledgementMode
-init|=
-name|TRANSACTED
-decl_stmt|;
 DECL|field|subscriptionDurable
 specifier|private
 name|boolean
 name|subscriptionDurable
-decl_stmt|;
-DECL|field|consumerAcknowledgementMode
-specifier|private
-name|String
-name|consumerAcknowledgementMode
-init|=
-name|TRANSACTED
 decl_stmt|;
 DECL|field|exposeListenerSession
 specifier|private
 name|boolean
 name|exposeListenerSession
 decl_stmt|;
-comment|// not used for ServerSessionMessageListenerContainer
 DECL|field|taskExecutor
 specifier|private
 name|TaskExecutor
 name|taskExecutor
 decl_stmt|;
-comment|// SimpleMessageListenerContainer only
 DECL|field|pubSubNoLocal
 specifier|private
 name|boolean
 name|pubSubNoLocal
 decl_stmt|;
-comment|// not used for ServerSessionMessageListenerContainer
 DECL|field|concurrentConsumers
 specifier|private
 name|int
@@ -376,7 +364,6 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|// not used for SimpleMessageListenerContainer
 DECL|field|maxMessagesPerTask
 specifier|private
 name|int
@@ -385,13 +372,11 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|// ServerSessionMessageListenerContainer only
 DECL|field|serverSessionFactory
 specifier|private
 name|ServerSessionFactory
 name|serverSessionFactory
 decl_stmt|;
-comment|//  DefaultMessageListenerContainer only
 DECL|field|cacheLevel
 specifier|private
 name|int
@@ -400,10 +385,10 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|field|cacheName
+DECL|field|cacheLevelName
 specifier|private
 name|String
-name|cacheName
+name|cacheLevelName
 decl_stmt|;
 DECL|field|recoveryInterval
 specifier|private
@@ -417,24 +402,6 @@ DECL|field|receiveTimeout
 specifier|private
 name|long
 name|receiveTimeout
-init|=
-operator|-
-literal|1
-decl_stmt|;
-DECL|field|transactionManager
-specifier|private
-name|PlatformTransactionManager
-name|transactionManager
-decl_stmt|;
-DECL|field|transactionName
-specifier|private
-name|String
-name|transactionName
-decl_stmt|;
-DECL|field|transactionTimeout
-specifier|private
-name|int
-name|transactionTimeout
 init|=
 operator|-
 literal|1
@@ -456,6 +423,11 @@ operator|-
 literal|1
 decl_stmt|;
 comment|// JmsTemplate only
+DECL|field|useVersion102
+specifier|private
+name|boolean
+name|useVersion102
+decl_stmt|;
 DECL|field|explicitQosEnabled
 specifier|private
 name|boolean
@@ -497,6 +469,30 @@ DECL|field|priority
 specifier|private
 name|int
 name|priority
+init|=
+operator|-
+literal|1
+decl_stmt|;
+comment|// Transaction related configuration
+DECL|field|transacted
+specifier|private
+name|boolean
+name|transacted
+decl_stmt|;
+DECL|field|transactionManager
+specifier|private
+name|PlatformTransactionManager
+name|transactionManager
+decl_stmt|;
+DECL|field|transactionName
+specifier|private
+name|String
+name|transactionName
+decl_stmt|;
+DECL|field|transactionTimeout
+specifier|private
+name|int
+name|transactionTimeout
 init|=
 operator|-
 literal|1
@@ -573,7 +569,7 @@ condition|?
 operator|new
 name|JmsTemplate102
 argument_list|(
-name|getProducerConnectionFactory
+name|getConnectionFactory
 argument_list|()
 argument_list|,
 name|pubSubDomain
@@ -582,7 +578,7 @@ else|:
 operator|new
 name|JmsTemplate
 argument_list|(
-name|getProducerConnectionFactory
+name|getConnectionFactory
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -695,16 +691,6 @@ name|timeToLive
 argument_list|)
 expr_stmt|;
 block|}
-name|boolean
-name|transacted
-init|=
-name|TRANSACTED
-operator|.
-name|equals
-argument_list|(
-name|producerAcknowledgementMode
-argument_list|)
-decl_stmt|;
 name|template
 operator|.
 name|setSessionTransacted
@@ -712,18 +698,35 @@ argument_list|(
 name|transacted
 argument_list|)
 expr_stmt|;
+comment|// This is here for completeness, but the template should not get used for receiving messages.
 if|if
 condition|(
-operator|!
-name|transacted
+name|acknowledgementMode
+operator|>=
+literal|0
 condition|)
 block|{
-comment|// TODO not sure if Spring can handle TRANSACTED as an ack mode
+name|template
+operator|.
+name|setSessionAcknowledgeMode
+argument_list|(
+name|acknowledgementMode
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|acknowledgementModeName
+operator|!=
+literal|null
+condition|)
+block|{
 name|template
 operator|.
 name|setSessionAcknowledgeModeName
 argument_list|(
-name|producerAcknowledgementMode
+name|acknowledgementModeName
 argument_list|)
 expr_stmt|;
 block|}
@@ -784,7 +787,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|consumerClientId
+name|clientId
 operator|!=
 literal|null
 condition|)
@@ -793,7 +796,7 @@ name|container
 operator|.
 name|setClientId
 argument_list|(
-name|consumerClientId
+name|clientId
 argument_list|)
 expr_stmt|;
 block|}
@@ -841,16 +844,6 @@ argument_list|(
 name|exposeListenerSession
 argument_list|)
 expr_stmt|;
-name|boolean
-name|transacted
-init|=
-name|TRANSACTED
-operator|.
-name|equals
-argument_list|(
-name|consumerAcknowledgementMode
-argument_list|)
-decl_stmt|;
 name|container
 operator|.
 name|setSessionTransacted
@@ -860,16 +853,32 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|transacted
+name|acknowledgementMode
+operator|>=
+literal|0
 condition|)
 block|{
-comment|// TODO not sure if Spring can handle TRANSACTED as an ack mode
+name|container
+operator|.
+name|setSessionAcknowledgeMode
+argument_list|(
+name|acknowledgementMode
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|acknowledgementModeName
+operator|!=
+literal|null
+condition|)
+block|{
 name|container
 operator|.
 name|setSessionAcknowledgeModeName
 argument_list|(
-name|consumerAcknowledgementMode
+name|acknowledgementModeName
 argument_list|)
 expr_stmt|;
 block|}
@@ -929,7 +938,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|cacheName
+name|cacheLevelName
 operator|!=
 literal|null
 condition|)
@@ -938,7 +947,7 @@ name|listenerContainer
 operator|.
 name|setCacheLevelName
 argument_list|(
-name|cacheName
+name|cacheLevelName
 argument_list|)
 expr_stmt|;
 block|}
@@ -1230,45 +1239,6 @@ operator|=
 name|connectionFactory
 expr_stmt|;
 block|}
-DECL|method|getProducerConnectionFactory ()
-specifier|public
-name|ConnectionFactory
-name|getProducerConnectionFactory
-parameter_list|()
-block|{
-if|if
-condition|(
-name|producerConnectionFactory
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-name|getConnectionFactory
-argument_list|()
-return|;
-block|}
-return|return
-name|producerConnectionFactory
-return|;
-block|}
-comment|/**      * Allows the connection factory for the producer side (sending) to be different from the connection factory used for consuming.      * By default the {@link #getConnectionFactory()} will be used for both.      *      * @param producerConnectionFactory the connection factory to be used for sending.      */
-DECL|method|setProducerConnectionFactory (ConnectionFactory producerConnectionFactory)
-specifier|public
-name|void
-name|setProducerConnectionFactory
-parameter_list|(
-name|ConnectionFactory
-name|producerConnectionFactory
-parameter_list|)
-block|{
-name|this
-operator|.
-name|producerConnectionFactory
-operator|=
-name|producerConnectionFactory
-expr_stmt|;
-block|}
 DECL|method|isUseVersion102 ()
 specifier|public
 name|boolean
@@ -1347,20 +1317,20 @@ operator|=
 name|acceptMessagesWhileStopping
 expr_stmt|;
 block|}
-DECL|method|getConsumerClientId ()
+DECL|method|getClientId ()
 specifier|public
 name|String
-name|getConsumerClientId
+name|getClientId
 parameter_list|()
 block|{
 return|return
-name|consumerClientId
+name|clientId
 return|;
 block|}
-DECL|method|setConsumerClientId (String consumerClientId)
+DECL|method|setClientId (String consumerClientId)
 specifier|public
 name|void
-name|setConsumerClientId
+name|setClientId
 parameter_list|(
 name|String
 name|consumerClientId
@@ -1368,7 +1338,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|consumerClientId
+name|clientId
 operator|=
 name|consumerClientId
 expr_stmt|;
@@ -1425,32 +1395,6 @@ operator|=
 name|exceptionListener
 expr_stmt|;
 block|}
-DECL|method|getProducerAcknowledgementMode ()
-specifier|public
-name|String
-name|getProducerAcknowledgementMode
-parameter_list|()
-block|{
-return|return
-name|producerAcknowledgementMode
-return|;
-block|}
-DECL|method|setProducerAcknowledgementMode (String producerAcknowledgementMode)
-specifier|public
-name|void
-name|setProducerAcknowledgementMode
-parameter_list|(
-name|String
-name|producerAcknowledgementMode
-parameter_list|)
-block|{
-name|this
-operator|.
-name|producerAcknowledgementMode
-operator|=
-name|producerAcknowledgementMode
-expr_stmt|;
-block|}
 DECL|method|isSubscriptionDurable ()
 specifier|public
 name|boolean
@@ -1477,20 +1421,20 @@ operator|=
 name|subscriptionDurable
 expr_stmt|;
 block|}
-DECL|method|getConsumerAcknowledgementMode ()
+DECL|method|getAcknowledgementModeName ()
 specifier|public
 name|String
-name|getConsumerAcknowledgementMode
+name|getAcknowledgementModeName
 parameter_list|()
 block|{
 return|return
-name|consumerAcknowledgementMode
+name|acknowledgementModeName
 return|;
 block|}
-DECL|method|setConsumerAcknowledgementMode (String consumerAcknowledgementMode)
+DECL|method|setAcknowledgementModeName (String consumerAcknowledgementMode)
 specifier|public
 name|void
-name|setConsumerAcknowledgementMode
+name|setAcknowledgementModeName
 parameter_list|(
 name|String
 name|consumerAcknowledgementMode
@@ -1498,9 +1442,16 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|consumerAcknowledgementMode
+name|acknowledgementModeName
 operator|=
 name|consumerAcknowledgementMode
+expr_stmt|;
+name|this
+operator|.
+name|acknowledgementMode
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 block|}
 DECL|method|isExposeListenerSession ()
@@ -1685,20 +1636,20 @@ operator|=
 name|cacheLevel
 expr_stmt|;
 block|}
-DECL|method|getCacheName ()
+DECL|method|getCacheLevelName ()
 specifier|public
 name|String
-name|getCacheName
+name|getCacheLevelName
 parameter_list|()
 block|{
 return|return
-name|cacheName
+name|cacheLevelName
 return|;
 block|}
-DECL|method|setCacheName (String cacheName)
+DECL|method|setCacheLevelName (String cacheName)
 specifier|public
 name|void
-name|setCacheName
+name|setCacheLevelName
 parameter_list|(
 name|String
 name|cacheName
@@ -1706,7 +1657,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|cacheName
+name|cacheLevelName
 operator|=
 name|cacheName
 expr_stmt|;
@@ -2171,6 +2122,64 @@ name|consumerType
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|getAcknowledgementMode ()
+specifier|public
+name|int
+name|getAcknowledgementMode
+parameter_list|()
+block|{
+return|return
+name|acknowledgementMode
+return|;
+block|}
+DECL|method|setAcknowledgementMode (int consumerAcknowledgementMode)
+specifier|public
+name|void
+name|setAcknowledgementMode
+parameter_list|(
+name|int
+name|consumerAcknowledgementMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|acknowledgementMode
+operator|=
+name|consumerAcknowledgementMode
+expr_stmt|;
+name|this
+operator|.
+name|acknowledgementModeName
+operator|=
+literal|null
+expr_stmt|;
+block|}
+DECL|method|isTransacted ()
+specifier|public
+name|boolean
+name|isTransacted
+parameter_list|()
+block|{
+return|return
+name|transacted
+return|;
+block|}
+DECL|method|setTransacted (boolean consumerTransacted)
+specifier|public
+name|void
+name|setTransacted
+parameter_list|(
+name|boolean
+name|consumerTransacted
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transacted
+operator|=
+name|consumerTransacted
+expr_stmt|;
 block|}
 block|}
 end_class

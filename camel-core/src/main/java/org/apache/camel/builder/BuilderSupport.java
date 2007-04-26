@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -37,18 +57,6 @@ operator|.
 name|camel
 operator|.
 name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
 import|;
 end_import
 
@@ -108,26 +116,6 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  * Base class for implementation inheritance for different clauses in the   *<a href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *  * @version $Revision: $  */
 end_comment
@@ -138,11 +126,6 @@ specifier|public
 specifier|abstract
 class|class
 name|BuilderSupport
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 block|{
 DECL|field|context
 specifier|private
@@ -152,9 +135,6 @@ decl_stmt|;
 DECL|field|errorHandlerBuilder
 specifier|private
 name|ErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 name|errorHandlerBuilder
 decl_stmt|;
 DECL|field|inheritErrorHandler
@@ -179,14 +159,11 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-DECL|method|BuilderSupport (BuilderSupport<E> parent)
+DECL|method|BuilderSupport (BuilderSupport parent)
 specifier|protected
 name|BuilderSupport
 parameter_list|(
 name|BuilderSupport
-argument_list|<
-name|E
-argument_list|>
 name|parent
 parameter_list|)
 block|{
@@ -239,9 +216,6 @@ name|Fluent
 DECL|method|header (@luentArgR)String name)
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|header
 parameter_list|(
 annotation|@
@@ -256,9 +230,6 @@ block|{
 return|return
 name|Builder
 operator|.
-expr|<
-name|E
-operator|>
 name|header
 argument_list|(
 name|name
@@ -271,18 +242,12 @@ name|Fluent
 DECL|method|body ()
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|body
 parameter_list|()
 block|{
 return|return
 name|Builder
 operator|.
-expr|<
-name|E
-operator|>
 name|body
 argument_list|()
 return|;
@@ -296,9 +261,6 @@ parameter_list|<
 name|T
 parameter_list|>
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|bodyAs
 parameter_list|(
 annotation|@
@@ -316,11 +278,6 @@ block|{
 return|return
 name|Builder
 operator|.
-expr|<
-name|E
-operator|,
-name|T
-operator|>
 name|bodyAs
 argument_list|(
 name|type
@@ -333,18 +290,12 @@ name|Fluent
 DECL|method|outBody ()
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|outBody
 parameter_list|()
 block|{
 return|return
 name|Builder
 operator|.
-expr|<
-name|E
-operator|>
 name|outBody
 argument_list|()
 return|;
@@ -358,9 +309,6 @@ parameter_list|<
 name|T
 parameter_list|>
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|outBody
 parameter_list|(
 annotation|@
@@ -378,11 +326,6 @@ block|{
 return|return
 name|Builder
 operator|.
-expr|<
-name|E
-operator|,
-name|T
-operator|>
 name|outBody
 argument_list|(
 name|type
@@ -395,9 +338,6 @@ name|Fluent
 DECL|method|systemProperty (@luentArgR)String name)
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|systemProperty
 parameter_list|(
 annotation|@
@@ -412,9 +352,6 @@ block|{
 return|return
 name|Builder
 operator|.
-expr|<
-name|E
-operator|>
 name|systemProperty
 argument_list|(
 name|name
@@ -427,9 +364,6 @@ name|Fluent
 DECL|method|systemProperty ( @luentArgR)String name, @FluentArg(R)String defaultValue)
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|systemProperty
 parameter_list|(
 annotation|@
@@ -452,9 +386,6 @@ block|{
 return|return
 name|Builder
 operator|.
-expr|<
-name|E
-operator|>
 name|systemProperty
 argument_list|(
 name|name
@@ -469,9 +400,6 @@ name|Fluent
 DECL|method|endpoint (@luentArgR)String uri)
 specifier|public
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|(
 annotation|@
@@ -487,7 +415,7 @@ return|return
 name|getContext
 argument_list|()
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 name|uri
 argument_list|)
@@ -501,9 +429,6 @@ specifier|public
 name|List
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|endpoints
 parameter_list|(
@@ -520,9 +445,6 @@ block|{
 name|List
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|endpoints
 init|=
@@ -530,9 +452,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -562,14 +481,11 @@ block|}
 comment|/**      * Helper method to create a list of {@link Endpoint} instances      */
 annotation|@
 name|Fluent
-DECL|method|endpoints (@luentArgR)Endpoint<E>.... endpoints)
+DECL|method|endpoints (@luentArgR)Endpoint... endpoints)
 specifier|public
 name|List
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|endpoints
 parameter_list|(
@@ -579,9 +495,6 @@ argument_list|(
 literal|"endpoints"
 argument_list|)
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 modifier|...
 name|endpoints
 parameter_list|)
@@ -589,9 +502,6 @@ block|{
 name|List
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|answer
 init|=
@@ -599,18 +509,12 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
 control|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 range|:
 name|endpoints
@@ -634,18 +538,12 @@ name|Fluent
 DECL|method|noErrorHandler ()
 specifier|public
 name|NoErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 name|noErrorHandler
 parameter_list|()
 block|{
 return|return
 operator|new
 name|NoErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 return|;
 block|}
@@ -655,18 +553,12 @@ name|Fluent
 DECL|method|loggingErrorHandler ()
 specifier|public
 name|LoggingErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 name|loggingErrorHandler
 parameter_list|()
 block|{
 return|return
 operator|new
 name|LoggingErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 return|;
 block|}
@@ -676,9 +568,6 @@ name|Fluent
 DECL|method|loggingErrorHandler (@luentArgR)String log)
 specifier|public
 name|LoggingErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 name|loggingErrorHandler
 parameter_list|(
 annotation|@
@@ -708,9 +597,6 @@ name|Fluent
 DECL|method|loggingErrorHandler (@luentArgR)Log log)
 specifier|public
 name|LoggingErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 name|loggingErrorHandler
 parameter_list|(
 annotation|@
@@ -725,9 +611,6 @@ block|{
 return|return
 operator|new
 name|LoggingErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|log
 argument_list|)
@@ -739,9 +622,6 @@ name|Fluent
 DECL|method|loggingErrorHandler ( @luentArgR)Log log, @FluentArg(R)LoggingLevel level)
 specifier|public
 name|LoggingErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 name|loggingErrorHandler
 parameter_list|(
 annotation|@
@@ -764,9 +644,6 @@ block|{
 return|return
 operator|new
 name|LoggingErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|log
 argument_list|,
@@ -779,18 +656,12 @@ name|Fluent
 DECL|method|deadLetterChannel ()
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|deadLetterChannel
 parameter_list|()
 block|{
 return|return
 operator|new
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 return|;
 block|}
@@ -799,9 +670,6 @@ name|Fluent
 DECL|method|deadLetterChannel (@luentArgR)String deadLetterUri)
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|deadLetterChannel
 parameter_list|(
 annotation|@
@@ -825,12 +693,9 @@ return|;
 block|}
 annotation|@
 name|Fluent
-DECL|method|deadLetterChannel (@luentArgR)Endpoint<E> deadLetterEndpoint)
+DECL|method|deadLetterChannel (@luentArgR)Endpoint deadLetterEndpoint)
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|deadLetterChannel
 parameter_list|(
 annotation|@
@@ -839,24 +704,15 @@ argument_list|(
 literal|"endpoint"
 argument_list|)
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|deadLetterEndpoint
 parameter_list|)
 block|{
 return|return
 operator|new
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 operator|new
 name|SendProcessor
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|deadLetterEndpoint
 argument_list|)
@@ -894,9 +750,6 @@ block|}
 DECL|method|getErrorHandlerBuilder ()
 specifier|public
 name|ErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 name|getErrorHandlerBuilder
 parameter_list|()
 block|{
@@ -920,9 +773,6 @@ block|}
 DECL|method|createErrorHandlerBuilder ()
 specifier|protected
 name|ErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 name|createErrorHandlerBuilder
 parameter_list|()
 block|{
@@ -935,9 +785,6 @@ block|{
 return|return
 operator|new
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 return|;
 block|}
@@ -946,23 +793,17 @@ block|{
 return|return
 operator|new
 name|NoErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 return|;
 block|}
 block|}
 comment|/**      * Sets the error handler to use with processors created by this builder      */
-DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder<E> errorHandlerBuilder)
+DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|void
 name|setErrorHandlerBuilder
 parameter_list|(
 name|ErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 name|errorHandlerBuilder
 parameter_list|)
 block|{

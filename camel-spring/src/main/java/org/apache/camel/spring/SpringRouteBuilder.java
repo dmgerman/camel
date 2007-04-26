@@ -76,16 +76,8 @@ specifier|public
 specifier|abstract
 class|class
 name|SpringRouteBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|RouteBuilder
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|applicationContext
 specifier|private

@@ -29,9 +29,14 @@ extends|extends
 name|Exchange
 parameter_list|>
 block|{
+comment|/**      * Returns if the endpoint should be a CamelContext singleton.  If the endpoint is a Singleton,      * then a single Endpoint instance will be shared by all routes with the same URI.  Because the endpoint      * is shared, it should be treated as an immutable.      */
+DECL|method|isSingleton ()
+name|boolean
+name|isSingleton
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the string representation of the endpoint URI      */
 DECL|method|getEndpointUri ()
-specifier|public
 name|String
 name|getEndpointUri
 parameter_list|()

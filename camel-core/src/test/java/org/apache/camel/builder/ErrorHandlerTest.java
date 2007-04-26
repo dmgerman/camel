@@ -151,16 +151,10 @@ name|Exception
 block|{
 comment|// START SNIPPET: e5
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -211,9 +205,6 @@ comment|// END SNIPPET: e5
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|routes
 init|=

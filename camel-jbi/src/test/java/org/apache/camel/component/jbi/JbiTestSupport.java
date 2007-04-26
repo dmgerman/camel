@@ -583,7 +583,7 @@ name|endpoint
 operator|=
 name|camelContext
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 name|startEndpointUri
 argument_list|)

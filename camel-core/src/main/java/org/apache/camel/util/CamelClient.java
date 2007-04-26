@@ -326,7 +326,7 @@ name|endpoint
 init|=
 name|context
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 name|endpointUri
 argument_list|)

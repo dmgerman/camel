@@ -536,7 +536,7 @@ name|endpoint
 operator|=
 name|camelContext
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 name|camelUri
 argument_list|)

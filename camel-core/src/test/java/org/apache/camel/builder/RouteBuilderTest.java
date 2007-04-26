@@ -17,6 +17,44 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|idempotent
+operator|.
+name|MemoryMessageIdRepository
+operator|.
+name|memoryMessageIdRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -114,7 +152,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|FilterProcessor
+name|DelegateProcessor
 import|;
 end_import
 
@@ -128,7 +166,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DelegateProcessor
+name|FilterProcessor
 import|;
 end_import
 
@@ -220,44 +258,6 @@ name|MemoryMessageIdRepository
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|idempotent
-operator|.
-name|MemoryMessageIdRepository
-operator|.
-name|memoryMessageIdRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -301,24 +301,15 @@ decl_stmt|;
 DECL|method|buildSimpleRoute ()
 specifier|protected
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|buildSimpleRoute
 parameter_list|()
 block|{
 comment|// START SNIPPET: e1
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -353,9 +344,6 @@ throws|throws
 name|Exception
 block|{
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 name|buildSimpleRoute
@@ -364,9 +352,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|routes
 init|=
@@ -461,24 +446,15 @@ block|}
 DECL|method|buildSimpleRouteWithHeaderPredicate ()
 specifier|protected
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|buildSimpleRouteWithHeaderPredicate
 parameter_list|()
 block|{
 comment|// START SNIPPET: e2
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -526,9 +502,6 @@ throws|throws
 name|Exception
 block|{
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 name|buildSimpleRouteWithHeaderPredicate
@@ -537,9 +510,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|routes
 init|=
@@ -574,18 +544,12 @@ expr_stmt|;
 for|for
 control|(
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 name|route
 range|:
 name|routes
 control|)
 block|{
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|key
 init|=
 name|route
@@ -663,24 +627,15 @@ block|}
 DECL|method|buildSimpleRouteWithChoice ()
 specifier|protected
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|buildSimpleRouteWithChoice
 parameter_list|()
 block|{
 comment|// START SNIPPET: e3
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -757,9 +712,6 @@ throws|throws
 name|Exception
 block|{
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 name|buildSimpleRouteWithChoice
@@ -768,9 +720,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|routes
 init|=
@@ -805,18 +754,12 @@ expr_stmt|;
 for|for
 control|(
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 name|route
 range|:
 name|routes
 control|)
 block|{
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|key
 init|=
 name|route
@@ -845,9 +788,6 @@ name|route
 argument_list|)
 decl_stmt|;
 name|ChoiceProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 name|choiceProcessor
 init|=
 name|assertIsInstanceOf
@@ -862,9 +802,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|FilterProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|filters
 init|=
@@ -886,9 +823,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|FilterProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 name|filter1
 init|=
 name|filters
@@ -909,9 +843,6 @@ literal|"queue:b"
 argument_list|)
 expr_stmt|;
 name|FilterProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 name|filter2
 init|=
 name|filters
@@ -946,9 +877,6 @@ block|}
 DECL|method|buildCustomProcessor ()
 specifier|protected
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|buildCustomProcessor
 parameter_list|()
 block|{
@@ -985,16 +913,10 @@ block|}
 block|}
 expr_stmt|;
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -1029,9 +951,6 @@ throws|throws
 name|Exception
 block|{
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 name|buildCustomProcessor
@@ -1040,9 +959,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|routes
 init|=
@@ -1066,18 +982,12 @@ expr_stmt|;
 for|for
 control|(
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 name|route
 range|:
 name|routes
 control|)
 block|{
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|key
 init|=
 name|route
@@ -1119,24 +1029,15 @@ block|}
 DECL|method|buildCustomProcessorWithFilter ()
 specifier|protected
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|buildCustomProcessorWithFilter
 parameter_list|()
 block|{
 comment|// START SNIPPET: e5
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -1184,9 +1085,6 @@ throws|throws
 name|Exception
 block|{
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 name|buildCustomProcessorWithFilter
@@ -1195,9 +1093,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|routes
 init|=
@@ -1232,18 +1127,12 @@ expr_stmt|;
 for|for
 control|(
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 name|route
 range|:
 name|routes
 control|)
 block|{
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|key
 init|=
 name|route
@@ -1303,24 +1192,15 @@ block|}
 DECL|method|buildWireTap ()
 specifier|protected
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|buildWireTap
 parameter_list|()
 block|{
 comment|// START SNIPPET: e6
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -1357,9 +1237,6 @@ throws|throws
 name|Exception
 block|{
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 name|buildWireTap
@@ -1368,9 +1245,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|routes
 init|=
@@ -1405,18 +1279,12 @@ expr_stmt|;
 for|for
 control|(
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 name|route
 range|:
 name|routes
 control|)
 block|{
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|key
 init|=
 name|route
@@ -1445,9 +1313,6 @@ name|route
 argument_list|)
 decl_stmt|;
 name|MulticastProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 name|multicastProcessor
 init|=
 name|assertIsInstanceOf
@@ -1462,9 +1327,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|endpoints
 init|=
@@ -1472,9 +1334,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 argument_list|(
 name|multicastProcessor
@@ -1524,9 +1383,6 @@ block|}
 DECL|method|buildRouteWithInterceptor ()
 specifier|protected
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|buildRouteWithInterceptor
 parameter_list|()
 block|{
@@ -1534,9 +1390,6 @@ name|interceptor1
 operator|=
 operator|new
 name|DelegateProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{         }
 expr_stmt|;
@@ -1548,16 +1401,10 @@ name|MyInterceptorProcessor
 argument_list|()
 expr_stmt|;
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -1608,9 +1455,6 @@ throws|throws
 name|Exception
 block|{
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 name|buildRouteWithInterceptor
@@ -1619,9 +1463,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|routes
 init|=
@@ -1656,18 +1497,12 @@ expr_stmt|;
 for|for
 control|(
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 name|route
 range|:
 name|routes
 control|)
 block|{
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|key
 init|=
 name|route
@@ -1696,9 +1531,6 @@ name|route
 argument_list|)
 decl_stmt|;
 name|DelegateProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 name|p1
 init|=
 name|assertIsInstanceOf
@@ -1718,9 +1550,6 @@ name|getNext
 argument_list|()
 expr_stmt|;
 name|DelegateProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 name|p2
 init|=
 name|assertIsInstanceOf
@@ -1754,16 +1583,10 @@ name|Exception
 block|{
 comment|// START SNIPPET: e7
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -1824,9 +1647,6 @@ comment|// END SNIPPET: e7
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|routes
 init|=
@@ -1861,18 +1681,12 @@ expr_stmt|;
 for|for
 control|(
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 name|route
 range|:
 name|routes
 control|)
 block|{
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|key
 init|=
 name|route
@@ -1917,24 +1731,15 @@ block|}
 DECL|method|buildStaticRecipientList ()
 specifier|protected
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|buildStaticRecipientList
 parameter_list|()
 block|{
 comment|// START SNIPPET: e8
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -1967,24 +1772,15 @@ block|}
 DECL|method|buildDynamicRecipientList ()
 specifier|protected
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|buildDynamicRecipientList
 parameter_list|()
 block|{
 comment|// START SNIPPET: e9
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -2022,9 +1818,6 @@ throws|throws
 name|Exception
 block|{
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 name|buildDynamicRecipientList
@@ -2033,9 +1826,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|routes
 init|=
@@ -2070,18 +1860,12 @@ expr_stmt|;
 for|for
 control|(
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 name|route
 range|:
 name|routes
 control|)
 block|{
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|key
 init|=
 name|route
@@ -2110,9 +1894,6 @@ name|route
 argument_list|)
 decl_stmt|;
 name|RecipientList
-argument_list|<
-name|Exchange
-argument_list|>
 name|p1
 init|=
 name|assertIsInstanceOf
@@ -2129,24 +1910,15 @@ block|}
 DECL|method|buildSplitter ()
 specifier|protected
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|buildSplitter
 parameter_list|()
 block|{
 comment|// START SNIPPET: splitter
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -2196,9 +1968,6 @@ throws|throws
 name|Exception
 block|{
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 name|buildSplitter
@@ -2207,9 +1976,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|routes
 init|=
@@ -2244,18 +2010,12 @@ expr_stmt|;
 for|for
 control|(
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 name|route
 range|:
 name|routes
 control|)
 block|{
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|key
 init|=
 name|route
@@ -2284,9 +2044,6 @@ name|route
 argument_list|)
 decl_stmt|;
 name|Splitter
-argument_list|<
-name|Exchange
-argument_list|>
 name|p1
 init|=
 name|assertIsInstanceOf
@@ -2303,24 +2060,15 @@ block|}
 DECL|method|buildIdempotentConsumer ()
 specifier|protected
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|buildIdempotentConsumer
 parameter_list|()
 block|{
 comment|// START SNIPPET: idempotent
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 operator|new
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -2368,9 +2116,6 @@ throws|throws
 name|Exception
 block|{
 name|RouteBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|builder
 init|=
 name|buildIdempotentConsumer
@@ -2379,9 +2124,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|routes
 init|=
@@ -2416,18 +2158,12 @@ expr_stmt|;
 for|for
 control|(
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 name|route
 range|:
 name|routes
 control|)
 block|{
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|key
 init|=
 name|route
@@ -2456,9 +2192,6 @@ name|route
 argument_list|)
 decl_stmt|;
 name|IdempotentConsumer
-argument_list|<
-name|Exchange
-argument_list|>
 name|idempotentConsumer
 init|=
 name|assertIsInstanceOf
@@ -2580,9 +2313,6 @@ comment|/**      * By default routes should be wrapped in the {@link DeadLetterC
 DECL|method|getProcessorWithoutErrorHandler (Route route)
 specifier|protected
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|getProcessorWithoutErrorHandler
 parameter_list|(
 name|Route
@@ -2590,9 +2320,6 @@ name|route
 parameter_list|)
 block|{
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 init|=
 name|route
@@ -2607,18 +2334,12 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|unwrapErrorHandler (Processor<Exchange> processor)
+DECL|method|unwrapErrorHandler (Processor processor)
 specifier|protected
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|unwrapErrorHandler
 parameter_list|(
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 parameter_list|)
 block|{

@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: $  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -122,7 +122,7 @@ name|endpoint
 init|=
 name|context
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 literal|"xmpp://camel-user@localhost:123/test-user@localhost"
 argument_list|)
@@ -200,7 +200,7 @@ name|endpoint
 init|=
 name|context
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 literal|"xmpp://camel-user@im.google.com:123?room=cheese"
 argument_list|)

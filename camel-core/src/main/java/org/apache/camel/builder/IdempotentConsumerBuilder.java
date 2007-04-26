@@ -124,20 +124,14 @@ specifier|final
 name|MessageIdRepository
 name|messageIdRegistry
 decl_stmt|;
-DECL|method|IdempotentConsumerBuilder (FromBuilder<E> fromBuilder, Expression<E> messageIdExpression, MessageIdRepository messageIdRegistry)
+DECL|method|IdempotentConsumerBuilder (FromBuilder fromBuilder, Expression messageIdExpression, MessageIdRepository messageIdRegistry)
 specifier|public
 name|IdempotentConsumerBuilder
 parameter_list|(
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|fromBuilder
 parameter_list|,
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|messageIdExpression
 parameter_list|,
 name|MessageIdRepository
@@ -178,18 +172,12 @@ comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 annotation|@
 name|Override
-DECL|method|wrapInErrorHandler (Processor<E> processor)
+DECL|method|wrapInErrorHandler (Processor processor)
 specifier|protected
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|wrapInErrorHandler
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws
@@ -202,27 +190,18 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|wrapProcessor (Processor<E> processor)
+DECL|method|wrapProcessor (Processor processor)
 specifier|protected
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|wrapProcessor
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
 return|return
 operator|new
 name|IdempotentConsumer
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|messageIdExpression
 argument_list|,

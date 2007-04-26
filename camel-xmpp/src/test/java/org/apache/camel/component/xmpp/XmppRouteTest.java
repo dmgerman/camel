@@ -706,7 +706,7 @@ name|endpoint
 operator|=
 name|container
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 name|uri1
 argument_list|)

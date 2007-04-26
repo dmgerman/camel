@@ -240,7 +240,7 @@ name|endpoint
 init|=
 name|container
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 literal|"direct:test.a"
 argument_list|)

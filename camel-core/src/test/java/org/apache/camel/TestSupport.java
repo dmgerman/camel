@@ -519,7 +519,7 @@ name|endpoint
 init|=
 name|context
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 name|uri
 argument_list|)

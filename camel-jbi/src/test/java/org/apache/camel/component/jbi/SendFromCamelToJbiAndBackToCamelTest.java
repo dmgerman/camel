@@ -196,7 +196,7 @@ name|QueueEndpoint
 operator|)
 name|camelContext
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 literal|"queue:receiver"
 argument_list|)

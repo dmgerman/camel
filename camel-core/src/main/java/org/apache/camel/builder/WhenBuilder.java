@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Predicate
 import|;
 end_import
@@ -61,40 +49,23 @@ DECL|class|WhenBuilder
 specifier|public
 class|class
 name|WhenBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|FilterBuilder
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|parent
 specifier|private
 specifier|final
 name|ChoiceBuilder
-argument_list|<
-name|E
-argument_list|>
 name|parent
 decl_stmt|;
-DECL|method|WhenBuilder (ChoiceBuilder<E> parent, Predicate<E> predicate)
+DECL|method|WhenBuilder (ChoiceBuilder parent, Predicate predicate)
 specifier|public
 name|WhenBuilder
 parameter_list|(
 name|ChoiceBuilder
-argument_list|<
-name|E
-argument_list|>
 name|parent
 parameter_list|,
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|predicate
 parameter_list|)
 block|{
@@ -116,12 +87,9 @@ annotation|@
 name|Override
 annotation|@
 name|Fluent
-DECL|method|to (@luentArgR) Endpoint<E> endpoint)
+DECL|method|to (@luentArgR) Endpoint endpoint)
 specifier|public
 name|ChoiceBuilder
-argument_list|<
-name|E
-argument_list|>
 name|to
 parameter_list|(
 annotation|@
@@ -130,9 +98,6 @@ argument_list|(
 literal|"endpoint"
 argument_list|)
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{
@@ -154,9 +119,6 @@ name|Fluent
 DECL|method|to (@luentArgR) String uri)
 specifier|public
 name|ChoiceBuilder
-argument_list|<
-name|E
-argument_list|>
 name|to
 parameter_list|(
 annotation|@

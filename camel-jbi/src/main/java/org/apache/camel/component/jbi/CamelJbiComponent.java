@@ -483,7 +483,7 @@ init|=
 name|getCamelContext
 argument_list|()
 operator|.
-name|resolveEndpoint
+name|getEndpoint
 argument_list|(
 name|camelUri
 argument_list|)
