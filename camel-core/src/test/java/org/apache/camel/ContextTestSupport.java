@@ -189,17 +189,28 @@ return|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
-specifier|abstract
 name|RouteBuilder
 name|createRouteBuilder
 parameter_list|()
-function_decl|;
+block|{
+return|return
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+specifier|public
+name|void
+name|configure
+parameter_list|()
+block|{
+comment|// no routes added by default
+block|}
+block|}
+return|;
+block|}
 DECL|method|resolveMandatoryEndpoint (String uri)
 specifier|protected
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|resolveMandatoryEndpoint
 parameter_list|(
 name|String

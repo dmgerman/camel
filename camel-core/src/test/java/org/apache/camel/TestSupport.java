@@ -502,9 +502,6 @@ comment|/**      * Resolves an endpoint and asserts that it is found      */
 DECL|method|resolveMandatoryEndpoint (CamelContext context, String uri)
 specifier|protected
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|resolveMandatoryEndpoint
 parameter_list|(
 name|CamelContext

@@ -149,7 +149,7 @@ parameter_list|)
 function_decl|;
 comment|// Endpoint Management Methods
 comment|//-----------------------------------------------------------------------
-comment|/**      * Resolves the given URI to an {@see Endpoint}.  If the URI has a singleton endpoint      * registered, then the singleton is returned.  Otherwise, a new {@see Endpoint} is created      * and auto registered as a singleton if it is a singleton endpoint.      */
+comment|/**      * Resolves the given URI to an {@see Endpoint}.  If the URI has a singleton endpoint      * registered, then the singleton is returned.  Otherwise, a new {@see Endpoint} is created      * and if the endpoint is a singleton it is registered as a singleton endpoint.      */
 DECL|method|getEndpoint (String uri)
 name|Endpoint
 name|getEndpoint
