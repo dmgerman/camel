@@ -33,10 +33,10 @@ comment|/**  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
-DECL|class|MessagePropertyAcessException
+DECL|class|MessagePropertyAccessException
 specifier|public
 class|class
-name|MessagePropertyAcessException
+name|MessagePropertyAccessException
 extends|extends
 name|RuntimeJmsException
 block|{
@@ -55,9 +55,9 @@ specifier|private
 name|String
 name|propertyName
 decl_stmt|;
-DECL|method|MessagePropertyAcessException (String propertyName, JMSException e)
+DECL|method|MessagePropertyAccessException (String propertyName, JMSException e)
 specifier|public
-name|MessagePropertyAcessException
+name|MessagePropertyAccessException
 parameter_list|(
 name|String
 name|propertyName

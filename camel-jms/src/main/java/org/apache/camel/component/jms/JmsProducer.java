@@ -203,36 +203,6 @@ operator|=
 name|template
 expr_stmt|;
 block|}
-DECL|method|onExchange (Exchange exchange)
-specifier|public
-name|void
-name|onExchange
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-comment|// lets convert to the type of an exchange
-name|JmsExchange
-name|jmsExchange
-init|=
-name|endpoint
-operator|.
-name|convertTo
-argument_list|(
-name|JmsExchange
-operator|.
-name|class
-argument_list|,
-name|exchange
-argument_list|)
-decl_stmt|;
-name|process
-argument_list|(
-name|jmsExchange
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|process (final JmsExchange exchange)
 specifier|public
 name|void

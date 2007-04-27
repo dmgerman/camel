@@ -226,7 +226,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|MessagePropertyAcessException
+name|MessagePropertyAccessException
 argument_list|(
 name|name
 argument_list|,
@@ -349,7 +349,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|MessagePropertyNamesAcessException
+name|MessagePropertyNamesAccessException
 argument_list|(
 name|e
 argument_list|)
@@ -404,7 +404,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|MessagePropertyAcessException
+name|MessagePropertyAccessException
 argument_list|(
 name|name
 argument_list|,

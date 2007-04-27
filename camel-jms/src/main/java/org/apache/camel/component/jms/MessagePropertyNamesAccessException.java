@@ -33,10 +33,10 @@ comment|/**  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
-DECL|class|MessagePropertyNamesAcessException
+DECL|class|MessagePropertyNamesAccessException
 specifier|public
 class|class
-name|MessagePropertyNamesAcessException
+name|MessagePropertyNamesAccessException
 extends|extends
 name|RuntimeJmsException
 block|{
@@ -50,9 +50,9 @@ init|=
 operator|-
 literal|6744171518099741324L
 decl_stmt|;
-DECL|method|MessagePropertyNamesAcessException (JMSException e)
+DECL|method|MessagePropertyNamesAccessException (JMSException e)
 specifier|public
-name|MessagePropertyNamesAcessException
+name|MessagePropertyNamesAccessException
 parameter_list|(
 name|JMSException
 name|e
