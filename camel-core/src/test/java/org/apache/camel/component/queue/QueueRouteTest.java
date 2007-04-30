@@ -464,7 +464,7 @@ argument_list|(
 literal|"queue"
 argument_list|)
 operator|.
-name|resolveEndpoint
+name|createEndpoint
 argument_list|(
 literal|"queue:test.a"
 argument_list|)

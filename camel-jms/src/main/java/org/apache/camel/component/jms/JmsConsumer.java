@@ -219,11 +219,6 @@ argument_list|()
 expr_stmt|;
 name|listenerContainer
 operator|.
-name|initialize
-argument_list|()
-expr_stmt|;
-name|listenerContainer
-operator|.
 name|start
 argument_list|()
 expr_stmt|;

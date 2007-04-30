@@ -976,18 +976,29 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// Have the component create the endpoint if it can.
 name|answer
 operator|=
 name|component
 operator|.
-name|resolveEndpoint
+name|createEndpoint
 argument_list|(
 name|uri
 argument_list|)
 expr_stmt|;
-block|}
-comment|// HC: What's the idea behind starting an endpoint?
-comment|// I don't think we have any endpoints that are services do we?
+comment|// If it's a singleton then auto register it.
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+operator|&&
+name|answer
+operator|.
+name|isSingleton
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|answer
@@ -1009,6 +1020,8 @@ argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 catch|catch

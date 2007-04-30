@@ -556,13 +556,13 @@ return|;
 block|}
 comment|// Resolve Camel Endpoints
 comment|//-------------------------------------------------------------------------
-DECL|method|resolveEndpoint (String uri)
+DECL|method|createEndpoint (String uri)
 specifier|public
 name|Endpoint
 argument_list|<
 name|Exchange
 argument_list|>
-name|resolveEndpoint
+name|createEndpoint
 parameter_list|(
 name|String
 name|uri

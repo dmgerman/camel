@@ -221,13 +221,13 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-DECL|method|resolveEndpoint (String uri)
+DECL|method|createEndpoint (String uri)
 specifier|public
 name|Endpoint
 argument_list|<
 name|E
 argument_list|>
-name|resolveEndpoint
+name|createEndpoint
 parameter_list|(
 name|String
 name|uri
