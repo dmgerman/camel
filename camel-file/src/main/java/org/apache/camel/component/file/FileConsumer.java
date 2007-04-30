@@ -24,37 +24,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|BufferedInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileNotFoundException
 import|;
 end_import
 
@@ -74,27 +44,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|RandomAccessFile
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|SocketAddress
 import|;
 end_import
 
@@ -116,55 +66,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|ScheduledExecutorService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|locks
-operator|.
-name|Lock
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|management
-operator|.
-name|Query
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
 import|;
 end_import
 
@@ -288,7 +192,7 @@ name|lastPollTime
 init|=
 literal|0l
 decl_stmt|;
-DECL|method|FileConsumer (final FileEndpoint endpoint, Processor<FileExchange> processor,ScheduledExecutorService executor)
+DECL|method|FileConsumer (final FileEndpoint endpoint,Processor<FileExchange> processor,ScheduledExecutorService executor)
 specifier|public
 name|FileConsumer
 parameter_list|(
@@ -349,7 +253,7 @@ name|currentTimeMillis
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|pollFileOrDirectory (File fileOrDirectory, boolean processDir)
+DECL|method|pollFileOrDirectory (File fileOrDirectory,boolean processDir)
 specifier|protected
 name|void
 name|pollFileOrDirectory
@@ -584,7 +488,19 @@ parameter_list|(
 name|Throwable
 name|e
 parameter_list|)
-block|{                 }
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Failed to get the lock on file: "
+operator|+
+name|file
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 finally|finally
 block|{
 if|if
@@ -607,9 +523,16 @@ parameter_list|(
 name|IOException
 name|e
 parameter_list|)
-block|{                         }
+block|{                             }
 block|}
 block|}
+block|}
+else|else
+block|{
+name|result
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 block|}

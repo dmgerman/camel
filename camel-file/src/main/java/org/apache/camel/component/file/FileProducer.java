@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Producer} implementation for MINA  *   * @version $Revision: 523016 $  */
+comment|/**  * A {@link Producer} implementation for File  *   * @version $Revision: 523016 $  */
 end_comment
 
 begin_class
@@ -172,7 +172,7 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
-comment|/**      * @param arg0      * @see org.apache.camel.Processor#process(java.lang.Object)      */
+comment|/**      * @param exchange      * @see org.apache.camel.Processor#process(java.lang.Object)      */
 DECL|method|process (FileExchange exchange)
 specifier|public
 name|void
@@ -197,6 +197,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|payload
+operator|.
+name|flip
+argument_list|()
+expr_stmt|;
 name|File
 name|file
 init|=
