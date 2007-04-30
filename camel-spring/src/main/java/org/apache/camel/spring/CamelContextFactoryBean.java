@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Spring {@link FactoryBean} to create and initialize a Camel {@CamelContext}  * and install routes either explicitly configured in Spring or found by searching the classpath.  *  * @version $Revision$  */
+comment|/**  * A Spring {@link FactoryBean} to create and initialize a {@link SpringCamelContext}  * and install routes either explicitly configured in Spring XML or found by searching the classpath for Java classes  * which extend {@link RouteBuilder} using the nested {@link #setPackages(String[])}.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -325,6 +325,7 @@ return|return
 name|routeBuilder
 return|;
 block|}
+comment|/**      * Set a single {@link RouteBuilder} to be used to create the default routes on startup      */
 DECL|method|setRouteBuilder (RouteBuilder routeBuilder)
 specifier|public
 name|void
@@ -341,6 +342,7 @@ operator|=
 name|routeBuilder
 expr_stmt|;
 block|}
+comment|/**      * Set a collection of {@link RouteBuilder} instances to be used to create the default routes on startup      */
 DECL|method|setRouteBuilders (RouteBuilder[] builders)
 specifier|public
 name|void
@@ -405,6 +407,7 @@ return|return
 name|packages
 return|;
 block|}
+comment|/**      * Sets the package names to be recursively searched for Java classes which extend {@link RouteBuilder} to be auto-wired up to the      * {@link SpringCamelContext} as a route. Note that classes are excluded if they are specifically configured in the spring.xml      *      * @param packages the package names which are recursively searched      */
 DECL|method|setPackages (String[] packages)
 specifier|public
 name|void
