@@ -630,20 +630,20 @@ name|attemptFileLock
 return|;
 block|}
 comment|/**      * @param attemptFileLock the attemptFileLock to set      */
-DECL|method|setAttemptFileLock (boolean checkAppending)
+DECL|method|setAttemptFileLock (boolean attemptFileLock)
 specifier|public
 name|void
 name|setAttemptFileLock
 parameter_list|(
 name|boolean
-name|checkAppending
+name|attemptFileLock
 parameter_list|)
 block|{
 name|this
 operator|.
 name|attemptFileLock
 operator|=
-name|checkAppending
+name|attemptFileLock
 expr_stmt|;
 block|}
 comment|/**      * @return the regexPattern      */
