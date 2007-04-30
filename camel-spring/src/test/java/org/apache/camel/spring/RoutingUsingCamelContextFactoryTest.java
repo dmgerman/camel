@@ -160,6 +160,20 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|support
+operator|.
+name|AbstractXmlApplicationContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 521586 $  */
 end_comment
@@ -179,6 +193,11 @@ name|body
 init|=
 literal|"<hello>world!</hello>"
 decl_stmt|;
+DECL|field|applicationContext
+specifier|protected
+name|AbstractXmlApplicationContext
+name|applicationContext
+decl_stmt|;
 DECL|method|testXMLRouteLoading ()
 specifier|public
 name|void
@@ -187,15 +206,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ApplicationContext
 name|applicationContext
-init|=
+operator|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
 literal|"org/apache/camel/spring/routingUsingCamelContextFactoryTest.xml"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|CamelContext
 name|context
 init|=
@@ -304,6 +322,27 @@ expr_stmt|;
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|tearDown ()
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+name|applicationContext
+operator|.
+name|destroy
 argument_list|()
 expr_stmt|;
 block|}
