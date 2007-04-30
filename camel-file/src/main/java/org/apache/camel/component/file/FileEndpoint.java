@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ScheduledExecutorService
@@ -114,6 +124,20 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 523016 $  */
 end_comment
@@ -134,7 +158,12 @@ specifier|private
 name|File
 name|file
 decl_stmt|;
-DECL|method|FileEndpoint (File file,String endpointUri, Component component)
+DECL|field|parameters
+specifier|private
+name|Map
+name|parameters
+decl_stmt|;
+DECL|method|FileEndpoint (File file,String endpointUri, Component component,Map parameters)
 specifier|protected
 name|FileEndpoint
 parameter_list|(
@@ -146,6 +175,9 @@ name|endpointUri
 parameter_list|,
 name|Component
 name|component
+parameter_list|,
+name|Map
+name|parameters
 parameter_list|)
 block|{
 name|super
@@ -160,6 +192,21 @@ operator|.
 name|file
 operator|=
 name|file
+expr_stmt|;
+name|this
+operator|.
+name|parameters
+operator|=
+name|parameters
+expr_stmt|;
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+name|this
+argument_list|,
+name|parameters
+argument_list|)
 expr_stmt|;
 block|}
 DECL|field|executor
@@ -185,7 +232,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|Consumer
+argument_list|<
+name|FileExchange
+argument_list|>
+name|result
+init|=
 operator|new
 name|FileConsumer
 argument_list|(
@@ -196,6 +248,18 @@ argument_list|,
 name|getExecutor
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+name|result
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|result
 return|;
 block|}
 comment|/**      * @param file       * @return a FileExchange      * @see org.apache.camel.Endpoint#createExchange()      */
@@ -247,12 +311,29 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-return|return
+name|Producer
+argument_list|<
+name|FileExchange
+argument_list|>
+name|result
+init|=
 operator|new
 name|FileProducer
 argument_list|(
 name|this
 argument_list|)
+decl_stmt|;
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+name|result
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|result
 return|;
 block|}
 comment|/**      * @return the executor      */
