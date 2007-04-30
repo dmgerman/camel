@@ -264,7 +264,6 @@ name|uri
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//config.configure(new URL(uri));
 comment|// lets make sure we copy the configuration as each endpoint can customize its own version
 name|MailEndpoint
 name|endpoint

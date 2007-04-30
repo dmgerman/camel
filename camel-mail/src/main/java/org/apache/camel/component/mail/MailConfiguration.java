@@ -115,6 +115,18 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+DECL|field|destination
+specifier|private
+name|String
+name|destination
+decl_stmt|;
+DECL|field|from
+specifier|private
+name|String
+name|from
+init|=
+literal|"camel@localhost"
+decl_stmt|;
 DECL|method|MailConfiguration ()
 specifier|public
 name|MailConfiguration
@@ -245,6 +257,46 @@ name|port
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we can either be invoked with
+comment|// mailto:address
+comment|// or
+comment|// smtp:user@host:port/name@address
+name|String
+name|fragment
+init|=
+name|uri
+operator|.
+name|getFragment
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|fragment
+operator|==
+literal|null
+operator|||
+name|fragment
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+name|fragment
+operator|=
+name|userInfo
+operator|+
+literal|"@"
+operator|+
+name|host
+expr_stmt|;
+block|}
+name|setDestination
+argument_list|(
+name|fragment
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createJavaMailConnection (MailEndpoint mailEndpoint)
 specifier|public
@@ -595,6 +647,58 @@ operator|.
 name|username
 operator|=
 name|username
+expr_stmt|;
+block|}
+DECL|method|getDestination ()
+specifier|public
+name|String
+name|getDestination
+parameter_list|()
+block|{
+return|return
+name|destination
+return|;
+block|}
+DECL|method|setDestination (String destination)
+specifier|public
+name|void
+name|setDestination
+parameter_list|(
+name|String
+name|destination
+parameter_list|)
+block|{
+name|this
+operator|.
+name|destination
+operator|=
+name|destination
+expr_stmt|;
+block|}
+DECL|method|getFrom ()
+specifier|public
+name|String
+name|getFrom
+parameter_list|()
+block|{
+return|return
+name|from
+return|;
+block|}
+DECL|method|setFrom (String from)
+specifier|public
+name|void
+name|setFrom
+parameter_list|(
+name|String
+name|from
+parameter_list|)
+block|{
+name|this
+operator|.
+name|from
+operator|=
+name|from
 expr_stmt|;
 block|}
 block|}

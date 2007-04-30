@@ -208,6 +208,8 @@ argument_list|()
 operator|.
 name|populateMailMessage
 argument_list|(
+name|endpoint
+argument_list|,
 name|mimeMessage
 argument_list|,
 name|exchange
