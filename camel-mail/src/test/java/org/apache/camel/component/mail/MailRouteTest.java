@@ -55,6 +55,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -166,6 +182,11 @@ name|MailRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|resultEndpoint
+specifier|private
+name|MockEndpoint
+name|resultEndpoint
+decl_stmt|;
 DECL|method|testSendAndReceiveMails ()
 specifier|public
 name|void
@@ -174,6 +195,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|resultEndpoint
+operator|=
+operator|(
+name|MockEndpoint
+operator|)
+name|resolveMandatoryEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+name|resultEndpoint
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|client
 operator|.
 name|send
@@ -216,8 +254,18 @@ literal|"james@localhost"
 argument_list|)
 expr_stmt|;
 comment|// lets test the receive worked
-comment|// TODO
-comment|// assertMailboxReceivedMessages("result@localhost");
+name|resultEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
+name|assertMailboxReceivedMessages
+argument_list|(
+literal|"copy@localhost"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|assertMailboxReceivedMessages (String name)
 specifier|protected
@@ -306,27 +354,29 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"direct:a"
+literal|"queue:a"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:a"
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-literal|"name"
-argument_list|,
-name|constant
-argument_list|(
-literal|"James"
-argument_list|)
+literal|"queue:a"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"pop3:result@localhost"
+literal|"smtp://result@localhost"
+argument_list|,
+literal|"smtp://copy@localhost"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"smtp://result@localhost"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
