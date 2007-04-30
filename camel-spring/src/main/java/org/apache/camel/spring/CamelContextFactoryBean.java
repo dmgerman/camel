@@ -46,20 +46,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|beans
@@ -355,6 +341,33 @@ operator|=
 name|routeBuilder
 expr_stmt|;
 block|}
+DECL|method|setRouteBuilders (RouteBuilder[] builders)
+specifier|public
+name|void
+name|setRouteBuilders
+parameter_list|(
+name|RouteBuilder
+index|[]
+name|builders
+parameter_list|)
+block|{
+for|for
+control|(
+name|RouteBuilder
+name|builder
+range|:
+name|builders
+control|)
+block|{
+name|additionalBuilders
+operator|.
+name|add
+argument_list|(
+name|builder
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|getApplicationContext ()
 specifier|public
 name|ApplicationContext
@@ -443,6 +456,7 @@ name|routeBuilder
 operator|!=
 literal|null
 condition|)
+block|{
 name|getContext
 argument_list|()
 operator|.
@@ -451,6 +465,7 @@ argument_list|(
 name|routeBuilder
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Strategy method to try find {@link RouteBuilder} instances on the classpath      */
 DECL|method|findRouteBuiders ()
