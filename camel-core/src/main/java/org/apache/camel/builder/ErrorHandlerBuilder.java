@@ -65,17 +65,11 @@ name|copy
 parameter_list|()
 function_decl|;
 comment|/**      * Creates the error handler interceptor      */
-DECL|method|createErrorHandler (Processor<E> processor)
+DECL|method|createErrorHandler (Processor processor)
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|createErrorHandler
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws

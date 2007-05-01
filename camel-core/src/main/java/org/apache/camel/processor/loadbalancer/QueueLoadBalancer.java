@@ -62,23 +62,15 @@ specifier|public
 specifier|abstract
 class|class
 name|QueueLoadBalancer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|LoadBalancerSupport
-argument_list|<
-name|E
-argument_list|>
 block|{
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -87,9 +79,6 @@ block|{
 name|List
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|list
 init|=
@@ -115,9 +104,6 @@ argument_list|)
 throw|;
 block|}
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 init|=
 name|chooseProcessor
@@ -155,25 +141,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|chooseProcessor (List<Processor<E>> processors, E exchange)
+DECL|method|chooseProcessor (List<Processor> processors, Exchange exchange)
 specifier|protected
 specifier|abstract
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|chooseProcessor
 parameter_list|(
 name|List
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|processors
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;

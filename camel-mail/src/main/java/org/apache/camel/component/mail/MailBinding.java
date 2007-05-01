@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|mail
@@ -102,7 +114,7 @@ specifier|public
 class|class
 name|MailBinding
 block|{
-DECL|method|populateMailMessage (MailEndpoint endpoint, MimeMessage mimeMessage, MailExchange exchange)
+DECL|method|populateMailMessage (MailEndpoint endpoint, MimeMessage mimeMessage, Exchange exchange)
 specifier|public
 name|void
 name|populateMailMessage
@@ -113,7 +125,7 @@ parameter_list|,
 name|MimeMessage
 name|mimeMessage
 parameter_list|,
-name|MailExchange
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -310,7 +322,7 @@ throw|;
 block|}
 block|}
 comment|/**      * Appends the Mail headers from the Camel {@link MailMessage}      */
-DECL|method|appendMailHeaders (MimeMessage mimeMessage, MailMessage camelMessage)
+DECL|method|appendMailHeaders (MimeMessage mimeMessage, org.apache.camel.Message camelMessage)
 specifier|protected
 name|void
 name|appendMailHeaders
@@ -318,7 +330,13 @@ parameter_list|(
 name|MimeMessage
 name|mimeMessage
 parameter_list|,
-name|MailMessage
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
 name|camelMessage
 parameter_list|)
 throws|throws
@@ -412,12 +430,18 @@ block|}
 block|}
 block|}
 comment|/**      * Strategy to allow filtering of headers which are put on the Mail message      */
-DECL|method|shouldOutputHeader (MailMessage camelMessage, String headerName, Object headerValue)
+DECL|method|shouldOutputHeader (org.apache.camel.Message camelMessage, String headerName, Object headerValue)
 specifier|protected
 name|boolean
 name|shouldOutputHeader
 parameter_list|(
-name|MailMessage
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
 name|camelMessage
 parameter_list|,
 name|String

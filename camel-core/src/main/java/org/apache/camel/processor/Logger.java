@@ -77,16 +77,8 @@ DECL|class|Logger
 specifier|public
 class|class
 name|Logger
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|log
 specifier|private
@@ -174,12 +166,12 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -662,12 +654,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|logMessage (E exchange)
+DECL|method|logMessage (Exchange exchange)
 specifier|protected
 name|Object
 name|logMessage
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

@@ -115,9 +115,6 @@ decl_stmt|;
 DECL|field|processor
 specifier|private
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 decl_stmt|;
 DECL|field|thread
@@ -125,7 +122,7 @@ specifier|private
 name|Thread
 name|thread
 decl_stmt|;
-DECL|method|QueueEndpointConsumer (QueueEndpoint<E> endpoint, Processor<E> processor)
+DECL|method|QueueEndpointConsumer (QueueEndpoint<E> endpoint, Processor processor)
 specifier|public
 name|QueueEndpointConsumer
 parameter_list|(
@@ -136,9 +133,6 @@ argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{

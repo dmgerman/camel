@@ -75,9 +75,6 @@ class|class
 name|MyProcessor
 implements|implements
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|exchanges
 specifier|private

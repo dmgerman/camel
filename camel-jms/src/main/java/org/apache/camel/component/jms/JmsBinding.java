@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|jms
@@ -284,13 +296,13 @@ throw|;
 block|}
 block|}
 comment|/**      * Creates a JMS message from the Camel exchange and message      *      * @param session the JMS session used to create the message      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
-DECL|method|makeJmsMessage (JmsMessage message, Session session)
+DECL|method|makeJmsMessage (Exchange exchange, Session session)
 specifier|public
 name|Message
 name|makeJmsMessage
 parameter_list|(
-name|JmsMessage
-name|message
+name|Exchange
+name|exchange
 parameter_list|,
 name|Session
 name|session
@@ -303,7 +315,13 @@ name|answer
 init|=
 name|createJmsMessage
 argument_list|(
-name|message
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
 argument_list|,
 name|session
 argument_list|)
@@ -312,7 +330,7 @@ name|appendJmsProperties
 argument_list|(
 name|answer
 argument_list|,
-name|message
+name|exchange
 argument_list|,
 name|session
 argument_list|)
@@ -322,7 +340,7 @@ name|answer
 return|;
 block|}
 comment|/**      * Appends the JMS headers from the Camel {@link JmsMessage}      */
-DECL|method|appendJmsProperties (Message jmsMessage, JmsMessage camelMessage, Session session)
+DECL|method|appendJmsProperties (Message jmsMessage, Exchange exchange, Session session)
 specifier|protected
 name|void
 name|appendJmsProperties
@@ -330,8 +348,8 @@ parameter_list|(
 name|Message
 name|jmsMessage
 parameter_list|,
-name|JmsMessage
-name|camelMessage
+name|Exchange
+name|exchange
 parameter_list|,
 name|Session
 name|session
@@ -339,6 +357,20 @@ parameter_list|)
 throws|throws
 name|JMSException
 block|{
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+name|in
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+decl_stmt|;
 name|Set
 argument_list|<
 name|Map
@@ -352,7 +384,7 @@ argument_list|>
 argument_list|>
 name|entries
 init|=
-name|camelMessage
+name|in
 operator|.
 name|getHeaders
 argument_list|()
@@ -395,7 +427,7 @@ if|if
 condition|(
 name|shouldOutputHeader
 argument_list|(
-name|camelMessage
+name|in
 argument_list|,
 name|headerName
 argument_list|,
@@ -415,13 +447,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|createJmsMessage (JmsMessage message, Session session)
+DECL|method|createJmsMessage (Object body, Session session)
 specifier|protected
 name|Message
 name|createJmsMessage
 parameter_list|(
-name|JmsMessage
-name|message
+name|Object
+name|body
 parameter_list|,
 name|Session
 name|session
@@ -429,17 +461,9 @@ parameter_list|)
 throws|throws
 name|JMSException
 block|{
-name|Object
-name|value
-init|=
-name|message
-operator|.
-name|getBody
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|value
+name|body
 operator|instanceof
 name|String
 condition|)
@@ -452,14 +476,14 @@ argument_list|(
 operator|(
 name|String
 operator|)
-name|value
+name|body
 argument_list|)
 return|;
 block|}
 elseif|else
 if|if
 condition|(
-name|value
+name|body
 operator|instanceof
 name|Serializable
 condition|)
@@ -472,7 +496,7 @@ argument_list|(
 operator|(
 name|Serializable
 operator|)
-name|value
+name|body
 argument_list|)
 return|;
 block|}
@@ -572,12 +596,18 @@ name|answer
 return|;
 block|}
 comment|/**      * Strategy to allow filtering of headers which are put on the JMS message      */
-DECL|method|shouldOutputHeader (JmsMessage camelMessage, String headerName, Object headerValue)
+DECL|method|shouldOutputHeader (org.apache.camel.Message camelMessage, String headerName, Object headerValue)
 specifier|protected
 name|boolean
 name|shouldOutputHeader
 parameter_list|(
-name|JmsMessage
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
 name|camelMessage
 parameter_list|,
 name|String

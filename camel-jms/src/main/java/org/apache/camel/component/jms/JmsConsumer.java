@@ -101,7 +101,7 @@ specifier|final
 name|AbstractMessageListenerContainer
 name|listenerContainer
 decl_stmt|;
-DECL|method|JmsConsumer (JmsEndpoint endpoint, Processor<JmsExchange> processor, AbstractMessageListenerContainer listenerContainer)
+DECL|method|JmsConsumer (JmsEndpoint endpoint, Processor processor, AbstractMessageListenerContainer listenerContainer)
 specifier|public
 name|JmsConsumer
 parameter_list|(
@@ -109,9 +109,6 @@ name|JmsEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|JmsExchange
-argument_list|>
 name|processor
 parameter_list|,
 name|AbstractMessageListenerContainer
@@ -151,7 +148,7 @@ name|messageListener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createMessageListener (JmsEndpoint endpoint, Processor<JmsExchange> processor)
+DECL|method|createMessageListener (JmsEndpoint endpoint, Processor processor)
 specifier|protected
 name|MessageListener
 name|createMessageListener
@@ -160,9 +157,6 @@ name|JmsEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|JmsExchange
-argument_list|>
 name|processor
 parameter_list|)
 block|{

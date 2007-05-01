@@ -77,7 +77,7 @@ specifier|final
 name|ProcessorEndpoint
 name|endpoint
 decl_stmt|;
-DECL|method|ProcessorEndpointConsumer (ProcessorEndpoint endpoint, Processor<Exchange> processor)
+DECL|method|ProcessorEndpointConsumer (ProcessorEndpoint endpoint, Processor processor)
 specifier|public
 name|ProcessorEndpointConsumer
 parameter_list|(
@@ -85,9 +85,6 @@ name|ProcessorEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 parameter_list|)
 block|{

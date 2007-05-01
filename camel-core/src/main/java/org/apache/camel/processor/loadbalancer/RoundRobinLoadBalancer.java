@@ -61,16 +61,8 @@ DECL|class|RoundRobinLoadBalancer
 specifier|public
 class|class
 name|RoundRobinLoadBalancer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|QueueLoadBalancer
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|counter
 specifier|private
@@ -80,25 +72,19 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|method|chooseProcessor (List<Processor<E>> processors, E exchange)
+DECL|method|chooseProcessor (List<Processor> processors, Exchange exchange)
 specifier|protected
 specifier|synchronized
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|chooseProcessor
 parameter_list|(
 name|List
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|processors
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

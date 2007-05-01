@@ -60,18 +60,12 @@ argument_list|<
 name|E
 argument_list|>
 block|{
-DECL|method|wrap (Processor<E> processor)
+DECL|method|wrap (Processor processor)
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|wrap
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{

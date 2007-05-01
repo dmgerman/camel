@@ -159,16 +159,8 @@ DECL|class|DeadLetterChannelBuilder
 specifier|public
 class|class
 name|DeadLetterChannelBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|ErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|redeliveryPolicy
 specifier|private
@@ -182,25 +174,16 @@ decl_stmt|;
 DECL|field|deadLetterFactory
 specifier|private
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|deadLetterFactory
 decl_stmt|;
 DECL|field|defaultDeadLetterEndpoint
 specifier|private
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|defaultDeadLetterEndpoint
 decl_stmt|;
 DECL|field|defaultDeadLetterEndpointExpression
 specifier|private
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|defaultDeadLetterEndpointExpression
 decl_stmt|;
 DECL|field|defaultDeadLetterEndpointUri
@@ -213,9 +196,6 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 name|Logger
-argument_list|<
-name|E
-argument_list|>
 name|logger
 init|=
 name|DeadLetterChannel
@@ -228,14 +208,11 @@ specifier|public
 name|DeadLetterChannelBuilder
 parameter_list|()
 block|{     }
-DECL|method|DeadLetterChannelBuilder (Processor<E> processor)
+DECL|method|DeadLetterChannelBuilder (Processor processor)
 specifier|public
 name|DeadLetterChannelBuilder
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -243,23 +220,17 @@ name|this
 argument_list|(
 operator|new
 name|ConstantProcessorBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|processor
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DeadLetterChannelBuilder (ProcessorFactory<E> deadLetterFactory)
+DECL|method|DeadLetterChannelBuilder (ProcessorFactory deadLetterFactory)
 specifier|public
 name|DeadLetterChannelBuilder
 parameter_list|(
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|deadLetterFactory
 parameter_list|)
 block|{
@@ -273,23 +244,14 @@ block|}
 DECL|method|copy ()
 specifier|public
 name|ErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 name|copy
 parameter_list|()
 block|{
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|deadLetterFactory
 argument_list|)
@@ -309,27 +271,18 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|createErrorHandler (Processor<E> processor)
+DECL|method|createErrorHandler (Processor processor)
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|createErrorHandler
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws
 name|Exception
 block|{
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|deadLetter
 init|=
 name|getDeadLetterFactory
@@ -341,9 +294,6 @@ decl_stmt|;
 return|return
 operator|new
 name|DeadLetterChannel
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|processor
 argument_list|,
@@ -362,9 +312,6 @@ comment|//----------------------------------------------------------------------
 DECL|method|backOffMultiplier (double backOffMultiplier)
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|backOffMultiplier
 parameter_list|(
 name|double
@@ -386,9 +333,6 @@ block|}
 DECL|method|collisionAvoidancePercent (short collisionAvoidancePercent)
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|collisionAvoidancePercent
 parameter_list|(
 name|short
@@ -410,9 +354,6 @@ block|}
 DECL|method|initialRedeliveryDelay (long initialRedeliveryDelay)
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|initialRedeliveryDelay
 parameter_list|(
 name|long
@@ -434,9 +375,6 @@ block|}
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|maximumRedeliveries
 parameter_list|(
 name|int
@@ -458,9 +396,6 @@ block|}
 DECL|method|useCollisionAvoidance ()
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|useCollisionAvoidance
 parameter_list|()
 block|{
@@ -477,9 +412,6 @@ block|}
 DECL|method|useExponentialBackOff ()
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|useExponentialBackOff
 parameter_list|()
 block|{
@@ -494,18 +426,12 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the logger used for caught exceptions      */
-DECL|method|logger (Logger<E> logger)
+DECL|method|logger (Logger logger)
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|logger
 parameter_list|(
 name|Logger
-argument_list|<
-name|E
-argument_list|>
 name|logger
 parameter_list|)
 block|{
@@ -522,9 +448,6 @@ comment|/**      * Sets the logging level of exceptions caught      */
 DECL|method|loggingLevel (LoggingLevel level)
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|loggingLevel
 parameter_list|(
 name|LoggingLevel
@@ -547,9 +470,6 @@ comment|/**      * Sets the log used for caught exceptions      */
 DECL|method|log (Log log)
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|log
 parameter_list|(
 name|Log
@@ -572,9 +492,6 @@ comment|/**      * Sets the log used for caught exceptions      */
 DECL|method|log (String log)
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|log
 parameter_list|(
 name|String
@@ -597,9 +514,6 @@ comment|/**      * Sets the log used for caught exceptions      */
 DECL|method|log (Class log)
 specifier|public
 name|DeadLetterChannelBuilder
-argument_list|<
-name|E
-argument_list|>
 name|log
 parameter_list|(
 name|Class
@@ -650,9 +564,6 @@ block|}
 DECL|method|getDeadLetterFactory ()
 specifier|public
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|getDeadLetterFactory
 parameter_list|()
 block|{
@@ -667,16 +578,10 @@ name|deadLetterFactory
 operator|=
 operator|new
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 block|{
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|createProcessor
 parameter_list|()
 block|{
@@ -693,15 +598,12 @@ name|deadLetterFactory
 return|;
 block|}
 comment|/**      * Sets the default dead letter queue factory      */
-DECL|method|setDeadLetterFactory (ProcessorFactory<E> deadLetterFactory)
+DECL|method|setDeadLetterFactory (ProcessorFactory deadLetterFactory)
 specifier|public
 name|void
 name|setDeadLetterFactory
 parameter_list|(
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 name|deadLetterFactory
 parameter_list|)
 block|{
@@ -715,9 +617,6 @@ block|}
 DECL|method|getDefaultDeadLetterEndpoint ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|getDefaultDeadLetterEndpoint
 parameter_list|()
 block|{
@@ -732,9 +631,6 @@ name|defaultDeadLetterEndpoint
 operator|=
 operator|new
 name|RecipientList
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|getDefaultDeadLetterEndpointExpression
 argument_list|()
@@ -746,15 +642,12 @@ name|defaultDeadLetterEndpoint
 return|;
 block|}
 comment|/**      * Sets the default dead letter endpoint used      */
-DECL|method|setDefaultDeadLetterEndpoint (Processor<E> defaultDeadLetterEndpoint)
+DECL|method|setDefaultDeadLetterEndpoint (Processor defaultDeadLetterEndpoint)
 specifier|public
 name|void
 name|setDefaultDeadLetterEndpoint
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|defaultDeadLetterEndpoint
 parameter_list|)
 block|{
@@ -768,9 +661,6 @@ block|}
 DECL|method|getDefaultDeadLetterEndpointExpression ()
 specifier|public
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|getDefaultDeadLetterEndpointExpression
 parameter_list|()
 block|{
@@ -797,15 +687,12 @@ name|defaultDeadLetterEndpointExpression
 return|;
 block|}
 comment|/**      * Sets the expression used to decide the dead letter channel endpoint for an exchange      * if no factory is provided via {@link #setDeadLetterFactory(ProcessorFactory)}      */
-DECL|method|setDefaultDeadLetterEndpointExpression (Expression<E> defaultDeadLetterEndpointExpression)
+DECL|method|setDefaultDeadLetterEndpointExpression (Expression defaultDeadLetterEndpointExpression)
 specifier|public
 name|void
 name|setDefaultDeadLetterEndpointExpression
 parameter_list|(
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|defaultDeadLetterEndpointExpression
 parameter_list|)
 block|{
@@ -846,9 +733,6 @@ block|}
 DECL|method|getLogger ()
 specifier|public
 name|Logger
-argument_list|<
-name|E
-argument_list|>
 name|getLogger
 parameter_list|()
 block|{
@@ -856,15 +740,12 @@ return|return
 name|logger
 return|;
 block|}
-DECL|method|setLogger (Logger<E> logger)
+DECL|method|setLogger (Logger logger)
 specifier|public
 name|void
 name|setLogger
 parameter_list|(
 name|Logger
-argument_list|<
-name|E
-argument_list|>
 name|logger
 parameter_list|)
 block|{

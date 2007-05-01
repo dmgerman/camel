@@ -49,16 +49,8 @@ DECL|interface|ErrorHandler
 specifier|public
 interface|interface
 name|ErrorHandler
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 block|{ }
 end_interface
 

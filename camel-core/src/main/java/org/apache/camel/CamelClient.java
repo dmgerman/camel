@@ -199,7 +199,7 @@ name|exchange
 return|;
 block|}
 comment|/**      * Sends an exchange to an endpoint using a supplied @{link Processor} to populate the exchange      *      * @param endpointUri the endpoint URI to send the exchange to      * @param processor the transformer used to populate the new exchange      */
-DECL|method|send (String endpointUri, Processor<E> processor)
+DECL|method|send (String endpointUri, Processor processor)
 specifier|public
 name|E
 name|send
@@ -208,9 +208,6 @@ name|String
 name|endpointUri
 parameter_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -247,13 +244,23 @@ name|E
 name|exchange
 parameter_list|)
 block|{
+name|E
+name|convertedExchange
+init|=
+name|endpoint
+operator|.
+name|toExchangeType
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
 name|producerCache
 operator|.
 name|send
 argument_list|(
 name|endpoint
 argument_list|,
-name|exchange
+name|convertedExchange
 argument_list|)
 expr_stmt|;
 return|return
@@ -261,7 +268,7 @@ name|exchange
 return|;
 block|}
 comment|/**      * Sends an exchange to an endpoint using a supplied @{link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
-DECL|method|send (Endpoint<E> endpoint, Processor<E> processor)
+DECL|method|send (Endpoint<E> endpoint, Processor processor)
 specifier|public
 name|E
 name|send
@@ -273,9 +280,6 @@ argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{

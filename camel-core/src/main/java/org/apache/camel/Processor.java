@@ -23,16 +23,13 @@ DECL|interface|Processor
 specifier|public
 interface|interface
 name|Processor
-parameter_list|<
-name|E
-parameter_list|>
 block|{
 comment|/**      * Processes the message exchange      *       * @throws Exception if an internal processing error has occurred.       */
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws

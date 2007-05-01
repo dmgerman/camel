@@ -75,40 +75,23 @@ DECL|class|SplitterBuilder
 specifier|public
 class|class
 name|SplitterBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|expression
 specifier|private
 specifier|final
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 decl_stmt|;
-DECL|method|SplitterBuilder (FromBuilder<E> parent, Expression<E> expression)
+DECL|method|SplitterBuilder (FromBuilder parent, Expression expression)
 specifier|public
 name|SplitterBuilder
 parameter_list|(
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|parent
 parameter_list|,
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -127,9 +110,6 @@ block|}
 DECL|method|createProcessor ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|createProcessor
 parameter_list|()
 throws|throws
@@ -137,9 +117,6 @@ name|Exception
 block|{
 comment|// lets create a single processor for all child predicates
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|destination
 init|=
 name|super
@@ -150,9 +127,6 @@ decl_stmt|;
 return|return
 operator|new
 name|Splitter
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|destination
 argument_list|,

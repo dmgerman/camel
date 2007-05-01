@@ -83,32 +83,18 @@ DECL|class|Pipeline
 specifier|public
 class|class
 name|Pipeline
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|MulticastProcessor
-argument_list|<
-name|E
-argument_list|>
 implements|implements
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 block|{
-DECL|method|Pipeline (Collection<Endpoint<E>> endpoints)
+DECL|method|Pipeline (Collection<Endpoint> endpoints)
 specifier|public
 name|Pipeline
 parameter_list|(
 name|Collection
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|endpoints
 parameter_list|)
@@ -121,18 +107,18 @@ name|endpoints
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|E
+name|Exchange
 name|nextExchange
 init|=
 name|exchange
@@ -145,9 +131,6 @@ decl_stmt|;
 for|for
 control|(
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 range|:
 name|getProducers
@@ -186,22 +169,19 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Strategy method to create the next exchange from the      *      * @param producer         the producer used to send to the endpoint      * @param previousExchange the previous exchange      * @return a new exchange      */
-DECL|method|createNextExchange (Producer<E> producer, E previousExchange)
+DECL|method|createNextExchange (Producer producer, Exchange previousExchange)
 specifier|protected
-name|E
+name|Exchange
 name|createNextExchange
 parameter_list|(
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 parameter_list|,
-name|E
+name|Exchange
 name|previousExchange
 parameter_list|)
 block|{
-name|E
+name|Exchange
 name|answer
 init|=
 name|producer
@@ -246,19 +226,16 @@ name|answer
 return|;
 block|}
 comment|/**      * Strategy method to copy the exchange before sending to another endpoint. Derived classes such as the      * {@link Pipeline} will not clone the exchange      *      * @param exchange      * @return the current exchange if no copying is required such as for a pipeline otherwise a new copy of the exchange is returned.      */
-DECL|method|copyExchangeStrategy (E exchange)
+DECL|method|copyExchangeStrategy (Exchange exchange)
 specifier|protected
-name|E
+name|Exchange
 name|copyExchangeStrategy
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
 return|return
-operator|(
-name|E
-operator|)
 name|exchange
 operator|.
 name|copy

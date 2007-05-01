@@ -195,9 +195,6 @@ name|startService
 argument_list|(
 operator|new
 name|DefaultProducer
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|)
@@ -206,7 +203,7 @@ specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -214,7 +211,10 @@ name|queue
 operator|.
 name|add
 argument_list|(
+name|toExchangeType
+argument_list|(
 name|exchange
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -222,7 +222,7 @@ block|}
 argument_list|)
 return|;
 block|}
-DECL|method|createConsumer (Processor<E> processor)
+DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
 argument_list|<
@@ -231,9 +231,6 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws

@@ -82,12 +82,9 @@ decl_stmt|;
 DECL|field|processor
 specifier|private
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 decl_stmt|;
-DECL|method|Route (Endpoint<E> endpoint, Processor<E> processor)
+DECL|method|Route (Endpoint<E> endpoint, Processor processor)
 specifier|public
 name|Route
 parameter_list|(
@@ -98,9 +95,6 @@ argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -172,9 +166,6 @@ block|}
 DECL|method|getProcessor ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|getProcessor
 parameter_list|()
 block|{
@@ -182,15 +173,12 @@ return|return
 name|processor
 return|;
 block|}
-DECL|method|setProcessor (Processor<E> processor)
+DECL|method|setProcessor (Processor processor)
 specifier|public
 name|void
 name|setProcessor
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{

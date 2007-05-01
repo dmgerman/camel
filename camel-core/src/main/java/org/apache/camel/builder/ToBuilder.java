@@ -82,32 +82,20 @@ name|Exchange
 parameter_list|>
 extends|extends
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|destination
 specifier|private
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|destination
 decl_stmt|;
-DECL|method|ToBuilder (FromBuilder<E> parent, Endpoint<E> endpoint)
+DECL|method|ToBuilder (FromBuilder parent, Endpoint endpoint)
 specifier|public
 name|ToBuilder
 parameter_list|(
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|parent
 parameter_list|,
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{
@@ -128,18 +116,12 @@ name|Override
 DECL|method|createProcessor ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|createProcessor
 parameter_list|()
 block|{
 return|return
 operator|new
 name|SendProcessor
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|destination
 argument_list|)

@@ -444,12 +444,12 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|createExchange (E exchange)
+DECL|method|createExchange (Exchange exchange)
 specifier|public
 name|E
 name|createExchange
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -468,6 +468,23 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
+return|;
+block|}
+DECL|method|toExchangeType (Exchange exchange)
+specifier|public
+name|E
+name|toExchangeType
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// TODO avoid cloning exchanges if E == Exchange!
+return|return
+name|createExchange
+argument_list|(
+name|exchange
+argument_list|)
 return|;
 block|}
 comment|/**      * A helper method to reduce the clutter of implementors of {@link #createProducer()} and {@link #createConsumer(Processor)}      */

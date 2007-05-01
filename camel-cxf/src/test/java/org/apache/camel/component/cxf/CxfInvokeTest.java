@@ -100,6 +100,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -348,9 +360,6 @@ argument_list|()
 argument_list|,
 operator|new
 name|Processor
-argument_list|<
-name|CxfExchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -358,7 +367,7 @@ name|void
 name|process
 parameter_list|(
 specifier|final
-name|CxfExchange
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

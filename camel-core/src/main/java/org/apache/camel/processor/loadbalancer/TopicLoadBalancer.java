@@ -75,23 +75,15 @@ DECL|class|TopicLoadBalancer
 specifier|public
 class|class
 name|TopicLoadBalancer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|LoadBalancerSupport
-argument_list|<
-name|E
-argument_list|>
 block|{
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -100,9 +92,6 @@ block|{
 name|List
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|list
 init|=
@@ -112,15 +101,12 @@ decl_stmt|;
 for|for
 control|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 range|:
 name|list
 control|)
 block|{
-name|E
+name|Exchange
 name|copy
 init|=
 name|copyExchangeStrategy
@@ -140,25 +126,19 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Strategy method to copy the exchange before sending to another endpoint. Derived classes such as the      * {@link Pipeline} will not clone the exchange      *      * @param processor the processor that will send the exchange      * @param exchange @return the current exchange if no copying is required such as for a pipeline otherwise a new copy of the exchange is returned.      */
-DECL|method|copyExchangeStrategy (Processor<E> processor, E exchange)
+DECL|method|copyExchangeStrategy (Processor processor, Exchange exchange)
 specifier|protected
-name|E
+name|Exchange
 name|copyExchangeStrategy
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
 return|return
-operator|(
-name|E
-operator|)
 name|exchange
 operator|.
 name|copy

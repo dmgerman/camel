@@ -96,12 +96,9 @@ DECL|field|processor
 specifier|private
 specifier|final
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 decl_stmt|;
-DECL|method|MessageListenerProcessor (JmsEndpoint endpoint, Processor<Exchange> processor)
+DECL|method|MessageListenerProcessor (JmsEndpoint endpoint, Processor processor)
 specifier|public
 name|MessageListenerProcessor
 parameter_list|(
@@ -109,9 +106,6 @@ name|JmsEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 parameter_list|)
 block|{

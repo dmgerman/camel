@@ -113,22 +113,14 @@ DECL|class|StickyLoadBalancer
 specifier|public
 class|class
 name|StickyLoadBalancer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|QueueLoadBalancer
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|correlationExpression
 specifier|private
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|correlationExpression
 decl_stmt|;
@@ -153,9 +145,6 @@ argument_list|<
 name|Object
 argument_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|stickyMap
 init|=
@@ -165,19 +154,16 @@ argument_list|<
 name|Object
 argument_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|StickyLoadBalancer (Expression<E> correlationExpression)
+DECL|method|StickyLoadBalancer (Expression<Exchange> correlationExpression)
 specifier|public
 name|StickyLoadBalancer
 parameter_list|(
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|correlationExpression
 parameter_list|)
@@ -192,13 +178,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|StickyLoadBalancer (Expression<E> correlationExpression, QueueLoadBalancer loadBalancer)
+DECL|method|StickyLoadBalancer (Expression<Exchange> correlationExpression, QueueLoadBalancer loadBalancer)
 specifier|public
 name|StickyLoadBalancer
 parameter_list|(
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|correlationExpression
 parameter_list|,
@@ -219,25 +205,19 @@ operator|=
 name|loadBalancer
 expr_stmt|;
 block|}
-DECL|method|chooseProcessor (List<Processor<E>> processors, E exchange)
+DECL|method|chooseProcessor (List<Processor> processors, Exchange exchange)
 specifier|protected
 specifier|synchronized
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|chooseProcessor
 parameter_list|(
 name|List
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|processors
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -260,9 +240,6 @@ name|value
 argument_list|)
 decl_stmt|;
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 decl_stmt|;
 synchronized|synchronized
@@ -314,15 +291,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|removeProcessor (Processor<E> processor)
+DECL|method|removeProcessor (Processor processor)
 specifier|public
 name|void
 name|removeProcessor
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -340,9 +314,6 @@ argument_list|<
 name|Object
 argument_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|>
 name|iter
@@ -370,9 +341,6 @@ argument_list|<
 name|Object
 argument_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|entry
 init|=

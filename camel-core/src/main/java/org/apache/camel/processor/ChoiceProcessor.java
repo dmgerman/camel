@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ServiceHelper
@@ -97,25 +109,16 @@ DECL|class|ChoiceProcessor
 specifier|public
 class|class
 name|ChoiceProcessor
-parameter_list|<
-name|E
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|filters
 specifier|private
 name|List
 argument_list|<
 name|FilterProcessor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|filters
 init|=
@@ -123,37 +126,25 @@ operator|new
 name|ArrayList
 argument_list|<
 name|FilterProcessor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|otherwise
 specifier|private
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|otherwise
 decl_stmt|;
-DECL|method|ChoiceProcessor (List<FilterProcessor<E>> filters, Processor<E> otherwise)
+DECL|method|ChoiceProcessor (List<FilterProcessor> filters, Processor otherwise)
 specifier|public
 name|ChoiceProcessor
 parameter_list|(
 name|List
 argument_list|<
 name|FilterProcessor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|filters
 parameter_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|otherwise
 parameter_list|)
 block|{
@@ -170,12 +161,12 @@ operator|=
 name|otherwise
 expr_stmt|;
 block|}
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -184,9 +175,6 @@ block|{
 for|for
 control|(
 name|FilterProcessor
-argument_list|<
-name|E
-argument_list|>
 name|filterProcessor
 range|:
 name|filters
@@ -194,7 +182,7 @@ control|)
 block|{
 name|Predicate
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|predicate
 init|=
@@ -271,9 +259,6 @@ decl_stmt|;
 for|for
 control|(
 name|FilterProcessor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 range|:
 name|filters
@@ -378,9 +363,6 @@ specifier|public
 name|List
 argument_list|<
 name|FilterProcessor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|getFilters
 parameter_list|()
@@ -392,9 +374,6 @@ block|}
 DECL|method|getOtherwise ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|getOtherwise
 parameter_list|()
 block|{

@@ -95,16 +95,8 @@ DECL|class|PolicyBuilder
 specifier|public
 class|class
 name|PolicyBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|policies
 specifier|private
@@ -112,9 +104,6 @@ specifier|final
 name|ArrayList
 argument_list|<
 name|Policy
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|policies
 init|=
@@ -122,9 +111,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Policy
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -132,27 +118,18 @@ DECL|field|parent
 specifier|private
 specifier|final
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|parent
 decl_stmt|;
 DECL|field|target
 specifier|private
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|target
 decl_stmt|;
-DECL|method|PolicyBuilder (FromBuilder<E> parent)
+DECL|method|PolicyBuilder (FromBuilder parent)
 specifier|public
 name|PolicyBuilder
 parameter_list|(
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|parent
 parameter_list|)
 block|{
@@ -168,12 +145,9 @@ name|Fluent
 argument_list|(
 literal|"policy"
 argument_list|)
-DECL|method|add (@luentArgR) Policy<E> interceptor)
+DECL|method|add (@luentArgR) Policy interceptor)
 specifier|public
 name|PolicyBuilder
-argument_list|<
-name|E
-argument_list|>
 name|add
 parameter_list|(
 annotation|@
@@ -182,9 +156,6 @@ argument_list|(
 literal|"ref"
 argument_list|)
 name|Policy
-argument_list|<
-name|E
-argument_list|>
 name|interceptor
 parameter_list|)
 block|{
@@ -209,9 +180,6 @@ argument_list|)
 DECL|method|target ()
 specifier|public
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|target
 parameter_list|()
 block|{
@@ -221,9 +189,6 @@ name|target
 operator|=
 operator|new
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|parent
 argument_list|)
@@ -235,9 +200,6 @@ block|}
 DECL|method|createProcessor ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|createProcessor
 parameter_list|()
 throws|throws
@@ -258,9 +220,6 @@ literal|"target not provided."
 argument_list|)
 throw|;
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|last
 init|=
 name|target
@@ -278,9 +237,6 @@ expr_stmt|;
 for|for
 control|(
 name|Policy
-argument_list|<
-name|E
-argument_list|>
 name|p
 range|:
 name|policies

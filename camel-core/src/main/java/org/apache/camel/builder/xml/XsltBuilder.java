@@ -263,16 +263,8 @@ DECL|class|XsltBuilder
 specifier|public
 class|class
 name|XsltBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|parameters
 specifier|private
@@ -359,13 +351,13 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 specifier|synchronized
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -441,15 +433,7 @@ comment|/**      * Creates an XSLT processor using the given transformer instanc
 DECL|method|xslt (Transformer transformer)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|XsltBuilder
-argument_list|<
-name|E
-argument_list|>
 name|xslt
 parameter_list|(
 name|Transformer
@@ -459,9 +443,6 @@ block|{
 return|return
 operator|new
 name|XsltBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|transformer
 argument_list|)
@@ -471,15 +452,7 @@ comment|/**      * Creates an XSLT processor using the given XSLT source      */
 DECL|method|xslt (Source xslt)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|XsltBuilder
-argument_list|<
-name|E
-argument_list|>
 name|xslt
 parameter_list|(
 name|Source
@@ -496,16 +469,10 @@ literal|"xslt"
 argument_list|)
 expr_stmt|;
 name|XsltBuilder
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 operator|new
 name|XsltBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 decl_stmt|;
 name|answer
@@ -523,15 +490,7 @@ comment|/**      * Creates an XSLT processor using the given XSLT source      */
 DECL|method|xslt (File xslt)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|XsltBuilder
-argument_list|<
-name|E
-argument_list|>
 name|xslt
 parameter_list|(
 name|File
@@ -562,15 +521,7 @@ comment|/**      * Creates an XSLT processor using the given XSLT source      */
 DECL|method|xslt (URL xslt)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|XsltBuilder
-argument_list|<
-name|E
-argument_list|>
 name|xslt
 parameter_list|(
 name|URL
@@ -602,15 +553,7 @@ comment|/**      * Creates an XSLT processor using the given XSLT source      */
 DECL|method|xslt (InputStream xslt)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|XsltBuilder
-argument_list|<
-name|E
-argument_list|>
 name|xslt
 parameter_list|(
 name|InputStream
@@ -643,9 +586,6 @@ comment|/**      * Sets the output as being a byte[]      */
 DECL|method|outputBytes ()
 specifier|public
 name|XsltBuilder
-argument_list|<
-name|E
-argument_list|>
 name|outputBytes
 parameter_list|()
 block|{
@@ -664,9 +604,6 @@ comment|/**      * Sets the output as being a String      */
 DECL|method|outputString ()
 specifier|public
 name|XsltBuilder
-argument_list|<
-name|E
-argument_list|>
 name|outputString
 parameter_list|()
 block|{
@@ -685,9 +622,6 @@ comment|/**      * Sets the output as being a DOM      */
 DECL|method|outputDOM ()
 specifier|public
 name|XsltBuilder
-argument_list|<
-name|E
-argument_list|>
 name|outputDOM
 parameter_list|()
 block|{
@@ -705,9 +639,6 @@ block|}
 DECL|method|parameter (String name, Object value)
 specifier|public
 name|XsltBuilder
-argument_list|<
-name|E
-argument_list|>
 name|parameter
 parameter_list|(
 name|String
@@ -874,12 +805,12 @@ block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * Converts the inbound body to a {@link Source}      */
-DECL|method|getSource (E exchange)
+DECL|method|getSource (Exchange exchange)
 specifier|protected
 name|Source
 name|getSource
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

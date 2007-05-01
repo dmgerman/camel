@@ -116,6 +116,18 @@ name|DefaultProducer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 533076 $  */
 end_comment
@@ -127,9 +139,6 @@ class|class
 name|RmiProducer
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|PojoExchange
-argument_list|>
 block|{
 DECL|field|endpoint
 specifier|private
@@ -168,12 +177,12 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
-DECL|method|process (PojoExchange exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|PojoExchange
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -183,6 +192,16 @@ name|RemoteException
 throws|,
 name|NotBoundException
 block|{
+name|PojoExchange
+name|pojoExchange
+init|=
+name|endpoint
+operator|.
+name|toExchangeType
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
 name|PojoEndpoint
 operator|.
 name|invoke
@@ -190,7 +209,7 @@ argument_list|(
 name|getRemote
 argument_list|()
 argument_list|,
-name|exchange
+name|pojoExchange
 argument_list|)
 expr_stmt|;
 block|}

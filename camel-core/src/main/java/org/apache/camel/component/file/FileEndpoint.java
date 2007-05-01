@@ -158,7 +158,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * @param file      * @return a Consumer      * @throws Exception      * @see org.apache.camel.Endpoint#createConsumer(org.apache.camel.Processor)      */
-DECL|method|createConsumer (Processor<FileExchange> file)
+DECL|method|createConsumer (Processor file)
 specifier|public
 name|Consumer
 argument_list|<
@@ -167,9 +167,6 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-argument_list|<
-name|FileExchange
-argument_list|>
 name|file
 parameter_list|)
 throws|throws

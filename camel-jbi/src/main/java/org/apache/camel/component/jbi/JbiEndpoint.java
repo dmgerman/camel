@@ -138,9 +138,6 @@ block|{
 DECL|field|toJbiProcessor
 specifier|private
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|toJbiProcessor
 decl_stmt|;
 DECL|field|jbiComponent
@@ -237,7 +234,7 @@ block|}
 argument_list|)
 return|;
 block|}
-DECL|method|createConsumer (final Processor<Exchange> processor)
+DECL|method|createConsumer (final Processor processor)
 specifier|public
 name|Consumer
 argument_list|<
@@ -247,9 +244,6 @@ name|createConsumer
 parameter_list|(
 specifier|final
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws

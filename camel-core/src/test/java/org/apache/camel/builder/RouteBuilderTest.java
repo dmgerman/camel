@@ -273,9 +273,6 @@ block|{
 DECL|field|myProcessor
 specifier|protected
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|myProcessor
 init|=
 operator|new
@@ -285,17 +282,11 @@ decl_stmt|;
 DECL|field|interceptor1
 specifier|protected
 name|DelegateProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 name|interceptor1
 decl_stmt|;
 DECL|field|interceptor2
 specifier|protected
 name|DelegateProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 name|interceptor2
 decl_stmt|;
 DECL|method|buildSimpleRoute ()
@@ -885,9 +876,6 @@ name|myProcessor
 operator|=
 operator|new
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public

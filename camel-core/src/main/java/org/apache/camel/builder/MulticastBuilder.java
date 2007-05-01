@@ -85,16 +85,8 @@ DECL|class|MulticastBuilder
 specifier|public
 class|class
 name|MulticastBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|endpoints
 specifier|private
@@ -102,28 +94,19 @@ specifier|final
 name|Collection
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|endpoints
 decl_stmt|;
-DECL|method|MulticastBuilder (FromBuilder<E> parent, Collection<Endpoint<E>> endpoints)
+DECL|method|MulticastBuilder (FromBuilder parent, Collection<Endpoint> endpoints)
 specifier|public
 name|MulticastBuilder
 parameter_list|(
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|parent
 parameter_list|,
 name|Collection
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|endpoints
 parameter_list|)
@@ -145,9 +128,6 @@ name|Override
 DECL|method|createProcessor ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|createProcessor
 parameter_list|()
 throws|throws
@@ -156,9 +136,6 @@ block|{
 return|return
 operator|new
 name|MulticastProcessor
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|endpoints
 argument_list|)

@@ -167,21 +167,15 @@ DECL|field|processor
 specifier|private
 specifier|final
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 decl_stmt|;
 DECL|field|loadBalancer
 specifier|private
 specifier|final
 name|LoadBalancer
-argument_list|<
-name|Exchange
-argument_list|>
 name|loadBalancer
 decl_stmt|;
-DECL|method|ProcessorEndpoint (String endpointUri, Component component, Processor<Exchange> processor, LoadBalancer<Exchange> loadBalancer)
+DECL|method|ProcessorEndpoint (String endpointUri, Component component, Processor processor, LoadBalancer loadBalancer)
 specifier|protected
 name|ProcessorEndpoint
 parameter_list|(
@@ -192,15 +186,9 @@ name|Component
 name|component
 parameter_list|,
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 parameter_list|,
 name|LoadBalancer
-argument_list|<
-name|Exchange
-argument_list|>
 name|loadBalancer
 parameter_list|)
 block|{
@@ -282,7 +270,7 @@ block|}
 argument_list|)
 return|;
 block|}
-DECL|method|createConsumer (Processor<Exchange> processor)
+DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
 argument_list|<
@@ -291,9 +279,6 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws
@@ -315,9 +300,6 @@ block|}
 DECL|method|getProcessor ()
 specifier|public
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|getProcessor
 parameter_list|()
 block|{
@@ -328,9 +310,6 @@ block|}
 DECL|method|getLoadBalancer ()
 specifier|public
 name|LoadBalancer
-argument_list|<
-name|Exchange
-argument_list|>
 name|getLoadBalancer
 parameter_list|()
 block|{

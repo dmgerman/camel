@@ -129,9 +129,6 @@ class|class
 name|ToJbiProcessor
 implements|implements
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|binding
 specifier|private

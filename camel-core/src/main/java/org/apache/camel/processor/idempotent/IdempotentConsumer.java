@@ -133,18 +133,10 @@ DECL|class|IdempotentConsumer
 specifier|public
 class|class
 name|IdempotentConsumer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|log
 specifier|private
@@ -167,16 +159,13 @@ DECL|field|messageIdExpression
 specifier|private
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|messageIdExpression
 decl_stmt|;
 DECL|field|nextProcessor
 specifier|private
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|nextProcessor
 decl_stmt|;
 DECL|field|messageIdRepository
@@ -184,13 +173,13 @@ specifier|private
 name|MessageIdRepository
 name|messageIdRepository
 decl_stmt|;
-DECL|method|IdempotentConsumer (Expression<E> messageIdExpression, MessageIdRepository messageIdRepository, Processor<E> nextProcessor)
+DECL|method|IdempotentConsumer (Expression<Exchange> messageIdExpression, MessageIdRepository messageIdRepository, Processor nextProcessor)
 specifier|public
 name|IdempotentConsumer
 parameter_list|(
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|messageIdExpression
 parameter_list|,
@@ -198,9 +187,6 @@ name|MessageIdRepository
 name|messageIdRepository
 parameter_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|nextProcessor
 parameter_list|)
 block|{
@@ -247,12 +233,12 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -323,7 +309,7 @@ DECL|method|getMessageIdExpression ()
 specifier|public
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|getMessageIdExpression
 parameter_list|()
@@ -345,9 +331,6 @@ block|}
 DECL|method|getNextProcessor ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|getNextProcessor
 parameter_list|()
 block|{
@@ -390,12 +373,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * A strategy method to allow derived classes to overload the behaviour of processing a duplicate message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
-DECL|method|onDuplicateMessage (E exchange, String messageId)
+DECL|method|onDuplicateMessage (Exchange exchange, String messageId)
 specifier|protected
 name|void
 name|onDuplicateMessage
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|String

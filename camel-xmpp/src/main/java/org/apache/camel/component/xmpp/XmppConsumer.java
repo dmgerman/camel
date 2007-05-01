@@ -188,7 +188,7 @@ specifier|final
 name|XmppEndpoint
 name|endpoint
 decl_stmt|;
-DECL|method|XmppConsumer (XmppEndpoint endpoint, Processor<XmppExchange> processor)
+DECL|method|XmppConsumer (XmppEndpoint endpoint, Processor processor)
 specifier|public
 name|XmppConsumer
 parameter_list|(
@@ -196,9 +196,6 @@ name|XmppEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|XmppExchange
-argument_list|>
 name|processor
 parameter_list|)
 block|{

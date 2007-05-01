@@ -63,41 +63,27 @@ class|class
 name|ProcessorBuilder
 block|{
 comment|/**      * Creates a processor which sets the body of the IN message to the value of the expression      */
-DECL|method|setBody (final Expression<E> expression)
+DECL|method|setBody (final Expression expression)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|setBody
 parameter_list|(
 specifier|final
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|)
 block|{
 return|return
 operator|new
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 block|{
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -141,41 +127,27 @@ block|}
 return|;
 block|}
 comment|/**      * Creates a processor which sets the body of the IN message to the value of the expression      */
-DECL|method|setOutBody (final Expression<E> expression)
+DECL|method|setOutBody (final Expression expression)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|setOutBody
 parameter_list|(
 specifier|final
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|)
 block|{
 return|return
 operator|new
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 block|{
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -219,18 +191,10 @@ block|}
 return|;
 block|}
 comment|/**      * Sets the header on the IN message      */
-DECL|method|setHeader (final String name, final Expression<E> expression)
+DECL|method|setHeader (final String name, final Expression expression)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|setHeader
 parameter_list|(
 specifier|final
@@ -239,25 +203,19 @@ name|name
 parameter_list|,
 specifier|final
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|)
 block|{
 return|return
 operator|new
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 block|{
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -307,18 +265,10 @@ block|}
 return|;
 block|}
 comment|/**      * Sets the header on the OUT message      */
-DECL|method|setOutHeader (final String name, final Expression<E> expression)
+DECL|method|setOutHeader (final String name, final Expression expression)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|setOutHeader
 parameter_list|(
 specifier|final
@@ -327,25 +277,19 @@ name|name
 parameter_list|,
 specifier|final
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|)
 block|{
 return|return
 operator|new
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 block|{
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -395,18 +339,10 @@ block|}
 return|;
 block|}
 comment|/**      * Sets the property on the exchange      */
-DECL|method|setProperty (final String name, final Expression<E> expression)
+DECL|method|setProperty (final String name, final Expression expression)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|setProperty
 parameter_list|(
 specifier|final
@@ -415,25 +351,19 @@ name|name
 parameter_list|,
 specifier|final
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|)
 block|{
 return|return
 operator|new
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 block|{
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

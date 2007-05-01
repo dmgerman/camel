@@ -98,6 +98,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|servlet
@@ -175,9 +187,6 @@ name|startService
 argument_list|(
 operator|new
 name|DefaultProducer
-argument_list|<
-name|HttpExchange
-argument_list|>
 argument_list|(
 name|this
 argument_list|)
@@ -186,7 +195,7 @@ specifier|public
 name|void
 name|process
 parameter_list|(
-name|HttpExchange
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -196,7 +205,7 @@ block|}
 argument_list|)
 return|;
 block|}
-DECL|method|createConsumer (Processor<HttpExchange> processor)
+DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
 argument_list|<
@@ -205,9 +214,6 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-argument_list|<
-name|HttpExchange
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws

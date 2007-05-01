@@ -75,39 +75,22 @@ DECL|class|FilterBuilder
 specifier|public
 class|class
 name|FilterBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|predicate
 specifier|private
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|predicate
 decl_stmt|;
-DECL|method|FilterBuilder (FromBuilder<E> builder, Predicate<E> predicate)
+DECL|method|FilterBuilder (FromBuilder builder, Predicate predicate)
 specifier|public
 name|FilterBuilder
 parameter_list|(
 name|FromBuilder
-argument_list|<
-name|E
-argument_list|>
 name|builder
 parameter_list|,
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|predicate
 parameter_list|)
 block|{
@@ -124,18 +107,12 @@ name|predicate
 expr_stmt|;
 block|}
 comment|/**      * Adds another predicate using a logical AND      */
-DECL|method|and (Predicate<E> predicate)
+DECL|method|and (Predicate predicate)
 specifier|public
 name|FilterBuilder
-argument_list|<
-name|E
-argument_list|>
 name|and
 parameter_list|(
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|predicate
 parameter_list|)
 block|{
@@ -159,18 +136,12 @@ name|this
 return|;
 block|}
 comment|/**      * Adds another predicate using a logical OR      */
-DECL|method|or (Predicate<E> predicate)
+DECL|method|or (Predicate predicate)
 specifier|public
 name|FilterBuilder
-argument_list|<
-name|E
-argument_list|>
 name|or
 parameter_list|(
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|predicate
 parameter_list|)
 block|{
@@ -196,9 +167,6 @@ block|}
 DECL|method|getPredicate ()
 specifier|public
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|getPredicate
 parameter_list|()
 block|{
@@ -209,9 +177,6 @@ block|}
 DECL|method|createProcessor ()
 specifier|public
 name|FilterProcessor
-argument_list|<
-name|E
-argument_list|>
 name|createProcessor
 parameter_list|()
 throws|throws
@@ -219,9 +184,6 @@ name|Exception
 block|{
 comment|// lets create a single processor for all child predicates
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|childProcessor
 init|=
 name|super
@@ -232,9 +194,6 @@ decl_stmt|;
 return|return
 operator|new
 name|FilterProcessor
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|predicate
 argument_list|,

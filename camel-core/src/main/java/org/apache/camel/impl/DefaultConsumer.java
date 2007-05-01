@@ -125,9 +125,6 @@ decl_stmt|;
 DECL|field|processor
 specifier|private
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 decl_stmt|;
 DECL|field|exceptionHandler
@@ -135,7 +132,7 @@ specifier|private
 name|ExceptionHandler
 name|exceptionHandler
 decl_stmt|;
-DECL|method|DefaultConsumer (Endpoint<E> endpoint, Processor<E> processor)
+DECL|method|DefaultConsumer (Endpoint<E> endpoint, Processor processor)
 specifier|public
 name|DefaultConsumer
 parameter_list|(
@@ -146,9 +143,6 @@ argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -181,9 +175,6 @@ block|}
 DECL|method|getProcessor ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|getProcessor
 parameter_list|()
 block|{

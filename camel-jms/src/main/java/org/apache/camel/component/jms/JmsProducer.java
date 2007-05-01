@@ -141,9 +141,6 @@ class|class
 name|JmsProducer
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|JmsExchange
-argument_list|>
 block|{
 DECL|field|log
 specifier|private
@@ -203,13 +200,13 @@ operator|=
 name|template
 expr_stmt|;
 block|}
-DECL|method|process (final JmsExchange exchange)
+DECL|method|process (final Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
 specifier|final
-name|JmsExchange
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -247,9 +244,6 @@ operator|.
 name|makeJmsMessage
 argument_list|(
 name|exchange
-operator|.
-name|getIn
-argument_list|()
 argument_list|,
 name|session
 argument_list|)

@@ -107,32 +107,21 @@ DECL|class|MulticastProcessor
 specifier|public
 class|class
 name|MulticastProcessor
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|producers
 specifier|private
 name|Collection
 argument_list|<
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|producers
 decl_stmt|;
 comment|/**      * A helper method to convert a list of endpoints into a list of processors      */
-DECL|method|toProducers (Collection<Endpoint<E>> endpoints)
+DECL|method|toProducers (Collection<Endpoint> endpoints)
 specifier|public
 specifier|static
 parameter_list|<
@@ -143,18 +132,12 @@ parameter_list|>
 name|Collection
 argument_list|<
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|toProducers
 parameter_list|(
 name|Collection
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|endpoints
 parameter_list|)
@@ -164,9 +147,6 @@ block|{
 name|Collection
 argument_list|<
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|answer
 init|=
@@ -174,18 +154,12 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
 control|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 range|:
 name|endpoints
@@ -206,16 +180,13 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|MulticastProcessor (Collection<Endpoint<E>> endpoints)
+DECL|method|MulticastProcessor (Collection<Endpoint> endpoints)
 specifier|public
 name|MulticastProcessor
 parameter_list|(
 name|Collection
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|endpoints
 parameter_list|)
@@ -247,12 +218,12 @@ name|getEndpoints
 argument_list|()
 return|;
 block|}
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -261,15 +232,12 @@ block|{
 for|for
 control|(
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 range|:
 name|producers
 control|)
 block|{
-name|E
+name|Exchange
 name|copy
 init|=
 name|copyExchangeStrategy
@@ -299,9 +267,6 @@ block|{
 for|for
 control|(
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 range|:
 name|producers
@@ -325,9 +290,6 @@ block|{
 for|for
 control|(
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 range|:
 name|producers
@@ -346,9 +308,6 @@ specifier|public
 name|Collection
 argument_list|<
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|getProducers
 parameter_list|()
@@ -363,9 +322,6 @@ specifier|public
 name|Collection
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|getEndpoints
 parameter_list|()
@@ -373,9 +329,6 @@ block|{
 name|Collection
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|answer
 init|=
@@ -383,18 +336,12 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
 control|(
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 range|:
 name|producers
@@ -416,18 +363,15 @@ name|answer
 return|;
 block|}
 comment|/**      * Strategy method to copy the exchange before sending to another endpoint. Derived classes such as the      * {@link Pipeline} will not clone the exchange      *      * @param producer the producer that will send the exchange      * @param exchange @return the current exchange if no copying is required such as for a pipeline otherwise a new copy of the exchange is returned.      */
-DECL|method|copyExchangeStrategy (Producer<E> producer, E exchange)
+DECL|method|copyExchangeStrategy (Producer producer, Exchange exchange)
 specifier|protected
-name|E
+name|Exchange
 name|copyExchangeStrategy
 parameter_list|(
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

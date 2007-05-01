@@ -48,11 +48,20 @@ name|createExchange
 parameter_list|()
 function_decl|;
 comment|/**      * Creates a new exchange for communicating with this exchange using the given exchange to pre-populate the values      * of the headers and messages      */
-DECL|method|createExchange (E exchange)
+DECL|method|createExchange (Exchange exchange)
 name|E
 name|createExchange
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+function_decl|;
+comment|/**      * Converts the given exchange to this endpoints required type      */
+DECL|method|toExchangeType (Exchange exchange)
 name|E
+name|toExchangeType
+parameter_list|(
+name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
@@ -74,7 +83,7 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Creates a new consumer which consumes messages from the endpoint using the given processor      *      * @return a newly created consumer      */
-DECL|method|createConsumer (Processor<E> processor)
+DECL|method|createConsumer (Processor processor)
 name|Consumer
 argument_list|<
 name|E
@@ -82,9 +91,6 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws

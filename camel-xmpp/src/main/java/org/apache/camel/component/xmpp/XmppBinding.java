@@ -34,6 +34,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -63,7 +75,7 @@ class|class
 name|XmppBinding
 block|{
 comment|/**      * Populates the given XMPP message from the inbound exchange      */
-DECL|method|populateXmppMessage (Message message, XmppExchange exchange)
+DECL|method|populateXmppMessage (Message message, Exchange exchange)
 specifier|public
 name|void
 name|populateXmppMessage
@@ -71,7 +83,7 @@ parameter_list|(
 name|Message
 name|message
 parameter_list|,
-name|XmppExchange
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -217,12 +229,12 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Strategy to allow filtering of headers which are put on the XMPP message      */
-DECL|method|shouldOutputHeader (XmppExchange exchange, String headerName, Object headerValue)
+DECL|method|shouldOutputHeader (Exchange exchange, String headerName, Object headerValue)
 specifier|protected
 name|boolean
 name|shouldOutputHeader
 parameter_list|(
-name|XmppExchange
+name|Exchange
 name|exchange
 parameter_list|,
 name|String

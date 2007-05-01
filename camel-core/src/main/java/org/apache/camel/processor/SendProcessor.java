@@ -99,45 +99,28 @@ DECL|class|SendProcessor
 specifier|public
 class|class
 name|SendProcessor
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 implements|,
 name|Service
 block|{
 DECL|field|destination
 specifier|private
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|destination
 decl_stmt|;
 DECL|field|producer
 specifier|private
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 decl_stmt|;
-DECL|method|SendProcessor (Endpoint<E> destination)
+DECL|method|SendProcessor (Endpoint destination)
 specifier|public
 name|SendProcessor
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|destination
 parameter_list|)
 block|{
@@ -198,12 +181,12 @@ name|createProducer
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -235,9 +218,6 @@ block|}
 DECL|method|getDestination ()
 specifier|public
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|getDestination
 parameter_list|()
 block|{

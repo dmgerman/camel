@@ -159,9 +159,6 @@ decl_stmt|;
 DECL|field|processor
 specifier|private
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 decl_stmt|;
 DECL|field|binding
@@ -169,7 +166,7 @@ specifier|private
 name|JmsBinding
 name|binding
 decl_stmt|;
-DECL|method|EndpointMessageListener (Endpoint<E> endpoint, Processor<E> processor)
+DECL|method|EndpointMessageListener (Endpoint<E> endpoint, Processor processor)
 specifier|public
 name|EndpointMessageListener
 parameter_list|(
@@ -180,9 +177,6 @@ argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{

@@ -198,9 +198,6 @@ name|process
 argument_list|(
 operator|new
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public

@@ -204,7 +204,7 @@ specifier|final
 name|Folder
 name|folder
 decl_stmt|;
-DECL|method|MailConsumer (MailEndpoint endpoint, Processor<MailExchange> processor, Folder folder)
+DECL|method|MailConsumer (MailEndpoint endpoint, Processor processor, Folder folder)
 specifier|public
 name|MailConsumer
 parameter_list|(
@@ -212,9 +212,6 @@ name|MailEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|MailExchange
-argument_list|>
 name|processor
 parameter_list|,
 name|Folder

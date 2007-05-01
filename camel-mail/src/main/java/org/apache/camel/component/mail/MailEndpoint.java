@@ -225,7 +225,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|createConsumer (Processor<MailExchange> processor)
+DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
 argument_list|<
@@ -234,9 +234,6 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-argument_list|<
-name|MailExchange
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws
@@ -328,7 +325,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a consumer using the given processor and transport      *      * @param processor the processor to use to process the messages      * @param folder the JavaMail Folder to use for inbound messages      * @return a newly created consumer      * @throws Exception if the consumer cannot be created      */
-DECL|method|createConsumer (Processor<MailExchange> processor, Folder folder)
+DECL|method|createConsumer (Processor processor, Folder folder)
 specifier|public
 name|Consumer
 argument_list|<
@@ -337,9 +334,6 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-argument_list|<
-name|MailExchange
-argument_list|>
 name|processor
 parameter_list|,
 name|Folder

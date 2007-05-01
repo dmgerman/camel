@@ -198,7 +198,7 @@ name|?
 argument_list|>
 name|future
 decl_stmt|;
-DECL|method|PollingConsumer (DefaultEndpoint<E> endpoint, Processor<E> processor)
+DECL|method|PollingConsumer (DefaultEndpoint<E> endpoint, Processor processor)
 specifier|public
 name|PollingConsumer
 parameter_list|(
@@ -209,9 +209,6 @@ argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -228,7 +225,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|PollingConsumer (Endpoint<E> endpoint, Processor<E> processor, ScheduledExecutorService executor)
+DECL|method|PollingConsumer (Endpoint<E> endpoint, Processor processor, ScheduledExecutorService executor)
 specifier|public
 name|PollingConsumer
 parameter_list|(
@@ -239,9 +236,6 @@ argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|,
 name|ScheduledExecutorService

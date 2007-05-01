@@ -248,9 +248,6 @@ name|E
 argument_list|>
 implements|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|scriptEngineName
 specifier|private
@@ -432,12 +429,12 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

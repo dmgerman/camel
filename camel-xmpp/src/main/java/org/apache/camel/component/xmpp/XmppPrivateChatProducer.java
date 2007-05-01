@@ -121,9 +121,6 @@ class|class
 name|XmppPrivateChatProducer
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|XmppExchange
-argument_list|>
 block|{
 DECL|field|log
 specifier|private
@@ -203,42 +200,12 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|onExchange (Exchange exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
-name|onExchange
+name|process
 parameter_list|(
 name|Exchange
-name|exchange
-parameter_list|)
-block|{
-comment|// lets convert to the type of an exchange
-name|XmppExchange
-name|xmppExchange
-init|=
-name|endpoint
-operator|.
-name|convertTo
-argument_list|(
-name|XmppExchange
-operator|.
-name|class
-argument_list|,
-name|exchange
-argument_list|)
-decl_stmt|;
-name|process
-argument_list|(
-name|xmppExchange
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|process (XmppExchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|XmppExchange
 name|exchange
 parameter_list|)
 block|{

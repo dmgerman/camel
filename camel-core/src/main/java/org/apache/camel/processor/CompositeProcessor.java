@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ServiceSupport
@@ -75,16 +87,10 @@ DECL|class|CompositeProcessor
 specifier|public
 class|class
 name|CompositeProcessor
-parameter_list|<
-name|E
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|processors
 specifier|private
@@ -92,22 +98,16 @@ specifier|final
 name|Collection
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|processors
 decl_stmt|;
-DECL|method|CompositeProcessor (Collection<Processor<E>> processors)
+DECL|method|CompositeProcessor (Collection<Processor> processors)
 specifier|public
 name|CompositeProcessor
 parameter_list|(
 name|Collection
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|processors
 parameter_list|)
@@ -119,12 +119,12 @@ operator|=
 name|processors
 expr_stmt|;
 block|}
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -133,9 +133,6 @@ block|{
 for|for
 control|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 range|:
 name|processors
@@ -175,9 +172,6 @@ decl_stmt|;
 for|for
 control|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 range|:
 name|processors
@@ -233,9 +227,6 @@ specifier|public
 name|Collection
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|getProcessors
 parameter_list|()

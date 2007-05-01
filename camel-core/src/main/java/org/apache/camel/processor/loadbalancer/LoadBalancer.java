@@ -63,38 +63,24 @@ DECL|interface|LoadBalancer
 specifier|public
 interface|interface
 name|LoadBalancer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 block|{
 comment|/**      * Adds a new processor to the load balancer      *      * @param processor the processor to be added to the load balancer      */
-DECL|method|addProcessor (Processor<E> processor)
+DECL|method|addProcessor (Processor processor)
 name|void
 name|addProcessor
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 function_decl|;
 comment|/**      * Removes the given processor from the load balancer      *      * @param processor the processor to be removed from the load balancer      */
-DECL|method|removeProcessor (Processor<E> processor)
+DECL|method|removeProcessor (Processor processor)
 name|void
 name|removeProcessor
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 function_decl|;

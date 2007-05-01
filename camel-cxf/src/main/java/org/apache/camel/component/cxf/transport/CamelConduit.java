@@ -680,15 +680,6 @@ name|targetCamelEndpointUri
 argument_list|,
 operator|new
 name|Processor
-argument_list|<
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public

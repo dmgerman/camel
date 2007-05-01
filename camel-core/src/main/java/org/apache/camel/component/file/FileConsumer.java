@@ -180,7 +180,7 @@ name|lastPollTime
 init|=
 literal|0l
 decl_stmt|;
-DECL|method|FileConsumer (final FileEndpoint endpoint, Processor<FileExchange> processor)
+DECL|method|FileConsumer (final FileEndpoint endpoint, Processor processor)
 specifier|public
 name|FileConsumer
 parameter_list|(
@@ -189,9 +189,6 @@ name|FileEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|FileExchange
-argument_list|>
 name|processor
 parameter_list|)
 block|{

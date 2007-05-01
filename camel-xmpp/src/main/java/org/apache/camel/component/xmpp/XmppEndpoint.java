@@ -407,7 +407,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|createConsumer (Processor<XmppExchange> processor)
+DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
 argument_list|<
@@ -416,9 +416,6 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-argument_list|<
-name|XmppExchange
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws

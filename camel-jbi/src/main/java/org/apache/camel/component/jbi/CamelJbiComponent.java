@@ -489,9 +489,6 @@ name|camelUri
 argument_list|)
 decl_stmt|;
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 init|=
 literal|null
@@ -657,7 +654,7 @@ name|executorService
 return|;
 block|}
 comment|/**      * Returns a JBI endpoint created for the given Camel endpoint      */
-DECL|method|activateJbiEndpoint (JbiEndpoint camelEndpoint, Processor<Exchange> processor)
+DECL|method|activateJbiEndpoint (JbiEndpoint camelEndpoint, Processor processor)
 specifier|public
 name|CamelJbiEndpoint
 name|activateJbiEndpoint
@@ -666,9 +663,6 @@ name|JbiEndpoint
 name|camelEndpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws

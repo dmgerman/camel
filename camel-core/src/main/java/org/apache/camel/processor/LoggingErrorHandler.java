@@ -105,25 +105,14 @@ DECL|class|LoggingErrorHandler
 specifier|public
 class|class
 name|LoggingErrorHandler
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|ErrorHandler
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|output
 specifier|private
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|output
 decl_stmt|;
 DECL|field|log
@@ -136,14 +125,11 @@ specifier|private
 name|LoggingLevel
 name|level
 decl_stmt|;
-DECL|method|LoggingErrorHandler (Processor<E> output)
+DECL|method|LoggingErrorHandler (Processor output)
 specifier|public
 name|LoggingErrorHandler
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|output
 parameter_list|)
 block|{
@@ -166,14 +152,11 @@ name|INFO
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|LoggingErrorHandler (Processor<E> output, Log log, LoggingLevel level)
+DECL|method|LoggingErrorHandler (Processor output, Log log, LoggingLevel level)
 specifier|public
 name|LoggingErrorHandler
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|output
 parameter_list|,
 name|Log
@@ -218,12 +201,12 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -260,9 +243,6 @@ comment|/**      * Returns the output processor      */
 DECL|method|getOutput ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|getOutput
 parameter_list|()
 block|{
@@ -324,12 +304,12 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-DECL|method|logError (E exchange, RuntimeException e)
+DECL|method|logError (Exchange exchange, RuntimeException e)
 specifier|protected
 name|void
 name|logError
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|RuntimeException
@@ -526,12 +506,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|logMessage (E exchange, RuntimeException e)
+DECL|method|logMessage (Exchange exchange, RuntimeException e)
 specifier|protected
 name|Object
 name|logMessage
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|RuntimeException

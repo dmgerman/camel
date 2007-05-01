@@ -174,7 +174,7 @@ specifier|private
 name|Timer
 name|timer
 decl_stmt|;
-DECL|method|TimerConsumer (TimerEndpoint endpoint, Processor<PojoExchange> processor)
+DECL|method|TimerConsumer (TimerEndpoint endpoint, Processor processor)
 specifier|public
 name|TimerConsumer
 parameter_list|(
@@ -182,9 +182,6 @@ name|TimerEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|PojoExchange
-argument_list|>
 name|processor
 parameter_list|)
 block|{

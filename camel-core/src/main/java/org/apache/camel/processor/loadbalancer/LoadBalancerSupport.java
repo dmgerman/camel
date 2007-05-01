@@ -74,25 +74,14 @@ specifier|public
 specifier|abstract
 class|class
 name|LoadBalancerSupport
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|LoadBalancer
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|processors
 specifier|private
 name|List
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|processors
 init|=
@@ -100,21 +89,15 @@ operator|new
 name|CopyOnWriteArrayList
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|addProcessor (Processor<E> processor)
+DECL|method|addProcessor (Processor processor)
 specifier|public
 name|void
 name|addProcessor
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -126,15 +109,12 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|removeProcessor (Processor<E> processor)
+DECL|method|removeProcessor (Processor processor)
 specifier|public
 name|void
 name|removeProcessor
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -152,9 +132,6 @@ specifier|public
 name|List
 argument_list|<
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|getProcessors
 parameter_list|()

@@ -133,7 +133,7 @@ specifier|private
 name|Destination
 name|destination
 decl_stmt|;
-DECL|method|CxfConsumer (CxfEndpoint endpoint, Processor<CxfExchange> processor, LocalTransportFactory transportFactory)
+DECL|method|CxfConsumer (CxfEndpoint endpoint, Processor processor, LocalTransportFactory transportFactory)
 specifier|public
 name|CxfConsumer
 parameter_list|(
@@ -141,9 +141,6 @@ name|CxfEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|CxfExchange
-argument_list|>
 name|processor
 parameter_list|,
 name|LocalTransportFactory

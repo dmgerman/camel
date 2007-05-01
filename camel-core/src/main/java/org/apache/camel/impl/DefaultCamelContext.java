@@ -1368,9 +1368,6 @@ name|routes
 control|)
 block|{
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 init|=
 name|route

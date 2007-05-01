@@ -460,9 +460,6 @@ name|endpoint
 argument_list|,
 operator|new
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -549,9 +546,6 @@ name|createConsumer
 argument_list|(
 operator|new
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public

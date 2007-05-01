@@ -188,7 +188,7 @@ specifier|final
 name|IoAcceptor
 name|acceptor
 decl_stmt|;
-DECL|method|MinaConsumer (final MinaEndpoint endpoint, Processor<MinaExchange> processor)
+DECL|method|MinaConsumer (final MinaEndpoint endpoint, Processor processor)
 specifier|public
 name|MinaConsumer
 parameter_list|(
@@ -197,9 +197,6 @@ name|MinaEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|MinaExchange
-argument_list|>
 name|processor
 parameter_list|)
 block|{

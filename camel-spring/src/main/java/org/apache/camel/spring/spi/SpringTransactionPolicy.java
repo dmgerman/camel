@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|DelegateProcessor
@@ -210,18 +222,12 @@ operator|=
 name|template
 expr_stmt|;
 block|}
-DECL|method|wrap (Processor<E> processor)
+DECL|method|wrap (Processor processor)
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|wrap
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -253,9 +259,6 @@ block|}
 return|return
 operator|new
 name|DelegateProcessor
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|processor
 argument_list|)
@@ -265,7 +268,7 @@ name|void
 name|process
 parameter_list|(
 specifier|final
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

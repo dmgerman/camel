@@ -203,7 +203,7 @@ specifier|private
 name|Remote
 name|proxy
 decl_stmt|;
-DECL|method|RmiConsumer (RmiEndpoint endpoint, Processor<PojoExchange> processor)
+DECL|method|RmiConsumer (RmiEndpoint endpoint, Processor processor)
 specifier|public
 name|RmiConsumer
 parameter_list|(
@@ -211,9 +211,6 @@ name|RmiEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|PojoExchange
-argument_list|>
 name|processor
 parameter_list|)
 block|{

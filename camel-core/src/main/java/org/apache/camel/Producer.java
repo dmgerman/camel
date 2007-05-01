@@ -30,9 +30,6 @@ name|Exchange
 parameter_list|>
 extends|extends
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 extends|,
 name|Service
 block|{

@@ -117,18 +117,10 @@ DECL|class|DeadLetterChannel
 specifier|public
 class|class
 name|DeadLetterChannel
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|ErrorHandler
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|REDELIVERY_COUNTER
 specifier|public
@@ -168,17 +160,11 @@ decl_stmt|;
 DECL|field|output
 specifier|private
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|output
 decl_stmt|;
 DECL|field|deadLetter
 specifier|private
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|deadLetter
 decl_stmt|;
 DECL|field|redeliveryPolicy
@@ -189,9 +175,6 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 name|Logger
-argument_list|<
-name|E
-argument_list|>
 name|logger
 decl_stmt|;
 DECL|method|createDefaultLogger ()
@@ -203,18 +186,12 @@ extends|extends
 name|Exchange
 parameter_list|>
 name|Logger
-argument_list|<
-name|E
-argument_list|>
 name|createDefaultLogger
 parameter_list|()
 block|{
 return|return
 operator|new
 name|Logger
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|log
 argument_list|,
@@ -224,20 +201,14 @@ name|ERROR
 argument_list|)
 return|;
 block|}
-DECL|method|DeadLetterChannel (Processor<E> output, Processor<E> deadLetter)
+DECL|method|DeadLetterChannel (Processor output, Processor deadLetter)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|output
 parameter_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|deadLetter
 parameter_list|)
 block|{
@@ -253,37 +224,25 @@ argument_list|()
 argument_list|,
 name|DeadLetterChannel
 operator|.
-expr|<
-name|E
-operator|>
 name|createDefaultLogger
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DeadLetterChannel (Processor<E> output, Processor<E> deadLetter, RedeliveryPolicy redeliveryPolicy, Logger<E> logger)
+DECL|method|DeadLetterChannel (Processor output, Processor deadLetter, RedeliveryPolicy redeliveryPolicy, Logger logger)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|output
 parameter_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|deadLetter
 parameter_list|,
 name|RedeliveryPolicy
 name|redeliveryPolicy
 parameter_list|,
 name|Logger
-argument_list|<
-name|E
-argument_list|>
 name|logger
 parameter_list|)
 block|{
@@ -336,12 +295,12 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -448,9 +407,6 @@ comment|/**      * Returns the output processor      */
 DECL|method|getOutput ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|getOutput
 parameter_list|()
 block|{
@@ -462,9 +418,6 @@ comment|/**      * Returns the dead letter that message exchanges will be sent t
 DECL|method|getDeadLetter ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|getDeadLetter
 parameter_list|()
 block|{
@@ -502,9 +455,6 @@ block|}
 DECL|method|getLogger ()
 specifier|public
 name|Logger
-argument_list|<
-name|E
-argument_list|>
 name|getLogger
 parameter_list|()
 block|{
@@ -513,15 +463,12 @@ name|logger
 return|;
 block|}
 comment|/**      * Sets the logger strategy; which {@link Log} to use and which {@link LoggingLevel} to use      */
-DECL|method|setLogger (Logger<E> logger)
+DECL|method|setLogger (Logger logger)
 specifier|public
 name|void
 name|setLogger
 parameter_list|(
 name|Logger
-argument_list|<
-name|E
-argument_list|>
 name|logger
 parameter_list|)
 block|{
@@ -535,12 +482,12 @@ block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 comment|/**      * Increments the redelivery counter and adds the redelivered flag if the message has been redelivered      */
-DECL|method|incrementRedeliveryCounter (E exchange)
+DECL|method|incrementRedeliveryCounter (Exchange exchange)
 specifier|protected
 name|int
 name|incrementRedeliveryCounter
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

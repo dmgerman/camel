@@ -205,12 +205,9 @@ decl_stmt|;
 DECL|field|processor
 specifier|private
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 decl_stmt|;
-DECL|method|CamelJbiEndpoint (ServiceUnit serviceUnit, QName service, String endpoint, Endpoint camelEndpoint, JbiBinding binding, Processor<Exchange> processor)
+DECL|method|CamelJbiEndpoint (ServiceUnit serviceUnit, QName service, String endpoint, Endpoint camelEndpoint, JbiBinding binding, Processor processor)
 specifier|public
 name|CamelJbiEndpoint
 parameter_list|(
@@ -230,9 +227,6 @@ name|JbiBinding
 name|binding
 parameter_list|,
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -264,7 +258,7 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|CamelJbiEndpoint (ServiceUnit serviceUnit, Endpoint camelEndpoint, JbiBinding binding, Processor<Exchange> processor)
+DECL|method|CamelJbiEndpoint (ServiceUnit serviceUnit, Endpoint camelEndpoint, JbiBinding binding, Processor processor)
 specifier|public
 name|CamelJbiEndpoint
 parameter_list|(
@@ -278,9 +272,6 @@ name|JbiBinding
 name|binding
 parameter_list|,
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 parameter_list|)
 block|{

@@ -130,6 +130,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -440,7 +452,7 @@ specifier|public
 name|void
 name|process
 parameter_list|(
-name|Object
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -507,7 +519,7 @@ specifier|public
 name|void
 name|process
 parameter_list|(
-name|Object
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

@@ -38,6 +38,18 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -173,13 +185,13 @@ operator|=
 name|sender
 expr_stmt|;
 block|}
-DECL|method|process (final MailExchange exchange)
+DECL|method|process (final Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
 specifier|final
-name|MailExchange
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

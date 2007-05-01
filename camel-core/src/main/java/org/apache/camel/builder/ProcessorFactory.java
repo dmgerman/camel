@@ -49,18 +49,10 @@ DECL|interface|ProcessorFactory
 specifier|public
 interface|interface
 name|ProcessorFactory
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 block|{
 DECL|method|createProcessor ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|createProcessor
 parameter_list|()
 throws|throws

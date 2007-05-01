@@ -103,12 +103,9 @@ decl_stmt|;
 DECL|field|processor
 specifier|private
 name|Processor
-argument_list|<
-name|JbiExchange
-argument_list|>
 name|processor
 decl_stmt|;
-DECL|method|FromJbiProcessor (CamelContext context, JbiBinding binding, Processor<JbiExchange> processor)
+DECL|method|FromJbiProcessor (CamelContext context, JbiBinding binding, Processor processor)
 specifier|public
 name|FromJbiProcessor
 parameter_list|(
@@ -119,9 +116,6 @@ name|JbiBinding
 name|binding
 parameter_list|,
 name|Processor
-argument_list|<
-name|JbiExchange
-argument_list|>
 name|processor
 parameter_list|)
 block|{

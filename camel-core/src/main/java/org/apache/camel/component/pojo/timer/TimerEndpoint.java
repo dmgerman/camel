@@ -316,7 +316,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-DECL|method|createConsumer (Processor<PojoExchange> processor)
+DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
 argument_list|<
@@ -325,9 +325,6 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-argument_list|<
-name|PojoExchange
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws

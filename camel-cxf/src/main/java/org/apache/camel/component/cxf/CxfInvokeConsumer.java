@@ -111,7 +111,7 @@ specifier|private
 name|ServerImpl
 name|server
 decl_stmt|;
-DECL|method|CxfInvokeConsumer (CxfInvokeEndpoint endpoint, Processor<CxfExchange> processor)
+DECL|method|CxfInvokeConsumer (CxfInvokeEndpoint endpoint, Processor processor)
 specifier|public
 name|CxfInvokeConsumer
 parameter_list|(
@@ -119,9 +119,6 @@ name|CxfInvokeEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
-argument_list|<
-name|CxfExchange
-argument_list|>
 name|processor
 parameter_list|)
 block|{

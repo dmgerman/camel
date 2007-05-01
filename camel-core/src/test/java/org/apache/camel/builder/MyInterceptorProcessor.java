@@ -49,9 +49,6 @@ class|class
 name|MyInterceptorProcessor
 extends|extends
 name|DelegateProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|method|process (Exchange exchange)
 specifier|public

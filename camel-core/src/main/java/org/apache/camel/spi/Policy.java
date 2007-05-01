@@ -56,17 +56,11 @@ name|E
 parameter_list|>
 block|{
 comment|/**      * Wraps any applicable interceptors around the given processor      *      * @param processor the processor to be intercepted      * @return either the original processor or a processor wrapped in one or more interceptors      */
-DECL|method|wrap (Processor<E> processor)
+DECL|method|wrap (Processor processor)
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|wrap
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 function_decl|;

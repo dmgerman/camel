@@ -354,16 +354,10 @@ parameter_list|()
 block|{
 specifier|final
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 name|processor
 init|=
 operator|new
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public

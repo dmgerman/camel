@@ -207,9 +207,6 @@ name|myProcessor
 operator|=
 operator|(
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 operator|)
 name|ctx
 operator|.
@@ -252,9 +249,6 @@ name|myProcessor
 operator|=
 operator|(
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 operator|)
 name|ctx
 operator|.
@@ -297,9 +291,6 @@ name|interceptor1
 operator|=
 operator|(
 name|DelegateProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 operator|)
 name|ctx
 operator|.
@@ -312,9 +303,6 @@ name|interceptor2
 operator|=
 operator|(
 name|DelegateProcessor
-argument_list|<
-name|Exchange
-argument_list|>
 operator|)
 name|ctx
 operator|.

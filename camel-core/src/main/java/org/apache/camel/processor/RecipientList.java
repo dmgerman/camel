@@ -155,25 +155,17 @@ DECL|class|RecipientList
 specifier|public
 class|class
 name|RecipientList
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|expression
 specifier|private
 specifier|final
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|expression
 decl_stmt|;
@@ -181,24 +173,24 @@ DECL|field|producerCache
 specifier|private
 name|ProducerCache
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|producerCache
 init|=
 operator|new
 name|ProducerCache
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|RecipientList (Expression<E> expression)
+DECL|method|RecipientList (Expression<Exchange> expression)
 specifier|public
 name|RecipientList
 parameter_list|(
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|expression
 parameter_list|)
@@ -233,12 +225,12 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -282,7 +274,7 @@ argument_list|()
 decl_stmt|;
 name|Endpoint
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|endpoint
 init|=
@@ -307,15 +299,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|resolveEndpoint (E exchange, Object recipient)
+DECL|method|resolveEndpoint (Exchange exchange, Object recipient)
 specifier|protected
 name|Endpoint
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|resolveEndpoint
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|Object

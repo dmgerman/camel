@@ -295,7 +295,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|createConsumer (Processor<JmsExchange> processor)
+DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
 argument_list|<
@@ -304,9 +304,6 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-argument_list|<
-name|JmsExchange
-argument_list|>
 name|processor
 parameter_list|)
 throws|throws
@@ -330,7 +327,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a consumer using the given processor and listener container      *      * @param processor the processor to use to process the messages      * @param listenerContainer the listener container      * @return a newly created consumer      * @throws Exception if the consumer cannot be created      */
-DECL|method|createConsumer (Processor<JmsExchange> processor, AbstractMessageListenerContainer listenerContainer)
+DECL|method|createConsumer (Processor processor, AbstractMessageListenerContainer listenerContainer)
 specifier|public
 name|Consumer
 argument_list|<
@@ -339,9 +336,6 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-argument_list|<
-name|JmsExchange
-argument_list|>
 name|processor
 parameter_list|,
 name|AbstractMessageListenerContainer

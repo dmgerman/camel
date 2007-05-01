@@ -73,18 +73,12 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|createErrorHandler (Processor<E> processor)
+DECL|method|createErrorHandler (Processor processor)
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|createErrorHandler
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{

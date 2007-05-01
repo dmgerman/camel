@@ -49,33 +49,19 @@ DECL|class|ConstantProcessorBuilder
 specifier|public
 class|class
 name|ConstantProcessorBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|ProcessorFactory
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|processor
 specifier|private
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 decl_stmt|;
-DECL|method|ConstantProcessorBuilder (Processor<E> processor)
+DECL|method|ConstantProcessorBuilder (Processor processor)
 specifier|public
 name|ConstantProcessorBuilder
 parameter_list|(
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -89,9 +75,6 @@ block|}
 DECL|method|createProcessor ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|createProcessor
 parameter_list|()
 block|{

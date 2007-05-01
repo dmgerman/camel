@@ -730,9 +730,6 @@ class|class
 name|ConsumerProcessor
 implements|implements
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -951,9 +948,6 @@ name|replyToUri
 argument_list|,
 operator|new
 name|Processor
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public

@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ServiceSupport
@@ -77,47 +89,35 @@ DECL|class|FilterProcessor
 specifier|public
 class|class
 name|FilterProcessor
-parameter_list|<
-name|E
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|predicate
 specifier|private
 name|Predicate
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|predicate
 decl_stmt|;
 DECL|field|processor
 specifier|private
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 decl_stmt|;
-DECL|method|FilterProcessor (Predicate<E> predicate, Processor<E> processor)
+DECL|method|FilterProcessor (Predicate<Exchange> predicate, Processor processor)
 specifier|public
 name|FilterProcessor
 parameter_list|(
 name|Predicate
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|predicate
 parameter_list|,
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -134,12 +134,12 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
-DECL|method|process (E exchange)
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -186,7 +186,7 @@ DECL|method|getPredicate ()
 specifier|public
 name|Predicate
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|getPredicate
 parameter_list|()
@@ -198,9 +198,6 @@ block|}
 DECL|method|getProcessor ()
 specifier|public
 name|Processor
-argument_list|<
-name|E
-argument_list|>
 name|getProcessor
 parameter_list|()
 block|{
