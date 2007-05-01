@@ -1203,6 +1203,34 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|parameter (String name, Object value)
+specifier|public
+name|XQueryBuilder
+argument_list|<
+name|E
+argument_list|>
+name|parameter
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+name|parameters
+operator|.
+name|put
+argument_list|(
+name|name
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getExpression ()
