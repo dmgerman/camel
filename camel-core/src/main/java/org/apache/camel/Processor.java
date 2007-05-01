@@ -27,7 +27,7 @@ parameter_list|<
 name|E
 parameter_list|>
 block|{
-comment|/**      * Processes the message exchange      */
+comment|/**      * Processes the message exchange      *       * @throws Exception if an internal processing error has occurred.       */
 DECL|method|process (E exchange)
 name|void
 name|process
@@ -35,6 +35,8 @@ parameter_list|(
 name|E
 name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 block|}
 end_interface

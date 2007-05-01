@@ -273,6 +273,8 @@ name|Message
 name|message
 parameter_list|)
 block|{
+try|try
+block|{
 name|CxfExchange
 name|exchange
 init|=
@@ -291,6 +293,20 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// TODO: what do do if we are getting processing errors from camel?  Shutdown?
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

@@ -328,6 +328,8 @@ argument_list|(
 name|message
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|getProcessor
 argument_list|()
 operator|.
@@ -336,6 +338,20 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// TODO: what should we do when a processing failure occurs??
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if

@@ -443,6 +443,8 @@ parameter_list|(
 name|Object
 name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|processNext
 argument_list|(

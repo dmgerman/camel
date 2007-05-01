@@ -269,6 +269,8 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|onExchange
 argument_list|(
@@ -344,6 +346,8 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|processor
 operator|.

@@ -272,6 +272,7 @@ return|;
 block|}
 comment|/**      * This causes us to invoke the endpoint Pojo using reflection.      * @param pojo       */
 DECL|method|invoke (Object pojo, PojoExchange exchange)
+specifier|static
 specifier|public
 name|void
 name|invoke

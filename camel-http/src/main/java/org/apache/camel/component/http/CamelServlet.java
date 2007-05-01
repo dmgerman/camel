@@ -20,27 +20,21 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|Producer
+name|IOException
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|servlet
 operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ProducerCache
+name|ServletException
 import|;
 end_import
 
@@ -82,21 +76,15 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|servlet
+name|apache
 operator|.
-name|ServletException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|camel
 operator|.
-name|io
+name|util
 operator|.
-name|IOException
+name|ProducerCache
 import|;
 end_import
 
@@ -200,6 +188,8 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+try|try
+block|{
 name|HttpExchange
 name|exchange
 init|=
@@ -234,6 +224,21 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ServletException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|resolveEndpoint (HttpServletRequest request, HttpServletResponse response)
 specifier|protected

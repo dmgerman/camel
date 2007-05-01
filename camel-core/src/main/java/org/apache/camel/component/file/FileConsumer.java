@@ -382,6 +382,8 @@ name|File
 name|file
 parameter_list|)
 block|{
+try|try
+block|{
 name|getProcessor
 argument_list|()
 operator|.
@@ -395,6 +397,19 @@ name|file
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|handleException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|isValidFile (File file)
 specifier|protected
