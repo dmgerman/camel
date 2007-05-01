@@ -252,23 +252,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|PojoConsumer
-name|consumer
-init|=
+throw|throw
 operator|new
-name|PojoConsumer
+name|Exception
 argument_list|(
-name|this
-argument_list|,
-name|processor
+literal|"You cannot consume from pojo endpoints."
 argument_list|)
-decl_stmt|;
-return|return
-name|startService
-argument_list|(
-name|consumer
-argument_list|)
-return|;
+throw|;
 block|}
 comment|/**      * This causes us to invoke the endpoint Pojo using reflection.      * @param pojo       */
 DECL|method|invoke (Object pojo, PojoExchange exchange)
