@@ -210,6 +210,8 @@ specifier|abstract
 name|void
 name|configure
 parameter_list|()
+throws|throws
+name|Exception
 function_decl|;
 annotation|@
 name|Fluent
