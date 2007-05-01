@@ -239,7 +239,7 @@ specifier|protected
 name|String
 name|uri
 init|=
-literal|"file://foo.txt"
+literal|"file://target/foo.txt"
 decl_stmt|;
 DECL|field|producer
 specifier|protected
