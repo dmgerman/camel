@@ -207,9 +207,9 @@ argument_list|)
 expr_stmt|;
 name|resultEndpoint
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|1
+literal|"hello world!"
 argument_list|)
 expr_stmt|;
 name|client
@@ -372,6 +372,13 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"smtp://result@localhost"
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
 argument_list|)
 operator|.
 name|to
