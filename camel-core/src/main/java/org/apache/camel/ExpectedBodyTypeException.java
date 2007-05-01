@@ -15,73 +15,89 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Thrown if an expression evaluation fails  *   * @version $Revision$  */
+comment|/**  * Thrown if the body could not be converted to the required type  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|RuntimeExpressionException
+DECL|class|ExpectedBodyTypeException
 specifier|public
 class|class
-name|RuntimeExpressionException
+name|ExpectedBodyTypeException
 extends|extends
 name|RuntimeCamelException
 block|{
-DECL|field|serialVersionUID
+DECL|field|exchange
 specifier|private
-specifier|static
 specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|8417806626073055262L
+name|Exchange
+name|exchange
 decl_stmt|;
-DECL|method|RuntimeExpressionException (String message)
+DECL|field|expectedBodyType
+specifier|private
+specifier|final
+name|Class
+name|expectedBodyType
+decl_stmt|;
+DECL|method|ExpectedBodyTypeException (Exchange exchange, Class expectedBodyType)
 specifier|public
-name|RuntimeExpressionException
+name|ExpectedBodyTypeException
 parameter_list|(
-name|String
-name|message
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|RuntimeExpressionException (String message, Throwable cause)
-specifier|public
-name|RuntimeExpressionException
-parameter_list|(
-name|String
-name|message
+name|Exchange
+name|exchange
 parameter_list|,
-name|Throwable
-name|cause
+name|Class
+name|expectedBodyType
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|message
-argument_list|,
-name|cause
+literal|"Could not extract IN message body as type: "
+operator|+
+name|expectedBodyType
+operator|+
+literal|" body is: "
+operator|+
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|exchange
+operator|=
+name|exchange
+expr_stmt|;
+name|this
+operator|.
+name|expectedBodyType
+operator|=
+name|expectedBodyType
 expr_stmt|;
 block|}
-DECL|method|RuntimeExpressionException (Throwable cause)
+DECL|method|getExchange ()
 specifier|public
-name|RuntimeExpressionException
-parameter_list|(
-name|Throwable
-name|cause
-parameter_list|)
+name|Exchange
+name|getExchange
+parameter_list|()
 block|{
-name|super
-argument_list|(
-name|cause
-argument_list|)
-expr_stmt|;
+return|return
+name|exchange
+return|;
+block|}
+DECL|method|getExpectedBodyType ()
+specifier|public
+name|Class
+name|getExpectedBodyType
+parameter_list|()
+block|{
+return|return
+name|expectedBodyType
+return|;
 block|}
 block|}
 end_class
