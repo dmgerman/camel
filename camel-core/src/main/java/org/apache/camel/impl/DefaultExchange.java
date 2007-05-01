@@ -188,6 +188,15 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|exchange
+operator|==
+name|this
+condition|)
+block|{
+return|return;
+block|}
 name|setHeaders
 argument_list|(
 name|safeCopy

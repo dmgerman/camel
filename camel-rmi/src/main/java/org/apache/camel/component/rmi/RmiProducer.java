@@ -212,6 +212,13 @@ argument_list|,
 name|pojoExchange
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|copyFrom
+argument_list|(
+name|pojoExchange
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getRemote ()
 specifier|public
