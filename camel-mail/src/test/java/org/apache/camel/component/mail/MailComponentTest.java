@@ -213,7 +213,7 @@ name|endpoint
 init|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"pop://james@myhost:30/subject"
+literal|"pop3://james@myhost:30/subject"
 argument_list|)
 decl_stmt|;
 name|MailConfiguration
@@ -228,7 +228,7 @@ name|assertEquals
 argument_list|(
 literal|"getProtocol()"
 argument_list|,
-literal|"pop"
+literal|"pop3"
 argument_list|,
 name|config
 operator|.

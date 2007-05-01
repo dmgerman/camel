@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Component
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Consumer
 import|;
 end_import
@@ -82,20 +70,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IntrospectionSupport
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -104,42 +78,8 @@ name|File
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ScheduledExecutorService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ScheduledThreadPoolExecutor
-import|;
-end_import
-
 begin_comment
-comment|/**  * @version $Revision: 523016 $  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/file.html">File Endpoint</a> for working with file systems  *  * @version $Revision: 523016 $  */
 end_comment
 
 begin_class
@@ -157,11 +97,6 @@ DECL|field|file
 specifier|private
 name|File
 name|file
-decl_stmt|;
-DECL|field|executor
-specifier|private
-name|ScheduledExecutorService
-name|executor
 decl_stmt|;
 DECL|method|FileEndpoint (File file, String endpointUri, FileComponent component)
 specifier|protected
@@ -189,15 +124,6 @@ operator|.
 name|file
 operator|=
 name|file
-expr_stmt|;
-name|this
-operator|.
-name|executor
-operator|=
-name|component
-operator|.
-name|getExecutorService
-argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * @return a Producer      * @throws Exception      * @see org.apache.camel.Endpoint#createProducer()      */
@@ -261,9 +187,6 @@ argument_list|(
 name|this
 argument_list|,
 name|file
-argument_list|,
-name|getExecutor
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|configureConsumer
@@ -314,56 +237,6 @@ operator|.
 name|file
 argument_list|)
 return|;
-block|}
-comment|/**      * @return the executor      */
-DECL|method|getExecutor ()
-specifier|public
-specifier|synchronized
-name|ScheduledExecutorService
-name|getExecutor
-parameter_list|()
-block|{
-if|if
-condition|(
-name|this
-operator|.
-name|executor
-operator|==
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|executor
-operator|=
-operator|new
-name|ScheduledThreadPoolExecutor
-argument_list|(
-literal|10
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|executor
-return|;
-block|}
-comment|/**      * @param executor the executor to set      */
-DECL|method|setExecutor (ScheduledExecutorService executor)
-specifier|public
-specifier|synchronized
-name|void
-name|setExecutor
-parameter_list|(
-name|ScheduledExecutorService
-name|executor
-parameter_list|)
-block|{
-name|this
-operator|.
-name|executor
-operator|=
-name|executor
-expr_stmt|;
 block|}
 DECL|method|getFile ()
 specifier|public

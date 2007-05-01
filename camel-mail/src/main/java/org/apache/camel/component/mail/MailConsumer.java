@@ -238,11 +238,6 @@ argument_list|(
 name|endpoint
 argument_list|,
 name|processor
-argument_list|,
-name|endpoint
-operator|.
-name|getExecutorService
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

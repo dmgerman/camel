@@ -88,6 +88,30 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledThreadPoolExecutor
+import|;
+end_import
+
 begin_comment
 comment|/**  * A base class for {@link Endpoint} which creates a {@link PollingConsumer}  *  * @version $Revision: 1.1 $  */
 end_comment

@@ -18,32 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ScheduledExecutorService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicBoolean
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -128,8 +102,32 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledThreadPoolExecutor
+import|;
+end_import
+
 begin_comment
-comment|/**  * A default endpoint useful for implementation inheritance  *   * @version $Revision$  */
+comment|/**  * A default endpoint useful for implementation inheritance  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -164,6 +162,11 @@ DECL|field|context
 specifier|private
 name|CamelContext
 name|context
+decl_stmt|;
+DECL|field|executorService
+specifier|private
+name|ScheduledExecutorService
+name|executorService
 decl_stmt|;
 DECL|method|DefaultEndpoint (String endpointUri, Component component)
 specifier|protected
@@ -306,11 +309,20 @@ return|return
 name|component
 return|;
 block|}
+comment|/**      * @return the executor      */
 DECL|method|getExecutorService ()
 specifier|public
+specifier|synchronized
 name|ScheduledExecutorService
 name|getExecutorService
 parameter_list|()
+block|{
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
 block|{
 name|Component
 name|c
@@ -337,16 +349,49 @@ name|DefaultComponent
 operator|)
 name|c
 decl_stmt|;
-return|return
+name|executorService
+operator|=
 name|dc
 operator|.
 name|getExecutorService
 argument_list|()
-return|;
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+name|executorService
+operator|=
+name|createExecutorService
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 return|return
-literal|null
+name|executorService
 return|;
+block|}
+comment|/**      * @param executorService the executor to set      */
+DECL|method|setExecutorService (ScheduledExecutorService executorService)
+specifier|public
+specifier|synchronized
+name|void
+name|setExecutorService
+parameter_list|(
+name|ScheduledExecutorService
+name|executorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
+expr_stmt|;
 block|}
 comment|/**      * Converts the given exchange to the specified exchange type      */
 DECL|method|convertTo (Class<E> type, Exchange exchange)
@@ -449,6 +494,20 @@ argument_list|()
 expr_stmt|;
 return|return
 name|service
+return|;
+block|}
+DECL|method|createExecutorService ()
+specifier|protected
+name|ScheduledThreadPoolExecutor
+name|createExecutorService
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ScheduledThreadPoolExecutor
+argument_list|(
+literal|10
+argument_list|)
 return|;
 block|}
 block|}

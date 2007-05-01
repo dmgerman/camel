@@ -198,6 +198,36 @@ name|?
 argument_list|>
 name|future
 decl_stmt|;
+DECL|method|PollingConsumer (DefaultEndpoint<E> endpoint, Processor<E> processor)
+specifier|public
+name|PollingConsumer
+parameter_list|(
+name|DefaultEndpoint
+argument_list|<
+name|E
+argument_list|>
+name|endpoint
+parameter_list|,
+name|Processor
+argument_list|<
+name|E
+argument_list|>
+name|processor
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|endpoint
+argument_list|,
+name|processor
+argument_list|,
+name|endpoint
+operator|.
+name|getExecutorService
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|PollingConsumer (Endpoint<E> endpoint, Processor<E> processor, ScheduledExecutorService executor)
 specifier|public
 name|PollingConsumer
@@ -237,6 +267,7 @@ name|executor
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -244,6 +275,7 @@ argument_list|(
 literal|"A non null ScheduledExecutorService must be provided."
 argument_list|)
 throw|;
+block|}
 block|}
 comment|/**      * Invoked whenever we should be polled      */
 DECL|method|run ()
@@ -392,7 +424,7 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-comment|/**      * The polling method which is invoked periodically to poll this consumer      *       * @throws Exception      */
+comment|/**      * The polling method which is invoked periodically to poll this consumer      *      * @throws Exception      */
 DECL|method|poll ()
 specifier|protected
 specifier|abstract

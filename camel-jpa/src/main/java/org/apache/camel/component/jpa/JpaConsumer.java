@@ -258,7 +258,7 @@ specifier|private
 name|String
 name|nativeQuery
 decl_stmt|;
-DECL|method|JpaConsumer (JpaEndpoint endpoint, Processor<Exchange> processor, ScheduledExecutorService executor)
+DECL|method|JpaConsumer (JpaEndpoint endpoint, Processor<Exchange> processor)
 specifier|public
 name|JpaConsumer
 parameter_list|(
@@ -270,9 +270,6 @@ argument_list|<
 name|Exchange
 argument_list|>
 name|processor
-parameter_list|,
-name|ScheduledExecutorService
-name|executor
 parameter_list|)
 block|{
 name|super
@@ -280,8 +277,6 @@ argument_list|(
 name|endpoint
 argument_list|,
 name|processor
-argument_list|,
-name|executor
 argument_list|)
 expr_stmt|;
 name|this
