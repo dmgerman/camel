@@ -52,8 +52,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
 name|CamelClient
 import|;
 end_import

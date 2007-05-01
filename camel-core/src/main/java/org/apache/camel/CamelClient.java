@@ -4,15 +4,13 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.util
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|util
 package|;
 end_package
 
@@ -96,6 +94,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|ProducerCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ServiceSupport
@@ -103,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper client for working with Camel  *   * @version $Revision$  */
+comment|/**  * A Client object for working with Camel and invoking {@link Endpoint} instances with {@link Exchange} instances  *   * @version $Revision$  */
 end_comment
 
 begin_class
