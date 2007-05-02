@@ -90,18 +90,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -115,18 +103,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
 import|;
 end_import
 
@@ -152,59 +128,15 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
 import|;
 end_import
+
+begin_comment
+comment|/**  * An example class for demonstrating some of the basics behind camel  *   * This example will send some text messages on to a JMS Queue, consume them and   * persist them to disk  *  * @version $Revision: 529902 $  *   */
+end_comment
 
 begin_class
 DECL|class|CamelJmsToFileSample
@@ -242,11 +174,12 @@ argument_list|(
 literal|"vm://localhost?broker.persistent=false"
 argument_list|)
 decl_stmt|;
+comment|//note we can explicity  name the component
 name|context
 operator|.
 name|addComponent
 argument_list|(
-literal|"jms"
+literal|"test-jms"
 argument_list|,
 name|jmsComponentAutoAcknowledge
 argument_list|(
@@ -254,7 +187,7 @@ name|connectionFactory
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//Endpoint<FileExchange> endpoint = context.getEndpoint("file://test");
+comment|//Add some configuration by hand ...
 name|context
 operator|.
 name|addRoutes
@@ -270,7 +203,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"jms:queue:test.a"
+literal|"test-jms:queue:test.queue"
 argument_list|)
 operator|.
 name|to
@@ -278,11 +211,49 @@ argument_list|(
 literal|"file://test"
 argument_list|)
 expr_stmt|;
+comment|// set up a listener on the file component
+name|from
+argument_list|(
+literal|"file://test"
+argument_list|)
+operator|.
+name|process
+argument_list|(
+operator|new
+name|Processor
+argument_list|()
+block|{
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|e
+parameter_list|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Received exchange: "
+operator|+
+name|e
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|//Camel client - a handy class for kicking off exchanges
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+comment|// Camel client - a handy class for kicking off exchanges
 name|CamelClient
 name|client
 init|=
@@ -292,20 +263,45 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
+comment|//Now everything is set up - lets start the context
 name|context
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|//now send some test text to a component - for this case a JMS Queue
+comment|//The text get converted to JMS messages - and sent to the Queue test.queue
+comment|//The file component is listening for messages from the Queue test.queue, consumes
+comment|//them and stores them to disk. The content of each file will be the test test we sent here.
+comment|//The listener on the file component gets notfied when new files are found ...
+comment|//that's it!
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+literal|10
+condition|;
+name|i
+operator|++
+control|)
+block|{
 name|client
 operator|.
 name|sendBody
 argument_list|(
-literal|"jms:queue:test.a"
+literal|"test-jms:queue:test.queue"
 argument_list|,
-literal|"foo"
+literal|"Test Message: "
+operator|+
+name|i
 argument_list|)
 expr_stmt|;
+block|}
 name|Thread
 operator|.
 name|sleep
