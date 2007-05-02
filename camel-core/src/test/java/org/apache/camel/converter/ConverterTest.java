@@ -810,7 +810,7 @@ argument_list|)
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"From primitive type array we've created the list: "
 operator|+

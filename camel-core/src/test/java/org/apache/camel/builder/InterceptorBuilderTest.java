@@ -377,11 +377,9 @@ argument_list|(
 literal|"END:1"
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Interceptor invocation order:"
 operator|+

@@ -331,7 +331,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Could not find Xalan on the classpath so ignoring this test case: "
 operator|+

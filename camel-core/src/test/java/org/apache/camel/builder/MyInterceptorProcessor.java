@@ -42,6 +42,34 @@ name|DelegateProcessor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_class
 DECL|class|MyInterceptorProcessor
 specifier|public
@@ -50,6 +78,23 @@ name|MyInterceptorProcessor
 extends|extends
 name|DelegateProcessor
 block|{
+DECL|field|log
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|MyInterceptorProcessor
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -61,11 +106,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"START of onExchange: "
 operator|+
@@ -79,11 +122,9 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"END of onExchange: "
 operator|+

@@ -509,11 +509,9 @@ operator|.
 name|getRouteList
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Created routes: "
 operator|+
@@ -719,11 +717,9 @@ operator|.
 name|getRouteList
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Created routes: "
 operator|+
@@ -886,11 +882,9 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Called with exchange: "
 operator|+
@@ -1089,11 +1083,9 @@ operator|.
 name|getRouteList
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Created routes: "
 operator|+
@@ -1241,11 +1233,9 @@ operator|.
 name|getRouteList
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Created routes: "
 operator|+
@@ -1459,11 +1449,9 @@ operator|.
 name|getRouteList
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Created routes: "
 operator|+
@@ -1643,11 +1631,9 @@ operator|.
 name|getRouteList
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Created routes: "
 operator|+
@@ -1702,11 +1688,9 @@ argument_list|(
 name|route
 argument_list|)
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"processor: "
 operator|+
@@ -1822,11 +1806,9 @@ operator|.
 name|getRouteList
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Created routes: "
 operator|+
@@ -1972,11 +1954,9 @@ operator|.
 name|getRouteList
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Created routes: "
 operator|+
@@ -2120,11 +2100,9 @@ operator|.
 name|getRouteList
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Created routes: "
 operator|+

@@ -235,7 +235,7 @@ name|Exception
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Received: "
 operator|+

@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -162,7 +174,7 @@ specifier|public
 class|class
 name|QueueRouteTest
 extends|extends
-name|TestCase
+name|TestSupport
 block|{
 DECL|method|testSedaQueue ()
 specifier|public
@@ -232,11 +244,9 @@ name|Exchange
 name|e
 parameter_list|)
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Received exchange: "
 operator|+
@@ -412,11 +422,9 @@ name|Exchange
 name|e
 parameter_list|)
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Received exchange: "
 operator|+

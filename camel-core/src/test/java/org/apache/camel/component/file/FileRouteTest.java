@@ -428,11 +428,9 @@ name|Exchange
 name|e
 parameter_list|)
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Received exchange: "
 operator|+
