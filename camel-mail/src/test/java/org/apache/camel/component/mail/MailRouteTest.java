@@ -227,13 +227,19 @@ argument_list|(
 literal|"james@localhost"
 argument_list|)
 expr_stmt|;
+comment|// lets sleep to check that the mail poll does not redeliver duplicate mails
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|3000
+argument_list|)
+expr_stmt|;
 comment|// lets test the receive worked
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
-argument_list|(
-literal|10000
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|assertMailboxReceivedMessages
 argument_list|(
@@ -328,12 +334,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:a"
+literal|"direct:a"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|to
