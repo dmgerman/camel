@@ -98,6 +98,13 @@ specifier|private
 name|File
 name|file
 decl_stmt|;
+DECL|field|autoCreate
+specifier|private
+name|boolean
+name|autoCreate
+init|=
+literal|true
+decl_stmt|;
 DECL|method|FileEndpoint (File file, String endpointUri, FileComponent component)
 specifier|protected
 name|FileEndpoint
@@ -229,9 +236,8 @@ block|{
 return|return
 name|createExchange
 argument_list|(
-name|this
-operator|.
-name|file
+name|getFile
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -241,6 +247,23 @@ name|File
 name|getFile
 parameter_list|()
 block|{
+if|if
+condition|(
+name|autoCreate
+operator|&&
+operator|!
+name|file
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|file
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|file
 return|;
@@ -254,6 +277,36 @@ block|{
 return|return
 literal|true
 return|;
+block|}
+comment|/**      * @return the autoCreate      */
+DECL|method|isAutoCreate ()
+specifier|public
+name|boolean
+name|isAutoCreate
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|autoCreate
+return|;
+block|}
+comment|/**      * @param autoCreate the autoCreate to set      */
+DECL|method|setAutoCreate (boolean autoCreate)
+specifier|public
+name|void
+name|setAutoCreate
+parameter_list|(
+name|boolean
+name|autoCreate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoCreate
+operator|=
+name|autoCreate
+expr_stmt|;
 block|}
 block|}
 end_class

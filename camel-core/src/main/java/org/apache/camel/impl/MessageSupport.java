@@ -40,6 +40,20 @@ name|Message
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|UIdGenerator
+import|;
+end_import
+
 begin_comment
 comment|/**  * A base class for implementation inheritence providing the core {@link Message} body  * handling features but letting the derived class deal with headers.  *  * Unless a specific provider wishes to do something particularly clever with headers you probably  * want to just derive from {@link DefaultMessage}  *  * @version $Revision$  */
 end_comment
@@ -53,6 +67,17 @@ name|MessageSupport
 implements|implements
 name|Message
 block|{
+DECL|field|defaultIdGenerator
+specifier|private
+specifier|static
+specifier|final
+name|UIdGenerator
+name|defaultIdGenerator
+init|=
+operator|new
+name|UIdGenerator
+argument_list|()
+decl_stmt|;
 DECL|field|exchange
 specifier|private
 name|Exchange
@@ -62,6 +87,16 @@ DECL|field|body
 specifier|private
 name|Object
 name|body
+decl_stmt|;
+DECL|field|messageId
+specifier|private
+name|String
+name|messageId
+init|=
+name|defaultIdGenerator
+operator|.
+name|generateId
+argument_list|()
 decl_stmt|;
 DECL|method|getBody ()
 specifier|public
@@ -245,6 +280,14 @@ argument_list|()
 decl_stmt|;
 name|answer
 operator|.
+name|setMessageId
+argument_list|(
+name|getMessageId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
 name|setBody
 argument_list|(
 name|getBody
@@ -310,6 +353,36 @@ block|{
 return|return
 literal|null
 return|;
+block|}
+comment|/**      * @return the messageId      */
+DECL|method|getMessageId ()
+specifier|public
+name|String
+name|getMessageId
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|messageId
+return|;
+block|}
+comment|/**      * @param messageId the messageId to set      */
+DECL|method|setMessageId (String messageId)
+specifier|public
+name|void
+name|setMessageId
+parameter_list|(
+name|String
+name|messageId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageId
+operator|=
+name|messageId
+expr_stmt|;
 block|}
 block|}
 end_class

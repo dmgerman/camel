@@ -54,6 +54,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|UIdGenerator
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -84,6 +98,17 @@ name|DefaultExchange
 implements|implements
 name|Exchange
 block|{
+DECL|field|defaultIdGenerator
+specifier|private
+specifier|static
+specifier|final
+name|UIdGenerator
+name|defaultIdGenerator
+init|=
+operator|new
+name|UIdGenerator
+argument_list|()
+decl_stmt|;
 DECL|field|context
 specifier|protected
 specifier|final
@@ -124,6 +149,13 @@ DECL|field|exchangeId
 specifier|private
 name|String
 name|exchangeId
+init|=
+name|DefaultExchange
+operator|.
+name|defaultIdGenerator
+operator|.
+name|generateId
+argument_list|()
 decl_stmt|;
 DECL|method|DefaultExchange (CamelContext context)
 specifier|public

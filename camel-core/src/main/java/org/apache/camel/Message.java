@@ -34,6 +34,21 @@ specifier|public
 interface|interface
 name|Message
 block|{
+comment|/**      * @return the id of the message      */
+DECL|method|getMessageId ()
+name|String
+name|getMessageId
+parameter_list|()
+function_decl|;
+comment|/**      * set the id of the message      * @param messageId      */
+DECL|method|setMessageId (String messageId)
+name|void
+name|setMessageId
+parameter_list|(
+name|String
+name|messageId
+parameter_list|)
+function_decl|;
 comment|/**      * Accesses a specific header      *      * @param name      * @return object header associated with the name      */
 DECL|method|getHeader (String name)
 name|Object
@@ -83,6 +98,20 @@ name|Object
 argument_list|>
 name|getHeaders
 parameter_list|()
+function_decl|;
+comment|/**      * Set all the headers associated with this message      * @param headers      */
+DECL|method|setHeaders (Map<String,Object> headers)
+name|void
+name|setHeaders
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|)
 function_decl|;
 comment|/**      * Returns the body of the message as a POJO      *      * @return the body of the message      */
 DECL|method|getBody ()
