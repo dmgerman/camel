@@ -214,34 +214,11 @@ argument_list|)
 expr_stmt|;
 name|client
 operator|.
-name|send
+name|sendBody
 argument_list|(
 literal|"smtp://james@localhost"
 argument_list|,
-operator|new
-name|Processor
-argument_list|()
-block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
 literal|"hello world!"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 comment|// lets test the first sent worked
