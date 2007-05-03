@@ -412,7 +412,7 @@ parameter_list|(
 annotation|@
 name|FluentArg
 argument_list|(
-literal|"endpoint"
+literal|"ref"
 argument_list|)
 name|Endpoint
 name|endpoint

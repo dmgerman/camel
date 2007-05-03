@@ -151,13 +151,6 @@ specifier|private
 name|CamelContext
 name|context
 decl_stmt|;
-DECL|field|singleton
-specifier|private
-name|boolean
-name|singleton
-init|=
-literal|true
-decl_stmt|;
 DECL|field|routeBuilder
 specifier|private
 name|RouteBuilder
@@ -223,7 +216,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-name|singleton
+literal|true
 return|;
 block|}
 DECL|method|afterPropertiesSet ()

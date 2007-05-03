@@ -226,6 +226,8 @@ name|Route
 argument_list|>
 name|routes
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 comment|/**      * Adds a collection of routes to this context using the given builder      * to build them      *      * @param builder the builder which will create the routes and add them to this context      * @throws Exception if the routes could not be created for whatever reason      */
 DECL|method|addRoutes (RouteBuilder builder)

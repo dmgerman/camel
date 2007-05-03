@@ -109,6 +109,14 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+DECL|method|reference ()
+DECL|field|false
+name|boolean
+name|reference
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 

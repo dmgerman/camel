@@ -291,9 +291,14 @@ name|interceptor2
 decl_stmt|;
 DECL|method|buildSimpleRoute ()
 specifier|protected
-name|RouteBuilder
+name|List
+argument_list|<
+name|Route
+argument_list|>
 name|buildSimpleRoute
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// START SNIPPET: e1
 name|RouteBuilder
@@ -324,6 +329,9 @@ decl_stmt|;
 comment|// END SNIPPET: e1
 return|return
 name|builder
+operator|.
+name|getRouteList
+argument_list|()
 return|;
 block|}
 DECL|method|testSimpleRoute ()
@@ -334,21 +342,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteBuilder
-name|builder
-init|=
-name|buildSimpleRoute
-argument_list|()
-decl_stmt|;
 name|List
 argument_list|<
 name|Route
 argument_list|>
 name|routes
 init|=
-name|builder
-operator|.
-name|getRouteList
+name|buildSimpleRoute
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -436,9 +436,14 @@ block|}
 block|}
 DECL|method|buildSimpleRouteWithHeaderPredicate ()
 specifier|protected
-name|RouteBuilder
+name|List
+argument_list|<
+name|Route
+argument_list|>
 name|buildSimpleRouteWithHeaderPredicate
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// START SNIPPET: e2
 name|RouteBuilder
@@ -482,6 +487,9 @@ decl_stmt|;
 comment|// END SNIPPET: e2
 return|return
 name|builder
+operator|.
+name|getRouteList
+argument_list|()
 return|;
 block|}
 DECL|method|testSimpleRouteWithHeaderPredicate ()
@@ -492,21 +500,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteBuilder
-name|builder
-init|=
-name|buildSimpleRouteWithHeaderPredicate
-argument_list|()
-decl_stmt|;
 name|List
 argument_list|<
 name|Route
 argument_list|>
 name|routes
 init|=
-name|builder
-operator|.
-name|getRouteList
+name|buildSimpleRouteWithHeaderPredicate
 argument_list|()
 decl_stmt|;
 name|log
@@ -615,9 +615,14 @@ block|}
 block|}
 DECL|method|buildSimpleRouteWithChoice ()
 specifier|protected
-name|RouteBuilder
+name|List
+argument_list|<
+name|Route
+argument_list|>
 name|buildSimpleRouteWithChoice
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// START SNIPPET: e3
 name|RouteBuilder
@@ -690,6 +695,9 @@ decl_stmt|;
 comment|// END SNIPPET: e3
 return|return
 name|builder
+operator|.
+name|getRouteList
+argument_list|()
 return|;
 block|}
 DECL|method|testSimpleRouteWithChoice ()
@@ -700,21 +708,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteBuilder
-name|builder
-init|=
-name|buildSimpleRouteWithChoice
-argument_list|()
-decl_stmt|;
 name|List
 argument_list|<
 name|Route
 argument_list|>
 name|routes
 init|=
-name|builder
-operator|.
-name|getRouteList
+name|buildSimpleRouteWithChoice
 argument_list|()
 decl_stmt|;
 name|log
@@ -863,9 +863,14 @@ block|}
 block|}
 DECL|method|buildCustomProcessor ()
 specifier|protected
-name|RouteBuilder
+name|List
+argument_list|<
+name|Route
+argument_list|>
 name|buildCustomProcessor
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// START SNIPPET: e4
 name|myProcessor
@@ -922,6 +927,9 @@ decl_stmt|;
 comment|// END SNIPPET: e4
 return|return
 name|builder
+operator|.
+name|getRouteList
+argument_list|()
 return|;
 block|}
 DECL|method|testCustomProcessor ()
@@ -932,21 +940,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteBuilder
-name|builder
-init|=
-name|buildCustomProcessor
-argument_list|()
-decl_stmt|;
 name|List
 argument_list|<
 name|Route
 argument_list|>
 name|routes
 init|=
-name|builder
-operator|.
-name|getRouteList
+name|buildCustomProcessor
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -1010,9 +1010,14 @@ block|}
 block|}
 DECL|method|buildCustomProcessorWithFilter ()
 specifier|protected
-name|RouteBuilder
+name|List
+argument_list|<
+name|Route
+argument_list|>
 name|buildCustomProcessorWithFilter
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// START SNIPPET: e5
 name|RouteBuilder
@@ -1056,6 +1061,9 @@ decl_stmt|;
 comment|// END SNIPPET: e5
 return|return
 name|builder
+operator|.
+name|getRouteList
+argument_list|()
 return|;
 block|}
 DECL|method|testCustomProcessorWithFilter ()
@@ -1066,21 +1074,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteBuilder
-name|builder
-init|=
-name|buildCustomProcessorWithFilter
-argument_list|()
-decl_stmt|;
 name|List
 argument_list|<
 name|Route
 argument_list|>
 name|routes
 init|=
-name|builder
-operator|.
-name|getRouteList
+name|buildCustomProcessorWithFilter
 argument_list|()
 decl_stmt|;
 name|log
@@ -1171,9 +1171,14 @@ block|}
 block|}
 DECL|method|buildWireTap ()
 specifier|protected
-name|RouteBuilder
+name|List
+argument_list|<
+name|Route
+argument_list|>
 name|buildWireTap
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// START SNIPPET: e6
 name|RouteBuilder
@@ -1206,6 +1211,9 @@ decl_stmt|;
 comment|// END SNIPPET: e6
 return|return
 name|builder
+operator|.
+name|getRouteList
+argument_list|()
 return|;
 block|}
 DECL|method|testWireTap ()
@@ -1216,21 +1224,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteBuilder
-name|builder
-init|=
-name|buildWireTap
-argument_list|()
-decl_stmt|;
 name|List
 argument_list|<
 name|Route
 argument_list|>
 name|routes
 init|=
-name|builder
-operator|.
-name|getRouteList
+name|buildWireTap
 argument_list|()
 decl_stmt|;
 name|log
@@ -1360,9 +1360,14 @@ block|}
 block|}
 DECL|method|buildRouteWithInterceptor ()
 specifier|protected
-name|RouteBuilder
+name|List
+argument_list|<
+name|Route
+argument_list|>
 name|buildRouteWithInterceptor
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|interceptor1
 operator|=
@@ -1422,6 +1427,9 @@ decl_stmt|;
 comment|// END SNIPPET: e7
 return|return
 name|builder
+operator|.
+name|getRouteList
+argument_list|()
 return|;
 block|}
 DECL|method|testRouteWithInterceptor ()
@@ -1432,21 +1440,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteBuilder
-name|builder
-init|=
-name|buildRouteWithInterceptor
-argument_list|()
-decl_stmt|;
 name|List
 argument_list|<
 name|Route
 argument_list|>
 name|routes
 init|=
-name|builder
-operator|.
-name|getRouteList
+name|buildRouteWithInterceptor
 argument_list|()
 decl_stmt|;
 name|log
@@ -1702,9 +1702,14 @@ block|}
 block|}
 DECL|method|buildStaticRecipientList ()
 specifier|protected
-name|RouteBuilder
+name|List
+argument_list|<
+name|Route
+argument_list|>
 name|buildStaticRecipientList
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// START SNIPPET: e8
 name|RouteBuilder
@@ -1739,13 +1744,21 @@ decl_stmt|;
 comment|// END SNIPPET: e8
 return|return
 name|builder
+operator|.
+name|getRouteList
+argument_list|()
 return|;
 block|}
 DECL|method|buildDynamicRecipientList ()
 specifier|protected
-name|RouteBuilder
+name|List
+argument_list|<
+name|Route
+argument_list|>
 name|buildDynamicRecipientList
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// START SNIPPET: e9
 name|RouteBuilder
@@ -1779,6 +1792,9 @@ decl_stmt|;
 comment|// END SNIPPET: e9
 return|return
 name|builder
+operator|.
+name|getRouteList
+argument_list|()
 return|;
 block|}
 DECL|method|testRouteDynamicReceipentList ()
@@ -1789,21 +1805,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteBuilder
-name|builder
-init|=
-name|buildDynamicRecipientList
-argument_list|()
-decl_stmt|;
 name|List
 argument_list|<
 name|Route
 argument_list|>
 name|routes
 init|=
-name|builder
-operator|.
-name|getRouteList
+name|buildDynamicRecipientList
 argument_list|()
 decl_stmt|;
 name|log
@@ -1879,9 +1887,14 @@ block|}
 block|}
 DECL|method|buildSplitter ()
 specifier|protected
-name|RouteBuilder
+name|List
+argument_list|<
+name|Route
+argument_list|>
 name|buildSplitter
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// START SNIPPET: splitter
 name|RouteBuilder
@@ -1927,6 +1940,9 @@ decl_stmt|;
 comment|// END SNIPPET: splitter
 return|return
 name|builder
+operator|.
+name|getRouteList
+argument_list|()
 return|;
 block|}
 DECL|method|testSplitter ()
@@ -1937,21 +1953,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteBuilder
-name|builder
-init|=
-name|buildSplitter
-argument_list|()
-decl_stmt|;
 name|List
 argument_list|<
 name|Route
 argument_list|>
 name|routes
 init|=
-name|builder
-operator|.
-name|getRouteList
+name|buildSplitter
 argument_list|()
 decl_stmt|;
 name|log
@@ -2027,9 +2035,14 @@ block|}
 block|}
 DECL|method|buildIdempotentConsumer ()
 specifier|protected
-name|RouteBuilder
+name|List
+argument_list|<
+name|Route
+argument_list|>
 name|buildIdempotentConsumer
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// START SNIPPET: idempotent
 name|RouteBuilder
@@ -2073,6 +2086,9 @@ decl_stmt|;
 comment|// END SNIPPET: idempotent
 return|return
 name|builder
+operator|.
+name|getRouteList
+argument_list|()
 return|;
 block|}
 DECL|method|testIdempotentConsumer ()
@@ -2083,21 +2099,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteBuilder
-name|builder
-init|=
-name|buildIdempotentConsumer
-argument_list|()
-decl_stmt|;
 name|List
 argument_list|<
 name|Route
 argument_list|>
 name|routes
 init|=
-name|builder
-operator|.
-name|getRouteList
+name|buildIdempotentConsumer
 argument_list|()
 decl_stmt|;
 name|log
