@@ -110,6 +110,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Element
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|xml
 operator|.
 name|sax
@@ -881,6 +893,24 @@ block|}
 return|return
 name|expression
 return|;
+block|}
+DECL|method|setNamespacesFromDom (Element node)
+specifier|public
+name|void
+name|setNamespacesFromDom
+parameter_list|(
+name|Element
+name|node
+parameter_list|)
+block|{
+name|getNamespaceContext
+argument_list|()
+operator|.
+name|setNamespacesFromDom
+argument_list|(
+name|node
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------

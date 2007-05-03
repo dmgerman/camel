@@ -18,36 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -250,6 +220,36 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -441,26 +441,11 @@ block|}
 comment|/**      * Sends the exchange to a list of endpoints using the {@link MulticastProcessor} pattern      */
 annotation|@
 name|Fluent
-DECL|method|to ( @luentArgvalue = R, attribute = false, element = true) String... uris)
+DECL|method|to (String... uris)
 specifier|public
 name|ProcessorFactory
 name|to
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-name|value
-operator|=
-literal|"uri"
-argument_list|,
-name|attribute
-operator|=
-literal|false
-argument_list|,
-name|element
-operator|=
-literal|true
-argument_list|)
 name|String
 modifier|...
 name|uris
@@ -517,7 +502,7 @@ block|}
 comment|/**      * Sends the exchange to a list of endpoint using the {@link MulticastProcessor} pattern      */
 annotation|@
 name|Fluent
-DECL|method|to (@luentArgR)Collection<Endpoint> endpoints)
+DECL|method|to (@luentArgvalue = R, attribute = false, element = true) Collection<Endpoint> endpoints)
 specifier|public
 name|ProcessorFactory
 name|to
@@ -525,7 +510,17 @@ parameter_list|(
 annotation|@
 name|FluentArg
 argument_list|(
-literal|"endpoints"
+name|value
+operator|=
+literal|"endpoint"
+argument_list|,
+name|attribute
+operator|=
+literal|false
+argument_list|,
+name|element
+operator|=
+literal|true
 argument_list|)
 name|Collection
 argument_list|<
@@ -846,7 +841,7 @@ block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/splitter.html">Splitter</a> pattern      * where an expression is evaluated to iterate through each of the parts of a message and then each part is then send to some endpoint.      *      * @param receipients the expression on which to split      * @return the builder      */
 annotation|@
 name|Fluent
-DECL|method|splitter (@luentArgvalue = R, element = true) Expression receipients)
+DECL|method|splitter (@luentArgvalue = R, element = true)Expression receipients)
 specifier|public
 name|SplitterBuilder
 name|splitter
@@ -969,7 +964,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Trace logs the exchange before it goes to the next processing step using the {@link #DEFAULT_TRACE_CATEGORY} logging      * category.      *       * @return      */
+comment|/**      * Trace logs the exchange before it goes to the next processing step using the {@link #DEFAULT_TRACE_CATEGORY} logging      * category.      *      * @return      */
 annotation|@
 name|Fluent
 DECL|method|trace ()
@@ -985,7 +980,7 @@ name|DEFAULT_TRACE_CATEGORY
 argument_list|)
 return|;
 block|}
-comment|/**      * Trace logs the exchange before it goes to the next processing step using the specified logging      * category.      *       * @param category the logging category trace messages will sent to.      * @return      */
+comment|/**      * Trace logs the exchange before it goes to the next processing step using the specified logging      * category.      *      * @param category the logging category trace messages will sent to.      * @return      */
 annotation|@
 name|Fluent
 DECL|method|trace (@luentArgR)String category)

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -26,7 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|builder
+operator|.
+name|RouteBuilderTest
 import|;
 end_import
 
@@ -50,23 +52,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilderTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|DelegateProcessor
+name|Processor
 import|;
 end_import
 
@@ -88,6 +74,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|DelegateProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -95,6 +95,20 @@ operator|.
 name|support
 operator|.
 name|ClassPathXmlApplicationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|support
+operator|.
+name|AbstractXmlApplicationContext
 import|;
 end_import
 
@@ -109,94 +123,22 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO: re-implement the route building logic using spring and  * then test it by overriding the buildXXX methods in the RouteBuilderTest  *  * @version $Revision: 520164 $  */
+comment|/**  * A test case of the builder using Spring 2.0 to load the rules  *  * @version $Revision: 520164 $  */
 end_comment
 
 begin_class
-DECL|class|XmlRouteBuilderTest
+DECL|class|SpringXmlRouteBuilderTest
 specifier|public
 class|class
-name|XmlRouteBuilderTest
+name|SpringXmlRouteBuilderTest
 extends|extends
 name|RouteBuilderTest
 block|{
 DECL|field|applicationContext
-specifier|private
-specifier|static
-name|ClassPathXmlApplicationContext
+specifier|protected
+name|AbstractXmlApplicationContext
 name|applicationContext
 decl_stmt|;
-DECL|field|closeContext
-specifier|private
-specifier|static
-name|boolean
-name|closeContext
-init|=
-literal|false
-decl_stmt|;
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|applicationContext
-operator|==
-literal|null
-condition|)
-block|{
-name|applicationContext
-operator|=
-operator|new
-name|ClassPathXmlApplicationContext
-argument_list|(
-literal|"org/apache/camel/spring/builder/spring_route_builder_test.xml"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-annotation|@
-name|Override
-DECL|method|tearDown ()
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|closeContext
-condition|)
-block|{
-name|applicationContext
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|applicationContext
-operator|=
-literal|null
-expr_stmt|;
-block|}
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 annotation|@
@@ -216,7 +158,7 @@ block|{
 return|return
 name|getRoutesFromContext
 argument_list|(
-literal|"buildSimpleRoute"
+literal|"org/apache/camel/spring/xml/buildSimpleRoute.xml"
 argument_list|)
 return|;
 block|}
@@ -231,6 +173,17 @@ argument_list|>
 name|buildCustomProcessor
 parameter_list|()
 block|{
+name|List
+argument_list|<
+name|Route
+argument_list|>
+name|answer
+init|=
+name|getRoutesFromContext
+argument_list|(
+literal|"org/apache/camel/spring/xml/buildCustomProcessor.xml"
+argument_list|)
+decl_stmt|;
 name|myProcessor
 operator|=
 operator|(
@@ -244,10 +197,7 @@ literal|"myProcessor"
 argument_list|)
 expr_stmt|;
 return|return
-name|getRoutesFromContext
-argument_list|(
-literal|"buildCustomProcessor"
-argument_list|)
+name|answer
 return|;
 block|}
 annotation|@
@@ -261,6 +211,17 @@ argument_list|>
 name|buildCustomProcessorWithFilter
 parameter_list|()
 block|{
+name|List
+argument_list|<
+name|Route
+argument_list|>
+name|answer
+init|=
+name|getRoutesFromContext
+argument_list|(
+literal|"org/apache/camel/spring/xml/buildCustomProcessorWithFilter.xml"
+argument_list|)
+decl_stmt|;
 name|myProcessor
 operator|=
 operator|(
@@ -274,10 +235,7 @@ literal|"myProcessor"
 argument_list|)
 expr_stmt|;
 return|return
-name|getRoutesFromContext
-argument_list|(
-literal|"buildCustomProcessorWithFilter"
-argument_list|)
+name|answer
 return|;
 block|}
 annotation|@
@@ -291,6 +249,17 @@ argument_list|>
 name|buildRouteWithInterceptor
 parameter_list|()
 block|{
+name|List
+argument_list|<
+name|Route
+argument_list|>
+name|answer
+init|=
+name|getRoutesFromContext
+argument_list|(
+literal|"org/apache/camel/spring/xml/buildRouteWithInterceptor.xml"
+argument_list|)
+decl_stmt|;
 name|interceptor1
 operator|=
 operator|(
@@ -316,10 +285,7 @@ literal|"interceptor2"
 argument_list|)
 expr_stmt|;
 return|return
-name|getRoutesFromContext
-argument_list|(
-literal|"buildRouteWithInterceptor"
-argument_list|)
+name|answer
 return|;
 block|}
 annotation|@
@@ -336,7 +302,7 @@ block|{
 return|return
 name|getRoutesFromContext
 argument_list|(
-literal|"buildSimpleRouteWithHeaderPredicate"
+literal|"org/apache/camel/spring/xml/buildSimpleRouteWithHeaderPredicate.xml"
 argument_list|)
 return|;
 block|}
@@ -354,7 +320,7 @@ block|{
 return|return
 name|getRoutesFromContext
 argument_list|(
-literal|"buildSimpleRouteWithChoice"
+literal|"org/apache/camel/spring/xml/buildSimpleRouteWithChoice.xml"
 argument_list|)
 return|;
 block|}
@@ -372,7 +338,7 @@ block|{
 return|return
 name|getRoutesFromContext
 argument_list|(
-literal|"buildWireTap"
+literal|"org/apache/camel/spring/xml/buildWireTap.xml"
 argument_list|)
 return|;
 block|}
@@ -390,7 +356,7 @@ block|{
 return|return
 name|getRoutesFromContext
 argument_list|(
-literal|"buildDynamicRecipientList"
+literal|"org/apache/camel/spring/xml/buildDynamicRecipientList.xml"
 argument_list|)
 return|;
 block|}
@@ -408,7 +374,7 @@ block|{
 return|return
 name|getRoutesFromContext
 argument_list|(
-literal|"buildStaticRecipientList"
+literal|"org/apache/camel/spring/xml/buildStaticRecipientList.xml"
 argument_list|)
 return|;
 block|}
@@ -426,7 +392,7 @@ block|{
 return|return
 name|getRoutesFromContext
 argument_list|(
-literal|"buildSplitter"
+literal|"org/apache/camel/spring/xml/buildSplitter.xml"
 argument_list|)
 return|;
 block|}
@@ -444,7 +410,7 @@ block|{
 return|return
 name|getRoutesFromContext
 argument_list|(
-literal|"buildIdempotentConsumer"
+literal|"org/apache/camel/spring/xml/buildIdempotentConsumer.xml"
 argument_list|)
 return|;
 block|}
@@ -460,7 +426,19 @@ name|Exception
 block|{
 comment|// TODO
 block|}
-DECL|method|getRoutesFromContext (String name)
+annotation|@
+name|Override
+DECL|method|testWireTap ()
+specifier|public
+name|void
+name|testWireTap
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// TODO
+block|}
+DECL|method|getRoutesFromContext (String classpathConfigFile)
 specifier|protected
 name|List
 argument_list|<
@@ -469,9 +447,22 @@ argument_list|>
 name|getRoutesFromContext
 parameter_list|(
 name|String
-name|name
+name|classpathConfigFile
 parameter_list|)
 block|{
+name|applicationContext
+operator|=
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+name|classpathConfigFile
+argument_list|)
+expr_stmt|;
+name|String
+name|name
+init|=
+literal|"camel"
+decl_stmt|;
 name|SpringCamelContext
 name|context
 init|=
@@ -490,6 +481,10 @@ argument_list|(
 literal|"No Camel Context for name: "
 operator|+
 name|name
+operator|+
+literal|" in file: "
+operator|+
+name|classpathConfigFile
 argument_list|,
 name|context
 argument_list|)
@@ -510,6 +505,10 @@ argument_list|(
 literal|"No routes available for context: "
 operator|+
 name|name
+operator|+
+literal|" in file: "
+operator|+
+name|classpathConfigFile
 argument_list|,
 name|routes
 argument_list|)

@@ -279,9 +279,8 @@ condition|)
 block|{
 name|context
 operator|=
+operator|new
 name|SpringCamelContext
-operator|.
-name|springCamelContext
 argument_list|(
 name|getApplicationContext
 argument_list|()

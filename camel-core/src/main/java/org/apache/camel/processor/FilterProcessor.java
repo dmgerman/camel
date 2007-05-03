@@ -173,7 +173,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"if ("
+literal|"filter ("
 operator|+
 name|predicate
 operator|+

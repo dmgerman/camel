@@ -217,6 +217,26 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
+DECL|method|SpringCamelContext ()
+specifier|public
+name|SpringCamelContext
+parameter_list|()
+block|{     }
+DECL|method|SpringCamelContext (ApplicationContext applicationContext)
+specifier|public
+name|SpringCamelContext
+parameter_list|(
+name|ApplicationContext
+name|applicationContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|applicationContext
+operator|=
+name|applicationContext
+expr_stmt|;
+block|}
 DECL|method|springCamelContext (ApplicationContext applicationContext)
 specifier|public
 specifier|static
@@ -229,6 +249,48 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// lets try and look up a configured camel context in the context
+name|String
+index|[]
+name|names
+init|=
+name|applicationContext
+operator|.
+name|getBeanNamesForType
+argument_list|(
+name|SpringCamelContext
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|names
+operator|.
+name|length
+operator|==
+literal|1
+condition|)
+block|{
+return|return
+operator|(
+name|SpringCamelContext
+operator|)
+name|applicationContext
+operator|.
+name|getBean
+argument_list|(
+name|names
+index|[
+literal|0
+index|]
+argument_list|,
+name|SpringCamelContext
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 name|SpringCamelContext
 name|answer
 init|=
