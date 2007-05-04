@@ -1149,7 +1149,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|send
+name|sendBody
 argument_list|(
 literal|"activemq:topic:f"
 argument_list|,
@@ -1222,7 +1222,7 @@ argument_list|(
 name|expected
 argument_list|)
 expr_stmt|;
-name|send
+name|sendBody
 argument_list|(
 literal|"activemq:queue:a"
 argument_list|,
@@ -1271,7 +1271,7 @@ literal|2
 argument_list|)
 expr_stmt|;
 comment|// May be more since spring seems to go into tight loop re-delivering.
-name|send
+name|sendBody
 argument_list|(
 literal|"activemq:queue:b"
 argument_list|,
@@ -1328,7 +1328,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// Should only get 1 message the incoming transaction does not rollback.
-name|send
+name|sendBody
 argument_list|(
 literal|"activemq:queue:c"
 argument_list|,
@@ -1393,7 +1393,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|send
+name|sendBody
 argument_list|(
 literal|"activemq:queue:d"
 argument_list|,
@@ -1463,7 +1463,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|send
+name|sendBody
 argument_list|(
 literal|"activemq:queue:e"
 argument_list|,

@@ -223,10 +223,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends a message to the given endpoint URI with the body value      *      * @param endpointUri the URI of the endpoint to send to      * @param body the body for the message      */
-DECL|method|send (String endpointUri, final Object body)
+DECL|method|sendBody (String endpointUri, final Object body)
 specifier|protected
 name|void
-name|send
+name|sendBody
 parameter_list|(
 name|String
 name|endpointUri

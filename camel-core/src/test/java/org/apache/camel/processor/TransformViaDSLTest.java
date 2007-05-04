@@ -90,7 +90,7 @@ argument_list|(
 literal|"Hello World!"
 argument_list|)
 expr_stmt|;
-name|send
+name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,

@@ -126,7 +126,7 @@ argument_list|(
 literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?><goodbye>world!</goodbye>"
 argument_list|)
 expr_stmt|;
-name|send
+name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,

@@ -215,7 +215,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|send
+name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
@@ -295,7 +295,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|send
+name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
