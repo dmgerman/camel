@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
@@ -31,8 +31,6 @@ operator|.
 name|jms
 operator|.
 name|JmsComponent
-operator|.
-name|jmsComponentAutoAcknowledge
 import|;
 end_import
 
@@ -157,6 +155,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
 name|CamelContext
 name|context
 init|=
@@ -164,7 +163,9 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
-comment|//Set up the ActiveMQ JMS Components
+comment|// END SNIPPET: e1
+comment|// Set up the ActiveMQ JMS Components
+comment|// START SNIPPET: e2
 name|ConnectionFactory
 name|connectionFactory
 init|=
@@ -174,20 +175,24 @@ argument_list|(
 literal|"vm://localhost?broker.persistent=false"
 argument_list|)
 decl_stmt|;
-comment|//note we can explicity  name the component
+comment|// note we can explicity name the component
 name|context
 operator|.
 name|addComponent
 argument_list|(
 literal|"test-jms"
 argument_list|,
+name|JmsComponent
+operator|.
 name|jmsComponentAutoAcknowledge
 argument_list|(
 name|connectionFactory
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//Add some configuration by hand ...
+comment|// END SNIPPET: e2
+comment|// Add some configuration by hand ...
+comment|// START SNIPPET: e3
 name|context
 operator|.
 name|addRoutes
@@ -253,7 +258,9 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e3
 comment|// Camel client - a handy class for kicking off exchanges
+comment|// START SNIPPET: e4
 name|CamelClient
 name|client
 init|=
@@ -263,18 +270,20 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-comment|//Now everything is set up - lets start the context
+comment|// END SNIPPET: e4
+comment|// Now everything is set up - lets start the context
 name|context
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|//now send some test text to a component - for this case a JMS Queue
-comment|//The text get converted to JMS messages - and sent to the Queue test.queue
-comment|//The file component is listening for messages from the Queue test.queue, consumes
-comment|//them and stores them to disk. The content of each file will be the test test we sent here.
-comment|//The listener on the file component gets notfied when new files are found ...
-comment|//that's it!
+comment|// now send some test text to a component - for this case a JMS Queue
+comment|// The text get converted to JMS messages - and sent to the Queue test.queue
+comment|// The file component is listening for messages from the Queue test.queue, consumes
+comment|// them and stores them to disk. The content of each file will be the test test we sent here.
+comment|// The listener on the file component gets notfied when new files are found ...
+comment|// that's it!
+comment|// START SNIPPET: e5
 for|for
 control|(
 name|int
@@ -302,6 +311,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
+comment|// END SNIPPET: e5
 name|Thread
 operator|.
 name|sleep
