@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|UIdGenerator
+name|UuidGenerator
 import|;
 end_import
 
@@ -71,11 +71,11 @@ DECL|field|defaultIdGenerator
 specifier|private
 specifier|static
 specifier|final
-name|UIdGenerator
+name|UuidGenerator
 name|defaultIdGenerator
 init|=
 operator|new
-name|UIdGenerator
+name|UuidGenerator
 argument_list|()
 decl_stmt|;
 DECL|field|exchange

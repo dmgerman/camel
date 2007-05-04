@@ -65,10 +65,10 @@ comment|/**  * Generator for Globally unique Strings.  */
 end_comment
 
 begin_class
-DECL|class|UIdGenerator
+DECL|class|UuidGenerator
 specifier|public
 class|class
-name|UIdGenerator
+name|UuidGenerator
 block|{
 DECL|field|log
 specifier|private
@@ -81,7 +81,7 @@ name|Logger
 operator|.
 name|getLogger
 argument_list|(
-name|UIdGenerator
+name|UuidGenerator
 operator|.
 name|class
 operator|.
@@ -279,9 +279,9 @@ name|hostName
 return|;
 block|}
 comment|/**      * Construct an IdGenerator      *      */
-DECL|method|UIdGenerator (String prefix)
+DECL|method|UuidGenerator (String prefix)
 specifier|public
-name|UIdGenerator
+name|UuidGenerator
 parameter_list|(
 name|String
 name|prefix
@@ -309,9 +309,9 @@ literal|"-"
 expr_stmt|;
 block|}
 block|}
-DECL|method|UIdGenerator ()
+DECL|method|UuidGenerator ()
 specifier|public
-name|UIdGenerator
+name|UuidGenerator
 parameter_list|()
 block|{
 name|this
