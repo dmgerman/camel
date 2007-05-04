@@ -707,6 +707,13 @@ argument_list|)
 expr_stmt|;
 name|registerScriptParser
 argument_list|(
+literal|"python"
+argument_list|,
+literal|"python"
+argument_list|)
+expr_stmt|;
+name|registerScriptParser
+argument_list|(
 literal|"php"
 argument_list|,
 literal|"php"

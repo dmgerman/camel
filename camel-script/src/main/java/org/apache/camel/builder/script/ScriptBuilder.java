@@ -953,7 +953,101 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|// JRuby
+comment|// Python
+comment|//-------------------------------------------------------------------------
+comment|/**      * Creates a script builder for the Python script contents      *      * @param scriptText the script text to be evaluted      * @return the builder      */
+DECL|method|python (String scriptText)
+specifier|public
+specifier|static
+name|ScriptBuilder
+name|python
+parameter_list|(
+name|String
+name|scriptText
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ScriptBuilder
+argument_list|(
+literal|"python"
+argument_list|,
+name|scriptText
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a script builder for the Python script @{link Resource}      *      * @param scriptResource the resource used to load the script      * @return the builder      */
+DECL|method|python (Resource scriptResource)
+specifier|public
+specifier|static
+name|ScriptBuilder
+name|python
+parameter_list|(
+name|Resource
+name|scriptResource
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ScriptBuilder
+argument_list|(
+literal|"python"
+argument_list|,
+name|scriptResource
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a script builder for the Python script @{link File}      *      * @param scriptFile the file used to load the script      * @return the builder      */
+DECL|method|python (File scriptFile)
+specifier|public
+specifier|static
+name|ScriptBuilder
+name|python
+parameter_list|(
+name|File
+name|scriptFile
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ScriptBuilder
+argument_list|(
+literal|"python"
+argument_list|,
+operator|new
+name|FileSystemResource
+argument_list|(
+name|scriptFile
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a script builder for the Python script @{link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      */
+DECL|method|python (URL scriptURL)
+specifier|public
+specifier|static
+name|ScriptBuilder
+name|python
+parameter_list|(
+name|URL
+name|scriptURL
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ScriptBuilder
+argument_list|(
+literal|"python"
+argument_list|,
+operator|new
+name|UrlResource
+argument_list|(
+name|scriptURL
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|// Ruby/JRuby
 comment|//-------------------------------------------------------------------------
 comment|/**      * Creates a script builder for the Ruby/JRuby script contents      *      * @param scriptText the script text to be evaluted      * @return the builder      */
 DECL|method|ruby (String scriptText)
