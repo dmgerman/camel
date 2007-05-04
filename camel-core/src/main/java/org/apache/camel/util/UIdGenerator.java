@@ -193,7 +193,7 @@ argument_list|)
 decl_stmt|;
 name|stub
 operator|=
-literal|"-"
+literal|"/"
 operator|+
 name|ss
 operator|.
@@ -207,7 +207,7 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 operator|+
-literal|"-"
+literal|"/"
 expr_stmt|;
 name|Thread
 operator|.
@@ -305,7 +305,7 @@ name|instanceCount
 operator|++
 operator|)
 operator|+
-literal|":"
+literal|"-"
 expr_stmt|;
 block|}
 block|}
@@ -316,7 +316,7 @@ parameter_list|()
 block|{
 name|this
 argument_list|(
-literal|"ID:"
+literal|"ID-"
 operator|+
 name|hostName
 argument_list|)
