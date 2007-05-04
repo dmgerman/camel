@@ -22,67 +22,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|impl
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|NoSuchEndpointException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
+name|ServiceSupport
 import|;
 end_import
 
@@ -100,22 +42,8 @@ name|ProducerCache
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|ServiceSupport
-import|;
-end_import
-
 begin_comment
-comment|/**  * A Client object for working with Camel and invoking {@link Endpoint} instances with {@link Exchange} instances  *   * @version $Revision$  */
+comment|/**  * A Client object for working with Camel and invoking {@link Endpoint} instances with {@link Exchange} instances  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -166,7 +94,7 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-comment|/**      * Sends the exchange to the given endpoint      *      * @param endpointUri the endpoint URI to send the exchange to      * @param exchange the exchange to send      */
+comment|/**      * Sends the exchange to the given endpoint      *      * @param endpointUri the endpoint URI to send the exchange to      * @param exchange    the exchange to send      */
 DECL|method|send (String endpointUri, E exchange)
 specifier|public
 name|E
@@ -198,7 +126,7 @@ return|return
 name|exchange
 return|;
 block|}
-comment|/**      * Sends an exchange to an endpoint using a supplied @{link Processor} to populate the exchange      *      * @param endpointUri the endpoint URI to send the exchange to      * @param processor the transformer used to populate the new exchange      */
+comment|/**      * Sends an exchange to an endpoint using a supplied @{link Processor} to populate the exchange      *      * @param endpointUri the endpoint URI to send the exchange to      * @param processor   the transformer used to populate the new exchange      */
 DECL|method|send (String endpointUri, Processor processor)
 specifier|public
 name|E
@@ -267,7 +195,7 @@ return|return
 name|exchange
 return|;
 block|}
-comment|/**      * Sends an exchange to an endpoint using a supplied @{link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
+comment|/**      * Sends an exchange to an endpoint using a supplied @{link Processor} to populate the exchange      *      * @param endpoint  the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
 DECL|method|send (Endpoint<E> endpoint, Processor processor)
 specifier|public
 name|E
@@ -294,8 +222,8 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * Send the body to an endpoint      * @param endpointUri      * @param body = the payload       * @return the result      */
-DECL|method|sendBody (String endpointUri,final Object body)
+comment|/**      * Send the body to an endpoint      *      * @param endpointUri      * @param body        = the payload      * @return the result      */
+DECL|method|sendBody (String endpointUri, final Object body)
 specifier|public
 name|Object
 name|sendBody
@@ -347,19 +275,86 @@ block|}
 argument_list|)
 decl_stmt|;
 return|return
+name|extractResultBody
+argument_list|(
 name|result
-operator|!=
-literal|null
-condition|?
+argument_list|)
+return|;
+block|}
+comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload send      * @param header      the header name      * @param headerValue the header value      * @return the result      */
+DECL|method|sendBody (String endpointUri, final Object body, final String header, final Object headerValue)
+specifier|public
+name|Object
+name|sendBody
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+specifier|final
+name|Object
+name|body
+parameter_list|,
+specifier|final
+name|String
+name|header
+parameter_list|,
+specifier|final
+name|Object
+name|headerValue
+parameter_list|)
+block|{
+name|E
 name|result
-operator|.
-name|getOut
+init|=
+name|send
+argument_list|(
+name|endpointUri
+argument_list|,
+operator|new
+name|Processor
 argument_list|()
+block|{
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|Message
+name|in
+init|=
+name|exchange
 operator|.
-name|getBody
+name|getIn
 argument_list|()
-else|:
-literal|null
+decl_stmt|;
+name|in
+operator|.
+name|setHeader
+argument_list|(
+name|header
+argument_list|,
+name|headerValue
+argument_list|)
+expr_stmt|;
+name|in
+operator|.
+name|setBody
+argument_list|(
+name|body
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+decl_stmt|;
+return|return
+name|extractResultBody
+argument_list|(
+name|result
+argument_list|)
 return|;
 block|}
 DECL|method|getProducer (Endpoint<E> endpoint)
@@ -461,6 +456,31 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|extractResultBody (E result)
+specifier|protected
+name|Object
+name|extractResultBody
+parameter_list|(
+name|E
+name|result
+parameter_list|)
+block|{
+return|return
+name|result
+operator|!=
+literal|null
+condition|?
+name|result
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+else|:
+literal|null
+return|;
 block|}
 block|}
 end_class

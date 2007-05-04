@@ -234,24 +234,6 @@ operator|+
 name|dummyBean
 argument_list|)
 expr_stmt|;
-name|SpringCamelContext
-name|context
-init|=
-operator|(
-name|SpringCamelContext
-operator|)
-name|applicationContext
-operator|.
-name|getBean
-argument_list|(
-literal|"camel"
-argument_list|)
-decl_stmt|;
-name|assertValidContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|resultEndpoint
 init|=
@@ -260,7 +242,7 @@ name|MockEndpoint
 operator|)
 name|resolveMandatoryEndpoint
 argument_list|(
-name|context
+name|camelContext
 argument_list|,
 literal|"mock:end"
 argument_list|)
@@ -285,7 +267,7 @@ argument_list|<
 name|Exchange
 argument_list|>
 argument_list|(
-name|context
+name|camelContext
 argument_list|)
 decl_stmt|;
 name|client
@@ -302,6 +284,24 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|createCamelContext ()
+specifier|protected
+name|SpringCamelContext
+name|createCamelContext
+parameter_list|()
+block|{
+return|return
+operator|(
+name|SpringCamelContext
+operator|)
+name|applicationContext
+operator|.
+name|getBean
+argument_list|(
+literal|"camel"
+argument_list|)
+return|;
 block|}
 DECL|method|testEndpointConfigurationAfterEnsuringThatTheStatementRouteBuilderWasCreated ()
 specifier|public
@@ -361,10 +361,10 @@ name|SpringCamelContext
 name|context
 parameter_list|)
 block|{
-name|assertNotNull
+name|super
+operator|.
+name|assertValidContext
 argument_list|(
-literal|"No context found!"
-argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
@@ -379,13 +379,6 @@ operator|.
 name|getRoutes
 argument_list|()
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"Should have some routes defined"
-argument_list|,
-name|routes
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Number of routes defined"
