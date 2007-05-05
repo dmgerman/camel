@@ -52,7 +52,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelClient
+name|CamelTemplate
 import|;
 end_import
 
@@ -127,12 +127,12 @@ specifier|private
 name|String
 name|replyDestination
 decl_stmt|;
-DECL|field|client
-name|CamelClient
+DECL|field|template
+name|CamelTemplate
 argument_list|<
 name|Exchange
 argument_list|>
-name|client
+name|template
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -188,10 +188,10 @@ name|endpointInfo
 expr_stmt|;
 name|this
 operator|.
-name|client
+name|template
 operator|=
 operator|new
-name|CamelClient
+name|CamelTemplate
 argument_list|<
 name|Exchange
 argument_list|>
@@ -245,14 +245,14 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|client
+name|template
 operator|!=
 literal|null
 condition|)
 block|{
 try|try
 block|{
-name|client
+name|template
 operator|.
 name|stop
 argument_list|()

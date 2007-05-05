@@ -91,7 +91,7 @@ specifier|final
 name|String
 name|CAMEL_CLIENT_REQUEST_HEADERS
 init|=
-literal|"org.apache.cxf.camel.client.request.headers"
+literal|"org.apache.cxf.camel.template.request.headers"
 decl_stmt|;
 DECL|field|CAMEL_CLIENT_RESPONSE_HEADERS
 specifier|public
@@ -100,7 +100,7 @@ specifier|final
 name|String
 name|CAMEL_CLIENT_RESPONSE_HEADERS
 init|=
-literal|"org.apache.cxf.camel.client.response.headers"
+literal|"org.apache.cxf.camel.template.response.headers"
 decl_stmt|;
 DECL|field|CAMEL_CLIENT_RECEIVE_TIMEOUT
 specifier|public
@@ -109,7 +109,7 @@ specifier|final
 name|String
 name|CAMEL_CLIENT_RECEIVE_TIMEOUT
 init|=
-literal|"org.apache.cxf.camel.client.timeout"
+literal|"org.apache.cxf.camel.template.timeout"
 decl_stmt|;
 DECL|field|CAMEL_SERVER_CONFIGURATION_URI
 specifier|public
@@ -127,7 +127,7 @@ specifier|final
 name|String
 name|CAMEL_CLIENT_CONFIGURATION_URI
 init|=
-literal|"http://cxf.apache.org/configuration/transport/camel-client"
+literal|"http://cxf.apache.org/configuration/transport/camel-template"
 decl_stmt|;
 DECL|field|ENDPOINT_CONFIGURATION_URI
 specifier|public
@@ -163,7 +163,7 @@ specifier|final
 name|String
 name|CAMEL_CLIENT_CONFIG_ID
 init|=
-literal|"camel-client"
+literal|"camel-template"
 decl_stmt|;
 DECL|field|CAMEL_SERVER_CONFIG_ID
 specifier|public

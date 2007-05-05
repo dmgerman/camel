@@ -312,7 +312,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|client
+name|template
 operator|.
 name|send
 argument_list|(

@@ -36,21 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelClient
+name|CamelTemplate
 import|;
 end_import
 
@@ -69,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class which creates a {@link CamelContext} with some routes along with a {@link CamelClient}  * for use in the test case  *  * @version $Revision: 1.1 $  */
+comment|/**  * A useful base class which creates a {@link CamelContext} with some routes along with a {@link CamelTemplate}  * for use in the test case  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -86,13 +72,13 @@ specifier|protected
 name|CamelContext
 name|context
 decl_stmt|;
-DECL|field|client
+DECL|field|template
 specifier|protected
-name|CamelClient
+name|CamelTemplate
 argument_list|<
 name|Exchange
 argument_list|>
-name|client
+name|template
 decl_stmt|;
 annotation|@
 name|Override
@@ -109,10 +95,10 @@ operator|=
 name|createCamelContext
 argument_list|()
 expr_stmt|;
-name|client
+name|template
 operator|=
 operator|new
-name|CamelClient
+name|CamelTemplate
 argument_list|<
 name|Exchange
 argument_list|>
@@ -156,7 +142,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|client
+name|template
 operator|.
 name|stop
 argument_list|()
@@ -236,7 +222,7 @@ name|Object
 name|body
 parameter_list|)
 block|{
-name|client
+name|template
 operator|.
 name|send
 argument_list|(

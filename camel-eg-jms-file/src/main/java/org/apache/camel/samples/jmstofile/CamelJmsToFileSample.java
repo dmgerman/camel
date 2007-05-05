@@ -64,7 +64,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelClient
+name|CamelTemplate
 import|;
 end_import
 
@@ -259,13 +259,13 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e3
-comment|// Camel client - a handy class for kicking off exchanges
+comment|// Camel template - a handy class for kicking off exchanges
 comment|// START SNIPPET: e4
-name|CamelClient
-name|client
+name|CamelTemplate
+name|template
 init|=
 operator|new
-name|CamelClient
+name|CamelTemplate
 argument_list|(
 name|context
 argument_list|)
@@ -299,7 +299,7 @@ name|i
 operator|++
 control|)
 block|{
-name|client
+name|template
 operator|.
 name|sendBody
 argument_list|(

@@ -88,7 +88,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelClient
+name|CamelTemplate
 import|;
 end_import
 
@@ -218,16 +218,16 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
-DECL|field|client
+DECL|field|template
 specifier|protected
-name|CamelClient
+name|CamelTemplate
 argument_list|<
 name|CxfExchange
 argument_list|>
-name|client
+name|template
 init|=
 operator|new
-name|CamelClient
+name|CamelTemplate
 argument_list|<
 name|CxfExchange
 argument_list|>
@@ -351,7 +351,7 @@ block|{
 name|CxfExchange
 name|exchange
 init|=
-name|client
+name|template
 operator|.
 name|send
 argument_list|(

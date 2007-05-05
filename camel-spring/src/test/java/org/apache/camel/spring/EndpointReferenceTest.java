@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelClient
+name|CamelTemplate
 import|;
 end_import
 
@@ -255,14 +255,14 @@ name|body
 argument_list|)
 expr_stmt|;
 comment|// now lets send a message
-name|CamelClient
+name|CamelTemplate
 argument_list|<
 name|Exchange
 argument_list|>
-name|client
+name|template
 init|=
 operator|new
-name|CamelClient
+name|CamelTemplate
 argument_list|<
 name|Exchange
 argument_list|>
@@ -270,7 +270,7 @@ argument_list|(
 name|camelContext
 argument_list|)
 decl_stmt|;
-name|client
+name|template
 operator|.
 name|sendBody
 argument_list|(

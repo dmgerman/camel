@@ -152,7 +152,7 @@ argument_list|,
 literal|"Rob"
 argument_list|)
 expr_stmt|;
-name|client
+name|template
 operator|.
 name|send
 argument_list|(

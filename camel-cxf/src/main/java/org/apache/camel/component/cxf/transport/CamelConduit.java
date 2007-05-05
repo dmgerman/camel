@@ -672,7 +672,7 @@ parameter_list|()
 block|{
 name|base
 operator|.
-name|client
+name|template
 operator|.
 name|send
 argument_list|(
@@ -858,7 +858,7 @@ name|Level
 operator|.
 name|FINE
 argument_list|,
-literal|"client sending request: "
+literal|"template sending request: "
 argument_list|,
 name|reply
 operator|.
@@ -906,7 +906,7 @@ expr_stmt|;
 comment|//set the message header back to the incomeMessage
 comment|//inMessage.put(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS,
 comment|//              outMessage.get(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS));
-comment|/*             Object result1;              Object result = null;              javax.camel.Message camelMessage1 = pooledSession.consumer().receive(timeout);             getLogger().log(Level.FINE, "client received reply: " , camelMessage1);              if (camelMessage1 != null) {                  base.populateIncomingContext(camelMessage1, outMessage, CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS);                 String messageType = camelMessage1 instanceof TextMessage                             ? CamelConstants.TEXT_MESSAGE_TYPE : CamelConstants.BINARY_MESSAGE_TYPE;                 result = base.unmarshal((org.apache.camel.Exchange) outMessage);                 result1 = result;             } else {                 String error = "CamelClientTransport.receive() timed out. No message available.";                 getLogger().log(Level.SEVERE, error);                 //TODO: Review what exception should we throw.                 throw new CamelException(error);              }             response = result1;              //set the message header back to the incomeMessage             inMessage.put(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS,                           outMessage.get(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS));              */
+comment|/*             Object result1;              Object result = null;              javax.camel.Message camelMessage1 = pooledSession.consumer().receive(timeout);             getLogger().log(Level.FINE, "template received reply: " , camelMessage1);              if (camelMessage1 != null) {                  base.populateIncomingContext(camelMessage1, outMessage, CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS);                 String messageType = camelMessage1 instanceof TextMessage                             ? CamelConstants.TEXT_MESSAGE_TYPE : CamelConstants.BINARY_MESSAGE_TYPE;                 result = base.unmarshal((org.apache.camel.Exchange) outMessage);                 result1 = result;             } else {                 String error = "CamelClientTransport.receive() timed out. No message available.";                 getLogger().log(Level.SEVERE, error);                 //TODO: Review what exception should we throw.                 throw new CamelException(error);              }             response = result1;              //set the message header back to the incomeMessage             inMessage.put(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS,                           outMessage.get(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS));              */
 name|getLogger
 argument_list|()
 operator|.

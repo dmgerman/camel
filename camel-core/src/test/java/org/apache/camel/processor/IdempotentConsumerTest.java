@@ -230,7 +230,7 @@ name|Object
 name|body
 parameter_list|)
 block|{
-name|client
+name|template
 operator|.
 name|send
 argument_list|(

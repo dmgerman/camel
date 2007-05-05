@@ -96,7 +96,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelClient
+name|CamelTemplate
 import|;
 end_import
 
@@ -290,13 +290,13 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
-DECL|field|client
+DECL|field|template
 specifier|protected
-name|CamelClient
-name|client
+name|CamelTemplate
+name|template
 init|=
 operator|new
-name|CamelClient
+name|CamelTemplate
 argument_list|(
 name|camelContext
 argument_list|)
@@ -311,10 +311,10 @@ specifier|protected
 name|TransactionStrategy
 name|transactionStrategy
 decl_stmt|;
-DECL|field|template
+DECL|field|jpaTemplate
 specifier|protected
 name|JpaTemplate
-name|template
+name|jpaTemplate
 decl_stmt|;
 DECL|field|consumer
 specifier|protected
@@ -436,7 +436,7 @@ expr_stmt|;
 name|List
 name|results
 init|=
-name|template
+name|jpaTemplate
 operator|.
 name|find
 argument_list|(
@@ -458,7 +458,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// lets produce some objects
-name|client
+name|template
 operator|.
 name|send
 argument_list|(
@@ -497,7 +497,7 @@ expr_stmt|;
 comment|// now lets assert that there is a result
 name|results
 operator|=
-name|template
+name|jpaTemplate
 operator|.
 name|find
 argument_list|(
@@ -815,7 +815,7 @@ name|ServiceHelper
 operator|.
 name|startServices
 argument_list|(
-name|client
+name|template
 argument_list|,
 name|camelContext
 argument_list|)
@@ -863,7 +863,7 @@ operator|.
 name|createTransactionStrategy
 argument_list|()
 expr_stmt|;
-name|template
+name|jpaTemplate
 operator|=
 name|endpoint
 operator|.
@@ -906,7 +906,7 @@ name|stopServices
 argument_list|(
 name|consumer
 argument_list|,
-name|client
+name|template
 argument_list|,
 name|camelContext
 argument_list|)

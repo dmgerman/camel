@@ -43,14 +43,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Client object for working with Camel and invoking {@link Endpoint} instances with {@link Exchange} instances  *  * @version $Revision$  */
+comment|/**  * A client helper object (named like Spring's TransactionTemplate& JmsTemplate et al)  * for working with Camel and sending {@link Message} instances in an {@link Exchange}  * to an {@link Endpoint}.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|CamelClient
+DECL|class|CamelTemplate
 specifier|public
 class|class
-name|CamelClient
+name|CamelTemplate
 parameter_list|<
 name|E
 extends|extends
@@ -79,9 +79,9 @@ name|E
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|CamelClient (CamelContext context)
+DECL|method|CamelTemplate (CamelContext context)
 specifier|public
-name|CamelClient
+name|CamelTemplate
 parameter_list|(
 name|CamelContext
 name|context

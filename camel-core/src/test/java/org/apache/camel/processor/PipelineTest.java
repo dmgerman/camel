@@ -126,7 +126,7 @@ argument_list|(
 literal|4
 argument_list|)
 expr_stmt|;
-name|client
+name|template
 operator|.
 name|send
 argument_list|(

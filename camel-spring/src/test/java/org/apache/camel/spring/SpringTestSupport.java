@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelClient
+name|CamelTemplate
 import|;
 end_import
 
@@ -151,13 +151,13 @@ specifier|protected
 name|SpringCamelContext
 name|camelContext
 decl_stmt|;
-DECL|field|client
+DECL|field|template
 specifier|protected
-name|CamelClient
+name|CamelTemplate
 argument_list|<
 name|Exchange
 argument_list|>
-name|client
+name|template
 decl_stmt|;
 DECL|method|createApplicationContext ()
 specifier|protected
@@ -203,10 +203,10 @@ argument_list|(
 name|camelContext
 argument_list|)
 expr_stmt|;
-name|client
+name|template
 operator|=
 operator|new
-name|CamelClient
+name|CamelTemplate
 argument_list|<
 name|Exchange
 argument_list|>

@@ -940,7 +940,7 @@ argument_list|)
 decl_stmt|;
 name|base
 operator|.
-name|client
+name|template
 operator|.
 name|send
 argument_list|(

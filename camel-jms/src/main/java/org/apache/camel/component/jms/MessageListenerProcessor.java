@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a JMS {@link MessageListener} which can be used directly with any JMS client  * or derived from to create an MDB for processing messages using a {@link Processor}  *  * @version $Revision:520964 $  */
+comment|/**  * Represents a JMS {@link MessageListener} which can be used directly with any JMS template  * or derived from to create an MDB for processing messages using a {@link Processor}  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
