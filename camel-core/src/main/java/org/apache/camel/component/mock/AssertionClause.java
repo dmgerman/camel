@@ -453,7 +453,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|PredicateValueBuilder
-specifier|protected
+specifier|public
 class|class
 name|PredicateValueBuilder
 extends|extends
