@@ -393,8 +393,9 @@ name|routes
 operator|.
 name|size
 argument_list|()
-operator|>
-literal|0
+operator|>=
+name|getExpectedRouteCount
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|log
@@ -406,6 +407,16 @@ operator|+
 name|routes
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getExpectedRouteCount ()
+specifier|protected
+name|int
+name|getExpectedRouteCount
+parameter_list|()
+block|{
+return|return
+literal|1
+return|;
 block|}
 DECL|method|createCamelContext ()
 specifier|protected

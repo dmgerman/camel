@@ -180,6 +180,15 @@ name|String
 name|uri
 parameter_list|)
 block|{
+name|assertNotNull
+argument_list|(
+literal|"Endpoint is null when expecting endpoint for: "
+operator|+
+name|uri
+argument_list|,
+name|endpoint
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Endoint uri for: "
