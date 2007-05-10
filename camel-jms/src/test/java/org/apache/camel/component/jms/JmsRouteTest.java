@@ -125,10 +125,18 @@ extends|extends
 name|ContextTestSupport
 block|{
 DECL|field|resultEndpoint
-specifier|private
+specifier|protected
 name|MockEndpoint
 name|resultEndpoint
 decl_stmt|;
+DECL|field|startEndpointUri
+specifier|protected
+name|String
+name|startEndpointUri
+init|=
+literal|"activemq:queue:test.a"
+decl_stmt|;
+empty_stmt|;
 DECL|method|testJmsRouteWithTextMessage ()
 specifier|public
 name|void
@@ -245,7 +253,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"activemq:queue:test.a"
+name|startEndpointUri
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -346,7 +354,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"activemq:queue:test.a"
+name|startEndpointUri
 argument_list|)
 operator|.
 name|to
