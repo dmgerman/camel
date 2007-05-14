@@ -18,16 +18,6 @@ name|mail
 package|;
 end_package
 
-begin_import
-import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|MessagingException
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision:520964 $  */
 end_comment
@@ -50,11 +40,11 @@ init|=
 operator|-
 literal|6744171518099741324L
 decl_stmt|;
-DECL|method|MessageHeaderNamesAccessException (MessagingException e)
+DECL|method|MessageHeaderNamesAccessException (Throwable e)
 specifier|public
 name|MessageHeaderNamesAccessException
 parameter_list|(
-name|MessagingException
+name|Throwable
 name|e
 parameter_list|)
 block|{
