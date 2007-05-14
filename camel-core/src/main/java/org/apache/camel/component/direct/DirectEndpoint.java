@@ -134,6 +134,48 @@ name|DefaultProducer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ProducerCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a direct endpoint that synchronously invokes the consumers of the endpoint when a producer   * sends a message to it.  *  * @org.apache.xbean.XBean  * @version $Revision: 519973 $  */
 end_comment
@@ -154,6 +196,22 @@ argument_list|<
 name|E
 argument_list|>
 block|{
+DECL|field|log
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|DirectEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|consumers
 specifier|private
 specifier|final
@@ -213,8 +271,6 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|startService
-argument_list|(
 operator|new
 name|DefaultProducer
 argument_list|(
@@ -242,7 +298,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-argument_list|)
 return|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -255,6 +310,30 @@ name|exchange
 parameter_list|)
 throws|throws
 name|Exception
+block|{
+if|if
+condition|(
+name|consumers
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"No consumers available on "
+operator|+
+name|this
+operator|+
+literal|" for "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 for|for
 control|(
@@ -279,6 +358,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -293,12 +373,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
-name|consumer
-init|=
+return|return
 operator|new
 name|DefaultConsumer
 argument_list|<
@@ -378,9 +453,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-decl_stmt|;
-return|return
-name|consumer
 return|;
 block|}
 DECL|method|createExchange ()

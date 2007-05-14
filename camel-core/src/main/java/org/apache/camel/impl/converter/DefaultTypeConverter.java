@@ -878,6 +878,13 @@ block|}
 block|}
 block|}
 comment|// lets try classes derived from this toType
+if|if
+condition|(
+name|fromType
+operator|!=
+literal|null
+condition|)
+block|{
 name|Set
 argument_list|<
 name|Map
@@ -956,6 +963,7 @@ operator|.
 name|getValue
 argument_list|()
 return|;
+block|}
 block|}
 block|}
 block|}

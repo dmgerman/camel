@@ -328,8 +328,6 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|startService
-argument_list|(
 operator|new
 name|JpaProducer
 argument_list|(
@@ -337,7 +335,6 @@ name|this
 argument_list|,
 name|getProducerExpression
 argument_list|()
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -372,10 +369,7 @@ name|consumer
 argument_list|)
 expr_stmt|;
 return|return
-name|startService
-argument_list|(
 name|consumer
-argument_list|)
 return|;
 block|}
 annotation|@

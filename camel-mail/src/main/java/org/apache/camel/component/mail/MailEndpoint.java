@@ -213,15 +213,12 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|startService
-argument_list|(
 operator|new
 name|MailProducer
 argument_list|(
 name|this
 argument_list|,
 name|sender
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -361,10 +358,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|startService
-argument_list|(
 name|answer
-argument_list|)
 return|;
 block|}
 DECL|method|createExchange ()

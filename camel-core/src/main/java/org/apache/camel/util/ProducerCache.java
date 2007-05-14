@@ -24,31 +24,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -84,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -104,11 +104,29 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Map
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
 import|;
 end_import
 
@@ -119,6 +137,16 @@ operator|.
 name|util
 operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -139,6 +167,22 @@ parameter_list|>
 extends|extends
 name|ServiceSupport
 block|{
+DECL|field|log
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|ProducerCache
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|producers
 specifier|private
 name|Map
@@ -217,6 +261,11 @@ operator|.
 name|createProducer
 argument_list|()
 expr_stmt|;
+name|answer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -243,7 +292,6 @@ argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-comment|// TODO auto-start?
 block|}
 return|return
 name|answer
@@ -301,7 +349,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sends an exchange to an endpoint using a supplied @{link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
+comment|/**      * Sends an exchange to an endpoint using a supplied @{link Processor} to populate the exchange      *      * @param endpoint  the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
 DECL|method|send (Endpoint<E> endpoint, Processor processor)
 specifier|public
 name|E
@@ -347,6 +395,28 @@ name|exchange
 argument_list|)
 expr_stmt|;
 comment|// now lets dispatch
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|">>>> "
+operator|+
+name|endpoint
+operator|+
+literal|" "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 name|producer
 operator|.
 name|process

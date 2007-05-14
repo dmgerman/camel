@@ -587,6 +587,11 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+name|consumer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|boolean
 name|received
 init|=

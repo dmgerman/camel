@@ -230,8 +230,6 @@ argument_list|()
 argument_list|)
 throw|;
 return|return
-name|startService
-argument_list|(
 operator|new
 name|DefaultProducer
 argument_list|(
@@ -270,7 +268,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-argument_list|)
 return|;
 block|}
 DECL|method|createConsumer (Processor processor)

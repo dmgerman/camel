@@ -158,10 +158,7 @@ name|this
 argument_list|)
 decl_stmt|;
 return|return
-name|startService
-argument_list|(
 name|result
-argument_list|)
 return|;
 block|}
 comment|/**      * @param file      * @return a Consumer      * @throws Exception      * @see org.apache.camel.Endpoint#createConsumer(org.apache.camel.Processor)      */
@@ -199,10 +196,7 @@ name|result
 argument_list|)
 expr_stmt|;
 return|return
-name|startService
-argument_list|(
 name|result
-argument_list|)
 return|;
 block|}
 comment|/**      * @param file      * @return a FileExchange      * @see org.apache.camel.Endpoint#createExchange()      */

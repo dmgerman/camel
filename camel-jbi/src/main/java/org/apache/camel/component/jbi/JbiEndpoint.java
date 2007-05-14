@@ -201,8 +201,6 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|startService
-argument_list|(
 operator|new
 name|DefaultProducer
 argument_list|<
@@ -231,7 +229,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-argument_list|)
 return|;
 block|}
 DECL|method|createConsumer (final Processor processor)
@@ -250,8 +247,6 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|startService
-argument_list|(
 operator|new
 name|DefaultConsumer
 argument_list|<
@@ -311,7 +306,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-argument_list|)
 return|;
 block|}
 DECL|method|createExchange ()

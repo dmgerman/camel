@@ -642,32 +642,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * A helper method to reduce the clutter of implementors of {@link #createProducer()} and {@link #createConsumer(Processor)}      */
-DECL|method|startService (T service)
-specifier|protected
-parameter_list|<
-name|T
-extends|extends
-name|Service
-parameter_list|>
-name|T
-name|startService
-parameter_list|(
-name|T
-name|service
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|service
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-return|return
-name|service
-return|;
-block|}
 DECL|method|createExecutorService ()
 specifier|protected
 name|ScheduledThreadPoolExecutor

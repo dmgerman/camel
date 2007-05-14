@@ -159,6 +159,20 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Consumer on "
+operator|+
+name|endpoint
+return|;
+block|}
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint

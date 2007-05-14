@@ -211,8 +211,6 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|startService
-argument_list|(
 operator|new
 name|CxfProducer
 argument_list|(
@@ -220,7 +218,6 @@ name|this
 argument_list|,
 name|getLocalTransportFactory
 argument_list|()
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -239,8 +236,6 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|startService
-argument_list|(
 operator|new
 name|CxfConsumer
 argument_list|(
@@ -250,7 +245,6 @@ name|processor
 argument_list|,
 name|getLocalTransportFactory
 argument_list|()
-argument_list|)
 argument_list|)
 return|;
 block|}

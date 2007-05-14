@@ -183,8 +183,6 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|startService
-argument_list|(
 operator|new
 name|DefaultProducer
 argument_list|(
@@ -202,7 +200,6 @@ block|{
 comment|/** TODO */
 block|}
 block|}
-argument_list|)
 return|;
 block|}
 DECL|method|createConsumer (Processor processor)
@@ -221,8 +218,6 @@ name|Exception
 block|{
 comment|// TODO
 return|return
-name|startService
-argument_list|(
 operator|new
 name|DefaultConsumer
 argument_list|<
@@ -234,7 +229,6 @@ argument_list|,
 name|processor
 argument_list|)
 block|{}
-argument_list|)
 return|;
 block|}
 DECL|method|createExchange ()

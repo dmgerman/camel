@@ -360,6 +360,26 @@ name|Method
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * A post processor to perform injection of {@link Endpoint} and {@link Producer} instances together with binding  * methods annotated with {@link @MessageDriven} to a Camel consumer.  *  * @version $Revision: 1.1 $  */
 end_comment
@@ -410,6 +430,7 @@ operator|new
 name|DefaultMethodInvocationStrategy
 argument_list|()
 decl_stmt|;
+comment|//private List<Consumer> consumers = new ArrayList<Consumer>();
 DECL|method|CamelBeanPostProcessor ()
 specifier|public
 name|CamelBeanPostProcessor
@@ -856,6 +877,15 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Creating a consumer for: "
+operator|+
+name|annotation
+argument_list|)
+expr_stmt|;
 comment|// lets bind this method to a listener
 name|Endpoint
 name|endpoint
@@ -894,6 +924,15 @@ argument_list|,
 name|endpoint
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Created processor: "
+operator|+
+name|processor
+argument_list|)
+expr_stmt|;
 name|Consumer
 name|consumer
 init|=
@@ -904,6 +943,11 @@ argument_list|(
 name|processor
 argument_list|)
 decl_stmt|;
+name|consumer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|addConsumer
 argument_list|(
 name|consumer
@@ -916,6 +960,13 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|RuntimeCamelException
@@ -966,6 +1017,19 @@ operator|new
 name|Processor
 argument_list|()
 block|{
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Processor on "
+operator|+
+name|endpoint
+return|;
+block|}
 specifier|public
 name|void
 name|process
@@ -976,6 +1040,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|">>>> invoking method for: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 name|MethodInvocation
 name|invocation
 init|=
@@ -983,11 +1065,28 @@ name|beanInfo
 operator|.
 name|createInvocation
 argument_list|(
+name|method
+argument_list|,
 name|pojo
 argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|invocation
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"No method invocation could be created"
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 name|invocation
@@ -1042,6 +1141,7 @@ operator|+
 name|consumer
 argument_list|)
 expr_stmt|;
+comment|//consumers.add(consumer);
 block|}
 comment|/**      * Creates the value for the injection point for the given annotation      */
 DECL|method|getEndpointInjectionValue (EndpointInject annotation, Class<?> type)

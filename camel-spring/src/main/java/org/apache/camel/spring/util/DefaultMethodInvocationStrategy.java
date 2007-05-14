@@ -206,37 +206,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Creates an invocation on the given POJO using annotations to decide which method to invoke      * and to figure out which parameters to use      */
-DECL|method|createInvocation (Object pojo, BeanInfo beanInfo, Exchange messageExchange, Endpoint pojoEndpoint)
-specifier|public
-name|MethodInvocation
-name|createInvocation
-parameter_list|(
-name|Object
-name|pojo
-parameter_list|,
-name|BeanInfo
-name|beanInfo
-parameter_list|,
-name|Exchange
-name|messageExchange
-parameter_list|,
-name|Endpoint
-name|pojoEndpoint
-parameter_list|)
-throws|throws
-name|RuntimeCamelException
-block|{
-return|return
-name|beanInfo
-operator|.
-name|createInvocation
-argument_list|(
-name|pojo
-argument_list|,
-name|messageExchange
-argument_list|)
-return|;
-block|}
+comment|/*     public MethodInvocation createInvocation(Object pojo,                                              BeanInfo beanInfo,                                               Exchange messageExchange,                                              Endpoint pojoEndpoint) throws RuntimeCamelException {         return beanInfo.createInvocation(pojo, messageExchange);     } */
 DECL|method|loadDefaultRegistry ()
 specifier|public
 name|void

@@ -267,6 +267,11 @@ argument_list|()
 expr_stmt|;
 name|producer
 operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|producer
+operator|.
 name|process
 argument_list|(
 name|exchange

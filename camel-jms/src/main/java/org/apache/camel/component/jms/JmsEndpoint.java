@@ -283,15 +283,12 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|startService
-argument_list|(
 operator|new
 name|JmsProducer
 argument_list|(
 name|this
 argument_list|,
 name|template
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -374,8 +371,6 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|startService
-argument_list|(
 operator|new
 name|JmsConsumer
 argument_list|(
@@ -384,7 +379,6 @@ argument_list|,
 name|processor
 argument_list|,
 name|listenerContainer
-argument_list|)
 argument_list|)
 return|;
 block|}
