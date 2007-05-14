@@ -169,6 +169,7 @@ end_comment
 begin_class
 DECL|class|DefaultComponent
 specifier|public
+specifier|abstract
 class|class
 name|DefaultComponent
 parameter_list|<
@@ -521,6 +522,7 @@ block|}
 block|}
 comment|/**      * A factory method allowing derived components to create a new endpoint from the given URI,      * remaining path and optional parameters      *      * @param uri        the full URI of the endpoint      * @param remaining  the remaining part of the URI without the query parameters or component prefix      * @param parameters the optional parameters passed in      * @return a newly created endpoint or null if the endpoint cannot be created based on the inputs      */
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+specifier|abstract
 specifier|protected
 name|Endpoint
 argument_list|<
@@ -539,11 +541,7 @@ name|parameters
 parameter_list|)
 throws|throws
 name|Exception
-block|{
-return|return
-literal|null
-return|;
-block|}
+function_decl|;
 block|}
 end_class
 

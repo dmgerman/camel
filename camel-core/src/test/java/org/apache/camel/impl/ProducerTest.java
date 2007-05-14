@@ -18,11 +18,11 @@ end_package
 
 begin_import
 import|import
-name|junit
+name|java
 operator|.
-name|framework
+name|util
 operator|.
-name|TestCase
+name|Map
 import|;
 end_import
 
@@ -34,7 +34,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TestSupport
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Consumer
 import|;
 end_import
 
@@ -58,7 +70,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
+name|Exchange
 import|;
 end_import
 
@@ -94,19 +106,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
+name|TestSupport
 import|;
 end_import
 
@@ -156,6 +156,30 @@ argument_list|,
 operator|new
 name|DefaultComponent
 argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|protected
+name|Endpoint
+name|createEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Map
+name|parameters
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
 argument_list|)
 block|{
 specifier|public
