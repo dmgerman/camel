@@ -40,22 +40,6 @@ name|Expression
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|bam
-operator|.
-name|model
-operator|.
-name|Activity
-import|;
-end_import
-
 begin_comment
 comment|/**  *   * @version $Revision: $  */
 end_comment
@@ -73,6 +57,14 @@ argument_list|>
 block|{
 DECL|field|activity
 specifier|private
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|bam
+operator|.
 name|Activity
 name|activity
 decl_stmt|;
@@ -81,10 +73,18 @@ specifier|private
 name|Expression
 name|expression
 decl_stmt|;
-DECL|method|TimeExpression (Activity activity, Expression expression)
+DECL|method|TimeExpression (org.apache.camel.bam.Activity activity, Expression expression)
 specifier|public
 name|TimeExpression
 parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|bam
+operator|.
 name|Activity
 name|activity
 parameter_list|,

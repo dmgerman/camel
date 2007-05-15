@@ -62,8 +62,6 @@ name|camel
 operator|.
 name|bam
 operator|.
-name|model
-operator|.
 name|Activity
 import|;
 end_import
@@ -93,6 +91,16 @@ operator|.
 name|jpa
 operator|.
 name|JpaTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -134,7 +142,7 @@ specifier|private
 name|String
 name|keyPropertyName
 init|=
-literal|"key"
+literal|"correlationKey"
 decl_stmt|;
 DECL|method|JpaBamProcessorSupport (Class<T> entitytype, Expression<Exchange> correlationKeyExpression, Activity activity, JpaTemplate template)
 specifier|public
@@ -345,12 +353,12 @@ name|Object
 name|key
 parameter_list|)
 block|{
+name|List
+argument_list|<
 name|T
-name|entity
+argument_list|>
+name|list
 init|=
-operator|(
-name|T
-operator|)
 name|template
 operator|.
 name|find
@@ -361,6 +369,30 @@ argument_list|,
 name|key
 argument_list|)
 decl_stmt|;
+name|T
+name|entity
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|list
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|entity
+operator|=
+name|list
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|entity
@@ -382,6 +414,13 @@ argument_list|(
 name|entity
 argument_list|,
 name|key
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|persist
+argument_list|(
+name|entity
 argument_list|)
 expr_stmt|;
 block|}
@@ -511,7 +550,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" where x."
+literal|" x where x."
 operator|+
 name|getKeyPropertyName
 argument_list|()

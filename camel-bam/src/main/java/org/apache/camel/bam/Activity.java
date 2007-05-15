@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.bam.model
+DECL|package|org.apache.camel.bam
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|camel
 operator|.
 name|bam
-operator|.
-name|model
 package|;
 end_package
 
@@ -40,27 +38,37 @@ name|camel
 operator|.
 name|bam
 operator|.
-name|ProcessDefinition
+name|model
+operator|.
+name|ActivityState
 import|;
 end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|persistence
+name|apache
 operator|.
-name|Entity
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
 import|;
 end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|persistence
+name|apache
 operator|.
-name|NamedQuery
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
 import|;
 end_import
 
@@ -69,24 +77,28 @@ comment|/**  * Represents a activity which is typically a system or could be an 
 end_comment
 
 begin_class
-annotation|@
-name|Entity
-annotation|@
-name|NamedQuery
-argument_list|(
-name|name
-operator|=
-literal|"findByName"
-argument_list|,
-name|query
-operator|=
-literal|"select x from org.apache.camel.bam.model.Activity where x.name = ?1"
-argument_list|)
 DECL|class|Activity
 specifier|public
 class|class
 name|Activity
 block|{
+DECL|field|log
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|Activity
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|expectedMessages
 specifier|private
 name|int
@@ -184,7 +196,36 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// TODO
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Received state: "
+operator|+
+name|activityState
+operator|+
+literal|" message count "
+operator|+
+name|activityState
+operator|.
+name|getReceivedMessageCount
+argument_list|()
+operator|+
+literal|" started: "
+operator|+
+name|activityState
+operator|.
+name|getTimeStarted
+argument_list|()
+operator|+
+literal|" completed: "
+operator|+
+name|activityState
+operator|.
+name|getTimeCompleted
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

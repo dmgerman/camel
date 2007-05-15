@@ -74,8 +74,6 @@ name|camel
 operator|.
 name|bam
 operator|.
-name|model
-operator|.
 name|Activity
 import|;
 end_import
@@ -170,6 +168,14 @@ operator|.
 name|activity
 operator|=
 operator|new
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|bam
+operator|.
 name|Activity
 argument_list|(
 name|processBuilder
@@ -349,6 +355,14 @@ return|;
 block|}
 DECL|method|getActivity ()
 specifier|public
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|bam
+operator|.
 name|Activity
 name|getActivity
 parameter_list|()

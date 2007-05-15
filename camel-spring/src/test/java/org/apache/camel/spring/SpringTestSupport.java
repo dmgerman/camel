@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TestSupport
+name|CamelTemplate
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
+name|Endpoint
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelTemplate
+name|Route
 import|;
 end_import
 
@@ -72,7 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|TestSupport
 import|;
 end_import
 
@@ -100,7 +100,7 @@ name|context
 operator|.
 name|support
 operator|.
-name|ClassPathXmlApplicationContext
+name|AbstractXmlApplicationContext
 import|;
 end_import
 
@@ -114,7 +114,7 @@ name|context
 operator|.
 name|support
 operator|.
-name|AbstractXmlApplicationContext
+name|ClassPathXmlApplicationContext
 import|;
 end_import
 
@@ -203,6 +203,21 @@ argument_list|(
 name|camelContext
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|camelContext
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+name|camelContext
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
 name|template
 operator|=
 operator|new
@@ -378,6 +393,19 @@ operator|.
 name|getRoutes
 argument_list|()
 decl_stmt|;
+name|int
+name|routeCount
+init|=
+name|getExpectedRouteCount
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|routeCount
+operator|>
+literal|0
+condition|)
+block|{
 name|assertNotNull
 argument_list|(
 literal|"Should have some routes defined"
@@ -394,10 +422,10 @@ operator|.
 name|size
 argument_list|()
 operator|>=
-name|getExpectedRouteCount
-argument_list|()
+name|routeCount
 argument_list|)
 expr_stmt|;
+block|}
 name|log
 operator|.
 name|debug

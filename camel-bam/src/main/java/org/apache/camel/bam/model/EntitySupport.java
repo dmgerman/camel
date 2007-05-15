@@ -38,15 +38,15 @@ specifier|public
 class|class
 name|EntitySupport
 block|{
-annotation|@
-name|Id
-annotation|@
-name|GeneratedValue
 DECL|field|id
 specifier|private
 name|Long
 name|id
 decl_stmt|;
+annotation|@
+name|Id
+annotation|@
+name|GeneratedValue
 DECL|method|getId ()
 specifier|public
 name|Long

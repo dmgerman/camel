@@ -38,8 +38,6 @@ name|camel
 operator|.
 name|bam
 operator|.
-name|model
-operator|.
 name|Activity
 import|;
 end_import
