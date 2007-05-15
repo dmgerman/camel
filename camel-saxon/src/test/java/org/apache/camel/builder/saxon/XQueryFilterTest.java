@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|Endpoint
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|Exchange
 import|;
 end_import
 
@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
@@ -78,9 +78,11 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|xml
+name|saxon
 operator|.
-name|XPathBuilder
+name|XQueryBuilder
+operator|.
+name|xquery
 import|;
 end_import
 
@@ -242,9 +244,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|XPathBuilder
-operator|.
-name|xpath
+name|xquery
 argument_list|(
 literal|"/person[@name='James']"
 argument_list|)
