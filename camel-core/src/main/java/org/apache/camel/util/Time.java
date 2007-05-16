@@ -28,6 +28,16 @@ name|TimeUnit
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
 begin_comment
 comment|/**  * A helper class for working with times in various units  *  * @version $Revision: $  */
 end_comment
@@ -251,6 +261,21 @@ operator|.
 name|toMillis
 argument_list|(
 name|number
+argument_list|)
+return|;
+block|}
+DECL|method|toDate ()
+specifier|public
+name|Date
+name|toDate
+parameter_list|()
+block|{
+return|return
+operator|new
+name|Date
+argument_list|(
+name|toMillis
+argument_list|()
 argument_list|)
 return|;
 block|}
