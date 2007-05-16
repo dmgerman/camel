@@ -48,6 +48,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spring
 operator|.
 name|SpringCamelContext
@@ -156,6 +172,20 @@ name|JpaTemplate
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|transaction
+operator|.
+name|support
+operator|.
+name|TransactionTemplate
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: $  */
 end_comment
@@ -180,6 +210,16 @@ specifier|protected
 name|JpaTemplate
 name|jpaTemplate
 decl_stmt|;
+DECL|field|overdueEndpoint
+specifier|protected
+name|MockEndpoint
+name|overdueEndpoint
+decl_stmt|;
+DECL|field|transactionTemplate
+specifier|protected
+name|TransactionTemplate
+name|transactionTemplate
+decl_stmt|;
 DECL|method|testRoute ()
 specifier|public
 name|void
@@ -188,6 +228,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|overdueEndpoint
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -201,7 +248,13 @@ argument_list|,
 literal|"a"
 argument_list|)
 expr_stmt|;
-comment|//Thread.sleep(30000);
+name|overdueEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createApplicationContext ()
 specifier|protected
@@ -240,6 +293,16 @@ name|createRouteBuilder
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|overdueEndpoint
+operator|=
+operator|(
+name|MockEndpoint
+operator|)
+name|resolveMandatoryEndpoint
+argument_list|(
+literal|"mock:overdue"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -260,11 +323,24 @@ argument_list|,
 literal|"jpaTemplate"
 argument_list|)
 expr_stmt|;
+name|transactionTemplate
+operator|=
+name|getMandatoryBean
+argument_list|(
+name|TransactionTemplate
+operator|.
+name|class
+argument_list|,
+literal|"transactionTemplate"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|ProcessBuilder
 argument_list|(
 name|jpaTemplate
+argument_list|,
+name|transactionTemplate
 argument_list|)
 block|{
 specifier|public
@@ -362,8 +438,13 @@ name|errorIfOver
 argument_list|(
 name|seconds
 argument_list|(
-literal|5
+literal|2
 argument_list|)
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:overdue"
 argument_list|)
 expr_stmt|;
 comment|/*         expect(b.starts().after(10).minutes().from(a.starts());             process.activity("direct:a").name("a")                 .correlate(header("foo"))                 .expect(seconds(10)).afterProcess().starts();                 .expectedAfter(10).minutes();                 .errorAfter(30).minutes();           process.activity("direct:b").name("b")                 .correlate(header("foo"))                 .expect(minutes(10)).after("a").completes();           BamBuilder bam = BamBuilder.monitor(this, "direct:a", "direct:b", "direct:c");          bam.process("direct:b",).expectedMesageCount(1)                 .expectedAfter().minutes(10)                 .errorAfter().minutes(30);          bam.expects("direct:c").expectedMesageCount(1)                 .expectedAfter().minutes(10)                 .errorAfter().minutes(30);                  */

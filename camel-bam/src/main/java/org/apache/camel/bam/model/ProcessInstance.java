@@ -48,6 +48,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|bam
+operator|.
+name|ActivityRules
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|persistence
@@ -88,6 +102,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|ManyToOne
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -103,6 +127,16 @@ operator|.
 name|util
 operator|.
 name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
 import|;
 end_import
 
@@ -137,6 +171,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|processDefinition
+specifier|private
+name|ProcessDefinition
+name|processDefinition
+decl_stmt|;
 DECL|field|activityStates
 specifier|private
 name|Collection
@@ -157,6 +196,19 @@ specifier|private
 name|String
 name|correlationKey
 decl_stmt|;
+DECL|method|ProcessInstance ()
+specifier|public
+name|ProcessInstance
+parameter_list|()
+block|{
+name|setTimeStarted
+argument_list|(
+operator|new
+name|Date
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|toString ()
 specifier|public
 name|String
@@ -183,22 +235,14 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**      * Returns the activity state for the given activity      *      * @param activity the activity to find the state for      * @return the activity state or null if no state could be found for the      *         given activity      */
-DECL|method|getActivityState (org.apache.camel.bam.Activity activity)
+comment|/**      * Returns the activity state for the given activity      *      * @param activityRules the activity to find the state for      * @return the activity state or null if no state could be found for the      *         given activity      */
+DECL|method|getActivityState (ActivityRules activityRules)
 specifier|public
 name|ActivityState
 name|getActivityState
 parameter_list|(
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|bam
-operator|.
-name|Activity
-name|activity
+name|ActivityRules
+name|activityRules
 parameter_list|)
 block|{
 name|log
@@ -226,7 +270,7 @@ name|activityState
 operator|.
 name|isActivity
 argument_list|(
-name|activity
+name|activityRules
 argument_list|)
 condition|)
 block|{
@@ -238,6 +282,49 @@ block|}
 return|return
 literal|null
 return|;
+block|}
+annotation|@
+name|ManyToOne
+argument_list|(
+name|fetch
+operator|=
+name|FetchType
+operator|.
+name|LAZY
+argument_list|,
+name|cascade
+operator|=
+block|{
+name|CascadeType
+operator|.
+name|PERSIST
+block|}
+argument_list|)
+DECL|method|getProcessDefinition ()
+specifier|public
+name|ProcessDefinition
+name|getProcessDefinition
+parameter_list|()
+block|{
+return|return
+name|processDefinition
+return|;
+block|}
+DECL|method|setProcessDefinition (ProcessDefinition processDefinition)
+specifier|public
+name|void
+name|setProcessDefinition
+parameter_list|(
+name|ProcessDefinition
+name|processDefinition
+parameter_list|)
+block|{
+name|this
+operator|.
+name|processDefinition
+operator|=
+name|processDefinition
+expr_stmt|;
 block|}
 annotation|@
 name|OneToMany

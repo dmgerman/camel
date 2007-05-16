@@ -24,7 +24,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|bam
+operator|.
+name|model
+operator|.
+name|ActivityDefinition
 import|;
 end_import
 
@@ -72,15 +76,35 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a activity which is typically a system or could be an endpoint  *  * @version $Revision: $  */
 end_comment
 
 begin_class
-DECL|class|Activity
+DECL|class|ActivityRules
 specifier|public
 class|class
-name|Activity
+name|ActivityRules
 block|{
 DECL|field|log
 specifier|private
@@ -94,7 +118,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|Activity
+name|ActivityRules
 operator|.
 name|class
 argument_list|)
@@ -106,21 +130,41 @@ name|expectedMessages
 init|=
 literal|1
 decl_stmt|;
-DECL|field|name
+DECL|field|activity
 specifier|private
-name|String
-name|name
+name|ActivityDefinition
+name|activity
 decl_stmt|;
 DECL|field|process
 specifier|private
-name|ProcessDefinition
+name|ProcessRules
 name|process
 decl_stmt|;
-DECL|method|Activity (ProcessDefinition process)
+DECL|field|rules
+specifier|private
+name|List
+argument_list|<
+name|TemporalRule
+argument_list|>
+name|rules
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|TemporalRule
+argument_list|>
+argument_list|()
+decl_stmt|;
+DECL|field|activityName
+specifier|private
+name|String
+name|activityName
+decl_stmt|;
+DECL|method|ActivityRules (ProcessRules process)
 specifier|public
-name|Activity
+name|ActivityRules
 parameter_list|(
-name|ProcessDefinition
+name|ProcessRules
 name|process
 parameter_list|)
 block|{
@@ -130,31 +174,41 @@ name|process
 operator|=
 name|process
 expr_stmt|;
+name|process
+operator|.
+name|getActivities
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
-DECL|method|getName ()
+DECL|method|getActivity ()
 specifier|public
-name|String
-name|getName
+name|ActivityDefinition
+name|getActivity
 parameter_list|()
 block|{
 return|return
-name|name
+name|activity
 return|;
 block|}
-DECL|method|setName (String name)
+DECL|method|setActivity (ActivityDefinition activity)
 specifier|public
 name|void
-name|setName
+name|setActivity
 parameter_list|(
-name|String
-name|name
+name|ActivityDefinition
+name|activity
 parameter_list|)
 block|{
 name|this
 operator|.
-name|name
+name|activity
 operator|=
-name|name
+name|activity
 expr_stmt|;
 block|}
 DECL|method|getExpectedMessages ()
@@ -183,17 +237,27 @@ operator|=
 name|expectedMessages
 expr_stmt|;
 block|}
+DECL|method|getProcess ()
+specifier|public
+name|ProcessRules
+name|getProcess
+parameter_list|()
+block|{
+return|return
+name|process
+return|;
+block|}
 comment|/**      * Perform any assertions after the state has been updated      */
-DECL|method|process (ActivityState activityState, Exchange exchange)
+DECL|method|processExchange (ActivityState activityState, ProcessContext context)
 specifier|public
 name|void
-name|process
+name|processExchange
 parameter_list|(
 name|ActivityState
 name|activityState
 parameter_list|,
-name|Exchange
-name|exchange
+name|ProcessContext
+name|context
 parameter_list|)
 block|{
 name|log
@@ -226,6 +290,69 @@ name|getTimeCompleted
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|/*         process.fireRules(activityState, context);          for (TemporalRule rule : rules) {             rule.evaluate(context, activityState);         } */
+block|}
+DECL|method|setActivityName (String activityName)
+specifier|public
+name|void
+name|setActivityName
+parameter_list|(
+name|String
+name|activityName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|activityName
+operator|=
+name|activityName
+expr_stmt|;
+block|}
+DECL|method|addRule (TemporalRule rule)
+specifier|public
+name|void
+name|addRule
+parameter_list|(
+name|TemporalRule
+name|rule
+parameter_list|)
+block|{
+name|rules
+operator|.
+name|add
+argument_list|(
+name|rule
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Handles overdue activities      */
+DECL|method|processExpired (ActivityState activityState)
+specifier|public
+name|void
+name|processExpired
+parameter_list|(
+name|ActivityState
+name|activityState
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+for|for
+control|(
+name|TemporalRule
+name|rule
+range|:
+name|rules
+control|)
+block|{
+name|rule
+operator|.
+name|processExpired
+argument_list|(
+name|activityState
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

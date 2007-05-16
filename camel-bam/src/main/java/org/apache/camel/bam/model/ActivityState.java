@@ -26,7 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|bam
+operator|.
+name|ActivityRules
 import|;
 end_import
 
@@ -40,7 +42,7 @@ name|camel
 operator|.
 name|bam
 operator|.
-name|*
+name|ProcessContext
 import|;
 end_import
 
@@ -54,7 +56,7 @@ name|camel
 operator|.
 name|bam
 operator|.
-name|Activity
+name|TimerEventHandler
 import|;
 end_import
 
@@ -112,6 +114,16 @@ name|ManyToOne
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
 begin_comment
 comment|/**  * The default state for a specific activity within a process  *  * @version $Revision: $  */
 end_comment
@@ -135,33 +147,40 @@ name|process
 decl_stmt|;
 DECL|field|receivedMessageCount
 specifier|private
-name|int
+name|Integer
 name|receivedMessageCount
 decl_stmt|;
-DECL|field|activityName
+DECL|field|activityDefinition
 specifier|private
-name|String
-name|activityName
+name|ActivityDefinition
+name|activityDefinition
 decl_stmt|;
-DECL|method|process (org.apache.camel.bam.Activity activity, Exchange exchange)
+DECL|field|timeExpected
+specifier|private
+name|Date
+name|timeExpected
+decl_stmt|;
+DECL|field|timeOverdue
+specifier|private
+name|Date
+name|timeOverdue
+decl_stmt|;
+DECL|field|escalationLevel
+specifier|private
+name|Integer
+name|escalationLevel
+decl_stmt|;
+DECL|method|processExchange (ActivityRules activityRules, ProcessContext context)
 specifier|public
 specifier|synchronized
 name|void
-name|process
+name|processExchange
 parameter_list|(
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|bam
-operator|.
-name|Activity
-name|activity
+name|ActivityRules
+name|activityRules
 parameter_list|,
-name|Exchange
-name|exchange
+name|ProcessContext
+name|context
 parameter_list|)
 throws|throws
 name|Exception
@@ -169,13 +188,32 @@ block|{
 name|int
 name|messageCount
 init|=
+literal|0
+decl_stmt|;
+name|Integer
+name|count
+init|=
 name|getReceivedMessageCount
 argument_list|()
-operator|+
-literal|1
 decl_stmt|;
+if|if
+condition|(
+name|count
+operator|!=
+literal|null
+condition|)
+block|{
+name|messageCount
+operator|=
+name|count
+operator|.
+name|intValue
+argument_list|()
+expr_stmt|;
+block|}
 name|setReceivedMessageCount
 argument_list|(
+operator|++
 name|messageCount
 argument_list|)
 expr_stmt|;
@@ -188,14 +226,14 @@ condition|)
 block|{
 name|onFirstMessage
 argument_list|(
-name|exchange
+name|context
 argument_list|)
 expr_stmt|;
 block|}
 name|int
 name|expectedMessages
 init|=
-name|activity
+name|activityRules
 operator|.
 name|getExpectedMessages
 argument_list|()
@@ -209,7 +247,7 @@ condition|)
 block|{
 name|onExpectedMessage
 argument_list|(
-name|exchange
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -223,29 +261,29 @@ condition|)
 block|{
 name|onExcessMessage
 argument_list|(
-name|exchange
+name|context
 argument_list|)
 expr_stmt|;
 block|}
 comment|// now lets fire any assertions on the activity
-name|activity
+name|activityRules
 operator|.
-name|process
+name|processExchange
 argument_list|(
 name|this
 argument_list|,
-name|exchange
+name|context
 argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns true if this state is for the given activity      */
-DECL|method|isActivity (Activity activity)
+DECL|method|isActivity (ActivityRules activityRules)
 specifier|public
 name|boolean
 name|isActivity
 parameter_list|(
-name|Activity
-name|activity
+name|ActivityRules
+name|activityRules
 parameter_list|)
 block|{
 return|return
@@ -253,12 +291,12 @@ name|ObjectHelper
 operator|.
 name|equals
 argument_list|(
-name|getActivityName
+name|getActivityDefinition
 argument_list|()
 argument_list|,
-name|activity
+name|activityRules
 operator|.
-name|getName
+name|getActivity
 argument_list|()
 argument_list|)
 return|;
@@ -330,35 +368,78 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getActivityName ()
+annotation|@
+name|ManyToOne
+argument_list|(
+name|fetch
+operator|=
+name|FetchType
+operator|.
+name|LAZY
+argument_list|,
+name|cascade
+operator|=
+block|{
+name|CascadeType
+operator|.
+name|PERSIST
+block|}
+argument_list|)
+DECL|method|getActivityDefinition ()
 specifier|public
-name|String
-name|getActivityName
+name|ActivityDefinition
+name|getActivityDefinition
 parameter_list|()
 block|{
 return|return
-name|activityName
+name|activityDefinition
 return|;
 block|}
-DECL|method|setActivityName (String activityName)
+DECL|method|setActivityDefinition (ActivityDefinition activityDefinition)
 specifier|public
 name|void
-name|setActivityName
+name|setActivityDefinition
 parameter_list|(
-name|String
-name|activityName
+name|ActivityDefinition
+name|activityDefinition
 parameter_list|)
 block|{
 name|this
 operator|.
-name|activityName
+name|activityDefinition
 operator|=
-name|activityName
+name|activityDefinition
+expr_stmt|;
+block|}
+DECL|method|getEscalationLevel ()
+specifier|public
+name|Integer
+name|getEscalationLevel
+parameter_list|()
+block|{
+return|return
+name|escalationLevel
+return|;
+block|}
+DECL|method|setEscalationLevel (Integer escalationLevel)
+specifier|public
+name|void
+name|setEscalationLevel
+parameter_list|(
+name|Integer
+name|escalationLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|escalationLevel
+operator|=
+name|escalationLevel
 expr_stmt|;
 block|}
 DECL|method|getReceivedMessageCount ()
 specifier|public
-name|int
+name|Integer
 name|getReceivedMessageCount
 parameter_list|()
 block|{
@@ -366,12 +447,12 @@ return|return
 name|receivedMessageCount
 return|;
 block|}
-DECL|method|setReceivedMessageCount (int receivedMessageCount)
+DECL|method|setReceivedMessageCount (Integer receivedMessageCount)
 specifier|public
 name|void
 name|setReceivedMessageCount
 parameter_list|(
-name|int
+name|Integer
 name|receivedMessageCount
 parameter_list|)
 block|{
@@ -382,17 +463,107 @@ operator|=
 name|receivedMessageCount
 expr_stmt|;
 block|}
+DECL|method|getTimeExpected ()
+specifier|public
+name|Date
+name|getTimeExpected
+parameter_list|()
+block|{
+return|return
+name|timeExpected
+return|;
+block|}
+DECL|method|setTimeExpected (Date timeExpected)
+specifier|public
+name|void
+name|setTimeExpected
+parameter_list|(
+name|Date
+name|timeExpected
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeExpected
+operator|=
+name|timeExpected
+expr_stmt|;
+block|}
+DECL|method|getTimeOverdue ()
+specifier|public
+name|Date
+name|getTimeOverdue
+parameter_list|()
+block|{
+return|return
+name|timeOverdue
+return|;
+block|}
+DECL|method|setTimeOverdue (Date timeOverdue)
+specifier|public
+name|void
+name|setTimeOverdue
+parameter_list|(
+name|Date
+name|timeOverdue
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeOverdue
+operator|=
+name|timeOverdue
+expr_stmt|;
+block|}
+DECL|method|setTimeCompleted (Date timeCompleted)
+specifier|public
+name|void
+name|setTimeCompleted
+parameter_list|(
+name|Date
+name|timeCompleted
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setTimeCompleted
+argument_list|(
+name|timeCompleted
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|timeCompleted
+operator|!=
+literal|null
+condition|)
+block|{
+name|setEscalationLevel
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// Implementation methods
 comment|//-----------------------------------------------------------------------
 comment|/**      * Called when the first message is reached      */
-DECL|method|onFirstMessage (Exchange exchange)
+DECL|method|onFirstMessage (ProcessContext context)
 specifier|protected
 name|void
 name|onFirstMessage
 parameter_list|(
-name|Exchange
-name|exchange
+name|ProcessContext
+name|context
 parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|isStarted
+argument_list|()
+condition|)
 block|{
 name|setTimeStarted
 argument_list|(
@@ -400,16 +571,31 @@ name|currentTime
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|onStarted
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Called when the expected number of messages are is reached      */
-DECL|method|onExpectedMessage (Exchange exchange)
+DECL|method|onExpectedMessage (ProcessContext context)
 specifier|protected
 name|void
 name|onExpectedMessage
 parameter_list|(
-name|Exchange
-name|exchange
+name|ProcessContext
+name|context
 parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|isCompleted
+argument_list|()
+condition|)
 block|{
 name|setTimeCompleted
 argument_list|(
@@ -417,34 +603,36 @@ name|currentTime
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setCompleted
+name|context
+operator|.
+name|onCompleted
 argument_list|(
-literal|true
+name|this
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 comment|/**      * Called when an excess message (after the expected number of messages)      * are received      */
-DECL|method|onExcessMessage (Exchange exchange)
+DECL|method|onExcessMessage (ProcessContext context)
 specifier|protected
 name|void
 name|onExcessMessage
 parameter_list|(
-name|Exchange
-name|exchange
+name|ProcessContext
+name|context
 parameter_list|)
 block|{
 comment|// TODO
 block|}
 DECL|method|currentTime ()
 specifier|protected
-name|long
+name|Date
 name|currentTime
 parameter_list|()
 block|{
 return|return
-name|System
-operator|.
-name|currentTimeMillis
+operator|new
+name|Date
 argument_list|()
 return|;
 block|}
