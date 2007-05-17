@@ -96,6 +96,18 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -147,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: $  */
+comment|/**  * A concrete {@link Processor} for working on  *<a href="http://activemq.apache.org/camel/bam.html">BAM</a> which uses JPA as the persistence and uses the  * {@link ProcessInstance} entity to store the process information.  *  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -264,15 +276,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Processing entity! - attempting to get the current state for process: "
+literal|"Processing process instance: "
 operator|+
 name|process
 argument_list|)
 expr_stmt|;
+block|}
 comment|// lets force the lazy creation of this activity
 name|ActivityRules
 name|rules

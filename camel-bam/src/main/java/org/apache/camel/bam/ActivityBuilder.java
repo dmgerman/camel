@@ -290,7 +290,7 @@ argument_list|)
 block|{
 specifier|public
 name|Date
-name|evaluateState
+name|evaluate
 parameter_list|(
 name|ProcessInstance
 name|instance
@@ -329,7 +329,7 @@ argument_list|)
 block|{
 specifier|public
 name|Date
-name|evaluateState
+name|evaluate
 parameter_list|(
 name|ProcessInstance
 name|instance
@@ -380,8 +380,6 @@ return|return
 name|processBuilder
 return|;
 block|}
-comment|// Implementation methods
-comment|//-----------------------------------------------------------------------
 block|}
 end_class
 

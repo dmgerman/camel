@@ -229,7 +229,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A temporal rule  *  * @version $Revision: $  */
+comment|/**  * A temporal rule for use within BAM  *  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -472,7 +472,7 @@ name|firstTime
 init|=
 name|first
 operator|.
-name|evaluateState
+name|evaluate
 argument_list|(
 name|instance
 argument_list|)

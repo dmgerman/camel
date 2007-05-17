@@ -237,10 +237,10 @@ return|return
 name|rule
 return|;
 block|}
-DECL|method|evaluateState (ProcessInstance processInstance)
+DECL|method|evaluate (ProcessInstance processInstance)
 specifier|public
 name|Date
-name|evaluateState
+name|evaluate
 parameter_list|(
 name|ProcessInstance
 name|processInstance
@@ -264,7 +264,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|evaluateState
+name|evaluate
 argument_list|(
 name|processInstance
 argument_list|,
@@ -276,11 +276,11 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|evaluateState (ProcessInstance instance, ActivityState state)
+DECL|method|evaluate (ProcessInstance instance, ActivityState state)
 specifier|public
 specifier|abstract
 name|Date
-name|evaluateState
+name|evaluate
 parameter_list|(
 name|ProcessInstance
 name|instance
