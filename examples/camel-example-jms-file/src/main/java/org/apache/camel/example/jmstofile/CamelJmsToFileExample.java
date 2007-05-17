@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.samples.jmstofile
+DECL|package|org.apache.camel.example.jmstofile
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|samples
+name|example
 operator|.
 name|jmstofile
 package|;
@@ -137,10 +137,10 @@ comment|/**  * An example class for demonstrating some of the basics behind came
 end_comment
 
 begin_class
-DECL|class|CamelJmsToFileSample
+DECL|class|CamelJmsToFileExample
 specifier|public
 class|class
-name|CamelJmsToFileSample
+name|CamelJmsToFileExample
 block|{
 DECL|method|main (String args[])
 specifier|public
