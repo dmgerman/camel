@@ -20,13 +20,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|lang
+name|apache
 operator|.
-name|reflect
+name|camel
 operator|.
-name|InvocationTargetException
+name|Consumer
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
+name|Exchange
 import|;
 end_import
 
@@ -86,7 +86,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|Component
 import|;
 end_import
 
@@ -126,9 +126,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|DefaultExchange
+name|Provider
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|InvocationTargetException
 import|;
 end_import
 
@@ -147,30 +159,23 @@ argument_list|<
 name|PojoExchange
 argument_list|>
 block|{
-DECL|field|component
+DECL|field|pojo
 specifier|private
-specifier|final
-name|PojoComponent
-name|component
+name|Object
+name|pojo
 decl_stmt|;
-DECL|field|pojoId
-specifier|private
-specifier|final
-name|String
-name|pojoId
-decl_stmt|;
-DECL|method|PojoEndpoint (String uri, PojoComponent component, String pojoId)
+DECL|method|PojoEndpoint (String uri, Component component, Object pojo)
 specifier|public
 name|PojoEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|PojoComponent
+name|Component
 name|component
 parameter_list|,
-name|String
-name|pojoId
+name|Object
+name|pojo
 parameter_list|)
 block|{
 name|super
@@ -182,15 +187,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|pojoId
+name|pojo
 operator|=
-name|pojoId
-expr_stmt|;
-name|this
-operator|.
-name|component
-operator|=
-name|component
+name|pojo
 expr_stmt|;
 block|}
 DECL|method|createProducer ()
@@ -208,12 +207,8 @@ specifier|final
 name|Object
 name|pojo
 init|=
-name|component
-operator|.
-name|getService
-argument_list|(
-name|pojoId
-argument_list|)
+name|getPojo
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -221,14 +216,15 @@ name|pojo
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
-name|NoSuchEndpointException
+name|NoPojoAvailableException
 argument_list|(
-name|getEndpointUri
-argument_list|()
+name|this
 argument_list|)
 throw|;
+block|}
 return|return
 operator|new
 name|DefaultProducer
@@ -292,10 +288,10 @@ literal|"You cannot consume from pojo endpoints."
 argument_list|)
 throw|;
 block|}
-comment|/**      * This causes us to invoke the endpoint Pojo using reflection.      * @param pojo       */
+comment|/**      * This causes us to invoke the endpoint Pojo using reflection.      *      * @param pojo      */
 DECL|method|invoke (Object pojo, PojoExchange exchange)
-specifier|static
 specifier|public
+specifier|static
 name|void
 name|invoke
 parameter_list|(
@@ -402,26 +398,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|getComponent ()
-specifier|public
-name|PojoComponent
-name|getComponent
-parameter_list|()
-block|{
-return|return
-name|component
-return|;
-block|}
-DECL|method|getPojoId ()
-specifier|public
-name|String
-name|getPojoId
-parameter_list|()
-block|{
-return|return
-name|pojoId
-return|;
-block|}
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -431,6 +407,32 @@ block|{
 return|return
 literal|true
 return|;
+block|}
+DECL|method|getPojo ()
+specifier|public
+name|Object
+name|getPojo
+parameter_list|()
+block|{
+return|return
+name|pojo
+return|;
+block|}
+DECL|method|setPojo (Object pojo)
+specifier|public
+name|void
+name|setPojo
+parameter_list|(
+name|Object
+name|pojo
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pojo
+operator|=
+name|pojo
+expr_stmt|;
 block|}
 block|}
 end_class

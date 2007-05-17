@@ -118,6 +118,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Provider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -218,7 +232,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (String uri, final String remaining, Map parameters)
 specifier|protected
 name|Endpoint
 argument_list|<
@@ -229,6 +243,7 @@ parameter_list|(
 name|String
 name|uri
 parameter_list|,
+specifier|final
 name|String
 name|remaining
 parameter_list|,
@@ -238,6 +253,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|Object
+name|pojo
+init|=
+name|getService
+argument_list|(
+name|remaining
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|PojoEndpoint
@@ -246,7 +269,7 @@ name|uri
 argument_list|,
 name|this
 argument_list|,
-name|remaining
+name|pojo
 argument_list|)
 return|;
 block|}
