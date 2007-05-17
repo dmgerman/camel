@@ -56,6 +56,8 @@ name|camel
 operator|.
 name|bam
 operator|.
+name|rules
+operator|.
 name|ActivityRules
 import|;
 end_import

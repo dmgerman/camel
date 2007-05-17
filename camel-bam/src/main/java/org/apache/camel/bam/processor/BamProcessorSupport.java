@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.bam
+DECL|package|org.apache.camel.bam.processor
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|bam
+operator|.
+name|processor
 package|;
 end_package
 
@@ -70,6 +72,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|bam
+operator|.
+name|processor
+operator|.
+name|NoCorrelationKeyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -116,20 +134,6 @@ name|transaction
 operator|.
 name|support
 operator|.
-name|TransactionCallbackWithoutResult
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|transaction
-operator|.
-name|support
-operator|.
 name|TransactionCallback
 import|;
 end_import
@@ -143,18 +147,6 @@ operator|.
 name|transaction
 operator|.
 name|TransactionStatus
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|transaction
-operator|.
-name|TransactionException
 import|;
 end_import
 

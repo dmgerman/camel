@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.bam
+DECL|package|org.apache.camel.bam.rules
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|bam
+operator|.
+name|rules
 package|;
 end_package
 
@@ -112,6 +114,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|bam
+operator|.
+name|TimeExpression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|FromBuilder
@@ -171,20 +187,6 @@ operator|.
 name|util
 operator|.
 name|Time
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
 import|;
 end_import
 
@@ -578,31 +580,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|Date
-name|secondTime
-init|=
-name|second
-operator|.
-name|evaluateState
-argument_list|(
-name|instance
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|secondTime
-operator|==
-literal|null
-condition|)
-block|{
-comment|// TODO add test that things have expired
 block|}
-else|else
-block|{
-comment|/*             if (secondTime.delta(firstTime.plus(gap))> 0) {                 // TODO             } */
-block|}
-block|}
-comment|/*     public void evaluate(ProcessContext context, ActivityState activityState) {         ProcessInstance instance = context.getProcessInstance();      }     */
 DECL|method|processExpired (ActivityState activityState)
 specifier|public
 name|void
@@ -751,7 +729,6 @@ name|millis
 argument_list|)
 return|;
 block|}
-comment|/*     public void onActivityLifecycle(ActivityState state, ActivityRules activityRules, ActivityLifecycle lifecycle) {         if (first.isActivityLifecycle(activityRules, lifecycle)) {             // lets create the expected and error timers              // TODO we could use a single timer event; then keep incrementing its type             // counter to escalate& use different times each time to reduce some DB work             createTimer(state, expectedMillis);             createTimer(state, overdueMillis);         }     }     */
 DECL|method|doStart ()
 specifier|protected
 name|void

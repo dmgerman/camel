@@ -28,6 +28,8 @@ name|camel
 operator|.
 name|bam
 operator|.
+name|rules
+operator|.
 name|ActivityRules
 import|;
 end_import
@@ -42,21 +44,9 @@ name|camel
 operator|.
 name|bam
 operator|.
+name|processor
+operator|.
 name|ProcessContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|bam
-operator|.
-name|TimerEventHandler
 import|;
 end_import
 
@@ -110,7 +100,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|ManyToOne
+name|GeneratedValue
 import|;
 end_import
 
@@ -130,7 +120,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|GeneratedValue
+name|ManyToOne
 import|;
 end_import
 
@@ -157,8 +147,6 @@ class|class
 name|ActivityState
 extends|extends
 name|TemporalEntity
-implements|implements
-name|TimerEventHandler
 block|{
 DECL|field|processInstance
 specifier|private
@@ -356,18 +344,6 @@ name|getActivityDefinition
 argument_list|()
 argument_list|)
 return|;
-block|}
-comment|/**      * Invoked by the timer firing      */
-DECL|method|onTimerEvent (TimerEvent event)
-specifier|public
-name|void
-name|onTimerEvent
-parameter_list|(
-name|TimerEvent
-name|event
-parameter_list|)
-block|{
-comment|// TODO do check on this entity
 block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
