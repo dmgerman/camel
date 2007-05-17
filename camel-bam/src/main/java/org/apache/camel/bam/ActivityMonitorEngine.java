@@ -110,9 +110,7 @@ name|springframework
 operator|.
 name|transaction
 operator|.
-name|support
-operator|.
-name|TransactionTemplate
+name|TransactionStatus
 import|;
 end_import
 
@@ -138,7 +136,9 @@ name|springframework
 operator|.
 name|transaction
 operator|.
-name|TransactionStatus
+name|support
+operator|.
+name|TransactionTemplate
 import|;
 end_import
 
@@ -256,6 +256,13 @@ specifier|private
 name|Thread
 name|thread
 decl_stmt|;
+DECL|field|useLocking
+specifier|private
+name|boolean
+name|useLocking
+init|=
+literal|false
+decl_stmt|;
 DECL|method|ActivityMonitorEngine (JpaTemplate template, TransactionTemplate transactionTemplate, ProcessRules rules)
 specifier|public
 name|ActivityMonitorEngine
@@ -287,6 +294,32 @@ operator|.
 name|rules
 operator|=
 name|rules
+expr_stmt|;
+block|}
+DECL|method|isUseLocking ()
+specifier|public
+name|boolean
+name|isUseLocking
+parameter_list|()
+block|{
+return|return
+name|useLocking
+return|;
+block|}
+DECL|method|setUseLocking (boolean useLocking)
+specifier|public
+name|void
+name|setUseLocking
+parameter_list|(
+name|boolean
+name|useLocking
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useLocking
+operator|=
+name|useLocking
 expr_stmt|;
 block|}
 DECL|method|run ()
@@ -512,6 +545,21 @@ throws|throws
 name|PersistenceException
 block|{
 comment|// lets try lock the object first
+if|if
+condition|(
+name|isUseLocking
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Attempting to lock: "
+operator|+
+name|activityState
+argument_list|)
+expr_stmt|;
 name|entityManager
 operator|.
 name|lock
@@ -523,16 +571,16 @@ operator|.
 name|WRITE
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|activityState
+name|log
 operator|.
-name|getEscalationLevel
-argument_list|()
-operator|==
-name|escalateLevel
-condition|)
-block|{
+name|info
+argument_list|(
+literal|"Grabbed lock: "
+operator|+
+name|activityState
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|rules
@@ -574,7 +622,6 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|null
 return|;
@@ -591,6 +638,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|rules
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|thread
 operator|=
 operator|new
@@ -627,6 +679,11 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|rules
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

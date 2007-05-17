@@ -171,9 +171,6 @@ operator|new
 name|ActivityRules
 argument_list|(
 name|processBuilder
-operator|.
-name|getProcessRules
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

@@ -116,6 +116,26 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|Id
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|GeneratedValue
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -140,15 +160,17 @@ name|TemporalEntity
 implements|implements
 name|TimerEventHandler
 block|{
-DECL|field|process
+DECL|field|processInstance
 specifier|private
 name|ProcessInstance
-name|process
+name|processInstance
 decl_stmt|;
 DECL|field|receivedMessageCount
 specifier|private
 name|Integer
 name|receivedMessageCount
+init|=
+literal|0
 decl_stmt|;
 DECL|field|activityDefinition
 specifier|private
@@ -169,7 +191,51 @@ DECL|field|escalationLevel
 specifier|private
 name|Integer
 name|escalationLevel
+init|=
+literal|0
 decl_stmt|;
+comment|// This crap is required to work around a bug in hibernate
+annotation|@
+name|Override
+annotation|@
+name|Id
+annotation|@
+name|GeneratedValue
+DECL|method|getId ()
+specifier|public
+name|Long
+name|getId
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getId
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"ActivityState["
+operator|+
+name|getId
+argument_list|()
+operator|+
+literal|" "
+operator|+
+name|getActivityDefinition
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
 DECL|method|processExchange (ActivityRules activityRules, ProcessContext context)
 specifier|public
 specifier|synchronized
@@ -265,16 +331,6 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-comment|// now lets fire any assertions on the activity
-name|activityRules
-operator|.
-name|processExchange
-argument_list|(
-name|this
-argument_list|,
-name|context
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Returns true if this state is for the given activity      */
 DECL|method|isActivity (ActivityRules activityRules)
@@ -296,7 +352,7 @@ argument_list|()
 argument_list|,
 name|activityRules
 operator|.
-name|getActivity
+name|getActivityDefinition
 argument_list|()
 argument_list|)
 return|;
@@ -332,32 +388,32 @@ operator|.
 name|PERSIST
 block|}
 argument_list|)
-DECL|method|getProcess ()
+DECL|method|getProcessInstance ()
 specifier|public
 name|ProcessInstance
-name|getProcess
+name|getProcessInstance
 parameter_list|()
 block|{
 return|return
-name|process
+name|processInstance
 return|;
 block|}
-DECL|method|setProcess (ProcessInstance process)
+DECL|method|setProcessInstance (ProcessInstance processInstance)
 specifier|public
 name|void
-name|setProcess
+name|setProcessInstance
 parameter_list|(
 name|ProcessInstance
-name|process
+name|processInstance
 parameter_list|)
 block|{
 name|this
 operator|.
-name|process
+name|processInstance
 operator|=
-name|process
+name|processInstance
 expr_stmt|;
-name|process
+name|processInstance
 operator|.
 name|getActivityStates
 argument_list|()

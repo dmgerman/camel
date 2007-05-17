@@ -17,6 +17,38 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+operator|.
+name|startServices
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+operator|.
+name|stopServices
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -122,9 +154,37 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|Time
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -175,6 +235,8 @@ DECL|class|TemporalRule
 specifier|public
 class|class
 name|TemporalRule
+extends|extends
+name|ServiceSupport
 block|{
 DECL|field|log
 specifier|private
@@ -223,28 +285,28 @@ specifier|private
 name|ProcessorFactory
 name|overdueProcessorFactory
 decl_stmt|;
-DECL|method|TemporalRule (TimeExpression left, TimeExpression right)
+DECL|method|TemporalRule (TimeExpression first, TimeExpression second)
 specifier|public
 name|TemporalRule
 parameter_list|(
 name|TimeExpression
-name|left
+name|first
 parameter_list|,
 name|TimeExpression
-name|right
+name|second
 parameter_list|)
 block|{
 name|this
 operator|.
 name|first
 operator|=
-name|left
+name|first
 expr_stmt|;
 name|this
 operator|.
 name|second
 operator|=
-name|right
+name|second
 expr_stmt|;
 block|}
 DECL|method|expectWithin (Time builder)
@@ -360,26 +422,49 @@ return|return
 name|second
 return|;
 block|}
-DECL|method|evaluate (ProcessContext context, ActivityState activityState)
+DECL|method|getOverdueAction ()
+specifier|public
+name|Processor
+name|getOverdueAction
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|overdueAction
+operator|==
+literal|null
+operator|&&
+name|overdueProcessorFactory
+operator|!=
+literal|null
+condition|)
+block|{
+name|overdueAction
+operator|=
+name|overdueProcessorFactory
+operator|.
+name|createProcessor
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|overdueAction
+return|;
+block|}
+DECL|method|processExchange (Exchange exchange, ProcessInstance instance)
 specifier|public
 name|void
-name|evaluate
+name|processExchange
 parameter_list|(
-name|ProcessContext
-name|context
+name|Exchange
+name|exchange
 parameter_list|,
-name|ActivityState
-name|activityState
-parameter_list|)
-block|{
 name|ProcessInstance
 name|instance
-init|=
-name|context
-operator|.
-name|getProcessInstance
-argument_list|()
-decl_stmt|;
+parameter_list|)
+block|{
 name|Date
 name|firstTime
 init|=
@@ -402,13 +487,13 @@ return|return;
 block|}
 comment|// TODO now we might need to set the second activity state
 comment|// to 'grey' to indicate it now could happen?
-comment|// if the second activity state is not created yet we might wanna create it
+comment|// lets force the lazy creation of the second state
 name|ActivityState
 name|secondState
 init|=
 name|second
 operator|.
-name|getActivityState
+name|getOrCreateActivityState
 argument_list|(
 name|instance
 argument_list|)
@@ -517,6 +602,7 @@ block|{
 comment|/*             if (secondTime.delta(firstTime.plus(gap))> 0) {                 // TODO             } */
 block|}
 block|}
+comment|/*     public void evaluate(ProcessContext context, ActivityState activityState) {         ProcessInstance instance = context.getProcessInstance();      }     */
 DECL|method|processExpired (ActivityState activityState)
 specifier|public
 name|void
@@ -528,28 +614,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|overdueAction
-operator|==
-literal|null
-operator|&&
-name|overdueProcessorFactory
-operator|!=
-literal|null
-condition|)
-block|{
-name|overdueAction
-operator|=
-name|overdueProcessorFactory
-operator|.
-name|createProcessor
+name|Processor
+name|processor
+init|=
+name|getOverdueAction
 argument_list|()
-expr_stmt|;
-block|}
+decl_stmt|;
 if|if
 condition|(
-name|overdueAction
+name|processor
 operator|!=
 literal|null
 condition|)
@@ -561,23 +634,11 @@ operator|new
 name|Date
 argument_list|()
 decl_stmt|;
-name|ProcessInstance
-name|instance
-init|=
-name|activityState
-operator|.
-name|getProcess
-argument_list|()
-decl_stmt|;
+comment|/*             TODO this doesn't work and returns null for some strange reason             ProcessInstance instance = activityState.getProcessInstance();             ActivityState secondState = second.getActivityState(instance);             if (secondState == null) {                 log.error("Could not find the second state! Process is: " + instance + " with first state: " + first.getActivityState(instance) + " and the state I was called with was: " + activityState);             } */
 name|ActivityState
 name|secondState
 init|=
-name|second
-operator|.
-name|getActivityState
-argument_list|(
-name|instance
-argument_list|)
+name|activityState
 decl_stmt|;
 name|Date
 name|overdue
@@ -615,7 +676,7 @@ argument_list|(
 name|activityState
 argument_list|)
 expr_stmt|;
-name|overdueAction
+name|processor
 operator|.
 name|process
 argument_list|(
@@ -691,6 +752,36 @@ argument_list|)
 return|;
 block|}
 comment|/*     public void onActivityLifecycle(ActivityState state, ActivityRules activityRules, ActivityLifecycle lifecycle) {         if (first.isActivityLifecycle(activityRules, lifecycle)) {             // lets create the expected and error timers              // TODO we could use a single timer event; then keep incrementing its type             // counter to escalate& use different times each time to reduce some DB work             createTimer(state, expectedMillis);             createTimer(state, overdueMillis);         }     }     */
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|startServices
+argument_list|(
+name|getOverdueAction
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|stopServices
+argument_list|(
+name|getOverdueAction
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Expression
 import|;
 end_import
 
@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Expression
+name|Processor
 import|;
 end_import
 
@@ -62,7 +62,9 @@ name|camel
 operator|.
 name|bam
 operator|.
-name|ActivityRules
+name|model
+operator|.
+name|ProcessDefinition
 import|;
 end_import
 
@@ -285,20 +287,20 @@ operator|=
 name|findByKeyQuery
 expr_stmt|;
 block|}
-DECL|method|getActivity ()
+DECL|method|getActivityRules ()
 specifier|public
 name|ActivityRules
-name|getActivity
+name|getActivityRules
 parameter_list|()
 block|{
 return|return
 name|activityRules
 return|;
 block|}
-DECL|method|setActivity (ActivityRules activityRules)
+DECL|method|setActivityRules (ActivityRules activityRules)
 specifier|public
 name|void
-name|setActivity
+name|setActivityRules
 parameter_list|(
 name|ActivityRules
 name|activityRules
@@ -440,6 +442,32 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
+name|ProcessDefinition
+name|definition
+init|=
+name|ProcessDefinition
+operator|.
+name|getRefreshedProcessDefinition
+argument_list|(
+name|template
+argument_list|,
+name|getActivityRules
+argument_list|()
+operator|.
+name|getProcessRules
+argument_list|()
+operator|.
+name|getProcessDefinition
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|setProcessDefinitionProperty
+argument_list|(
+name|entity
+argument_list|,
+name|definition
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|persist
@@ -475,6 +503,30 @@ name|getKeyPropertyName
 argument_list|()
 argument_list|,
 name|key
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setProcessDefinitionProperty (T entity, ProcessDefinition processDefinition)
+specifier|protected
+name|void
+name|setProcessDefinitionProperty
+parameter_list|(
+name|T
+name|entity
+parameter_list|,
+name|ProcessDefinition
+name|processDefinition
+parameter_list|)
+block|{
+name|IntrospectionSupport
+operator|.
+name|setProperty
+argument_list|(
+name|entity
+argument_list|,
+literal|"processDefinition"
+argument_list|,
+name|processDefinition
 argument_list|)
 expr_stmt|;
 block|}

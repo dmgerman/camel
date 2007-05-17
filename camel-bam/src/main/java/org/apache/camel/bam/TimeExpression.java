@@ -183,9 +183,9 @@ init|=
 operator|new
 name|TemporalRule
 argument_list|(
-name|this
-argument_list|,
 name|expression
+argument_list|,
+name|this
 argument_list|)
 decl_stmt|;
 name|rule
@@ -302,6 +302,24 @@ return|return
 name|instance
 operator|.
 name|getActivityState
+argument_list|(
+name|activityRules
+argument_list|)
+return|;
+block|}
+DECL|method|getOrCreateActivityState (ProcessInstance instance)
+specifier|public
+name|ActivityState
+name|getOrCreateActivityState
+parameter_list|(
+name|ProcessInstance
+name|instance
+parameter_list|)
+block|{
+return|return
+name|instance
+operator|.
+name|getOrCreateActivityState
 argument_list|(
 name|activityRules
 argument_list|)

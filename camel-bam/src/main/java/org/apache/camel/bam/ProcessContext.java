@@ -133,7 +133,7 @@ name|processRules
 operator|=
 name|activityRules
 operator|.
-name|getProcess
+name|getProcessRules
 argument_list|()
 expr_stmt|;
 name|this
@@ -142,7 +142,7 @@ name|processInstance
 operator|=
 name|activityState
 operator|.
-name|getProcess
+name|getProcessInstance
 argument_list|()
 expr_stmt|;
 block|}
