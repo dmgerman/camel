@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A timer engine to monitor for expired activities and perform whatever actions are required.  *   * @version $Revision: $  */
+comment|/**  * A timer engine to monitor for expired activities and perform whatever actions are required.  *  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -348,7 +348,7 @@ parameter_list|()
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Starting to poll for timeout events"
 argument_list|)
@@ -464,6 +464,14 @@ operator|>
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -475,6 +483,7 @@ operator|+
 literal|" millis"
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|Thread
@@ -535,15 +544,24 @@ name|ActivityState
 name|activityState
 parameter_list|)
 block|{
+if|if
+condition|(
 name|log
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
 argument_list|(
 literal|"Trying to fire expiration of: "
 operator|+
 name|activityState
 argument_list|)
 expr_stmt|;
+block|}
 name|template
 operator|.
 name|execute

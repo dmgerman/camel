@@ -411,16 +411,6 @@ name|ActivityRules
 name|activityRules
 parameter_list|)
 block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"About to iterate through the states: "
-operator|+
-name|getActivityStates
-argument_list|()
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|ActivityState
@@ -466,15 +456,6 @@ argument_list|(
 name|activityRules
 argument_list|)
 decl_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Found activity: "
-operator|+
-name|state
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|state
@@ -504,7 +485,7 @@ name|getActivityDefinition
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO not required: getTemplate().persist(state);
+comment|// we don't need to do: getTemplate().persist(state);
 block|}
 return|return
 name|state

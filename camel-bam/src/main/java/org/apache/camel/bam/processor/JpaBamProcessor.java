@@ -286,7 +286,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Processing process instance: "
 operator|+

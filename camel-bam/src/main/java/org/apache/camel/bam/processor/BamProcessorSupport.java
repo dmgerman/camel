@@ -72,22 +72,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|bam
-operator|.
-name|processor
-operator|.
-name|NoCorrelationKeyException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|logging
@@ -118,9 +102,7 @@ name|springframework
 operator|.
 name|transaction
 operator|.
-name|support
-operator|.
-name|TransactionTemplate
+name|TransactionStatus
 import|;
 end_import
 
@@ -146,19 +128,9 @@ name|springframework
 operator|.
 name|transaction
 operator|.
-name|TransactionStatus
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|support
 operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Type
+name|TransactionTemplate
 import|;
 end_import
 
@@ -171,6 +143,18 @@ operator|.
 name|reflect
 operator|.
 name|ParameterizedType
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Type
 import|;
 end_import
 
@@ -391,11 +375,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-try|try
-block|{
-name|Object
-name|entity
-init|=
 name|transactionTemplate
 operator|.
 name|execute
@@ -432,9 +411,17 @@ argument_list|,
 name|key
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
 name|log
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
 argument_list|(
 literal|"Correlation key: "
 operator|+
@@ -445,7 +432,7 @@ operator|+
 name|entity
 argument_list|)
 expr_stmt|;
-comment|//storeProcessInExchange(exchange, entity);
+block|}
 name|processEntity
 argument_list|(
 name|exchange
@@ -474,35 +461,7 @@ block|}
 block|}
 block|}
 argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"After transaction process instance is: "
-operator|+
-name|entity
-argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"Caught: "
-operator|+
-name|e
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
