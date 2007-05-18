@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link Exchange} working with JBI which exposes the underlying JBI features such as the  * JBI {@link #getMessageExchange()}  *  * @version $Revision$  */
+comment|/**  * An {@link Exchange} working with JBI which exposes the underlying JBI features such as the  * JBI {@link #getMessageExchange()}, {@link #getInMessage()} and {@link #getOutMessage()}   *  * @version $Revision$  */
 end_comment
 
 begin_class
