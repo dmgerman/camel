@@ -34,17 +34,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
+name|Arrays
 import|;
 end_import
 
@@ -64,7 +54,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
+name|Collections
 import|;
 end_import
 
@@ -74,12 +64,12 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Iterator
 import|;
 end_import
 
 begin_comment
-comment|/**  * Some core java.lang based   *<a href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  *  * @version $Revision$  */
+comment|/**  * Some core java.lang based  *<a href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -90,6 +80,37 @@ specifier|public
 class|class
 name|ObjectConverter
 block|{
+DECL|method|isCollection (Object value)
+specifier|public
+specifier|static
+name|boolean
+name|isCollection
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+comment|// TODO we should handle primitive array types?
+return|return
+name|value
+operator|instanceof
+name|Collection
+operator|||
+operator|(
+name|value
+operator|!=
+literal|null
+operator|&&
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|isArray
+argument_list|()
+operator|)
+return|;
+block|}
 comment|/**      * Creates an iterator over the value if the value is a collection, an Object[] or a primitive type array; otherwise      * to simplify the caller's code, we just create a singleton collection iterator over a single value      */
 annotation|@
 name|Converter
@@ -154,6 +175,7 @@ name|isArray
 argument_list|()
 condition|)
 block|{
+comment|// TODO we should handle primitive array types?
 return|return
 name|Arrays
 operator|.

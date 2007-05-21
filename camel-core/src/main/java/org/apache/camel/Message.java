@@ -49,6 +49,12 @@ name|String
 name|messageId
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the exchange this message is related to      *       * @return      */
+DECL|method|getExchange ()
+name|Exchange
+name|getExchange
+parameter_list|()
+function_decl|;
 comment|/**      * Accesses a specific header      *      * @param name      * @return object header associated with the name      */
 DECL|method|getHeader (String name)
 name|Object
