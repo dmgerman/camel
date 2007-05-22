@@ -88,7 +88,7 @@ name|ActiveMQComponent
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates an<a href="http://activemq.apache.org/camel/activemq.html">ActiveMQ Component</a>      * connecting to the given broker URL      *      * @param brokerURL the URL to connect to      * @return the created component      */
+comment|/**      * Creates an<a href="http://activemq.apache.org/camel/activemq.html">ActiveMQ Component</a>      * connecting to the given<a href="http://activemq.apache.org/configuring-transports.html">broker URL</a>      *      * @param brokerURL the URL to connect to      * @return the created component      */
 DECL|method|activeMQComponent (String brokerURL)
 specifier|public
 specifier|static
