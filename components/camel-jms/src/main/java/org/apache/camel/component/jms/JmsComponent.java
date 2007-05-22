@@ -185,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision:520964 $  */
+comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Component</a>  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -429,16 +429,7 @@ DECL|method|JmsComponent ()
 specifier|public
 name|JmsComponent
 parameter_list|()
-block|{
-name|this
-operator|.
-name|configuration
-operator|=
-operator|new
-name|JmsConfiguration
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|JmsComponent (JmsConfiguration configuration)
 specifier|public
 name|JmsComponent
@@ -466,14 +457,6 @@ name|super
 argument_list|(
 name|context
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|configuration
-operator|=
-operator|new
-name|JmsConfiguration
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -649,6 +632,19 @@ name|JmsConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
+if|if
+condition|(
+name|configuration
+operator|==
+literal|null
+condition|)
+block|{
+name|configuration
+operator|=
+name|createConfiguration
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|configuration
 return|;
@@ -1294,6 +1290,19 @@ parameter_list|)
 block|{
 return|return
 name|path
+return|;
+block|}
+comment|/**      * Factory method to create the default configuration instance      *      * @return a newly created configuration object which can then be further customized      */
+DECL|method|createConfiguration ()
+specifier|protected
+name|JmsConfiguration
+name|createConfiguration
+parameter_list|()
+block|{
+return|return
+operator|new
+name|JmsConfiguration
+argument_list|()
 return|;
 block|}
 block|}

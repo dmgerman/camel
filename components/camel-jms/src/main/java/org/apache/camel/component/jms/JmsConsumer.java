@@ -148,6 +148,16 @@ name|messageListener
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getListenerContainer ()
+specifier|public
+name|AbstractMessageListenerContainer
+name|getListenerContainer
+parameter_list|()
+block|{
+return|return
+name|listenerContainer
+return|;
+block|}
 DECL|method|createMessageListener (JmsEndpoint endpoint, Processor processor)
 specifier|protected
 name|MessageListener

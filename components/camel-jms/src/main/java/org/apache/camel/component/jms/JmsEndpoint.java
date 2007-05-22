@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision:520964 $  */
+comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  *   * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -209,10 +209,7 @@ expr_stmt|;
 block|}
 DECL|method|createProducer ()
 specifier|public
-name|Producer
-argument_list|<
-name|JmsExchange
-argument_list|>
+name|JmsProducer
 name|createProducer
 parameter_list|()
 throws|throws
@@ -240,10 +237,7 @@ block|}
 comment|/**      * Creates a producer using the given template      */
 DECL|method|createProducer (JmsOperations template)
 specifier|public
-name|Producer
-argument_list|<
-name|JmsExchange
-argument_list|>
+name|JmsProducer
 name|createProducer
 parameter_list|(
 name|JmsOperations
@@ -294,10 +288,7 @@ return|;
 block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
-name|Consumer
-argument_list|<
-name|JmsExchange
-argument_list|>
+name|JmsConsumer
 name|createConsumer
 parameter_list|(
 name|Processor
@@ -326,10 +317,7 @@ block|}
 comment|/**      * Creates a consumer using the given processor and listener container      *      * @param processor the processor to use to process the messages      * @param listenerContainer the listener container      * @return a newly created consumer      * @throws Exception if the consumer cannot be created      */
 DECL|method|createConsumer (Processor processor, AbstractMessageListenerContainer listenerContainer)
 specifier|public
-name|Consumer
-argument_list|<
-name|JmsExchange
-argument_list|>
+name|JmsConsumer
 name|createConsumer
 parameter_list|(
 name|Processor

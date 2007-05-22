@@ -34,6 +34,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|core
@@ -282,11 +296,20 @@ name|CLIENT_ACKNOWLEDGE
 init|=
 literal|"CLIENT_ACKNOWLEDGE"
 decl_stmt|;
-comment|// General Setting used for both the JmsTemplate and JMS Container
 DECL|field|connectionFactory
 specifier|private
 name|ConnectionFactory
 name|connectionFactory
+decl_stmt|;
+DECL|field|templateConnectionFactory
+specifier|private
+name|ConnectionFactory
+name|templateConnectionFactory
+decl_stmt|;
+DECL|field|listenerConnectionFactory
+specifier|private
+name|ConnectionFactory
+name|listenerConnectionFactory
 decl_stmt|;
 DECL|field|acknowledgementMode
 specifier|private
@@ -561,6 +584,12 @@ name|String
 name|destination
 parameter_list|)
 block|{
+name|ConnectionFactory
+name|factory
+init|=
+name|getTemplateConnectionFactory
+argument_list|()
+decl_stmt|;
 name|JmsTemplate
 name|template
 init|=
@@ -569,8 +598,7 @@ condition|?
 operator|new
 name|JmsTemplate102
 argument_list|(
-name|getConnectionFactory
-argument_list|()
+name|factory
 argument_list|,
 name|pubSubDomain
 argument_list|)
@@ -578,8 +606,7 @@ else|:
 operator|new
 name|JmsTemplate
 argument_list|(
-name|getConnectionFactory
-argument_list|()
+name|factory
 argument_list|)
 decl_stmt|;
 name|template
@@ -768,7 +795,7 @@ name|container
 operator|.
 name|setConnectionFactory
 argument_list|(
-name|getConnectionFactory
+name|getListenerConnectionFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1219,10 +1246,24 @@ name|ConnectionFactory
 name|getConnectionFactory
 parameter_list|()
 block|{
+if|if
+condition|(
+name|connectionFactory
+operator|==
+literal|null
+condition|)
+block|{
+name|connectionFactory
+operator|=
+name|createConnectionFactory
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|connectionFactory
 return|;
 block|}
+comment|/**      * Sets the default connection factory to be used if a connection factory is not specified      * for either {@link #setTemplateConnectionFactory(ConnectionFactory)} or      * {@link #setListenerConnectionFactory(ConnectionFactory)}      *      * @param connectionFactory the default connection factory to use      */
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
 name|void
@@ -1237,6 +1278,86 @@ operator|.
 name|connectionFactory
 operator|=
 name|connectionFactory
+expr_stmt|;
+block|}
+DECL|method|getListenerConnectionFactory ()
+specifier|public
+name|ConnectionFactory
+name|getListenerConnectionFactory
+parameter_list|()
+block|{
+if|if
+condition|(
+name|listenerConnectionFactory
+operator|==
+literal|null
+condition|)
+block|{
+name|listenerConnectionFactory
+operator|=
+name|createListenerConnectionFactory
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|listenerConnectionFactory
+return|;
+block|}
+comment|/**      * Sets the connection factory to be used for consuming messages via the {@link #createMessageListenerContainer()}      *      * @param listenerConnectionFactory the connection factory to use for consuming messages      */
+DECL|method|setListenerConnectionFactory (ConnectionFactory listenerConnectionFactory)
+specifier|public
+name|void
+name|setListenerConnectionFactory
+parameter_list|(
+name|ConnectionFactory
+name|listenerConnectionFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|listenerConnectionFactory
+operator|=
+name|listenerConnectionFactory
+expr_stmt|;
+block|}
+DECL|method|getTemplateConnectionFactory ()
+specifier|public
+name|ConnectionFactory
+name|getTemplateConnectionFactory
+parameter_list|()
+block|{
+if|if
+condition|(
+name|templateConnectionFactory
+operator|==
+literal|null
+condition|)
+block|{
+name|templateConnectionFactory
+operator|=
+name|createTemplateConnectionFactory
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|templateConnectionFactory
+return|;
+block|}
+comment|/**      * Sets the connection factory to be used for sending messages via the {@link JmsTemplate} via      * {@link #createJmsOperations(boolean, String)}      *      * @param templateConnectionFactory the connection factory for sending messages      */
+DECL|method|setTemplateConnectionFactory (ConnectionFactory templateConnectionFactory)
+specifier|public
+name|void
+name|setTemplateConnectionFactory
+parameter_list|(
+name|ConnectionFactory
+name|templateConnectionFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|templateConnectionFactory
+operator|=
+name|templateConnectionFactory
 expr_stmt|;
 block|}
 DECL|method|isUseVersion102 ()
@@ -2052,6 +2173,64 @@ operator|=
 name|consumerType
 expr_stmt|;
 block|}
+DECL|method|getAcknowledgementMode ()
+specifier|public
+name|int
+name|getAcknowledgementMode
+parameter_list|()
+block|{
+return|return
+name|acknowledgementMode
+return|;
+block|}
+DECL|method|setAcknowledgementMode (int consumerAcknowledgementMode)
+specifier|public
+name|void
+name|setAcknowledgementMode
+parameter_list|(
+name|int
+name|consumerAcknowledgementMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|acknowledgementMode
+operator|=
+name|consumerAcknowledgementMode
+expr_stmt|;
+name|this
+operator|.
+name|acknowledgementModeName
+operator|=
+literal|null
+expr_stmt|;
+block|}
+DECL|method|isTransacted ()
+specifier|public
+name|boolean
+name|isTransacted
+parameter_list|()
+block|{
+return|return
+name|transacted
+return|;
+block|}
+DECL|method|setTransacted (boolean consumerTransacted)
+specifier|public
+name|void
+name|setTransacted
+parameter_list|(
+name|boolean
+name|consumerTransacted
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transacted
+operator|=
+name|consumerTransacted
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 DECL|method|chooseMessageListenerContainerImplementation ()
@@ -2123,63 +2302,49 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getAcknowledgementMode ()
-specifier|public
-name|int
-name|getAcknowledgementMode
+comment|/**      * Factory method which allows derived classes to customize the lazy creation      */
+DECL|method|createConnectionFactory ()
+specifier|protected
+name|ConnectionFactory
+name|createConnectionFactory
 parameter_list|()
 block|{
-return|return
-name|acknowledgementMode
-return|;
-block|}
-DECL|method|setAcknowledgementMode (int consumerAcknowledgementMode)
-specifier|public
-name|void
-name|setAcknowledgementMode
-parameter_list|(
-name|int
-name|consumerAcknowledgementMode
-parameter_list|)
-block|{
-name|this
+name|ObjectHelper
 operator|.
-name|acknowledgementMode
-operator|=
-name|consumerAcknowledgementMode
+name|notNull
+argument_list|(
+name|connectionFactory
+argument_list|,
+literal|"connectionFactory"
+argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|acknowledgementModeName
-operator|=
+return|return
 literal|null
-expr_stmt|;
+return|;
 block|}
-DECL|method|isTransacted ()
-specifier|public
-name|boolean
-name|isTransacted
+comment|/**      * Factory method which allows derived classes to customize the lazy creation      */
+DECL|method|createListenerConnectionFactory ()
+specifier|protected
+name|ConnectionFactory
+name|createListenerConnectionFactory
 parameter_list|()
 block|{
 return|return
-name|transacted
+name|getConnectionFactory
+argument_list|()
 return|;
 block|}
-DECL|method|setTransacted (boolean consumerTransacted)
-specifier|public
-name|void
-name|setTransacted
-parameter_list|(
-name|boolean
-name|consumerTransacted
-parameter_list|)
+comment|/**      * Factory method which allows derived classes to customize the lazy creation      */
+DECL|method|createTemplateConnectionFactory ()
+specifier|protected
+name|ConnectionFactory
+name|createTemplateConnectionFactory
+parameter_list|()
 block|{
-name|this
-operator|.
-name|transacted
-operator|=
-name|consumerTransacted
-expr_stmt|;
+return|return
+name|getConnectionFactory
+argument_list|()
+return|;
 block|}
 block|}
 end_class

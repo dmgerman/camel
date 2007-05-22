@@ -276,6 +276,16 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getTemplate ()
+specifier|public
+name|JmsOperations
+name|getTemplate
+parameter_list|()
+block|{
+return|return
+name|template
+return|;
+block|}
 block|}
 end_class
 
