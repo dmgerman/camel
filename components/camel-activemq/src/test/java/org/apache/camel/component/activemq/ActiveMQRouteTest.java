@@ -246,6 +246,7 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+comment|// START SNIPPET: example
 name|camelContext
 operator|.
 name|addComponent
@@ -258,6 +259,7 @@ literal|"vm://localhost?broker.persistent=false"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: example
 return|return
 name|camelContext
 return|;
