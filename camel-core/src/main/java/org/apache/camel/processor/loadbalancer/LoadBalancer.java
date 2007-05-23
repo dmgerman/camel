@@ -54,6 +54,16 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * A strategy for load balancing across a number of {@link Processor} instances  *  * @version $Revision: 1.1 $  */
 end_comment
@@ -83,6 +93,15 @@ parameter_list|(
 name|Processor
 name|processor
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the current processors available to this load balancer      *      * @return the processors available      */
+DECL|method|getProcessors ()
+name|List
+argument_list|<
+name|Processor
+argument_list|>
+name|getProcessors
+parameter_list|()
 function_decl|;
 block|}
 end_interface

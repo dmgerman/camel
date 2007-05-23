@@ -94,24 +94,14 @@ name|String
 name|name
 parameter_list|)
 block|{
-if|if
-condition|(
-name|headers
-operator|!=
-literal|null
-condition|)
-block|{
 return|return
-name|headers
+name|getHeaders
+argument_list|()
 operator|.
 name|get
 argument_list|(
 name|name
 argument_list|)
-return|;
-block|}
-return|return
-literal|null
 return|;
 block|}
 DECL|method|getHeader (String name, Class<T> type)
