@@ -121,11 +121,11 @@ comment|/**  * A useful base class for any consumer which is polling based  *  *
 end_comment
 
 begin_class
-DECL|class|PollingConsumer
+DECL|class|ScheduledPollConsumer
 specifier|public
 specifier|abstract
 class|class
-name|PollingConsumer
+name|ScheduledPollConsumer
 parameter_list|<
 name|E
 extends|extends
@@ -151,7 +151,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|PollingConsumer
+name|ScheduledPollConsumer
 operator|.
 name|class
 argument_list|)
@@ -198,9 +198,9 @@ name|?
 argument_list|>
 name|future
 decl_stmt|;
-DECL|method|PollingConsumer (DefaultEndpoint<E> endpoint, Processor processor)
+DECL|method|ScheduledPollConsumer (DefaultEndpoint<E> endpoint, Processor processor)
 specifier|public
-name|PollingConsumer
+name|ScheduledPollConsumer
 parameter_list|(
 name|DefaultEndpoint
 argument_list|<
@@ -225,9 +225,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|PollingConsumer (Endpoint<E> endpoint, Processor processor, ScheduledExecutorService executor)
+DECL|method|ScheduledPollConsumer (Endpoint<E> endpoint, Processor processor, ScheduledExecutorService executor)
 specifier|public
-name|PollingConsumer
+name|ScheduledPollConsumer
 parameter_list|(
 name|Endpoint
 argument_list|<

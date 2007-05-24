@@ -72,7 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|PullConsumer
+name|PollingConsumer
 import|;
 end_import
 
@@ -405,20 +405,20 @@ operator|=
 name|executorService
 expr_stmt|;
 block|}
-DECL|method|createPullConsumer ()
+DECL|method|createPollingConsumer ()
 specifier|public
-name|PullConsumer
+name|PollingConsumer
 argument_list|<
 name|E
 argument_list|>
-name|createPullConsumer
+name|createPollingConsumer
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 return|return
 operator|new
-name|DefaultPullConsumer
+name|DefaultPollingConsumer
 argument_list|<
 name|E
 argument_list|>

@@ -40,7 +40,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|PollingConsumer
+name|ScheduledPollConsumer
 import|;
 end_import
 
@@ -124,7 +124,7 @@ specifier|public
 class|class
 name|FileConsumer
 extends|extends
-name|PollingConsumer
+name|ScheduledPollConsumer
 argument_list|<
 name|FileExchange
 argument_list|>

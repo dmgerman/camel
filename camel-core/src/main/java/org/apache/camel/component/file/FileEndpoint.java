@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|PollingEndpoint
+name|ScheduledPollEndpoint
 import|;
 end_import
 
@@ -88,7 +88,7 @@ specifier|public
 class|class
 name|FileEndpoint
 extends|extends
-name|PollingEndpoint
+name|ScheduledPollEndpoint
 argument_list|<
 name|FileExchange
 argument_list|>

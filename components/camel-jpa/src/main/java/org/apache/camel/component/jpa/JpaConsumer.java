@@ -42,18 +42,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ScheduledExecutorService
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|persistence
@@ -126,7 +114,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|PollingConsumer
+name|ScheduledPollConsumer
 import|;
 end_import
 
@@ -196,7 +184,7 @@ specifier|public
 class|class
 name|JpaConsumer
 extends|extends
-name|PollingConsumer
+name|ScheduledPollConsumer
 argument_list|<
 name|Exchange
 argument_list|>

@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -60,19 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|PullConsumer
+name|PollingConsumer
 import|;
 end_import
 
@@ -378,13 +354,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createPullConsumer ()
+DECL|method|createPollingConsumer ()
 specifier|public
-name|PullConsumer
+name|PollingConsumer
 argument_list|<
 name|JmsExchange
 argument_list|>
-name|createPullConsumer
+name|createPollingConsumer
 parameter_list|()
 throws|throws
 name|Exception
@@ -397,7 +373,7 @@ argument_list|()
 decl_stmt|;
 return|return
 operator|new
-name|JmsPullConsumer
+name|JmsPollingConsumer
 argument_list|(
 name|this
 argument_list|,

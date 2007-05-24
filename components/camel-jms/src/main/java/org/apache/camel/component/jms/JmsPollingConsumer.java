@@ -28,7 +28,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|PullConsumerSupport
+name|PollingConsumerSupport
 import|;
 end_import
 
@@ -89,12 +89,12 @@ comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|JmsPullConsumer
+DECL|class|JmsPollingConsumer
 specifier|public
 class|class
-name|JmsPullConsumer
+name|JmsPollingConsumer
 extends|extends
-name|PullConsumerSupport
+name|PollingConsumerSupport
 argument_list|<
 name|JmsExchange
 argument_list|>
@@ -104,9 +104,9 @@ specifier|private
 name|JmsOperations
 name|template
 decl_stmt|;
-DECL|method|JmsPullConsumer (JmsEndpoint endpoint, JmsOperations template)
+DECL|method|JmsPollingConsumer (JmsEndpoint endpoint, JmsOperations template)
 specifier|public
-name|JmsPullConsumer
+name|JmsPollingConsumer
 parameter_list|(
 name|JmsEndpoint
 name|endpoint

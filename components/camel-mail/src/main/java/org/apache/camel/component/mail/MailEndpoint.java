@@ -64,21 +64,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|PollingEndpoint
+name|ScheduledPollEndpoint
 import|;
 end_import
 
@@ -126,7 +112,7 @@ specifier|public
 class|class
 name|MailEndpoint
 extends|extends
-name|PollingEndpoint
+name|ScheduledPollEndpoint
 argument_list|<
 name|MailExchange
 argument_list|>

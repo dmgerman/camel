@@ -72,7 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|PullConsumer
+name|PollingConsumer
 import|;
 end_import
 
@@ -169,21 +169,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of the {@link PullConsumer} which uses the normal asynchronous consumer mechanism  * along with a {@link BlockingQueue} to allow the caller to pull messages on demand.  *   * @version $Revision: 1.1 $  */
+comment|/**  * A default implementation of the {@link PollingConsumer} which uses the normal asynchronous consumer mechanism  * along with a {@link BlockingQueue} to allow the caller to pull messages on demand.  *   * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|DefaultPullConsumer
+DECL|class|DefaultPollingConsumer
 specifier|public
 class|class
-name|DefaultPullConsumer
+name|DefaultPollingConsumer
 parameter_list|<
 name|E
 extends|extends
 name|Exchange
 parameter_list|>
 extends|extends
-name|PullConsumerSupport
+name|PollingConsumerSupport
 argument_list|<
 name|E
 argument_list|>
@@ -202,7 +202,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|DefaultPullConsumer
+name|DefaultPollingConsumer
 operator|.
 name|class
 argument_list|)
@@ -238,9 +238,9 @@ name|E
 argument_list|>
 name|consumer
 decl_stmt|;
-DECL|method|DefaultPullConsumer (Endpoint<E> endpoint)
+DECL|method|DefaultPollingConsumer (Endpoint<E> endpoint)
 specifier|public
-name|DefaultPullConsumer
+name|DefaultPollingConsumer
 parameter_list|(
 name|Endpoint
 argument_list|<
@@ -264,9 +264,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DefaultPullConsumer (Endpoint<E> endpoint, BlockingQueue<E> queue)
+DECL|method|DefaultPollingConsumer (Endpoint<E> endpoint, BlockingQueue<E> queue)
 specifier|public
-name|DefaultPullConsumer
+name|DefaultPollingConsumer
 parameter_list|(
 name|Endpoint
 argument_list|<

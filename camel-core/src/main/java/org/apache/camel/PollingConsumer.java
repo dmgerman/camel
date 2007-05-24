@@ -15,14 +15,14 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a<a href="http://activemq.apache.org/camel/polling-consumer.html">Polling Consumer</a> where the caller  * pulls messages when it is ready.  *   * @version $Revision: 1.1 $  */
+comment|/**  * Represents a<a href="http://activemq.apache.org/camel/polling-consumer.html">Polling Consumer</a> where the caller  * polls for messages when it is ready.  *   * @version $Revision: 1.1 $  */
 end_comment
 
 begin_interface
-DECL|interface|PullConsumer
+DECL|interface|PollingConsumer
 specifier|public
 interface|interface
-name|PullConsumer
+name|PollingConsumer
 parameter_list|<
 name|E
 extends|extends
@@ -34,17 +34,19 @@ argument_list|<
 name|E
 argument_list|>
 block|{
-comment|/**      * Attempts to receive a message exchange immediately without waiting      * or returning null if a message exchange is not available yet.      *      * @return      */
-DECL|method|receiveNoWait ()
-name|E
-name|receiveNoWait
-parameter_list|()
-function_decl|;
+comment|/**      * Waits until a message is available and then returns it. Warning that this method      * could block indefinitely if no messages are available.      *      * @return the message exchange received.      */
 DECL|method|receive ()
 name|E
 name|receive
 parameter_list|()
 function_decl|;
+comment|/**      * Attempts to receive a message exchange immediately without waiting      * and returning null if a message exchange is not available yet.      *      * @return the message exchange if one is immediately available otherwise null      */
+DECL|method|receiveNoWait ()
+name|E
+name|receiveNoWait
+parameter_list|()
+function_decl|;
+comment|/**      * Attempts to receive a message exchange, waiting up to the given timeout to expire      * if a message is not yet available      *      * @param timeout the amount of time in milliseconds to wait for a message before timing out and      * returning null      *      * @return the message exchange if one iwas available within the timeout period, or null if the timeout expired      */
 DECL|method|receive (long timeout)
 name|E
 name|receive

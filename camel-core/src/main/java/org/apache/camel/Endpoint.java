@@ -96,13 +96,13 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Creates a new<a href="http://activemq.apache.org/camel/polling-consumer.html">Pull Consumer</a>      * so that the caller can pull message exchanges from the consumer      * when it wishes (rather than using the event driven consumer returned by {@link #createConsumer(Processor)}      *      * @return a newly created pull consumer      * @throws Exception if the pull consumer could not be created      */
-DECL|method|createPullConsumer ()
-name|PullConsumer
+comment|/**      * Creates a new<a href="http://activemq.apache.org/camel/polling-consumer.html">Polling Consumer</a>      * so that the caller can poll message exchanges from the consumer      * when it wishes (rather than using the event driven consumer returned by {@link #createConsumer(Processor)}      *      * @return a newly created pull consumer      * @throws Exception if the pull consumer could not be created      */
+DECL|method|createPollingConsumer ()
+name|PollingConsumer
 argument_list|<
 name|E
 argument_list|>
-name|createPullConsumer
+name|createPollingConsumer
 parameter_list|()
 throws|throws
 name|Exception
