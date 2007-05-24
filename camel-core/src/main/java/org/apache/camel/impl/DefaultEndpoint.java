@@ -72,19 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Service
+name|PullConsumer
 import|;
 end_import
 
@@ -110,7 +98,7 @@ name|lang
 operator|.
 name|reflect
 operator|.
-name|TypeVariable
+name|ParameterizedType
 import|;
 end_import
 
@@ -123,18 +111,6 @@ operator|.
 name|reflect
 operator|.
 name|Type
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|ParameterizedType
 import|;
 end_import
 
@@ -428,6 +404,28 @@ name|executorService
 operator|=
 name|executorService
 expr_stmt|;
+block|}
+DECL|method|createPullConsumer ()
+specifier|public
+name|PullConsumer
+argument_list|<
+name|E
+argument_list|>
+name|createPullConsumer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|DefaultPullConsumer
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|this
+argument_list|)
+return|;
 block|}
 comment|/**      * Converts the given exchange to the specified exchange type      */
 DECL|method|convertTo (Class<E> type, Exchange exchange)

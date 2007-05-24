@@ -82,7 +82,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Creates a new consumer which consumes messages from the endpoint using the given processor      *      * @return a newly created consumer      */
+comment|/**      * Creates a new<a href="http://activemq.apache.org/camel/event-driven-consumer.html">event based consumer</>      * which consumes messages from the endpoint using the given processor      *      * @return a newly created consumer      */
 DECL|method|createConsumer (Processor processor)
 name|Consumer
 argument_list|<
@@ -93,6 +93,17 @@ parameter_list|(
 name|Processor
 name|processor
 parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Creates a new<a href="http://activemq.apache.org/camel/polling-consumer.html">Pull Consumer</a>      * so that the caller can pull message exchanges from the consumer      * when it wishes (rather than using the event driven consumer returned by {@link #createConsumer(Processor)}      *      * @return a newly created pull consumer      * @throws Exception if the pull consumer could not be created      */
+DECL|method|createPullConsumer ()
+name|PullConsumer
+argument_list|<
+name|E
+argument_list|>
+name|createPullConsumer
+parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
