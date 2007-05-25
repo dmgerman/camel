@@ -228,6 +228,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: example
 name|from
 argument_list|(
 literal|"direct:a"
@@ -244,6 +245,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: example
 block|}
 block|}
 return|;
