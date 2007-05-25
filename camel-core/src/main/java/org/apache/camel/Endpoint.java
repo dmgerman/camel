@@ -82,7 +82,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Creates a new<a href="http://activemq.apache.org/camel/event-driven-consumer.html">Event Based Consumer</a>      * which consumes messages from the endpoint using the given processor      *      * @return a newly created consumer      */
+comment|/**      * Creates a new<a href="http://activemq.apache.org/camel/event-driven-consumer.html">Event Driven Consumer</a>      * which consumes messages from the endpoint using the given processor      *      * @return a newly created consumer      */
 DECL|method|createConsumer (Processor processor)
 name|Consumer
 argument_list|<

@@ -20,7 +20,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -35,12 +55,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/routes.html">Route</a>  * defines the processing used on an inbound message exchange  * from a specific {@see Endpoint} within a {@link CamelContext}  *   * @version $Revision$  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/routes.html">Route</a>  * defines the processing used on an inbound message exchange  * from a specific {@see Endpoint} within a {@link CamelContext}  *  * @version $Revision$  */
 end_comment
 
 begin_class
 DECL|class|Route
 specifier|public
+specifier|abstract
 class|class
 name|Route
 parameter_list|<
@@ -79,12 +100,22 @@ name|E
 argument_list|>
 name|endpoint
 decl_stmt|;
-DECL|field|processor
+DECL|field|services
 specifier|private
-name|Processor
-name|processor
+name|List
+argument_list|<
+name|Service
+argument_list|>
+name|services
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Service
+argument_list|>
+argument_list|()
 decl_stmt|;
-DECL|method|Route (Endpoint<E> endpoint, Processor processor)
+DECL|method|Route (Endpoint<E> endpoint)
 specifier|public
 name|Route
 parameter_list|(
@@ -93,9 +124,6 @@ argument_list|<
 name|E
 argument_list|>
 name|endpoint
-parameter_list|,
-name|Processor
-name|processor
 parameter_list|)
 block|{
 name|this
@@ -104,32 +132,6 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
-name|this
-operator|.
-name|processor
-operator|=
-name|processor
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"Route["
-operator|+
-name|endpoint
-operator|+
-literal|" -> "
-operator|+
-name|processor
-operator|+
-literal|"]"
-return|;
 block|}
 DECL|method|getEndpoint ()
 specifier|public
@@ -163,33 +165,7 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
-DECL|method|getProcessor ()
-specifier|public
-name|Processor
-name|getProcessor
-parameter_list|()
-block|{
-return|return
-name|processor
-return|;
-block|}
-DECL|method|setProcessor (Processor processor)
-specifier|public
-name|void
-name|setProcessor
-parameter_list|(
-name|Processor
-name|processor
-parameter_list|)
-block|{
-name|this
-operator|.
-name|processor
-operator|=
-name|processor
-expr_stmt|;
-block|}
-comment|/** 	 * This property map is used to associate information about 	 * the route. 	 *  	 * @return 	 */
+comment|/**      * This property map is used to associate information about      * the route.      *      * @return      */
 DECL|method|getProperties ()
 specifier|public
 name|Map
@@ -205,6 +181,93 @@ return|return
 name|properties
 return|;
 block|}
+DECL|method|getServicesForRoute ()
+specifier|public
+name|List
+argument_list|<
+name|Service
+argument_list|>
+name|getServicesForRoute
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|List
+argument_list|<
+name|Service
+argument_list|>
+name|servicesForRoute
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Service
+argument_list|>
+argument_list|(
+name|getServices
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|addServices
+argument_list|(
+name|servicesForRoute
+argument_list|)
+expr_stmt|;
+return|return
+name|servicesForRoute
+return|;
+block|}
+comment|/**      * Returns the additional services required for this particular route      */
+DECL|method|getServices ()
+specifier|public
+name|List
+argument_list|<
+name|Service
+argument_list|>
+name|getServices
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|services
+return|;
+block|}
+DECL|method|setServices (List<Service> services)
+specifier|public
+name|void
+name|setServices
+parameter_list|(
+name|List
+argument_list|<
+name|Service
+argument_list|>
+name|services
+parameter_list|)
+block|{
+name|this
+operator|.
+name|services
+operator|=
+name|services
+expr_stmt|;
+block|}
+comment|/**      * Strategy method to allow derived classes to lazily load services for the route      */
+DECL|method|addServices (List<Service> services)
+specifier|protected
+specifier|abstract
+name|void
+name|addServices
+parameter_list|(
+name|List
+argument_list|<
+name|Service
+argument_list|>
+name|services
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_class
 

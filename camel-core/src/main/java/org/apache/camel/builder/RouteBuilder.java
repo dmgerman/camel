@@ -305,9 +305,7 @@ argument_list|,
 name|endpoint
 argument_list|)
 decl_stmt|;
-name|fromBuilders
-operator|.
-name|add
+name|addFromBuilder
 argument_list|(
 name|answer
 argument_list|)
@@ -432,6 +430,23 @@ return|;
 block|}
 comment|// Implementation methods
 comment|//-----------------------------------------------------------------------
+DECL|method|addFromBuilder (FromBuilder answer)
+specifier|public
+name|void
+name|addFromBuilder
+parameter_list|(
+name|FromBuilder
+name|answer
+parameter_list|)
+block|{
+name|fromBuilders
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|checkInitialized ()
 specifier|protected
 name|void
@@ -484,77 +499,22 @@ range|:
 name|fromBuilders
 control|)
 block|{
-name|Endpoint
-name|from
+name|Route
+name|route
 init|=
 name|builder
 operator|.
-name|getFrom
+name|createRoute
 argument_list|()
 decl_stmt|;
-name|Processor
-name|processor
-init|=
-name|makeProcessor
-argument_list|(
-name|from
-argument_list|,
-name|builder
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|processor
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"No processor created for DestinationBuilder: "
-operator|+
-name|builder
-argument_list|)
-throw|;
-block|}
 name|routes
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Route
-argument_list|(
-name|from
-argument_list|,
-name|processor
-argument_list|)
+name|route
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|/**      * Factory method to create the underlying {@link Processor} for the given builder applying any      * necessary interceptors.      *      * @param from    the endpoint which starts the route      * @param builder the builder which is the factory of the processor      * @return      */
-DECL|method|makeProcessor (Endpoint from, FromBuilder builder)
-specifier|protected
-name|Processor
-name|makeProcessor
-parameter_list|(
-name|Endpoint
-name|from
-parameter_list|,
-name|FromBuilder
-name|builder
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-name|builder
-operator|.
-name|createProcessor
-argument_list|()
-return|;
 block|}
 comment|/**      * Factory method      */
 DECL|method|createContainer ()

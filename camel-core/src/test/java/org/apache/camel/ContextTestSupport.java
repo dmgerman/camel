@@ -22,35 +22,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultCamelContext
 import|;
 end_import
 
@@ -208,7 +196,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends a message to the given endpoint URI with the body value      *      * @param endpointUri the URI of the endpoint to send to      * @param body the body for the message      */
+comment|/**      * Sends a message to the given endpoint URI with the body value      *      * @param endpointUri the URI of the endpoint to send to      * @param body        the body for the message      */
 DECL|method|sendBody (String endpointUri, final Object body)
 specifier|protected
 name|void
@@ -269,6 +257,37 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Sends messages to the given endpoint for each of the specified bodies      *      * @param endpointUri the endpoint URI to send to      * @param bodies      the bodies to send, one per message      */
+DECL|method|sendBodies (String endpointUri, Object... bodies)
+specifier|protected
+name|void
+name|sendBodies
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+modifier|...
+name|bodies
+parameter_list|)
+block|{
+for|for
+control|(
+name|Object
+name|body
+range|:
+name|bodies
+control|)
+block|{
+name|sendBody
+argument_list|(
+name|endpointUri
+argument_list|,
+name|body
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Creates an exchange with the given body      */
 DECL|method|createExchangeWithBody (Object body)
