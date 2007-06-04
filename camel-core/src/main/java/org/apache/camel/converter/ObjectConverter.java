@@ -203,13 +203,52 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Converts the given value to a boolean, handling strings or Boolean objects; otherwise returning true if non-null      */
+comment|/**      * Converts the given value to a boolean, handling strings or Boolean objects;      * otherwise returning false if the value could not be converted to a boolean      */
+annotation|@
+name|Converter
+DECL|method|toBool (Object value)
+specifier|public
+specifier|static
+name|boolean
+name|toBool
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+name|Boolean
+name|answer
+init|=
+name|toBoolean
+argument_list|(
+name|value
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|answer
+operator|.
+name|booleanValue
+argument_list|()
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Converts the given value to a Boolean, handling strings or Boolean objects;      * otherwise returning null if the value cannot be converted to a boolean      */
 annotation|@
 name|Converter
 DECL|method|toBoolean (Object value)
 specifier|public
 specifier|static
-name|boolean
+name|Boolean
 name|toBoolean
 parameter_list|(
 name|Object
@@ -247,10 +286,18 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
+condition|?
+name|Boolean
+operator|.
+name|TRUE
+else|:
+name|Boolean
+operator|.
+name|FALSE
 return|;
 block|}
 return|return
-literal|false
+literal|null
 return|;
 block|}
 block|}

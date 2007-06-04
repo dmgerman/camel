@@ -585,7 +585,9 @@ block|{
 name|Class
 name|fromType
 init|=
-literal|null
+name|Object
+operator|.
+name|class
 decl_stmt|;
 if|if
 condition|(

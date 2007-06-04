@@ -818,6 +818,34 @@ name|resultList
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testPrimitiveBooleanConversion ()
+specifier|public
+name|void
+name|testPrimitiveBooleanConversion
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|boolean
+name|value
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|boolean
+operator|.
+name|class
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
+name|assertFalse
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
