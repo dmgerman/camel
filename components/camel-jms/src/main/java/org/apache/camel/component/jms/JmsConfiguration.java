@@ -827,6 +827,13 @@ name|clientId
 argument_list|)
 expr_stmt|;
 block|}
+name|container
+operator|.
+name|setSubscriptionDurable
+argument_list|(
+name|subscriptionDurable
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|durableSubscriptionName
@@ -839,6 +846,27 @@ operator|.
 name|setDurableSubscriptionName
 argument_list|(
 name|durableSubscriptionName
+argument_list|)
+expr_stmt|;
+block|}
+comment|// lets default to durable subscription if the subscriber name and client ID are specified (as there's
+comment|// no reason to specify them if not! :)
+if|if
+condition|(
+name|durableSubscriptionName
+operator|!=
+literal|null
+operator|&&
+name|clientId
+operator|!=
+literal|null
+condition|)
+block|{
+name|container
+operator|.
+name|setSubscriptionDurable
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -909,13 +937,6 @@ name|acknowledgementModeName
 argument_list|)
 expr_stmt|;
 block|}
-name|container
-operator|.
-name|setSubscriptionDurable
-argument_list|(
-name|subscriptionDurable
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|container
