@@ -296,6 +296,24 @@ name|CLIENT_ACKNOWLEDGE
 init|=
 literal|"CLIENT_ACKNOWLEDGE"
 decl_stmt|;
+DECL|field|AUTO_ACKNOWLEDGE
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|AUTO_ACKNOWLEDGE
+init|=
+literal|"AUTO_ACKNOWLEDGE"
+decl_stmt|;
+DECL|field|DUPS_OK_ACKNOWLEDGE
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|DUPS_OK_ACKNOWLEDGE
+init|=
+literal|"DUPS_OK_ACKNOWLEDGE"
+decl_stmt|;
 DECL|field|connectionFactory
 specifier|private
 name|ConnectionFactory
@@ -323,6 +341,8 @@ DECL|field|acknowledgementModeName
 specifier|private
 name|String
 name|acknowledgementModeName
+init|=
+name|AUTO_ACKNOWLEDGE
 decl_stmt|;
 comment|// Used to configure the spring Container
 DECL|field|exceptionListener
@@ -343,6 +363,8 @@ DECL|field|autoStartup
 specifier|private
 name|boolean
 name|autoStartup
+init|=
+literal|true
 decl_stmt|;
 DECL|field|acceptMessagesWhileStopping
 specifier|private
@@ -368,6 +390,8 @@ DECL|field|exposeListenerSession
 specifier|private
 name|boolean
 name|exposeListenerSession
+init|=
+literal|true
 decl_stmt|;
 DECL|field|taskExecutor
 specifier|private
@@ -384,7 +408,6 @@ specifier|private
 name|int
 name|concurrentConsumers
 init|=
-operator|-
 literal|1
 decl_stmt|;
 DECL|field|maxMessagesPerTask
@@ -392,7 +415,6 @@ specifier|private
 name|int
 name|maxMessagesPerTask
 init|=
-operator|-
 literal|1
 decl_stmt|;
 DECL|field|serverSessionFactory
@@ -412,6 +434,8 @@ DECL|field|cacheLevelName
 specifier|private
 name|String
 name|cacheLevelName
+init|=
+literal|"CACHE_CONSUMER"
 decl_stmt|;
 DECL|field|recoveryInterval
 specifier|private
@@ -434,7 +458,6 @@ specifier|private
 name|int
 name|idleTaskExecutionLimit
 init|=
-operator|-
 literal|1
 decl_stmt|;
 DECL|field|maxConcurrentConsumers
@@ -442,7 +465,6 @@ specifier|private
 name|int
 name|maxConcurrentConsumers
 init|=
-operator|-
 literal|1
 decl_stmt|;
 comment|// JmsTemplate only
@@ -450,11 +472,15 @@ DECL|field|useVersion102
 specifier|private
 name|boolean
 name|useVersion102
+init|=
+literal|false
 decl_stmt|;
 DECL|field|explicitQosEnabled
 specifier|private
 name|boolean
 name|explicitQosEnabled
+init|=
+literal|false
 decl_stmt|;
 DECL|field|deliveryPersistent
 specifier|private
@@ -487,6 +513,8 @@ DECL|field|messageTimestampEnabled
 specifier|private
 name|boolean
 name|messageTimestampEnabled
+init|=
+literal|true
 decl_stmt|;
 DECL|field|priority
 specifier|private
