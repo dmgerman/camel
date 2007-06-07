@@ -112,11 +112,17 @@ name|ResequencerBuilder
 extends|extends
 name|FromBuilder
 block|{
-DECL|field|expression
+DECL|field|expressions
 specifier|private
 specifier|final
+name|List
+argument_list|<
 name|Expression
-name|expression
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|>
+name|expressions
 decl_stmt|;
 DECL|field|batchTimeout
 specifier|private
@@ -132,15 +138,21 @@ name|batchSize
 init|=
 literal|100
 decl_stmt|;
-DECL|method|ResequencerBuilder (FromBuilder builder, Expression expression)
+DECL|method|ResequencerBuilder (FromBuilder builder, List<Expression<Exchange>> expressions)
 specifier|public
 name|ResequencerBuilder
 parameter_list|(
 name|FromBuilder
 name|builder
 parameter_list|,
+name|List
+argument_list|<
 name|Expression
-name|expression
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|>
+name|expressions
 parameter_list|)
 block|{
 name|super
@@ -150,9 +162,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|expression
+name|expressions
 operator|=
-name|expression
+name|expressions
 expr_stmt|;
 block|}
 annotation|@
@@ -186,7 +198,7 @@ argument_list|()
 argument_list|,
 name|processor
 argument_list|,
-name|expression
+name|expressions
 argument_list|)
 decl_stmt|;
 return|return
