@@ -557,6 +557,55 @@ return|return
 name|endpoint
 return|;
 block|}
+comment|/**      * Resolves an endpoint and asserts that it is found      */
+DECL|method|resolveMandatoryEndpoint (CamelContext context, String uri, Class<T> endpointType)
+specifier|protected
+parameter_list|<
+name|T
+extends|extends
+name|Endpoint
+parameter_list|>
+name|T
+name|resolveMandatoryEndpoint
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|String
+name|uri
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|endpointType
+parameter_list|)
+block|{
+name|T
+name|endpoint
+init|=
+name|context
+operator|.
+name|getEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|endpointType
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"No endpoint found for URI: "
+operator|+
+name|uri
+argument_list|,
+name|endpoint
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
+return|;
+block|}
 comment|/**      * Creates an exchange with the given body      */
 DECL|method|createExchangeWithBody (CamelContext camelContext, Object body)
 specifier|protected

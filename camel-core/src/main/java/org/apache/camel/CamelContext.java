@@ -102,7 +102,7 @@ name|Service
 block|{
 comment|// Component Management Methods
 comment|//-----------------------------------------------------------------------
-comment|/**      * Adds a component to the container.      */
+comment|/**      * Adds a component to the context.      */
 DECL|method|addComponent (String componentName, Component component)
 name|void
 name|addComponent
@@ -114,13 +114,33 @@ name|Component
 name|component
 parameter_list|)
 function_decl|;
-comment|/**      * Gets a component from the container by name.      */
+comment|/**      * Gets a component from the context by name.      */
 DECL|method|getComponent (String componentName)
 name|Component
 name|getComponent
 parameter_list|(
 name|String
 name|componentName
+parameter_list|)
+function_decl|;
+comment|/**      * Gets a component from the context by name and specifying the expected type of component.      */
+DECL|method|getComponent (String name, Class<T> componentType)
+parameter_list|<
+name|T
+extends|extends
+name|Component
+parameter_list|>
+name|T
+name|getComponent
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|componentType
 parameter_list|)
 function_decl|;
 comment|/**      * Removes a previously added component.      *      * @param componentName      * @return the previously added component or null if it had not been previously added.      */
@@ -132,7 +152,7 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.      *      * @param componentName      * @param factory       used to create a new component instance if the component was not previously added.      * @return      */
+comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.      *      * @param componentName the name of the component      * @param factory       used to create a new component instance if the component was not previously added.      * @return      */
 DECL|method|getOrCreateComponent (String componentName, Callable<Component> factory)
 name|Component
 name|getOrCreateComponent
@@ -156,6 +176,26 @@ name|getEndpoint
 parameter_list|(
 name|String
 name|uri
+parameter_list|)
+function_decl|;
+comment|/**      * Resolves the given URI to an {@see Endpoint} of the specified type.      * If the URI has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@see Endpoint} is created and if the endpoint is a      * singleton it is registered as a singleton endpoint.      */
+DECL|method|getEndpoint (String name, Class<T> endpointType)
+parameter_list|<
+name|T
+extends|extends
+name|Endpoint
+parameter_list|>
+name|T
+name|getEndpoint
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|endpointType
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the collection of all registered singleton endpoints.      */
