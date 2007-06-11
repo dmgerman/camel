@@ -42,7 +42,7 @@ name|bam
 operator|.
 name|model
 operator|.
-name|ProcessInstance
+name|ActivityState
 import|;
 end_import
 
@@ -58,23 +58,7 @@ name|bam
 operator|.
 name|model
 operator|.
-name|ActivityState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|bam
-operator|.
-name|rules
-operator|.
-name|ProcessRules
+name|ProcessInstance
 import|;
 end_import
 
@@ -91,6 +75,22 @@ operator|.
 name|rules
 operator|.
 name|ActivityRules
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|bam
+operator|.
+name|rules
+operator|.
+name|ProcessRules
 import|;
 end_import
 

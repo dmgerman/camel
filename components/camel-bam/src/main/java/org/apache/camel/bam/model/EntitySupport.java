@@ -24,7 +24,17 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|*
+name|GeneratedValue
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|Id
 import|;
 end_import
 

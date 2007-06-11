@@ -28,9 +28,9 @@ name|camel
 operator|.
 name|bam
 operator|.
-name|rules
+name|processor
 operator|.
-name|ActivityRules
+name|ProcessContext
 import|;
 end_import
 
@@ -44,9 +44,9 @@ name|camel
 operator|.
 name|bam
 operator|.
-name|processor
+name|rules
 operator|.
-name|ProcessContext
+name|ActivityRules
 import|;
 end_import
 

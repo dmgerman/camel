@@ -24,6 +24,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|bam
+operator|.
+name|rules
+operator|.
+name|ActivityRules
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -43,22 +59,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|bam
-operator|.
-name|rules
-operator|.
-name|ActivityRules
 import|;
 end_import
 
@@ -98,17 +98,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|OneToMany
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|persistence
-operator|.
-name|ManyToOne
+name|GeneratedValue
 import|;
 end_import
 
@@ -128,17 +118,17 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|GeneratedValue
+name|ManyToOne
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|javax
 operator|.
-name|util
+name|persistence
 operator|.
-name|HashSet
+name|OneToMany
 import|;
 end_import
 
@@ -159,6 +149,16 @@ operator|.
 name|util
 operator|.
 name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
 import|;
 end_import
 

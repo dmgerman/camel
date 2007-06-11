@@ -58,7 +58,7 @@ name|bam
 operator|.
 name|model
 operator|.
-name|ProcessInstance
+name|ProcessDefinition
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|bam
 operator|.
 name|model
 operator|.
-name|ProcessDefinition
+name|ProcessInstance
 import|;
 end_import
 

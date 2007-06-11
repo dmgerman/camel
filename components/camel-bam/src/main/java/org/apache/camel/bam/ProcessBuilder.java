@@ -60,36 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|EventDrivenConsumerRoute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|bam
-operator|.
-name|model
-operator|.
-name|ProcessInstance
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|bam
 operator|.
 name|model
@@ -124,9 +94,9 @@ name|camel
 operator|.
 name|bam
 operator|.
-name|processor
+name|model
 operator|.
-name|JpaBamProcessor
+name|ProcessInstance
 import|;
 end_import
 
@@ -143,6 +113,22 @@ operator|.
 name|processor
 operator|.
 name|ActivityMonitorEngine
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|bam
+operator|.
+name|processor
+operator|.
+name|JpaBamProcessor
 import|;
 end_import
 
@@ -173,20 +159,6 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|LifecycleProcessor
 import|;
 end_import
 
@@ -228,9 +200,7 @@ name|springframework
 operator|.
 name|transaction
 operator|.
-name|support
-operator|.
-name|TransactionTemplate
+name|TransactionStatus
 import|;
 end_import
 
@@ -256,7 +226,9 @@ name|springframework
 operator|.
 name|transaction
 operator|.
-name|TransactionStatus
+name|support
+operator|.
+name|TransactionTemplate
 import|;
 end_import
 
@@ -714,7 +686,6 @@ range|:
 name|activityBuilders
 control|)
 block|{
-comment|/*             Endpoint from = builder.getEndpoint();             Processor processor = builder.createProcessor();             if (processor == null) {                 throw new IllegalArgumentException("No processor created for ActivityBuilder: " + builder);             }              // lets add extra services to the first processor lifecycle             // TODO this is a little bit of a hack; we might want to add an ability to add dependent services to routes etc             if (first) {                 processor = new LifecycleProcessor(processor, new ActivityMonitorEngine(getJpaTemplate(), getTransactionTemplate(), getProcessRules()));                 first = false;             } */
 name|Route
 name|route
 init|=

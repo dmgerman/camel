@@ -42,22 +42,6 @@ name|Exchange
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|bam
-operator|.
-name|processor
-operator|.
-name|BamProcessorSupport
-import|;
-end_import
-
 begin_comment
 comment|/**  * An exception thrown if no correlation key could be found for a message  * exchange preventing any particular orchestration or  *<a href="http://activemq.apache.org/camel/bam.html">BAM</a>  *  * @version $Revision: $  */
 end_comment

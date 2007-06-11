@@ -60,7 +60,7 @@ name|bam
 operator|.
 name|rules
 operator|.
-name|TemporalRule
+name|ActivityRules
 import|;
 end_import
 
@@ -76,7 +76,7 @@ name|bam
 operator|.
 name|rules
 operator|.
-name|ActivityRules
+name|TemporalRule
 import|;
 end_import
 
