@@ -188,6 +188,10 @@ argument_list|)
 decl_stmt|;
 name|assertNull
 argument_list|(
+literal|"Header should be null but is: "
+operator|+
+name|isDebugString
+argument_list|,
 name|isDebugString
 argument_list|)
 expr_stmt|;
