@@ -870,7 +870,7 @@ name|i
 index|]
 argument_list|)
 operator|+
-literal|".xml \">"
+literal|".xml\">"
 argument_list|)
 expr_stmt|;
 block|}
