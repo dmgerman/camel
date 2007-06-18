@@ -439,6 +439,12 @@ block|{
 comment|// TODO
 comment|// if we could avoid the mega-cut-n-paste it would really really help!
 comment|// ideally all I wanna do is auto-default 2 values!
+comment|/** 	 * The maven project. 	 * 	 * @parameter expression="${project}" 	 * @required 	 * @readonly 	 */
+DECL|field|project
+specifier|protected
+name|MavenProject
+name|project
+decl_stmt|;
 comment|/**      * @component      */
 DECL|field|artifactResolver
 specifier|private
