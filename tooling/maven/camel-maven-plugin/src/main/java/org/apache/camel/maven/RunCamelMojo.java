@@ -425,7 +425,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Runs a CamelContext using any Spring XML configuration files found in<code>META-INF/spring/*.xml</code>  * and starting up the context.  *  *  * @goal run  * @requiresDependencyResolution runtime  * @execute phase="validate"  */
+comment|/**  * Runs a CamelContext using any Spring XML configuration files found in<code>META-INF/spring/*.xml</code>  * and starting up the context.  *  *  * @goal run  * @requiresDependencyResolution runtime  * @execute phase="test-compile"  */
 end_comment
 
 begin_class
@@ -437,8 +437,11 @@ extends|extends
 name|AbstractExecMojo
 block|{
 comment|// TODO
-comment|// if we could avoid the mega-cut-n-paste it would really really help!
+comment|// this code is based on a copy-and-paste of maven-exec-plugin
+comment|//
+comment|// If we could avoid the mega-cut-n-paste it would really really help!
 comment|// ideally all I wanna do is auto-default 2 values!
+comment|// namely the main and the command line arguments..
 comment|/** 	 * The maven project. 	 * 	 * @parameter expression="${project}" 	 * @required 	 * @readonly 	 */
 DECL|field|project
 specifier|protected
