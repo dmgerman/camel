@@ -171,6 +171,24 @@ name|getConfiguration
 argument_list|()
 return|;
 block|}
+DECL|method|setBrokerURL (String brokerURL)
+specifier|public
+name|void
+name|setBrokerURL
+parameter_list|(
+name|String
+name|brokerURL
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setBrokerURL
+argument_list|(
+name|brokerURL
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createConfiguration ()

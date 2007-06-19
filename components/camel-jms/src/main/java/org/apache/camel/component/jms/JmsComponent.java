@@ -92,25 +92,11 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|transaction
+name|core
 operator|.
-name|PlatformTransactionManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|task
 operator|.
-name|springframework
-operator|.
-name|jms
-operator|.
-name|support
-operator|.
-name|converter
-operator|.
-name|MessageConverter
+name|TaskExecutor
 import|;
 end_import
 
@@ -136,11 +122,25 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|core
+name|jms
 operator|.
-name|task
+name|support
 operator|.
-name|TaskExecutor
+name|converter
+operator|.
+name|MessageConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|transaction
+operator|.
+name|PlatformTransactionManager
 import|;
 end_import
 
@@ -160,7 +160,7 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|Session
+name|ExceptionListener
 import|;
 end_import
 
@@ -170,7 +170,7 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|ExceptionListener
+name|Session
 import|;
 end_import
 
