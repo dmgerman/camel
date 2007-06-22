@@ -180,9 +180,6 @@ name|consumer
 operator|.
 name|getEndpoint
 argument_list|()
-operator|.
-name|getContext
-argument_list|()
 argument_list|,
 name|request
 argument_list|,

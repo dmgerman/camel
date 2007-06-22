@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultExchange
@@ -80,6 +92,12 @@ name|HttpExchange
 extends|extends
 name|DefaultExchange
 block|{
+DECL|field|endpoint
+specifier|private
+specifier|final
+name|HttpEndpoint
+name|endpoint
+decl_stmt|;
 DECL|field|request
 specifier|private
 name|HttpServletRequest
@@ -90,26 +108,35 @@ specifier|private
 name|HttpServletResponse
 name|response
 decl_stmt|;
-DECL|method|HttpExchange (CamelContext context)
+DECL|method|HttpExchange (HttpEndpoint endpoint)
 specifier|public
 name|HttpExchange
 parameter_list|(
-name|CamelContext
-name|context
+name|HttpEndpoint
+name|endpoint
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|context
+name|endpoint
+operator|.
+name|getContext
+argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
 block|}
-DECL|method|HttpExchange (CamelContext context, HttpServletRequest request, HttpServletResponse response)
+DECL|method|HttpExchange (HttpEndpoint endpoint, HttpServletRequest request, HttpServletResponse response)
 specifier|public
 name|HttpExchange
 parameter_list|(
-name|CamelContext
-name|context
+name|HttpEndpoint
+name|endpoint
 parameter_list|,
 name|HttpServletRequest
 name|request
@@ -118,9 +145,9 @@ name|HttpServletResponse
 name|response
 parameter_list|)
 block|{
-name|super
+name|this
 argument_list|(
-name|context
+name|endpoint
 argument_list|)
 expr_stmt|;
 name|this
@@ -140,6 +167,8 @@ argument_list|(
 operator|new
 name|HttpMessage
 argument_list|(
+name|this
+argument_list|,
 name|request
 argument_list|)
 argument_list|)
@@ -165,6 +194,16 @@ parameter_list|()
 block|{
 return|return
 name|response
+return|;
+block|}
+DECL|method|getEndpoint ()
+specifier|public
+name|HttpEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|endpoint
 return|;
 block|}
 block|}

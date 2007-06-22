@@ -244,8 +244,7 @@ return|return
 operator|new
 name|HttpExchange
 argument_list|(
-name|getContext
-argument_list|()
+name|this
 argument_list|)
 return|;
 block|}
@@ -265,8 +264,7 @@ return|return
 operator|new
 name|HttpExchange
 argument_list|(
-name|getContext
-argument_list|()
+name|this
 argument_list|,
 name|request
 argument_list|,

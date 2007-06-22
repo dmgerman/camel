@@ -70,10 +70,11 @@ name|HttpExchange
 argument_list|>
 block|{
 DECL|field|camelServlet
+specifier|private
 name|CamelServlet
 name|camelServlet
 decl_stmt|;
-comment|/**  	 * Connects the URL specified on the endpoint to the specified processor. 	 *   	 * @param endpoint 	 * @param processor 	 * @throws Exception  	 */
+comment|/**  	 * Connects the URL specified on the endpoint to the specified processor. 	 *   	 * @throws Exception 	 */
 DECL|method|connect (HttpConsumer consumer)
 specifier|public
 name|void
@@ -93,7 +94,7 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Disconnects the URL specified on the endpoint from the specified processor. 	 *  	 * @param endpoint 	 * @param processor 	 * @throws Exception  	 */
+comment|/** 	 * Disconnects the URL specified on the endpoint from the specified processor. 	 *  	 * @throws Exception 	 */
 DECL|method|disconnect (HttpConsumer consumer)
 specifier|public
 name|void

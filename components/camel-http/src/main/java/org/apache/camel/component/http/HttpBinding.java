@@ -18,6 +18,28 @@ name|http
 package|;
 end_package
 
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|http
+operator|.
+name|HttpServletRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -39,6 +61,34 @@ name|exchange
 parameter_list|)
 block|{
 comment|/** TODO */
+block|}
+comment|/**      * Parses the body from a HTTP message      */
+DECL|method|parseBody (HttpMessage httpMessage)
+specifier|public
+name|Object
+name|parseBody
+parameter_list|(
+name|HttpMessage
+name|httpMessage
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// lets assume the body is a reader
+name|HttpServletRequest
+name|request
+init|=
+name|httpMessage
+operator|.
+name|getRequest
+argument_list|()
+decl_stmt|;
+return|return
+name|request
+operator|.
+name|getReader
+argument_list|()
+return|;
 block|}
 block|}
 end_class
