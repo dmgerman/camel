@@ -54,20 +54,6 @@ name|irc
 operator|.
 name|lib
 operator|.
-name|IRCConnection
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|schwering
-operator|.
-name|irc
-operator|.
-name|lib
-operator|.
 name|IRCModeParser
 import|;
 end_import
@@ -83,16 +69,6 @@ operator|.
 name|lib
 operator|.
 name|IRCUser
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -163,7 +139,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 DECL|method|createExchange ()
@@ -630,214 +606,6 @@ operator|.
 name|configuration
 operator|=
 name|configuration
-expr_stmt|;
-block|}
-DECL|method|main (String[] args)
-specifier|public
-specifier|static
-name|void
-name|main
-parameter_list|(
-name|String
-index|[]
-name|args
-parameter_list|)
-throws|throws
-name|InterruptedException
-block|{
-specifier|final
-name|IrcConfiguration
-name|config
-init|=
-operator|new
-name|IrcConfiguration
-argument_list|(
-literal|"irc.codehaus.org"
-argument_list|,
-literal|"camel-irc"
-argument_list|,
-literal|"Camel IRC Component"
-argument_list|,
-literal|"#camel-irc"
-argument_list|)
-decl_stmt|;
-specifier|final
-name|IRCConnection
-name|conn
-init|=
-operator|new
-name|IRCConnection
-argument_list|(
-name|config
-operator|.
-name|getHostname
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getPorts
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getPassword
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getNickname
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getUsername
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getRealname
-argument_list|()
-argument_list|)
-decl_stmt|;
-comment|//        conn.addIRCEventListener(new IRCEventAdapter() {
-comment|//
-comment|//            @Override
-comment|//            public void onRegistered() {
-comment|//                super.onRegistered();
-comment|//                System.out.println("onRegistered");
-comment|//            }
-comment|//
-comment|//            @Override
-comment|//            public void onDisconnected() {
-comment|//                super.onDisconnected();
-comment|//                System.out.println("onDisconnected");
-comment|//            }
-comment|//
-comment|//            @Override
-comment|//            public void onMode(String string, IRCUser ircUser, IRCModeParser ircModeParser) {
-comment|//                super.onMode(string, ircUser, ircModeParser);
-comment|//                System.out.println("onMode.string = " + string);
-comment|//                System.out.println("onMode.ircUser = " + ircUser);
-comment|//                System.out.println("onMode.ircModeParser = " + ircModeParser);
-comment|//            }
-comment|//
-comment|//            @Override
-comment|//            public void onMode(IRCUser ircUser, String string, String string1) {
-comment|//                super.onMode(ircUser, string, string1);
-comment|//                System.out.println("onMode.ircUser = " + ircUser);
-comment|//                System.out.println("onMode.string = " + string);
-comment|//                System.out.println("onMode.string1 = " + string1);
-comment|//            }
-comment|//
-comment|//            @Override
-comment|//            public void onPing(String string) {
-comment|//                super.onPing(string);
-comment|//                System.out.println("onPing.string = " + string);
-comment|//            }
-comment|//
-comment|//            @Override
-comment|//            public void onError(String string) {
-comment|//                System.out.println("onError.string = " + string);
-comment|//            }
-comment|//
-comment|//            @Override
-comment|//            public void onError(int i, String string) {
-comment|//                super.onError(i, string);
-comment|//                System.out.println("onError.i = " + i);
-comment|//                System.out.println("onError.string = " + string);
-comment|//            }
-comment|//
-comment|//            @Override
-comment|//            public void unknown(String string, String string1, String string2, String string3) {
-comment|//                super.unknown(string, string1, string2, string3);
-comment|//                System.out.println("unknown.string = " + string);
-comment|//                System.out.println("unknown.string1 = " + string1);
-comment|//                System.out.println("unknown.string2 = " + string2);
-comment|//                System.out.println("unknown.string3 = " + string3);
-comment|//            }
-comment|//        });
-name|conn
-operator|.
-name|setEncoding
-argument_list|(
-literal|"UTF-8"
-argument_list|)
-expr_stmt|;
-name|conn
-operator|.
-name|setDaemon
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|conn
-operator|.
-name|setColors
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|conn
-operator|.
-name|setPong
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-try|try
-block|{
-name|conn
-operator|.
-name|connect
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-block|}
-comment|//        while (!conn.isConnected()) {
-comment|//            Thread.sleep(1000);
-comment|//            System.out.println("Sleeping");
-comment|//        }
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Connected"
-argument_list|)
-expr_stmt|;
-comment|//        conn.send("/JOIN #CAMEL");
-comment|//        conn.doPrivmsg("nnordrum", "hi!");
-comment|//        System.out.println("Joining Channel");
-name|conn
-operator|.
-name|doJoin
-argument_list|(
-name|config
-operator|.
-name|getTarget
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-name|Integer
-operator|.
-name|MAX_VALUE
-argument_list|)
 expr_stmt|;
 block|}
 block|}
