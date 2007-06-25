@@ -697,7 +697,7 @@ name|setAttribute
 argument_list|(
 literal|"imageLocation"
 argument_list|,
-literal|"..\\images\\"
+literal|"../images/"
 argument_list|)
 expr_stmt|;
 name|DOMSource
