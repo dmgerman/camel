@@ -107,7 +107,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/component/jms/jmsRouteUsingSpringTest.xml"
+literal|"org/apache/camel/component/jms/jmsRouteUsingSpring.xml"
 argument_list|)
 return|;
 block|}

@@ -40,6 +40,18 @@ name|Predicate
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -87,7 +99,7 @@ annotation|@
 name|Override
 annotation|@
 name|Fluent
-DECL|method|to (@luentArgR) Endpoint endpoint)
+DECL|method|to (@luentArgR)Endpoint endpoint)
 specifier|public
 name|ChoiceBuilder
 name|to
@@ -116,7 +128,7 @@ annotation|@
 name|Override
 annotation|@
 name|Fluent
-DECL|method|to (@luentArgR) String uri)
+DECL|method|to (@luentArgR)String uri)
 specifier|public
 name|ChoiceBuilder
 name|to
@@ -135,6 +147,35 @@ operator|.
 name|to
 argument_list|(
 name|uri
+argument_list|)
+expr_stmt|;
+return|return
+name|parent
+return|;
+block|}
+annotation|@
+name|Override
+annotation|@
+name|Fluent
+DECL|method|process (@luentArgR)Processor processor)
+specifier|public
+name|ChoiceBuilder
+name|process
+parameter_list|(
+annotation|@
+name|FluentArg
+argument_list|(
+literal|"ref"
+argument_list|)
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|super
+operator|.
+name|process
+argument_list|(
+name|processor
 argument_list|)
 expr_stmt|;
 return|return

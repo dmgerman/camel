@@ -225,7 +225,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/spring/injectedBeanTest.xml"
+literal|"org/apache/camel/spring/injectedBean.xml"
 argument_list|)
 return|;
 block|}

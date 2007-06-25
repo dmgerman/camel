@@ -197,7 +197,7 @@ init|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/spring/camelContextFactoryBeanTest.xml"
+literal|"org/apache/camel/spring/camelContextFactoryBean.xml"
 argument_list|)
 decl_stmt|;
 name|CamelContext
@@ -233,7 +233,7 @@ init|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/spring/camelContextFactoryBeanTest.xml"
+literal|"org/apache/camel/spring/camelContextFactoryBean.xml"
 argument_list|)
 decl_stmt|;
 name|CamelContext
@@ -367,7 +367,7 @@ init|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/spring/camelContextFactoryBeanTest.xml"
+literal|"org/apache/camel/spring/camelContextFactoryBean.xml"
 argument_list|)
 decl_stmt|;
 name|CamelContext
