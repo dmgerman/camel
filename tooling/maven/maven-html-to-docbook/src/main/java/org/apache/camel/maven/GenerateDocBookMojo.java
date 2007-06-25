@@ -423,11 +423,6 @@ specifier|private
 name|String
 name|chapterId
 decl_stmt|;
-DECL|field|chapterTitle
-specifier|private
-name|String
-name|chapterTitle
-decl_stmt|;
 DECL|method|execute ()
 specifier|public
 name|void
@@ -499,19 +494,6 @@ block|{
 name|this
 operator|.
 name|setChapterId
-argument_list|(
-name|removeExtension
-argument_list|(
-name|resources
-index|[
-name|i
-index|]
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|setChapterTitle
 argument_list|(
 name|removeExtension
 argument_list|(
@@ -698,15 +680,6 @@ argument_list|(
 literal|"chapterId"
 argument_list|,
 name|chapterId
-argument_list|)
-expr_stmt|;
-name|element
-operator|.
-name|setAttribute
-argument_list|(
-literal|"chapterTitle"
-argument_list|,
-name|chapterTitle
 argument_list|)
 expr_stmt|;
 name|element
@@ -1635,32 +1608,6 @@ operator|.
 name|chapterId
 operator|=
 name|chapterId
-expr_stmt|;
-block|}
-DECL|method|getChapterTitle ()
-specifier|public
-name|String
-name|getChapterTitle
-parameter_list|()
-block|{
-return|return
-name|chapterTitle
-return|;
-block|}
-DECL|method|setChapterTitle (String chapterTitle)
-specifier|public
-name|void
-name|setChapterTitle
-parameter_list|(
-name|String
-name|chapterTitle
-parameter_list|)
-block|{
-name|this
-operator|.
-name|chapterTitle
-operator|=
-name|chapterTitle
 expr_stmt|;
 block|}
 DECL|method|removeExtension (String resource)
