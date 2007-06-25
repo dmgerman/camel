@@ -174,6 +174,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 520220 $  */
 end_comment
@@ -271,6 +281,19 @@ argument_list|,
 name|in
 argument_list|)
 expr_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+init|=
+name|in
+operator|.
+name|getHeaders
+argument_list|()
+decl_stmt|;
 name|String
 name|actualBody
 init|=
@@ -289,10 +312,7 @@ name|info
 argument_list|(
 literal|"Headers: "
 operator|+
-name|in
-operator|.
-name|getHeaders
-argument_list|()
+name|headers
 argument_list|)
 expr_stmt|;
 name|log
@@ -311,6 +331,20 @@ argument_list|,
 name|expectedBody
 argument_list|,
 name|actualBody
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should be more than one header but was: "
+operator|+
+name|headers
+argument_list|,
+name|headers
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -483,6 +517,13 @@ block|{
 name|from
 argument_list|(
 literal|"http://localhost:8080/test"
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
 argument_list|)
 operator|.
 name|to

@@ -137,8 +137,11 @@ name|request
 operator|=
 name|request
 expr_stmt|;
-comment|// lets force a parse of the body
+comment|// lets force a parse of the body and headers
 name|getBody
+argument_list|()
+expr_stmt|;
+name|getHeaders
 argument_list|()
 expr_stmt|;
 block|}
