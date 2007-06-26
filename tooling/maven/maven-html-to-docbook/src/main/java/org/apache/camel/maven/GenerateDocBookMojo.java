@@ -418,7 +418,7 @@ specifier|private
 name|String
 name|legalNotice
 decl_stmt|;
-comment|/** 	 * Location of image files. 	 *  	 * @parameter expression="${project.build.directory}/docbkx/images" 	 *             	 */
+comment|/** 	 * Location of image files. 	 *  	 * @parameter expression="${project.build.directory}/site/book/images" 	 *             	 */
 DECL|field|imageLocation
 specifier|private
 name|String
