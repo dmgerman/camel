@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a HTTP based Endpoint  *  * @version $Revision$  */
+comment|/**  * Represents a<a href="http://activemq.apache.org/camel/http.html">HTTP endpoint</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
