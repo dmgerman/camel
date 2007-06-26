@@ -239,6 +239,29 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getOut (boolean lazyCreate)
+specifier|public
+name|JbiMessage
+name|getOut
+parameter_list|(
+name|boolean
+name|lazyCreate
+parameter_list|)
+block|{
+return|return
+operator|(
+name|JbiMessage
+operator|)
+name|super
+operator|.
+name|getOut
+argument_list|(
+name|lazyCreate
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getFault ()
 specifier|public
 name|JbiMessage

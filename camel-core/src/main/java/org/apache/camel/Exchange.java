@@ -105,11 +105,20 @@ name|Message
 name|getIn
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the aresponse message      * @return the response      */
+comment|/**      * Returns the outbound message, lazily creating one if one has not already been associated with this exchange.      * If you want to inspect this property but not force lazy creation then invoke the {@link #getOut(boolean)} method      * passing in null      *       * @return the response      */
 DECL|method|getOut ()
 name|Message
 name|getOut
 parameter_list|()
+function_decl|;
+comment|/**      * Returns the outbound message; optionally lazily creating one if one has not been associated with this exchange      * @return the response      */
+DECL|method|getOut (boolean lazyCreate)
+name|Message
+name|getOut
+parameter_list|(
+name|boolean
+name|lazyCreate
+parameter_list|)
 function_decl|;
 comment|/**      * Returns the fault message      * @return the fault      */
 DECL|method|getFault ()

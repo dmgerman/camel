@@ -193,22 +193,19 @@ expr_stmt|;
 block|}
 DECL|method|createProducer ()
 specifier|public
-name|Producer
-argument_list|<
-name|HttpExchange
-argument_list|>
+name|HttpProducer
 name|createProducer
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-throw|throw
+return|return
 operator|new
-name|RuntimeCamelException
+name|HttpProducer
 argument_list|(
-literal|"Not implemented."
+name|this
 argument_list|)
-throw|;
+return|;
 block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
