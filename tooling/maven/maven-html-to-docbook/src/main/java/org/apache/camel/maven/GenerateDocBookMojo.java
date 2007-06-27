@@ -406,6 +406,12 @@ specifier|private
 name|String
 name|subtitle
 decl_stmt|;
+comment|/** 	 * @parameter expression="${mainFilename}" default-value="manual" 	 * @required 	 */
+DECL|field|mainFilename
+specifier|private
+name|String
+name|mainFilename
+decl_stmt|;
 comment|/** 	 * @parameter expression="${version}" default-value="${project.version}" 	 */
 DECL|field|version
 specifier|private
@@ -923,7 +929,7 @@ name|File
 operator|.
 name|separator
 operator|+
-name|title
+name|mainFilename
 operator|+
 literal|".xml"
 argument_list|)
