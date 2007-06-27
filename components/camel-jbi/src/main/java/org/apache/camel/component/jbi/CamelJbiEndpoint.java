@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|FailedToCreateProducerException
 import|;
 end_import
 
@@ -160,6 +160,21 @@ name|CamelJbiEndpoint
 extends|extends
 name|ProviderEndpoint
 block|{
+DECL|field|SERVICE_NAME
+specifier|public
+specifier|static
+specifier|final
+name|QName
+name|SERVICE_NAME
+init|=
+operator|new
+name|QName
+argument_list|(
+literal|"http://camel.apache.org/service"
+argument_list|,
+literal|"CamelEndpointComponent"
+argument_list|)
+decl_stmt|;
 DECL|field|log
 specifier|private
 specifier|static
@@ -177,21 +192,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|SERVICE_NAME
-specifier|private
-specifier|static
-specifier|final
-name|QName
-name|SERVICE_NAME
-init|=
-operator|new
-name|QName
-argument_list|(
-literal|"http://camel.apache.org/service"
-argument_list|,
-literal|"CamelEndpointComponent"
-argument_list|)
-decl_stmt|;
 DECL|field|camelEndpoint
 specifier|private
 name|Endpoint
@@ -202,12 +202,12 @@ specifier|private
 name|JbiBinding
 name|binding
 decl_stmt|;
-DECL|field|processor
+DECL|field|camelProcessor
 specifier|private
 name|Processor
-name|processor
+name|camelProcessor
 decl_stmt|;
-DECL|method|CamelJbiEndpoint (ServiceUnit serviceUnit, QName service, String endpoint, Endpoint camelEndpoint, JbiBinding binding, Processor processor)
+DECL|method|CamelJbiEndpoint (ServiceUnit serviceUnit, QName service, String endpoint, Endpoint camelEndpoint, JbiBinding binding, Processor camelProcessor)
 specifier|public
 name|CamelJbiEndpoint
 parameter_list|(
@@ -227,7 +227,7 @@ name|JbiBinding
 name|binding
 parameter_list|,
 name|Processor
-name|processor
+name|camelProcessor
 parameter_list|)
 block|{
 name|super
@@ -241,9 +241,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|processor
+name|camelProcessor
 operator|=
-name|processor
+name|camelProcessor
 expr_stmt|;
 name|this
 operator|.
@@ -258,7 +258,7 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|CamelJbiEndpoint (ServiceUnit serviceUnit, Endpoint camelEndpoint, JbiBinding binding, Processor processor)
+DECL|method|CamelJbiEndpoint (ServiceUnit serviceUnit, Endpoint camelEndpoint, JbiBinding binding, Processor camelProcesso)
 specifier|public
 name|CamelJbiEndpoint
 parameter_list|(
@@ -272,7 +272,7 @@ name|JbiBinding
 name|binding
 parameter_list|,
 name|Processor
-name|processor
+name|camelProcesso
 parameter_list|)
 block|{
 name|this
@@ -290,7 +290,7 @@ name|camelEndpoint
 argument_list|,
 name|binding
 argument_list|,
-name|processor
+name|camelProcesso
 argument_list|)
 expr_stmt|;
 block|}
@@ -342,7 +342,7 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-name|processor
+name|camelProcessor
 operator|.
 name|process
 argument_list|(
