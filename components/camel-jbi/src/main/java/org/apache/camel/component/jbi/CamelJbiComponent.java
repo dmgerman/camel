@@ -956,6 +956,26 @@ return|return
 name|processor
 return|;
 block|}
+comment|/**      * Should we expose the Camel JBI onto the NMR.      *      * We may wish to add some policy stuff etc.      *      * @param endpoint the camel endpoint      * @return true if the endpoint should be exposed in the NMR      */
+DECL|method|isEndpointExposedOnNmr (Endpoint endpoint)
+specifier|public
+name|boolean
+name|isEndpointExposedOnNmr
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+block|{
+comment|// by default lets not expose JBI endpoints since we already auto-expose them
+return|return
+operator|!
+operator|(
+name|endpoint
+operator|instanceof
+name|JbiEndpoint
+operator|)
+return|;
+block|}
 block|}
 end_class
 
