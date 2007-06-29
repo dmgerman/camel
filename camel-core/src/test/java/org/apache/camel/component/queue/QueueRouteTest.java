@@ -195,14 +195,14 @@ literal|1
 argument_list|)
 decl_stmt|;
 name|CamelContext
-name|container
+name|context
 init|=
 operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
 comment|// lets add some routes
-name|container
+name|context
 operator|.
 name|addRoutes
 argument_list|(
@@ -269,7 +269,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|container
+name|context
 operator|.
 name|start
 argument_list|()
@@ -281,7 +281,7 @@ name|Exchange
 argument_list|>
 name|endpoint
 init|=
-name|container
+name|context
 operator|.
 name|getEndpoint
 argument_list|(
@@ -348,16 +348,16 @@ argument_list|,
 name|received
 argument_list|)
 expr_stmt|;
-name|container
+name|context
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|xtestThatShowsEndpointResolutionIsNotConsistent ()
+DECL|method|testThatShowsEndpointResolutionIsNotConsistent ()
 specifier|public
 name|void
-name|xtestThatShowsEndpointResolutionIsNotConsistent
+name|testThatShowsEndpointResolutionIsNotConsistent
 parameter_list|()
 throws|throws
 name|Exception
@@ -373,14 +373,14 @@ literal|1
 argument_list|)
 decl_stmt|;
 name|CamelContext
-name|container
+name|context
 init|=
 operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
 comment|// lets add some routes
-name|container
+name|context
 operator|.
 name|addRoutes
 argument_list|(
@@ -447,7 +447,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|container
+name|context
 operator|.
 name|start
 argument_list|()
@@ -459,14 +459,9 @@ name|Exchange
 argument_list|>
 name|endpoint
 init|=
-name|container
+name|context
 operator|.
-name|getComponent
-argument_list|(
-literal|"queue"
-argument_list|)
-operator|.
-name|createEndpoint
+name|getEndpoint
 argument_list|(
 literal|"queue:test.a"
 argument_list|)
@@ -531,7 +526,7 @@ argument_list|,
 name|received
 argument_list|)
 expr_stmt|;
-name|container
+name|context
 operator|.
 name|stop
 argument_list|()

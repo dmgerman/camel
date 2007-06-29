@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -121,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a queue endpoint that uses a {@link BlockingQueue}  * object to process inbound exchanges.  *  * @org.apache.xbean.XBean  * @version $Revision: 519973 $  */
+comment|/**  * An implementation of the<a href="http://activemq.apache.org/camel/queue.html">Queue components</a>  * for asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  *  * @org.apache.xbean.XBean  * @version $Revision: 519973 $  */
 end_comment
 
 begin_class
@@ -148,6 +160,37 @@ name|E
 argument_list|>
 name|queue
 decl_stmt|;
+DECL|method|QueueEndpoint (String endpointUri, Component component, BlockingQueue<E> queue)
+specifier|public
+name|QueueEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Component
+name|component
+parameter_list|,
+name|BlockingQueue
+argument_list|<
+name|E
+argument_list|>
+name|queue
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|component
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|queue
+operator|=
+name|queue
+expr_stmt|;
+block|}
 DECL|method|QueueEndpoint (String uri, QueueComponent<E> component)
 specifier|public
 name|QueueEndpoint
@@ -162,21 +205,17 @@ argument_list|>
 name|component
 parameter_list|)
 block|{
-name|super
+name|this
 argument_list|(
 name|uri
 argument_list|,
 name|component
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|queue
-operator|=
+argument_list|,
 name|component
 operator|.
 name|createQueue
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createProducer ()
