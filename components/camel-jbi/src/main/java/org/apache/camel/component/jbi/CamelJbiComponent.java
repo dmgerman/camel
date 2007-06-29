@@ -140,6 +140,20 @@ name|apache
 operator|.
 name|servicemix
 operator|.
+name|id
+operator|.
+name|IdGenerator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|servicemix
+operator|.
 name|jbi
 operator|.
 name|resolver
@@ -310,7 +324,17 @@ specifier|private
 name|ScheduledExecutorService
 name|executorService
 decl_stmt|;
-comment|/* (non-Javadoc)      * @see org.servicemix.common.BaseComponent#createServiceUnitManager()      */
+DECL|field|idGenerator
+specifier|private
+name|IdGenerator
+name|idGenerator
+decl_stmt|;
+DECL|field|deployer
+specifier|protected
+name|CamelSpringDeployer
+name|deployer
+decl_stmt|;
+comment|/* (non-Javadoc)     * @see org.servicemix.common.BaseComponent#createServiceUnitManager()     */
 DECL|method|createServiceUnitManager ()
 specifier|public
 name|BaseServiceUnitManager
@@ -354,7 +378,6 @@ argument_list|>
 name|getConfiguredEndpoints
 parameter_list|()
 block|{
-comment|// TODO need to register to the context for new endpoints...
 name|List
 argument_list|<
 name|CamelJbiEndpoint
@@ -368,10 +391,6 @@ name|CamelJbiEndpoint
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|//        Collection<Endpoint> endpoints = camelContext.getEndpoints();
-comment|//        for (Endpoint endpoint : endpoints) {
-comment|//          answer.add(createJbiEndpoint(endpoint));
-comment|//        }
 return|return
 name|answer
 return|;
@@ -690,7 +709,7 @@ return|return
 name|executorService
 return|;
 block|}
-comment|/**      * Returns a JBI endpoint created for the given Camel endpoint      */
+comment|/**      * Activating a JBI endpoint created by a camel consumer.      *      * @returns a JBI endpoint created for the given Camel endpoint      */
 DECL|method|activateJbiEndpoint (Endpoint camelEndpoint, Processor processor)
 specifier|public
 name|CamelJbiEndpoint
@@ -716,14 +735,47 @@ name|processor
 argument_list|)
 decl_stmt|;
 comment|// the following method will activate the new dynamic JBI endpoint
+if|if
+condition|(
+name|deployer
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// lets add this to the current service unit being deployed
+name|deployer
+operator|.
+name|addService
+argument_list|(
+name|jbiEndpoint
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|addEndpoint
 argument_list|(
 name|jbiEndpoint
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|jbiEndpoint
 return|;
+block|}
+DECL|method|deactivateJbiEndpoint (CamelJbiEndpoint jbiEndpoint)
+specifier|public
+name|void
+name|deactivateJbiEndpoint
+parameter_list|(
+name|CamelJbiEndpoint
+name|jbiEndpoint
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// this will be done by the ServiceUnit
+comment|//jbiEndpoint.deactivate();
 block|}
 DECL|method|createJbiEndpointFromCamel (Endpoint camelEndpoint, Processor processor)
 specifier|protected
@@ -750,6 +802,53 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|camelEndpoint
+operator|instanceof
+name|JbiEndpoint
+condition|)
+block|{
+name|QName
+name|service
+init|=
+literal|null
+decl_stmt|;
+name|String
+name|endpoint
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|endpointUri
+operator|.
+name|startsWith
+argument_list|(
+literal|"name:"
+argument_list|)
+condition|)
+block|{
+name|endpoint
+operator|=
+name|endpointUri
+operator|.
+name|substring
+argument_list|(
+literal|"endpoint:"
+operator|.
+name|length
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|service
+operator|=
+name|CamelJbiEndpoint
+operator|.
+name|SERVICE_NAME
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 name|endpointUri
 operator|.
 name|startsWith
@@ -758,7 +857,6 @@ literal|"endpoint:"
 argument_list|)
 condition|)
 block|{
-comment|// lets decode "service:serviceNamespace:serviceName:endpointName
 name|String
 name|uri
 init|=
@@ -772,15 +870,10 @@ name|length
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// lets decode "serviceNamespace sep serviceName sep endpointName
 name|String
 index|[]
 name|parts
-init|=
-operator|new
-name|String
-index|[
-literal|0
-index|]
 decl_stmt|;
 try|try
 block|{
@@ -804,7 +897,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Expected syntax endpoint:[serviceNamespace]:[serviceName]:[endpointName] but was given: "
+literal|"Expected syntax jbi:endpoint:[serviceNamespace][sep][serviceName][sep][endpointName] where sep = '/' or ':' depending on the serviceNamespace, but was given: "
 operator|+
 name|endpointUri
 operator|+
@@ -816,9 +909,8 @@ name|e
 argument_list|)
 throw|;
 block|}
-name|QName
 name|service
-init|=
+operator|=
 operator|new
 name|QName
 argument_list|(
@@ -832,15 +924,112 @@ index|[
 literal|1
 index|]
 argument_list|)
-decl_stmt|;
-name|String
+expr_stmt|;
 name|endpoint
-init|=
+operator|=
 name|parts
 index|[
 literal|2
 index|]
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|endpointUri
+operator|.
+name|startsWith
+argument_list|(
+literal|"service:"
+argument_list|)
+condition|)
+block|{
+name|String
+name|uri
+init|=
+name|endpointUri
+operator|.
+name|substring
+argument_list|(
+literal|"service:"
+operator|.
+name|length
+argument_list|()
+argument_list|)
 decl_stmt|;
+comment|// lets decode "serviceNamespace sep serviceName
+name|String
+index|[]
+name|parts
+decl_stmt|;
+try|try
+block|{
+name|parts
+operator|=
+name|URIResolver
+operator|.
+name|split2
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Expected syntax jbi:endpoint:[serviceNamespace][sep][serviceName] where sep = '/' or ':' depending on the serviceNamespace, but was given: "
+operator|+
+name|endpointUri
+operator|+
+literal|". Cause: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+name|service
+operator|=
+operator|new
+name|QName
+argument_list|(
+name|parts
+index|[
+literal|0
+index|]
+argument_list|,
+name|parts
+index|[
+literal|1
+index|]
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|=
+name|createEndpointName
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Expected syntax jbi:endpoint:[serviceNamespace][sep][serviceName][sep][endpointName] or  jbi:service:[serviceNamespace][sep][serviceName or jbi:name:[endpointName] but was given: "
+operator|+
+name|endpointUri
+argument_list|)
+throw|;
+block|}
 name|jbiEndpoint
 operator|=
 operator|new
@@ -883,6 +1072,35 @@ expr_stmt|;
 block|}
 return|return
 name|jbiEndpoint
+return|;
+block|}
+DECL|method|createEndpointName ()
+specifier|protected
+name|String
+name|createEndpointName
+parameter_list|()
+block|{
+if|if
+condition|(
+name|idGenerator
+operator|==
+literal|null
+condition|)
+block|{
+name|idGenerator
+operator|=
+operator|new
+name|IdGenerator
+argument_list|(
+literal|"camel"
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|idGenerator
+operator|.
+name|generateSanitizedId
+argument_list|()
 return|;
 block|}
 comment|/**      * Returns a JBI endpoint created for the given Camel endpoint      */
@@ -956,7 +1174,7 @@ return|return
 name|processor
 return|;
 block|}
-comment|/**      * Should we expose the Camel JBI onto the NMR.      *      * We may wish to add some policy stuff etc.      *      * @param endpoint the camel endpoint      * @return true if the endpoint should be exposed in the NMR      */
+comment|/**      * Should we expose the Camel JBI onto the NMR.      *<p/>      * We may wish to add some policy stuff etc.      *      * @param endpoint the camel endpoint      * @return true if the endpoint should be exposed in the NMR      */
 DECL|method|isEndpointExposedOnNmr (Endpoint endpoint)
 specifier|public
 name|boolean
@@ -966,7 +1184,7 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-comment|// by default lets not expose JBI endpoints since we already auto-expose them
+comment|// TODO we should only expose consuming endpoints
 return|return
 operator|!
 operator|(

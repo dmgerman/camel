@@ -298,7 +298,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|/*                 if (jbiEndpoint != null) {                     jbiEndpoint.deactivate();                 } */
+if|if
+condition|(
+name|jbiEndpoint
+operator|!=
+literal|null
+condition|)
+block|{
+name|jbiComponent
+operator|.
+name|deactivateJbiEndpoint
+argument_list|(
+name|jbiEndpoint
+argument_list|)
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|doStop
