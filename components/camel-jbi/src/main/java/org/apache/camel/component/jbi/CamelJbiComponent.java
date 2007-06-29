@@ -833,7 +833,7 @@ name|endpointUri
 operator|.
 name|substring
 argument_list|(
-literal|"endpoint:"
+literal|"name:"
 operator|.
 name|length
 argument_list|()

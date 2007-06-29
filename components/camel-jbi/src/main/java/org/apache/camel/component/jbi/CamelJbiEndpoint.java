@@ -170,9 +170,9 @@ init|=
 operator|new
 name|QName
 argument_list|(
-literal|"http://camel.apache.org/service"
+literal|"http://activemq.apache.org/camel/schema/jbi"
 argument_list|,
-literal|"CamelEndpointComponent"
+literal|"endpoint"
 argument_list|)
 decl_stmt|;
 DECL|field|log

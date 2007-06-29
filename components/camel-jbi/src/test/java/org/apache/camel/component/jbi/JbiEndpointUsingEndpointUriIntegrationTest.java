@@ -61,12 +61,12 @@ comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|CamelJbiEndpointIntegrationTest
+DECL|class|JbiEndpointUsingEndpointUriIntegrationTest
 specifier|public
 class|class
-name|CamelJbiEndpointIntegrationTest
+name|JbiEndpointUsingEndpointUriIntegrationTest
 extends|extends
-name|IntegrationTest
+name|NonJbiCamelEndpointsIntegrationTest
 block|{
 comment|/*     * @see TestCase#setUp()     */
 annotation|@
