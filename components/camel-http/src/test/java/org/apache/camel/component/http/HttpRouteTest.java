@@ -225,9 +225,9 @@ argument_list|)
 decl_stmt|;
 name|mockEndpoint
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|1
+name|expectedBody
 argument_list|)
 expr_stmt|;
 name|invokeHttpEndpoint
@@ -294,18 +294,6 @@ operator|.
 name|getHeaders
 argument_list|()
 decl_stmt|;
-name|String
-name|actualBody
-init|=
-name|in
-operator|.
-name|getBody
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|log
 operator|.
 name|info
@@ -313,24 +301,6 @@ argument_list|(
 literal|"Headers: "
 operator|+
 name|headers
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Received body: "
-operator|+
-name|actualBody
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Body"
-argument_list|,
-name|expectedBody
-argument_list|,
-name|actualBody
 argument_list|)
 expr_stmt|;
 name|assertTrue
