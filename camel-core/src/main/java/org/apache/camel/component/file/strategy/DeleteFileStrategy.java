@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file
+DECL|package|org.apache.camel.component.file.strategy
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|component
 operator|.
 name|file
+operator|.
+name|strategy
 package|;
 end_package
 
@@ -26,7 +28,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|component
+operator|.
+name|file
+operator|.
+name|FileEndpoint
 import|;
 end_import
 
@@ -38,7 +44,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|component
+operator|.
+name|file
+operator|.
+name|FileExchange
 import|;
 end_import
 
@@ -48,11 +58,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|commons
 operator|.
-name|impl
+name|logging
 operator|.
-name|DefaultComponent
+name|Log
 import|;
 end_import
 
@@ -62,11 +72,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|commons
 operator|.
-name|util
+name|logging
 operator|.
-name|IntrospectionSupport
+name|LogFactory
 import|;
 end_import
 
@@ -80,114 +90,105 @@ name|File
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
 begin_comment
-comment|/**  * The<a href="http://activemq.apache.org/camel/file.html">File Component</a> for working with file systems  *  * @version $Revision: 523772 $  */
+comment|/**  * A strategy which will delete the file when its processed  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|FileComponent
+DECL|class|DeleteFileStrategy
 specifier|public
 class|class
-name|FileComponent
+name|DeleteFileStrategy
 extends|extends
-name|DefaultComponent
-argument_list|<
-name|FileExchange
-argument_list|>
+name|FileStategySupport
 block|{
-DECL|method|FileComponent ()
+DECL|field|log
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|DeleteFileStrategy
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+DECL|method|DeleteFileStrategy ()
 specifier|public
-name|FileComponent
+name|DeleteFileStrategy
 parameter_list|()
 block|{     }
-DECL|method|FileComponent (CamelContext context)
+DECL|method|DeleteFileStrategy (boolean lockFile)
 specifier|public
-name|FileComponent
+name|DeleteFileStrategy
 parameter_list|(
-name|CamelContext
-name|context
+name|boolean
+name|lockFile
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|context
+name|lockFile
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
-specifier|protected
-name|Endpoint
-argument_list|<
-name|FileExchange
-argument_list|>
-name|createEndpoint
+DECL|method|commit (FileEndpoint endpoint, FileExchange exchange, File file)
+specifier|public
+name|void
+name|commit
 parameter_list|(
-name|String
-name|uri
+name|FileEndpoint
+name|endpoint
 parameter_list|,
-name|String
-name|remaining
+name|FileExchange
+name|exchange
 parameter_list|,
-name|Map
-name|parameters
+name|File
+name|file
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-name|remaining
-argument_list|)
-decl_stmt|;
-name|FileEndpoint
-name|result
-init|=
-operator|new
-name|FileEndpoint
-argument_list|(
-name|file
-argument_list|,
-name|uri
-argument_list|,
-name|this
-argument_list|)
-decl_stmt|;
-name|IntrospectionSupport
+if|if
+condition|(
+name|log
 operator|.
-name|setProperties
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
 argument_list|(
-name|result
-argument_list|,
-name|parameters
+literal|"Deleting file: "
+operator|+
+name|file
 argument_list|)
 expr_stmt|;
-return|return
-name|result
-return|;
+block|}
+name|file
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|commit
+argument_list|(
+name|endpoint
+argument_list|,
+name|exchange
+argument_list|,
+name|file
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
