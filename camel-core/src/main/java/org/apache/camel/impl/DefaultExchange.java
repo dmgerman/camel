@@ -115,7 +115,7 @@ specifier|final
 name|CamelContext
 name|context
 decl_stmt|;
-DECL|field|headers
+DECL|field|properties
 specifier|private
 name|Map
 argument_list|<
@@ -123,7 +123,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|headers
+name|properties
 decl_stmt|;
 DECL|field|in
 specifier|private
@@ -229,7 +229,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|setHeaders
+name|setProperties
 argument_list|(
 name|safeCopy
 argument_list|(
@@ -385,13 +385,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|headers
+name|properties
 operator|!=
 literal|null
 condition|)
 block|{
 return|return
-name|headers
+name|properties
 operator|.
 name|get
 argument_list|(
@@ -480,12 +480,12 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|headers
+name|properties
 operator|==
 literal|null
 condition|)
 block|{
-name|headers
+name|properties
 operator|=
 operator|new
 name|HashMap
@@ -498,13 +498,13 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|headers
+name|properties
 return|;
 block|}
-DECL|method|setHeaders (Map<String, Object> headers)
+DECL|method|setProperties (Map<String, Object> properties)
 specifier|public
 name|void
-name|setHeaders
+name|setProperties
 parameter_list|(
 name|Map
 argument_list|<
@@ -512,14 +512,14 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|headers
+name|properties
 parameter_list|)
 block|{
 name|this
 operator|.
-name|headers
+name|properties
 operator|=
-name|headers
+name|properties
 expr_stmt|;
 block|}
 DECL|method|getIn ()
