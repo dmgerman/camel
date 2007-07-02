@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.component
+DECL|package|org.apache.camel.component.event
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
 name|component
+operator|.
+name|event
 package|;
 end_package
 
@@ -26,23 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|pojo
-operator|.
-name|PojoEndpoint
+name|Exchange
 import|;
 end_import
 
@@ -57,22 +41,6 @@ operator|.
 name|impl
 operator|.
 name|DefaultComponent
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|notNull
 import|;
 end_import
 
@@ -114,6 +82,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|ConfigurableApplicationContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -123,16 +103,19 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An alternative to the<a href="http://activemq.apache.org/pojo.html">POJO Component</a>  * which implements the<a href="http://activemq.apache.org/bean.html">Bean Component</a>  * which will look up the URI in the Spring ApplicationContext and use that to handle message dispatching.  *   * @version $Revision: 1.1 $  */
+comment|/**  * An<a href="http://activemq.apache.org/camel/event.html">Event Component</a>  * for working with Spring ApplicationEvents  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|BeanComponent
+DECL|class|EventComponent
 specifier|public
 class|class
-name|BeanComponent
+name|EventComponent
 extends|extends
 name|DefaultComponent
+argument_list|<
+name|Exchange
+argument_list|>
 implements|implements
 name|ApplicationContextAware
 block|{
@@ -141,24 +124,23 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
-DECL|method|BeanComponent ()
+DECL|method|EventComponent ()
 specifier|public
-name|BeanComponent
+name|EventComponent
 parameter_list|()
 block|{     }
-DECL|method|BeanComponent (ApplicationContext applicationContext)
+DECL|method|EventComponent (ApplicationContext applicationContext)
 specifier|public
-name|BeanComponent
+name|EventComponent
 parameter_list|(
 name|ApplicationContext
 name|applicationContext
 parameter_list|)
 block|{
-name|this
-operator|.
+name|setApplicationContext
+argument_list|(
 name|applicationContext
-operator|=
-name|applicationContext
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getApplicationContext ()
@@ -189,9 +171,48 @@ operator|=
 name|applicationContext
 expr_stmt|;
 block|}
+DECL|method|getConfigurableApplicationContext ()
+specifier|public
+name|ConfigurableApplicationContext
+name|getConfigurableApplicationContext
+parameter_list|()
+block|{
+name|ApplicationContext
+name|applicationContext
+init|=
+name|getApplicationContext
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|applicationContext
+operator|instanceof
+name|ConfigurableApplicationContext
+condition|)
+block|{
+return|return
+operator|(
+name|ConfigurableApplicationContext
+operator|)
+name|applicationContext
+return|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Not created with a ConfigurableApplicationContext! Was: "
+operator|+
+name|applicationContext
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
-name|Endpoint
+name|EventEndpoint
 name|createEndpoint
 parameter_list|(
 name|String
@@ -206,44 +227,27 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|notNull
-argument_list|(
-name|applicationContext
-argument_list|,
-literal|"applicationContext"
-argument_list|)
-expr_stmt|;
-name|Object
-name|object
+name|EventEndpoint
+name|answer
 init|=
-name|applicationContext
-operator|.
-name|getBean
-argument_list|(
-name|remaining
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|object
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
 operator|new
-name|PojoEndpoint
+name|EventEndpoint
 argument_list|(
 name|uri
 argument_list|,
 name|this
-argument_list|,
-name|object
 argument_list|)
-return|;
-block|}
+decl_stmt|;
+name|getConfigurableApplicationContext
+argument_list|()
+operator|.
+name|addApplicationListener
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
 return|return
-literal|null
+name|answer
 return|;
 block|}
 block|}

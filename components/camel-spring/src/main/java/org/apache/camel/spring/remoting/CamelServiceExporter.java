@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Exports a Spring defined service to Camel as a Pojo endpoint.  *    * @author chirino  */
+comment|/**  * Exports a Spring defined service to Camel as a Pojo endpoint.  *  * @author chirino  */
 end_comment
 
 begin_class

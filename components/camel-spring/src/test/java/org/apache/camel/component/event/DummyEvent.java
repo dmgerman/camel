@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.spi
+DECL|package|org.apache.camel.component.event
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|component
 operator|.
-name|spi
+name|event
 package|;
 end_package
 
@@ -24,25 +24,9 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|beans
-operator|.
-name|factory
-operator|.
-name|wiring
-operator|.
-name|BeanConfigurerSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
 name|context
 operator|.
-name|ApplicationContext
+name|ApplicationEvent
 import|;
 end_import
 
@@ -51,46 +35,51 @@ comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|BeanInjector
+DECL|class|DummyEvent
 specifier|public
 class|class
-name|BeanInjector
+name|DummyEvent
 extends|extends
-name|BeanConfigurerSupport
+name|ApplicationEvent
 block|{
-DECL|method|BeanInjector (ApplicationContext applicationContext)
+DECL|field|text
+specifier|private
+specifier|final
+name|String
+name|text
+decl_stmt|;
+DECL|method|DummyEvent (Object source, String text)
 specifier|public
-name|BeanInjector
-parameter_list|(
-name|ApplicationContext
-name|applicationContext
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|setBeanFactory
-argument_list|(
-name|applicationContext
-argument_list|)
-expr_stmt|;
-name|afterPropertiesSet
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|inject (Object bean)
-specifier|public
-name|void
-name|inject
+name|DummyEvent
 parameter_list|(
 name|Object
-name|bean
+name|source
+parameter_list|,
+name|String
+name|text
 parameter_list|)
 block|{
-name|configureBean
+name|super
 argument_list|(
-name|bean
+name|source
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|text
+operator|=
+name|text
+expr_stmt|;
+block|}
+DECL|method|getText ()
+specifier|public
+name|String
+name|getText
+parameter_list|()
+block|{
+return|return
+name|text
+return|;
 block|}
 block|}
 end_class

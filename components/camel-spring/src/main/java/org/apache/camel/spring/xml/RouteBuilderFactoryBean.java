@@ -19,6 +19,18 @@ package|;
 end_package
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -31,28 +43,6 @@ operator|.
 name|ObjectHelper
 operator|.
 name|notNull
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
 import|;
 end_import
 
@@ -124,8 +114,18 @@ name|InitializingBean
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
 begin_comment
-comment|/**  * A {@link FactoryBean} which creates a RouteBuilder by parsing an XML file. This factory bean  * must be injected with a context and will then install the rules in the context when the routing rules  * are created.   *  * @version $Revision: 521369 $  */
+comment|/**  * A {@link FactoryBean} which creates a RouteBuilder by parsing an XML file. This factory bean  * must be injected with a context and will then install the rules in the context when the routing rules  * are created.  *  * @version $Revision: 521369 $  */
 end_comment
 
 begin_class

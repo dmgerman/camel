@@ -36,7 +36,7 @@ DECL|method|SayService ()
 specifier|public
 name|SayService
 parameter_list|()
-block|{ 	}
+block|{     }
 DECL|method|SayService (String message)
 specifier|public
 name|SayService

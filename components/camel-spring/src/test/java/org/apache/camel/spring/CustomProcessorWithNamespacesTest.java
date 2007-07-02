@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TestSupport
+name|CamelTemplate
 import|;
 end_import
 
@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Message
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
+name|Processor
 import|;
 end_import
 
@@ -84,11 +84,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
-name|example
-operator|.
-name|MyProcessor
+name|TestSupport
 import|;
 end_import
 
@@ -100,7 +96,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelTemplate
+name|spring
+operator|.
+name|example
+operator|.
+name|MyProcessor
 import|;
 end_import
 

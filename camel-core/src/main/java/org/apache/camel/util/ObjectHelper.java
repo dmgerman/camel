@@ -684,11 +684,11 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|isNotNullOrBlank (String text)
+DECL|method|isNotNullAndNonEmpty (String text)
 specifier|public
 specifier|static
 name|boolean
-name|isNotNullOrBlank
+name|isNotNullAndNonEmpty
 parameter_list|(
 name|String
 name|text
@@ -707,6 +707,32 @@ operator|.
 name|length
 argument_list|()
 operator|>
+literal|0
+return|;
+block|}
+DECL|method|isNullOrBlank (String text)
+specifier|public
+specifier|static
+name|boolean
+name|isNullOrBlank
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|text
+operator|==
+literal|null
+operator|||
+name|text
+operator|.
+name|trim
+argument_list|()
+operator|.
+name|length
+argument_list|()
+operator|<=
 literal|0
 return|;
 block|}

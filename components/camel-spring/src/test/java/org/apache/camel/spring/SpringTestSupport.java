@@ -366,6 +366,37 @@ name|uri
 argument_list|)
 return|;
 block|}
+DECL|method|resolveMandatoryEndpoint (String uri, Class<T> endpointType)
+specifier|protected
+parameter_list|<
+name|T
+extends|extends
+name|Endpoint
+parameter_list|>
+name|T
+name|resolveMandatoryEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|endpointType
+parameter_list|)
+block|{
+return|return
+name|resolveMandatoryEndpoint
+argument_list|(
+name|camelContext
+argument_list|,
+name|uri
+argument_list|,
+name|endpointType
+argument_list|)
+return|;
+block|}
 DECL|method|assertValidContext (SpringCamelContext context)
 specifier|protected
 name|void

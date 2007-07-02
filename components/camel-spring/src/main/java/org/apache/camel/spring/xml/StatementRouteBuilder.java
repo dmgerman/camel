@@ -42,20 +42,6 @@ name|beans
 operator|.
 name|factory
 operator|.
-name|InitializingBean
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|beans
-operator|.
-name|factory
-operator|.
 name|BeanFactory
 import|;
 end_import
@@ -71,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link RouteBuilder} which is given a list of {@link BuilderStatement} objects  * to use to create the routes. This is used by the Spring 2 XML parsing code in particular  * the {@link RouteBuilderFactoryBean}  *  * @version $Revision: 1.1 $ */
+comment|/**  * A {@link RouteBuilder} which is given a list of {@link BuilderStatement} objects  * to use to create the routes. This is used by the Spring 2 XML parsing code in particular  * the {@link RouteBuilderFactoryBean}  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class

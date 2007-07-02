@@ -26,9 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilderTest
+name|Processor
 import|;
 end_import
 
@@ -52,21 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|builder
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|SpringCamelContext
+name|RouteBuilderTest
 import|;
 end_import
 
@@ -88,13 +74,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|context
+name|camel
 operator|.
-name|support
+name|spring
 operator|.
-name|ClassPathXmlApplicationContext
+name|SpringCamelContext
 import|;
 end_import
 
@@ -109,6 +95,20 @@ operator|.
 name|support
 operator|.
 name|AbstractXmlApplicationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|support
+operator|.
+name|ClassPathXmlApplicationContext
 import|;
 end_import
 

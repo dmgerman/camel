@@ -26,9 +26,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|component
 operator|.
-name|SpringTestSupport
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
@@ -40,11 +42,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|spring
 operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|SpringTestSupport
 import|;
 end_import
 

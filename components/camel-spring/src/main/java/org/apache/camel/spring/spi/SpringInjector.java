@@ -26,9 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|impl
 operator|.
-name|Injector
+name|ReflectionInjector
 import|;
 end_import
 
@@ -40,9 +40,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|ReflectionInjector
+name|Injector
 import|;
 end_import
 
@@ -80,11 +80,13 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|context
+name|beans
 operator|.
-name|support
+name|factory
 operator|.
-name|AbstractRefreshableApplicationContext
+name|config
+operator|.
+name|AutowireCapableBeanFactory
 import|;
 end_import
 
@@ -94,13 +96,11 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|beans
+name|context
 operator|.
-name|factory
+name|support
 operator|.
-name|config
-operator|.
-name|AutowireCapableBeanFactory
+name|AbstractRefreshableApplicationContext
 import|;
 end_import
 
