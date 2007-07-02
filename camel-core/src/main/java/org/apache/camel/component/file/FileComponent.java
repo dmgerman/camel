@@ -90,6 +90,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
 begin_comment
 comment|/**  * The<a href="http://activemq.apache.org/camel/file.html">File Component</a> for working with file systems  *  * @version $Revision: 523772 $  */
 end_comment
@@ -144,13 +154,30 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|URI
+name|u
+init|=
+operator|new
+name|URI
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+name|String
+name|schemeSpecificPart
+init|=
+name|u
+operator|.
+name|getSchemeSpecificPart
+argument_list|()
+decl_stmt|;
 name|File
 name|file
 init|=
 operator|new
 name|File
 argument_list|(
-name|remaining
+name|schemeSpecificPart
 argument_list|)
 decl_stmt|;
 name|FileEndpoint
@@ -161,7 +188,7 @@ name|FileEndpoint
 argument_list|(
 name|file
 argument_list|,
-name|remaining
+name|uri
 argument_list|,
 name|this
 argument_list|)

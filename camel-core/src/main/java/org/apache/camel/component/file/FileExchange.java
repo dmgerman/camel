@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -66,8 +56,18 @@ name|DefaultExchange
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
-comment|/**  * A {@link Exchange} for File  *   * @version $Revision: 520985 $  */
+comment|/**  * A {@link Exchange} for File  *  * @version $Revision: 520985 $  */
 end_comment
 
 begin_class
@@ -83,7 +83,6 @@ specifier|private
 name|File
 name|file
 decl_stmt|;
-comment|/**      * Constructor      * @param camelContext      * @param file      */
 DECL|method|FileExchange (CamelContext camelContext, File file)
 specifier|public
 name|FileExchange

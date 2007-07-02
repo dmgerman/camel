@@ -367,8 +367,28 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
+name|deleteOrMoveFile
+argument_list|(
+name|file
+argument_list|)
+expr_stmt|;
 block|}
 block|}
+block|}
+DECL|method|deleteOrMoveFile (File file)
+specifier|protected
+name|void
+name|deleteOrMoveFile
+parameter_list|(
+name|File
+name|file
+parameter_list|)
+block|{
+name|file
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|processFile (File file)
 specifier|protected
