@@ -359,7 +359,14 @@ specifier|private
 name|long
 name|sleepForEmptyTest
 init|=
-literal|0L
+literal|2000L
+decl_stmt|;
+DECL|field|defaulResultWaitMillis
+specifier|private
+name|long
+name|defaulResultWaitMillis
+init|=
+literal|10000L
 decl_stmt|;
 DECL|field|expectedMinimumCount
 specifier|private
@@ -703,7 +710,7 @@ name|sleepForEmptyTest
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Validates that all the available expectations on this endpoint are satisfied; or throw an exception      */
+comment|/**      * Validates that all the available expectations on this endpoint are satisfied; or throw an exception      *      * @param timeoutForEmptyEndpoints the timeout in milliseconds that we should wait for the test to be true      */
 DECL|method|assertIsSatisfied (long timeoutForEmptyEndpoints)
 specifier|public
 name|void
@@ -727,11 +734,11 @@ name|latch
 operator|.
 name|await
 argument_list|(
-literal|10
+name|defaulResultWaitMillis
 argument_list|,
 name|TimeUnit
 operator|.
-name|SECONDS
+name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 block|}
@@ -751,6 +758,17 @@ operator|>
 literal|0
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Sleeping for: "
+operator|+
+name|timeoutForEmptyEndpoints
+operator|+
+literal|" millis to check there really are no messages received"
+argument_list|)
+expr_stmt|;
 name|Thread
 operator|.
 name|sleep

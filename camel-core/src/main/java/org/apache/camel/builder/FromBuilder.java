@@ -302,6 +302,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|sun
+operator|.
+name|net
+operator|.
+name|smtp
+operator|.
+name|SmtpClient
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -1118,6 +1130,33 @@ argument_list|>
 name|processAtExpression
 parameter_list|)
 block|{
+return|return
+name|delayer
+argument_list|(
+name|processAtExpression
+argument_list|,
+literal|0L
+argument_list|)
+return|;
+block|}
+comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will be dispatched on      *      * @param processAtExpression an expression to calculate the time at which the messages should be processed      * @param delay the delay in milliseconds which is added to the processAtExpression to determine the time the      * message should be processed      * @return the builder      */
+annotation|@
+name|Fluent
+DECL|method|delayer (Expression<Exchange> processAtExpression, long delay)
+specifier|public
+name|DelayerBuilder
+name|delayer
+parameter_list|(
+name|Expression
+argument_list|<
+name|Exchange
+argument_list|>
+name|processAtExpression
+parameter_list|,
+name|long
+name|delay
+parameter_list|)
+block|{
 name|DelayerBuilder
 name|answer
 init|=
@@ -1128,7 +1167,7 @@ name|this
 argument_list|,
 name|processAtExpression
 argument_list|,
-literal|0L
+name|delay
 argument_list|)
 decl_stmt|;
 name|setRouteBuilder
@@ -1152,26 +1191,13 @@ name|long
 name|delay
 parameter_list|)
 block|{
-name|DelayerBuilder
-name|answer
-init|=
-operator|new
-name|DelayerBuilder
+return|return
+name|delayer
 argument_list|(
-name|this
-argument_list|,
 literal|null
 argument_list|,
 name|delay
 argument_list|)
-decl_stmt|;
-name|setRouteBuilder
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-name|answer
 return|;
 block|}
 comment|/**      * Installs the given error handler builder      *      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
