@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DelayerProcessor
+name|Delayer
 import|;
 end_import
 
@@ -162,7 +162,7 @@ argument_list|()
 decl_stmt|;
 return|return
 operator|new
-name|DelayerProcessor
+name|Delayer
 argument_list|(
 name|processor
 argument_list|,

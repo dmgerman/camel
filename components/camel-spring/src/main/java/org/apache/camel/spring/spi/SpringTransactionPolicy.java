@@ -335,7 +335,7 @@ argument_list|)
 operator|+
 literal|"["
 operator|+
-name|getNext
+name|getProcessor
 argument_list|()
 operator|+
 literal|"]"

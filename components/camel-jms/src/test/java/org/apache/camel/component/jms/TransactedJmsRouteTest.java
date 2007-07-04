@@ -481,7 +481,9 @@ block|{
 return|return
 literal|"rollback("
 operator|+
-name|next
+name|this
+operator|.
+name|processor
 operator|+
 literal|")"
 return|;
@@ -548,7 +550,9 @@ block|{
 return|return
 literal|"catchRollback("
 operator|+
-name|next
+name|this
+operator|.
+name|processor
 operator|+
 literal|")"
 return|;

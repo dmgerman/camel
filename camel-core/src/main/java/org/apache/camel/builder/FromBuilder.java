@@ -1200,6 +1200,38 @@ name|delay
 argument_list|)
 return|;
 block|}
+comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will be dispatched on      *      * @param processAtExpression an expression to calculate the time at which the messages should be processed      * @param delay the delay in milliseconds which is added to the processAtExpression to determine the time the      * message should be processed      * @return the builder      */
+annotation|@
+name|Fluent
+DECL|method|throttler (long maximumRequestCount)
+specifier|public
+name|ThrottlerBuilder
+name|throttler
+parameter_list|(
+name|long
+name|maximumRequestCount
+parameter_list|)
+block|{
+name|ThrottlerBuilder
+name|answer
+init|=
+operator|new
+name|ThrottlerBuilder
+argument_list|(
+name|this
+argument_list|,
+name|maximumRequestCount
+argument_list|)
+decl_stmt|;
+name|setRouteBuilder
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Installs the given error handler builder      *      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
 annotation|@
 name|Fluent

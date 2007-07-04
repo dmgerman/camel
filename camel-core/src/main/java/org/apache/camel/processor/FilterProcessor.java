@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Predicate
 import|;
 end_import
@@ -37,46 +49,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|ServiceSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
 import|;
 end_import
 
@@ -90,9 +62,7 @@ specifier|public
 class|class
 name|FilterProcessor
 extends|extends
-name|ServiceSupport
-implements|implements
-name|Processor
+name|DelegateProcessor
 block|{
 DECL|field|predicate
 specifier|private
@@ -101,11 +71,6 @@ argument_list|<
 name|Exchange
 argument_list|>
 name|predicate
-decl_stmt|;
-DECL|field|processor
-specifier|private
-name|Processor
-name|processor
 decl_stmt|;
 DECL|method|FilterProcessor (Predicate<Exchange> predicate, Processor processor)
 specifier|public
@@ -121,17 +86,16 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
-name|this
-operator|.
-name|predicate
-operator|=
-name|predicate
+name|super
+argument_list|(
+name|processor
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|processor
+name|predicate
 operator|=
-name|processor
+name|predicate
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -155,7 +119,7 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|processor
+name|super
 operator|.
 name|process
 argument_list|(
@@ -173,13 +137,16 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"filter ("
+literal|"Filter[if: "
 operator|+
 name|predicate
 operator|+
-literal|") "
+literal|" do: "
 operator|+
-name|processor
+name|getProcessor
+argument_list|()
+operator|+
+literal|"]"
 return|;
 block|}
 DECL|method|getPredicate ()
@@ -194,48 +161,6 @@ block|{
 return|return
 name|predicate
 return|;
-block|}
-DECL|method|getProcessor ()
-specifier|public
-name|Processor
-name|getProcessor
-parameter_list|()
-block|{
-return|return
-name|processor
-return|;
-block|}
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|ServiceHelper
-operator|.
-name|startServices
-argument_list|(
-name|processor
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|ServiceHelper
-operator|.
-name|stopServices
-argument_list|(
-name|processor
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

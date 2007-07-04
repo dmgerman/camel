@@ -44,18 +44,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|DelegateProcessor
@@ -259,7 +247,7 @@ condition|)
 block|{
 name|last
 operator|.
-name|setNext
+name|setProcessor
 argument_list|(
 name|p
 argument_list|)
@@ -287,7 +275,7 @@ condition|)
 block|{
 name|last
 operator|.
-name|setNext
+name|setProcessor
 argument_list|(
 name|p
 argument_list|)

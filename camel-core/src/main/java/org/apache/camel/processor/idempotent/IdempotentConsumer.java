@@ -372,7 +372,7 @@ name|nextProcessor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A strategy method to allow derived classes to overload the behaviour of processing a duplicate message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
+comment|/**      * A strategy method to allow derived classes to overload the behaviour of processing a duplicate message      *      * @param exchange  the exchange      * @param messageId the message ID of this exchange      */
 DECL|method|onDuplicateMessage (Exchange exchange, String messageId)
 specifier|protected
 name|void

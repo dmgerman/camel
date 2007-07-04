@@ -1536,7 +1536,7 @@ name|processor
 operator|=
 name|p1
 operator|.
-name|getNext
+name|getProcessor
 argument_list|()
 expr_stmt|;
 name|DelegateProcessor
@@ -1555,7 +1555,7 @@ name|assertSendTo
 argument_list|(
 name|p2
 operator|.
-name|getNext
+name|getProcessor
 argument_list|()
 argument_list|,
 literal|"queue:d"

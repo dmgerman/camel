@@ -130,6 +130,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"tearDown test: "
+operator|+
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|stop

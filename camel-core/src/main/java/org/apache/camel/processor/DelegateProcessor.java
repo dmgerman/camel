@@ -24,18 +24,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -48,9 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|Policy
+name|Processor
 import|;
 end_import
 
@@ -65,6 +51,20 @@ operator|.
 name|impl
 operator|.
 name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Policy
 import|;
 end_import
 
@@ -96,29 +96,29 @@ name|ServiceSupport
 implements|implements
 name|Processor
 block|{
-DECL|field|next
-specifier|protected
+DECL|field|processor
+specifier|private
 name|Processor
-name|next
+name|processor
 decl_stmt|;
 DECL|method|DelegateProcessor ()
 specifier|public
 name|DelegateProcessor
 parameter_list|()
 block|{     }
-DECL|method|DelegateProcessor (Processor next)
+DECL|method|DelegateProcessor (Processor processor)
 specifier|public
 name|DelegateProcessor
 parameter_list|(
 name|Processor
-name|next
+name|processor
 parameter_list|)
 block|{
 name|this
 operator|.
-name|next
+name|processor
 operator|=
-name|next
+name|processor
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -151,12 +151,12 @@ name|Exception
 block|{
 if|if
 condition|(
-name|next
+name|processor
 operator|!=
 literal|null
 condition|)
 block|{
-name|next
+name|processor
 operator|.
 name|process
 argument_list|(
@@ -174,37 +174,37 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"delegate("
+literal|"Delegate("
 operator|+
-name|next
+name|processor
 operator|+
 literal|")"
 return|;
 block|}
-DECL|method|getNext ()
+DECL|method|getProcessor ()
 specifier|public
 name|Processor
-name|getNext
+name|getProcessor
 parameter_list|()
 block|{
 return|return
-name|next
+name|processor
 return|;
 block|}
-DECL|method|setNext (Processor next)
+DECL|method|setProcessor (Processor processor)
 specifier|public
 name|void
-name|setNext
+name|setProcessor
 parameter_list|(
 name|Processor
-name|next
+name|processor
 parameter_list|)
 block|{
 name|this
 operator|.
-name|next
+name|processor
 operator|=
-name|next
+name|processor
 expr_stmt|;
 block|}
 DECL|method|doStart ()
@@ -219,7 +219,7 @@ name|ServiceHelper
 operator|.
 name|startServices
 argument_list|(
-name|next
+name|processor
 argument_list|)
 expr_stmt|;
 block|}
@@ -235,7 +235,7 @@ name|ServiceHelper
 operator|.
 name|stopServices
 argument_list|(
-name|next
+name|processor
 argument_list|)
 expr_stmt|;
 block|}
