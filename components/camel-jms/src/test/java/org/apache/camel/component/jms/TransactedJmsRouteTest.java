@@ -549,9 +549,8 @@ block|{
 return|return
 literal|"catchRollback("
 operator|+
-name|this
-operator|.
-name|processor
+name|getProcessor
+argument_list|()
 operator|+
 literal|")"
 return|;
