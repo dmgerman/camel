@@ -132,7 +132,7 @@ name|cxf
 operator|.
 name|io
 operator|.
-name|AbstractCachedOutputStream
+name|CachedOutputStream
 import|;
 end_import
 
@@ -879,7 +879,7 @@ specifier|private
 class|class
 name|CamelOutputStream
 extends|extends
-name|AbstractCachedOutputStream
+name|CachedOutputStream
 block|{
 DECL|field|inMessage
 specifier|private
