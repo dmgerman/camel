@@ -30,6 +30,48 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|Builder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ValueBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultExchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -52,22 +94,8 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
 begin_comment
-comment|/**  * A bunch of useful testing methods  *   * @version $Revision$  */
+comment|/**  * A bunch of useful testing methods  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -93,6 +121,150 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// Builder methods for expressions used when testing
+comment|//-------------------------------------------------------------------------
+comment|/**      * Returns a value builder for the given header      */
+DECL|method|header (String name)
+specifier|public
+name|ValueBuilder
+name|header
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|header
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a predicate and value builder for the inbound body on an exchange      */
+DECL|method|body ()
+specifier|public
+name|ValueBuilder
+name|body
+parameter_list|()
+block|{
+return|return
+name|Builder
+operator|.
+name|body
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns a predicate and value builder for the inbound message body as a specific type      */
+DECL|method|bodyAs (Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|ValueBuilder
+name|bodyAs
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|bodyAs
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a predicate and value builder for the outbound body on an exchange      */
+DECL|method|outBody ()
+specifier|public
+name|ValueBuilder
+name|outBody
+parameter_list|()
+block|{
+return|return
+name|Builder
+operator|.
+name|outBody
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns a predicate and value builder for the outbound message body as a specific type      */
+DECL|method|outBody (Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|ValueBuilder
+name|outBody
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|outBody
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a value builder for the given system property      */
+DECL|method|systemProperty (String name)
+specifier|public
+name|ValueBuilder
+name|systemProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|systemProperty
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a value builder for the given system property      */
+DECL|method|systemProperty (String name, String defaultValue)
+specifier|public
+name|ValueBuilder
+name|systemProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|defaultValue
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|systemProperty
+argument_list|(
+name|name
+argument_list|,
+name|defaultValue
+argument_list|)
+return|;
+block|}
+comment|// Assertions
+comment|//-----------------------------------------------------------------------
 DECL|method|assertIsInstanceOf (Class<T> expectedType, Object value)
 specifier|protected
 parameter_list|<

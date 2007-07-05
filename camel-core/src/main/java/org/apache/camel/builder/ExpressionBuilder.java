@@ -674,15 +674,18 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"convertTo("
+literal|""
 operator|+
 name|expression
 operator|+
-literal|", "
+literal|".convertTo("
 operator|+
 name|type
+operator|.
+name|getName
+argument_list|()
 operator|+
-literal|")"
+literal|".class)"
 return|;
 block|}
 block|}

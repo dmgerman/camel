@@ -88,6 +88,12 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
+DECL|field|threadCounter
+specifier|private
+specifier|static
+name|int
+name|threadCounter
+decl_stmt|;
 DECL|method|start ()
 specifier|public
 name|void
@@ -232,6 +238,38 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Creates a new thread name with the given prefix      */
+DECL|method|getThreadName (String prefix)
+specifier|protected
+name|String
+name|getThreadName
+parameter_list|(
+name|String
+name|prefix
+parameter_list|)
+block|{
+return|return
+name|prefix
+operator|+
+literal|" thread:"
+operator|+
+name|nextThreadCounter
+argument_list|()
+return|;
+block|}
+DECL|method|nextThreadCounter ()
+specifier|protected
+specifier|static
+specifier|synchronized
+name|int
+name|nextThreadCounter
+parameter_list|()
+block|{
+return|return
+operator|++
+name|threadCounter
+return|;
+block|}
 block|}
 end_class
 

@@ -500,7 +500,7 @@ name|thread
 operator|.
 name|setName
 argument_list|(
-literal|"Thread"
+literal|"Thread: "
 operator|+
 operator|(
 operator|++

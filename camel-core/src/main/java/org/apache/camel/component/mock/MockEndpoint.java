@@ -248,6 +248,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|CopyOnWriteArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|CountDownLatch
 import|;
 end_import
@@ -339,7 +351,7 @@ argument_list|>
 name|receivedExchanges
 init|=
 operator|new
-name|ArrayList
+name|CopyOnWriteArrayList
 argument_list|<
 name|Exchange
 argument_list|>
@@ -354,7 +366,7 @@ argument_list|>
 name|failures
 init|=
 operator|new
-name|ArrayList
+name|CopyOnWriteArrayList
 argument_list|<
 name|Throwable
 argument_list|>
@@ -369,7 +381,7 @@ argument_list|>
 name|tests
 init|=
 operator|new
-name|ArrayList
+name|CopyOnWriteArrayList
 argument_list|<
 name|Runnable
 argument_list|>
@@ -800,41 +812,8 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|latch
-operator|==
-literal|null
-condition|)
-block|{
-name|fail
-argument_list|(
-literal|"Should have a latch!"
-argument_list|)
-expr_stmt|;
-block|}
-comment|// now lets wait for the results
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Waiting on the latch for: "
-operator|+
-name|defaulResultWaitMillis
-operator|+
-literal|" millis"
-argument_list|)
-expr_stmt|;
-name|latch
-operator|.
-name|await
-argument_list|(
-name|defaulResultWaitMillis
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
+name|waitForCompleteLatch
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -847,6 +826,23 @@ argument_list|,
 name|getReceivedCounter
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|expectedMinimumCount
+operator|>
+literal|0
+operator|&&
+name|getReceivedCounter
+argument_list|()
+operator|<
+name|expectedMinimumCount
+condition|)
+block|{
+name|waitForCompleteLatch
+argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -931,6 +927,43 @@ name|failure
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+comment|/**      * Validates that the assertions fail on this endpoint      */
+DECL|method|assertIsNotSatisfied ()
+specifier|public
+name|void
+name|assertIsNotSatisfied
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+try|try
+block|{
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected assertion failure!"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|AssertionError
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Caught expected failure: "
+operator|+
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Specifies the expected number of message exchanges that should be received by this endpoint      *      * @param expectedCount the number of message exchanges that should be expected by this endpoint      */
@@ -1209,6 +1242,76 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Adds an expectation that messages received should have descending values of the given expression      * such as a user generated counter value      *      * @param expression      */
+DECL|method|expectsDescending (final Expression<Exchange> expression)
+specifier|public
+name|void
+name|expectsDescending
+parameter_list|(
+specifier|final
+name|Expression
+argument_list|<
+name|Exchange
+argument_list|>
+name|expression
+parameter_list|)
+block|{
+name|expects
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+name|assertMessagesDescending
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Adds an expectation that no duplicate messages should be received using the      * expression to determine the message ID      *      * @param expression the expression used to create a unique message ID for      * message comparison (which could just be the message payload if the payload      * can be tested for uniqueness using {@link Object#equals(Object)}      * and {@link Object#hashCode()}      */
+DECL|method|expectsNoDuplicates (final Expression<Exchange> expression)
+specifier|public
+name|void
+name|expectsNoDuplicates
+parameter_list|(
+specifier|final
+name|Expression
+argument_list|<
+name|Exchange
+argument_list|>
+name|expression
+parameter_list|)
+block|{
+name|expects
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+name|assertNoDuplicates
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Asserts that the messages have ascending values of the given expression      */
 DECL|method|assertMessagesAscending (Expression<Exchange> expression)
 specifier|public
@@ -1222,6 +1325,61 @@ argument_list|>
 name|expression
 parameter_list|)
 block|{
+name|assertMessagesSorted
+argument_list|(
+name|expression
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Asserts that the messages have descending values of the given expression      */
+DECL|method|assertMessagesDescending (Expression<Exchange> expression)
+specifier|public
+name|void
+name|assertMessagesDescending
+parameter_list|(
+name|Expression
+argument_list|<
+name|Exchange
+argument_list|>
+name|expression
+parameter_list|)
+block|{
+name|assertMessagesSorted
+argument_list|(
+name|expression
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|assertMessagesSorted (Expression<Exchange> expression, boolean ascending)
+specifier|protected
+name|void
+name|assertMessagesSorted
+parameter_list|(
+name|Expression
+argument_list|<
+name|Exchange
+argument_list|>
+name|expression
+parameter_list|,
+name|boolean
+name|ascending
+parameter_list|)
+block|{
+name|String
+name|type
+init|=
+operator|(
+name|ascending
+operator|)
+condition|?
+literal|"ascending"
+else|:
+literal|"descending"
+decl_stmt|;
 name|ExpressionComparator
 name|comparator
 init|=
@@ -1249,7 +1407,7 @@ literal|1
 init|;
 name|i
 operator|<
-name|expectedBodyValues
+name|list
 operator|.
 name|size
 argument_list|()
@@ -1304,19 +1462,13 @@ operator|==
 literal|0
 condition|)
 block|{
-name|Object
-name|value
-init|=
-name|expression
-operator|.
-name|evaluate
-argument_list|(
-name|e1
-argument_list|)
-decl_stmt|;
 name|fail
 argument_list|(
-literal|"Messages not ascending. Messages"
+literal|"Messages not "
+operator|+
+name|type
+operator|+
+literal|". Messages"
 operator|+
 name|j
 operator|+
@@ -1326,13 +1478,18 @@ name|i
 operator|+
 literal|" are equal with value: "
 operator|+
-name|value
+name|expression
+operator|.
+name|evaluate
+argument_list|(
+name|e1
+argument_list|)
 operator|+
 literal|" for expression: "
 operator|+
 name|expression
 operator|+
-literal|" when they were expected to be ascending. Exchanges: "
+literal|". Exchanges: "
 operator|+
 name|e1
 operator|+
@@ -1342,7 +1499,22 @@ name|e2
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
+else|else
+block|{
+if|if
+condition|(
+operator|!
+name|ascending
+condition|)
+block|{
+name|result
+operator|=
+name|result
+operator|*
+operator|-
+literal|1
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|result
@@ -1350,19 +1522,13 @@ operator|>
 literal|0
 condition|)
 block|{
-name|Object
-name|value
-init|=
-name|expression
-operator|.
-name|evaluate
-argument_list|(
-name|e1
-argument_list|)
-decl_stmt|;
 name|fail
 argument_list|(
-literal|"Messages not ascending. Message "
+literal|"Messages not "
+operator|+
+name|type
+operator|+
+literal|". Message "
 operator|+
 name|j
 operator|+
@@ -1375,7 +1541,7 @@ argument_list|(
 name|e1
 argument_list|)
 operator|+
-literal|" and message"
+literal|" and message "
 operator|+
 name|i
 operator|+
@@ -1392,12 +1558,144 @@ literal|" for expression: "
 operator|+
 name|expression
 operator|+
-literal|" when they were expected to be ascending. Exchanges: "
+literal|". Exchanges: "
 operator|+
 name|e1
 operator|+
 literal|" and "
 operator|+
+name|e2
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+block|}
+DECL|method|assertNoDuplicates (Expression<Exchange> expression)
+specifier|public
+name|void
+name|assertNoDuplicates
+parameter_list|(
+name|Expression
+argument_list|<
+name|Exchange
+argument_list|>
+name|expression
+parameter_list|)
+block|{
+name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Exchange
+argument_list|>
+name|map
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|Object
+argument_list|,
+name|Exchange
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|list
+init|=
+name|getReceivedExchanges
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|list
+operator|.
+name|size
+argument_list|()
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|Exchange
+name|e2
+init|=
+name|list
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+name|Object
+name|key
+init|=
+name|expression
+operator|.
+name|evaluate
+argument_list|(
+name|e2
+argument_list|)
+decl_stmt|;
+name|Exchange
+name|e1
+init|=
+name|map
+operator|.
+name|get
+argument_list|(
+name|key
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|e1
+operator|!=
+literal|null
+condition|)
+block|{
+name|fail
+argument_list|(
+literal|"Duplicate message found on message "
+operator|+
+name|i
+operator|+
+literal|" has value: "
+operator|+
+name|key
+operator|+
+literal|" for expression: "
+operator|+
+name|expression
+operator|+
+literal|". Exchanges: "
+operator|+
+name|e1
+operator|+
+literal|" and "
+operator|+
+name|e2
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|map
+operator|.
+name|put
+argument_list|(
+name|key
+argument_list|,
 name|e2
 argument_list|)
 expr_stmt|;
@@ -1858,6 +2156,51 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|waitForCompleteLatch ()
+specifier|protected
+name|void
+name|waitForCompleteLatch
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+if|if
+condition|(
+name|latch
+operator|==
+literal|null
+condition|)
+block|{
+name|fail
+argument_list|(
+literal|"Should have a latch!"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// now lets wait for the results
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Waiting on the latch for: "
+operator|+
+name|defaulResultWaitMillis
+operator|+
+literal|" millis"
+argument_list|)
+expr_stmt|;
+name|latch
+operator|.
+name|await
+argument_list|(
+name|defaulResultWaitMillis
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|assertEquals (String message, Object expectedValue, Object actualValue)
 specifier|protected

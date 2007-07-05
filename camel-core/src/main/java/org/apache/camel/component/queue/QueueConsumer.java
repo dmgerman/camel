@@ -125,10 +125,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|QueueEndpointConsumer
+DECL|class|QueueConsumer
 specifier|public
 class|class
-name|QueueEndpointConsumer
+name|QueueConsumer
 parameter_list|<
 name|E
 extends|extends
@@ -155,16 +155,10 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|QueueEndpointConsumer
+name|QueueConsumer
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-DECL|field|counter
-specifier|private
-specifier|static
-name|int
-name|counter
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
@@ -184,9 +178,9 @@ specifier|private
 name|Thread
 name|thread
 decl_stmt|;
-DECL|method|QueueEndpointConsumer (QueueEndpoint<E> endpoint, Processor processor)
+DECL|method|QueueConsumer (QueueEndpoint<E> endpoint, Processor processor)
 specifier|public
-name|QueueEndpointConsumer
+name|QueueConsumer
 parameter_list|(
 name|QueueEndpoint
 argument_list|<
@@ -220,7 +214,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"QueueEndpointConsumer: "
+literal|"QueueConsumer: "
 operator|+
 name|endpoint
 operator|.
@@ -343,15 +337,13 @@ name|Thread
 argument_list|(
 name|this
 argument_list|,
+name|getThreadName
+argument_list|(
 name|endpoint
 operator|.
 name|getEndpointUri
 argument_list|()
-operator|+
-literal|" thread:"
-operator|+
-name|nextCounter
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|thread
@@ -380,19 +372,6 @@ operator|.
 name|join
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|nextCounter ()
-specifier|protected
-specifier|static
-specifier|synchronized
-name|int
-name|nextCounter
-parameter_list|()
-block|{
-return|return
-operator|++
-name|counter
-return|;
 block|}
 block|}
 end_class

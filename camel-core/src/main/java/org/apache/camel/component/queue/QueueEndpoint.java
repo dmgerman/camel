@@ -274,7 +274,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|QueueEndpointConsumer
+name|QueueConsumer
 argument_list|<
 name|E
 argument_list|>

@@ -144,6 +144,32 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|protocol
+operator|+
+literal|":\\"
+operator|+
+name|username
+operator|+
+literal|"@"
+operator|+
+name|host
+operator|+
+literal|":"
+operator|+
+name|port
+operator|+
+literal|"/"
+operator|+
+name|directory
+return|;
+block|}
 DECL|method|configure (URI uri)
 specifier|public
 name|void
@@ -455,10 +481,10 @@ operator|=
 name|directory
 expr_stmt|;
 block|}
-DECL|method|toString ()
+DECL|method|dump ()
 specifier|public
 name|String
-name|toString
+name|dump
 parameter_list|()
 block|{
 return|return

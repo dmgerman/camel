@@ -159,6 +159,16 @@ name|RemoteFileConfiguration
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"RemoteFileComponent"
+return|;
+block|}
 DECL|method|remoteFileComponent ()
 specifier|public
 specifier|static
