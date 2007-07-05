@@ -344,6 +344,34 @@ name|Tidy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Goal which extracts the content of a wiki page and converts it to docbook  * format  *   * @goal htmlToDocbook  * @phase process-sources  */
 end_comment
@@ -434,6 +462,23 @@ DECL|field|chapterId
 specifier|private
 name|String
 name|chapterId
+decl_stmt|;
+DECL|field|log
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|GenerateDocBookMojo
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 DECL|method|execute ()
 specifier|public
@@ -918,10 +963,14 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|e
+name|log
 operator|.
-name|printStackTrace
-argument_list|()
+name|debug
+argument_list|(
+literal|"Exception processing wiki content"
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally
@@ -947,10 +996,14 @@ name|e
 parameter_list|)
 block|{
 comment|// TODO Auto-generated catch block
-name|e
+name|log
 operator|.
-name|printStackTrace
-argument_list|()
+name|debug
+argument_list|(
+literal|"Exception closing output stream"
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1426,10 +1479,14 @@ name|e
 parameter_list|)
 block|{
 comment|// TODO Auto-generated catch block
-name|e
+name|log
 operator|.
-name|printStackTrace
-argument_list|()
+name|debug
+argument_list|(
+literal|"Exception in creating manual.xml file"
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1630,10 +1687,16 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|e
+name|log
 operator|.
-name|printStackTrace
-argument_list|()
+name|debug
+argument_list|(
+literal|"Exception in downloading image "
+operator|+
+name|imageFile
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
