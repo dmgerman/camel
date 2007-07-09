@@ -351,6 +351,13 @@ parameter_list|)
 throws|throws
 name|JMSException
 block|{
+name|message
+operator|.
+name|setJMSDestination
+argument_list|(
+name|destination
+argument_list|)
+expr_stmt|;
 name|CamelDestination
 name|camelDestination
 init|=
@@ -413,6 +420,8 @@ name|camelDestination
 operator|.
 name|getBinding
 argument_list|()
+argument_list|,
+name|message
 argument_list|)
 decl_stmt|;
 name|producer

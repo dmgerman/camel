@@ -581,6 +581,19 @@ decl_stmt|;
 if|if
 condition|(
 name|destination
+operator|==
+literal|null
+condition|)
+block|{
+name|result
+operator|=
+literal|"null destination!"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|destination
 operator|instanceof
 name|Topic
 condition|)
