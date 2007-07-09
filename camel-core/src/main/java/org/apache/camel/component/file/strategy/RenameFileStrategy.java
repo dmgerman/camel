@@ -90,6 +90,16 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A strategy to rename a file  *   * @version $Revision: 1.1 $  */
 end_comment
@@ -286,13 +296,36 @@ name|newName
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
+name|renamed
+init|=
 name|file
 operator|.
 name|renameTo
 argument_list|(
 name|newName
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|renamed
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Could not rename file from: "
+operator|+
+name|file
+operator|+
+literal|" to "
+operator|+
+name|newName
+argument_list|)
+throw|;
+block|}
 name|super
 operator|.
 name|commit
