@@ -348,7 +348,7 @@ name|assertEndpointUri
 argument_list|(
 name|key
 argument_list|,
-literal|"queue:test.a"
+literal|"seda:test.a"
 argument_list|)
 expr_stmt|;
 block|}
@@ -474,7 +474,7 @@ name|assertEndpointUri
 argument_list|(
 name|key
 argument_list|,
-literal|"queue:test.c"
+literal|"seda:test.c"
 argument_list|)
 expr_stmt|;
 block|}

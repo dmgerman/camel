@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.queue
+DECL|package|org.apache.camel.component.seda
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|queue
+name|seda
 package|;
 end_package
 
@@ -125,10 +125,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|QueueConsumer
+DECL|class|SedaConsumer
 specifier|public
 class|class
-name|QueueConsumer
+name|SedaConsumer
 parameter_list|<
 name|E
 extends|extends
@@ -155,14 +155,14 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|QueueConsumer
+name|SedaConsumer
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
-name|QueueEndpoint
+name|SedaEndpoint
 argument_list|<
 name|E
 argument_list|>
@@ -178,11 +178,11 @@ specifier|private
 name|Thread
 name|thread
 decl_stmt|;
-DECL|method|QueueConsumer (QueueEndpoint<E> endpoint, Processor processor)
+DECL|method|SedaConsumer (SedaEndpoint<E> endpoint, Processor processor)
 specifier|public
-name|QueueConsumer
+name|SedaConsumer
 parameter_list|(
-name|QueueEndpoint
+name|SedaEndpoint
 argument_list|<
 name|E
 argument_list|>

@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.queue
+DECL|package|org.apache.camel.component.seda
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|queue
+name|seda
 package|;
 end_package
 
@@ -169,10 +169,10 @@ comment|/**  * @version $Revision: 520220 $  */
 end_comment
 
 begin_class
-DECL|class|QueueRouteTest
+DECL|class|SedaRouteTest
 specifier|public
 class|class
-name|QueueRouteTest
+name|SedaRouteTest
 extends|extends
 name|TestSupport
 block|{
@@ -217,17 +217,17 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:test.a"
+literal|"seda:test.a"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:test.b"
+literal|"seda:test.b"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"queue:test.b"
+literal|"seda:test.b"
 argument_list|)
 operator|.
 name|process
@@ -285,7 +285,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"queue:test.a"
+literal|"seda:test.a"
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -395,17 +395,17 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:test.a"
+literal|"seda:test.a"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:test.b"
+literal|"seda:test.b"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"queue:test.b"
+literal|"seda:test.b"
 argument_list|)
 operator|.
 name|process
@@ -463,7 +463,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"queue:test.a"
+literal|"seda:test.a"
 argument_list|)
 decl_stmt|;
 name|Exchange

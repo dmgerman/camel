@@ -237,7 +237,7 @@ name|template
 operator|.
 name|send
 argument_list|(
-literal|"queue:start"
+literal|"seda:start"
 argument_list|,
 operator|new
 name|Processor

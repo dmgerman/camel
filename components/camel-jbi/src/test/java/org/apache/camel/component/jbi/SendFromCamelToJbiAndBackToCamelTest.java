@@ -54,9 +54,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|queue
+name|seda
 operator|.
-name|QueueEndpoint
+name|SedaEndpoint
 import|;
 end_import
 
@@ -188,17 +188,17 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|QueueEndpoint
+name|SedaEndpoint
 name|receiverEndpoint
 init|=
 operator|(
-name|QueueEndpoint
+name|SedaEndpoint
 operator|)
 name|camelContext
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"queue:receiver"
+literal|"seda:receiver"
 argument_list|)
 decl_stmt|;
 name|BlockingQueue
@@ -290,7 +290,7 @@ name|this
 operator|.
 name|startEndpointUri
 operator|=
-literal|"queue:receiver"
+literal|"seda:receiver"
 expr_stmt|;
 name|ActivationSpec
 name|activationSpec
@@ -334,7 +334,7 @@ argument_list|(
 operator|new
 name|URIResolver
 argument_list|(
-literal|"camel:queue:receiver"
+literal|"camel:seda:receiver"
 argument_list|)
 argument_list|)
 expr_stmt|;

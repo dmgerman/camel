@@ -266,14 +266,14 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:consumerJoined"
+literal|"seda:consumerJoined"
 argument_list|)
 expr_stmt|;
 comment|// TODO this causes errors on shutdown...
 comment|//otherwise().to("mock:otherIrcCommands");
 name|from
 argument_list|(
-literal|"queue:consumerJoined"
+literal|"seda:consumerJoined"
 argument_list|)
 operator|.
 name|process

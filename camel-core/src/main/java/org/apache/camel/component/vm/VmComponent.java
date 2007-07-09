@@ -52,7 +52,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|queue
+name|seda
 operator|.
 name|QueueComponent
 import|;
@@ -68,9 +68,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|queue
+name|seda
 operator|.
-name|QueueEndpoint
+name|SedaEndpoint
 import|;
 end_import
 
@@ -193,7 +193,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|QueueEndpoint
+name|SedaEndpoint
 argument_list|<
 name|E
 argument_list|>

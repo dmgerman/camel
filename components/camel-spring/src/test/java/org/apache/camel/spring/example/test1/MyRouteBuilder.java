@@ -54,12 +54,12 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:test.a"
+literal|"seda:test.a"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:test.b"
+literal|"seda:test.b"
 argument_list|)
 expr_stmt|;
 block|}

@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.queue
+DECL|package|org.apache.camel.component.seda
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|queue
+name|seda
 package|;
 end_package
 
@@ -137,10 +137,10 @@ comment|/**  * An implementation of the<a href="http://activemq.apache.org/camel
 end_comment
 
 begin_class
-DECL|class|QueueEndpoint
+DECL|class|SedaEndpoint
 specifier|public
 class|class
-name|QueueEndpoint
+name|SedaEndpoint
 parameter_list|<
 name|E
 extends|extends
@@ -160,9 +160,9 @@ name|E
 argument_list|>
 name|queue
 decl_stmt|;
-DECL|method|QueueEndpoint (String endpointUri, Component component, BlockingQueue<E> queue)
+DECL|method|SedaEndpoint (String endpointUri, Component component, BlockingQueue<E> queue)
 specifier|public
-name|QueueEndpoint
+name|SedaEndpoint
 parameter_list|(
 name|String
 name|endpointUri
@@ -191,14 +191,14 @@ operator|=
 name|queue
 expr_stmt|;
 block|}
-DECL|method|QueueEndpoint (String uri, QueueComponent<E> component)
+DECL|method|SedaEndpoint (String uri, SedaComponent<E> component)
 specifier|public
-name|QueueEndpoint
+name|SedaEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|QueueComponent
+name|SedaComponent
 argument_list|<
 name|E
 argument_list|>
@@ -274,7 +274,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|QueueConsumer
+name|SedaConsumer
 argument_list|<
 name|E
 argument_list|>

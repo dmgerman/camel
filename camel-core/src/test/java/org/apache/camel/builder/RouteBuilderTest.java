@@ -329,12 +329,12 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:b"
+literal|"seda:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -403,7 +403,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"queue:a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -435,7 +435,7 @@ name|assertEquals
 argument_list|(
 literal|"Endpoint URI"
 argument_list|,
-literal|"queue:b"
+literal|"seda:b"
 argument_list|,
 name|sendProcessor
 operator|.
@@ -474,7 +474,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|filter
@@ -492,7 +492,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:b"
+literal|"seda:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -564,7 +564,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"queue:a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -614,7 +614,7 @@ name|assertEquals
 argument_list|(
 literal|"Endpoint URI"
 argument_list|,
-literal|"queue:b"
+literal|"seda:b"
 argument_list|,
 name|sendProcessor
 operator|.
@@ -653,7 +653,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|choice
@@ -674,7 +674,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:b"
+literal|"seda:b"
 argument_list|)
 operator|.
 name|when
@@ -692,7 +692,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:c"
+literal|"seda:c"
 argument_list|)
 operator|.
 name|otherwise
@@ -700,7 +700,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"queue:d"
+literal|"seda:d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -772,7 +772,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"queue:a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -840,7 +840,7 @@ operator|.
 name|getProcessor
 argument_list|()
 argument_list|,
-literal|"queue:b"
+literal|"seda:b"
 argument_list|)
 expr_stmt|;
 name|FilterProcessor
@@ -860,7 +860,7 @@ operator|.
 name|getProcessor
 argument_list|()
 argument_list|,
-literal|"queue:c"
+literal|"seda:c"
 argument_list|)
 expr_stmt|;
 name|assertSendTo
@@ -870,7 +870,7 @@ operator|.
 name|getOtherwise
 argument_list|()
 argument_list|,
-literal|"queue:d"
+literal|"seda:d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -927,7 +927,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|process
@@ -995,7 +995,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"queue:a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -1048,7 +1048,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|filter
@@ -1138,7 +1138,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"queue:a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -1209,14 +1209,14 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:tap"
+literal|"seda:tap"
 argument_list|,
-literal|"queue:b"
+literal|"seda:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1288,7 +1288,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"queue:a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -1355,7 +1355,7 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-literal|"queue:tap"
+literal|"seda:tap"
 argument_list|)
 expr_stmt|;
 name|assertEndpointUri
@@ -1367,7 +1367,7 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|,
-literal|"queue:b"
+literal|"seda:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1411,7 +1411,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|intercept
@@ -1432,7 +1432,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"queue:d"
+literal|"seda:d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1504,7 +1504,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"queue:a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -1558,7 +1558,7 @@ operator|.
 name|getProcessor
 argument_list|()
 argument_list|,
-literal|"queue:d"
+literal|"seda:d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1586,7 +1586,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|filter
@@ -1604,12 +1604,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:b"
+literal|"seda:b"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|filter
@@ -1627,7 +1627,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:b"
+literal|"seda:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1686,7 +1686,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"queue:a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -1711,7 +1711,7 @@ operator|+
 name|processor
 argument_list|)
 expr_stmt|;
-comment|/* TODO             FilterProcessor filterProcessor = assertIsInstanceOf(FilterProcessor.class, processor);              SendProcessor sendProcessor = assertIsInstanceOf(SendProcessor.class, filterProcessor.getProcessor());             assertEquals("Endpoint URI", "queue:b", sendProcessor.getDestination().getEndpointUri());             */
+comment|/* TODO             FilterProcessor filterProcessor = assertIsInstanceOf(FilterProcessor.class, processor);              SendProcessor sendProcessor = assertIsInstanceOf(SendProcessor.class, filterProcessor.getProcessor());             assertEquals("Endpoint URI", "seda:b", sendProcessor.getDestination().getEndpointUri());             */
 block|}
 block|}
 DECL|method|buildStaticRecipientList ()
@@ -1740,16 +1740,16 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:b"
+literal|"seda:b"
 argument_list|,
-literal|"queue:c"
+literal|"seda:c"
 argument_list|,
-literal|"queue:d"
+literal|"seda:d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1789,7 +1789,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|recipientList
@@ -1869,7 +1869,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"queue:a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -1925,7 +1925,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|splitter
@@ -1945,7 +1945,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:b"
+literal|"seda:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2017,7 +2017,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"queue:a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -2073,7 +2073,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|idempotentConsumer
@@ -2091,7 +2091,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"queue:b"
+literal|"seda:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2163,7 +2163,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"queue:a"
+literal|"seda:a"
 argument_list|,
 name|key
 operator|.
@@ -2237,7 +2237,7 @@ name|assertEquals
 argument_list|(
 literal|"Endpoint URI"
 argument_list|,
-literal|"queue:b"
+literal|"seda:b"
 argument_list|,
 name|sendProcessor
 operator|.

@@ -130,7 +130,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|,
 literal|"<message>"
 operator|+
@@ -167,7 +167,7 @@ block|{
 comment|// START SNIPPET: ex
 name|from
 argument_list|(
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|throttler

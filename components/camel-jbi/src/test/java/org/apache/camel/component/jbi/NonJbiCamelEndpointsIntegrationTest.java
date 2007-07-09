@@ -722,7 +722,7 @@ name|CamelJbiEndpoint
 operator|.
 name|SERVICE_NAME
 argument_list|,
-literal|"queue:a"
+literal|"seda:a"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
