@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -173,10 +185,11 @@ class|class
 name|CamelDestination
 implements|implements
 name|CustomDestination
+implements|,
+name|CamelContextAware
 block|{
 DECL|field|uri
 specifier|private
-specifier|final
 name|String
 name|uri
 decl_stmt|;
@@ -199,6 +212,11 @@ operator|new
 name|JmsBinding
 argument_list|()
 decl_stmt|;
+DECL|method|CamelDestination ()
+specifier|public
+name|CamelDestination
+parameter_list|()
+block|{     }
 DECL|method|CamelDestination (String uri)
 specifier|public
 name|CamelDestination
@@ -213,16 +231,6 @@ name|uri
 operator|=
 name|uri
 expr_stmt|;
-block|}
-DECL|method|getUri ()
-specifier|public
-name|String
-name|getUri
-parameter_list|()
-block|{
-return|return
-name|uri
-return|;
 block|}
 DECL|method|toString ()
 specifier|public
@@ -446,6 +454,32 @@ throw|;
 block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
+block|}
+DECL|method|setUri (String uri)
+specifier|public
+name|void
+name|setUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
+expr_stmt|;
+block|}
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint

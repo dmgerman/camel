@@ -511,6 +511,11 @@ operator|.
 name|createPollingConsumer
 argument_list|()
 expr_stmt|;
+name|pollingConsumer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 block|}
 return|return
 name|pollingConsumer
@@ -596,7 +601,9 @@ name|JMSException
 block|{
 try|try
 block|{
-return|return
+name|Consumer
+name|answer
+init|=
 name|endpoint
 operator|.
 name|createConsumer
@@ -634,6 +641,14 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 catch|catch
