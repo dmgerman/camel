@@ -101,13 +101,13 @@ name|OutputType
 extends|extends
 name|ProcessorType
 block|{
-DECL|field|processor
+DECL|field|outputs
 specifier|protected
 name|List
 argument_list|<
 name|ProcessorType
 argument_list|>
-name|processor
+name|outputs
 init|=
 operator|new
 name|ArrayList
@@ -118,36 +118,36 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlElementRef
-DECL|method|getProcessor ()
+DECL|method|getOutputs ()
 specifier|public
 name|List
 argument_list|<
 name|ProcessorType
 argument_list|>
-name|getProcessor
+name|getOutputs
 parameter_list|()
 block|{
 return|return
-name|processor
+name|outputs
 return|;
 block|}
-DECL|method|setProcessor (List<ProcessorType> processor)
+DECL|method|setOutputs (List<ProcessorType> outputs)
 specifier|public
 name|void
-name|setProcessor
+name|setOutputs
 parameter_list|(
 name|List
 argument_list|<
 name|ProcessorType
 argument_list|>
-name|processor
+name|outputs
 parameter_list|)
 block|{
 name|this
 operator|.
-name|processor
+name|outputs
 operator|=
-name|processor
+name|outputs
 expr_stmt|;
 block|}
 DECL|method|filter (ExpressionType expression)
@@ -173,7 +173,7 @@ argument_list|(
 name|expression
 argument_list|)
 expr_stmt|;
-name|getProcessor
+name|getOutputs
 argument_list|()
 operator|.
 name|add
@@ -233,7 +233,7 @@ argument_list|(
 name|uri
 argument_list|)
 expr_stmt|;
-name|getProcessor
+name|getOutputs
 argument_list|()
 operator|.
 name|add

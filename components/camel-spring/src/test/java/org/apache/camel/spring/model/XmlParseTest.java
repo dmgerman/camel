@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|model
@@ -459,7 +447,7 @@ name|assertOneElement
 argument_list|(
 name|route
 operator|.
-name|getProcessor
+name|getOutputs
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -507,7 +495,7 @@ name|assertOneElement
 argument_list|(
 name|route
 operator|.
-name|getProcessor
+name|getOutputs
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -555,7 +543,7 @@ name|assertOneElement
 argument_list|(
 name|route
 operator|.
-name|getFrom
+name|getInputs
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -588,7 +576,7 @@ name|assertOneElement
 argument_list|(
 name|route
 operator|.
-name|getProcessor
+name|getOutputs
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -619,7 +607,7 @@ name|assertOneElement
 argument_list|(
 name|route
 operator|.
-name|getProcessor
+name|getOutputs
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -193,7 +193,7 @@ name|list
 init|=
 name|route
 operator|.
-name|getProcessor
+name|getOutputs
 argument_list|()
 decl_stmt|;
 name|assertEquals

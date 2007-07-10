@@ -141,7 +141,7 @@ argument_list|()
 operator|+
 literal|" process: "
 operator|+
-name|getProcessor
+name|getOutputs
 argument_list|()
 operator|+
 literal|"]"

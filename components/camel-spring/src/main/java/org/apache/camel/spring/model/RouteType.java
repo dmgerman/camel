@@ -90,20 +90,6 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElement
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
 name|XmlRootElement
 import|;
 end_import
@@ -184,13 +170,13 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
-DECL|field|from
+DECL|field|inputs
 specifier|private
 name|List
 argument_list|<
 name|FromType
 argument_list|>
-name|from
+name|inputs
 init|=
 operator|new
 name|ArrayList
@@ -226,11 +212,11 @@ block|{
 return|return
 literal|"Route[from: "
 operator|+
-name|from
+name|inputs
 operator|+
 literal|" processor: "
 operator|+
-name|processor
+name|outputs
 operator|+
 literal|"]"
 return|;
@@ -238,42 +224,37 @@ block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
 annotation|@
-name|XmlElement
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|)
-DECL|method|getFrom ()
+name|XmlElementRef
+DECL|method|getInputs ()
 specifier|public
 name|List
 argument_list|<
 name|FromType
 argument_list|>
-name|getFrom
+name|getInputs
 parameter_list|()
 block|{
 return|return
-name|from
+name|inputs
 return|;
 block|}
-DECL|method|setFrom (List<FromType> from)
+DECL|method|setInputs (List<FromType> inputs)
 specifier|public
 name|void
-name|setFrom
+name|setInputs
 parameter_list|(
 name|List
 argument_list|<
 name|FromType
 argument_list|>
-name|from
+name|inputs
 parameter_list|)
 block|{
 name|this
 operator|.
-name|from
+name|inputs
 operator|=
-name|from
+name|inputs
 expr_stmt|;
 block|}
 annotation|@
@@ -423,7 +404,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|getFrom
+name|getInputs
 argument_list|()
 operator|.
 name|add
