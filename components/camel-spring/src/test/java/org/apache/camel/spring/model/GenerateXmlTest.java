@@ -20,6 +20,24 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|model
+operator|.
+name|language
+operator|.
+name|GroovyExpression
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml

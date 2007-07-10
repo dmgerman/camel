@@ -20,15 +20,19 @@ end_package
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|bind
+name|camel
 operator|.
-name|annotation
+name|spring
 operator|.
-name|XmlAccessOrder
+name|model
+operator|.
+name|language
+operator|.
+name|ExpressionType
 import|;
 end_import
 
@@ -56,49 +60,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlAccessorOrder
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
 name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlElement
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlElements
 import|;
 end_import
 
@@ -160,7 +122,7 @@ annotation|@
 name|XmlElementRef
 DECL|field|expression
 specifier|private
-name|LanguageExpressionSupport
+name|ExpressionType
 name|expression
 decl_stmt|;
 annotation|@
@@ -187,7 +149,7 @@ return|;
 block|}
 DECL|method|getExpression ()
 specifier|public
-name|LanguageExpressionSupport
+name|ExpressionType
 name|getExpression
 parameter_list|()
 block|{
@@ -195,12 +157,12 @@ return|return
 name|expression
 return|;
 block|}
-DECL|method|setExpression (LanguageExpressionSupport expression)
+DECL|method|setExpression (ExpressionType expression)
 specifier|public
 name|void
 name|setExpression
 parameter_list|(
-name|LanguageExpressionSupport
+name|ExpressionType
 name|expression
 parameter_list|)
 block|{

@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.model
+DECL|package|org.apache.camel.spring.model.language
 package|package
 name|org
 operator|.
@@ -15,24 +15,10 @@ operator|.
 name|spring
 operator|.
 name|model
+operator|.
+name|language
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|model
-operator|.
-name|LanguageExpression
-import|;
-end_import
 
 begin_import
 import|import
@@ -48,8 +34,22 @@ name|XmlRootElement
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAttribute
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * Represents a parameterised language expression which can support any language  * at runtime using the language attribute.  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -58,34 +58,49 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"groovy"
+literal|"expression"
 argument_list|)
-DECL|class|GroovyExpression
+DECL|class|LanguageExpression
 specifier|public
 class|class
-name|GroovyExpression
+name|LanguageExpression
 extends|extends
-name|LanguageExpressionSupport
+name|ExpressionType
 block|{
-DECL|method|GroovyExpression ()
+DECL|field|language
+specifier|private
+name|String
+name|language
+decl_stmt|;
+DECL|method|LanguageExpression ()
 specifier|public
-name|GroovyExpression
+name|LanguageExpression
 parameter_list|()
 block|{     }
-DECL|method|GroovyExpression (String expression)
+DECL|method|LanguageExpression (String language, String expression)
 specifier|public
-name|GroovyExpression
+name|LanguageExpression
 parameter_list|(
+name|String
+name|language
+parameter_list|,
 name|String
 name|expression
 parameter_list|)
 block|{
-name|super
+name|setLanguage
+argument_list|(
+name|language
+argument_list|)
+expr_stmt|;
+name|setExpression
 argument_list|(
 name|expression
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|XmlAttribute
 DECL|method|getLanguage ()
 specifier|public
 name|String
@@ -93,8 +108,24 @@ name|getLanguage
 parameter_list|()
 block|{
 return|return
-literal|"groovy"
+name|language
 return|;
+block|}
+DECL|method|setLanguage (String language)
+specifier|public
+name|void
+name|setLanguage
+parameter_list|(
+name|String
+name|language
+parameter_list|)
+block|{
+name|this
+operator|.
+name|language
+operator|=
+name|language
+expr_stmt|;
 block|}
 block|}
 end_class

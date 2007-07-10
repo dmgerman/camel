@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.model
+DECL|package|org.apache.camel.spring.model.language
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|spring
 operator|.
 name|model
+operator|.
+name|language
 package|;
 end_package
 
@@ -32,36 +34,8 @@ name|XmlRootElement
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlValue
-import|;
-end_import
-
 begin_comment
-comment|/**  * Represents a parameterised language expression  *  * @version $Revision: 1.1 $  */
+comment|/**  * For PHP expresions and predicates  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -70,49 +44,34 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"expression"
+literal|"php"
 argument_list|)
-DECL|class|LanguageExpression
+DECL|class|PhpExpression
 specifier|public
 class|class
-name|LanguageExpression
+name|PhpExpression
 extends|extends
-name|LanguageExpressionSupport
+name|ExpressionType
 block|{
-DECL|field|language
-specifier|private
-name|String
-name|language
-decl_stmt|;
-DECL|method|LanguageExpression ()
+DECL|method|PhpExpression ()
 specifier|public
-name|LanguageExpression
+name|PhpExpression
 parameter_list|()
 block|{     }
-DECL|method|LanguageExpression (String language, String expression)
+DECL|method|PhpExpression (String expression)
 specifier|public
-name|LanguageExpression
+name|PhpExpression
 parameter_list|(
-name|String
-name|language
-parameter_list|,
 name|String
 name|expression
 parameter_list|)
 block|{
-name|setLanguage
-argument_list|(
-name|language
-argument_list|)
-expr_stmt|;
-name|setExpression
+name|super
 argument_list|(
 name|expression
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|XmlAttribute
 DECL|method|getLanguage ()
 specifier|public
 name|String
@@ -120,24 +79,8 @@ name|getLanguage
 parameter_list|()
 block|{
 return|return
-name|language
+literal|"php"
 return|;
-block|}
-DECL|method|setLanguage (String language)
-specifier|public
-name|void
-name|setLanguage
-parameter_list|(
-name|String
-name|language
-parameter_list|)
-block|{
-name|this
-operator|.
-name|language
-operator|=
-name|language
-expr_stmt|;
 block|}
 block|}
 end_class

@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.model
+DECL|package|org.apache.camel.spring.model.language
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|spring
 operator|.
 name|model
+operator|.
+name|language
 package|;
 end_package
 
@@ -79,11 +81,11 @@ comment|/**  * A useful base class for an expression  *   * @version $Revision: 
 end_comment
 
 begin_class
-DECL|class|LanguageExpressionSupport
+DECL|class|ExpressionType
 specifier|public
 specifier|abstract
 class|class
-name|LanguageExpressionSupport
+name|ExpressionType
 block|{
 DECL|field|expression
 specifier|private
@@ -97,14 +99,14 @@ name|String
 name|getLanguage
 parameter_list|()
 function_decl|;
-DECL|method|LanguageExpressionSupport ()
+DECL|method|ExpressionType ()
 specifier|protected
-name|LanguageExpressionSupport
+name|ExpressionType
 parameter_list|()
 block|{     }
-DECL|method|LanguageExpressionSupport (String expression)
+DECL|method|ExpressionType (String expression)
 specifier|protected
-name|LanguageExpressionSupport
+name|ExpressionType
 parameter_list|(
 name|String
 name|expression

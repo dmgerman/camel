@@ -254,7 +254,7 @@ name|JAXBContext
 operator|.
 name|newInstance
 argument_list|(
-literal|"org.apache.camel.spring.model"
+literal|"org.apache.camel.spring.model:org.apache.camel.spring.model.language"
 argument_list|)
 expr_stmt|;
 block|}
