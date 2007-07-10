@@ -26,7 +26,9 @@ name|xml
 operator|.
 name|bind
 operator|.
-name|JAXBContext
+name|annotation
+operator|.
+name|XmlRootElement
 import|;
 end_import
 
@@ -38,7 +40,9 @@ name|xml
 operator|.
 name|bind
 operator|.
-name|Unmarshaller
+name|annotation
+operator|.
+name|XmlAccessorType
 import|;
 end_import
 
@@ -50,45 +54,23 @@ name|xml
 operator|.
 name|bind
 operator|.
-name|JAXBException
+name|annotation
+operator|.
+name|XmlAccessType
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|xml
 operator|.
-name|camel
+name|bind
 operator|.
-name|TestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|annotation
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|model
-operator|.
-name|CamelContextType
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URL
+name|XmlElements
 import|;
 end_import
 
@@ -97,56 +79,11 @@ comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|XmlParseTest
+DECL|class|ExpressionType
 specifier|public
 class|class
-name|XmlParseTest
-extends|extends
-name|XmlTestSupport
-block|{
-DECL|method|testParseExample1Xml ()
-specifier|public
-name|void
-name|testParseExample1Xml
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertParseAsJaxb
-argument_list|(
-literal|"example1.xml"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testParseProcessorXml ()
-specifier|public
-name|void
-name|testParseProcessorXml
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertParseAsJaxb
-argument_list|(
-literal|"processor.xml"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testParseProcessorWithFilterXml ()
-specifier|public
-name|void
-name|testParseProcessorWithFilterXml
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertParseAsJaxb
-argument_list|(
-literal|"processorWithFilter.xml"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+name|ExpressionType
+block|{ }
 end_class
 
 end_unit

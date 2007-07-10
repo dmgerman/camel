@@ -218,6 +218,33 @@ operator|=
 name|routes
 expr_stmt|;
 block|}
+comment|// Fluent API
+comment|//-------------------------------------------------------------------------
+DECL|method|route ()
+specifier|public
+name|RouteType
+name|route
+parameter_list|()
+block|{
+name|RouteType
+name|route
+init|=
+operator|new
+name|RouteType
+argument_list|()
+decl_stmt|;
+name|getRoutes
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
+return|return
+name|route
+return|;
+block|}
 block|}
 end_class
 

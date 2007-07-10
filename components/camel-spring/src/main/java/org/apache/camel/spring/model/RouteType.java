@@ -170,6 +170,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|sun
+operator|.
+name|net
+operator|.
+name|smtp
+operator|.
+name|SmtpClient
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents an XML&lt;route/&gt; element  *  * @version $Revision: $  */
 end_comment
@@ -382,6 +394,43 @@ throw|;
 block|}
 return|return
 name|answer
+return|;
+block|}
+comment|// Fluent API
+comment|//-----------------------------------------------------------------------
+DECL|method|from (String uri)
+specifier|public
+name|RouteType
+name|from
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|FromType
+name|from
+init|=
+operator|new
+name|FromType
+argument_list|()
+decl_stmt|;
+name|from
+operator|.
+name|setUri
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+name|getFrom
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|from
+argument_list|)
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 block|}

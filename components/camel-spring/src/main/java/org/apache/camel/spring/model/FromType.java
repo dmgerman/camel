@@ -196,18 +196,18 @@ end_comment
 
 begin_class
 annotation|@
-name|XmlAccessorType
-argument_list|(
-name|XmlAccessType
-operator|.
-name|FIELD
-argument_list|)
-annotation|@
 name|XmlRootElement
 argument_list|(
 name|name
 operator|=
 literal|"from"
+argument_list|)
+annotation|@
+name|XmlAccessorType
+argument_list|(
+name|XmlAccessType
+operator|.
+name|FIELD
 argument_list|)
 DECL|class|FromType
 specifier|public
