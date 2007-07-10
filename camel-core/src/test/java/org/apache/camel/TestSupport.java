@@ -890,6 +890,50 @@ literal|0
 argument_list|)
 return|;
 block|}
+comment|/**      * Asserts that a list is of the given size      */
+DECL|method|assertListSize (List<T> list, int size)
+specifier|protected
+parameter_list|<
+name|T
+parameter_list|>
+name|List
+argument_list|<
+name|T
+argument_list|>
+name|assertListSize
+parameter_list|(
+name|List
+argument_list|<
+name|T
+argument_list|>
+name|list
+parameter_list|,
+name|int
+name|size
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"List should be of size: "
+operator|+
+name|size
+operator|+
+literal|" but is: "
+operator|+
+name|list
+argument_list|,
+name|size
+argument_list|,
+name|list
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|list
+return|;
+block|}
 block|}
 end_class
 

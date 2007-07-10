@@ -102,7 +102,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"filter"
+literal|"splitter"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -111,10 +111,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|FilterType
+DECL|class|SplitterType
 specifier|public
 class|class
-name|FilterType
+name|SplitterType
 extends|extends
 name|OutputType
 block|{
@@ -134,7 +134,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Filter[ "
+literal|"Splitter[ "
 operator|+
 name|getExpression
 argument_list|()

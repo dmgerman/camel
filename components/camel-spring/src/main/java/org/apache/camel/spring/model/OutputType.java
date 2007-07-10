@@ -116,6 +116,21 @@ name|ProcessorType
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|interceptors
+specifier|private
+name|List
+argument_list|<
+name|InterceptorRef
+argument_list|>
+name|interceptors
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|InterceptorRef
+argument_list|>
+argument_list|()
+decl_stmt|;
 annotation|@
 name|XmlElementRef
 DECL|method|getOutputs ()
@@ -150,6 +165,42 @@ operator|=
 name|outputs
 expr_stmt|;
 block|}
+annotation|@
+name|XmlElementRef
+DECL|method|getInterceptors ()
+specifier|public
+name|List
+argument_list|<
+name|InterceptorRef
+argument_list|>
+name|getInterceptors
+parameter_list|()
+block|{
+return|return
+name|interceptors
+return|;
+block|}
+DECL|method|setInterceptors (List<InterceptorRef> interceptors)
+specifier|public
+name|void
+name|setInterceptors
+parameter_list|(
+name|List
+argument_list|<
+name|InterceptorRef
+argument_list|>
+name|interceptors
+parameter_list|)
+block|{
+name|this
+operator|.
+name|interceptors
+operator|=
+name|interceptors
+expr_stmt|;
+block|}
+comment|// Fluent API
+comment|//-------------------------------------------------------------------------
 DECL|method|filter (ExpressionType expression)
 specifier|public
 name|FilterType

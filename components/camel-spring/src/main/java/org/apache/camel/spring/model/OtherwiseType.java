@@ -102,7 +102,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"filter"
+literal|"otherwise"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -111,20 +111,13 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|FilterType
+DECL|class|OtherwiseType
 specifier|public
 class|class
-name|FilterType
+name|OtherwiseType
 extends|extends
 name|OutputType
 block|{
-annotation|@
-name|XmlElementRef
-DECL|field|expression
-specifier|private
-name|ExpressionType
-name|expression
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -134,44 +127,13 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Filter[ "
-operator|+
-name|getExpression
-argument_list|()
-operator|+
-literal|" -> "
+literal|"Otherwise["
 operator|+
 name|getOutputs
 argument_list|()
 operator|+
 literal|"]"
 return|;
-block|}
-DECL|method|getExpression ()
-specifier|public
-name|ExpressionType
-name|getExpression
-parameter_list|()
-block|{
-return|return
-name|expression
-return|;
-block|}
-DECL|method|setExpression (ExpressionType expression)
-specifier|public
-name|void
-name|setExpression
-parameter_list|(
-name|ExpressionType
-name|expression
-parameter_list|)
-block|{
-name|this
-operator|.
-name|expression
-operator|=
-name|expression
-expr_stmt|;
 block|}
 block|}
 end_class

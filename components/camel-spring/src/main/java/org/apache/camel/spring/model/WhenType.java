@@ -102,24 +102,15 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"filter"
+literal|"when"
 argument_list|)
-annotation|@
-name|XmlAccessorType
-argument_list|(
-name|XmlAccessType
-operator|.
-name|FIELD
-argument_list|)
-DECL|class|FilterType
+DECL|class|WhenType
 specifier|public
 class|class
-name|FilterType
+name|WhenType
 extends|extends
 name|OutputType
 block|{
-annotation|@
-name|XmlElementRef
 DECL|field|expression
 specifier|private
 name|ExpressionType
@@ -134,7 +125,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Filter[ "
+literal|"When[ "
 operator|+
 name|getExpression
 argument_list|()
@@ -147,6 +138,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|XmlElementRef
 DECL|method|getExpression ()
 specifier|public
 name|ExpressionType

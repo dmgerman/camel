@@ -185,21 +185,6 @@ name|FromType
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|interceptors
-specifier|private
-name|List
-argument_list|<
-name|InterceptorRef
-argument_list|>
-name|interceptors
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|InterceptorRef
-argument_list|>
-argument_list|()
-decl_stmt|;
 comment|/*     public Route createRoute() throws Exception {         return new EventDrivenConsumerRoute(getEndpoint(), createProcessor());     } */
 annotation|@
 name|Override
@@ -210,11 +195,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Route[from: "
+literal|"Route[ "
 operator|+
 name|inputs
 operator|+
-literal|" processor: "
+literal|" -> "
 operator|+
 name|outputs
 operator|+
@@ -255,40 +240,6 @@ operator|.
 name|inputs
 operator|=
 name|inputs
-expr_stmt|;
-block|}
-annotation|@
-name|XmlElementRef
-DECL|method|getInterceptors ()
-specifier|public
-name|List
-argument_list|<
-name|InterceptorRef
-argument_list|>
-name|getInterceptors
-parameter_list|()
-block|{
-return|return
-name|interceptors
-return|;
-block|}
-DECL|method|setInterceptors (List<InterceptorRef> interceptors)
-specifier|public
-name|void
-name|setInterceptors
-parameter_list|(
-name|List
-argument_list|<
-name|InterceptorRef
-argument_list|>
-name|interceptors
-parameter_list|)
-block|{
-name|this
-operator|.
-name|interceptors
-operator|=
-name|interceptors
 expr_stmt|;
 block|}
 annotation|@
