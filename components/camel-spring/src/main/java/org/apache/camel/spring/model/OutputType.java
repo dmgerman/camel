@@ -32,7 +32,7 @@ name|model
 operator|.
 name|language
 operator|.
-name|LanguageExpression
+name|ExpressionType
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|model
 operator|.
 name|language
 operator|.
-name|ExpressionType
+name|LanguageExpression
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|ArrayList
 import|;
 end_import
 
@@ -84,12 +84,12 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for output types  *   * @version $Revision: 1.1 $  */
+comment|/**  * A useful base class for output types  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class

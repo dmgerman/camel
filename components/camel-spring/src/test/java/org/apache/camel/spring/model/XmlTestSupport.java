@@ -66,6 +66,18 @@ name|xml
 operator|.
 name|bind
 operator|.
+name|JAXBContext
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
 name|JAXBException
 import|;
 end_import
@@ -79,18 +91,6 @@ operator|.
 name|bind
 operator|.
 name|Unmarshaller
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|JAXBContext
 import|;
 end_import
 

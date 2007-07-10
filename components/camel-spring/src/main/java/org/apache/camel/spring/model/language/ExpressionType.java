@@ -30,54 +30,12 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlRootElement
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
 name|XmlValue
 import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for an expression  *   * @version $Revision: 1.1 $  */
+comment|/**  * A useful base class for an expression  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class

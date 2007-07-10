@@ -74,7 +74,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlRootElement
+name|XmlElementRef
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElementRef
+name|XmlRootElement
 import|;
 end_import
 

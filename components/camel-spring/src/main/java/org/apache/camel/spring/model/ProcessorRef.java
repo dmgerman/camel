@@ -28,7 +28,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlAttribute
+name|XmlAccessType
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlAccessType
+name|XmlAttribute
 import|;
 end_import
 

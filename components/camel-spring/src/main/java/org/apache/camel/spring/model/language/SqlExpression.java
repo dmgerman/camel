@@ -30,26 +30,12 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
 name|XmlRootElement
 import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a parameterised language expression which can support any language  * at runtime using the language attribute.  *  * @version $Revision: 1.1 $  */
+comment|/**  * For SQ: expresions and predicates  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -58,49 +44,34 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"expression"
+literal|"sql"
 argument_list|)
-DECL|class|LanguageExpression
+DECL|class|SqlExpression
 specifier|public
 class|class
-name|LanguageExpression
+name|SqlExpression
 extends|extends
 name|ExpressionType
 block|{
-DECL|field|language
-specifier|private
-name|String
-name|language
-decl_stmt|;
-DECL|method|LanguageExpression ()
+DECL|method|SqlExpression ()
 specifier|public
-name|LanguageExpression
+name|SqlExpression
 parameter_list|()
 block|{     }
-DECL|method|LanguageExpression (String language, String expression)
+DECL|method|SqlExpression (String expression)
 specifier|public
-name|LanguageExpression
+name|SqlExpression
 parameter_list|(
-name|String
-name|language
-parameter_list|,
 name|String
 name|expression
 parameter_list|)
 block|{
-name|setLanguage
-argument_list|(
-name|language
-argument_list|)
-expr_stmt|;
-name|setExpression
+name|super
 argument_list|(
 name|expression
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|XmlAttribute
 DECL|method|getLanguage ()
 specifier|public
 name|String
@@ -108,24 +79,8 @@ name|getLanguage
 parameter_list|()
 block|{
 return|return
-name|language
+literal|"sql"
 return|;
-block|}
-DECL|method|setLanguage (String language)
-specifier|public
-name|void
-name|setLanguage
-parameter_list|(
-name|String
-name|language
-parameter_list|)
-block|{
-name|this
-operator|.
-name|language
-operator|=
-name|language
-expr_stmt|;
 block|}
 block|}
 end_class
