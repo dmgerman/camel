@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;to/&gt; element  *  * @version $Revision: $  */
+comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -84,43 +84,34 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"from"
+literal|"interceptor"
 argument_list|)
-annotation|@
-name|XmlAccessorType
-argument_list|(
-name|XmlAccessType
-operator|.
-name|FIELD
-argument_list|)
-DECL|class|FromType
+DECL|class|InterceptorRef
 specifier|public
 class|class
-name|FromType
+name|InterceptorRef
 block|{
-annotation|@
-name|XmlAttribute
-DECL|field|uri
+DECL|field|ref
 specifier|private
 name|String
-name|uri
+name|ref
 decl_stmt|;
-DECL|method|FromType ()
+DECL|method|InterceptorRef ()
 specifier|public
-name|FromType
+name|InterceptorRef
 parameter_list|()
 block|{     }
-DECL|method|FromType (String uri)
+DECL|method|InterceptorRef (String ref)
 specifier|public
-name|FromType
+name|InterceptorRef
 parameter_list|(
 name|String
-name|uri
+name|ref
 parameter_list|)
 block|{
-name|setUri
+name|setRef
 argument_list|(
-name|uri
+name|ref
 argument_list|)
 expr_stmt|;
 block|}
@@ -133,39 +124,44 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"From["
+literal|"Interceptor[ref:  "
 operator|+
-name|uri
+name|ref
 operator|+
 literal|"]"
 return|;
 block|}
-comment|// Properties
-comment|//-----------------------------------------------------------------------
-DECL|method|getUri ()
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
+DECL|method|getRef ()
 specifier|public
 name|String
-name|getUri
+name|getRef
 parameter_list|()
 block|{
 return|return
-name|uri
+name|ref
 return|;
 block|}
-DECL|method|setUri (String uri)
+DECL|method|setRef (String ref)
 specifier|public
 name|void
-name|setUri
+name|setRef
 parameter_list|(
 name|String
-name|uri
+name|ref
 parameter_list|)
 block|{
 name|this
 operator|.
-name|uri
+name|ref
 operator|=
-name|uri
+name|ref
 expr_stmt|;
 block|}
 block|}

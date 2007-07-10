@@ -162,6 +162,15 @@ argument_list|)
 expr_stmt|;
 name|route
 operator|.
+name|interceptors
+argument_list|(
+literal|"interceptor1"
+argument_list|,
+literal|"interceptor2"
+argument_list|)
+expr_stmt|;
+name|route
+operator|.
 name|filter
 argument_list|(
 operator|new

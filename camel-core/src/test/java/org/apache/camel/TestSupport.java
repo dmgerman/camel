@@ -94,6 +94,16 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * A bunch of useful testing methods  *  * @version $Revision$  */
 end_comment
@@ -840,6 +850,44 @@ argument_list|)
 expr_stmt|;
 return|return
 name|exchange
+return|;
+block|}
+DECL|method|assertOneElement (List<T> list)
+specifier|protected
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|assertOneElement
+parameter_list|(
+name|List
+argument_list|<
+name|T
+argument_list|>
+name|list
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"Size of list should be 1: "
+operator|+
+name|list
+argument_list|,
+literal|1
+argument_list|,
+name|list
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|list
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
 return|;
 block|}
 block|}

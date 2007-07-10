@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.model
+DECL|package|org.apache.camel.spring.model.language
 package|package
 name|org
 operator|.
@@ -15,50 +15,10 @@ operator|.
 name|spring
 operator|.
 name|model
+operator|.
+name|language
 package|;
 end_package
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAttribute
-import|;
-end_import
 
 begin_import
 import|import
@@ -75,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * An expression which extracts the named header  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -84,68 +44,43 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"process"
+literal|"header"
 argument_list|)
-DECL|class|ProcessorRef
+DECL|class|HeaderExpression
 specifier|public
 class|class
-name|ProcessorRef
+name|HeaderExpression
 extends|extends
-name|OutputType
+name|ExpressionType
 block|{
-DECL|field|ref
-specifier|private
-name|String
-name|ref
-decl_stmt|;
-annotation|@
-name|Override
-DECL|method|toString ()
+DECL|method|HeaderExpression ()
 specifier|public
-name|String
-name|toString
+name|HeaderExpression
 parameter_list|()
-block|{
-return|return
-literal|"Processor[ref:  "
-operator|+
-name|ref
-operator|+
-literal|"]"
-return|;
-block|}
-annotation|@
-name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|)
-DECL|method|getRef ()
+block|{     }
+DECL|method|HeaderExpression (String expression)
 specifier|public
-name|String
-name|getRef
-parameter_list|()
-block|{
-return|return
-name|ref
-return|;
-block|}
-DECL|method|setRef (String ref)
-specifier|public
-name|void
-name|setRef
+name|HeaderExpression
 parameter_list|(
 name|String
-name|ref
+name|expression
 parameter_list|)
 block|{
-name|this
-operator|.
-name|ref
-operator|=
-name|ref
+name|super
+argument_list|(
+name|expression
+argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getLanguage ()
+specifier|public
+name|String
+name|getLanguage
+parameter_list|()
+block|{
+return|return
+literal|"header"
+return|;
 block|}
 block|}
 end_class
