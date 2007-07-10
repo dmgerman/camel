@@ -97,8 +97,8 @@ DECL|class|ProcessorRef
 specifier|public
 class|class
 name|ProcessorRef
-implements|implements
-name|ProcessorType
+extends|extends
+name|OutputType
 block|{
 annotation|@
 name|XmlAttribute

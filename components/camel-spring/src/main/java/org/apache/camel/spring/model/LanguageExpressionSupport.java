@@ -78,19 +78,18 @@ begin_comment
 comment|/**  * A useful base class for an expression  *   * @version $Revision: 1.1 $  */
 end_comment
 
-begin_interface
-DECL|interface|LanguageExpressionSupport
-specifier|public
-interface|interface
-name|LanguageExpressionSupport
-block|{
-DECL|method|getExpression ()
+begin_class
+DECL|class|LanguageExpressionSupport
 specifier|public
 specifier|abstract
+class|class
+name|LanguageExpressionSupport
+block|{
+DECL|field|expression
+specifier|private
 name|String
-name|getExpression
-parameter_list|()
-function_decl|;
+name|expression
+decl_stmt|;
 DECL|method|getLanguage ()
 specifier|public
 specifier|abstract
@@ -98,8 +97,76 @@ name|String
 name|getLanguage
 parameter_list|()
 function_decl|;
+DECL|method|LanguageExpressionSupport ()
+specifier|protected
+name|LanguageExpressionSupport
+parameter_list|()
+block|{     }
+DECL|method|LanguageExpressionSupport (String expression)
+specifier|protected
+name|LanguageExpressionSupport
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
+expr_stmt|;
 block|}
-end_interface
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|getLanguage
+argument_list|()
+operator|+
+literal|"Expression["
+operator|+
+name|getExpression
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+annotation|@
+name|XmlValue
+DECL|method|getExpression ()
+specifier|public
+name|String
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
+block|}
+DECL|method|setExpression (String expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

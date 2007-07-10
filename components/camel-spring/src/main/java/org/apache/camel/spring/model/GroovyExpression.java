@@ -20,6 +20,22 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|model
+operator|.
+name|LanguageExpression
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -32,58 +48,55 @@ name|XmlRootElement
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlElements
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|ExpressionType
+annotation|@
+name|XmlRootElement
+argument_list|(
+name|name
+operator|=
+literal|"groovy"
+argument_list|)
+DECL|class|GroovyExpression
 specifier|public
 class|class
-name|ExpressionType
-block|{ }
+name|GroovyExpression
+extends|extends
+name|LanguageExpressionSupport
+block|{
+DECL|method|GroovyExpression ()
+specifier|public
+name|GroovyExpression
+parameter_list|()
+block|{     }
+DECL|method|GroovyExpression (String expression)
+specifier|public
+name|GroovyExpression
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getLanguage ()
+specifier|public
+name|String
+name|getLanguage
+parameter_list|()
+block|{
+return|return
+literal|"groovy"
+return|;
+block|}
+block|}
 end_class
 
 end_unit

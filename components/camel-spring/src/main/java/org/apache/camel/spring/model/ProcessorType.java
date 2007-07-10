@@ -22,13 +22,14 @@ begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
-begin_interface
-DECL|interface|ProcessorType
+begin_class
+DECL|class|ProcessorType
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|ProcessorType
 block|{ }
-end_interface
+end_class
 
 end_unit
 

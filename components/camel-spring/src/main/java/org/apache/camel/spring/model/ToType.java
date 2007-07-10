@@ -97,8 +97,8 @@ DECL|class|ToType
 specifier|public
 class|class
 name|ToType
-implements|implements
-name|ProcessorType
+extends|extends
+name|OutputType
 block|{
 annotation|@
 name|XmlAttribute

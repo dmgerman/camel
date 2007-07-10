@@ -152,6 +152,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElementRef
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -194,13 +208,6 @@ name|name
 operator|=
 literal|"root"
 argument_list|)
-annotation|@
-name|XmlAccessorType
-argument_list|(
-name|XmlAccessType
-operator|.
-name|FIELD
-argument_list|)
 DECL|class|RouteType
 specifier|public
 class|class
@@ -212,20 +219,11 @@ name|CamelContextAware
 implements|,
 name|ProcessorFactory
 block|{
-annotation|@
-name|XmlTransient
 DECL|field|camelContext
 specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
-annotation|@
-name|XmlElement
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|)
 DECL|field|from
 specifier|private
 name|List
@@ -264,6 +262,13 @@ return|;
 block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
+annotation|@
+name|XmlElement
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|method|getFrom ()
 specifier|public
 name|List
@@ -296,6 +301,8 @@ operator|=
 name|from
 expr_stmt|;
 block|}
+annotation|@
+name|XmlTransient
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext

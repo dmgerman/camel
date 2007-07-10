@@ -76,18 +76,13 @@ DECL|class|LanguageExpression
 specifier|public
 class|class
 name|LanguageExpression
-implements|implements
+extends|extends
 name|LanguageExpressionSupport
 block|{
 DECL|field|language
 specifier|private
 name|String
 name|language
-decl_stmt|;
-DECL|field|expression
-specifier|private
-name|String
-name|expression
 decl_stmt|;
 DECL|method|LanguageExpression ()
 specifier|public
@@ -117,26 +112,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-name|getLanguage
-argument_list|()
-operator|+
-literal|"Expression["
-operator|+
-name|getExpression
-argument_list|()
-operator|+
-literal|"]"
-return|;
-block|}
-annotation|@
 name|XmlAttribute
 DECL|method|getLanguage ()
 specifier|public
@@ -162,34 +137,6 @@ operator|.
 name|language
 operator|=
 name|language
-expr_stmt|;
-block|}
-annotation|@
-name|XmlValue
-DECL|method|getExpression ()
-specifier|public
-name|String
-name|getExpression
-parameter_list|()
-block|{
-return|return
-name|expression
-return|;
-block|}
-DECL|method|setExpression (String expression)
-specifier|public
-name|void
-name|setExpression
-parameter_list|(
-name|String
-name|expression
-parameter_list|)
-block|{
-name|this
-operator|.
-name|expression
-operator|=
-name|expression
 expr_stmt|;
 block|}
 block|}
