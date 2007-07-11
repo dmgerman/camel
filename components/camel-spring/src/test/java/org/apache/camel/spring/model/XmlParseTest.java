@@ -93,8 +93,10 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|assertTo
+name|assertChildTo
 argument_list|(
+literal|"to"
+argument_list|,
 name|route
 argument_list|,
 literal|"seda:b"
@@ -375,7 +377,7 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|assertTo
+name|assertChildTo
 argument_list|(
 name|route
 argument_list|,
@@ -410,8 +412,10 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|assertTo
+name|assertChildTo
 argument_list|(
+literal|"to"
+argument_list|,
 name|route
 argument_list|,
 literal|"seda:d"
@@ -474,8 +478,10 @@ argument_list|,
 literal|2
 argument_list|)
 decl_stmt|;
-name|assertTo
+name|assertChildTo
 argument_list|(
+literal|"when(0)"
+argument_list|,
 name|whens
 operator|.
 name|get
@@ -486,8 +492,10 @@ argument_list|,
 literal|"seda:b"
 argument_list|)
 expr_stmt|;
-name|assertTo
+name|assertChildTo
 argument_list|(
+literal|"when(1)"
+argument_list|,
 name|whens
 operator|.
 name|get
@@ -513,8 +521,10 @@ argument_list|,
 name|otherwise
 argument_list|)
 expr_stmt|;
-name|assertTo
+name|assertChildTo
 argument_list|(
+literal|"otherwise"
+argument_list|,
 name|otherwise
 argument_list|,
 literal|"seda:d"
@@ -564,8 +574,10 @@ argument_list|,
 literal|"/foo/bar"
 argument_list|)
 expr_stmt|;
-name|assertTo
+name|assertChildTo
 argument_list|(
+literal|"to"
+argument_list|,
 name|splitter
 argument_list|,
 literal|"seda:b"
@@ -585,7 +597,7 @@ parameter_list|)
 throws|throws
 name|JAXBException
 block|{
-name|CamelContextType
+name|RouteContainer
 name|context
 init|=
 name|assertParseAsJaxb
@@ -644,12 +656,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertTo (OutputType route, String uri)
+DECL|method|assertChildTo (String message, ProcessorType route, String uri)
 specifier|protected
 name|void
-name|assertTo
+name|assertChildTo
 parameter_list|(
-name|OutputType
+name|String
+name|message
+parameter_list|,
+name|ProcessorType
 name|route
 parameter_list|,
 name|String
@@ -667,33 +682,52 @@ name|getOutputs
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertTo
+name|ToType
+name|value
+init|=
+name|assertIsInstanceOf
 argument_list|(
-name|processor
+name|ToType
+operator|.
+name|class
 argument_list|,
+name|processor
+argument_list|)
+decl_stmt|;
+name|String
+name|text
+init|=
+name|message
+operator|+
+literal|"To URI"
+decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Testing: "
+operator|+
+name|text
+operator|+
+literal|" is equal to: "
+operator|+
 name|uri
+operator|+
+literal|" for processor: "
+operator|+
+name|processor
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|assertTo (ProcessorType processor, String uri)
-specifier|protected
-name|void
-name|assertTo
-parameter_list|(
-name|ProcessorType
-name|processor
-parameter_list|,
-name|String
-name|uri
-parameter_list|)
-block|{
-name|assertTo
+name|assertEquals
 argument_list|(
-literal|""
-argument_list|,
-name|processor
+name|text
 argument_list|,
 name|uri
+argument_list|,
+name|value
+operator|.
+name|getUri
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -761,12 +795,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertTo (OutputType route, String... uris)
+DECL|method|assertChildTo (ProcessorType route, String... uris)
 specifier|protected
 name|void
-name|assertTo
+name|assertChildTo
 parameter_list|(
-name|OutputType
+name|ProcessorType
 name|route
 parameter_list|,
 name|String
@@ -826,12 +860,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|assertProcessor (OutputType route, String processorRef)
+DECL|method|assertProcessor (ProcessorType route, String processorRef)
 specifier|protected
 name|void
 name|assertProcessor
 parameter_list|(
-name|OutputType
+name|ProcessorType
 name|route
 parameter_list|,
 name|String
@@ -874,12 +908,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertFilter (OutputType route)
+DECL|method|assertFilter (ProcessorType route)
 specifier|protected
 name|FilterType
 name|assertFilter
 parameter_list|(
-name|OutputType
+name|ProcessorType
 name|route
 parameter_list|)
 block|{
@@ -905,12 +939,12 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|assertRecipientList (OutputType route)
+DECL|method|assertRecipientList (ProcessorType route)
 specifier|protected
 name|RecipientListType
 name|assertRecipientList
 parameter_list|(
-name|OutputType
+name|ProcessorType
 name|route
 parameter_list|)
 block|{
@@ -936,12 +970,12 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|assertChoice (OutputType route)
+DECL|method|assertChoice (ProcessorType route)
 specifier|protected
 name|ChoiceType
 name|assertChoice
 parameter_list|(
-name|OutputType
+name|ProcessorType
 name|route
 parameter_list|)
 block|{
@@ -967,12 +1001,12 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|assertSplitter (OutputType route)
+DECL|method|assertSplitter (ProcessorType route)
 specifier|protected
 name|SplitterType
 name|assertSplitter
 parameter_list|(
-name|OutputType
+name|ProcessorType
 name|route
 parameter_list|)
 block|{
@@ -1045,12 +1079,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertInterceptorRefs (OutputType route, String... names)
+DECL|method|assertInterceptorRefs (ProcessorType route, String... names)
 specifier|protected
 name|void
 name|assertInterceptorRefs
 parameter_list|(
-name|OutputType
+name|ProcessorType
 name|route
 parameter_list|,
 name|String

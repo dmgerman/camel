@@ -88,11 +88,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CamelContextType
+name|RoutesType
 name|context
 init|=
 operator|new
-name|CamelContextType
+name|RoutesType
 argument_list|()
 decl_stmt|;
 name|RouteType
@@ -138,11 +138,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CamelContextType
+name|RoutesType
 name|context
 init|=
 operator|new
-name|CamelContextType
+name|RoutesType
 argument_list|()
 decl_stmt|;
 name|RouteType
@@ -216,12 +216,12 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|dump (CamelContextType context)
+DECL|method|dump (RouteContainer context)
 specifier|protected
 name|void
 name|dump
 parameter_list|(
-name|CamelContextType
+name|RouteContainer
 name|context
 parameter_list|)
 throws|throws

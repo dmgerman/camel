@@ -90,6 +90,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElementRef
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -109,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;camelContext/&gt; element  *  * @version $Revision: $  */
+comment|/**  * Represents a collection of routes  *  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -118,39 +132,15 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"camelContext"
+literal|"routes"
 argument_list|)
-annotation|@
-name|XmlAccessorType
-argument_list|(
-name|XmlAccessType
-operator|.
-name|FIELD
-argument_list|)
-DECL|class|CamelContextType
+DECL|class|RoutesType
 specifier|public
 class|class
-name|CamelContextType
+name|RoutesType
+implements|implements
+name|RouteContainer
 block|{
-annotation|@
-name|XmlElements
-argument_list|(
-block|{
-annotation|@
-name|XmlElement
-argument_list|(
-name|name
-operator|=
-literal|"route"
-argument_list|,
-name|type
-operator|=
-name|RouteType
-operator|.
-name|class
-argument_list|)
-block|}
-argument_list|)
 DECL|field|routes
 specifier|private
 name|List
@@ -175,16 +165,15 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Context[routes: "
+literal|"Routes: "
 operator|+
 name|routes
-operator|+
-literal|"]"
 return|;
 block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
-comment|/**      * A list of routes      *      * @return      */
+annotation|@
+name|XmlElementRef
 DECL|method|getRoutes ()
 specifier|public
 name|List
@@ -198,7 +187,6 @@ return|return
 name|routes
 return|;
 block|}
-comment|/**      * Sets the routes to use      *      * @param routes      */
 DECL|method|setRoutes (List<RouteType> routes)
 specifier|public
 name|void

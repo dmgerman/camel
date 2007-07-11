@@ -32,7 +32,7 @@ argument_list|)
 end_annotation
 
 begin_package
-DECL|package|org.apache.camel.spring.model
+DECL|package|org.apache.camel.spring
 package|package
 name|org
 operator|.
@@ -41,8 +41,6 @@ operator|.
 name|camel
 operator|.
 name|spring
-operator|.
-name|model
 package|;
 end_package
 

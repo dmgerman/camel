@@ -138,7 +138,7 @@ name|jaxbContext
 decl_stmt|;
 DECL|method|assertParseAsJaxb (String uri)
 specifier|protected
-name|CamelContextType
+name|RouteContainer
 name|assertParseAsJaxb
 parameter_list|(
 name|String
@@ -155,12 +155,12 @@ argument_list|(
 name|uri
 argument_list|)
 decl_stmt|;
-name|CamelContextType
+name|RouteContainer
 name|context
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|CamelContextType
+name|RouteContainer
 operator|.
 name|class
 argument_list|,
@@ -254,7 +254,19 @@ name|JAXBContext
 operator|.
 name|newInstance
 argument_list|(
-literal|"org.apache.camel.spring.model:org.apache.camel.spring.model.language"
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|handler
+operator|.
+name|CamelNamespaceHandler
+operator|.
+name|JAXB_PACKAGES
 argument_list|)
 expr_stmt|;
 block|}
