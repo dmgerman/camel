@@ -38,8 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
 name|model
 operator|.
 name|IdentifiedType
@@ -54,8 +52,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
 name|model
 operator|.
 name|RouteContainer
@@ -69,8 +65,6 @@ operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|spring
 operator|.
 name|model
 operator|.
@@ -221,20 +215,6 @@ operator|.
 name|annotation
 operator|.
 name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlElementRef
 import|;
 end_import
 
