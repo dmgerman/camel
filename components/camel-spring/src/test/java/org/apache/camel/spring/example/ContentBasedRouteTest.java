@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring
+DECL|package|org.apache.camel.spring.example
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|spring
+operator|.
+name|example
 package|;
 end_package
 
@@ -47,6 +49,20 @@ operator|.
 name|MockEndpoint
 operator|.
 name|assertIsSatisfied
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|SpringTestSupport
 import|;
 end_import
 
@@ -236,7 +252,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/spring/contentBasedRoute.xml"
+literal|"../../../../../../resources/org/apache/camel/spring/example/contentBasedRoute.xml"
 argument_list|)
 return|;
 block|}

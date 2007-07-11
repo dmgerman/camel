@@ -204,6 +204,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|LanguageResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|FactoryFinder
@@ -445,6 +459,15 @@ name|boolean
 name|autoCreateComponents
 init|=
 literal|true
+decl_stmt|;
+DECL|field|languageResolver
+specifier|private
+name|LanguageResolver
+name|languageResolver
+init|=
+operator|new
+name|DefaultLanguageResolver
+argument_list|()
 decl_stmt|;
 comment|/**      * Adds a component to the container.      */
 DECL|method|addComponent (String componentName, final Component component)
@@ -1453,6 +1476,32 @@ operator|.
 name|componentResolver
 operator|=
 name|componentResolver
+expr_stmt|;
+block|}
+DECL|method|getLanguageResolver ()
+specifier|public
+name|LanguageResolver
+name|getLanguageResolver
+parameter_list|()
+block|{
+return|return
+name|languageResolver
+return|;
+block|}
+DECL|method|setLanguageResolver (LanguageResolver languageResolver)
+specifier|public
+name|void
+name|setLanguageResolver
+parameter_list|(
+name|LanguageResolver
+name|languageResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|languageResolver
+operator|=
+name|languageResolver
 expr_stmt|;
 block|}
 comment|// Implementation methods

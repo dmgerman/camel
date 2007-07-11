@@ -58,6 +58,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|LanguageResolver
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -298,6 +312,12 @@ comment|/**      * Returns the injector used to instantiate objects by type     
 DECL|method|getInjector ()
 name|Injector
 name|getInjector
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the resolver of language expressions      */
+DECL|method|getLanguageResolver ()
+name|LanguageResolver
+name|getLanguageResolver
 parameter_list|()
 function_decl|;
 block|}

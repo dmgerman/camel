@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel.builder.xml
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|builder
+operator|.
+name|xml
 package|;
 end_package
 
@@ -24,6 +26,32 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Language
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Expression
 import|;
 end_import
@@ -40,29 +68,20 @@ name|Predicate
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
 begin_comment
-comment|/**  * Represents a language to be used for {@link Expression} or {@link Predicate} instances  *  * @version $Revision: 1.1 $  */
+comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
-begin_interface
-DECL|interface|Language
+begin_class
+DECL|class|XPathLanguage
 specifier|public
-interface|interface
+class|class
+name|XPathLanguage
+implements|implements
 name|Language
 block|{
 DECL|method|createPredicate (String expression)
+specifier|public
 name|Predicate
 argument_list|<
 name|Exchange
@@ -72,8 +91,18 @@ parameter_list|(
 name|String
 name|expression
 parameter_list|)
-function_decl|;
+block|{
+return|return
+name|XPathBuilder
+operator|.
+name|xpath
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
 DECL|method|createExpression (String expression)
+specifier|public
 name|Expression
 argument_list|<
 name|Exchange
@@ -83,9 +112,18 @@ parameter_list|(
 name|String
 name|expression
 parameter_list|)
-function_decl|;
+block|{
+return|return
+name|XPathBuilder
+operator|.
+name|xpath
+argument_list|(
+name|expression
+argument_list|)
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 
