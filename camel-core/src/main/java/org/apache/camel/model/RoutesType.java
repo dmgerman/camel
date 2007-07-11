@@ -32,6 +32,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElementRef
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -51,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;camelContext/&gt; element  *  * @version $Revision: $  */
+comment|/**  * Represents a collection of routes  *  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -60,35 +74,53 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"camelContext"
+literal|"routes"
 argument_list|)
-DECL|class|CamelContextElement
+DECL|class|RoutesType
 specifier|public
 class|class
-name|CamelContextElement
+name|RoutesType
+implements|implements
+name|RouteContainer
 block|{
 DECL|field|routes
 specifier|private
 name|List
 argument_list|<
-name|RouteElement
+name|RouteType
 argument_list|>
 name|routes
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|RouteElement
+name|RouteType
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Routes: "
+operator|+
+name|routes
+return|;
+block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
+annotation|@
+name|XmlElementRef
 DECL|method|getRoutes ()
 specifier|public
 name|List
 argument_list|<
-name|RouteElement
+name|RouteType
 argument_list|>
 name|getRoutes
 parameter_list|()
@@ -97,14 +129,14 @@ return|return
 name|routes
 return|;
 block|}
-DECL|method|setRoutes (List<RouteElement> routes)
+DECL|method|setRoutes (List<RouteType> routes)
 specifier|public
 name|void
 name|setRoutes
 parameter_list|(
 name|List
 argument_list|<
-name|RouteElement
+name|RouteType
 argument_list|>
 name|routes
 parameter_list|)
@@ -115,6 +147,33 @@ name|routes
 operator|=
 name|routes
 expr_stmt|;
+block|}
+comment|// Fluent API
+comment|//-------------------------------------------------------------------------
+DECL|method|route ()
+specifier|public
+name|RouteType
+name|route
+parameter_list|()
+block|{
+name|RouteType
+name|route
+init|=
+operator|new
+name|RouteType
+argument_list|()
+decl_stmt|;
+name|getRoutes
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
+return|return
+name|route
+return|;
 block|}
 block|}
 end_class
