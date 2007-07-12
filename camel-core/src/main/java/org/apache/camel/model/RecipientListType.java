@@ -18,22 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|ExpressionType
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -57,20 +41,6 @@ operator|.
 name|annotation
 operator|.
 name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlElementRef
 import|;
 end_import
 
@@ -112,15 +82,8 @@ specifier|public
 class|class
 name|RecipientListType
 extends|extends
-name|OutputType
+name|ExpressionNode
 block|{
-annotation|@
-name|XmlElementRef
-DECL|field|expression
-specifier|private
-name|ExpressionType
-name|expression
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -137,32 +100,6 @@ argument_list|()
 operator|+
 literal|"]"
 return|;
-block|}
-DECL|method|getExpression ()
-specifier|public
-name|ExpressionType
-name|getExpression
-parameter_list|()
-block|{
-return|return
-name|expression
-return|;
-block|}
-DECL|method|setExpression (ExpressionType expression)
-specifier|public
-name|void
-name|setExpression
-parameter_list|(
-name|ExpressionType
-name|expression
-parameter_list|)
-block|{
-name|this
-operator|.
-name|expression
-operator|=
-name|expression
-expr_stmt|;
 block|}
 block|}
 end_class

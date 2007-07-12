@@ -252,7 +252,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"../../../../../../resources/org/apache/camel/spring/example/contentBasedRoute.xml"
+literal|"org/apache/camel/spring/example/contentBasedRoute.xml"
 argument_list|)
 return|;
 block|}

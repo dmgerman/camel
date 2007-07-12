@@ -52,7 +52,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|FilterProcessor
+name|ChoiceProcessor
 import|;
 end_import
 
@@ -66,7 +66,21 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|ChoiceProcessor
+name|FilterProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElement
 import|;
 end_import
 
@@ -100,30 +114,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlElement
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -139,6 +129,16 @@ operator|.
 name|util
 operator|.
 name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 

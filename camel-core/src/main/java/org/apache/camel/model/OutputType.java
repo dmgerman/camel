@@ -26,7 +26,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElementRef
+name|XmlElement
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElement
+name|XmlElementRef
 import|;
 end_import
 
