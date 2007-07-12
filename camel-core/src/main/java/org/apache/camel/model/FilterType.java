@@ -60,6 +60,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -270,19 +284,19 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProcessor (RouteType route)
+DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|FilterProcessor
 name|createProcessor
 parameter_list|(
-name|RouteType
-name|route
+name|RouteContext
+name|routeContext
 parameter_list|)
 block|{
 name|Processor
 name|childProcessor
 init|=
-name|route
+name|routeContext
 operator|.
 name|createProcessor
 argument_list|(
@@ -299,7 +313,7 @@ argument_list|()
 operator|.
 name|createPredicate
 argument_list|(
-name|route
+name|routeContext
 argument_list|)
 argument_list|,
 name|childProcessor

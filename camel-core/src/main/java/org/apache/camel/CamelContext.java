@@ -66,7 +66,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|LanguageResolver
+name|Language
 import|;
 end_import
 
@@ -314,11 +314,14 @@ name|Injector
 name|getInjector
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the resolver of language expressions      */
-DECL|method|getLanguageResolver ()
-name|LanguageResolver
-name|getLanguageResolver
-parameter_list|()
+comment|/**      * Resolves a language for creating expressions      */
+DECL|method|resolveLanguage (String language)
+name|Language
+name|resolveLanguage
+parameter_list|(
+name|String
+name|language
+parameter_list|)
 function_decl|;
 block|}
 end_interface

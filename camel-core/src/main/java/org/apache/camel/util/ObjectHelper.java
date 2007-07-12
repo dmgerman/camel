@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A number of useful helper methods for working with Objects  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -213,6 +213,48 @@ name|equals
 argument_list|(
 name|b
 argument_list|)
+return|;
+block|}
+comment|/**      * Returns true if the given object is equal to any of the expected value      * @param expression      * @param s      * @param s1      * @return      */
+DECL|method|isEqualToAny (Object object, Object... values)
+specifier|public
+specifier|static
+name|boolean
+name|isEqualToAny
+parameter_list|(
+name|Object
+name|object
+parameter_list|,
+name|Object
+modifier|...
+name|values
+parameter_list|)
+block|{
+for|for
+control|(
+name|Object
+name|value
+range|:
+name|values
+control|)
+block|{
+if|if
+condition|(
+name|equals
+argument_list|(
+name|object
+argument_list|,
+name|value
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+return|return
+literal|false
 return|;
 block|}
 comment|/**      * A helper method for performing an ordered comparsion on the objects      * handling nulls and objects which do not      * handle sorting gracefully      */

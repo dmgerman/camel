@@ -24,18 +24,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -60,9 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
-name|ObjectHelper
+name|Predicate
 import|;
 end_import
 
@@ -275,6 +261,8 @@ throw|throw
 operator|new
 name|AssertionError
 argument_list|(
+name|text
+operator|+
 name|assertionFailureMessage
 argument_list|(
 name|exchange

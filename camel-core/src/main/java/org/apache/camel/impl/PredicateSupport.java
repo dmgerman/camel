@@ -90,6 +90,10 @@ name|assertionFailureMessage
 argument_list|(
 name|exchange
 argument_list|)
+operator|+
+literal|" on "
+operator|+
+name|exchange
 argument_list|)
 throw|;
 block|}
@@ -104,11 +108,8 @@ name|exchange
 parameter_list|)
 block|{
 return|return
-name|this
-operator|+
-literal|" failed on "
-operator|+
-name|exchange
+name|toString
+argument_list|()
 return|;
 block|}
 block|}

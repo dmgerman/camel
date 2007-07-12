@@ -218,6 +218,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Language
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|FactoryFinder
@@ -1320,6 +1334,30 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Helper methods
+comment|//-----------------------------------------------------------------------
+comment|/**      * Resolves a language for creating expressions      */
+DECL|method|resolveLanguage (String language)
+specifier|public
+name|Language
+name|resolveLanguage
+parameter_list|(
+name|String
+name|language
+parameter_list|)
+block|{
+return|return
+name|getLanguageResolver
+argument_list|()
+operator|.
+name|resolveLanguage
+argument_list|(
+name|language
+argument_list|,
+name|this
+argument_list|)
+return|;
+block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
 DECL|method|getExchangeConverter ()
@@ -1502,6 +1540,32 @@ operator|.
 name|languageResolver
 operator|=
 name|languageResolver
+expr_stmt|;
+block|}
+DECL|method|isAutoCreateComponents ()
+specifier|public
+name|boolean
+name|isAutoCreateComponents
+parameter_list|()
+block|{
+return|return
+name|autoCreateComponents
+return|;
+block|}
+DECL|method|setAutoCreateComponents (boolean autoCreateComponents)
+specifier|public
+name|void
+name|setAutoCreateComponents
+parameter_list|(
+name|boolean
+name|autoCreateComponents
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoCreateComponents
+operator|=
+name|autoCreateComponents
 expr_stmt|;
 block|}
 comment|// Implementation methods
@@ -1778,32 +1842,6 @@ operator|new
 name|DefaultComponentResolver
 argument_list|()
 return|;
-block|}
-DECL|method|isAutoCreateComponents ()
-specifier|public
-name|boolean
-name|isAutoCreateComponents
-parameter_list|()
-block|{
-return|return
-name|autoCreateComponents
-return|;
-block|}
-DECL|method|setAutoCreateComponents (boolean autoCreateComponents)
-specifier|public
-name|void
-name|setAutoCreateComponents
-parameter_list|(
-name|boolean
-name|autoCreateComponents
-parameter_list|)
-block|{
-name|this
-operator|.
-name|autoCreateComponents
-operator|=
-name|autoCreateComponents
-expr_stmt|;
 block|}
 block|}
 end_class

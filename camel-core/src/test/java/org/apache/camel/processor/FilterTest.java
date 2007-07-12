@@ -101,9 +101,9 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:a"
+literal|"direct:start"
 argument_list|,
-literal|"matched"
+literal|"<matched/>"
 argument_list|,
 literal|"foo"
 argument_list|,
@@ -147,9 +147,9 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:a"
+literal|"direct:start"
 argument_list|,
-literal|"notMatched"
+literal|"<notMatched/>"
 argument_list|,
 literal|"foo"
 argument_list|,
@@ -180,7 +180,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"direct:a"
+literal|"direct:start"
 argument_list|)
 operator|.
 name|filter

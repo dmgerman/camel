@@ -397,14 +397,14 @@ specifier|private
 name|long
 name|sleepForEmptyTest
 init|=
-literal|2000L
+literal|1000L
 decl_stmt|;
 DECL|field|defaulResultWaitMillis
 specifier|private
 name|long
 name|defaulResultWaitMillis
 init|=
-literal|10000L
+literal|20000L
 decl_stmt|;
 DECL|field|expectedMinimumCount
 specifier|private

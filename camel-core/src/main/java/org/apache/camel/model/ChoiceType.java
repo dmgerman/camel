@@ -36,6 +36,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|FilterProcessor
@@ -206,13 +220,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProcessor (RouteType route)
+DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor
 name|createProcessor
 parameter_list|(
-name|RouteType
-name|route
+name|RouteContext
+name|routeContext
 parameter_list|)
 block|{
 name|List
@@ -244,7 +258,7 @@ name|whenClaus
 operator|.
 name|createProcessor
 argument_list|(
-name|route
+name|routeContext
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -267,7 +281,7 @@ name|otherwise
 operator|.
 name|createProcessor
 argument_list|(
-name|route
+name|routeContext
 argument_list|)
 expr_stmt|;
 block|}

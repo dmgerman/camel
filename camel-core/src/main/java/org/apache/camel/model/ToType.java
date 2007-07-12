@@ -36,6 +36,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|SendProcessor
@@ -154,20 +168,20 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProcessor (RouteType route)
+DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor
 name|createProcessor
 parameter_list|(
-name|RouteType
-name|route
+name|RouteContext
+name|routeContext
 parameter_list|)
 block|{
 return|return
 operator|new
 name|SendProcessor
 argument_list|(
-name|route
+name|routeContext
 operator|.
 name|resolveEndpoint
 argument_list|(

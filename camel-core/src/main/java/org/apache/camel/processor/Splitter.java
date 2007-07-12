@@ -146,15 +146,15 @@ specifier|final
 name|Expression
 name|expression
 decl_stmt|;
-DECL|method|Splitter (Processor destination, Expression expression)
+DECL|method|Splitter (Expression expression, Processor destination)
 specifier|public
 name|Splitter
 parameter_list|(
-name|Processor
-name|destination
-parameter_list|,
 name|Expression
 name|expression
+parameter_list|,
+name|Processor
+name|destination
 parameter_list|)
 block|{
 name|this

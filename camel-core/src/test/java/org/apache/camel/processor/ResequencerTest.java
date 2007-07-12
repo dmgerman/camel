@@ -140,7 +140,7 @@ argument_list|)
 expr_stmt|;
 name|sendBodies
 argument_list|(
-literal|"direct:a"
+literal|"direct:start"
 argument_list|,
 literal|"Rob"
 argument_list|,
@@ -231,7 +231,7 @@ block|{
 comment|// START SNIPPET: example
 name|from
 argument_list|(
-literal|"direct:a"
+literal|"direct:start"
 argument_list|)
 operator|.
 name|resequencer
