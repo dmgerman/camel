@@ -42,6 +42,18 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelExchangeException
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: $  */
 end_comment
@@ -52,13 +64,8 @@ specifier|public
 class|class
 name|ValidationException
 extends|extends
-name|CamelException
+name|CamelExchangeException
 block|{
-DECL|field|exchange
-specifier|private
-name|Exchange
-name|exchange
-decl_stmt|;
 DECL|method|ValidationException (Exchange exchange, String message)
 specifier|public
 name|ValidationException
@@ -73,29 +80,10 @@ block|{
 name|super
 argument_list|(
 name|message
-operator|+
-literal|". Exchange"
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|exchange
-operator|=
-name|exchange
-expr_stmt|;
-block|}
-comment|/**      * Returns the exchange which caused the exception      *      * @return the exchange which caused the exception      */
-DECL|method|getExchange ()
-specifier|public
-name|Exchange
-name|getExchange
-parameter_list|()
-block|{
-return|return
-name|exchange
-return|;
 block|}
 block|}
 end_class

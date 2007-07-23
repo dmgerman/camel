@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|NoSuchPropertyException
 extends|extends
-name|CamelException
+name|CamelExchangeException
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -101,9 +101,7 @@ name|exchange
 argument_list|,
 name|propertyName
 argument_list|)
-operator|+
-literal|" on the exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;

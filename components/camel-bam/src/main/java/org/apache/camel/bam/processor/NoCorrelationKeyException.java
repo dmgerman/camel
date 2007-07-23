@@ -42,6 +42,18 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelExchangeException
+import|;
+end_import
+
 begin_comment
 comment|/**  * An exception thrown if no correlation key could be found for a message  * exchange preventing any particular orchestration or  *<a href="http://activemq.apache.org/camel/bam.html">BAM</a>  *  * @version $Revision: $  */
 end_comment
@@ -52,17 +64,12 @@ specifier|public
 class|class
 name|NoCorrelationKeyException
 extends|extends
-name|CamelException
+name|CamelExchangeException
 block|{
 DECL|field|processor
 specifier|private
 name|BamProcessorSupport
 name|processor
-decl_stmt|;
-DECL|field|exchange
-specifier|private
-name|Exchange
-name|exchange
 decl_stmt|;
 DECL|method|NoCorrelationKeyException (BamProcessorSupport processor, Exchange exchange)
 specifier|public
@@ -83,9 +90,7 @@ name|processor
 operator|.
 name|getCorrelationKeyExpression
 argument_list|()
-operator|+
-literal|" on "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
@@ -95,22 +100,6 @@ name|processor
 operator|=
 name|processor
 expr_stmt|;
-name|this
-operator|.
-name|exchange
-operator|=
-name|exchange
-expr_stmt|;
-block|}
-DECL|method|getExchange ()
-specifier|public
-name|Exchange
-name|getExchange
-parameter_list|()
-block|{
-return|return
-name|exchange
-return|;
 block|}
 DECL|method|getProcessor ()
 specifier|public
