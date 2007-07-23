@@ -493,10 +493,6 @@ name|createEventEndpoint
 argument_list|()
 expr_stmt|;
 block|}
-comment|// lets force lazy initialisation
-name|getInjector
-argument_list|()
-expr_stmt|;
 name|start
 argument_list|()
 expr_stmt|;

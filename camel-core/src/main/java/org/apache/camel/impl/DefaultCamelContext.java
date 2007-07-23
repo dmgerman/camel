@@ -206,7 +206,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|LanguageResolver
+name|Language
 import|;
 end_import
 
@@ -220,7 +220,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Language
+name|LanguageResolver
 import|;
 end_import
 
@@ -1578,6 +1578,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|forceLazyInitialization
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|components
@@ -1705,6 +1708,26 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|/**      * Lets force some lazy initialization to occur upfront      * before we start any components and create routes      */
+DECL|method|forceLazyInitialization ()
+specifier|protected
+name|void
+name|forceLazyInitialization
+parameter_list|()
+block|{
+name|getExchangeConverter
+argument_list|()
+expr_stmt|;
+name|getInjector
+argument_list|()
+expr_stmt|;
+name|getLanguageResolver
+argument_list|()
+expr_stmt|;
+name|getTypeConverter
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Lazily create a default implementation      */
 DECL|method|createExchangeConverter ()
