@@ -232,6 +232,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Registry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|FactoryFinder
@@ -482,6 +496,11 @@ init|=
 operator|new
 name|DefaultLanguageResolver
 argument_list|()
+decl_stmt|;
+DECL|field|registry
+specifier|private
+name|Registry
+name|registry
 decl_stmt|;
 comment|/**      * Adds a component to the container.      */
 DECL|method|addComponent (String componentName, final Component component)
@@ -1568,6 +1587,45 @@ operator|=
 name|autoCreateComponents
 expr_stmt|;
 block|}
+DECL|method|getRegistry ()
+specifier|public
+name|Registry
+name|getRegistry
+parameter_list|()
+block|{
+if|if
+condition|(
+name|registry
+operator|==
+literal|null
+condition|)
+block|{
+name|registry
+operator|=
+name|createRegistry
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|registry
+return|;
+block|}
+DECL|method|setRegistry (Registry registry)
+specifier|public
+name|void
+name|setRegistry
+parameter_list|(
+name|Registry
+name|registry
+parameter_list|)
+block|{
+name|this
+operator|.
+name|registry
+operator|=
+name|registry
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-----------------------------------------------------------------------
 DECL|method|doStart ()
@@ -1863,6 +1921,19 @@ block|{
 return|return
 operator|new
 name|DefaultComponentResolver
+argument_list|()
+return|;
+block|}
+comment|/**      * Lazily create a default implementation      */
+DECL|method|createRegistry ()
+specifier|protected
+name|Registry
+name|createRegistry
+parameter_list|()
+block|{
+return|return
+operator|new
+name|JndiRegistry
 argument_list|()
 return|;
 block|}

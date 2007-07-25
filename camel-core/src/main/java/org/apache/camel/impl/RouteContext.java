@@ -354,6 +354,40 @@ name|uri
 argument_list|)
 return|;
 block|}
+comment|/**      * lookup an object by name and type      */
+DECL|method|lookup (String name, Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|lookup
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|lookup
+argument_list|(
+name|name
+argument_list|,
+name|type
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

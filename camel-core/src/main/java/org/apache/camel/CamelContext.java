@@ -72,6 +72,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Registry
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -306,6 +320,12 @@ comment|/**      * Returns the type converter used to coerce types from one type
 DECL|method|getTypeConverter ()
 name|TypeConverter
 name|getTypeConverter
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the registry used to lookup components by name and type such as the Spring ApplicationContext,      * JNDI or the OSGi Service Registry      */
+DECL|method|getRegistry ()
+name|Registry
+name|getRegistry
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the injector used to instantiate objects by type      */
