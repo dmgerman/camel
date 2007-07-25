@@ -338,16 +338,6 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|// internally used by the Spring 2 XML
-name|getMandatoryBean
-argument_list|(
-name|StatementRouteBuilder
-operator|.
-name|class
-argument_list|,
-literal|"camel:routes"
-argument_list|)
-expr_stmt|;
 name|testEndpointConfiguration
 argument_list|()
 expr_stmt|;

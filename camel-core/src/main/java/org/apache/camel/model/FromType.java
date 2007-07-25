@@ -18,6 +18,44 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|NoSuchEndpointException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -69,20 +107,6 @@ operator|.
 name|annotation
 operator|.
 name|XmlRootElement
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlIDREF
 import|;
 end_import
 
@@ -154,9 +178,38 @@ block|{
 return|return
 literal|"From["
 operator|+
-name|uri
+name|description
+argument_list|(
+name|getUri
+argument_list|()
+argument_list|,
+name|getRef
+argument_list|()
+argument_list|)
 operator|+
 literal|"]"
+return|;
+block|}
+DECL|method|resolveEndpoint (RouteContext context)
+specifier|public
+name|Endpoint
+name|resolveEndpoint
+parameter_list|(
+name|RouteContext
+name|context
+parameter_list|)
+block|{
+return|return
+name|context
+operator|.
+name|resolveEndpoint
+argument_list|(
+name|getUri
+argument_list|()
+argument_list|,
+name|getRef
+argument_list|()
+argument_list|)
 return|;
 block|}
 comment|// Properties
@@ -171,6 +224,7 @@ return|return
 name|uri
 return|;
 block|}
+comment|/**      * Sets the URI of the endpoint to use      *      * @param uri the endpoint URI to use      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void
@@ -197,6 +251,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * Sets the name of the endpoint within the registry (such as the Spring ApplicationContext or JNDI) to use      *      * @param ref the reference name to use      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void
@@ -212,6 +267,53 @@ name|ref
 operator|=
 name|ref
 expr_stmt|;
+block|}
+comment|// Implementation methods
+comment|//-----------------------------------------------------------------------
+DECL|method|description (String uri, String ref)
+specifier|protected
+specifier|static
+name|String
+name|description
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|ref
+parameter_list|)
+block|{
+if|if
+condition|(
+name|uri
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|uri
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|ref
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|"ref:"
+operator|+
+name|ref
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|"no uri or ref supplied!"
+return|;
+block|}
 block|}
 block|}
 end_class
