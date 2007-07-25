@@ -156,6 +156,8 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Processor
 name|childProcessor
@@ -164,8 +166,7 @@ name|routeContext
 operator|.
 name|createProcessor
 argument_list|(
-name|getOutputs
-argument_list|()
+name|this
 argument_list|)
 decl_stmt|;
 return|return

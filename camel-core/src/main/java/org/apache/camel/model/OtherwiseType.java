@@ -137,14 +137,15 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 return|return
 name|routeContext
 operator|.
 name|createProcessor
 argument_list|(
-name|getOutputs
-argument_list|()
+name|this
 argument_list|)
 return|;
 block|}

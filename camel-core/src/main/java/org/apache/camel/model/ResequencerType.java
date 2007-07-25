@@ -193,6 +193,8 @@ name|Route
 argument_list|>
 name|routes
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Endpoint
 name|from
@@ -210,8 +212,7 @@ name|routeContext
 operator|.
 name|createProcessor
 argument_list|(
-name|getOutputs
-argument_list|()
+name|this
 argument_list|)
 decl_stmt|;
 specifier|final

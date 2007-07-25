@@ -2262,6 +2262,16 @@ name|String
 name|uri
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|processor
+operator|instanceof
+name|SendProcessor
+operator|)
+condition|)
+block|{
 name|processor
 operator|=
 name|unwrapErrorHandler
@@ -2269,6 +2279,7 @@ argument_list|(
 name|processor
 argument_list|)
 expr_stmt|;
+block|}
 name|SendProcessor
 name|sendProcessor
 init|=

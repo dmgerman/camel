@@ -300,6 +300,37 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Returns the boolean value, or null if the value is null      */
+annotation|@
+name|Converter
+DECL|method|toBoolean (Boolean value)
+specifier|public
+specifier|static
+name|Boolean
+name|toBoolean
+parameter_list|(
+name|Boolean
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|value
+operator|.
+name|booleanValue
+argument_list|()
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

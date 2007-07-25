@@ -140,6 +140,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
 begin_comment
 comment|/**  * The context used to activate new routing rules  *  * @version $Revision: $  */
 end_comment
@@ -252,17 +262,52 @@ name|getCamelContext
 argument_list|()
 return|;
 block|}
-DECL|method|createProcessor (List<ProcessorType> processors)
+DECL|method|createProcessor (ProcessorType node)
 specifier|public
 name|Processor
 name|createProcessor
 parameter_list|(
-name|List
+name|ProcessorType
+name|node
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|Processor
+name|processor
+init|=
+name|createProcessor
+argument_list|(
+name|node
+operator|.
+name|getOutputs
+argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+name|node
+operator|.
+name|wrapProcessor
+argument_list|(
+name|this
+argument_list|,
+name|processor
+argument_list|)
+return|;
+block|}
+DECL|method|createProcessor (Collection<ProcessorType> outputs)
+specifier|public
+name|Processor
+name|createProcessor
+parameter_list|(
+name|Collection
 argument_list|<
 name|ProcessorType
 argument_list|>
-name|processors
+name|outputs
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|List
 argument_list|<
@@ -282,7 +327,7 @@ control|(
 name|ProcessorType
 name|output
 range|:
-name|processors
+name|outputs
 control|)
 block|{
 name|Processor

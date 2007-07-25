@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Endpoint
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|Processor
 import|;
 end_import
 
@@ -144,6 +144,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -212,6 +222,13 @@ argument_list|<
 name|InterceptorRef
 argument_list|>
 name|interceptors
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|InterceptorRef
+argument_list|>
+argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
@@ -248,6 +265,8 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Endpoint
 name|endpoint
