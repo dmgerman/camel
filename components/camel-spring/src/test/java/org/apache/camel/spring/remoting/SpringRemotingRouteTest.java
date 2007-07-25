@@ -97,6 +97,13 @@ argument_list|(
 literal|"org/apache/camel/spring/remoting/spring.xml"
 argument_list|)
 decl_stmt|;
+name|spring
+operator|.
+name|getBean
+argument_list|(
+literal|"serviceExporter"
+argument_list|)
+expr_stmt|;
 name|CamelContext
 name|camelContext
 init|=
@@ -107,11 +114,6 @@ argument_list|(
 name|spring
 argument_list|)
 decl_stmt|;
-name|camelContext
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 comment|// START SNIPPET: invoke
 name|ISay
 name|proxy

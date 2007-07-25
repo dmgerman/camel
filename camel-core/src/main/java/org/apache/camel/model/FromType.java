@@ -72,6 +72,20 @@ name|XmlRootElement
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlIDREF
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents an XML&lt;to/&gt; element  *  * @version $Revision: $  */
 end_comment
@@ -102,6 +116,13 @@ DECL|field|uri
 specifier|private
 name|String
 name|uri
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|ref
+specifier|private
+name|String
+name|ref
 decl_stmt|;
 DECL|method|FromType ()
 specifier|public
@@ -164,6 +185,32 @@ operator|.
 name|uri
 operator|=
 name|uri
+expr_stmt|;
+block|}
+DECL|method|getRef ()
+specifier|public
+name|String
+name|getRef
+parameter_list|()
+block|{
+return|return
+name|ref
+return|;
+block|}
+DECL|method|setRef (String ref)
+specifier|public
+name|void
+name|setRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ref
+operator|=
+name|ref
 expr_stmt|;
 block|}
 block|}

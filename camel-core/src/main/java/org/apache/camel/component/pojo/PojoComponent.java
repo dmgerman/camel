@@ -253,14 +253,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Object
-name|pojo
-init|=
-name|getService
-argument_list|(
-name|remaining
-argument_list|)
-decl_stmt|;
 return|return
 operator|new
 name|PojoEndpoint
@@ -269,7 +261,7 @@ name|uri
 argument_list|,
 name|this
 argument_list|,
-name|pojo
+name|remaining
 argument_list|)
 return|;
 block|}
