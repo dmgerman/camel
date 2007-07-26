@@ -249,15 +249,10 @@ argument_list|()
 decl_stmt|;
 name|main
 operator|.
-name|parseArguments
+name|run
 argument_list|(
 name|args
 argument_list|)
-expr_stmt|;
-name|main
-operator|.
-name|run
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|Main ()
@@ -340,6 +335,26 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Parses the command line arguments then runs the program      */
+DECL|method|run (String[] args)
+specifier|public
+name|void
+name|run
+parameter_list|(
+name|String
+index|[]
+name|args
+parameter_list|)
+block|{
+name|parseArguments
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
+name|run
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Runs this process with the given arguments      */
