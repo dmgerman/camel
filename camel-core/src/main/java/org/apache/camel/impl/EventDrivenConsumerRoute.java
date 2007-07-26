@@ -194,6 +194,8 @@ name|processor
 expr_stmt|;
 block|}
 comment|/**      * Factory method to lazily create the complete list of services required for this route      * such as adding the processor or consumer      */
+annotation|@
+name|Override
 DECL|method|addServices (List<Service> services)
 specifier|protected
 name|void

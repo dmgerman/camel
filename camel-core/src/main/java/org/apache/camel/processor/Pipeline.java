@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a Pipeline pattern where the output of the previous step is sent as input to the next step when working  * with request/response message exchanges.  *  * @version $Revision$  */
+comment|/**  * Creates a Pipeline pattern where the output of the previous step is sent as input to the next step, reusing the same  * message exchanges  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -88,22 +88,20 @@ name|MulticastProcessor
 implements|implements
 name|Processor
 block|{
-DECL|method|Pipeline (Collection<Endpoint> endpoints)
+DECL|method|Pipeline (Collection<Processor> processors)
 specifier|public
 name|Pipeline
 parameter_list|(
 name|Collection
 argument_list|<
-name|Endpoint
+name|Processor
 argument_list|>
-name|endpoints
+name|processors
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|super
 argument_list|(
-name|endpoints
+name|processors
 argument_list|)
 expr_stmt|;
 block|}
@@ -130,10 +128,10 @@ literal|true
 decl_stmt|;
 for|for
 control|(
-name|Producer
+name|Processor
 name|producer
 range|:
-name|getProducers
+name|getProcessors
 argument_list|()
 control|)
 block|{
@@ -169,12 +167,12 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Strategy method to create the next exchange from the      *      * @param producer         the producer used to send to the endpoint      * @param previousExchange the previous exchange      * @return a new exchange      */
-DECL|method|createNextExchange (Producer producer, Exchange previousExchange)
+DECL|method|createNextExchange (Processor producer, Exchange previousExchange)
 specifier|protected
 name|Exchange
 name|createNextExchange
 parameter_list|(
-name|Producer
+name|Processor
 name|producer
 parameter_list|,
 name|Exchange
@@ -184,9 +182,7 @@ block|{
 name|Exchange
 name|answer
 init|=
-name|producer
-operator|.
-name|createExchange
+name|copyExchangeStrategy
 argument_list|(
 name|previousExchange
 argument_list|)
@@ -253,7 +249,7 @@ block|{
 return|return
 literal|"Pipeline"
 operator|+
-name|getEndpoints
+name|getProcessors
 argument_list|()
 return|;
 block|}

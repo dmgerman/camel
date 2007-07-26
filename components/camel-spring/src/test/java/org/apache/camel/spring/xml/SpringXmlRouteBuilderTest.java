@@ -426,42 +426,6 @@ name|Exception
 block|{
 comment|// TODO
 block|}
-annotation|@
-name|Override
-DECL|method|testWireTap ()
-specifier|public
-name|void
-name|testWireTap
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// TODO
-block|}
-annotation|@
-name|Override
-DECL|method|testRouteDynamicReceipentList ()
-specifier|public
-name|void
-name|testRouteDynamicReceipentList
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// TODO
-block|}
-annotation|@
-name|Override
-DECL|method|testSplitter ()
-specifier|public
-name|void
-name|testSplitter
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// TODO
-block|}
 DECL|method|getRoutesFromContext (String classpathConfigFile)
 specifier|protected
 name|List

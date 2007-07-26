@@ -61,7 +61,6 @@ end_comment
 begin_class
 DECL|class|Route
 specifier|public
-specifier|abstract
 class|class
 name|Route
 parameter_list|<
@@ -132,6 +131,53 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
+block|}
+DECL|method|Route (Endpoint<E> endpoint, Service... services)
+specifier|public
+name|Route
+parameter_list|(
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|endpoint
+parameter_list|,
+name|Service
+modifier|...
+name|services
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|Service
+name|service
+range|:
+name|services
+control|)
+block|{
+name|addService
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Route"
+return|;
 block|}
 DECL|method|getEndpoint ()
 specifier|public
@@ -226,8 +272,6 @@ name|Service
 argument_list|>
 name|getServices
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 name|services
@@ -252,10 +296,27 @@ operator|=
 name|services
 expr_stmt|;
 block|}
+DECL|method|addService (Service service)
+specifier|public
+name|void
+name|addService
+parameter_list|(
+name|Service
+name|service
+parameter_list|)
+block|{
+name|getServices
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Strategy method to allow derived classes to lazily load services for the route      */
 DECL|method|addServices (List<Service> services)
 specifier|protected
-specifier|abstract
 name|void
 name|addServices
 parameter_list|(
@@ -267,7 +328,7 @@ name|services
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
+block|{     }
 block|}
 end_class
 

@@ -72,6 +72,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ServiceSupport
@@ -99,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements the Multicast pattern to send a message exchange to a number of endpoints, each endpoint receiving a copy of  * the message exchange.  *  * @version $Revision$  */
+comment|/**  * Implements the Multicast pattern to send a message exchange to a number of endpoints, each endpoint receiving a copy of  * the message exchange.  *  * @see Pipeline  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -112,13 +126,13 @@ name|ServiceSupport
 implements|implements
 name|Processor
 block|{
-DECL|field|producers
+DECL|field|processors
 specifier|private
 name|Collection
 argument_list|<
-name|Producer
+name|Processor
 argument_list|>
-name|producers
+name|processors
 decl_stmt|;
 comment|/**      * A helper method to convert a list of endpoints into a list of processors      */
 DECL|method|toProducers (Collection<Endpoint> endpoints)
@@ -131,7 +145,7 @@ name|Exchange
 parameter_list|>
 name|Collection
 argument_list|<
-name|Producer
+name|Processor
 argument_list|>
 name|toProducers
 parameter_list|(
@@ -146,14 +160,14 @@ name|Exception
 block|{
 name|Collection
 argument_list|<
-name|Producer
+name|Processor
 argument_list|>
 name|answer
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Producer
+name|Processor
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -180,27 +194,22 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|MulticastProcessor (Collection<Endpoint> endpoints)
+DECL|method|MulticastProcessor (Collection<Processor> processors)
 specifier|public
 name|MulticastProcessor
 parameter_list|(
 name|Collection
 argument_list|<
-name|Endpoint
+name|Processor
 argument_list|>
-name|endpoints
+name|processors
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|this
 operator|.
-name|producers
+name|processors
 operator|=
-name|toProducers
-argument_list|(
-name|endpoints
-argument_list|)
+name|processors
 expr_stmt|;
 block|}
 annotation|@
@@ -214,7 +223,7 @@ block|{
 return|return
 literal|"Multicast"
 operator|+
-name|getEndpoints
+name|getProcessors
 argument_list|()
 return|;
 block|}
@@ -231,10 +240,10 @@ name|Exception
 block|{
 for|for
 control|(
-name|Producer
+name|Processor
 name|producer
 range|:
-name|producers
+name|processors
 control|)
 block|{
 name|Exchange
@@ -264,20 +273,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-for|for
-control|(
-name|Producer
-name|producer
-range|:
-name|producers
-control|)
-block|{
-name|producer
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
+name|stopServices
+argument_list|(
+name|processors
+argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|doStart ()
 specifier|protected
@@ -287,101 +289,46 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-for|for
-control|(
-name|Producer
-name|producer
-range|:
-name|producers
-control|)
-block|{
-name|producer
+name|ServiceHelper
 operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-comment|/**      * Returns the producers to multicast to      */
-DECL|method|getProducers ()
-specifier|public
-name|Collection
-argument_list|<
-name|Producer
-argument_list|>
-name|getProducers
-parameter_list|()
-block|{
-return|return
-name|producers
-return|;
-block|}
-comment|/**      * Returns the list of endpoints      */
-DECL|method|getEndpoints ()
-specifier|public
-name|Collection
-argument_list|<
-name|Endpoint
-argument_list|>
-name|getEndpoints
-parameter_list|()
-block|{
-name|Collection
-argument_list|<
-name|Endpoint
-argument_list|>
-name|answer
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|Endpoint
-argument_list|>
-argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|Producer
-name|producer
-range|:
-name|producers
-control|)
-block|{
-name|answer
-operator|.
-name|add
+name|startServices
 argument_list|(
-name|producer
-operator|.
-name|getEndpoint
-argument_list|()
+name|processors
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns the producers to multicast to      */
+DECL|method|getProcessors ()
+specifier|public
+name|Collection
+argument_list|<
+name|Processor
+argument_list|>
+name|getProcessors
+parameter_list|()
+block|{
 return|return
-name|answer
+name|processors
 return|;
 block|}
-comment|/**      * Strategy method to copy the exchange before sending to another endpoint. Derived classes such as the      * {@link Pipeline} will not clone the exchange      *      * @param producer the producer that will send the exchange      * @param exchange @return the current exchange if no copying is required such as for a pipeline otherwise a new copy of the exchange is returned.      */
-DECL|method|copyExchangeStrategy (Producer producer, Exchange exchange)
+comment|/**      * Strategy method to copy the exchange before sending to another endpoint. Derived classes such as the      * {@link Pipeline} will not clone the exchange      *      * @param processor the processor that will send the exchange      * @param exchange @return the current exchange if no copying is required such as for a pipeline otherwise a new copy of the exchange is returned.      */
+DECL|method|copyExchangeStrategy (Processor processor, Exchange exchange)
 specifier|protected
 name|Exchange
 name|copyExchangeStrategy
 parameter_list|(
-name|Producer
-name|producer
+name|Processor
+name|processor
 parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
 block|{
 return|return
-name|producer
-operator|.
-name|createExchange
-argument_list|(
 name|exchange
-argument_list|)
+operator|.
+name|copy
+argument_list|()
 return|;
 block|}
 block|}

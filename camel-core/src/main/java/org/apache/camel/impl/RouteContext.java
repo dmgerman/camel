@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchEndpointException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -60,7 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoSuchEndpointException
+name|Route
 import|;
 end_import
 
@@ -116,7 +128,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|CompositeProcessor
+name|MulticastProcessor
 import|;
 end_import
 
@@ -136,7 +148,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Collection
 import|;
 end_import
 
@@ -146,7 +158,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|List
 import|;
 end_import
 
@@ -172,12 +184,36 @@ specifier|final
 name|FromType
 name|from
 decl_stmt|;
+DECL|field|routes
+specifier|private
+specifier|final
+name|Collection
+argument_list|<
+name|Route
+argument_list|>
+name|routes
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|Endpoint
 name|endpoint
 decl_stmt|;
-DECL|method|RouteContext (RouteType route, FromType from)
+DECL|field|eventDrivenProcessors
+specifier|private
+name|List
+argument_list|<
+name|Processor
+argument_list|>
+name|eventDrivenProcessors
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Processor
+argument_list|>
+argument_list|()
+decl_stmt|;
+DECL|method|RouteContext (RouteType route, FromType from, Collection<Route> routes)
 specifier|public
 name|RouteContext
 parameter_list|(
@@ -186,6 +222,12 @@ name|route
 parameter_list|,
 name|FromType
 name|from
+parameter_list|,
+name|Collection
+argument_list|<
+name|Route
+argument_list|>
+name|routes
 parameter_list|)
 block|{
 name|this
@@ -199,6 +241,12 @@ operator|.
 name|from
 operator|=
 name|from
+expr_stmt|;
+name|this
+operator|.
+name|routes
+operator|=
+name|routes
 expr_stmt|;
 block|}
 DECL|method|getEndpoint ()
@@ -348,6 +396,25 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|createCompositeProcessor
+argument_list|(
+name|list
+argument_list|)
+return|;
+block|}
+DECL|method|createCompositeProcessor (List<Processor> list)
+specifier|protected
+name|Processor
+name|createCompositeProcessor
+parameter_list|(
+name|List
+argument_list|<
+name|Processor
+argument_list|>
+name|list
+parameter_list|)
+block|{
 if|if
 condition|(
 name|list
@@ -387,10 +454,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|//processor = new CompositeProcessor(list);
+comment|// TODO move into the node itself
 name|processor
 operator|=
 operator|new
-name|CompositeProcessor
+name|MulticastProcessor
 argument_list|(
 name|list
 argument_list|)
@@ -559,6 +628,64 @@ argument_list|,
 name|type
 argument_list|)
 return|;
+block|}
+comment|/**      * Lets complete the route creation, creating a single event driven route for the current from endpoint      * with any processors required      */
+DECL|method|commit ()
+specifier|public
+name|void
+name|commit
+parameter_list|()
+block|{
+comment|// now lets turn all of the event driven consumer processors into a single route
+if|if
+condition|(
+operator|!
+name|eventDrivenProcessors
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|Processor
+name|processor
+init|=
+name|createCompositeProcessor
+argument_list|(
+name|eventDrivenProcessors
+argument_list|)
+decl_stmt|;
+name|routes
+operator|.
+name|add
+argument_list|(
+operator|new
+name|EventDrivenConsumerRoute
+argument_list|(
+name|getEndpoint
+argument_list|()
+argument_list|,
+name|processor
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|addEventDrivenProcessor (Processor processor)
+specifier|public
+name|void
+name|addEventDrivenProcessor
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|eventDrivenProcessors
+operator|.
+name|add
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

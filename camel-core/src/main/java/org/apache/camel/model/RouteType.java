@@ -72,9 +72,35 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|EventDrivenConsumerRoute
 import|;
 end_import
 
@@ -657,6 +683,8 @@ argument_list|(
 name|this
 argument_list|,
 name|fromType
+argument_list|,
+name|routes
 argument_list|)
 decl_stmt|;
 name|Endpoint
@@ -685,6 +713,11 @@ name|routes
 argument_list|)
 expr_stmt|;
 block|}
+name|routeContext
+operator|.
+name|commit
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|configureChild (ProcessorType output)
 specifier|protected

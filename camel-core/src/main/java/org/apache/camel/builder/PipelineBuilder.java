@@ -68,6 +68,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|MulticastProcessor
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -137,7 +151,12 @@ return|return
 operator|new
 name|Pipeline
 argument_list|(
+name|MulticastProcessor
+operator|.
+name|toProducers
+argument_list|(
 name|endpoints
+argument_list|)
 argument_list|)
 return|;
 block|}
