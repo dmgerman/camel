@@ -311,7 +311,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// lets define some activities
+comment|// lets define some activities, correlating on an XPath on the message bodies
 name|ActivityBuilder
 name|a
 init|=
