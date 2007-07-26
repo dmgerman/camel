@@ -266,6 +266,7 @@ argument_list|,
 literal|"transactionTemplate"
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: example
 return|return
 operator|new
 name|ProcessBuilder
@@ -282,6 +283,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// lets define some activities
 name|ActivityBuilder
 name|a
 init|=
@@ -324,27 +326,7 @@ literal|"foo"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|ActivityBuilder
-name|c
-init|=
-name|activity
-argument_list|(
-literal|"direct:c"
-argument_list|)
-operator|.
-name|name
-argument_list|(
-literal|"c"
-argument_list|)
-operator|.
-name|correlate
-argument_list|(
-name|header
-argument_list|(
-literal|"foo"
-argument_list|)
-argument_list|)
-decl_stmt|;
+comment|// now lets add some rules
 name|b
 operator|.
 name|starts
@@ -382,6 +364,7 @@ expr_stmt|;
 block|}
 block|}
 return|;
+comment|// END SNIPPET: example
 block|}
 annotation|@
 name|Override
