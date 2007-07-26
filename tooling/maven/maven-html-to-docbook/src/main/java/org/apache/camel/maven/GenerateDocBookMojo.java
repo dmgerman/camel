@@ -1505,6 +1505,9 @@ name|node
 parameter_list|)
 block|{
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|imageList
 init|=
 name|getImageUrls
@@ -1513,6 +1516,9 @@ name|node
 argument_list|)
 decl_stmt|;
 name|Iterator
+argument_list|<
+name|String
+argument_list|>
 name|iter
 init|=
 name|imageList
@@ -1709,17 +1715,26 @@ block|}
 DECL|method|getImageUrls (Node node)
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getImageUrls
 parameter_list|(
 name|Node
 name|node
 parameter_list|)
 block|{
-name|ArrayList
+name|List
+argument_list|<
+name|String
+argument_list|>
 name|list
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|DOMElementImpl
