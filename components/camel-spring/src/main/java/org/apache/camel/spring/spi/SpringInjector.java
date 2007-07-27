@@ -113,8 +113,8 @@ DECL|class|SpringInjector
 specifier|public
 class|class
 name|SpringInjector
-extends|extends
-name|ReflectionInjector
+implements|implements
+name|Injector
 block|{
 DECL|field|log
 specifier|private
@@ -170,17 +170,25 @@ operator|=
 name|applicationContext
 expr_stmt|;
 block|}
-DECL|method|newInstance (Class type)
+DECL|method|newInstance (Class<T> type)
 specifier|public
-name|Object
+parameter_list|<
+name|T
+parameter_list|>
+name|T
 name|newInstance
 parameter_list|(
 name|Class
+argument_list|<
+name|T
+argument_list|>
 name|type
 parameter_list|)
 block|{
 comment|// TODO support annotations for mandatory injection points?
-return|return
+name|Object
+name|value
+init|=
 name|applicationContext
 operator|.
 name|getBeanFactory
@@ -193,6 +201,14 @@ argument_list|,
 name|autowireMode
 argument_list|,
 name|dependencyCheck
+argument_list|)
+decl_stmt|;
+return|return
+name|type
+operator|.
+name|cast
+argument_list|(
+name|value
 argument_list|)
 return|;
 block|}

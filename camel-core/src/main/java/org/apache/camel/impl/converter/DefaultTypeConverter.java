@@ -290,10 +290,13 @@ specifier|private
 name|boolean
 name|loaded
 decl_stmt|;
-DECL|method|DefaultTypeConverter ()
+DECL|method|DefaultTypeConverter (Injector injector)
 specifier|public
 name|DefaultTypeConverter
-parameter_list|()
+parameter_list|(
+name|Injector
+name|injector
+parameter_list|)
 block|{
 name|typeConverterLoaders
 operator|.
@@ -330,18 +333,6 @@ operator|new
 name|ArrayTypeConverter
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|DefaultTypeConverter (Injector injector)
-specifier|public
-name|DefaultTypeConverter
-parameter_list|(
-name|Injector
-name|injector
-parameter_list|)
-block|{
-name|this
-argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -593,20 +584,6 @@ name|Injector
 name|getInjector
 parameter_list|()
 block|{
-if|if
-condition|(
-name|injector
-operator|==
-literal|null
-condition|)
-block|{
-name|injector
-operator|=
-operator|new
-name|ReflectionInjector
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|injector
 return|;

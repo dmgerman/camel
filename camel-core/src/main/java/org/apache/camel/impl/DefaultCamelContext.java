@@ -1810,7 +1810,10 @@ block|{
 return|return
 operator|new
 name|DefaultTypeConverter
+argument_list|(
+name|getInjector
 argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * Lazily create a default implementation      */

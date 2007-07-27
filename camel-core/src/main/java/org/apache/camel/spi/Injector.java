@@ -25,12 +25,12 @@ DECL|interface|Injector
 specifier|public
 interface|interface
 name|Injector
-parameter_list|<
-name|T
-parameter_list|>
 block|{
 comment|/**      * Instantiates a new instance of the given type possibly injecting values into the object in the process      *      * @param type the type of object to create      * @return a newly created instance      */
 DECL|method|newInstance (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
 name|T
 name|newInstance
 parameter_list|(

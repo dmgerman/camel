@@ -169,6 +169,21 @@ name|Endpoint
 name|destination
 parameter_list|)
 block|{
+if|if
+condition|(
+name|destination
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Endpoint cannot be null!"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|destination

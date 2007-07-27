@@ -51,17 +51,14 @@ DECL|class|ReflectionInjector
 specifier|public
 class|class
 name|ReflectionInjector
-parameter_list|<
-name|T
-parameter_list|>
 implements|implements
 name|Injector
-argument_list|<
-name|T
-argument_list|>
 block|{
 DECL|method|newInstance (Class<T> type)
 specifier|public
+parameter_list|<
+name|T
+parameter_list|>
 name|T
 name|newInstance
 parameter_list|(
