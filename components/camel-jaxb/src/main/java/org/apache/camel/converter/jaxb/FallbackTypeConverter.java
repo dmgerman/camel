@@ -270,13 +270,6 @@ name|Object
 name|value
 parameter_list|)
 block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Investigating JAXB type conversions"
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 if|if

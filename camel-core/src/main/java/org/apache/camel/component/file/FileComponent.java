@@ -115,6 +115,15 @@ argument_list|<
 name|FileExchange
 argument_list|>
 block|{
+DECL|field|HEADER_FILE_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_FILE_NAME
+init|=
+literal|"org.apache.camel.file.name"
+decl_stmt|;
 DECL|method|FileComponent ()
 specifier|public
 name|FileComponent

@@ -159,6 +159,28 @@ return|;
 block|}
 annotation|@
 name|Converter
+DECL|method|toFile (String name)
+specifier|public
+specifier|static
+name|File
+name|toFile
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|FileNotFoundException
+block|{
+return|return
+operator|new
+name|File
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
 DECL|method|toOutputStream (File file)
 specifier|public
 specifier|static

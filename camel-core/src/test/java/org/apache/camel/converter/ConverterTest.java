@@ -122,6 +122,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -833,6 +843,46 @@ argument_list|(
 literal|"From primitive type array we've created the list: "
 operator|+
 name|resultList
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testStringToFile ()
+specifier|public
+name|void
+name|testStringToFile
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|File
+name|file
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|File
+operator|.
+name|class
+argument_list|,
+literal|"foo.txt"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Should have converted to a file!"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"file name"
+argument_list|,
+literal|"foo.txt"
+argument_list|,
+name|file
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
