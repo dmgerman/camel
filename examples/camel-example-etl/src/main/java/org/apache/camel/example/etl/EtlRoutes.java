@@ -26,9 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|spring
 operator|.
-name|RouteBuilder
+name|SpringRouteBuilder
 import|;
 end_import
 
@@ -46,7 +46,7 @@ specifier|public
 class|class
 name|EtlRoutes
 extends|extends
-name|RouteBuilder
+name|SpringRouteBuilder
 block|{
 DECL|method|configure ()
 specifier|public
@@ -68,11 +68,14 @@ operator|.
 name|class
 argument_list|)
 operator|.
+comment|//intercept(transactionInterceptor()).
 name|to
 argument_list|(
 literal|"jpa:org.apache.camel.example.etl.CustomerEntity"
 argument_list|)
 expr_stmt|;
+comment|// the following will dump the database to files
+comment|//from("jpa:org.apache.camel.example.etl.CustomerEntity?consumeDelete=false").to("file:target/customers");
 block|}
 block|}
 end_class
