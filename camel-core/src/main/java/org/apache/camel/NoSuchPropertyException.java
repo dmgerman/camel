@@ -164,6 +164,22 @@ argument_list|(
 name|propertyName
 argument_list|)
 decl_stmt|;
+return|return
+name|valueDescription
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
+DECL|method|valueDescription (Object value)
+specifier|static
+name|String
+name|valueDescription
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
 if|if
 condition|(
 name|value
