@@ -135,6 +135,28 @@ specifier|private
 name|ExpressionFactory
 name|expressionFactory
 decl_stmt|;
+DECL|method|el (String expression)
+specifier|public
+specifier|static
+name|JuelExpression
+name|el
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+return|return
+operator|new
+name|JuelExpression
+argument_list|(
+name|expression
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 DECL|method|JuelExpression (String expression, Class<?> type)
 specifier|public
 name|JuelExpression
