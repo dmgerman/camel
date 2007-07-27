@@ -261,6 +261,20 @@ specifier|private
 name|Map
 name|entityManagerProperties
 decl_stmt|;
+DECL|field|consumeDelete
+specifier|private
+name|boolean
+name|consumeDelete
+init|=
+literal|true
+decl_stmt|;
+DECL|field|consumeLockEntity
+specifier|private
+name|boolean
+name|consumeLockEntity
+init|=
+literal|true
+decl_stmt|;
 DECL|method|JpaEndpoint (String uri, JpaComponent component)
 specifier|public
 name|JpaEndpoint
@@ -660,6 +674,58 @@ operator|.
 name|persistenceUnit
 operator|=
 name|persistenceUnit
+expr_stmt|;
+block|}
+DECL|method|isConsumeDelete ()
+specifier|public
+name|boolean
+name|isConsumeDelete
+parameter_list|()
+block|{
+return|return
+name|consumeDelete
+return|;
+block|}
+DECL|method|setConsumeDelete (boolean consumeDelete)
+specifier|public
+name|void
+name|setConsumeDelete
+parameter_list|(
+name|boolean
+name|consumeDelete
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumeDelete
+operator|=
+name|consumeDelete
+expr_stmt|;
+block|}
+DECL|method|isConsumeLockEntity ()
+specifier|public
+name|boolean
+name|isConsumeLockEntity
+parameter_list|()
+block|{
+return|return
+name|consumeLockEntity
+return|;
+block|}
+DECL|method|setConsumeLockEntity (boolean consumeLockEntity)
+specifier|public
+name|void
+name|setConsumeLockEntity
+parameter_list|(
+name|boolean
+name|consumeLockEntity
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumeLockEntity
+operator|=
+name|consumeLockEntity
 expr_stmt|;
 block|}
 comment|// Implementation methods
