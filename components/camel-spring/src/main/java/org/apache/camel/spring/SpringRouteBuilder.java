@@ -46,11 +46,41 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|spi
+operator|.
+name|TransactionInterceptor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
 operator|.
 name|ApplicationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|transaction
+operator|.
+name|support
+operator|.
+name|TransactionTemplate
 import|;
 end_import
 
@@ -72,6 +102,25 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
+DECL|method|transactionInterceptor ()
+specifier|public
+name|TransactionInterceptor
+name|transactionInterceptor
+parameter_list|()
+block|{
+return|return
+operator|new
+name|TransactionInterceptor
+argument_list|(
+name|bean
+argument_list|(
+name|TransactionTemplate
+operator|.
+name|class
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Looks up the bean with the given name in the application context and returns it, or throws an exception if the      * bean is not present or is not of the given type      *      * @param type     the type of the bean      * @param beanName the name of the bean in the application context      * @return the bean      */
 DECL|method|bean (Class<T> type, String beanName)
 specifier|public
