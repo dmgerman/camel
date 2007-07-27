@@ -32,60 +32,12 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
+end_comment
+
+begin_comment
+comment|// START SNIPPET: example
 end_comment
 
 begin_class
@@ -96,23 +48,6 @@ name|EtlRoutes
 extends|extends
 name|RouteBuilder
 block|{
-DECL|field|log
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|log
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|EtlRoutes
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|configure ()
 specifier|public
 name|void
@@ -138,10 +73,13 @@ argument_list|(
 literal|"jpa:org.apache.camel.example.etl.CustomerEntity"
 argument_list|)
 expr_stmt|;
-comment|/*         from("file:src/data?noop=true").convertBodyTo(PersonDocument.class).process(new Processor() {             public void process(Exchange exchange) throws Exception {                 System.out.println("Body is: " + exchange.getIn().getBody());                 log.info("Body is: " + exchange.getIn().getBody());             }         }); */
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: example
+end_comment
 
 end_unit
 

@@ -28,7 +28,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlRootElement
+name|XmlAccessType
 import|;
 end_import
 
@@ -43,20 +43,6 @@ operator|.
 name|annotation
 operator|.
 name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessType
 import|;
 end_import
 
@@ -85,6 +71,20 @@ operator|.
 name|annotation
 operator|.
 name|XmlElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlRootElement
 import|;
 end_import
 

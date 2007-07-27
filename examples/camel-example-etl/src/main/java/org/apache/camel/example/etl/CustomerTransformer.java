@@ -86,6 +86,10 @@ begin_comment
 comment|/**  * A Message Transformer of an XML document to a Customer entity bean  *  * @version $Revision: 1.1 $  */
 end_comment
 
+begin_comment
+comment|// START SNIPPET: example
+end_comment
+
 begin_class
 annotation|@
 name|Converter
@@ -284,6 +288,10 @@ block|}
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: example
+end_comment
 
 end_unit
 
