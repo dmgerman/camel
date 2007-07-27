@@ -36,18 +36,10 @@ DECL|method|NoOpFileStrategy ()
 specifier|public
 name|NoOpFileStrategy
 parameter_list|()
-block|{     }
-DECL|method|NoOpFileStrategy (boolean lockFile)
-specifier|public
-name|NoOpFileStrategy
-parameter_list|(
-name|boolean
-name|lockFile
-parameter_list|)
 block|{
 name|super
 argument_list|(
-name|lockFile
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

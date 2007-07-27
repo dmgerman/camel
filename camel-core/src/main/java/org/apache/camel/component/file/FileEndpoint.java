@@ -104,7 +104,7 @@ name|file
 operator|.
 name|strategy
 operator|.
-name|RenameFileStrategy
+name|NoOpFileStrategy
 import|;
 end_import
 
@@ -122,7 +122,7 @@ name|file
 operator|.
 name|strategy
 operator|.
-name|NoOpFileStrategy
+name|RenameFileStrategy
 import|;
 end_import
 
@@ -137,6 +137,34 @@ operator|.
 name|impl
 operator|.
 name|ScheduledPollEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
 import|;
 end_import
 
@@ -165,6 +193,23 @@ argument_list|<
 name|FileExchange
 argument_list|>
 block|{
+DECL|field|log
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|FileEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|file
 specifier|private
 name|File
@@ -442,6 +487,19 @@ operator|=
 name|createFileStrategy
 argument_list|()
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|""
+operator|+
+name|this
+operator|+
+literal|" using strategy: "
+operator|+
+name|fileStrategy
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|fileStrategy
@@ -526,7 +584,7 @@ return|return
 name|moveNamePostfix
 return|;
 block|}
-comment|/**      * Sets the name postfix appended to moved files. For example      * to rename all the files from * to *.done set this value to ".done"      *      * @see RenameFileStrategy#setNamePostfix(String)       * @param moveNamePostfix      */
+comment|/**      * Sets the name postfix appended to moved files. For example      * to rename all the files from * to *.done set this value to ".done"      *      * @param moveNamePostfix      * @see RenameFileStrategy#setNamePostfix(String)      */
 DECL|method|setMoveNamePostfix (String moveNamePostfix)
 specifier|public
 name|void
@@ -635,6 +693,19 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|isNoop
+argument_list|()
+condition|)
+block|{
+return|return
+operator|new
+name|NoOpFileStrategy
+argument_list|()
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 name|moveNamePostfix
 operator|!=
 literal|null
@@ -681,22 +752,6 @@ block|{
 return|return
 operator|new
 name|DeleteFileStrategy
-argument_list|(
-name|isLock
-argument_list|()
-argument_list|)
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|isNoop
-argument_list|()
-condition|)
-block|{
-return|return
-operator|new
-name|NoOpFileStrategy
 argument_list|(
 name|isLock
 argument_list|()
