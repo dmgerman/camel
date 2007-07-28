@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Uses DOM to handle results of the transformation  *   * @version $Revision: 1.1 $  */
+comment|/**  * Uses DOM to handle results of the transformation  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class

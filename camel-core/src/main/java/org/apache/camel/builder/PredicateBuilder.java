@@ -1219,7 +1219,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns a predicate which is true if the expression matches the given regular expression      *      * @param expression the expression to evaluate      * @param regex the regular expression to match against      * @return a new predicate      */
+comment|/**      * Returns a predicate which is true if the expression matches the given regular expression      *      * @param expression the expression to evaluate      * @param regex      the regular expression to match against      * @return a new predicate      */
 DECL|method|regex (final Expression<E> expression, final String regex)
 specifier|public
 specifier|static
@@ -1260,7 +1260,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate which is true if the expression matches the given regular expression      *      * @param expression the expression to evaluate      * @param pattern the regular expression to match against      * @return a new predicate      */
+comment|/**      * Returns a predicate which is true if the expression matches the given regular expression      *      * @param expression the expression to evaluate      * @param pattern    the regular expression to match against      * @return a new predicate      */
 DECL|method|regex (final Expression<E> expression, final Pattern pattern)
 specifier|public
 specifier|static

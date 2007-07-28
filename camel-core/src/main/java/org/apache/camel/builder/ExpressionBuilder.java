@@ -56,6 +56,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -67,16 +77,6 @@ operator|.
 name|util
 operator|.
 name|StringTokenizer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
 import|;
 end_import
 
@@ -1460,7 +1460,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Evaluates the expression on the given exchange and returns the String representation      *      * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @return the String representation of the expression or null if it could not be evaluated      */
+comment|/**      * Evaluates the expression on the given exchange and returns the String representation      *      * @param expression the expression to evaluate      * @param exchange   the exchange to use to evaluate the expression      * @return the String representation of the expression or null if it could not be evaluated      */
 DECL|method|evaluateStringExpression (Expression<E> expression, E exchange)
 specifier|public
 specifier|static

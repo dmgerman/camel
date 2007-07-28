@@ -302,18 +302,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|sun
-operator|.
-name|net
-operator|.
-name|smtp
-operator|.
-name|SmtpClient
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -444,18 +432,11 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Sends the exchange to the given endpoint URI      */
-annotation|@
-name|Fluent
-DECL|method|to (@luentArgR)String uri)
+DECL|method|to (String uri)
 specifier|public
 name|ProcessorFactory
 name|to
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"uri"
-argument_list|)
 name|String
 name|uri
 parameter_list|)
@@ -471,18 +452,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the exchange to the given endpoint      */
-annotation|@
-name|Fluent
-DECL|method|to (@luentArgR)Endpoint endpoint)
+DECL|method|to (Endpoint endpoint)
 specifier|public
 name|ProcessorFactory
 name|to
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"ref"
-argument_list|)
 name|Endpoint
 name|endpoint
 parameter_list|)
@@ -508,8 +482,6 @@ name|answer
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints using the {@link MulticastProcessor} pattern      */
-annotation|@
-name|Fluent
 DECL|method|to (String... uris)
 specifier|public
 name|ProcessorFactory
@@ -531,28 +503,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints using the {@link MulticastProcessor} pattern      */
-annotation|@
-name|Fluent
-DECL|method|to ( @luentArgvalue = R, attribute = false, element = true) Endpoint... endpoints)
+DECL|method|to ( Endpoint... endpoints)
 specifier|public
 name|ProcessorFactory
 name|to
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-name|value
-operator|=
-literal|"endpoint"
-argument_list|,
-name|attribute
-operator|=
-literal|false
-argument_list|,
-name|element
-operator|=
-literal|true
-argument_list|)
 name|Endpoint
 modifier|...
 name|endpoints
@@ -569,28 +524,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoint using the {@link MulticastProcessor} pattern      */
-annotation|@
-name|Fluent
-DECL|method|to (@luentArgvalue = R, attribute = false, element = true) Collection<Endpoint> endpoints)
+DECL|method|to ( Collection<Endpoint> endpoints )
 specifier|public
 name|ProcessorFactory
 name|to
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-name|value
-operator|=
-literal|"endpoint"
-argument_list|,
-name|attribute
-operator|=
-literal|false
-argument_list|,
-name|element
-operator|=
-literal|true
-argument_list|)
 name|Collection
 argument_list|<
 name|Endpoint
@@ -612,18 +550,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message will get processed by each endpoint in turn      * and for request/response the output of one endpoint will be the input of the next endpoint      */
-annotation|@
-name|Fluent
-DECL|method|pipeline (@luentArgR)String... uris)
+DECL|method|pipeline (String... uris)
 specifier|public
 name|ProcessorFactory
 name|pipeline
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"uris"
-argument_list|)
 name|String
 modifier|...
 name|uris
@@ -640,18 +571,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message will get processed by each endpoint in turn      * and for request/response the output of one endpoint will be the input of the next endpoint      */
-annotation|@
-name|Fluent
-DECL|method|pipeline (@luentArgR)Endpoint... endpoints)
+DECL|method|pipeline (Endpoint... endpoints)
 specifier|public
 name|ProcessorFactory
 name|pipeline
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"endpoints"
-argument_list|)
 name|Endpoint
 modifier|...
 name|endpoints
@@ -668,18 +592,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message will get processed by each endpoint in turn      * and for request/response the output of one endpoint will be the input of the next endpoint      */
-annotation|@
-name|Fluent
-DECL|method|pipeline (@luentArgR)Collection<Endpoint> endpoints)
+DECL|method|pipeline (Collection<Endpoint> endpoints)
 specifier|public
 name|ProcessorFactory
 name|pipeline
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"endpoints"
-argument_list|)
 name|Collection
 argument_list|<
 name|Endpoint
@@ -701,26 +618,14 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates an {@link IdempotentConsumer} to avoid duplicate messages      */
-annotation|@
-name|Fluent
-DECL|method|idempotentConsumer ( @luentArgR)Expression messageIdExpression, @FluentArg(R)MessageIdRepository messageIdRepository)
+DECL|method|idempotentConsumer ( Expression messageIdExpression, MessageIdRepository messageIdRepository)
 specifier|public
 name|IdempotentConsumerBuilder
 name|idempotentConsumer
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"messageIdExpression"
-argument_list|)
 name|Expression
 name|messageIdExpression
 parameter_list|,
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"MessageIdRepository"
-argument_list|)
 name|MessageIdRepository
 name|messageIdRepository
 parameter_list|)
@@ -744,24 +649,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a predicate which is applied and only if it is true then      * the exchange is forwarded to the destination      *      * @return the builder for a predicate      */
-annotation|@
-name|Fluent
-DECL|method|filter ( @luentArgvalue = R, element = true) Predicate predicate)
+DECL|method|filter ( Predicate predicate )
 specifier|public
 name|FilterBuilder
 name|filter
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-name|value
-operator|=
-literal|"predicate"
-argument_list|,
-name|element
-operator|=
-literal|true
-argument_list|)
 name|Predicate
 name|predicate
 parameter_list|)
@@ -787,13 +679,6 @@ name|answer
 return|;
 block|}
 comment|/**      * Creates a choice of one or more predicates with an otherwise clause      *      * @return the builder for a choice expression      */
-annotation|@
-name|Fluent
-argument_list|(
-name|nestedActions
-operator|=
-literal|true
-argument_list|)
 DECL|method|choice ()
 specifier|public
 name|ChoiceBuilder
@@ -819,24 +704,11 @@ name|answer
 return|;
 block|}
 comment|/**      * Creates a dynamic<a href="http://activemq.apache.org/camel/recipient-list.html">Recipient List</a> pattern.      *      * @param receipients is the builder of the expression used in the {@link RecipientList} to decide the destinations      */
-annotation|@
-name|Fluent
-DECL|method|recipientList ( @luentArgvalue = R, element = true) Expression receipients)
+DECL|method|recipientList ( Expression receipients )
 specifier|public
 name|RecipientListBuilder
 name|recipientList
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-name|value
-operator|=
-literal|"recipients"
-argument_list|,
-name|element
-operator|=
-literal|true
-argument_list|)
 name|Expression
 name|receipients
 parameter_list|)
@@ -862,24 +734,11 @@ name|answer
 return|;
 block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/splitter.html">Splitter</a> pattern      * where an expression is evaluated to iterate through each of the parts of a message and then each part is then send to some endpoint.      *      * @param receipients the expression on which to split      * @return the builder      */
-annotation|@
-name|Fluent
-DECL|method|splitter (@luentArgvalue = R, element = true)Expression receipients)
+DECL|method|splitter ( Expression receipients )
 specifier|public
 name|SplitterBuilder
 name|splitter
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-name|value
-operator|=
-literal|"recipients"
-argument_list|,
-name|element
-operator|=
-literal|true
-argument_list|)
 name|Expression
 name|receipients
 parameter_list|)
@@ -936,20 +795,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a> pattern      * where a list of expressions are evaluated to be able to compare the message exchanges to reorder them. e.g. you      * may wish to sort by some headers      *      * @param expressions the expressions on which to compare messages in order      * @return the builder      */
-annotation|@
-name|Fluent
-DECL|method|resequencer (@luentArgvalue = R)List<Expression<Exchange>> expressions)
+DECL|method|resequencer (List <Expression<Exchange>> expressions)
 specifier|public
 name|ResequencerBuilder
 name|resequencer
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-name|value
-operator|=
-literal|"expressions"
-argument_list|)
 name|List
 argument_list|<
 name|Expression
@@ -981,8 +831,6 @@ name|answer
 return|;
 block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a> pattern      * where a list of expressions are evaluated to be able to compare the message exchanges to reorder them. e.g. you      * may wish to sort by some headers      *      * @param expressions the expressions on which to compare messages in order      * @return the builder      */
-annotation|@
-name|Fluent
 DECL|method|resequencer (Expression<Exchange>.... expressions)
 specifier|public
 name|ResequencerBuilder
@@ -1041,9 +889,7 @@ name|list
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a> pattern      * where a batch of messages are processed (up to a maximum amount or until some timeout is reached)      * and messages for the same correlation key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000 messages/second and you may want to      * throttle it right down so that multiple messages for the same stock are combined (or just the latest      * message is used and older prices are discarded). Another idea is to combine line item messages together      * into a single invoice message.      *      * @param correlationExpression the expression used to calculate the correlation key. For a JMS message this could      * be the expression<code>header("JMSDestination")</code> or<code>header("JMSCorrelationID")</code>      */
-annotation|@
-name|Fluent
+comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a> pattern      * where a batch of messages are processed (up to a maximum amount or until some timeout is reached)      * and messages for the same correlation key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000 messages/second and you may want to      * throttle it right down so that multiple messages for the same stock are combined (or just the latest      * message is used and older prices are discarded). Another idea is to combine line item messages together      * into a single invoice message.      *      * @param correlationExpression the expression used to calculate the correlation key. For a JMS message this could      *                              be the expression<code>header("JMSDestination")</code> or<code>header("JMSCorrelationID")</code>      */
 DECL|method|aggregator (Expression correlationExpression)
 specifier|public
 name|AggregatorBuilder
@@ -1073,9 +919,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a> pattern      * where a batch of messages are processed (up to a maximum amount or until some timeout is reached)      * and messages for the same correlation key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000 messages/second and you may want to      * throttle it right down so that multiple messages for the same stock are combined (or just the latest      * message is used and older prices are discarded). Another idea is to combine line item messages together      * into a single invoice message.      *      * @param correlationExpression the expression used to calculate the correlation key. For a JMS message this could      * be the expression<code>header("JMSDestination")</code> or<code>header("JMSCorrelationID")</code>      */
-annotation|@
-name|Fluent
+comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a> pattern      * where a batch of messages are processed (up to a maximum amount or until some timeout is reached)      * and messages for the same correlation key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000 messages/second and you may want to      * throttle it right down so that multiple messages for the same stock are combined (or just the latest      * message is used and older prices are discarded). Another idea is to combine line item messages together      * into a single invoice message.      *      * @param correlationExpression the expression used to calculate the correlation key. For a JMS message this could      *                              be the expression<code>header("JMSDestination")</code> or<code>header("JMSCorrelationID")</code>      */
 DECL|method|aggregator (Expression correlationExpression, AggregationStrategy strategy)
 specifier|public
 name|AggregatorBuilder
@@ -1116,8 +960,6 @@ name|answer
 return|;
 block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will be dispatched on      *      * @param processAtExpression an expression to calculate the time at which the messages should be processed      * @return the builder      */
-annotation|@
-name|Fluent
 DECL|method|delayer (Expression<Exchange> processAtExpression)
 specifier|public
 name|DelayerBuilder
@@ -1139,9 +981,7 @@ literal|0L
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will be dispatched on      *      * @param processAtExpression an expression to calculate the time at which the messages should be processed      * @param delay the delay in milliseconds which is added to the processAtExpression to determine the time the      * message should be processed      * @return the builder      */
-annotation|@
-name|Fluent
+comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will be dispatched on      *      * @param processAtExpression an expression to calculate the time at which the messages should be processed      * @param delay               the delay in milliseconds which is added to the processAtExpression to determine the time the      *                            message should be processed      * @return the builder      */
 DECL|method|delayer (Expression<Exchange> processAtExpression, long delay)
 specifier|public
 name|DelayerBuilder
@@ -1180,8 +1020,6 @@ name|answer
 return|;
 block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where a fixed amount of milliseconds are used to delay processing of a message exchange      *      * @param delay the default delay in milliseconds      * @return the builder      */
-annotation|@
-name|Fluent
 DECL|method|delayer (long delay)
 specifier|public
 name|DelayerBuilder
@@ -1200,9 +1038,7 @@ name|delay
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will be dispatched on      *      * @param processAtExpression an expression to calculate the time at which the messages should be processed      * @param delay the delay in milliseconds which is added to the processAtExpression to determine the time the      * message should be processed      * @return the builder      */
-annotation|@
-name|Fluent
+comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will be dispatched on      *      * @return the builder      */
 DECL|method|throttler (long maximumRequestCount)
 specifier|public
 name|ThrottlerBuilder
@@ -1233,18 +1069,11 @@ name|answer
 return|;
 block|}
 comment|/**      * Installs the given error handler builder      *      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
-annotation|@
-name|Fluent
-DECL|method|errorHandler (@luentArgR)ErrorHandlerBuilder errorHandlerBuilder)
+DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|FromBuilder
 name|errorHandler
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"handler"
-argument_list|)
 name|ErrorHandlerBuilder
 name|errorHandlerBuilder
 parameter_list|)
@@ -1259,18 +1088,11 @@ name|this
 return|;
 block|}
 comment|/**      * Configures whether or not the error handler is inherited by every processing node (or just the top most one)      *      * @param condition the falg as to whether error handlers should be inherited or not      * @return the current builder      */
-annotation|@
-name|Fluent
-DECL|method|inheritErrorHandler (@luentArgR)boolean condition)
+DECL|method|inheritErrorHandler (boolean condition)
 specifier|public
 name|FromBuilder
 name|inheritErrorHandler
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"condition"
-argument_list|)
 name|boolean
 name|condition
 parameter_list|)
@@ -1284,13 +1106,6 @@ return|return
 name|this
 return|;
 block|}
-annotation|@
-name|Fluent
-argument_list|(
-name|nestedActions
-operator|=
-literal|true
-argument_list|)
 DECL|method|intercept ()
 specifier|public
 name|InterceptorBuilder
@@ -1315,18 +1130,11 @@ return|return
 name|answer
 return|;
 block|}
-annotation|@
-name|Fluent
-DECL|method|intercept (@luentArgR)DelegateProcessor interceptor)
+DECL|method|intercept (DelegateProcessor interceptor)
 specifier|public
 name|FromBuilder
 name|intercept
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"interceptor"
-argument_list|)
 name|DelegateProcessor
 name|interceptor
 parameter_list|)
@@ -1360,8 +1168,6 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Trace logs the exchange before it goes to the next processing step using the {@link #DEFAULT_TRACE_CATEGORY} logging      * category.      *      * @return      */
-annotation|@
-name|Fluent
 DECL|method|trace ()
 specifier|public
 name|FromBuilder
@@ -1376,18 +1182,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Trace logs the exchange before it goes to the next processing step using the specified logging      * category.      *      * @param category the logging category trace messages will sent to.      * @return      */
-annotation|@
-name|Fluent
-DECL|method|trace (@luentArgR)String category)
+DECL|method|trace (String category)
 specifier|public
 name|FromBuilder
 name|trace
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"category"
-argument_list|)
 name|String
 name|category
 parameter_list|)
@@ -1439,13 +1238,6 @@ block|}
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Fluent
-argument_list|(
-name|nestedActions
-operator|=
-literal|true
-argument_list|)
 DECL|method|policies ()
 specifier|public
 name|PolicyBuilder
@@ -1470,18 +1262,11 @@ return|return
 name|answer
 return|;
 block|}
-annotation|@
-name|Fluent
-DECL|method|policy (@luentArgR)Policy policy)
+DECL|method|policy (Policy policy)
 specifier|public
 name|FromBuilder
 name|policy
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"policy"
-argument_list|)
 name|Policy
 name|policy
 parameter_list|)
@@ -1517,18 +1302,11 @@ block|}
 comment|// Transformers
 comment|//-------------------------------------------------------------------------
 comment|/**      * Adds the custom processor to this destination which could be a final destination, or could be a transformation in a pipeline      */
-annotation|@
-name|Fluent
-DECL|method|process (@luentArgR)Processor processor)
+DECL|method|process (Processor processor)
 specifier|public
 name|FromBuilder
 name|process
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"ref"
-argument_list|)
 name|Processor
 name|processor
 parameter_list|)
@@ -1543,8 +1321,6 @@ name|this
 return|;
 block|}
 comment|/**      * Adds a processor which sets the body on the IN message      */
-annotation|@
-name|Fluent
 DECL|method|setBody (Expression expression)
 specifier|public
 name|FromBuilder
@@ -1569,8 +1345,6 @@ name|this
 return|;
 block|}
 comment|/**      * Adds a processor which sets the body on the OUT message      */
-annotation|@
-name|Fluent
 DECL|method|setOutBody (Expression expression)
 specifier|public
 name|FromBuilder
@@ -1595,8 +1369,6 @@ name|this
 return|;
 block|}
 comment|/**      * Adds a processor which sets the header on the IN message      */
-annotation|@
-name|Fluent
 DECL|method|setHeader (String name, Expression expression)
 specifier|public
 name|FromBuilder
@@ -1626,8 +1398,6 @@ name|this
 return|;
 block|}
 comment|/**      * Adds a processor which sets the header on the OUT message      */
-annotation|@
-name|Fluent
 DECL|method|setOutHeader (String name, Expression expression)
 specifier|public
 name|FromBuilder
@@ -1657,8 +1427,6 @@ name|this
 return|;
 block|}
 comment|/**      * Adds a processor which sets the exchange property      */
-annotation|@
-name|Fluent
 DECL|method|setProperty (String name, Expression expression)
 specifier|public
 name|FromBuilder
@@ -1688,8 +1456,6 @@ name|this
 return|;
 block|}
 comment|/**      * Converts the IN message body to the specified type      */
-annotation|@
-name|Fluent
 DECL|method|convertBodyTo (Class type)
 specifier|public
 name|FromBuilder
@@ -1722,8 +1488,6 @@ name|this
 return|;
 block|}
 comment|/**      * Converts the OUT message body to the specified type      */
-annotation|@
-name|Fluent
 DECL|method|convertOutBodyTo (Class type)
 specifier|public
 name|FromBuilder

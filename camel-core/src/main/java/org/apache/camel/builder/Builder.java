@@ -94,7 +94,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for headers on an exchange      */
-DECL|method|header (@luentArgR) String name)
+DECL|method|header (String name)
 specifier|public
 specifier|static
 parameter_list|<
@@ -108,11 +108,6 @@ name|E
 argument_list|>
 name|header
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"name"
-argument_list|)
 name|String
 name|name
 parameter_list|)
@@ -180,7 +175,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the inbound message body as a specific type      */
-DECL|method|bodyAs ( Class<T> type)
+DECL|method|bodyAs (Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<

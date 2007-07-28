@@ -96,34 +96,6 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|Fluent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|FluentArg
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
 name|ValueBuilder
 import|;
 end_import
@@ -215,9 +187,7 @@ name|this
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for headers on an exchange      */
-annotation|@
-name|Fluent
-DECL|method|header (@luentArgR)String name)
+DECL|method|header (String name)
 specifier|public
 name|ValueBuilder
 argument_list|<
@@ -225,11 +195,6 @@ name|E
 argument_list|>
 name|header
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"name"
-argument_list|)
 name|String
 name|name
 parameter_list|)
@@ -254,8 +219,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the inbound body on an exchange      */
-annotation|@
-name|Fluent
 DECL|method|body ()
 specifier|public
 name|PredicateValueBuilder
@@ -280,9 +243,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the inbound message body as a specific type      */
-annotation|@
-name|Fluent
-DECL|method|bodyAs (@luentArgR)Class<T> type)
+DECL|method|bodyAs (Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -290,11 +251,6 @@ parameter_list|>
 name|PredicateValueBuilder
 name|bodyAs
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"class"
-argument_list|)
 name|Class
 argument_list|<
 name|T
@@ -322,8 +278,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the outbound body on an exchange      */
-annotation|@
-name|Fluent
 DECL|method|outBody ()
 specifier|public
 name|PredicateValueBuilder
@@ -348,9 +302,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the outbound message body as a specific type      */
-annotation|@
-name|Fluent
-DECL|method|outBody (@luentArgR)Class<T> type)
+DECL|method|outBody (Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -358,11 +310,6 @@ parameter_list|>
 name|PredicateValueBuilder
 name|outBody
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"class"
-argument_list|)
 name|Class
 argument_list|<
 name|T

@@ -18,26 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -116,8 +96,28 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
-comment|/**  * Base class for implementation inheritance for different clauses in the   *<a href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *  * @version $Revision: $  */
+comment|/**  * Base class for implementation inheritance for different clauses in the  *<a href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -211,18 +211,11 @@ block|}
 comment|// Builder methods
 comment|//-------------------------------------------------------------------------
 comment|/**      * Returns a value builder for the given header      */
-annotation|@
-name|Fluent
-DECL|method|header (@luentArgR)String name)
+DECL|method|header (String name)
 specifier|public
 name|ValueBuilder
 name|header
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"name"
-argument_list|)
 name|String
 name|name
 parameter_list|)
@@ -237,8 +230,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the inbound body on an exchange      */
-annotation|@
-name|Fluent
 DECL|method|body ()
 specifier|public
 name|ValueBuilder
@@ -253,9 +244,7 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the inbound message body as a specific type      */
-annotation|@
-name|Fluent
-DECL|method|bodyAs (@luentArgR)Class<T> type)
+DECL|method|bodyAs (Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -263,11 +252,6 @@ parameter_list|>
 name|ValueBuilder
 name|bodyAs
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"class"
-argument_list|)
 name|Class
 argument_list|<
 name|T
@@ -285,8 +269,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the outbound body on an exchange      */
-annotation|@
-name|Fluent
 DECL|method|outBody ()
 specifier|public
 name|ValueBuilder
@@ -301,9 +283,7 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the outbound message body as a specific type      */
-annotation|@
-name|Fluent
-DECL|method|outBody (@luentArgR)Class<T> type)
+DECL|method|outBody (Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -311,11 +291,6 @@ parameter_list|>
 name|ValueBuilder
 name|outBody
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"class"
-argument_list|)
 name|Class
 argument_list|<
 name|T
@@ -333,18 +308,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a value builder for the given system property      */
-annotation|@
-name|Fluent
-DECL|method|systemProperty (@luentArgR)String name)
+DECL|method|systemProperty (String name)
 specifier|public
 name|ValueBuilder
 name|systemProperty
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"name"
-argument_list|)
 name|String
 name|name
 parameter_list|)
@@ -359,26 +327,14 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a value builder for the given system property      */
-annotation|@
-name|Fluent
-DECL|method|systemProperty ( @luentArgR)String name, @FluentArg(R)String defaultValue)
+DECL|method|systemProperty (String name, String defaultValue)
 specifier|public
 name|ValueBuilder
 name|systemProperty
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"name"
-argument_list|)
 name|String
 name|name
 parameter_list|,
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"defaultValue"
-argument_list|)
 name|String
 name|defaultValue
 parameter_list|)
@@ -395,18 +351,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Resolves the given URI to an endpoint      */
-annotation|@
-name|Fluent
-DECL|method|endpoint (@luentArgR)String uri)
+DECL|method|endpoint (String uri)
 specifier|public
 name|Endpoint
 name|endpoint
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"uri"
-argument_list|)
 name|String
 name|uri
 parameter_list|)
@@ -422,9 +371,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Resolves the list of URIs into a list of {@link Endpoint} instances      */
-annotation|@
-name|Fluent
-DECL|method|endpoints (@luentArgR)String... uris)
+DECL|method|endpoints (String... uris)
 specifier|public
 name|List
 argument_list|<
@@ -432,11 +379,6 @@ name|Endpoint
 argument_list|>
 name|endpoints
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"uris"
-argument_list|)
 name|String
 modifier|...
 name|uris
@@ -479,9 +421,7 @@ name|endpoints
 return|;
 block|}
 comment|/**      * Helper method to create a list of {@link Endpoint} instances      */
-annotation|@
-name|Fluent
-DECL|method|endpoints (@luentArgR)Endpoint... endpoints)
+DECL|method|endpoints (Endpoint... endpoints)
 specifier|public
 name|List
 argument_list|<
@@ -489,11 +429,6 @@ name|Endpoint
 argument_list|>
 name|endpoints
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"endpoints"
-argument_list|)
 name|Endpoint
 modifier|...
 name|endpoints
@@ -533,8 +468,6 @@ name|answer
 return|;
 block|}
 comment|/**      * Creates a disabled error handler for removing the default error handler      */
-annotation|@
-name|Fluent
 DECL|method|noErrorHandler ()
 specifier|public
 name|NoErrorHandlerBuilder
@@ -548,8 +481,6 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Creates an error handler which just logs errors      */
-annotation|@
-name|Fluent
 DECL|method|loggingErrorHandler ()
 specifier|public
 name|LoggingErrorHandlerBuilder
@@ -563,18 +494,11 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Creates an error handler which just logs errors      */
-annotation|@
-name|Fluent
-DECL|method|loggingErrorHandler (@luentArgR)String log)
+DECL|method|loggingErrorHandler (String log)
 specifier|public
 name|LoggingErrorHandlerBuilder
 name|loggingErrorHandler
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"log"
-argument_list|)
 name|String
 name|log
 parameter_list|)
@@ -592,18 +516,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates an error handler which just logs errors      */
-annotation|@
-name|Fluent
-DECL|method|loggingErrorHandler (@luentArgR)Log log)
+DECL|method|loggingErrorHandler (Log log)
 specifier|public
 name|LoggingErrorHandlerBuilder
 name|loggingErrorHandler
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"log"
-argument_list|)
 name|Log
 name|log
 parameter_list|)
@@ -617,26 +534,14 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates an error handler which just logs errors      */
-annotation|@
-name|Fluent
-DECL|method|loggingErrorHandler ( @luentArgR)Log log, @FluentArg(R)LoggingLevel level)
+DECL|method|loggingErrorHandler (Log log, LoggingLevel level)
 specifier|public
 name|LoggingErrorHandlerBuilder
 name|loggingErrorHandler
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"log"
-argument_list|)
 name|Log
 name|log
 parameter_list|,
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"level"
-argument_list|)
 name|LoggingLevel
 name|level
 parameter_list|)
@@ -651,8 +556,6 @@ name|level
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Fluent
 DECL|method|deadLetterChannel ()
 specifier|public
 name|DeadLetterChannelBuilder
@@ -665,18 +568,11 @@ name|DeadLetterChannelBuilder
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Fluent
-DECL|method|deadLetterChannel (@luentArgR)String deadLetterUri)
+DECL|method|deadLetterChannel (String deadLetterUri)
 specifier|public
 name|DeadLetterChannelBuilder
 name|deadLetterChannel
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"uri"
-argument_list|)
 name|String
 name|deadLetterUri
 parameter_list|)
@@ -691,18 +587,11 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Fluent
-DECL|method|deadLetterChannel (@luentArgR)Endpoint deadLetterEndpoint)
+DECL|method|deadLetterChannel (Endpoint deadLetterEndpoint)
 specifier|public
 name|DeadLetterChannelBuilder
 name|deadLetterChannel
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"ref"
-argument_list|)
 name|Endpoint
 name|deadLetterEndpoint
 parameter_list|)

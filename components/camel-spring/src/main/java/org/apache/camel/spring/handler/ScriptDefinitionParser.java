@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.xml
+DECL|package|org.apache.camel.spring.handler
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|xml
+name|handler
 package|;
 end_package
 

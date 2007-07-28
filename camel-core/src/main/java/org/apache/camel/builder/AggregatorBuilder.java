@@ -72,18 +72,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|Aggregator
@@ -119,16 +107,6 @@ operator|.
 name|aggregate
 operator|.
 name|UseLatestAggregationStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 

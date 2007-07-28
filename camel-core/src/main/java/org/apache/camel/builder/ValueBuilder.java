@@ -146,9 +146,7 @@ return|;
 block|}
 comment|// Predicate builders
 comment|//-------------------------------------------------------------------------
-annotation|@
-name|Fluent
-DECL|method|isNotEqualTo (@luentArgR)Object value)
+DECL|method|isNotEqualTo (Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -156,11 +154,6 @@ name|E
 argument_list|>
 name|isNotEqualTo
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"value"
-argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -190,9 +183,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Fluent
-DECL|method|isEqualTo (@luentArgR)Object value)
+DECL|method|isEqualTo (Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -200,11 +191,6 @@ name|E
 argument_list|>
 name|isEqualTo
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"value"
-argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -234,9 +220,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Fluent
-DECL|method|isLessThan (@luentArgR)Object value)
+DECL|method|isLessThan (Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -244,11 +228,6 @@ name|E
 argument_list|>
 name|isLessThan
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"value"
-argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -278,9 +257,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Fluent
-DECL|method|isLessThanOrEqualTo (@luentArgR)Object value)
+DECL|method|isLessThanOrEqualTo (Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -288,11 +265,6 @@ name|E
 argument_list|>
 name|isLessThanOrEqualTo
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"value"
-argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -322,9 +294,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Fluent
-DECL|method|isGreaterThan (@luentArgR)Object value)
+DECL|method|isGreaterThan (Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -332,11 +302,6 @@ name|E
 argument_list|>
 name|isGreaterThan
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"value"
-argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -366,9 +331,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Fluent
-DECL|method|isGreaterThanOrEqualTo (@luentArgR)Object value)
+DECL|method|isGreaterThanOrEqualTo (Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -376,11 +339,6 @@ name|E
 argument_list|>
 name|isGreaterThanOrEqualTo
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"value"
-argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -410,9 +368,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Fluent
-DECL|method|isInstanceOf (@luentArgR)Class type)
+DECL|method|isInstanceOf (Class type)
 specifier|public
 name|Predicate
 argument_list|<
@@ -420,11 +376,6 @@ name|E
 argument_list|>
 name|isInstanceOf
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"class"
-argument_list|)
 name|Class
 name|type
 parameter_list|)
@@ -443,9 +394,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Fluent
-DECL|method|matchesRegex (@luentArgR)String regex)
+DECL|method|matchesRegex (String regex)
 specifier|public
 name|Predicate
 argument_list|<
@@ -453,11 +402,6 @@ name|E
 argument_list|>
 name|matchesRegex
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"regex"
-argument_list|)
 name|String
 name|regex
 parameter_list|)
@@ -476,8 +420,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Fluent
 DECL|method|isNull ()
 specifier|public
 name|Predicate
@@ -499,8 +441,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Fluent
 DECL|method|isNotNull ()
 specifier|public
 name|Predicate
@@ -522,10 +462,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a predicate that the left hand expression contains the value of the right hand expression      *      * @param value the element which is compared to be contained within this expression      * @return a predicate which evaluates to true if the given value expression is contained within this      * expression value      */
-annotation|@
-name|Fluent
-DECL|method|contains (@luentArgR)Object value)
+comment|/**      * Create a predicate that the left hand expression contains the value of the right hand expression      *      * @param value the element which is compared to be contained within this expression      * @return a predicate which evaluates to true if the given value expression is contained within this      *         expression value      */
+DECL|method|contains (Object value)
 specifier|public
 name|Predicate
 argument_list|<
@@ -533,11 +471,6 @@ name|E
 argument_list|>
 name|contains
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"value"
-argument_list|)
 name|Object
 name|value
 parameter_list|)
@@ -568,8 +501,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a predicate which is true if this expression matches the given regular expression      *      * @param regex the regular expression to match      * @return a predicate which evaluates to true if the expression matches the regex      */
-annotation|@
-name|Fluent
 DECL|method|regex (String regex)
 specifier|public
 name|Predicate
@@ -598,8 +529,6 @@ return|;
 block|}
 comment|// Expression builders
 comment|//-------------------------------------------------------------------------
-annotation|@
-name|Fluent
 DECL|method|tokenize ()
 specifier|public
 name|ValueBuilder
@@ -616,9 +545,7 @@ literal|"\n"
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Fluent
-DECL|method|tokenize (@luentArgR)String token)
+DECL|method|tokenize (String token)
 specifier|public
 name|ValueBuilder
 argument_list|<
@@ -626,11 +553,6 @@ name|E
 argument_list|>
 name|tokenize
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"token"
-argument_list|)
 name|String
 name|token
 parameter_list|)
@@ -662,9 +584,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Tokenizes the string conversion of this expression using the given regular expression      */
-annotation|@
-name|Fluent
-DECL|method|regexTokenize (@luentArgR)String regex)
+DECL|method|regexTokenize (String regex)
 specifier|public
 name|ValueBuilder
 argument_list|<
@@ -672,11 +592,6 @@ name|E
 argument_list|>
 name|regexTokenize
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"regex"
-argument_list|)
 name|String
 name|regex
 parameter_list|)
@@ -708,9 +623,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Replaces all occurrencies of the regular expression with the given replacement      */
-annotation|@
-name|Fluent
-DECL|method|regexReplaceAll (@luentArgR)String regex, @FluentArg(R)String replacement)
+DECL|method|regexReplaceAll (String regex, String replacement)
 specifier|public
 name|ValueBuilder
 argument_list|<
@@ -718,19 +631,9 @@ name|E
 argument_list|>
 name|regexReplaceAll
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"regex"
-argument_list|)
 name|String
 name|regex
 parameter_list|,
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"replacement"
-argument_list|)
 name|String
 name|replacement
 parameter_list|)
@@ -764,9 +667,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Replaces all occurrencies of the regular expression with the given replacement      */
-annotation|@
-name|Fluent
-DECL|method|regexReplaceAll (@luentArgR)String regex, @FluentArg(R)Expression<E> replacement)
+DECL|method|regexReplaceAll (String regex, Expression<E> replacement)
 specifier|public
 name|ValueBuilder
 argument_list|<
@@ -774,19 +675,9 @@ name|E
 argument_list|>
 name|regexReplaceAll
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"regex"
-argument_list|)
 name|String
 name|regex
 parameter_list|,
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"replacement"
-argument_list|)
 name|Expression
 argument_list|<
 name|E
@@ -823,9 +714,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Converts the current value to the given type using the registered type converters      *      * @param type the type to convert the value to      * @return the current builder      */
-annotation|@
-name|Fluent
-DECL|method|convertTo (@luentArgR)Class type)
+DECL|method|convertTo (Class type)
 specifier|public
 name|ValueBuilder
 argument_list|<
@@ -833,11 +722,6 @@ name|E
 argument_list|>
 name|convertTo
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"type"
-argument_list|)
 name|Class
 name|type
 parameter_list|)
@@ -869,8 +753,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Converts the current value a String using the registered type converters      *      * @return the current builder      */
-annotation|@
-name|Fluent
 DECL|method|convertToString ()
 specifier|public
 name|ValueBuilder
@@ -889,10 +771,8 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Appends the string evaluation of this expression with the given value      * @param value the value or expression to append      * @return the current builder      */
-annotation|@
-name|Fluent
-DECL|method|append (@luentArgR) Object value)
+comment|/**      * Appends the string evaluation of this expression with the given value      *      * @param value the value or expression to append      * @return the current builder      */
+DECL|method|append (Object value)
 specifier|public
 name|ValueBuilder
 argument_list|<
@@ -900,11 +780,6 @@ name|E
 argument_list|>
 name|append
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"value"
-argument_list|)
 name|Object
 name|value
 parameter_list|)

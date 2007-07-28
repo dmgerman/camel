@@ -24,18 +24,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -111,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Uses the {@link Logger} as an error handler  *   * @version $Revision$  */
+comment|/**  * Uses the {@link Logger} as an error handler  *  * @version $Revision$  */
 end_comment
 
 begin_class

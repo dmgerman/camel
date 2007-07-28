@@ -24,24 +24,12 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
 
 begin_comment
-comment|/**  * An interface representing a builder of a {@link Processor}  *   * @version $Revision$  */
+comment|/**  * An interface representing a builder of a {@link Processor}  *  * @version $Revision$  */
 end_comment
 
 begin_interface

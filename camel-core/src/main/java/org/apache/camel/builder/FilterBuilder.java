@@ -24,20 +24,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|FilterProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Predicate
 import|;
 end_import
@@ -50,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|Processor
 import|;
 end_import
 
@@ -62,7 +48,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|processor
+operator|.
+name|FilterProcessor
 import|;
 end_import
 

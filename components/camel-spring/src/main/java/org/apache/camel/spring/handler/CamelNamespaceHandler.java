@@ -86,7 +86,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|xml
+name|handler
 operator|.
 name|BeanDefinitionParser
 import|;
@@ -102,7 +102,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|xml
+name|handler
 operator|.
 name|ScriptDefinitionParser
 import|;

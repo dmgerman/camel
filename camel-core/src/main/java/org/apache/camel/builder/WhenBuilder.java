@@ -97,18 +97,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|Fluent
-DECL|method|to (@luentArgR)Endpoint endpoint)
+DECL|method|to (Endpoint endpoint)
 specifier|public
 name|ChoiceBuilder
 name|to
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"ref"
-argument_list|)
 name|Endpoint
 name|endpoint
 parameter_list|)
@@ -126,18 +119,11 @@ return|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|Fluent
-DECL|method|to (@luentArgR)String uri)
+DECL|method|to (String uri)
 specifier|public
 name|ChoiceBuilder
 name|to
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"uri"
-argument_list|)
 name|String
 name|uri
 parameter_list|)
@@ -155,18 +141,11 @@ return|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|Fluent
-DECL|method|process (@luentArgR)Processor processor)
+DECL|method|process (Processor processor)
 specifier|public
 name|ChoiceBuilder
 name|process
 parameter_list|(
-annotation|@
-name|FluentArg
-argument_list|(
-literal|"ref"
-argument_list|)
 name|Processor
 name|processor
 parameter_list|)

@@ -38,9 +38,7 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|stream
-operator|.
-name|StreamResult
+name|Result
 import|;
 end_import
 
@@ -52,7 +50,9 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|Result
+name|stream
+operator|.
+name|StreamResult
 import|;
 end_import
 

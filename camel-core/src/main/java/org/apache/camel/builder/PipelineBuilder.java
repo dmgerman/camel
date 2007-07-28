@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -62,7 +50,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Pipeline
+name|MulticastProcessor
 import|;
 end_import
 
@@ -76,7 +64,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|MulticastProcessor
+name|Pipeline
 import|;
 end_import
 
