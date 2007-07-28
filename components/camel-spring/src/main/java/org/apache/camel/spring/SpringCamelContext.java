@@ -684,13 +684,6 @@ name|Injector
 name|createInjector
 parameter_list|()
 block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Creating a spring injector!"
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|SpringInjector
