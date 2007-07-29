@@ -872,7 +872,7 @@ name|void
 name|findRouteBuiders
 parameter_list|()
 throws|throws
-name|IllegalAccessException
+name|Exception
 throws|,
 name|InstantiationException
 block|{
@@ -895,7 +895,10 @@ init|=
 operator|new
 name|RouteBuilderFinder
 argument_list|(
-name|this
+name|getContext
+argument_list|()
+argument_list|,
+name|packages
 argument_list|)
 decl_stmt|;
 name|finder
