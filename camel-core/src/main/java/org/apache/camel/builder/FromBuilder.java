@@ -503,7 +503,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints using the {@link MulticastProcessor} pattern      */
-DECL|method|to ( Endpoint... endpoints)
+DECL|method|to (Endpoint... endpoints)
 specifier|public
 name|ProcessorFactory
 name|to
@@ -524,7 +524,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoint using the {@link MulticastProcessor} pattern      */
-DECL|method|to ( Collection<Endpoint> endpoints )
+DECL|method|to (Collection<Endpoint> endpoints)
 specifier|public
 name|ProcessorFactory
 name|to
@@ -618,7 +618,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates an {@link IdempotentConsumer} to avoid duplicate messages      */
-DECL|method|idempotentConsumer ( Expression messageIdExpression, MessageIdRepository messageIdRepository)
+DECL|method|idempotentConsumer (Expression messageIdExpression, MessageIdRepository messageIdRepository)
 specifier|public
 name|IdempotentConsumerBuilder
 name|idempotentConsumer
@@ -649,7 +649,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a predicate which is applied and only if it is true then      * the exchange is forwarded to the destination      *      * @return the builder for a predicate      */
-DECL|method|filter ( Predicate predicate )
+DECL|method|filter (Predicate predicate)
 specifier|public
 name|FilterBuilder
 name|filter
@@ -704,7 +704,7 @@ name|answer
 return|;
 block|}
 comment|/**      * Creates a dynamic<a href="http://activemq.apache.org/camel/recipient-list.html">Recipient List</a> pattern.      *      * @param receipients is the builder of the expression used in the {@link RecipientList} to decide the destinations      */
-DECL|method|recipientList ( Expression receipients )
+DECL|method|recipientList (Expression receipients)
 specifier|public
 name|RecipientListBuilder
 name|recipientList
@@ -734,7 +734,7 @@ name|answer
 return|;
 block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/splitter.html">Splitter</a> pattern      * where an expression is evaluated to iterate through each of the parts of a message and then each part is then send to some endpoint.      *      * @param receipients the expression on which to split      * @return the builder      */
-DECL|method|splitter ( Expression receipients )
+DECL|method|splitter (Expression receipients)
 specifier|public
 name|SplitterBuilder
 name|splitter
@@ -795,7 +795,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a> pattern      * where a list of expressions are evaluated to be able to compare the message exchanges to reorder them. e.g. you      * may wish to sort by some headers      *      * @param expressions the expressions on which to compare messages in order      * @return the builder      */
-DECL|method|resequencer (List <Expression<Exchange>> expressions)
+DECL|method|resequencer (List<Expression<Exchange>> expressions)
 specifier|public
 name|ResequencerBuilder
 name|resequencer
