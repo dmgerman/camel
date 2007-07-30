@@ -140,6 +140,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -231,6 +245,46 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 annotation|@
+name|XmlTransient
+DECL|field|endpoint
+specifier|private
+name|Endpoint
+name|endpoint
+decl_stmt|;
+DECL|method|ToType ()
+specifier|public
+name|ToType
+parameter_list|()
+block|{     }
+DECL|method|ToType (String uri)
+specifier|public
+name|ToType
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|setUri
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|ToType (Endpoint endpoint)
+specifier|public
+name|ToType
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+block|{
+name|setEndpoint
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
 name|Override
 DECL|method|toString ()
 specifier|public
@@ -249,6 +303,9 @@ name|getUri
 argument_list|()
 argument_list|,
 name|getRef
+argument_list|()
+argument_list|,
+name|getEndpoint
 argument_list|()
 argument_list|)
 operator|+
@@ -293,7 +350,15 @@ name|RouteContext
 name|context
 parameter_list|)
 block|{
-return|return
+if|if
+condition|(
+name|endpoint
+operator|==
+literal|null
+condition|)
+block|{
+name|endpoint
+operator|=
 name|context
 operator|.
 name|resolveEndpoint
@@ -304,6 +369,10 @@ argument_list|,
 name|getRef
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|endpoint
 return|;
 block|}
 comment|// Properties
@@ -360,6 +429,32 @@ operator|.
 name|ref
 operator|=
 name|ref
+expr_stmt|;
+block|}
+DECL|method|getEndpoint ()
+specifier|public
+name|Endpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|endpoint
+return|;
+block|}
+DECL|method|setEndpoint (Endpoint endpoint)
+specifier|public
+name|void
+name|setEndpoint
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
 expr_stmt|;
 block|}
 DECL|method|getOutputs ()

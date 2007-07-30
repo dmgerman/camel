@@ -36,6 +36,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|language
+operator|.
+name|ExpressionType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|RouteContext
@@ -124,6 +152,39 @@ name|SplitterType
 extends|extends
 name|ExpressionNode
 block|{
+DECL|method|SplitterType ()
+specifier|public
+name|SplitterType
+parameter_list|()
+block|{     }
+DECL|method|SplitterType (Expression expression)
+specifier|public
+name|SplitterType
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|SplitterType (ExpressionType expression)
+specifier|public
+name|SplitterType
+parameter_list|(
+name|ExpressionType
+name|expression
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()

@@ -106,9 +106,6 @@ specifier|final
 name|List
 argument_list|<
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|expressions
 decl_stmt|;
@@ -126,7 +123,7 @@ name|batchSize
 init|=
 literal|100
 decl_stmt|;
-DECL|method|ResequencerBuilder (FromBuilder builder, List<Expression<Exchange>> expressions)
+DECL|method|ResequencerBuilder (FromBuilder builder, List<Expression> expressions)
 specifier|public
 name|ResequencerBuilder
 parameter_list|(
@@ -136,9 +133,6 @@ parameter_list|,
 name|List
 argument_list|<
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|expressions
 parameter_list|)

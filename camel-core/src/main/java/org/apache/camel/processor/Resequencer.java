@@ -174,7 +174,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Resequencer (Endpoint endpoint, Processor processor, List<Expression<Exchange>> expressions)
+DECL|method|Resequencer (Endpoint endpoint, Processor processor, List<Expression> expressions)
 specifier|public
 name|Resequencer
 parameter_list|(
@@ -187,9 +187,6 @@ parameter_list|,
 name|List
 argument_list|<
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|expressions
 parameter_list|)
@@ -283,7 +280,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|createSet (List<Expression<Exchange>> expressions)
+DECL|method|createSet (List<Expression> expressions)
 specifier|protected
 specifier|static
 name|Set
@@ -295,9 +292,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|expressions
 parameter_list|)
@@ -329,9 +323,6 @@ name|createSet
 argument_list|(
 operator|new
 name|ExpressionListComparator
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|(
 name|expressions
 argument_list|)

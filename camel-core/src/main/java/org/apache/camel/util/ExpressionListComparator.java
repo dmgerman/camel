@@ -69,15 +69,10 @@ DECL|class|ExpressionListComparator
 specifier|public
 class|class
 name|ExpressionListComparator
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|Comparator
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 block|{
 DECL|field|expressions
@@ -86,22 +81,16 @@ specifier|final
 name|List
 argument_list|<
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|expressions
 decl_stmt|;
-DECL|method|ExpressionListComparator (List<Expression<E>> expressions)
+DECL|method|ExpressionListComparator (List<Expression> expressions)
 specifier|public
 name|ExpressionListComparator
 parameter_list|(
 name|List
 argument_list|<
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|expressions
 parameter_list|)
@@ -113,24 +102,21 @@ operator|=
 name|expressions
 expr_stmt|;
 block|}
-DECL|method|compare (E e1, E e2)
+DECL|method|compare (Exchange e1, Exchange e2)
 specifier|public
 name|int
 name|compare
 parameter_list|(
-name|E
+name|Exchange
 name|e1
 parameter_list|,
-name|E
+name|Exchange
 name|e2
 parameter_list|)
 block|{
 for|for
 control|(
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 range|:
 name|expressions

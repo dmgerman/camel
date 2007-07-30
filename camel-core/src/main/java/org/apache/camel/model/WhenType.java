@@ -46,6 +46,34 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|language
+operator|.
+name|ExpressionType
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -77,6 +105,39 @@ name|WhenType
 extends|extends
 name|ExpressionNode
 block|{
+DECL|method|WhenType ()
+specifier|public
+name|WhenType
+parameter_list|()
+block|{     }
+DECL|method|WhenType (Predicate predicate)
+specifier|public
+name|WhenType
+parameter_list|(
+name|Predicate
+name|predicate
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|predicate
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|WhenType (ExpressionType expression)
+specifier|public
+name|WhenType
+parameter_list|(
+name|ExpressionType
+name|expression
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()

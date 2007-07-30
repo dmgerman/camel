@@ -160,6 +160,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlType
 import|;
 end_import
@@ -231,7 +245,6 @@ name|FIELD
 argument_list|)
 DECL|class|ExpressionType
 specifier|public
-specifier|abstract
 class|class
 name|ExpressionType
 block|{
@@ -258,20 +271,27 @@ specifier|private
 name|String
 name|expression
 decl_stmt|;
-DECL|method|getLanguage ()
-specifier|public
-specifier|abstract
-name|String
-name|getLanguage
-parameter_list|()
-function_decl|;
+annotation|@
+name|XmlTransient
+DECL|field|predicate
+specifier|private
+name|Predicate
+name|predicate
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|expressionValue
+specifier|private
+name|Expression
+name|expressionValue
+decl_stmt|;
 DECL|method|ExpressionType ()
-specifier|protected
+specifier|public
 name|ExpressionType
 parameter_list|()
 block|{     }
 DECL|method|ExpressionType (String expression)
-specifier|protected
+specifier|public
 name|ExpressionType
 parameter_list|(
 name|String
@@ -281,6 +301,36 @@ block|{
 name|this
 operator|.
 name|expression
+operator|=
+name|expression
+expr_stmt|;
+block|}
+DECL|method|ExpressionType (Predicate predicate)
+specifier|public
+name|ExpressionType
+parameter_list|(
+name|Predicate
+name|predicate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|predicate
+operator|=
+name|predicate
+expr_stmt|;
+block|}
+DECL|method|ExpressionType (Expression expression)
+specifier|public
+name|ExpressionType
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expressionValue
 operator|=
 name|expression
 expr_stmt|;
@@ -305,6 +355,16 @@ operator|+
 literal|"]"
 return|;
 block|}
+DECL|method|getLanguage ()
+specifier|public
+name|String
+name|getLanguage
+parameter_list|()
+block|{
+return|return
+literal|""
+return|;
+block|}
 DECL|method|createPredicate (RouteContext route)
 specifier|public
 name|Predicate
@@ -317,6 +377,13 @@ name|RouteContext
 name|route
 parameter_list|)
 block|{
+if|if
+condition|(
+name|predicate
+operator|==
+literal|null
+condition|)
+block|{
 name|CamelContext
 name|camelContext
 init|=
@@ -336,7 +403,8 @@ name|getLanguage
 argument_list|()
 argument_list|)
 decl_stmt|;
-return|return
+name|predicate
+operator|=
 name|language
 operator|.
 name|createPredicate
@@ -344,6 +412,10 @@ argument_list|(
 name|getExpression
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|predicate
 return|;
 block|}
 DECL|method|createExpression (RouteContext routeContext)
@@ -354,6 +426,13 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|)
+block|{
+if|if
+condition|(
+name|expressionValue
+operator|==
+literal|null
+condition|)
 block|{
 name|CamelContext
 name|camelContext
@@ -374,7 +453,8 @@ name|getLanguage
 argument_list|()
 argument_list|)
 decl_stmt|;
-return|return
+name|expressionValue
+operator|=
 name|language
 operator|.
 name|createExpression
@@ -382,6 +462,10 @@ argument_list|(
 name|getExpression
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|expressionValue
 return|;
 block|}
 DECL|method|getExpression ()

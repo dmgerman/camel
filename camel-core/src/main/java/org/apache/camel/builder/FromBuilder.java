@@ -764,15 +764,12 @@ name|answer
 return|;
 block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a> pattern      * where an expression is evaluated to be able to compare the message exchanges to reorder them. e.g. you      * may wish to sort by some header      *      * @param expression the expression on which to compare messages in order      * @return the builder      */
-DECL|method|resequencer (Expression<Exchange> expression)
+DECL|method|resequencer (Expression expression)
 specifier|public
 name|ResequencerBuilder
 name|resequencer
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -783,9 +780,6 @@ name|Collections
 operator|.
 expr|<
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 operator|>
 name|singletonList
 argument_list|(
@@ -795,7 +789,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a> pattern      * where a list of expressions are evaluated to be able to compare the message exchanges to reorder them. e.g. you      * may wish to sort by some headers      *      * @param expressions the expressions on which to compare messages in order      * @return the builder      */
-DECL|method|resequencer (List<Expression<Exchange>> expressions)
+DECL|method|resequencer (List<Expression> expressions)
 specifier|public
 name|ResequencerBuilder
 name|resequencer
@@ -803,9 +797,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|expressions
 parameter_list|)
@@ -831,15 +822,12 @@ name|answer
 return|;
 block|}
 comment|/**      * A builder for the<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a> pattern      * where a list of expressions are evaluated to be able to compare the message exchanges to reorder them. e.g. you      * may wish to sort by some headers      *      * @param expressions the expressions on which to compare messages in order      * @return the builder      */
-DECL|method|resequencer (Expression<Exchange>.... expressions)
+DECL|method|resequencer (Expression... expressions)
 specifier|public
 name|ResequencerBuilder
 name|resequencer
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 modifier|...
 name|expressions
 parameter_list|)
@@ -847,9 +835,6 @@ block|{
 name|List
 argument_list|<
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|list
 init|=
@@ -857,18 +842,12 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
 control|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 range|:
 name|expressions
