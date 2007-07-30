@@ -182,6 +182,33 @@ name|getExchange
 argument_list|()
 return|;
 block|}
+DECL|method|copy ()
+specifier|public
+name|MailMessage
+name|copy
+parameter_list|()
+block|{
+name|MailMessage
+name|answer
+init|=
+operator|(
+name|MailMessage
+operator|)
+name|super
+operator|.
+name|copy
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|mailMessage
+operator|=
+name|mailMessage
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Returns the underlying Mail message      *      * @return the underlying Mail message      */
 DECL|method|getMessage ()
 specifier|public

@@ -420,6 +420,33 @@ name|childProcessor
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|configureChild (ProcessorType output)
+specifier|protected
+name|void
+name|configureChild
+parameter_list|(
+name|ProcessorType
+name|output
+parameter_list|)
+block|{
+if|if
+condition|(
+name|isInheritErrorHandler
+argument_list|()
+condition|)
+block|{
+name|output
+operator|.
+name|setErrorHandlerBuilder
+argument_list|(
+name|getErrorHandlerBuilder
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 end_class
 

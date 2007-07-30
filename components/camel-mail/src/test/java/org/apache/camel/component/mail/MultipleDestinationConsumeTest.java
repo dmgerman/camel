@@ -403,6 +403,13 @@ operator|.
 name|getMessage
 argument_list|()
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"In message has no JavaMail message!"
+argument_list|,
+name|inMessage
+argument_list|)
+expr_stmt|;
 name|Enumeration
 name|iter
 init|=

@@ -176,11 +176,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|inheritErrorHandler
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|from
 argument_list|(
 literal|"seda:a"
@@ -205,6 +200,11 @@ name|String
 operator|.
 name|class
 argument_list|)
+argument_list|)
+operator|.
+name|inheritErrorHandler
+argument_list|(
+literal|false
 argument_list|)
 operator|.
 name|to

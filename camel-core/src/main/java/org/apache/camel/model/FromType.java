@@ -176,6 +176,21 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|FromType (Endpoint endpoint)
+specifier|public
+name|FromType
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()

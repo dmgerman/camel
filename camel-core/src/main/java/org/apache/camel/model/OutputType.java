@@ -18,6 +18,34 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -98,6 +126,23 @@ name|OutputType
 extends|extends
 name|ProcessorType
 block|{
+DECL|field|log
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|OutputType
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|outputs
 specifier|protected
 name|List
@@ -223,6 +268,8 @@ operator|=
 name|interceptors
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|configureChild (ProcessorType output)
 specifier|protected
 name|void
@@ -234,8 +281,6 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|output
-operator|.
 name|isInheritErrorHandler
 argument_list|()
 condition|)
@@ -249,6 +294,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// don't inherit interceptors by default
+comment|/*         List<InterceptorRef> list = output.getInterceptors();         if (list == null) {             log.warn("No interceptor collection: " + output);         }         else {             list.addAll(getInterceptors());         } */
 block|}
 block|}
 end_class
