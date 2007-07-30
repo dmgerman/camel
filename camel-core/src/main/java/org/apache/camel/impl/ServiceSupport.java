@@ -129,7 +129,12 @@ name|Exception
 block|{
 if|if
 condition|(
-name|stopped
+name|started
+operator|.
+name|get
+argument_list|()
+operator|&&
+name|stopping
 operator|.
 name|compareAndSet
 argument_list|(
@@ -139,13 +144,6 @@ literal|true
 argument_list|)
 condition|)
 block|{
-name|stopping
-operator|.
-name|set
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|doStop
