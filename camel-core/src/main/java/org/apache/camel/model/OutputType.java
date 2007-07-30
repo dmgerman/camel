@@ -120,7 +120,6 @@ literal|"outputType"
 argument_list|)
 DECL|class|OutputType
 specifier|public
-specifier|abstract
 class|class
 name|OutputType
 extends|extends

@@ -126,6 +126,26 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|Temporal
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|TemporalType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -170,6 +190,13 @@ specifier|private
 name|Date
 name|timeExpected
 decl_stmt|;
+annotation|@
+name|Temporal
+argument_list|(
+name|TemporalType
+operator|.
+name|TIME
+argument_list|)
 DECL|field|timeOverdue
 specifier|private
 name|Date
@@ -495,6 +522,13 @@ operator|=
 name|receivedMessageCount
 expr_stmt|;
 block|}
+annotation|@
+name|Temporal
+argument_list|(
+name|TemporalType
+operator|.
+name|TIME
+argument_list|)
 DECL|method|getTimeExpected ()
 specifier|public
 name|Date
@@ -521,6 +555,13 @@ operator|=
 name|timeExpected
 expr_stmt|;
 block|}
+annotation|@
+name|Temporal
+argument_list|(
+name|TemporalType
+operator|.
+name|TIME
+argument_list|)
 DECL|method|getTimeOverdue ()
 specifier|public
 name|Date

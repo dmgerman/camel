@@ -152,34 +152,6 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|FromBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|IdempotentConsumerBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
 name|NoErrorHandlerBuilder
 import|;
 end_import
@@ -2005,7 +1977,7 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * A strategy method which allows derived classes to wrap the child processor in some kind of interceptor such as      * a filter for the {@link IdempotentConsumerBuilder}.      *      * @param routeContext      * @param target       the processor which can be wrapped @return the original processor or a new wrapped interceptor      */
+comment|/**      * A strategy method which allows derived classes to wrap the child processor in some kind of interceptor      *      * @param routeContext      * @param target       the processor which can be wrapped @return the original processor or a new wrapped interceptor      */
 DECL|method|wrapProcessorInInterceptors (RouteContext routeContext, Processor target)
 specifier|protected
 name|Processor
@@ -2157,7 +2129,7 @@ else|:
 name|first
 return|;
 block|}
-comment|/**      * A strategy method to allow newly created processors to be wrapped in an error handler. This feature      * could be disabled for child builders such as {@link IdempotentConsumerBuilder} which will rely on the      * {@link FromBuilder} to perform the error handling to avoid doubly-wrapped processors with 2 nested error handlers      */
+comment|/**      * A strategy method to allow newly created processors to be wrapped in an error handler.      */
 DECL|method|wrapInErrorHandler (Processor processor)
 specifier|protected
 name|Processor

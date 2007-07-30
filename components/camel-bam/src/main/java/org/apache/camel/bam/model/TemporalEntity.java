@@ -24,6 +24,26 @@ name|javax
 operator|.
 name|persistence
 operator|.
+name|Temporal
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|TemporalType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
 name|Transient
 import|;
 end_import
@@ -89,6 +109,13 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Temporal
+argument_list|(
+name|TemporalType
+operator|.
+name|TIME
+argument_list|)
 DECL|method|getTimeStarted ()
 specifier|public
 name|Date
@@ -115,6 +142,13 @@ operator|=
 name|timeStarted
 expr_stmt|;
 block|}
+annotation|@
+name|Temporal
+argument_list|(
+name|TemporalType
+operator|.
+name|TIME
+argument_list|)
 DECL|method|getTimeCompleted ()
 specifier|public
 name|Date
