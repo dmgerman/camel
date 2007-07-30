@@ -36,9 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|impl
 operator|.
-name|MulticastProcessor
+name|RouteContext
 import|;
 end_import
 
@@ -50,9 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
 operator|.
-name|RouteContext
+name|MulticastProcessor
 import|;
 end_import
 
@@ -94,35 +94,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
 name|XmlRootElement
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlTransient
 import|;
 end_import
 
