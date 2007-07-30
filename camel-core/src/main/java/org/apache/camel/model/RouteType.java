@@ -1455,7 +1455,7 @@ block|}
 comment|/**      * Trace logs the exchange before it goes to the next processing step using the {@link #DEFAULT_TRACE_CATEGORY} logging      * category.      *      * @return      */
 DECL|method|trace ()
 specifier|public
-name|FromBuilder
+name|RouteType
 name|trace
 parameter_list|()
 block|{
@@ -1469,7 +1469,7 @@ block|}
 comment|/**      * Trace logs the exchange before it goes to the next processing step using the specified logging      * category.      *      * @param category the logging category trace messages will sent to.      * @return      */
 DECL|method|trace (String category)
 specifier|public
-name|FromBuilder
+name|RouteType
 name|trace
 parameter_list|(
 name|String
@@ -1525,61 +1525,83 @@ return|;
 block|}
 DECL|method|policies ()
 specifier|public
-name|PolicyBuilder
+name|PolicyRef
 name|policies
 parameter_list|()
 block|{
-throw|throw
+name|PolicyRef
+name|answer
+init|=
 operator|new
-name|UnsupportedOperationException
+name|PolicyRef
 argument_list|()
-throw|;
-comment|/*         PolicyBuilder answer = new PolicyBuilder(this);         addProcessBuilder(answer);         return answer; */
+decl_stmt|;
+name|getOutputs
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
 block|}
 DECL|method|policy (Policy policy)
 specifier|public
-name|FromBuilder
+name|PolicyRef
 name|policy
 parameter_list|(
 name|Policy
 name|policy
 parameter_list|)
 block|{
-throw|throw
+name|PolicyRef
+name|answer
+init|=
 operator|new
-name|UnsupportedOperationException
+name|PolicyRef
+argument_list|(
+name|policy
+argument_list|)
+decl_stmt|;
+name|getOutputs
 argument_list|()
-throw|;
-comment|/*         PolicyBuilder answer = new PolicyBuilder(this);         answer.add(policy);         addProcessBuilder(answer);         return answer.target(); */
-block|}
-DECL|method|intercept ()
-specifier|public
-name|InterceptorBuilder
-name|intercept
-parameter_list|()
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-comment|/*         InterceptorBuilder answer = new InterceptorBuilder(this);         addProcessBuilder(answer);         return answer; */
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
 block|}
 DECL|method|intercept (DelegateProcessor interceptor)
 specifier|public
-name|FromBuilder
+name|RouteType
 name|intercept
 parameter_list|(
 name|DelegateProcessor
 name|interceptor
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
+name|getInterceptors
 argument_list|()
-throw|;
-comment|/*         InterceptorBuilder answer = new InterceptorBuilder(this);         answer.add(interceptor);         addProcessBuilder(answer);         return answer.target(); */
+operator|.
+name|add
+argument_list|(
+operator|new
+name|InterceptorRef
+argument_list|(
+name|interceptor
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|// Transformers
 comment|//-------------------------------------------------------------------------

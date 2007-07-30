@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchEndpointException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|LoggingLevel
@@ -350,7 +362,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves the given URI to an endpoint      */
+comment|/**      * Resolves the given URI to an endpoint      *      * @throws NoSuchEndpointException if the endpoint URI could not be resolved      */
 DECL|method|endpoint (String uri)
 specifier|public
 name|Endpoint
@@ -359,8 +371,27 @@ parameter_list|(
 name|String
 name|uri
 parameter_list|)
+throws|throws
+name|NoSuchEndpointException
 block|{
-return|return
+if|if
+condition|(
+name|uri
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"uri parameter cannot be null"
+argument_list|)
+throw|;
+block|}
+name|Endpoint
+name|endpoint
+init|=
 name|getContext
 argument_list|()
 operator|.
@@ -368,9 +399,27 @@ name|getEndpoint
 argument_list|(
 name|uri
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoSuchEndpointException
+argument_list|(
+name|uri
+argument_list|)
+throw|;
+block|}
+return|return
+name|endpoint
 return|;
 block|}
-comment|/**      * Resolves the list of URIs into a list of {@link Endpoint} instances      */
+comment|/**      * Resolves the list of URIs into a list of {@link Endpoint} instances      *      * @throws NoSuchEndpointException if an endpoint URI could not be resolved      */
 DECL|method|endpoints (String... uris)
 specifier|public
 name|List
@@ -383,6 +432,8 @@ name|String
 modifier|...
 name|uris
 parameter_list|)
+throws|throws
+name|NoSuchEndpointException
 block|{
 name|List
 argument_list|<
