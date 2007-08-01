@@ -687,10 +687,6 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
-name|consumer
-operator|=
-literal|null
-expr_stmt|;
 name|collection
 operator|.
 name|clear
