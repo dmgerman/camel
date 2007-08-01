@@ -62,6 +62,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|/*         new Thread() {             public void run() {                 String[] args = {"--url", "jdbc:hsqldb:mem:camel_bam"};                 DatabaseManagerSwing.main(args);             }         }.start(); */
 name|String
 index|[]
 name|args

@@ -450,6 +450,26 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Caught: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 throw|throw
 operator|new
 name|RuntimeCamelException

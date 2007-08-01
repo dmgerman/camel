@@ -106,6 +106,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|UniqueConstraint
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -121,6 +131,15 @@ end_comment
 begin_class
 annotation|@
 name|Entity
+annotation|@
+name|UniqueConstraint
+argument_list|(
+name|columnNames
+operator|=
+block|{
+literal|"name"
+block|}
+argument_list|)
 DECL|class|ProcessDefinition
 specifier|public
 class|class

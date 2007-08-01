@@ -284,7 +284,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:failures"
+literal|"log:org.apache.camel.example.bam.BamFailures?level=error"
 argument_list|)
 expr_stmt|;
 name|from

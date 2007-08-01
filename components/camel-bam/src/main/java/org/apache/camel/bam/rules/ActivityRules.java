@@ -367,26 +367,16 @@ name|ActivityDefinition
 name|getActivityDefinition
 parameter_list|()
 block|{
-if|if
-condition|(
-name|activityDefinition
-operator|==
-literal|null
-condition|)
-block|{
-name|activityDefinition
-operator|=
+comment|// lets always query for it, to avoid issues with refreshing before a commit etc
+return|return
 name|builder
 operator|.
 name|findOrCreateActivityDefinition
 argument_list|(
 name|activityName
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|activityDefinition
 return|;
+comment|/*         if (activityDefinition == null) {             activityDefinition = builder.findOrCreateActivityDefinition(activityName);         }         else {             // lets refresh it             builder.getJpaTemplate().refresh(activityDefinition);         }         return activityDefinition; */
 block|}
 DECL|method|setActivityDefinition (ActivityDefinition activityDefinition)
 specifier|public
