@@ -46,7 +46,7 @@ name|javax
 operator|.
 name|naming
 operator|.
-name|NamingException
+name|InitialContext
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|javax
 operator|.
 name|naming
 operator|.
-name|InitialContext
+name|NamingException
 import|;
 end_import
 
@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Registry} implementation which looks up the objects in JNDI  *   * @version $Revision: 1.1 $  */
+comment|/**  * A {@link Registry} implementation which looks up the objects in JNDI  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -105,14 +105,9 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
-try|try
-block|{
 name|Object
 name|value
 init|=
-name|getContext
-argument_list|()
-operator|.
 name|lookup
 argument_list|(
 name|name
@@ -124,6 +119,27 @@ operator|.
 name|cast
 argument_list|(
 name|value
+argument_list|)
+return|;
+block|}
+DECL|method|lookup (String name)
+specifier|public
+name|Object
+name|lookup
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+try|try
+block|{
+return|return
+name|getContext
+argument_list|()
+operator|.
+name|lookup
+argument_list|(
+name|name
 argument_list|)
 return|;
 block|}

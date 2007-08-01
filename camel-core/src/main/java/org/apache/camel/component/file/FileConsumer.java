@@ -372,6 +372,28 @@ try|try
 block|{
 if|if
 condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"About to process file:  "
+operator|+
+name|file
+operator|+
+literal|" using exchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|strategy
 operator|.
 name|begin

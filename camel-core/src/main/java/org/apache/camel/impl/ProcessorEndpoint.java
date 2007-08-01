@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.processor
+DECL|package|org.apache.camel.impl
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|processor
+name|impl
 package|;
 end_package
 
@@ -26,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|CamelContext
 import|;
 end_import
 
@@ -38,19 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
+name|Component
 import|;
 end_import
 
@@ -74,82 +60,36 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Producer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Component
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultProducer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|loadbalancer
-operator|.
-name|LoadBalancer
-import|;
-end_import
-
 begin_comment
-comment|/**  * A base class for creating {@link Endpoint} implementations from a {@link Processor}  *  * @version $Revision: 1.1 $  */
+comment|/**  * An endpoint which allows exchanges to be sent into it which just invokes a  * given {@link Processor}. This component does not support the use of consumers.  *   * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -169,14 +109,36 @@ specifier|final
 name|Processor
 name|processor
 decl_stmt|;
-DECL|field|loadBalancer
-specifier|private
-specifier|final
-name|LoadBalancer
-name|loadBalancer
-decl_stmt|;
-DECL|method|ProcessorEndpoint (String endpointUri, Component component, Processor processor, LoadBalancer loadBalancer)
-specifier|protected
+DECL|method|ProcessorEndpoint (String endpointUri, CamelContext context, Processor processor)
+specifier|public
+name|ProcessorEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|CamelContext
+name|context
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|processor
+operator|=
+name|processor
+expr_stmt|;
+block|}
+DECL|method|ProcessorEndpoint (String endpointUri, Component component, Processor processor)
+specifier|public
 name|ProcessorEndpoint
 parameter_list|(
 name|String
@@ -187,9 +149,6 @@ name|component
 parameter_list|,
 name|Processor
 name|processor
-parameter_list|,
-name|LoadBalancer
-name|loadBalancer
 parameter_list|)
 block|{
 name|super
@@ -204,12 +163,6 @@ operator|.
 name|processor
 operator|=
 name|processor
-expr_stmt|;
-name|this
-operator|.
-name|loadBalancer
-operator|=
-name|loadBalancer
 expr_stmt|;
 block|}
 DECL|method|createExchange ()
@@ -281,15 +234,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+throw|throw
 operator|new
-name|ProcessorEndpointConsumer
+name|UnsupportedOperationException
 argument_list|(
-name|this
-argument_list|,
-name|processor
+literal|"You cannot consume from this endpoint!"
 argument_list|)
-return|;
+throw|;
 block|}
 DECL|method|getProcessor ()
 specifier|public
@@ -299,16 +250,6 @@ parameter_list|()
 block|{
 return|return
 name|processor
-return|;
-block|}
-DECL|method|getLoadBalancer ()
-specifier|public
-name|LoadBalancer
-name|getLoadBalancer
-parameter_list|()
-block|{
-return|return
-name|loadBalancer
 return|;
 block|}
 DECL|method|onExchange (Exchange exchange)
@@ -323,14 +264,6 @@ throws|throws
 name|Exception
 block|{
 name|processor
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-comment|// now lets output to the load balancer
-name|loadBalancer
 operator|.
 name|process
 argument_list|(

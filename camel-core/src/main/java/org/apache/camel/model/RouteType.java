@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchEndpointException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|RouteContext
@@ -513,6 +525,8 @@ parameter_list|(
 name|String
 name|uri
 parameter_list|)
+throws|throws
+name|NoSuchEndpointException
 block|{
 name|CamelContext
 name|context
@@ -554,10 +568,8 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|NoSuchEndpointException
 argument_list|(
-literal|"No Endpoint found for uri: "
-operator|+
 name|uri
 argument_list|)
 throw|;

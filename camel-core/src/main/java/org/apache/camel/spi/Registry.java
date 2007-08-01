@@ -44,6 +44,15 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Looks up a service in the registry based purely on name,      * returning the service or null if it could not be found.      *      * @param name the name of the service      * @return the service from the registry or null if it could not be found      */
+DECL|method|lookup (String name)
+name|Object
+name|lookup
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
