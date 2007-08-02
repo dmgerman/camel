@@ -60,6 +60,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|jndi
+operator|.
+name|JndiContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -100,30 +116,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CamelContext
-name|camelContext
+comment|// START SNIPPET: register
+comment|// lets populate the context with the services we need
+comment|// note that we could just use a spring.xml file to avoid this step
+name|JndiContext
+name|context
 init|=
 operator|new
-name|DefaultCamelContext
+name|JndiContext
 argument_list|()
 decl_stmt|;
-comment|// START SNIPPET: register
-name|PojoComponent
-name|component
-init|=
-operator|(
-name|PojoComponent
-operator|)
-name|camelContext
+name|context
 operator|.
-name|getComponent
-argument_list|(
-literal|"pojo"
-argument_list|)
-decl_stmt|;
-name|component
-operator|.
-name|addService
+name|bind
 argument_list|(
 literal|"bye"
 argument_list|,
@@ -134,6 +139,15 @@ literal|"Good Bye!"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|CamelContext
+name|camelContext
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|(
+name|context
+argument_list|)
+decl_stmt|;
 comment|// END SNIPPET: register
 comment|// START SNIPPET: route
 comment|// lets add simple route

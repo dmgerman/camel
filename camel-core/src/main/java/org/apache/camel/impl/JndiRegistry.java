@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -62,6 +74,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|NameNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -87,6 +109,26 @@ specifier|private
 name|Context
 name|context
 decl_stmt|;
+DECL|method|JndiRegistry ()
+specifier|public
+name|JndiRegistry
+parameter_list|()
+block|{     }
+DECL|method|JndiRegistry (Context context)
+specifier|public
+name|JndiRegistry
+parameter_list|(
+name|Context
+name|context
+parameter_list|)
+block|{
+name|this
+operator|.
+name|context
+operator|=
+name|context
+expr_stmt|;
+block|}
 DECL|method|lookup (String name, Class<T> type)
 specifier|public
 parameter_list|<
@@ -145,7 +187,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|NamingException
+name|NameNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -153,6 +195,75 @@ return|return
 literal|null
 return|;
 block|}
+catch|catch
+parameter_list|(
+name|NamingException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+DECL|method|bind (String s, Object o)
+specifier|public
+name|void
+name|bind
+parameter_list|(
+name|String
+name|s
+parameter_list|,
+name|Object
+name|o
+parameter_list|)
+block|{
+try|try
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|bind
+argument_list|(
+name|s
+argument_list|,
+name|o
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NamingException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+DECL|method|close ()
+specifier|public
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|NamingException
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|getContext ()
 specifier|public

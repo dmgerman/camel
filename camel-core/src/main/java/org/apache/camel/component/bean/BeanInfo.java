@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.bind
+DECL|package|org.apache.camel.component.bean
 package|package
 name|org
 operator|.
@@ -12,23 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|component
 operator|.
-name|bind
+name|bean
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|aopalliance
-operator|.
-name|intercept
-operator|.
-name|MethodInvocation
-import|;
-end_import
 
 begin_import
 import|import
@@ -125,22 +113,6 @@ operator|.
 name|builder
 operator|.
 name|ExpressionBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|util
-operator|.
-name|MethodInvocationStrategy
 import|;
 end_import
 

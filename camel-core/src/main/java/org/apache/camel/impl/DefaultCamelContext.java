@@ -293,6 +293,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jndi
+operator|.
+name|JndiContext
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -321,6 +337,16 @@ operator|.
 name|ServiceHelper
 operator|.
 name|stopServices
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|Context
 import|;
 end_import
 
@@ -514,6 +540,30 @@ specifier|private
 name|Registry
 name|registry
 decl_stmt|;
+DECL|method|DefaultCamelContext ()
+specifier|public
+name|DefaultCamelContext
+parameter_list|()
+block|{     }
+comment|/**      * Creates the {@link CamelContext} using the given JNDI      * context as the registry      *      * @param jndiContext      */
+DECL|method|DefaultCamelContext (Context jndiContext)
+specifier|public
+name|DefaultCamelContext
+parameter_list|(
+name|Context
+name|jndiContext
+parameter_list|)
+block|{
+name|setRegistry
+argument_list|(
+operator|new
+name|JndiRegistry
+argument_list|(
+name|jndiContext
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Adds a component to the container.      */
 DECL|method|addComponent (String componentName, final Component component)
 specifier|public

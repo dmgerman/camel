@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.util
+DECL|package|org.apache.camel.util.jndi
 package|package
 name|org
 operator|.
@@ -12,46 +12,89 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
 name|util
+operator|.
+name|jndi
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|naming
 operator|.
-name|camel
+name|Context
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
 operator|.
-name|Expression
+name|naming
+operator|.
+name|NamingException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|spi
+operator|.
+name|InitialContextFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Hashtable
 import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy for invoking a method on a pojo from a message exchange  *  * @version $Revision: $  */
+comment|/**  * A factory of the Cameel InitialContext which allows a Map to be used to create a  * JNDI context.  *  * @version $Revision: 1.2 $  */
 end_comment
 
-begin_interface
-DECL|interface|MethodInvocationStrategy
+begin_class
+DECL|class|CamelInitialContextFactory
 specifier|public
-interface|interface
-name|MethodInvocationStrategy
+class|class
+name|CamelInitialContextFactory
+implements|implements
+name|InitialContextFactory
 block|{
-comment|/**      * Creates an invocation on the given POJO using annotations to decide which method to invoke      * and to figure out which parameters to use      */
-comment|/*    MethodInvocation createInvocation(Object pojo,                                       BeanInfo beanInfo,                                       Exchange messageExchange,                                       Endpoint pojoEndpoint) throws RuntimeCamelException;*/
-DECL|method|getDefaultParameterTypeExpression (Class parameterType)
-name|Expression
-name|getDefaultParameterTypeExpression
+DECL|method|getInitialContext (Hashtable environment)
+specifier|public
+name|Context
+name|getInitialContext
 parameter_list|(
-name|Class
-name|parameterType
+name|Hashtable
+name|environment
 parameter_list|)
-function_decl|;
+throws|throws
+name|NamingException
+block|{
+return|return
+operator|new
+name|JndiContext
+argument_list|(
+name|environment
+argument_list|,
+name|environment
+argument_list|)
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

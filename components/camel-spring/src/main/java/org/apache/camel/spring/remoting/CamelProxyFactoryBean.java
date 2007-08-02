@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a Proxy to Camel Pojo Endpoint.  *  * @author chirino  */
+comment|/**  * A {@link FactoryBean} to create a Proxy to a a Camel Pojo Endpoint.  *  * @author chirino  */
 end_comment
 
 begin_class
