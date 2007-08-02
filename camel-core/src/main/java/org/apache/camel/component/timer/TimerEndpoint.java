@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.pojo.timer
+DECL|package|org.apache.camel.component.timer
 package|package
 name|org
 operator|.
@@ -14,51 +14,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|pojo
-operator|.
 name|timer
 package|;
 end_package
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
 
 begin_import
 import|import
@@ -118,9 +76,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|pojo
+name|bean
 operator|.
-name|PojoExchange
+name|BeanExchange
 import|;
 end_import
 
@@ -166,8 +124,48 @@ name|URISupport
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents a timer endpoint that can generate periodic inbound PojoExchanges.   *  * @version $Revision: 519973 $  */
+comment|/**  * Represents a timer endpoint that can generate periodic inbound PojoExchanges.  *  * @version $Revision: 519973 $  */
 end_comment
 
 begin_class
@@ -178,7 +176,7 @@ name|TimerEndpoint
 extends|extends
 name|DefaultEndpoint
 argument_list|<
-name|PojoExchange
+name|BeanExchange
 argument_list|>
 block|{
 DECL|field|component
@@ -298,7 +296,7 @@ DECL|method|createProducer ()
 specifier|public
 name|Producer
 argument_list|<
-name|PojoExchange
+name|BeanExchange
 argument_list|>
 name|createProducer
 parameter_list|()
@@ -320,7 +318,7 @@ DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
 argument_list|<
-name|PojoExchange
+name|BeanExchange
 argument_list|>
 name|createConsumer
 parameter_list|(
@@ -342,13 +340,13 @@ return|;
 block|}
 DECL|method|createExchange ()
 specifier|public
-name|PojoExchange
+name|BeanExchange
 name|createExchange
 parameter_list|()
 block|{
 return|return
 operator|new
-name|PojoExchange
+name|BeanExchange
 argument_list|(
 name|getContext
 argument_list|()

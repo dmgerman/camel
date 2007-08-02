@@ -76,9 +76,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|pojo
+name|bean
 operator|.
-name|PojoComponent
+name|ProxyHelper
 import|;
 end_import
 
@@ -291,7 +291,7 @@ decl_stmt|;
 name|ISay
 name|proxy
 init|=
-name|PojoComponent
+name|ProxyHelper
 operator|.
 name|createProxy
 argument_list|(

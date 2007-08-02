@@ -281,6 +281,8 @@ parameter_list|(
 name|String
 name|remaining
 parameter_list|)
+throws|throws
+name|NoBeanAvailableException
 block|{
 name|Registry
 name|registry
@@ -310,15 +312,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|NoBeanAvailableException
 argument_list|(
-literal|"No such bean: "
-operator|+
 name|remaining
-operator|+
-literal|" in registry: "
-operator|+
-name|registry
 argument_list|)
 throw|;
 block|}

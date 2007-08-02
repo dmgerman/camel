@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.pojo
+DECL|package|org.apache.camel.component.bean
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|pojo
+name|bean
 package|;
 end_package
 
@@ -144,11 +144,11 @@ parameter_list|)
 throws|throws
 name|Throwable
 block|{
-name|PojoInvocation
+name|BeanInvocation
 name|invocation
 init|=
 operator|new
-name|PojoInvocation
+name|BeanInvocation
 argument_list|(
 name|proxy
 argument_list|,
@@ -157,11 +157,11 @@ argument_list|,
 name|args
 argument_list|)
 decl_stmt|;
-name|PojoExchange
+name|BeanExchange
 name|exchange
 init|=
 operator|new
-name|PojoExchange
+name|BeanExchange
 argument_list|(
 name|endpoint
 operator|.

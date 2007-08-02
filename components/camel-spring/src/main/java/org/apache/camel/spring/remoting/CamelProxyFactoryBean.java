@@ -52,9 +52,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|pojo
+name|bean
 operator|.
-name|PojoComponent
+name|ProxyHelper
 import|;
 end_import
 
@@ -190,7 +190,7 @@ name|this
 operator|.
 name|serviceProxy
 operator|=
-name|PojoComponent
+name|ProxyHelper
 operator|.
 name|createProxy
 argument_list|(

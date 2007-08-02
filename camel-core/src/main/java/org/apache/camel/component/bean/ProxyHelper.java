@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.pojo
+DECL|package|org.apache.camel.component.bean
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|pojo
+name|bean
 package|;
 end_package
 
@@ -44,22 +44,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|bean
-operator|.
-name|BeanComponent
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|lang
@@ -71,19 +55,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link PojoEndpoint}.  It holds the  * list of named pojos that queue endpoints reference.  *  * @version $Revision: 519973 $  */
+comment|/**  * A helper class for creating proxies which delegate to Camel  *  * @version $Revision: 519973 $  */
 end_comment
 
 begin_class
-DECL|class|PojoComponent
+DECL|class|ProxyHelper
 specifier|public
 class|class
-name|PojoComponent
-extends|extends
-name|BeanComponent
+name|ProxyHelper
 block|{
-comment|/*      @Override     protected Endpoint<PojoExchange> createEndpoint(String uri, final String remaining, Map parameters) throws Exception {         return new PojoEndpoint(uri, this, remaining);     } */
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      * @throws Exception       */
+comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *      * @throws Exception      */
 DECL|method|createProxy (final Endpoint endpoint, ClassLoader cl, Class interfaces[])
 specifier|public
 specifier|static
@@ -132,7 +113,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      * @throws Exception       */
+comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *      * @throws Exception      */
 DECL|method|createProxy (Endpoint endpoint, Class interfaces[])
 specifier|public
 specifier|static
@@ -183,7 +164,7 @@ name|interfaces
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      * @throws Exception       */
+comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *      * @throws Exception      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -232,7 +213,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      * @throws Exception       */
+comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *      * @throws Exception      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

@@ -26,7 +26,7 @@ name|lang
 operator|.
 name|reflect
 operator|.
-name|Method
+name|AccessibleObject
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|lang
 operator|.
 name|reflect
 operator|.
-name|AccessibleObject
+name|Method
 import|;
 end_import
 

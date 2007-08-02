@@ -48,9 +48,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|pojo
+name|bean
 operator|.
-name|PojoComponent
+name|BeanComponent
 import|;
 end_import
 
@@ -86,7 +86,7 @@ name|ctx
 operator|.
 name|getComponent
 argument_list|(
-literal|"pojo"
+literal|"bean"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -101,7 +101,7 @@ operator|.
 name|getClass
 argument_list|()
 argument_list|,
-name|PojoComponent
+name|BeanComponent
 operator|.
 name|class
 argument_list|)
@@ -134,7 +134,7 @@ name|ctx
 operator|.
 name|getComponent
 argument_list|(
-literal|"pojo"
+literal|"bean"
 argument_list|)
 decl_stmt|;
 name|assertNull

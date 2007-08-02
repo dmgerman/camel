@@ -212,6 +212,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -233,16 +243,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
 import|;
 end_import
 
@@ -921,7 +921,7 @@ return|return
 name|methodInfo
 return|;
 block|}
-comment|/**      * Lets try choose one of the available methods to invoke if we can match      * the message body to the body parameter      *      * @param pojo the bean to invoke a method on      * @param exchange the message exchange      * @return the method to invoke or null if no definitive method could be matched      */
+comment|/**      * Lets try choose one of the available methods to invoke if we can match      * the message body to the body parameter      *      * @param pojo     the bean to invoke a method on      * @param exchange the message exchange      * @return the method to invoke or null if no definitive method could be matched      */
 DECL|method|chooseMethod (Object pojo, Exchange exchange)
 specifier|protected
 name|MethodInfo

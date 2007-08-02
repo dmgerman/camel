@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.pojo
+DECL|package|org.apache.camel.component.bean
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|pojo
+name|bean
 package|;
 end_package
 
@@ -35,49 +35,49 @@ comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|NoPojoAvailableException
+DECL|class|NoBeanAvailableException
 specifier|public
 class|class
-name|NoPojoAvailableException
+name|NoBeanAvailableException
 extends|extends
 name|CamelException
 block|{
-DECL|field|endpoint
+DECL|field|name
 specifier|private
 specifier|final
-name|PojoEndpoint
-name|endpoint
+name|String
+name|name
 decl_stmt|;
-DECL|method|NoPojoAvailableException (PojoEndpoint endpoint)
+DECL|method|NoBeanAvailableException (String name)
 specifier|public
-name|NoPojoAvailableException
+name|NoBeanAvailableException
 parameter_list|(
-name|PojoEndpoint
-name|endpoint
+name|String
+name|name
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"No POJO available for endpoint: "
+literal|"No bean available for endpoint: "
 operator|+
-name|endpoint
+name|name
 argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|endpoint
+name|name
 operator|=
-name|endpoint
+name|name
 expr_stmt|;
 block|}
-DECL|method|getEndpoint ()
+DECL|method|getName ()
 specifier|public
-name|PojoEndpoint
-name|getEndpoint
+name|String
+name|getName
 parameter_list|()
 block|{
 return|return
-name|endpoint
+name|name
 return|;
 block|}
 block|}

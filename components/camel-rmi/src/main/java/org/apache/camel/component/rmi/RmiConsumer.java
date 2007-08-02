@@ -134,9 +134,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|pojo
+name|bean
 operator|.
-name|PojoExchange
+name|BeanExchange
 import|;
 end_import
 
@@ -150,9 +150,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|pojo
+name|bean
 operator|.
-name|PojoInvocation
+name|BeanInvocation
 import|;
 end_import
 
@@ -182,7 +182,7 @@ name|RmiConsumer
 extends|extends
 name|DefaultConsumer
 argument_list|<
-name|PojoExchange
+name|BeanExchange
 argument_list|>
 implements|implements
 name|InvocationHandler
@@ -457,11 +457,11 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-name|PojoInvocation
+name|BeanInvocation
 name|invocation
 init|=
 operator|new
-name|PojoInvocation
+name|BeanInvocation
 argument_list|(
 name|proxy
 argument_list|,
@@ -470,7 +470,7 @@ argument_list|,
 name|args
 argument_list|)
 decl_stmt|;
-name|PojoExchange
+name|BeanExchange
 name|exchange
 init|=
 name|getEndpoint

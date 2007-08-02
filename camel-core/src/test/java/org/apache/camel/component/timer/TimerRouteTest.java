@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.pojo.timer
+DECL|package|org.apache.camel.component.timer
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|camel
 operator|.
 name|component
-operator|.
-name|pojo
 operator|.
 name|timer
 package|;

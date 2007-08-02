@@ -62,9 +62,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|pojo
+name|bean
 operator|.
-name|PojoExchange
+name|BeanExchange
 import|;
 end_import
 
@@ -94,7 +94,7 @@ name|RmiComponent
 extends|extends
 name|DefaultComponent
 argument_list|<
-name|PojoExchange
+name|BeanExchange
 argument_list|>
 block|{
 DECL|method|RmiComponent ()
@@ -122,7 +122,7 @@ DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|Endpoint
 argument_list|<
-name|PojoExchange
+name|BeanExchange
 argument_list|>
 name|createEndpoint
 parameter_list|(
