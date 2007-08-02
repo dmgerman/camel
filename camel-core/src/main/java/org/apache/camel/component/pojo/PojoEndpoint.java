@@ -388,7 +388,7 @@ return|return
 name|getPojoComponent
 argument_list|()
 operator|.
-name|getService
+name|getBean
 argument_list|(
 name|getPojoName
 argument_list|()

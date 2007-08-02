@@ -50,9 +50,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
 operator|.
-name|DefaultComponent
+name|bean
+operator|.
+name|BeanComponent
 import|;
 end_import
 
@@ -68,16 +70,6 @@ name|Proxy
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the component that manages {@link PojoEndpoint}.  It holds the  * list of named pojos that queue endpoints reference.  *  * @version $Revision: 519973 $  */
 end_comment
@@ -88,72 +80,13 @@ specifier|public
 class|class
 name|PojoComponent
 extends|extends
-name|DefaultComponent
-argument_list|<
-name|PojoExchange
-argument_list|>
+name|BeanComponent
 block|{
-DECL|method|getService (String uri)
-specifier|public
-name|Object
-name|getService
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-return|return
-name|getCamelContext
-argument_list|()
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
-argument_list|(
-name|uri
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|createEndpoint (String uri, final String remaining, Map parameters)
-specifier|protected
-name|Endpoint
-argument_list|<
-name|PojoExchange
-argument_list|>
-name|createEndpoint
-parameter_list|(
-name|String
-name|uri
-parameter_list|,
-specifier|final
-name|String
-name|remaining
-parameter_list|,
-name|Map
-name|parameters
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|PojoEndpoint
-argument_list|(
-name|uri
-argument_list|,
-name|this
-argument_list|,
-name|remaining
-argument_list|)
-return|;
-block|}
+comment|/*      @Override     protected Endpoint<PojoExchange> createEndpoint(String uri, final String remaining, Map parameters) throws Exception {         return new PojoEndpoint(uri, this, remaining);     } */
 comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      * @throws Exception       */
 DECL|method|createProxy (final Endpoint endpoint, ClassLoader cl, Class interfaces[])
-specifier|static
 specifier|public
+specifier|static
 name|Object
 name|createProxy
 parameter_list|(
@@ -201,8 +134,8 @@ return|;
 block|}
 comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      * @throws Exception       */
 DECL|method|createProxy (Endpoint endpoint, Class interfaces[])
-specifier|static
 specifier|public
+specifier|static
 name|Object
 name|createProxy
 parameter_list|(
@@ -257,8 +190,8 @@ argument_list|(
 literal|"unchecked"
 argument_list|)
 DECL|method|createProxy (Endpoint endpoint, ClassLoader cl, Class<T> interfaceClass)
-specifier|static
 specifier|public
+specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -306,8 +239,8 @@ argument_list|(
 literal|"unchecked"
 argument_list|)
 DECL|method|createProxy (Endpoint endpoint, Class<T> interfaceClass)
-specifier|static
 specifier|public
+specifier|static
 parameter_list|<
 name|T
 parameter_list|>
