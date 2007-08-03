@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|Endpoint
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|Exchange
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|component
 operator|.
 name|seda
 operator|.
-name|QueueComponent
+name|SedaComponent
 import|;
 end_import
 
@@ -80,7 +80,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|HashMap
 import|;
 end_import
 
@@ -90,7 +90,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Map
 import|;
 end_import
 
@@ -121,7 +121,7 @@ extends|extends
 name|Exchange
 parameter_list|>
 extends|extends
-name|QueueComponent
+name|SedaComponent
 argument_list|<
 name|E
 argument_list|>
