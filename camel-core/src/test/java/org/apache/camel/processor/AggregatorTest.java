@@ -131,7 +131,7 @@ name|i
 decl_stmt|;
 name|template
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 literal|"direct:a"
 argument_list|,

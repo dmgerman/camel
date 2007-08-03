@@ -69,9 +69,9 @@ name|body
 parameter_list|)
 function_decl|;
 comment|/**      * Sends the body to the default endpoint with a specified header and header value      *      * @param body        the payload send      * @param header      the header name      * @param headerValue the header value      * @return the result      */
-DECL|method|sendBody (Object body, String header, Object headerValue)
+DECL|method|sendBodyAndHeader (Object body, String header, Object headerValue)
 name|Object
-name|sendBody
+name|sendBodyAndHeader
 parameter_list|(
 name|Object
 name|body
@@ -84,9 +84,9 @@ name|headerValue
 parameter_list|)
 function_decl|;
 comment|/**      * Sends the body to the default endpoint with the specified headers and header values      *      * @param body        the payload send      * @return the result      */
-DECL|method|sendBody (Object body, Map<String, Object> headers)
+DECL|method|sendBodyAndHeaders (Object body, Map<String, Object> headers)
 name|Object
-name|sendBody
+name|sendBodyAndHeaders
 parameter_list|(
 name|Object
 name|body

@@ -213,7 +213,7 @@ parameter_list|)
 block|{
 name|template
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 name|startEndpointUri
 argument_list|,

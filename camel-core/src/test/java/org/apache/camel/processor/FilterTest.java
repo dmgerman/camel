@@ -99,7 +99,7 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
@@ -145,7 +145,7 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,

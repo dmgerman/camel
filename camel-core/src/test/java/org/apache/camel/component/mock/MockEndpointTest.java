@@ -398,7 +398,7 @@ control|)
 block|{
 name|template
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 literal|"direct:a"
 argument_list|,

@@ -99,7 +99,7 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 literal|"seda:a"
 argument_list|,

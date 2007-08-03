@@ -446,10 +446,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload send      * @param header      the header name      * @param headerValue the header value      * @return the result      */
-DECL|method|sendBody (String endpointUri, final Object body, final String header, final Object headerValue)
+DECL|method|sendBodyAndHeader (String endpointUri, final Object body, final String header, final Object headerValue)
 specifier|public
 name|Object
-name|sendBody
+name|sendBodyAndHeader
 parameter_list|(
 name|String
 name|endpointUri
@@ -468,7 +468,7 @@ name|headerValue
 parameter_list|)
 block|{
 return|return
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 name|resolveMandatoryEndpoint
 argument_list|(
@@ -484,10 +484,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpoint the Endpoint to send to      * @param body        the payload send      * @param header      the header name      * @param headerValue the header value      * @return the result      */
-DECL|method|sendBody (Endpoint endpoint, final Object body, final String header, final Object headerValue)
+DECL|method|sendBodyAndHeader (Endpoint endpoint, final Object body, final String header, final Object headerValue)
 specifier|public
 name|Object
-name|sendBody
+name|sendBodyAndHeader
 parameter_list|(
 name|Endpoint
 name|endpoint
@@ -560,10 +560,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the body to an endpoint with the specified headers and header values      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload send      * @return the result      */
-DECL|method|sendBody (String endpointUri, final Object body, final Map<String, Object> headers)
+DECL|method|sendBodyAndHeaders (String endpointUri, final Object body, final Map<String, Object> headers)
 specifier|public
 name|Object
-name|sendBody
+name|sendBodyAndHeaders
 parameter_list|(
 name|String
 name|endpointUri
@@ -583,7 +583,7 @@ name|headers
 parameter_list|)
 block|{
 return|return
-name|sendBody
+name|sendBodyAndHeaders
 argument_list|(
 name|resolveMandatoryEndpoint
 argument_list|(
@@ -597,10 +597,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the body to an endpoint with the specified headers and header values      *      * @param endpoint the endpoint URI to send to      * @param body        the payload send      * @return the result      */
-DECL|method|sendBody (Endpoint endpoint, final Object body, final Map<String, Object> headers)
+DECL|method|sendBodyAndHeaders (Endpoint endpoint, final Object body, final Map<String, Object> headers)
 specifier|public
 name|Object
-name|sendBody
+name|sendBodyAndHeaders
 parameter_list|(
 name|Endpoint
 name|endpoint
@@ -760,10 +760,10 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|sendBody (Object body, String header, Object headerValue)
+DECL|method|sendBodyAndHeader (Object body, String header, Object headerValue)
 specifier|public
 name|Object
-name|sendBody
+name|sendBodyAndHeader
 parameter_list|(
 name|Object
 name|body
@@ -776,7 +776,7 @@ name|headerValue
 parameter_list|)
 block|{
 return|return
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 name|getMandatoryDefaultEndpoint
 argument_list|()
@@ -789,10 +789,10 @@ name|headerValue
 argument_list|)
 return|;
 block|}
-DECL|method|sendBody (Object body, Map<String, Object> headers)
+DECL|method|sendBodyAndHeaders (Object body, Map<String, Object> headers)
 specifier|public
 name|Object
-name|sendBody
+name|sendBodyAndHeaders
 parameter_list|(
 name|Object
 name|body
@@ -807,7 +807,7 @@ name|headers
 parameter_list|)
 block|{
 return|return
-name|sendBody
+name|sendBodyAndHeaders
 argument_list|(
 name|getMandatoryDefaultEndpoint
 argument_list|()

@@ -222,7 +222,7 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBody
+name|sendBodyAndHeaders
 argument_list|(
 literal|"smtp://james@localhost"
 argument_list|,

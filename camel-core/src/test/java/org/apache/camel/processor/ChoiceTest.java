@@ -273,7 +273,7 @@ name|Exception
 block|{
 name|template
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
