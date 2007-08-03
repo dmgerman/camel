@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.language.simple
+DECL|package|org.apache.camel.util
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
-operator|.
-name|simple
+name|util
 package|;
 end_package
 
@@ -26,9 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|Language
+name|Endpoint
 import|;
 end_import
 
@@ -40,88 +36,79 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|NoSuchEndpointException
 import|;
 end_import
 
 begin_comment
-comment|/**  * An exception thrown if some illegal syntax is rejected by a specific language  *  * @version $Revision: $  */
+comment|/**  * A number of helper methods  *  * @version $Revision: $  */
 end_comment
 
 begin_class
-DECL|class|IllegalSyntaxException
+DECL|class|CamelContextHelper
 specifier|public
 class|class
-name|IllegalSyntaxException
-extends|extends
-name|RuntimeCamelException
+name|CamelContextHelper
 block|{
-DECL|field|language
-specifier|private
-specifier|final
-name|Language
-name|language
-decl_stmt|;
-DECL|field|expression
-specifier|private
-specifier|final
-name|String
-name|expression
-decl_stmt|;
-DECL|method|IllegalSyntaxException (Language language, String expression)
+comment|/**      * Returns the mandatory endpoint for the given URI or the      * {@link org.apache.camel.NoSuchEndpointException} is thrown      *      * @param camelContext      * @param uri      * @return      */
+DECL|method|getMandatoryEndpoint (CamelContext camelContext, String uri)
 specifier|public
-name|IllegalSyntaxException
+specifier|static
+name|Endpoint
+name|getMandatoryEndpoint
 parameter_list|(
-name|Language
-name|language
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|String
-name|expression
+name|uri
 parameter_list|)
+throws|throws
+name|NoSuchEndpointException
 block|{
-name|super
+name|Endpoint
+name|endpoint
+init|=
+name|camelContext
+operator|.
+name|getEndpoint
 argument_list|(
-literal|"Illegal syntax for language: "
-operator|+
-name|language
-operator|+
-literal|". Expression: "
-operator|+
-name|expression
+name|uri
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|language
-operator|=
-name|language
-expr_stmt|;
-name|this
-operator|.
-name|expression
-operator|=
-name|expression
-expr_stmt|;
+decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoSuchEndpointException
+argument_list|(
+name|uri
+argument_list|)
+throw|;
 block|}
-DECL|method|getExpression ()
-specifier|public
-name|String
-name|getExpression
-parameter_list|()
+else|else
 block|{
 return|return
-name|expression
+name|endpoint
 return|;
 block|}
-DECL|method|getLanguage ()
-specifier|public
-name|Language
-name|getLanguage
-parameter_list|()
-block|{
-return|return
-name|language
-return|;
 block|}
 block|}
 end_class

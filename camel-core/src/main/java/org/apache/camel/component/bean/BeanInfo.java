@@ -292,7 +292,7 @@ name|type
 decl_stmt|;
 DECL|field|strategy
 specifier|private
-name|MethodInvocationStrategy
+name|ParameterMappingStrategy
 name|strategy
 decl_stmt|;
 DECL|field|operations
@@ -334,14 +334,14 @@ name|MethodInfo
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|BeanInfo (Class type, MethodInvocationStrategy strategy)
+DECL|method|BeanInfo (Class type, ParameterMappingStrategy strategy)
 specifier|public
 name|BeanInfo
 parameter_list|(
 name|Class
 name|type
 parameter_list|,
-name|MethodInvocationStrategy
+name|ParameterMappingStrategy
 name|strategy
 parameter_list|)
 block|{

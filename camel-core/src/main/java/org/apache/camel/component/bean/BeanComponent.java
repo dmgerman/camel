@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -164,53 +152,53 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|invocationStrategy
+DECL|field|parameterMappingStrategy
 specifier|private
-name|MethodInvocationStrategy
-name|invocationStrategy
+name|ParameterMappingStrategy
+name|parameterMappingStrategy
 decl_stmt|;
 DECL|method|BeanComponent ()
 specifier|public
 name|BeanComponent
 parameter_list|()
 block|{     }
-DECL|method|getInvocationStrategy ()
+DECL|method|getParameterMappingStrategy ()
 specifier|public
-name|MethodInvocationStrategy
-name|getInvocationStrategy
+name|ParameterMappingStrategy
+name|getParameterMappingStrategy
 parameter_list|()
 block|{
 if|if
 condition|(
-name|invocationStrategy
+name|parameterMappingStrategy
 operator|==
 literal|null
 condition|)
 block|{
-name|invocationStrategy
+name|parameterMappingStrategy
 operator|=
-name|createInvocationStrategy
+name|createParameterMappingStrategy
 argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|invocationStrategy
+name|parameterMappingStrategy
 return|;
 block|}
-DECL|method|setInvocationStrategy (MethodInvocationStrategy invocationStrategy)
+DECL|method|setParameterMappingStrategy (ParameterMappingStrategy parameterMappingStrategy)
 specifier|public
 name|void
-name|setInvocationStrategy
+name|setParameterMappingStrategy
 parameter_list|(
-name|MethodInvocationStrategy
-name|invocationStrategy
+name|ParameterMappingStrategy
+name|parameterMappingStrategy
 parameter_list|)
 block|{
 name|this
 operator|.
-name|invocationStrategy
+name|parameterMappingStrategy
 operator|=
-name|invocationStrategy
+name|parameterMappingStrategy
 expr_stmt|;
 block|}
 comment|// Implementation methods
@@ -248,7 +236,7 @@ name|BeanProcessor
 argument_list|(
 name|bean
 argument_list|,
-name|getInvocationStrategy
+name|getParameterMappingStrategy
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -322,23 +310,20 @@ return|return
 name|bean
 return|;
 block|}
-DECL|method|createInvocationStrategy ()
+DECL|method|createParameterMappingStrategy ()
 specifier|protected
-name|MethodInvocationStrategy
-name|createInvocationStrategy
+name|ParameterMappingStrategy
+name|createParameterMappingStrategy
 parameter_list|()
 block|{
-name|CamelContext
-name|context
-init|=
+return|return
+name|BeanProcessor
+operator|.
+name|createParameterMappingStrategy
+argument_list|(
 name|getCamelContext
 argument_list|()
-decl_stmt|;
-comment|// TODO add this to the context?
-return|return
-operator|new
-name|DefaultMethodInvocationStrategy
-argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

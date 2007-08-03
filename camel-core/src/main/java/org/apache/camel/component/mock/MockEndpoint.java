@@ -1277,7 +1277,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that no duplicate messages should be received using the      * expression to determine the message ID      *      * @param expression the expression used to create a unique message ID for      * message comparison (which could just be the message payload if the payload      * can be tested for uniqueness using {@link Object#equals(Object)}      * and {@link Object#hashCode()}      */
+comment|/**      * Adds an expectation that no duplicate messages should be received using the      * expression to determine the message ID      *      * @param expression the expression used to create a unique message ID for      *                   message comparison (which could just be the message payload if the payload      *                   can be tested for uniqueness using {@link Object#equals(Object)}      *                   and {@link Object#hashCode()}      */
 DECL|method|expectsNoDuplicates (final Expression<Exchange> expression)
 specifier|public
 name|void
@@ -2281,6 +2281,54 @@ name|Object
 name|message
 parameter_list|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|list
+init|=
+name|getReceivedExchanges
+argument_list|()
+decl_stmt|;
+name|int
+name|index
+init|=
+literal|0
+decl_stmt|;
+for|for
+control|(
+name|Exchange
+name|exchange
+range|:
+name|list
+control|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Received["
+operator|+
+operator|(
+operator|++
+name|index
+operator|)
+operator|+
+literal|"]: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 throw|throw
 operator|new
 name|AssertionError

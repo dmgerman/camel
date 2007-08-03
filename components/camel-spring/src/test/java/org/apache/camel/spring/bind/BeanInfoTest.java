@@ -84,7 +84,7 @@ name|component
 operator|.
 name|bean
 operator|.
-name|DefaultMethodInvocationStrategy
+name|DefaultParameterMappingStrategy
 import|;
 end_import
 
@@ -203,11 +203,11 @@ argument_list|)
 decl_stmt|;
 DECL|field|strategy
 specifier|protected
-name|DefaultMethodInvocationStrategy
+name|DefaultParameterMappingStrategy
 name|strategy
 init|=
 operator|new
-name|DefaultMethodInvocationStrategy
+name|DefaultParameterMappingStrategy
 argument_list|()
 decl_stmt|;
 DECL|field|bean

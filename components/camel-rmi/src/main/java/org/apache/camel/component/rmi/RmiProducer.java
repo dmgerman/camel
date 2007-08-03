@@ -54,22 +54,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|bean
-operator|.
-name|DefaultMethodInvocationStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultProducer
@@ -164,8 +148,6 @@ name|RmiEndpoint
 name|endpoint
 parameter_list|)
 throws|throws
-name|AccessException
-throws|,
 name|RemoteException
 throws|,
 name|NotBoundException
@@ -200,7 +182,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// TODO pull the invocation strategy out of the context?
 name|beanProcessor
 operator|=
 operator|new
@@ -209,8 +190,10 @@ argument_list|(
 name|getRemote
 argument_list|()
 argument_list|,
-operator|new
-name|DefaultMethodInvocationStrategy
+name|getEndpoint
+argument_list|()
+operator|.
+name|getContext
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -229,8 +212,6 @@ name|Remote
 name|getRemote
 parameter_list|()
 throws|throws
-name|AccessException
-throws|,
 name|RemoteException
 throws|,
 name|NotBoundException

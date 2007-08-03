@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.remoting
+DECL|package|org.apache.camel.language
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
-name|remoting
+name|language
 package|;
 end_package
 
@@ -24,11 +22,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|camel
 operator|.
-name|logging
+name|spi
 operator|.
-name|Log
+name|Language
 import|;
 end_import
 
@@ -38,108 +36,90 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|camel
 operator|.
-name|logging
-operator|.
-name|LogFactory
+name|RuntimeCamelException
 import|;
 end_import
 
+begin_comment
+comment|/**  * An exception thrown if some illegal syntax is rejected by a specific language  *  * @version $Revision: $  */
+end_comment
+
 begin_class
-DECL|class|SayService
+DECL|class|IllegalSyntaxException
 specifier|public
 class|class
-name|SayService
-implements|implements
-name|ISay
+name|IllegalSyntaxException
+extends|extends
+name|RuntimeCamelException
 block|{
-DECL|field|log
+DECL|field|language
 specifier|private
-specifier|static
 specifier|final
-name|Log
-name|log
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|SayService
-operator|.
-name|class
-argument_list|)
+name|Language
+name|language
 decl_stmt|;
-DECL|field|message
+DECL|field|expression
+specifier|private
+specifier|final
 name|String
-name|message
-init|=
-literal|"Hello"
+name|expression
 decl_stmt|;
-DECL|method|SayService ()
+DECL|method|IllegalSyntaxException (Language language, String expression)
 specifier|public
-name|SayService
-parameter_list|()
-block|{     }
-DECL|method|SayService (String message)
-specifier|public
-name|SayService
+name|IllegalSyntaxException
 parameter_list|(
+name|Language
+name|language
+parameter_list|,
 name|String
-name|message
+name|expression
 parameter_list|)
 block|{
-name|this
-operator|.
-name|message
-operator|=
-name|message
-expr_stmt|;
-block|}
-DECL|method|say ()
-specifier|public
-name|String
-name|say
-parameter_list|()
-block|{
-name|log
-operator|.
-name|info
+name|super
 argument_list|(
-literal|"Invoking say() method with message: "
+literal|"Illegal syntax for language: "
 operator|+
-name|message
+name|language
+operator|+
+literal|". Expression: "
+operator|+
+name|expression
 argument_list|)
 expr_stmt|;
-return|return
-name|message
-return|;
+name|this
+operator|.
+name|language
+operator|=
+name|language
+expr_stmt|;
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
+expr_stmt|;
 block|}
-DECL|method|getMessage ()
+DECL|method|getExpression ()
 specifier|public
 name|String
-name|getMessage
+name|getExpression
 parameter_list|()
 block|{
 return|return
-name|message
+name|expression
 return|;
 block|}
-DECL|method|setMessage (String message)
+DECL|method|getLanguage ()
 specifier|public
-name|void
-name|setMessage
-parameter_list|(
-name|String
-name|message
-parameter_list|)
+name|Language
+name|getLanguage
+parameter_list|()
 block|{
-name|this
-operator|.
-name|message
-operator|=
-name|message
-expr_stmt|;
+return|return
+name|language
+return|;
 block|}
 block|}
 end_class

@@ -1013,9 +1013,6 @@ name|pojo
 argument_list|,
 name|getCamelContext
 argument_list|()
-operator|.
-name|getInvocationStrategy
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|answer

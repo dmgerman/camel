@@ -95,12 +95,12 @@ comment|/**  * Represents the strategy used to figure out how to map a message e
 end_comment
 
 begin_class
-DECL|class|DefaultMethodInvocationStrategy
+DECL|class|DefaultParameterMappingStrategy
 specifier|public
 class|class
-name|DefaultMethodInvocationStrategy
+name|DefaultParameterMappingStrategy
 implements|implements
-name|MethodInvocationStrategy
+name|ParameterMappingStrategy
 block|{
 DECL|field|parameterTypeToExpressionMap
 specifier|private
@@ -121,9 +121,9 @@ name|Expression
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|DefaultMethodInvocationStrategy ()
+DECL|method|DefaultParameterMappingStrategy ()
 specifier|public
-name|DefaultMethodInvocationStrategy
+name|DefaultParameterMappingStrategy
 parameter_list|()
 block|{     }
 DECL|method|getDefaultParameterTypeExpression (Class parameterType)

@@ -1662,6 +1662,67 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      */
+DECL|method|beanRef (String ref)
+specifier|public
+name|ProcessorType
+name|beanRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|BeanRef
+name|answer
+init|=
+operator|new
+name|BeanRef
+argument_list|(
+name|ref
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Adds a bean and method which is invoked which could be a final destination, or could be a transformation in a pipeline      */
+DECL|method|beanRef (String ref, String method)
+specifier|public
+name|ProcessorType
+name|beanRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|,
+name|String
+name|method
+parameter_list|)
+block|{
+name|BeanRef
+name|answer
+init|=
+operator|new
+name|BeanRef
+argument_list|(
+name|ref
+argument_list|,
+name|method
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Adds a processor which sets the body on the IN message      */
 DECL|method|setBody (Expression expression)
 specifier|public

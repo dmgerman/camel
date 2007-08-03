@@ -238,14 +238,7 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-name|getConfigurableApplicationContext
-argument_list|()
-operator|.
-name|addApplicationListener
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
+comment|//getConfigurableApplicationContext().addApplicationListener(answer);
 return|return
 name|answer
 return|;

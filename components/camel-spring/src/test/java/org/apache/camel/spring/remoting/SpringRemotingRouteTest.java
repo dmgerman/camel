@@ -133,42 +133,12 @@ throws|throws
 name|Exception
 block|{
 name|ClassPathXmlApplicationContext
-name|spring
+name|applicationContext
 init|=
-operator|new
-name|ClassPathXmlApplicationContext
-argument_list|(
-literal|"org/apache/camel/spring/remoting/spring.xml"
-argument_list|)
+name|createApplicationContext
+argument_list|()
 decl_stmt|;
-name|Object
-name|service
-init|=
-name|spring
-operator|.
-name|getBean
-argument_list|(
-literal|"say"
-argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Found service!: "
-operator|+
-name|service
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"not an ISay!"
-argument_list|,
-name|service
-operator|instanceof
-name|ISay
-argument_list|)
-expr_stmt|;
+comment|/*         Object service = applicationContext.getBean("say");         log.info("Found service!: " + service);         assertTrue("not an ISay!", service instanceof ISay); */
 name|CamelContext
 name|camelContext
 init|=
@@ -176,7 +146,7 @@ name|SpringCamelContext
 operator|.
 name|springCamelContext
 argument_list|(
-name|spring
+name|applicationContext
 argument_list|)
 decl_stmt|;
 comment|// START SNIPPET: invoke
@@ -186,7 +156,7 @@ init|=
 operator|(
 name|ISay
 operator|)
-name|spring
+name|applicationContext
 operator|.
 name|getBean
 argument_list|(
@@ -214,11 +184,25 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|spring
+name|applicationContext
 operator|.
 name|destroy
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|createApplicationContext ()
+specifier|protected
+name|ClassPathXmlApplicationContext
+name|createApplicationContext
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+literal|"org/apache/camel/spring/remoting/spring.xml"
+argument_list|)
+return|;
 block|}
 block|}
 end_class

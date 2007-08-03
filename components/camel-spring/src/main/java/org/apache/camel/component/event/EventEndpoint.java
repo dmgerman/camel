@@ -190,8 +190,6 @@ name|DefaultEndpoint
 argument_list|<
 name|Exchange
 argument_list|>
-implements|implements
-name|ApplicationListener
 block|{
 DECL|field|component
 specifier|private

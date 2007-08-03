@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.bean
+DECL|package|org.apache.camel.spring
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|bean
+name|spring
 package|;
 end_package
 
@@ -26,32 +24,82 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Expression
+name|model
+operator|.
+name|IdentifiedType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlRootElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAttribute
 import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy for invoking a method on a pojo from a message exchange  *  * @version $Revision: $  */
+comment|/**  * @version $Revision: $ */
 end_comment
 
-begin_interface
-DECL|interface|MethodInvocationStrategy
+begin_class
+annotation|@
+name|XmlRootElement
+argument_list|(
+name|name
+operator|=
+literal|"serviceExporter"
+argument_list|)
+DECL|class|CamelServiceExporterType
 specifier|public
-interface|interface
-name|MethodInvocationStrategy
+class|class
+name|CamelServiceExporterType
+extends|extends
+name|IdentifiedType
 block|{
-comment|/**      * Creates an invocation on the given POJO using annotations to decide which method to invoke      * and to figure out which parameters to use      */
-comment|/*    MethodInvocation createInvocation(Object pojo,                                       BeanInfo beanInfo,                                       Exchange messageExchange,                                       Endpoint pojoEndpoint) throws RuntimeCamelException;*/
-DECL|method|getDefaultParameterTypeExpression (Class parameterType)
-name|Expression
-name|getDefaultParameterTypeExpression
-parameter_list|(
+annotation|@
+name|XmlAttribute
+DECL|field|uri
+specifier|private
+name|String
+name|uri
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|serviceRef
+specifier|private
+name|String
+name|serviceRef
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|serviceInterface
+specifier|private
 name|Class
-name|parameterType
-parameter_list|)
-function_decl|;
+name|serviceInterface
+decl_stmt|;
 block|}
-end_interface
+end_class
 
 end_unit
 
