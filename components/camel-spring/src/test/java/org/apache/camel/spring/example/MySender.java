@@ -43,6 +43,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ProducerTemplate
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -77,7 +89,7 @@ literal|"mock:a"
 argument_list|)
 DECL|field|successDesetination
 specifier|private
-name|CamelTemplate
+name|ProducerTemplate
 name|successDesetination
 decl_stmt|;
 annotation|@
@@ -89,7 +101,7 @@ literal|"mock:b"
 argument_list|)
 DECL|field|failureDesetination
 specifier|private
-name|CamelTemplate
+name|ProducerTemplate
 name|failureDesetination
 decl_stmt|;
 DECL|method|doSomething (String name)
