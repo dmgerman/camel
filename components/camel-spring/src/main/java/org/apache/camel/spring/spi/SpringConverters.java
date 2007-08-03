@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.converter
+DECL|package|org.apache.camel.spring.spi
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|converter
+name|spi
 package|;
 end_package
 
@@ -27,6 +27,22 @@ operator|.
 name|camel
 operator|.
 name|Converter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|bean
+operator|.
+name|BeanInvocation
 import|;
 end_import
 
@@ -88,6 +104,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|aopalliance
+operator|.
+name|intercept
+operator|.
+name|MethodInvocation
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -133,10 +161,10 @@ end_comment
 begin_class
 annotation|@
 name|Converter
-DECL|class|ResourceConverter
+DECL|class|SpringConverters
 specifier|public
 class|class
-name|ResourceConverter
+name|SpringConverters
 block|{
 annotation|@
 name|Converter
@@ -287,6 +315,39 @@ operator|new
 name|ByteArrayResource
 argument_list|(
 name|data
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toBeanInvocation (MethodInvocation invocation)
+specifier|public
+specifier|static
+name|BeanInvocation
+name|toBeanInvocation
+parameter_list|(
+name|MethodInvocation
+name|invocation
+parameter_list|)
+block|{
+return|return
+operator|new
+name|BeanInvocation
+argument_list|(
+name|invocation
+operator|.
+name|getThis
+argument_list|()
+argument_list|,
+name|invocation
+operator|.
+name|getMethod
+argument_list|()
+argument_list|,
+name|invocation
+operator|.
+name|getArguments
+argument_list|()
 argument_list|)
 return|;
 block|}
