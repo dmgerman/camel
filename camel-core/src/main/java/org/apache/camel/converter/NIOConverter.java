@@ -82,6 +82,30 @@ return|;
 block|}
 annotation|@
 name|Converter
+DECL|method|toString (ByteBuffer buffer)
+specifier|public
+specifier|static
+name|String
+name|toString
+parameter_list|(
+name|ByteBuffer
+name|buffer
+parameter_list|)
+block|{
+return|return
+name|IOConverter
+operator|.
+name|toString
+argument_list|(
+name|buffer
+operator|.
+name|array
+argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
 DECL|method|toByteBuffer (byte[] data)
 specifier|public
 specifier|static
