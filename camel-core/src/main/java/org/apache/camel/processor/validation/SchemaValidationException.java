@@ -78,7 +78,7 @@ name|ValidationException
 block|{
 DECL|field|schema
 specifier|private
-name|Schema
+name|Object
 name|schema
 decl_stmt|;
 DECL|field|fatalErrors
@@ -105,14 +105,14 @@ name|SAXParseException
 argument_list|>
 name|warnings
 decl_stmt|;
-DECL|method|SchemaValidationException (Exchange exchange, Schema schema, List<SAXParseException> fatalErrors, List<SAXParseException> errors, List<SAXParseException> warnings)
+DECL|method|SchemaValidationException (Exchange exchange, Object schema, List<SAXParseException> fatalErrors, List<SAXParseException> errors, List<SAXParseException> warnings)
 specifier|public
 name|SchemaValidationException
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|Schema
+name|Object
 name|schema
 parameter_list|,
 name|List
@@ -178,7 +178,7 @@ block|}
 comment|/**      * Returns the schema that failed      *      * @return the schema that failed      */
 DECL|method|getSchema ()
 specifier|public
-name|Schema
+name|Object
 name|getSchema
 parameter_list|()
 block|{
@@ -228,13 +228,13 @@ return|return
 name|warnings
 return|;
 block|}
-DECL|method|message (Schema schema, List<SAXParseException> fatalErrors, List<SAXParseException> errors, List<SAXParseException> warnings)
+DECL|method|message (Object schema, List<SAXParseException> fatalErrors, List<SAXParseException> errors, List<SAXParseException> warnings)
 specifier|protected
 specifier|static
 name|String
 name|message
 parameter_list|(
-name|Schema
+name|Object
 name|schema
 parameter_list|,
 name|List
