@@ -68,7 +68,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"serviceExporter"
+literal|"export"
 argument_list|)
 DECL|class|CamelServiceExporterType
 specifier|public

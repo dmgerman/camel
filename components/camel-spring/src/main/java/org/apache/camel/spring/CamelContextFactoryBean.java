@@ -420,7 +420,7 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"proxyFactory"
+literal|"proxy"
 argument_list|,
 name|type
 operator|=
@@ -438,7 +438,7 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"serviceExporter"
+literal|"export"
 argument_list|,
 name|type
 operator|=

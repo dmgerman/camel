@@ -72,7 +72,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"proxyFactory"
+literal|"proxy"
 argument_list|)
 DECL|class|CamelProxyFactoryType
 specifier|public
