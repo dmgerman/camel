@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.processor
+DECL|package|org.apache.camel.component.validator
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|component
 operator|.
-name|processor
+name|validator
 package|;
 end_package
 
