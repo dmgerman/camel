@@ -60,6 +60,16 @@ name|javax
 operator|.
 name|xml
 operator|.
+name|XMLConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
 name|transform
 operator|.
 name|Source
@@ -192,7 +202,9 @@ specifier|private
 name|String
 name|schemaLanguage
 init|=
-literal|"http://www.w3.org/2001/XMLSchema"
+name|XMLConstants
+operator|.
+name|W3C_XML_SCHEMA_NS_URI
 decl_stmt|;
 DECL|field|schemaSource
 specifier|private
