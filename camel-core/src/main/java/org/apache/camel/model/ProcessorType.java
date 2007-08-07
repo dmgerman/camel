@@ -932,6 +932,29 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Creates a try/catch block      *      * @return the builder for a tryBlock expression      */
+DECL|method|tryBlock ()
+specifier|public
+name|TryType
+name|tryBlock
+parameter_list|()
+block|{
+name|TryType
+name|answer
+init|=
+operator|new
+name|TryType
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Creates a dynamic<a href="http://activemq.apache.org/camel/recipient-list.html">Recipient List</a> pattern.      *      * @param receipients is the builder of the expression used in the {@link RecipientList} to decide the destinations      */
 DECL|method|recipientList (Expression receipients)
 specifier|public

@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ValidationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|RouteContext
@@ -376,35 +388,43 @@ return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-DECL|method|when (Class exceptionType)
+DECL|method|handle (Class<?> exceptionType)
 specifier|public
-name|TryType
-name|when
+name|CatchType
+name|handle
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
-name|getOutputs
-argument_list|()
-operator|.
-name|add
-argument_list|(
+name|CatchType
+name|answer
+init|=
 operator|new
 name|CatchType
 argument_list|(
 name|exceptionType
 argument_list|)
+decl_stmt|;
+name|getOutputs
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|this
+name|answer
 return|;
 block|}
-DECL|method|otherwise ()
+DECL|method|handleAll ()
 specifier|public
 name|FinallyType
-name|otherwise
+name|handleAll
 parameter_list|()
 block|{
 name|FinallyType
@@ -424,6 +444,26 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
+return|;
+block|}
+DECL|method|process (Processor processor)
+specifier|public
+name|TryType
+name|process
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|super
+operator|.
+name|process
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 DECL|method|to (Endpoint endpoint)
