@@ -34,23 +34,23 @@ begin_import
 import|import
 name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|sax
+name|camel
 operator|.
-name|SAXParseException
+name|ValidationException
 import|;
 end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
 name|xml
 operator|.
-name|validation
+name|sax
 operator|.
-name|Schema
+name|SAXParseException
 import|;
 end_import
 

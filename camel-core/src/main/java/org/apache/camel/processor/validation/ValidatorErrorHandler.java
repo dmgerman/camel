@@ -22,11 +22,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|sax
+name|camel
 operator|.
-name|ErrorHandler
+name|Exchange
 import|;
 end_import
 
@@ -38,7 +38,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|ValidationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|ErrorHandler
 import|;
 end_import
 
@@ -86,7 +98,7 @@ name|void
 name|reset
 parameter_list|()
 function_decl|;
-comment|/**      * Process any errors which may have occurred during validation      * @param exchange      * @param schema      * @param result      */
+comment|/**      * Process any errors which may have occurred during validation      *      * @param exchange      * @param schema      * @param result      */
 DECL|method|handleErrors (Exchange exchange, Schema schema, DOMResult result)
 name|void
 name|handleErrors

@@ -22,11 +22,23 @@ begin_import
 import|import
 name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|sax
+name|camel
 operator|.
-name|SAXParseException
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ValidationException
 import|;
 end_import
 
@@ -46,11 +58,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|xml
 operator|.
-name|camel
+name|sax
 operator|.
-name|Exchange
+name|SAXParseException
 import|;
 end_import
 
@@ -86,7 +98,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|ArrayList
 import|;
 end_import
 
@@ -96,7 +108,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 

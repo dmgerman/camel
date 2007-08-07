@@ -4,70 +4,43 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.validation
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|processor
-operator|.
-name|validation
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ValidationException
-import|;
-end_import
-
 begin_comment
-comment|/**  * An exception found if no XML body is available on the inbound message  *  * @version $Revision: $  */
+comment|/**  * The base class for any validation exception, such as  * {@link org.apache.camel.processor.validation.SchemaValidationException}  * so that it is easy to treat all validation errors in a similar way  * irrespective of the particular validation technology used.  *  * @version $Revision: $  */
 end_comment
 
 begin_class
-DECL|class|NoXmlBodyValidationException
+DECL|class|ValidationException
 specifier|public
 class|class
-name|NoXmlBodyValidationException
-extends|extends
 name|ValidationException
+extends|extends
+name|CamelExchangeException
 block|{
-DECL|method|NoXmlBodyValidationException (Exchange exchange)
+DECL|method|ValidationException (Exchange exchange, String message)
 specifier|public
-name|NoXmlBodyValidationException
+name|ValidationException
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|String
+name|message
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|exchange
+name|message
 argument_list|,
-literal|"No XML body could be found on the input message"
-operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
