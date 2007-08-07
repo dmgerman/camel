@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/throttler.html">Throttler</a>  * will set a limit on the maximum number of message exchanges which can be  * sent to a processor within a specific time period.  *<p/>  * This pattern can be extremely useful if you have some external system which  * meters access; such as only allowing 100 requests per second; or if huge load  * can cause a particular systme to malfunction or to reduce its throughput  * you might want to introduce some throttling.  *  * @version $Revision: $  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/throttler.html">Throttler</a>  * will set a limit on the maximum number of message exchanges which can be sent  * to a processor within a specific time period.<p/> This pattern can be  * extremely useful if you have some external system which meters access; such  * as only allowing 100 requests per second; or if huge load can cause a  * particular systme to malfunction or to reduce its throughput you might want  * to introduce some throttling.  *   * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -151,7 +151,7 @@ literal|"]"
 return|;
 block|}
 comment|// Properties
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|getMaximumRequestsPerPeriod ()
 specifier|public
 name|long
@@ -206,7 +206,7 @@ operator|=
 name|timePeriodMillis
 expr_stmt|;
 block|}
-comment|/**      * The number of requests which have taken place so far within this time period      */
+comment|/**      * The number of requests which have taken place so far within this time      * period      */
 DECL|method|getRequestCount ()
 specifier|public
 name|long
@@ -229,7 +229,7 @@ name|startTimeMillis
 return|;
 block|}
 comment|// Implementation methods
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|delay (Exchange exchange)
 specifier|protected
 name|void

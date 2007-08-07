@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,28 @@ operator|.
 name|validation
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|SAXParseException
+import|;
+end_import
 
 begin_import
 import|import
@@ -42,30 +64,8 @@ name|ValidationException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|SAXParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  * A Schema validation exception occurred  *  * @version $Revision: $  */
+comment|/**  * A Schema validation exception occurred  *   * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -78,11 +78,13 @@ name|ValidationException
 block|{
 DECL|field|schema
 specifier|private
+specifier|final
 name|Object
 name|schema
 decl_stmt|;
 DECL|field|fatalErrors
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|SAXParseException
@@ -91,6 +93,7 @@ name|fatalErrors
 decl_stmt|;
 DECL|field|errors
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|SAXParseException
@@ -99,6 +102,7 @@ name|errors
 decl_stmt|;
 DECL|field|warnings
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|SAXParseException
@@ -175,7 +179,7 @@ operator|=
 name|warnings
 expr_stmt|;
 block|}
-comment|/**      * Returns the schema that failed      *      * @return the schema that failed      */
+comment|/**      * Returns the schema that failed      *       * @return the schema that failed      */
 DECL|method|getSchema ()
 specifier|public
 name|Object
@@ -186,7 +190,7 @@ return|return
 name|schema
 return|;
 block|}
-comment|/**      * Returns the validation errors      *      * @return the validation errors      */
+comment|/**      * Returns the validation errors      *       * @return the validation errors      */
 DECL|method|getErrors ()
 specifier|public
 name|List
@@ -200,7 +204,7 @@ return|return
 name|errors
 return|;
 block|}
-comment|/**      * Returns the fatal validation errors      *      * @return the fatal validation errors      */
+comment|/**      * Returns the fatal validation errors      *       * @return the fatal validation errors      */
 DECL|method|getFatalErrors ()
 specifier|public
 name|List
@@ -214,7 +218,7 @@ return|return
 name|fatalErrors
 return|;
 block|}
-comment|/**      * Returns the validation warnings      *      * @return the validation warnings      */
+comment|/**      * Returns the validation warnings      *       * @return the validation warnings      */
 DECL|method|getWarnings ()
 specifier|public
 name|List

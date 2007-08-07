@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,26 @@ operator|.
 name|processor
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
 
 begin_import
 import|import
@@ -148,28 +168,8 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
 begin_comment
-comment|/**  * A base class for any kind of {@link Processor} which implements some kind of batch processing.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A base class for any kind of {@link Processor} which implements some kind of  * batch processing.  *   * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -182,13 +182,13 @@ name|ServiceSupport
 implements|implements
 name|Runnable
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -299,7 +299,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -348,7 +348,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getExceptionHandler ()
 specifier|public
 name|ExceptionHandler
@@ -464,7 +464,7 @@ return|return
 name|processor
 return|;
 block|}
-comment|/**      * A transactional method to process a batch of messages up to a timeout period      * or number of messages reached.      */
+comment|/**      * A transactional method to process a batch of messages up to a timeout      * period or number of messages reached.      */
 DECL|method|processBatch ()
 specifier|protected
 specifier|synchronized
@@ -543,13 +543,13 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -607,7 +607,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy Method to process an exchange in the batch. This method allows derived classes      * to perform custom processing before or after an individual exchange is processed      */
+comment|/**      * Strategy Method to process an exchange in the batch. This method allows      * derived classes to perform custom processing before or after an      * individual exchange is processed      */
 DECL|method|processExchange (Exchange exchange)
 specifier|protected
 name|void

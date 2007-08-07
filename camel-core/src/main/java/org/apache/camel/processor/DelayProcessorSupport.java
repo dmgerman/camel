@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,30 @@ operator|.
 name|processor
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
 
 begin_import
 import|import
@@ -80,32 +104,8 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
 begin_comment
-comment|/**  * A useful base class for any processor which provides some kind of throttling  * or delayed processing  *  * @version $Revision: $  */
+comment|/**  * A useful base class for any processor which provides some kind of throttling  * or delayed processing  *   * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -117,13 +117,13 @@ name|DelayProcessorSupport
 extends|extends
 name|DelegateProcessor
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -200,7 +200,7 @@ return|return
 name|fastStop
 return|;
 block|}
-comment|/**      * Enables& disables a fast stop; basically to avoid waiting a possibly      * long time for delays to complete before the context shuts down; instead      * the current processing method throws {@link org.apache.camel.AlreadyStoppedException}      * to terminate processing.      */
+comment|/**      * Enables& disables a fast stop; basically to avoid waiting a possibly      * long time for delays to complete before the context shuts down; instead      * the current processing method throws      * {@link org.apache.camel.AlreadyStoppedException} to terminate processing.      */
 DECL|method|setFastStop (boolean fastStop)
 specifier|public
 name|void
@@ -248,7 +248,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Wait until the given system time before continuing      *      * @param time     the system time to wait for      * @param exchange the exchange being processed      */
+comment|/**      * Wait until the given system time before continuing      *       * @param time the system time to wait for      * @param exchange the exchange being processed      */
 DECL|method|waitUntil (long time, Exchange exchange)
 specifier|protected
 name|void
@@ -343,13 +343,13 @@ name|InterruptedException
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -390,7 +390,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Called when a sleep is interupted; allows derived classes to handle this case differently      */
+comment|/**      * Called when a sleep is interupted; allows derived classes to handle this      * case differently      */
 DECL|method|handleSleepInteruptedException (InterruptedException e)
 specifier|protected
 name|void
@@ -400,7 +400,7 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(

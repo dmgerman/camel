@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,16 @@ operator|.
 name|file
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
 
 begin_import
 import|import
@@ -168,18 +178,8 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/file.html">File Endpoint</a> for working with file systems  *  * @version $Revision: 523016 $  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/file.html">File Endpoint</a> for  * working with file systems  *   * @version $Revision: 523016 $  */
 end_comment
 
 begin_class
@@ -193,13 +193,13 @@ argument_list|<
 name|FileExchange
 argument_list|>
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -238,29 +238,21 @@ DECL|field|delete
 specifier|private
 name|boolean
 name|delete
-init|=
-literal|false
 decl_stmt|;
 DECL|field|noop
 specifier|private
 name|boolean
 name|noop
-init|=
-literal|false
 decl_stmt|;
 DECL|field|moveNamePrefix
 specifier|private
 name|String
 name|moveNamePrefix
-init|=
-literal|null
 decl_stmt|;
 DECL|field|moveNamePostfix
 specifier|private
 name|String
 name|moveNamePostfix
-init|=
-literal|null
 decl_stmt|;
 DECL|field|excludedNamePrefixes
 specifier|private
@@ -487,7 +479,7 @@ operator|=
 name|createFileStrategy
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -505,7 +497,7 @@ return|return
 name|fileStrategy
 return|;
 block|}
-comment|/**      * Sets the strategy to be used when the file has been processed      * such as deleting or renaming it etc.      *      * @param fileStrategy the new stategy to use      */
+comment|/**      * Sets the strategy to be used when the file has been processed such as      * deleting or renaming it etc.      *       * @param fileStrategy the new stategy to use      */
 DECL|method|setFileStrategy (FileStrategy fileStrategy)
 specifier|public
 name|void
@@ -584,7 +576,7 @@ return|return
 name|moveNamePostfix
 return|;
 block|}
-comment|/**      * Sets the name postfix appended to moved files. For example      * to rename all the files from * to *.done set this value to ".done"      *      * @param moveNamePostfix      * @see RenameFileStrategy#setNamePostfix(String)      */
+comment|/**      * Sets the name postfix appended to moved files. For example to rename all      * the files from * to *.done set this value to ".done"      *       * @param moveNamePostfix      * @see RenameFileStrategy#setNamePostfix(String)      */
 DECL|method|setMoveNamePostfix (String moveNamePostfix)
 specifier|public
 name|void
@@ -611,7 +603,7 @@ return|return
 name|moveNamePrefix
 return|;
 block|}
-comment|/**      * Sets the name prefix appended to moved files. For example      * to move processed files into a hidden directory called ".camel"      * set this value to ".camel/"      *      * @see RenameFileStrategy#setNamePrefix(String)      */
+comment|/**      * Sets the name prefix appended to moved files. For example to move      * processed files into a hidden directory called ".camel" set this value to      * ".camel/"      *       * @see RenameFileStrategy#setNamePrefix(String)      */
 DECL|method|setMoveNamePrefix (String moveNamePrefix)
 specifier|public
 name|void
@@ -639,7 +631,7 @@ return|return
 name|excludedNamePrefixes
 return|;
 block|}
-comment|/**      * Sets the excluded file name prefixes, such as "." for hidden files      * which are excluded by default      */
+comment|/**      * Sets the excluded file name prefixes, such as "." for hidden files which      * are excluded by default      */
 DECL|method|setExcludedNamePrefixes (String[] excludedNamePrefixes)
 specifier|public
 name|void
@@ -667,7 +659,7 @@ return|return
 name|noop
 return|;
 block|}
-comment|/**      * If set to true then the default {@link FileStrategy} will be to use      * the {@link NoOpFileStrategy} to not move or copy processed files      *      * @param noop      */
+comment|/**      * If set to true then the default {@link FileStrategy} will be to use the      * {@link NoOpFileStrategy} to not move or copy processed files      *       * @param noop      */
 DECL|method|setNoop (boolean noop)
 specifier|public
 name|void

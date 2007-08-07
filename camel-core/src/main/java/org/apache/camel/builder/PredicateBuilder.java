@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,30 @@ operator|.
 name|builder
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Matcher
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
 
 begin_import
 import|import
@@ -126,32 +150,8 @@ name|notNull
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Matcher
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-
 begin_comment
-comment|/**  * A helper class for working with predicates  *  * @version $Revision: 520261 $  */
+comment|/**  * A helper class for working with predicates  *   * @version $Revision: 520261 $  */
 end_comment
 
 begin_class
@@ -160,6 +160,12 @@ specifier|public
 class|class
 name|PredicateBuilder
 block|{
+comment|/**      * Utility classes should not have a public constructor.      */
+DECL|method|PredicateBuilder ()
+specifier|private
+name|PredicateBuilder
+parameter_list|()
+block|{             }
 comment|/**      * Converts the given expression into an {@link Predicate}      */
 DECL|method|toPredicate (final Expression<E> expression)
 specifier|public
@@ -233,7 +239,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Evaluate the value as a predicate which attempts to convert the value to a boolean      * otherwise true is returned if the value is not null      */
+comment|/**      * Evaluate the value as a predicate which attempts to convert the value to      * a boolean otherwise true is returned if the value is not null      */
 DECL|method|evaluateValuePredicate (Object value)
 specifier|public
 specifier|static
@@ -1219,7 +1225,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns a predicate which is true if the expression matches the given regular expression      *      * @param expression the expression to evaluate      * @param regex      the regular expression to match against      * @return a new predicate      */
+comment|/**      * Returns a predicate which is true if the expression matches the given      * regular expression      *       * @param expression the expression to evaluate      * @param regex the regular expression to match against      * @return a new predicate      */
 DECL|method|regex (final Expression<E> expression, final String regex)
 specifier|public
 specifier|static
@@ -1260,7 +1266,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate which is true if the expression matches the given regular expression      *      * @param expression the expression to evaluate      * @param pattern    the regular expression to match against      * @return a new predicate      */
+comment|/**      * Returns a predicate which is true if the expression matches the given      * regular expression      *       * @param expression the expression to evaluate      * @param pattern the regular expression to match against      * @return a new predicate      */
 DECL|method|regex (final Expression<E> expression, final Pattern pattern)
 specifier|public
 specifier|static

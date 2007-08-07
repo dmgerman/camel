@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,88 @@ operator|.
 name|impl
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Callable
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|Context
+import|;
+end_import
 
 begin_import
 import|import
@@ -293,22 +375,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jndi
-operator|.
-name|JndiContext
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -340,90 +406,8 @@ name|stopServices
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|Context
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Callable
-import|;
-end_import
-
 begin_comment
-comment|/**  * Represents the context used to configure routes and the policies to use.  *  * @version $Revision: 520517 $  * @org.apache.xbean.XBean element="container" rootElement="true"  */
+comment|/**  * Represents the context used to configure routes and the policies to use.  *   * @version $Revision: 520517 $  * @org.apache.xbean.XBean element="container" rootElement="true"  */
 end_comment
 
 begin_class
@@ -545,7 +529,7 @@ specifier|public
 name|DefaultCamelContext
 parameter_list|()
 block|{     }
-comment|/**      * Creates the {@link CamelContext} using the given JNDI      * context as the registry      *      * @param jndiContext      */
+comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the      * registry      *       * @param jndiContext      */
 DECL|method|DefaultCamelContext (Context jndiContext)
 specifier|public
 name|DefaultCamelContext
@@ -721,7 +705,8 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-comment|// If the component is looked up after the context is started,
+comment|// If the component is looked up after the context
+comment|// is started,
 comment|// lets start it up.
 name|startServices
 argument_list|(
@@ -819,7 +804,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Removes a previously added component.      *      * @param componentName      * @return the previously added component or null if it had not been previously added.      */
+comment|/**      * Removes a previously added component.      *       * @param componentName      * @return the previously added component or null if it had not been      *         previously added.      */
 DECL|method|removeComponent (String componentName)
 specifier|public
 name|Component
@@ -844,7 +829,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.      *      * @param componentName      * @param factory       used to create a new component instance if the component was not previously added.      * @return      */
+comment|/**      * Gets the a previously added component by name or lazily creates the      * component using the factory Callback.      *       * @param componentName      * @param factory used to create a new component instance if the component      *                was not previously added.      * @return      */
 DECL|method|getOrCreateComponent (String componentName, Callable<Component> factory)
 specifier|public
 name|Component
@@ -954,7 +939,7 @@ return|;
 block|}
 block|}
 comment|// Endpoint Management Methods
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|getSingletonEndpoints ()
 specifier|public
 name|Collection
@@ -1314,7 +1299,7 @@ throw|;
 block|}
 block|}
 comment|// Route Management Methods
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|getRoutes ()
 specifier|public
 name|List
@@ -1438,7 +1423,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Helper methods
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 comment|/**      * Resolves a language for creating expressions      */
 DECL|method|resolveLanguage (String language)
 specifier|public
@@ -1462,7 +1447,7 @@ argument_list|)
 return|;
 block|}
 comment|// Properties
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|getExchangeConverter ()
 specifier|public
 name|ExchangeConverter
@@ -1711,7 +1696,7 @@ name|registry
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -1851,7 +1836,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Lets force some lazy initialization to occur upfront      * before we start any components and create routes      */
+comment|/**      * Lets force some lazy initialization to occur upfront before we start any      * components and create routes      */
 DECL|method|forceLazyInitialization ()
 specifier|protected
 name|void
@@ -2024,7 +2009,7 @@ name|JndiRegistry
 argument_list|()
 return|;
 block|}
-comment|/**      * A pluggable strategy to allow an endpoint to be created without requiring      * a component to be its factory, such as for looking up the URI inside      * some {@link Registry}      *      * @param uri the uri for the endpoint to be created      * @return the newly created endpoint or null if it could not be resolved      */
+comment|/**      * A pluggable strategy to allow an endpoint to be created without requiring      * a component to be its factory, such as for looking up the URI inside some      * {@link Registry}      *       * @param uri the uri for the endpoint to be created      * @return the newly created endpoint or null if it could not be resolved      */
 DECL|method|createEndpoint (String uri)
 specifier|protected
 name|Endpoint
@@ -2103,7 +2088,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Attempt to convert the bean from a {@link Registry} to an      * endpoint using some kind of transformation or wrapper      *      * @param uri  the uri for the endpoint (and name in the registry)      * @param bean the bean to be converted to an endpoint, which will be not null      * @return a new endpoint      */
+comment|/**      * Attempt to convert the bean from a {@link Registry} to an endpoint using      * some kind of transformation or wrapper      *       * @param uri the uri for the endpoint (and name in the registry)      * @param bean the bean to be converted to an endpoint, which will be not      *                null      * @return a new endpoint      */
 DECL|method|convertBeanToEndpoint (String uri, Object bean)
 specifier|protected
 name|Endpoint

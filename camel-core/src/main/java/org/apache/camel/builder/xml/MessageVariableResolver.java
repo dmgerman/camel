@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,50 @@ operator|.
 name|xml
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|namespace
+operator|.
+name|QName
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|xpath
+operator|.
+name|XPathVariableResolver
+import|;
+end_import
 
 begin_import
 import|import
@@ -39,24 +83,6 @@ operator|.
 name|camel
 operator|.
 name|Message
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|Namespaces
-operator|.
-name|*
 import|;
 end_import
 
@@ -89,51 +115,97 @@ import|;
 end_import
 
 begin_import
-import|import
-name|javax
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
 operator|.
 name|xml
 operator|.
-name|namespace
+name|Namespaces
 operator|.
-name|QName
+name|ENVIRONMENT_VARIABLES
 import|;
 end_import
 
 begin_import
-import|import
-name|javax
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
 operator|.
 name|xml
 operator|.
-name|xpath
+name|Namespaces
 operator|.
-name|XPathVariableResolver
+name|EXCHANGE_PROPERTY
 import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|HashMap
+name|camel
+operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|Namespaces
+operator|.
+name|IN_NAMESPACE
 import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Map
+name|camel
+operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|Namespaces
+operator|.
+name|OUT_NAMESPACE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|Namespaces
+operator|.
+name|SYSTEM_PROPERTIES_NAMESPACE
 import|;
 end_import
 
 begin_comment
-comment|/**  * A variable resolver for XPath expressions which support properties on the messge, exchange as well  * as making system properties and environment properties available.  *  * @version $Revision: 521692 $  */
+comment|/**  * A variable resolver for XPath expressions which support properties on the  * messge, exchange as well as making system properties and environment  * properties available.  *   * @version $Revision: 521692 $  */
 end_comment
 
 begin_class
@@ -144,13 +216,13 @@ name|MessageVariableResolver
 implements|implements
 name|XPathVariableResolver
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -349,7 +421,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(

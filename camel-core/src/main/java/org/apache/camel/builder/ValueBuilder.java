@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of expressions or predicates based on values.  *  * @version $Revision: $  */
+comment|/**  * A builder of expressions or predicates based on values.  *   * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -145,7 +145,7 @@ argument_list|()
 return|;
 block|}
 comment|// Predicate builders
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|isNotEqualTo (Object value)
 specifier|public
 name|Predicate
@@ -462,7 +462,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a predicate that the left hand expression contains the value of the right hand expression      *      * @param value the element which is compared to be contained within this expression      * @return a predicate which evaluates to true if the given value expression is contained within this      *         expression value      */
+comment|/**      * Create a predicate that the left hand expression contains the value of      * the right hand expression      *       * @param value the element which is compared to be contained within this      *                expression      * @return a predicate which evaluates to true if the given value expression      *         is contained within this expression value      */
 DECL|method|contains (Object value)
 specifier|public
 name|Predicate
@@ -500,7 +500,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a predicate which is true if this expression matches the given regular expression      *      * @param regex the regular expression to match      * @return a predicate which evaluates to true if the expression matches the regex      */
+comment|/**      * Creates a predicate which is true if this expression matches the given      * regular expression      *       * @param regex the regular expression to match      * @return a predicate which evaluates to true if the expression matches the      *         regex      */
 DECL|method|regex (String regex)
 specifier|public
 name|Predicate
@@ -528,7 +528,7 @@ argument_list|)
 return|;
 block|}
 comment|// Expression builders
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|tokenize ()
 specifier|public
 name|ValueBuilder
@@ -583,7 +583,7 @@ name|newExp
 argument_list|)
 return|;
 block|}
-comment|/**      * Tokenizes the string conversion of this expression using the given regular expression      */
+comment|/**      * Tokenizes the string conversion of this expression using the given      * regular expression      */
 DECL|method|regexTokenize (String regex)
 specifier|public
 name|ValueBuilder
@@ -622,7 +622,7 @@ name|newExp
 argument_list|)
 return|;
 block|}
-comment|/**      * Replaces all occurrencies of the regular expression with the given replacement      */
+comment|/**      * Replaces all occurrencies of the regular expression with the given      * replacement      */
 DECL|method|regexReplaceAll (String regex, String replacement)
 specifier|public
 name|ValueBuilder
@@ -666,7 +666,7 @@ name|newExp
 argument_list|)
 return|;
 block|}
-comment|/**      * Replaces all occurrencies of the regular expression with the given replacement      */
+comment|/**      * Replaces all occurrencies of the regular expression with the given      * replacement      */
 DECL|method|regexReplaceAll (String regex, Expression<E> replacement)
 specifier|public
 name|ValueBuilder
@@ -713,7 +713,7 @@ name|newExp
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the current value to the given type using the registered type converters      *      * @param type the type to convert the value to      * @return the current builder      */
+comment|/**      * Converts the current value to the given type using the registered type      * converters      *       * @param type the type to convert the value to      * @return the current builder      */
 DECL|method|convertTo (Class type)
 specifier|public
 name|ValueBuilder
@@ -752,7 +752,7 @@ name|newExp
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the current value a String using the registered type converters      *      * @return the current builder      */
+comment|/**      * Converts the current value a String using the registered type converters      *       * @return the current builder      */
 DECL|method|convertToString ()
 specifier|public
 name|ValueBuilder
@@ -771,7 +771,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Appends the string evaluation of this expression with the given value      *      * @param value the value or expression to append      * @return the current builder      */
+comment|/**      * Appends the string evaluation of this expression with the given value      *       * @param value the value or expression to append      * @return the current builder      */
 DECL|method|append (Object value)
 specifier|public
 name|ValueBuilder
@@ -806,8 +806,8 @@ argument_list|)
 return|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
-comment|/**      * A stategy method to allow derived classes to deal with the newly created predicate      * in different ways      */
+comment|// -------------------------------------------------------------------------
+comment|/**      * A stategy method to allow derived classes to deal with the newly created      * predicate in different ways      */
 DECL|method|onNewPredicate (Predicate<E> predicate)
 specifier|protected
 name|Predicate

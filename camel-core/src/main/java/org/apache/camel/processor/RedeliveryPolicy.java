@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -41,7 +41,7 @@ comment|// Code taken from the ActiveMQ codebase
 end_comment
 
 begin_comment
-comment|/**  * The policy used to decide how many times to redeliver and the time between the redeliveries before being sent to a  *<a href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter Channel</a>  *  * @version $Revision$  */
+comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter  * Channel</a>  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -86,8 +86,6 @@ DECL|field|useExponentialBackOff
 specifier|protected
 name|boolean
 name|useExponentialBackOff
-init|=
-literal|false
 decl_stmt|;
 comment|// +/-15% for a 30% spread -cgs
 DECL|field|collisionAvoidanceFactor
@@ -101,8 +99,6 @@ DECL|field|useCollisionAvoidance
 specifier|protected
 name|boolean
 name|useCollisionAvoidance
-init|=
-literal|false
 decl_stmt|;
 DECL|method|RedeliveryPolicy ()
 specifier|public
@@ -160,7 +156,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns true if the policy decides that the message exchange should be redelivered      */
+comment|/**      * Returns true if the policy decides that the message exchange should be      * redelivered      */
 DECL|method|shouldRedeliver (int redeliveryCounter)
 specifier|public
 name|boolean
@@ -178,7 +174,7 @@ argument_list|()
 return|;
 block|}
 comment|// Builder methods
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 comment|/**      * Sets the maximum number of times a message exchange will be redelivered      */
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
@@ -217,7 +213,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables collision avoidence which adds some randomization to the backoff timings to reduce contention probability      */
+comment|/**      * Enables collision avoidence which adds some randomization to the backoff      * timings to reduce contention probability      */
 DECL|method|useCollisionAvoidance ()
 specifier|public
 name|RedeliveryPolicy
@@ -233,7 +229,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables exponential backof using the {@link #getBackOffMultiplier()} to increase the time between retries      */
+comment|/**      * Enables exponential backof using the {@link #getBackOffMultiplier()} to      * increase the time between retries      */
 DECL|method|useExponentialBackOff ()
 specifier|public
 name|RedeliveryPolicy
@@ -249,14 +245,14 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables exponential backoff and sets the multiplier used to increase the delay between redeliveries      */
-DECL|method|backOffMultiplier (double backOffMultiplier)
+comment|/**      * Enables exponential backoff and sets the multiplier used to increase the      * delay between redeliveries      */
+DECL|method|backOffMultiplier (double multiplier)
 specifier|public
 name|RedeliveryPolicy
 name|backOffMultiplier
 parameter_list|(
 name|double
-name|backOffMultiplier
+name|multiplier
 parameter_list|)
 block|{
 name|useExponentialBackOff
@@ -264,7 +260,7 @@ argument_list|()
 expr_stmt|;
 name|setBackOffMultiplier
 argument_list|(
-name|backOffMultiplier
+name|multiplier
 argument_list|)
 expr_stmt|;
 return|return
@@ -294,7 +290,7 @@ name|this
 return|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getBackOffMultiplier ()
 specifier|public
 name|double
@@ -305,7 +301,7 @@ return|return
 name|backOffMultiplier
 return|;
 block|}
-comment|/**      * Sets the multiplier used to increase the delay between redeliveries if {@link #setUseExponentialBackOff(boolean)} is enabled      */
+comment|/**      * Sets the multiplier used to increase the delay between redeliveries if      * {@link #setUseExponentialBackOff(boolean)} is enabled      */
 DECL|method|setBackOffMultiplier (double backOffMultiplier)
 specifier|public
 name|void
@@ -342,7 +338,7 @@ literal|100
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the percentage used for collision avoidence if enabled via {@link #setUseCollisionAvoidance(boolean)}      */
+comment|/**      * Sets the percentage used for collision avoidence if enabled via      * {@link #setUseCollisionAvoidance(boolean)}      */
 DECL|method|setCollisionAvoidancePercent (short collisionAvoidancePercent)
 specifier|public
 name|void
@@ -371,7 +367,7 @@ return|return
 name|collisionAvoidanceFactor
 return|;
 block|}
-comment|/**      * Sets the factor used for collision avoidence if enabled via {@link #setUseCollisionAvoidance(boolean)}      */
+comment|/**      * Sets the factor used for collision avoidence if enabled via      * {@link #setUseCollisionAvoidance(boolean)}      */
 DECL|method|setCollisionAvoidanceFactor (double collisionAvoidanceFactor)
 specifier|public
 name|void
@@ -548,7 +544,7 @@ return|return
 name|useCollisionAvoidance
 return|;
 block|}
-comment|/**      * Enables/disables collision avoidence which adds some randomization to the backoff timings to reduce contention probability      */
+comment|/**      * Enables/disables collision avoidence which adds some randomization to the      * backoff timings to reduce contention probability      */
 DECL|method|setUseCollisionAvoidance (boolean useCollisionAvoidance)
 specifier|public
 name|void
@@ -575,7 +571,7 @@ return|return
 name|useExponentialBackOff
 return|;
 block|}
-comment|/**      * Enables/disables exponential backof using the {@link #getBackOffMultiplier()} to increase the time between retries      */
+comment|/**      * Enables/disables exponential backof using the      * {@link #getBackOffMultiplier()} to increase the time between retries      */
 DECL|method|setUseExponentialBackOff (boolean useExponentialBackOff)
 specifier|public
 name|void

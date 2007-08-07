@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -13,6 +13,16 @@ operator|.
 name|camel
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
 
 begin_import
 import|import
@@ -94,18 +104,8 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  * A bunch of useful testing methods  *  * @version $Revision$  */
+comment|/**  * A bunch of useful testing methods  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -132,7 +132,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Builder methods for expressions used when testing
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 comment|/**      * Returns a value builder for the given header      */
 DECL|method|header (String name)
 specifier|public
@@ -166,7 +166,7 @@ name|body
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the inbound message body as a specific type      */
+comment|/**      * Returns a predicate and value builder for the inbound message body as a      * specific type      */
 DECL|method|bodyAs (Class<T> type)
 specifier|public
 parameter_list|<
@@ -191,7 +191,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the outbound body on an exchange      */
+comment|/**      * Returns a predicate and value builder for the outbound body on an      * exchange      */
 DECL|method|outBody ()
 specifier|public
 name|ValueBuilder
@@ -205,7 +205,7 @@ name|outBody
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the outbound message body as a specific type      */
+comment|/**      * Returns a predicate and value builder for the outbound message body as a      * specific type      */
 DECL|method|outBody (Class<T> type)
 specifier|public
 parameter_list|<
@@ -274,7 +274,7 @@ argument_list|)
 return|;
 block|}
 comment|// Assertions
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|assertIsInstanceOf (Class<T> expectedType, Object value)
 specifier|protected
 parameter_list|<

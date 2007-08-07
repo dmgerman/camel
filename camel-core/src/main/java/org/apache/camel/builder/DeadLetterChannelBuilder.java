@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of a<a href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter Channel</a>  *  * @version $Revision$  */
+comment|/**  * A builder of a<a  * href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter  * Channel</a>  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -296,7 +296,7 @@ argument_list|)
 return|;
 block|}
 comment|// Builder methods
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|backOffMultiplier (double backOffMultiplier)
 specifier|public
 name|DeadLetterChannelBuilder
@@ -521,7 +521,7 @@ argument_list|)
 return|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getRedeliveryPolicy ()
 specifier|public
 name|RedeliveryPolicy
@@ -674,7 +674,7 @@ return|return
 name|defaultDeadLetterEndpointExpression
 return|;
 block|}
-comment|/**      * Sets the expression used to decide the dead letter channel endpoint for an exchange      * if no factory is provided via {@link #setDeadLetterFactory(ProcessorFactory)}      */
+comment|/**      * Sets the expression used to decide the dead letter channel endpoint for      * an exchange if no factory is provided via      * {@link #setDeadLetterFactory(ProcessorFactory)}      */
 DECL|method|setDefaultDeadLetterEndpointExpression (Expression defaultDeadLetterEndpointExpression)
 specifier|public
 name|void
@@ -701,7 +701,7 @@ return|return
 name|defaultDeadLetterEndpointUri
 return|;
 block|}
-comment|/**      * Sets the default dead letter endpoint URI used if no factory is provided via {@link #setDeadLetterFactory(ProcessorFactory)}      * and no expression is provided via {@link #setDefaultDeadLetterEndpointExpression(Expression)}      *      * @param defaultDeadLetterEndpointUri the default URI if no deadletter factory or expression is provided      */
+comment|/**      * Sets the default dead letter endpoint URI used if no factory is provided      * via {@link #setDeadLetterFactory(ProcessorFactory)} and no expression is      * provided via {@link #setDefaultDeadLetterEndpointExpression(Expression)}      *       * @param defaultDeadLetterEndpointUri the default URI if no deadletter      *                factory or expression is provided      */
 DECL|method|setDefaultDeadLetterEndpointUri (String defaultDeadLetterEndpointUri)
 specifier|public
 name|void

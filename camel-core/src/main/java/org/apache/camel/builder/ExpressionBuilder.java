@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -15,30 +15,6 @@ operator|.
 name|builder
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Expression
-import|;
-end_import
 
 begin_import
 import|import
@@ -92,6 +68,30 @@ name|Pattern
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Expression
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: $  */
 end_comment
@@ -102,7 +102,13 @@ specifier|public
 class|class
 name|ExpressionBuilder
 block|{
-comment|/**      * Returns an expression for the header value with the given name      *      * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
+comment|/**      * Utility classes should not have a public constructor.      */
+DECL|method|ExpressionBuilder ()
+specifier|private
+name|ExpressionBuilder
+parameter_list|()
+block|{             }
+comment|/**      * Returns an expression for the header value with the given name      *       * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
 DECL|method|headerExpression (final String headerName)
 specifier|public
 specifier|static
@@ -191,7 +197,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the out header value with the given name      *      * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
+comment|/**      * Returns an expression for the out header value with the given name      *       * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
 DECL|method|outHeaderExpression (final String headerName)
 specifier|public
 specifier|static
@@ -280,7 +286,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the property value with the given name      *      * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      */
+comment|/**      * Returns an expression for the property value with the given name      *       * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      */
 DECL|method|propertyExpression (final String propertyName)
 specifier|public
 specifier|static
@@ -343,7 +349,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for a system property value with the given name      *      * @param propertyName the name of the system property the expression will return      * @return an expression object which will return the system property value      */
+comment|/**      * Returns an expression for a system property value with the given name      *       * @param propertyName the name of the system property the expression will      *                return      * @return an expression object which will return the system property value      */
 DECL|method|systemPropertyExpression (final String propertyName)
 specifier|public
 specifier|static
@@ -372,7 +378,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an expression for a system property value with the given name      *      * @param propertyName the name of the system property the expression will return      * @return an expression object which will return the system property value      */
+comment|/**      * Returns an expression for a system property value with the given name      *       * @param propertyName the name of the system property the expression will      *                return      * @return an expression object which will return the system property value      */
 DECL|method|systemPropertyExpression (final String propertyName, final String defaultValue)
 specifier|public
 specifier|static
@@ -441,7 +447,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the contant value      *      * @param value the value the expression will return      * @return an expression object which will return the constant value      */
+comment|/**      * Returns an expression for the contant value      *       * @param value the value the expression will return      * @return an expression object which will return the constant value      */
 DECL|method|constantExpression (final Object value)
 specifier|public
 specifier|static
@@ -553,7 +559,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns the expression for the exchanges inbound message body converted to the given type      */
+comment|/**      * Returns the expression for the exchanges inbound message body converted      * to the given type      */
 DECL|method|bodyExpression (final Class<T> type)
 specifier|public
 specifier|static
@@ -786,7 +792,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression which converts the given expression to the given type      */
+comment|/**      * Returns an expression which converts the given expression to the given      * type      */
 DECL|method|convertTo (final Expression expression, final Class type)
 specifier|public
 specifier|static
@@ -878,7 +884,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns a tokenize expression which will tokenize the string with the given token      */
+comment|/**      * Returns a tokenize expression which will tokenize the string with the      * given token      */
 DECL|method|tokenizeExpression (final Expression<E> expression, final String token)
 specifier|public
 specifier|static
@@ -1011,7 +1017,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns a tokenize expression which will tokenize the string with the given regex      */
+comment|/**      * Returns a tokenize expression which will tokenize the string with the      * given regex      */
 DECL|method|regexTokenize (final Expression<E> expression, String regexTokenizer)
 specifier|public
 specifier|static
@@ -1124,7 +1130,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Transforms the expression into a String then performs the regex replaceAll to transform the String and return the result      */
+comment|/**      * Transforms the expression into a String then performs the regex      * replaceAll to transform the String and return the result      */
 DECL|method|regexReplaceAll (final Expression<E> expression, String regex, final String replacement)
 specifier|public
 specifier|static
@@ -1241,7 +1247,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Transforms the expression into a String then performs the regex replaceAll to transform the String and return the result      */
+comment|/**      * Transforms the expression into a String then performs the regex      * replaceAll to transform the String and return the result      */
 DECL|method|regexReplaceAll (final Expression<E> expression, String regex, final Expression<E> replacementExpression)
 specifier|public
 specifier|static
@@ -1321,7 +1327,6 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-empty_stmt|;
 if|if
 condition|(
 name|text
@@ -1460,7 +1465,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Evaluates the expression on the given exchange and returns the String representation      *      * @param expression the expression to evaluate      * @param exchange   the exchange to use to evaluate the expression      * @return the String representation of the expression or null if it could not be evaluated      */
+comment|/**      * Evaluates the expression on the given exchange and returns the String      * representation      *       * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @return the String representation of the expression or null if it could      *         not be evaluated      */
 DECL|method|evaluateStringExpression (Expression<E> expression, E exchange)
 specifier|public
 specifier|static

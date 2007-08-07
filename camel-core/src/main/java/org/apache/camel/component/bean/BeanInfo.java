@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,104 @@ operator|.
 name|bean
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Annotation
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Modifier
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
+import|;
+end_import
 
 begin_import
 import|import
@@ -117,22 +215,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-operator|.
-name|convertToType
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -161,105 +243,23 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|lang
+name|apache
 operator|.
-name|annotation
-operator|.
-name|Annotation
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Method
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Modifier
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|camel
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|ExchangeHelper
 operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentHashMap
+name|convertToType
 import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the metadata about a bean type created via a combination of  * introspection and annotations together with some useful sensible defaults  *  * @version $Revision: $  */
+comment|/**  * Represents the metadata about a bean type created via a combination of  * introspection and annotations together with some useful sensible defaults  *   * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -268,13 +268,13 @@ specifier|public
 class|class
 name|BeanInfo
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -798,13 +798,13 @@ else|else
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -876,7 +876,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/*          TODO allow an annotation to expose the operation name to use          if (method.getAnnotation(Operation.class) != null) {             String name = method.getAnnotation(Operation.class).name();             if (name != null&& name.length()> 0) {                 opName = name;             }         }         */
+comment|/*          *           * TODO allow an annotation to expose the operation name to use          *           * if (method.getAnnotation(Operation.class) != null) { String name =          * method.getAnnotation(Operation.class).name(); if (name != null&&          * name.length()> 0) { opName = name; } }          */
 name|MethodInfo
 name|methodInfo
 init|=
@@ -921,7 +921,7 @@ return|return
 name|methodInfo
 return|;
 block|}
-comment|/**      * Lets try choose one of the available methods to invoke if we can match      * the message body to the body parameter      *      * @param pojo     the bean to invoke a method on      * @param exchange the message exchange      * @return the method to invoke or null if no definitive method could be matched      */
+comment|/**      * Lets try choose one of the available methods to invoke if we can match      * the message body to the body parameter      *       * @param pojo the bean to invoke a method on      * @param exchange the message exchange      * @return the method to invoke or null if no definitive method could be      *         matched      */
 DECL|method|chooseMethod (Object pojo, Exchange exchange)
 specifier|protected
 name|MethodInfo
@@ -1184,7 +1184,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Creates an expression for the given parameter type if the parameter can be mapped      * automatically or null if the parameter cannot be mapped due to unsufficient      * annotations or not fitting with the default type conventions.      */
+comment|/**      * Creates an expression for the given parameter type if the parameter can      * be mapped automatically or null if the parameter cannot be mapped due to      * unsufficient annotations or not fitting with the default type      * conventions.      */
 DECL|method|createParameterUnmarshalExpression (Class clazz, Method method, Class parameterType, Annotation[] parameterAnnotation)
 specifier|protected
 name|Expression
@@ -1396,7 +1396,7 @@ name|parameterType
 argument_list|)
 return|;
 comment|// TODO allow annotations to be used to create expressions?
-comment|/*         } else if (annotation instanceof XPath) {             XPath xpathAnnotation = (XPath) annotation;             return new JAXPStringXPathExpression(xpathAnnotation.xpath());         } */
+comment|/*              * } else if (annotation instanceof XPath) { XPath xpathAnnotation =              * (XPath) annotation; return new              * JAXPStringXPathExpression(xpathAnnotation.xpath()); }              */
 block|}
 return|return
 literal|null

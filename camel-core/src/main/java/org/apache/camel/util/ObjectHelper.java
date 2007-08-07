@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -15,60 +15,6 @@ operator|.
 name|util
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|ObjectConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
 
 begin_import
 import|import
@@ -146,8 +92,62 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|ObjectConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  * A number of useful helper methods for working with Objects  *  * @version $Revision$  */
+comment|/**  * A number of useful helper methods for working with Objects  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -156,13 +156,13 @@ specifier|public
 class|class
 name|ObjectHelper
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -173,6 +173,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/**      * Utility classes should not have a public constructor.      */
+DECL|method|ObjectHelper ()
+specifier|private
+name|ObjectHelper
+parameter_list|()
+block|{             }
 comment|/**      * A helper method for comparing objects for equality while handling nulls      */
 DECL|method|equals (Object a, Object b)
 specifier|public
@@ -215,7 +221,7 @@ name|b
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns true if the given object is equal to any of the expected value      * @param expression      * @param s      * @param s1      * @return      */
+comment|/**      * Returns true if the given object is equal to any of the expected value      *       * @param expression      * @param s      * @param s1      * @return      */
 DECL|method|isEqualToAny (Object object, Object... values)
 specifier|public
 specifier|static
@@ -257,7 +263,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * A helper method for performing an ordered comparsion on the objects      * handling nulls and objects which do not      * handle sorting gracefully      */
+comment|/**      * A helper method for performing an ordered comparsion on the objects      * handling nulls and objects which do not handle sorting gracefully      */
 DECL|method|compare (Object a, Object b)
 specifier|public
 specifier|static
@@ -526,7 +532,7 @@ return|return
 name|rc
 return|;
 block|}
-comment|/**      * Removes any starting characters on the given text which match the given character      *      * @param text the string      * @param ch   the initial characters to remove      * @return either the original string or the new substring      */
+comment|/**      * Removes any starting characters on the given text which match the given      * character      *       * @param text the string      * @param ch the initial characters to remove      * @return either the original string or the new substring      */
 DECL|method|removeStartingCharacters (String text, char ch)
 specifier|public
 specifier|static
@@ -662,7 +668,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Returns the predicate matching boolean on a {@link List} result set      * where if the first element is a boolean its value is used      * otherwise this method returns true if the collection is not empty      *      * @returns true if the first element is a boolean and its value is true or if the list is non empty      */
+comment|/**      * Returns the predicate matching boolean on a {@link List} result set where      * if the first element is a boolean its value is used otherwise this method      * returns true if the collection is not empty      *       * @returns true if the first element is a boolean and its value is true or      *          if the list is non empty      */
 DECL|method|matches (List list)
 specifier|public
 specifier|static
@@ -778,7 +784,7 @@ operator|<=
 literal|0
 return|;
 block|}
-comment|/**      * A helper method to access a system property, catching any security exceptions      *      * @param name         the name of the system property required      * @param defaultValue the default value to use if the property is not available or a security exception prevents access      * @return the system property value or the default value if the property is not available or security does not allow its access      */
+comment|/**      * A helper method to access a system property, catching any security      * exceptions      *       * @param name the name of the system property required      * @param defaultValue the default value to use if the property is not      *                available or a security exception prevents access      * @return the system property value or the default value if the property is      *         not available or security does not allow its access      */
 DECL|method|getSystemProperty (String name, String defaultValue)
 specifier|public
 specifier|static
@@ -813,13 +819,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -840,7 +846,7 @@ name|defaultValue
 return|;
 block|}
 block|}
-comment|/**      * Returns the type name of the given type or null if the type variable is null      */
+comment|/**      * Returns the type name of the given type or null if the type variable is      * null      */
 DECL|method|name (Class type)
 specifier|public
 specifier|static
@@ -891,7 +897,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Attempts to load the given class name using the thread context class loader      * or the class loader used to load this class      *      * @param name the name of the class to load      * @return the class or null if it could not be loaded      */
+comment|/**      * Attempts to load the given class name using the thread context class      * loader or the class loader used to load this class      *       * @param name the name of the class to load      * @return the class or null if it could not be loaded      */
 DECL|method|loadClass (String name)
 specifier|public
 specifier|static
@@ -919,7 +925,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Attempts to load the given class name using the thread context class loader or the given class loader      *      * @param name   the name of the class to load      * @param loader the class loader to use after the thread context class loader      * @return the class or null if it could not be loaded      */
+comment|/**      * Attempts to load the given class name using the thread context class      * loader or the given class loader      *       * @param name the name of the class to load      * @param loader the class loader to use after the thread context class      *                loader      * @return the class or null if it could not be loaded      */
 DECL|method|loadClass (String name, ClassLoader loader)
 specifier|public
 specifier|static
@@ -988,7 +994,7 @@ name|ClassNotFoundException
 name|e1
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -1008,7 +1014,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * A helper method to invoke a method via reflection and wrap any exceptions      * as {@link RuntimeCamelException} instances      *      * @param method     the method to invoke      * @param instance   the object instance (or null for static methods)      * @param parameters the parameters to the method      * @return the result of the method invocation      */
+comment|/**      * A helper method to invoke a method via reflection and wrap any exceptions      * as {@link RuntimeCamelException} instances      *       * @param method the method to invoke      * @param instance the object instance (or null for static methods)      * @param parameters the parameters to the method      * @return the result of the method invocation      */
 DECL|method|invokeMethod (Method method, Object instance, Object... parameters)
 specifier|public
 specifier|static
@@ -1071,7 +1077,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns a list of methods which are annotated with the given annotation      *      * @param type           the type to reflect on      * @param annotationType the annotation type      * @return a list of the methods found      */
+comment|/**      * Returns a list of methods which are annotated with the given annotation      *       * @param type the type to reflect on      * @param annotationType the annotation type      * @return a list of the methods found      */
 DECL|method|findMethodsWithAnnotation (Class<?> type, Class<? extends Annotation> annotationType)
 specifier|public
 specifier|static
@@ -1168,7 +1174,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Turns the given object arrays into a meaningful string      *      * @param objects an array of objects or null      * @return a meaningful string      */
+comment|/**      * Turns the given object arrays into a meaningful string      *       * @param objects an array of objects or null      * @return a meaningful string      */
 DECL|method|asString (Object[] objects)
 specifier|public
 specifier|static
@@ -1270,7 +1276,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Returns true if a class is assignable from another class like the      * {@link Class#isAssignableFrom(Class)} method but which also includes      * coercion between primitive types to deal with Java 5 primitive type wrapping      */
+comment|/**      * Returns true if a class is assignable from another class like the      * {@link Class#isAssignableFrom(Class)} method but which also includes      * coercion between primitive types to deal with Java 5 primitive type      * wrapping      */
 DECL|method|isAssignableFrom (Class a, Class b)
 specifier|public
 specifier|static
@@ -1307,7 +1313,7 @@ name|b
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts primitive types such as int to its wrapper type like {@link Integeer}      */
+comment|/**      * Converts primitive types such as int to its wrapper type like      * {@link Integeer}      */
 DECL|method|convertPrimitiveTypeToWrapperType (Class type)
 specifier|public
 specifier|static
@@ -1318,6 +1324,11 @@ name|Class
 name|type
 parameter_list|)
 block|{
+name|Class
+name|rc
+init|=
+name|type
+decl_stmt|;
 if|if
 condition|(
 name|type
@@ -1335,11 +1346,12 @@ operator|.
 name|class
 condition|)
 block|{
-return|return
+name|rc
+operator|=
 name|Integer
 operator|.
 name|class
-return|;
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1351,11 +1363,12 @@ operator|.
 name|class
 condition|)
 block|{
-return|return
+name|rc
+operator|=
 name|Long
 operator|.
 name|class
-return|;
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1367,11 +1380,12 @@ operator|.
 name|class
 condition|)
 block|{
-return|return
+name|rc
+operator|=
 name|Double
 operator|.
 name|class
-return|;
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1383,11 +1397,12 @@ operator|.
 name|class
 condition|)
 block|{
-return|return
+name|rc
+operator|=
 name|Float
 operator|.
 name|class
-return|;
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1399,11 +1414,12 @@ operator|.
 name|class
 condition|)
 block|{
-return|return
+name|rc
+operator|=
 name|Short
 operator|.
 name|class
-return|;
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1415,15 +1431,16 @@ operator|.
 name|class
 condition|)
 block|{
-return|return
+name|rc
+operator|=
 name|Byte
 operator|.
 name|class
-return|;
+expr_stmt|;
 block|}
 block|}
 return|return
-name|type
+name|rc
 return|;
 block|}
 block|}

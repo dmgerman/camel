@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,40 @@ operator|.
 name|builder
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
 
 begin_import
 import|import
@@ -76,7 +110,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RoutesType
+name|RouteType
 import|;
 end_import
 
@@ -90,7 +124,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RoutesType
 import|;
 end_import
 
@@ -108,42 +142,8 @@ name|DelegateProcessor
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicBoolean
-import|;
-end_import
-
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  * which is used to build {@link Route} instances in a @{link CamelContext} for smart routing.  *  * @version $Revision$  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/dsl.html">Java DSL</a> which is  * used to build {@link Route} instances in a  *   * @{link CamelContext} for smart routing.  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -261,7 +261,7 @@ name|endpoint
 argument_list|)
 return|;
 block|}
-comment|/**      * Installs the given error handler builder      *      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
+comment|/**      * Installs the given error handler builder      *       * @param errorHandlerBuilder the error handler to be used by default for      *                all child routes      * @return the current builder with the error handler configured      */
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|RouteBuilder
@@ -280,7 +280,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures whether or not the error handler is inherited by every processing node (or just the top most one)      *      * @param value the flag as to whether error handlers should be inherited or not      * @return the current builder      */
+comment|/**      * Configures whether or not the error handler is inherited by every      * processing node (or just the top most one)      *       * @param value the flag as to whether error handlers should be inherited or      *                not      * @return the current builder      */
 DECL|method|inheritErrorHandler (boolean value)
 specifier|public
 name|RouteBuilder
@@ -322,7 +322,7 @@ name|this
 return|;
 block|}
 comment|// Properties
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|getContext ()
 specifier|public
 name|CamelContext
@@ -379,7 +379,7 @@ name|routes
 return|;
 block|}
 comment|// Implementation methods
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|checkInitialized ()
 specifier|protected
 name|void

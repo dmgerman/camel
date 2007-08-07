@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -170,9 +170,15 @@ specifier|public
 class|class
 name|IntrospectionSupport
 block|{
+comment|/**      * Utility classes should not have a public constructor.      */
+DECL|method|IntrospectionSupport ()
+specifier|private
+name|IntrospectionSupport
+parameter_list|()
+block|{             }
 DECL|method|getProperties (Object target, Map props, String optionPrefix)
-specifier|static
 specifier|public
+specifier|static
 name|boolean
 name|getProperties
 parameter_list|(
@@ -197,6 +203,7 @@ name|target
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -204,12 +211,14 @@ argument_list|(
 literal|"target was null."
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|props
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -217,16 +226,19 @@ argument_list|(
 literal|"props was null."
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|optionPrefix
 operator|==
 literal|null
 condition|)
+block|{
 name|optionPrefix
 operator|=
 literal|""
 expr_stmt|;
+block|}
 name|Class
 name|clazz
 init|=
@@ -342,7 +354,9 @@ name|value
 operator|==
 literal|null
 condition|)
+block|{
 continue|continue;
+block|}
 name|String
 name|strValue
 init|=
@@ -359,7 +373,9 @@ name|strValue
 operator|==
 literal|null
 condition|)
+block|{
 continue|continue;
+block|}
 name|name
 operator|=
 name|name
@@ -402,7 +418,7 @@ parameter_list|(
 name|Throwable
 name|ignore
 parameter_list|)
-block|{             	}
+block|{                 }
 block|}
 block|}
 return|return
@@ -410,8 +426,8 @@ name|rc
 return|;
 block|}
 DECL|method|setProperties (Object target, Map props, String optionPrefix)
-specifier|static
 specifier|public
+specifier|static
 name|boolean
 name|setProperties
 parameter_list|(
@@ -436,6 +452,7 @@ name|target
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -443,12 +460,14 @@ argument_list|(
 literal|"target was null."
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|props
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -456,6 +475,7 @@ argument_list|(
 literal|"props was null."
 argument_list|)
 throw|;
+block|}
 for|for
 control|(
 name|Iterator
@@ -566,6 +586,7 @@ name|props
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -573,6 +594,7 @@ argument_list|(
 literal|"props was null."
 argument_list|)
 throw|;
+block|}
 name|HashMap
 name|rc
 init|=
@@ -692,6 +714,7 @@ name|target
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -699,12 +722,14 @@ argument_list|(
 literal|"target was null."
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|props
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -712,6 +737,7 @@ argument_list|(
 literal|"props was null."
 argument_list|)
 throw|;
+block|}
 for|for
 control|(
 name|Iterator
@@ -823,10 +849,13 @@ name|setter
 operator|==
 literal|null
 condition|)
+block|{
 return|return
 literal|false
 return|;
-comment|// If the type is null or it matches the needed type, just use the value directly
+block|}
+comment|// If the type is null or it matches the needed type, just use the
+comment|// value directly
 if|if
 condition|(
 name|value
@@ -1187,9 +1216,11 @@ argument_list|)
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 if|if
 condition|(
 name|clazz
@@ -1198,9 +1229,11 @@ name|URI
 operator|.
 name|class
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 if|if
 condition|(
 name|clazz
@@ -1209,16 +1242,18 @@ name|Boolean
 operator|.
 name|class
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 return|return
 literal|false
 return|;
 block|}
 DECL|method|toString (Object target)
-specifier|static
 specifier|public
+specifier|static
 name|String
 name|toString
 parameter_list|(
@@ -1238,8 +1273,8 @@ argument_list|)
 return|;
 block|}
 DECL|method|toString (Object target, Class stopClass)
-specifier|static
 specifier|public
+specifier|static
 name|String
 name|toString
 parameter_list|(
@@ -1413,11 +1448,11 @@ name|Object
 name|value
 parameter_list|)
 block|{
-comment|//        if (value instanceof ActiveMQDestination) {
-comment|//            ActiveMQDestination destination = (ActiveMQDestination) value;
-comment|//            buffer.append(destination.getQualifiedName());
-comment|//        }
-comment|//        else {
+comment|// if (value instanceof ActiveMQDestination) {
+comment|// ActiveMQDestination destination = (ActiveMQDestination) value;
+comment|// buffer.append(destination.getQualifiedName());
+comment|// }
+comment|// else {
 name|buffer
 operator|.
 name|append
@@ -1425,11 +1460,11 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
-comment|//        }
+comment|// }
 block|}
 DECL|method|simpleName (Class clazz)
-specifier|static
 specifier|public
+specifier|static
 name|String
 name|simpleName
 parameter_list|(
@@ -1479,8 +1514,8 @@ name|name
 return|;
 block|}
 DECL|method|addFields (Object target, Class startClass, Class stopClass, LinkedHashMap map)
-specifier|static
 specifier|private
+specifier|static
 name|void
 name|addFields
 parameter_list|(
@@ -1503,6 +1538,7 @@ name|startClass
 operator|!=
 name|stopClass
 condition|)
+block|{
 name|addFields
 argument_list|(
 name|target
@@ -1517,6 +1553,7 @@ argument_list|,
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 name|Field
 index|[]
 name|fields

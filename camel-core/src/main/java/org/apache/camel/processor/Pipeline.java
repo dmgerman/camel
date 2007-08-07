@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,26 @@ operator|.
 name|processor
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
 
 begin_import
 import|import
@@ -40,28 +60,8 @@ name|Processor
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  * Creates a Pipeline pattern where the output of the previous step is sent as input to the next step, reusing the same  * message exchanges  *  * @version $Revision$  */
+comment|/**  * Creates a Pipeline pattern where the output of the previous step is sent as  * input to the next step, reusing the same message exchanges  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -74,6 +74,23 @@ name|MulticastProcessor
 implements|implements
 name|Processor
 block|{
+DECL|method|Pipeline (Collection<Processor> processors)
+specifier|public
+name|Pipeline
+parameter_list|(
+name|Collection
+argument_list|<
+name|Processor
+argument_list|>
+name|processors
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|processors
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|newInstance (List<Processor> processors)
 specifier|public
 specifier|static
@@ -126,23 +143,6 @@ argument_list|(
 name|processors
 argument_list|)
 return|;
-block|}
-DECL|method|Pipeline (Collection<Processor> processors)
-specifier|public
-name|Pipeline
-parameter_list|(
-name|Collection
-argument_list|<
-name|Processor
-argument_list|>
-name|processors
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|processors
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -205,7 +205,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy method to create the next exchange from the      *      * @param producer         the producer used to send to the endpoint      * @param previousExchange the previous exchange      * @return a new exchange      */
+comment|/**      * Strategy method to create the next exchange from the      *       * @param producer the producer used to send to the endpoint      * @param previousExchange the previous exchange      * @return a new exchange      */
 DECL|method|createNextExchange (Processor producer, Exchange previousExchange)
 specifier|protected
 name|Exchange
@@ -226,7 +226,8 @@ argument_list|(
 name|previousExchange
 argument_list|)
 decl_stmt|;
-comment|// now lets set the input of the next exchange to the output of the previous message if it is not null
+comment|// now lets set the input of the next exchange to the output of the
+comment|// previous message if it is not null
 name|Object
 name|output
 init|=
@@ -260,7 +261,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Strategy method to copy the exchange before sending to another endpoint. Derived classes such as the      * {@link Pipeline} will not clone the exchange      *      * @param exchange      * @return the current exchange if no copying is required such as for a pipeline otherwise a new copy of the exchange is returned.      */
+comment|/**      * Strategy method to copy the exchange before sending to another endpoint.      * Derived classes such as the {@link Pipeline} will not clone the exchange      *       * @param exchange      * @return the current exchange if no copying is required such as for a      *         pipeline otherwise a new copy of the exchange is returned.      */
 DECL|method|copyExchangeStrategy (Exchange exchange)
 specifier|protected
 name|Exchange

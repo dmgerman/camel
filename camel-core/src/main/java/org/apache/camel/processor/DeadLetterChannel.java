@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements a  *<a href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter Channel</a>  * after attempting to redeliver the message using the {@link RedeliveryPolicy}  *  * @version $Revision$  */
+comment|/**  * Implements a<a  * href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter  * Channel</a> after attempting to redeliver the message using the  * {@link RedeliveryPolicy}  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -140,13 +140,13 @@ name|REDELIVERED
 init|=
 literal|"org.apache.camel.Redelivered"
 decl_stmt|;
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -177,30 +177,6 @@ specifier|private
 name|Logger
 name|logger
 decl_stmt|;
-DECL|method|createDefaultLogger ()
-specifier|public
-specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
-name|Logger
-name|createDefaultLogger
-parameter_list|()
-block|{
-return|return
-operator|new
-name|Logger
-argument_list|(
-name|log
-argument_list|,
-name|LoggingLevel
-operator|.
-name|ERROR
-argument_list|)
-return|;
-block|}
 DECL|method|DeadLetterChannel (Processor output, Processor deadLetter)
 specifier|public
 name|DeadLetterChannel
@@ -270,6 +246,30 @@ name|logger
 operator|=
 name|logger
 expr_stmt|;
+block|}
+DECL|method|createDefaultLogger ()
+specifier|public
+specifier|static
+parameter_list|<
+name|E
+extends|extends
+name|Exchange
+parameter_list|>
+name|Logger
+name|createDefaultLogger
+parameter_list|()
+block|{
+return|return
+operator|new
+name|Logger
+argument_list|(
+name|LOG
+argument_list|,
+name|LoggingLevel
+operator|.
+name|ERROR
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override
@@ -402,7 +402,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 comment|/**      * Returns the output processor      */
 DECL|method|getOutput ()
 specifier|public
@@ -414,7 +414,7 @@ return|return
 name|output
 return|;
 block|}
-comment|/**      * Returns the dead letter that message exchanges will be sent to if the redelivery attempts fail      */
+comment|/**      * Returns the dead letter that message exchanges will be sent to if the      * redelivery attempts fail      */
 DECL|method|getDeadLetter ()
 specifier|public
 name|Processor
@@ -462,7 +462,7 @@ return|return
 name|logger
 return|;
 block|}
-comment|/**      * Sets the logger strategy; which {@link Log} to use and which {@link LoggingLevel} to use      */
+comment|/**      * Sets the logger strategy; which {@link Log} to use and which      * {@link LoggingLevel} to use      */
 DECL|method|setLogger (Logger logger)
 specifier|public
 name|void
@@ -480,8 +480,8 @@ name|logger
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
-comment|/**      * Increments the redelivery counter and adds the redelivered flag if the message has been redelivered      */
+comment|// -------------------------------------------------------------------------
+comment|/**      * Increments the redelivery counter and adds the redelivered flag if the      * message has been redelivered      */
 DECL|method|incrementRedeliveryCounter (Exchange exchange)
 specifier|protected
 name|int
@@ -572,13 +572,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -608,13 +608,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A collection of helper methods for working with expressions.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A collection of helper methods for working with expressions.  *   * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -50,7 +50,13 @@ specifier|public
 class|class
 name|ExpressionHelper
 block|{
-comment|/**      * Evaluates the given expression on the exchange as a String value      *      * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @return the result of the evaluation as a string.      */
+comment|/**      * Utility classes should not have a public constructor.      */
+DECL|method|ExpressionHelper ()
+specifier|private
+name|ExpressionHelper
+parameter_list|()
+block|{             }
+comment|/**      * Evaluates the given expression on the exchange as a String value      *       * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @return the result of the evaluation as a string.      */
 DECL|method|evaluateAsString (Expression<E> expression, E exchange)
 specifier|public
 specifier|static
@@ -85,7 +91,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates the given expression on the exchange, converting the result to the given type      *      * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @param resultType the type of the result that is required      * @return the result of the evaluation as the specified type.      */
+comment|/**      * Evaluates the given expression on the exchange, converting the result to      * the given type      *       * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @param resultType the type of the result that is required      * @return the result of the evaluation as the specified type.      */
 DECL|method|evaluateAsType (Expression<E> expression, E exchange, Class<T> resultType)
 specifier|public
 specifier|static

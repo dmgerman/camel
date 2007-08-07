@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,26 @@ operator|.
 name|processor
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
 
 begin_import
 import|import
@@ -60,7 +80,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Producer
+name|impl
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
@@ -78,42 +100,8 @@ name|ServiceHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|ServiceSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
 begin_comment
-comment|/**  * Implements the Multicast pattern to send a message exchange to a number of endpoints, each endpoint receiving a copy of  * the message exchange.  *  * @see Pipeline  * @version $Revision$  */
+comment|/**  * Implements the Multicast pattern to send a message exchange to a number of  * endpoints, each endpoint receiving a copy of the message exchange.  *   * @see Pipeline  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -134,6 +122,24 @@ name|Processor
 argument_list|>
 name|processors
 decl_stmt|;
+DECL|method|MulticastProcessor (Collection<Processor> processors)
+specifier|public
+name|MulticastProcessor
+parameter_list|(
+name|Collection
+argument_list|<
+name|Processor
+argument_list|>
+name|processors
+parameter_list|)
+block|{
+name|this
+operator|.
+name|processors
+operator|=
+name|processors
+expr_stmt|;
+block|}
 comment|/**      * A helper method to convert a list of endpoints into a list of processors      */
 DECL|method|toProducers (Collection<Endpoint> endpoints)
 specifier|public
@@ -193,24 +199,6 @@ block|}
 return|return
 name|answer
 return|;
-block|}
-DECL|method|MulticastProcessor (Collection<Processor> processors)
-specifier|public
-name|MulticastProcessor
-parameter_list|(
-name|Collection
-argument_list|<
-name|Processor
-argument_list|>
-name|processors
-parameter_list|)
-block|{
-name|this
-operator|.
-name|processors
-operator|=
-name|processors
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -311,7 +299,7 @@ return|return
 name|processors
 return|;
 block|}
-comment|/**      * Strategy method to copy the exchange before sending to another endpoint. Derived classes such as the      * {@link Pipeline} will not clone the exchange      *      * @param processor the processor that will send the exchange      * @param exchange @return the current exchange if no copying is required such as for a pipeline otherwise a new copy of the exchange is returned.      */
+comment|/**      * Strategy method to copy the exchange before sending to another endpoint.      * Derived classes such as the {@link Pipeline} will not clone the exchange      *       * @param processor the processor that will send the exchange      * @param exchange      * @return the current exchange if no copying is required such as for a      *         pipeline otherwise a new copy of the exchange is returned.      */
 DECL|method|copyExchangeStrategy (Processor processor, Exchange exchange)
 specifier|protected
 name|Exchange

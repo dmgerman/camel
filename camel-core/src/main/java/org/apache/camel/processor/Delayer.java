@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/delayer.html">Delayer</a> which delays  * processing the exchange until the correct amount of time has elapsed  * using an expression to determine the delivery time.  *<p/>  * For example if you wish to delay JMS messages by 25 seconds from their publish time you could create  * an instance of this class with the expression<code>header("JMSTimestamp")</code> and a delay value of 25000L.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/delayer.html">Delayer</a> which  * delays processing the exchange until the correct amount of time has elapsed  * using an expression to determine the delivery time.<p/> For example if you  * wish to delay JMS messages by 25 seconds from their publish time you could  * create an instance of this class with the expression  *<code>header("JMSTimestamp")</code> and a delay value of 25000L.  *   * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -90,8 +90,6 @@ DECL|field|delay
 specifier|private
 name|long
 name|delay
-init|=
-literal|0L
 decl_stmt|;
 DECL|method|Delayer (Processor processor, Expression<Exchange> timeExpression, long delay)
 specifier|public
@@ -154,7 +152,7 @@ literal|"]"
 return|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getDelay ()
 specifier|public
 name|long
@@ -165,7 +163,7 @@ return|return
 name|delay
 return|;
 block|}
-comment|/**      * Sets the delay from the publish time; which is typically the time from the expression      * or the current system time if none is available      */
+comment|/**      * Sets the delay from the publish time; which is typically the time from      * the expression or the current system time if none is available      */
 DECL|method|setDelay (long delay)
 specifier|public
 name|void
@@ -183,8 +181,8 @@ name|delay
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
-comment|/**      * Waits for an optional time period before continuing to process the exchange      */
+comment|// -------------------------------------------------------------------------
+comment|/**      * Waits for an optional time period before continuing to process the      * exchange      */
 DECL|method|delay (Exchange exchange)
 specifier|protected
 name|void
@@ -267,7 +265,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A Strategy Method to allow derived implementations to decide the current system time or some other      * default exchange property      *      * @param exchange      */
+comment|/**      * A Strategy Method to allow derived implementations to decide the current      * system time or some other default exchange property      *       * @param exchange      */
 DECL|method|defaultProcessTime (Exchange exchange)
 specifier|protected
 name|long

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -18,29 +18,31 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
+name|File
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|commons
+name|FileInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|logging
+name|io
 operator|.
-name|LogFactory
+name|IOException
 import|;
 end_import
 
@@ -60,9 +62,29 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URLDecoder
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
-name|Set
+name|Enumeration
 import|;
 end_import
 
@@ -82,7 +104,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Enumeration
+name|Set
 import|;
 end_import
 
@@ -112,56 +134,34 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|net
+name|apache
 operator|.
-name|URL
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|net
+name|apache
 operator|.
-name|URLDecoder
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|commons
 operator|.
-name|io
+name|logging
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileInputStream
+name|LogFactory
 import|;
 end_import
 
 begin_comment
-comment|/**  *<p>ResolverUtil is used to locate classes that are available in the/a class path and meet  * arbitrary conditions. The two most common conditions are that a class implements/extends  * another class, or that is it annotated with a specific annotation. However, through the use  * of the {@link Test} class it is possible to search using arbitrary conditions.</p>  *  *<p>A ClassLoader is used to locate all locations (directories and jar files) in the class  * path that contain classes within certain packages, and then to load those classes and  * check them. By default the ClassLoader returned by  *  {@code Thread.currentThread().getContextClassLoader()} is used, but this can be overridden  * by calling {@link #setClassLoader(ClassLoader)} prior to invoking any of the {@code find()}  * methods.</p>  *  *<p>General searches are initiated by calling the  * {@link #find(ResolverUtil.Test, String)} ()} method and supplying  * a package name and a Test instance. This will cause the named package<b>and all sub-packages</b>  * to be scanned for classes that meet the test. There are also utility methods for the common  * use cases of scanning multiple packages for extensions of particular classes, or classes  * annotated with a specific annotation.</p>  *  *<p>The standard usage pattern for the ResolverUtil class is as follows:</p>  *  *<pre>  *ResolverUtil&lt;ActionBean&gt; resolver = new ResolverUtil&lt;ActionBean&gt;();  *resolver.findImplementation(ActionBean.class, pkg1, pkg2);  *resolver.find(new CustomTest(), pkg1);  *resolver.find(new CustomTest(), pkg2);  *Collection&lt;ActionBean&gt; beans = resolver.getClasses();  *</pre>  *  * @author Tim Fennell  */
+comment|/**  *<p>  * ResolverUtil is used to locate classes that are available in the/a class path  * and meet arbitrary conditions. The two most common conditions are that a  * class implements/extends another class, or that is it annotated with a  * specific annotation. However, through the use of the {@link Test} class it is  * possible to search using arbitrary conditions.  *</p>  *   *<p>  * A ClassLoader is used to locate all locations (directories and jar files) in  * the class path that contain classes within certain packages, and then to load  * those classes and check them. By default the ClassLoader returned by  * {@code Thread.currentThread().getContextClassLoader()} is used, but this can  * be overridden by calling {@link #setClassLoader(ClassLoader)} prior to  * invoking any of the {@code find()} methods.  *</p>  *   *<p>  * General searches are initiated by calling the  * {@link #find(ResolverUtil.Test, String)} ()} method and supplying a package  * name and a Test instance. This will cause the named package<b>and all  * sub-packages</b> to be scanned for classes that meet the test. There are  * also utility methods for the common use cases of scanning multiple packages  * for extensions of particular classes, or classes annotated with a specific  * annotation.  *</p>  *   *<p>  * The standard usage pattern for the ResolverUtil class is as follows:  *</p>  *   *<pre>  * esolverUtil&lt;ActionBean&gt; resolver = new ResolverUtil&lt;ActionBean&gt;();  * esolver.findImplementation(ActionBean.class, pkg1, pkg2);  * esolver.find(new CustomTest(), pkg1);  * esolver.find(new CustomTest(), pkg2);  * ollection&lt;ActionBean&gt; beans = resolver.getClasses();  *</pre>  *   * @author Tim Fennell  */
 end_comment
 
 begin_class
@@ -173,13 +173,13 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -190,14 +190,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * A simple interface that specifies how to test classes to determine if they      * are to be included in the results produced by the ResolverUtil.      */
+comment|/**      * A simple interface that specifies how to test classes to determine if      * they are to be included in the results produced by the ResolverUtil.      */
 DECL|interface|Test
 specifier|public
 specifier|static
 interface|interface
 name|Test
 block|{
-comment|/**          * Will be called repeatedly with candidate classes. Must return True if a class          * is to be included in the results, false otherwise.          */
+comment|/**          * Will be called repeatedly with candidate classes. Must return True if          * a class is to be included in the results, false otherwise.          */
 DECL|method|matches (Class type)
 name|boolean
 name|matches
@@ -207,7 +207,7 @@ name|type
 parameter_list|)
 function_decl|;
 block|}
-comment|/**      * A Test that checks to see if each class is assignable to the provided class. Note      * that this test will match the parent type itself if it is presented for matching.      */
+comment|/**      * A Test that checks to see if each class is assignable to the provided      * class. Note that this test will match the parent type itself if it is      * presented for matching.      */
 DECL|class|IsA
 specifier|public
 specifier|static
@@ -221,7 +221,7 @@ specifier|private
 name|Class
 name|parent
 decl_stmt|;
-comment|/** Constructs an IsA test using the supplied Class as the parent class/interface. */
+comment|/**          * Constructs an IsA test using the supplied Class as the parent          * class/interface.          */
 DECL|method|IsA (Class parentType)
 specifier|public
 name|IsA
@@ -237,7 +237,7 @@ operator|=
 name|parentType
 expr_stmt|;
 block|}
-comment|/** Returns true if type is assignable to the parent type supplied in the constructor. */
+comment|/**          * Returns true if type is assignable to the parent type supplied in the          * constructor.          */
 DECL|method|matches (Class type)
 specifier|public
 name|boolean
@@ -260,9 +260,9 @@ name|type
 argument_list|)
 return|;
 block|}
-DECL|method|toString ()
 annotation|@
 name|Override
+DECL|method|toString ()
 specifier|public
 name|String
 name|toString
@@ -278,7 +278,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * A Test that checks to see if each class is annotated with a specific annotation. If it      * is, then the test returns true, otherwise false.      */
+comment|/**      * A Test that checks to see if each class is annotated with a specific      * annotation. If it is, then the test returns true, otherwise false.      */
 DECL|class|AnnotatedWith
 specifier|public
 specifier|static
@@ -318,7 +318,7 @@ operator|=
 name|annotation
 expr_stmt|;
 block|}
-comment|/** Returns true if the type is annotated with the class provided to the constructor. */
+comment|/**          * Returns true if the type is annotated with the class provided to the          * constructor.          */
 DECL|method|matches (Class type)
 specifier|public
 name|boolean
@@ -341,9 +341,9 @@ name|annotation
 argument_list|)
 return|;
 block|}
-DECL|method|toString ()
 annotation|@
 name|Override
+DECL|method|toString ()
 specifier|public
 name|String
 name|toString
@@ -385,13 +385,13 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * The ClassLoader to use when looking for classes. If null then the ClassLoader returned      * by Thread.currentThread().getContextClassLoader() will be used.      */
+comment|/**      * The ClassLoader to use when looking for classes. If null then the      * ClassLoader returned by Thread.currentThread().getContextClassLoader()      * will be used.      */
 DECL|field|classloader
 specifier|private
 name|ClassLoader
 name|classloader
 decl_stmt|;
-comment|/**      * Provides access to the classes discovered so far. If no calls have been made to      * any of the {@code find()} methods, this set will be empty.      *      * @return the set of classes that have been discovered.      */
+comment|/**      * Provides access to the classes discovered so far. If no calls have been      * made to any of the {@code find()} methods, this set will be empty.      *       * @return the set of classes that have been discovered.      */
 DECL|method|getClasses ()
 specifier|public
 name|Set
@@ -410,7 +410,7 @@ return|return
 name|matches
 return|;
 block|}
-comment|/**      * Returns the classloader that will be used for scanning for classes. If no explicit      * ClassLoader has been set by the calling, the context class loader will be used.      *      * @return the ClassLoader that will be used to scan for classes      */
+comment|/**      * Returns the classloader that will be used for scanning for classes. If no      * explicit ClassLoader has been set by the calling, the context class      * loader will be used.      *       * @return the ClassLoader that will be used to scan for classes      */
 DECL|method|getClassLoader ()
 specifier|public
 name|ClassLoader
@@ -433,7 +433,7 @@ else|:
 name|classloader
 return|;
 block|}
-comment|/**      * Sets an explicit ClassLoader that should be used when scanning for classes. If none      * is set then the context classloader will be used.      *      * @param classloader a ClassLoader to use when scanning for classes      */
+comment|/**      * Sets an explicit ClassLoader that should be used when scanning for      * classes. If none is set then the context classloader will be used.      *       * @param classloader a ClassLoader to use when scanning for classes      */
 DECL|method|setClassLoader (ClassLoader classloader)
 specifier|public
 name|void
@@ -450,7 +450,7 @@ operator|=
 name|classloader
 expr_stmt|;
 block|}
-comment|/**      * Attempts to discover classes that are assignable to the type provided. In the case      * that an interface is provided this method will collect implementations. In the case      * of a non-interface class, subclasses will be collected.  Accumulated classes can be      * accessed by calling {@link #getClasses()}.      *      * @param parent the class of interface to find subclasses or implementations of      * @param packageNames one or more package names to scan (including subpackages) for classes      */
+comment|/**      * Attempts to discover classes that are assignable to the type provided. In      * the case that an interface is provided this method will collect      * implementations. In the case of a non-interface class, subclasses will be      * collected. Accumulated classes can be accessed by calling      * {@link #getClasses()}.      *       * @param parent the class of interface to find subclasses or      *                implementations of      * @param packageNames one or more package names to scan (including      *                subpackages) for classes      */
 DECL|method|findImplementations (Class parent, String... packageNames)
 specifier|public
 name|void
@@ -470,7 +470,9 @@ name|packageNames
 operator|==
 literal|null
 condition|)
+block|{
 return|return;
+block|}
 name|Test
 name|test
 init|=
@@ -497,7 +499,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Attempts to discover classes that are annotated with to the annotation. Accumulated      * classes can be accessed by calling {@link #getClasses()}.      *      * @param annotation the annotation that should be present on matching classes      * @param packageNames one or more package names to scan (including subpackages) for classes      */
+comment|/**      * Attempts to discover classes that are annotated with to the annotation.      * Accumulated classes can be accessed by calling {@link #getClasses()}.      *       * @param annotation the annotation that should be present on matching      *                classes      * @param packageNames one or more package names to scan (including      *                subpackages) for classes      */
 DECL|method|findAnnotated (Class<? extends Annotation> annotation, String... packageNames)
 specifier|public
 name|void
@@ -522,7 +524,9 @@ name|packageNames
 operator|==
 literal|null
 condition|)
+block|{
 return|return;
+block|}
 name|Test
 name|test
 init|=
@@ -549,7 +553,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Scans for classes starting at the package provided and descending into subpackages.      * Each class is offered up to the Test as it is discovered, and if the Test returns      * true the class is retained.  Accumulated classes can be fetched by calling      * {@link #getClasses()}.      *      * @param test an instance of {@link Test} that will be used to filter classes      * @param packageName the name of the package from which to start scanning for      *        classes, e.g. {@code net.sourceforge.stripes}      */
+comment|/**      * Scans for classes starting at the package provided and descending into      * subpackages. Each class is offered up to the Test as it is discovered,      * and if the Test returns true the class is retained. Accumulated classes      * can be fetched by calling {@link #getClasses()}.      *       * @param test an instance of {@link Test} that will be used to filter      *                classes      * @param packageName the name of the package from which to start scanning      *                for classes, e.g. {@code net.sourceforge.stripes}      */
 DECL|method|find (Test test, String packageName)
 specifier|public
 name|void
@@ -603,7 +607,7 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -699,7 +703,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -758,7 +762,7 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -770,7 +774,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Finds matches in a physical directory on a filesystem.  Examines all      * files within a directory - if the File object is not a directory, and ends with<i>.class</i>      * the file is loaded and tested to see if it is acceptable according to the Test.  Operates      * recursively to find classes within a folder structure matching the package structure.      *      * @param test a Test used to filter the classes that are discovered      * @param parent the package name up to this directory in the package hierarchy.  E.g. if      *        /classes is in the classpath and we wish to examine files in /classes/org/apache then      *        the values of<i>parent</i> would be<i>org/apache</i>      * @param location a File object representing a directory      */
+comment|/**      * Finds matches in a physical directory on a filesystem. Examines all files      * within a directory - if the File object is not a directory, and ends with      *<i>.class</i> the file is loaded and tested to see if it is acceptable      * according to the Test. Operates recursively to find classes within a      * folder structure matching the package structure.      *       * @param test a Test used to filter the classes that are discovered      * @param parent the package name up to this directory in the package      *                hierarchy. E.g. if /classes is in the classpath and we      *                wish to examine files in /classes/org/apache then the      *                values of<i>parent</i> would be<i>org/apache</i>      * @param location a File object representing a directory      */
 DECL|method|loadImplementationsInDirectory (Test test, String parent, File location)
 specifier|private
 name|void
@@ -839,7 +843,6 @@ expr_stmt|;
 name|String
 name|packageOrClass
 init|=
-operator|(
 name|parent
 operator|==
 literal|null
@@ -853,7 +856,6 @@ name|builder
 operator|.
 name|toString
 argument_list|()
-operator|)
 decl_stmt|;
 if|if
 condition|(
@@ -897,7 +899,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Finds matching classes within a jar files that contains a folder structure      * matching the package structure.  If the File is not a JarFile or does not exist a warning      * will be logged, but no error will be raised.      *      * @param test a Test used to filter the classes that are discovered      * @param parent the parent package under which classes must be in order to be considered      * @param jarfile the jar file to be examined for classes      */
+comment|/**      * Finds matching classes within a jar files that contains a folder      * structure matching the package structure. If the File is not a JarFile or      * does not exist a warning will be logged, but no error will be raised.      *       * @param test a Test used to filter the classes that are discovered      * @param parent the parent package under which classes must be in order to      *                be considered      * @param jarfile the jar file to be examined for classes      */
 DECL|method|loadImplementationsInJar (Test test, String parent, File jarfile)
 specifier|private
 name|void
@@ -992,7 +994,7 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -1014,7 +1016,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Add the class designated by the fully qualified class name provided to the set of      * resolved classes if and only if it is approved by the Test supplied.      *      * @param test the test used to determine if the class matches      * @param fqn the fully qualified name of a class      */
+comment|/**      * Add the class designated by the fully qualified class name provided to      * the set of resolved classes if and only if it is approved by the Test      * supplied.      *       * @param test the test used to determine if the class matches      * @param fqn the fully qualified name of a class      */
 DECL|method|addIfMatching (Test test, String fqn)
 specifier|protected
 name|void
@@ -1059,7 +1061,7 @@ init|=
 name|getClassLoader
 argument_list|()
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
@@ -1115,7 +1117,7 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(

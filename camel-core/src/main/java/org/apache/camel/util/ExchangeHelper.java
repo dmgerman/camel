@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some helper methods for working with {@link Exchange} objects  *  * @version $Revision$  */
+comment|/**  * Some helper methods for working with {@link Exchange} objects  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -98,7 +98,13 @@ specifier|public
 class|class
 name|ExchangeHelper
 block|{
-comment|/**      * Attempts to resolve the endpoint for the given value      *      * @param exchange the message exchange being processed      * @param value the value which can be an {@link Endpoint} or an object which provides a String representation      * of an endpoint via {@link #toString()}      *      * @return the endpoint      * @throws NoSuchEndpointException if the endpoint cannot be resolved      */
+comment|/**      * Utility classes should not have a public constructor.      */
+DECL|method|ExchangeHelper ()
+specifier|private
+name|ExchangeHelper
+parameter_list|()
+block|{             }
+comment|/**      * Attempts to resolve the endpoint for the given value      *       * @param exchange the message exchange being processed      * @param value the value which can be an {@link Endpoint} or an object      *                which provides a String representation of an endpoint via      *                {@link #toString()}      *       * @return the endpoint      * @throws NoSuchEndpointException if the endpoint cannot be resolved      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -241,7 +247,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Returns the mandatory inbound message body of the correct type or throws an exception if it is not present      */
+comment|/**      * Returns the mandatory inbound message body of the correct type or throws      * an exception if it is not present      */
 DECL|method|getMandatoryInBody (Exchange exchange, Class<T> type)
 specifier|public
 specifier|static
@@ -357,7 +363,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Converts the value to the given expected type returning null if it could not be converted      */
+comment|/**      * Converts the value to the given expected type returning null if it could      * not be converted      */
 DECL|method|convertToType (Exchange exchange, Class<T> type, Object value)
 specifier|public
 specifier|static

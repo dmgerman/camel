@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -20,37 +20,31 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|Exchange
+name|File
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|Processor
+name|IOException
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|xml
+name|net
 operator|.
-name|sax
-operator|.
-name|SAXException
+name|URL
 import|;
 end_import
 
@@ -142,36 +136,42 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|xml
 operator|.
-name|File
+name|sax
+operator|.
+name|SAXException
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|net
+name|apache
 operator|.
-name|URL
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which validates the XML version of the inbound message body  * against some schema either in XSD or RelaxNG  *  * @version $Revision: 453155 $  */
+comment|/**  * A processor which validates the XML version of the inbound message body  * against some schema either in XSD or RelaxNG  *   * @version $Revision: 453155 $  */
 end_comment
 
 begin_class
@@ -321,16 +321,16 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-comment|/*               Fault fault = exchange.createFault();         if (errorHandler.hasErrors()) {                  // set the schema and source document as properties on the fault                 fault.setProperty("org.apache.servicemix.schema", schema);                 fault.setProperty("org.apache.servicemix.xml", source);                  */
-comment|/*                 * check if this error handler supports the capturing of                 * error messages.                 */
-comment|/*                 if (errorHandler.capturesMessages()) {                      */
-comment|/*                     * In descending order of preference select a format to use. If                     * neither DOMSource, StringSource or String are supported throw                     * a messaging exception.                     */
-comment|/*                     if (errorHandler.supportsMessageFormat(DOMSource.class)) {                         fault.setContent(                                 (DOMSource) errorHandler.getMessagesAs(DOMSource.class));                     }                     else if (errorHandler.supportsMessageFormat(StringSource.class)) {                         fault.setContent(sourceTransformer.toDOMSource(                                 (StringSource) errorHandler.getMessagesAs(StringSource.class)));                     }                     else if (errorHandler.supportsMessageFormat(String.class)) {                         fault.setContent(                                 sourceTransformer.toDOMSource(                                         new StringSource(                                                 (String) errorHandler.getMessagesAs(String.class))));                     }                     else {                         throw new MessagingException("MessageAwareErrorHandler implementation " +                                 errorHandler.getClass().getName() +                                 " does not support a compatible error message format.");                     }                 }                 else {                     */
-comment|/*                     * we can't do much here if the ErrorHandler implementation does                     * not support capturing messages                     */
-comment|/*                     fault.setContent(new DOMSource(result.getNode(), result.getSystemId()));                 }                 throw new FaultException("Failed to validate against schema: " + schema, exchange, fault);             }             else {                 // Retrieve the ouput of the validation                 // as it may have been changed by the validator                 out.setContent(new DOMSource(result.getNode(), result.getSystemId()));             }              } */
+comment|/*          * Fault fault = exchange.createFault(); if (errorHandler.hasErrors()) { //          * set the schema and source document as properties on the fault          * fault.setProperty("org.apache.servicemix.schema", schema);          * fault.setProperty("org.apache.servicemix.xml", source);          *           */
+comment|/*              * check if this error handler supports the capturing of error              * messages.              */
+comment|/*              * if (errorHandler.capturesMessages()) {              *               */
+comment|/*              * In descending order of preference select a format to use. If              * neither DOMSource, StringSource or String are supported throw a              * messaging exception.              */
+comment|/*              * if (errorHandler.supportsMessageFormat(DOMSource.class)) {              * fault.setContent( (DOMSource)              * errorHandler.getMessagesAs(DOMSource.class)); } else if              * (errorHandler.supportsMessageFormat(StringSource.class)) {              * fault.setContent(sourceTransformer.toDOMSource( (StringSource)              * errorHandler.getMessagesAs(StringSource.class))); } else if              * (errorHandler.supportsMessageFormat(String.class)) {              * fault.setContent( sourceTransformer.toDOMSource( new              * StringSource( (String)              * errorHandler.getMessagesAs(String.class)))); } else { throw new              * MessagingException("MessageAwareErrorHandler implementation " +              * errorHandler.getClass().getName() + " does not support a              * compatible error message format."); } } else {              */
+comment|/*              * we can't do much here if the ErrorHandler implementation does not              * support capturing messages              */
+comment|/*              * fault.setContent(new DOMSource(result.getNode(),              * result.getSystemId())); } throw new FaultException("Failed to              * validate against schema: " + schema, exchange, fault); } else { //              * Retrieve the ouput of the validation // as it may have been              * changed by the validator out.setContent(new              * DOMSource(result.getNode(), result.getSystemId())); } }              */
 block|}
 comment|// Properties
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|getSchema ()
 specifier|public
 name|Schema
@@ -559,7 +559,7 @@ name|errorHandler
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|createSchemaFactory ()
 specifier|protected
 name|SchemaFactory
@@ -587,7 +587,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"You must specify a schema, schemaFile, schemaSource or schemaUrl property"
+literal|"You must specify a schema, "
+operator|+
+literal|"schemaFile, schemaSource or schemaUrl property"
 argument_list|)
 throw|;
 block|}

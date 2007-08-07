@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for implementation inheritence providing the core {@link Message} body  * handling features but letting the derived class deal with headers.  *  * Unless a specific provider wishes to do something particularly clever with headers you probably  * want to just derive from {@link DefaultMessage}  *  * @version $Revision$  */
+comment|/**  * A base class for implementation inheritence providing the core  * {@link Message} body handling features but letting the derived class deal  * with headers.  *   * Unless a specific provider wishes to do something particularly clever with  * headers you probably want to just derive from {@link DefaultMessage}  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -67,12 +67,12 @@ name|MessageSupport
 implements|implements
 name|Message
 block|{
-DECL|field|defaultIdGenerator
+DECL|field|DEFALT_ID_GENERATOR
 specifier|private
 specifier|static
 specifier|final
 name|UuidGenerator
-name|defaultIdGenerator
+name|DEFALT_ID_GENERATOR
 init|=
 operator|new
 name|UuidGenerator
@@ -93,7 +93,7 @@ specifier|private
 name|String
 name|messageId
 init|=
-name|defaultIdGenerator
+name|DEFALT_ID_GENERATOR
 operator|.
 name|generateId
 argument_list|()
@@ -198,7 +198,7 @@ operator|=
 name|body
 expr_stmt|;
 block|}
-DECL|method|setBody (Object body, Class<T> type)
+DECL|method|setBody (Object value, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -207,7 +207,7 @@ name|void
 name|setBody
 parameter_list|(
 name|Object
-name|body
+name|value
 parameter_list|,
 name|Class
 argument_list|<
@@ -230,7 +230,7 @@ literal|null
 condition|)
 block|{
 name|T
-name|value
+name|v
 init|=
 name|e
 operator|.
@@ -244,25 +244,25 @@ name|convertTo
 argument_list|(
 name|type
 argument_list|,
-name|body
+name|value
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|value
+name|v
 operator|!=
 literal|null
 condition|)
 block|{
-name|body
-operator|=
 name|value
+operator|=
+name|v
 expr_stmt|;
 block|}
 block|}
 name|setBody
 argument_list|(
-name|body
+name|value
 argument_list|)
 expr_stmt|;
 block|}
@@ -335,7 +335,7 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
-comment|/**      * Returns a new instance      *      * @return      */
+comment|/**      * Returns a new instance      *       * @return      */
 DECL|method|newInstance ()
 specifier|public
 specifier|abstract
@@ -343,7 +343,7 @@ name|Message
 name|newInstance
 parameter_list|()
 function_decl|;
-comment|/**      * A factory method to allow a provider to lazily create the message body for inbound messages from other sources      *      * @return the value of the message body or null if there is no value available      */
+comment|/**      * A factory method to allow a provider to lazily create the message body      * for inbound messages from other sources      *       * @return the value of the message body or null if there is no value      *         available      */
 DECL|method|createBody ()
 specifier|protected
 name|Object

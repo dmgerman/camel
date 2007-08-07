@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class which creates a {@link CamelContext} with some routes along with a {@link CamelTemplate}  * for use in the test case  *  * @version $Revision: 1.1 $  */
+comment|/**  * A useful base class which creates a {@link CamelContext} with some routes  * along with a {@link CamelTemplate} for use in the test case  *   * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -160,7 +160,7 @@ return|return
 name|camelContextService
 return|;
 block|}
-comment|/**      * Allows a service to be registered a separate lifecycle service to start and stop      * the context; such as for Spring      * when the ApplicationContext is started and stopped, rather than directly stopping the      * CamelContext      */
+comment|/**      * Allows a service to be registered a separate lifecycle service to start      * and stop the context; such as for Spring when the ApplicationContext is      * started and stopped, rather than directly stopping the CamelContext      */
 DECL|method|setCamelContextService (Service camelContextService)
 specifier|public
 name|void
@@ -419,7 +419,7 @@ name|endpointType
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends a message to the given endpoint URI with the body value      *      * @param endpointUri the URI of the endpoint to send to      * @param body        the body for the message      */
+comment|/**      * Sends a message to the given endpoint URI with the body value      *       * @param endpointUri the URI of the endpoint to send to      * @param body the body for the message      */
 DECL|method|sendBody (String endpointUri, final Object body)
 specifier|protected
 name|void
@@ -481,7 +481,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends messages to the given endpoint for each of the specified bodies      *      * @param endpointUri the endpoint URI to send to      * @param bodies      the bodies to send, one per message      */
+comment|/**      * Sends messages to the given endpoint for each of the specified bodies      *       * @param endpointUri the endpoint URI to send to      * @param bodies the bodies to send, one per message      */
 DECL|method|sendBodies (String endpointUri, Object... bodies)
 specifier|protected
 name|void
@@ -531,7 +531,7 @@ name|body
 argument_list|)
 return|;
 block|}
-comment|/**      * Asserts that the given language name and expression evaluates to the given value on a specific exchange      */
+comment|/**      * Asserts that the given language name and expression evaluates to the      * given value on a specific exchange      */
 DECL|method|assertExpression (Exchange exchange, String languageName, String expressionText, Object expectedValue)
 specifier|protected
 name|void
@@ -594,7 +594,7 @@ name|expectedValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Asserts that the given language name and predicate expression evaluates to the expected value on the message exchange      */
+comment|/**      * Asserts that the given language name and predicate expression evaluates      * to the expected value on the message exchange      */
 DECL|method|assertPredicate (String languageName, String expressionText, Exchange exchange, boolean expected)
 specifier|protected
 name|void

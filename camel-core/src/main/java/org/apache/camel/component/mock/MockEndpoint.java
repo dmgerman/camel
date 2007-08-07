@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,82 @@ operator|.
 name|mock
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CopyOnWriteArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
 
 begin_import
 import|import
@@ -200,84 +276,8 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CopyOnWriteArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
 begin_comment
-comment|/**  * A Mock endpoint which provides a literate, fluent API for testing routes using  * a<a href="http://jmock.org/">JMock style</a> API.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A Mock endpoint which provides a literate, fluent API for testing routes  * using a<a href="http://jmock.org/">JMock style</a> API.  *   * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -291,13 +291,13 @@ argument_list|<
 name|Exchange
 argument_list|>
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -320,8 +320,6 @@ DECL|field|counter
 specifier|private
 name|int
 name|counter
-init|=
-literal|0
 decl_stmt|;
 DECL|field|processors
 specifier|private
@@ -428,6 +426,25 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
+DECL|method|MockEndpoint (String endpointUri, Component component)
+specifier|public
+name|MockEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Component
+name|component
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|component
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|assertWait (long timeout, TimeUnit unit, MockEndpoint... endpoints)
 specifier|public
 specifier|static
@@ -637,25 +654,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|MockEndpoint (String endpointUri, Component component)
-specifier|public
-name|MockEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|Component
-name|component
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|,
-name|component
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|createExchange ()
 specifier|public
 name|Exchange
@@ -732,8 +730,8 @@ block|}
 return|;
 block|}
 comment|// Testing API
-comment|//-------------------------------------------------------------------------
-comment|/**      * Validates that all the available expectations on this endpoint are satisfied; or throw an exception      */
+comment|// -------------------------------------------------------------------------
+comment|/**      * Validates that all the available expectations on this endpoint are      * satisfied; or throw an exception      */
 DECL|method|assertIsSatisfied ()
 specifier|public
 name|void
@@ -748,7 +746,7 @@ name|sleepForEmptyTest
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Validates that all the available expectations on this endpoint are satisfied; or throw an exception      *      * @param timeoutForEmptyEndpoints the timeout in milliseconds that we should wait for the test to be true      */
+comment|/**      * Validates that all the available expectations on this endpoint are      * satisfied; or throw an exception      *       * @param timeoutForEmptyEndpoints the timeout in milliseconds that we      *                should wait for the test to be true      */
 DECL|method|assertIsSatisfied (long timeoutForEmptyEndpoints)
 specifier|public
 name|void
@@ -790,7 +788,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -903,7 +901,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -955,7 +953,7 @@ name|AssertionError
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -966,7 +964,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Specifies the expected number of message exchanges that should be received by this endpoint      *      * @param expectedCount the number of message exchanges that should be expected by this endpoint      */
+comment|/**      * Specifies the expected number of message exchanges that should be      * received by this endpoint      *       * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
 DECL|method|expectedMessageCount (int expectedCount)
 specifier|public
 name|void
@@ -1006,7 +1004,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Specifies the minimum number of expected message exchanges that should be received by this endpoint      *      * @param expectedCount the number of message exchanges that should be expected by this endpoint      */
+comment|/**      * Specifies the minimum number of expected message exchanges that should be      * received by this endpoint      *       * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
 DECL|method|expectedMinimumMessageCount (int expectedCount)
 specifier|public
 name|void
@@ -1046,7 +1044,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Adds an expectation that the given body values are received by this endpoint      */
+comment|/**      * Adds an expectation that the given body values are received by this      * endpoint      */
 DECL|method|expectedBodiesReceived (final List bodies)
 specifier|public
 name|void
@@ -1167,7 +1165,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that the given body values are received by this endpoint      */
+comment|/**      * Adds an expectation that the given body values are received by this      * endpoint      */
 DECL|method|expectedBodiesReceived (Object... bodies)
 specifier|public
 name|void
@@ -1207,7 +1205,7 @@ name|bodyList
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that messages received should have ascending values of the given expression      * such as a user generated counter value      *      * @param expression      */
+comment|/**      * Adds an expectation that messages received should have ascending values      * of the given expression such as a user generated counter value      *       * @param expression      */
 DECL|method|expectsAscending (final Expression<Exchange> expression)
 specifier|public
 name|void
@@ -1242,7 +1240,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that messages received should have descending values of the given expression      * such as a user generated counter value      *      * @param expression      */
+comment|/**      * Adds an expectation that messages received should have descending values      * of the given expression such as a user generated counter value      *       * @param expression      */
 DECL|method|expectsDescending (final Expression<Exchange> expression)
 specifier|public
 name|void
@@ -1277,7 +1275,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that no duplicate messages should be received using the      * expression to determine the message ID      *      * @param expression the expression used to create a unique message ID for      *                   message comparison (which could just be the message payload if the payload      *                   can be tested for uniqueness using {@link Object#equals(Object)}      *                   and {@link Object#hashCode()}      */
+comment|/**      * Adds an expectation that no duplicate messages should be received using      * the expression to determine the message ID      *       * @param expression the expression used to create a unique message ID for      *                message comparison (which could just be the message      *                payload if the payload can be tested for uniqueness using      *                {@link Object#equals(Object)} and      *                {@link Object#hashCode()}      */
 DECL|method|expectsNoDuplicates (final Expression<Exchange> expression)
 specifier|public
 name|void
@@ -1372,9 +1370,7 @@ block|{
 name|String
 name|type
 init|=
-operator|(
 name|ascending
-operator|)
 condition|?
 literal|"ascending"
 else|:
@@ -1702,7 +1698,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Adds the expection which will be invoked when enough messages are received      */
+comment|/**      * Adds the expection which will be invoked when enough messages are      * received      */
 DECL|method|expects (Runnable runnable)
 specifier|public
 name|void
@@ -1720,7 +1716,7 @@ name|runnable
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an assertion to the given message index      *      * @param messageIndex the number of the message      * @return the assertion clause      */
+comment|/**      * Adds an assertion to the given message index      *       * @param messageIndex the number of the message      * @return the assertion clause      */
 DECL|method|message (final int messageIndex)
 specifier|public
 name|AssertionClause
@@ -1769,7 +1765,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Adds an assertion to all the received messages      *      * @return the assertion clause      */
+comment|/**      * Adds an assertion to all the received messages      *       * @return the assertion clause      */
 DECL|method|allMessages ()
 specifier|public
 name|AssertionClause
@@ -1873,7 +1869,7 @@ argument_list|)
 return|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getFailures ()
 specifier|public
 name|List
@@ -1934,7 +1930,7 @@ return|return
 name|sleepForEmptyTest
 return|;
 block|}
-comment|/**      * Allows a sleep to be specified to wait to check that this endpoint really is empty when      * {@link #expectedMessageCount(int)} is called with zero      *      * @param sleepForEmptyTest the milliseconds to sleep for to determine that this endpoint really is empty      */
+comment|/**      * Allows a sleep to be specified to wait to check that this endpoint really      * is empty when {@link #expectedMessageCount(int)} is called with zero      *       * @param sleepForEmptyTest the milliseconds to sleep for to determine that      *                this endpoint really is empty      */
 DECL|method|setSleepForEmptyTest (long sleepForEmptyTest)
 specifier|public
 name|void
@@ -1961,7 +1957,7 @@ return|return
 name|defaulResultWaitMillis
 return|;
 block|}
-comment|/**      * Sets the maximum amount of time the {@link #assertIsSatisfied()}      * will wait on a latch until it is satisfied      */
+comment|/**      * Sets the maximum amount of time the {@link #assertIsSatisfied()} will      * wait on a latch until it is satisfied      */
 DECL|method|setDefaulResultWaitMillis (long defaulResultWaitMillis)
 specifier|public
 name|void
@@ -1979,7 +1975,7 @@ name|defaulResultWaitMillis
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|onExchange (Exchange exchange)
 specifier|protected
 specifier|synchronized
@@ -2072,7 +2068,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2179,7 +2175,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now lets wait for the results
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2283,7 +2279,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
@@ -2311,7 +2307,7 @@ range|:
 name|list
 control|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(

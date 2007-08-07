@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for including portions of the  *<a href="http://activemq.apache.org/camel/expression.html">expression</a> and  *<a href="http://activemq.apache.org/camel/predicate.html">predicate</a>  *<a href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *  * @version $Revision: 1.1 $  */
+comment|/**  * A helper class for including portions of the<a  * href="http://activemq.apache.org/camel/expression.html">expression</a> and  *<a href="http://activemq.apache.org/camel/predicate.html">predicate</a><a  * href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *   * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -50,6 +50,12 @@ specifier|public
 class|class
 name|Builder
 block|{
+comment|/**      * Utility classes should not have a public constructor.      */
+DECL|method|Builder ()
+specifier|private
+name|Builder
+parameter_list|()
+block|{             }
 comment|/**      * Returns a constant expression      */
 DECL|method|constant (Object value)
 specifier|public
@@ -174,7 +180,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the inbound message body as a specific type      */
+comment|/**      * Returns a predicate and value builder for the inbound message body as a      * specific type      */
 DECL|method|bodyAs (Class<T> type)
 specifier|public
 specifier|static
@@ -227,7 +233,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the outbound body on an exchange      */
+comment|/**      * Returns a predicate and value builder for the outbound body on an      * exchange      */
 DECL|method|outBody ()
 specifier|public
 specifier|static
@@ -265,7 +271,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the outbound message body as a specific type      */
+comment|/**      * Returns a predicate and value builder for the outbound message body as a      * specific type      */
 DECL|method|outBody (Class<T> type)
 specifier|public
 specifier|static
