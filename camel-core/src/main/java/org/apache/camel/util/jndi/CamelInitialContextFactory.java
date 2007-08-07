@@ -88,8 +88,6 @@ operator|new
 name|JndiContext
 argument_list|(
 name|environment
-argument_list|,
-name|environment
 argument_list|)
 return|;
 block|}
