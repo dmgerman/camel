@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -20,93 +20,127 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|ByteArrayInputStream
+name|camel
+operator|.
+name|Converter
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|File
+name|camel
+operator|.
+name|converter
+operator|.
+name|IOConverter
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|camel
+operator|.
+name|converter
+operator|.
+name|NIOConverter
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|InputStream
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|w3c
 operator|.
-name|InputStreamReader
+name|dom
+operator|.
+name|Document
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|w3c
 operator|.
-name|Reader
+name|dom
+operator|.
+name|Element
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|w3c
 operator|.
-name|StringReader
+name|dom
+operator|.
+name|Node
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|xml
 operator|.
-name|StringWriter
+name|sax
+operator|.
+name|InputSource
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|lang
+name|xml
 operator|.
-name|reflect
+name|sax
 operator|.
-name|Constructor
+name|SAXException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|XMLReader
 import|;
 end_import
 
@@ -302,104 +336,108 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|w3c
+name|io
 operator|.
-name|dom
-operator|.
-name|Document
+name|ByteArrayInputStream
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|w3c
+name|io
 operator|.
-name|dom
-operator|.
-name|Element
+name|File
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|w3c
+name|io
 operator|.
-name|dom
-operator|.
-name|Node
+name|IOException
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|xml
+name|io
 operator|.
-name|sax
-operator|.
-name|InputSource
+name|InputStream
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|xml
+name|io
 operator|.
-name|sax
-operator|.
-name|SAXException
+name|InputStreamReader
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|xml
+name|io
 operator|.
-name|sax
-operator|.
-name|XMLReader
+name|Reader
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|Converter
+name|StringReader
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
+name|StringWriter
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|util
+name|lang
 operator|.
-name|ObjectHelper
+name|reflect
+operator|.
+name|Constructor
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|ByteBuffer
 import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class to transform to and from various JAXB types such as  * {@link Source} and {@link Document}  *   * @version $Revision$  */
+comment|/**  * A helper class to transform to and from various JAXB types such as {@link Source} and {@link Document}  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -419,12 +457,11 @@ name|DEFAULT_CHARSET_PROPERTY
 init|=
 literal|"org.apache.camel.default.charset"
 decl_stmt|;
-DECL|field|DEFAULT_CHARSET
+DECL|field|defaultCharset
 specifier|public
 specifier|static
-specifier|final
 name|String
-name|DEFAULT_CHARSET
+name|defaultCharset
 init|=
 name|ObjectHelper
 operator|.
@@ -435,13 +472,23 @@ argument_list|,
 literal|"UTF-8"
 argument_list|)
 decl_stmt|;
-comment|/*      * When converting a DOM tree to a SAXSource, we try to use Xalan internal      * DOM parser if available. Else, transform the DOM tree to a String and      * build a SAXSource on top of it.      */
-DECL|field|DOM2SAX_CLASS
+DECL|field|documentBuilderFactory
+specifier|private
+name|DocumentBuilderFactory
+name|documentBuilderFactory
+decl_stmt|;
+DECL|field|transformerFactory
+specifier|private
+name|TransformerFactory
+name|transformerFactory
+decl_stmt|;
+comment|/*      * When converting a DOM tree to a SAXSource,      * we try to use Xalan internal DOM parser if      * available.  Else, transform the DOM tree      * to a String and build a SAXSource on top of      * it.      */
+DECL|field|dom2SaxClass
 specifier|private
 specifier|static
 specifier|final
 name|Class
-name|DOM2SAX_CLASS
+name|dom2SaxClass
 decl_stmt|;
 static|static
 block|{
@@ -465,24 +512,14 @@ block|}
 catch|catch
 parameter_list|(
 name|Throwable
-name|ignore
+name|t
 parameter_list|)
-block|{         }
-name|DOM2SAX_CLASS
+block|{}
+name|dom2SaxClass
 operator|=
 name|cl
 expr_stmt|;
 block|}
-DECL|field|documentBuilderFactory
-specifier|private
-name|DocumentBuilderFactory
-name|documentBuilderFactory
-decl_stmt|;
-DECL|field|transformerFactory
-specifier|private
-name|TransformerFactory
-name|transformerFactory
-decl_stmt|;
 DECL|method|XmlConverter ()
 specifier|public
 name|XmlConverter
@@ -556,7 +593,7 @@ name|OutputKeys
 operator|.
 name|ENCODING
 argument_list|,
-name|DEFAULT_CHARSET
+name|defaultCharset
 argument_list|)
 expr_stmt|;
 name|transformer
@@ -752,7 +789,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the source instance to a {@link DOMSource} or returns null if      * the conversion is not supported (making it easy to derive from this class      * to add new kinds of conversion).      */
+comment|/**      * Converts the source instance to a {@link DOMSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
 annotation|@
 name|Converter
 DECL|method|toDOMSource (Source source)
@@ -829,7 +866,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Converts the source instance to a {@link DOMSource} or returns null if      * the conversion is not supported (making it easy to derive from this class      * to add new kinds of conversion).      */
+comment|/**      * Converts the source instance to a {@link DOMSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
 annotation|@
 name|Converter
 DECL|method|toDOMSource (String text)
@@ -881,7 +918,63 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if      * the conversion is not supported (making it easy to derive from this class      * to add new kinds of conversion).      */
+comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
+annotation|@
+name|Converter
+DECL|method|toSAXSource (String source)
+specifier|public
+name|SAXSource
+name|toSAXSource
+parameter_list|(
+name|String
+name|source
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|TransformerException
+block|{
+return|return
+name|toSAXSource
+argument_list|(
+name|toSource
+argument_list|(
+name|source
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
+annotation|@
+name|Converter
+DECL|method|toSAXSource (InputStream source)
+specifier|public
+name|SAXSource
+name|toSAXSource
+parameter_list|(
+name|InputStream
+name|source
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|TransformerException
+block|{
+return|return
+name|toSAXSource
+argument_list|(
+name|toStreamSource
+argument_list|(
+name|source
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
 annotation|@
 name|Converter
 DECL|method|toSAXSource (Source source)
@@ -1025,6 +1118,177 @@ return|return
 literal|null
 return|;
 block|}
+block|}
+annotation|@
+name|Converter
+DECL|method|toStreamSource (InputStream in)
+specifier|public
+name|StreamSource
+name|toStreamSource
+parameter_list|(
+name|InputStream
+name|in
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
+if|if
+condition|(
+name|in
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|StreamSource
+argument_list|(
+name|in
+argument_list|)
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toStreamSource (Reader in)
+specifier|public
+name|StreamSource
+name|toStreamSource
+parameter_list|(
+name|Reader
+name|in
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
+if|if
+condition|(
+name|in
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|StreamSource
+argument_list|(
+name|in
+argument_list|)
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toStreamSource (File in)
+specifier|public
+name|StreamSource
+name|toStreamSource
+parameter_list|(
+name|File
+name|in
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
+if|if
+condition|(
+name|in
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|StreamSource
+argument_list|(
+name|in
+argument_list|)
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toStreamSource (byte[] in)
+specifier|public
+name|StreamSource
+name|toStreamSource
+parameter_list|(
+name|byte
+index|[]
+name|in
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
+if|if
+condition|(
+name|in
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|StreamSource
+argument_list|(
+name|IOConverter
+operator|.
+name|toInputStream
+argument_list|(
+name|in
+argument_list|)
+argument_list|)
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toStreamSource (ByteBuffer in)
+specifier|public
+name|StreamSource
+name|toStreamSource
+parameter_list|(
+name|ByteBuffer
+name|in
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
+if|if
+condition|(
+name|in
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|StreamSource
+argument_list|(
+name|NIOConverter
+operator|.
+name|toInputStream
+argument_list|(
+name|in
+argument_list|)
+argument_list|)
+return|;
+block|}
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Converter
@@ -1416,7 +1680,7 @@ name|TransformerException
 block|{
 if|if
 condition|(
-name|DOM2SAX_CLASS
+name|dom2SaxClass
 operator|!=
 literal|null
 condition|)
@@ -1426,7 +1690,7 @@ block|{
 name|Constructor
 name|cns
 init|=
-name|DOM2SAX_CLASS
+name|dom2SaxClass
 operator|.
 name|getConstructor
 argument_list|(
@@ -1590,7 +1854,7 @@ name|getNode
 argument_list|()
 return|;
 block|}
-comment|/**      * Converts the given TRaX Source into a W3C DOM node      *       * @throws SAXException      * @throws IOException      * @throws ParserConfigurationException      */
+comment|/**      * Converts the given TRaX Source into a W3C DOM node      * @throws SAXException      * @throws IOException      * @throws ParserConfigurationException      */
 annotation|@
 name|Converter
 DECL|method|toDOMNode (Source source)
@@ -1631,7 +1895,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**      * Create a DOM element from the given source.      *       * @param source      * @return      * @throws TransformerException      * @throws ParserConfigurationException      * @throws IOException      * @throws SAXException      */
+comment|/**      * Create a DOM element from the given source.      *      * @param source      * @return      * @throws TransformerException      * @throws ParserConfigurationException      * @throws IOException      * @throws SAXException      */
 annotation|@
 name|Converter
 DECL|method|toDOMElement (Source source)
@@ -1666,7 +1930,7 @@ name|node
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a DOM element from the DOM node. Simply cast if the node is an      * Element, or return the root element if it is a Document.      *       * @param node      * @return      * @throws TransformerException      */
+comment|/**      * Create a DOM element from the DOM node.      * Simply cast if the node is an Element, or      * return the root element if it is a Document.      *      * @param node      * @return      * @throws TransformerException      */
 annotation|@
 name|Converter
 DECL|method|toDOMElement (Node node)
@@ -1728,7 +1992,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Converts the given data to a DOM document      *       * @param data is the data to be parsed      * @return the parsed document      */
+comment|/**      * Converts the given data to a DOM document      *      * @param data is the data to be parsed      * @return the parsed document      */
 annotation|@
 name|Converter
 DECL|method|toDOMDocument (byte[] data)
@@ -1769,7 +2033,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given {@link InputStream} to a DOM document      *       * @param in is the data to be parsed      * @return the parsed document      */
+comment|/**      * Converts the given {@link InputStream} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      */
 annotation|@
 name|Converter
 DECL|method|toDOMDocument (InputStream in)
@@ -1805,7 +2069,7 @@ name|in
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given {@link InputSource} to a DOM document      *       * @param in is the data to be parsed      * @return the parsed document      */
+comment|/**      * Converts the given {@link InputSource} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      */
 annotation|@
 name|Converter
 DECL|method|toDOMDocument (InputSource in)
@@ -1841,7 +2105,7 @@ name|in
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given {@link String} to a DOM document      *       * @param text is the data to be parsed      * @return the parsed document      */
+comment|/**      * Converts the given {@link String} to a DOM document      *      * @param text is the data to be parsed      * @return the parsed document      */
 annotation|@
 name|Converter
 DECL|method|toDOMDocument (String text)
@@ -1869,7 +2133,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given {@link File} to a DOM document      *       * @param file is the data to be parsed      * @return the parsed document      */
+comment|/**      * Converts the given {@link File} to a DOM document      *      * @param file is the data to be parsed      * @return the parsed document      */
 annotation|@
 name|Converter
 DECL|method|toDOMDocument (File file)
@@ -1905,7 +2169,7 @@ name|file
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a DOM document from the given source.      *       * @param source      * @return      * @throws TransformerException      * @throws ParserConfigurationException      * @throws IOException      * @throws SAXException      */
+comment|/**      * Create a DOM document from the given source.      *      * @param source      * @return      * @throws TransformerException      * @throws ParserConfigurationException      * @throws IOException      * @throws SAXException      */
 annotation|@
 name|Converter
 DECL|method|toDOMDocument (Source source)
@@ -1940,7 +2204,7 @@ name|node
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a DOM document from the given Node. If the node is an document,      * just cast it, if the node is an root element, retrieve its owner element      * or create a new document and import the node.      *       * @param node      * @return      * @throws ParserConfigurationException      * @throws TransformerException      */
+comment|/**      * Create a DOM document from the given Node.      * If the node is an document, just cast it,      * if the node is an root element, retrieve its      * owner element or create a new document and import      * the node.      *      * @param node      * @return      * @throws ParserConfigurationException      * @throws TransformerException      */
 annotation|@
 name|Converter
 DECL|method|toDOMDocument (Node node)
@@ -2050,7 +2314,7 @@ throw|;
 block|}
 block|}
 comment|// Properties
-comment|// -------------------------------------------------------------------------
+comment|//-------------------------------------------------------------------------
 DECL|method|getDocumentBuilderFactory ()
 specifier|public
 name|DocumentBuilderFactory
@@ -2091,7 +2355,7 @@ name|documentBuilderFactory
 expr_stmt|;
 block|}
 comment|// Helper methods
-comment|// -------------------------------------------------------------------------
+comment|//-------------------------------------------------------------------------
 DECL|method|createDocumentBuilderFactory ()
 specifier|public
 name|DocumentBuilderFactory
