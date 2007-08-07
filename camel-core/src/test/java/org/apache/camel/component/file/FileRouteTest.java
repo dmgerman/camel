@@ -113,6 +113,13 @@ argument_list|(
 name|expectedBody
 argument_list|)
 expr_stmt|;
+name|result
+operator|.
+name|setDefaulResultWaitMillis
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
