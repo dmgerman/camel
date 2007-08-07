@@ -554,7 +554,7 @@ name|Context
 name|jndiContext
 parameter_list|)
 block|{
-name|setRegistry
+name|this
 argument_list|(
 operator|new
 name|JndiRegistry
@@ -562,6 +562,22 @@ argument_list|(
 name|jndiContext
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Creates the {@link CamelContext} using the given registry      */
+DECL|method|DefaultCamelContext (Registry registry)
+specifier|public
+name|DefaultCamelContext
+parameter_list|(
+name|Registry
+name|registry
+parameter_list|)
+block|{
+name|this
+operator|.
+name|registry
+operator|=
+name|registry
 expr_stmt|;
 block|}
 comment|/**      * Adds a component to the container.      */

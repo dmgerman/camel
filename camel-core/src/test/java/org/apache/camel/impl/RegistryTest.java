@@ -28,6 +28,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jndi
+operator|.
+name|JndiTest
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -62,10 +78,6 @@ DECL|field|registry
 specifier|protected
 name|JndiRegistry
 name|registry
-init|=
-operator|new
-name|JndiRegistry
-argument_list|()
 decl_stmt|;
 DECL|method|testBind ()
 specifier|public
@@ -173,6 +185,31 @@ argument_list|(
 literal|"Should not find anything!"
 argument_list|,
 name|value
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|registry
+operator|=
+operator|new
+name|JndiRegistry
+argument_list|(
+name|JndiTest
+operator|.
+name|createInitialContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
