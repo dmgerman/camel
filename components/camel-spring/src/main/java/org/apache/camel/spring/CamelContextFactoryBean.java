@@ -589,7 +589,7 @@ argument_list|()
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Found JAXB created routes: "
 operator|+
@@ -658,7 +658,7 @@ try|try
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Starting the context now!"
 argument_list|)
