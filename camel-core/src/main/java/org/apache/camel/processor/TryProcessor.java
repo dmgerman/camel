@@ -46,6 +46,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -87,6 +115,8 @@ DECL|class|TryProcessor
 specifier|public
 class|class
 name|TryProcessor
+extends|extends
+name|ServiceSupport
 implements|implements
 name|Processor
 block|{
@@ -162,6 +192,41 @@ name|finallyProcessor
 operator|=
 name|finallyProcessor
 expr_stmt|;
+block|}
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+name|String
+name|finallyText
+init|=
+operator|(
+name|finallyProcessor
+operator|==
+literal|null
+operator|)
+condition|?
+literal|""
+else|:
+literal|" Finally {"
+operator|+
+name|finallyProcessor
+operator|+
+literal|"}"
+decl_stmt|;
+return|return
+literal|"Try {"
+operator|+
+name|tryProcessor
+operator|+
+literal|"} "
+operator|+
+name|catchClauses
+operator|+
+name|finallyText
+return|;
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -262,6 +327,46 @@ block|}
 block|}
 block|}
 block|}
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|tryProcessor
+argument_list|,
+name|catchClauses
+argument_list|,
+name|finallyProcessor
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|stopServices
+argument_list|(
+name|tryProcessor
+argument_list|,
+name|catchClauses
+argument_list|,
+name|finallyProcessor
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|handleException (Exchange exchange, Exception e)
 specifier|protected
 name|void
@@ -294,6 +399,14 @@ name|e
 argument_list|)
 condition|)
 block|{
+comment|// lets attach the exception to the exchange
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|catchClause
@@ -325,9 +438,13 @@ throw|throw
 name|e1
 throw|;
 block|}
-break|break;
+return|return;
 block|}
 block|}
+comment|// unhandled exception
+throw|throw
+name|e
+throw|;
 block|}
 block|}
 end_class

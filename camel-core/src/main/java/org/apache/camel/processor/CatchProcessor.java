@@ -42,6 +42,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -59,8 +73,8 @@ DECL|class|CatchProcessor
 specifier|public
 class|class
 name|CatchProcessor
-implements|implements
-name|Processor
+extends|extends
+name|DelegateProcessor
 block|{
 DECL|field|exceptions
 specifier|private
@@ -69,11 +83,6 @@ argument_list|<
 name|Class
 argument_list|>
 name|exceptions
-decl_stmt|;
-DECL|field|processor
-specifier|private
-name|Processor
-name|processor
 decl_stmt|;
 DECL|method|CatchProcessor (List<Class> exceptions, Processor processor)
 specifier|public
@@ -89,18 +98,38 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|exceptions
 operator|=
 name|exceptions
 expr_stmt|;
-name|this
-operator|.
-name|processor
-operator|=
-name|processor
-expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Catch["
+operator|+
+name|exceptions
+operator|+
+literal|" -> "
+operator|+
+name|getProcessor
+argument_list|()
+operator|+
+literal|"]"
+return|;
 block|}
 DECL|method|catches (Exception e)
 specifier|public
@@ -138,24 +167,18 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|process (Exchange exchange)
+DECL|method|getExceptions ()
 specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
+name|List
+argument_list|<
+name|Class
+argument_list|>
+name|getExceptions
+parameter_list|()
 block|{
-name|processor
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
+return|return
+name|exceptions
+return|;
 block|}
 block|}
 end_class

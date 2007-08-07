@@ -224,6 +224,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"exception"
+argument_list|)
 DECL|field|exceptions
 specifier|private
 name|List
