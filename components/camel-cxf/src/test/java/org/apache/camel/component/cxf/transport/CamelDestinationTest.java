@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one  * or more contributor license agreements. See the NOTICE file  * distributed with this work for additional information  * regarding copyright ownership. The ASF licenses this file  * to you under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance  * with the License. You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied. See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -19,6 +19,36 @@ operator|.
 name|transport
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
 
 begin_import
 import|import
@@ -155,36 +185,6 @@ operator|.
 name|classextension
 operator|.
 name|EasyMock
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
 import|;
 end_import
 
@@ -470,7 +470,7 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-comment|/*assertEquals("Can't get the right ServerConfig's MessageTimeToLive ",         500L,         destination.getServerConfig().getMessageTimeToLive()); assertEquals("Can't get the right Server's MessageSelector",         "cxf_message_selector",         destination.getRuntimePolicy().getMessageSelector()); assertEquals("Can't get the right SessionPoolConfig's LowWaterMark",         10,         destination.getSessionPool().getLowWaterMark()); assertEquals("Can't get the right AddressPolicy's ConnectionPassword",         "testPassword",         destination.getCamelAddress().getConnectionPassword());*/
+comment|/*          * assertEquals("Can't get the right ServerConfig's MessageTimeToLive ",          * 500L, destination.getServerConfig().getMessageTimeToLive());          * assertEquals("Can't get the right Server's MessageSelector",          * "cxf_message_selector",          * destination.getRuntimePolicy().getMessageSelector());          * assertEquals("Can't get the right SessionPoolConfig's LowWaterMark",          * 10, destination.getSessionPool().getLowWaterMark());          * assertEquals("Can't get the right AddressPolicy's          * ConnectionPassword", "testPassword",          * destination.getCamelAddress().getConnectionPassword());          */
 name|BusFactory
 operator|.
 name|setDefaultBus
@@ -542,7 +542,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|//destination.activate();
+comment|// destination.activate();
 block|}
 catch|catch
 parameter_list|(
@@ -613,7 +613,7 @@ name|Message
 name|outMessage
 parameter_list|)
 block|{
-comment|/*         CamelMessageHeadersType header = new CamelMessageHeadersType();         header.setCamelCorrelationID("Destination test");         header.setCamelDeliveryMode(3);         header.setCamelPriority(1);         header.setTimeToLive(1000);         outMessage.put(CamelConstants.Camel_CLIENT_REQUEST_HEADERS, header); */
+comment|/*          * CamelMessageHeadersType header = new CamelMessageHeadersType();          * header.setCamelCorrelationID("Destination test");          * header.setCamelDeliveryMode(3); header.setCamelPriority(1);          * header.setTimeToLive(1000);          * outMessage.put(CamelConstants.Camel_CLIENT_REQUEST_HEADERS, header);          */
 block|}
 DECL|method|verifyReceivedMessage (Message inMessage)
 specifier|private
@@ -712,7 +712,7 @@ name|Message
 name|outMessage
 parameter_list|)
 block|{
-comment|/*         CamelMessageHeadersType outHeader =             (CamelMessageHeadersType)outMessage.get(CamelConstants.Camel_CLIENT_REQUEST_HEADERS);                  CamelMessageHeadersType inHeader =             (CamelMessageHeadersType)inMessage.get(CamelConstants.Camel_CLIENT_RESPONSE_HEADERS);          verifyJmsHeaderEquality(outHeader, inHeader); */
+comment|/*          * CamelMessageHeadersType outHeader =          * (CamelMessageHeadersType)outMessage.get(CamelConstants.Camel_CLIENT_REQUEST_HEADERS);          * CamelMessageHeadersType inHeader =          * (CamelMessageHeadersType)inMessage.get(CamelConstants.Camel_CLIENT_RESPONSE_HEADERS);          * verifyJmsHeaderEquality(outHeader, inHeader);          */
 block|}
 DECL|method|verifyHeaders (Message inMessage, Message outMessage)
 specifier|private
@@ -726,9 +726,9 @@ name|Message
 name|outMessage
 parameter_list|)
 block|{
-comment|/*         CamelMessageHeadersType outHeader =             (CamelMessageHeadersType)outMessage.get(CamelConstants.Camel_CLIENT_REQUEST_HEADERS);                  CamelMessageHeadersType inHeader =             (CamelMessageHeadersType)inMessage.get(CamelConstants.Camel_SERVER_REQUEST_HEADERS);         verifyJmsHeaderEquality(outHeader, inHeader); */
+comment|/*          * CamelMessageHeadersType outHeader =          * (CamelMessageHeadersType)outMessage.get(CamelConstants.Camel_CLIENT_REQUEST_HEADERS);          * CamelMessageHeadersType inHeader =          * (CamelMessageHeadersType)inMessage.get(CamelConstants.Camel_SERVER_REQUEST_HEADERS);          * verifyJmsHeaderEquality(outHeader, inHeader);          */
 block|}
-comment|/*         private void verifyJmsHeaderEquality(CamelMessageHeadersType outHeader, CamelMessageHeadersType inHeader) {             assertEquals("The inMessage and outMessage Camel Header's CorrelationID should be equals",                          outHeader.getCamelCorrelationID(), inHeader.getCamelCorrelationID());             assertEquals("The inMessage and outMessage Camel Header's CamelPriority should be equals",                          outHeader.getCamelPriority(), inHeader.getCamelPriority());             assertEquals("The inMessage and outMessage Camel Header's CamelType should be equals",                          outHeader.getCamelType(), inHeader.getCamelType());          }      */
+comment|/*      * private void verifyJmsHeaderEquality(CamelMessageHeadersType outHeader,      * CamelMessageHeadersType inHeader) { assertEquals("The inMessage and      * outMessage Camel Header's CorrelationID should be equals",      * outHeader.getCamelCorrelationID(), inHeader.getCamelCorrelationID());      * assertEquals("The inMessage and outMessage Camel Header's CamelPriority      * should be equals", outHeader.getCamelPriority(),      * inHeader.getCamelPriority()); assertEquals("The inMessage and outMessage      * Camel Header's CamelType should be equals", outHeader.getCamelType(),      * inHeader.getCamelType()); }      */
 DECL|method|testRoundTripDestination ()
 specifier|public
 name|void
@@ -752,7 +752,7 @@ argument_list|,
 literal|"HelloWorldPort"
 argument_list|)
 expr_stmt|;
-comment|//set up the conduit send to be true
+comment|// set up the conduit send to be true
 name|CamelConduit
 name|conduit
 init|=
@@ -785,7 +785,7 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
-comment|//set up MessageObserver for handlering the conduit message
+comment|// set up MessageObserver for handlering the conduit message
 name|MessageObserver
 name|observer
 init|=
@@ -834,7 +834,7 @@ argument_list|,
 name|outMessage
 argument_list|)
 expr_stmt|;
-comment|//setup the message for
+comment|// setup the message for
 name|Conduit
 name|backConduit
 decl_stmt|;
@@ -853,7 +853,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|//wait for the message to be got from the conduit
+comment|// wait for the message to be got from the conduit
 name|Message
 name|replyMessage
 init|=
@@ -894,7 +894,7 @@ argument_list|(
 name|observer
 argument_list|)
 expr_stmt|;
-comment|//set is oneway false for get response from destination
+comment|// set is oneway false for get response from destination
 name|sendoutMessage
 argument_list|(
 name|conduit
@@ -904,7 +904,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|//wait for the message to be got from the destination,
+comment|// wait for the message to be got from the destination,
 comment|// create the thread to handler the Destination incomming message
 name|waitForReceiveInMessage
 argument_list|()
@@ -957,7 +957,7 @@ argument_list|,
 literal|"HelloWorldPort"
 argument_list|)
 expr_stmt|;
-comment|//set up the conduit send to be true
+comment|// set up the conduit send to be true
 name|CamelConduit
 name|conduit
 init|=
@@ -981,7 +981,7 @@ argument_list|(
 name|outMessage
 argument_list|)
 expr_stmt|;
-comment|/*         CamelPropertyType excludeProp = new CamelPropertyType();         excludeProp.setName(customPropertyName);         excludeProp.setValue(customPropertyName);                  CamelMessageHeadersType headers = (CamelMessageHeadersType)             outMessage.get(CamelConstants.Camel_CLIENT_REQUEST_HEADERS);         headers.getProperty().add(excludeProp); */
+comment|/*          * CamelPropertyType excludeProp = new CamelPropertyType();          * excludeProp.setName(customPropertyName);          * excludeProp.setValue(customPropertyName); CamelMessageHeadersType          * headers = (CamelMessageHeadersType)          * outMessage.get(CamelConstants.Camel_CLIENT_REQUEST_HEADERS);          * headers.getProperty().add(excludeProp);          */
 specifier|final
 name|CamelDestination
 name|destination
@@ -991,7 +991,7 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
-comment|//set up MessageObserver for handlering the conduit message
+comment|// set up MessageObserver for handlering the conduit message
 name|MessageObserver
 name|observer
 init|=
@@ -1040,7 +1040,7 @@ argument_list|,
 name|outMessage
 argument_list|)
 expr_stmt|;
-comment|//setup the message for
+comment|// setup the message for
 name|Conduit
 name|backConduit
 decl_stmt|;
@@ -1059,7 +1059,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|//wait for the message to be got from the conduit
+comment|// wait for the message to be got from the conduit
 name|Message
 name|replyMessage
 init|=
@@ -1100,7 +1100,7 @@ argument_list|(
 name|observer
 argument_list|)
 expr_stmt|;
-comment|//set is oneway false for get response from destination
+comment|// set is oneway false for get response from destination
 name|sendoutMessage
 argument_list|(
 name|conduit
@@ -1110,7 +1110,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|//wait for the message to be got from the destination,
+comment|// wait for the message to be got from the destination,
 comment|// create the thread to handler the Destination incomming message
 name|waitForReceiveInMessage
 argument_list|()
@@ -1127,7 +1127,7 @@ argument_list|,
 name|outMessage
 argument_list|)
 expr_stmt|;
-comment|/*         CamelMessageHeadersType inHeader =             (CamelMessageHeadersType)inMessage.get(CamelConstants.Camel_CLIENT_RESPONSE_HEADERS);         assertTrue("property has been excluded", inHeader.getProperty().isEmpty()); */
+comment|/*          * CamelMessageHeadersType inHeader =          * (CamelMessageHeadersType)inMessage.get(CamelConstants.Camel_CLIENT_RESPONSE_HEADERS);          * assertTrue("property has been excluded",          * inHeader.getProperty().isEmpty());          */
 comment|// wait for a while for the camel session recycling
 name|Thread
 operator|.

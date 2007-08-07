@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -19,6 +19,70 @@ operator|.
 name|transport
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|Level
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|Logger
+import|;
+end_import
 
 begin_import
 import|import
@@ -277,70 +341,6 @@ operator|.
 name|wsdl
 operator|.
 name|EndpointReferenceUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|OutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Logger
 import|;
 end_import
 
@@ -670,7 +670,8 @@ operator|.
 name|CAMEL_SERVER_REQUEST_HEADERS
 argument_list|)
 expr_stmt|;
-comment|//inMessage.put(CamelConstants.CAMEL_SERVER_RESPONSE_HEADERS, new CamelMessageHeadersType());
+comment|// inMessage.put(CamelConstants.CAMEL_SERVER_RESPONSE_HEADERS, new
+comment|// CamelMessageHeadersType());
 name|inMessage
 operator|.
 name|put
@@ -689,7 +690,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|//handle the incoming message
+comment|// handle the incoming message
 name|incomingObserver
 operator|.
 name|onMessage
@@ -722,7 +723,7 @@ name|void
 name|initConfig
 parameter_list|()
 block|{
-comment|/*         this.runtimePolicy = endpointInfo.getTraversedExtensor(new ServerBehaviorPolicyType(),                                                                ServerBehaviorPolicyType.class);         this.serverConfig = endpointInfo.getTraversedExtensor(new ServerConfig(), ServerConfig.class);         this.address = endpointInfo.getTraversedExtensor(new AddressType(), AddressType.class);         this.sessionPool = endpointInfo.getTraversedExtensor(new SessionPoolType(), SessionPoolType.class); */
+comment|/*          * this.runtimePolicy = endpointInfo.getTraversedExtensor(new          * ServerBehaviorPolicyType(), ServerBehaviorPolicyType.class);          * this.serverConfig = endpointInfo.getTraversedExtensor(new          * ServerConfig(), ServerConfig.class); this.address =          * endpointInfo.getTraversedExtensor(new AddressType(),          * AddressType.class); this.sessionPool =          * endpointInfo.getTraversedExtensor(new SessionPoolType(),          * SessionPoolType.class);          */
 block|}
 DECL|class|ConsumerProcessor
 specifier|protected
@@ -804,7 +805,7 @@ operator|=
 name|message
 expr_stmt|;
 block|}
-comment|/**          * Register a message observer for incoming messages.          *          * @param observer the observer to notify on receipt of incoming          */
+comment|/**          * Register a message observer for incoming messages.          *           * @param observer the observer to notify on receipt of incoming          */
 DECL|method|setMessageObserver (MessageObserver observer)
 specifier|public
 name|void
@@ -816,7 +817,7 @@ parameter_list|)
 block|{
 comment|// shouldn't be called for a back channel conduit
 block|}
-comment|/**          * Send an outbound message, assumed to contain all the name-value          * mappings of the corresponding input message (if any).          *          * @param message the message to be sent.          */
+comment|/**          * Send an outbound message, assumed to contain all the name-value          * mappings of the corresponding input message (if any).          *           * @param message the message to be sent.          */
 DECL|method|prepare (Message message)
 specifier|public
 name|void
@@ -928,7 +929,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//setup the reply message
+comment|// setup the reply message
 specifier|final
 name|String
 name|replyToUri

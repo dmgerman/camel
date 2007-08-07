@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,22 +17,6 @@ operator|.
 name|jmstofile
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsComponent
-import|;
-end_import
 
 begin_import
 import|import
@@ -64,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelTemplate
+name|CamelContext
 import|;
 end_import
 
@@ -76,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|CamelTemplate
 import|;
 end_import
 
@@ -126,6 +110,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -133,15 +133,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example class for demonstrating some of the basics behind camel  *   * This example will send some text messages on to a JMS Queue, consume them and   * persist them to disk  *  * @version $Revision: 529902 $  *   */
+comment|/**  * An example class for demonstrating some of the basics behind camel This  * example will send some text messages on to a JMS Queue, consume them and  * persist them to disk  *   * @version $Revision: 529902 $  */
 end_comment
 
 begin_class
 DECL|class|CamelJmsToFileExample
 specifier|public
+specifier|final
 class|class
 name|CamelJmsToFileExample
 block|{
+DECL|method|CamelJmsToFileExample ()
+specifier|private
+name|CamelJmsToFileExample
+parameter_list|()
+block|{             }
 DECL|method|main (String args[])
 specifier|public
 specifier|static
@@ -278,10 +284,14 @@ name|start
 argument_list|()
 expr_stmt|;
 comment|// now send some test text to a component - for this case a JMS Queue
-comment|// The text get converted to JMS messages - and sent to the Queue test.queue
-comment|// The file component is listening for messages from the Queue test.queue, consumes
-comment|// them and stores them to disk. The content of each file will be the test test we sent here.
-comment|// The listener on the file component gets notfied when new files are found ...
+comment|// The text get converted to JMS messages - and sent to the Queue
+comment|// test.queue
+comment|// The file component is listening for messages from the Queue
+comment|// test.queue, consumes
+comment|// them and stores them to disk. The content of each file will be the
+comment|// test test we sent here.
+comment|// The listener on the file component gets notfied when new files are
+comment|// found ...
 comment|// that's it!
 comment|// START SNIPPET: e5
 for|for

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,26 @@ operator|.
 name|quartz
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
 
 begin_import
 import|import
@@ -64,20 +84,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|logging
@@ -97,6 +103,16 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|quartz
+operator|.
+name|CronTrigger
 import|;
 end_import
 
@@ -156,60 +172,14 @@ name|org
 operator|.
 name|quartz
 operator|.
-name|CronTrigger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|quartz
-operator|.
 name|impl
 operator|.
 name|StdSchedulerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|jndi
-operator|.
-name|toolkit
-operator|.
-name|url
-operator|.
-name|Uri
-import|;
-end_import
-
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/quartz.html">Quartz Component</a>  *  * @version $Revision:520964 $  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/quartz.html">Quartz Component</a>  *   * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -223,13 +193,13 @@ argument_list|<
 name|QuartzExchange
 argument_list|>
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -446,7 +416,7 @@ argument_list|,
 literal|'?'
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -495,7 +465,7 @@ name|getHost
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*         String[] names = ObjectHelper.splitOnCharacter(remaining, "/", 2);         if (names[1] != null) {             group = names[0];             name = names[1];         }         else {             name = names[0];         } */
+comment|/*          * String[] names = ObjectHelper.splitOnCharacter(remaining, "/", 2); if          * (names[1] != null) { group = names[0]; name = names[1]; } else { name =          * names[0]; }          */
 name|Trigger
 name|trigger
 init|=
@@ -631,7 +601,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getFactory ()
 specifier|public
 name|SchedulerFactory
@@ -739,7 +709,7 @@ name|triggers
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|createSchedulerFactory ()
 specifier|protected
 name|SchedulerFactory

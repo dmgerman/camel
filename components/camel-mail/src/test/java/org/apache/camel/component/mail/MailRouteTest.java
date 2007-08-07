@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,58 @@ operator|.
 name|mail
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|mail
+operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|mail
+operator|.
+name|Message
+operator|.
+name|RecipientType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|mail
+operator|.
+name|MessagingException
+import|;
+end_import
 
 begin_import
 import|import
@@ -50,11 +102,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|builder
 operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|RouteBuilder
 import|;
 end_import
 
@@ -66,25 +116,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
+name|mock
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|asString
+name|MockEndpoint
 import|;
 end_import
 
@@ -102,53 +138,17 @@ end_import
 
 begin_import
 import|import static
-name|javax
+name|org
 operator|.
-name|mail
+name|apache
 operator|.
-name|Message
-operator|.
-name|RecipientType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|MessagingException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|camel
 operator|.
 name|util
 operator|.
-name|HashMap
+name|ObjectHelper
+operator|.
+name|asString
 import|;
 end_import
 
@@ -237,7 +237,8 @@ argument_list|(
 literal|"james@localhost"
 argument_list|)
 expr_stmt|;
-comment|// lets sleep to check that the mail poll does not redeliver duplicate mails
+comment|// lets sleep to check that the mail poll does not redeliver duplicate
+comment|// mails
 name|Thread
 operator|.
 name|sleep

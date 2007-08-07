@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,36 @@ operator|.
 name|quartz
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
 
 begin_import
 import|import
@@ -186,7 +216,7 @@ name|org
 operator|.
 name|quartz
 operator|.
-name|Trigger
+name|SimpleTrigger
 import|;
 end_import
 
@@ -196,42 +226,12 @@ name|org
 operator|.
 name|quartz
 operator|.
-name|SimpleTrigger
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
+name|Trigger
 import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/quartz.html">Quartz Endpoint</a>  *  * @version $Revision:520964 $  */
+comment|/**  * A<a href="http://activemq.apache.org/quartz.html">Quartz Endpoint</a>  *   * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -254,13 +254,13 @@ name|ENDPOINT_KEY
 init|=
 literal|"org.apache.camel.quartz"
 decl_stmt|;
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -601,7 +601,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method is invoked when a Quartz job is fired.      *      * @param jobExecutionContext the Quartz Job context      */
+comment|/**      * This method is invoked when a Quartz job is fired.      *       * @param jobExecutionContext the Quartz Job context      */
 DECL|method|onJobExecute (JobExecutionContext jobExecutionContext)
 specifier|public
 name|void
@@ -615,13 +615,13 @@ name|JobExecutionException
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -753,7 +753,7 @@ argument_list|)
 return|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 annotation|@
 name|Override
 DECL|method|getComponent ()
@@ -910,7 +910,7 @@ name|trigger
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|consumerStarted (QuartzConsumer consumer)
 specifier|public
 specifier|synchronized

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,68 @@ operator|.
 name|jpa
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|EntityManager
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|LockModeType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|PersistenceException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|Query
+import|;
+end_import
 
 begin_import
 import|import
@@ -112,68 +174,6 @@ name|JpaCallback
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|persistence
-operator|.
-name|EntityManager
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|persistence
-operator|.
-name|LockModeType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|persistence
-operator|.
-name|PersistenceException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|persistence
-operator|.
-name|Query
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Method
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -189,13 +189,13 @@ argument_list|<
 name|Exchange
 argument_list|>
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -340,13 +340,13 @@ control|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -366,7 +366,8 @@ name|entityManager
 argument_list|)
 condition|)
 block|{
-comment|// lets turn the result into an exchange and fire it into the processor
+comment|// lets turn the result into an exchange and fire it
+comment|// into the processor
 name|Exchange
 name|exchange
 init|=
@@ -426,7 +427,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getEndpoint ()
 specifier|public
 name|JpaEndpoint
@@ -609,8 +610,8 @@ name|query
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
-comment|/**      * A strategy method to lock an object with an exclusive lock so that it can be processed      *      * @param entity        the entity to be locked      * @param entityManager      * @return true if the entity was locked      */
+comment|// -------------------------------------------------------------------------
+comment|/**      * A strategy method to lock an object with an exclusive lock so that it can      * be processed      *       * @param entity the entity to be locked      * @param entityManager      * @return true if the entity was locked      */
 DECL|method|lockEntity (Object entity, EntityManager entityManager)
 specifier|protected
 name|boolean
@@ -648,13 +649,13 @@ try|try
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -687,13 +688,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -823,7 +824,8 @@ argument_list|>
 name|createDeleteHandler
 parameter_list|()
 block|{
-comment|// TODO auto-discover an annotation in the entity bean to indicate the process completed method call?
+comment|// TODO auto-discover an annotation in the entity bean to indicate the
+comment|// process completed method call?
 name|Class
 argument_list|<
 name|?

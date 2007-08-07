@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,48 +17,6 @@ operator|.
 name|jaxb
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|HasAnnotation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|jaxp
-operator|.
-name|XmlConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Document
-import|;
-end_import
 
 begin_import
 import|import
@@ -133,6 +91,48 @@ operator|.
 name|parsers
 operator|.
 name|ParserConfigurationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Document
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|HasAnnotation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|jaxp
+operator|.
+name|XmlConverter
 import|;
 end_import
 
@@ -330,7 +330,12 @@ return|return
 name|context
 return|;
 block|}
-comment|/*     public void write(OutputStream out, Object value) throws JAXBException {         JAXBContext context = JAXBContext.newInstance(value.getClass());         Marshaller marshaller = context.createMarshaller();         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true); 		marshaller.marshal(value, out);     } */
+comment|//    public void write(OutputStream out, Object value) throws JAXBException {
+comment|//        JAXBContext context = JAXBContext.newInstance(value.getClass());
+comment|//        Marshaller marshaller = context.createMarshaller();
+comment|//        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+comment|//        marshaller.marshal(value, out);
+comment|//    }
 block|}
 end_class
 

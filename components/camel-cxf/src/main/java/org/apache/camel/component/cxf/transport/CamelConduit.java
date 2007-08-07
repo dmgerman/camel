@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -19,6 +19,80 @@ operator|.
 name|transport
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|Level
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|Logger
+import|;
+end_import
 
 begin_import
 import|import
@@ -246,80 +320,6 @@ name|EndpointReferenceType
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|OutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Logger
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -370,7 +370,7 @@ specifier|private
 name|String
 name|targetCamelEndpointUri
 decl_stmt|;
-comment|/*     protected ClientConfig clientConfig;     protected ClientBehaviorPolicyType runtimePolicy;     protected AddressType address;     protected SessionPoolType sessionPool; */
+comment|/*      * protected ClientConfig clientConfig; protected ClientBehaviorPolicyType      * runtimePolicy; protected AddressType address; protected SessionPoolType      * sessionPool;      */
 DECL|method|CamelConduit (CamelContext camelContext, Bus bus, EndpointInfo endpointInfo, EndpointReferenceType targetReference)
 specifier|public
 name|CamelConduit
@@ -553,7 +553,7 @@ name|void
 name|initConfig
 parameter_list|()
 block|{
-comment|/*         this.address = base.endpointInfo.getTraversedExtensor(new AddressType(),                                                               AddressType.class);         this.sessionPool = base.endpointInfo.getTraversedExtensor(new SessionPoolType(),                                                                   SessionPoolType.class);         this.clientConfig = base.endpointInfo.getTraversedExtensor(new ClientConfig(),                                                                    ClientConfig.class);         this.runtimePolicy = base.endpointInfo.getTraversedExtensor(new ClientBehaviorPolicyType(),                                                                     ClientBehaviorPolicyType.class); */
+comment|/*          * this.address = base.endpointInfo.getTraversedExtensor(new          * AddressType(), AddressType.class); this.sessionPool =          * base.endpointInfo.getTraversedExtensor(new SessionPoolType(),          * SessionPoolType.class); this.clientConfig =          * base.endpointInfo.getTraversedExtensor(new ClientConfig(),          * ClientConfig.class); this.runtimePolicy =          * base.endpointInfo.getTraversedExtensor(new          * ClientBehaviorPolicyType(), ClientBehaviorPolicyType.class);          */
 name|Configurer
 name|configurer
 init|=
@@ -622,7 +622,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//do nothing here
+comment|// do nothing here
 block|}
 DECL|method|doClose ()
 specifier|protected
@@ -754,7 +754,7 @@ operator|.
 name|getReplyDestination
 argument_list|()
 decl_stmt|;
-comment|//TODO setting up the responseExpected
+comment|// TODO setting up the responseExpected
 name|base
 operator|.
 name|marshal
@@ -846,8 +846,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//No message correlation id is set. Whatever comeback will be accepted as responses.
-comment|// We assume that it will only happen in case of the temp. reply queue.
+comment|// No message correlation id is set. Whatever comeback
+comment|// will be accepted as responses.
+comment|// We assume that it will only happen in case of the
+comment|// temp. reply queue.
 block|}
 name|getLogger
 argument_list|()
@@ -885,7 +887,7 @@ name|response
 init|=
 literal|null
 decl_stmt|;
-comment|//TODO if outMessage need to get the response
+comment|// TODO if outMessage need to get the response
 name|Message
 name|inMessage
 init|=
@@ -903,10 +905,10 @@ argument_list|(
 name|inMessage
 argument_list|)
 expr_stmt|;
-comment|//set the message header back to the incomeMessage
-comment|//inMessage.put(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS,
-comment|//              outMessage.get(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS));
-comment|/*             Object result1;              Object result = null;              javax.camel.Message camelMessage1 = pooledSession.consumer().receive(timeout);             getLogger().log(Level.FINE, "template received reply: " , camelMessage1);              if (camelMessage1 != null) {                  base.populateIncomingContext(camelMessage1, outMessage, CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS);                 String messageType = camelMessage1 instanceof TextMessage                             ? CamelConstants.TEXT_MESSAGE_TYPE : CamelConstants.BINARY_MESSAGE_TYPE;                 result = base.unmarshal((org.apache.camel.Exchange) outMessage);                 result1 = result;             } else {                 String error = "CamelClientTransport.receive() timed out. No message available.";                 getLogger().log(Level.SEVERE, error);                 //TODO: Review what exception should we throw.                 throw new CamelException(error);              }             response = result1;              //set the message header back to the incomeMessage             inMessage.put(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS,                           outMessage.get(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS));              */
+comment|// set the message header back to the incomeMessage
+comment|// inMessage.put(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS,
+comment|// outMessage.get(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS));
+comment|/*              * Object result1; Object result = null; javax.camel.Message              * camelMessage1 = pooledSession.consumer().receive(timeout);              * getLogger().log(Level.FINE, "template received reply: " ,              * camelMessage1); if (camelMessage1 != null) {              * base.populateIncomingContext(camelMessage1, outMessage,              * CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS); String messageType =              * camelMessage1 instanceof TextMessage ?              * CamelConstants.TEXT_MESSAGE_TYPE :              * CamelConstants.BINARY_MESSAGE_TYPE; result =              * base.unmarshal((org.apache.camel.Exchange) outMessage); result1 =              * result; } else { String error = "CamelClientTransport.receive()              * timed out. No message available."; getLogger().log(Level.SEVERE,              * error); //TODO: Review what exception should we throw. throw new              * CamelException(error); } response = result1; //set the message              * header back to the incomeMessage              * inMessage.put(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS,              * outMessage.get(CamelConstants.CAMEL_CLIENT_RESPONSE_HEADERS));              */
 name|getLogger
 argument_list|()
 operator|.

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -20,13 +20,51 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|Exchange
+name|util
+operator|.
+name|Enumeration
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -112,56 +150,18 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|camel
 operator|.
-name|util
-operator|.
-name|Enumeration
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
+name|Exchange
 import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy used to convert between a Camel {@JmsExchange} and {@JmsMessage} to and from a  * JMS {@link Message}  *  * @version $Revision$  */
+comment|/**  * A Strategy used to convert between a Camel {@JmsExchange} and {@JmsMessage}  * to and from a JMS {@link Message}  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -170,7 +170,7 @@ specifier|public
 class|class
 name|JmsBinding
 block|{
-comment|/**      * Extracts the body from the JMS message      *      * @param exchange      * @param message      */
+comment|/**      * Extracts the body from the JMS message      *       * @param exchange      * @param message      */
 DECL|method|extractBodyFromJms (JmsExchange exchange, Message message)
 specifier|public
 name|Object
@@ -295,7 +295,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Creates a JMS message from the Camel exchange and message      *      * @param session the JMS session used to create the message      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
+comment|/**      * Creates a JMS message from the Camel exchange and message      *       * @param session the JMS session used to create the message      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
 DECL|method|makeJmsMessage (Exchange exchange, Session session)
 specifier|public
 name|Message

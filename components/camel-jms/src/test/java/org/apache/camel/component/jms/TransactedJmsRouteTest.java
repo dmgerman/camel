@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,42 +17,6 @@ operator|.
 name|jms
 package|;
 end_package
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-operator|.
-name|assertIsSatisfied
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-operator|.
-name|assertWait
-import|;
-end_import
 
 begin_import
 import|import
@@ -118,7 +82,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Exchange
 import|;
 end_import
 
@@ -130,7 +94,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|Processor
 import|;
 end_import
 
@@ -304,6 +268,42 @@ name|TransactionTemplate
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+operator|.
+name|assertIsSatisfied
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+operator|.
+name|assertWait
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 529902 $  */
 end_comment
@@ -316,13 +316,13 @@ name|TransactedJmsRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -535,9 +535,9 @@ block|}
 catch|catch
 parameter_list|(
 name|Throwable
-name|e
+name|ignore
 parameter_list|)
-block|{ 				        		}
+block|{                                 }
 block|}
 annotation|@
 name|Override
@@ -560,7 +560,8 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|// NOTE: ErrorHandler has to be disabled since it operates within the failed transaction.
+comment|// NOTE: ErrorHandler has to be disabled since it operates
+comment|// within the failed transaction.
 name|inheritErrorHandler
 argument_list|(
 literal|false
@@ -630,10 +631,13 @@ argument_list|(
 literal|"activemq:queue:mock.a"
 argument_list|)
 expr_stmt|;
-comment|// Cause an error after processing the send.  The send to activemq:queue:mock.a should rollback
-comment|// since it is participating in the inbound transaction, but mock:b does not participate so we should see the message get
-comment|// there.  Also, expect multiple inbound retries as the message is rolled back.
-comment|//transactionPolicy(requried);
+comment|// Cause an error after processing the send. The send to
+comment|// activemq:queue:mock.a should rollback
+comment|// since it is participating in the inbound transaction, but
+comment|// mock:b does not participate so we should see the message get
+comment|// there. Also, expect multiple inbound retries as the message
+comment|// is rolled back.
+comment|// transactionPolicy(requried);
 name|from
 argument_list|(
 literal|"activemq:queue:b"
@@ -651,10 +655,14 @@ argument_list|,
 literal|"mock:b"
 argument_list|)
 expr_stmt|;
-comment|// Cause an error after processing the send in a new transaction.  The send to activemq:queue:mock.a should rollback
-comment|// since the rollback is within it's transaction, but mock:b does not participate so we should see the message get
-comment|// there.  Also, expect the message to be successfully consumed since the rollback error is not propagated.
-comment|//transactionPolicy(requried);
+comment|// Cause an error after processing the send in a new
+comment|// transaction. The send to activemq:queue:mock.a should
+comment|// rollback
+comment|// since the rollback is within it's transaction, but mock:b
+comment|// does not participate so we should see the message get
+comment|// there. Also, expect the message to be successfully consumed
+comment|// since the rollback error is not propagated.
+comment|// transactionPolicy(requried);
 name|from
 argument_list|(
 literal|"activemq:queue:c"
@@ -682,8 +690,11 @@ argument_list|,
 literal|"mock:b"
 argument_list|)
 expr_stmt|;
-comment|// Cause an error after processing the send in without a transaction.  The send to activemq:queue:mock.a should succeed.
-comment|// Also, expect the message to be successfully consumed since the rollback error is not propagated.
+comment|// Cause an error after processing the send in without a
+comment|// transaction. The send to activemq:queue:mock.a should
+comment|// succeed.
+comment|// Also, expect the message to be successfully consumed since
+comment|// the rollback error is not propagated.
 name|from
 argument_list|(
 literal|"activemq:queue:d"
@@ -709,8 +720,10 @@ argument_list|(
 literal|"activemq:queue:mock.a"
 argument_list|)
 expr_stmt|;
-comment|// Receive message on a non transacted JMS endpoint, start a transaction, send and then rollback.
-comment|// mock:a should never get the message (due to rollback) but mock:b should get only 1 since the
+comment|// Receive message on a non transacted JMS endpoint, start a
+comment|// transaction, send and then rollback.
+comment|// mock:a should never get the message (due to rollback) but
+comment|// mock:b should get only 1 since the
 comment|// inbound was not transacted.
 name|JmsEndpoint
 name|endpoint
@@ -768,10 +781,15 @@ literal|"mock:b"
 argument_list|)
 expr_stmt|;
 comment|//
-comment|// Sets up 2 consumers on single topic, one being transacted the other not.  Used to verify
-comment|// That each consumer can have independently configured transaction settings.
-comment|// Do a rollback, should cause the transacted consumer to re-deliver (since we are using a durable subscription) but not the un-transacted one.
-comment|// TODO: find out why re-delivery is not working with a non durable transacted topic.
+comment|// Sets up 2 consumers on single topic, one being transacted the
+comment|// other not. Used to verify
+comment|// That each consumer can have independently configured
+comment|// transaction settings.
+comment|// Do a rollback, should cause the transacted consumer to
+comment|// re-deliver (since we are using a durable subscription) but
+comment|// not the un-transacted one.
+comment|// TODO: find out why re-delivery is not working with a non
+comment|// durable transacted topic.
 name|JmsEndpoint
 name|endpoint1
 init|=
@@ -1036,9 +1054,9 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|//        for (Route route : this.context.getRoutes()) {
-comment|//    		System.out.println(route);
-comment|//		}
+comment|// for (Route route : this.context.getRoutes()) {
+comment|// System.out.println(route);
+comment|// }
 name|mockEndpointA
 operator|=
 operator|(
@@ -1101,7 +1119,7 @@ name|destroy
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This test seems to be fail every other run.       * @throws Exception      */
+comment|/**      * This test seems to be fail every other run.      *       * @throws Exception      */
 DECL|method|disabledtestSenarioF ()
 specifier|public
 name|void
@@ -1272,7 +1290,10 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|// May be more since spring seems to go into tight loop re-delivering.
+comment|// May be more since
+comment|// spring seems to go
+comment|// into tight loop
+comment|// re-delivering.
 name|sendBody
 argument_list|(
 literal|"activemq:queue:b"
@@ -1329,7 +1350,9 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// Should only get 1 message the incoming transaction does not rollback.
+comment|// Should only get 1 message the
+comment|// incoming transaction does not
+comment|// rollback.
 name|sendBody
 argument_list|(
 literal|"activemq:queue:c"

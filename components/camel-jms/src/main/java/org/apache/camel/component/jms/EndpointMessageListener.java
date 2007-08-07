@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JMS {@link MessageListener} which can be used to delegate processing to a Camel endpoint.  *  * @version $Revision$  */
+comment|/**  * A JMS {@link MessageListener} which can be used to delegate processing to a  * Camel endpoint.  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -131,13 +131,13 @@ parameter_list|>
 implements|implements
 name|MessageListener
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -206,13 +206,13 @@ try|try
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -284,7 +284,7 @@ argument_list|)
 return|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getBinding ()
 specifier|public
 name|JmsBinding
@@ -309,7 +309,7 @@ return|return
 name|binding
 return|;
 block|}
-comment|/**      * Sets the binding used to convert from a Camel message to and from a JMS message      *      * @param binding the binding to use      */
+comment|/**      * Sets the binding used to convert from a Camel message to and from a JMS      * message      *       * @param binding the binding to use      */
 DECL|method|setBinding (JmsBinding binding)
 specifier|public
 name|void

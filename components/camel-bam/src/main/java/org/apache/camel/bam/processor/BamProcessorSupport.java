@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,30 @@ operator|.
 name|processor
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|ParameterizedType
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Type
+import|;
+end_import
 
 begin_import
 import|import
@@ -134,32 +158,8 @@ name|TransactionTemplate
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|ParameterizedType
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Type
-import|;
-end_import
-
 begin_comment
-comment|/**  * A base {@link Processor} for working on  *<a href="http://activemq.apache.org/camel/bam.html">BAM</a> which a derived class would do the actual  * persistence such as the {@link JpaBamProcessor}  *  * @version $Revision: $  */
+comment|/**  * A base {@link Processor} for working on<a  * href="http://activemq.apache.org/camel/bam.html">BAM</a> which a derived  * class would do the actual persistence such as the {@link JpaBamProcessor}  *   * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -174,13 +174,13 @@ parameter_list|>
 implements|implements
 name|Processor
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -413,13 +413,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -452,13 +452,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -484,7 +484,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Properties
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|getCorrelationKeyExpression ()
 specifier|public
 name|Expression
@@ -512,7 +512,7 @@ name|entityType
 return|;
 block|}
 comment|// Implemenation methods
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|processEntity (Exchange exchange, T entity)
 specifier|protected
 specifier|abstract

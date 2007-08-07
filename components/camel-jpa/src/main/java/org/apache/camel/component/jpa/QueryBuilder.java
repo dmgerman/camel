@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,26 +17,6 @@ operator|.
 name|jpa
 package|;
 end_package
-
-begin_import
-import|import
-name|javax
-operator|.
-name|persistence
-operator|.
-name|EntityManager
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|persistence
-operator|.
-name|Query
-import|;
-end_import
 
 begin_import
 import|import
@@ -78,8 +58,28 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|EntityManager
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|Query
+import|;
+end_import
+
 begin_comment
-comment|/**  * A builder of query expressions  *  * @version $Revision$  */
+comment|/**  * A builder of query expressions  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -95,7 +95,7 @@ DECL|field|parameterBuilder
 name|ParameterBuilder
 name|parameterBuilder
 decl_stmt|;
-comment|/**      * Creates a query builder using the JPA query syntax      *      * @param query JPA query language to create      * @return a query builder      */
+comment|/**      * Creates a query builder using the JPA query syntax      *       * @param query JPA query language to create      * @return a query builder      */
 DECL|method|query (final String query)
 specifier|public
 specifier|static
@@ -256,7 +256,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Specifies the parameters to the query      *      * @param parameters the parameters to be configured on the query      * @return this query builder      */
+comment|/**      * Specifies the parameters to the query      *       * @param parameters the parameters to be configured on the query      * @return this query builder      */
 DECL|method|parameters (Object... parameters)
 specifier|public
 name|QueryBuilder
@@ -279,7 +279,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Specifies the parameters to the query as an ordered collection of parameters      *      * @param parameters the parameters to be configured on the query      * @return this query builder      */
+comment|/**      * Specifies the parameters to the query as an ordered collection of      * parameters      *       * @param parameters the parameters to be configured on the query      * @return this query builder      */
 DECL|method|parameters (final Collection parameters)
 specifier|public
 name|QueryBuilder
@@ -354,7 +354,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Specifies the parameters to the query as a Map of key/value pairs      *      * @param parameterMap the parameters to be configured on the query      * @return this query builder      */
+comment|/**      * Specifies the parameters to the query as a Map of key/value pairs      *       * @param parameterMap the parameters to be configured on the query      * @return this query builder      */
 DECL|method|parameters (final Map<String, Object> parameterMap)
 specifier|public
 name|QueryBuilder

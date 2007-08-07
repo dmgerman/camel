@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -20,47 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|bam
-operator|.
-name|processor
-operator|.
-name|ProcessContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|bam
-operator|.
-name|rules
-operator|.
-name|ActivityRules
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
+name|java
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|Date
 import|;
 end_import
 
@@ -146,16 +110,52 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|bam
+operator|.
+name|processor
+operator|.
+name|ProcessContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|bam
+operator|.
+name|rules
+operator|.
+name|ActivityRules
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
 operator|.
 name|util
 operator|.
-name|Date
+name|ObjectHelper
 import|;
 end_import
 
 begin_comment
-comment|/**  * The default state for a specific activity within a process  *  * @version $Revision: $  */
+comment|/**  * The default state for a specific activity within a process  *   * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -373,7 +373,7 @@ argument_list|)
 return|;
 block|}
 comment|// Properties
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 annotation|@
 name|ManyToOne
 argument_list|(
@@ -620,7 +620,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// Implementation methods
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 comment|/**      * Called when the first message is reached      */
 DECL|method|onFirstMessage (ProcessContext context)
 specifier|protected
@@ -685,7 +685,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Called when an excess message (after the expected number of messages)      * are received      */
+comment|/**      * Called when an excess message (after the expected number of messages) are      * received      */
 DECL|method|onExcessMessage (ProcessContext context)
 specifier|protected
 name|void

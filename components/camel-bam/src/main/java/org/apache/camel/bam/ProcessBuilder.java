@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,26 @@ operator|.
 name|bam
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
 
 begin_import
 import|import
@@ -163,22 +183,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|notNull
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -233,27 +237,23 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|ObjectHelper
 operator|.
-name|util
-operator|.
-name|List
+name|notNull
 import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of a process definition  *  * @version $Revision: $  */
+comment|/**  * A builder of a process definition  *   * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -348,23 +348,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createProcessName ()
-specifier|protected
-specifier|static
-specifier|synchronized
-name|String
-name|createProcessName
-parameter_list|()
-block|{
-return|return
-literal|"Process-"
-operator|+
-operator|(
-operator|++
-name|processCounter
-operator|)
-return|;
-block|}
 DECL|method|ProcessBuilder (JpaTemplate jpaTemplate, TransactionTemplate transactionTemplate, String processName)
 specifier|protected
 name|ProcessBuilder
@@ -397,6 +380,23 @@ name|processName
 operator|=
 name|processName
 expr_stmt|;
+block|}
+DECL|method|createProcessName ()
+specifier|protected
+specifier|static
+specifier|synchronized
+name|String
+name|createProcessName
+parameter_list|()
+block|{
+return|return
+literal|"Process-"
+operator|+
+operator|(
+operator|++
+name|processCounter
+operator|)
+return|;
 block|}
 DECL|method|activity (String endpointUri)
 specifier|public
@@ -538,7 +538,7 @@ argument_list|)
 return|;
 block|}
 comment|// Properties
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 DECL|method|getActivityBuilders ()
 specifier|public
 name|List
@@ -658,7 +658,7 @@ name|processDefinition
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|populateRoutes (List<Route> routes)
 specifier|protected
 name|void
@@ -735,7 +735,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|findOrCreateActivityDefinition (String activityName)
 specifier|public
 name|ActivityDefinition

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -40,7 +40,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|CamelTemplate
 import|;
 end_import
 
@@ -52,7 +52,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelTemplate
+name|Exchange
 import|;
 end_import
 
@@ -122,23 +122,12 @@ specifier|public
 class|class
 name|CamelTransportBase
 block|{
-DECL|field|replyDestination
-specifier|private
-name|String
-name|replyDestination
-decl_stmt|;
 DECL|field|template
 name|CamelTemplate
 argument_list|<
 name|Exchange
 argument_list|>
 name|template
-decl_stmt|;
-DECL|field|camelContext
-specifier|private
-specifier|final
-name|CamelContext
-name|camelContext
 decl_stmt|;
 DECL|field|bus
 name|Bus
@@ -147,6 +136,17 @@ decl_stmt|;
 DECL|field|endpointInfo
 name|EndpointInfo
 name|endpointInfo
+decl_stmt|;
+DECL|field|replyDestination
+specifier|private
+name|String
+name|replyDestination
+decl_stmt|;
+DECL|field|camelContext
+specifier|private
+specifier|final
+name|CamelContext
+name|camelContext
 decl_stmt|;
 DECL|method|CamelTransportBase (CamelContext camelContext, Bus bus, EndpointInfo endpointInfo, boolean b, String baseBeanNameSuffix)
 specifier|public
@@ -269,7 +269,7 @@ comment|// TODO
 block|}
 block|}
 block|}
-comment|/**      * Populates a Camel exchange with a payload      *      * @param payload  the message payload, expected to be either of type      *                 String or byte[] depending on payload type      * @param replyTo  the ReplyTo destination if any      * @param exchange the underlying exchange to marshal to      */
+comment|/**      * Populates a Camel exchange with a payload      *       * @param payload the message payload, expected to be either of type String      *                or byte[] depending on payload type      * @param replyTo the ReplyTo destination if any      * @param exchange the underlying exchange to marshal to      */
 DECL|method|marshal (Object payload, String replyTo, Exchange exchange)
 specifier|protected
 name|void
@@ -352,7 +352,7 @@ expr|class
 argument_list|)
 return|;
 block|}
-comment|/*     protected CamelMessageHeadersType populateIncomingContext(javax.camel.Message message,                                                             org.apache.cxf.message.Message inMessage,                                                      String headerType)  throws CamelException {         CamelMessageHeadersType headers = null;          headers = (CamelMessageHeadersType)inMessage.get(headerType);          if (headers == null) {             headers = new CamelMessageHeadersType();             inMessage.put(headerType, headers);         }          headers.setCamelCorrelationID(message.getCamelCorrelationID());         headers.setCamelDeliveryMode(new Integer(message.getCamelDeliveryMode()));         headers.setCamelExpiration(new Long(message.getCamelExpiration()));         headers.setCamelMessageID(message.getCamelMessageID());         headers.setCamelPriority(new Integer(message.getCamelPriority()));         headers.setCamelRedelivered(Boolean.valueOf(message.getCamelRedelivered()));         headers.setCamelTimeStamp(new Long(message.getCamelTimestamp()));         headers.setCamelType(message.getCamelType());          List<CamelPropertyType> props = headers.getProperty();         Enumeration enm = message.getPropertyNames();         while (enm.hasMoreElements()) {             String name = (String)enm.nextElement();             String val = message.getStringProperty(name);             CamelPropertyType prop = new CamelPropertyType();             prop.setName(name);             prop.setValue(val);             props.add(prop);         }          return headers;     }      protected int getCamelDeliveryMode(CamelMessageHeadersType headers) {         int deliveryMode = Message.DEFAULT_DELIVERY_MODE;          if (headers != null&& headers.isSetCamelDeliveryMode()) {             deliveryMode = headers.getCamelDeliveryMode();         }         return deliveryMode;     }      protected int getCamelPriority(CamelMessageHeadersType headers) {         int priority = Message.DEFAULT_PRIORITY;         if (headers != null&& headers.isSetCamelPriority()) {             priority = headers.getCamelPriority();         }         return priority;     }      protected long getTimeToLive(CamelMessageHeadersType headers) {         long ttl = -1;         if (headers != null&& headers.isSetTimeToLive()) {             ttl = headers.getTimeToLive();         }         return ttl;     }      protected String getCorrelationId(CamelMessageHeadersType headers) {         String correlationId  = null;         if (headers != null&& headers.isSetCamelCorrelationID()) {             correlationId = headers.getCamelCorrelationID();         }         return correlationId;     }       protected String getAddrUriFromCamelAddrPolicy() {         AddressType camelAddressPolicy = transport.getCamelAddress();         return "camel:" + camelAddressPolicy.getJndiConnectionFactoryName()                         + "#"                         + camelAddressPolicy.getJndiDestinationName();     }      protected String getReplyTotAddrUriFromCamelAddrPolicy() {         AddressType camelAddressPolicy = transport.getCamelAddress();         return "camel:"                         + camelAddressPolicy.getJndiConnectionFactoryName()                         + "#"                         + camelAddressPolicy.getJndiReplyDestinationName();     }      protected boolean isDestinationStyleQueue() {         return CamelConstants.CAMEL_QUEUE.equals(             transport.getCamelAddress().getDestinationStyle().value());     }     */
+comment|/*      * protected CamelMessageHeadersType      * populateIncomingContext(javax.camel.Message message,      * org.apache.cxf.message.Message inMessage, String headerType) throws      * CamelException { CamelMessageHeadersType headers = null; headers =      * (CamelMessageHeadersType)inMessage.get(headerType); if (headers == null) {      * headers = new CamelMessageHeadersType(); inMessage.put(headerType,      * headers); }      * headers.setCamelCorrelationID(message.getCamelCorrelationID());      * headers.setCamelDeliveryMode(new      * Integer(message.getCamelDeliveryMode())); headers.setCamelExpiration(new      * Long(message.getCamelExpiration()));      * headers.setCamelMessageID(message.getCamelMessageID());      * headers.setCamelPriority(new Integer(message.getCamelPriority()));      * headers.setCamelRedelivered(Boolean.valueOf(message.getCamelRedelivered()));      * headers.setCamelTimeStamp(new Long(message.getCamelTimestamp()));      * headers.setCamelType(message.getCamelType()); List<CamelPropertyType>      * props = headers.getProperty(); Enumeration enm =      * message.getPropertyNames(); while (enm.hasMoreElements()) { String name =      * (String)enm.nextElement(); String val = message.getStringProperty(name);      * CamelPropertyType prop = new CamelPropertyType(); prop.setName(name);      * prop.setValue(val); props.add(prop); } return headers; } protected int      * getCamelDeliveryMode(CamelMessageHeadersType headers) { int deliveryMode =      * Message.DEFAULT_DELIVERY_MODE; if (headers != null&&      * headers.isSetCamelDeliveryMode()) { deliveryMode =      * headers.getCamelDeliveryMode(); } return deliveryMode; } protected int      * getCamelPriority(CamelMessageHeadersType headers) { int priority =      * Message.DEFAULT_PRIORITY; if (headers != null&&      * headers.isSetCamelPriority()) { priority = headers.getCamelPriority(); }      * return priority; } protected long getTimeToLive(CamelMessageHeadersType      * headers) { long ttl = -1; if (headers != null&&      * headers.isSetTimeToLive()) { ttl = headers.getTimeToLive(); } return ttl; }      * protected String getCorrelationId(CamelMessageHeadersType headers) {      * String correlationId = null; if (headers != null&&      * headers.isSetCamelCorrelationID()) { correlationId =      * headers.getCamelCorrelationID(); } return correlationId; } protected      * String getAddrUriFromCamelAddrPolicy() { AddressType camelAddressPolicy =      * transport.getCamelAddress(); return "camel:" +      * camelAddressPolicy.getJndiConnectionFactoryName() + "#" +      * camelAddressPolicy.getJndiDestinationName(); } protected String      * getReplyTotAddrUriFromCamelAddrPolicy() { AddressType camelAddressPolicy =      * transport.getCamelAddress(); return "camel:" +      * camelAddressPolicy.getJndiConnectionFactoryName() + "#" +      * camelAddressPolicy.getJndiReplyDestinationName(); } protected boolean      * isDestinationStyleQueue() { return CamelConstants.CAMEL_QUEUE.equals(      * transport.getCamelAddress().getDestinationStyle().value()); }      */
 block|}
 end_class
 

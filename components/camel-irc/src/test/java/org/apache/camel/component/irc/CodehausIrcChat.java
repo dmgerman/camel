@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|schwering
@@ -43,20 +53,6 @@ operator|.
 name|lib
 operator|.
 name|IRCEventAdapter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|schwering
-operator|.
-name|irc
-operator|.
-name|lib
-operator|.
-name|IRCUser
 import|;
 end_import
 
@@ -76,11 +72,15 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|schwering
 operator|.
-name|IOException
+name|irc
+operator|.
+name|lib
+operator|.
+name|IRCUser
 import|;
 end_import
 
@@ -91,86 +91,22 @@ end_comment
 begin_class
 DECL|class|CodehausIrcChat
 specifier|public
+specifier|final
 class|class
 name|CodehausIrcChat
 block|{
-DECL|method|main (String[] args)
-specifier|public
+DECL|class|CodehausIRCEventAdapter
+specifier|private
 specifier|static
-name|void
-name|main
-parameter_list|(
-name|String
-index|[]
-name|args
-parameter_list|)
-throws|throws
-name|InterruptedException
-block|{
 specifier|final
-name|IrcConfiguration
-name|config
-init|=
-operator|new
-name|IrcConfiguration
-argument_list|(
-literal|"irc.codehaus.org"
-argument_list|,
-literal|"camel-irc"
-argument_list|,
-literal|"Camel IRC Component"
-argument_list|,
-literal|"#camel-test"
-argument_list|)
-decl_stmt|;
-specifier|final
-name|IRCConnection
-name|conn
-init|=
-operator|new
-name|IRCConnection
-argument_list|(
-name|config
-operator|.
-name|getHostname
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getPorts
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getPassword
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getNickname
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getUsername
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getRealname
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|conn
-operator|.
-name|addIRCEventListener
-argument_list|(
-operator|new
+class|class
+name|CodehausIRCEventAdapter
+extends|extends
 name|IRCEventAdapter
-argument_list|()
 block|{
 annotation|@
 name|Override
+DECL|method|onRegistered ()
 specifier|public
 name|void
 name|onRegistered
@@ -193,6 +129,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|onDisconnected ()
 specifier|public
 name|void
 name|onDisconnected
@@ -215,6 +152,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|onMode (String string, IRCUser ircUser, IRCModeParser ircModeParser)
 specifier|public
 name|void
 name|onMode
@@ -276,6 +214,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|onMode (IRCUser ircUser, String string, String string1)
 specifier|public
 name|void
 name|onMode
@@ -337,6 +276,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|onPing (String string)
 specifier|public
 name|void
 name|onPing
@@ -366,6 +306,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|onError (String string)
 specifier|public
 name|void
 name|onError
@@ -388,6 +329,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|onError (int i, String string)
 specifier|public
 name|void
 name|onError
@@ -433,6 +375,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|unknown (String string, String string1, String string2, String string3)
 specifier|public
 name|void
 name|unknown
@@ -509,6 +452,85 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|CodehausIrcChat ()
+specifier|private
+name|CodehausIrcChat
+parameter_list|()
+block|{     }
+DECL|method|main (String[] args)
+specifier|public
+specifier|static
+name|void
+name|main
+parameter_list|(
+name|String
+index|[]
+name|args
+parameter_list|)
+throws|throws
+name|InterruptedException
+block|{
+specifier|final
+name|IrcConfiguration
+name|config
+init|=
+operator|new
+name|IrcConfiguration
+argument_list|(
+literal|"irc.codehaus.org"
+argument_list|,
+literal|"camel-irc"
+argument_list|,
+literal|"Camel IRC Component"
+argument_list|,
+literal|"#camel-test"
+argument_list|)
+decl_stmt|;
+specifier|final
+name|IRCConnection
+name|conn
+init|=
+operator|new
+name|IRCConnection
+argument_list|(
+name|config
+operator|.
+name|getHostname
+argument_list|()
+argument_list|,
+name|config
+operator|.
+name|getPorts
+argument_list|()
+argument_list|,
+name|config
+operator|.
+name|getPassword
+argument_list|()
+argument_list|,
+name|config
+operator|.
+name|getNickname
+argument_list|()
+argument_list|,
+name|config
+operator|.
+name|getUsername
+argument_list|()
+argument_list|,
+name|config
+operator|.
+name|getRealname
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|conn
+operator|.
+name|addIRCEventListener
+argument_list|(
+operator|new
+name|CodehausIRCEventAdapter
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|conn
@@ -518,7 +540,7 @@ argument_list|(
 literal|"UTF-8"
 argument_list|)
 expr_stmt|;
-comment|//conn.setDaemon(true);
+comment|// conn.setDaemon(true);
 name|conn
 operator|.
 name|setColors
@@ -553,10 +575,10 @@ name|printStackTrace
 argument_list|()
 expr_stmt|;
 block|}
-comment|//        while (!conn.isConnected()) {
-comment|//            Thread.sleep(1000);
-comment|//            System.out.println("Sleeping");
-comment|//        }
+comment|// while (!conn.isConnected()) {
+comment|// Thread.sleep(1000);
+comment|// System.out.println("Sleeping");
+comment|// }
 name|System
 operator|.
 name|out
@@ -566,8 +588,8 @@ argument_list|(
 literal|"Connected"
 argument_list|)
 expr_stmt|;
-comment|//conn.send("/JOIN #camel-test");
-comment|//System.out.println("Joining Channel: " + config.getTarget());
+comment|// conn.send("/JOIN #camel-test");
+comment|// System.out.println("Joining Channel: " + config.getTarget());
 name|conn
 operator|.
 name|doJoin

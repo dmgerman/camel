@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,46 @@ operator|.
 name|jms
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|ConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|ExceptionListener
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Session
+import|;
+end_import
 
 begin_import
 import|import
@@ -67,22 +107,6 @@ operator|.
 name|util
 operator|.
 name|IntrospectionSupport
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|removeStartingCharacters
 import|;
 end_import
 
@@ -145,47 +169,23 @@ import|;
 end_import
 
 begin_import
-import|import
-name|javax
+import|import static
+name|org
 operator|.
-name|jms
+name|apache
 operator|.
-name|ConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|ExceptionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|Session
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|camel
 operator|.
 name|util
 operator|.
-name|Map
+name|ObjectHelper
+operator|.
+name|removeStartingCharacters
 import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Component</a>  *  * @version $Revision:520964 $  */
+comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Component</a>  *   * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -222,6 +222,40 @@ specifier|private
 name|JmsConfiguration
 name|configuration
 decl_stmt|;
+DECL|method|JmsComponent ()
+specifier|public
+name|JmsComponent
+parameter_list|()
+block|{     }
+DECL|method|JmsComponent (JmsConfiguration configuration)
+specifier|public
+name|JmsComponent
+parameter_list|(
+name|JmsConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
+DECL|method|JmsComponent (CamelContext context)
+specifier|public
+name|JmsComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Static builder method      */
 DECL|method|jmsComponent ()
 specifier|public
@@ -425,40 +459,6 @@ name|template
 argument_list|)
 return|;
 block|}
-DECL|method|JmsComponent ()
-specifier|public
-name|JmsComponent
-parameter_list|()
-block|{     }
-DECL|method|JmsComponent (JmsConfiguration configuration)
-specifier|public
-name|JmsComponent
-parameter_list|(
-name|JmsConfiguration
-name|configuration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|configuration
-operator|=
-name|configuration
-expr_stmt|;
-block|}
-DECL|method|JmsComponent (CamelContext context)
-specifier|public
-name|JmsComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
@@ -560,7 +560,8 @@ argument_list|(
 name|remaining
 argument_list|)
 decl_stmt|;
-comment|// lets make sure we copy the configuration as each endpoint can customize its own version
+comment|// lets make sure we copy the configuration as each endpoint can
+comment|// customize its own version
 name|JmsEndpoint
 name|endpoint
 init|=
@@ -649,7 +650,7 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * Sets the JMS configuration      *      * @param configuration the configuration to use by default for endpoints      */
+comment|/**      * Sets the JMS configuration      *       * @param configuration the configuration to use by default for endpoints      */
 DECL|method|setConfiguration (JmsConfiguration configuration)
 specifier|public
 name|void
@@ -1278,7 +1279,7 @@ name|useVersion102
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A strategy method allowing the URI destination to be translated into the actual JMS destination name      * (say by looking up in JNDI or something)      */
+comment|/**      * A strategy method allowing the URI destination to be translated into the      * actual JMS destination name (say by looking up in JNDI or something)      */
 DECL|method|convertPathToActualDestination (String path)
 specifier|protected
 name|String
@@ -1292,7 +1293,7 @@ return|return
 name|path
 return|;
 block|}
-comment|/**      * Factory method to create the default configuration instance      *      * @return a newly created configuration object which can then be further customized      */
+comment|/**      * Factory method to create the default configuration instance      *       * @return a newly created configuration object which can then be further      *         customized      */
 DECL|method|createConfiguration ()
 specifier|protected
 name|JmsConfiguration

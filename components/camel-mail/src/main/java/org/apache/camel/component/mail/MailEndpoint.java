@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,26 @@ operator|.
 name|mail
 package|;
 end_package
+
+begin_import
+import|import
+name|javax
+operator|.
+name|mail
+operator|.
+name|Folder
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|mail
+operator|.
+name|Message
+import|;
+end_import
 
 begin_import
 import|import
@@ -79,26 +99,6 @@ operator|.
 name|javamail
 operator|.
 name|JavaMailSender
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|Folder
 import|;
 end_import
 
@@ -307,7 +307,7 @@ name|folder
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a consumer using the given processor and transport      *      * @param processor the processor to use to process the messages      * @param folder the JavaMail Folder to use for inbound messages      * @return a newly created consumer      * @throws Exception if the consumer cannot be created      */
+comment|/**      * Creates a consumer using the given processor and transport      *       * @param processor the processor to use to process the messages      * @param folder the JavaMail Folder to use for inbound messages      * @return a newly created consumer      * @throws Exception if the consumer cannot be created      */
 DECL|method|createConsumer (Processor processor, Folder folder)
 specifier|public
 name|Consumer
@@ -389,7 +389,7 @@ argument_list|)
 return|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getBinding ()
 specifier|public
 name|MailBinding
@@ -414,7 +414,7 @@ return|return
 name|binding
 return|;
 block|}
-comment|/**      * Sets the binding used to convert from a Camel message to and from a Mail message      *      * @param binding the binding to use      */
+comment|/**      * Sets the binding used to convert from a Camel message to and from a Mail      * message      *       * @param binding the binding to use      */
 DECL|method|setBinding (MailBinding binding)
 specifier|public
 name|void

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -15,282 +15,6 @@ operator|.
 name|maven
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|mojo
-operator|.
-name|exec
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|Artifact
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|factory
-operator|.
-name|ArtifactFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|metadata
-operator|.
-name|ArtifactMetadataSource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|repository
-operator|.
-name|ArtifactRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|resolver
-operator|.
-name|ArtifactResolutionResult
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|resolver
-operator|.
-name|ArtifactResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|plugin
-operator|.
-name|MojoExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|plugin
-operator|.
-name|MojoFailureException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|project
-operator|.
-name|MavenProject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|project
-operator|.
-name|MavenProjectBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|project
-operator|.
-name|artifact
-operator|.
-name|MavenMetadataSource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|model
-operator|.
-name|Dependency
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|model
-operator|.
-name|Exclusion
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|resolver
-operator|.
-name|filter
-operator|.
-name|ArtifactFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|resolver
-operator|.
-name|filter
-operator|.
-name|ExcludesArtifactFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|versioning
-operator|.
-name|InvalidVersionSpecificationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|artifact
-operator|.
-name|versioning
-operator|.
-name|VersionRange
-import|;
-end_import
 
 begin_import
 import|import
@@ -424,8 +148,312 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|Artifact
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|factory
+operator|.
+name|ArtifactFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|metadata
+operator|.
+name|ArtifactMetadataSource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|repository
+operator|.
+name|ArtifactRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|resolver
+operator|.
+name|ArtifactResolutionResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|resolver
+operator|.
+name|ArtifactResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|resolver
+operator|.
+name|filter
+operator|.
+name|ArtifactFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|resolver
+operator|.
+name|filter
+operator|.
+name|ExcludesArtifactFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|versioning
+operator|.
+name|InvalidVersionSpecificationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|artifact
+operator|.
+name|versioning
+operator|.
+name|VersionRange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|model
+operator|.
+name|Dependency
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|model
+operator|.
+name|Exclusion
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugin
+operator|.
+name|MojoExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugin
+operator|.
+name|MojoFailureException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|project
+operator|.
+name|MavenProject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|project
+operator|.
+name|MavenProjectBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|project
+operator|.
+name|artifact
+operator|.
+name|MavenMetadataSource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|mojo
+operator|.
+name|exec
+operator|.
+name|AbstractExecMojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|mojo
+operator|.
+name|exec
+operator|.
+name|ExecutableDependency
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|mojo
+operator|.
+name|exec
+operator|.
+name|Property
+import|;
+end_import
+
 begin_comment
-comment|/**  * Runs a CamelContext using any Spring XML configuration files found in<code>META-INF/spring/*.xml</code>  * and starting up the context.  *  *  * @goal run  * @requiresDependencyResolution runtime  * @execute phase="test-compile"  */
+comment|/**  * Runs a CamelContext using any Spring XML configuration files found in  *<code>META-INF/spring/*.xml</code> and starting up the context.  *   * @goal run  * @requiresDependencyResolution runtime  * @execute phase="test-compile"  */
 end_comment
 
 begin_class
@@ -442,7 +470,7 @@ comment|//
 comment|// If we could avoid the mega-cut-n-paste it would really really help!
 comment|// ideally all I wanna do is auto-default 2 values!
 comment|// namely the main and the command line arguments..
-comment|/** 	 * The maven project. 	 * 	 * @parameter expression="${project}" 	 * @required 	 * @readonly 	 */
+comment|/**      * The maven project.      *       * @parameter expression="${project}"      * @required      * @readonly      */
 DECL|field|project
 specifier|protected
 name|MavenProject
@@ -490,69 +518,69 @@ specifier|private
 name|List
 name|pluginDependencies
 decl_stmt|;
-comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}" default-value="org.apache.camel.spring.Main"      * @required      */
+comment|/**      * The main class to execute.      *       * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.spring.Main"      * @required      */
 DECL|field|mainClass
 specifier|private
 name|String
 name|mainClass
 decl_stmt|;
-comment|/**      * The class arguments.      *      * @parameter expression="${camel.applicationContext}"      */
+comment|/**      * The class arguments.      *       * @parameter expression="${camel.applicationContext}"      */
 DECL|field|arguments
 specifier|private
 name|String
 index|[]
 name|arguments
 decl_stmt|;
-comment|/**      * A list of system properties to be passed. Note: as the execution is not forked, some system properties      * required by the JVM cannot be passed here. Use MAVEN_OPTS or the exec:exec instead. See the user guide for      * more information.      *      * @parameter      */
+comment|/**      * A list of system properties to be passed. Note: as the execution is not      * forked, some system properties required by the JVM cannot be passed here.      * Use MAVEN_OPTS or the exec:exec instead. See the user guide for more      * information.      *       * @parameter      */
 DECL|field|systemProperties
 specifier|private
 name|Property
 index|[]
 name|systemProperties
 decl_stmt|;
-comment|/**      * Deprecated; this is not needed anymore.      * Indicates if mojo should be kept running after the mainclass terminates.      * Usefull for serverlike apps with deamonthreads.      *      * @parameter expression="${camel.keepAlive}" default-value="false"      */
+comment|/**      * Deprecated; this is not needed anymore. Indicates if mojo should be kept      * running after the mainclass terminates. Usefull for serverlike apps with      * deamonthreads.      *       * @parameter expression="${camel.keepAlive}" default-value="false"      */
 DECL|field|keepAlive
 specifier|private
 name|boolean
 name|keepAlive
 decl_stmt|;
-comment|/**      * Indicates if the project dependencies should be used when executing      * the main class.      *      * @parameter expression="${camel.includeProjectDependencies}" default-value="true"      */
+comment|/**      * Indicates if the project dependencies should be used when executing the      * main class.      *       * @parameter expression="${camel.includeProjectDependencies}"      *            default-value="true"      */
 DECL|field|includeProjectDependencies
 specifier|private
 name|boolean
 name|includeProjectDependencies
 decl_stmt|;
-comment|/**      * Indicates if this plugin's dependencies should be used when executing      * the main class.      *<p/>      * This is useful when project dependencies are not appropriate.  Using only      * the plugin dependencies can be particularly useful when the project is      * not a java project.  For example a mvn project using the csharp plugins      * only expects to see dotnet libraries as dependencies.      *      * @parameter expression="${camel.includePluginDependencies}" default-value="false"      */
+comment|/**      * Indicates if this plugin's dependencies should be used when executing the      * main class.<p/> This is useful when project dependencies are not      * appropriate. Using only the plugin dependencies can be particularly      * useful when the project is not a java project. For example a mvn project      * using the csharp plugins only expects to see dotnet libraries as      * dependencies.      *       * @parameter expression="${camel.includePluginDependencies}"      *            default-value="false"      */
 DECL|field|includePluginDependencies
 specifier|private
 name|boolean
 name|includePluginDependencies
 decl_stmt|;
-comment|/**      * If provided the ExecutableDependency identifies which of the plugin dependencies      * contains the executable class.  This will have the affect of only including      * plugin dependencies required by the identified ExecutableDependency.      *<p/>      * If includeProjectDependencies is set to<code>true</code>, all of the project dependencies      * will be included on the executable's classpath.  Whether a particular project      * dependency is a dependency of the identified ExecutableDependency will be      * irrelevant to its inclusion in the classpath.      *      * @parameter      * @optional      */
+comment|/**      * If provided the ExecutableDependency identifies which of the plugin      * dependencies contains the executable class. This will have the affect of      * only including plugin dependencies required by the identified      * ExecutableDependency.<p/> If includeProjectDependencies is set to      *<code>true</code>, all of the project dependencies will be included on      * the executable's classpath. Whether a particular project dependency is a      * dependency of the identified ExecutableDependency will be irrelevant to      * its inclusion in the classpath.      *       * @parameter      * @optional      */
 DECL|field|executableDependency
 specifier|private
 name|ExecutableDependency
 name|executableDependency
 decl_stmt|;
-comment|/**      * Wether to interrupt/join and possibly stop the daemon threads upon quitting.<br/> If this is<code>false</code>,      *  maven does nothing about the daemon threads.  When maven has no more work to do, the VM will normally terminate      *  any remaining daemon threads.      *<p>      * In certain cases (in particular if maven is embedded),      *  you might need to keep this enabled to make sure threads are properly cleaned up to ensure they don't interfere      * with subsequent activity.      * In that case, see {@link #daemonThreadJoinTimeout} and      * {@link #stopUnresponsiveDaemonThreads} for further tuning.      *</p>      * @parameter expression="${camel.cleanupDaemonThreads} default-value="true"      */
+comment|/**      * Wether to interrupt/join and possibly stop the daemon threads upon      * quitting.<br/> If this is<code>false</code>, maven does nothing      * about the daemon threads. When maven has no more work to do, the VM will      * normally terminate any remaining daemon threads.      *<p>      * In certain cases (in particular if maven is embedded), you might need to      * keep this enabled to make sure threads are properly cleaned up to ensure      * they don't interfere with subsequent activity. In that case, see      * {@link #daemonThreadJoinTimeout} and      * {@link #stopUnresponsiveDaemonThreads} for further tuning.      *</p>      *       * @parameter expression="${camel.cleanupDaemonThreads} default-value="true"      */
 DECL|field|cleanupDaemonThreads
 specifier|private
 name|boolean
 name|cleanupDaemonThreads
 decl_stmt|;
-comment|/**      * This defines the number of milliseconds to wait for daemon threads to quit following their interruption.<br/>      * This is only taken into account if {@link #cleanupDaemonThreads} is<code>true</code>.      * A value&lt;=0 means to not timeout (i.e. wait indefinitely for threads to finish). Following a timeout, a      * warning will be logged.      *<p>Note: properly coded threads<i>should</i> terminate upon interruption but some threads may prove      * problematic:  as the VM does interrupt daemon threads, some code may not have been written to handle      * interruption properly. For example java.util.Timer is known to not handle interruptions in JDK&lt;= 1.6.      * So it is not possible for us to infinitely wait by default otherwise maven could hang. A  sensible default      * value has been chosen, but this default value<i>may change</i> in the future based on user feedback.</p>      * @parameter expression="${camel.daemonThreadJoinTimeout}" default-value="15000"      */
+comment|/**      * This defines the number of milliseconds to wait for daemon threads to      * quit following their interruption.<br/> This is only taken into account      * if {@link #cleanupDaemonThreads} is<code>true</code>. A value&lt;=0      * means to not timeout (i.e. wait indefinitely for threads to finish).      * Following a timeout, a warning will be logged.      *<p>      * Note: properly coded threads<i>should</i> terminate upon interruption      * but some threads may prove problematic: as the VM does interrupt daemon      * threads, some code may not have been written to handle interruption      * properly. For example java.util.Timer is known to not handle      * interruptions in JDK&lt;= 1.6. So it is not possible for us to      * infinitely wait by default otherwise maven could hang. A sensible default      * value has been chosen, but this default value<i>may change</i> in the      * future based on user feedback.      *</p>      *       * @parameter expression="${camel.daemonThreadJoinTimeout}"      *            default-value="15000"      */
 DECL|field|daemonThreadJoinTimeout
 specifier|private
 name|long
 name|daemonThreadJoinTimeout
 decl_stmt|;
-comment|/**      * Wether to call {@link Thread#stop()} following a timing out of waiting for an interrupted thread to finish.      * This is only taken into account if {@link #cleanupDaemonThreads} is<code>true</code>      * and the {@link #daemonThreadJoinTimeout} threshold has been reached for an uncooperative thread.      * If this is<code>false</code>, or if {@link Thread#stop()} fails to get the thread to stop, then      * a warning is logged and Maven will continue on while the affected threads (and related objects in memory)      * linger on.  Consider setting this to<code>true</code> if you are invoking problematic code that you can't fix.      * An example is {@link java.util.Timer} which doesn't respond to interruption.  To have<code>Timer</code>      * fixed, vote for<a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6336543">this bug</a>.      * @parameter expression="${camel.stopUnresponsiveDaemonThreads} default-value="false"      */
+comment|/**      * Wether to call {@link Thread#stop()} following a timing out of waiting      * for an interrupted thread to finish. This is only taken into account if      * {@link #cleanupDaemonThreads} is<code>true</code> and the      * {@link #daemonThreadJoinTimeout} threshold has been reached for an      * uncooperative thread. If this is<code>false</code>, or if      * {@link Thread#stop()} fails to get the thread to stop, then a warning is      * logged and Maven will continue on while the affected threads (and related      * objects in memory) linger on. Consider setting this to<code>true</code>      * if you are invoking problematic code that you can't fix. An example is      * {@link java.util.Timer} which doesn't respond to interruption. To have      *<code>Timer</code> fixed, vote for<a      * href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6336543">this      * bug</a>.      *       * @parameter expression="${camel.stopUnresponsiveDaemonThreads}      *            default-value="false"      */
 DECL|field|stopUnresponsiveDaemonThreads
 specifier|private
 name|boolean
 name|stopUnresponsiveDaemonThreads
 decl_stmt|;
-comment|/**      * Deprecated this is not needed anymore.      *      * @parameter expression="${camel.killAfter}" default-value="-1"      */
+comment|/**      * Deprecated this is not needed anymore.      *       * @parameter expression="${camel.killAfter}" default-value="-1"      */
 DECL|field|killAfter
 specifier|private
 name|long
@@ -563,7 +591,7 @@ specifier|private
 name|Properties
 name|originalSystemProperties
 decl_stmt|;
-comment|/**      * Execute goal.      * @throws MojoExecutionException execution of the main class or one of the threads it generated failed.      * @throws MojoFailureException something bad happened...      */
+comment|/**      * Execute goal.      *       * @throws MojoExecutionException execution of the main class or one of the      *                 threads it generated failed.      * @throws MojoFailureException something bad happened...      */
 DECL|method|execute ()
 specifier|public
 name|void
@@ -705,7 +733,7 @@ operator|new
 name|IsolatedThreadGroup
 argument_list|(
 name|mainClass
-comment|/*name*/
+comment|/* name */
 argument_list|)
 decl_stmt|;
 name|Thread
@@ -853,8 +881,10 @@ argument_list|(
 name|threadGroup
 argument_list|)
 expr_stmt|;
-comment|// It's plausible that spontaneously a non-daemon thread might be created as we try and shut down,
-comment|// but it's too late since the termination condition (only daemon threads) has been triggered.
+comment|// It's plausible that spontaneously a non-daemon thread might be
+comment|// created as we try and shut down,
+comment|// but it's too late since the termination condition (only daemon
+comment|// threads) has been triggered.
 if|if
 condition|(
 name|keepAlive
@@ -968,8 +998,8 @@ DECL|field|uncaughtException
 name|Throwable
 name|uncaughtException
 decl_stmt|;
-comment|//synchronize access to this
-DECL|method|IsolatedThreadGroup ( String name )
+comment|// synchronize access to this
+DECL|method|IsolatedThreadGroup (String name)
 specifier|public
 name|IsolatedThreadGroup
 parameter_list|(
@@ -983,7 +1013,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|uncaughtException ( Thread thread, Throwable throwable )
+DECL|method|uncaughtException (Thread thread, Throwable throwable)
 specifier|public
 name|void
 name|uncaughtException
@@ -1003,7 +1033,7 @@ name|ThreadDeath
 condition|)
 block|{
 return|return;
-comment|//harmless
+comment|// harmless
 block|}
 name|boolean
 name|doLog
@@ -1015,19 +1045,20 @@ init|(
 name|this
 init|)
 block|{
+comment|// only remember the first one
 if|if
 condition|(
 name|uncaughtException
 operator|==
 literal|null
 condition|)
-comment|// only remember the first one
 block|{
 name|uncaughtException
 operator|=
 name|throwable
 expr_stmt|;
-comment|// will be reported eventually
+comment|// will be reported
+comment|// eventually
 block|}
 else|else
 block|{
@@ -1055,7 +1086,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|joinNonDaemonThreads ( ThreadGroup threadGroup )
+DECL|method|joinNonDaemonThreads (ThreadGroup threadGroup)
 specifier|private
 name|void
 name|joinNonDaemonThreads
@@ -1123,7 +1154,8 @@ name|foundNonDaemon
 operator|=
 literal|true
 expr_stmt|;
-comment|//try again; maybe more threads were created while we were busy
+comment|// try again; maybe more threads were
+comment|// created while we were busy
 name|joinThread
 argument_list|(
 name|thread
@@ -1139,7 +1171,7 @@ name|foundNonDaemon
 condition|)
 do|;
 block|}
-DECL|method|joinThread ( Thread thread, long timeoutMsecs )
+DECL|method|joinThread (Thread thread, long timeoutMsecs)
 specifier|private
 name|void
 name|joinThread
@@ -1198,8 +1230,10 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-comment|// not expected!
+comment|// not
+comment|// expected!
 block|}
+comment|// generally abnormal
 if|if
 condition|(
 name|thread
@@ -1207,7 +1241,6 @@ operator|.
 name|isAlive
 argument_list|()
 condition|)
-comment|//generally abnormal
 block|{
 name|getLog
 argument_list|()
@@ -1227,7 +1260,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|terminateThreads ( ThreadGroup threadGroup )
+DECL|method|terminateThreads (ThreadGroup threadGroup)
 specifier|private
 name|void
 name|terminateThreads
@@ -1251,7 +1284,8 @@ operator|new
 name|HashSet
 argument_list|()
 decl_stmt|;
-comment|// these were not responsive to interruption
+comment|// these were not responsive
+comment|// to interruption
 for|for
 control|(
 name|Collection
@@ -1283,8 +1317,9 @@ name|uncooperativeThreads
 argument_list|)
 control|)
 block|{
-comment|// Interrupt all threads we know about as of this instant (harmless if spuriously went dead (! isAlive())
-comment|//   or if something else interrupted it ( isInterrupted() ).
+comment|// Interrupt all threads we know about as of this instant (harmless
+comment|// if spuriously went dead (! isAlive())
+comment|// or if something else interrupted it ( isInterrupted() ).
 for|for
 control|(
 name|Iterator
@@ -1329,7 +1364,8 @@ name|interrupt
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Now join with a timeout and call stop() (assuming flags are set right)
+comment|// Now join with a timeout and call stop() (assuming flags are set
+comment|// right)
 for|for
 control|(
 name|Iterator
@@ -1368,7 +1404,8 @@ argument_list|()
 condition|)
 block|{
 continue|continue;
-comment|//and, presumably it won't show up in getActiveThreads() next iteration
+comment|// and, presumably it won't show up in
+comment|// getActiveThreads() next iteration
 block|}
 if|if
 condition|(
@@ -1384,7 +1421,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-comment|//waits until not alive; no timeout
+comment|// waits until not alive; no timeout
 continue|continue;
 block|}
 name|long
@@ -1434,7 +1471,8 @@ argument_list|(
 name|thread
 argument_list|)
 expr_stmt|;
-comment|// ensure we don't process again
+comment|// ensure we don't process
+comment|// again
 if|if
 condition|(
 name|stopUnresponsiveDaemonThreads
@@ -1521,7 +1559,8 @@ operator|!=
 literal|0
 condition|)
 block|{
-comment|// TODO this may be nothing; continue on anyway; perhaps don't even log in future
+comment|// TODO this may be nothing; continue on anyway; perhaps don't
+comment|// even log in future
 name|Thread
 index|[]
 name|threadsArray
@@ -1563,7 +1602,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|getActiveThreads ( ThreadGroup threadGroup )
+DECL|method|getActiveThreads (ThreadGroup threadGroup)
 specifier|private
 name|Collection
 name|getActiveThreads
@@ -1639,10 +1678,10 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+comment|// note: result should be modifiable
 return|return
 name|result
 return|;
-comment|//note: result should be modifiable
 block|}
 comment|/**      * Pass any given system properties to the java system properties.      */
 DECL|method|setSystemProperties ()
@@ -1719,7 +1758,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Set up a classloader for the execution of the main class.      *      * @return the classloader      * @throws MojoExecutionException      */
+comment|/**      * Set up a classloader for the execution of the main class.      *       * @return the classloader      * @throws MojoExecutionException      */
 DECL|method|getClassLoader ()
 specifier|private
 name|ClassLoader
@@ -1773,8 +1812,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Add any relevant project dependencies to the classpath.      * Indirectly takes includePluginDependencies and ExecutableDependency into consideration.      *      * @param path classpath of {@link java.net.URL} objects      * @throws MojoExecutionException      */
-DECL|method|addRelevantPluginDependenciesToClasspath ( List path )
+comment|/**      * Add any relevant project dependencies to the classpath. Indirectly takes      * includePluginDependencies and ExecutableDependency into consideration.      *       * @param path classpath of {@link java.net.URL} objects      * @throws MojoExecutionException      */
+DECL|method|addRelevantPluginDependenciesToClasspath (List path)
 specifier|private
 name|void
 name|addRelevantPluginDependenciesToClasspath
@@ -1876,8 +1915,8 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Add any relevant project dependencies to the classpath.      * Takes includeProjectDependencies into consideration.      *      * @param path classpath of {@link java.net.URL} objects      * @throws MojoExecutionException      */
-DECL|method|addRelevantProjectDependenciesToClasspath ( List path )
+comment|/**      * Add any relevant project dependencies to the classpath. Takes      * includeProjectDependencies into consideration.      *       * @param path classpath of {@link java.net.URL} objects      * @throws MojoExecutionException      */
+DECL|method|addRelevantProjectDependenciesToClasspath (List path)
 specifier|private
 name|void
 name|addRelevantProjectDependenciesToClasspath
@@ -1983,7 +2022,8 @@ operator|.
 name|getArtifacts
 argument_list|()
 decl_stmt|;
-comment|// system scope dependencies are not returned by maven 2.0. See MEXEC-17
+comment|// system scope dependencies are not returned by maven 2.0. See
+comment|// MEXEC-17
 name|dependencies
 operator|.
 name|addAll
@@ -2442,7 +2482,7 @@ return|return
 name|artifacts
 return|;
 block|}
-comment|/**      * Determine all plugin dependencies relevant to the executable.      * Takes includePlugins, and the executableDependency into consideration.      *      * @return a set of Artifact objects.      *         (Empty set is returned if there are no relevant plugin dependencies.)      * @throws MojoExecutionException      */
+comment|/**      * Determine all plugin dependencies relevant to the executable. Takes      * includePlugins, and the executableDependency into consideration.      *       * @return a set of Artifact objects. (Empty set is returned if there are no      *         relevant plugin dependencies.)      * @throws MojoExecutionException      */
 DECL|method|determineRelevantPluginDependencies ()
 specifier|private
 name|Set
@@ -2549,8 +2589,8 @@ return|return
 name|relevantDependencies
 return|;
 block|}
-comment|/**      * Get the artifact which refers to the POM of the executable artifact.      *      * @param executableArtifact this artifact refers to the actual assembly.      * @return an artifact which refers to the POM of the executable artifact.      */
-DECL|method|getExecutablePomArtifact ( Artifact executableArtifact )
+comment|/**      * Get the artifact which refers to the POM of the executable artifact.      *       * @param executableArtifact this artifact refers to the actual assembly.      * @return an artifact which refers to the POM of the executable artifact.      */
+DECL|method|getExecutablePomArtifact (Artifact executableArtifact)
 specifier|private
 name|Artifact
 name|getExecutablePomArtifact
@@ -2585,7 +2625,7 @@ literal|"pom"
 argument_list|)
 return|;
 block|}
-comment|/**      * Examine the plugin dependencies to find the executable artifact.      *      * @return an artifact which refers to the actual executable tool (not a POM)      * @throws MojoExecutionException      */
+comment|/**      * Examine the plugin dependencies to find the executable artifact.      *       * @return an artifact which refers to the actual executable tool (not a      *         POM)      * @throws MojoExecutionException      */
 DECL|method|findExecutableArtifact ()
 specifier|private
 name|Artifact
@@ -2594,7 +2634,8 @@ parameter_list|()
 throws|throws
 name|MojoExecutionException
 block|{
-comment|//ILimitedArtifactIdentifier execToolAssembly = this.getExecutableToolAssembly();
+comment|// ILimitedArtifactIdentifier execToolAssembly =
+comment|// this.getExecutableToolAssembly();
 name|Artifact
 name|executableTool
 init|=
@@ -2675,7 +2716,7 @@ return|return
 name|executableTool
 return|;
 block|}
-DECL|method|resolveExecutableDependencies ( Artifact executablePomArtifact )
+DECL|method|resolveExecutableDependencies (Artifact executablePomArtifact)
 specifier|private
 name|Set
 name|resolveExecutableDependencies
@@ -2711,7 +2752,7 @@ operator|.
 name|localRepository
 argument_list|)
 decl_stmt|;
-comment|//get all of the dependencies for the executable project
+comment|// get all of the dependencies for the executable project
 name|List
 name|dependencies
 init|=
@@ -2720,7 +2761,7 @@ operator|.
 name|getDependencies
 argument_list|()
 decl_stmt|;
-comment|//make Artifacts of all the dependencies
+comment|// make Artifacts of all the dependencies
 name|Set
 name|dependencyArtifacts
 init|=
@@ -2741,7 +2782,7 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-comment|//not forgetting the Artifact of the project itself
+comment|// not forgetting the Artifact of the project itself
 name|dependencyArtifacts
 operator|.
 name|add
@@ -2752,7 +2793,8 @@ name|getArtifact
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//resolve all dependencies transitively to obtain a comprehensive list of assemblies
+comment|// resolve all dependencies transitively to obtain a comprehensive
+comment|// list of assemblies
 name|ArtifactResolutionResult
 name|result
 init|=
@@ -2815,8 +2857,8 @@ return|return
 name|executableDependencies
 return|;
 block|}
-comment|/**      * Stop program execution for nn millis.      *      * @param millis the number of millis-seconds to wait for,      *<code>0</code> stops program forever.      */
-DECL|method|waitFor ( long millis )
+comment|/**      * Stop program execution for nn millis.      *       * @param millis the number of millis-seconds to wait for,<code>0</code>      *                stops program forever.      */
+DECL|method|waitFor (long millis)
 specifier|private
 name|void
 name|waitFor
@@ -2861,7 +2903,8 @@ operator|.
 name|interrupt
 argument_list|()
 expr_stmt|;
-comment|// good practice if don't throw
+comment|// good practice if don't
+comment|// throw
 name|getLog
 argument_list|()
 operator|.

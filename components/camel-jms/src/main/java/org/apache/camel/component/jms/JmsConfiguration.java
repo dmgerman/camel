@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,26 @@ operator|.
 name|jms
 package|;
 end_package
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|ConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|ExceptionListener
+import|;
+end_import
 
 begin_import
 import|import
@@ -246,26 +266,6 @@ name|PlatformTransactionManager
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|ConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|ExceptionListener
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -472,15 +472,11 @@ DECL|field|useVersion102
 specifier|private
 name|boolean
 name|useVersion102
-init|=
-literal|false
 decl_stmt|;
 DECL|field|explicitQosEnabled
 specifier|private
 name|boolean
 name|explicitQosEnabled
-init|=
-literal|false
 decl_stmt|;
 DECL|field|deliveryPersistent
 specifier|private
@@ -753,7 +749,8 @@ argument_list|(
 name|transacted
 argument_list|)
 expr_stmt|;
-comment|// This is here for completeness, but the template should not get used for receiving messages.
+comment|// This is here for completeness, but the template should not get used
+comment|// for receiving messages.
 if|if
 condition|(
 name|acknowledgementMode
@@ -877,7 +874,8 @@ name|durableSubscriptionName
 argument_list|)
 expr_stmt|;
 block|}
-comment|// lets default to durable subscription if the subscriber name and client ID are specified (as there's
+comment|// lets default to durable subscription if the subscriber name and
+comment|// client ID are specified (as there's
 comment|// no reason to specify them if not! :)
 if|if
 condition|(
@@ -1029,7 +1027,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// Default to CACHE_CONSUMER unless specified.  This works best with most JMS providers.
+comment|// Default to CACHE_CONSUMER unless specified. This works best
+comment|// with most JMS providers.
 name|listenerContainer
 operator|.
 name|setCacheLevel
@@ -1288,7 +1287,7 @@ block|}
 block|}
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getConnectionFactory ()
 specifier|public
 name|ConnectionFactory
@@ -1312,7 +1311,7 @@ return|return
 name|connectionFactory
 return|;
 block|}
-comment|/**      * Sets the default connection factory to be used if a connection factory is not specified      * for either {@link #setTemplateConnectionFactory(ConnectionFactory)} or      * {@link #setListenerConnectionFactory(ConnectionFactory)}      *      * @param connectionFactory the default connection factory to use      */
+comment|/**      * Sets the default connection factory to be used if a connection factory is      * not specified for either      * {@link #setTemplateConnectionFactory(ConnectionFactory)} or      * {@link #setListenerConnectionFactory(ConnectionFactory)}      *       * @param connectionFactory the default connection factory to use      */
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
 name|void
@@ -1352,7 +1351,7 @@ return|return
 name|listenerConnectionFactory
 return|;
 block|}
-comment|/**      * Sets the connection factory to be used for consuming messages via the {@link #createMessageListenerContainer()}      *      * @param listenerConnectionFactory the connection factory to use for consuming messages      */
+comment|/**      * Sets the connection factory to be used for consuming messages via the      * {@link #createMessageListenerContainer()}      *       * @param listenerConnectionFactory the connection factory to use for      *                consuming messages      */
 DECL|method|setListenerConnectionFactory (ConnectionFactory listenerConnectionFactory)
 specifier|public
 name|void
@@ -1392,7 +1391,7 @@ return|return
 name|templateConnectionFactory
 return|;
 block|}
-comment|/**      * Sets the connection factory to be used for sending messages via the {@link JmsTemplate} via      * {@link #createJmsOperations(boolean, String)}      *      * @param templateConnectionFactory the connection factory for sending messages      */
+comment|/**      * Sets the connection factory to be used for sending messages via the      * {@link JmsTemplate} via {@link #createJmsOperations(boolean, String)}      *       * @param templateConnectionFactory the connection factory for sending      *                messages      */
 DECL|method|setTemplateConnectionFactory (ConnectionFactory templateConnectionFactory)
 specifier|public
 name|void
@@ -2281,7 +2280,7 @@ name|consumerTransacted
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|chooseMessageListenerContainerImplementation ()
 specifier|protected
 name|AbstractMessageListenerContainer
@@ -2351,7 +2350,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Factory method which allows derived classes to customize the lazy creation      */
+comment|/**      * Factory method which allows derived classes to customize the lazy      * creation      */
 DECL|method|createConnectionFactory ()
 specifier|protected
 name|ConnectionFactory
@@ -2371,7 +2370,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Factory method which allows derived classes to customize the lazy creation      */
+comment|/**      * Factory method which allows derived classes to customize the lazy      * creation      */
 DECL|method|createListenerConnectionFactory ()
 specifier|protected
 name|ConnectionFactory
@@ -2383,7 +2382,7 @@ name|getConnectionFactory
 argument_list|()
 return|;
 block|}
-comment|/**      * Factory method which allows derived classes to customize the lazy creation      */
+comment|/**      * Factory method which allows derived classes to customize the lazy      * creation      */
 DECL|method|createTemplateConnectionFactory ()
 specifier|protected
 name|ConnectionFactory

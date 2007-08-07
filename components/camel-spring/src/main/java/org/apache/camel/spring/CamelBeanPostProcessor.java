@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,86 @@ operator|.
 name|spring
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Field
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAccessType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAccessorType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlRootElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
 
 begin_import
 import|import
@@ -171,22 +251,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|isNotNullAndNonEmpty
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -281,87 +345,23 @@ import|;
 end_import
 
 begin_import
-import|import
-name|javax
+import|import static
+name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|bind
+name|camel
 operator|.
-name|annotation
+name|util
 operator|.
-name|XmlRootElement
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
+name|ObjectHelper
 operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlTransient
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Field
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Method
+name|isNotNullAndNonEmpty
 import|;
 end_import
 
 begin_comment
-comment|/**  * A post processor to perform injection of {@link Endpoint} and {@link Producer} instances together with binding  * methods annotated with {@link @MessageDriven} to a Camel consumer.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A post processor to perform injection of {@link Endpoint} and  * {@link Producer} instances together with binding methods annotated with  * {@link @MessageDriven} to a Camel consumer.  *   * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -388,13 +388,13 @@ name|BeanPostProcessor
 implements|,
 name|ApplicationContextAware
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -419,7 +419,7 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
-comment|//private List<Consumer> consumers = new ArrayList<Consumer>();
+comment|// private List<Consumer> consumers = new ArrayList<Consumer>();
 DECL|method|CamelBeanPostProcessor ()
 specifier|public
 name|CamelBeanPostProcessor
@@ -471,7 +471,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -515,7 +515,7 @@ name|bean
 return|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void
@@ -561,8 +561,8 @@ name|camelContext
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
-comment|/**      * A strategy method to allow implementations to perform some custom JBI based injection of the POJO      *      * @param bean the bean to be injected      */
+comment|// -------------------------------------------------------------------------
+comment|/**      * A strategy method to allow implementations to perform some custom JBI      * based injection of the POJO      *       * @param bean the bean to be injected      */
 DECL|method|injectFields (final Object bean)
 specifier|protected
 name|void
@@ -764,7 +764,7 @@ operator|!=
 literal|1
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -846,7 +846,7 @@ name|IllegalArgumentException
 throws|,
 name|IllegalAccessException
 block|{
-comment|/*                  TODO support callbacks?                  if (method.getAnnotation(Callback.class) != null) {                     try {                         Expression e = ExpressionFactory.createExpression(                                 method.getAnnotation(Callback.class).condition());                         JexlContext jc = JexlHelper.createContext();                         jc.getVars().put("this", obj);                         Object r = e.evaluate(jc);                         if (!(r instanceof Boolean)) {                             throw new RuntimeException("Expression did not returned a boolean value but: " + r);                         }                         Boolean oldVal = req.getCallbacks().get(method);                         Boolean newVal = (Boolean) r;                         if ((oldVal == null || !oldVal)&& newVal) {                             req.getCallbacks().put(method, newVal);                             method.invoke(obj, new Object[0]);                             // TODO: handle return value and sent it as the answer                         }                     } catch (Exception e) {                         throw new RuntimeException("Unable to invoke callback", e);                     }                 }                 */
+comment|/*                  * TODO support callbacks? if                  * (method.getAnnotation(Callback.class) != null) { try {                  * Expression e = ExpressionFactory.createExpression(                  * method.getAnnotation(Callback.class).condition());                  * JexlContext jc = JexlHelper.createContext();                  * jc.getVars().put("this", obj); Object r = e.evaluate(jc); if                  * (!(r instanceof Boolean)) { throw new                  * RuntimeException("Expression did not returned a boolean value                  * but: " + r); } Boolean oldVal =                  * req.getCallbacks().get(method); Boolean newVal = (Boolean) r;                  * if ((oldVal == null || !oldVal)&& newVal) {                  * req.getCallbacks().put(method, newVal); method.invoke(obj,                  * new Object[0]); // TODO: handle return value and sent it as                  * the answer } } catch (Exception e) { throw new                  * RuntimeException("Unable to invoke callback", e); } }                  */
 block|}
 block|}
 argument_list|)
@@ -883,7 +883,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -930,7 +930,7 @@ argument_list|,
 name|endpoint
 argument_list|)
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -966,7 +966,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -984,7 +984,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Create a processor which invokes the given method when an incoming message exchange is received      */
+comment|/**      * Create a processor which invokes the given method when an incoming      * message exchange is received      */
 DECL|method|createConsumerProcessor (final Object pojo, final Method method, final Endpoint endpoint)
 specifier|protected
 name|Processor
@@ -1035,7 +1035,7 @@ name|Consumer
 name|consumer
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -1044,7 +1044,7 @@ operator|+
 name|consumer
 argument_list|)
 expr_stmt|;
-comment|//consumers.add(consumer);
+comment|// consumers.add(consumer);
 block|}
 comment|/**      * Creates the value for the injection point for the given annotation      */
 DECL|method|getEndpointInjectionValue (EndpointInject annotation, Class<?> type)
@@ -1240,7 +1240,7 @@ block|}
 block|}
 else|else
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(

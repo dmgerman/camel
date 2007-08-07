@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -19,6 +19,26 @@ operator|.
 name|remote
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
 
 begin_import
 import|import
@@ -57,26 +77,6 @@ operator|.
 name|ftp
 operator|.
 name|FTPClient
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
 import|;
 end_import
 
@@ -201,7 +201,10 @@ argument_list|(
 name|endpointFile
 argument_list|)
 expr_stmt|;
-comment|// TODO this line might not be needed... check after finish writing unit tests
+comment|// TODO this line might
+comment|// not be needed...
+comment|// check after finish
+comment|// writing unit tests
 if|if
 condition|(
 name|endpointFile
@@ -287,10 +290,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|success
 condition|)
-block|{          }
-else|else
 block|{
 throw|throw
 operator|new
@@ -316,9 +318,11 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-comment|//        client.connect(endpoint.getConfiguration().getHost());
-comment|//        client.login(endpoint.getConfiguration().getUsername(), endpoint.getConfiguration().getPassword());
-comment|//        client.setFileType(endpoint.getConfiguration().isBinary() ? FTPClient.BINARY_FILE_TYPE : FTPClient.ASCII_FILE_TYPE);
+comment|// client.connect(endpoint.getConfiguration().getHost());
+comment|// client.login(endpoint.getConfiguration().getUsername(),
+comment|// endpoint.getConfiguration().getPassword());
+comment|// client.setFileType(endpoint.getConfiguration().isBinary() ?
+comment|// FTPClient.BINARY_FILE_TYPE : FTPClient.ASCII_FILE_TYPE);
 block|}
 annotation|@
 name|Override

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,26 @@ operator|.
 name|rules
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
 
 begin_import
 import|import
@@ -171,38 +191,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-operator|.
-name|startServices
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-operator|.
-name|stopServices
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -245,22 +233,34 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|ServiceHelper
+operator|.
+name|startServices
 import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
 operator|.
 name|util
 operator|.
-name|Date
+name|ServiceHelper
+operator|.
+name|stopServices
 import|;
 end_import
 
@@ -276,13 +276,13 @@ name|TemporalRule
 extends|extends
 name|ServiceSupport
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -697,7 +697,7 @@ operator|new
 name|Date
 argument_list|()
 decl_stmt|;
-comment|/*             TODO this doesn't work and returns null for some strange reason             ProcessInstance instance = activityState.getProcessInstance();             ActivityState secondState = second.getActivityState(instance);             if (secondState == null) {                 log.error("Could not find the second state! Process is: " + instance + " with first state: " + first.getActivityState(instance) + " and the state I was called with was: " + activityState);             } */
+comment|/*             TODO this doesn't work and returns null for some strange reason             ProcessInstance instance = activityState.getProcessInstance();             ActivityState secondState = second.getActivityState(instance);             if (secondState == null) {                 log.error("Could not find the second state! Process is: "                  + instance + " with first state: " + first.getActivityState(instance)                  + " and the state I was called with was: " + activityState);             } */
 name|ActivityState
 name|secondState
 init|=
@@ -749,7 +749,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(

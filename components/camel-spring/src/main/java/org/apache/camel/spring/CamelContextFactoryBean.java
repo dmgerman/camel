@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -15,6 +15,110 @@ operator|.
 name|spring
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAccessType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAccessorType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElements
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlRootElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
 
 begin_import
 import|import
@@ -216,112 +320,8 @@ name|ContextRefreshedEvent
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlElement
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlElements
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlRootElement
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlTransient
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  * A Spring {@link FactoryBean} to create and initialize a {@link SpringCamelContext}  * and install routes either explicitly configured in Spring XML or found by searching the classpath for Java classes  * which extend {@link RouteBuilder} using the nested {@link #setPackages(String[])}.  *  * @version $Revision$  */
+comment|/**  * A Spring {@link FactoryBean} to create and initialize a  * {@link SpringCamelContext} and install routes either explicitly configured in  * Spring XML or found by searching the classpath for Java classes which extend  * {@link RouteBuilder} using the nested {@link #setPackages(String[])}.  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -358,12 +358,12 @@ name|ApplicationContextAware
 implements|,
 name|ApplicationListener
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -587,7 +587,7 @@ comment|// lets force any lazy creation
 name|getContext
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -630,13 +630,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -653,10 +653,11 @@ operator|instanceof
 name|ContextRefreshedEvent
 condition|)
 block|{
-comment|// now lets start the CamelContext so that all its possible dependencies are initailized
+comment|// now lets start the CamelContext so that all its possible
+comment|// dependencies are initailized
 try|try
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -685,10 +686,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/*         if (context != null) {             context.onApplicationEvent(event);         } */
+comment|/*          * if (context != null) { context.onApplicationEvent(event); }          */
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getContext ()
 specifier|public
 name|SpringCamelContext
@@ -776,7 +777,7 @@ return|return
 name|routeBuilder
 return|;
 block|}
-comment|/**      * Set a single {@link RouteBuilder} to be used to create the default routes on startup      */
+comment|/**      * Set a single {@link RouteBuilder} to be used to create the default routes      * on startup      */
 DECL|method|setRouteBuilder (RouteBuilder routeBuilder)
 specifier|public
 name|void
@@ -793,7 +794,7 @@ operator|=
 name|routeBuilder
 expr_stmt|;
 block|}
-comment|/**      * Set a collection of {@link RouteBuilder} instances to be used to create the default routes on startup      */
+comment|/**      * Set a collection of {@link RouteBuilder} instances to be used to create      * the default routes on startup      */
 DECL|method|setRouteBuilders (RouteBuilder[] builders)
 specifier|public
 name|void
@@ -858,7 +859,7 @@ return|return
 name|packages
 return|;
 block|}
-comment|/**      * Sets the package names to be recursively searched for Java classes which extend {@link RouteBuilder} to be auto-wired up to the      * {@link SpringCamelContext} as a route. Note that classes are excluded if they are specifically configured in the spring.xml      *      * @param packages the package names which are recursively searched      */
+comment|/**      * Sets the package names to be recursively searched for Java classes which      * extend {@link RouteBuilder} to be auto-wired up to the      * {@link SpringCamelContext} as a route. Note that classes are excluded if      * they are specifically configured in the spring.xml      *       * @param packages the package names which are recursively searched      */
 DECL|method|setPackages (String[] packages)
 specifier|public
 name|void
@@ -877,7 +878,7 @@ name|packages
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 comment|/**      * Strategy to install all available routes into the context      */
 DECL|method|installRoutes ()
 specifier|protected
@@ -938,7 +939,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy method to try find {@link RouteBuilder} instances on the classpath      */
+comment|/**      * Strategy method to try find {@link RouteBuilder} instances on the      * classpath      */
 DECL|method|findRouteBuiders ()
 specifier|protected
 name|void

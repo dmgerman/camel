@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,26 @@ operator|.
 name|ognl
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
 
 begin_import
 import|import
@@ -62,9 +82,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|impl
 operator|.
-name|IllegalSyntaxException
+name|ExpressionSupport
 import|;
 end_import
 
@@ -90,29 +110,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|language
 operator|.
-name|ExpressionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
+name|IllegalSyntaxException
 import|;
 end_import
 
@@ -151,32 +151,6 @@ specifier|private
 name|Object
 name|expression
 decl_stmt|;
-DECL|method|ognl (String expression)
-specifier|public
-specifier|static
-name|OgnlExpression
-name|ognl
-parameter_list|(
-name|String
-name|expression
-parameter_list|)
-block|{
-return|return
-operator|new
-name|OgnlExpression
-argument_list|(
-operator|new
-name|OgnlLanguage
-argument_list|()
-argument_list|,
-name|expression
-argument_list|,
-name|Object
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
 DECL|method|OgnlExpression (OgnlLanguage language, String expressionString, Class<?> type)
 specifier|public
 name|OgnlExpression
@@ -237,6 +211,32 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|ognl (String expression)
+specifier|public
+specifier|static
+name|OgnlExpression
+name|ognl
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+return|return
+operator|new
+name|OgnlExpression
+argument_list|(
+operator|new
+name|OgnlLanguage
+argument_list|()
+argument_list|,
+name|expression
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 DECL|method|evaluate (Exchange exchange)
 specifier|public
 name|Object
@@ -246,7 +246,8 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// TODO we could use caching here but then we'd have possible concurrency issues
+comment|// TODO we could use caching here but then we'd have possible
+comment|// concurrency issues
 comment|// so lets assume that the provider caches
 name|Map
 name|values
