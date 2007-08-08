@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -63,6 +43,26 @@ operator|.
 name|message
 operator|.
 name|MessageImpl
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -176,7 +176,10 @@ operator|.
 name|getInMessage
 argument_list|()
 decl_stmt|;
-comment|// TODO is InputStream the best type to give to CXF?
+comment|// CXF uses the stax which is based on the stream API to parser the XML, so
+comment|// the CXF transport is also based on the stream API.
+comment|// And the interceptors are also based on the stream API,
+comment|// so lets use an InputStream to host the CXF on wire message.
 name|CxfMessage
 name|in
 init|=
