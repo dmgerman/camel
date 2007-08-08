@@ -153,6 +153,13 @@ specifier|protected
 name|MockEndpoint
 name|overdueEndpoint
 decl_stmt|;
+DECL|field|errorTimeout
+specifier|protected
+name|int
+name|errorTimeout
+init|=
+literal|2
+decl_stmt|;
 DECL|method|testBam ()
 specifier|public
 name|void
@@ -357,7 +364,7 @@ name|errorIfOver
 argument_list|(
 name|seconds
 argument_list|(
-literal|2
+name|errorTimeout
 argument_list|)
 argument_list|)
 operator|.
