@@ -31,6 +31,24 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|XPathBuilder
+operator|.
+name|xpath
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -57,6 +75,22 @@ operator|.
 name|spring
 operator|.
 name|SpringTestSupport
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|Time
+operator|.
+name|seconds
 import|;
 end_import
 
@@ -102,40 +136,6 @@ name|TransactionTemplate
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|XPathBuilder
-operator|.
-name|xpath
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|Time
-operator|.
-name|seconds
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision: $  */
 end_comment
@@ -148,26 +148,19 @@ name|BamRouteTest
 extends|extends
 name|SpringTestSupport
 block|{
-DECL|method|testSendingToFirstActivityOnlyResultsInOverdueMessage ()
+DECL|field|overdueEndpoint
+specifier|protected
+name|MockEndpoint
+name|overdueEndpoint
+decl_stmt|;
+DECL|method|testBam ()
 specifier|public
 name|void
-name|testSendingToFirstActivityOnlyResultsInOverdueMessage
+name|testBam
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockEndpoint
-name|overdueEndpoint
-init|=
-name|resolveMandatoryEndpoint
-argument_list|(
-literal|"mock:overdue"
-argument_list|,
-name|MockEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|overdueEndpoint
 operator|.
 name|expectedMessageCount
@@ -187,9 +180,7 @@ expr_stmt|;
 name|overdueEndpoint
 operator|.
 name|assertIsSatisfied
-argument_list|(
-literal|5000
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createApplicationContext ()
@@ -227,6 +218,24 @@ name|addRoutes
 argument_list|(
 name|createRouteBuilder
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|overdueEndpoint
+operator|=
+name|resolveMandatoryEndpoint
+argument_list|(
+literal|"mock:overdue"
+argument_list|,
+name|MockEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|overdueEndpoint
+operator|.
+name|setDefaulResultWaitMillis
+argument_list|(
+literal|8000
 argument_list|)
 expr_stmt|;
 block|}

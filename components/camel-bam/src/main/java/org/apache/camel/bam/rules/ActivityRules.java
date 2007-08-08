@@ -376,7 +376,6 @@ argument_list|(
 name|activityName
 argument_list|)
 return|;
-comment|/*         if (activityDefinition == null) {             activityDefinition = builder.findOrCreateActivityDefinition(activityName);         }         else {             // lets refresh it             builder.getJpaTemplate().refresh(activityDefinition);         }         return activityDefinition; */
 block|}
 DECL|method|setActivityDefinition (ActivityDefinition activityDefinition)
 specifier|public
