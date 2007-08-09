@@ -244,6 +244,13 @@ specifier|private
 name|boolean
 name|noop
 decl_stmt|;
+DECL|field|append
+specifier|private
+name|boolean
+name|append
+init|=
+literal|true
+decl_stmt|;
 DECL|field|moveNamePrefix
 specifier|private
 name|String
@@ -674,6 +681,33 @@ operator|.
 name|noop
 operator|=
 name|noop
+expr_stmt|;
+block|}
+DECL|method|isAppend ()
+specifier|public
+name|boolean
+name|isAppend
+parameter_list|()
+block|{
+return|return
+name|append
+return|;
+block|}
+comment|/**      * When writing do we append to the end of the file, or replace it?      * The default is to append      *      * @param append whether to append (or replace)      */
+DECL|method|setAppend (boolean append)
+specifier|public
+name|void
+name|setAppend
+parameter_list|(
+name|boolean
+name|append
+parameter_list|)
+block|{
+name|this
+operator|.
+name|append
+operator|=
+name|append
 expr_stmt|;
 block|}
 comment|/**      * A strategy method to lazily create the file strategy      */
