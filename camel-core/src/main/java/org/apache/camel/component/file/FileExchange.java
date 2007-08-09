@@ -145,10 +145,10 @@ operator|=
 name|file
 expr_stmt|;
 block|}
-DECL|method|copy ()
+DECL|method|newInstance ()
 specifier|public
 name|Exchange
-name|copy
+name|newInstance
 parameter_list|()
 block|{
 return|return
