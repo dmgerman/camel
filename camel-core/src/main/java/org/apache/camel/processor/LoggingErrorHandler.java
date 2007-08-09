@@ -106,9 +106,7 @@ specifier|public
 class|class
 name|LoggingErrorHandler
 extends|extends
-name|ServiceSupport
-implements|implements
-name|ErrorHandler
+name|ErrorHandlerSupport
 block|{
 DECL|field|output
 specifier|private
@@ -224,9 +222,20 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|RuntimeException
+name|Throwable
 name|e
 parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|customProcessorForException
+argument_list|(
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+condition|)
 block|{
 name|logError
 argument_list|(
@@ -235,6 +244,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// Properties
@@ -304,7 +314,7 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-DECL|method|logError (Exchange exchange, RuntimeException e)
+DECL|method|logError (Exchange exchange, Throwable e)
 specifier|protected
 name|void
 name|logError
@@ -312,7 +322,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|RuntimeException
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -506,7 +516,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|logMessage (Exchange exchange, RuntimeException e)
+DECL|method|logMessage (Exchange exchange, Throwable e)
 specifier|protected
 name|Object
 name|logMessage
@@ -514,7 +524,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|RuntimeException
+name|Throwable
 name|e
 parameter_list|)
 block|{

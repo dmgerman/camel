@@ -156,6 +156,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|ExceptionType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|DelegateProcessor
@@ -408,6 +422,25 @@ operator|.
 name|intercept
 argument_list|(
 name|predicate
+argument_list|)
+return|;
+block|}
+comment|/**      * Adds an exception handler route for the given exception type      */
+DECL|method|exception (Class exceptionType)
+specifier|public
+name|ExceptionType
+name|exception
+parameter_list|(
+name|Class
+name|exceptionType
+parameter_list|)
+block|{
+return|return
+name|routeCollection
+operator|.
+name|exception
+argument_list|(
+name|exceptionType
 argument_list|)
 return|;
 block|}

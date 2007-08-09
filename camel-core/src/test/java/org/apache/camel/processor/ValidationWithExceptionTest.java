@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.builder
+DECL|package|org.apache.camel.processor
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|processor
 package|;
 end_package
 
@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|ValidationException
 import|;
 end_import
 
@@ -36,63 +36,73 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|builder
 operator|.
-name|util
-operator|.
-name|List
+name|RouteBuilder
 import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
-begin_interface
-DECL|interface|ErrorHandlerBuilder
+begin_class
+DECL|class|ValidationWithExceptionTest
 specifier|public
-interface|interface
-name|ErrorHandlerBuilder
+class|class
+name|ValidationWithExceptionTest
+extends|extends
+name|ValidationTest
 block|{
-comment|/**      * Creates a copy of this builder      */
-DECL|method|copy ()
-name|ErrorHandlerBuilder
-name|copy
+DECL|method|createRouteBuilder ()
+specifier|protected
+name|RouteBuilder
+name|createRouteBuilder
 parameter_list|()
-function_decl|;
-comment|/**      * Creates the error handler interceptor      */
-DECL|method|createErrorHandler (Processor processor)
-name|Processor
-name|createErrorHandler
-parameter_list|(
-name|Processor
-name|processor
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-DECL|method|addErrorHandlers (List<Class> exceptionClasses, Processor errorHandler)
+block|{
+return|return
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+specifier|public
 name|void
-name|addErrorHandlers
-parameter_list|(
-name|List
-argument_list|<
-name|Class
-argument_list|>
-name|exceptionClasses
-parameter_list|,
-name|Processor
-name|errorHandler
-parameter_list|)
-function_decl|;
+name|configure
+parameter_list|()
+block|{
+name|exception
+argument_list|(
+name|ValidationException
+operator|.
+name|class
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:invalid"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:start"
+argument_list|)
+operator|.
+name|process
+argument_list|(
+name|validator
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:valid"
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+block|}
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

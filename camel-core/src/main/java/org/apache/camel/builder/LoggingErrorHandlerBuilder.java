@@ -76,6 +76,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|ErrorHandlerSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -107,8 +121,8 @@ DECL|class|LoggingErrorHandlerBuilder
 specifier|public
 class|class
 name|LoggingErrorHandlerBuilder
-implements|implements
-name|ErrorHandlerBuilder
+extends|extends
+name|ErrorHandlerBuilderSupport
 block|{
 DECL|field|log
 specifier|private
@@ -219,7 +233,9 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
-return|return
+name|LoggingErrorHandler
+name|handler
+init|=
 operator|new
 name|LoggingErrorHandler
 argument_list|(
@@ -229,6 +245,14 @@ name|log
 argument_list|,
 name|level
 argument_list|)
+decl_stmt|;
+name|configure
+argument_list|(
+name|handler
+argument_list|)
+expr_stmt|;
+return|return
+name|handler
 return|;
 block|}
 DECL|method|getLevel ()

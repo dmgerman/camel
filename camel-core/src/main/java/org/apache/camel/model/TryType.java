@@ -368,10 +368,7 @@ argument_list|(
 name|exceptionType
 argument_list|)
 decl_stmt|;
-name|getOutputs
-argument_list|()
-operator|.
-name|add
+name|addOutput
 argument_list|(
 name|answer
 argument_list|)
@@ -393,10 +390,7 @@ operator|new
 name|FinallyType
 argument_list|()
 decl_stmt|;
-name|getOutputs
-argument_list|()
-operator|.
-name|add
+name|addOutput
 argument_list|(
 name|answer
 argument_list|)

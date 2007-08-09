@@ -147,8 +147,8 @@ DECL|class|DeadLetterChannelBuilder
 specifier|public
 class|class
 name|DeadLetterChannelBuilder
-implements|implements
-name|ErrorHandlerBuilder
+extends|extends
+name|ErrorHandlerBuilderSupport
 block|{
 DECL|field|redeliveryPolicy
 specifier|private
@@ -279,7 +279,9 @@ operator|.
 name|createProcessor
 argument_list|()
 decl_stmt|;
-return|return
+name|DeadLetterChannel
+name|answer
+init|=
 operator|new
 name|DeadLetterChannel
 argument_list|(
@@ -293,6 +295,14 @@ argument_list|,
 name|getLogger
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|configure
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 comment|// Builder methods

@@ -49,23 +49,12 @@ DECL|class|NoErrorHandlerBuilder
 specifier|public
 class|class
 name|NoErrorHandlerBuilder
-parameter_list|<
-name|E
 extends|extends
-name|Exchange
-parameter_list|>
-implements|implements
-name|ErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
+name|ErrorHandlerBuilderSupport
 block|{
 DECL|method|copy ()
 specifier|public
 name|ErrorHandlerBuilder
-argument_list|<
-name|E
-argument_list|>
 name|copy
 parameter_list|()
 block|{
