@@ -164,6 +164,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|DelegateProcessor
@@ -231,14 +243,31 @@ DECL|field|interceptors
 specifier|private
 name|List
 argument_list|<
-name|InterceptorRef
+name|InterceptorType
 argument_list|>
 name|interceptors
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|InterceptorRef
+name|InterceptorType
+argument_list|>
+argument_list|()
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|intercepts
+specifier|private
+name|List
+argument_list|<
+name|InterceptType
+argument_list|>
+name|intercepts
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|InterceptType
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -334,7 +363,7 @@ DECL|method|getInterceptors ()
 specifier|public
 name|List
 argument_list|<
-name|InterceptorRef
+name|InterceptorType
 argument_list|>
 name|getInterceptors
 parameter_list|()
@@ -343,14 +372,14 @@ return|return
 name|interceptors
 return|;
 block|}
-DECL|method|setInterceptors (List<InterceptorRef> interceptors)
+DECL|method|setInterceptors (List<InterceptorType> interceptors)
 specifier|public
 name|void
 name|setInterceptors
 parameter_list|(
 name|List
 argument_list|<
-name|InterceptorRef
+name|InterceptorType
 argument_list|>
 name|interceptors
 parameter_list|)
@@ -360,6 +389,38 @@ operator|.
 name|interceptors
 operator|=
 name|interceptors
+expr_stmt|;
+block|}
+DECL|method|getIntercepts ()
+specifier|public
+name|List
+argument_list|<
+name|InterceptType
+argument_list|>
+name|getIntercepts
+parameter_list|()
+block|{
+return|return
+name|intercepts
+return|;
+block|}
+DECL|method|setIntercepts (List<InterceptType> intercepts)
+specifier|public
+name|void
+name|setIntercepts
+parameter_list|(
+name|List
+argument_list|<
+name|InterceptType
+argument_list|>
+name|intercepts
+parameter_list|)
+block|{
+name|this
+operator|.
+name|intercepts
+operator|=
+name|intercepts
 expr_stmt|;
 block|}
 DECL|method|getCamelContext ()
@@ -416,6 +477,7 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
+comment|/**      * Creates a new route      */
 DECL|method|route ()
 specifier|public
 name|RouteType
@@ -436,6 +498,7 @@ name|route
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a new route from the given URI input      */
 DECL|method|from (String uri)
 specifier|public
 name|RouteType
@@ -461,6 +524,7 @@ name|route
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a new route from the given endpoint      */
 DECL|method|from (Endpoint endpoint)
 specifier|public
 name|RouteType
@@ -523,6 +587,17 @@ name|getInterceptors
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|route
+operator|.
+name|getOutputs
+argument_list|()
+operator|.
+name|addAll
+argument_list|(
+name|getIntercepts
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|getRoutes
 argument_list|()
 operator|.
@@ -558,6 +633,64 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+DECL|method|intercept ()
+specifier|public
+name|InterceptType
+name|intercept
+parameter_list|()
+block|{
+name|InterceptType
+name|answer
+init|=
+operator|new
+name|InterceptType
+argument_list|()
+decl_stmt|;
+name|getIntercepts
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+DECL|method|intercept (Predicate predicate)
+specifier|public
+name|OtherwiseType
+name|intercept
+parameter_list|(
+name|Predicate
+name|predicate
+parameter_list|)
+block|{
+name|InterceptType
+name|answer
+init|=
+operator|new
+name|InterceptType
+argument_list|()
+decl_stmt|;
+name|getIntercepts
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+operator|.
+name|when
+argument_list|(
+name|predicate
+argument_list|)
 return|;
 block|}
 block|}

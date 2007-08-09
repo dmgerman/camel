@@ -80,6 +80,34 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAccessorType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAccessType
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -118,6 +146,13 @@ name|name
 operator|=
 literal|"outputType"
 argument_list|)
+annotation|@
+name|XmlAccessorType
+argument_list|(
+name|XmlAccessType
+operator|.
+name|FIELD
+argument_list|)
 DECL|class|OutputType
 specifier|public
 class|class
@@ -142,6 +177,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|XmlElementRef
 DECL|field|outputs
 specifier|protected
 name|List
@@ -157,23 +194,23 @@ name|ProcessorType
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|XmlElementRef
 DECL|field|interceptors
 specifier|private
 name|List
 argument_list|<
-name|InterceptorRef
+name|InterceptorType
 argument_list|>
 name|interceptors
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|InterceptorRef
+name|InterceptorType
 argument_list|>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|XmlElementRef
 DECL|method|getOutputs ()
 specifier|public
 name|List
@@ -228,18 +265,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|XmlElement
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|method|getInterceptors ()
 specifier|public
 name|List
 argument_list|<
-name|InterceptorRef
+name|InterceptorType
 argument_list|>
 name|getInterceptors
 parameter_list|()
@@ -248,14 +278,14 @@ return|return
 name|interceptors
 return|;
 block|}
-DECL|method|setInterceptors (List<InterceptorRef> interceptors)
+DECL|method|setInterceptors (List<InterceptorType> interceptors)
 specifier|public
 name|void
 name|setInterceptors
 parameter_list|(
 name|List
 argument_list|<
-name|InterceptorRef
+name|InterceptorType
 argument_list|>
 name|interceptors
 parameter_list|)
@@ -294,7 +324,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// don't inherit interceptors by default
-comment|/*         List<InterceptorRef> list = output.getInterceptors();         if (list == null) {             log.warn("No interceptor collection: " + output);         }         else {             list.addAll(getInterceptors());         } */
+comment|/*         List<InterceptorType> list = output.getInterceptors();         if (list == null) {             log.warn("No interceptor collection: " + output);         }         else {             list.addAll(getInterceptors());         } */
 block|}
 block|}
 end_class

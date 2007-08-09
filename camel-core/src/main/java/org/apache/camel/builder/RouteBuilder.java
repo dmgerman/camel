@@ -18,40 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicBoolean
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -82,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -97,6 +75,48 @@ operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|InterceptType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|OtherwiseType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|ProcessorType
 import|;
 end_import
 
@@ -139,6 +159,40 @@ operator|.
 name|processor
 operator|.
 name|DelegateProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
 import|;
 end_import
 
@@ -225,6 +279,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Creates a new route from the given URI input      */
 DECL|method|from (String uri)
 specifier|public
 name|RouteType
@@ -243,6 +298,7 @@ name|uri
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a new route from the given endpoint      */
 DECL|method|from (Endpoint endpoint)
 specifier|public
 name|RouteType
@@ -301,6 +357,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds the given interceptor to this route      */
 DECL|method|intercept (DelegateProcessor interceptor)
 specifier|public
 name|RouteBuilder
@@ -319,6 +376,39 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Adds a route for an interceptor; use the {@link ProcessorType#proceed()} method      * to continue processing the underying route being intercepted.      *      * @return      */
+DECL|method|intercept ()
+specifier|public
+name|InterceptType
+name|intercept
+parameter_list|()
+block|{
+return|return
+name|routeCollection
+operator|.
+name|intercept
+argument_list|()
+return|;
+block|}
+comment|/**      * Applies a route for an interceptor if the given predicate is true      * otherwise the interceptor route is not applied      */
+DECL|method|intercept (Predicate predicate)
+specifier|public
+name|OtherwiseType
+name|intercept
+parameter_list|(
+name|Predicate
+name|predicate
+parameter_list|)
+block|{
+return|return
+name|routeCollection
+operator|.
+name|intercept
+argument_list|(
+name|predicate
+argument_list|)
 return|;
 block|}
 comment|// Properties

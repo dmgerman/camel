@@ -194,7 +194,6 @@ name|TryType
 extends|extends
 name|OutputType
 block|{
-comment|/*      * @XmlElement(required = false) private List<InterceptorRef> interceptors =      * new ArrayList<InterceptorRef>(); @XmlElementRef private List<ProcessorType>      * outputs = new ArrayList<ProcessorType>();      */
 annotation|@
 name|XmlTransient
 DECL|field|catchClauses

@@ -62,6 +62,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Policy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ServiceHelper
@@ -222,6 +236,24 @@ operator|.
 name|stopServices
 argument_list|(
 name|processor
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Proceed with the underlying delegated processor      */
+DECL|method|proceed (Exchange exchange)
+specifier|public
+name|void
+name|proceed
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|processNext
+argument_list|(
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}

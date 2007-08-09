@@ -226,24 +226,19 @@ extends|extends
 name|ProcessorType
 block|{
 annotation|@
-name|XmlElement
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
+name|XmlElementRef
 DECL|field|interceptors
 specifier|private
 name|List
 argument_list|<
-name|InterceptorRef
+name|InterceptorType
 argument_list|>
 name|interceptors
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|InterceptorRef
+name|InterceptorType
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -353,7 +348,7 @@ DECL|method|getInterceptors ()
 specifier|public
 name|List
 argument_list|<
-name|InterceptorRef
+name|InterceptorType
 argument_list|>
 name|getInterceptors
 parameter_list|()
@@ -362,14 +357,14 @@ return|return
 name|interceptors
 return|;
 block|}
-DECL|method|setInterceptors (List<InterceptorRef> interceptors)
+DECL|method|setInterceptors (List<InterceptorType> interceptors)
 specifier|public
 name|void
 name|setInterceptors
 parameter_list|(
 name|List
 argument_list|<
-name|InterceptorRef
+name|InterceptorType
 argument_list|>
 name|interceptors
 parameter_list|)

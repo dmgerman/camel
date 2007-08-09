@@ -18,11 +18,17 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|camel
+operator|.
+name|model
+operator|.
+name|language
+operator|.
+name|ExpressionType
 import|;
 end_import
 
@@ -40,17 +46,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|ExpressionType
+name|List
 import|;
 end_import
 
@@ -1095,7 +1095,7 @@ literal|0
 decl_stmt|;
 name|List
 argument_list|<
-name|InterceptorRef
+name|InterceptorType
 argument_list|>
 name|interceptors
 init|=
@@ -1140,12 +1140,19 @@ expr_stmt|;
 name|InterceptorRef
 name|interceptor
 init|=
+name|assertIsInstanceOf
+argument_list|(
+name|InterceptorRef
+operator|.
+name|class
+argument_list|,
 name|interceptors
 operator|.
 name|get
 argument_list|(
 name|idx
 operator|++
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals
