@@ -77,7 +77,7 @@ name|Exception
 block|{
 name|ftpUrl
 operator|=
-literal|"ftp://admin@localhost:20010/tmp2/camel?password=admin"
+literal|"ftp://admin@localhost:20011/tmp2/camel?password=admin"
 expr_stmt|;
 return|return
 operator|new
