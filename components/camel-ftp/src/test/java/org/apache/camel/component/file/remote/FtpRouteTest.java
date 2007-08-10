@@ -159,8 +159,6 @@ DECL|field|ftpUrl
 specifier|protected
 name|String
 name|ftpUrl
-init|=
-literal|"ftp://admin@localhost:20010/tmp/camel?password=admin"
 decl_stmt|;
 DECL|field|ftpServer
 specifier|protected
@@ -173,6 +171,13 @@ name|String
 name|expectedBody
 init|=
 literal|"Hello there!"
+decl_stmt|;
+DECL|field|port
+specifier|protected
+name|String
+name|port
+init|=
+literal|"20010"
 decl_stmt|;
 DECL|method|testFtpRoute ()
 specifier|public
@@ -237,6 +242,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ftpUrl
+operator|=
+name|createFtpUrl
+argument_list|()
+expr_stmt|;
 name|ftpServer
 operator|=
 name|createFtpServer
@@ -331,6 +341,20 @@ block|}
 block|}
 return|;
 block|}
+DECL|method|createFtpUrl ()
+specifier|protected
+name|String
+name|createFtpUrl
+parameter_list|()
+block|{
+return|return
+literal|"ftp://admin@localhost:"
+operator|+
+name|port
+operator|+
+literal|"/tmp/camel?password=admin"
+return|;
+block|}
 DECL|method|createFtpServer ()
 specifier|protected
 name|FtpServer
@@ -394,7 +418,7 @@ name|setProperty
 argument_list|(
 literal|"config.listeners.default.port"
 argument_list|,
-literal|"20010"
+name|port
 argument_list|)
 expr_stmt|;
 name|properties

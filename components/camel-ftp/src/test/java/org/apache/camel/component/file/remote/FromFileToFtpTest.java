@@ -67,6 +67,24 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|createFtpUrl ()
+specifier|protected
+name|String
+name|createFtpUrl
+parameter_list|()
+block|{
+name|port
+operator|=
+literal|"20011"
+expr_stmt|;
+return|return
+literal|"ftp://admin@localhost:"
+operator|+
+name|port
+operator|+
+literal|"/tmp2/camel?password=admin"
+return|;
+block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -75,10 +93,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ftpUrl
-operator|=
-literal|"ftp://admin@localhost:20011/tmp2/camel?password=admin"
-expr_stmt|;
 return|return
 operator|new
 name|RouteBuilder
