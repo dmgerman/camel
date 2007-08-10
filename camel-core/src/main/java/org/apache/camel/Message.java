@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|MessageSupport
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -172,6 +186,15 @@ DECL|method|copy ()
 name|Message
 name|copy
 parameter_list|()
+function_decl|;
+comment|/**      * Copies the contents of the other message into this message      */
+DECL|method|copyFrom (Message message)
+name|void
+name|copyFrom
+parameter_list|(
+name|Message
+name|message
+parameter_list|)
 function_decl|;
 block|}
 end_interface

@@ -155,10 +155,10 @@ specifier|protected
 name|MockEndpoint
 name|resultEndpoint
 decl_stmt|;
-DECL|field|startEndpointUri
+DECL|field|ftpUrl
 specifier|protected
 name|String
-name|startEndpointUri
+name|ftpUrl
 init|=
 literal|"ftp://admin@localhost:20010/tmp/camel?password=admin"
 decl_stmt|;
@@ -167,19 +167,21 @@ specifier|protected
 name|FtpServer
 name|ftpServer
 decl_stmt|;
-DECL|method|testFtpRouteWithTextMessage ()
-specifier|public
-name|void
-name|testFtpRouteWithTextMessage
-parameter_list|()
-throws|throws
-name|Exception
-block|{
+DECL|field|expectedBody
+specifier|protected
 name|String
 name|expectedBody
 init|=
 literal|"Hello there!"
 decl_stmt|;
+DECL|method|testFtpRoute ()
+specifier|public
+name|void
+name|testFtpRoute
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|resultEndpoint
 operator|.
 name|expectedBodiesReceived
@@ -215,7 +217,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|startEndpointUri
+name|ftpUrl
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -317,7 +319,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|startEndpointUri
+name|ftpUrl
 argument_list|)
 operator|.
 name|to
