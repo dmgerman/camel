@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file
+DECL|package|org.apache.camel.component.file.strategy
 package|package
 name|org
 operator|.
@@ -15,39 +15,32 @@ operator|.
 name|component
 operator|.
 name|file
+operator|.
+name|strategy
 package|;
 end_package
 
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * A simple strategy which just locks the file but does not modify it  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|FileRenameRouteTest
+DECL|class|NoOpFileProcessStrategy
 specifier|public
 class|class
-name|FileRenameRouteTest
+name|NoOpFileProcessStrategy
 extends|extends
-name|FileRouteTest
+name|FileProcessStrategySupport
 block|{
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
+DECL|method|NoOpFileProcessStrategy ()
+specifier|public
+name|NoOpFileProcessStrategy
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-name|uri
-operator|=
-literal|"file:target/test-rename-inbox?moveNamePrefix=foo/"
-expr_stmt|;
 name|super
-operator|.
-name|setUp
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
 block|}

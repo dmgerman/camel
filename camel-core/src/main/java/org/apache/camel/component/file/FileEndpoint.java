@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -78,7 +68,7 @@ name|file
 operator|.
 name|strategy
 operator|.
-name|DeleteFileStrategy
+name|DefaultFileRenamer
 import|;
 end_import
 
@@ -96,7 +86,7 @@ name|file
 operator|.
 name|strategy
 operator|.
-name|FileStrategy
+name|DeleteFileProcessStrategy
 import|;
 end_import
 
@@ -114,7 +104,7 @@ name|file
 operator|.
 name|strategy
 operator|.
-name|NoOpFileStrategy
+name|FileProcessStrategy
 import|;
 end_import
 
@@ -132,7 +122,43 @@ name|file
 operator|.
 name|strategy
 operator|.
-name|RenameFileStrategy
+name|FileProcessStrategySupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|strategy
+operator|.
+name|NoOpFileProcessStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|strategy
+operator|.
+name|RenameFileProcessStrategy
 import|;
 end_import
 
@@ -178,6 +204,16 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://activemq.apache.org/camel/file.html">File Endpoint</a> for  * working with file systems  *   * @version $Revision: 523016 $  */
 end_comment
@@ -215,10 +251,10 @@ specifier|private
 name|File
 name|file
 decl_stmt|;
-DECL|field|fileStrategy
+DECL|field|fileProcessStrategy
 specifier|private
-name|FileStrategy
-name|fileStrategy
+name|FileProcessStrategy
+name|fileProcessStrategy
 decl_stmt|;
 DECL|field|autoCreate
 specifier|private
@@ -270,6 +306,27 @@ init|=
 block|{
 literal|"."
 block|}
+decl_stmt|;
+DECL|field|excludedNamePostfixes
+specifier|private
+name|String
+index|[]
+name|excludedNamePostfixes
+init|=
+block|{
+name|FileProcessStrategySupport
+operator|.
+name|DEFAULT_LOCK_FILE_POSTFIX
+block|}
+decl_stmt|;
+DECL|field|bufferSize
+specifier|private
+name|int
+name|bufferSize
+init|=
+literal|128
+operator|*
+literal|1024
 decl_stmt|;
 DECL|method|FileEndpoint (File file, String endpointUri, FileComponent component)
 specifier|protected
@@ -470,18 +527,18 @@ expr_stmt|;
 block|}
 DECL|method|getFileStrategy ()
 specifier|public
-name|FileStrategy
+name|FileProcessStrategy
 name|getFileStrategy
 parameter_list|()
 block|{
 if|if
 condition|(
-name|fileStrategy
+name|fileProcessStrategy
 operator|==
 literal|null
 condition|)
 block|{
-name|fileStrategy
+name|fileProcessStrategy
 operator|=
 name|createFileStrategy
 argument_list|()
@@ -496,29 +553,29 @@ name|this
 operator|+
 literal|" using strategy: "
 operator|+
-name|fileStrategy
+name|fileProcessStrategy
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|fileStrategy
+name|fileProcessStrategy
 return|;
 block|}
-comment|/**      * Sets the strategy to be used when the file has been processed such as      * deleting or renaming it etc.      *       * @param fileStrategy the new stategy to use      */
-DECL|method|setFileStrategy (FileStrategy fileStrategy)
+comment|/**      * Sets the strategy to be used when the file has been processed such as      * deleting or renaming it etc.      *       * @param fileProcessStrategy the new stategy to use      */
+DECL|method|setFileStrategy (FileProcessStrategy fileProcessStrategy)
 specifier|public
 name|void
 name|setFileStrategy
 parameter_list|(
-name|FileStrategy
-name|fileStrategy
+name|FileProcessStrategy
+name|fileProcessStrategy
 parameter_list|)
 block|{
 name|this
 operator|.
-name|fileStrategy
+name|fileProcessStrategy
 operator|=
-name|fileStrategy
+name|fileProcessStrategy
 expr_stmt|;
 block|}
 DECL|method|isDelete ()
@@ -583,7 +640,7 @@ return|return
 name|moveNamePostfix
 return|;
 block|}
-comment|/**      * Sets the name postfix appended to moved files. For example to rename all      * the files from * to *.done set this value to ".done"      *       * @param moveNamePostfix      * @see RenameFileStrategy#setNamePostfix(String)      */
+comment|/**      * Sets the name postfix appended to moved files. For example to rename all      * the files from * to *.done set this value to ".done"      *       * @param moveNamePostfix      * @see DefaultFileRenamer#setNamePostfix(String)      */
 DECL|method|setMoveNamePostfix (String moveNamePostfix)
 specifier|public
 name|void
@@ -610,7 +667,7 @@ return|return
 name|moveNamePrefix
 return|;
 block|}
-comment|/**      * Sets the name prefix appended to moved files. For example to move      * processed files into a hidden directory called ".camel" set this value to      * ".camel/"      *       * @see RenameFileStrategy#setNamePrefix(String)      */
+comment|/**      * Sets the name prefix appended to moved files. For example to move      * processed files into a hidden directory called ".camel" set this value to      * ".camel/"      *       * @see DefaultFileRenamer#setNamePrefix(String)      */
 DECL|method|setMoveNamePrefix (String moveNamePrefix)
 specifier|public
 name|void
@@ -656,6 +713,35 @@ operator|=
 name|excludedNamePrefixes
 expr_stmt|;
 block|}
+DECL|method|getExcludedNamePostfixes ()
+specifier|public
+name|String
+index|[]
+name|getExcludedNamePostfixes
+parameter_list|()
+block|{
+return|return
+name|excludedNamePostfixes
+return|;
+block|}
+comment|/**      * Sets the excluded file name postfixes, such as {@link FileProcessStrategySupport#DEFAULT_LOCK_FILE_POSTFIX}      * to ignore lock files by default.      */
+DECL|method|setExcludedNamePostfixes (String[] excludedNamePostfixes)
+specifier|public
+name|void
+name|setExcludedNamePostfixes
+parameter_list|(
+name|String
+index|[]
+name|excludedNamePostfixes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|excludedNamePostfixes
+operator|=
+name|excludedNamePostfixes
+expr_stmt|;
+block|}
 DECL|method|isNoop ()
 specifier|public
 name|boolean
@@ -666,7 +752,7 @@ return|return
 name|noop
 return|;
 block|}
-comment|/**      * If set to true then the default {@link FileStrategy} will be to use the      * {@link NoOpFileStrategy} to not move or copy processed files      *       * @param noop      */
+comment|/**      * If set to true then the default {@link FileProcessStrategy} will be to use the      * {@link NoOpFileProcessStrategy} to not move or copy processed files      *       * @param noop      */
 DECL|method|setNoop (boolean noop)
 specifier|public
 name|void
@@ -710,10 +796,37 @@ operator|=
 name|append
 expr_stmt|;
 block|}
+DECL|method|getBufferSize ()
+specifier|public
+name|int
+name|getBufferSize
+parameter_list|()
+block|{
+return|return
+name|bufferSize
+return|;
+block|}
+comment|/**      * Sets the buffer size used to read/write files      */
+DECL|method|setBufferSize (int bufferSize)
+specifier|public
+name|void
+name|setBufferSize
+parameter_list|(
+name|int
+name|bufferSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bufferSize
+operator|=
+name|bufferSize
+expr_stmt|;
+block|}
 comment|/**      * A strategy method to lazily create the file strategy      */
 DECL|method|createFileStrategy ()
 specifier|protected
-name|FileStrategy
+name|FileProcessStrategy
 name|createFileStrategy
 parameter_list|()
 block|{
@@ -725,7 +838,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|NoOpFileStrategy
+name|NoOpFileProcessStrategy
 argument_list|()
 return|;
 block|}
@@ -757,7 +870,7 @@ throw|;
 block|}
 return|return
 operator|new
-name|RenameFileStrategy
+name|RenameFileProcessStrategy
 argument_list|(
 name|isLock
 argument_list|()
@@ -777,7 +890,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|DeleteFileStrategy
+name|DeleteFileProcessStrategy
 argument_list|(
 name|isLock
 argument_list|()
@@ -788,7 +901,7 @@ else|else
 block|{
 return|return
 operator|new
-name|RenameFileStrategy
+name|RenameFileProcessStrategy
 argument_list|(
 name|isLock
 argument_list|()
