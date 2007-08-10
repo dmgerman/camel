@@ -60,7 +60,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"Failed to acess the JMS message property names"
+literal|"Failed to access the JMS message property names: "
+operator|+
+name|e
 argument_list|,
 name|e
 argument_list|)
