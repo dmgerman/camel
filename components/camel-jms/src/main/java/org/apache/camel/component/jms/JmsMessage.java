@@ -312,11 +312,21 @@ name|answer
 init|=
 literal|null
 decl_stmt|;
+comment|// we will exclude using JMS-prefixed headers here to avoid strangeness with some JMS providers
+comment|// e.g. ActiveMQ returns the String not the Destination type for "JMSReplyTo"!
 if|if
 condition|(
 name|jmsMessage
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|name
+operator|.
+name|startsWith
+argument_list|(
+literal|"JMS"
+argument_list|)
 condition|)
 block|{
 try|try
