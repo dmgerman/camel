@@ -204,6 +204,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|RedeliveryPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -220,7 +234,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"error"
+literal|"onException"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -302,6 +316,18 @@ name|Class
 argument_list|>
 name|exceptionClasses
 decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|errorHandler
+specifier|private
+name|Processor
+name|errorHandler
+decl_stmt|;
+DECL|field|retry
+specifier|private
+name|Integer
+name|retry
+decl_stmt|;
 DECL|method|ExceptionType ()
 specifier|public
 name|ExceptionType
@@ -359,7 +385,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Error[ "
+literal|"Exception[ "
 operator|+
 name|getExceptionClasses
 argument_list|()
@@ -370,6 +396,20 @@ name|getOutputs
 argument_list|()
 operator|+
 literal|"]"
+return|;
+block|}
+comment|/**      * Allows an exception handler to create a new redelivery policy for this exception type      * @param redeliveryPolicy the current redelivery policy      * @return a newly created redelivery policy, or return the original policy if no customization is required      * for this exception handler.      */
+DECL|method|createRedeliveryPolicy (RedeliveryPolicy redeliveryPolicy)
+specifier|public
+name|RedeliveryPolicy
+name|createRedeliveryPolicy
+parameter_list|(
+name|RedeliveryPolicy
+name|redeliveryPolicy
+parameter_list|)
+block|{
+return|return
+name|redeliveryPolicy
 return|;
 block|}
 DECL|method|addRoutes (RouteContext routeContext, Collection<Route> routes)
@@ -390,16 +430,15 @@ throws|throws
 name|Exception
 block|{
 comment|// lets attach a processor to an error handler
-name|Processor
 name|errorHandler
-init|=
+operator|=
 name|routeContext
 operator|.
 name|createProcessor
 argument_list|(
 name|this
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|ErrorHandlerBuilder
 name|builder
 init|=
@@ -415,10 +454,7 @@ name|builder
 operator|.
 name|addErrorHandlers
 argument_list|(
-name|getExceptionClasses
-argument_list|()
-argument_list|,
-name|errorHandler
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -596,6 +632,16 @@ name|exceptions
 operator|=
 name|exceptions
 expr_stmt|;
+block|}
+DECL|method|getErrorHandler ()
+specifier|public
+name|Processor
+name|getErrorHandler
+parameter_list|()
+block|{
+return|return
+name|errorHandler
+return|;
 block|}
 DECL|method|createExceptionClasses ()
 specifier|protected

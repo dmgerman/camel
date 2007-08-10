@@ -42,6 +42,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|ExceptionType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -77,18 +91,12 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|addErrorHandlers (List<Class> exceptionClasses, Processor errorHandler)
+DECL|method|addErrorHandlers (ExceptionType exception)
 name|void
 name|addErrorHandlers
 parameter_list|(
-name|List
-argument_list|<
-name|Class
-argument_list|>
-name|exceptionClasses
-parameter_list|,
-name|Processor
-name|errorHandler
+name|ExceptionType
+name|exception
 parameter_list|)
 function_decl|;
 block|}
