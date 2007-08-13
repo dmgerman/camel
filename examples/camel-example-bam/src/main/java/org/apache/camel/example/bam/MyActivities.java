@@ -165,7 +165,7 @@ comment|/**  * @version $Revision: $  */
 end_comment
 
 begin_comment
-comment|// START SNIPPET: example
+comment|// START SNIPPET: demo
 end_comment
 
 begin_class
@@ -176,22 +176,6 @@ name|MyActivities
 extends|extends
 name|ProcessBuilder
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|MyActivities
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|MyActivities (JpaTemplate jpaTemplate, TransactionTemplate transactionTemplate)
 specifier|protected
 name|MyActivities
@@ -296,7 +280,7 @@ empty_stmt|;
 end_empty_stmt
 
 begin_comment
-comment|// END SNIPPET: example
+comment|// END SNIPPET: demo
 end_comment
 
 end_unit
