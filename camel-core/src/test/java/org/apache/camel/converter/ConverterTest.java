@@ -944,13 +944,32 @@ argument_list|,
 name|file
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertNotNull
 argument_list|(
-literal|"file content"
-argument_list|,
-literal|"Hello World!"
+literal|"Should have returned a String!"
 argument_list|,
 name|text
+argument_list|)
+expr_stmt|;
+name|text
+operator|=
+name|text
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Text not read correctly: "
+operator|+
+name|text
+argument_list|,
+name|text
+operator|.
+name|endsWith
+argument_list|(
+literal|"Hello World!"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
