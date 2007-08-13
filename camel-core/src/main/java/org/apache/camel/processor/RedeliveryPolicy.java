@@ -268,12 +268,12 @@ name|this
 return|;
 block|}
 comment|/**      * Enables collision avoidence and sets the percentage used      */
-DECL|method|collisionAvoidancePercent (short collisionAvoidancePercent)
+DECL|method|collisionAvoidancePercent (double collisionAvoidancePercent)
 specifier|public
 name|RedeliveryPolicy
 name|collisionAvoidancePercent
 parameter_list|(
-name|short
+name|double
 name|collisionAvoidancePercent
 parameter_list|)
 block|{
@@ -339,12 +339,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sets the percentage used for collision avoidence if enabled via      * {@link #setUseCollisionAvoidance(boolean)}      */
-DECL|method|setCollisionAvoidancePercent (short collisionAvoidancePercent)
+DECL|method|setCollisionAvoidancePercent (double collisionAvoidancePercent)
 specifier|public
 name|void
 name|setCollisionAvoidancePercent
 parameter_list|(
-name|short
+name|double
 name|collisionAvoidancePercent
 parameter_list|)
 block|{
