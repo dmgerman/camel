@@ -177,7 +177,7 @@ extends|extends
 name|ProcessBuilder
 block|{
 DECL|method|MyActivities (JpaTemplate jpaTemplate, TransactionTemplate transactionTemplate)
-specifier|protected
+specifier|public
 name|MyActivities
 parameter_list|(
 name|JpaTemplate
