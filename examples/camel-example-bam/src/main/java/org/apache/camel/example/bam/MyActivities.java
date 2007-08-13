@@ -252,7 +252,7 @@ literal|"/invoice/@purchaseOrderId"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// now lets add some rules
+comment|// now lets add some BAM rules
 name|invoice
 operator|.
 name|starts
@@ -285,50 +285,6 @@ operator|.
 name|to
 argument_list|(
 literal|"log:org.apache.camel.example.bam.BamFailures?level=error"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"seda:failures"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|Processor
-argument_list|()
-block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Failed process!: "
-operator|+
-name|exchange
-operator|+
-literal|" with body: "
-operator|+
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 block|}
