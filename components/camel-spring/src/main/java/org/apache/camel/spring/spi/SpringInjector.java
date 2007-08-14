@@ -90,6 +90,18 @@ name|AbstractRefreshableApplicationContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|ConfigurableApplicationContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Spring implementation of {@link Injector} allowing Spring to be used to dependency inject newly created POJOs  *  * @version $Revision$  */
 end_comment
@@ -102,27 +114,10 @@ name|SpringInjector
 implements|implements
 name|Injector
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|SpringInjector
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|applicationContext
 specifier|private
 specifier|final
-name|AbstractRefreshableApplicationContext
+name|ConfigurableApplicationContext
 name|applicationContext
 decl_stmt|;
 DECL|field|autowireMode
@@ -139,11 +134,11 @@ specifier|private
 name|boolean
 name|dependencyCheck
 decl_stmt|;
-DECL|method|SpringInjector (AbstractRefreshableApplicationContext applicationContext)
+DECL|method|SpringInjector (ConfigurableApplicationContext applicationContext)
 specifier|public
 name|SpringInjector
 parameter_list|(
-name|AbstractRefreshableApplicationContext
+name|ConfigurableApplicationContext
 name|applicationContext
 parameter_list|)
 block|{
