@@ -522,6 +522,16 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+DECL|method|getPredicate ()
+specifier|public
+name|Predicate
+name|getPredicate
+parameter_list|()
+block|{
+return|return
+name|predicate
+return|;
+block|}
 block|}
 end_class
 

@@ -18,21 +18,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|camel
 operator|.
-name|util
-operator|.
-name|List
+name|CamelContext
 import|;
 end_import
 
@@ -119,6 +111,20 @@ operator|.
 name|impl
 operator|.
 name|EventDrivenConsumerRoute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultCamelContext
 import|;
 end_import
 
@@ -284,6 +290,26 @@ name|memoryMessageIdRepository
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -354,10 +380,10 @@ block|}
 decl_stmt|;
 comment|// END SNIPPET: e1
 return|return
-name|builder
-operator|.
 name|getRouteList
-argument_list|()
+argument_list|(
+name|builder
+argument_list|)
 return|;
 block|}
 DECL|method|testSimpleRoute ()
@@ -512,10 +538,10 @@ block|}
 decl_stmt|;
 comment|// END SNIPPET: e2
 return|return
-name|builder
-operator|.
 name|getRouteList
-argument_list|()
+argument_list|(
+name|builder
+argument_list|)
 return|;
 block|}
 DECL|method|testSimpleRouteWithHeaderPredicate ()
@@ -720,10 +746,10 @@ block|}
 decl_stmt|;
 comment|// END SNIPPET: e3
 return|return
-name|builder
-operator|.
 name|getRouteList
-argument_list|()
+argument_list|(
+name|builder
+argument_list|)
 return|;
 block|}
 DECL|method|testSimpleRouteWithChoice ()
@@ -952,10 +978,10 @@ block|}
 decl_stmt|;
 comment|// END SNIPPET: e4
 return|return
-name|builder
-operator|.
 name|getRouteList
-argument_list|()
+argument_list|(
+name|builder
+argument_list|)
 return|;
 block|}
 DECL|method|testCustomProcessor ()
@@ -1086,10 +1112,10 @@ block|}
 decl_stmt|;
 comment|// END SNIPPET: e5
 return|return
-name|builder
-operator|.
 name|getRouteList
-argument_list|()
+argument_list|(
+name|builder
+argument_list|)
 return|;
 block|}
 DECL|method|testCustomProcessorWithFilter ()
@@ -1236,10 +1262,10 @@ block|}
 decl_stmt|;
 comment|// END SNIPPET: e6
 return|return
-name|builder
-operator|.
 name|getRouteList
-argument_list|()
+argument_list|(
+name|builder
+argument_list|)
 return|;
 block|}
 DECL|method|testWireTap ()
@@ -1447,10 +1473,10 @@ block|}
 decl_stmt|;
 comment|// END SNIPPET: e7
 return|return
-name|builder
-operator|.
 name|getRouteList
-argument_list|()
+argument_list|(
+name|builder
+argument_list|)
 return|;
 block|}
 DECL|method|testRouteWithInterceptor ()
@@ -1647,10 +1673,10 @@ name|Route
 argument_list|>
 name|routes
 init|=
-name|builder
-operator|.
 name|getRouteList
-argument_list|()
+argument_list|(
+name|builder
+argument_list|)
 decl_stmt|;
 name|log
 operator|.
@@ -1764,10 +1790,10 @@ block|}
 decl_stmt|;
 comment|// END SNIPPET: e8
 return|return
-name|builder
-operator|.
 name|getRouteList
-argument_list|()
+argument_list|(
+name|builder
+argument_list|)
 return|;
 block|}
 DECL|method|buildDynamicRecipientList ()
@@ -1812,10 +1838,10 @@ block|}
 decl_stmt|;
 comment|// END SNIPPET: e9
 return|return
-name|builder
-operator|.
 name|getRouteList
-argument_list|()
+argument_list|(
+name|builder
+argument_list|)
 return|;
 block|}
 DECL|method|testRouteDynamicReceipentList ()
@@ -1960,10 +1986,10 @@ block|}
 decl_stmt|;
 comment|// END SNIPPET: splitter
 return|return
-name|builder
-operator|.
 name|getRouteList
-argument_list|()
+argument_list|(
+name|builder
+argument_list|)
 return|;
 block|}
 DECL|method|testSplitter ()
@@ -2106,10 +2132,10 @@ block|}
 decl_stmt|;
 comment|// END SNIPPET: idempotent
 return|return
-name|builder
-operator|.
 name|getRouteList
-argument_list|()
+argument_list|(
+name|builder
+argument_list|)
 return|;
 block|}
 DECL|method|testIdempotentConsumer ()

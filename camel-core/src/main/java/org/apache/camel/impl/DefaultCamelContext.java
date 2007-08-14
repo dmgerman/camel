@@ -238,6 +238,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|RouteType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -419,7 +433,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the context used to configure routes and the policies to use.  *   * @version $Revision: 520517 $  * @org.apache.xbean.XBean element="container" rootElement="true"  */
+comment|/**  * Represents the context used to configure routes and the policies to use.  *   * @version $Revision: 520517 $  */
 end_comment
 
 begin_class
@@ -543,6 +557,21 @@ name|lifecycleStrategy
 init|=
 operator|new
 name|DefaultLifecycleStrategy
+argument_list|()
+decl_stmt|;
+DECL|field|routeDefinitions
+specifier|private
+name|List
+argument_list|<
+name|RouteType
+argument_list|>
+name|routeDefinitions
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|RouteType
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|DefaultCamelContext ()
@@ -1410,7 +1439,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|isStarted
+name|shouldStartRoutes
 argument_list|()
 condition|)
 block|{
@@ -1448,6 +1477,42 @@ name|getRouteList
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|addRouteDefinitions (Collection<RouteType> routeDefinitions)
+specifier|public
+name|void
+name|addRouteDefinitions
+parameter_list|(
+name|Collection
+argument_list|<
+name|RouteType
+argument_list|>
+name|routeDefinitions
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|this
+operator|.
+name|routeDefinitions
+operator|.
+name|addAll
+argument_list|(
+name|routeDefinitions
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|shouldStartRoutes
+argument_list|()
+condition|)
+block|{
+name|startRouteDefinitions
+argument_list|(
+name|routeDefinitions
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// Helper methods
 comment|// -----------------------------------------------------------------------
@@ -1748,6 +1813,19 @@ operator|=
 name|lifecycleStrategy
 expr_stmt|;
 block|}
+DECL|method|getRouteDefinitions ()
+specifier|public
+name|List
+argument_list|<
+name|RouteType
+argument_list|>
+name|getRouteDefinitions
+parameter_list|()
+block|{
+return|return
+name|routeDefinitions
+return|;
+block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
 DECL|method|doStart ()
@@ -1786,11 +1864,55 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|startRouteDefinitions
+argument_list|(
+name|routeDefinitions
+argument_list|)
+expr_stmt|;
 name|startRoutes
 argument_list|(
 name|routes
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|startRouteDefinitions (Collection<RouteType> list)
+specifier|protected
+name|void
+name|startRouteDefinitions
+parameter_list|(
+name|Collection
+argument_list|<
+name|RouteType
+argument_list|>
+name|list
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|list
+operator|!=
+literal|null
+condition|)
+block|{
+for|for
+control|(
+name|RouteType
+name|route
+range|:
+name|list
+control|)
+block|{
+name|route
+operator|.
+name|addRoutes
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|doStop ()
 specifier|protected
@@ -2169,6 +2291,22 @@ operator|+
 literal|" could not be converted to an Endpoint"
 argument_list|)
 throw|;
+block|}
+comment|/**      * Should we start newly added routes?      */
+DECL|method|shouldStartRoutes ()
+specifier|protected
+name|boolean
+name|shouldStartRoutes
+parameter_list|()
+block|{
+return|return
+name|isStarted
+argument_list|()
+operator|&&
+operator|!
+name|isStarting
+argument_list|()
+return|;
 block|}
 block|}
 end_class

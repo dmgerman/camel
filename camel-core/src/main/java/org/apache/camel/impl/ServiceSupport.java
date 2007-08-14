@@ -154,6 +154,17 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
+DECL|field|starting
+specifier|private
+name|AtomicBoolean
+name|starting
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|false
+argument_list|)
+decl_stmt|;
 DECL|field|stopping
 specifier|private
 name|AtomicBoolean
@@ -201,6 +212,15 @@ literal|true
 argument_list|)
 condition|)
 block|{
+name|starting
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|childServices
@@ -219,6 +239,17 @@ block|}
 name|doStart
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|starting
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|stop ()
@@ -302,6 +333,20 @@ parameter_list|()
 block|{
 return|return
 name|started
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
+comment|/**      * @return true if this service is       */
+DECL|method|isStarting ()
+specifier|public
+name|boolean
+name|isStarting
+parameter_list|()
+block|{
+return|return
+name|starting
 operator|.
 name|get
 argument_list|()

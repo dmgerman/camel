@@ -116,6 +116,20 @@ name|Registry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|RouteType
+import|;
+end_import
+
 begin_comment
 comment|/**  * Interface used to represent the context used to configure routes and the  * policies to use during message exchanges between endpoints.  *  * @version $Revision$  */
 end_comment
@@ -262,6 +276,15 @@ name|Exception
 function_decl|;
 comment|// Route Management Methods
 comment|//-----------------------------------------------------------------------
+comment|/**      * Returns a list of the current route definitions      */
+DECL|method|getRouteDefinitions ()
+name|List
+argument_list|<
+name|RouteType
+argument_list|>
+name|getRouteDefinitions
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the current routes in this context      *      * @return the current routes in this context      */
 DECL|method|getRoutes ()
 name|List
@@ -304,6 +327,20 @@ name|addRoutes
 parameter_list|(
 name|RouteBuilder
 name|builder
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Adds a collection of route definitions to the context      */
+DECL|method|addRouteDefinitions (Collection<RouteType> routeDefinitions)
+name|void
+name|addRouteDefinitions
+parameter_list|(
+name|Collection
+argument_list|<
+name|RouteType
+argument_list|>
+name|routeDefinitions
 parameter_list|)
 throws|throws
 name|Exception

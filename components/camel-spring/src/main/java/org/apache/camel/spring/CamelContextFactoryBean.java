@@ -586,6 +586,11 @@ block|{
 comment|// lets force any lazy creation
 name|getContext
 argument_list|()
+operator|.
+name|addRouteDefinitions
+argument_list|(
+name|routes
+argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
@@ -955,23 +960,6 @@ operator|.
 name|addRoutes
 argument_list|(
 name|routeBuilder
-argument_list|)
-expr_stmt|;
-block|}
-for|for
-control|(
-name|RouteType
-name|route
-range|:
-name|routes
-control|)
-block|{
-name|route
-operator|.
-name|addRoutes
-argument_list|(
-name|getContext
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
