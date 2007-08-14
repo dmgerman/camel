@@ -470,6 +470,11 @@ argument_list|(
 name|byteBuffer
 argument_list|)
 expr_stmt|;
+name|byteBuffer
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}
