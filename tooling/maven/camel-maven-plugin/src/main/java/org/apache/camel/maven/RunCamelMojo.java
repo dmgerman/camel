@@ -498,6 +498,12 @@ specifier|protected
 name|String
 name|dotFile
 decl_stmt|;
+comment|/**      * Allows the DOT file generation to be disabled      *      * @parameter expression="true"      * @readonly      */
+DECL|field|dotEnabled
+specifier|protected
+name|boolean
+name|dotEnabled
+decl_stmt|;
 comment|/**      * @component      */
 DECL|field|artifactResolver
 specifier|private
@@ -660,6 +666,8 @@ condition|(
 name|dotFile
 operator|!=
 literal|null
+operator|&&
+name|dotEnabled
 condition|)
 block|{
 name|args
