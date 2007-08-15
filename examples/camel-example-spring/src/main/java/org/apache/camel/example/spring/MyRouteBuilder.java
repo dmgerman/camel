@@ -56,6 +56,20 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|Main
+import|;
+end_import
+
 begin_comment
 comment|/**  * A simple example router from an ActiveMQ queue to a file system  *  * @version $Revision: 1.1 $  */
 end_comment
@@ -68,6 +82,28 @@ name|MyRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
+comment|/**      * Allow this route to be run as an application      * @param args      */
+DECL|method|main (String[] args)
+specifier|public
+specifier|static
+name|void
+name|main
+parameter_list|(
+name|String
+index|[]
+name|args
+parameter_list|)
+block|{
+operator|new
+name|Main
+argument_list|()
+operator|.
+name|run
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|configure ()
 specifier|public
 name|void
