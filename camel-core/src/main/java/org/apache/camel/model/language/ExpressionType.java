@@ -532,6 +532,16 @@ return|return
 name|predicate
 return|;
 block|}
+DECL|method|getExpressionValue ()
+specifier|public
+name|Expression
+name|getExpressionValue
+parameter_list|()
+block|{
+return|return
+name|expressionValue
+return|;
+block|}
 block|}
 end_class
 
