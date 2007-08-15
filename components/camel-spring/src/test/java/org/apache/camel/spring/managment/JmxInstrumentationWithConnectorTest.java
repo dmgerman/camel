@@ -26,6 +26,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
 name|InstrumentationAgent
 import|;
 end_import

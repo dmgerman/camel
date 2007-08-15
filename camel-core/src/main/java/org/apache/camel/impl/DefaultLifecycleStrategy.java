@@ -58,6 +58,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
 name|LifecycleStrategy
 import|;
 end_import
