@@ -58,9 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultComponent
+name|Exchange
 import|;
 end_import
 
@@ -74,7 +72,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultExchange
+name|DefaultComponent
 import|;
 end_import
 
@@ -104,7 +102,7 @@ name|JournalComponent
 extends|extends
 name|DefaultComponent
 argument_list|<
-name|DefaultExchange
+name|Exchange
 argument_list|>
 block|{
 annotation|@
@@ -113,7 +111,7 @@ DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|Endpoint
 argument_list|<
-name|DefaultExchange
+name|Exchange
 argument_list|>
 name|createEndpoint
 parameter_list|(
