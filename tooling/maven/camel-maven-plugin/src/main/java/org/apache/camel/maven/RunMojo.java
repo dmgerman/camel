@@ -467,10 +467,10 @@ comment|/**  * Runs a CamelContext using any Spring XML configuration files foun
 end_comment
 
 begin_class
-DECL|class|RunCamelMojo
+DECL|class|RunMojo
 specifier|public
 class|class
-name|RunCamelMojo
+name|RunMojo
 extends|extends
 name|AbstractExecMojo
 block|{

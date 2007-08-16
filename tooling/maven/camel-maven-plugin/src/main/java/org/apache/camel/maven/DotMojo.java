@@ -24,6 +24,20 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|artifact
+operator|.
+name|DependencyResolutionRequiredException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|doxia
 operator|.
 name|sink
@@ -289,7 +303,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Converts the DOT files into another format such as PNG  *  * @version $Revision: 1.1 $  * @goal dot  * @phase prepare-package  * @see<a href="http://www.graphviz.org/">GraphViz</a>  */
+comment|/**  * Runs Camel embedded with META-INF/services/*.xml spring files to try create DOT files for the  * routing rules, then converts the DOT files into another format such as PNG  *  * @version $Revision: 1.1 $  * @goal dot  * @requiresDependencyResolution runtime  * @phase prepare-package  * @execute phase="test-compile"  * @see<a href="http://www.graphviz.org/">GraphViz</a>  */
 end_comment
 
 begin_class
@@ -325,6 +339,15 @@ name|String
 name|SUBDIRECTORY
 init|=
 literal|"cameldoc"
+decl_stmt|;
+DECL|field|htmlBuffer
+specifier|private
+name|StringWriter
+name|htmlBuffer
+init|=
+operator|new
+name|StringWriter
+argument_list|()
 decl_stmt|;
 comment|/**      * Reference to Maven 2 Project.      *      * @parameter expression="${project}"      * @required      * @readonly      */
 DECL|field|project
@@ -375,13 +398,27 @@ specifier|private
 name|Renderer
 name|renderer
 decl_stmt|;
-DECL|field|htmlBuffer
-name|StringWriter
-name|htmlBuffer
-init|=
-operator|new
-name|StringWriter
-argument_list|()
+comment|//
+comment|// For running Camel embedded
+comment|//-------------------------------------------------------------------------
+comment|//
+comment|/**      * The duration to run the application for which by default is in milliseconds.      *      * @parameter expression="2s"      * @readonly      */
+DECL|field|duration
+specifier|protected
+name|String
+name|duration
+decl_stmt|;
+comment|/**      * The DOT File name used to generate the DOT diagram of the route definitions      *      * @parameter expression="${project.build.directory}/site/cameldoc/routes.dot"      * @readonly      */
+DECL|field|dotFile
+specifier|protected
+name|String
+name|dotFile
+decl_stmt|;
+comment|/**      * Whether we should boot up camel with the META-INF/services/*.xml to generate the DOT file      *      * @parameter expression="true"      * @readonly      */
+DECL|field|runCamel
+specifier|protected
+name|boolean
+name|runCamel
 decl_stmt|;
 comment|/**      * @param locale report locale.      * @return report description.      * @see org.apache.maven.reporting.MavenReport#getDescription(Locale)      */
 DECL|method|getDescription (final Locale locale)
@@ -598,6 +635,32 @@ parameter_list|)
 throws|throws
 name|MojoExecutionException
 block|{
+try|try
+block|{
+name|runCamelEmbedded
+argument_list|(
+name|outputDir
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DependencyResolutionRequiredException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"Failed: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|outputDir
 operator|.
 name|mkdirs
@@ -806,6 +869,115 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|runCamelEmbedded (File outputDir)
+specifier|protected
+name|void
+name|runCamelEmbedded
+parameter_list|(
+name|File
+name|outputDir
+parameter_list|)
+throws|throws
+name|DependencyResolutionRequiredException
+throws|,
+name|MojoExecutionException
+block|{
+if|if
+condition|(
+name|runCamel
+condition|)
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Running Camel embedded to load META-INF/spring/*.xml files"
+argument_list|)
+expr_stmt|;
+name|List
+name|list
+init|=
+name|project
+operator|.
+name|getTestClasspathElements
+argument_list|()
+decl_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Using classpath: "
+operator|+
+name|list
+argument_list|)
+expr_stmt|;
+name|EmbeddedMojo
+name|mojo
+init|=
+operator|new
+name|EmbeddedMojo
+argument_list|()
+decl_stmt|;
+name|mojo
+operator|.
+name|setClasspathElements
+argument_list|(
+name|list
+argument_list|)
+expr_stmt|;
+name|mojo
+operator|.
+name|setDotEnabled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|mojo
+operator|.
+name|setDotFile
+argument_list|(
+name|dotFile
+argument_list|)
+expr_stmt|;
+name|mojo
+operator|.
+name|setDuration
+argument_list|(
+name|duration
+argument_list|)
+expr_stmt|;
+name|mojo
+operator|.
+name|setLog
+argument_list|(
+name|getLog
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|mojo
+operator|.
+name|setOutputDirectory
+argument_list|(
+name|outputDir
+argument_list|)
+expr_stmt|;
+name|mojo
+operator|.
+name|setPluginContext
+argument_list|(
+name|getPluginContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|mojo
+operator|.
+name|execute
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|writeIndexHtmlFile ()
 specifier|protected
 name|void
@@ -815,11 +987,8 @@ throws|throws
 name|IOException
 block|{
 name|File
-name|html
+name|dir
 init|=
-operator|new
-name|File
-argument_list|(
 operator|new
 name|File
 argument_list|(
@@ -827,6 +996,19 @@ name|outputDirectory
 argument_list|,
 name|SUBDIRECTORY
 argument_list|)
+decl_stmt|;
+name|dir
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
+name|File
+name|html
+init|=
+operator|new
+name|File
+argument_list|(
+name|dir
 argument_list|,
 literal|"index.html"
 argument_list|)
@@ -979,7 +1161,7 @@ name|getName
 argument_list|()
 argument_list|)
 operator|+
-literal|".png' usemap='#G'>"
+literal|".png' usemap='#CamelRoutes'>"
 argument_list|)
 expr_stmt|;
 block|}
