@@ -196,6 +196,11 @@ literal|"/invoice/lineItems"
 argument_list|)
 argument_list|)
 operator|.
+name|throttler
+argument_list|(
+literal|3
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"

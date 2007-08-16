@@ -331,6 +331,24 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+name|ExpressionType
+operator|.
+name|getLabel
+argument_list|(
+name|getExpressions
+argument_list|()
+argument_list|)
+return|;
+block|}
 DECL|method|getExpressions ()
 specifier|public
 name|List

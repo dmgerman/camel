@@ -338,6 +338,22 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+name|getExceptionClasses
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|CatchProcessor

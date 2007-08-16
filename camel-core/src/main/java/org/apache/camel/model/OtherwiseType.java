@@ -149,6 +149,18 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+literal|"otherwise"
+return|;
+block|}
 block|}
 end_class
 

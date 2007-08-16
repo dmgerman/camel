@@ -2061,6 +2061,17 @@ operator|=
 name|inheritErrorHandlerFlag
 expr_stmt|;
 block|}
+comment|/**      * Returns a label to describe this node such as the expression if some kind of expression node      *      * @return      */
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+literal|""
+return|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * Creates the processor and wraps it in any necessary interceptors and      * error handlers      */

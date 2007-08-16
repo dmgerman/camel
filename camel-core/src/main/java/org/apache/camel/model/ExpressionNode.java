@@ -378,6 +378,34 @@ operator|=
 name|outputs
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+if|if
+condition|(
+name|getExpression
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|""
+return|;
+block|}
+return|return
+name|getExpression
+argument_list|()
+operator|.
+name|getLabel
+argument_list|()
+return|;
+block|}
 DECL|method|createFilterProcessor (RouteContext routeContext)
 specifier|protected
 name|FilterProcessor

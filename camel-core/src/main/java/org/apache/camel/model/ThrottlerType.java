@@ -285,6 +285,28 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+literal|""
+operator|+
+name|getMaximumRequestsPerPeriod
+argument_list|()
+operator|+
+literal|" per "
+operator|+
+name|getTimePeriodMillis
+argument_list|()
+operator|+
+literal|" (ms)"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor
