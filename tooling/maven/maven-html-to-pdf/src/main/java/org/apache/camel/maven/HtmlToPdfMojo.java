@@ -385,10 +385,10 @@ comment|/**  * Goal which extracts the content div from the html page and conver
 end_comment
 
 begin_class
-DECL|class|ConfluenceToPDFMojo
+DECL|class|HtmlToPdfMojo
 specifier|public
 class|class
-name|ConfluenceToPDFMojo
+name|HtmlToPdfMojo
 extends|extends
 name|AbstractMojo
 block|{
