@@ -431,13 +431,13 @@ specifier|private
 name|String
 name|page
 decl_stmt|;
-comment|/**      * Location of the work directory.      *       * @parameter expression="${project.build.directory}/html-to-pdf"      */
+comment|/**      * Location of the work directory.      *       * @parameter expression="${project.build.directory}/site/manual"      */
 DECL|field|workDir
 specifier|private
 name|String
 name|workDir
 decl_stmt|;
-comment|/**      * The output file name for the pdf.      *       * @parameter expression="${pdf}"      *            default-value="${project.build.directory}/html-to-pdf/${project.artifactId}-${project.version}.pdf"      */
+comment|/**      * The output file name for the pdf.      *       * @parameter expression="${pdf}"      *            default-value="${project.build.directory}/site/manual/${project.artifactId}-${project.version}.pdf"      */
 DECL|field|pdf
 specifier|private
 name|String
@@ -835,9 +835,41 @@ name|String
 name|getHTMLFileName
 parameter_list|()
 block|{
-return|return
+name|String
+name|name
+init|=
 name|getPDFFileName
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|name
+operator|.
+name|endsWith
+argument_list|(
+literal|".pdf"
+argument_list|)
+condition|)
+block|{
+name|name
+operator|=
+name|name
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|name
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|4
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|name
 operator|+
 literal|".html"
 return|;
@@ -848,17 +880,11 @@ name|String
 name|downloadContent
 parameter_list|()
 throws|throws
-name|MalformedURLException
-throws|,
 name|IOException
 throws|,
 name|TransformerFactoryConfigurationError
 throws|,
-name|TransformerConfigurationException
-throws|,
 name|TransformerException
-throws|,
-name|UnsupportedEncodingException
 throws|,
 name|MojoExecutionException
 block|{
