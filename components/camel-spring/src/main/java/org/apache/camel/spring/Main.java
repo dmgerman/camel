@@ -512,14 +512,14 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|main (String[] args)
+DECL|method|main (String... args)
 specifier|public
 specifier|static
 name|void
 name|main
 parameter_list|(
 name|String
-index|[]
+modifier|...
 name|args
 parameter_list|)
 block|{
@@ -1359,14 +1359,39 @@ operator|>
 literal|0
 condition|)
 block|{
+name|TimeUnit
+name|unit
+init|=
+name|getTimeUnit
+argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Waiting for: "
+operator|+
+name|duration
+operator|+
+literal|" "
+operator|+
+name|unit
+argument_list|)
+expr_stmt|;
 name|latch
 operator|.
 name|await
 argument_list|(
 name|duration
 argument_list|,
-name|getTimeUnit
-argument_list|()
+name|unit
+argument_list|)
+expr_stmt|;
+name|completed
+operator|.
+name|set
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
