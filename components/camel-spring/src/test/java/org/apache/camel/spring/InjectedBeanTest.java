@@ -207,7 +207,35 @@ name|getInjectByPropertyName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"No PollingConsumer injected for getFieldInjectedPollingConsumer()"
+argument_list|,
+name|bean
+operator|.
+name|getFieldInjectedPollingConsumer
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"No PollingConsumer injected for getPropertyInjectedPollingConsumer()"
+argument_list|,
+name|bean
+operator|.
+name|getPropertyInjectedPollingConsumer
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
+DECL|method|testSendAndReceive ()
+specifier|public
+name|void
+name|testSendAndReceive
+parameter_list|()
+throws|throws
+name|Exception
+block|{      }
 annotation|@
 name|Override
 DECL|method|setUp ()
