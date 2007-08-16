@@ -492,7 +492,7 @@ specifier|protected
 name|String
 name|duration
 decl_stmt|;
-comment|/**      * The DOT File name used to generate the DOT diagram of the route definitions      *      * @parameter expression="${project.build.directory}/site/camel-dot/Routes.dot"      * @readonly      */
+comment|/**      * The DOT File name used to generate the DOT diagram of the route definitions      *      * @parameter expression="${project.build.directory}/site/cameldoc/Routes.dot"      * @readonly      */
 DECL|field|dotFile
 specifier|protected
 name|String
