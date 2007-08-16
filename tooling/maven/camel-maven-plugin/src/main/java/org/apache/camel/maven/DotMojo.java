@@ -879,8 +879,6 @@ name|outputDir
 parameter_list|)
 throws|throws
 name|DependencyResolutionRequiredException
-throws|,
-name|MojoExecutionException
 block|{
 if|if
 condition|(
@@ -971,11 +969,33 @@ name|getPluginContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|mojo
 operator|.
-name|execute
+name|executeWithoutWrapping
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|error
+argument_list|(
+literal|"Failed to run Camel embedded: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|writeIndexHtmlFile ()
