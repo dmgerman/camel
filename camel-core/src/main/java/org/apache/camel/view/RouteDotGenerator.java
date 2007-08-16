@@ -466,6 +466,11 @@ specifier|public
 name|boolean
 name|nodeWritten
 decl_stmt|;
+DECL|field|url
+specifier|public
+name|String
+name|url
+decl_stmt|;
 block|}
 DECL|method|generateFile (PrintWriter writer, CamelContext context)
 specifier|protected
@@ -873,6 +878,29 @@ operator|+
 literal|"\""
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|data
+operator|.
+name|url
+operator|!=
+literal|null
+condition|)
+block|{
+name|writer
+operator|.
+name|println
+argument_list|(
+literal|"URL = \""
+operator|+
+name|data
+operator|.
+name|url
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
+block|}
 name|String
 name|image
 init|=
@@ -927,7 +955,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|configureNodeData (Object node, NodeData nodeData)
+DECL|method|configureNodeData (Object node, NodeData data)
 specifier|protected
 name|void
 name|configureNodeData
@@ -936,7 +964,7 @@ name|Object
 name|node
 parameter_list|,
 name|NodeData
-name|nodeData
+name|data
 parameter_list|)
 block|{
 if|if
@@ -954,7 +982,7 @@ name|FromType
 operator|)
 name|node
 decl_stmt|;
-name|nodeData
+name|data
 operator|.
 name|label
 operator|=
@@ -967,13 +995,13 @@ if|if
 condition|(
 name|isNullOrBlank
 argument_list|(
-name|nodeData
+name|data
 operator|.
 name|label
 argument_list|)
 condition|)
 block|{
-name|nodeData
+name|data
 operator|.
 name|label
 operator|=
@@ -983,6 +1011,12 @@ name|getUri
 argument_list|()
 expr_stmt|;
 block|}
+name|data
+operator|.
+name|url
+operator|=
+literal|"http://activemq.apache.org/camel/message-endpoint.html"
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1024,11 +1058,17 @@ name|getUri
 argument_list|()
 expr_stmt|;
 block|}
-name|nodeData
+name|data
 operator|.
 name|label
 operator|=
 name|ref
+expr_stmt|;
+name|data
+operator|.
+name|url
+operator|=
+literal|"http://activemq.apache.org/camel/message-endpoint.html"
 expr_stmt|;
 block|}
 elseif|else
@@ -1047,7 +1087,7 @@ name|FilterType
 operator|)
 name|node
 decl_stmt|;
-name|nodeData
+name|data
 operator|.
 name|image
 operator|=
@@ -1055,7 +1095,7 @@ name|imagePrefix
 operator|+
 literal|"MessageFilterIcon.gif"
 expr_stmt|;
-name|nodeData
+name|data
 operator|.
 name|edgeLabel
 operator|=
@@ -1067,11 +1107,17 @@ name|getExpression
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|nodeData
+name|data
 operator|.
 name|nodeType
 operator|=
 literal|"Message Filter"
+expr_stmt|;
+name|data
+operator|.
+name|url
+operator|=
+literal|""
 expr_stmt|;
 block|}
 elseif|else
@@ -1090,7 +1136,7 @@ name|ChoiceType
 operator|)
 name|node
 decl_stmt|;
-name|nodeData
+name|data
 operator|.
 name|image
 operator|=
@@ -1138,7 +1184,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|nodeData
+name|data
 operator|.
 name|edgeLabel
 operator|=
@@ -1147,7 +1193,7 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
-name|nodeData
+name|data
 operator|.
 name|nodeType
 operator|=
@@ -1170,7 +1216,7 @@ name|RecipientListType
 operator|)
 name|node
 decl_stmt|;
-name|nodeData
+name|data
 operator|.
 name|image
 operator|=
@@ -1178,7 +1224,7 @@ name|imagePrefix
 operator|+
 literal|"RecipientListIcon.gif"
 expr_stmt|;
-name|nodeData
+name|data
 operator|.
 name|edgeLabel
 operator|=
@@ -1190,7 +1236,7 @@ name|getExpression
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|nodeData
+name|data
 operator|.
 name|nodeType
 operator|=
@@ -1213,7 +1259,7 @@ name|SplitterType
 operator|)
 name|node
 decl_stmt|;
-name|nodeData
+name|data
 operator|.
 name|image
 operator|=
@@ -1221,7 +1267,7 @@ name|imagePrefix
 operator|+
 literal|"SplitterIcon.gif"
 expr_stmt|;
-name|nodeData
+name|data
 operator|.
 name|edgeLabel
 operator|=
@@ -1233,7 +1279,7 @@ name|getExpression
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|nodeData
+name|data
 operator|.
 name|nodeType
 operator|=
@@ -1256,7 +1302,7 @@ name|AggregatorType
 operator|)
 name|node
 decl_stmt|;
-name|nodeData
+name|data
 operator|.
 name|image
 operator|=
@@ -1264,7 +1310,7 @@ name|imagePrefix
 operator|+
 literal|"AggregatorIcon.gif"
 expr_stmt|;
-name|nodeData
+name|data
 operator|.
 name|edgeLabel
 operator|=
@@ -1276,7 +1322,7 @@ name|getExpression
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|nodeData
+name|data
 operator|.
 name|nodeType
 operator|=
@@ -1299,7 +1345,7 @@ name|ResequencerType
 operator|)
 name|node
 decl_stmt|;
-name|nodeData
+name|data
 operator|.
 name|image
 operator|=
@@ -1307,7 +1353,7 @@ name|imagePrefix
 operator|+
 literal|"ResequencerIcon.gif"
 expr_stmt|;
-name|nodeData
+name|data
 operator|.
 name|edgeLabel
 operator|=
@@ -1319,7 +1365,7 @@ name|getExpressions
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|nodeData
+name|data
 operator|.
 name|nodeType
 operator|=
@@ -1329,7 +1375,7 @@ block|}
 comment|// lets auto-default as many values as we can
 if|if
 condition|(
-name|nodeData
+name|data
 operator|.
 name|label
 operator|==
@@ -1340,13 +1386,13 @@ if|if
 condition|(
 name|isNotNullAndNonEmpty
 argument_list|(
-name|nodeData
+name|data
 operator|.
 name|edgeLabel
 argument_list|)
 condition|)
 block|{
-name|nodeData
+name|data
 operator|.
 name|label
 operator|=
@@ -1355,7 +1401,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|nodeData
+name|data
 operator|.
 name|label
 operator|=
@@ -1370,7 +1416,7 @@ if|if
 condition|(
 name|isNullOrBlank
 argument_list|(
-name|nodeData
+name|data
 operator|.
 name|tooltop
 argument_list|)
@@ -1380,7 +1426,7 @@ if|if
 condition|(
 name|isNotNullAndNonEmpty
 argument_list|(
-name|nodeData
+name|data
 operator|.
 name|nodeType
 argument_list|)
@@ -1391,24 +1437,24 @@ name|description
 init|=
 name|isNotNullAndNonEmpty
 argument_list|(
-name|nodeData
+name|data
 operator|.
 name|edgeLabel
 argument_list|)
 condition|?
-name|nodeData
+name|data
 operator|.
 name|edgeLabel
 else|:
-name|nodeData
+name|data
 operator|.
 name|label
 decl_stmt|;
-name|nodeData
+name|data
 operator|.
 name|tooltop
 operator|=
-name|nodeData
+name|data
 operator|.
 name|nodeType
 operator|+
@@ -1419,11 +1465,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|nodeData
+name|data
 operator|.
 name|tooltop
 operator|=
-name|nodeData
+name|data
 operator|.
 name|label
 expr_stmt|;
