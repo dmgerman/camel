@@ -483,7 +483,7 @@ name|writer
 operator|.
 name|println
 argument_list|(
-literal|"digraph \"Camel Routes\" {"
+literal|"digraph \"CamelRoutes\" {"
 argument_list|)
 expr_stmt|;
 name|writer
