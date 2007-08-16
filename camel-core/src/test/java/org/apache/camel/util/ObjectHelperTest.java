@@ -26,6 +26,18 @@ name|TestCase
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -89,6 +101,65 @@ literal|"foo"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testGetPropertyName ()
+specifier|public
+name|void
+name|testGetPropertyName
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Method
+name|method
+init|=
+name|getClass
+argument_list|()
+operator|.
+name|getMethod
+argument_list|(
+literal|"setCheese"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"should have found a method!"
+argument_list|,
+name|method
+argument_list|)
+expr_stmt|;
+name|String
+name|name
+init|=
+name|ObjectHelper
+operator|.
+name|getPropertyName
+argument_list|(
+name|method
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Property name"
+argument_list|,
+literal|"cheese"
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setCheese (String cheese)
+specifier|public
+name|void
+name|setCheese
+parameter_list|(
+name|String
+name|cheese
+parameter_list|)
+block|{     }
 block|}
 end_class
 

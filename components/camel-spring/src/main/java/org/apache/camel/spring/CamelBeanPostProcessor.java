@@ -17,6 +17,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|isNullOrBlank
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -635,6 +651,11 @@ name|field
 operator|.
 name|getType
 argument_list|()
+argument_list|,
+name|field
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -776,6 +797,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|String
+name|propertyName
+init|=
+name|ObjectHelper
+operator|.
+name|getPropertyName
+argument_list|(
+name|method
+argument_list|)
+decl_stmt|;
 name|Object
 name|value
 init|=
@@ -787,6 +818,8 @@ name|parameterTypes
 index|[
 literal|0
 index|]
+argument_list|,
+name|propertyName
 argument_list|)
 decl_stmt|;
 name|ObjectHelper
@@ -893,6 +926,14 @@ name|annotation
 argument_list|)
 expr_stmt|;
 comment|// lets bind this method to a listener
+name|String
+name|injectionPointName
+init|=
+name|method
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 name|Endpoint
 name|endpoint
 init|=
@@ -907,6 +948,8 @@ name|annotation
 operator|.
 name|name
 argument_list|()
+argument_list|,
+name|injectionPointName
 argument_list|)
 decl_stmt|;
 if|if
@@ -954,7 +997,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|addConsumer
+name|onConsumerAdded
 argument_list|(
 name|consumer
 argument_list|)
@@ -1026,10 +1069,10 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|addConsumer (Consumer consumer)
+DECL|method|onConsumerAdded (Consumer consumer)
 specifier|protected
 name|void
-name|addConsumer
+name|onConsumerAdded
 parameter_list|(
 name|Consumer
 name|consumer
@@ -1044,10 +1087,9 @@ operator|+
 name|consumer
 argument_list|)
 expr_stmt|;
-comment|// consumers.add(consumer);
 block|}
 comment|/**      * Creates the value for the injection point for the given annotation      */
-DECL|method|getEndpointInjectionValue (EndpointInject annotation, Class<?> type)
+DECL|method|getEndpointInjectionValue (EndpointInject annotation, Class<?> type, String injectionPointName)
 specifier|protected
 name|Object
 name|getEndpointInjectionValue
@@ -1060,6 +1102,9 @@ argument_list|<
 name|?
 argument_list|>
 name|type
+parameter_list|,
+name|String
+name|injectionPointName
 parameter_list|)
 block|{
 name|Endpoint
@@ -1076,6 +1121,8 @@ name|annotation
 operator|.
 name|name
 argument_list|()
+argument_list|,
+name|injectionPointName
 argument_list|)
 decl_stmt|;
 if|if
@@ -1165,7 +1212,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|getEndpointInjection (String uri, String name)
+DECL|method|getEndpointInjection (String uri, String name, String injectionPointName)
 specifier|protected
 name|Endpoint
 name|getEndpointInjection
@@ -1175,6 +1222,9 @@ name|uri
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|String
+name|injectionPointName
 parameter_list|)
 block|{
 name|Endpoint
@@ -1204,12 +1254,17 @@ else|else
 block|{
 if|if
 condition|(
-name|isNotNullAndNonEmpty
+name|isNullOrBlank
 argument_list|(
 name|name
 argument_list|)
 condition|)
 block|{
+name|name
+operator|=
+name|injectionPointName
+expr_stmt|;
+block|}
 name|endpoint
 operator|=
 operator|(
@@ -1236,17 +1291,6 @@ argument_list|(
 name|name
 argument_list|)
 throw|;
-block|}
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"No uri or name specified on @EndpointInject annotation!"
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 return|return
