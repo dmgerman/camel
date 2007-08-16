@@ -404,6 +404,12 @@ name|String
 index|[]
 name|princeArgs
 decl_stmt|;
+comment|/**      * Whether the build should fail if the prince executable cannot be ran correctly      *      * @parameter default-value="false"      */
+DECL|field|failOnCommandLineError
+specifier|private
+name|boolean
+name|failOnCommandLineError
+decl_stmt|;
 DECL|method|execute ()
 specifier|public
 name|void
@@ -680,6 +686,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|failOnCommandLineError
+condition|)
+block|{
 throw|throw
 operator|new
 name|MojoExecutionException
@@ -689,6 +700,20 @@ operator|+
 name|rc
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"Failed due to return code: "
+operator|+
+name|rc
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getPDFFileName ()
