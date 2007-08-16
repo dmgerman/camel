@@ -187,6 +187,26 @@ name|getPropertyInjectedCamelTemplate
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"No ProducerTemplate injected for getInjectByFieldName()"
+argument_list|,
+name|bean
+operator|.
+name|getInjectByFieldName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"No ProducerTemplate injected for getInjectByPropertyName()"
+argument_list|,
+name|bean
+operator|.
+name|getInjectByPropertyName
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

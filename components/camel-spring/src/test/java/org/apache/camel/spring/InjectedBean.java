@@ -64,6 +64,18 @@ name|Producer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ProducerTemplate
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: $  */
 end_comment
@@ -124,6 +136,18 @@ DECL|field|propertyInjectedCamelTemplate
 specifier|private
 name|CamelTemplate
 name|propertyInjectedCamelTemplate
+decl_stmt|;
+annotation|@
+name|EndpointInject
+DECL|field|injectByFieldName
+specifier|private
+name|ProducerTemplate
+name|injectByFieldName
+decl_stmt|;
+DECL|field|injectByPropertyName
+specifier|private
+name|ProducerTemplate
+name|injectByPropertyName
 decl_stmt|;
 comment|// Endpoint
 comment|//-----------------------------------------------------------------------
@@ -258,6 +282,62 @@ operator|.
 name|propertyInjectedCamelTemplate
 operator|=
 name|propertyInjectedCamelTemplate
+expr_stmt|;
+block|}
+comment|// ProducerTemplate
+comment|//-------------------------------------------------------------------------
+DECL|method|getInjectByFieldName ()
+specifier|public
+name|ProducerTemplate
+name|getInjectByFieldName
+parameter_list|()
+block|{
+return|return
+name|injectByFieldName
+return|;
+block|}
+DECL|method|setInjectByFieldName (ProducerTemplate injectByFieldName)
+specifier|public
+name|void
+name|setInjectByFieldName
+parameter_list|(
+name|ProducerTemplate
+name|injectByFieldName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|injectByFieldName
+operator|=
+name|injectByFieldName
+expr_stmt|;
+block|}
+DECL|method|getInjectByPropertyName ()
+specifier|public
+name|ProducerTemplate
+name|getInjectByPropertyName
+parameter_list|()
+block|{
+return|return
+name|injectByPropertyName
+return|;
+block|}
+annotation|@
+name|EndpointInject
+DECL|method|setInjectByPropertyName (ProducerTemplate injectByPropertyName)
+specifier|public
+name|void
+name|setInjectByPropertyName
+parameter_list|(
+name|ProducerTemplate
+name|injectByPropertyName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|injectByPropertyName
+operator|=
+name|injectByPropertyName
 expr_stmt|;
 block|}
 block|}
