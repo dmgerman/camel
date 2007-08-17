@@ -853,7 +853,9 @@ name|headerValue
 parameter_list|)
 block|{
 return|return
-literal|true
+name|headerValue
+operator|!=
+literal|null
 return|;
 block|}
 block|}
