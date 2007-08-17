@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -82,7 +94,7 @@ name|MyRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
-comment|/**      * Allow this route to be run as an application      * @param args      */
+comment|/**      * Allow this route to be run as an application      *      * @param args      */
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
@@ -110,6 +122,17 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// lets populate the message queue with some messages
+name|from
+argument_list|(
+literal|"file:src/data?noop=true"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"activemq:test.MyQueue"
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"activemq:test.MyQueue"
@@ -117,27 +140,36 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://test"
+literal|"file://target/test?noop=true"
 argument_list|)
 expr_stmt|;
 comment|// set up a listener on the file component
 name|from
 argument_list|(
-literal|"file://test"
+literal|"file://target/test?noop=true"
 argument_list|)
 operator|.
-name|process
+name|bean
 argument_list|(
 operator|new
-name|Processor
+name|SomeBean
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|class|SomeBean
+specifier|public
+specifier|static
+class|class
+name|SomeBean
 block|{
+DECL|method|someMethod (String body)
 specifier|public
 name|void
-name|process
+name|someMethod
 parameter_list|(
-name|Exchange
-name|e
+name|String
+name|body
 parameter_list|)
 block|{
 name|System
@@ -146,18 +178,12 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Received exchange: "
+literal|"Received: "
 operator|+
-name|e
-operator|.
-name|getIn
-argument_list|()
+name|body
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class
