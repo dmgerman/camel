@@ -586,6 +586,21 @@ name|getJMSType
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// TODO this works around a bug in the ActiveMQ property handling
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"JMSXGroupID"
+argument_list|,
+name|jmsMessage
+operator|.
+name|getStringProperty
+argument_list|(
+literal|"JMSXGroupID"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

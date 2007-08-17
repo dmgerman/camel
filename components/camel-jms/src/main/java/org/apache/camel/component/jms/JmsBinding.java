@@ -500,6 +500,14 @@ name|startsWith
 argument_list|(
 literal|"JMS"
 argument_list|)
+operator|&&
+operator|!
+name|headerName
+operator|.
+name|startsWith
+argument_list|(
+literal|"JMSX"
+argument_list|)
 condition|)
 block|{
 if|if
