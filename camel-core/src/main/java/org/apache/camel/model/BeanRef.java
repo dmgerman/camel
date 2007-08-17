@@ -190,19 +190,19 @@ specifier|public
 name|BeanRef
 parameter_list|()
 block|{     }
-DECL|method|BeanRef (Object bean)
+DECL|method|BeanRef (String ref)
 specifier|public
 name|BeanRef
 parameter_list|(
-name|Object
-name|bean
+name|String
+name|ref
 parameter_list|)
 block|{
 name|this
 operator|.
-name|bean
+name|ref
 operator|=
-name|bean
+name|ref
 expr_stmt|;
 block|}
 DECL|method|BeanRef (String ref, String method)

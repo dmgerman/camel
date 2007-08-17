@@ -771,12 +771,6 @@ condition|)
 block|{
 if|if
 condition|(
-name|parameterTypes
-operator|.
-name|length
-operator|==
-literal|1
-operator|&&
 name|bodyParameters
 operator|.
 name|isEmpty

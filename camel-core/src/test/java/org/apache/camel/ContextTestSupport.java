@@ -86,6 +86,16 @@ name|JndiTest
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|Context
+import|;
+end_import
+
 begin_comment
 comment|/**  * A useful base class which creates a {@link CamelContext} with some routes  * along with a {@link CamelTemplate} for use in the test case  *   * @version $Revision: 1.1 $  */
 end_comment
@@ -336,15 +346,41 @@ return|return
 operator|new
 name|DefaultCamelContext
 argument_list|(
+name|createRegistry
+argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|method|createRegistry ()
+specifier|protected
+name|JndiRegistry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
 operator|new
 name|JndiRegistry
 argument_list|(
+name|createJndiContext
+argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|method|createJndiContext ()
+specifier|protected
+name|Context
+name|createJndiContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
 name|JndiTest
 operator|.
 name|createInitialContext
 argument_list|()
-argument_list|)
-argument_list|)
 return|;
 block|}
 DECL|method|createRouteBuilder ()

@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Method
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -107,6 +95,22 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|isNullOrBlank
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -135,18 +139,26 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|apache
+name|lang
 operator|.
-name|camel
+name|reflect
 operator|.
-name|util
+name|InvocationTargetException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|ObjectHelper
+name|lang
 operator|.
-name|isNullOrBlank
+name|reflect
+operator|.
+name|Method
 import|;
 end_import
 
@@ -524,7 +536,9 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"No method invocation could be created"
+literal|"No method invocation could be created, no maching method could be found on: "
+operator|+
+name|pojo
 argument_list|)
 throw|;
 block|}
@@ -555,6 +569,43 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|InvocationTargetException
+name|e
+parameter_list|)
+block|{
+comment|// lets unwrap the exception
+name|Throwable
+name|cause
+init|=
+name|e
+operator|.
+name|getTargetException
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cause
+operator|instanceof
+name|Exception
+condition|)
+block|{
+throw|throw
+operator|(
+name|Exception
+operator|)
+name|cause
+throw|;
+block|}
+else|else
+block|{
+comment|// TODO deal with errors!
+throw|throw
+name|e
+throw|;
 block|}
 block|}
 catch|catch
