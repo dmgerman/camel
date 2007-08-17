@@ -139,7 +139,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"direct:simpleFilterRoute"
+literal|"file:foo/bar?noop=true"
 argument_list|)
 operator|.
 name|filter

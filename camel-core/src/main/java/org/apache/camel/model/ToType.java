@@ -318,6 +318,21 @@ block|{
 return|return
 literal|"To["
 operator|+
+name|getLabel
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
 name|FromType
 operator|.
 name|description
@@ -331,8 +346,6 @@ argument_list|,
 name|getEndpoint
 argument_list|()
 argument_list|)
-operator|+
-literal|"]"
 return|;
 block|}
 annotation|@
