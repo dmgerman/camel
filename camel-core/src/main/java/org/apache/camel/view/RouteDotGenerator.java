@@ -1134,7 +1134,6 @@ operator|.
 name|tooltop
 argument_list|)
 expr_stmt|;
-comment|/*             data.label = fromType.getRef();             if (isNullOrBlank(data.label)) {                 data.label = fromType.getUri();             } */
 name|data
 operator|.
 name|url
@@ -1178,7 +1177,12 @@ operator|.
 name|tooltop
 argument_list|)
 expr_stmt|;
-comment|/*             String ref = toType.getRef();             if (isNullOrBlank(ref)) {                 ref = toType.getUri();             }             data.label = ref; */
+name|data
+operator|.
+name|edgeLabel
+operator|=
+literal|null
+expr_stmt|;
 name|data
 operator|.
 name|url

@@ -157,12 +157,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:result"
+literal|"file:xyz?noop=true"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:filterAndRecipientList"
+literal|"file:xyz?noop=true"
 argument_list|)
 operator|.
 name|filter
