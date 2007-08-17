@@ -606,7 +606,8 @@ name|String
 index|[]
 name|names
 init|=
-name|applicationContext
+name|getApplicationContext
+argument_list|()
 operator|.
 name|getBeanNamesForType
 argument_list|(
@@ -624,7 +625,8 @@ operator|==
 literal|1
 condition|)
 block|{
-name|applicationContext
+name|getApplicationContext
+argument_list|()
 operator|.
 name|getBean
 argument_list|(
@@ -870,6 +872,21 @@ name|ApplicationContext
 name|getApplicationContext
 parameter_list|()
 block|{
+if|if
+condition|(
+name|applicationContext
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No applicationContext has been injected!"
+argument_list|)
+throw|;
+block|}
 return|return
 name|applicationContext
 return|;
