@@ -236,6 +236,9 @@ name|BeanProcessor
 argument_list|(
 name|bean
 argument_list|,
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|getParameterMappingStrategy
 argument_list|()
 argument_list|)

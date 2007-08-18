@@ -245,12 +245,15 @@ operator|=
 name|beanInfo
 expr_stmt|;
 block|}
-DECL|method|BeanProcessor (Object pojo, ParameterMappingStrategy parameterMappingStrategy)
+DECL|method|BeanProcessor (Object pojo, CamelContext camelContext, ParameterMappingStrategy parameterMappingStrategy)
 specifier|public
 name|BeanProcessor
 parameter_list|(
 name|Object
 name|pojo
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|ParameterMappingStrategy
 name|parameterMappingStrategy
@@ -263,6 +266,8 @@ argument_list|,
 operator|new
 name|BeanInfo
 argument_list|(
+name|camelContext
+argument_list|,
 name|pojo
 operator|.
 name|getClass
@@ -287,6 +292,8 @@ block|{
 name|this
 argument_list|(
 name|pojo
+argument_list|,
+name|camelContext
 argument_list|,
 name|createParameterMappingStrategy
 argument_list|(
