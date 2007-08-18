@@ -188,6 +188,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+name|DefaultCamelContext
+name|camelContext
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
 DECL|field|exchange
 specifier|protected
 name|Exchange
@@ -196,9 +205,7 @@ init|=
 operator|new
 name|DefaultExchange
 argument_list|(
-operator|new
-name|DefaultCamelContext
-argument_list|()
+name|camelContext
 argument_list|)
 decl_stmt|;
 DECL|field|strategy
@@ -333,6 +340,8 @@ operator|=
 operator|new
 name|BeanInfo
 argument_list|(
+name|camelContext
+argument_list|,
 name|bean
 operator|.
 name|getClass
