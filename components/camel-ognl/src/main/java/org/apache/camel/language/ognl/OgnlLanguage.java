@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: $  */
+comment|/**  * An<a href="http://www.ognl.org/">OGNL</a> {@link Language} plugin  *  * @version $Revision: $  */
 end_comment
 
 begin_class
