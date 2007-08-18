@@ -18,6 +18,22 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|bean
+operator|.
+name|XPathAnnotationExpressionFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -65,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * Used to inject an XPath expression into a field, property, method or parameter.  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_annotation_defn
@@ -90,8 +106,21 @@ name|METHOD
 block|,
 name|ElementType
 operator|.
-name|CONSTRUCTOR
+name|PARAMETER
 block|}
+argument_list|)
+annotation|@
+name|LanguageAnnotation
+argument_list|(
+name|language
+operator|=
+literal|"xpath"
+argument_list|,
+name|factory
+operator|=
+name|XPathAnnotationExpressionFactory
+operator|.
+name|class
 argument_list|)
 DECL|annotation|XPath
 specifier|public
@@ -111,7 +140,7 @@ index|[]
 name|namespaces
 argument_list|()
 expr|default
-block|{@
+block|{     @
 name|NamespacePrefix
 argument_list|(
 name|prefix
@@ -120,7 +149,18 @@ literal|"soap"
 argument_list|,
 name|uri
 operator|=
-literal|"TODO"
+literal|"http://www.w3.org/2003/05/soap-envelope"
+argument_list|)
+block|,     @
+name|NamespacePrefix
+argument_list|(
+name|prefix
+operator|=
+literal|"xsd"
+argument_list|,
+name|uri
+operator|=
+literal|"http://www.w3.org/2001/XMLSchema"
 argument_list|)
 block|}
 expr_stmt|;

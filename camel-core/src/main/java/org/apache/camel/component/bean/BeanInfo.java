@@ -164,20 +164,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|logging
@@ -1499,14 +1485,14 @@ if|if
 condition|(
 name|object
 operator|instanceof
-name|InjectionExpressionFactory
+name|AnnotationExpressionFactory
 condition|)
 block|{
-name|InjectionExpressionFactory
+name|AnnotationExpressionFactory
 name|expressionFactory
 init|=
 operator|(
-name|InjectionExpressionFactory
+name|AnnotationExpressionFactory
 operator|)
 name|object
 decl_stmt|;
@@ -1548,7 +1534,7 @@ argument_list|()
 operator|+
 literal|" which does not implement "
 operator|+
-name|InjectionExpressionFactory
+name|AnnotationExpressionFactory
 operator|.
 name|class
 operator|.
