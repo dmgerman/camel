@@ -400,8 +400,6 @@ argument_list|(
 name|answer
 argument_list|,
 name|exchange
-argument_list|,
-name|session
 argument_list|)
 expr_stmt|;
 return|return
@@ -409,8 +407,8 @@ name|answer
 return|;
 block|}
 comment|/**      * Appends the JMS headers from the Camel {@link JmsMessage}      */
-DECL|method|appendJmsProperties (Message jmsMessage, Exchange exchange, Session session)
-specifier|protected
+DECL|method|appendJmsProperties (Message jmsMessage, Exchange exchange)
+specifier|public
 name|void
 name|appendJmsProperties
 parameter_list|(
@@ -419,9 +417,6 @@ name|jmsMessage
 parameter_list|,
 name|Exchange
 name|exchange
-parameter_list|,
-name|Session
-name|session
 parameter_list|)
 throws|throws
 name|JMSException
