@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks a parameter as being a header on an inbound {@link Message}  *  * @see Message#getHeader(String)   * @version $Revision: 523756 $  */
+comment|/**  * Marks a parameter as being an injection point of the properties of an {@link Exchange}  *  * @see Exchange#getProperties()    * @version $Revision: 523756 $  */
 end_comment
 
 begin_annotation_defn
@@ -83,17 +83,11 @@ operator|.
 name|PARAMETER
 block|}
 argument_list|)
-DECL|annotation|Header
+DECL|annotation|Properties
 specifier|public
 annotation_defn|@interface
-name|Header
-block|{
-DECL|method|name ()
-name|String
-name|name
-parameter_list|()
-function_decl|;
-block|}
+name|Properties
+block|{ }
 end_annotation_defn
 
 end_unit

@@ -150,12 +150,18 @@ name|ParameterInfo
 argument_list|>
 name|bodyParameters
 decl_stmt|;
+DECL|field|hasCustomAnnotation
+specifier|private
+specifier|final
+name|boolean
+name|hasCustomAnnotation
+decl_stmt|;
 DECL|field|parametersExpression
 specifier|private
 name|Expression
 name|parametersExpression
 decl_stmt|;
-DECL|method|MethodInfo (Class type, Method method, List<ParameterInfo> parameters, List<ParameterInfo> bodyParameters)
+DECL|method|MethodInfo (Class type, Method method, List<ParameterInfo> parameters, List<ParameterInfo> bodyParameters, boolean hasCustomAnnotation)
 specifier|public
 name|MethodInfo
 parameter_list|(
@@ -176,6 +182,9 @@ argument_list|<
 name|ParameterInfo
 argument_list|>
 name|bodyParameters
+parameter_list|,
+name|boolean
+name|hasCustomAnnotation
 parameter_list|)
 block|{
 name|this
@@ -201,6 +210,12 @@ operator|.
 name|bodyParameters
 operator|=
 name|bodyParameters
+expr_stmt|;
+name|this
+operator|.
+name|hasCustomAnnotation
+operator|=
+name|hasCustomAnnotation
 expr_stmt|;
 name|this
 operator|.
@@ -439,6 +454,16 @@ name|bodyParameters
 operator|.
 name|isEmpty
 argument_list|()
+return|;
+block|}
+DECL|method|isHasCustomAnnotation ()
+specifier|public
+name|boolean
+name|isHasCustomAnnotation
+parameter_list|()
+block|{
+return|return
+name|hasCustomAnnotation
 return|;
 block|}
 DECL|method|invoke (Method mth, Object pojo, Object[] arguments, Exchange exchange)
