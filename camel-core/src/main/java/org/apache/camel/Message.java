@@ -108,6 +108,15 @@ name|Object
 name|value
 parameter_list|)
 function_decl|;
+comment|/**      * Removes the named header from this message      *      * @param name      * @return the old value of the header      */
+DECL|method|removeHeader (String name)
+name|Object
+name|removeHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Returns all of the headers associated with the message      *       * @return all the headers in a Map      */
 DECL|method|getHeaders ()
 name|Map

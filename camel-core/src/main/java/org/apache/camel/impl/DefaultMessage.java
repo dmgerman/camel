@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -170,6 +182,38 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|removeHeader (String name)
+specifier|public
+name|Object
+name|removeHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+if|if
+condition|(
+name|headers
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|headers
+operator|.
+name|remove
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|getHeaders ()
 specifier|public

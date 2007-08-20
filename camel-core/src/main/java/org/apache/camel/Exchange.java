@@ -88,6 +88,15 @@ name|Object
 name|value
 parameter_list|)
 function_decl|;
+comment|/**      * Removes the given property on the exchange      *      * @param name of the property      * @return the old value of the property      */
+DECL|method|removeProperty (String name)
+name|Object
+name|removeProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Returns all of the properties associated with the exchange      *       * @return all the headers in a Map      */
 DECL|method|getProperties ()
 name|Map

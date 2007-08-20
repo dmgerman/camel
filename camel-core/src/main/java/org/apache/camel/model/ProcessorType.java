@@ -1978,6 +1978,72 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Adds a processor which removes the header on the IN message      */
+DECL|method|removeHeader (String name)
+specifier|public
+name|ProcessorType
+name|removeHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|process
+argument_list|(
+name|ProcessorBuilder
+operator|.
+name|removeHeader
+argument_list|(
+name|name
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Adds a processor which removes the header on the OUT message      */
+DECL|method|removeOutHeader (String name)
+specifier|public
+name|ProcessorType
+name|removeOutHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|process
+argument_list|(
+name|ProcessorBuilder
+operator|.
+name|removeOutHeader
+argument_list|(
+name|name
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Adds a processor which removes the exchange property      */
+DECL|method|removeProperty (String name)
+specifier|public
+name|ProcessorType
+name|removeProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|process
+argument_list|(
+name|ProcessorBuilder
+operator|.
+name|removeProperty
+argument_list|(
+name|name
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Converts the IN message body to the specified type      */
 DECL|method|convertBodyTo (Class type)
 specifier|public
