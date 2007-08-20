@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the<a  * href="http://activemq.apache.org/camel/queue.html">Queue components</a> for  * asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  *   * @org.apache.xbean.XBean  * @version $Revision: 519973 $  */
+comment|/**  * An implementation of the<a  * href="http://activemq.apache.org/camel/queue.html">Queue components</a> for  * asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  *   * @version $Revision: 519973 $  */
 end_comment
 
 begin_class

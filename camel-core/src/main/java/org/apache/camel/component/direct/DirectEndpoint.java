@@ -163,7 +163,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a direct endpoint that synchronously invokes the consumers of the  * endpoint when a producer sends a message to it.  *   * @org.apache.xbean.XBean  * @version $Revision: 519973 $  */
+comment|/**  * Represents a direct endpoint that synchronously invokes the consumers of the  * endpoint when a producer sends a message to it.  *   * @version $Revision: 519973 $  */
 end_comment
 
 begin_class
