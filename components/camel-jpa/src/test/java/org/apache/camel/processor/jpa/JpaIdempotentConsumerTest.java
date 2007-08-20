@@ -307,7 +307,9 @@ argument_list|(
 literal|"org/apache/camel/processor/jpa/spring.xml"
 argument_list|)
 expr_stmt|;
-comment|//cleanupRepository();
+name|cleanupRepository
+argument_list|()
+expr_stmt|;
 return|return
 name|SpringCamelContext
 operator|.
