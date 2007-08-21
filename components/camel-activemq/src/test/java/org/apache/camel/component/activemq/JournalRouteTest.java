@@ -124,10 +124,10 @@ name|JournalRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testForwardingAMessageAcrossJMSKeepingCustomJMSHeaders ()
+DECL|method|testSimpleJournalRoute ()
 specifier|public
 name|void
-name|testForwardingAMessageAcrossJMSKeepingCustomJMSHeaders
+name|testSimpleJournalRoute
 parameter_list|()
 throws|throws
 name|Exception
@@ -146,7 +146,7 @@ name|resultEndpoint
 init|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"mock:result"
+literal|"mock:out"
 argument_list|,
 name|MockEndpoint
 operator|.
@@ -179,7 +179,7 @@ argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"activemq.journal:test.a"
+literal|"activemq.journal:target/test.a"
 argument_list|)
 expr_stmt|;
 name|firstMessageExpectations
@@ -208,7 +208,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:test.a"
+literal|"direct:in"
 argument_list|,
 name|payload
 argument_list|)
@@ -301,22 +301,22 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"direct:test.a"
+literal|"direct:in"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"activemq.journal:test.a"
+literal|"activemq.journal:target/test.a"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"activemq.journal:test.a"
+literal|"activemq.journal:target/test.a"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:result"
+literal|"mock:out"
 argument_list|)
 expr_stmt|;
 block|}

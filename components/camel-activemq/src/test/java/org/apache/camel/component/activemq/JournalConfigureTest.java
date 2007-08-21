@@ -77,7 +77,7 @@ name|endpoint
 init|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"activemq.journal:test"
+literal|"activemq.journal:target/test"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -87,6 +87,8 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
+literal|"target"
+argument_list|,
 literal|"test"
 argument_list|)
 argument_list|,
@@ -134,7 +136,7 @@ name|endpoint
 init|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"activemq.journal:test?syncConsume=true&syncProduce=false"
+literal|"activemq.journal:target/test?syncConsume=true&syncProduce=false"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -144,6 +146,8 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
+literal|"target"
+argument_list|,
 literal|"test"
 argument_list|)
 argument_list|,

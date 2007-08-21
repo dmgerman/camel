@@ -1156,6 +1156,23 @@ operator|=
 name|syncProduce
 expr_stmt|;
 block|}
+DECL|method|isOpen ()
+name|boolean
+name|isOpen
+parameter_list|()
+block|{
+synchronized|synchronized
+init|(
+name|activationMutex
+init|)
+block|{
+return|return
+name|referenceCount
+operator|>
+literal|0
+return|;
+block|}
+block|}
 block|}
 end_class
 
