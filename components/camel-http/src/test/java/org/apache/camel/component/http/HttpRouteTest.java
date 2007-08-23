@@ -133,10 +133,10 @@ name|expectedBody
 init|=
 literal|"<hello>world!</hello>"
 decl_stmt|;
-DECL|method|testPojoRoutes ()
+DECL|method|testEndpoint ()
 specifier|public
 name|void
-name|testPojoRoutes
+name|testEndpoint
 parameter_list|()
 throws|throws
 name|Exception
