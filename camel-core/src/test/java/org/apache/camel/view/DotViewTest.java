@@ -68,6 +68,24 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|XPathBuilder
+operator|.
+name|xpath
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -137,6 +155,35 @@ name|void
 name|configure
 parameter_list|()
 block|{
+name|from
+argument_list|(
+literal|"file:foo/xyz?noop=true"
+argument_list|)
+operator|.
+name|choice
+argument_list|()
+operator|.
+name|when
+argument_list|(
+name|xpath
+argument_list|(
+literal|"/person/city = 'London'"
+argument_list|)
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"file:target/messages/uk"
+argument_list|)
+operator|.
+name|otherwise
+argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"file:target/messages/others"
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"file:foo/bar?noop=true"
