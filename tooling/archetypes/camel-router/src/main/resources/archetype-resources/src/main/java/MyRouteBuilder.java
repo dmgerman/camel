@@ -53,6 +53,20 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|Main
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Camel Router  *  * @version $Revision: 1.1 $  */
 end_comment
@@ -65,6 +79,27 @@ name|MyRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
+comment|/**      * A main() so we can easily run these routing rules in our IDE      */
+DECL|method|main (String... args)
+specifier|public
+specifier|static
+name|void
+name|main
+parameter_list|(
+name|String
+modifier|...
+name|args
+parameter_list|)
+block|{
+name|Main
+operator|.
+name|main
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Lets configure the Camel routing rules using Java code...      */
 DECL|method|configure ()
 specifier|public
 name|void
