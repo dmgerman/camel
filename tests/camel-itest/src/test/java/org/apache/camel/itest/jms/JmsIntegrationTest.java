@@ -323,7 +323,7 @@ name|answer
 operator|.
 name|bind
 argument_list|(
-literal|"activemq"
+literal|"jms"
 argument_list|,
 name|ActiveMQComponent
 operator|.
