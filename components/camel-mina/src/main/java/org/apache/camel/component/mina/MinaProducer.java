@@ -20,11 +20,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|net
+name|apache
 operator|.
-name|SocketAddress
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -36,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|Producer
 import|;
 end_import
 
@@ -149,6 +151,16 @@ operator|.
 name|common
 operator|.
 name|IoSession
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|SocketAddress
 import|;
 end_import
 
