@@ -217,14 +217,14 @@ name|put
 argument_list|(
 literal|"reply-to"
 argument_list|,
-literal|"reply1@localhost"
+literal|"route-test-reply@localhost"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeaders
 argument_list|(
-literal|"smtp://james@localhost"
+literal|"smtp://route-test-james@localhost"
 argument_list|,
 literal|"hello world!"
 argument_list|,
@@ -234,7 +234,7 @@ expr_stmt|;
 comment|// lets test the first sent worked
 name|assertMailboxReceivedMessages
 argument_list|(
-literal|"james@localhost"
+literal|"route-test-james@localhost"
 argument_list|)
 expr_stmt|;
 comment|// lets sleep to check that the mail poll does not redeliver duplicate
@@ -284,14 +284,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"reply1@localhost"
+literal|"route-test-reply@localhost"
 argument_list|,
 name|replyTo
 argument_list|)
 expr_stmt|;
 name|assertMailboxReceivedMessages
 argument_list|(
-literal|"copy@localhost"
+literal|"route-test-copy@localhost"
 argument_list|)
 expr_stmt|;
 block|}
@@ -377,7 +377,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"smtp://james@localhost"
+literal|"smtp://route-test-james@localhost"
 argument_list|)
 operator|.
 name|to
@@ -392,14 +392,14 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp://result@localhost"
+literal|"smtp://route-test-result@localhost"
 argument_list|,
-literal|"smtp://copy@localhost"
+literal|"smtp://route-test-copy@localhost"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"smtp://result@localhost"
+literal|"smtp://route-test-result@localhost"
 argument_list|)
 operator|.
 name|convertBodyTo
