@@ -316,6 +316,13 @@ expr_stmt|;
 name|addFallbackConverter
 argument_list|(
 operator|new
+name|AsyncProcessorTypeConverter
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addFallbackConverter
+argument_list|(
+operator|new
 name|PropertyEditorTypeConverter
 argument_list|()
 argument_list|)

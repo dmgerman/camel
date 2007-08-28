@@ -150,6 +150,14 @@ name|Throwable
 name|e
 parameter_list|)
 function_decl|;
+comment|/**      * Throws the exception associated with this exchange.      */
+DECL|method|throwException ()
+name|void
+name|throwException
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Returns the container so that a processor can resolve endpoints from URIs      *       * @return the container which owns this exchange      */
 DECL|method|getContext ()
 name|CamelContext
