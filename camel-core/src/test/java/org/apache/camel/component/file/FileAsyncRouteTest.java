@@ -156,7 +156,7 @@ specifier|protected
 name|String
 name|uri
 init|=
-literal|"file:target/test-default-inbox?delete=true"
+literal|"file:target/test-async-inbox?delete=true"
 decl_stmt|;
 DECL|field|receivedLatch
 name|CountDownLatch
