@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|bean
@@ -126,7 +138,7 @@ name|TimerComponent
 extends|extends
 name|DefaultComponent
 argument_list|<
-name|BeanExchange
+name|Exchange
 argument_list|>
 block|{
 DECL|field|timers
@@ -234,7 +246,7 @@ DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|Endpoint
 argument_list|<
-name|BeanExchange
+name|Exchange
 argument_list|>
 name|createEndpoint
 parameter_list|(

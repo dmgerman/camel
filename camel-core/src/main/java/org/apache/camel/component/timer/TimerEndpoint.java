@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -98,6 +110,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultExchange
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -128,7 +154,7 @@ name|TimerEndpoint
 extends|extends
 name|DefaultEndpoint
 argument_list|<
-name|BeanExchange
+name|Exchange
 argument_list|>
 block|{
 DECL|field|component
@@ -215,11 +241,26 @@ operator|=
 name|timerName
 expr_stmt|;
 block|}
+DECL|method|createExchange ()
+specifier|public
+name|Exchange
+name|createExchange
+parameter_list|()
+block|{
+return|return
+operator|new
+name|DefaultExchange
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+return|;
+block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
 argument_list|<
-name|BeanExchange
+name|Exchange
 argument_list|>
 name|createProducer
 parameter_list|()
@@ -241,7 +282,7 @@ DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
 argument_list|<
-name|BeanExchange
+name|Exchange
 argument_list|>
 name|createConsumer
 parameter_list|(
@@ -258,21 +299,6 @@ argument_list|(
 name|this
 argument_list|,
 name|processor
-argument_list|)
-return|;
-block|}
-DECL|method|createExchange ()
-specifier|public
-name|BeanExchange
-name|createExchange
-parameter_list|()
-block|{
-return|return
-operator|new
-name|BeanExchange
-argument_list|(
-name|getContext
-argument_list|()
 argument_list|)
 return|;
 block|}
