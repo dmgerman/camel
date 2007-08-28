@@ -46,6 +46,31 @@ name|IMPL
 init|=
 literal|"impl"
 decl_stmt|;
+DECL|field|WSDL_URL
+name|String
+name|WSDL_URL
+init|=
+literal|"wsdlURL"
+decl_stmt|;
+DECL|field|ADDRESS
+name|String
+name|ADDRESS
+init|=
+literal|"address"
+decl_stmt|;
+DECL|field|SERVICE_NAME
+name|String
+name|SERVICE_NAME
+init|=
+literal|"serviceName"
+decl_stmt|;
+DECL|field|PORT_NAME
+name|String
+name|PORT_NAME
+init|=
+literal|"portName"
+decl_stmt|;
+comment|// service name -- come from the wsdl
 block|}
 end_interface
 

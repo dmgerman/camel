@@ -62,6 +62,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -215,6 +225,13 @@ name|getBody
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|body
+operator|instanceof
+name|InputStream
+condition|)
+block|{
 name|answer
 operator|.
 name|setContent
@@ -226,8 +243,28 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-comment|// no need to process headers as we reuse the CXF message
-comment|/*         // set the headers         Set<Map.Entry<String, Object>> entries = in.getHeaders().entrySet();         for (Map.Entry<String, Object> entry : entries) {             answer.put(entry.getKey(), entry.getValue());         }         */
+block|}
+elseif|else
+if|if
+condition|(
+name|body
+operator|instanceof
+name|List
+condition|)
+block|{
+comment|//just set the operation's parament
+name|answer
+operator|.
+name|setContent
+argument_list|(
+name|List
+operator|.
+name|class
+argument_list|,
+name|body
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
