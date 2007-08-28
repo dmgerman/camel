@@ -130,22 +130,25 @@ specifier|private
 name|URI
 name|httpUri
 decl_stmt|;
-DECL|method|HttpEndpoint (String uri, HttpComponent component)
-specifier|protected
+DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI)
+specifier|public
 name|HttpEndpoint
 parameter_list|(
 name|String
-name|uri
+name|endPointURI
 parameter_list|,
 name|HttpComponent
 name|component
+parameter_list|,
+name|URI
+name|httpURI
 parameter_list|)
 throws|throws
 name|URISyntaxException
 block|{
 name|super
 argument_list|(
-name|uri
+name|endPointURI
 argument_list|,
 name|component
 argument_list|)
@@ -160,11 +163,7 @@ name|this
 operator|.
 name|httpUri
 operator|=
-operator|new
-name|URI
-argument_list|(
-name|uri
-argument_list|)
+name|httpURI
 expr_stmt|;
 block|}
 DECL|method|createProducer ()

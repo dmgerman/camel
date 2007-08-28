@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -36,7 +46,43 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Consumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -69,11 +115,6 @@ argument_list|<
 name|HttpExchange
 argument_list|>
 block|{
-DECL|field|camelServlet
-specifier|private
-name|CamelServlet
-name|camelServlet
-decl_stmt|;
 comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *       * @throws Exception      */
 DECL|method|connect (HttpConsumer consumer)
 specifier|public
@@ -85,15 +126,7 @@ name|consumer
 parameter_list|)
 throws|throws
 name|Exception
-block|{
-name|camelServlet
-operator|.
-name|connect
-argument_list|(
-name|consumer
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * Disconnects the URL specified on the endpoint from the specified      * processor.      *       * @throws Exception      */
 DECL|method|disconnect (HttpConsumer consumer)
 specifier|public
@@ -105,41 +138,7 @@ name|consumer
 parameter_list|)
 throws|throws
 name|Exception
-block|{
-name|camelServlet
-operator|.
-name|disconnect
-argument_list|(
-name|consumer
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getCamelServlet ()
-specifier|public
-name|CamelServlet
-name|getCamelServlet
-parameter_list|()
-block|{
-return|return
-name|camelServlet
-return|;
-block|}
-DECL|method|setCamelServlet (CamelServlet camelServlet)
-specifier|public
-name|void
-name|setCamelServlet
-parameter_list|(
-name|CamelServlet
-name|camelServlet
-parameter_list|)
-block|{
-name|this
-operator|.
-name|camelServlet
-operator|=
-name|camelServlet
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
@@ -169,7 +168,39 @@ argument_list|(
 name|uri
 argument_list|,
 name|this
+argument_list|,
+operator|new
+name|URI
+argument_list|(
+name|uri
 argument_list|)
+argument_list|)
+block|{
+comment|// TODO: we should implement this using a polling http client.
+annotation|@
+name|Override
+specifier|public
+name|Consumer
+argument_list|<
+name|HttpExchange
+argument_list|>
+name|createConsumer
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Not implemented.  You can only produce to a http endpoint."
+argument_list|)
+throw|;
+block|}
+block|}
 return|;
 block|}
 block|}

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.http
+DECL|package|org.apache.camel.component.jetty
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
+name|jetty
 package|;
 end_package
 
@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: 520220 $  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -292,7 +292,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"http://localhost:8080/test"
+literal|"jetty:http://localhost:8080/test"
 argument_list|)
 operator|.
 name|to
