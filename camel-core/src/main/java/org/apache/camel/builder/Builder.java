@@ -257,7 +257,7 @@ name|expression
 init|=
 name|ExpressionBuilder
 operator|.
-name|bodyExpression
+name|outBodyExpression
 argument_list|()
 decl_stmt|;
 return|return
@@ -308,7 +308,7 @@ name|E
 decl_stmt|,
 name|T
 decl|>
-name|bodyExpression
+name|outBodyExpression
 argument_list|(
 name|type
 argument_list|)
