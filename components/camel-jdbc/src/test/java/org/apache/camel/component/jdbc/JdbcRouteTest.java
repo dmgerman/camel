@@ -394,6 +394,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"out body could not be converted to an ArrayList - was: "
+operator|+
+name|out
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|,
+name|data
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
