@@ -294,7 +294,7 @@ name|convertedExchange
 argument_list|)
 expr_stmt|;
 return|return
-name|exchange
+name|convertedExchange
 return|;
 block|}
 comment|/**      * Sends an exchange to an endpoint using a supplied      *       * @{link Processor} to populate the exchange      *       * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
