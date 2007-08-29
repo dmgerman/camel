@@ -18,26 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -92,9 +72,43 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UnitOfWork
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|UuidGenerator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -168,6 +182,11 @@ name|DEFAULT_ID_GENERATOR
 operator|.
 name|generateId
 argument_list|()
+decl_stmt|;
+DECL|field|unitOfWork
+specifier|private
+name|UnitOfWork
+name|unitOfWork
 decl_stmt|;
 DECL|method|DefaultExchange (CamelContext context)
 specifier|public
@@ -320,7 +339,6 @@ name|copyFault
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*         setIn(safeCopy(exchange, exchange.getIn()));         setOut(safeCopy(exchange, exchange.getOut()));         setFault(safeCopy(exchange, exchange.getFault())); */
 name|setException
 argument_list|(
 name|exchange
@@ -328,6 +346,13 @@ operator|.
 name|getException
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|unitOfWork
+operator|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|safeCopy (Message message, Exchange exchange, Message that)
@@ -907,6 +932,16 @@ name|exchangeId
 operator|=
 name|id
 expr_stmt|;
+block|}
+DECL|method|getUnitOfWork ()
+specifier|public
+name|UnitOfWork
+name|getUnitOfWork
+parameter_list|()
+block|{
+return|return
+name|unitOfWork
+return|;
 block|}
 comment|/**      * Factory method used to lazily create the IN message      */
 DECL|method|createInMessage ()

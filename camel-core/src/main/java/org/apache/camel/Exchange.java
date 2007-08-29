@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UnitOfWork
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -178,6 +192,11 @@ parameter_list|(
 name|Exchange
 name|source
 parameter_list|)
+function_decl|;
+DECL|method|getUnitOfWork ()
+name|UnitOfWork
+name|getUnitOfWork
+parameter_list|()
 function_decl|;
 block|}
 end_interface
