@@ -166,6 +166,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
+import|;
+end_import
+
 begin_comment
 comment|/**  * A base class for JPA based BAM which can use any entity to store the process  * instance information which allows derived classes to specialise the process  * instance entity.  *  * @version $Revision: $  */
 end_comment
@@ -632,6 +644,67 @@ literal|0
 argument_list|)
 return|;
 block|}
+block|}
+block|}
+DECL|method|getKeyType ()
+specifier|protected
+name|Class
+name|getKeyType
+parameter_list|()
+block|{
+try|try
+block|{
+name|Method
+name|getter
+init|=
+name|IntrospectionSupport
+operator|.
+name|getPropertyGetter
+argument_list|(
+name|getEntityType
+argument_list|()
+argument_list|,
+name|getKeyPropertyName
+argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+name|getter
+operator|.
+name|getReturnType
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchMethodException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"no such getter for: "
+operator|+
+name|getKeyPropertyName
+argument_list|()
+operator|+
+literal|" on "
+operator|+
+name|getEntityType
+argument_list|()
+operator|+
+literal|". Reason: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
 block|}
 block|}
 comment|/**      * Sets the key property on the new entity      */

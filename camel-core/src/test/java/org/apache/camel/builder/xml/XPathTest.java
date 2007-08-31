@@ -204,6 +204,15 @@ argument_list|,
 literal|"cheese"
 argument_list|)
 expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"/foo/@id"
+argument_list|,
+literal|"<foo id='cheese'>hey</foo>"
+argument_list|,
+literal|"cheese"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testXPathPredicates ()
 specifier|public
@@ -264,6 +273,9 @@ name|xpath
 argument_list|(
 literal|"$name"
 argument_list|)
+operator|.
+name|stringResult
+argument_list|()
 operator|.
 name|variable
 argument_list|(
@@ -445,6 +457,9 @@ name|xpath
 argument_list|(
 name|xpath
 argument_list|)
+operator|.
+name|stringResult
+argument_list|()
 decl_stmt|;
 return|return
 name|assertExpression

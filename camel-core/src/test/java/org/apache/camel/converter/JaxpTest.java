@@ -223,7 +223,7 @@ name|text
 operator|.
 name|endsWith
 argument_list|(
-literal|"?><hello>world!</hello>"
+literal|"<hello>world!</hello>"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -247,7 +247,7 @@ name|Source
 operator|.
 name|class
 argument_list|,
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?><hello>world!</hello>"
+literal|"<hello>world!</hello>"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

@@ -310,7 +310,7 @@ parameter_list|,
 annotation|@
 name|XPath
 argument_list|(
-literal|"/soap:Envelope/soap:Body/foo"
+literal|"/soap:Envelope/soap:Body/foo/text()"
 argument_list|)
 name|String
 name|foo

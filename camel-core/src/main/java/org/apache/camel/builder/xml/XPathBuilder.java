@@ -343,7 +343,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an XPath expression builder  *   * @version $Revision: 531854 $  */
+comment|/**  * Creates an XPath expression builder which creates a nodeset result by default.  * If you want to evaluate a String expression then call {@link #stringResult()}  *  * @see XPathConstants#NODESET  *   * @version $Revision: 531854 $  */
 end_comment
 
 begin_class
@@ -387,10 +387,18 @@ name|Document
 operator|.
 name|class
 decl_stmt|;
+comment|// For some reason the default expression of "a/b" on a document such as
+comment|//<a><b>1</b><b>2</b></a>
+comment|// will evaluate as just "1" by default which is bizarre. So by default
+comment|// lets assume XPath expressions result in nodesets.
 DECL|field|resultType
 specifier|private
 name|QName
 name|resultType
+init|=
+name|XPathConstants
+operator|.
+name|NODESET
 decl_stmt|;
 DECL|field|objectModelUri
 specifier|private
@@ -907,6 +915,22 @@ block|{
 return|return
 name|resultType
 return|;
+block|}
+DECL|method|setResultType (QName resultType)
+specifier|public
+name|void
+name|setResultType
+parameter_list|(
+name|QName
+name|resultType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resultType
+operator|=
+name|resultType
+expr_stmt|;
 block|}
 DECL|method|getNamespaceContext ()
 specifier|public
