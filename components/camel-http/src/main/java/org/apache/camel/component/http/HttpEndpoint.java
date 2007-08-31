@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultPollingEndpoint
@@ -156,7 +168,10 @@ expr_stmt|;
 block|}
 DECL|method|createProducer ()
 specifier|public
-name|HttpProducer
+name|Producer
+argument_list|<
+name|HttpExchange
+argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws
