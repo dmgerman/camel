@@ -20,21 +20,27 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|net
+name|apache
 operator|.
-name|URI
+name|camel
+operator|.
+name|PollingConsumer
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|net
+name|apache
 operator|.
-name|URISyntaxException
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultPollingEndpoint
 import|;
 end_import
 
@@ -64,56 +70,26 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|net
 operator|.
-name|camel
-operator|.
-name|Consumer
+name|URI
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|net
 operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultEndpoint
+name|URISyntaxException
 import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://activemq.apache.org/camel/http.html">HTTP  * endpoint</a>  *   * @version $Revision$  */
+comment|/**  * Represents a<a href="http://activemq.apache.org/camel/http.html">HTTP  * endpoint</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -122,7 +98,7 @@ specifier|public
 class|class
 name|HttpEndpoint
 extends|extends
-name|DefaultEndpoint
+name|DefaultPollingEndpoint
 argument_list|<
 name|HttpExchange
 argument_list|>
@@ -180,10 +156,7 @@ expr_stmt|;
 block|}
 DECL|method|createProducer ()
 specifier|public
-name|Producer
-argument_list|<
-name|HttpExchange
-argument_list|>
+name|HttpProducer
 name|createProducer
 parameter_list|()
 throws|throws
@@ -197,27 +170,24 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|createConsumer (Processor processor)
+annotation|@
+name|Override
+DECL|method|createPollingConsumer ()
 specifier|public
-name|Consumer
+name|PollingConsumer
 argument_list|<
 name|HttpExchange
 argument_list|>
-name|createConsumer
-parameter_list|(
-name|Processor
-name|processor
-parameter_list|)
+name|createPollingConsumer
+parameter_list|()
 throws|throws
 name|Exception
 block|{
 return|return
 operator|new
-name|HttpConsumer
+name|HttpPollingConsumer
 argument_list|(
 name|this
-argument_list|,
-name|processor
 argument_list|)
 return|;
 block|}

@@ -175,32 +175,6 @@ argument_list|(
 name|uri
 argument_list|)
 argument_list|)
-block|{
-comment|// TODO: we should implement this using a polling http client.
-annotation|@
-name|Override
-specifier|public
-name|Consumer
-argument_list|<
-name|HttpExchange
-argument_list|>
-name|createConsumer
-parameter_list|(
-name|Processor
-name|processor
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-literal|"Not implemented.  You can only produce to a http endpoint."
-argument_list|)
-throw|;
-block|}
-block|}
 return|;
 block|}
 block|}
