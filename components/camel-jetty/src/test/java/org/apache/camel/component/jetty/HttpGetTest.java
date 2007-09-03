@@ -271,11 +271,22 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
+name|body
+operator|=
+name|body
+operator|.
+name|toLowerCase
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"body should contain: "
 operator|+
 name|expectedText
+operator|+
+literal|" but was: "
+operator|+
+name|body
 argument_list|,
 name|body
 operator|.
