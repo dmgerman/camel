@@ -659,6 +659,16 @@ name|type
 argument_list|)
 return|;
 block|}
+DECL|method|getPath ()
+specifier|public
+name|String
+name|getPath
+parameter_list|()
+block|{
+return|return
+name|path
+return|;
+block|}
 DECL|method|newInstance (Properties properties, String propertyPrefix)
 specifier|private
 name|Class
