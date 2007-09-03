@@ -220,6 +220,28 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Found component: "
+operator|+
+name|name
+operator|+
+literal|" in registry: "
+operator|+
+name|bean
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -321,6 +343,38 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Found component: "
+operator|+
+name|name
+operator|+
+literal|" via type: "
+operator|+
+name|type
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" via "
+operator|+
+name|COMPONENT_FACTORY
+operator|.
+name|getPath
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
