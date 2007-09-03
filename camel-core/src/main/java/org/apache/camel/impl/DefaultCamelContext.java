@@ -1979,6 +1979,15 @@ range|:
 name|list
 control|)
 block|{
+name|lifecycleStrategy
+operator|.
+name|beforeStartRouteType
+argument_list|(
+name|this
+argument_list|,
+name|route
+argument_list|)
+expr_stmt|;
 name|route
 operator|.
 name|addRoutes

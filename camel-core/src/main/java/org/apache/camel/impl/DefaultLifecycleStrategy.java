@@ -58,6 +58,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|RouteType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|LifecycleStrategy
@@ -142,6 +156,20 @@ argument_list|<
 name|Route
 argument_list|>
 name|routes
+parameter_list|)
+block|{
+comment|// do nothing
+block|}
+DECL|method|beforeStartRouteType (CamelContext context, RouteType routeType)
+specifier|public
+name|void
+name|beforeStartRouteType
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|RouteType
+name|routeType
 parameter_list|)
 block|{
 comment|// do nothing

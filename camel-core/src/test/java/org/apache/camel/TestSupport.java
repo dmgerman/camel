@@ -178,7 +178,15 @@ comment|// ---------------------------------------------------------------------
 comment|/**      * Returns a value builder for the given header      */
 DECL|method|header (String name)
 specifier|public
+parameter_list|<
+name|E
+extends|extends
+name|Exchange
+parameter_list|>
 name|ValueBuilder
+argument_list|<
+name|E
+argument_list|>
 name|header
 parameter_list|(
 name|String
