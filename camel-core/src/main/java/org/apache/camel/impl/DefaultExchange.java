@@ -200,10 +200,10 @@ specifier|private
 name|UnitOfWork
 name|unitOfWork
 decl_stmt|;
-DECL|field|exchangePattern
+DECL|field|pattern
 specifier|private
 name|ExchangePattern
-name|exchangePattern
+name|pattern
 decl_stmt|;
 DECL|method|DefaultExchange (CamelContext context)
 specifier|public
@@ -223,7 +223,7 @@ name|InOnly
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DefaultExchange (CamelContext context, ExchangePattern exchangePattern)
+DECL|method|DefaultExchange (CamelContext context, ExchangePattern pattern)
 specifier|public
 name|DefaultExchange
 parameter_list|(
@@ -231,7 +231,7 @@ name|CamelContext
 name|context
 parameter_list|,
 name|ExchangePattern
-name|exchangePattern
+name|pattern
 parameter_list|)
 block|{
 name|this
@@ -242,9 +242,9 @@ name|context
 expr_stmt|;
 name|this
 operator|.
-name|exchangePattern
+name|pattern
 operator|=
-name|exchangePattern
+name|pattern
 expr_stmt|;
 block|}
 annotation|@
@@ -398,11 +398,11 @@ operator|.
 name|getUnitOfWork
 argument_list|()
 expr_stmt|;
-name|exchangePattern
+name|pattern
 operator|=
 name|exchange
 operator|.
-name|getExchangePattern
+name|getPattern
 argument_list|()
 expr_stmt|;
 block|}
@@ -874,30 +874,30 @@ operator|=
 name|exception
 expr_stmt|;
 block|}
-DECL|method|getExchangePattern ()
+DECL|method|getPattern ()
 specifier|public
 name|ExchangePattern
-name|getExchangePattern
+name|getPattern
 parameter_list|()
 block|{
 return|return
-name|exchangePattern
+name|pattern
 return|;
 block|}
-DECL|method|setExchangePattern (ExchangePattern exchangePattern)
+DECL|method|setPattern (ExchangePattern pattern)
 specifier|public
 name|void
-name|setExchangePattern
+name|setPattern
 parameter_list|(
 name|ExchangePattern
-name|exchangePattern
+name|pattern
 parameter_list|)
 block|{
 name|this
 operator|.
-name|exchangePattern
+name|pattern
 operator|=
-name|exchangePattern
+name|pattern
 expr_stmt|;
 block|}
 DECL|method|throwException ()

@@ -49,9 +49,9 @@ interface|interface
 name|Exchange
 block|{
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
-DECL|method|getExchangePattern ()
+DECL|method|getPattern ()
 name|ExchangePattern
-name|getExchangePattern
+name|getPattern
 parameter_list|()
 function_decl|;
 comment|/**      * Returns a property associated with this exchange by name      *       * @param name the name of the property      * @return the value of the given header or null if there is no property for      *         the given name      */
