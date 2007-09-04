@@ -41,7 +41,7 @@ parameter_list|>
 extends|extends
 name|Service
 block|{
-comment|/**      * Sends the exchange to the default endpoint      *       * @param exchange the exchange to send      */
+comment|/**      * Sends the exchange to the default endpoint      *      * @param exchange the exchange to send      */
 DECL|method|send (E exchange)
 name|E
 name|send
@@ -50,7 +50,7 @@ name|E
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Sends an exchange to the default endpoint using a supplied      *       * @{link Processor} to populate the exchange      *       * @param processor the transformer used to populate the new exchange      */
+comment|/**      * Sends an exchange to the default endpoint using a supplied      *      * @param processor the transformer used to populate the new exchange      * @{link Processor} to populate the exchange      */
 DECL|method|send (Processor processor)
 name|E
 name|send
@@ -59,7 +59,7 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to the default endpoint and returns the result content      *       * @param body the body to send      * @return the returned message body      */
+comment|/**      * Sends the body to the default endpoint and returns the result content      *      * @param body the body to send      * @return the returned message body      */
 DECL|method|sendBody (Object body)
 name|Object
 name|sendBody
@@ -68,7 +68,7 @@ name|Object
 name|body
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to the default endpoint with a specified header and header      * value      *       * @param body the payload send      * @param header the header name      * @param headerValue the header value      * @return the result      */
+comment|/**      * Sends the body to the default endpoint with a specified header and header      * value      *      * @param body        the payload send      * @param header      the header name      * @param headerValue the header value      * @return the result      */
 DECL|method|sendBodyAndHeader (Object body, String header, Object headerValue)
 name|Object
 name|sendBodyAndHeader
@@ -83,7 +83,7 @@ name|Object
 name|headerValue
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to the default endpoint with the specified headers and      * header values      *       * @param body the payload send      * @return the result      */
+comment|/**      * Sends the body to the default endpoint with the specified headers and      * header values      *      * @param body the payload send      * @return the result      */
 DECL|method|sendBodyAndHeaders (Object body, Map<String, Object> headers)
 name|Object
 name|sendBodyAndHeaders
@@ -102,7 +102,7 @@ parameter_list|)
 function_decl|;
 comment|// Allow sending to arbitrary endpoints
 comment|// -----------------------------------------------------------------------
-comment|/**      * Sends the exchange to the given endpoint      *       * @param endpointUri the endpoint URI to send the exchange to      * @param exchange the exchange to send      */
+comment|/**      * Sends the exchange to the given endpoint      *      * @param endpointUri the endpoint URI to send the exchange to      * @param exchange    the exchange to send      */
 DECL|method|send (String endpointUri, E exchange)
 name|E
 name|send
@@ -114,7 +114,7 @@ name|E
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Sends an exchange to an endpoint using a supplied      *       * @{link Processor} to populate the exchange      *       * @param endpointUri the endpoint URI to send the exchange to      * @param processor the transformer used to populate the new exchange      */
+comment|/**      * Sends an exchange to an endpoint using a supplied      *      * @param endpointUri the endpoint URI to send the exchange to      * @param processor   the transformer used to populate the new exchange      * @{link Processor} to populate the exchange      */
 DECL|method|send (String endpointUri, Processor processor)
 name|E
 name|send
@@ -126,7 +126,22 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the exchange to the given endpoint      *       * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      */
+comment|/**      * Sends an exchange to an endpoint using a supplied      *      * @param endpointUri the endpoint URI to send the exchange to      * @param pattern     the message {@link ExchangePattern} such as      *                    {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor   the transformer used to populate the new exchange      * @{link Processor} to populate the exchange      */
+DECL|method|send (String endpointUri, ExchangePattern pattern, Processor processor)
+name|E
+name|send
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|ExchangePattern
+name|pattern
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the exchange to the given endpoint      *      * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      */
 DECL|method|send (Endpoint<E> endpoint, E exchange)
 name|E
 name|send
@@ -141,7 +156,7 @@ name|E
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Sends an exchange to an endpoint using a supplied      *       * @{link Processor} to populate the exchange      *       * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
+comment|/**      * Sends an exchange to an endpoint using a supplied      *      * @param endpoint  the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      * @{link Processor} to populate the exchange      */
 DECL|method|send (Endpoint<E> endpoint, Processor processor)
 name|E
 name|send
@@ -156,7 +171,25 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
-comment|/**      * Send the body to an endpoint      *       * @param endpoint      * @param body = the payload      * @return the result      */
+comment|/**      * Sends an exchange to an endpoint using a supplied      *      * @param endpoint  the endpoint to send the exchange to      * @param pattern   the message {@link ExchangePattern} such as      *                  {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor the transformer used to populate the new exchange      * @{link Processor} to populate the exchange      */
+DECL|method|send (Endpoint<E> endpoint, ExchangePattern pattern, Processor processor)
+name|E
+name|send
+parameter_list|(
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|endpoint
+parameter_list|,
+name|ExchangePattern
+name|pattern
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
+comment|/**      * Send the body to an endpoint      *      * @param endpoint      * @param body     = the payload      * @return the result      */
 DECL|method|sendBody (Endpoint<E> endpoint, Object body)
 name|Object
 name|sendBody
@@ -171,7 +204,7 @@ name|Object
 name|body
 parameter_list|)
 function_decl|;
-comment|/**      * Send the body to an endpoint      *       * @param endpointUri      * @param body = the payload      * @return the result      */
+comment|/**      * Send the body to an endpoint      *      * @param endpointUri      * @param body        = the payload      * @return the result      */
 DECL|method|sendBody (String endpointUri, Object body)
 name|Object
 name|sendBody

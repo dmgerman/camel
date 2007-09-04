@@ -695,8 +695,7 @@ argument_list|(
 name|getContext
 argument_list|()
 argument_list|,
-name|getDefaultPattern
-argument_list|()
+name|pattern
 argument_list|)
 return|;
 block|}

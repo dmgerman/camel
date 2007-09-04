@@ -52,6 +52,18 @@ name|Producer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExchangePattern
+import|;
+end_import
+
 begin_comment
 comment|/**  * A default implementation of @{link Producer} for implementation inheritence  *  * @version $Revision$  */
 end_comment
@@ -125,6 +137,24 @@ name|endpoint
 operator|.
 name|createExchange
 argument_list|()
+return|;
+block|}
+DECL|method|createExchange (ExchangePattern pattern)
+specifier|public
+name|E
+name|createExchange
+parameter_list|(
+name|ExchangePattern
+name|pattern
+parameter_list|)
+block|{
+return|return
+name|endpoint
+operator|.
+name|createExchange
+argument_list|(
+name|pattern
+argument_list|)
 return|;
 block|}
 DECL|method|createExchange (E exchange)

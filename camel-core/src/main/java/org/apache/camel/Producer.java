@@ -47,6 +47,15 @@ name|E
 name|createExchange
 parameter_list|()
 function_decl|;
+comment|/**      * Creates a new exchange of the given pattern to send to this endpoint      *      * @return a newly created exchange      */
+DECL|method|createExchange (ExchangePattern pattern)
+name|E
+name|createExchange
+parameter_list|(
+name|ExchangePattern
+name|pattern
+parameter_list|)
+function_decl|;
 comment|/**      * Creates a new exchange for communicating with this exchange using the      * given exchange to pre-populate the values of the headers and messages      */
 DECL|method|createExchange (E exchange)
 name|E
