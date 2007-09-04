@@ -96,7 +96,13 @@ name|resultEndpoint
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"123"
+operator|new
+name|MyBean
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"bar"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|template
@@ -105,7 +111,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|123
+literal|"foo:bar"
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
@@ -137,7 +143,7 @@ argument_list|)
 operator|.
 name|convertBodyTo
 argument_list|(
-name|String
+name|MyBean
 operator|.
 name|class
 argument_list|)
