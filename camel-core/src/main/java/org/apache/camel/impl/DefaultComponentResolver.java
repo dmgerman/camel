@@ -122,22 +122,8 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|beans
-operator|.
-name|factory
-operator|.
-name|NoSuchBeanDefinitionException
-import|;
-end_import
-
 begin_comment
-comment|/**  * The default implementation of {@link ComponentResolver} which tries to find  * components by using the URI scheme prefix and searching for a file of the URI  * scheme name in the<b>META-INF/services/org/apache/camel/component/</b>  * directory on the classpath.  *   * @version $Revision$  */
+comment|/**  * The default implementation of {@link ComponentResolver} which tries to find  * components by using the URI scheme prefix and searching for a file of the URI  * scheme name in the<b>META-INF/services/org/apache/camel/component/</b>  * directory on the classpath.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -222,6 +208,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|bean
+operator|!=
+literal|null
+operator|&&
 name|LOG
 operator|.
 name|isDebugEnabled
@@ -373,6 +363,8 @@ name|COMPONENT_FACTORY
 operator|.
 name|getPath
 argument_list|()
+operator|+
+name|name
 argument_list|)
 expr_stmt|;
 block|}
