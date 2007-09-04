@@ -78,6 +78,18 @@ name|Producer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExchangePattern
+import|;
+end_import
+
 begin_comment
 comment|/**  * An {@link java.lang.reflect.InvocationHandler} which invokes a  * message exchange on a camel {@link Endpoint}  *  * @version $Revision: $  */
 end_comment
@@ -167,6 +179,10 @@ name|endpoint
 operator|.
 name|getContext
 argument_list|()
+argument_list|,
+name|ExchangePattern
+operator|.
+name|InOut
 argument_list|)
 decl_stmt|;
 name|exchange

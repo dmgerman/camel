@@ -62,6 +62,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -413,11 +425,16 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|createExchange ()
+annotation|@
+name|Override
+DECL|method|createExchange (ExchangePattern pattern)
 specifier|public
 name|XmppExchange
 name|createExchange
-parameter_list|()
+parameter_list|(
+name|ExchangePattern
+name|pattern
+parameter_list|)
 block|{
 return|return
 operator|new
@@ -425,6 +442,8 @@ name|XmppExchange
 argument_list|(
 name|getContext
 argument_list|()
+argument_list|,
+name|pattern
 argument_list|,
 name|getBinding
 argument_list|()
@@ -445,6 +464,9 @@ operator|new
 name|XmppExchange
 argument_list|(
 name|getContext
+argument_list|()
+argument_list|,
+name|getDefaultPattern
 argument_list|()
 argument_list|,
 name|getBinding

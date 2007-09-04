@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -146,11 +158,14 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|createExchange ()
+DECL|method|createExchange (ExchangePattern pattern)
 specifier|public
 name|IrcExchange
 name|createExchange
-parameter_list|()
+parameter_list|(
+name|ExchangePattern
+name|pattern
+parameter_list|)
 block|{
 return|return
 operator|new
@@ -158,6 +173,8 @@ name|IrcExchange
 argument_list|(
 name|getContext
 argument_list|()
+argument_list|,
+name|pattern
 argument_list|,
 name|getBinding
 argument_list|()
@@ -184,6 +201,9 @@ operator|new
 name|IrcExchange
 argument_list|(
 name|getContext
+argument_list|()
+argument_list|,
+name|getDefaultPattern
 argument_list|()
 argument_list|,
 name|getBinding
@@ -222,6 +242,9 @@ argument_list|(
 name|getContext
 argument_list|()
 argument_list|,
+name|getDefaultPattern
+argument_list|()
+argument_list|,
 name|getBinding
 argument_list|()
 argument_list|,
@@ -256,6 +279,9 @@ argument_list|(
 name|getContext
 argument_list|()
 argument_list|,
+name|getDefaultPattern
+argument_list|()
+argument_list|,
 name|getBinding
 argument_list|()
 argument_list|,
@@ -288,6 +314,9 @@ operator|new
 name|IrcExchange
 argument_list|(
 name|getContext
+argument_list|()
+argument_list|,
+name|getDefaultPattern
 argument_list|()
 argument_list|,
 name|getBinding
@@ -330,6 +359,9 @@ argument_list|(
 name|getContext
 argument_list|()
 argument_list|,
+name|getDefaultPattern
+argument_list|()
+argument_list|,
 name|getBinding
 argument_list|()
 argument_list|,
@@ -369,6 +401,9 @@ operator|new
 name|IrcExchange
 argument_list|(
 name|getContext
+argument_list|()
+argument_list|,
+name|getDefaultPattern
 argument_list|()
 argument_list|,
 name|getBinding
@@ -413,6 +448,9 @@ argument_list|(
 name|getContext
 argument_list|()
 argument_list|,
+name|getDefaultPattern
+argument_list|()
+argument_list|,
 name|getBinding
 argument_list|()
 argument_list|,
@@ -450,6 +488,9 @@ operator|new
 name|IrcExchange
 argument_list|(
 name|getContext
+argument_list|()
+argument_list|,
+name|getDefaultPattern
 argument_list|()
 argument_list|,
 name|getBinding

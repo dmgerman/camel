@@ -150,10 +150,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
-name|Endpoint
-argument_list|<
-name|E
-argument_list|>
+name|JmsEndpoint
 name|endpoint
 decl_stmt|;
 DECL|field|processor
@@ -171,14 +168,11 @@ specifier|private
 name|boolean
 name|eagerLoadingOfProperties
 decl_stmt|;
-DECL|method|EndpointMessageListener (Endpoint<E> endpoint, Processor processor)
+DECL|method|EndpointMessageListener (JmsEndpoint endpoint, Processor processor)
 specifier|public
 name|EndpointMessageListener
 parameter_list|(
-name|Endpoint
-argument_list|<
-name|E
-argument_list|>
+name|JmsEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
@@ -290,6 +284,11 @@ argument_list|(
 name|endpoint
 operator|.
 name|getContext
+argument_list|()
+argument_list|,
+name|endpoint
+operator|.
+name|getDefaultPattern
 argument_list|()
 argument_list|,
 name|getBinding

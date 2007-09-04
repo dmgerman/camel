@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultExchange
@@ -66,12 +78,15 @@ name|QuartzExchange
 extends|extends
 name|DefaultExchange
 block|{
-DECL|method|QuartzExchange (CamelContext context, JobExecutionContext jobExecutionContext)
+DECL|method|QuartzExchange (CamelContext context, ExchangePattern pattern, JobExecutionContext jobExecutionContext)
 specifier|public
 name|QuartzExchange
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|,
 name|JobExecutionContext
 name|jobExecutionContext
@@ -80,6 +95,8 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|)
 expr_stmt|;
 name|setIn

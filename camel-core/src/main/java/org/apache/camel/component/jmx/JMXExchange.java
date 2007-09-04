@@ -20,11 +20,13 @@ end_package
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|management
+name|apache
 operator|.
-name|Notification
+name|camel
+operator|.
+name|CamelContext
 import|;
 end_import
 
@@ -36,7 +38,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExchangePattern
 import|;
 end_import
 
@@ -54,6 +68,16 @@ name|DefaultExchange
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|management
+operator|.
+name|Notification
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link Exchange} for a jmx notification  *   * @version $Revision: 520985 $  */
 end_comment
@@ -66,13 +90,16 @@ name|JMXExchange
 extends|extends
 name|DefaultExchange
 block|{
-comment|/**      * Constructor      *       * @param camelContext      * @param file      */
-DECL|method|JMXExchange (CamelContext camelContext, Notification notification)
+comment|/**      * Constructor      *       * @param camelContext      * @param pattern      */
+DECL|method|JMXExchange (CamelContext camelContext, ExchangePattern pattern, Notification notification)
 specifier|public
 name|JMXExchange
 parameter_list|(
 name|CamelContext
 name|camelContext
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|,
 name|Notification
 name|notification
@@ -81,6 +108,8 @@ block|{
 name|super
 argument_list|(
 name|camelContext
+argument_list|,
+name|pattern
 argument_list|)
 expr_stmt|;
 name|setIn

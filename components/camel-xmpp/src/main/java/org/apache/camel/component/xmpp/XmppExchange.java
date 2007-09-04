@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultExchange
@@ -87,12 +99,15 @@ specifier|private
 name|XmppBinding
 name|binding
 decl_stmt|;
-DECL|method|XmppExchange (CamelContext context, XmppBinding binding)
+DECL|method|XmppExchange (CamelContext context, ExchangePattern pattern, XmppBinding binding)
 specifier|public
 name|XmppExchange
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|,
 name|XmppBinding
 name|binding
@@ -101,6 +116,8 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|)
 expr_stmt|;
 name|this
@@ -110,12 +127,15 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|XmppExchange (CamelContext context, XmppBinding binding, Message message)
+DECL|method|XmppExchange (CamelContext context, ExchangePattern pattern, XmppBinding binding, Message message)
 specifier|public
 name|XmppExchange
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|,
 name|XmppBinding
 name|binding
@@ -127,6 +147,8 @@ block|{
 name|this
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|,
 name|binding
 argument_list|)
@@ -241,6 +263,9 @@ operator|new
 name|XmppExchange
 argument_list|(
 name|getContext
+argument_list|()
+argument_list|,
+name|getPattern
 argument_list|()
 argument_list|,
 name|binding

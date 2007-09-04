@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -675,11 +687,16 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|createExchange ()
+annotation|@
+name|Override
+DECL|method|createExchange (ExchangePattern pattern)
 specifier|public
 name|QuartzExchange
 name|createExchange
-parameter_list|()
+parameter_list|(
+name|ExchangePattern
+name|pattern
+parameter_list|)
 block|{
 return|return
 operator|new
@@ -687,6 +704,8 @@ name|QuartzExchange
 argument_list|(
 name|getContext
 argument_list|()
+argument_list|,
+name|pattern
 argument_list|,
 literal|null
 argument_list|)
@@ -706,6 +725,9 @@ operator|new
 name|QuartzExchange
 argument_list|(
 name|getContext
+argument_list|()
+argument_list|,
+name|getDefaultPattern
 argument_list|()
 argument_list|,
 name|jobExecutionContext

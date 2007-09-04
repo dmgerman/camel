@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultPollingEndpoint
@@ -206,17 +218,22 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|createExchange ()
+DECL|method|createExchange (ExchangePattern pattern)
 specifier|public
 name|HttpExchange
 name|createExchange
-parameter_list|()
+parameter_list|(
+name|ExchangePattern
+name|pattern
+parameter_list|)
 block|{
 return|return
 operator|new
 name|HttpExchange
 argument_list|(
 name|this
+argument_list|,
+name|pattern
 argument_list|)
 return|;
 block|}

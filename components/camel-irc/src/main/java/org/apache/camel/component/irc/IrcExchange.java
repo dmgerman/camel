@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultExchange
@@ -57,12 +69,15 @@ specifier|private
 name|IrcBinding
 name|binding
 decl_stmt|;
-DECL|method|IrcExchange (CamelContext context, IrcBinding binding)
+DECL|method|IrcExchange (CamelContext context, ExchangePattern pattern, IrcBinding binding)
 specifier|public
 name|IrcExchange
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|,
 name|IrcBinding
 name|binding
@@ -71,6 +86,8 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|)
 expr_stmt|;
 name|this
@@ -80,12 +97,15 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|IrcExchange (CamelContext context, IrcBinding binding, IrcMessage inMessage)
+DECL|method|IrcExchange (CamelContext context, ExchangePattern pattern, IrcBinding binding, IrcMessage inMessage)
 specifier|public
 name|IrcExchange
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|,
 name|IrcBinding
 name|binding
@@ -97,6 +117,8 @@ block|{
 name|this
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|,
 name|binding
 argument_list|)
@@ -223,6 +245,9 @@ operator|new
 name|IrcExchange
 argument_list|(
 name|getContext
+argument_list|()
+argument_list|,
+name|getPattern
 argument_list|()
 argument_list|,
 name|getBinding

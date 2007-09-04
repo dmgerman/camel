@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|bean
@@ -240,21 +252,6 @@ name|timerName
 operator|=
 name|timerName
 expr_stmt|;
-block|}
-DECL|method|createExchange ()
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultExchange
-argument_list|(
-name|getContext
-argument_list|()
-argument_list|)
-return|;
 block|}
 DECL|method|createProducer ()
 specifier|public

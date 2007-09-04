@@ -56,6 +56,18 @@ name|DefaultExchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExchangePattern
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a HTTP exchange which exposes the underlying HTTP abtractions via  * {@link #getRequest()} and {@link #getResponse()}   *  * @version $Revision$  */
 end_comment
@@ -84,12 +96,15 @@ specifier|private
 name|HttpServletResponse
 name|response
 decl_stmt|;
-DECL|method|HttpExchange (HttpEndpoint endpoint)
+DECL|method|HttpExchange (HttpEndpoint endpoint, ExchangePattern pattern)
 specifier|public
 name|HttpExchange
 parameter_list|(
 name|HttpEndpoint
 name|endpoint
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|)
 block|{
 name|super
@@ -98,6 +113,8 @@ name|endpoint
 operator|.
 name|getContext
 argument_list|()
+argument_list|,
+name|pattern
 argument_list|)
 expr_stmt|;
 name|this
@@ -124,6 +141,11 @@ block|{
 name|this
 argument_list|(
 name|endpoint
+argument_list|,
+name|getPatternFromRequest
+argument_list|(
+name|request
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -180,6 +202,23 @@ parameter_list|()
 block|{
 return|return
 name|endpoint
+return|;
+block|}
+DECL|method|getPatternFromRequest (HttpServletRequest request)
+specifier|protected
+specifier|static
+name|ExchangePattern
+name|getPatternFromRequest
+parameter_list|(
+name|HttpServletRequest
+name|request
+parameter_list|)
+block|{
+comment|// TODO for now just default to InOut?
+return|return
+name|ExchangePattern
+operator|.
+name|InOut
 return|;
 block|}
 block|}

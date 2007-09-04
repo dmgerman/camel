@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultConsumer
@@ -441,26 +453,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|;
-block|}
-DECL|method|createExchange ()
-specifier|public
-name|E
-name|createExchange
-parameter_list|()
-block|{
-comment|// How can we create a specific Exchange if we are generic??
-comment|// perhaps it would be better if we did not implement this.
-return|return
-operator|(
-name|E
-operator|)
-operator|new
-name|DefaultExchange
-argument_list|(
-name|getContext
-argument_list|()
-argument_list|)
 return|;
 block|}
 DECL|method|isAllowMultipleConsumers ()

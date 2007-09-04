@@ -62,6 +62,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|Pipeline
@@ -105,6 +117,15 @@ specifier|protected
 name|File
 name|file
 decl_stmt|;
+DECL|field|pattern
+specifier|protected
+name|ExchangePattern
+name|pattern
+init|=
+name|ExchangePattern
+operator|.
+name|InOnly
+decl_stmt|;
 DECL|method|testCopy ()
 specifier|public
 name|void
@@ -118,6 +139,8 @@ operator|new
 name|FileExchange
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|,
 name|file
 argument_list|)
@@ -188,6 +211,8 @@ operator|new
 name|FileExchange
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|,
 name|file
 argument_list|)
@@ -334,6 +359,8 @@ operator|new
 name|FileExchange
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|,
 name|file
 argument_list|)

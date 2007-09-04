@@ -148,6 +148,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|bean
@@ -249,11 +261,16 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|createExchange ()
+annotation|@
+name|Override
+DECL|method|createExchange (ExchangePattern pattern)
 specifier|public
 name|BeanExchange
 name|createExchange
-parameter_list|()
+parameter_list|(
+name|ExchangePattern
+name|pattern
+parameter_list|)
 block|{
 return|return
 operator|new
@@ -261,6 +278,8 @@ name|BeanExchange
 argument_list|(
 name|getContext
 argument_list|()
+argument_list|,
+name|pattern
 argument_list|)
 return|;
 block|}

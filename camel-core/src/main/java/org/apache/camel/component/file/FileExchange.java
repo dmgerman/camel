@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultExchange
@@ -83,12 +95,15 @@ specifier|private
 name|File
 name|file
 decl_stmt|;
-DECL|method|FileExchange (CamelContext camelContext, File file)
+DECL|method|FileExchange (CamelContext camelContext, ExchangePattern pattern, File file)
 specifier|public
 name|FileExchange
 parameter_list|(
 name|CamelContext
 name|camelContext
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|,
 name|File
 name|file
@@ -97,6 +112,8 @@ block|{
 name|super
 argument_list|(
 name|camelContext
+argument_list|,
+name|pattern
 argument_list|)
 expr_stmt|;
 name|setIn
@@ -156,6 +173,9 @@ operator|new
 name|FileExchange
 argument_list|(
 name|getContext
+argument_list|()
+argument_list|,
+name|getPattern
 argument_list|()
 argument_list|,
 name|getFile

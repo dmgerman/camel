@@ -94,6 +94,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -192,21 +204,6 @@ parameter_list|()
 block|{
 return|return
 literal|false
-return|;
-block|}
-DECL|method|createExchange ()
-specifier|public
-name|DefaultExchange
-name|createExchange
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultExchange
-argument_list|(
-name|getContext
-argument_list|()
-argument_list|)
 return|;
 block|}
 DECL|method|createConsumer (Processor processor)

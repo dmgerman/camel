@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -60,14 +50,36 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultExchange
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Message
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents an {@ilnk Exchange} for working with JMS messages while exposing the inbound and outbound JMS {@link Message}  * objects via {@link #getInMessage()} and {@link #getOutMessage()}   *  * @version $Revision:520964 $  */
+comment|/**  * Represents an {@ilnk Exchange} for working with JMS messages while exposing the inbound and outbound JMS {@link Message}  * objects via {@link #getInMessage()} and {@link #getOutMessage()}  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -83,12 +95,15 @@ specifier|private
 name|JmsBinding
 name|binding
 decl_stmt|;
-DECL|method|JmsExchange (CamelContext context, JmsBinding binding)
+DECL|method|JmsExchange (CamelContext context, ExchangePattern pattern, JmsBinding binding)
 specifier|public
 name|JmsExchange
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|,
 name|JmsBinding
 name|binding
@@ -97,6 +112,8 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|)
 expr_stmt|;
 name|this
@@ -106,12 +123,15 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|JmsExchange (CamelContext context, JmsBinding binding, Message message)
+DECL|method|JmsExchange (CamelContext context, ExchangePattern pattern, JmsBinding binding, Message message)
 specifier|public
 name|JmsExchange
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|,
 name|JmsBinding
 name|binding
@@ -123,6 +143,8 @@ block|{
 name|this
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|,
 name|binding
 argument_list|)
@@ -237,6 +259,9 @@ operator|new
 name|JmsExchange
 argument_list|(
 name|getContext
+argument_list|()
+argument_list|,
+name|getPattern
 argument_list|()
 argument_list|,
 name|binding

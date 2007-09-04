@@ -88,6 +88,18 @@ name|Producer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExchangePattern
+import|;
+end_import
+
 begin_comment
 comment|/**  * An endpoint which allows exchanges to be sent into it which just invokes a  * given {@link Processor}. This component does not support the use of  * consumers.  *   * @version $Revision: 1.1 $  */
 end_comment
@@ -164,21 +176,6 @@ name|processor
 operator|=
 name|processor
 expr_stmt|;
-block|}
-DECL|method|createExchange ()
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultExchange
-argument_list|(
-name|getContext
-argument_list|()
-argument_list|)
-return|;
 block|}
 DECL|method|createProducer ()
 specifier|public

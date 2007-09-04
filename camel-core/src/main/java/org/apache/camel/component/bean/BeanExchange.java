@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultExchange
@@ -68,17 +80,22 @@ name|BeanExchange
 extends|extends
 name|DefaultExchange
 block|{
-DECL|method|BeanExchange (CamelContext context)
+DECL|method|BeanExchange (CamelContext context, ExchangePattern pattern)
 specifier|public
 name|BeanExchange
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|)
 expr_stmt|;
 block|}
@@ -131,6 +148,9 @@ operator|new
 name|BeanExchange
 argument_list|(
 name|getContext
+argument_list|()
+argument_list|,
+name|getPattern
 argument_list|()
 argument_list|)
 return|;

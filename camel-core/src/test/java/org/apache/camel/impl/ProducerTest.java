@@ -110,6 +110,18 @@ name|TestSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExchangePattern
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -123,13 +135,22 @@ extends|extends
 name|TestSupport
 block|{
 DECL|field|context
-specifier|private
+specifier|protected
 name|CamelContext
 name|context
 init|=
 operator|new
 name|DefaultCamelContext
 argument_list|()
+decl_stmt|;
+DECL|field|pattern
+specifier|protected
+name|ExchangePattern
+name|pattern
+init|=
+name|ExchangePattern
+operator|.
+name|InOnly
 decl_stmt|;
 DECL|method|testUsingADerivedExchange ()
 specifier|public
@@ -202,7 +223,10 @@ block|}
 specifier|public
 name|MyExchange
 name|createExchange
-parameter_list|()
+parameter_list|(
+name|ExchangePattern
+name|pattern
+parameter_list|)
 block|{
 return|return
 operator|new
@@ -210,6 +234,8 @@ name|MyExchange
 argument_list|(
 name|getContext
 argument_list|()
+argument_list|,
+name|pattern
 argument_list|)
 return|;
 block|}
@@ -336,6 +362,8 @@ operator|new
 name|MyExchange
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|)
 decl_stmt|;
 name|actual

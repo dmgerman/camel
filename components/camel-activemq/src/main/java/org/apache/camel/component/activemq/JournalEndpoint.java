@@ -192,6 +192,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultConsumer
@@ -403,21 +415,6 @@ name|directory
 operator|=
 name|directory
 expr_stmt|;
-block|}
-DECL|method|createExchange ()
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultExchange
-argument_list|(
-name|getContext
-argument_list|()
-argument_list|)
-return|;
 block|}
 DECL|method|isSingleton ()
 specifier|public

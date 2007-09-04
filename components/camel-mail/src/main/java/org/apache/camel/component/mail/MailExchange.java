@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultExchange
@@ -83,12 +95,15 @@ specifier|private
 name|MailBinding
 name|binding
 decl_stmt|;
-DECL|method|MailExchange (CamelContext context, MailBinding binding)
+DECL|method|MailExchange (CamelContext context, ExchangePattern pattern, MailBinding binding)
 specifier|public
 name|MailExchange
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|,
 name|MailBinding
 name|binding
@@ -97,6 +112,8 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|)
 expr_stmt|;
 name|this
@@ -106,12 +123,15 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|MailExchange (CamelContext context, MailBinding binding, Message message)
+DECL|method|MailExchange (CamelContext context, ExchangePattern pattern, MailBinding binding, Message message)
 specifier|public
 name|MailExchange
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|,
 name|MailBinding
 name|binding
@@ -123,6 +143,8 @@ block|{
 name|this
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|,
 name|binding
 argument_list|)
@@ -237,6 +259,9 @@ operator|new
 name|MailExchange
 argument_list|(
 name|getContext
+argument_list|()
+argument_list|,
+name|getPattern
 argument_list|()
 argument_list|,
 name|binding

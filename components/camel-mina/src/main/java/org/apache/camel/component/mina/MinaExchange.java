@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultExchange
@@ -68,12 +80,15 @@ name|MinaExchange
 extends|extends
 name|DefaultExchange
 block|{
-DECL|method|MinaExchange (CamelContext camelContext)
+DECL|method|MinaExchange (CamelContext camelContext, ExchangePattern pattern)
 specifier|public
 name|MinaExchange
 parameter_list|(
 name|CamelContext
 name|camelContext
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|)
 block|{
 name|super

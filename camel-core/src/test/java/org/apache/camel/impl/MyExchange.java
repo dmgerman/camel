@@ -28,6 +28,18 @@ name|CamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExchangePattern
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -40,17 +52,22 @@ name|MyExchange
 extends|extends
 name|DefaultExchange
 block|{
-DECL|method|MyExchange (CamelContext context)
+DECL|method|MyExchange (CamelContext context, ExchangePattern pattern)
 specifier|public
 name|MyExchange
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|)
 expr_stmt|;
 block|}
