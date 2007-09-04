@@ -140,6 +140,15 @@ name|Message
 name|getFault
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the fault message; optionally lazily creating one if one has      * not been associated with this exchange      *      * @return the response      */
+DECL|method|getFault (boolean lazyCreate)
+name|Message
+name|getFault
+parameter_list|(
+name|boolean
+name|lazyCreate
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the exception associated with this exchange      *       * @return the exception (or null if no faults)      */
 DECL|method|getException ()
 name|Throwable

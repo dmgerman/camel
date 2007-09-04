@@ -728,6 +728,31 @@ return|;
 block|}
 comment|// Testing API
 comment|// -------------------------------------------------------------------------
+comment|/**      * Set the processor that will be invoked when the index      * message is received.      *      * @param index      * @param processor      */
+DECL|method|whenExchangeReceived (int index, Processor processor)
+specifier|public
+name|void
+name|whenExchangeReceived
+parameter_list|(
+name|int
+name|index
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|processors
+operator|.
+name|put
+argument_list|(
+name|index
+argument_list|,
+name|processor
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Validates that all the available expectations on this endpoint are      * satisfied; or throw an exception      */
 DECL|method|assertIsSatisfied ()
 specifier|public
