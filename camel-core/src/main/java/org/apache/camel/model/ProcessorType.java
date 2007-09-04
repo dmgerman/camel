@@ -2104,6 +2104,36 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Converts the FAULT message body to the specified type      */
+DECL|method|convertFaultBodyTo (Class type)
+specifier|public
+name|ProcessorType
+name|convertFaultBodyTo
+parameter_list|(
+name|Class
+name|type
+parameter_list|)
+block|{
+return|return
+name|process
+argument_list|(
+name|ProcessorBuilder
+operator|.
+name|setFaultBody
+argument_list|(
+name|Builder
+operator|.
+name|faultBody
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|type
+argument_list|)
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 annotation|@

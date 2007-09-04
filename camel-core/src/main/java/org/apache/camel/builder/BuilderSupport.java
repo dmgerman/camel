@@ -256,13 +256,13 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the inbound message body as a      * specific type      */
-DECL|method|bodyAs (Class<T> type)
+DECL|method|body (Class<T> type)
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
 name|ValueBuilder
-name|bodyAs
+name|body
 parameter_list|(
 name|Class
 argument_list|<
@@ -313,7 +313,46 @@ block|{
 return|return
 name|Builder
 operator|.
-name|outBody
+name|outBodyAs
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a predicate and value builder for the fault body on an      * exchange      */
+DECL|method|faultBody ()
+specifier|public
+name|ValueBuilder
+name|faultBody
+parameter_list|()
+block|{
+return|return
+name|Builder
+operator|.
+name|faultBody
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns a predicate and value builder for the fault message body as a      * specific type      */
+DECL|method|faultBodyAs (Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|ValueBuilder
+name|faultBodyAs
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|faultBodyAs
 argument_list|(
 name|type
 argument_list|)
