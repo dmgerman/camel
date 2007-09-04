@@ -493,12 +493,12 @@ end_expr_stmt
 
 begin_function
 unit|}      public
-DECL|method|process (Exchange exchange, AsyncCallback callback)
+DECL|method|process (Exchange original, AsyncCallback callback)
 name|boolean
 name|process
 parameter_list|(
 name|Exchange
-name|exchange
+name|original
 parameter_list|,
 name|AsyncCallback
 name|callback
@@ -519,7 +519,12 @@ decl_stmt|;
 name|Exchange
 name|nextExchange
 init|=
-name|exchange
+name|original
+decl_stmt|;
+name|boolean
+name|first
+init|=
+literal|true
 decl_stmt|;
 while|while
 condition|(
@@ -542,11 +547,79 @@ name|next
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|nextExchange
+operator|.
+name|isFailed
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Mesage exchange has failed so breaking out of pipeline: "
+operator|+
+name|nextExchange
+operator|+
+literal|" exception: "
+operator|+
+name|nextExchange
+operator|.
+name|getException
+argument_list|()
+operator|+
+literal|" fault: "
+operator|+
+name|nextExchange
+operator|.
+name|getFault
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+break|break;
+block|}
+if|if
+condition|(
+name|first
+condition|)
+block|{
+name|first
+operator|=
+literal|false
+expr_stmt|;
+block|}
+else|else
+block|{
+name|nextExchange
+operator|=
+name|createNextExchange
+argument_list|(
+name|processor
+argument_list|,
+name|original
+argument_list|)
+expr_stmt|;
+block|}
 name|boolean
 name|sync
 init|=
 name|process
 argument_list|(
+name|original
+argument_list|,
 name|nextExchange
 argument_list|,
 name|callback
@@ -559,29 +632,27 @@ decl_stmt|;
 comment|// Continue processing the pipeline synchronously ...
 if|if
 condition|(
+operator|!
 name|sync
 condition|)
 block|{
-name|nextExchange
-operator|=
-name|createNextExchange
-argument_list|(
-name|processor
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 comment|// The pipeline will be completed async...
 return|return
-literal|true
+literal|false
 return|;
 block|}
 block|}
 comment|// If we get here then the pipeline was processed entirely
 comment|// synchronously.
+name|ExchangeHelper
+operator|.
+name|copyResults
+argument_list|(
+name|original
+argument_list|,
+name|nextExchange
+argument_list|)
+expr_stmt|;
 name|callback
 operator|.
 name|done
@@ -596,11 +667,15 @@ block|}
 end_function
 
 begin_function
-DECL|method|process (final Exchange exchange, final AsyncCallback callback, final Iterator<Processor> processors, AsyncProcessor processor)
+DECL|method|process (final Exchange original, final Exchange exchange, final AsyncCallback callback, final Iterator<Processor> processors, AsyncProcessor processor)
 specifier|private
 name|boolean
 name|process
 parameter_list|(
+specifier|final
+name|Exchange
+name|original
+parameter_list|,
 specifier|final
 name|Exchange
 name|exchange
@@ -675,6 +750,50 @@ name|next
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|nextExchange
+operator|.
+name|isFailed
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Mesage exchange has failed so breaking out of pipeline: "
+operator|+
+name|nextExchange
+operator|+
+literal|" exception: "
+operator|+
+name|nextExchange
+operator|.
+name|getException
+argument_list|()
+operator|+
+literal|" fault: "
+operator|+
+name|nextExchange
+operator|.
+name|getFault
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+break|break;
+block|}
 name|nextExchange
 operator|=
 name|createNextExchange
@@ -688,6 +807,8 @@ name|sync
 operator|=
 name|process
 argument_list|(
+name|original
+argument_list|,
 name|nextExchange
 argument_list|,
 name|callback
@@ -706,6 +827,15 @@ block|{
 return|return;
 block|}
 block|}
+name|ExchangeHelper
+operator|.
+name|copyResults
+argument_list|(
+name|original
+argument_list|,
+name|nextExchange
+argument_list|)
+expr_stmt|;
 name|callback
 operator|.
 name|done
