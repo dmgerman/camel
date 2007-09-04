@@ -48,20 +48,11 @@ specifier|public
 interface|interface
 name|Exchange
 block|{
-comment|/**      * Returns the exchange id      *       * @return the unique id of the exchange      */
-DECL|method|getExchangeId ()
-name|String
-name|getExchangeId
+comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
+DECL|method|getExchangePattern ()
+name|ExchangePattern
+name|getExchangePattern
 parameter_list|()
-function_decl|;
-comment|/**      * Set the exchange id      *       * @param id      */
-DECL|method|setExchangeId (String id)
-name|void
-name|setExchangeId
-parameter_list|(
-name|String
-name|id
-parameter_list|)
 function_decl|;
 comment|/**      * Returns a property associated with this exchange by name      *       * @param name the name of the property      * @return the value of the given header or null if there is no property for      *         the given name      */
 DECL|method|getProperty (String name)
@@ -193,10 +184,26 @@ name|Exchange
 name|source
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the unit of work that this exchange belongs to; which may map to      * zero, one or more physical transactions      */
 DECL|method|getUnitOfWork ()
 name|UnitOfWork
 name|getUnitOfWork
 parameter_list|()
+function_decl|;
+comment|/**      * Returns the exchange id      *      * @return the unique id of the exchange      */
+DECL|method|getExchangeId ()
+name|String
+name|getExchangeId
+parameter_list|()
+function_decl|;
+comment|/**      * Set the exchange id      *      * @param id      */
+DECL|method|setExchangeId (String id)
+name|void
+name|setExchangeId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
 function_decl|;
 block|}
 end_interface

@@ -169,18 +169,10 @@ DECL|class|SedaConsumer
 specifier|public
 class|class
 name|SedaConsumer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|Consumer
-argument_list|<
-name|E
-argument_list|>
 implements|,
 name|Runnable
 block|{
@@ -203,9 +195,6 @@ decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|SedaEndpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 decl_stmt|;
 DECL|field|processor
@@ -218,14 +207,11 @@ specifier|private
 name|Thread
 name|thread
 decl_stmt|;
-DECL|method|SedaConsumer (SedaEndpoint<E> endpoint, Processor processor)
+DECL|method|SedaConsumer (SedaEndpoint endpoint, Processor processor)
 specifier|public
 name|SedaConsumer
 parameter_list|(
 name|SedaEndpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
@@ -259,7 +245,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"QueueConsumer: "
+literal|"SedaConsumer: "
 operator|+
 name|endpoint
 operator|.
@@ -284,9 +270,6 @@ specifier|final
 name|SedaEndpoint
 operator|.
 name|Entry
-argument_list|<
-name|E
-argument_list|>
 name|entry
 decl_stmt|;
 try|try

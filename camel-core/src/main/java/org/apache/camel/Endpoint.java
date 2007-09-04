@@ -56,15 +56,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Converts the given exchange to this endpoints required type      */
-DECL|method|toExchangeType (Exchange exchange)
-name|E
-name|toExchangeType
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-function_decl|;
 comment|/**      * Returns the context which created the endpoint      *       * @return the context which created the endpoint      */
 DECL|method|getContext ()
 name|CamelContext

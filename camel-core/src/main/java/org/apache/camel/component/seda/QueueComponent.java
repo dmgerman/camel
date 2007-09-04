@@ -79,16 +79,8 @@ DECL|class|QueueComponent
 specifier|public
 class|class
 name|QueueComponent
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|SedaComponent
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

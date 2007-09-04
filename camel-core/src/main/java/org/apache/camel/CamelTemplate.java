@@ -279,7 +279,7 @@ name|convertedExchange
 init|=
 name|endpoint
 operator|.
-name|toExchangeType
+name|createExchange
 argument_list|(
 name|exchange
 argument_list|)

@@ -177,15 +177,10 @@ DECL|class|SedaEndpoint
 specifier|public
 class|class
 name|SedaEndpoint
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|DefaultEndpoint
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 block|{
 DECL|class|Entry
@@ -193,25 +188,20 @@ specifier|static
 specifier|public
 class|class
 name|Entry
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 block|{
 DECL|field|exchange
-name|E
+name|Exchange
 name|exchange
 decl_stmt|;
 DECL|field|callback
 name|AsyncCallback
 name|callback
 decl_stmt|;
-DECL|method|Entry (E exchange, AsyncCallback callback)
+DECL|method|Entry (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|Entry
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|AsyncCallback
@@ -233,7 +223,7 @@ expr_stmt|;
 block|}
 DECL|method|getExchange ()
 specifier|public
-name|E
+name|Exchange
 name|getExchange
 parameter_list|()
 block|{
@@ -241,12 +231,12 @@ return|return
 name|exchange
 return|;
 block|}
-DECL|method|setExchange (E exchange)
+DECL|method|setExchange (Exchange exchange)
 specifier|public
 name|void
 name|setExchange
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -323,11 +313,8 @@ name|add
 argument_list|(
 operator|new
 name|Entry
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
-name|toExchangeType
+name|createExchange
 argument_list|(
 name|exchange
 argument_list|)
@@ -355,11 +342,8 @@ name|add
 argument_list|(
 operator|new
 name|Entry
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
-name|toExchangeType
+name|createExchange
 argument_list|(
 name|exchange
 argument_list|)
@@ -378,13 +362,10 @@ specifier|private
 name|BlockingQueue
 argument_list|<
 name|Entry
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|queue
 decl_stmt|;
-DECL|method|SedaEndpoint (String endpointUri, Component component, BlockingQueue<Entry<E>> queue)
+DECL|method|SedaEndpoint (String endpointUri, Component component, BlockingQueue<Entry> queue)
 specifier|public
 name|SedaEndpoint
 parameter_list|(
@@ -397,9 +378,6 @@ parameter_list|,
 name|BlockingQueue
 argument_list|<
 name|Entry
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|queue
 parameter_list|)
@@ -418,7 +396,7 @@ operator|=
 name|queue
 expr_stmt|;
 block|}
-DECL|method|SedaEndpoint (String uri, SedaComponent<E> component)
+DECL|method|SedaEndpoint (String uri, SedaComponent component)
 specifier|public
 name|SedaEndpoint
 parameter_list|(
@@ -426,9 +404,6 @@ name|String
 name|uri
 parameter_list|,
 name|SedaComponent
-argument_list|<
-name|E
-argument_list|>
 name|component
 parameter_list|)
 block|{
@@ -448,9 +423,6 @@ block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws
@@ -467,9 +439,6 @@ block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
-argument_list|<
-name|E
-argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
@@ -481,9 +450,6 @@ block|{
 return|return
 operator|new
 name|SedaConsumer
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -493,16 +459,11 @@ return|;
 block|}
 DECL|method|createExchange ()
 specifier|public
-name|E
+name|Exchange
 name|createExchange
 parameter_list|()
 block|{
-comment|// How can we create a specific Exchange if we are generic??
-comment|// perhaps it would be better if we did not implement this.
 return|return
-operator|(
-name|E
-operator|)
 operator|new
 name|DefaultExchange
 argument_list|(
@@ -516,9 +477,6 @@ specifier|public
 name|BlockingQueue
 argument_list|<
 name|Entry
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|getQueue
 parameter_list|()

@@ -310,7 +310,7 @@ name|actual
 init|=
 name|endpoint
 operator|.
-name|toExchangeType
+name|createExchange
 argument_list|(
 name|exchange
 argument_list|)
@@ -342,7 +342,7 @@ name|actual
 operator|=
 name|endpoint
 operator|.
-name|toExchangeType
+name|createExchange
 argument_list|(
 name|expected
 argument_list|)

@@ -99,16 +99,8 @@ DECL|class|SedaComponent
 specifier|public
 class|class
 name|SedaComponent
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|method|createQueue ()
 specifier|public
@@ -117,9 +109,6 @@ argument_list|<
 name|SedaEndpoint
 operator|.
 name|Entry
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|createQueue
 parameter_list|()
@@ -131,9 +120,6 @@ argument_list|<
 name|SedaEndpoint
 operator|.
 name|Entry
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|(
 literal|1000
@@ -145,9 +131,6 @@ name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|createEndpoint
 parameter_list|(
 name|String
@@ -165,9 +148,6 @@ block|{
 return|return
 operator|new
 name|SedaEndpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|uri
 argument_list|,
