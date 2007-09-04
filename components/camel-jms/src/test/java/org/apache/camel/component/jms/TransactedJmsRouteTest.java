@@ -358,6 +358,13 @@ specifier|private
 name|MockEndpoint
 name|mockEndpointD
 decl_stmt|;
+DECL|field|assertTimeoutSeconds
+specifier|protected
+name|int
+name|assertTimeoutSeconds
+init|=
+literal|10
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -1255,10 +1262,10 @@ name|mockEndpointA
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSenarioB ()
+DECL|method|TODO_testSenarioB ()
 specifier|public
 name|void
-name|testSenarioB
+name|TODO_testSenarioB
 parameter_list|()
 throws|throws
 name|Exception
@@ -1303,7 +1310,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsSatisfied
 argument_list|(
-literal|5
+name|assertTimeoutSeconds
 argument_list|,
 name|TimeUnit
 operator|.
@@ -1363,7 +1370,7 @@ expr_stmt|;
 comment|// Wait till the endpoints get their messages.
 name|assertWait
 argument_list|(
-literal|5
+name|assertTimeoutSeconds
 argument_list|,
 name|TimeUnit
 operator|.
@@ -1428,7 +1435,7 @@ expr_stmt|;
 comment|// Wait till the endpoints get their messages.
 name|assertWait
 argument_list|(
-literal|5
+name|assertTimeoutSeconds
 argument_list|,
 name|TimeUnit
 operator|.

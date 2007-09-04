@@ -345,6 +345,26 @@ name|JmsMessage
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|createFaultMessage ()
+specifier|protected
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+name|createFaultMessage
+parameter_list|()
+block|{
+return|return
+operator|new
+name|JmsMessage
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

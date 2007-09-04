@@ -18,68 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -160,6 +98,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -182,8 +134,70 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CountDownLatch
+import|;
+end_import
+
 begin_comment
-comment|/**  * Creates a Pipeline pattern where the output of the previous step is sent as  * input to the next step, reusing the same message exchanges  *   * @version $Revision$  */
+comment|/**  * Creates a Pipeline pattern where the output of the previous step is sent as  * input to the next step, reusing the same message exchanges  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -313,6 +327,51 @@ name|getProcessors
 argument_list|()
 control|)
 block|{
+comment|// lets break out of the pipeline if we have a failure
+if|if
+condition|(
+name|nextExchange
+operator|.
+name|isFailed
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Mesage exchange has failed so breaking out of pipeline: "
+operator|+
+name|nextExchange
+operator|+
+literal|" exception: "
+operator|+
+name|nextExchange
+operator|.
+name|getException
+argument_list|()
+operator|+
+literal|" fault: "
+operator|+
+name|nextExchange
+operator|.
+name|getFault
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+break|break;
+block|}
 if|if
 condition|(
 name|first
@@ -343,8 +402,17 @@ name|nextExchange
 argument_list|)
 expr_stmt|;
 block|}
+name|ExchangeHelper
+operator|.
+name|copyResults
+argument_list|(
+name|exchange
+argument_list|,
+name|nextExchange
+argument_list|)
+expr_stmt|;
 block|}
-comment|/**      * It would be nice if we could implement the sync process method as follows.. but we      * can't since the dead letter handler seem to like to handle the error but still       * set the Exchange.exception field.  When that happens this method throws that      * exception but it seem that folks don't expect to get that exception.      *       * @param exchange      * @throws Exception      */
+comment|/**      * It would be nice if we could implement the sync process method as follows.. but we      * can't since the dead letter handler seem to like to handle the error but still      * set the Exchange.exception field.  When that happens this method throws that      * exception but it seem that folks don't expect to get that exception.      *      * @param exchange      * @throws Exception      */
 DECL|method|xprocess (Exchange exchange)
 specifier|public
 name|void
@@ -424,7 +492,7 @@ expr_stmt|;
 end_expr_stmt
 
 begin_function
-unit|}          public
+unit|}      public
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 name|boolean
 name|process
@@ -653,7 +721,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Strategy method to create the next exchange from the      *       * @param producer the producer used to send to the endpoint      * @param previousExchange the previous exchange      * @return a new exchange      */
+comment|/**      * Strategy method to create the next exchange from the      *      * @param producer the producer used to send to the endpoint      * @param previousExchange the previous exchange      * @return a new exchange      */
 end_comment
 
 begin_function
@@ -829,7 +897,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Strategy method to copy the exchange before sending to another endpoint.      * Derived classes such as the {@link Pipeline} will not clone the exchange      *       * @param exchange      * @return the current exchange if no copying is required such as for a      *         pipeline otherwise a new copy of the exchange is returned.      */
+comment|/**      * Strategy method to copy the exchange before sending to another endpoint.      * Derived classes such as the {@link Pipeline} will not clone the exchange      *      * @param exchange      * @return the current exchange if no copying is required such as for a      *         pipeline otherwise a new copy of the exchange is returned.      */
 end_comment
 
 begin_function

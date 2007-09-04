@@ -126,6 +126,9 @@ argument_list|(
 literal|4
 argument_list|)
 expr_stmt|;
+name|Exchange
+name|results
+init|=
 name|template
 operator|.
 name|send
@@ -172,11 +175,26 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
 argument_list|()
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Result body"
+argument_list|,
+literal|4
+argument_list|,
+name|results
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

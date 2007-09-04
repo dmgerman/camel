@@ -172,6 +172,12 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Returns true if this exchange failed due to either an exception or fault      *      * @see Exchange#getException()      * @see Exchange#getFault()      * @return true if this exchange failed due to either an exception or fault      */
+DECL|method|isFailed ()
+name|boolean
+name|isFailed
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the container so that a processor can resolve endpoints from URIs      *       * @return the container which owns this exchange      */
 DECL|method|getContext ()
 name|CamelContext
