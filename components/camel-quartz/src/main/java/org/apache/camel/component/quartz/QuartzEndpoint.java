@@ -727,7 +727,7 @@ argument_list|(
 name|getContext
 argument_list|()
 argument_list|,
-name|getDefaultPattern
+name|getExchangePattern
 argument_list|()
 argument_list|,
 name|jobExecutionContext

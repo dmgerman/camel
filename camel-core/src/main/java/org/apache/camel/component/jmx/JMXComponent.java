@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|management
-operator|.
-name|MBeanServer
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -78,15 +58,21 @@ end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|management
 operator|.
-name|camel
+name|MBeanServer
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
 name|util
 operator|.
-name|IntrospectionSupport
+name|Map
 import|;
 end_import
 
@@ -160,8 +146,6 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-name|IntrospectionSupport
-operator|.
 name|setProperties
 argument_list|(
 name|result

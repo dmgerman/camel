@@ -191,10 +191,10 @@ specifier|private
 name|ScheduledExecutorService
 name|executorService
 decl_stmt|;
-DECL|field|defaultPattern
+DECL|field|exchangePattern
 specifier|private
 name|ExchangePattern
-name|defaultPattern
+name|exchangePattern
 init|=
 name|ExchangePattern
 operator|.
@@ -671,7 +671,7 @@ block|{
 return|return
 name|createExchange
 argument_list|(
-name|getDefaultPattern
+name|getExchangePattern
 argument_list|()
 argument_list|)
 return|;
@@ -699,30 +699,30 @@ name|pattern
 argument_list|)
 return|;
 block|}
-DECL|method|getDefaultPattern ()
+DECL|method|getExchangePattern ()
 specifier|public
 name|ExchangePattern
-name|getDefaultPattern
+name|getExchangePattern
 parameter_list|()
 block|{
 return|return
-name|defaultPattern
+name|exchangePattern
 return|;
 block|}
-DECL|method|setDefaultPattern (ExchangePattern defaultPattern)
+DECL|method|setExchangePattern (ExchangePattern exchangePattern)
 specifier|public
 name|void
-name|setDefaultPattern
+name|setExchangePattern
 parameter_list|(
 name|ExchangePattern
-name|defaultPattern
+name|exchangePattern
 parameter_list|)
 block|{
 name|this
 operator|.
-name|defaultPattern
+name|exchangePattern
 operator|=
-name|defaultPattern
+name|exchangePattern
 expr_stmt|;
 block|}
 DECL|method|createExecutorService ()

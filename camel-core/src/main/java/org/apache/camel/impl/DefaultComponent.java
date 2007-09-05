@@ -379,8 +379,6 @@ name|parameters
 argument_list|)
 expr_stmt|;
 block|}
-name|IntrospectionSupport
-operator|.
 name|setProperties
 argument_list|(
 name|endpoint
@@ -577,6 +575,37 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Sets the bean properties on the given bean      */
+DECL|method|setProperties (Object bean, Map parameters)
+specifier|protected
+name|void
+name|setProperties
+parameter_list|(
+name|Object
+name|bean
+parameter_list|,
+name|Map
+name|parameters
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+name|getCamelContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+argument_list|,
+name|bean
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

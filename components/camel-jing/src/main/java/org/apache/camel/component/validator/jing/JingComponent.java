@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -86,20 +76,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IntrospectionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|core
@@ -107,6 +83,16 @@ operator|.
 name|io
 operator|.
 name|Resource
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -227,8 +213,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|IntrospectionSupport
-operator|.
 name|setProperties
 argument_list|(
 name|validator

@@ -20,46 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|ConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|ExceptionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|Session
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -97,7 +57,7 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
@@ -106,7 +66,9 @@ name|camel
 operator|.
 name|util
 operator|.
-name|IntrospectionSupport
+name|ObjectHelper
+operator|.
+name|removeStartingCharacters
 import|;
 end_import
 
@@ -169,18 +131,42 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|javax
 operator|.
-name|apache
+name|jms
 operator|.
-name|camel
+name|ConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|ExceptionListener
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Session
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
 name|util
 operator|.
-name|ObjectHelper
-operator|.
-name|removeStartingCharacters
+name|Map
 import|;
 end_import
 
@@ -611,8 +597,6 @@ name|selector
 argument_list|)
 expr_stmt|;
 block|}
-name|IntrospectionSupport
-operator|.
 name|setProperties
 argument_list|(
 name|endpoint

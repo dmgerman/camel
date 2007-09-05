@@ -46,20 +46,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IntrospectionSupport
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -110,8 +96,6 @@ argument_list|,
 name|remaining
 argument_list|)
 decl_stmt|;
-name|IntrospectionSupport
-operator|.
 name|setProperties
 argument_list|(
 name|answer

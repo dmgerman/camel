@@ -745,6 +745,8 @@ parameter_list|,
 name|Object
 name|key
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 DECL|method|getKeyType ()
 specifier|protected

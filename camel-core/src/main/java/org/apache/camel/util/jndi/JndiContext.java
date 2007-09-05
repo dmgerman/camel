@@ -378,6 +378,8 @@ DECL|method|JndiContext ()
 specifier|public
 name|JndiContext
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|this
 argument_list|(
@@ -394,6 +396,8 @@ parameter_list|(
 name|Hashtable
 name|env
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|this
 argument_list|(
@@ -563,6 +567,8 @@ parameter_list|(
 name|Hashtable
 name|env
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Map
 name|answer
@@ -1064,11 +1070,28 @@ name|JndiContext
 name|newContext
 parameter_list|()
 block|{
+try|try
+block|{
 return|return
 operator|new
 name|JndiContext
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|addToEnvironment (String propName, Object propVal)
 specifier|public
@@ -2332,6 +2355,8 @@ parameter_list|,
 name|String
 name|prefix
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Object
 name|value

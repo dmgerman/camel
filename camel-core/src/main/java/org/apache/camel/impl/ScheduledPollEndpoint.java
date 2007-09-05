@@ -170,6 +170,8 @@ name|E
 argument_list|>
 name|consumer
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -178,10 +180,17 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// TODO pass in type converter
 name|IntrospectionSupport
 operator|.
 name|setProperties
 argument_list|(
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+argument_list|,
 name|consumer
 argument_list|,
 name|consumerProperties

@@ -46,18 +46,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -288,7 +276,7 @@ argument_list|()
 argument_list|,
 name|endpoint
 operator|.
-name|getDefaultPattern
+name|getExchangePattern
 argument_list|()
 argument_list|,
 name|getBinding

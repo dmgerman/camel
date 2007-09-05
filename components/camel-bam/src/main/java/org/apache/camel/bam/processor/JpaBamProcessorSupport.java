@@ -486,6 +486,8 @@ parameter_list|,
 name|Object
 name|key
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|T
 name|entity
@@ -719,6 +721,8 @@ parameter_list|,
 name|Object
 name|key
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|IntrospectionSupport
 operator|.
@@ -744,6 +748,8 @@ parameter_list|,
 name|ProcessDefinition
 name|processDefinition
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|IntrospectionSupport
 operator|.
