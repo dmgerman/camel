@@ -540,6 +540,30 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|contextClassLoaderOnStart
+specifier|private
+name|ClassLoader
+name|contextClassLoaderOnStart
+decl_stmt|;
+DECL|method|CamelContextFactoryBean ()
+specifier|public
+name|CamelContextFactoryBean
+parameter_list|()
+block|{
+comment|// Lets keep track of the class loader for when we actually do start things up
+name|contextClassLoaderOnStart
+operator|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getContextClassLoader
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|getObject ()
 specifier|public
 name|Object
@@ -1015,6 +1039,8 @@ name|getContext
 argument_list|()
 argument_list|,
 name|packages
+argument_list|,
+name|contextClassLoaderOnStart
 argument_list|)
 decl_stmt|;
 name|finder

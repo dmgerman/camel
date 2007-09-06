@@ -1544,6 +1544,15 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Adding routes from: "
+operator|+
+name|builder
+argument_list|)
+expr_stmt|;
 name|addRoutes
 argument_list|(
 name|builder

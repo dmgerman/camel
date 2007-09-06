@@ -90,6 +90,34 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -108,6 +136,23 @@ specifier|public
 class|class
 name|RouteBuilderFinder
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|RouteBuilderFinder
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|camelContext
 specifier|private
 specifier|final
@@ -135,7 +180,7 @@ operator|new
 name|ResolverUtil
 argument_list|()
 decl_stmt|;
-DECL|method|RouteBuilderFinder (SpringCamelContext camelContext, String[] packages)
+DECL|method|RouteBuilderFinder (SpringCamelContext camelContext, String[] packages, ClassLoader classLoader)
 specifier|public
 name|RouteBuilderFinder
 parameter_list|(
@@ -145,6 +190,9 @@ parameter_list|,
 name|String
 index|[]
 name|packages
+parameter_list|,
+name|ClassLoader
+name|classLoader
 parameter_list|)
 block|{
 name|this
@@ -168,6 +216,30 @@ name|packages
 operator|=
 name|packages
 expr_stmt|;
+comment|// lets add all the available class loaders just in case of wierdness
+comment|// we could make this more strict once we've worked out all the gremlins
+comment|// in servicemix-camel
+name|Set
+name|set
+init|=
+name|resolver
+operator|.
+name|getClassLoaders
+argument_list|()
+decl_stmt|;
+name|set
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|set
+operator|.
+name|add
+argument_list|(
+name|classLoader
+argument_list|)
+expr_stmt|;
+comment|/*         set.add(classLoader);         set.add(applicationContext.getClassLoader());         set.add(getClass().getClassLoader()); */
 block|}
 DECL|method|getPackages ()
 specifier|public
@@ -218,7 +290,6 @@ argument_list|,
 name|packages
 argument_list|)
 expr_stmt|;
-comment|//resolver.findAnnotated(Endpoint.class, packages);
 name|Set
 argument_list|<
 name|Class

@@ -18,6 +18,34 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -84,6 +112,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Enumeration
 import|;
 end_import
@@ -132,36 +170,8 @@ name|JarInputStream
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
-comment|/**  *<p>  * ResolverUtil is used to locate classes that are available in the/a class path  * and meet arbitrary conditions. The two most common conditions are that a  * class implements/extends another class, or that is it annotated with a  * specific annotation. However, through the use of the {@link Test} class it is  * possible to search using arbitrary conditions.  *</p>  *   *<p>  * A ClassLoader is used to locate all locations (directories and jar files) in  * the class path that contain classes within certain packages, and then to load  * those classes and check them. By default the ClassLoader returned by  * {@code Thread.currentThread().getContextClassLoader()} is used, but this can  * be overridden by calling {@link #setClassLoader(ClassLoader)} prior to  * invoking any of the {@code find()} methods.  *</p>  *   *<p>  * General searches are initiated by calling the  * {@link #find(ResolverUtil.Test, String)} ()} method and supplying a package  * name and a Test instance. This will cause the named package<b>and all  * sub-packages</b> to be scanned for classes that meet the test. There are  * also utility methods for the common use cases of scanning multiple packages  * for extensions of particular classes, or classes annotated with a specific  * annotation.  *</p>  *   *<p>  * The standard usage pattern for the ResolverUtil class is as follows:  *</p>  *   *<pre>  * esolverUtil&lt;ActionBean&gt; resolver = new ResolverUtil&lt;ActionBean&gt;();  * esolver.findImplementation(ActionBean.class, pkg1, pkg2);  * esolver.find(new CustomTest(), pkg1);  * esolver.find(new CustomTest(), pkg2);  * ollection&lt;ActionBean&gt; beans = resolver.getClasses();  *</pre>  *   * @author Tim Fennell  */
+comment|/**  *<p>  * ResolverUtil is used to locate classes that are available in the/a class path  * and meet arbitrary conditions. The two most common conditions are that a  * class implements/extends another class, or that is it annotated with a  * specific annotation. However, through the use of the {@link Test} class it is  * possible to search using arbitrary conditions.  *</p>  *   *<p>  * A ClassLoader is used to locate all locations (directories and jar files) in  * the class path that contain classes within certain packages, and then to load  * those classes and check them. By default the ClassLoader returned by  * {@code Thread.currentThread().getContextClassLoader()} is used, but this can  * be overridden by calling {@link #setClassLoaders(Set)} prior to  * invoking any of the {@code find()} methods.  *</p>  *   *<p>  * General searches are initiated by calling the  * {@link #find(ResolverUtil.Test, String)} ()} method and supplying a package  * name and a Test instance. This will cause the named package<b>and all  * sub-packages</b> to be scanned for classes that meet the test. There are  * also utility methods for the common use cases of scanning multiple packages  * for extensions of particular classes, or classes annotated with a specific  * annotation.  *</p>  *   *<p>  * The standard usage pattern for the ResolverUtil class is as follows:  *</p>  *   *<pre>  * esolverUtil&lt;ActionBean&gt; resolver = new ResolverUtil&lt;ActionBean&gt;();  * esolver.findImplementation(ActionBean.class, pkg1, pkg2);  * esolver.find(new CustomTest(), pkg1);  * esolver.find(new CustomTest(), pkg2);  * ollection&lt;ActionBean&gt; beans = resolver.getClasses();  *</pre>  *   * @author Tim Fennell  */
 end_comment
 
 begin_class
@@ -386,10 +396,13 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/**      * The ClassLoader to use when looking for classes. If null then the      * ClassLoader returned by Thread.currentThread().getContextClassLoader()      * will be used.      */
-DECL|field|classloader
+DECL|field|classLoaders
 specifier|private
+name|Set
+argument_list|<
 name|ClassLoader
-name|classloader
+argument_list|>
+name|classLoaders
 decl_stmt|;
 comment|/**      * Provides access to the classes discovered so far. If no calls have been      * made to any of the {@code find()} methods, this set will be empty.      *       * @return the set of classes that have been discovered.      */
 DECL|method|getClasses ()
@@ -410,18 +423,36 @@ return|return
 name|matches
 return|;
 block|}
-comment|/**      * Returns the classloader that will be used for scanning for classes. If no      * explicit ClassLoader has been set by the calling, the context class      * loader will be used.      *       * @return the ClassLoader that will be used to scan for classes      */
-DECL|method|getClassLoader ()
+comment|/**      * Returns the classloaders that will be used for scanning for classes. If no      * explicit ClassLoader has been set by the calling, the context class      * loader will be used.      *      * @return the ClassLoader instances that will be used to scan for classes      */
+DECL|method|getClassLoaders ()
 specifier|public
+name|Set
+argument_list|<
 name|ClassLoader
-name|getClassLoader
+argument_list|>
+name|getClassLoaders
 parameter_list|()
 block|{
-return|return
-name|classloader
+if|if
+condition|(
+name|classLoaders
 operator|==
 literal|null
-condition|?
+condition|)
+block|{
+name|classLoaders
+operator|=
+operator|new
+name|HashSet
+argument_list|<
+name|ClassLoader
+argument_list|>
+argument_list|()
+expr_stmt|;
+name|classLoaders
+operator|.
+name|add
+argument_list|(
 name|Thread
 operator|.
 name|currentThread
@@ -429,25 +460,31 @@ argument_list|()
 operator|.
 name|getContextClassLoader
 argument_list|()
-else|:
-name|classloader
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|classLoaders
 return|;
 block|}
-comment|/**      * Sets an explicit ClassLoader that should be used when scanning for      * classes. If none is set then the context classloader will be used.      *       * @param classloader a ClassLoader to use when scanning for classes      */
-DECL|method|setClassLoader (ClassLoader classloader)
+comment|/**      * Sets the ClassLoader instances that should be used when scanning for      * classes. If none is set then the context classloader will be used.      *      * @param classLoaders a ClassLoader to use when scanning for classes      */
+DECL|method|setClassLoaders (Set<ClassLoader> classLoaders)
 specifier|public
 name|void
-name|setClassLoader
+name|setClassLoaders
 parameter_list|(
+name|Set
+argument_list|<
 name|ClassLoader
-name|classloader
+argument_list|>
+name|classLoaders
 parameter_list|)
 block|{
 name|this
 operator|.
-name|classloader
+name|classLoaders
 operator|=
-name|classloader
+name|classLoaders
 expr_stmt|;
 block|}
 comment|/**      * Attempts to discover classes that are assignable to the type provided. In      * the case that an interface is provided this method will collect      * implementations. In the case of a non-interface class, subclasses will be      * collected. Accumulated classes can be accessed by calling      * {@link #getClasses()}.      *       * @param parent the class of interface to find subclasses or      *                implementations of      * @param packageNames one or more package names to scan (including      *                subpackages) for classes      */
@@ -473,6 +510,27 @@ condition|)
 block|{
 return|return;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Searching for implementations of "
+operator|+
+name|parent
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" in packages: "
+operator|+
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|packageNames
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|Test
 name|test
 init|=
@@ -498,6 +556,16 @@ name|pkg
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Found: "
+operator|+
+name|getClasses
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Attempts to discover classes that are annotated with to the annotation.      * Accumulated classes can be accessed by calling {@link #getClasses()}.      *       * @param annotation the annotation that should be present on matching      *                classes      * @param packageNames one or more package names to scan (including      *                subpackages) for classes      */
 DECL|method|findAnnotated (Class<? extends Annotation> annotation, String... packageNames)
@@ -577,12 +645,58 @@ argument_list|,
 literal|'/'
 argument_list|)
 expr_stmt|;
+name|Set
+argument_list|<
 name|ClassLoader
-name|loader
+argument_list|>
+name|set
 init|=
-name|getClassLoader
+name|getClassLoaders
 argument_list|()
 decl_stmt|;
+for|for
+control|(
+name|ClassLoader
+name|classLoader
+range|:
+name|set
+control|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Searching: "
+operator|+
+name|classLoader
+argument_list|)
+expr_stmt|;
+name|find
+argument_list|(
+name|test
+argument_list|,
+name|packageName
+argument_list|,
+name|classLoader
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|find (Test test, String packageName, ClassLoader loader)
+specifier|protected
+name|void
+name|find
+parameter_list|(
+name|Test
+name|test
+parameter_list|,
+name|String
+name|packageName
+parameter_list|,
+name|ClassLoader
+name|loader
+parameter_list|)
+block|{
 name|Enumeration
 argument_list|<
 name|URL
@@ -1089,12 +1203,28 @@ argument_list|,
 literal|'.'
 argument_list|)
 decl_stmt|;
+name|Set
+argument_list|<
 name|ClassLoader
-name|loader
+argument_list|>
+name|set
 init|=
-name|getClassLoader
+name|getClassLoaders
 argument_list|()
 decl_stmt|;
+name|boolean
+name|found
+init|=
+literal|false
+decl_stmt|;
+for|for
+control|(
+name|ClassLoader
+name|classLoader
+range|:
+name|set
+control|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -1110,10 +1240,12 @@ operator|+
 literal|"]"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|Class
 name|type
 init|=
-name|loader
+name|classLoader
 operator|.
 name|loadClass
 argument_list|(
@@ -1141,6 +1273,59 @@ name|T
 argument_list|>
 operator|)
 name|type
+argument_list|)
+expr_stmt|;
+block|}
+name|found
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+block|}
+catch|catch
+parameter_list|(
+name|ClassNotFoundException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Could not find class '"
+operator|+
+name|fqn
+operator|+
+literal|"' in class loader: "
+operator|+
+name|classLoader
+operator|+
+literal|". Reason: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+operator|!
+name|found
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Could not find class '"
+operator|+
+name|fqn
+operator|+
+literal|"' in any class loaders: "
+operator|+
+name|set
 argument_list|)
 expr_stmt|;
 block|}
