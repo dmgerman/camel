@@ -234,21 +234,6 @@ name|body
 argument_list|)
 expr_stmt|;
 comment|// now lets send a message
-name|CamelTemplate
-argument_list|<
-name|Exchange
-argument_list|>
-name|template
-init|=
-operator|new
-name|CamelTemplate
-argument_list|<
-name|Exchange
-argument_list|>
-argument_list|(
-name|camelContext
-argument_list|)
-decl_stmt|;
 name|template
 operator|.
 name|sendBody

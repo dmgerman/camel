@@ -191,7 +191,7 @@ decl_stmt|;
 name|Endpoint
 name|endpoint
 init|=
-name|camelContext
+name|context
 operator|.
 name|getEndpoint
 argument_list|(

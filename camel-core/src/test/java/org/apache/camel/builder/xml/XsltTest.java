@@ -111,10 +111,7 @@ block|{
 name|MockEndpoint
 name|resultEndpoint
 init|=
-operator|(
-name|MockEndpoint
-operator|)
-name|resolveMandatoryEndpoint
+name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)

@@ -75,7 +75,7 @@ block|{
 name|JournalEndpoint
 name|endpoint
 init|=
-name|resolveMandatoryEndpoint
+name|getJournalEndpoint
 argument_list|(
 literal|"activemq.journal:target/test"
 argument_list|)
@@ -134,7 +134,7 @@ block|{
 name|JournalEndpoint
 name|endpoint
 init|=
-name|resolveMandatoryEndpoint
+name|getJournalEndpoint
 argument_list|(
 literal|"activemq.journal:target/test?syncConsume=true&syncProduce=false"
 argument_list|)
@@ -182,35 +182,23 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|resolveMandatoryEndpoint (String uri)
+DECL|method|getJournalEndpoint (String uri)
 specifier|protected
 name|JournalEndpoint
-name|resolveMandatoryEndpoint
+name|getJournalEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|)
 block|{
-name|Endpoint
-name|endpoint
-init|=
-name|super
-operator|.
+return|return
 name|resolveMandatoryEndpoint
 argument_list|(
 name|uri
-argument_list|)
-decl_stmt|;
-return|return
-name|assertIsInstanceOf
-argument_list|(
+argument_list|,
 name|JournalEndpoint
 operator|.
 name|class
-argument_list|,
-name|endpoint
 argument_list|)
 return|;
 block|}

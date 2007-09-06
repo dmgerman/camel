@@ -16,6 +16,16 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|Context
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -25,6 +35,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
@@ -86,34 +112,8 @@ name|JndiTest
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|Context
-import|;
-end_import
-
 begin_comment
-comment|/**  * A useful base class which creates a {@link CamelContext} with some routes  * along with a {@link CamelTemplate} for use in the test case  *   * @version $Revision: 1.1 $  */
+comment|/**  * A useful base class which creates a {@link CamelContext} with some routes  * along with a {@link CamelTemplate} for use in the test case  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -218,6 +218,11 @@ operator|=
 name|createCamelContext
 argument_list|()
 expr_stmt|;
+name|assertValidContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 name|template
 operator|=
 operator|new
@@ -269,27 +274,9 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|camelContextService
-operator|!=
-literal|null
-condition|)
-block|{
-name|camelContextService
-operator|.
-name|start
+name|startCamelContext
 argument_list|()
 expr_stmt|;
-block|}
-else|else
-block|{
-name|context
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
 name|log
 operator|.
 name|debug
@@ -328,6 +315,18 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+name|stopCamelContext
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|stopCamelContext ()
+specifier|protected
+name|void
+name|stopCamelContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 if|if
 condition|(
 name|camelContextService
@@ -348,6 +347,70 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
+block|}
+DECL|method|startCamelContext ()
+specifier|protected
+name|void
+name|startCamelContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|camelContextService
+operator|!=
+literal|null
+condition|)
+block|{
+name|camelContextService
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|context
+operator|instanceof
+name|DefaultCamelContext
+condition|)
+block|{
+name|DefaultCamelContext
+name|defaultCamelContext
+init|=
+operator|(
+name|DefaultCamelContext
+operator|)
+name|context
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|defaultCamelContext
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+name|defaultCamelContext
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|createCamelContext ()
@@ -495,7 +558,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends a message to the given endpoint URI with the body value      *       * @param endpointUri the URI of the endpoint to send to      * @param body the body for the message      */
+comment|/**      * Sends a message to the given endpoint URI with the body value      *      * @param endpointUri the URI of the endpoint to send to      * @param body        the body for the message      */
 DECL|method|sendBody (String endpointUri, final Object body)
 specifier|protected
 name|void
@@ -557,7 +620,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends messages to the given endpoint for each of the specified bodies      *       * @param endpointUri the endpoint URI to send to      * @param bodies the bodies to send, one per message      */
+comment|/**      * Sends messages to the given endpoint for each of the specified bodies      *      * @param endpointUri the endpoint URI to send to      * @param bodies      the bodies to send, one per message      */
 DECL|method|sendBodies (String endpointUri, Object... bodies)
 specifier|protected
 name|void
@@ -779,6 +842,23 @@ name|MockEndpoint
 operator|.
 name|assertIsSatisfied
 argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|assertValidContext (CamelContext context)
+specifier|protected
+name|void
+name|assertValidContext
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|assertNotNull
+argument_list|(
+literal|"No context found!"
+argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
