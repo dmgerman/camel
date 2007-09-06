@@ -463,7 +463,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Runs a CamelContext using any Spring XML configuration files found in  *<code>META-INF/spring/*.xml</code> and starting up the context.  *   * @goal run  * @requiresDependencyResolution runtime  * @execute phase="test-compile"  */
+comment|/**  * Runs a CamelContext using any Spring XML configuration files found in  *<code>META-INF/spring/*.xml</code> and<code>camel-*.xml</code> and starting up the context.  *   * @goal run  * @requiresDependencyResolution runtime  * @execute phase="test-compile"  */
 end_comment
 
 begin_class

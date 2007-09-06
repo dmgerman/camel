@@ -307,13 +307,9 @@ block|{
 name|MockEndpoint
 name|resultEndpoint
 init|=
-name|resolveMandatoryEndpoint
+name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
-argument_list|,
-name|MockEndpoint
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
 name|resultEndpoint

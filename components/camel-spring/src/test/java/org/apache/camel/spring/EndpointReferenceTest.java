@@ -221,13 +221,8 @@ expr_stmt|;
 name|MockEndpoint
 name|resultEndpoint
 init|=
-operator|(
-name|MockEndpoint
-operator|)
-name|resolveMandatoryEndpoint
+name|getMockEndpoint
 argument_list|(
-name|camelContext
-argument_list|,
 literal|"mock:end"
 argument_list|)
 decl_stmt|;

@@ -202,10 +202,7 @@ name|Exception
 block|{
 name|resultEndpoint
 operator|=
-operator|(
-name|MockEndpoint
-operator|)
-name|resolveMandatoryEndpoint
+name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)

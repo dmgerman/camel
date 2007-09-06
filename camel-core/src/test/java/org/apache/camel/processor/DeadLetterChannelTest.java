@@ -224,12 +224,8 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-name|assertIsSatisfied
-argument_list|(
-name|deadEndpoint
-argument_list|,
-name|successEndpoint
-argument_list|)
+name|assertMockEndpointsSatisifed
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testLotsOfAttemptsFail ()
@@ -304,12 +300,8 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-name|assertIsSatisfied
-argument_list|(
-name|deadEndpoint
-argument_list|,
-name|successEndpoint
-argument_list|)
+name|assertMockEndpointsSatisifed
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

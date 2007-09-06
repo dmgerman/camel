@@ -88,6 +88,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -383,6 +399,7 @@ name|createInitialContext
 argument_list|()
 return|;
 block|}
+comment|/**      * Factory method which derived classes can use to create a {@link RouteBuilder}      * to define the routes for testing      */
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -406,6 +423,7 @@ block|}
 block|}
 return|;
 block|}
+comment|/**      * Resolves a mandatory endpoint for the given URI or an exception is thrown      *      * @param uri the Camel<a href="">URI</a> to use to create or resolve an endpoint      * @return the endpoint      */
 DECL|method|resolveMandatoryEndpoint (String uri)
 specifier|protected
 name|Endpoint
@@ -424,6 +442,7 @@ name|uri
 argument_list|)
 return|;
 block|}
+comment|/**      * Resolves a mandatory endpoint for the given URI and expected type or an exception is thrown      *      * @param uri the Camel<a href="">URI</a> to use to create or resolve an endpoint      * @return the endpoint      */
 DECL|method|resolveMandatoryEndpoint (String uri, Class<T> endpointType)
 specifier|protected
 parameter_list|<
@@ -452,6 +471,27 @@ argument_list|,
 name|uri
 argument_list|,
 name|endpointType
+argument_list|)
+return|;
+block|}
+comment|/**      * Resolves the mandatory Mock endpoint using a URI of the form<code>mock:someName</code>      *      * @param uri the URI which typically starts with "mock:" and has some name      * @return the mandatory mock endpoint or an exception is thrown if it could not be resolved      */
+DECL|method|getMockEndpoint (String uri)
+specifier|protected
+name|MockEndpoint
+name|getMockEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+name|resolveMandatoryEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|MockEndpoint
+operator|.
+name|class
 argument_list|)
 return|;
 block|}
@@ -725,6 +765,23 @@ expr_stmt|;
 return|return
 name|language
 return|;
+block|}
+comment|/**      * Asserts that all the expectations of the Mock endpoints are valid      */
+DECL|method|assertMockEndpointsSatisifed ()
+specifier|protected
+name|void
+name|assertMockEndpointsSatisifed
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+name|MockEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

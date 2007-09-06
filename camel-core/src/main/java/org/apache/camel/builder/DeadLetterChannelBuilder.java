@@ -179,7 +179,7 @@ specifier|private
 name|String
 name|defaultDeadLetterEndpointUri
 init|=
-literal|"log:org.apache.camel.DeadLetterChannel:error"
+literal|"log:org.apache.camel.DeadLetterChannel?level=error"
 decl_stmt|;
 DECL|field|logger
 specifier|private
