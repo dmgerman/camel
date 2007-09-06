@@ -240,6 +240,46 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isWrapperFor (Class<?> iface)
+specifier|public
+name|boolean
+name|isWrapperFor
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|iface
+parameter_list|)
+throws|throws
+name|SQLException
+block|{
+comment|// TODO Auto-generated method stub
+return|return
+literal|false
+return|;
+block|}
+DECL|method|unwrap (Class<T> iface)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|unwrap
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|iface
+parameter_list|)
+throws|throws
+name|SQLException
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 
