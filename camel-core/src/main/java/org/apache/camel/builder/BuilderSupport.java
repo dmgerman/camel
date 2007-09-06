@@ -401,6 +401,25 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a constant expression value builder      */
+DECL|method|constant (Object value)
+specifier|public
+name|ValueBuilder
+name|constant
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|constant
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
 comment|/**      * Resolves the given URI to an endpoint      *       * @throws NoSuchEndpointException if the endpoint URI could not be resolved      */
 DECL|method|endpoint (String uri)
 specifier|public
