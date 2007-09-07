@@ -313,6 +313,53 @@ name|answer
 return|;
 block|}
 comment|/**      * Returns the mandatory inbound message body of the correct type or throws      * an exception if it is not present      */
+DECL|method|getMandatoryInBody (Exchange exchange)
+specifier|public
+specifier|static
+name|Object
+name|getMandatoryInBody
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|InvalidPayloadException
+block|{
+name|Object
+name|answer
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|InvalidPayloadException
+argument_list|(
+name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
+throw|;
+block|}
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * Returns the mandatory inbound message body of the correct type or throws      * an exception if it is not present      */
 DECL|method|getMandatoryInBody (Exchange exchange, Class<T> type)
 specifier|public
 specifier|static
