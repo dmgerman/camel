@@ -84,7 +84,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElement
+name|XmlAttribute
 import|;
 end_import
 
@@ -368,6 +368,13 @@ argument_list|<
 name|ProcessorType
 argument_list|>
 argument_list|()
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|group
+specifier|private
+name|String
+name|group
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -737,6 +744,33 @@ operator|.
 name|camelContext
 operator|=
 name|camelContext
+expr_stmt|;
+block|}
+comment|/**      * The group that this route belongs to; could be the name of the RouteBuilder class      * or be explicitly configured in the XML.      *      * May be null.      */
+DECL|method|getGroup ()
+specifier|public
+name|String
+name|getGroup
+parameter_list|()
+block|{
+return|return
+name|group
+return|;
+block|}
+DECL|method|setGroup (String group)
+specifier|public
+name|void
+name|setGroup
+parameter_list|(
+name|String
+name|group
+parameter_list|)
+block|{
+name|this
+operator|.
+name|group
+operator|=
+name|group
 expr_stmt|;
 block|}
 comment|// Implementation methods

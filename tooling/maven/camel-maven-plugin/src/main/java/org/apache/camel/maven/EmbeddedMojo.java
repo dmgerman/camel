@@ -159,10 +159,10 @@ name|String
 name|duration
 decl_stmt|;
 comment|/**      * The DOT File name used to generate the DOT diagram of the route definitions      *      * @parameter expression="${project.build.directory}/site/cameldoc/routes.dot"      * @readonly      */
-DECL|field|dotFile
+DECL|field|dotOutputDir
 specifier|protected
 name|String
-name|dotFile
+name|dotOutputDir
 decl_stmt|;
 comment|/**      * Allows the DOT file generation to be disabled      *      * @parameter expression="true"      * @readonly      */
 DECL|field|dotEnabled
@@ -354,30 +354,30 @@ operator|=
 name|dotEnabled
 expr_stmt|;
 block|}
-DECL|method|getDotFile ()
+DECL|method|getDotOutputDir ()
 specifier|public
 name|String
-name|getDotFile
+name|getDotOutputDir
 parameter_list|()
 block|{
 return|return
-name|dotFile
+name|dotOutputDir
 return|;
 block|}
-DECL|method|setDotFile (String dotFile)
+DECL|method|setDotOutputDir (String dotOutputDir)
 specifier|public
 name|void
-name|setDotFile
+name|setDotOutputDir
 parameter_list|(
 name|String
-name|dotFile
+name|dotOutputDir
 parameter_list|)
 block|{
 name|this
 operator|.
-name|dotFile
+name|dotOutputDir
 operator|=
-name|dotFile
+name|dotOutputDir
 expr_stmt|;
 block|}
 DECL|method|getDuration ()
@@ -540,9 +540,9 @@ literal|"-duration"
 block|,
 name|duration
 block|,
-literal|"-file"
+literal|"-outdir"
 block|,
-name|dotFile
+name|dotOutputDir
 block|}
 return|;
 block|}

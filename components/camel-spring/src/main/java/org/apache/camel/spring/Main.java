@@ -298,10 +298,10 @@ name|TimeUnit
 operator|.
 name|MILLISECONDS
 decl_stmt|;
-DECL|field|dotFileName
+DECL|field|dotOutputDir
 specifier|private
 name|String
-name|dotFileName
+name|dotOutputDir
 decl_stmt|;
 DECL|method|Main ()
 specifier|public
@@ -389,11 +389,11 @@ argument_list|(
 operator|new
 name|ParameterOption
 argument_list|(
-literal|"f"
+literal|"o"
 argument_list|,
-literal|"file"
+literal|"outdir"
 argument_list|,
-literal|"Sets the DOT file name which is generated to show a visual representation of the routes"
+literal|"Sets the DOT output directory where the visual representations of the routes are generated"
 argument_list|,
 literal|"dot"
 argument_list|)
@@ -415,7 +415,7 @@ argument_list|>
 name|remainingArgs
 parameter_list|)
 block|{
-name|setDotFileName
+name|setDotOutputDir
 argument_list|(
 name|parameter
 argument_list|)
@@ -1218,31 +1218,31 @@ operator|=
 name|timeUnit
 expr_stmt|;
 block|}
-DECL|method|getDotFileName ()
+DECL|method|getDotOutputDir ()
 specifier|public
 name|String
-name|getDotFileName
+name|getDotOutputDir
 parameter_list|()
 block|{
 return|return
-name|dotFileName
+name|dotOutputDir
 return|;
 block|}
-comment|/**      * Sets the file name of the DOT file generated to show the visual representation of the routes.      * A null value disables the dot file generation      */
-DECL|method|setDotFileName (String dotFileName)
+comment|/**      * Sets the output directory of the generated DOT Files      * to show the visual representation of the routes.      * A null value disables the dot file generation      */
+DECL|method|setDotOutputDir (String dotOutputDir)
 specifier|public
 name|void
-name|setDotFileName
+name|setDotOutputDir
 parameter_list|(
 name|String
-name|dotFileName
+name|dotOutputDir
 parameter_list|)
 block|{
 name|this
 operator|.
-name|dotFileName
+name|dotOutputDir
 operator|=
-name|dotFileName
+name|dotOutputDir
 expr_stmt|;
 block|}
 comment|// Implementation methods
@@ -1442,7 +1442,7 @@ name|ObjectHelper
 operator|.
 name|isNotNullAndNonEmpty
 argument_list|(
-name|dotFileName
+name|dotOutputDir
 argument_list|)
 condition|)
 block|{
@@ -1452,7 +1452,7 @@ init|=
 operator|new
 name|RouteDotGenerator
 argument_list|(
-name|dotFileName
+name|dotOutputDir
 argument_list|)
 decl_stmt|;
 name|CamelContext
@@ -1471,7 +1471,7 @@ name|info
 argument_list|(
 literal|"Generating DOT file for routes: "
 operator|+
-name|dotFileName
+name|dotOutputDir
 operator|+
 literal|" for: "
 operator|+
