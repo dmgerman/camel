@@ -135,7 +135,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"activemq:test.MyQueue"
+literal|"jms:test.MyQueue"
 argument_list|)
 operator|.
 name|to
