@@ -132,7 +132,7 @@ argument_list|)
 decl_stmt|;
 name|endpoint
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)
