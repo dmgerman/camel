@@ -40,10 +40,10 @@ name|SimpleTest
 extends|extends
 name|LanguageTestSupport
 block|{
-DECL|method|testExpressions ()
+DECL|method|testSimpleExpressions ()
 specifier|public
 name|void
-name|testExpressions
+name|testSimpleExpressions
 parameter_list|()
 throws|throws
 name|Exception
@@ -76,6 +76,106 @@ argument_list|,
 literal|"abc"
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testComplexExpressions ()
+specifier|public
+name|void
+name|testComplexExpressions
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"hey ${in.header.foo}"
+argument_list|,
+literal|"hey abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"hey ${in.header.foo}!"
+argument_list|,
+literal|"hey abc!"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"hey ${in.header.foo}-${in.header.foo}!"
+argument_list|,
+literal|"hey abc-abc!"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"hey ${in.header.foo}${in.header.foo}"
+argument_list|,
+literal|"hey abcabc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo}${in.header.foo}"
+argument_list|,
+literal|"abcabc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo}!"
+argument_list|,
+literal|"abc!"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testInvalidComplexExpression ()
+specifier|public
+name|void
+name|testInvalidComplexExpression
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"hey ${foo"
+argument_list|,
+literal|"bad expression!"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception!"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Caught expected exception: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testPredicates ()
 specifier|public

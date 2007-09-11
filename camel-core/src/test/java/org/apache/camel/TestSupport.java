@@ -1102,6 +1102,45 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Asserts that the text contains the given string      *      * @param text the text to compare      * @param containedText the text which must be contained inside the other text parameter      */
+DECL|method|assertStringContains (String text, String containedText)
+specifier|protected
+name|void
+name|assertStringContains
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|String
+name|containedText
+parameter_list|)
+block|{
+name|assertNotNull
+argument_list|(
+literal|"Text should not be null!"
+argument_list|,
+name|text
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Text: "
+operator|+
+name|text
+operator|+
+literal|" does not contain: "
+operator|+
+name|containedText
+argument_list|,
+name|text
+operator|.
+name|contains
+argument_list|(
+name|containedText
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

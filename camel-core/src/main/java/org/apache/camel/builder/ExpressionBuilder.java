@@ -98,6 +98,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|regex
 operator|.
 name|Pattern
@@ -119,8 +129,8 @@ DECL|method|ExpressionBuilder ()
 specifier|private
 name|ExpressionBuilder
 parameter_list|()
-block|{             }
-comment|/**      * Returns an expression for the header value with the given name      *       * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
+block|{     }
+comment|/**      * Returns an expression for the header value with the given name      *      * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
 DECL|method|headerExpression (final String headerName)
 specifier|public
 specifier|static
@@ -265,7 +275,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the out header value with the given name      *       * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
+comment|/**      * Returns an expression for the out header value with the given name      *      * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
 DECL|method|outHeaderExpression (final String headerName)
 specifier|public
 specifier|static
@@ -470,7 +480,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for a system property value with the given name      *       * @param propertyName the name of the system property the expression will      *                return      * @return an expression object which will return the system property value      */
+comment|/**      * Returns an expression for a system property value with the given name      *      * @param propertyName the name of the system property the expression will      *                return      * @return an expression object which will return the system property value      */
 DECL|method|systemPropertyExpression (final String propertyName)
 specifier|public
 specifier|static
@@ -499,7 +509,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an expression for a system property value with the given name      *       * @param propertyName the name of the system property the expression will      *                return      * @return an expression object which will return the system property value      */
+comment|/**      * Returns an expression for a system property value with the given name      *      * @param propertyName the name of the system property the expression will      *                return      * @return an expression object which will return the system property value      */
 DECL|method|systemPropertyExpression (final String propertyName, final String defaultValue)
 specifier|public
 specifier|static
@@ -568,7 +578,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the contant value      *       * @param value the value the expression will return      * @return an expression object which will return the constant value      */
+comment|/**      * Returns an expression for the contant value      *      * @param value the value the expression will return      * @return an expression object which will return the constant value      */
 DECL|method|constantExpression (final Object value)
 specifier|public
 specifier|static
@@ -1790,7 +1800,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Evaluates the expression on the given exchange and returns the String      * representation      *       * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @return the String representation of the expression or null if it could      *         not be evaluated      */
+comment|/**      * Evaluates the expression on the given exchange and returns the String      * representation      *      * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @return the String representation of the expression or null if it could      *         not be evaluated      */
 DECL|method|evaluateStringExpression (Expression<E> expression, E exchange)
 specifier|public
 specifier|static
@@ -1920,6 +1930,162 @@ argument_list|,
 name|defaultValue
 argument_list|)
 return|;
+block|}
+block|}
+return|;
+block|}
+comment|/**      * Returns an expression which returns the string concatenation value of the various      * expressions      *      * @param expressions the expression to be concatenated dynamically      * @return an expression which when evaluated will return the concatenated values      */
+DECL|method|concatExpression (final Collection<Expression> expressions)
+specifier|public
+specifier|static
+parameter_list|<
+name|E
+extends|extends
+name|Exchange
+parameter_list|>
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+name|concatExpression
+parameter_list|(
+specifier|final
+name|Collection
+argument_list|<
+name|Expression
+argument_list|>
+name|expressions
+parameter_list|)
+block|{
+return|return
+name|concatExpression
+argument_list|(
+name|expressions
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns an expression which returns the string concatenation value of the various      * expressions      *      * @param expressions the expression to be concatenated dynamically      * @param expression the text description of the expression      * @return an expression which when evaluated will return the concatenated values      */
+DECL|method|concatExpression (final Collection<Expression> expressions, final String expression)
+specifier|public
+specifier|static
+parameter_list|<
+name|E
+extends|extends
+name|Exchange
+parameter_list|>
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+name|concatExpression
+parameter_list|(
+specifier|final
+name|Collection
+argument_list|<
+name|Expression
+argument_list|>
+name|expressions
+parameter_list|,
+specifier|final
+name|String
+name|expression
+parameter_list|)
+block|{
+return|return
+operator|new
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|E
+name|exchange
+parameter_list|)
+block|{
+name|StringBuffer
+name|buffer
+init|=
+operator|new
+name|StringBuffer
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+name|expression
+range|:
+name|expressions
+control|)
+block|{
+name|String
+name|text
+init|=
+name|evaluateStringExpression
+argument_list|(
+name|expression
+argument_list|,
+name|exchange
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|text
+operator|!=
+literal|null
+condition|)
+block|{
+name|buffer
+operator|.
+name|append
+argument_list|(
+name|text
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|return
+name|buffer
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+if|if
+condition|(
+name|expression
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|expression
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|"concat"
+operator|+
+name|expressions
+return|;
+block|}
 block|}
 block|}
 return|;
