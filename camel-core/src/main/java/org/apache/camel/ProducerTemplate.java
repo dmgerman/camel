@@ -216,6 +216,252 @@ name|Object
 name|body
 parameter_list|)
 function_decl|;
+comment|/**      * Send the body to an endpoint with the given {@link ExchangePattern}      * returning any result output body      *      * @param endpoint      * @param body = the payload      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @return the result      */
+DECL|method|sendBody (Endpoint<E> endpoint, ExchangePattern pattern, Object body)
+name|Object
+name|sendBody
+parameter_list|(
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|endpoint
+parameter_list|,
+name|ExchangePattern
+name|pattern
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+function_decl|;
+comment|/**      * Send the body to an endpoint      *      * @param endpointUri      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body = the payload      * @return the result      */
+DECL|method|sendBody (String endpointUri, ExchangePattern pattern, Object body)
+name|Object
+name|sendBody
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|ExchangePattern
+name|pattern
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpointUri the endpoint URI to send to      * @param body the payload send      * @param header the header name      * @param headerValue the header value      * @return the result      */
+DECL|method|sendBodyAndHeader (String endpointUri, Object body, String header, Object headerValue)
+name|Object
+name|sendBodyAndHeader
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Object
+name|headerValue
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpoint the Endpoint to send to      * @param body the payload send      * @param header the header name      * @param headerValue the header value      * @return the result      */
+DECL|method|sendBodyAndHeader (Endpoint endpoint, Object body, String header, Object headerValue)
+name|Object
+name|sendBodyAndHeader
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Object
+name|headerValue
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpoint the Endpoint to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload send      * @param header the header name      * @param headerValue the header value      * @return the result      */
+DECL|method|sendBodyAndHeader (Endpoint endpoint, ExchangePattern pattern, Object body, String header, Object headerValue)
+name|Object
+name|sendBodyAndHeader
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|ExchangePattern
+name|pattern
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Object
+name|headerValue
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpoint the Endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload send      * @param header the header name      * @param headerValue the header value      * @return the result      */
+DECL|method|sendBodyAndHeader (String endpoint, ExchangePattern pattern, Object body, String header, Object headerValue)
+name|Object
+name|sendBodyAndHeader
+parameter_list|(
+name|String
+name|endpoint
+parameter_list|,
+name|ExchangePattern
+name|pattern
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Object
+name|headerValue
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with the specified headers and header      * values      *      * @param endpointUri the endpoint URI to send to      * @param body the payload send      * @return the result      */
+DECL|method|sendBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers)
+name|Object
+name|sendBodyAndHeaders
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with the specified headers and header      * values      *      * @param endpoint the endpoint URI to send to      * @param body the payload send      * @return the result      */
+DECL|method|sendBodyAndHeaders (Endpoint endpoint, Object body, Map<String, Object> headers)
+name|Object
+name|sendBodyAndHeaders
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|)
+function_decl|;
+comment|// Methods using an InOut ExchangePattern
+comment|// -----------------------------------------------------------------------
+comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint      * @param processor the processor which will populate the exchange before sending      * @return the result      */
+DECL|method|request (Endpoint<E> endpoint, Processor processor)
+name|E
+name|request
+parameter_list|(
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|endpoint
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
+comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint      * @param body     = the payload      * @return the result      */
+DECL|method|requestBody (Endpoint<E> endpoint, Object body)
+name|Object
+name|requestBody
+parameter_list|(
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+function_decl|;
+comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint      * @param body     = the payload      * @param header      * @param headerValue      * @return the result      */
+DECL|method|requestBodyAndHeader (Endpoint<E> endpoint, Object body, String header, Object headerValue)
+name|Object
+name|requestBodyAndHeader
+parameter_list|(
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Object
+name|headerValue
+parameter_list|)
+function_decl|;
+comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint      * @param processor the processor which will populate the exchange before sending      * @return the result      */
+DECL|method|request (String endpoint, Processor processor)
+name|E
+name|request
+parameter_list|(
+name|String
+name|endpoint
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
+comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint      * @param body     = the payload      * @return the result      */
+DECL|method|requestBody (String endpoint, Object body)
+name|Object
+name|requestBody
+parameter_list|(
+name|String
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+function_decl|;
+comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint      * @param body     = the payload      * @param header      * @param headerValue      * @return the result      */
+DECL|method|requestBodyAndHeader (String endpoint, Object body, String header, Object headerValue)
+name|Object
+name|requestBodyAndHeader
+parameter_list|(
+name|String
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Object
+name|headerValue
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
