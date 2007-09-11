@@ -84,6 +84,16 @@ name|javax
 operator|.
 name|jms
 operator|.
+name|Session
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
 name|TopicPublisher
 import|;
 end_import
@@ -392,7 +402,7 @@ specifier|private
 name|String
 name|acknowledgementModeName
 init|=
-name|AUTO_ACKNOWLEDGE
+literal|null
 decl_stmt|;
 comment|// Used to configure the spring Container
 DECL|field|exceptionListener
@@ -1035,6 +1045,23 @@ argument_list|(
 name|transacted
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|transacted
+condition|)
+block|{
+name|template
+operator|.
+name|setSessionAcknowledgeMode
+argument_list|(
+name|Session
+operator|.
+name|SESSION_TRANSACTED
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// This is here for completeness, but the template should not get used
 comment|// for receiving messages.
 if|if
@@ -1067,6 +1094,7 @@ argument_list|(
 name|acknowledgementModeName
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|template
@@ -1220,6 +1248,23 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|transacted
+condition|)
+block|{
+name|container
+operator|.
+name|setSessionAcknowledgeMode
+argument_list|(
+name|Session
+operator|.
+name|SESSION_TRANSACTED
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
 name|acknowledgementMode
 operator|>=
 literal|0
@@ -1248,6 +1293,7 @@ argument_list|(
 name|acknowledgementModeName
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1436,6 +1482,20 @@ argument_list|(
 name|transactionManager
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|transacted
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Property transacted is enabled but a transactionManager was not injected!"
+argument_list|)
+throw|;
 block|}
 if|if
 condition|(
