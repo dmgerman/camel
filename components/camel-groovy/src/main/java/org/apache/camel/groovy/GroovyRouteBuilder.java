@@ -42,34 +42,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|RouteType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|RoutesType
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -87,11 +59,7 @@ DECL|method|GroovyRouteBuilder ()
 specifier|public
 name|GroovyRouteBuilder
 parameter_list|()
-block|{
-name|init
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|GroovyRouteBuilder (CamelContext context)
 specifier|public
 name|GroovyRouteBuilder
@@ -103,38 +71,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|)
-expr_stmt|;
-name|init
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|init ()
-specifier|private
-name|void
-name|init
-parameter_list|()
-block|{
-name|setRouteCollection
-argument_list|(
-operator|new
-name|RoutesType
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|protected
-name|RouteType
-name|createRoute
-parameter_list|()
-block|{
-return|return
-operator|new
-name|GroovyRouteType
-argument_list|()
-return|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 block|}
