@@ -454,6 +454,13 @@ name|ProcessorType
 name|output
 parameter_list|)
 block|{
+name|super
+operator|.
+name|configureChild
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|isInheritErrorHandler

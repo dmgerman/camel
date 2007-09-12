@@ -259,7 +259,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|RouteBuilder ()
-specifier|protected
+specifier|public
 name|RouteBuilder
 parameter_list|()
 block|{
@@ -270,7 +270,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|RouteBuilder (CamelContext context)
-specifier|protected
+specifier|public
 name|RouteBuilder
 parameter_list|(
 name|CamelContext
@@ -282,6 +282,21 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|routeCollection
+operator|.
+name|toString
+argument_list|()
+return|;
 block|}
 comment|/**      * Called on initialization to to build the required destinationBuilders      */
 DECL|method|configure ()
@@ -604,6 +619,22 @@ operator|.
 name|getRoutes
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setRouteCollection (RoutesType routeCollection)
+specifier|public
+name|void
+name|setRouteCollection
+parameter_list|(
+name|RoutesType
+name|routeCollection
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeCollection
+operator|=
+name|routeCollection
 expr_stmt|;
 block|}
 comment|/**      * Factory method      */

@@ -484,6 +484,11 @@ specifier|private
 name|DelegateProcessor
 name|lastInterceptor
 decl_stmt|;
+DECL|field|nodeFactory
+specifier|private
+name|NodeFactory
+name|nodeFactory
+decl_stmt|;
 comment|// else to use an
 comment|// optional
 comment|// attribute in
@@ -1454,8 +1459,10 @@ block|{
 name|FilterType
 name|filter
 init|=
-operator|new
-name|FilterType
+name|getNodeFactory
+argument_list|()
+operator|.
+name|createFilter
 argument_list|()
 decl_stmt|;
 name|filter
@@ -2233,6 +2240,48 @@ operator|=
 name|inheritErrorHandlerFlag
 expr_stmt|;
 block|}
+annotation|@
+name|XmlTransient
+DECL|method|getNodeFactory ()
+specifier|public
+name|NodeFactory
+name|getNodeFactory
+parameter_list|()
+block|{
+if|if
+condition|(
+name|nodeFactory
+operator|==
+literal|null
+condition|)
+block|{
+name|nodeFactory
+operator|=
+operator|new
+name|NodeFactory
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|nodeFactory
+return|;
+block|}
+DECL|method|setNodeFactory (NodeFactory nodeFactory)
+specifier|public
+name|void
+name|setNodeFactory
+parameter_list|(
+name|NodeFactory
+name|nodeFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nodeFactory
+operator|=
+name|nodeFactory
+expr_stmt|;
+block|}
 comment|/**      * Returns a label to describe this node such as the expression if some kind of expression node      *      * @return      */
 DECL|method|getLabel ()
 specifier|public
@@ -2507,7 +2556,16 @@ parameter_list|(
 name|ProcessorType
 name|output
 parameter_list|)
-block|{     }
+block|{
+name|output
+operator|.
+name|setNodeFactory
+argument_list|(
+name|getNodeFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|addOutput (ProcessorType processorType)
 specifier|protected
 name|void
