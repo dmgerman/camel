@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.language.script
+DECL|package|org.apache.camel.language.groovy
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|language
 operator|.
-name|script
+name|groovy
 package|;
 end_package
 

@@ -4,13 +4,15 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.groovy
+DECL|package|org.apache.camel.language.groovy
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|language
 operator|.
 name|groovy
 package|;
@@ -158,7 +160,7 @@ specifier|protected
 name|String
 name|groovyBuilderClass
 init|=
-literal|"org.apache.camel.groovy.example.GroovyRoutes"
+literal|"org.apache.camel.language.groovy.example.GroovyRoutes"
 decl_stmt|;
 DECL|method|testSendMatchingMessage ()
 specifier|public
@@ -168,6 +170,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|">>>>> "
+operator|+
+name|ProcessorType
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|resultEndpoint
 init|=

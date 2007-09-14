@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.builder.script
+DECL|package|org.apache.camel.language.groovy
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|language
 operator|.
-name|script
+name|groovy
 package|;
 end_package
 
@@ -98,33 +98,15 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|script
-operator|.
-name|ScriptBuilder
-operator|.
-name|groovy
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|GroovyTest
+DECL|class|GroovyExpressionTest
 specifier|public
 class|class
-name|GroovyTest
+name|GroovyExpressionTest
 extends|extends
 name|TestSupport
 block|{
@@ -160,6 +142,8 @@ name|Exception
 block|{
 name|assertExpression
 argument_list|(
+name|GroovyLanguage
+operator|.
 name|groovy
 argument_list|(
 literal|"exchange.in.headers['foo.bar']"
@@ -172,6 +156,8 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+name|GroovyLanguage
+operator|.
 name|groovy
 argument_list|(
 literal|"exchange.in.headers.name"
@@ -184,6 +170,8 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+name|GroovyLanguage
+operator|.
 name|groovy
 argument_list|(
 literal|"exchange.in.headers['doesNotExist']"
@@ -205,6 +193,8 @@ name|Exception
 block|{
 name|assertPredicate
 argument_list|(
+name|GroovyLanguage
+operator|.
 name|groovy
 argument_list|(
 literal|"exchange.in.headers.name == 'James'"
@@ -217,6 +207,8 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
+name|GroovyLanguage
+operator|.
 name|groovy
 argument_list|(
 literal|"exchange.in.headers.name == 'Hiram'"
@@ -229,6 +221,8 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
+name|GroovyLanguage
+operator|.
 name|groovy
 argument_list|(
 literal|"request.headers.name == 'James'"
@@ -248,12 +242,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|GroovyLanguage
+operator|.
 name|groovy
 argument_list|(
 literal|"request.headers.myNewHeader = 'ABC'"
 argument_list|)
 operator|.
-name|process
+name|evaluate
 argument_list|(
 name|exchange
 argument_list|)
@@ -268,34 +264,6 @@ literal|"ABC"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testPredicateUsingScriptAttribute ()
-specifier|public
-name|void
-name|testPredicateUsingScriptAttribute
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertPredicate
-argument_list|(
-name|groovy
-argument_list|(
-literal|"request.headers.name == hacker"
-argument_list|)
-operator|.
-name|attribute
-argument_list|(
-literal|"hacker"
-argument_list|,
-literal|"James"
-argument_list|)
-argument_list|,
-name|exchange
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|testInvalidExpressionFailsWithMeaningfulException ()
 specifier|public
 name|void
@@ -306,6 +274,8 @@ name|Exception
 block|{
 try|try
 block|{
+name|GroovyLanguage
+operator|.
 name|groovy
 argument_list|(
 literal|"exchange.doesNotExist"
@@ -324,7 +294,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ScriptEvaluationException
+name|Exception
 name|e
 parameter_list|)
 block|{

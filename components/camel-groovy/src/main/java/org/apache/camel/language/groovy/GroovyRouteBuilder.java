@@ -4,13 +4,15 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.groovy
+DECL|package|org.apache.camel.language.groovy
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|language
 operator|.
 name|groovy
 package|;
