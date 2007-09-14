@@ -1122,6 +1122,24 @@ block|{
 name|checkInitialised
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|engine
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No script engine could be created for: "
+operator|+
+name|getScriptEngineName
+argument_list|()
+argument_list|)
+throw|;
+block|}
 return|return
 name|engine
 return|;
