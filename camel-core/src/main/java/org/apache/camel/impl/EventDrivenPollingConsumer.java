@@ -173,10 +173,10 @@ comment|/**  * A default implementation of the {@link PollingConsumer} which use
 end_comment
 
 begin_class
-DECL|class|DefaultPollingConsumer
+DECL|class|EventDrivenPollingConsumer
 specifier|public
 class|class
-name|DefaultPollingConsumer
+name|EventDrivenPollingConsumer
 parameter_list|<
 name|E
 extends|extends
@@ -202,7 +202,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|DefaultPollingConsumer
+name|EventDrivenPollingConsumer
 operator|.
 name|class
 argument_list|)
@@ -238,9 +238,9 @@ name|E
 argument_list|>
 name|consumer
 decl_stmt|;
-DECL|method|DefaultPollingConsumer (Endpoint<E> endpoint)
+DECL|method|EventDrivenPollingConsumer (Endpoint<E> endpoint)
 specifier|public
-name|DefaultPollingConsumer
+name|EventDrivenPollingConsumer
 parameter_list|(
 name|Endpoint
 argument_list|<
@@ -264,9 +264,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DefaultPollingConsumer (Endpoint<E> endpoint, BlockingQueue<E> queue)
+DECL|method|EventDrivenPollingConsumer (Endpoint<E> endpoint, BlockingQueue<E> queue)
 specifier|public
-name|DefaultPollingConsumer
+name|EventDrivenPollingConsumer
 parameter_list|(
 name|Endpoint
 argument_list|<

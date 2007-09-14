@@ -457,7 +457,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|DefaultPollingConsumer
+name|EventDrivenPollingConsumer
 argument_list|<
 name|E
 argument_list|>
