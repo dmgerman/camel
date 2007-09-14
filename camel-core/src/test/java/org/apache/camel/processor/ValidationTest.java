@@ -128,6 +128,13 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|invalidEndpoint
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -164,6 +171,13 @@ operator|.
 name|expectedMessageCount
 argument_list|(
 literal|1
+argument_list|)
+expr_stmt|;
+name|validEndpoint
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
 argument_list|)
 expr_stmt|;
 name|template
