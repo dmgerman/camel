@@ -71,9 +71,9 @@ literal|"-duration"
 argument_list|,
 literal|"2s"
 argument_list|,
-literal|"-file"
+literal|"-o"
 argument_list|,
-literal|"target/site/cameldoc/routes.dot"
+literal|"target/site/cameldoc"
 argument_list|)
 expr_stmt|;
 block|}
