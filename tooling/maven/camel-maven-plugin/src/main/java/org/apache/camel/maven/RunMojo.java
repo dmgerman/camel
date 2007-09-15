@@ -492,11 +492,11 @@ specifier|protected
 name|String
 name|duration
 decl_stmt|;
-comment|/**      * The DOT File name used to generate the DOT diagram of the route definitions      *      * @parameter expression="${project.build.directory}/site/cameldoc/routes.dot"      * @readonly      */
-DECL|field|dotFile
+comment|/**      * The DOT outputd irectory name used to generate the DOT diagram of the route definitions      *      * @parameter expression="${project.build.directory}/site/cameldoc"      * @readonly      */
+DECL|field|dotDir
 specifier|protected
 name|String
-name|dotFile
+name|dotDir
 decl_stmt|;
 comment|/**      * Allows the DOT file generation to be disabled      *      * @parameter expression="true"      * @readonly      */
 DECL|field|dotEnabled
@@ -663,7 +663,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|dotFile
+name|dotDir
 operator|!=
 literal|null
 operator|&&
@@ -674,14 +674,14 @@ name|args
 operator|.
 name|add
 argument_list|(
-literal|"-f"
+literal|"-o"
 argument_list|)
 expr_stmt|;
 name|args
 operator|.
 name|add
 argument_list|(
-name|dotFile
+name|dotDir
 argument_list|)
 expr_stmt|;
 block|}
@@ -2176,19 +2176,32 @@ operator|+
 literal|" to classpath"
 argument_list|)
 expr_stmt|;
-name|path
-operator|.
-name|add
-argument_list|(
+name|File
+name|file
+init|=
 name|classPathElement
 operator|.
 name|getFile
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|file
+operator|!=
+literal|null
+condition|)
+block|{
+name|path
+operator|.
+name|add
+argument_list|(
+name|file
 operator|.
 name|toURL
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
@@ -2264,21 +2277,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|artifact
-operator|.
-name|getScope
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|Artifact
-operator|.
-name|SCOPE_SYSTEM
-argument_list|)
-condition|)
-block|{
+comment|//if (artifact.getScope().equals(Artifact.SCOPE_SYSTEM)) {
 name|systemScopeArtifacts
 operator|.
 name|add
@@ -2286,7 +2285,7 @@ argument_list|(
 name|artifact
 argument_list|)
 expr_stmt|;
-block|}
+comment|//}
 block|}
 return|return
 name|systemScopeArtifacts

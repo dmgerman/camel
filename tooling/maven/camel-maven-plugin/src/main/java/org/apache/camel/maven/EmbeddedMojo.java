@@ -146,12 +146,6 @@ specifier|private
 name|List
 name|classpathElements
 decl_stmt|;
-comment|/**      * The path where the generated artifacts will be placed.      *      * @parameter expression="${basedir}/target/site/cameldoc"      * @required      * @readonly      */
-DECL|field|outputDirectory
-specifier|private
-name|File
-name|outputDirectory
-decl_stmt|;
 comment|/**      * The duration to run the application for which by default is in milliseconds.      *      * @parameter expression="-1"      * @readonly      */
 DECL|field|duration
 specifier|protected
@@ -159,10 +153,10 @@ name|String
 name|duration
 decl_stmt|;
 comment|/**      * The DOT File name used to generate the DOT diagram of the route definitions      *      * @parameter expression="${project.build.directory}/site/cameldoc/routes.dot"      * @readonly      */
-DECL|field|dotOutputDir
+DECL|field|outputDirectory
 specifier|protected
 name|String
-name|dotOutputDir
+name|outputDirectory
 decl_stmt|;
 comment|/**      * Allows the DOT file generation to be disabled      *      * @parameter expression="true"      * @readonly      */
 DECL|field|dotEnabled
@@ -276,7 +270,7 @@ comment|//----------------------------------------------------------------------
 comment|/**      * Getter for property output directory.      *      * @return The value of output directory.      */
 DECL|method|getOutputDirectory ()
 specifier|public
-name|File
+name|String
 name|getOutputDirectory
 parameter_list|()
 block|{
@@ -285,13 +279,12 @@ name|outputDirectory
 return|;
 block|}
 comment|/**      * Setter for the output directory.      *      * @param inOutputDirectory The value of output directory.      */
-DECL|method|setOutputDirectory (final File inOutputDirectory)
+DECL|method|setOutputDirectory (String inOutputDirectory)
 specifier|public
 name|void
 name|setOutputDirectory
 parameter_list|(
-specifier|final
-name|File
+name|String
 name|inOutputDirectory
 parameter_list|)
 block|{
@@ -354,32 +347,6 @@ operator|=
 name|dotEnabled
 expr_stmt|;
 block|}
-DECL|method|getDotOutputDir ()
-specifier|public
-name|String
-name|getDotOutputDir
-parameter_list|()
-block|{
-return|return
-name|dotOutputDir
-return|;
-block|}
-DECL|method|setDotOutputDir (String dotOutputDir)
-specifier|public
-name|void
-name|setDotOutputDir
-parameter_list|(
-name|String
-name|dotOutputDir
-parameter_list|)
-block|{
-name|this
-operator|.
-name|dotOutputDir
-operator|=
-name|dotOutputDir
-expr_stmt|;
-block|}
 DECL|method|getDuration ()
 specifier|public
 name|String
@@ -425,6 +392,16 @@ name|IllegalAccessException
 throws|,
 name|MojoExecutionException
 block|{
+name|getLog
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Running Camel in: "
+operator|+
+name|newLoader
+argument_list|)
+expr_stmt|;
 name|Class
 argument_list|<
 name|?
@@ -542,7 +519,7 @@ name|duration
 block|,
 literal|"-outdir"
 block|,
-name|dotOutputDir
+name|outputDirectory
 block|}
 return|;
 block|}
@@ -646,8 +623,23 @@ operator|.
 name|toURL
 argument_list|()
 expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"URL: "
+operator|+
+name|urls
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
 block|}
-return|return
+name|URLClassLoader
+name|loader
+init|=
 operator|new
 name|URLClassLoader
 argument_list|(
@@ -655,6 +647,9 @@ name|urls
 argument_list|,
 name|parent
 argument_list|)
+decl_stmt|;
+return|return
+name|loader
 return|;
 block|}
 block|}
