@@ -92,38 +92,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|language
-operator|.
-name|simple
-operator|.
-name|SimpleLanguage
-operator|.
-name|simple
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -168,7 +136,7 @@ literal|"<hello>bar</hello>"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertRespondsWith (final String value, String containedText)
+DECL|method|assertRespondsWith (final String value, String expectedBody)
 specifier|protected
 name|void
 name|assertRespondsWith
@@ -178,7 +146,7 @@ name|String
 name|value
 parameter_list|,
 name|String
-name|containedText
+name|expectedBody
 parameter_list|)
 throws|throws
 name|InvalidPayloadException
@@ -234,59 +202,11 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"Should receive a response!"
-argument_list|,
-name|response
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Received response: "
-operator|+
-name|response
-operator|+
-literal|" with out: "
-operator|+
-name|response
-operator|.
-name|getOut
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|String
-name|text
-init|=
-name|ExchangeHelper
-operator|.
-name|getMandatoryOutBody
+name|assertOutMessageBodyEquals
 argument_list|(
 name|response
 argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Received: "
-operator|+
-name|text
-argument_list|)
-expr_stmt|;
-name|assertStringContains
-argument_list|(
-name|text
-argument_list|,
-name|containedText
+name|expectedBody
 argument_list|)
 expr_stmt|;
 block|}
