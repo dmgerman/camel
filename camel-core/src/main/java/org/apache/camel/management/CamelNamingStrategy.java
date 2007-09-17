@@ -171,8 +171,6 @@ DECL|field|domainName
 specifier|protected
 name|String
 name|domainName
-init|=
-literal|"org.apache.camel"
 decl_stmt|;
 DECL|field|hostName
 specifier|protected
@@ -181,6 +179,17 @@ name|hostName
 init|=
 literal|"locahost"
 decl_stmt|;
+DECL|method|CamelNamingStrategy ()
+specifier|public
+name|CamelNamingStrategy
+parameter_list|()
+block|{
+name|this
+argument_list|(
+literal|"org.apache.camel"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|CamelNamingStrategy (String domainName)
 specifier|public
 name|CamelNamingStrategy
@@ -225,7 +234,7 @@ block|{
 comment|// ignore, use the default "locahost"
 block|}
 block|}
-comment|/** 	 * Implements the naming strategy for a {@see CamelContext}. 	 * The convention used for a {@see CamelContext} ObjectName is 	 * "<domain>:context=<context>,name=camel". 	 *  	 * @param mbean 	 * @return generated ObjectName 	 * @throws MalformedObjectNameException 	 */
+comment|/**      * Implements the naming strategy for a {@see CamelContext}.      * The convention used for a {@see CamelContext} ObjectName is      * "<domain>:context=<context>,name=camel".      *      * @param context the camel context      * @return generated ObjectName      * @throws MalformedObjectNameException      */
 DECL|method|getObjectName (CamelContext context)
 specifier|public
 name|ObjectName
@@ -281,17 +290,13 @@ literal|"context"
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
-name|ObjectName
+name|createObjectName
 argument_list|(
 name|buffer
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Implements the naming strategy for a {@see ManagedEndpoint}. 	 * The convention used for a {@see ManagedEndpoint} ObjectName is 	 * "<domain>:context=<context>,type=Endpoints,endpoint=[urlPrefix]localPart". 	 *  	 * @param mbean 	 * @return generated ObjectName 	 * @throws MalformedObjectNameException 	 */
+comment|/**      * Implements the naming strategy for a {@see ManagedEndpoint}.      * The convention used for a {@see ManagedEndpoint} ObjectName is      * "<domain>:context=<context>,type=Endpoints,endpoint=[urlPrefix]localPart".      *      * @param mbean      * @return generated ObjectName      * @throws MalformedObjectNameException      */
 DECL|method|getObjectName (ManagedEndpoint mbean)
 specifier|public
 name|ObjectName
@@ -374,17 +379,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
-name|ObjectName
+name|createObjectName
 argument_list|(
 name|buffer
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Implements the naming strategy for a {@see ServiceSpport Service}. 	 * The convention used for a {@see Service} ObjectName is 	 * "<domain>:context=<context>,type=Services,endpoint=[urlPrefix]localPart". 	 *  	 * @param mbean 	 * @return generated ObjectName 	 * @throws MalformedObjectNameException 	 */
+comment|/**      * Implements the naming strategy for a {@see ServiceSpport Service}.      * The convention used for a {@see Service} ObjectName is      * "<domain>:context=<context>,type=Services,endpoint=[urlPrefix]localPart".      *      * @param mbean      * @return generated ObjectName      * @throws MalformedObjectNameException      */
 DECL|method|getObjectName (CamelContext context, ManagedService mbean)
 specifier|public
 name|ObjectName
@@ -467,17 +468,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
-name|ObjectName
+name|createObjectName
 argument_list|(
 name|buffer
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Implements the naming strategy for a {@see ManagedRoute}. 	 * The convention used for a {@see ManagedEndpoint} ObjectName is 	 * "<domain>:context=<context>,type=Routes,endpoint=[urlPrefix]localPart". 	 *  	 * @param mbean 	 * @return generated ObjectName 	 * @throws MalformedObjectNameException 	 */
+comment|/**      * Implements the naming strategy for a {@see ManagedRoute}.      * The convention used for a {@see ManagedEndpoint} ObjectName is      * "<domain>:context=<context>,type=Routes,endpoint=[urlPrefix]localPart".      *      * @param mbean      * @return generated ObjectName      * @throws MalformedObjectNameException      */
 DECL|method|getObjectName (ManagedRoute mbean)
 specifier|public
 name|ObjectName
@@ -574,17 +571,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
-name|ObjectName
+name|createObjectName
 argument_list|(
 name|buffer
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Implements the naming strategy for a {@see PerformanceCounter}. 	 * The convention used for a {@see ManagedEndpoint} ObjectName is 	 * "<domain>:context=<context>,type=Routes,endpoint=[urlPrefix]localPart". 	 *  	 * @param mbean 	 * @return generated ObjectName 	 * @throws MalformedObjectNameException 	 */
+comment|/**      * Implements the naming strategy for a {@see PerformanceCounter}.      * The convention used for a {@see ManagedEndpoint} ObjectName is      * "<domain>:context=<context>,type=Routes,endpoint=[urlPrefix]localPart".      *      * @param mbean      * @return generated ObjectName      * @throws MalformedObjectNameException      */
 DECL|method|getObjectName (CamelContext context, PerformanceCounter mbean)
 specifier|public
 name|ObjectName
@@ -670,15 +663,63 @@ literal|"Stats"
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
-name|ObjectName
+name|createObjectName
 argument_list|(
 name|buffer
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 return|;
+block|}
+DECL|method|getDomainName ()
+specifier|public
+name|String
+name|getDomainName
+parameter_list|()
+block|{
+return|return
+name|domainName
+return|;
+block|}
+DECL|method|setDomainName (String domainName)
+specifier|public
+name|void
+name|setDomainName
+parameter_list|(
+name|String
+name|domainName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|domainName
+operator|=
+name|domainName
+expr_stmt|;
+block|}
+DECL|method|getHostName ()
+specifier|public
+name|String
+name|getHostName
+parameter_list|()
+block|{
+return|return
+name|hostName
+return|;
+block|}
+DECL|method|setHostName (String hostName)
+specifier|public
+name|void
+name|setHostName
+parameter_list|(
+name|String
+name|hostName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hostName
+operator|=
+name|hostName
+expr_stmt|;
 block|}
 DECL|method|getContextId (CamelContext context)
 specifier|protected
@@ -801,9 +842,93 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|id
+operator|=
+name|id
+operator|.
+name|replace
+argument_list|(
+literal|"="
+argument_list|,
+literal|"_eq_"
+argument_list|)
+expr_stmt|;
+name|id
+operator|=
+name|id
+operator|.
+name|replace
+argument_list|(
+literal|","
+argument_list|,
+literal|"_cm_"
+argument_list|)
+expr_stmt|;
 return|return
 name|id
 return|;
+block|}
+comment|/**      * Factory method to create an ObjectName escaping any required characters      */
+DECL|method|createObjectName (StringBuffer buffer)
+specifier|protected
+name|ObjectName
+name|createObjectName
+parameter_list|(
+name|StringBuffer
+name|buffer
+parameter_list|)
+throws|throws
+name|MalformedObjectNameException
+block|{
+name|String
+name|text
+init|=
+name|buffer
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
+try|try
+block|{
+name|text
+operator|=
+name|text
+operator|.
+name|replace
+argument_list|(
+literal|"?"
+argument_list|,
+literal|"_qe_"
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|ObjectName
+argument_list|(
+name|text
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|MalformedObjectNameException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|MalformedObjectNameException
+argument_list|(
+literal|"Could not create ObjectName from: "
+operator|+
+name|text
+operator|+
+literal|". Reason: "
+operator|+
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class
