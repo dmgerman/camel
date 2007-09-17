@@ -82,6 +82,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|http
@@ -189,19 +201,22 @@ annotation|@
 name|Override
 DECL|method|createProducer ()
 specifier|public
-name|JettyHttpProducer
+name|Producer
+argument_list|<
+name|HttpExchange
+argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 return|return
-operator|new
-name|JettyHttpProducer
-argument_list|(
-name|this
-argument_list|)
+name|super
+operator|.
+name|createProducer
+argument_list|()
 return|;
+comment|// return new JettyHttpProducer(this);
 block|}
 annotation|@
 name|Override
