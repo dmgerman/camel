@@ -480,6 +480,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the group name for this route      */
+DECL|method|group (String name)
+specifier|public
+name|RouteType
+name|group
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|setGroup
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getInterceptors ()
