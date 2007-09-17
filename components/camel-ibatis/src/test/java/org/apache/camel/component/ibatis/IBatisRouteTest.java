@@ -202,7 +202,12 @@ name|list
 operator|.
 name|get
 argument_list|(
-literal|0
+name|list
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
 argument_list|)
 decl_stmt|;
 name|List
