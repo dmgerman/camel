@@ -18,6 +18,16 @@ name|file
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -40,6 +50,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|recursiveDelete
+argument_list|(
+operator|new
+name|File
+argument_list|(
+literal|"target/test-rename-inbox"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|uri
 operator|=
 literal|"file:target/test-rename-inbox?moveNamePrefix=foo/"

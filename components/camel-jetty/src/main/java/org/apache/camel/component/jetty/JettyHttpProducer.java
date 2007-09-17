@@ -592,11 +592,6 @@ operator|.
 name|await
 argument_list|()
 expr_stmt|;
-name|exchange
-operator|.
-name|throwException
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public

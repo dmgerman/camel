@@ -409,11 +409,6 @@ name|beanRef
 argument_list|(
 literal|"myBean"
 argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"seda:out"
-argument_list|)
 expr_stmt|;
 block|}
 block|}

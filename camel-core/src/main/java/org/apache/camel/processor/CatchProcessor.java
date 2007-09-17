@@ -105,12 +105,12 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|catches (Exception e)
+DECL|method|catches (Throwable e)
 specifier|public
 name|boolean
 name|catches
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{

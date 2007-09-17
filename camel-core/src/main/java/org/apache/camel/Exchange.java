@@ -164,14 +164,6 @@ name|Throwable
 name|e
 parameter_list|)
 function_decl|;
-comment|/**      * Throws the exception associated with this exchange.      */
-DECL|method|throwException ()
-name|void
-name|throwException
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * Returns true if this exchange failed due to either an exception or fault      *      * @see Exchange#getException()      * @see Exchange#getFault()      * @return true if this exchange failed due to either an exception or fault      */
 DECL|method|isFailed ()
 name|boolean
