@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf
+DECL|package|org.apache.camel.component.cxf.invoker
 package|package
 name|org
 operator|.
@@ -15,55 +15,87 @@ operator|.
 name|component
 operator|.
 name|cxf
+operator|.
+name|invoker
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|cxf
+operator|.
+name|DataFormat
+import|;
+end_import
+
 begin_class
-DECL|class|HelloServiceImpl
+DECL|class|InvokingContextFactory
 specifier|public
+specifier|final
 class|class
-name|HelloServiceImpl
-implements|implements
-name|HelloService
+name|InvokingContextFactory
 block|{
-DECL|method|echo (String text)
+DECL|method|InvokingContextFactory ()
+specifier|private
+name|InvokingContextFactory
+parameter_list|()
+block|{
+comment|// not constructed
+block|}
+comment|/**      * Static method that creates a routing context object from a given data format      * @param dataFormat      * @return routing context      */
+DECL|method|createContext (DataFormat dataFormat)
 specifier|public
-name|String
-name|echo
+specifier|static
+name|InvokingContext
+name|createContext
 parameter_list|(
-name|String
-name|text
+name|DataFormat
+name|dataFormat
 parameter_list|)
 block|{
-name|System
+if|if
+condition|(
+name|dataFormat
+operator|==
+name|DataFormat
 operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"call for echo with "
-operator|+
-name|text
-argument_list|)
-expr_stmt|;
-return|return
-name|text
-return|;
-block|}
-DECL|method|ping ()
-specifier|public
-name|void
-name|ping
-parameter_list|()
-block|{      }
-DECL|method|sayHello ()
-specifier|public
-name|String
-name|sayHello
-parameter_list|()
+name|MESSAGE
+condition|)
 block|{
 return|return
-literal|"hello"
+operator|new
+name|RawMessageInvokingContext
+argument_list|()
+return|;
+block|}
+if|if
+condition|(
+name|dataFormat
+operator|==
+name|DataFormat
+operator|.
+name|PAYLOAD
+condition|)
+block|{
+return|return
+operator|new
+name|PayloadInvokingContext
+argument_list|()
+return|;
+block|}
+comment|//Default is DataFormat.MESSAGE, we do not set the POJO context
+return|return
+operator|new
+name|RawMessageInvokingContext
+argument_list|()
 return|;
 block|}
 block|}

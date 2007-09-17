@@ -19,72 +19,28 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants used in this module  *  * @version $Revision$  */
+comment|/**  * The data format the user expoects to see at the camel cxf components.  It can be  * configured as a property (DataFormat) in the Camel cxf endpoint.  */
 end_comment
 
-begin_interface
-DECL|interface|CxfConstants
+begin_enum
+DECL|enum|DataFormat
 specifier|public
-interface|interface
-name|CxfConstants
+enum|enum
+name|DataFormat
 block|{
-DECL|field|METHOD
-name|String
-name|METHOD
-init|=
-literal|"method"
-decl_stmt|;
-DECL|field|SEI
-name|String
-name|SEI
-init|=
-literal|"sei"
-decl_stmt|;
-DECL|field|IMPL
-name|String
-name|IMPL
-init|=
-literal|"impl"
-decl_stmt|;
-DECL|field|WSDL_URL
-name|String
-name|WSDL_URL
-init|=
-literal|"wsdlURL"
-decl_stmt|;
-DECL|field|ADDRESS
-name|String
-name|ADDRESS
-init|=
-literal|"address"
-decl_stmt|;
-DECL|field|SERVICE_NAME
-name|String
-name|SERVICE_NAME
-init|=
-literal|"serviceName"
-decl_stmt|;
-DECL|field|PORT_NAME
-name|String
-name|PORT_NAME
-init|=
-literal|"portName"
-decl_stmt|;
-DECL|field|PROTOCOL_NAME_RES
-name|String
-name|PROTOCOL_NAME_RES
-init|=
-literal|"res"
-decl_stmt|;
-DECL|field|OPERATION_NAME
-name|String
-name|OPERATION_NAME
-init|=
-literal|"operationName"
-decl_stmt|;
-comment|// service name -- come from the wsdl
+comment|/**      * PAYLOAD is the message payload of the message after message configured in      * the CXF endpoint is applied.  Streaming and non-streaming are both      * supported.      */
+DECL|enumConstant|PAYLOAD
+name|PAYLOAD
+block|,
+comment|/**      * MESSAGE is the raw message that is received from the transport layer.      * Streaming and non-streaming are both supported.      */
+DECL|enumConstant|MESSAGE
+name|MESSAGE
+block|,
+comment|/**      * POJOs (Plain old Java objects) are the Java parameters to the method      * it is invoking on the target server.  The "serviceClass" property      * must be included in the endpoint.  Streaming is not available for this      * data format.      */
+DECL|enumConstant|POJO
+name|POJO
 block|}
-end_interface
+end_enum
 
 end_unit
 

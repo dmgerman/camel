@@ -129,6 +129,13 @@ operator|.
 name|getContentFormats
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|contentFormats
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Class
@@ -162,25 +169,23 @@ name|answer
 return|;
 block|}
 block|}
+block|}
 return|return
 literal|null
 return|;
 block|}
 DECL|method|createCxfMessage (CxfExchange exchange)
 specifier|public
-name|MessageImpl
+name|Message
 name|createCxfMessage
 parameter_list|(
 name|CxfExchange
 name|exchange
 parameter_list|)
 block|{
-name|MessageImpl
+name|Message
 name|answer
 init|=
-operator|(
-name|MessageImpl
-operator|)
 name|exchange
 operator|.
 name|getInMessage
@@ -243,6 +248,7 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
+comment|// we need copy context
 block|}
 elseif|else
 if|if
@@ -262,6 +268,25 @@ operator|.
 name|class
 argument_list|,
 name|body
+argument_list|)
+expr_stmt|;
+comment|//just set the method name
+name|answer
+operator|.
+name|setContent
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|,
+name|in
+operator|.
+name|getHeader
+argument_list|(
+name|CxfConstants
+operator|.
+name|OPERATION_NAME
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

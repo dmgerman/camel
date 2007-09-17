@@ -150,25 +150,23 @@ name|binding
 decl_stmt|;
 DECL|field|portName
 specifier|private
-name|QName
+name|String
 name|portName
 decl_stmt|;
 DECL|field|serviceName
 specifier|private
-name|QName
+name|String
 name|serviceName
+decl_stmt|;
+DECL|field|dataFormat
+specifier|private
+name|String
+name|dataFormat
 decl_stmt|;
 DECL|field|inOut
 specifier|private
 name|boolean
 name|inOut
-init|=
-literal|true
-decl_stmt|;
-DECL|field|invoker
-specifier|private
-name|boolean
-name|invoker
 init|=
 literal|true
 decl_stmt|;
@@ -319,30 +317,28 @@ name|inMessage
 argument_list|)
 return|;
 block|}
-DECL|method|isInvoker ()
+DECL|method|getDataFormat ()
 specifier|public
-name|boolean
-name|isInvoker
+name|String
+name|getDataFormat
 parameter_list|()
 block|{
 return|return
-name|invoker
+name|dataFormat
 return|;
 block|}
-DECL|method|setInvoker (boolean invoker)
+DECL|method|setDataFormat (String format)
 specifier|public
 name|void
-name|setInvoker
+name|setDataFormat
 parameter_list|(
-name|boolean
-name|invoker
+name|String
+name|format
 parameter_list|)
 block|{
-name|this
-operator|.
-name|invoker
+name|dataFormat
 operator|=
-name|invoker
+name|format
 expr_stmt|;
 block|}
 DECL|method|getAddress ()
@@ -403,12 +399,12 @@ operator|=
 name|className
 expr_stmt|;
 block|}
-DECL|method|setPortName (QName port)
+DECL|method|setPortName (String port)
 specifier|public
 name|void
 name|setPortName
 parameter_list|(
-name|QName
+name|String
 name|port
 parameter_list|)
 block|{
@@ -417,12 +413,12 @@ operator|=
 name|port
 expr_stmt|;
 block|}
-DECL|method|setServiceName (QName service)
+DECL|method|setServiceName (String service)
 specifier|public
 name|void
 name|setServiceName
 parameter_list|(
-name|QName
+name|String
 name|service
 parameter_list|)
 block|{
@@ -433,7 +429,7 @@ expr_stmt|;
 block|}
 DECL|method|getPortName ()
 specifier|public
-name|QName
+name|String
 name|getPortName
 parameter_list|()
 block|{
@@ -443,7 +439,7 @@ return|;
 block|}
 DECL|method|getServiceName ()
 specifier|public
-name|QName
+name|String
 name|getServiceName
 parameter_list|()
 block|{

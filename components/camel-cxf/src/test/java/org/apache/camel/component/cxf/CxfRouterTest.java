@@ -265,7 +265,7 @@ extends|extends
 name|ContextTestSupport
 block|{
 DECL|field|ROUTER_ADDRESS
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -274,7 +274,7 @@ init|=
 literal|"http://localhost:9000/router"
 decl_stmt|;
 DECL|field|SERVICE_ADDRESS
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -283,7 +283,7 @@ init|=
 literal|"http://localhost:9002/helloworld"
 decl_stmt|;
 DECL|field|SERVICE_CLASS
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -304,7 +304,7 @@ literal|"?"
 operator|+
 name|SERVICE_CLASS
 operator|+
-literal|"&invoker=true"
+literal|"&dataFormat=POJO"
 decl_stmt|;
 DECL|field|serviceEndpointURI
 specifier|private
@@ -319,7 +319,7 @@ literal|"?"
 operator|+
 name|SERVICE_CLASS
 operator|+
-literal|"&invoker=true"
+literal|"&dataFormat=POJO"
 decl_stmt|;
 comment|//private Endpoint routerEndpoint;
 comment|//private Endpoint resultEndpoint;
@@ -343,8 +343,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|//routerEndpoint = resolveMandatoryEndpoint(routerEndpointURI);
-comment|//resultEndpoint = resolveMandatoryEndpoint(serviceEndpointURI);
 name|startService
 argument_list|()
 expr_stmt|;
@@ -566,6 +564,7 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
+comment|//Thread.sleep(200000);
 block|}
 block|}
 end_class
