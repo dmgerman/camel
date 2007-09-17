@@ -321,7 +321,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Spring {@link FactoryBean} to create and initialize a  * {@link SpringCamelContext} and install routes either explicitly configured in  * Spring XML or found by searching the classpath for Java classes which extend  * {@link RouteBuilder} using the nested {@link #setPackages(String[])}.  *   * @version $Revision$  */
+comment|/**  * A Spring {@link FactoryBean} to create and initialize a  * {@link SpringCamelContext} and install routes either explicitly configured in  * Spring XML or found by searching the classpath for Java classes which extend  * {@link RouteBuilder} using the nested {@link #setPackages(String[])}.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -445,6 +445,18 @@ operator|=
 name|CamelServiceExporterType
 operator|.
 name|class
+argument_list|,
+name|required
+operator|=
+literal|false
+argument_list|)
+block|,
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"jmxAgent"
 argument_list|,
 name|required
 operator|=
@@ -626,45 +638,6 @@ name|getRoutes
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|String
-index|[]
-name|names
-init|=
-name|getApplicationContext
-argument_list|()
-operator|.
-name|getBeanNamesForType
-argument_list|(
-name|SpringInstrumentationAgent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|names
-operator|.
-name|length
-operator|==
-literal|1
-condition|)
-block|{
-name|getApplicationContext
-argument_list|()
-operator|.
-name|getBean
-argument_list|(
-name|names
-index|[
-literal|0
-index|]
-argument_list|,
-name|SpringInstrumentationAgent
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
 name|findRouteBuiders
 argument_list|()
 expr_stmt|;
@@ -942,7 +915,7 @@ return|return
 name|packages
 return|;
 block|}
-comment|/**      * Sets the package names to be recursively searched for Java classes which      * extend {@link RouteBuilder} to be auto-wired up to the      * {@link SpringCamelContext} as a route. Note that classes are excluded if      * they are specifically configured in the spring.xml      *       * @param packages the package names which are recursively searched      */
+comment|/**      * Sets the package names to be recursively searched for Java classes which      * extend {@link RouteBuilder} to be auto-wired up to the      * {@link SpringCamelContext} as a route. Note that classes are excluded if      * they are specifically configured in the spring.xml      *      * @param packages the package names which are recursively searched      */
 DECL|method|setPackages (String[] packages)
 specifier|public
 name|void
