@@ -345,6 +345,16 @@ literal|"bar"
 argument_list|)
 argument_list|)
 operator|.
+name|setHeader
+argument_list|(
+literal|"name"
+argument_list|,
+name|constant
+argument_list|(
+literal|"a"
+argument_list|)
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:x"

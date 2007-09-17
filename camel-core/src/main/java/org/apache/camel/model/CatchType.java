@@ -246,6 +246,9 @@ specifier|private
 name|List
 argument_list|<
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -253,6 +256,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -423,6 +429,9 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -431,7 +440,7 @@ return|return
 name|outputs
 return|;
 block|}
-DECL|method|setOutputs (List<ProcessorType> outputs)
+DECL|method|setOutputs (List<ProcessorType<?>> outputs)
 specifier|public
 name|void
 name|setOutputs
@@ -439,6 +448,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)

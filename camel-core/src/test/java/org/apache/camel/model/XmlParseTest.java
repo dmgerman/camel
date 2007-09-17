@@ -786,7 +786,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertChildTo (String message, ProcessorType route, String uri)
+DECL|method|assertChildTo (String message, ProcessorType<?> route, String uri)
 specifier|protected
 name|void
 name|assertChildTo
@@ -795,6 +795,9 @@ name|String
 name|message
 parameter_list|,
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|route
 parameter_list|,
 name|String
@@ -802,6 +805,9 @@ name|uri
 parameter_list|)
 block|{
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|processor
 init|=
 name|assertOneElement
@@ -941,6 +947,9 @@ block|{
 name|List
 argument_list|<
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|list
 init|=
@@ -990,12 +999,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|assertProcessor (ProcessorType route, String processorRef)
+DECL|method|assertProcessor (ProcessorType<?> route, String processorRef)
 specifier|protected
 name|void
 name|assertProcessor
 parameter_list|(
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|route
 parameter_list|,
 name|String
@@ -1003,6 +1015,9 @@ name|processorRef
 parameter_list|)
 block|{
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|processor
 init|=
 name|assertOneElement
@@ -1038,16 +1053,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertFilter (ProcessorType route)
+DECL|method|assertFilter (ProcessorType<?> route)
 specifier|protected
 name|FilterType
 name|assertFilter
 parameter_list|(
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|route
 parameter_list|)
 block|{
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|processor
 init|=
 name|assertOneElement
@@ -1069,16 +1090,22 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|assertRecipientList (ProcessorType route)
+DECL|method|assertRecipientList (ProcessorType<?> route)
 specifier|protected
 name|RecipientListType
 name|assertRecipientList
 parameter_list|(
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|route
 parameter_list|)
 block|{
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|processor
 init|=
 name|assertOneElement
@@ -1100,16 +1127,22 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|assertChoice (ProcessorType route)
+DECL|method|assertChoice (ProcessorType<?> route)
 specifier|protected
 name|ChoiceType
 name|assertChoice
 parameter_list|(
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|route
 parameter_list|)
 block|{
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|processor
 init|=
 name|assertOneElement
@@ -1131,16 +1164,22 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|assertSplitter (ProcessorType route)
+DECL|method|assertSplitter (ProcessorType<?> route)
 specifier|protected
 name|SplitterType
 name|assertSplitter
 parameter_list|(
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|route
 parameter_list|)
 block|{
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|processor
 init|=
 name|assertOneElement
@@ -1162,16 +1201,22 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|assertResequencer (ProcessorType route)
+DECL|method|assertResequencer (ProcessorType<?> route)
 specifier|protected
 name|ResequencerType
 name|assertResequencer
 parameter_list|(
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|route
 parameter_list|)
 block|{
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|processor
 init|=
 name|assertOneElement

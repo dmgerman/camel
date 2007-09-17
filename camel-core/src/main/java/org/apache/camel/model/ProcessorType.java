@@ -454,6 +454,11 @@ specifier|public
 specifier|abstract
 class|class
 name|ProcessorType
+parameter_list|<
+name|Type
+extends|extends
+name|ProcessorType
+parameter_list|>
 block|{
 DECL|field|DEFAULT_TRACE_CATEGORY
 specifier|public
@@ -499,6 +504,9 @@ specifier|abstract
 name|List
 argument_list|<
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -552,6 +560,9 @@ block|{
 name|Collection
 argument_list|<
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -636,7 +647,7 @@ comment|// ---------------------------------------------------------------------
 comment|/**      * Sends the exchange to the given endpoint URI      */
 DECL|method|to (String uri)
 specifier|public
-name|ProcessorType
+name|Type
 name|to
 parameter_list|(
 name|String
@@ -653,13 +664,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
 comment|/**      * Sends the exchange to the given endpoint      */
 DECL|method|to (Endpoint endpoint)
 specifier|public
-name|ProcessorType
+name|Type
 name|to
 parameter_list|(
 name|Endpoint
@@ -676,13 +690,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints using the      * {@link MulticastProcessor} pattern      */
 DECL|method|to (String... uris)
 specifier|public
-name|ProcessorType
+name|Type
 name|to
 parameter_list|(
 name|String
@@ -709,13 +726,16 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints using the      * {@link MulticastProcessor} pattern      */
 DECL|method|to (Endpoint... endpoints)
 specifier|public
-name|ProcessorType
+name|Type
 name|to
 parameter_list|(
 name|Endpoint
@@ -742,13 +762,16 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoint using the      * {@link MulticastProcessor} pattern      */
 DECL|method|to (Collection<Endpoint> endpoints)
 specifier|public
-name|ProcessorType
+name|Type
 name|to
 parameter_list|(
 name|Collection
@@ -777,6 +800,9 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
@@ -806,7 +832,7 @@ block|}
 comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      */
 DECL|method|pipeline (String... uris)
 specifier|public
-name|ProcessorType
+name|Type
 name|pipeline
 parameter_list|(
 name|String
@@ -825,7 +851,7 @@ block|}
 comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      */
 DECL|method|pipeline (Endpoint... endpoints)
 specifier|public
-name|ProcessorType
+name|Type
 name|pipeline
 parameter_list|(
 name|Endpoint
@@ -844,7 +870,7 @@ block|}
 comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      */
 DECL|method|pipeline (Collection<Endpoint> endpoints)
 specifier|public
-name|ProcessorType
+name|Type
 name|pipeline
 parameter_list|(
 name|Collection
@@ -972,7 +998,7 @@ block|}
 comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *       * @param receipients is the builder of the expression used in the      *                {@link RecipientList} to decide the destinations      */
 DECL|method|recipientList (Expression receipients)
 specifier|public
-name|ProcessorType
+name|Type
 name|recipientList
 parameter_list|(
 name|Expression
@@ -994,6 +1020,9 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
@@ -1299,7 +1328,7 @@ return|;
 block|}
 DECL|method|interceptor (String ref)
 specifier|public
-name|ProcessorType
+name|Type
 name|interceptor
 parameter_list|(
 name|String
@@ -1319,6 +1348,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
@@ -1346,7 +1378,7 @@ return|;
 block|}
 DECL|method|proceed ()
 specifier|public
-name|ProcessorType
+name|Type
 name|proceed
 parameter_list|()
 block|{
@@ -1358,6 +1390,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
@@ -1421,7 +1456,7 @@ return|;
 block|}
 DECL|method|interceptors (String... refs)
 specifier|public
-name|ProcessorType
+name|Type
 name|interceptors
 parameter_list|(
 name|String
@@ -1444,6 +1479,9 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
@@ -1509,7 +1547,7 @@ block|}
 comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the {@link #DEFAULT_TRACE_CATEGORY} logging category.      *       * @return      */
 DECL|method|trace ()
 specifier|public
-name|ProcessorType
+name|Type
 name|trace
 parameter_list|()
 block|{
@@ -1523,7 +1561,7 @@ block|}
 comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the specified logging category.      *       * @param category the logging category trace messages will sent to.      * @return      */
 DECL|method|trace (String category)
 specifier|public
-name|ProcessorType
+name|Type
 name|trace
 parameter_list|(
 name|String
@@ -1628,7 +1666,7 @@ return|;
 block|}
 DECL|method|intercept (DelegateProcessor interceptor)
 specifier|public
-name|ProcessorType
+name|Type
 name|intercept
 parameter_list|(
 name|DelegateProcessor
@@ -1652,13 +1690,16 @@ operator|=
 name|interceptor
 expr_stmt|;
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
 comment|/**      * Installs the given error handler builder      *       * @param errorHandlerBuilder the error handler to be used by default for      *                all child routes      * @return the current builder with the error handler configured      */
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
-name|ProcessorType
+name|Type
 name|errorHandler
 parameter_list|(
 name|ErrorHandlerBuilder
@@ -1671,13 +1712,16 @@ name|errorHandlerBuilder
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
 comment|/**      * Configures whether or not the error handler is inherited by every      * processing node (or just the top most one)      *       * @param condition the falg as to whether error handlers should be      *                inherited or not      * @return the current builder      */
 DECL|method|inheritErrorHandler (boolean condition)
 specifier|public
-name|ProcessorType
+name|Type
 name|inheritErrorHandler
 parameter_list|(
 name|boolean
@@ -1690,6 +1734,9 @@ name|condition
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
@@ -1698,7 +1745,7 @@ comment|// ---------------------------------------------------------------------
 comment|/**      * Adds the custom processor to this destination which could be a final      * destination, or could be a transformation in a pipeline      */
 DECL|method|process (Processor processor)
 specifier|public
-name|ProcessorType
+name|Type
 name|process
 parameter_list|(
 name|Processor
@@ -1720,13 +1767,16 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
 comment|/**      * Adds a bean which is invoked which could be a final destination, or could      * be a transformation in a pipeline      */
 DECL|method|bean (Object bean)
 specifier|public
-name|ProcessorType
+name|Type
 name|bean
 parameter_list|(
 name|Object
@@ -1753,13 +1803,16 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
 comment|/**      * Adds a bean and method which is invoked which could be a final      * destination, or could be a transformation in a pipeline      */
 DECL|method|bean (Object bean, String method)
 specifier|public
-name|ProcessorType
+name|Type
 name|bean
 parameter_list|(
 name|Object
@@ -1796,13 +1849,16 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
 comment|/**      * Adds a bean which is invoked which could be a final destination, or could      * be a transformation in a pipeline      */
 DECL|method|beanRef (String ref)
 specifier|public
-name|ProcessorType
+name|Type
 name|beanRef
 parameter_list|(
 name|String
@@ -1824,13 +1880,16 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
 comment|/**      * Adds a bean and method which is invoked which could be a final      * destination, or could be a transformation in a pipeline      */
 DECL|method|beanRef (String ref, String method)
 specifier|public
-name|ProcessorType
+name|Type
 name|beanRef
 parameter_list|(
 name|String
@@ -1857,13 +1916,16 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|Type
+operator|)
 name|this
 return|;
 block|}
 comment|/**      * Adds a processor which sets the body on the IN message      */
 DECL|method|setBody (Expression expression)
 specifier|public
-name|ProcessorType
+name|Type
 name|setBody
 parameter_list|(
 name|Expression
@@ -1885,7 +1947,7 @@ block|}
 comment|/**      * Adds a processor which sets the body on the OUT message      */
 DECL|method|setOutBody (Expression expression)
 specifier|public
-name|ProcessorType
+name|Type
 name|setOutBody
 parameter_list|(
 name|Expression
@@ -1904,10 +1966,32 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Adds a processor which sets the body on the FAULT message      */
+DECL|method|setFaultBody (Expression expression)
+specifier|public
+name|Type
+name|setFaultBody
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+return|return
+name|process
+argument_list|(
+name|ProcessorBuilder
+operator|.
+name|setFaultBody
+argument_list|(
+name|expression
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Adds a processor which sets the header on the IN message      */
 DECL|method|setHeader (String name, Expression expression)
 specifier|public
-name|ProcessorType
+name|Type
 name|setHeader
 parameter_list|(
 name|String
@@ -1934,7 +2018,7 @@ block|}
 comment|/**      * Adds a processor which sets the header on the OUT message      */
 DECL|method|setOutHeader (String name, Expression expression)
 specifier|public
-name|ProcessorType
+name|Type
 name|setOutHeader
 parameter_list|(
 name|String
@@ -1958,10 +2042,37 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Adds a processor which sets the header on the FAULT message      */
+DECL|method|setFaultHeader (String name, Expression expression)
+specifier|public
+name|Type
+name|setFaultHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Expression
+name|expression
+parameter_list|)
+block|{
+return|return
+name|process
+argument_list|(
+name|ProcessorBuilder
+operator|.
+name|setFaultHeader
+argument_list|(
+name|name
+argument_list|,
+name|expression
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Adds a processor which sets the exchange property      */
 DECL|method|setProperty (String name, Expression expression)
 specifier|public
-name|ProcessorType
+name|Type
 name|setProperty
 parameter_list|(
 name|String
@@ -1988,7 +2099,7 @@ block|}
 comment|/**      * Adds a processor which removes the header on the IN message      */
 DECL|method|removeHeader (String name)
 specifier|public
-name|ProcessorType
+name|Type
 name|removeHeader
 parameter_list|(
 name|String
@@ -2010,7 +2121,7 @@ block|}
 comment|/**      * Adds a processor which removes the header on the OUT message      */
 DECL|method|removeOutHeader (String name)
 specifier|public
-name|ProcessorType
+name|Type
 name|removeOutHeader
 parameter_list|(
 name|String
@@ -2029,10 +2140,32 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Adds a processor which removes the header on the FAULT message      */
+DECL|method|removeFaultHeader (String name)
+specifier|public
+name|Type
+name|removeFaultHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|process
+argument_list|(
+name|ProcessorBuilder
+operator|.
+name|removeFaultHeader
+argument_list|(
+name|name
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Adds a processor which removes the exchange property      */
 DECL|method|removeProperty (String name)
 specifier|public
-name|ProcessorType
+name|Type
 name|removeProperty
 parameter_list|(
 name|String
@@ -2054,7 +2187,7 @@ block|}
 comment|/**      * Converts the IN message body to the specified type      */
 DECL|method|convertBodyTo (Class type)
 specifier|public
-name|ProcessorType
+name|Type
 name|convertBodyTo
 parameter_list|(
 name|Class
@@ -2084,7 +2217,7 @@ block|}
 comment|/**      * Converts the OUT message body to the specified type      */
 DECL|method|convertOutBodyTo (Class type)
 specifier|public
-name|ProcessorType
+name|Type
 name|convertOutBodyTo
 parameter_list|(
 name|Class
@@ -2114,7 +2247,7 @@ block|}
 comment|/**      * Converts the FAULT message body to the specified type      */
 DECL|method|convertFaultBodyTo (Class type)
 specifier|public
-name|ProcessorType
+name|Type
 name|convertFaultBodyTo
 parameter_list|(
 name|Class
@@ -2611,7 +2744,7 @@ name|list
 argument_list|)
 return|;
 block|}
-DECL|method|createOutputsProcessor (RouteContext routeContext, Collection<ProcessorType> outputs)
+DECL|method|createOutputsProcessor (RouteContext routeContext, Collection<ProcessorType<?>> outputs)
 specifier|protected
 name|Processor
 name|createOutputsProcessor
@@ -2622,6 +2755,9 @@ parameter_list|,
 name|Collection
 argument_list|<
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)

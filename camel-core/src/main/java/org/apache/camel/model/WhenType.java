@@ -102,6 +102,11 @@ DECL|class|WhenType
 specifier|public
 class|class
 name|WhenType
+parameter_list|<
+name|Type
+extends|extends
+name|ProcessorType
+parameter_list|>
 extends|extends
 name|ExpressionNode
 block|{

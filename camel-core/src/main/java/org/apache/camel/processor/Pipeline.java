@@ -412,7 +412,7 @@ name|nextExchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * It would be nice if we could implement the sync process method as follows.. but we      * can't since the dead letter handler seem to like to handle the error but still      * set the Exchange.exception field.  When that happens this method throws that      * exception but it seem that folks don't expect to get that exception.      *      * @param exchange      * @throws Exception      */
+comment|/**      * It would be nice if we could implement the sync process method as follows.. but we      * can't since the dead letter handler seem to like to handle the error but still      * set the Exchange.exception field.  When that happens this method throws that      * exception but it seem that folks don't expect to get that exception.      *      * @param exchange      * @throws Exception             thx      */
 DECL|method|xprocess (Exchange exchange)
 specifier|public
 name|void
@@ -883,15 +883,23 @@ init|=
 name|previousExchange
 operator|.
 name|getOut
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 name|Object
 name|output
 init|=
 name|previousOut
+operator|!=
+literal|null
+condition|?
+name|previousOut
 operator|.
 name|getBody
 argument_list|()
+else|:
+literal|null
 decl_stmt|;
 name|Message
 name|in

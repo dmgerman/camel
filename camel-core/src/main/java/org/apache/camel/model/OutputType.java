@@ -46,20 +46,6 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElement
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
 name|XmlElementRef
 import|;
 end_import
@@ -157,8 +143,16 @@ DECL|class|OutputType
 specifier|public
 class|class
 name|OutputType
+parameter_list|<
+name|Type
 extends|extends
 name|ProcessorType
+parameter_list|>
+extends|extends
+name|ProcessorType
+argument_list|<
+name|Type
+argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
@@ -184,6 +178,9 @@ specifier|protected
 name|List
 argument_list|<
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -191,6 +188,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -216,6 +216,9 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -224,7 +227,7 @@ return|return
 name|outputs
 return|;
 block|}
-DECL|method|setOutputs (List<ProcessorType> outputs)
+DECL|method|setOutputs (List<ProcessorType<?>> outputs)
 specifier|public
 name|void
 name|setOutputs
@@ -232,6 +235,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)
