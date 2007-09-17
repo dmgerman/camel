@@ -232,7 +232,7 @@ name|newLoader
 init|=
 name|createClassLoader
 argument_list|(
-name|oldClassLoader
+literal|null
 argument_list|)
 decl_stmt|;
 name|Thread
