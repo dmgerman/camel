@@ -258,6 +258,41 @@ name|processor
 argument_list|)
 return|;
 block|}
+comment|/**      * Sends an exchange to an endpoint using a supplied      * @{link Processor} to populate the exchange.  The callback      * will be called when the exchange is completed.      *       * @param endpointUri the endpoint URI to send the exchange to      * @param processor the transformer used to populate the new exchange      */
+DECL|method|send (String endpointUri, Processor processor, AsyncCallback callback)
+specifier|public
+name|E
+name|send
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|)
+block|{
+name|Endpoint
+name|endpoint
+init|=
+name|resolveMandatoryEndpoint
+argument_list|(
+name|endpointUri
+argument_list|)
+decl_stmt|;
+return|return
+name|send
+argument_list|(
+name|endpoint
+argument_list|,
+name|processor
+argument_list|,
+name|callback
+argument_list|)
+return|;
+block|}
 comment|/**      * Sends an exchange to an endpoint using a supplied      *      * @{link Processor} to populate the exchange      *      * @param endpointUri the endpoint URI to send the exchange to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor the transformer used to populate the new exchange      */
 DECL|method|send (String endpointUri, ExchangePattern pattern, Processor processor)
 specifier|public
@@ -356,6 +391,38 @@ argument_list|(
 name|endpoint
 argument_list|,
 name|processor
+argument_list|)
+return|;
+block|}
+comment|/**      * Sends an exchange to an endpoint using a supplied      * @{link Processor} to populate the exchange.  The callback      * will be called when the exchange is completed.      *       * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
+DECL|method|send (Endpoint<E> endpoint, Processor processor, AsyncCallback callback)
+specifier|public
+name|E
+name|send
+parameter_list|(
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|endpoint
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|)
+block|{
+return|return
+name|producerCache
+operator|.
+name|send
+argument_list|(
+name|endpoint
+argument_list|,
+name|processor
+argument_list|,
+name|callback
 argument_list|)
 return|;
 block|}
