@@ -999,7 +999,7 @@ name|leftValue
 argument_list|,
 name|rightValue
 argument_list|)
-operator|<
+operator|>=
 literal|0
 return|;
 block|}
