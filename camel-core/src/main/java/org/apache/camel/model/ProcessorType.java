@@ -1785,6 +1785,42 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Adds the custom processor reference to this destination which could be a final      * destination, or could be a transformation in a pipeline      */
+DECL|method|processRef (String ref)
+specifier|public
+name|Type
+name|processRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|ProcessorRef
+name|answer
+init|=
+operator|new
+name|ProcessorRef
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setRef
+argument_list|(
+name|ref
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
 comment|/**      * Adds a bean which is invoked which could be a final destination, or could      * be a transformation in a pipeline      */
 DECL|method|bean (Object bean)
 specifier|public
