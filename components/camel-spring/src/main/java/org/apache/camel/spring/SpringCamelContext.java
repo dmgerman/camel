@@ -264,55 +264,7 @@ name|springframework
 operator|.
 name|context
 operator|.
-name|ApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|ApplicationContextAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|ApplicationEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|ApplicationListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|ConfigurableApplicationContext
+name|*
 import|;
 end_import
 
@@ -345,7 +297,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Spring aware implementation of {@link CamelContext} which will  * automatically register itself with Springs lifecycle methods plus allows  * spring to be used to customize a any<a  * href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  * as well as supporting accessing components and beans via the Spring  * {@link ApplicationContext}  *   * @version $Revision$  */
+comment|/**  * A Spring aware implementation of {@link org.apache.camel.CamelContext} which will  * automatically register itself with Springs lifecycle methods plus allows  * spring to be used to customize a any<a  * href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  * as well as supporting accessing components and beans via the Spring  * {@link ApplicationContext}  *   * @version $Revision$  */
 end_comment
 
 begin_class

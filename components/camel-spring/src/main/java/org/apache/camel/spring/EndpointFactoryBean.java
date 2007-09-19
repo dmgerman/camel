@@ -18,71 +18,13 @@ end_package
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|bind
+name|camel
 operator|.
-name|annotation
-operator|.
-name|XmlAccessType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlRootElement
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlTransient
+name|CamelContext
 import|;
 end_import
 
@@ -94,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|CamelContextAware
 import|;
 end_import
 
@@ -118,9 +60,37 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchEndpointException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|IdentifiedType
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|notNull
 import|;
 end_import
 
@@ -139,18 +109,16 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|javax
 operator|.
-name|apache
+name|xml
 operator|.
-name|camel
+name|bind
 operator|.
-name|util
+name|annotation
 operator|.
-name|ObjectHelper
-operator|.
-name|notNull
+name|*
 import|;
 end_import
 
@@ -181,6 +149,8 @@ extends|extends
 name|IdentifiedType
 implements|implements
 name|FactoryBean
+implements|,
+name|CamelContextAware
 block|{
 annotation|@
 name|XmlAttribute
@@ -257,10 +227,10 @@ return|return
 name|singleton
 return|;
 block|}
-DECL|method|getContext ()
+DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
-name|getContext
+name|getCamelContext
 parameter_list|()
 block|{
 return|return
@@ -268,10 +238,10 @@ name|context
 return|;
 block|}
 comment|/**      * Sets the context to use to resolve endpoints      *      * @param context the context used to resolve endpoints      */
-DECL|method|setContext (CamelContext context)
+DECL|method|setCamelContext (CamelContext context)
 specifier|public
 name|void
-name|setContext
+name|setCamelContext
 parameter_list|(
 name|CamelContext
 name|context
@@ -373,13 +343,33 @@ argument_list|,
 literal|"uri"
 argument_list|)
 expr_stmt|;
-return|return
+name|Endpoint
+name|endpoint
+init|=
 name|context
 operator|.
 name|getEndpoint
 argument_list|(
 name|uri
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoSuchEndpointException
+argument_list|(
+name|uri
+argument_list|)
+throw|;
+block|}
+return|return
+name|endpoint
 return|;
 block|}
 block|}

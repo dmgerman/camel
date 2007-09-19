@@ -751,7 +751,7 @@ argument_list|()
 operator|.
 name|addPropertyValue
 argument_list|(
-literal|"context"
+literal|"camelContext"
 argument_list|,
 operator|new
 name|RuntimeBeanReference
