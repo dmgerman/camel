@@ -113,20 +113,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -593,6 +579,13 @@ name|toData
 operator|.
 name|outputs
 decl_stmt|;
+if|if
+condition|(
+name|outputs
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|ProcessorType
@@ -626,6 +619,7 @@ name|toData
 operator|=
 name|newData
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
