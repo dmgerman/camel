@@ -16,53 +16,42 @@ name|view
 package|;
 end_package
 
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|RouteDotGeneratorTest
+DECL|class|XmlGraphTest
 specifier|public
 class|class
-name|RouteDotGeneratorTest
+name|XmlGraphTest
 extends|extends
-name|TestCase
+name|DotViewTest
 block|{
-DECL|method|testInsertSpacesBetweenCamelCase ()
+annotation|@
+name|Override
+DECL|method|testGenerateFiles ()
 specifier|public
 name|void
-name|testInsertSpacesBetweenCamelCase
+name|testGenerateFiles
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|String
-name|value
+name|XmlGraphGenerator
+name|generator
 init|=
-name|NodeData
-operator|.
-name|insertSpacesBetweenCamelCase
+operator|new
+name|XmlGraphGenerator
 argument_list|(
-literal|"FooBarType"
+name|outputDirectory
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|generator
+operator|.
+name|drawRoutes
 argument_list|(
-literal|"Converted value"
-argument_list|,
-literal|"Foo Bar Type"
-argument_list|,
-name|value
+name|context
 argument_list|)
 expr_stmt|;
 block|}
