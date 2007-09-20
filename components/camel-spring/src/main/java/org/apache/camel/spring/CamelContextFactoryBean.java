@@ -817,12 +817,8 @@ condition|)
 block|{
 name|context
 operator|=
-operator|new
-name|SpringCamelContext
-argument_list|(
-name|getApplicationContext
+name|createContext
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -1073,6 +1069,22 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
+comment|/**      * Create the context      */
+DECL|method|createContext ()
+specifier|protected
+name|SpringCamelContext
+name|createContext
+parameter_list|()
+block|{
+return|return
+operator|new
+name|SpringCamelContext
+argument_list|(
+name|getApplicationContext
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      * Strategy to install all available routes into the context      */
 DECL|method|installRoutes ()
 specifier|protected
