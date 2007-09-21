@@ -106,9 +106,7 @@ DECL|method|createQueue ()
 specifier|public
 name|BlockingQueue
 argument_list|<
-name|SedaEndpoint
-operator|.
-name|Entry
+name|Exchange
 argument_list|>
 name|createQueue
 parameter_list|()
@@ -117,9 +115,7 @@ return|return
 operator|new
 name|LinkedBlockingQueue
 argument_list|<
-name|SedaEndpoint
-operator|.
-name|Entry
+name|Exchange
 argument_list|>
 argument_list|(
 literal|1000

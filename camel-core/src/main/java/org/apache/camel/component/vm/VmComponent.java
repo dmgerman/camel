@@ -106,24 +106,6 @@ name|SedaEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|seda
-operator|.
-name|SedaEndpoint
-operator|.
-name|Entry
-import|;
-end_import
-
 begin_comment
 comment|/**  * An implementation of the<a href="http://activemq.apache.org/camel/vm.html">VM components</a>  * for asynchronous SEDA exchanges on a {@link BlockingQueue} within the classloader tree containing  * the camel-core.jar. i.e. to handle communicating across CamelContext instances and possibly across  * web application contexts, providing that camel-core.jar is on the system classpath.  *  * @version $Revision: 1.1 $  */
 end_comment
@@ -177,9 +159,7 @@ name|Exception
 block|{
 name|BlockingQueue
 argument_list|<
-name|SedaEndpoint
-operator|.
-name|Entry
+name|Exchange
 argument_list|>
 name|blockingQueue
 init|=
@@ -204,7 +184,7 @@ DECL|method|getBlockingQueue (String uri)
 specifier|protected
 name|BlockingQueue
 argument_list|<
-name|Entry
+name|Exchange
 argument_list|>
 name|getBlockingQueue
 parameter_list|(
@@ -219,7 +199,7 @@ init|)
 block|{
 name|BlockingQueue
 argument_list|<
-name|Entry
+name|Exchange
 argument_list|>
 name|answer
 init|=
