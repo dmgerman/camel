@@ -155,7 +155,7 @@ operator|=
 literal|"Service running state"
 argument_list|)
 DECL|method|isStarted ()
-specifier|private
+specifier|public
 name|boolean
 name|isStarted
 parameter_list|()

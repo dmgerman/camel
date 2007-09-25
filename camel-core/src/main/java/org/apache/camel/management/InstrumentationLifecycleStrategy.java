@@ -526,42 +526,7 @@ name|mc
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|agent
-operator|.
-name|register
-argument_list|(
-name|mc
-argument_list|,
-name|getNamingStrategy
-argument_list|()
-operator|.
-name|getObjectName
-argument_list|(
-name|context
-argument_list|,
-name|mc
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|JMException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Could not register Counter MBean"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
+comment|/* 		 *  Merge performance counter with the MBean it represents instead  		 *  of registering a new MBean 		try { 			agent.register(mc, getNamingStrategy().getObjectName(context, mc)); 		} 		catch(JMException e) { 			LOG.warn("Could not register Counter MBean", e); 		} 		*/
 block|}
 DECL|method|getNamingStrategy ()
 specifier|public

@@ -136,6 +136,25 @@ literal|"org/apache/camel/spring/management/jmxInstrumentationWithConnector.xml"
 argument_list|)
 return|;
 block|}
+DECL|method|testGetContext ()
+specifier|public
+name|void
+name|testGetContext
+parameter_list|()
+block|{
+name|assertNotNull
+argument_list|(
+name|this
+operator|.
+name|applicationContext
+operator|.
+name|getBean
+argument_list|(
+literal|"camel"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

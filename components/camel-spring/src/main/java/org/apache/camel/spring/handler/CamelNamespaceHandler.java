@@ -896,6 +896,15 @@ name|builder
 operator|.
 name|addPropertyValue
 argument_list|(
+literal|"id"
+argument_list|,
+name|contextId
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|addPropertyValue
+argument_list|(
 literal|"routes"
 argument_list|,
 name|factoryBean

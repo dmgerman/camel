@@ -495,6 +495,28 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|NAME_PREFIX
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|NAME_PREFIX
+init|=
+literal|"camel-"
+decl_stmt|;
+DECL|field|NAME_SUFFIX
+specifier|private
+specifier|static
+name|int
+name|NAME_SUFFIX
+init|=
+literal|0
+decl_stmt|;
+DECL|field|name
+specifier|private
+name|String
+name|name
+decl_stmt|;
 DECL|field|endpoints
 specifier|private
 name|Map
@@ -625,7 +647,15 @@ DECL|method|DefaultCamelContext ()
 specifier|public
 name|DefaultCamelContext
 parameter_list|()
-block|{     }
+block|{
+name|name
+operator|=
+name|NAME_PREFIX
+operator|+
+operator|++
+name|NAME_SUFFIX
+expr_stmt|;
+block|}
 comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the      * registry      *       * @param jndiContext      */
 DECL|method|DefaultCamelContext (Context jndiContext)
 specifier|public
@@ -655,10 +685,41 @@ name|registry
 parameter_list|)
 block|{
 name|this
+argument_list|()
+expr_stmt|;
+name|this
 operator|.
 name|registry
 operator|=
 name|registry
+expr_stmt|;
+block|}
+comment|/**      * Gets the name of the this context.      */
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+comment|/**      * Sets the name of the this context.      */
+DECL|method|setName (String name)
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
 expr_stmt|;
 block|}
 comment|/**      * Adds a component to the container.      */

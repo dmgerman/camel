@@ -156,6 +156,12 @@ name|CamelContext
 extends|extends
 name|Service
 block|{
+comment|/**      * Gets the name of the this context.      */
+DECL|method|getName ()
+name|String
+name|getName
+parameter_list|()
+function_decl|;
 comment|// Component Management Methods
 comment|//-----------------------------------------------------------------------
 comment|/**      * Adds a component to the context.      */

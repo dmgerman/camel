@@ -1076,13 +1076,26 @@ name|SpringCamelContext
 name|createContext
 parameter_list|()
 block|{
-return|return
+name|SpringCamelContext
+name|ctx
+init|=
 operator|new
 name|SpringCamelContext
 argument_list|(
 name|getApplicationContext
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|ctx
+operator|.
+name|setName
+argument_list|(
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|ctx
 return|;
 block|}
 comment|/**      * Strategy to install all available routes into the context      */

@@ -92,38 +92,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|language
-operator|.
-name|simple
-operator|.
-name|SimpleLanguage
-operator|.
-name|simple
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
