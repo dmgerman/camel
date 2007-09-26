@@ -217,15 +217,13 @@ argument_list|(
 name|endpointUri
 argument_list|)
 decl_stmt|;
+return|return
 name|send
 argument_list|(
 name|endpoint
 argument_list|,
 name|exchange
 argument_list|)
-expr_stmt|;
-return|return
-name|exchange
 return|;
 block|}
 comment|/**      * Sends an exchange to an endpoint using a supplied      *       * @{link Processor} to populate the exchange      *       * @param endpointUri the endpoint URI to send the exchange to      * @param processor the transformer used to populate the new exchange      */
