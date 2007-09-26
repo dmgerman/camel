@@ -218,6 +218,9 @@ name|xpath
 argument_list|(
 literal|"/purchaseOrder/@id"
 argument_list|)
+operator|.
+name|stringResult
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|ActivityBuilder
@@ -234,6 +237,9 @@ name|xpath
 argument_list|(
 literal|"/invoice/@purchaseOrderId"
 argument_list|)
+operator|.
+name|stringResult
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// now lets add some BAM rules
