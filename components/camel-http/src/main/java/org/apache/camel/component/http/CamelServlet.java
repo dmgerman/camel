@@ -221,6 +221,8 @@ operator|.
 name|writeResponse
 argument_list|(
 name|exchange
+argument_list|,
+name|response
 argument_list|)
 expr_stmt|;
 block|}

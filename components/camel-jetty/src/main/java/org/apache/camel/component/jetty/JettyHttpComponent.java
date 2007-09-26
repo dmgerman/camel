@@ -516,6 +516,15 @@ argument_list|(
 name|connector
 argument_list|)
 expr_stmt|;
+name|connectors
+operator|.
+name|put
+argument_list|(
+name|connectorKey
+argument_list|,
+name|connectorRef
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
