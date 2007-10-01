@@ -436,7 +436,6 @@ block|{
 comment|// not constructed
 block|}
 DECL|method|getQName (final String name)
-specifier|public
 specifier|static
 name|QName
 name|getQName
@@ -487,10 +486,31 @@ return|return
 name|qName
 return|;
 block|}
+DECL|method|getPortName (final CxfEndpoint endpoint)
+specifier|public
+specifier|static
+name|QName
+name|getPortName
+parameter_list|(
+specifier|final
+name|CxfEndpoint
+name|endpoint
+parameter_list|)
+block|{
+return|return
+name|getQName
+argument_list|(
+name|endpoint
+operator|.
+name|getPortName
+argument_list|()
+argument_list|)
+return|;
+block|}
 DECL|method|getServiceName (final CxfEndpoint endpoint)
 specifier|public
 specifier|static
-name|String
+name|QName
 name|getServiceName
 parameter_list|(
 specifier|final
@@ -499,10 +519,13 @@ name|endpoint
 parameter_list|)
 block|{
 return|return
+name|getQName
+argument_list|(
 name|endpoint
 operator|.
 name|getServiceName
 argument_list|()
+argument_list|)
 return|;
 block|}
 DECL|method|getEndpointInfo (final Service service, final CxfEndpoint endpoint)
