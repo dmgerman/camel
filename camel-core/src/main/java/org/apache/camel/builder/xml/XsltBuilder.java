@@ -299,13 +299,13 @@ specifier|private
 name|Transformer
 name|transformer
 decl_stmt|;
-DECL|field|resultHandler
+DECL|field|resultHandlerFactory
 specifier|private
-name|ResultHandler
-name|resultHandler
+name|ResultHandlerFactory
+name|resultHandlerFactory
 init|=
 operator|new
-name|StringResultHandler
+name|StringResultHandlerFactory
 argument_list|()
 decl_stmt|;
 DECL|field|failOnNullBody
@@ -398,6 +398,14 @@ name|getSource
 argument_list|(
 name|exchange
 argument_list|)
+decl_stmt|;
+name|ResultHandler
+name|resultHandler
+init|=
+name|resultHandlerFactory
+operator|.
+name|createResult
+argument_list|()
 decl_stmt|;
 name|Result
 name|result
@@ -589,10 +597,10 @@ name|XsltBuilder
 name|outputBytes
 parameter_list|()
 block|{
-name|setResultHandler
+name|setResultHandlerFactory
 argument_list|(
 operator|new
-name|StreamResultHandler
+name|StreamResultHandlerFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -607,10 +615,10 @@ name|XsltBuilder
 name|outputString
 parameter_list|()
 block|{
-name|setResultHandler
+name|setResultHandlerFactory
 argument_list|(
 operator|new
-name|StringResultHandler
+name|StringResultHandlerFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -625,10 +633,10 @@ name|XsltBuilder
 name|outputDOM
 parameter_list|()
 block|{
-name|setResultHandler
+name|setResultHandlerFactory
 argument_list|(
 operator|new
-name|DomResultHandler
+name|DomResultHandlerFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -751,30 +759,30 @@ operator|=
 name|failOnNullBody
 expr_stmt|;
 block|}
-DECL|method|getResultHandler ()
+DECL|method|getResultHandlerFactory ()
 specifier|public
-name|ResultHandler
-name|getResultHandler
+name|ResultHandlerFactory
+name|getResultHandlerFactory
 parameter_list|()
 block|{
 return|return
-name|resultHandler
+name|resultHandlerFactory
 return|;
 block|}
-DECL|method|setResultHandler (ResultHandler resultHandler)
+DECL|method|setResultHandlerFactory (ResultHandlerFactory resultHandlerFactory)
 specifier|public
 name|void
-name|setResultHandler
+name|setResultHandlerFactory
 parameter_list|(
-name|ResultHandler
-name|resultHandler
+name|ResultHandlerFactory
+name|resultHandlerFactory
 parameter_list|)
 block|{
 name|this
 operator|.
-name|resultHandler
+name|resultHandlerFactory
 operator|=
-name|resultHandler
+name|resultHandlerFactory
 expr_stmt|;
 block|}
 DECL|method|setTransformerSource (Source source)
