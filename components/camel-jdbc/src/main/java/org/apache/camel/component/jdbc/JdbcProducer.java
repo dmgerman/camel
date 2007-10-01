@@ -201,6 +201,12 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|readSize
+operator|=
+name|readSize
+expr_stmt|;
 name|source
 operator|=
 operator|(

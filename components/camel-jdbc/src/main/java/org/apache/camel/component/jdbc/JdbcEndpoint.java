@@ -151,10 +151,13 @@ specifier|private
 name|String
 name|remaining
 decl_stmt|;
+comment|/** The maximum size for reading a result set<code>readSize</code> */
 DECL|field|readSize
 specifier|private
 name|int
 name|readSize
+init|=
+literal|20000
 decl_stmt|;
 DECL|method|JdbcEndpoint (String endpointUri, String remaining, JdbcComponent component)
 specifier|protected
