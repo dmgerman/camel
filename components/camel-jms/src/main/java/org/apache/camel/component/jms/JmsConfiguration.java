@@ -495,7 +495,7 @@ specifier|private
 name|String
 name|cacheLevelName
 init|=
-literal|"CACHE_CONSUMER"
+literal|"CACHE_CONNECTION"
 decl_stmt|;
 DECL|field|recoveryInterval
 specifier|private
