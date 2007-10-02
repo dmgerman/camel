@@ -398,6 +398,22 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
+if|if
+condition|(
+name|shutdown
+operator|.
+name|get
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"ThreadProcessor is not running."
+argument_list|)
+throw|;
+block|}
 name|ProcessCall
 name|call
 init|=
