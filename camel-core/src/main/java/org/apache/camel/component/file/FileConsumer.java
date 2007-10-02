@@ -217,6 +217,10 @@ specifier|private
 name|long
 name|lastPollTime
 decl_stmt|;
+DECL|field|generateEmptyExchangeWhenIdle
+name|boolean
+name|generateEmptyExchangeWhenIdle
+decl_stmt|;
 DECL|method|FileConsumer (final FileEndpoint endpoint, Processor processor)
 specifier|public
 name|FileConsumer
@@ -251,6 +255,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|int
+name|rc
+init|=
 name|pollFileOrDirectory
 argument_list|(
 name|endpoint
@@ -261,7 +268,53 @@ argument_list|,
 name|isRecursive
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|rc
+operator|==
+literal|0
+operator|&&
+name|generateEmptyExchangeWhenIdle
+condition|)
+block|{
+specifier|final
+name|FileExchange
+name|exchange
+init|=
+name|endpoint
+operator|.
+name|createExchange
+argument_list|(
+operator|(
+name|File
+operator|)
+literal|null
+argument_list|)
+decl_stmt|;
+name|getAsyncProcessor
+argument_list|()
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|sync
+parameter_list|)
+block|{                 }
+block|}
+argument_list|)
 expr_stmt|;
+block|}
 name|lastPollTime
 operator|=
 name|System
@@ -270,9 +323,10 @@ name|currentTimeMillis
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      *       * @param fileOrDirectory      * @param processDir      * @return the number of files processed or being processed async.      */
 DECL|method|pollFileOrDirectory (File fileOrDirectory, boolean processDir)
 specifier|protected
-name|void
+name|int
 name|pollFileOrDirectory
 parameter_list|(
 name|File
@@ -291,11 +345,12 @@ name|isDirectory
 argument_list|()
 condition|)
 block|{
+return|return
 name|pollFile
 argument_list|(
 name|fileOrDirectory
 argument_list|)
-expr_stmt|;
+return|;
 comment|// process the file
 block|}
 elseif|else
@@ -304,6 +359,11 @@ condition|(
 name|processDir
 condition|)
 block|{
+name|int
+name|rc
+init|=
+literal|0
+decl_stmt|;
 if|if
 condition|(
 name|isValidFile
@@ -347,6 +407,8 @@ name|i
 operator|++
 control|)
 block|{
+name|rc
+operator|+=
 name|pollFileOrDirectory
 argument_list|(
 name|files
@@ -361,6 +423,9 @@ expr_stmt|;
 comment|// self-recursion
 block|}
 block|}
+return|return
+name|rc
+return|;
 block|}
 else|else
 block|{
@@ -373,6 +438,9 @@ operator|+
 name|fileOrDirectory
 argument_list|)
 expr_stmt|;
+return|return
+literal|0
+return|;
 block|}
 block|}
 DECL|field|filesBeingProcessed
@@ -393,9 +461,10 @@ name|File
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|/**      * @param file      * @return the number of files processed or being processed async.      */
 DECL|method|pollFile (final File file)
 specifier|protected
-name|void
+name|int
 name|pollFile
 parameter_list|(
 specifier|final
@@ -412,16 +481,23 @@ name|exists
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|0
+return|;
 block|}
 if|if
 condition|(
+operator|!
 name|isValidFile
 argument_list|(
 name|file
 argument_list|)
 condition|)
 block|{
+return|return
+literal|0
+return|;
+block|}
 comment|// we only care about file modified times if we are not deleting/moving files
 if|if
 condition|(
@@ -472,7 +548,9 @@ name|lastPollTime
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
+return|return
+literal|0
+return|;
 block|}
 block|}
 else|else
@@ -487,7 +565,9 @@ name|file
 argument_list|)
 condition|)
 block|{
-return|return;
+return|return
+literal|1
+return|;
 block|}
 name|filesBeingProcessed
 operator|.
@@ -690,7 +770,9 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
+return|return
+literal|1
+return|;
 block|}
 DECL|method|isValidFile (File file)
 specifier|protected
@@ -926,6 +1008,32 @@ operator|.
 name|regexPattern
 operator|=
 name|regexPattern
+expr_stmt|;
+block|}
+DECL|method|isGenerateEmptyExchangeWhenIdle ()
+specifier|public
+name|boolean
+name|isGenerateEmptyExchangeWhenIdle
+parameter_list|()
+block|{
+return|return
+name|generateEmptyExchangeWhenIdle
+return|;
+block|}
+DECL|method|setGenerateEmptyExchangeWhenIdle (boolean generateEmptyExchangeWhenIdle)
+specifier|public
+name|void
+name|setGenerateEmptyExchangeWhenIdle
+parameter_list|(
+name|boolean
+name|generateEmptyExchangeWhenIdle
+parameter_list|)
+block|{
+name|this
+operator|.
+name|generateEmptyExchangeWhenIdle
+operator|=
+name|generateEmptyExchangeWhenIdle
 expr_stmt|;
 block|}
 block|}
