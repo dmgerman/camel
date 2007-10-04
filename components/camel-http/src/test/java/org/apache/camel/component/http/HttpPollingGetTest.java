@@ -150,15 +150,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
 name|mockEndpoint
 operator|.
 name|assertIsSatisfied
