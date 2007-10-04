@@ -331,16 +331,6 @@ argument_list|(
 literal|"<hello>world!</hello>"
 argument_list|)
 expr_stmt|;
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
-operator|.
-name|addSynchronization
-argument_list|(
-name|synchronization
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 argument_list|)
@@ -405,6 +395,16 @@ argument_list|(
 literal|"Received: "
 operator|+
 name|exchange
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|addSynchronization
+argument_list|(
+name|synchronization
 argument_list|)
 expr_stmt|;
 name|String

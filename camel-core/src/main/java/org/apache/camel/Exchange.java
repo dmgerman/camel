@@ -197,6 +197,15 @@ name|UnitOfWork
 name|getUnitOfWork
 parameter_list|()
 function_decl|;
+comment|/**      * Sets the unit of work that this exchange belongs to; which may map to      * zero, one or more physical transactions      */
+DECL|method|setUnitOfWork (UnitOfWork unitOfWork)
+name|void
+name|setUnitOfWork
+parameter_list|(
+name|UnitOfWork
+name|unitOfWork
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the exchange id      *      * @return the unique id of the exchange      */
 DECL|method|getExchangeId ()
 name|String

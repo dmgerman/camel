@@ -1107,23 +1107,25 @@ name|UnitOfWork
 name|getUnitOfWork
 parameter_list|()
 block|{
-if|if
-condition|(
-name|unitOfWork
-operator|==
-literal|null
-condition|)
-block|{
-name|unitOfWork
-operator|=
-operator|new
-name|DefaultUnitOfWork
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|unitOfWork
 return|;
+block|}
+DECL|method|setUnitOfWork (UnitOfWork unitOfWork)
+specifier|public
+name|void
+name|setUnitOfWork
+parameter_list|(
+name|UnitOfWork
+name|unitOfWork
+parameter_list|)
+block|{
+name|this
+operator|.
+name|unitOfWork
+operator|=
+name|unitOfWork
+expr_stmt|;
 block|}
 comment|/**      * Factory method used to lazily create the IN message      */
 DECL|method|createInMessage ()
