@@ -56,6 +56,15 @@ name|Synchronization
 name|synchronization
 parameter_list|)
 function_decl|;
+comment|/**      * Invoked when this unit of work has been completed, whether it has failed or completed      */
+DECL|method|done (Exchange exchange)
+name|void
+name|done
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

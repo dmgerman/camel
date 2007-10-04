@@ -2445,10 +2445,13 @@ decl_stmt|;
 name|Processor
 name|processor
 init|=
+name|unwrap
+argument_list|(
 name|consumerRoute
 operator|.
 name|getProcessor
 argument_list|()
+argument_list|)
 decl_stmt|;
 return|return
 name|unwrapErrorHandler
