@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|groovy
+operator|.
+name|lang
+operator|.
+name|GroovyShell
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -61,7 +71,11 @@ DECL|method|GroovyRouteBuilder ()
 specifier|public
 name|GroovyRouteBuilder
 parameter_list|()
-block|{     }
+block|{
+name|init
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|GroovyRouteBuilder (CamelContext context)
 specifier|public
 name|GroovyRouteBuilder
@@ -75,6 +89,48 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+name|init
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|init ()
+specifier|private
+name|void
+name|init
+parameter_list|()
+block|{
+name|ClassLoader
+name|loader
+init|=
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
+decl_stmt|;
+name|GroovyShell
+name|shell
+init|=
+operator|new
+name|GroovyShell
+argument_list|(
+name|loader
+argument_list|)
+decl_stmt|;
+name|shell
+operator|.
+name|evaluate
+argument_list|(
+name|loader
+operator|.
+name|getResourceAsStream
+argument_list|(
+literal|"org/apache/camel/language/groovy/ConfigureCamel.groovy"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// TODO compile Groovy as part of build!
+comment|//new ConfigureCamel().run();
 block|}
 block|}
 end_class

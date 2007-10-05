@@ -170,22 +170,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|">>>>> "
-operator|+
-name|ProcessorType
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|resultEndpoint
 init|=
@@ -216,6 +200,18 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisifed
 argument_list|()
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Should have received one exchange: "
+operator|+
+name|resultEndpoint
+operator|.
+name|getReceivedExchanges
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testSendNotMatchingMessage ()
@@ -257,6 +253,18 @@ expr_stmt|;
 name|assertMockEndpointsSatisifed
 argument_list|()
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Should not have received any messages: "
+operator|+
+name|resultEndpoint
+operator|.
+name|getReceivedExchanges
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -276,7 +284,6 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
-comment|/*         MetaClassRegistry metaClassRegistry = MetaClassRegistry.getInstance(MetaClassRegistry.LOAD_DEFAULT);         MetaClass metaClass = metaClassRegistry.getMetaClass(ProcessorType.class);         metaClass = new ProxyMetaClass(metaClassRegistry, ProcessorType.class, metaClass);         metaClass.addNewInstanceMethod(CamelGroovyMethods.class.getMethod("filter", ProcessorType.class, Closure.class));         metaClassRegistry.setMetaClass(ProcessorType.class, metaClass); */
 name|GroovyClassLoader
 name|classLoader
 init|=
