@@ -478,10 +478,8 @@ block|{
 comment|// We can't keep retrying if the route is being shutdown.
 if|if
 condition|(
-name|isStopping
-argument_list|()
-operator|||
-name|isStopped
+operator|!
+name|isRunAllowed
 argument_list|()
 condition|)
 block|{

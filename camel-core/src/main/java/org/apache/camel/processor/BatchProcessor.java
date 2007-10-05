@@ -328,12 +328,7 @@ argument_list|)
 expr_stmt|;
 while|while
 condition|(
-operator|!
-name|isStopped
-argument_list|()
-operator|&&
-operator|!
-name|isStopping
+name|isRunAllowed
 argument_list|()
 condition|)
 block|{

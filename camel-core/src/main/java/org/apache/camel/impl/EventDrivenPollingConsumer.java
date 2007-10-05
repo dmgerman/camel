@@ -314,12 +314,7 @@ parameter_list|()
 block|{
 while|while
 condition|(
-operator|!
-name|isStopping
-argument_list|()
-operator|&&
-operator|!
-name|isStopped
+name|isRunAllowed
 argument_list|()
 condition|)
 block|{

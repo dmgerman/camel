@@ -292,13 +292,9 @@ condition|(
 name|isFastStop
 argument_list|()
 operator|&&
-operator|(
-name|isStopped
+operator|!
+name|isRunAllowed
 argument_list|()
-operator|||
-name|isStopping
-argument_list|()
-operator|)
 condition|)
 block|{
 throw|throw

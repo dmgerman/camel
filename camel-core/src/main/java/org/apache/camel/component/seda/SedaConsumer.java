@@ -261,12 +261,7 @@ parameter_list|()
 block|{
 while|while
 condition|(
-operator|!
-name|isStopping
-argument_list|()
-operator|&&
-operator|!
-name|isStopped
+name|isRunAllowed
 argument_list|()
 condition|)
 block|{
@@ -307,8 +302,7 @@ name|exchange
 operator|!=
 literal|null
 operator|&&
-operator|!
-name|isStopping
+name|isRunAllowed
 argument_list|()
 condition|)
 block|{
