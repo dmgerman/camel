@@ -264,6 +264,10 @@ condition|(
 operator|!
 name|isStopping
 argument_list|()
+operator|&&
+operator|!
+name|isStopped
+argument_list|()
 condition|)
 block|{
 specifier|final
