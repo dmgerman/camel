@@ -56,6 +56,8 @@ name|stream
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|ClassNotFoundException
 function_decl|;
 block|}
 end_interface
