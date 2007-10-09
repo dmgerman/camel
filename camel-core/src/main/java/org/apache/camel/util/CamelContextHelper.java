@@ -53,6 +53,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Injector
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -239,6 +253,38 @@ throw|;
 block|}
 return|return
 name|answer
+return|;
+block|}
+comment|/**      * Creates a new instance of the given type using the {@link Injector} on the given      * {@link CamelContext}      */
+DECL|method|newInstance (CamelContext context, Class<T> beanType)
+specifier|public
+specifier|static
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|newInstance
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|beanType
+parameter_list|)
+block|{
+return|return
+name|context
+operator|.
+name|getInjector
+argument_list|()
+operator|.
+name|newInstance
+argument_list|(
+name|beanType
+argument_list|)
 return|;
 block|}
 block|}
