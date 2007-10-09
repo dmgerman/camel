@@ -132,6 +132,18 @@ name|NoSuchPropertyException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * Some helper methods for working with {@link Exchange} objects  *   * @version $Revision$  */
 end_comment

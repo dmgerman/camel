@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter.jaxb
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
-operator|.
-name|jaxb
+name|spi
 package|;
 end_package
 
@@ -24,6 +22,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -40,129 +48,59 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|JAXBException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|Unmarshaller
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IOHelper
+name|Exchange
 import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link Unmarshaller} which uses JAXB2  *   * @version $Revision: 1.1 $  */
+comment|/**  * Represents a data format used to marshal objects to and from streams  * such as Java Serialization or using JAXB2 to encode/decode objects using XML  * or using SOAP encoding.  *  * @version $Revision: 1.1 $  */
 end_comment
 
-begin_class
-DECL|class|JaxbUnmarshaller
+begin_interface
+DECL|interface|DataFormat
 specifier|public
-class|class
-name|JaxbUnmarshaller
-implements|implements
-name|Unmarshaller
+interface|interface
+name|DataFormat
 block|{
-DECL|field|unmarshaller
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|Unmarshaller
-name|unmarshaller
-decl_stmt|;
-DECL|method|JaxbUnmarshaller (javax.xml.bind.Unmarshaller unmarshaller)
-specifier|public
-name|JaxbUnmarshaller
+comment|/**      * Marshals the object to the given Stream.      */
+DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
+name|void
+name|marshal
 parameter_list|(
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|Unmarshaller
-name|unmarshaller
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|graph
+parameter_list|,
+name|OutputStream
+name|stream
 parameter_list|)
-block|{
-name|this
-operator|.
-name|unmarshaller
-operator|=
-name|unmarshaller
-expr_stmt|;
-block|}
-DECL|method|unmarshal (InputStream stream)
-specifier|public
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Unmarshals the given stream into an object.      */
+DECL|method|unmarshal (Exchange exchange, InputStream stream)
 name|Object
 name|unmarshal
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
 name|InputStream
 name|stream
 parameter_list|)
 throws|throws
-name|IOException
-throws|,
-name|ClassNotFoundException
-block|{
-try|try
-block|{
-return|return
-name|unmarshaller
-operator|.
-name|unmarshal
-argument_list|(
-name|stream
-argument_list|)
-return|;
+name|Exception
+function_decl|;
 block|}
-catch|catch
-parameter_list|(
-name|JAXBException
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|IOHelper
-operator|.
-name|createIOException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
