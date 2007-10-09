@@ -616,17 +616,6 @@ name|getLocalName
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"StartQName "
-operator|+
-name|startQName
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|Fault

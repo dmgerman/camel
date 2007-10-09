@@ -321,8 +321,6 @@ name|SERVICE_CLASS
 operator|+
 literal|"&dataFormat=POJO"
 decl_stmt|;
-comment|//private Endpoint routerEndpoint;
-comment|//private Endpoint resultEndpoint;
 DECL|field|server
 specifier|private
 name|ServerImpl
@@ -348,7 +346,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|startService ()
-specifier|private
+specifier|protected
 name|void
 name|startService
 parameter_list|()
@@ -480,10 +478,10 @@ name|DefaultCamelContext
 argument_list|()
 return|;
 block|}
-DECL|method|testInvokingServerFromCXFClient ()
+DECL|method|testInvokingServiceFromCXFClient ()
 specifier|public
 name|void
-name|testInvokingServerFromCXFClient
+name|testInvokingServiceFromCXFClient
 parameter_list|()
 throws|throws
 name|Exception
@@ -564,7 +562,6 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-comment|//Thread.sleep(200000);
 block|}
 block|}
 end_class

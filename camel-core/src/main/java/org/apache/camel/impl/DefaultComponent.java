@@ -162,6 +162,20 @@ name|URISupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|UnsafeUriCharactersEncoder
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -246,14 +260,19 @@ argument_list|,
 literal|"camelContext"
 argument_list|)
 expr_stmt|;
-comment|//TODO endcode uri sting to the unsafe URI string
+comment|//endcode uri sting to the unsafe URI characters
 name|URI
 name|u
 init|=
 operator|new
 name|URI
 argument_list|(
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encode
+argument_list|(
 name|uri
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|String

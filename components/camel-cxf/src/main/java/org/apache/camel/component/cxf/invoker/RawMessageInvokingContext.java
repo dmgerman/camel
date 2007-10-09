@@ -643,7 +643,6 @@ argument_list|>
 name|responseContext
 parameter_list|)
 block|{
-comment|/*CachedOutputStream bos = exchange.getInMessage().getContent(CachedOutputStream.class);         InputStream in = null;         try {             in = bos.getInputStream();         } catch (IOException e) {             // TODO Auto-generated catch block             e.printStackTrace();         }         return in;*/
 return|return
 name|getResponseObject
 argument_list|(

@@ -568,28 +568,6 @@ argument_list|>
 name|clazz
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"get the in message is "
-operator|+
-name|inMessage
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"*** responseContext is"
-operator|+
-name|responseContext
-argument_list|)
-expr_stmt|;
 name|T
 name|retval
 init|=
