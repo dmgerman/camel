@@ -369,7 +369,7 @@ specifier|final
 name|String
 name|JAXB_PACKAGES
 init|=
-literal|"org.apache.camel.spring:org.apache.camel.model:org.apache.camel.model.language:org.apache.camel.model.config"
+literal|"org.apache.camel.spring:org.apache.camel.model:org.apache.camel.model.config:org.apache.camel.model.dataformat:org.apache.camel.model.language"
 decl_stmt|;
 DECL|field|endpointParser
 specifier|protected

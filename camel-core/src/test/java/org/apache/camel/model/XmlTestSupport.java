@@ -252,7 +252,7 @@ name|JAXBContext
 operator|.
 name|newInstance
 argument_list|(
-literal|"org.apache.camel.model:org.apache.camel.model.language:org.apache.camel.model.config"
+literal|"org.apache.camel.model:org.apache.camel.model.config:org.apache.camel.model.dataformat:org.apache.camel.model.language"
 argument_list|)
 expr_stmt|;
 block|}
