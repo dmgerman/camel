@@ -1054,6 +1054,8 @@ argument_list|,
 name|clazz
 argument_list|,
 name|name
+argument_list|,
+name|value
 argument_list|)
 decl_stmt|;
 if|if
@@ -1418,7 +1420,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|findSetterMethod (TypeConverter typeConverter, Class clazz, String name)
+DECL|method|findSetterMethod (TypeConverter typeConverter, Class clazz, String name, Object value)
 specifier|private
 specifier|static
 name|Method
@@ -1432,6 +1434,9 @@ name|clazz
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|Object
+name|value
 parameter_list|)
 block|{
 comment|// Build the method name.
@@ -1517,6 +1522,14 @@ operator|==
 literal|1
 condition|)
 block|{
+name|Class
+name|paramType
+init|=
+name|params
+index|[
+literal|0
+index|]
+decl_stmt|;
 if|if
 condition|(
 name|typeConverter
@@ -1525,10 +1538,14 @@ literal|null
 operator|||
 name|isSettableType
 argument_list|(
-name|params
-index|[
-literal|0
-index|]
+name|paramType
+argument_list|)
+operator|||
+name|paramType
+operator|.
+name|isInstance
+argument_list|(
+name|value
 argument_list|)
 condition|)
 block|{

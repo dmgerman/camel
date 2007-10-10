@@ -1002,6 +1002,33 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns the MIME content type on the input message or null if one is not defined      */
+DECL|method|getContentType (Exchange exchange)
+specifier|public
+specifier|static
+name|String
+name|getContentType
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"Content-Type"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

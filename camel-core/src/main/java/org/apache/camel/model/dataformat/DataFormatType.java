@@ -116,6 +116,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -221,11 +235,17 @@ argument_list|,
 literal|"dataFormat"
 argument_list|)
 expr_stmt|;
+name|configureDataFormat
+argument_list|(
+name|dataFormat
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|dataFormat
 return|;
 block|}
+comment|/**      * Factory method to create the data format instance      */
 DECL|method|createDataFormat (RouteContext routeContext)
 specifier|protected
 name|DataFormat
@@ -294,6 +314,73 @@ block|}
 return|return
 literal|null
 return|;
+block|}
+comment|/**      * Allows derived classes to customize the data format      */
+DECL|method|configureDataFormat (DataFormat dataFormat)
+specifier|protected
+name|void
+name|configureDataFormat
+parameter_list|(
+name|DataFormat
+name|dataFormat
+parameter_list|)
+block|{     }
+comment|/**      * Sets a named property on the data format instance using introspection      */
+DECL|method|setProperty (DataFormat dataFormat, String name, Object value)
+specifier|protected
+name|void
+name|setProperty
+parameter_list|(
+name|DataFormat
+name|dataFormat
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+try|try
+block|{
+name|IntrospectionSupport
+operator|.
+name|setProperty
+argument_list|(
+name|dataFormat
+argument_list|,
+name|name
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Failed to set property "
+operator|+
+name|name
+operator|+
+literal|" on "
+operator|+
+name|dataFormat
+operator|+
+literal|". Reason: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class
