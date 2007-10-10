@@ -138,6 +138,17 @@ name|uri
 init|=
 literal|"direct:foo"
 decl_stmt|;
+DECL|field|doneLatch
+specifier|protected
+name|CountDownLatch
+name|doneLatch
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
 DECL|method|testSuccess ()
 specifier|public
 name|void
@@ -148,6 +159,22 @@ name|Exception
 block|{
 name|sendMessage
 argument_list|()
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Exchange did not complete."
+argument_list|,
+name|doneLatch
+operator|.
+name|await
+argument_list|(
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
@@ -184,6 +211,22 @@ block|{
 name|sendMessage
 argument_list|()
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Exchange did not complete."
+argument_list|,
+name|doneLatch
+operator|.
+name|await
+argument_list|(
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertNull
 argument_list|(
 literal|"Should not have completed"
@@ -218,6 +261,22 @@ name|Exception
 block|{
 name|sendMessage
 argument_list|()
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Exchange did not complete."
+argument_list|,
+name|doneLatch
+operator|.
+name|await
+argument_list|(
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
@@ -271,6 +330,11 @@ name|completed
 operator|=
 name|exchange
 expr_stmt|;
+name|doneLatch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
 block|}
 specifier|public
 name|void
@@ -283,6 +347,11 @@ block|{
 name|failed
 operator|=
 name|exchange
+expr_stmt|;
+name|doneLatch
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 block|}
 block|}
