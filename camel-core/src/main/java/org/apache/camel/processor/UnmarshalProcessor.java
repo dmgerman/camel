@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unmarshals the body of the incoming message using the given data format  *  * @version $Revision: 1.1 $  */
+comment|/**  * Unmarshals the body of the incoming message using the given  *<a href="http://activemq.apache.org/camel/data-format.html">data format</a>  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -148,18 +148,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Object
-name|result
-init|=
-name|dataFormat
-operator|.
-name|unmarshal
-argument_list|(
-name|exchange
-argument_list|,
-name|stream
-argument_list|)
-decl_stmt|;
+comment|// lets setup the out message before we invoke the dataFormat
+comment|// so that it can mutate it if necessary
 name|Message
 name|out
 init|=
@@ -180,6 +170,18 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Object
+name|result
+init|=
+name|dataFormat
+operator|.
+name|unmarshal
+argument_list|(
+name|exchange
+argument_list|,
+name|stream
+argument_list|)
+decl_stmt|;
 name|out
 operator|.
 name|setBody

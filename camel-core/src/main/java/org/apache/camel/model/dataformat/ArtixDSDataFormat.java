@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the<a href="http://www.iona.com/artix/ds">Artix Data Services</a>  * {@link DataFormat}  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents the<a href="http://activemq.apache.org/camel/artix-data-services.html">Artix Data Services</a>  * {@link DataFormat}  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class

@@ -237,6 +237,21 @@ operator|=
 name|dataFormatType
 expr_stmt|;
 block|}
+DECL|method|UnmarshalType (String ref)
+specifier|public
+name|UnmarshalType
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ref
+operator|=
+name|ref
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()

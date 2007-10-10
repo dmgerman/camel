@@ -204,6 +204,20 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|DataTypeExpression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|DeadLetterChannelBuilder
 import|;
 end_import
@@ -247,20 +261,6 @@ operator|.
 name|builder
 operator|.
 name|ProcessorBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|DataTypeExpression
 import|;
 end_import
 
@@ -469,6 +469,20 @@ operator|.
 name|spi
 operator|.
 name|Policy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Registry
 import|;
 end_import
 
@@ -2450,6 +2464,7 @@ return|;
 block|}
 comment|// DataFormat support
 comment|// -------------------------------------------------------------------------
+comment|/**      * Unmarshals the in body using a {@link DataFormat} expression to define      * the format of the input message and the output will be set on the out message body.      *      * @return the expression to create the {@link DataFormat}      */
 DECL|method|unmarshal ()
 specifier|public
 name|DataTypeExpression
@@ -2476,6 +2491,7 @@ name|Unmarshal
 argument_list|)
 return|;
 block|}
+comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @return this object      */
 DECL|method|unmarshal (DataFormatType dataFormatType)
 specifier|public
 name|Type
@@ -2501,6 +2517,7 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @return this object      */
 DECL|method|unmarshal (DataFormat dataFormat)
 specifier|public
 name|Type
@@ -2521,6 +2538,33 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * reference in the {@link Registry} and sets the output on the out message body.      *      * @return this object      */
+DECL|method|unmarshal (String dataTypeRef)
+specifier|public
+name|Type
+name|unmarshal
+parameter_list|(
+name|String
+name|dataTypeRef
+parameter_list|)
+block|{
+name|addOutput
+argument_list|(
+operator|new
+name|UnmarshalType
+argument_list|(
+name|dataTypeRef
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Marshals the in body using a {@link DataFormat} expression to define      * the format of the output which will be added to the out body.      *      * @return the expression to create the {@link DataFormat}      */
 DECL|method|marshal ()
 specifier|public
 name|DataTypeExpression
@@ -2547,6 +2591,7 @@ name|Marshal
 argument_list|)
 return|;
 block|}
+comment|/**      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @return this object      */
 DECL|method|marshal (DataFormatType dataFormatType)
 specifier|public
 name|Type
@@ -2572,6 +2617,7 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @return this object      */
 DECL|method|marshal (DataFormat dataFormat)
 specifier|public
 name|Type
@@ -2590,6 +2636,32 @@ argument_list|(
 name|dataFormat
 argument_list|)
 argument_list|)
+return|;
+block|}
+comment|/**      * Marshals the in body the specified {@link DataFormat}      * reference in the {@link Registry} and sets the output on the out message body.      *      * @return this object      */
+DECL|method|marshal (String dataTypeRef)
+specifier|public
+name|Type
+name|marshal
+parameter_list|(
+name|String
+name|dataTypeRef
+parameter_list|)
+block|{
+name|addOutput
+argument_list|(
+operator|new
+name|MarshalType
+argument_list|(
+name|dataTypeRef
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
 return|;
 block|}
 comment|// Properties

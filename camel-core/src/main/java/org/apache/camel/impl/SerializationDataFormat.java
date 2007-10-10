@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * The<a href="http://activemq.apache.org/camel/data-format.html">data format</a>  * using Java Serialiation.  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class

@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel.converter.xmlbeans
 package|package
 name|org
 operator|.
@@ -12,29 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|converter
+operator|.
+name|xmlbeans
 package|;
 end_package
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|OutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
 
 begin_import
 import|import
@@ -48,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -58,18 +50,60 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|DataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|xmlbeans
+operator|.
+name|XmlObject
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents a  *<a href="http://activemq.apache.org/camel/data-format.html">data format</a>  * used to marshal objects to and from streams  * such as Java Serialization or using JAXB2 to encode/decode objects using XML  * or using SOAP encoding.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/data-format.html">data format</a>  * ({@link DataFormat}) using XmlBeans to marshal to and from XML  *  * @version $Revision: 1.1 $  */
 end_comment
 
-begin_interface
-DECL|interface|DataFormat
+begin_class
+DECL|class|XmlBeansDataFormat
 specifier|public
-interface|interface
+class|class
+name|XmlBeansDataFormat
+implements|implements
 name|DataFormat
 block|{
-comment|/**      * Marshals the object to the given Stream.      */
-DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
+DECL|method|marshal (Exchange exchange, Object body, OutputStream stream)
+specifier|public
 name|void
 name|marshal
 parameter_list|(
@@ -77,16 +111,40 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|Object
-name|graph
+name|body
 parameter_list|,
 name|OutputStream
 name|stream
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
-comment|/**      * Unmarshals the given stream into an object.      */
+block|{
+name|XmlObject
+name|object
+init|=
+name|ExchangeHelper
+operator|.
+name|convertToMandatoryType
+argument_list|(
+name|exchange
+argument_list|,
+name|XmlObject
+operator|.
+name|class
+argument_list|,
+name|body
+argument_list|)
+decl_stmt|;
+name|object
+operator|.
+name|save
+argument_list|(
+name|stream
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
+specifier|public
 name|Object
 name|unmarshal
 parameter_list|(
@@ -98,9 +156,20 @@ name|stream
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
+block|{
+return|return
+name|XmlObject
+operator|.
+name|Factory
+operator|.
+name|parse
+argument_list|(
+name|stream
+argument_list|)
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

@@ -262,7 +262,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the      *<a href="http://www.iona.com/artix/ds">Artix Data Services</a>      * data format for dealing with lots of different message formats such as SWIFT etc.      */
+comment|/**      * Uses the      *<a href="http://activemq.apache.org/camel/artix-data-services.html">Artix Data Services</a>      * data format for dealing with lots of different message formats such as SWIFT etc.      */
 DECL|method|artixDS ()
 specifier|public
 name|T
