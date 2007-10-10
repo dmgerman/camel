@@ -46,6 +46,20 @@ name|DataFormat
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|RouteContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the Java Serialization {@link DataFormat}  *  * @version $Revision: 1.1 $  */
 end_comment
@@ -64,7 +78,33 @@ class|class
 name|SerializationDataFormat
 extends|extends
 name|DataFormatType
-block|{ }
+block|{
+annotation|@
+name|Override
+DECL|method|createDataFormat (RouteContext routeContext)
+specifier|protected
+name|DataFormat
+name|createDataFormat
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|)
+block|{
+return|return
+operator|new
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|SerializationDataFormat
+argument_list|()
+return|;
+block|}
+block|}
 end_class
 
 end_unit

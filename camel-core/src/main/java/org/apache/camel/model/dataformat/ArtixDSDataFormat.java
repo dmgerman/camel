@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the Artix Data Services {@link DataFormat}  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents the<a href="http://www.iona.com/artix/ds">Artix Data Services</a>  * {@link DataFormat}  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -128,6 +128,17 @@ specifier|private
 name|String
 name|format
 decl_stmt|;
+DECL|method|ArtixDSDataFormat ()
+specifier|public
+name|ArtixDSDataFormat
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|"org.apache.camel.artix.ds.ArtixDSDataFormat"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getElement ()
 specifier|public
 name|String

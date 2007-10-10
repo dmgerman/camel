@@ -129,6 +129,34 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|UnmarshalProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|DataFormat
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -194,6 +222,21 @@ specifier|public
 name|UnmarshalType
 parameter_list|()
 block|{     }
+DECL|method|UnmarshalType (DataFormatType dataFormatType)
+specifier|public
+name|UnmarshalType
+parameter_list|(
+name|DataFormatType
+name|dataFormatType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataFormatType
+operator|=
+name|dataFormatType
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -325,13 +368,23 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-throw|throw
-operator|new
-name|UnsupportedOperationException
+name|DataFormat
+name|dataFormat
+init|=
+name|type
+operator|.
+name|getDataFormat
 argument_list|(
-literal|"Not implemented yet!"
+name|routeContext
 argument_list|)
-throw|;
+decl_stmt|;
+return|return
+operator|new
+name|UnmarshalProcessor
+argument_list|(
+name|dataFormat
+argument_list|)
+return|;
 block|}
 block|}
 end_class

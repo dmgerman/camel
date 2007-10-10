@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link DataFormat} using JAXB2 to marshal to and from XML  *   * @version $Revision: 1.1 $  */
+comment|/**  * A {@link DataFormat} using JAXB2 to marshal to and from XML  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -152,6 +152,11 @@ DECL|field|context
 specifier|private
 name|JAXBContext
 name|context
+decl_stmt|;
+DECL|field|contextPath
+specifier|private
+name|String
+name|contextPath
 decl_stmt|;
 DECL|field|prettyPrint
 specifier|private
@@ -190,6 +195,21 @@ operator|=
 name|context
 expr_stmt|;
 block|}
+DECL|method|JaxbDataFormat (String contextPath)
+specifier|public
+name|JaxbDataFormat
+parameter_list|(
+name|String
+name|contextPath
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contextPath
+operator|=
+name|contextPath
+expr_stmt|;
+block|}
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
 specifier|public
 name|void
@@ -209,7 +229,8 @@ name|IOException
 block|{
 try|try
 block|{
-name|marshaller
+name|getMarshaller
+argument_list|()
 operator|.
 name|marshal
 argument_list|(
@@ -254,7 +275,8 @@ block|{
 try|try
 block|{
 return|return
-name|unmarshaller
+name|getUnmarshaller
+argument_list|()
 operator|.
 name|unmarshal
 argument_list|(
@@ -443,12 +465,31 @@ parameter_list|()
 throws|throws
 name|JAXBException
 block|{
+if|if
+condition|(
+name|contextPath
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|JAXBContext
+operator|.
+name|newInstance
+argument_list|(
+name|contextPath
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 name|JAXBContext
 operator|.
 name|newInstance
 argument_list|()
 return|;
+block|}
 block|}
 block|}
 end_class

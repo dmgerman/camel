@@ -126,6 +126,17 @@ specifier|private
 name|Boolean
 name|prettyPrint
 decl_stmt|;
+DECL|method|XMLBeansDataFormat ()
+specifier|public
+name|XMLBeansDataFormat
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|"org.apache.camel.dataformat.converter.XmlBeansDataType"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getPrettyPrint ()
 specifier|public
 name|Boolean
