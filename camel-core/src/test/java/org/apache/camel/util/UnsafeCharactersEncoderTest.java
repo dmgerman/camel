@@ -60,17 +60,6 @@ argument_list|(
 name|beforeEncoding
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"result "
-operator|+
-name|result
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Get the wrong encoding result"
@@ -78,6 +67,37 @@ argument_list|,
 name|result
 argument_list|,
 name|afterEncoding
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNoEncoding ()
+specifier|public
+name|void
+name|testNoEncoding
+parameter_list|()
+block|{
+name|String
+name|noEncoding
+init|=
+literal|"http://www.example.com"
+decl_stmt|;
+name|String
+name|result
+init|=
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encode
+argument_list|(
+name|noEncoding
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get the wrong encoding result"
+argument_list|,
+name|result
+argument_list|,
+name|noEncoding
 argument_list|)
 expr_stmt|;
 block|}
