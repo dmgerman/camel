@@ -475,7 +475,7 @@ condition|)
 block|{
 name|answer
 operator|.
-name|setMethodName
+name|setMethod
 argument_list|(
 name|method
 argument_list|)

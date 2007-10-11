@@ -22,6 +22,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Date
 import|;
 end_import
@@ -42,7 +52,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|List
 import|;
 end_import
 
@@ -52,7 +62,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Map
 import|;
 end_import
 
@@ -98,11 +108,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|builder
 operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|RouteBuilder
 import|;
 end_import
 
@@ -114,9 +122,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|RouteBuilder
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
@@ -181,10 +191,17 @@ name|Exchange
 argument_list|>
 name|list
 init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|(
 name|resultEndpoint
 operator|.
 name|getReceivedExchanges
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|log
 operator|.
@@ -308,7 +325,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"bean:myService?methodName=status"
+literal|"bean:myService?method=status"
 argument_list|)
 operator|.
 name|to

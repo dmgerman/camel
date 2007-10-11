@@ -255,15 +255,15 @@ specifier|final
 name|BeanInfo
 name|beanInfo
 decl_stmt|;
-DECL|field|method
+DECL|field|methodObject
 specifier|private
 name|Method
-name|method
+name|methodObject
 decl_stmt|;
-DECL|field|methodName
+DECL|field|method
 specifier|private
 name|String
-name|methodName
+name|method
 decl_stmt|;
 DECL|field|processor
 specifier|private
@@ -438,13 +438,13 @@ block|{
 name|String
 name|description
 init|=
-name|method
+name|methodObject
 operator|!=
 literal|null
 condition|?
 literal|" "
 operator|+
-name|method
+name|methodObject
 else|:
 literal|""
 decl_stmt|;
@@ -547,7 +547,7 @@ name|invocation
 decl_stmt|;
 if|if
 condition|(
-name|method
+name|methodObject
 operator|!=
 literal|null
 condition|)
@@ -558,7 +558,7 @@ name|beanInfo
 operator|.
 name|createInvocation
 argument_list|(
-name|method
+name|methodObject
 argument_list|,
 name|pojo
 argument_list|,
@@ -575,7 +575,7 @@ name|ObjectHelper
 operator|.
 name|isNotNullAndNonEmpty
 argument_list|(
-name|methodName
+name|method
 argument_list|)
 condition|)
 block|{
@@ -602,7 +602,7 @@ name|setHeader
 argument_list|(
 name|METHOD_NAME
 argument_list|,
-name|methodName
+name|method
 argument_list|)
 expr_stmt|;
 block|}
@@ -729,9 +729,35 @@ block|}
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
-DECL|method|getMethod ()
+DECL|method|getMethodObject ()
 specifier|public
 name|Method
+name|getMethodObject
+parameter_list|()
+block|{
+return|return
+name|methodObject
+return|;
+block|}
+DECL|method|setMethodObject (Method methodObject)
+specifier|public
+name|void
+name|setMethodObject
+parameter_list|(
+name|Method
+name|methodObject
+parameter_list|)
+block|{
+name|this
+operator|.
+name|methodObject
+operator|=
+name|methodObject
+expr_stmt|;
+block|}
+DECL|method|getMethod ()
+specifier|public
+name|String
 name|getMethod
 parameter_list|()
 block|{
@@ -739,12 +765,13 @@ return|return
 name|method
 return|;
 block|}
-DECL|method|setMethod (Method method)
+comment|/**      * Sets the method name to use      */
+DECL|method|setMethod (String method)
 specifier|public
 name|void
 name|setMethod
 parameter_list|(
-name|Method
+name|String
 name|method
 parameter_list|)
 block|{
@@ -755,30 +782,20 @@ operator|=
 name|method
 expr_stmt|;
 block|}
-DECL|method|getMethodName ()
-specifier|public
-name|String
-name|getMethodName
-parameter_list|()
-block|{
-return|return
-name|methodName
-return|;
-block|}
-DECL|method|setMethodName (String methodName)
+comment|/**      * Kept around for backwards compatibility, please use {@link #setMethod(String)}      * in future instead.      *      * @deprecated      * @see #setMethod(String)      * @param method      */
+DECL|method|setMethodName (String method)
 specifier|public
 name|void
 name|setMethodName
 parameter_list|(
 name|String
-name|methodName
+name|method
 parameter_list|)
 block|{
-name|this
-operator|.
-name|methodName
-operator|=
-name|methodName
+name|setMethod
+argument_list|(
+name|method
+argument_list|)
 expr_stmt|;
 block|}
 comment|// Implementation methods
