@@ -964,7 +964,7 @@ argument_list|)
 decl_stmt|;
 name|answer
 operator|.
-name|setMethod
+name|setMethodObject
 argument_list|(
 name|method
 argument_list|)
