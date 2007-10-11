@@ -133,6 +133,18 @@ name|XmlAttribute
 argument_list|(
 name|required
 operator|=
+literal|true
+argument_list|)
+DECL|field|contextPath
+specifier|private
+name|String
+name|contextPath
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
 literal|false
 argument_list|)
 DECL|field|prettyPrint
@@ -166,6 +178,32 @@ name|setPrettyPrint
 argument_list|(
 name|prettyPrint
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getContextPath ()
+specifier|public
+name|String
+name|getContextPath
+parameter_list|()
+block|{
+return|return
+name|contextPath
+return|;
+block|}
+DECL|method|setContextPath (String contextPath)
+specifier|public
+name|void
+name|setContextPath
+parameter_list|(
+name|String
+name|contextPath
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contextPath
+operator|=
+name|contextPath
 expr_stmt|;
 block|}
 DECL|method|getPrettyPrint ()
@@ -228,6 +266,15 @@ name|TRUE
 argument_list|)
 expr_stmt|;
 block|}
+name|setProperty
+argument_list|(
+name|dataFormat
+argument_list|,
+literal|"contextPath"
+argument_list|,
+name|contextPath
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

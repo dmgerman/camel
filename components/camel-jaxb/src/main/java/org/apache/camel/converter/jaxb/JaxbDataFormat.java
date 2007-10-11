@@ -343,6 +343,32 @@ operator|=
 name|context
 expr_stmt|;
 block|}
+DECL|method|getContextPath ()
+specifier|public
+name|String
+name|getContextPath
+parameter_list|()
+block|{
+return|return
+name|contextPath
+return|;
+block|}
+DECL|method|setContextPath (String contextPath)
+specifier|public
+name|void
+name|setContextPath
+parameter_list|(
+name|String
+name|contextPath
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contextPath
+operator|=
+name|contextPath
+expr_stmt|;
+block|}
 DECL|method|getMarshaller ()
 specifier|public
 name|Marshaller
