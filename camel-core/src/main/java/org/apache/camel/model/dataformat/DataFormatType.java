@@ -96,6 +96,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|IdentifiedType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|DataFormat
@@ -112,7 +126,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|IntrospectionSupport
 import|;
 end_import
 
@@ -126,7 +140,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|IntrospectionSupport
+name|ObjectHelper
 import|;
 end_import
 
@@ -153,6 +167,8 @@ DECL|class|DataFormatType
 specifier|public
 class|class
 name|DataFormatType
+extends|extends
+name|IdentifiedType
 block|{
 annotation|@
 name|XmlTransient

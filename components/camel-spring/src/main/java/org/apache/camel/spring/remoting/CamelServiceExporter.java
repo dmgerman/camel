@@ -97,6 +97,22 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|notNull
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -119,6 +135,20 @@ operator|.
 name|factory
 operator|.
 name|DisposableBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|beans
+operator|.
+name|factory
+operator|.
+name|FactoryBean
 import|;
 end_import
 
@@ -171,22 +201,6 @@ operator|.
 name|support
 operator|.
 name|RemoteExporter
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|notNull
 import|;
 end_import
 
