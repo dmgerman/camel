@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Body
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|converter
 operator|.
 name|ObjectConverter
@@ -176,16 +164,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|OutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|Closeable
 import|;
 end_import
@@ -234,11 +212,11 @@ name|ObjectHelper
 parameter_list|()
 block|{             }
 comment|/**      * A helper method for comparing objects for equality while handling nulls      */
-DECL|method|equals (Object a, Object b)
+DECL|method|equal (Object a, Object b)
 specifier|public
 specifier|static
 name|boolean
-name|equals
+name|equal
 parameter_list|(
 name|Object
 name|a
@@ -300,7 +278,7 @@ control|)
 block|{
 if|if
 condition|(
-name|equals
+name|equal
 argument_list|(
 name|object
 argument_list|,
@@ -770,7 +748,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|equals
+name|equal
 argument_list|(
 name|value
 argument_list|,

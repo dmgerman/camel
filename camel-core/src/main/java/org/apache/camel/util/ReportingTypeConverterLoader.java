@@ -81,6 +81,22 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|equal
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -165,9 +181,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|ObjectHelper
-operator|.
-name|equals
+name|equal
 argument_list|(
 name|t1
 operator|.
@@ -180,9 +194,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ObjectHelper
-operator|.
-name|equals
+name|equal
 argument_list|(
 name|t1
 operator|.

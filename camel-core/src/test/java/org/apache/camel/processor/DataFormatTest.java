@@ -82,6 +82,22 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|equal
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -252,9 +268,7 @@ operator|)
 name|o
 decl_stmt|;
 return|return
-name|ObjectHelper
-operator|.
-name|equals
+name|equal
 argument_list|(
 name|this
 operator|.
@@ -265,9 +279,7 @@ operator|.
 name|name
 argument_list|)
 operator|&&
-name|ObjectHelper
-operator|.
-name|equals
+name|equal
 argument_list|(
 name|this
 operator|.

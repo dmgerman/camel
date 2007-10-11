@@ -604,7 +604,7 @@ block|{
 return|return
 name|ObjectHelper
 operator|.
-name|equals
+name|equal
 argument_list|(
 name|leftValue
 argument_list|,
@@ -683,7 +683,7 @@ return|return
 operator|!
 name|ObjectHelper
 operator|.
-name|equals
+name|equal
 argument_list|(
 name|leftValue
 argument_list|,

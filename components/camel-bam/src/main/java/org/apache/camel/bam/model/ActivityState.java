@@ -375,7 +375,7 @@ block|{
 return|return
 name|ObjectHelper
 operator|.
-name|equals
+name|equal
 argument_list|(
 name|getActivityDefinition
 argument_list|()

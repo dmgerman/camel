@@ -498,7 +498,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|equals
+name|equal
 argument_list|(
 name|expression
 argument_list|,

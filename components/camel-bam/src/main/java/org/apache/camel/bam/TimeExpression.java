@@ -104,6 +104,22 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|equal
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: $  */
 end_comment
@@ -176,9 +192,7 @@ name|lifecycle
 parameter_list|)
 block|{
 return|return
-name|ObjectHelper
-operator|.
-name|equals
+name|equal
 argument_list|(
 name|activityRules
 argument_list|,
@@ -187,9 +201,7 @@ operator|.
 name|activityRules
 argument_list|)
 operator|&&
-name|ObjectHelper
-operator|.
-name|equals
+name|equal
 argument_list|(
 name|lifecycle
 argument_list|,

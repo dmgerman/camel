@@ -445,7 +445,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|equals
+name|equal
 argument_list|(
 name|from
 argument_list|,
@@ -454,7 +454,7 @@ argument_list|)
 operator|&&
 name|ObjectHelper
 operator|.
-name|equals
+name|equal
 argument_list|(
 name|to
 argument_list|,

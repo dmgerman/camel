@@ -298,7 +298,7 @@ decl_stmt|;
 return|return
 name|ObjectHelper
 operator|.
-name|equals
+name|equal
 argument_list|(
 name|this
 operator|.
