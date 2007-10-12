@@ -4,80 +4,95 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.model.language
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|model
-operator|.
-name|language
 package|;
 end_package
 
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlRootElement
-import|;
-end_import
-
 begin_comment
-comment|/**  * For XQuery expresions and predicates  *  * @version $Revision: 1.1 $  */
+comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-annotation|@
-name|XmlRootElement
-argument_list|(
-name|name
-operator|=
-literal|"xquery"
-argument_list|)
-DECL|class|XQueryExpression
+DECL|class|InvalidPayloadRuntimeException
 specifier|public
 class|class
-name|XQueryExpression
+name|InvalidPayloadRuntimeException
 extends|extends
-name|ElementAwareExpression
+name|RuntimeExchangeException
 block|{
-DECL|method|XQueryExpression ()
+DECL|field|type
+specifier|private
+specifier|final
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+decl_stmt|;
+DECL|method|InvalidPayloadRuntimeException (Exchange exchange, Class<?> type)
 specifier|public
-name|XQueryExpression
-parameter_list|()
-block|{     }
-DECL|method|XQueryExpression (String expression)
-specifier|public
-name|XQueryExpression
+name|InvalidPayloadRuntimeException
 parameter_list|(
-name|String
-name|expression
+name|Exchange
+name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|expression
+literal|"No in body available of type: "
+operator|+
+name|type
+operator|.
+name|getName
+argument_list|()
+operator|+
+name|NoSuchPropertyException
+operator|.
+name|valueDescription
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
 block|}
-DECL|method|getLanguage ()
+comment|/**      * The expected type of the body      */
+DECL|method|getType ()
 specifier|public
-name|String
-name|getLanguage
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|getType
 parameter_list|()
 block|{
 return|return
-literal|"xquery"
+name|type
 return|;
 block|}
 block|}
