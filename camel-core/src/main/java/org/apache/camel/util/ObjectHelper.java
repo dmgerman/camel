@@ -211,6 +211,29 @@ specifier|private
 name|ObjectHelper
 parameter_list|()
 block|{             }
+comment|/**      * @deprecated use the equal method instead      *      * @see #equal(Object, Object)      */
+DECL|method|equals (Object a, Object b)
+specifier|public
+specifier|static
+name|boolean
+name|equals
+parameter_list|(
+name|Object
+name|a
+parameter_list|,
+name|Object
+name|b
+parameter_list|)
+block|{
+return|return
+name|equal
+argument_list|(
+name|a
+argument_list|,
+name|b
+argument_list|)
+return|;
+block|}
 comment|/**      * A helper method for comparing objects for equality while handling nulls      */
 DECL|method|equal (Object a, Object b)
 specifier|public
