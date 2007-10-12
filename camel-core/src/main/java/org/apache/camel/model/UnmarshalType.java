@@ -68,21 +68,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElementRef
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlRootElement
+name|XmlElement
 import|;
 end_import
 
@@ -110,7 +96,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElement
+name|XmlRootElement
 import|;
 end_import
 
@@ -152,7 +138,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|DataFormatType
+name|ArtixDSDataFormat
 import|;
 end_import
 
@@ -168,7 +154,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|ArtixDSDataFormat
+name|DataFormatType
 import|;
 end_import
 
@@ -248,24 +234,8 @@ name|DataFormat
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|notNull
-import|;
-end_import
-
 begin_comment
-comment|/**  * Unmarshals the binary payload using the given {@link DataFormatType}  *   * @version $Revision: 1.1 $  */
+comment|/**  * Unmarshals the binary payload using the given {@link DataFormatType}  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -518,48 +488,19 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
-name|DataFormatType
-name|type
-init|=
-name|getDataFormatType
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|type
-operator|==
-literal|null
-condition|)
-block|{
-name|notNull
-argument_list|(
-name|ref
-argument_list|,
-literal|"ref or dataFormatType"
-argument_list|)
-expr_stmt|;
-name|type
-operator|=
-name|routeContext
-operator|.
-name|lookup
-argument_list|(
-name|ref
-argument_list|,
-name|DataFormatType
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
 name|DataFormat
 name|dataFormat
 init|=
-name|type
+name|DataFormatType
 operator|.
 name|getDataFormat
 argument_list|(
 name|routeContext
+argument_list|,
+name|getDataFormatType
+argument_list|()
+argument_list|,
+name|ref
 argument_list|)
 decl_stmt|;
 return|return
