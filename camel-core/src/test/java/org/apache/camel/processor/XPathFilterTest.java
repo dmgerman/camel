@@ -125,6 +125,20 @@ specifier|protected
 name|MockEndpoint
 name|resultEndpoint
 decl_stmt|;
+DECL|field|matchingBody
+specifier|protected
+name|String
+name|matchingBody
+init|=
+literal|"<person name='James' city='London'/>"
+decl_stmt|;
+DECL|field|notMatchingBody
+specifier|protected
+name|String
+name|notMatchingBody
+init|=
+literal|"<person name='Hiram' city='Tampa'/>"
+decl_stmt|;
 DECL|method|testSendMatchingMessage ()
 specifier|public
 name|void
@@ -144,7 +158,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"<person name='James' city='London'/>"
+name|matchingBody
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
@@ -172,7 +186,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"<person name='Hiram' city='Tampa'/>"
+name|notMatchingBody
 argument_list|)
 expr_stmt|;
 name|resultEndpoint

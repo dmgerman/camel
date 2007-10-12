@@ -449,7 +449,7 @@ return|return
 literal|""
 return|;
 block|}
-DECL|method|createPredicate (RouteContext route)
+DECL|method|createPredicate (RouteContext routeContext)
 specifier|public
 name|Predicate
 argument_list|<
@@ -458,7 +458,7 @@ argument_list|>
 name|createPredicate
 parameter_list|(
 name|RouteContext
-name|route
+name|routeContext
 parameter_list|)
 block|{
 if|if
@@ -471,7 +471,7 @@ block|{
 name|CamelContext
 name|camelContext
 init|=
-name|route
+name|routeContext
 operator|.
 name|getCamelContext
 argument_list|()
@@ -495,6 +495,13 @@ name|createPredicate
 argument_list|(
 name|getExpression
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|configurePredicate
+argument_list|(
+name|routeContext
+argument_list|,
+name|predicate
 argument_list|)
 expr_stmt|;
 block|}
@@ -545,6 +552,13 @@ name|createExpression
 argument_list|(
 name|getExpression
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|configureExpresion
+argument_list|(
+name|routeContext
+argument_list|,
+name|expressionValue
 argument_list|)
 expr_stmt|;
 block|}
@@ -700,6 +714,30 @@ return|return
 literal|""
 return|;
 block|}
+DECL|method|configurePredicate (RouteContext routeContext, Predicate predicate)
+specifier|protected
+name|void
+name|configurePredicate
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Predicate
+name|predicate
+parameter_list|)
+block|{     }
+DECL|method|configureExpresion (RouteContext routeContext, Expression expression)
+specifier|protected
+name|void
+name|configureExpresion
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Expression
+name|expression
+parameter_list|)
+block|{     }
 block|}
 end_class
 
