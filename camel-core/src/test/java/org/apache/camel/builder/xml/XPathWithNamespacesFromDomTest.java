@@ -128,7 +128,7 @@ argument_list|)
 decl_stmt|;
 name|builder
 operator|.
-name|setNamespacesFromDom
+name|setElement
 argument_list|(
 name|element
 argument_list|)
