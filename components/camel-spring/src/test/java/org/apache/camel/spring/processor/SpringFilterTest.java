@@ -74,6 +74,8 @@ name|SpringFilterTest
 extends|extends
 name|FilterTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
