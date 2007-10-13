@@ -262,6 +262,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * A useful base class for an expression  *  * @version $Revision: 1.1 $  */
 end_comment
@@ -456,10 +470,39 @@ block|{
 if|if
 condition|(
 name|expressionValue
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+name|RouteContext
+name|routeContext
+init|=
+operator|new
+name|RouteContext
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|expressionValue
+operator|=
+name|createExpression
+argument_list|(
+name|routeContext
+argument_list|)
+expr_stmt|;
+block|}
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|expressionValue
+argument_list|,
+literal|"expressionValue"
+argument_list|)
+expr_stmt|;
 return|return
 name|expressionValue
 operator|.
@@ -468,30 +511,6 @@ argument_list|(
 name|exchange
 argument_list|)
 return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|predicate
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|predicate
-operator|.
-name|matches
-argument_list|(
-name|exchange
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 DECL|method|getLanguage ()
 specifier|public
@@ -608,7 +627,7 @@ name|getExpression
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|configureExpresion
+name|configureExpression
 argument_list|(
 name|routeContext
 argument_list|,
@@ -780,10 +799,10 @@ name|Predicate
 name|predicate
 parameter_list|)
 block|{     }
-DECL|method|configureExpresion (RouteContext routeContext, Expression expression)
+DECL|method|configureExpression (RouteContext routeContext, Expression expression)
 specifier|protected
 name|void
-name|configureExpresion
+name|configureExpression
 parameter_list|(
 name|RouteContext
 name|routeContext
@@ -792,6 +811,63 @@ name|Expression
 name|expression
 parameter_list|)
 block|{     }
+comment|/**      * Sets a named property on the object instance using introspection      */
+DECL|method|setProperty (Object bean, String name, Object value)
+specifier|protected
+name|void
+name|setProperty
+parameter_list|(
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+try|try
+block|{
+name|IntrospectionSupport
+operator|.
+name|setProperty
+argument_list|(
+name|bean
+argument_list|,
+name|name
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Failed to set property "
+operator|+
+name|name
+operator|+
+literal|" on "
+operator|+
+name|bean
+operator|+
+literal|". Reason: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 block|}
 end_class
 

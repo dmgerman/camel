@@ -524,13 +524,13 @@ name|dataFormat
 parameter_list|)
 block|{     }
 comment|/**      * Sets a named property on the data format instance using introspection      */
-DECL|method|setProperty (DataFormat dataFormat, String name, Object value)
+DECL|method|setProperty (Object bean, String name, Object value)
 specifier|protected
 name|void
 name|setProperty
 parameter_list|(
-name|DataFormat
-name|dataFormat
+name|Object
+name|bean
 parameter_list|,
 name|String
 name|name
@@ -545,7 +545,7 @@ name|IntrospectionSupport
 operator|.
 name|setProperty
 argument_list|(
-name|dataFormat
+name|bean
 argument_list|,
 name|name
 argument_list|,
@@ -569,7 +569,7 @@ name|name
 operator|+
 literal|" on "
 operator|+
-name|dataFormat
+name|bean
 operator|+
 literal|". Reason: "
 operator|+

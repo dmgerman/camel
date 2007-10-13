@@ -214,10 +214,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|configureExpresion (RouteContext routeContext, Expression expression)
+DECL|method|configureExpression (RouteContext routeContext, Expression expression)
 specifier|protected
 name|void
-name|configureExpresion
+name|configureExpression
 parameter_list|(
 name|RouteContext
 name|routeContext
@@ -226,7 +226,7 @@ name|Expression
 name|expression
 parameter_list|)
 block|{
-name|configureXPathBuilder
+name|configureNamespaceAware
 argument_list|(
 name|expression
 argument_list|)
@@ -246,16 +246,16 @@ name|Predicate
 name|predicate
 parameter_list|)
 block|{
-name|configureXPathBuilder
+name|configureNamespaceAware
 argument_list|(
 name|predicate
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|configureXPathBuilder (Object builder)
+DECL|method|configureNamespaceAware (Object builder)
 specifier|protected
 name|void
-name|configureXPathBuilder
+name|configureNamespaceAware
 parameter_list|(
 name|Object
 name|builder

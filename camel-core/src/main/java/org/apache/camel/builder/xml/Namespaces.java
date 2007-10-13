@@ -511,6 +511,47 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Creates the XQuery expression using the current namespace context      * and the given expected return type      */
+DECL|method|xquery (String expression, Class<?> returnType)
+specifier|public
+name|XQueryExpression
+name|xquery
+parameter_list|(
+name|String
+name|expression
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|returnType
+parameter_list|)
+block|{
+name|XQueryExpression
+name|answer
+init|=
+operator|new
+name|XQueryExpression
+argument_list|(
+name|expression
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setResultType
+argument_list|(
+name|returnType
+argument_list|)
+expr_stmt|;
+name|configure
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 DECL|method|getNamespaces ()
 specifier|public
 name|Map

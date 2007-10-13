@@ -54,6 +54,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -103,18 +115,6 @@ operator|.
 name|camel
 operator|.
 name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|AsyncProcessor
 import|;
 end_import
 
@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The context used to activate new routing rules  *   * @version $Revision: $  */
+comment|/**  * The context used to activate new routing rules  *  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -244,19 +244,16 @@ name|RouteContext
 block|{
 DECL|field|route
 specifier|private
-specifier|final
 name|RouteType
 name|route
 decl_stmt|;
 DECL|field|from
 specifier|private
-specifier|final
 name|FromType
 name|from
 decl_stmt|;
 DECL|field|routes
 specifier|private
-specifier|final
 name|Collection
 argument_list|<
 name|Route
@@ -287,6 +284,11 @@ DECL|field|lastInterceptor
 specifier|private
 name|Interceptor
 name|lastInterceptor
+decl_stmt|;
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
 decl_stmt|;
 DECL|method|RouteContext (RouteType route, FromType from, Collection<Route> routes)
 specifier|public
@@ -322,6 +324,39 @@ operator|.
 name|routes
 operator|=
 name|routes
+expr_stmt|;
+block|}
+comment|/**      * Only used for lazy construction from inside ExpressionType      */
+DECL|method|RouteContext (CamelContext camelContext)
+specifier|public
+name|RouteContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+name|routes
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Route
+argument_list|>
+argument_list|()
+expr_stmt|;
+name|route
+operator|=
+operator|new
+name|RouteType
+argument_list|(
+literal|"temporary"
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getEndpoint ()
@@ -377,12 +412,24 @@ name|CamelContext
 name|getCamelContext
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|camelContext
+operator|==
+literal|null
+condition|)
+block|{
+name|camelContext
+operator|=
 name|getRoute
 argument_list|()
 operator|.
 name|getCamelContext
 argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|camelContext
 return|;
 block|}
 DECL|method|createProcessor (ProcessorType node)
