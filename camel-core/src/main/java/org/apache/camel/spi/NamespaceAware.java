@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|w3c
@@ -29,22 +39,27 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * If a configuration bean needs to be aware of the point in the XML file  * in which its defined then it can implement this method to have the  * XML {@link Element} node injected so that it can grab the namespace context  * or look at local comments etc.  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents an object which is aware of the namespaces in which its used such as  * XPath and XQuery type expressions so that the current namespace context can be injected  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_interface
-DECL|interface|ElementAware
+DECL|interface|NamespaceAware
 specifier|public
 interface|interface
-name|ElementAware
+name|NamespaceAware
 block|{
-comment|/**      * Injects the XML Element which defines this bean so that it can      * analyse the namespace context or grab the local comments etc.      *      * @param element the XML element      */
-DECL|method|setElement (Element element)
+comment|/**      * Injects the XML Namespaces of prefix -> uri mappings      *      * @param namespaces the XML namespaces with the key of prefixes and the value the URIs      */
+DECL|method|setNamespaces (Map<String,String> namespaces)
 name|void
-name|setElement
+name|setNamespaces
 parameter_list|(
-name|Element
-name|element
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|namespaces
 parameter_list|)
 function_decl|;
 block|}

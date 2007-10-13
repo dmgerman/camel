@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|XQueryExpression
 extends|extends
-name|ElementAwareExpression
+name|NamespaceAwareExpression
 block|{
 DECL|method|XQueryExpression ()
 specifier|public

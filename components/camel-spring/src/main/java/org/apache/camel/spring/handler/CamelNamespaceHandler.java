@@ -102,6 +102,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|Namespaces
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|dataformat
@@ -168,7 +184,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ElementAware
+name|NamespaceAware
 import|;
 end_import
 
@@ -558,6 +574,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// TODO switch to use the above mechanism?
 name|registerParser
 argument_list|(
 literal|"endpoint"
@@ -578,7 +595,6 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/* TODO dead old code         registerParser("xpath", new BeanDefinitionParser(XPathBuilder.class) {             @Override             protected void doParse(Element element, ParserContext parserContext, BeanDefinitionBuilder builder) {                 // lets create a child context                 String xpath = DomUtils.getTextValue(element);                 builder.addConstructorArg(xpath);                 super.doParse(element, parserContext, builder);                 builder.addPropertyValue("namespacesFromDom", element);             }         });         */
 block|}
 DECL|method|addBeanDefinitionParser (String elementName, Class<?> type)
 specifier|private
@@ -1307,6 +1323,11 @@ operator|.
 name|getChildNodes
 argument_list|()
 decl_stmt|;
+name|Namespaces
+name|namespaces
+init|=
+literal|null
+decl_stmt|;
 name|int
 name|size
 init|=
@@ -1369,22 +1390,38 @@ if|if
 condition|(
 name|object
 operator|instanceof
-name|ElementAware
+name|NamespaceAware
 condition|)
 block|{
-name|ElementAware
-name|elementAware
+name|NamespaceAware
+name|namespaceAware
 init|=
 operator|(
-name|ElementAware
+name|NamespaceAware
 operator|)
 name|object
 decl_stmt|;
-name|elementAware
-operator|.
-name|setElement
+if|if
+condition|(
+name|namespaces
+operator|==
+literal|null
+condition|)
+block|{
+name|namespaces
+operator|=
+operator|new
+name|Namespaces
 argument_list|(
-name|childElement
+name|element
+argument_list|)
+expr_stmt|;
+block|}
+name|namespaces
+operator|.
+name|configure
+argument_list|(
+name|namespaceAware
 argument_list|)
 expr_stmt|;
 block|}

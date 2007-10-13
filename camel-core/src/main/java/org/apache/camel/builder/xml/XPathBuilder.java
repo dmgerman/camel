@@ -40,6 +40,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -262,7 +272,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ElementAware
+name|NamespaceAware
 import|;
 end_import
 
@@ -275,18 +285,6 @@ operator|.
 name|dom
 operator|.
 name|Document
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Element
 import|;
 end_import
 
@@ -327,7 +325,7 @@ argument_list|<
 name|E
 argument_list|>
 implements|,
-name|ElementAware
+name|NamespaceAware
 block|{
 DECL|field|text
 specifier|private
@@ -1017,21 +1015,26 @@ return|return
 name|expression
 return|;
 block|}
-DECL|method|setElement (Element node)
+DECL|method|setNamespaces (Map<String,String> namespaces)
 specifier|public
 name|void
-name|setElement
+name|setNamespaces
 parameter_list|(
-name|Element
-name|node
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|namespaces
 parameter_list|)
 block|{
 name|getNamespaceContext
 argument_list|()
 operator|.
-name|setNamespacesFromDom
+name|setNamespaces
 argument_list|(
-name|node
+name|namespaces
 argument_list|)
 expr_stmt|;
 block|}
