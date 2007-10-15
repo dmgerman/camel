@@ -1424,20 +1424,6 @@ name|cacheLevelName
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-comment|// Default to CACHE_CONSUMER unless specified. This works best
-comment|// with most JMS providers.
-name|listenerContainer
-operator|.
-name|setCacheLevel
-argument_list|(
-name|DefaultMessageListenerContainer
-operator|.
-name|CACHE_CONSUMER
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|idleTaskExecutionLimit
