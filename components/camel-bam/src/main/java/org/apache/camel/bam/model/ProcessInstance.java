@@ -237,6 +237,10 @@ block|{
 name|CascadeType
 operator|.
 name|PERSIST
+block|,
+name|CascadeType
+operator|.
+name|MERGE
 block|}
 argument_list|)
 DECL|method|getProcessDefinition ()
