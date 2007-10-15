@@ -399,6 +399,7 @@ name|TransactionStatus
 name|status
 parameter_list|)
 block|{
+comment|//List<ActivityState> list = template.find("select x from " + ActivityState.class.getName() + " x where x.escalationLevel = ?1 and x.timeOverdue< ?2", escalateLevel, timeNow);
 name|List
 argument_list|<
 name|ActivityState
@@ -418,9 +419,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" x where x.escalationLevel = ?1 and x.timeOverdue< ?2"
-argument_list|,
-name|escalateLevel
+literal|" x where x.timeOverdue< ?1"
 argument_list|,
 name|timeNow
 argument_list|)
@@ -647,13 +646,12 @@ expr_stmt|;
 block|}
 name|activityState
 operator|.
-name|setEscalationLevel
+name|setTimeOverdue
 argument_list|(
-name|escalateLevel
-operator|+
-literal|1
+literal|null
 argument_list|)
 expr_stmt|;
+comment|//activityState.setEscalationLevel(escalateLevel + 1);
 return|return
 literal|null
 return|;

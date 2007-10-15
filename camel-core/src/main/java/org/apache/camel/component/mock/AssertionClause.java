@@ -75,20 +75,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ValueBuilder
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -120,6 +106,48 @@ name|headerExpression
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ExpressionClause
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ExpressionClauseSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ValueBuilder
+import|;
+end_import
+
 begin_comment
 comment|/**  * A builder of assertions on message exchanges  *   * @version $Revision: 1.1 $  */
 end_comment
@@ -130,11 +158,6 @@ specifier|public
 specifier|abstract
 class|class
 name|AssertionClause
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|Runnable
 block|{
@@ -144,7 +167,7 @@ name|List
 argument_list|<
 name|Predicate
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 argument_list|>
 name|predicates
@@ -154,7 +177,7 @@ name|ArrayList
 argument_list|<
 name|Predicate
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 argument_list|>
 argument_list|()
@@ -162,17 +185,14 @@ decl_stmt|;
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * Adds the given predicate to this assertion clause      */
-DECL|method|predicate (Predicate<E> predicate)
+DECL|method|predicate (Predicate<Exchange> predicate)
 specifier|public
 name|AssertionClause
-argument_list|<
-name|E
-argument_list|>
 name|predicate
 parameter_list|(
 name|Predicate
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|predicate
 parameter_list|)
@@ -186,12 +206,45 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|predicate ()
+specifier|public
+name|ExpressionClauseSupport
+argument_list|<
+name|AssertionClause
+argument_list|>
+name|predicate
+parameter_list|()
+block|{
+name|ExpressionClauseSupport
+argument_list|<
+name|AssertionClause
+argument_list|>
+name|clause
+init|=
+operator|new
+name|ExpressionClauseSupport
+argument_list|<
+name|AssertionClause
+argument_list|>
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+name|addPredicate
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
+return|return
+name|clause
+return|;
+block|}
 comment|/**      * Returns a predicate and value builder for headers on an exchange      */
 DECL|method|header (String name)
 specifier|public
 name|ValueBuilder
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|header
 parameter_list|(
@@ -201,7 +254,7 @@ parameter_list|)
 block|{
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|expression
 init|=
@@ -227,7 +280,7 @@ parameter_list|()
 block|{
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|expression
 init|=
@@ -260,7 +313,7 @@ parameter_list|)
 block|{
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|expression
 init|=
@@ -286,7 +339,7 @@ parameter_list|()
 block|{
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|expression
 init|=
@@ -319,7 +372,7 @@ parameter_list|)
 block|{
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|expression
 init|=
@@ -337,7 +390,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Performs any assertions on the given exchange      */
-DECL|method|applyAssertionOn (MockEndpoint endpoint, int index, E exchange)
+DECL|method|applyAssertionOn (MockEndpoint endpoint, int index, Exchange exchange)
 specifier|protected
 name|void
 name|applyAssertionOn
@@ -348,7 +401,7 @@ parameter_list|,
 name|int
 name|index
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -356,7 +409,7 @@ for|for
 control|(
 name|Predicate
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|predicate
 range|:
@@ -379,14 +432,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|addPredicate (Predicate<E> predicate)
+DECL|method|addPredicate (Predicate<Exchange> predicate)
 specifier|protected
 name|void
 name|addPredicate
 parameter_list|(
 name|Predicate
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|predicate
 parameter_list|)
@@ -406,16 +459,16 @@ name|PredicateValueBuilder
 extends|extends
 name|ValueBuilder
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 block|{
-DECL|method|PredicateValueBuilder (Expression<E> expression)
+DECL|method|PredicateValueBuilder (Expression<Exchange> expression)
 specifier|public
 name|PredicateValueBuilder
 parameter_list|(
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|expression
 parameter_list|)
@@ -426,17 +479,17 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onNewPredicate (Predicate<E> predicate)
+DECL|method|onNewPredicate (Predicate<Exchange> predicate)
 specifier|protected
 name|Predicate
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|onNewPredicate
 parameter_list|(
 name|Predicate
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|predicate
 parameter_list|)
