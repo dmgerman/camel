@@ -40,7 +40,9 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|language
+operator|.
+name|ExpressionType
 import|;
 end_import
 
@@ -55,15 +57,20 @@ class|class
 name|ExpressionClause
 parameter_list|<
 name|T
-extends|extends
-name|ProcessorType
 parameter_list|>
 extends|extends
-name|ExpressionClauseSupport
-argument_list|<
-name|T
-argument_list|>
+name|ExpressionType
 block|{
+DECL|field|result
+specifier|private
+name|T
+name|result
+decl_stmt|;
+DECL|field|language
+specifier|private
+name|String
+name|language
+decl_stmt|;
 DECL|method|createAndSetExpression (T result)
 specifier|public
 specifier|static
@@ -116,10 +123,11 @@ name|T
 name|result
 parameter_list|)
 block|{
-name|super
-argument_list|(
+name|this
+operator|.
 name|result
-argument_list|)
+operator|=
+name|result
 expr_stmt|;
 block|}
 comment|// Fluent API
@@ -346,16 +354,47 @@ name|String
 name|expression
 parameter_list|)
 block|{
-return|return
-name|super
-operator|.
-name|language
+name|setLanguage
 argument_list|(
 name|language
-argument_list|,
+argument_list|)
+expr_stmt|;
+name|setExpression
+argument_list|(
 name|expression
 argument_list|)
+expr_stmt|;
+return|return
+name|result
 return|;
+block|}
+comment|// Properties
+comment|//-------------------------------------------------------------------------
+DECL|method|getLanguage ()
+specifier|public
+name|String
+name|getLanguage
+parameter_list|()
+block|{
+return|return
+name|language
+return|;
+block|}
+DECL|method|setLanguage (String language)
+specifier|public
+name|void
+name|setLanguage
+parameter_list|(
+name|String
+name|language
+parameter_list|)
+block|{
+name|this
+operator|.
+name|language
+operator|=
+name|language
+expr_stmt|;
 block|}
 block|}
 end_class

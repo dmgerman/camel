@@ -130,7 +130,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|ExpressionClauseSupport
+name|ExpressionClause
 import|;
 end_import
 
@@ -208,21 +208,21 @@ return|;
 block|}
 DECL|method|predicate ()
 specifier|public
-name|ExpressionClauseSupport
+name|ExpressionClause
 argument_list|<
 name|AssertionClause
 argument_list|>
 name|predicate
 parameter_list|()
 block|{
-name|ExpressionClauseSupport
+name|ExpressionClause
 argument_list|<
 name|AssertionClause
 argument_list|>
 name|clause
 init|=
 operator|new
-name|ExpressionClauseSupport
+name|ExpressionClause
 argument_list|<
 name|AssertionClause
 argument_list|>

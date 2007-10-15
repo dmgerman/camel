@@ -443,17 +443,6 @@ name|nodeData
 argument_list|)
 expr_stmt|;
 comment|// TODO we should add a transactional client / event driven consumer / polling client
-name|List
-argument_list|<
-name|ProcessorType
-argument_list|>
-name|outputs
-init|=
-name|route
-operator|.
-name|getOutputs
-argument_list|()
-decl_stmt|;
 name|NodeData
 name|from
 init|=
@@ -464,7 +453,10 @@ control|(
 name|ProcessorType
 name|output
 range|:
-name|outputs
+name|route
+operator|.
+name|getOutputs
+argument_list|()
 control|)
 block|{
 name|NodeData

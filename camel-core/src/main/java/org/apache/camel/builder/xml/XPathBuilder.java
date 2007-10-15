@@ -353,8 +353,13 @@ comment|// will evaluate as just "1" by default which is bizarre. So by default
 comment|// lets assume XPath expressions result in nodesets.
 DECL|field|resultType
 specifier|private
-name|QName
+name|Class
 name|resultType
+decl_stmt|;
+DECL|field|resultQName
+specifier|private
+name|QName
+name|resultQName
 init|=
 name|XPathConstants
 operator|.
@@ -557,7 +562,7 @@ name|evaluateAs
 argument_list|(
 name|exchange
 argument_list|,
-name|resultType
+name|resultQName
 argument_list|)
 return|;
 block|}
@@ -573,7 +578,7 @@ argument_list|>
 name|booleanResult
 parameter_list|()
 block|{
-name|resultType
+name|resultQName
 operator|=
 name|XPathConstants
 operator|.
@@ -593,7 +598,7 @@ argument_list|>
 name|nodeResult
 parameter_list|()
 block|{
-name|resultType
+name|resultQName
 operator|=
 name|XPathConstants
 operator|.
@@ -613,7 +618,7 @@ argument_list|>
 name|nodeSetResult
 parameter_list|()
 block|{
-name|resultType
+name|resultQName
 operator|=
 name|XPathConstants
 operator|.
@@ -633,7 +638,7 @@ argument_list|>
 name|numberResult
 parameter_list|()
 block|{
-name|resultType
+name|resultQName
 operator|=
 name|XPathConstants
 operator|.
@@ -653,7 +658,7 @@ argument_list|>
 name|stringResult
 parameter_list|()
 block|{
-name|resultType
+name|resultQName
 operator|=
 name|XPathConstants
 operator|.
@@ -866,30 +871,30 @@ return|return
 name|text
 return|;
 block|}
-DECL|method|getResultType ()
+DECL|method|getResultQName ()
 specifier|public
 name|QName
-name|getResultType
+name|getResultQName
 parameter_list|()
 block|{
 return|return
-name|resultType
+name|resultQName
 return|;
 block|}
-DECL|method|setResultType (QName resultType)
+DECL|method|setResultQName (QName resultQName)
 specifier|public
 name|void
-name|setResultType
+name|setResultQName
 parameter_list|(
 name|QName
-name|resultType
+name|resultQName
 parameter_list|)
 block|{
 name|this
 operator|.
-name|resultType
+name|resultQName
 operator|=
-name|resultType
+name|resultQName
 expr_stmt|;
 block|}
 DECL|method|getNamespaceContext ()
@@ -1386,6 +1391,32 @@ operator|.
 name|outHeaderFunction
 operator|=
 name|outHeaderFunction
+expr_stmt|;
+block|}
+DECL|method|getResultType ()
+specifier|public
+name|Class
+name|getResultType
+parameter_list|()
+block|{
+return|return
+name|resultType
+return|;
+block|}
+DECL|method|setResultType (Class resultType)
+specifier|public
+name|void
+name|setResultType
+parameter_list|(
+name|Class
+name|resultType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resultType
+operator|=
+name|resultType
 expr_stmt|;
 block|}
 comment|// Implementation methods

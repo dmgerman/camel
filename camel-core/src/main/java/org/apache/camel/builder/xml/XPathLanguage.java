@@ -203,7 +203,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|setResultType
+name|setResultQName
 argument_list|(
 name|resultType
 argument_list|)
