@@ -246,6 +246,20 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|ExpressionClause
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|NoErrorHandlerBuilder
 import|;
 end_import
@@ -991,7 +1005,79 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a predicate which is applied and only if it is true then the      * exchange is forwarded to the destination      *       * @return the builder for a predicate      */
+comment|/**      * Creates an {@link IdempotentConsumer} to avoid duplicate messages      *      * @return the builder used to create the expression      */
+DECL|method|idempotentConsumer (MessageIdRepository messageIdRepository)
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|IdempotentConsumerType
+argument_list|>
+name|idempotentConsumer
+parameter_list|(
+name|MessageIdRepository
+name|messageIdRepository
+parameter_list|)
+block|{
+name|IdempotentConsumerType
+name|answer
+init|=
+operator|new
+name|IdempotentConsumerType
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setMessageIdRepository
+argument_list|(
+name|messageIdRepository
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|answer
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a predciate expression which only if it is true then the      * exchange is forwarded to the destination      *      * @return the clause used to create the filter expression      */
+DECL|method|filter ()
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|FilterType
+argument_list|>
+name|filter
+parameter_list|()
+block|{
+name|FilterType
+name|filter
+init|=
+operator|new
+name|FilterType
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|filter
+argument_list|)
+expr_stmt|;
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|filter
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a predicate which is applied and only if it is true then the      * exchange is forwarded to the destination      *      * @return the builder for a predicate      */
 DECL|method|filter (Predicate predicate)
 specifier|public
 name|FilterType
@@ -1019,7 +1105,66 @@ return|return
 name|filter
 return|;
 block|}
-comment|/**      * Creates a choice of one or more predicates with an otherwise clause      *       * @return the builder for a choice expression      */
+DECL|method|filter (ExpressionType expression)
+specifier|public
+name|FilterType
+name|filter
+parameter_list|(
+name|ExpressionType
+name|expression
+parameter_list|)
+block|{
+name|FilterType
+name|filter
+init|=
+name|getNodeFactory
+argument_list|()
+operator|.
+name|createFilter
+argument_list|()
+decl_stmt|;
+name|filter
+operator|.
+name|setExpression
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|filter
+argument_list|)
+expr_stmt|;
+return|return
+name|filter
+return|;
+block|}
+DECL|method|filter (String language, String expression)
+specifier|public
+name|FilterType
+name|filter
+parameter_list|(
+name|String
+name|language
+parameter_list|,
+name|String
+name|expression
+parameter_list|)
+block|{
+return|return
+name|filter
+argument_list|(
+operator|new
+name|LanguageExpression
+argument_list|(
+name|language
+argument_list|,
+name|expression
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a choice of one or more predicates with an otherwise clause      *      * @return the builder for a choice expression      */
 DECL|method|choice ()
 specifier|public
 name|ChoiceType
@@ -1042,7 +1187,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a try/catch block      *       * @return the builder for a tryBlock expression      */
+comment|/**      * Creates a try/catch block      *      * @return the builder for a tryBlock expression      */
 DECL|method|tryBlock ()
 specifier|public
 name|TryType
@@ -1065,7 +1210,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *       * @param receipients is the builder of the expression used in the      *                {@link RecipientList} to decide the destinations      */
+comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *      * @param receipients is the builder of the expression used in the      *                    {@link RecipientList} to decide the destinations      */
 DECL|method|recipientList (Expression receipients)
 specifier|public
 name|Type
@@ -1096,7 +1241,58 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      *       * @param receipients the expression on which to split      * @return the builder      */
+comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *      * @return the expression clasue for the expression used in the      *                    {@link RecipientList} to decide the destinations      */
+DECL|method|recipientList ()
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|Type
+argument_list|>
+name|recipientList
+parameter_list|()
+block|{
+name|RecipientListType
+name|answer
+init|=
+operator|new
+name|RecipientListType
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+name|ExpressionClause
+argument_list|<
+name|Type
+argument_list|>
+name|clause
+init|=
+operator|new
+name|ExpressionClause
+argument_list|<
+name|Type
+argument_list|>
+argument_list|(
+operator|(
+name|Type
+operator|)
+name|this
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setExpression
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
+return|return
+name|clause
+return|;
+block|}
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      *      * @param receipients the expression on which to split      * @return the builder      */
 DECL|method|splitter (Expression receipients)
 specifier|public
 name|SplitterType
@@ -1124,7 +1320,86 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where an expression is evaluated to be able to compare the      * message exchanges to reorder them. e.g. you may wish to sort by some      * header      *       * @param expression the expression on which to compare messages in order      * @return the builder      */
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      *      * @return the expression clause for the expression on which to split      */
+DECL|method|splitter ()
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|SplitterType
+argument_list|>
+name|splitter
+parameter_list|()
+block|{
+name|SplitterType
+name|answer
+init|=
+operator|new
+name|SplitterType
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|answer
+argument_list|)
+return|;
+block|}
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where a list of expressions are evaluated to be able to compare      * the message exchanges to reorder them. e.g. you may wish to sort by some      * headers      *      * @return the expression clause for the expressions on which to compare messages in order      */
+DECL|method|resequencer ()
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|ResequencerType
+argument_list|>
+name|resequencer
+parameter_list|()
+block|{
+name|ResequencerType
+name|answer
+init|=
+operator|new
+name|ResequencerType
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+name|ExpressionClause
+argument_list|<
+name|ResequencerType
+argument_list|>
+name|clause
+init|=
+operator|new
+name|ExpressionClause
+argument_list|<
+name|ResequencerType
+argument_list|>
+argument_list|(
+name|answer
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|expression
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
+return|return
+name|clause
+return|;
+block|}
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where an expression is evaluated to be able to compare the      * message exchanges to reorder them. e.g. you may wish to sort by some      * header      *      * @param expression the expression on which to compare messages in order      * @return the builder      */
 DECL|method|resequencer (Expression<Exchange> expression)
 specifier|public
 name|ResequencerType
@@ -1152,7 +1427,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where a list of expressions are evaluated to be able to compare      * the message exchanges to reorder them. e.g. you may wish to sort by some      * headers      *       * @param expressions the expressions on which to compare messages in order      * @return the builder      */
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where a list of expressions are evaluated to be able to compare      * the message exchanges to reorder them. e.g. you may wish to sort by some      * headers      *      * @param expressions the expressions on which to compare messages in order      * @return the builder      */
 DECL|method|resequencer (List<Expression> expressions)
 specifier|public
 name|ResequencerType
@@ -1183,7 +1458,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where a list of expressions are evaluated to be able to compare      * the message exchanges to reorder them. e.g. you may wish to sort by some      * headers      *       * @param expressions the expressions on which to compare messages in order      * @return the builder      */
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where a list of expressions are evaluated to be able to compare      * the message exchanges to reorder them. e.g. you may wish to sort by some      * headers      *      * @param expressions the expressions on which to compare messages in order      * @return the builder      */
 DECL|method|resequencer (Expression... expressions)
 specifier|public
 name|ResequencerType
@@ -1230,7 +1505,79 @@ name|list
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *       * @param correlationExpression the expression used to calculate the      *                correlation key. For a JMS message this could be the      *                expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
+DECL|method|aggregator ()
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|AggregatorType
+argument_list|>
+name|aggregator
+parameter_list|()
+block|{
+name|AggregatorType
+name|answer
+init|=
+operator|new
+name|AggregatorType
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|answer
+argument_list|)
+return|;
+block|}
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
+DECL|method|aggregator (AggregationStrategy aggregationStrategy)
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|AggregatorType
+argument_list|>
+name|aggregator
+parameter_list|(
+name|AggregationStrategy
+name|aggregationStrategy
+parameter_list|)
+block|{
+name|AggregatorType
+name|answer
+init|=
+operator|new
+name|AggregatorType
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setAggregationStrategy
+argument_list|(
+name|aggregationStrategy
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|answer
+argument_list|)
+return|;
+block|}
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
 DECL|method|aggregator (Expression correlationExpression)
 specifier|public
 name|AggregatorType
@@ -1258,7 +1605,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *       * @param correlationExpression the expression used to calculate the      *                correlation key. For a JMS message this could be the      *                expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
 DECL|method|aggregator (Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|AggregatorType
@@ -1291,7 +1638,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *       * @param processAtExpression an expression to calculate the time at which      *                the messages should be processed      * @return the builder      */
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *      * @param processAtExpression an expression to calculate the time at which      *                            the messages should be processed      * @return the builder      */
 DECL|method|delayer (Expression<Exchange> processAtExpression)
 specifier|public
 name|DelayerType
@@ -1313,7 +1660,7 @@ literal|0L
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *       * @param processAtExpression an expression to calculate the time at which      *                the messages should be processed      * @param delay the delay in milliseconds which is added to the      *                processAtExpression to determine the time the message      *                should be processed      * @return the builder      */
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *      * @param processAtExpression an expression to calculate the time at which      *                            the messages should be processed      * @param delay               the delay in milliseconds which is added to the      *                            processAtExpression to determine the time the message      *                            should be processed      * @return the builder      */
 DECL|method|delayer (Expression<Exchange> processAtExpression, long delay)
 specifier|public
 name|DelayerType
@@ -1349,7 +1696,38 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where a fixed amount of milliseconds are used to delay processing of a      * message exchange      *       * @param delay the default delay in milliseconds      * @return the builder      */
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      * @return the expression clause to create the expression      */
+DECL|method|delayer ()
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|DelayerType
+argument_list|>
+name|delayer
+parameter_list|()
+block|{
+name|DelayerType
+name|answer
+init|=
+operator|new
+name|DelayerType
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|answer
+argument_list|)
+return|;
+block|}
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where a fixed amount of milliseconds are used to delay processing of a      * message exchange      *      * @param delay the default delay in milliseconds      * @return the builder      */
 DECL|method|delayer (long delay)
 specifier|public
 name|DelayerType
@@ -1368,7 +1746,7 @@ name|delay
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *       * @return the builder      */
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *      * @return the builder      */
 DECL|method|throttler (long maximumRequestCount)
 specifier|public
 name|ThrottlerType
@@ -1555,66 +1933,7 @@ operator|)
 name|this
 return|;
 block|}
-DECL|method|filter (ExpressionType expression)
-specifier|public
-name|FilterType
-name|filter
-parameter_list|(
-name|ExpressionType
-name|expression
-parameter_list|)
-block|{
-name|FilterType
-name|filter
-init|=
-name|getNodeFactory
-argument_list|()
-operator|.
-name|createFilter
-argument_list|()
-decl_stmt|;
-name|filter
-operator|.
-name|setExpression
-argument_list|(
-name|expression
-argument_list|)
-expr_stmt|;
-name|addOutput
-argument_list|(
-name|filter
-argument_list|)
-expr_stmt|;
-return|return
-name|filter
-return|;
-block|}
-DECL|method|filter (String language, String expression)
-specifier|public
-name|FilterType
-name|filter
-parameter_list|(
-name|String
-name|language
-parameter_list|,
-name|String
-name|expression
-parameter_list|)
-block|{
-return|return
-name|filter
-argument_list|(
-operator|new
-name|LanguageExpression
-argument_list|(
-name|language
-argument_list|,
-name|expression
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the {@link #DEFAULT_TRACE_CATEGORY} logging category.      *       * @return      */
+comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the {@link #DEFAULT_TRACE_CATEGORY} logging category.      *      * @return      */
 DECL|method|trace ()
 specifier|public
 name|Type
@@ -1628,7 +1947,7 @@ name|DEFAULT_TRACE_CATEGORY
 argument_list|)
 return|;
 block|}
-comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the specified logging category.      *       * @param category the logging category trace messages will sent to.      * @return      */
+comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the specified logging category.      *      * @param category the logging category trace messages will sent to.      * @return      */
 DECL|method|trace (String category)
 specifier|public
 name|Type
@@ -1766,7 +2085,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Installs the given error handler builder      *       * @param errorHandlerBuilder the error handler to be used by default for      *                all child routes      * @return the current builder with the error handler configured      */
+comment|/**      * Installs the given error handler builder      *      * @param errorHandlerBuilder the error handler to be used by default for      *                            all child routes      * @return the current builder with the error handler configured      */
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|Type
@@ -1788,7 +2107,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Configures whether or not the error handler is inherited by every      * processing node (or just the top most one)      *       * @param condition the falg as to whether error handlers should be      *                inherited or not      * @return the current builder      */
+comment|/**      * Configures whether or not the error handler is inherited by every      * processing node (or just the top most one)      *      * @param condition the falg as to whether error handlers should be      *                  inherited or not      * @return the current builder      */
 DECL|method|inheritErrorHandler (boolean condition)
 specifier|public
 name|Type
@@ -2152,6 +2471,48 @@ argument_list|(
 name|expression
 argument_list|)
 argument_list|)
+return|;
+block|}
+comment|/**      * Adds a processor which sets the body on the OUT message      */
+DECL|method|setOutBody ()
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|Type
+argument_list|>
+name|setOutBody
+parameter_list|()
+block|{
+name|ExpressionClause
+argument_list|<
+name|Type
+argument_list|>
+name|clause
+init|=
+operator|new
+name|ExpressionClause
+argument_list|<
+name|Type
+argument_list|>
+argument_list|(
+operator|(
+name|Type
+operator|)
+name|this
+argument_list|)
+decl_stmt|;
+name|process
+argument_list|(
+name|ProcessorBuilder
+operator|.
+name|setOutBody
+argument_list|(
+name|clause
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|clause
 return|;
 block|}
 comment|/**      * Adds a processor which sets the body on the FAULT message      */
@@ -2847,7 +3208,7 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * A strategy method which allows derived classes to wrap the child      * processor in some kind of interceptor      *       * @param routeContext      * @param target the processor which can be wrapped      * @return the original processor or a new wrapped interceptor      */
+comment|/**      * A strategy method which allows derived classes to wrap the child      * processor in some kind of interceptor      *      * @param routeContext      * @param target       the processor which can be wrapped      * @return the original processor or a new wrapped interceptor      */
 DECL|method|wrapProcessorInInterceptors (RouteContext routeContext, Processor target)
 specifier|protected
 name|Processor
@@ -3242,7 +3603,7 @@ return|return
 name|processor
 return|;
 block|}
-comment|/**      * Causes subsequent processors to be called asynchronously       *       * @param coreSize the number of threads that will be used to process      *          messages in subsequent processors.      * @return a ThreadType builder that can be used to futher configure the      *         the thread pool.      */
+comment|/**      * Causes subsequent processors to be called asynchronously      *      * @param coreSize the number of threads that will be used to process      *                 messages in subsequent processors.      * @return a ThreadType builder that can be used to futher configure the      *         the thread pool.      */
 DECL|method|thread (int coreSize)
 specifier|public
 name|ThreadType
@@ -3270,7 +3631,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Causes subsequent processors to be called asynchronously       *       * @param executor the executor that will be used to process      *          messages in subsequent processors.      * @return a ThreadType builder that can be used to further configure the      *         the thread pool.      */
+comment|/**      * Causes subsequent processors to be called asynchronously      *      * @param executor the executor that will be used to process      *                 messages in subsequent processors.      * @return a ThreadType builder that can be used to further configure the      *         the thread pool.      */
 DECL|method|thread (ThreadPoolExecutor executor)
 specifier|public
 name|ProcessorType

@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Expression
 import|;
 end_import
 
@@ -36,7 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Expression
+name|model
+operator|.
+name|ExpressionNode
 import|;
 end_import
 
@@ -62,9 +64,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|model
 operator|.
-name|Language
+name|language
+operator|.
+name|ExpressionType
 import|;
 end_import
 
@@ -82,17 +86,90 @@ name|T
 extends|extends
 name|ProcessorType
 parameter_list|>
+extends|extends
+name|ExpressionType
 block|{
 DECL|field|result
 specifier|private
 name|T
 name|result
 decl_stmt|;
-DECL|field|camelContext
+DECL|field|language
 specifier|private
-name|CamelContext
-name|camelContext
+name|String
+name|language
 decl_stmt|;
+DECL|field|expressionText
+specifier|private
+name|String
+name|expressionText
+decl_stmt|;
+DECL|field|expression
+specifier|private
+name|Expression
+name|expression
+decl_stmt|;
+DECL|method|createAndSetExpression (T result)
+specifier|public
+specifier|static
+parameter_list|<
+name|T
+extends|extends
+name|ExpressionNode
+parameter_list|>
+name|ExpressionClause
+argument_list|<
+name|T
+argument_list|>
+name|createAndSetExpression
+parameter_list|(
+name|T
+name|result
+parameter_list|)
+block|{
+name|ExpressionClause
+argument_list|<
+name|T
+argument_list|>
+name|clause
+init|=
+operator|new
+name|ExpressionClause
+argument_list|<
+name|T
+argument_list|>
+argument_list|(
+name|result
+argument_list|)
+decl_stmt|;
+name|result
+operator|.
+name|setExpression
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
+return|return
+name|clause
+return|;
+block|}
+DECL|method|ExpressionClause (T result)
+specifier|public
+name|ExpressionClause
+parameter_list|(
+name|T
+name|result
+parameter_list|)
+block|{
+name|this
+operator|.
+name|result
+operator|=
+name|result
+expr_stmt|;
+block|}
+comment|// Fluent API
+comment|//-------------------------------------------------------------------------
 comment|/**      * Evaluates the<a href="http://activemq.apache.org/camel/el.html">EL Language from JSP and JSF</a>      * using the<a href="http://activemq.apache.org/camel/juel.html">JUEL library</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|el (String text)
 specifier|public
@@ -112,7 +189,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/groovy.html">Groovy expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|groovy (String text)
 specifier|public
 name|T
@@ -131,7 +208,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/java-script.html">JavaScript expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|javaScript (String text)
 specifier|public
 name|T
@@ -150,7 +227,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://activemq.apache.org/camel/ognl.html">OGNL expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|ognl (String text)
 specifier|public
 name|T
@@ -169,7 +246,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/php.html">PHP expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|php (String text)
 specifier|public
 name|T
@@ -188,7 +265,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/python.html">Python expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|python (String text)
 specifier|public
 name|T
@@ -207,7 +284,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/ruby.html">Ruby expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|ruby (String text)
 specifier|public
 name|T
@@ -226,7 +303,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://activemq.apache.org/camel/sql.html">SQL expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|sql (String text)
 specifier|public
 name|T
@@ -245,7 +322,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/simple.html">Simple expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|simple (String text)
 specifier|public
 name|T
@@ -264,7 +341,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://activemq.apache.org/camel/xpath.html">XPath expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text)
 specifier|public
 name|T
@@ -283,11 +360,11 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-DECL|method|xqery (String text)
+comment|/**      * Evaluates an<a href="http://activemq.apache.org/camel/xquery.html">XQuery expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+DECL|method|xquery (String text)
 specifier|public
 name|T
-name|xqery
+name|xquery
 parameter_list|(
 name|String
 name|text
@@ -296,88 +373,66 @@ block|{
 return|return
 name|language
 argument_list|(
-literal|"xqery"
+literal|"xquery"
 argument_list|,
 name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a given language name with the expression text      *      * @param languageName the name of the language      * @param text         the expression in the given language      * @return the builder to continue processing the DSL      */
-DECL|method|language (String languageName, String text)
+comment|/**      * Evaluates a given language name with the expression text      *      * @param language   the name of the language      * @param expression the expression in the given language      * @return the builder to continue processing the DSL      */
+DECL|method|language (String language, String expression)
 specifier|public
 name|T
 name|language
 parameter_list|(
 name|String
-name|languageName
+name|language
 parameter_list|,
 name|String
-name|text
+name|expression
 parameter_list|)
 block|{
-name|Expression
-name|expression
-init|=
-name|createExpression
+name|setLanguage
 argument_list|(
-literal|"el"
-argument_list|,
-name|text
+name|language
 argument_list|)
-decl_stmt|;
-comment|// TODO set the exception!
+expr_stmt|;
+name|setExpression
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
 return|return
 name|result
 return|;
 block|}
-DECL|method|createExpression (String languageName, String text)
-specifier|protected
-name|Expression
-name|createExpression
-parameter_list|(
+comment|// Properties
+comment|//-------------------------------------------------------------------------
+DECL|method|getLanguage ()
+specifier|public
 name|String
-name|languageName
-parameter_list|,
-name|String
-name|text
-parameter_list|)
+name|getLanguage
+parameter_list|()
 block|{
-comment|// TODO can we share this code with other places we assert mandatory language names?
-name|Language
-name|language
-init|=
-name|camelContext
-operator|.
-name|resolveLanguage
-argument_list|(
-name|languageName
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|language
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Could not resolve language: "
-operator|+
-name|languageName
-argument_list|)
-throw|;
-block|}
 return|return
 name|language
-operator|.
-name|createExpression
-argument_list|(
-name|text
-argument_list|)
 return|;
+block|}
+DECL|method|setLanguage (String language)
+specifier|public
+name|void
+name|setLanguage
+parameter_list|(
+name|String
+name|language
+parameter_list|)
+block|{
+name|this
+operator|.
+name|language
+operator|=
+name|language
+expr_stmt|;
 block|}
 block|}
 end_class

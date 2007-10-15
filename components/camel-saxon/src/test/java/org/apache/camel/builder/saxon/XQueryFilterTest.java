@@ -240,11 +240,11 @@ literal|"direct:start"
 argument_list|)
 operator|.
 name|filter
-argument_list|(
+argument_list|()
+operator|.
 name|xquery
 argument_list|(
 literal|"/person[@name='James']"
-argument_list|)
 argument_list|)
 operator|.
 name|to

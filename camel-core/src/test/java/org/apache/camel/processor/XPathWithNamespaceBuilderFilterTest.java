@@ -78,7 +78,7 @@ name|builder
 operator|.
 name|xml
 operator|.
-name|NamespaceBuilder
+name|Namespaces
 import|;
 end_import
 
@@ -95,24 +95,6 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|NamespaceBuilder
-operator|.
-name|namespaceContext
 import|;
 end_import
 
@@ -249,23 +231,25 @@ parameter_list|()
 block|{
 comment|// START SNIPPET: example
 comment|// lets define the namespaces we'll need in our filters
-name|NamespaceBuilder
+name|Namespaces
 name|ns
 init|=
-name|namespaceContext
+operator|new
+name|Namespaces
 argument_list|(
 literal|"c"
 argument_list|,
 literal|"http://acme.com/cheese"
 argument_list|)
 operator|.
-name|namespace
+name|add
 argument_list|(
 literal|"xsd"
 argument_list|,
 literal|"http://www.w3.org/2001/XMLSchema"
 argument_list|)
 decl_stmt|;
+comment|// now lets create an xpath based Message Filter
 name|from
 argument_list|(
 literal|"direct:start"

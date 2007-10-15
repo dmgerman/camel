@@ -48,6 +48,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NoSuchEndpointException
 import|;
 end_import
@@ -63,6 +87,20 @@ operator|.
 name|spi
 operator|.
 name|Injector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Language
 import|;
 end_import
 
@@ -83,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A number of helper methods  *   * @version $Revision: $  */
+comment|/**  * A number of helper methods  *  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -97,8 +135,8 @@ DECL|method|CamelContextHelper ()
 specifier|private
 name|CamelContextHelper
 parameter_list|()
-block|{             }
-comment|/**      * Returns the mandatory endpoint for the given URI or the      * {@link org.apache.camel.NoSuchEndpointException} is thrown      *       * @param camelContext      * @param uri      * @return      */
+block|{     }
+comment|/**      * Returns the mandatory endpoint for the given URI or the      * {@link org.apache.camel.NoSuchEndpointException} is thrown      *      * @param camelContext      * @param uri      * @return      */
 DECL|method|getMandatoryEndpoint (CamelContext camelContext, String uri)
 specifier|public
 specifier|static
@@ -285,6 +323,137 @@ name|newInstance
 argument_list|(
 name|beanType
 argument_list|)
+return|;
+block|}
+comment|/**      * Resolves the given language name into a {@link Language} or throws an exception if it could not be converted      *      * @param camelContext      * @param languageName      * @return      */
+DECL|method|resolveMandatoryLanguage (CamelContext camelContext, String languageName)
+specifier|public
+specifier|static
+name|Language
+name|resolveMandatoryLanguage
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|String
+name|languageName
+parameter_list|)
+block|{
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"camelContext"
+argument_list|)
+expr_stmt|;
+name|notNull
+argument_list|(
+name|languageName
+argument_list|,
+literal|"languageName"
+argument_list|)
+expr_stmt|;
+name|Language
+name|language
+init|=
+name|camelContext
+operator|.
+name|resolveLanguage
+argument_list|(
+name|languageName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|language
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Could not resolve language: "
+operator|+
+name|languageName
+argument_list|)
+throw|;
+block|}
+return|return
+name|language
+return|;
+block|}
+comment|/**      * Resolves the mandatory language name and expression text into a {@link Expression} instance      * throwing an exception if it could not be created      */
+DECL|method|resolveMandatoryExpression (CamelContext camelContext, String languageName, String expressionText)
+specifier|public
+specifier|static
+name|Expression
+name|resolveMandatoryExpression
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|String
+name|languageName
+parameter_list|,
+name|String
+name|expressionText
+parameter_list|)
+block|{
+name|notNull
+argument_list|(
+name|expressionText
+argument_list|,
+literal|"expressionText"
+argument_list|)
+expr_stmt|;
+name|Language
+name|language
+init|=
+name|resolveMandatoryLanguage
+argument_list|(
+name|camelContext
+argument_list|,
+name|languageName
+argument_list|)
+decl_stmt|;
+name|Expression
+argument_list|<
+name|Exchange
+argument_list|>
+name|expression
+init|=
+name|language
+operator|.
+name|createExpression
+argument_list|(
+name|expressionText
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|expression
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Could not create expression: "
+operator|+
+name|expressionText
+operator|+
+literal|" with language: "
+operator|+
+name|language
+argument_list|)
+throw|;
+block|}
+return|return
+name|expression
 return|;
 block|}
 block|}
