@@ -96,7 +96,7 @@ specifier|protected
 name|String
 name|uri
 init|=
-literal|"file:target/test-default-inbox?consumer.generateEmptyExchangeWhenIdle=true"
+literal|"file:target/test-inbox2?consumer.generateEmptyExchangeWhenIdle=true"
 decl_stmt|;
 DECL|method|testFileRoute ()
 specifier|public
@@ -220,6 +220,27 @@ name|nullCount
 operator|>
 literal|0
 argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|recursiveDelete
+argument_list|(
+literal|"target/test-inbox2"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

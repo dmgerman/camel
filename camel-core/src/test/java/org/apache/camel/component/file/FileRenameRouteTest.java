@@ -52,11 +52,7 @@ name|Exception
 block|{
 name|recursiveDelete
 argument_list|(
-operator|new
-name|File
-argument_list|(
 literal|"target/test-rename-inbox"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|uri

@@ -873,6 +873,28 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Recursively delete a directory, useful to zapping test data      *      * @param file the directory to be deleted      */
+DECL|method|recursiveDelete (String file)
+specifier|protected
+specifier|static
+name|void
+name|recursiveDelete
+parameter_list|(
+name|String
+name|file
+parameter_list|)
+block|{
+name|recursiveDelete
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|file
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Recursively delete a directory, useful to zapping test data      *      * @param file the directory to be deleted      */
 DECL|method|recursiveDelete (File file)
 specifier|protected
 specifier|static

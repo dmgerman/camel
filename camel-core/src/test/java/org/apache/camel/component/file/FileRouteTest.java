@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -136,6 +146,27 @@ expr_stmt|;
 name|result
 operator|.
 name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|recursiveDelete
+argument_list|(
+literal|"target/test-default-inbox"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
 argument_list|()
 expr_stmt|;
 block|}
