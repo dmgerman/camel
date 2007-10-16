@@ -129,12 +129,18 @@ class|class
 name|ProceedType
 extends|extends
 name|ProcessorType
+argument_list|<
+name|ProcessorType
+argument_list|>
 block|{
 DECL|method|getOutputs ()
 specifier|public
 name|List
 argument_list|<
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()

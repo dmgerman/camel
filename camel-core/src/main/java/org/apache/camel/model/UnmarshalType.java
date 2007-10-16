@@ -259,6 +259,9 @@ class|class
 name|UnmarshalType
 extends|extends
 name|OutputType
+argument_list|<
+name|ProcessorType
+argument_list|>
 block|{
 annotation|@
 name|XmlAttribute

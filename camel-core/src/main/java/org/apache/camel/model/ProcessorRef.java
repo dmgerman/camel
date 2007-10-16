@@ -137,6 +137,9 @@ class|class
 name|ProcessorRef
 extends|extends
 name|OutputType
+argument_list|<
+name|ProcessorType
+argument_list|>
 block|{
 annotation|@
 name|XmlAttribute

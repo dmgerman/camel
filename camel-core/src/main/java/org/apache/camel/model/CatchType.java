@@ -199,6 +199,9 @@ class|class
 name|CatchType
 extends|extends
 name|ProcessorType
+argument_list|<
+name|ProcessorType
+argument_list|>
 block|{
 annotation|@
 name|XmlElementRef
