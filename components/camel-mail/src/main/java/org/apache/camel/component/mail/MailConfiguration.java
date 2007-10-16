@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the configuration data for communicating over email  *   * @version $Revision: 532790 $  */
+comment|/**  * Represents the configuration data for communicating over email  *  * @version $Revision: 532790 $  */
 end_comment
 
 begin_class
@@ -141,6 +141,11 @@ name|folderName
 init|=
 literal|"INBOX"
 decl_stmt|;
+DECL|field|ignoreUriScheme
+specifier|private
+name|boolean
+name|ignoreUriScheme
+decl_stmt|;
 DECL|method|MailConfiguration ()
 specifier|public
 name|MailConfiguration
@@ -208,6 +213,17 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|getProtocol
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|isIgnoreUriScheme
+argument_list|()
+condition|)
+block|{
 name|String
 name|scheme
 init|=
@@ -228,6 +244,7 @@ argument_list|(
 name|scheme
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|String
 name|userInfo
@@ -773,6 +790,32 @@ operator|.
 name|folderName
 operator|=
 name|folderName
+expr_stmt|;
+block|}
+DECL|method|isIgnoreUriScheme ()
+specifier|public
+name|boolean
+name|isIgnoreUriScheme
+parameter_list|()
+block|{
+return|return
+name|ignoreUriScheme
+return|;
+block|}
+DECL|method|setIgnoreUriScheme (boolean ignoreUriScheme)
+specifier|public
+name|void
+name|setIgnoreUriScheme
+parameter_list|(
+name|boolean
+name|ignoreUriScheme
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreUriScheme
+operator|=
+name|ignoreUriScheme
 expr_stmt|;
 block|}
 block|}
