@@ -99,6 +99,20 @@ name|pattern
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|BeanExchange (DefaultExchange parent)
+specifier|public
+name|BeanExchange
+parameter_list|(
+name|DefaultExchange
+name|parent
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|parent
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getInvocation ()
 specifier|public
 name|BeanInvocation
@@ -147,11 +161,7 @@ return|return
 operator|new
 name|BeanExchange
 argument_list|(
-name|getContext
-argument_list|()
-argument_list|,
-name|getPattern
-argument_list|()
+name|this
 argument_list|)
 return|;
 block|}

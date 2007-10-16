@@ -753,6 +753,28 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// no results so lets copy the last input
+comment|// as the final processor on a pipeline might not
+comment|// have created any OUT; such as a mock:endpoint
+comment|// so lets assume the last IN is the OUT
+name|result
+operator|.
+name|getOut
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|copyFrom
+argument_list|(
+name|source
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Returns true if the given exchange pattern (if defined) can support IN messagea      *      * @param exchange the exchange to interrogate      * @return true if the exchange is defined as an {@link ExchangePattern} which supports      * IN messages      */

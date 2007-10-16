@@ -176,6 +176,12 @@ name|CamelContext
 name|getContext
 parameter_list|()
 function_decl|;
+comment|/**      * Creates a new exchange instance with empty messages, headers and properties      *       * @return      */
+DECL|method|newInstance ()
+name|Exchange
+name|newInstance
+parameter_list|()
+function_decl|;
 comment|/**      * Creates a copy of the current message exchange so that it can be      * forwarded to another destination      */
 DECL|method|copy ()
 name|Exchange

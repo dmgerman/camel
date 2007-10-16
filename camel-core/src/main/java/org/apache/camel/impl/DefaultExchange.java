@@ -247,6 +247,37 @@ operator|=
 name|pattern
 expr_stmt|;
 block|}
+DECL|method|DefaultExchange (DefaultExchange parent)
+specifier|public
+name|DefaultExchange
+parameter_list|(
+name|DefaultExchange
+name|parent
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|parent
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|parent
+operator|.
+name|getPattern
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|unitOfWork
+operator|=
+name|parent
+operator|.
+name|getUnitOfWork
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -557,7 +588,7 @@ return|return
 operator|new
 name|DefaultExchange
 argument_list|(
-name|context
+name|this
 argument_list|)
 return|;
 block|}

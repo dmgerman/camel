@@ -329,7 +329,7 @@ name|assertNotNull
 argument_list|(
 name|receivedExchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -339,7 +339,7 @@ literal|"!olleH"
 argument_list|,
 name|receivedExchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody

@@ -129,6 +129,29 @@ name|inMessage
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|IrcExchange (DefaultExchange parent, IrcBinding binding)
+specifier|public
+name|IrcExchange
+parameter_list|(
+name|DefaultExchange
+name|parent
+parameter_list|,
+name|IrcBinding
+name|binding
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|parent
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|binding
+operator|=
+name|binding
+expr_stmt|;
+block|}
 DECL|method|getBinding ()
 specifier|public
 name|IrcBinding
@@ -244,11 +267,7 @@ return|return
 operator|new
 name|IrcExchange
 argument_list|(
-name|getContext
-argument_list|()
-argument_list|,
-name|getPattern
-argument_list|()
+name|this
 argument_list|,
 name|getBinding
 argument_list|()

@@ -132,6 +132,29 @@ operator|=
 name|file
 expr_stmt|;
 block|}
+DECL|method|FileExchange (DefaultExchange parent, File file)
+specifier|public
+name|FileExchange
+parameter_list|(
+name|DefaultExchange
+name|parent
+parameter_list|,
+name|File
+name|file
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|parent
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|file
+operator|=
+name|file
+expr_stmt|;
+block|}
 comment|/**      * @return the file      */
 DECL|method|getFile ()
 specifier|public
@@ -172,11 +195,7 @@ return|return
 operator|new
 name|FileExchange
 argument_list|(
-name|getContext
-argument_list|()
-argument_list|,
-name|getPattern
-argument_list|()
+name|this
 argument_list|,
 name|getFile
 argument_list|()
