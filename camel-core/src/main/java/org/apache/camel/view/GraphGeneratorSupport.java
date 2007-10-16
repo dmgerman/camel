@@ -293,12 +293,13 @@ specifier|protected
 name|String
 name|dir
 decl_stmt|;
+comment|//private String imagePrefix = "http://www.enterpriseintegrationpatterns.com/img/";
 DECL|field|imagePrefix
 specifier|private
 name|String
 name|imagePrefix
 init|=
-literal|"http://www.enterpriseintegrationpatterns.com/img/"
+literal|"http://activemq.apache.org/camel/images/eip/"
 decl_stmt|;
 DECL|field|nodeMap
 specifier|private

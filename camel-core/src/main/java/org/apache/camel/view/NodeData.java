@@ -314,7 +314,7 @@ name|image
 operator|=
 name|imagePrefix
 operator|+
-literal|"MessageFilterIcon.gif"
+literal|"MessageFilterIcon.png"
 expr_stmt|;
 name|this
 operator|.
@@ -337,7 +337,7 @@ name|image
 operator|=
 name|imagePrefix
 operator|+
-literal|"MessageFilterIcon.gif"
+literal|"MessageFilterIcon.png"
 expr_stmt|;
 name|this
 operator|.
@@ -399,7 +399,7 @@ name|image
 operator|=
 name|imagePrefix
 operator|+
-literal|"ContentBasedRouterIcon.gif"
+literal|"ContentBasedRouterIcon.png"
 expr_stmt|;
 name|this
 operator|.
@@ -476,7 +476,7 @@ name|image
 operator|=
 name|imagePrefix
 operator|+
-literal|"RecipientListIcon.gif"
+literal|"RecipientListIcon.png"
 expr_stmt|;
 name|this
 operator|.
@@ -499,7 +499,7 @@ name|image
 operator|=
 name|imagePrefix
 operator|+
-literal|"SplitterIcon.gif"
+literal|"SplitterIcon.png"
 expr_stmt|;
 name|this
 operator|.
@@ -522,7 +522,7 @@ name|image
 operator|=
 name|imagePrefix
 operator|+
-literal|"AggregatorIcon.gif"
+literal|"AggregatorIcon.png"
 expr_stmt|;
 name|this
 operator|.
@@ -545,7 +545,7 @@ name|image
 operator|=
 name|imagePrefix
 operator|+
-literal|"ResequencerIcon.gif"
+literal|"ResequencerIcon.png"
 expr_stmt|;
 name|this
 operator|.
