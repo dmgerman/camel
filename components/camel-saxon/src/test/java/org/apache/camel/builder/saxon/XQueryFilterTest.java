@@ -146,7 +146,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"<person xmlns='http://acme.com/cheese' name='James' city='London'/>"
+literal|"<person name='James' city='London'/>"
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
@@ -176,7 +176,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"<person xmlns='http://acme.com/cheese'  name='Hiram' city='Tampa'/>"
+literal|"<person name='Hiram' city='Tampa'/>"
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
@@ -232,17 +232,6 @@ name|configure
 parameter_list|()
 block|{
 comment|// START SNIPPET: example
-name|Namespaces
-name|ns
-init|=
-operator|new
-name|Namespaces
-argument_list|(
-literal|"c"
-argument_list|,
-literal|"http://acme.com/cheese"
-argument_list|)
-decl_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
@@ -253,9 +242,7 @@ argument_list|()
 operator|.
 name|xquery
 argument_list|(
-literal|"/c:person[@name='James']"
-argument_list|,
-name|ns
+literal|"/person[@name='James']"
 argument_list|)
 operator|.
 name|to
