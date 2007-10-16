@@ -58,20 +58,6 @@ name|DefaultProducer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -84,11 +70,6 @@ name|IBatisProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|sqlClient
-specifier|private
-name|SqlMapClient
-name|sqlClient
-decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -144,31 +125,40 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|Object
+name|body
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
-name|sqlClient
+name|body
 operator|==
 literal|null
 condition|)
 block|{
-name|sqlClient
-operator|=
+comment|// must be a poll so lets do a query
 name|endpoint
 operator|.
-name|getSqlClient
-argument_list|()
-expr_stmt|;
-block|}
-name|Object
-name|body
-init|=
-name|ExchangeHelper
-operator|.
-name|getMandatoryInBody
+name|query
 argument_list|(
 name|exchange
+operator|.
+name|getOut
+argument_list|(
+literal|true
 argument_list|)
-decl_stmt|;
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|String
 name|operation
 init|=
@@ -177,7 +167,10 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|sqlClient
+name|endpoint
+operator|.
+name|getSqlClient
+argument_list|()
 operator|.
 name|insert
 argument_list|(
@@ -186,6 +179,7 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Returns the iBatis insert operation name      */
 DECL|method|getOperationName (Exchange exchange)
