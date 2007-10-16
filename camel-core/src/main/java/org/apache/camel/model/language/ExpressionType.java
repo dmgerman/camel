@@ -214,9 +214,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|builder
 operator|.
-name|ExpressionSupport
+name|ExpressionClause
 import|;
 end_import
 
@@ -360,6 +360,13 @@ DECL|field|expressionValue
 specifier|private
 name|Expression
 name|expressionValue
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|expressionType
+specifier|private
+name|ExpressionType
+name|expressionType
 decl_stmt|;
 DECL|method|getLabel (List<ExpressionType> expressions)
 specifier|public
@@ -653,6 +660,25 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|expressionType
+operator|!=
+literal|null
+condition|)
+block|{
+name|predicate
+operator|=
+name|expressionType
+operator|.
+name|createPredicate
+argument_list|(
+name|routeContext
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|CamelContext
 name|camelContext
 init|=
@@ -690,6 +716,7 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 return|return
 name|predicate
 return|;
@@ -709,6 +736,25 @@ name|expressionValue
 operator|==
 literal|null
 condition|)
+block|{
+if|if
+condition|(
+name|expressionType
+operator|!=
+literal|null
+condition|)
+block|{
+name|expressionValue
+operator|=
+name|expressionType
+operator|.
+name|createExpression
+argument_list|(
+name|routeContext
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|CamelContext
 name|camelContext
@@ -746,6 +792,7 @@ argument_list|,
 name|expressionValue
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|expressionValue
@@ -898,6 +945,23 @@ block|}
 return|return
 literal|""
 return|;
+block|}
+comment|/**      * Allows derived classes to set a lazily created expressionType instance      * such as if using the {@link ExpressionClause#      *      * @param expressionType      */
+DECL|method|setExpressionType (ExpressionType expressionType)
+specifier|protected
+name|void
+name|setExpressionType
+parameter_list|(
+name|ExpressionType
+name|expressionType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expressionType
+operator|=
+name|expressionType
+expr_stmt|;
 block|}
 DECL|method|configurePredicate (RouteContext routeContext, Predicate predicate)
 specifier|protected
