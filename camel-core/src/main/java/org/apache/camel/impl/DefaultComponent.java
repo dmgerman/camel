@@ -399,6 +399,12 @@ name|parameters
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|useIntrospectionOnEndpoint
+argument_list|()
+condition|)
+block|{
 name|setProperties
 argument_list|(
 name|endpoint
@@ -406,6 +412,7 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|endpoint
@@ -625,6 +632,17 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Derived classes may wish to overload this to prevent the default introspection of URI parameters      * on the created Endpoint instance      */
+DECL|method|useIntrospectionOnEndpoint ()
+specifier|protected
+name|boolean
+name|useIntrospectionOnEndpoint
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 block|}
 end_class

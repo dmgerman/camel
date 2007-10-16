@@ -149,10 +149,6 @@ DECL|field|httpClient
 specifier|private
 name|HttpClient
 name|httpClient
-init|=
-operator|new
-name|HttpClient
-argument_list|()
 decl_stmt|;
 DECL|method|HttpPollingConsumer (HttpEndpoint endpoint)
 specifier|public
@@ -172,6 +168,13 @@ operator|.
 name|endpoint
 operator|=
 name|endpoint
+expr_stmt|;
+name|httpClient
+operator|=
+name|endpoint
+operator|.
+name|createHttpClient
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|receive ()

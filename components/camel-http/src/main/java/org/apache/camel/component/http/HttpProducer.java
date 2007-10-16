@@ -217,10 +217,6 @@ DECL|field|httpClient
 specifier|private
 name|HttpClient
 name|httpClient
-init|=
-operator|new
-name|HttpClient
-argument_list|()
 decl_stmt|;
 DECL|method|HttpProducer (HttpEndpoint endpoint)
 specifier|public
@@ -234,6 +230,13 @@ name|super
 argument_list|(
 name|endpoint
 argument_list|)
+expr_stmt|;
+name|httpClient
+operator|=
+name|endpoint
+operator|.
+name|createHttpClient
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -343,6 +346,32 @@ literal|"http.responseCode"
 argument_list|,
 name|responseCode
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHttpClient ()
+specifier|public
+name|HttpClient
+name|getHttpClient
+parameter_list|()
+block|{
+return|return
+name|httpClient
+return|;
+block|}
+DECL|method|setHttpClient (HttpClient httpClient)
+specifier|public
+name|void
+name|setHttpClient
+parameter_list|(
+name|HttpClient
+name|httpClient
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpClient
+operator|=
+name|httpClient
 expr_stmt|;
 block|}
 DECL|method|createMethod (Exchange exchange)

@@ -94,9 +94,39 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|httpclient
+operator|.
+name|params
+operator|.
+name|HttpClientParams
 import|;
 end_import
 
@@ -115,6 +145,11 @@ argument_list|<
 name|HttpExchange
 argument_list|>
 block|{
+DECL|field|httpClientConfigurer
+specifier|private
+name|HttpClientConfigurer
+name|httpClientConfigurer
+decl_stmt|;
 comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *       * @throws Exception      */
 DECL|method|connect (HttpConsumer consumer)
 specifier|public
@@ -139,6 +174,32 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
+DECL|method|getHttpClientConfigurer ()
+specifier|public
+name|HttpClientConfigurer
+name|getHttpClientConfigurer
+parameter_list|()
+block|{
+return|return
+name|httpClientConfigurer
+return|;
+block|}
+DECL|method|setHttpClientConfigurer (HttpClientConfigurer httpClientConfigurer)
+specifier|public
+name|void
+name|setHttpClientConfigurer
+parameter_list|(
+name|HttpClientConfigurer
+name|httpClientConfigurer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpClientConfigurer
+operator|=
+name|httpClientConfigurer
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
@@ -161,6 +222,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|HttpClientParams
+name|params
+init|=
+operator|new
+name|HttpClientParams
+argument_list|()
+decl_stmt|;
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+name|params
+argument_list|,
+name|parameters
+argument_list|,
+literal|"httpClient."
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|HttpEndpoint
@@ -174,7 +253,21 @@ name|URI
 argument_list|(
 name|uri
 argument_list|)
+argument_list|,
+name|params
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|useIntrospectionOnEndpoint ()
+specifier|protected
+name|boolean
+name|useIntrospectionOnEndpoint
+parameter_list|()
+block|{
+return|return
+literal|false
 return|;
 block|}
 block|}
