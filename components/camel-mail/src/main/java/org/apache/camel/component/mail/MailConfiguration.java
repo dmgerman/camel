@@ -215,11 +215,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|getProtocol
-argument_list|()
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|isIgnoreUriScheme
 argument_list|()
