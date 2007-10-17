@@ -70,6 +70,30 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ValidationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -116,32 +140,8 @@ name|SAXParseException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ValidationException
-import|;
-end_import
-
 begin_comment
-comment|/**  * A default error handler which just stores all the errors so they can be reported or transformed.  *   * @version $Revision: $  */
+comment|/**  * A default error handler which just stores all the errors so they can be reported or transformed.  *  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -336,7 +336,23 @@ specifier|public
 name|void
 name|reset
 parameter_list|()
-block|{     }
+block|{
+name|warnings
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|errors
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|fatalErrors
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|isValid ()
 specifier|public
 name|boolean
