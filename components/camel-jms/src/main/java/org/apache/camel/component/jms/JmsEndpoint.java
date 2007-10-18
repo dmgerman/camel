@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|PollingConsumer
 import|;
 end_import
@@ -60,7 +72,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
+name|component
+operator|.
+name|jms
+operator|.
+name|requestor
+operator|.
+name|Requestor
 import|;
 end_import
 
@@ -121,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  *   * @version $Revision:520964 $  */
+comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -135,6 +153,18 @@ argument_list|<
 name|JmsExchange
 argument_list|>
 block|{
+DECL|field|component
+specifier|private
+specifier|final
+name|JmsComponent
+name|component
+decl_stmt|;
+DECL|field|pubSubDomain
+specifier|private
+specifier|final
+name|boolean
+name|pubSubDomain
+decl_stmt|;
 DECL|field|binding
 specifier|private
 name|JmsBinding
@@ -145,12 +175,6 @@ specifier|private
 name|String
 name|destination
 decl_stmt|;
-DECL|field|pubSubDomain
-specifier|private
-specifier|final
-name|boolean
-name|pubSubDomain
-decl_stmt|;
 DECL|field|selector
 specifier|private
 name|String
@@ -160,6 +184,18 @@ DECL|field|configuration
 specifier|private
 name|JmsConfiguration
 name|configuration
+decl_stmt|;
+DECL|field|requestor
+specifier|private
+name|Requestor
+name|requestor
+decl_stmt|;
+DECL|field|requestTimeout
+specifier|private
+name|long
+name|requestTimeout
+init|=
+literal|20000L
 decl_stmt|;
 DECL|method|JmsEndpoint (String uri, JmsComponent component, String destination, boolean pubSubDomain, JmsConfiguration configuration)
 specifier|public
@@ -190,6 +226,12 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|component
+operator|=
+name|component
+expr_stmt|;
+name|this
+operator|.
 name|configuration
 operator|=
 name|configuration
@@ -215,20 +257,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|JmsOperations
-name|template
-init|=
-name|createJmsOperations
-argument_list|()
-decl_stmt|;
 return|return
-name|createProducer
+operator|new
+name|JmsProducer
 argument_list|(
-name|template
+name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a producer using the given template      */
+comment|/**      * Creates a producer using the given template for InOnly message exchanges      */
 DECL|method|createProducer (JmsOperations template)
 specifier|public
 name|JmsProducer
@@ -240,6 +277,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|JmsProducer
+name|answer
+init|=
+name|createProducer
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|template
@@ -270,14 +313,15 @@ name|destination
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-operator|new
-name|JmsProducer
+name|answer
+operator|.
+name|setInOnlyTemplate
 argument_list|(
-name|this
-argument_list|,
 name|template
 argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|createConsumer (Processor processor)
@@ -308,7 +352,7 @@ name|listenerContainer
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a consumer using the given processor and listener container      *       * @param processor the processor to use to process the messages      * @param listenerContainer the listener container      * @return a newly created consumer      * @throws Exception if the consumer cannot be created      */
+comment|/**      * Creates a consumer using the given processor and listener container      *      * @param processor         the processor to use to process the messages      * @param listenerContainer the listener container      * @return a newly created consumer      * @throws Exception if the consumer cannot be created      */
 DECL|method|createConsumer (Processor processor, AbstractMessageListenerContainer listenerContainer)
 specifier|public
 name|JmsConsumer
@@ -380,7 +424,7 @@ block|{
 name|JmsOperations
 name|template
 init|=
-name|createJmsOperations
+name|createInOnlyTemplate
 argument_list|()
 decl_stmt|;
 return|return
@@ -444,6 +488,45 @@ name|message
 argument_list|)
 return|;
 block|}
+comment|/**      * Factory method for creating a new template for InOnly message exchanges      */
+DECL|method|createInOnlyTemplate ()
+specifier|public
+name|JmsOperations
+name|createInOnlyTemplate
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|createInOnlyTemplate
+argument_list|(
+name|pubSubDomain
+argument_list|,
+name|destination
+argument_list|)
+return|;
+block|}
+comment|/**      * Factory method for creating a new template for InOut message exchanges      */
+DECL|method|createInOutTemplate ()
+specifier|public
+name|JmsOperations
+name|createInOutTemplate
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|createInOutTemplate
+argument_list|(
+name|pubSubDomain
+argument_list|,
+name|destination
+argument_list|,
+name|getRequestTimeout
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getBinding ()
@@ -470,7 +553,7 @@ return|return
 name|binding
 return|;
 block|}
-comment|/**      * Sets the binding used to convert from a Camel message to and from a JMS      * message      *       * @param binding the binding to use      */
+comment|/**      * Sets the binding used to convert from a Camel message to and from a JMS      * message      *      * @param binding the binding to use      */
 DECL|method|setBinding (JmsBinding binding)
 specifier|public
 name|void
@@ -544,23 +627,78 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|createJmsOperations ()
-specifier|protected
-name|JmsOperations
-name|createJmsOperations
+DECL|method|getRequestor ()
+specifier|public
+name|Requestor
+name|getRequestor
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|requestor
+operator|==
+literal|null
+condition|)
+block|{
+name|requestor
+operator|=
+name|component
+operator|.
+name|getRequestor
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|requestor
+return|;
+block|}
+DECL|method|setRequestor (Requestor requestor)
+specifier|public
+name|void
+name|setRequestor
+parameter_list|(
+name|Requestor
+name|requestor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|requestor
+operator|=
+name|requestor
+expr_stmt|;
+block|}
+DECL|method|getRequestTimeout ()
+specifier|public
+name|long
+name|getRequestTimeout
 parameter_list|()
 block|{
 return|return
-name|configuration
-operator|.
-name|createJmsOperations
-argument_list|(
-name|pubSubDomain
-argument_list|,
-name|destination
-argument_list|)
+name|requestTimeout
 return|;
 block|}
+comment|/**      * Sets the timeout in milliseconds which requests should timeout after      *       * @param requestTimeout      */
+DECL|method|setRequestTimeout (long requestTimeout)
+specifier|public
+name|void
+name|setRequestTimeout
+parameter_list|(
+name|long
+name|requestTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|requestTimeout
+operator|=
+name|requestTimeout
+expr_stmt|;
+block|}
+comment|// Implementation methods
+comment|//-------------------------------------------------------------------------
 block|}
 end_class
 

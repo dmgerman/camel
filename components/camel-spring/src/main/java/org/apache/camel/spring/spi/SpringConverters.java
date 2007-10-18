@@ -342,11 +342,6 @@ name|BeanInvocation
 argument_list|(
 name|invocation
 operator|.
-name|getThis
-argument_list|()
-argument_list|,
-name|invocation
-operator|.
 name|getMethod
 argument_list|()
 argument_list|,

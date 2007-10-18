@@ -266,7 +266,7 @@ init|=
 operator|new
 name|ActiveMQConnectionFactory
 argument_list|(
-literal|"vm://localhost?broker.persistent=false"
+literal|"vm://localhost?broker.persistent=false&broker.useJmx=false"
 argument_list|)
 decl_stmt|;
 name|camelContext
@@ -408,7 +408,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"activemq:topic:registry.heartbeats"
+literal|"activemq:topic:registry.heartbeats?cacheLevelName=CACHE_CONSUMER"
 argument_list|)
 operator|.
 name|to

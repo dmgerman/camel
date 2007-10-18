@@ -74,7 +74,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Producer
+name|ExchangePattern
 import|;
 end_import
 
@@ -86,7 +86,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
+name|Producer
 import|;
 end_import
 
@@ -162,8 +162,6 @@ init|=
 operator|new
 name|BeanInvocation
 argument_list|(
-name|proxy
-argument_list|,
 name|method
 argument_list|,
 name|args
@@ -226,7 +224,9 @@ return|return
 name|exchange
 operator|.
 name|getOut
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 operator|.
 name|getBody
 argument_list|()

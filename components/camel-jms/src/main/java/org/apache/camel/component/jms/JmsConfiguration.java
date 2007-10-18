@@ -635,6 +635,13 @@ specifier|private
 name|boolean
 name|preserveMessageQos
 decl_stmt|;
+DECL|field|requestMapPurgePollTimeMillis
+specifier|private
+name|long
+name|requestMapPurgePollTimeMillis
+init|=
+literal|1000L
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -687,10 +694,74 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|createJmsOperations (boolean pubSubDomain, String destination)
+comment|/**      * Creates a JmsOperations object used for request/response using a request timeout value      */
+DECL|method|createInOutTemplate (boolean pubSubDomain, String destination, long requestTimeout)
 specifier|public
 name|JmsOperations
-name|createJmsOperations
+name|createInOutTemplate
+parameter_list|(
+name|boolean
+name|pubSubDomain
+parameter_list|,
+name|String
+name|destination
+parameter_list|,
+name|long
+name|requestTimeout
+parameter_list|)
+block|{
+name|JmsOperations
+name|answer
+init|=
+name|createInOnlyTemplate
+argument_list|(
+name|pubSubDomain
+argument_list|,
+name|destination
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|instanceof
+name|JmsTemplate
+operator|&&
+name|requestTimeout
+operator|>
+literal|0
+condition|)
+block|{
+name|JmsTemplate
+name|jmsTemplate
+init|=
+operator|(
+name|JmsTemplate
+operator|)
+name|answer
+decl_stmt|;
+name|jmsTemplate
+operator|.
+name|setExplicitQosEnabled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|jmsTemplate
+operator|.
+name|setTimeToLive
+argument_list|(
+name|requestTimeout
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
+block|}
+DECL|method|createInOnlyTemplate (boolean pubSubDomain, String destination)
+specifier|public
+name|JmsOperations
+name|createInOnlyTemplate
 parameter_list|(
 name|boolean
 name|pubSubDomain
@@ -1710,7 +1781,7 @@ return|return
 name|connectionFactory
 return|;
 block|}
-comment|/**      * Sets the default connection factory to be used if a connection factory is      * not specified for either      * {@link #setTemplateConnectionFactory(ConnectionFactory)} or      * {@link #setListenerConnectionFactory(ConnectionFactory)}      *       * @param connectionFactory the default connection factory to use      */
+comment|/**      * Sets the default connection factory to be used if a connection factory is      * not specified for either      * {@link #setTemplateConnectionFactory(ConnectionFactory)} or      * {@link #setListenerConnectionFactory(ConnectionFactory)}      *      * @param connectionFactory the default connection factory to use      */
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
 name|void
@@ -1750,7 +1821,7 @@ return|return
 name|listenerConnectionFactory
 return|;
 block|}
-comment|/**      * Sets the connection factory to be used for consuming messages via the      * {@link #createMessageListenerContainer()}      *       * @param listenerConnectionFactory the connection factory to use for      *                consuming messages      */
+comment|/**      * Sets the connection factory to be used for consuming messages via the      * {@link #createMessageListenerContainer()}      *      * @param listenerConnectionFactory the connection factory to use for      *                                  consuming messages      */
 DECL|method|setListenerConnectionFactory (ConnectionFactory listenerConnectionFactory)
 specifier|public
 name|void
@@ -1790,7 +1861,7 @@ return|return
 name|templateConnectionFactory
 return|;
 block|}
-comment|/**      * Sets the connection factory to be used for sending messages via the      * {@link JmsTemplate} via {@link #createJmsOperations(boolean, String)}      *       * @param templateConnectionFactory the connection factory for sending      *                messages      */
+comment|/**      * Sets the connection factory to be used for sending messages via the      * {@link JmsTemplate} via {@link #createInOnlyTemplate(boolean, String)}      *      * @param templateConnectionFactory the connection factory for sending      *                                  messages      */
 DECL|method|setTemplateConnectionFactory (ConnectionFactory templateConnectionFactory)
 specifier|public
 name|void
@@ -2803,7 +2874,7 @@ return|return
 name|preserveMessageQos
 return|;
 block|}
-comment|/**      * Set to true if you want to send message using the QoS settings specified       * on the message.  Normally the QoS settings used are the one configured      * on this Object.      *       * @param preserveMessageQos      */
+comment|/**      * Set to true if you want to send message using the QoS settings specified      * on the message.  Normally the QoS settings used are the one configured      * on this Object.      *      * @param preserveMessageQos      */
 DECL|method|setPreserveMessageQos (boolean preserveMessageQos)
 specifier|public
 name|void
@@ -2870,6 +2941,33 @@ operator|.
 name|destinationResolver
 operator|=
 name|destinationResolver
+expr_stmt|;
+block|}
+DECL|method|getRequestMapPurgePollTimeMillis ()
+specifier|public
+name|long
+name|getRequestMapPurgePollTimeMillis
+parameter_list|()
+block|{
+return|return
+name|requestMapPurgePollTimeMillis
+return|;
+block|}
+comment|/**      * Sets the frequency that the requestMap for InOut exchanges is purged      * for timed out message exchanges      *      * @param requestMapPurgePollTimeMillis      */
+DECL|method|setRequestMapPurgePollTimeMillis (long requestMapPurgePollTimeMillis)
+specifier|public
+name|void
+name|setRequestMapPurgePollTimeMillis
+parameter_list|(
+name|long
+name|requestMapPurgePollTimeMillis
+parameter_list|)
+block|{
+name|this
+operator|.
+name|requestMapPurgePollTimeMillis
+operator|=
+name|requestMapPurgePollTimeMillis
 expr_stmt|;
 block|}
 block|}

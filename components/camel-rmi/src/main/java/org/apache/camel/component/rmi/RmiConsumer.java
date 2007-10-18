@@ -451,8 +451,6 @@ init|=
 operator|new
 name|BeanInvocation
 argument_list|(
-name|proxy
-argument_list|,
 name|method
 argument_list|,
 name|args

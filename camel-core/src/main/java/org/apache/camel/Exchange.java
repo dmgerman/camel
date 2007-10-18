@@ -16,6 +16,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -28,18 +38,8 @@ name|UnitOfWork
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
-comment|/**  * The base message exchange interface providing access to the request, response  * and fault {@link Message} instances. Different providers such as JMS, JBI,  * CXF and HTTP can provide their own derived API to expose the underlying  * transport semantics to avoid the leaky abstractions of generic APIs.  *   * @version $Revision$  */
+comment|/**  * The base message exchange interface providing access to the request, response  * and fault {@link Message} instances. Different providers such as JMS, JBI,  * CXF and HTTP can provide their own derived API to expose the underlying  * transport semantics to avoid the leaky abstractions of generic APIs.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -54,7 +54,7 @@ name|ExchangePattern
 name|getPattern
 parameter_list|()
 function_decl|;
-comment|/**      * Returns a property associated with this exchange by name      *       * @param name the name of the property      * @return the value of the given header or null if there is no property for      *         the given name      */
+comment|/**      * Returns a property associated with this exchange by name      *      * @param name the name of the property      * @return the value of the given header or null if there is no property for      *         the given name      */
 DECL|method|getProperty (String name)
 name|Object
 name|getProperty
@@ -63,7 +63,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Returns a property associated with this exchange by name and specifying      * the type required      *       * @param name the name of the property      * @param type the type of the property      * @return the value of the given header or null if there is no property for      *         the given name or null if it cannot be converted to the given      *         type      */
+comment|/**      * Returns a property associated with this exchange by name and specifying      * the type required      *      * @param name the name of the property      * @param type the type of the property      * @return the value of the given header or null if there is no property for      *         the given name or null if it cannot be converted to the given      *         type      */
 DECL|method|getProperty (String name, Class<T> type)
 parameter_list|<
 name|T
@@ -81,7 +81,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Sets a property on the exchange      *       * @param name of the property      * @param value to associate with the name      */
+comment|/**      * Sets a property on the exchange      *      * @param name  of the property      * @param value to associate with the name      */
 DECL|method|setProperty (String name, Object value)
 name|void
 name|setProperty
@@ -102,7 +102,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Returns all of the properties associated with the exchange      *       * @return all the headers in a Map      */
+comment|/**      * Returns all of the properties associated with the exchange      *      * @return all the headers in a Map      */
 DECL|method|getProperties ()
 name|Map
 argument_list|<
@@ -113,19 +113,28 @@ argument_list|>
 name|getProperties
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the inbound request message      *       * @return the message      */
+comment|/**      * Returns the inbound request message      *      * @return the message      */
 DECL|method|getIn ()
 name|Message
 name|getIn
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the outbound message, lazily creating one if one has not already      * been associated with this exchange. If you want to inspect this property      * but not force lazy creation then invoke the {@link #getOut(boolean)}      * method passing in null      *       * @return the response      */
+comment|/**      * Sets the inbound message instance      *      * @param in the inbound message      */
+DECL|method|setIn (Message in)
+name|void
+name|setIn
+parameter_list|(
+name|Message
+name|in
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the outbound message, lazily creating one if one has not already      * been associated with this exchange. If you want to inspect this property      * but not force lazy creation then invoke the {@link #getOut(boolean)}      * method passing in null      *      * @return the response      */
 DECL|method|getOut ()
 name|Message
 name|getOut
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the outbound message; optionally lazily creating one if one has      * not been associated with this exchange      *       * @return the response      */
+comment|/**      * Returns the outbound message; optionally lazily creating one if one has      * not been associated with this exchange      *      * @return the response      */
 DECL|method|getOut (boolean lazyCreate)
 name|Message
 name|getOut
@@ -134,7 +143,16 @@ name|boolean
 name|lazyCreate
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the fault message      *       * @return the fault      */
+comment|/**      * Sets the outbound message      *      * @param out the outbound message      */
+DECL|method|setOut (Message out)
+name|void
+name|setOut
+parameter_list|(
+name|Message
+name|out
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the fault message      *      * @return the fault      */
 DECL|method|getFault ()
 name|Message
 name|getFault
@@ -149,13 +167,13 @@ name|boolean
 name|lazyCreate
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the exception associated with this exchange      *       * @return the exception (or null if no faults)      */
+comment|/**      * Returns the exception associated with this exchange      *      * @return the exception (or null if no faults)      */
 DECL|method|getException ()
 name|Throwable
 name|getException
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the exception associated with this exchange      *       * @param e      */
+comment|/**      * Sets the exception associated with this exchange      *      * @param e      */
 DECL|method|setException (Throwable e)
 name|void
 name|setException
@@ -164,19 +182,19 @@ name|Throwable
 name|e
 parameter_list|)
 function_decl|;
-comment|/**      * Returns true if this exchange failed due to either an exception or fault      *      * @see Exchange#getException()      * @see Exchange#getFault()      * @return true if this exchange failed due to either an exception or fault      */
+comment|/**      * Returns true if this exchange failed due to either an exception or fault      *      * @return true if this exchange failed due to either an exception or fault      * @see Exchange#getException()      * @see Exchange#getFault()      */
 DECL|method|isFailed ()
 name|boolean
 name|isFailed
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the container so that a processor can resolve endpoints from URIs      *       * @return the container which owns this exchange      */
+comment|/**      * Returns the container so that a processor can resolve endpoints from URIs      *      * @return the container which owns this exchange      */
 DECL|method|getContext ()
 name|CamelContext
 name|getContext
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a new exchange instance with empty messages, headers and properties      *       * @return      */
+comment|/**      * Creates a new exchange instance with empty messages, headers and properties      *      * @return      */
 DECL|method|newInstance ()
 name|Exchange
 name|newInstance
@@ -188,7 +206,7 @@ name|Exchange
 name|copy
 parameter_list|()
 function_decl|;
-comment|/**      * Copies the data into this exchange from the given exchange      *       * #param source is the source from which headers and messages will be      * copied      */
+comment|/**      * Copies the data into this exchange from the given exchange      *<p/>      * #param source is the source from which headers and messages will be      * copied      */
 DECL|method|copyFrom (Exchange source)
 name|void
 name|copyFrom

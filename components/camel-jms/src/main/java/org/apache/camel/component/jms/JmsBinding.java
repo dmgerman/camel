@@ -240,12 +240,12 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|/**      * Extracts the body from the JMS message      *       * @param exchange      * @param message      */
-DECL|method|extractBodyFromJms (JmsExchange exchange, Message message)
+DECL|method|extractBodyFromJms (Exchange exchange, Message message)
 specifier|public
 name|Object
 name|extractBodyFromJms
 parameter_list|(
-name|JmsExchange
+name|Exchange
 name|exchange
 parameter_list|,
 name|Message
@@ -365,13 +365,22 @@ throw|;
 block|}
 block|}
 comment|/**      * Creates a JMS message from the Camel exchange and message      *       * @param session the JMS session used to create the message      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
-DECL|method|makeJmsMessage (Exchange exchange, Session session)
+DECL|method|makeJmsMessage (Exchange exchange, org.apache.camel.Message camelMessage, Session session)
 specifier|public
 name|Message
 name|makeJmsMessage
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+name|camelMessage
 parameter_list|,
 name|Session
 name|session
@@ -386,25 +395,22 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|exchange
+name|camelMessage
 operator|instanceof
-name|JmsExchange
+name|JmsMessage
 condition|)
 block|{
-name|JmsExchange
-name|jmsExchange
+name|JmsMessage
+name|jmsMessage
 init|=
 operator|(
-name|JmsExchange
+name|JmsMessage
 operator|)
-name|exchange
+name|camelMessage
 decl_stmt|;
 name|answer
 operator|=
-name|jmsExchange
-operator|.
-name|getIn
-argument_list|()
+name|jmsMessage
 operator|.
 name|getJmsMessage
 argument_list|()
@@ -421,10 +427,7 @@ name|answer
 operator|=
 name|createJmsMessage
 argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
+name|camelMessage
 operator|.
 name|getBody
 argument_list|()
@@ -437,6 +440,8 @@ argument_list|(
 name|answer
 argument_list|,
 name|exchange
+argument_list|,
+name|camelMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -445,7 +450,7 @@ name|answer
 return|;
 block|}
 comment|/**      * Appends the JMS headers from the Camel {@link JmsMessage}      */
-DECL|method|appendJmsProperties (Message jmsMessage, Exchange exchange)
+DECL|method|appendJmsProperties (Message jmsMessage, Exchange exchange, org.apache.camel.Message in)
 specifier|public
 name|void
 name|appendJmsProperties
@@ -455,10 +460,7 @@ name|jmsMessage
 parameter_list|,
 name|Exchange
 name|exchange
-parameter_list|)
-throws|throws
-name|JMSException
-block|{
+parameter_list|,
 name|org
 operator|.
 name|apache
@@ -467,12 +469,10 @@ name|camel
 operator|.
 name|Message
 name|in
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-decl_stmt|;
+parameter_list|)
+throws|throws
+name|JMSException
+block|{
 name|Set
 argument_list|<
 name|Map
