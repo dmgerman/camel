@@ -134,6 +134,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
+name|XStreamDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|DataFormat
@@ -237,6 +253,22 @@ name|dataFormat
 argument_list|(
 operator|new
 name|JaxbDataFormat
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the XStream data format      */
+DECL|method|xstream ()
+specifier|public
+name|T
+name|xstream
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|XStreamDataFormat
 argument_list|()
 argument_list|)
 return|;
