@@ -105,7 +105,10 @@ name|uri
 operator|.
 name|substring
 argument_list|(
-literal|4
+literal|"ref:"
+operator|.
+name|length
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

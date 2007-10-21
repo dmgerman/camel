@@ -180,11 +180,11 @@ case|case
 name|RobustOutOnly
 case|:
 return|return
-literal|true
+literal|false
 return|;
 default|default:
 return|return
-literal|false
+literal|true
 return|;
 block|}
 block|}
@@ -303,6 +303,8 @@ name|lastIndexOf
 argument_list|(
 literal|'/'
 argument_list|)
+operator|+
+literal|1
 argument_list|)
 decl_stmt|;
 name|map
