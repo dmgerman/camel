@@ -138,26 +138,17 @@ name|CxfExchange
 extends|extends
 name|DefaultExchange
 block|{
-DECL|field|binding
-specifier|private
-specifier|final
-name|CxfBinding
-name|binding
-decl_stmt|;
 DECL|field|exchange
 specifier|private
 name|Exchange
 name|exchange
 decl_stmt|;
-DECL|method|CxfExchange (CamelContext context, CxfBinding binding, Exchange exchange)
+DECL|method|CxfExchange (CamelContext context, Exchange exchange)
 specifier|public
 name|CxfExchange
 parameter_list|(
 name|CamelContext
 name|context
-parameter_list|,
-name|CxfBinding
-name|binding
 parameter_list|,
 name|Exchange
 name|exchange
@@ -167,12 +158,6 @@ name|super
 argument_list|(
 name|context
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|binding
-operator|=
-name|binding
 expr_stmt|;
 name|this
 operator|.
@@ -228,7 +213,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|CxfExchange (CamelContext context, ExchangePattern pattern, CxfBinding binding)
+DECL|method|CxfExchange (CamelContext context, ExchangePattern pattern)
 specifier|public
 name|CxfExchange
 parameter_list|(
@@ -237,9 +222,6 @@ name|context
 parameter_list|,
 name|ExchangePattern
 name|pattern
-parameter_list|,
-name|CxfBinding
-name|binding
 parameter_list|)
 block|{
 name|super
@@ -249,14 +231,8 @@ argument_list|,
 name|pattern
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|binding
-operator|=
-name|binding
-expr_stmt|;
 block|}
-DECL|method|CxfExchange (CamelContext context, ExchangePattern pattern, CxfBinding binding, Message inMessage)
+DECL|method|CxfExchange (CamelContext context, ExchangePattern pattern, Message inMessage)
 specifier|public
 name|CxfExchange
 parameter_list|(
@@ -265,9 +241,6 @@ name|context
 parameter_list|,
 name|ExchangePattern
 name|pattern
-parameter_list|,
-name|CxfBinding
-name|binding
 parameter_list|,
 name|Message
 name|inMessage
@@ -278,8 +251,6 @@ argument_list|(
 name|context
 argument_list|,
 name|pattern
-argument_list|,
-name|binding
 argument_list|)
 expr_stmt|;
 name|this
@@ -439,17 +410,6 @@ return|return
 operator|new
 name|CxfMessage
 argument_list|()
-return|;
-block|}
-comment|/**      * @return the Camel<-> JBI binding      */
-DECL|method|getBinding ()
-specifier|public
-name|CxfBinding
-name|getBinding
-parameter_list|()
-block|{
-return|return
-name|binding
 return|;
 block|}
 comment|// Expose CXF APIs directly on the exchange

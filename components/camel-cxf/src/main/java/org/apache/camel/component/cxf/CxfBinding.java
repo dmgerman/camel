@@ -88,6 +88,7 @@ name|CxfBinding
 block|{
 DECL|method|extractBodyFromCxf (CxfExchange exchange, Message message)
 specifier|public
+specifier|static
 name|Object
 name|extractBodyFromCxf
 parameter_list|(
@@ -108,6 +109,7 @@ return|;
 block|}
 DECL|method|getBody (Message message)
 specifier|protected
+specifier|static
 name|Object
 name|getBody
 parameter_list|(

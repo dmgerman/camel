@@ -163,6 +163,11 @@ specifier|private
 name|Resource
 name|wsdl
 decl_stmt|;
+DECL|field|serviceClass
+specifier|private
+name|String
+name|serviceClass
+decl_stmt|;
 DECL|field|description
 specifier|private
 name|org
@@ -179,15 +184,25 @@ specifier|private
 name|Definition
 name|definition
 decl_stmt|;
-DECL|field|service
+DECL|field|serviceName
 specifier|private
 name|QName
-name|service
+name|serviceName
+decl_stmt|;
+DECL|field|endpointName
+specifier|private
+name|QName
+name|endpointName
 decl_stmt|;
 DECL|field|bus
 specifier|private
 name|Bus
 name|bus
+decl_stmt|;
+DECL|field|cxfSoapBinding
+specifier|private
+name|CxfSoapBinding
+name|cxfSoapBinding
 decl_stmt|;
 DECL|method|CxfSoapEndpoint (Endpoint endpoint)
 specifier|public
@@ -353,6 +368,16 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+DECL|method|getWsdl ()
+specifier|public
+name|Resource
+name|getWsdl
+parameter_list|()
+block|{
+return|return
+name|wsdl
+return|;
+block|}
 DECL|method|setWsdl (Resource wsdl)
 specifier|public
 name|void
@@ -367,6 +392,122 @@ operator|.
 name|wsdl
 operator|=
 name|wsdl
+expr_stmt|;
+block|}
+DECL|method|setServiceClass (String serviceClass)
+specifier|public
+name|void
+name|setServiceClass
+parameter_list|(
+name|String
+name|serviceClass
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serviceClass
+operator|=
+name|serviceClass
+expr_stmt|;
+block|}
+DECL|method|getServiceClass ()
+specifier|public
+name|String
+name|getServiceClass
+parameter_list|()
+block|{
+return|return
+name|serviceClass
+return|;
+block|}
+DECL|method|setServiceName (String serviceName)
+specifier|public
+name|void
+name|setServiceName
+parameter_list|(
+name|String
+name|serviceName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serviceName
+operator|=
+name|QName
+operator|.
+name|valueOf
+argument_list|(
+name|serviceName
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setEndpointName (String endpointName)
+specifier|public
+name|void
+name|setEndpointName
+parameter_list|(
+name|String
+name|endpointName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointName
+operator|=
+name|QName
+operator|.
+name|valueOf
+argument_list|(
+name|endpointName
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getEndpointName ()
+specifier|public
+name|QName
+name|getEndpointName
+parameter_list|()
+block|{
+return|return
+name|endpointName
+return|;
+block|}
+DECL|method|getCxfSoapBinding ()
+specifier|public
+name|CxfSoapBinding
+name|getCxfSoapBinding
+parameter_list|()
+block|{
+if|if
+condition|(
+name|cxfSoapBinding
+operator|==
+literal|null
+condition|)
+block|{
+name|cxfSoapBinding
+operator|=
+operator|new
+name|CxfSoapBinding
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|cxfSoapBinding
+return|;
+block|}
+DECL|method|setCxfSoapBinding (CxfSoapBinding bing)
+specifier|public
+name|void
+name|setCxfSoapBinding
+parameter_list|(
+name|CxfSoapBinding
+name|bing
+parameter_list|)
+block|{
+name|cxfSoapBinding
+operator|=
+name|bing
 expr_stmt|;
 block|}
 DECL|method|init ()
@@ -386,6 +527,13 @@ argument_list|,
 literal|"soap.wsdl parameter must be set on the uri"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|serviceName
+operator|==
+literal|null
+condition|)
+block|{
 name|description
 operator|=
 name|DOMUtils
@@ -440,7 +588,7 @@ argument_list|,
 name|description
 argument_list|)
 expr_stmt|;
-name|service
+name|serviceName
 operator|=
 operator|(
 name|QName
@@ -459,6 +607,7 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|getBus ()
 specifier|protected
@@ -498,14 +647,14 @@ return|return
 name|definition
 return|;
 block|}
-DECL|method|getService ()
+DECL|method|getServiceName ()
 specifier|public
 name|QName
-name|getService
+name|getServiceName
 parameter_list|()
 block|{
 return|return
-name|service
+name|serviceName
 return|;
 block|}
 block|}

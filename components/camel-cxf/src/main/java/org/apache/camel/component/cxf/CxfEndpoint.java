@@ -446,9 +446,6 @@ argument_list|()
 argument_list|,
 name|getExchangePattern
 argument_list|()
-argument_list|,
-name|getBinding
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -469,9 +466,6 @@ name|getContext
 argument_list|()
 argument_list|,
 name|pattern
-argument_list|,
-name|getBinding
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -492,9 +486,6 @@ name|getContext
 argument_list|()
 argument_list|,
 name|getExchangePattern
-argument_list|()
-argument_list|,
-name|getBinding
 argument_list|()
 argument_list|,
 name|inMessage

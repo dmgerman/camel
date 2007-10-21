@@ -289,11 +289,7 @@ name|createBody
 parameter_list|()
 block|{
 return|return
-name|getExchange
-argument_list|()
-operator|.
-name|getBinding
-argument_list|()
+name|CxfBinding
 operator|.
 name|extractBodyFromCxf
 argument_list|(
