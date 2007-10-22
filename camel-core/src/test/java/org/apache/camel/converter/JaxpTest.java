@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|StringReader
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -30,13 +40,29 @@ end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|w3c
+name|xml
+operator|.
+name|transform
 operator|.
 name|dom
 operator|.
-name|Document
+name|DOMSource
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|stream
+operator|.
+name|StreamSource
 import|;
 end_import
 
@@ -117,6 +143,18 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Document
 import|;
 end_import
 
@@ -262,6 +300,58 @@ argument_list|(
 literal|"Found document: "
 operator|+
 name|source
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testStreamSourceToDomSource ()
+specifier|public
+name|void
+name|testStreamSourceToDomSource
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|StreamSource
+name|streamSource
+init|=
+operator|new
+name|StreamSource
+argument_list|(
+operator|new
+name|StringReader
+argument_list|(
+literal|"<hello>world!</hello>"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|DOMSource
+name|domSource
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|DOMSource
+operator|.
+name|class
+argument_list|,
+name|streamSource
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Could not convert to a DOMSource!"
+argument_list|,
+name|domSource
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Found document: "
+operator|+
+name|domSource
 argument_list|)
 expr_stmt|;
 block|}
