@@ -136,6 +136,7 @@ DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
+specifier|transient
 name|Log
 name|LOG
 init|=
@@ -507,11 +508,32 @@ argument_list|)
 condition|)
 block|{
 comment|// lets attach the exception to the exchange
+name|Exchange
+name|localExchange
+init|=
 name|exchange
+operator|.
+name|copy
+argument_list|()
+decl_stmt|;
+name|localExchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"caught.exception"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+comment|// give the rest of the pipeline another chance
+name|localExchange
 operator|.
 name|setException
 argument_list|(
-name|e
+literal|null
 argument_list|)
 expr_stmt|;
 try|try
@@ -520,7 +542,7 @@ name|catchClause
 operator|.
 name|process
 argument_list|(
-name|exchange
+name|localExchange
 argument_list|)
 expr_stmt|;
 block|}
