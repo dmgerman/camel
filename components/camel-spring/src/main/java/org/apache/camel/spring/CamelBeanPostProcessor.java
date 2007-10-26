@@ -36,6 +36,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|DefaultCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|bean
@@ -339,7 +353,6 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
-comment|// private List<Consumer> consumers = new ArrayList<Consumer>();
 DECL|method|CamelBeanPostProcessor ()
 specifier|public
 name|CamelBeanPostProcessor
@@ -896,12 +909,7 @@ argument_list|(
 name|processor
 argument_list|)
 decl_stmt|;
-name|consumer
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-name|onConsumerAdded
+name|startService
 argument_list|(
 name|consumer
 argument_list|)
@@ -930,6 +938,30 @@ throw|;
 block|}
 block|}
 block|}
+block|}
+DECL|method|startService (Service service)
+specifier|protected
+name|void
+name|startService
+parameter_list|(
+name|Service
+name|service
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|service
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|camelContext
+operator|.
+name|addServiceToClose
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Create a processor which invokes the given method when an incoming      * message exchange is received      */
 DECL|method|createConsumerProcessor (final Object pojo, final Method method, final Endpoint endpoint)
@@ -972,25 +1004,6 @@ expr_stmt|;
 return|return
 name|answer
 return|;
-block|}
-DECL|method|onConsumerAdded (Consumer consumer)
-specifier|protected
-name|void
-name|onConsumerAdded
-parameter_list|(
-name|Consumer
-name|consumer
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Adding consumer: "
-operator|+
-name|consumer
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Creates the value for the injection point for the given annotation      */
 DECL|method|getEndpointInjectionValue (EndpointInject annotation, Class<?> type, String injectionPointName)
@@ -1158,10 +1171,10 @@ operator|.
 name|createPollingConsumer
 argument_list|()
 decl_stmt|;
+name|startService
+argument_list|(
 name|pollingConsumer
-operator|.
-name|start
-argument_list|()
+argument_list|)
 expr_stmt|;
 return|return
 name|pollingConsumer
@@ -1202,10 +1215,10 @@ operator|.
 name|createProducer
 argument_list|()
 decl_stmt|;
+name|startService
+argument_list|(
 name|producer
-operator|.
-name|start
-argument_list|()
+argument_list|)
 expr_stmt|;
 return|return
 name|producer

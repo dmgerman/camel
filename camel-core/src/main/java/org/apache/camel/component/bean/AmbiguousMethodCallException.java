@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -67,20 +77,20 @@ block|{
 DECL|field|methods
 specifier|private
 specifier|final
-name|List
+name|Collection
 argument_list|<
 name|MethodInfo
 argument_list|>
 name|methods
 decl_stmt|;
-DECL|method|AmbiguousMethodCallException (Exchange exchange, List<MethodInfo> methods)
+DECL|method|AmbiguousMethodCallException (Exchange exchange, Collection<MethodInfo> methods)
 specifier|public
 name|AmbiguousMethodCallException
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|List
+name|Collection
 argument_list|<
 name|MethodInfo
 argument_list|>
@@ -106,7 +116,7 @@ block|}
 comment|/**      * The ambiguous methods for which a single method could not be chosen      */
 DECL|method|getMethods ()
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|MethodInfo
 argument_list|>

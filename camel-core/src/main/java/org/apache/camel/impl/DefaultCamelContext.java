@@ -1671,6 +1671,39 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|addServiceToClose (Object object)
+specifier|public
+name|void
+name|addServiceToClose
+parameter_list|(
+name|Object
+name|object
+parameter_list|)
+block|{
+if|if
+condition|(
+name|object
+operator|instanceof
+name|Service
+condition|)
+block|{
+name|Service
+name|service
+init|=
+operator|(
+name|Service
+operator|)
+name|object
+decl_stmt|;
+name|servicesToClose
+operator|.
+name|add
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// Helper methods
 comment|// -----------------------------------------------------------------------
 comment|/**      * Resolves a language for creating expressions      */

@@ -73,7 +73,6 @@ name|annotations
 decl_stmt|;
 DECL|field|expression
 specifier|private
-specifier|final
 name|Expression
 name|expression
 decl_stmt|;
@@ -160,6 +159,22 @@ block|{
 return|return
 name|type
 return|;
+block|}
+DECL|method|setExpression (Expression expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
+expr_stmt|;
 block|}
 block|}
 end_class

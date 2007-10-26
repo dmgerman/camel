@@ -220,7 +220,7 @@ block|}
 return|;
 block|}
 comment|/**      * Returns an expression for the inbound message headers      *      * @see Message#getHeaders()      * @return an expression object which will return the inbound headers      */
-DECL|method|headersExpresion ()
+DECL|method|headersExpression ()
 specifier|public
 specifier|static
 parameter_list|<
@@ -232,7 +232,7 @@ name|Expression
 argument_list|<
 name|E
 argument_list|>
-name|headersExpresion
+name|headersExpression
 parameter_list|()
 block|{
 return|return
@@ -364,6 +364,62 @@ block|}
 block|}
 return|;
 block|}
+comment|/**      * Returns an expression for the outbound message headers      *      * @see Message#getHeaders()      * @return an expression object which will return the inbound headers      */
+DECL|method|outHeadersExpression ()
+specifier|public
+specifier|static
+parameter_list|<
+name|E
+extends|extends
+name|Exchange
+parameter_list|>
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+name|outHeadersExpression
+parameter_list|()
+block|{
+return|return
+operator|new
+name|Expression
+argument_list|<
+name|E
+argument_list|>
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|E
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"outHeaders"
+return|;
+block|}
+block|}
+return|;
+block|}
 comment|/**      * Returns an expression for the property value with the given name      *      * @see Exchange#getProperty(String)      * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      */
 DECL|method|propertyExpression (final String propertyName)
 specifier|public
@@ -428,7 +484,7 @@ block|}
 return|;
 block|}
 comment|/**      * Returns an expression for the property value with the given name      *      * @see Exchange#getProperties()      * @return an expression object which will return the properties      */
-DECL|method|propertiesExpresion ()
+DECL|method|propertiesExpression ()
 specifier|public
 specifier|static
 parameter_list|<
@@ -440,7 +496,7 @@ name|Expression
 argument_list|<
 name|E
 argument_list|>
-name|propertiesExpresion
+name|propertiesExpression
 parameter_list|()
 block|{
 return|return
