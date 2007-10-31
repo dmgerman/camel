@@ -390,6 +390,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeExpressionException
 import|;
 end_import
@@ -534,23 +546,20 @@ specifier|public
 specifier|abstract
 class|class
 name|XQueryBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|Expression
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 implements|,
 name|Predicate
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 implements|,
 name|NamespaceAware
+implements|,
+name|Processor
 block|{
 DECL|field|LOG
 specifier|private
@@ -670,12 +679,44 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|evaluate (E exchange)
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|Object
+name|body
+init|=
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|setBody
+argument_list|(
+name|body
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|evaluate (Exchange exchange)
 specifier|public
 name|Object
 name|evaluate
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -852,12 +893,12 @@ name|namespaces
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|evaluateAsList (E exchange)
+DECL|method|evaluateAsList (Exchange exchange)
 specifier|public
 name|List
 name|evaluateAsList
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -876,12 +917,12 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|evaluateAsStringSource (E exchange)
+DECL|method|evaluateAsStringSource (Exchange exchange)
 specifier|public
 name|Object
 name|evaluateAsStringSource
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -903,12 +944,12 @@ name|text
 argument_list|)
 return|;
 block|}
-DECL|method|evaluateAsBytesSource (E exchange)
+DECL|method|evaluateAsBytesSource (Exchange exchange)
 specifier|public
 name|Object
 name|evaluateAsBytesSource
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -931,12 +972,12 @@ name|bytes
 argument_list|)
 return|;
 block|}
-DECL|method|evaluateAsDOM (E exchange)
+DECL|method|evaluateAsDOM (Exchange exchange)
 specifier|public
 name|Node
 name|evaluateAsDOM
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -981,13 +1022,13 @@ name|getNode
 argument_list|()
 return|;
 block|}
-DECL|method|evaluateAsBytes (E exchange)
+DECL|method|evaluateAsBytes (Exchange exchange)
 specifier|public
 name|byte
 index|[]
 name|evaluateAsBytes
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -1037,12 +1078,12 @@ return|return
 name|bytes
 return|;
 block|}
-DECL|method|evaluateAsString (E exchange)
+DECL|method|evaluateAsString (Exchange exchange)
 specifier|public
 name|String
 name|evaluateAsString
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -1109,12 +1150,12 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|matches (E exchange)
+DECL|method|matches (Exchange exchange)
 specifier|public
 name|boolean
 name|matches
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -1152,7 +1193,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|assertMatches (String text, E exchange)
+DECL|method|assertMatches (String text, Exchange exchange)
 specifier|public
 name|void
 name|assertMatches
@@ -1160,7 +1201,7 @@ parameter_list|(
 name|String
 name|text
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -1224,15 +1265,7 @@ comment|//----------------------------------------------------------------------
 DECL|method|xquery (final String queryText)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|xquery
 parameter_list|(
 specifier|final
@@ -1243,9 +1276,6 @@ block|{
 return|return
 operator|new
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 block|{
 specifier|protected
@@ -1273,15 +1303,7 @@ block|}
 DECL|method|xquery (final Reader reader)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|xquery
 parameter_list|(
 specifier|final
@@ -1292,9 +1314,6 @@ block|{
 return|return
 operator|new
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 block|{
 specifier|protected
@@ -1324,15 +1343,7 @@ block|}
 DECL|method|xquery (final InputStream in, final String characterSet)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|xquery
 parameter_list|(
 specifier|final
@@ -1347,9 +1358,6 @@ block|{
 return|return
 operator|new
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 block|{
 specifier|protected
@@ -1381,15 +1389,7 @@ block|}
 DECL|method|xquery (File file, String characterSet)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|xquery
 parameter_list|(
 name|File
@@ -1418,15 +1418,7 @@ block|}
 DECL|method|xquery (URL url, String characterSet)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|xquery
 parameter_list|(
 name|URL
@@ -1455,15 +1447,7 @@ block|}
 DECL|method|xquery (File file)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|xquery
 parameter_list|(
 name|File
@@ -1492,15 +1476,7 @@ block|}
 DECL|method|xquery (URL url)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|xquery
 parameter_list|(
 name|URL
@@ -1531,9 +1507,6 @@ comment|// ---------------------------------------------------------------------
 DECL|method|parameter (String name, Object value)
 specifier|public
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|parameter
 parameter_list|(
 name|String
@@ -1559,9 +1532,6 @@ block|}
 DECL|method|namespace (String prefix, String uri)
 specifier|public
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|namespace
 parameter_list|(
 name|String
@@ -1587,9 +1557,6 @@ block|}
 DECL|method|resultType (Class resultType)
 specifier|public
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|resultType
 parameter_list|(
 name|Class
@@ -1608,9 +1575,6 @@ block|}
 DECL|method|asBytes ()
 specifier|public
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|asBytes
 parameter_list|()
 block|{
@@ -1628,9 +1592,6 @@ block|}
 DECL|method|asBytesSource ()
 specifier|public
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|asBytesSource
 parameter_list|()
 block|{
@@ -1648,9 +1609,6 @@ block|}
 DECL|method|asDOM ()
 specifier|public
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|asDOM
 parameter_list|()
 block|{
@@ -1668,9 +1626,6 @@ block|}
 DECL|method|asDOMSource ()
 specifier|public
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|asDOMSource
 parameter_list|()
 block|{
@@ -1688,9 +1643,6 @@ block|}
 DECL|method|asList ()
 specifier|public
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|asList
 parameter_list|()
 block|{
@@ -1708,9 +1660,6 @@ block|}
 DECL|method|asString ()
 specifier|public
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|asString
 parameter_list|()
 block|{
@@ -1728,9 +1677,6 @@ block|}
 DECL|method|asStringSource ()
 specifier|public
 name|XQueryBuilder
-argument_list|<
-name|E
-argument_list|>
 name|asStringSource
 parameter_list|()
 block|{
@@ -2074,12 +2020,12 @@ throws|,
 name|IOException
 function_decl|;
 comment|/**      * Creates a dynamic context for the given exchange      */
-DECL|method|createDynamicContext (E exchange)
+DECL|method|createDynamicContext (Exchange exchange)
 specifier|protected
 name|DynamicQueryContext
 name|createDynamicContext
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -2388,12 +2334,12 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-DECL|method|matches (E exchange, List results)
+DECL|method|matches (Exchange exchange, List results)
 specifier|protected
 name|boolean
 name|matches
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|List
