@@ -396,9 +396,9 @@ argument_list|(
 literal|"direct:in"
 argument_list|)
 operator|.
-name|beanRef
+name|to
 argument_list|(
-literal|"myBean"
+literal|"bean:myBean?method=myMethod"
 argument_list|)
 expr_stmt|;
 block|}
@@ -484,6 +484,31 @@ argument_list|(
 literal|"myMethod() method called on "
 operator|+
 name|this
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|anotherMethod (@eaders Map<String, Object> headers,Object body)
+specifier|public
+name|void
+name|anotherMethod
+parameter_list|(
+annotation|@
+name|Headers
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"Should not have called this method!"
 argument_list|)
 expr_stmt|;
 block|}
