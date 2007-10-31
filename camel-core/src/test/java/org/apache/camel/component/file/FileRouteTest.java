@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -159,7 +149,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|recursiveDelete
+name|deleteDirectory
 argument_list|(
 literal|"target/test-default-inbox"
 argument_list|)

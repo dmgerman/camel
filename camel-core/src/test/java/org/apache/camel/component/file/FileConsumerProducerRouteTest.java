@@ -122,7 +122,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|recursiveDelete
+name|deleteDirectory
 argument_list|(
 literal|"target/test-consumer-produer-inbox"
 argument_list|)

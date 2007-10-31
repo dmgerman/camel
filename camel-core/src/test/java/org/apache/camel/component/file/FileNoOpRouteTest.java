@@ -18,16 +18,6 @@ name|file
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -54,7 +44,7 @@ name|uri
 operator|=
 literal|"file:target/test-noop-inbox?noop=true"
 expr_stmt|;
-name|recursiveDelete
+name|deleteDirectory
 argument_list|(
 literal|"target/test-noop-inbox"
 argument_list|)

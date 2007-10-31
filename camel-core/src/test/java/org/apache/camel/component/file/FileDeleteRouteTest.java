@@ -44,7 +44,7 @@ name|uri
 operator|=
 literal|"file:target/test-delete-inbox?delete=true"
 expr_stmt|;
-name|recursiveDelete
+name|deleteDirectory
 argument_list|(
 literal|"target/test-delete-inbox"
 argument_list|)

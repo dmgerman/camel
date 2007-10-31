@@ -18,16 +18,6 @@ name|file
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -50,7 +40,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|recursiveDelete
+name|deleteDirectory
 argument_list|(
 literal|"target/test-rename-inbox"
 argument_list|)

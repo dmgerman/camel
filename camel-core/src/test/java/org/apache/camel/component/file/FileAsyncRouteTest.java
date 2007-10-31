@@ -202,7 +202,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|recursiveDelete
+name|deleteDirectory
 argument_list|(
 literal|"target/test-async-inbox"
 argument_list|)
