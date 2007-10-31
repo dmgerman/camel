@@ -631,14 +631,9 @@ name|exchange
 argument_list|)
 decl_stmt|;
 comment|// now lets try to coerce the value to the required type
-name|value
-operator|=
-name|ExchangeHelper
-operator|.
-name|convertToType
-argument_list|(
-name|exchange
-argument_list|,
+name|Class
+name|expectedType
+init|=
 name|parameters
 operator|.
 name|get
@@ -648,6 +643,16 @@ argument_list|)
 operator|.
 name|getType
 argument_list|()
+decl_stmt|;
+name|value
+operator|=
+name|ExchangeHelper
+operator|.
+name|convertToType
+argument_list|(
+name|exchange
+argument_list|,
+name|expectedType
 argument_list|,
 name|value
 argument_list|)

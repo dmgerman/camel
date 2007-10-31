@@ -255,7 +255,9 @@ comment|// The preamble changes a little under Java 1.6 it adds a
 comment|// standalone="no" attribute.
 name|assertTrue
 argument_list|(
-literal|"Converted to String"
+literal|"Converted to String: "
+operator|+
+name|text
 argument_list|,
 name|text
 operator|.
