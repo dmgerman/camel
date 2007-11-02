@@ -253,23 +253,7 @@ argument_list|<
 name|ProcessorType
 argument_list|>
 block|{
-annotation|@
-name|XmlElementRef
-DECL|field|interceptors
-specifier|private
-name|List
-argument_list|<
-name|InterceptorType
-argument_list|>
-name|interceptors
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|InterceptorType
-argument_list|>
-argument_list|()
-decl_stmt|;
+comment|/*     @XmlElementRef     private List<InterceptorType> interceptors = new ArrayList<InterceptorType>(); */
 annotation|@
 name|XmlElement
 argument_list|(
@@ -697,38 +681,7 @@ return|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
-DECL|method|getInterceptors ()
-specifier|public
-name|List
-argument_list|<
-name|InterceptorType
-argument_list|>
-name|getInterceptors
-parameter_list|()
-block|{
-return|return
-name|interceptors
-return|;
-block|}
-DECL|method|setInterceptors (List<InterceptorType> interceptors)
-specifier|public
-name|void
-name|setInterceptors
-parameter_list|(
-name|List
-argument_list|<
-name|InterceptorType
-argument_list|>
-name|interceptors
-parameter_list|)
-block|{
-name|this
-operator|.
-name|interceptors
-operator|=
-name|interceptors
-expr_stmt|;
-block|}
+comment|/*     public List<InterceptorType> getInterceptors() {         return interceptors;     }      public void setInterceptors(List<InterceptorType> interceptors) {         this.interceptors = interceptors;     } */
 DECL|method|getOutputs ()
 specifier|public
 name|List

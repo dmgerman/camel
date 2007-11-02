@@ -131,14 +131,14 @@ comment|/**  * @version $Revision: 530102 $  */
 end_comment
 
 begin_class
-DECL|class|InterceptorBuilderTest
+DECL|class|InterceptorBuilderWithEndTest
 specifier|public
 class|class
-name|InterceptorBuilderTest
+name|InterceptorBuilderWithEndTest
 extends|extends
 name|TestSupport
 block|{
-comment|/**      * Validates that interceptors are executed in the right order.      *       * @throws Exception      */
+comment|/**      * Validates that interceptors are executed in the right order.      *      * @throws Exception      */
 DECL|method|testRouteWithInterceptor ()
 specifier|public
 name|void
@@ -336,6 +336,9 @@ argument_list|(
 name|orderProcessor
 argument_list|)
 operator|.
+name|end
+argument_list|()
+operator|.
 name|intercept
 argument_list|(
 name|interceptor2
@@ -426,6 +429,13 @@ name|expected
 operator|.
 name|add
 argument_list|(
+literal|"END:1"
+argument_list|)
+expr_stmt|;
+name|expected
+operator|.
+name|add
+argument_list|(
 literal|"START:2"
 argument_list|)
 expr_stmt|;
@@ -441,13 +451,6 @@ operator|.
 name|add
 argument_list|(
 literal|"END:2"
-argument_list|)
-expr_stmt|;
-name|expected
-operator|.
-name|add
-argument_list|(
-literal|"END:1"
 argument_list|)
 expr_stmt|;
 name|log

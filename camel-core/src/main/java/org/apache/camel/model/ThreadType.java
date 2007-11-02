@@ -386,20 +386,7 @@ operator|=
 name|executor
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|getInterceptors ()
-specifier|public
-name|List
-name|getInterceptors
-parameter_list|()
-block|{
-return|return
-name|Collections
-operator|.
-name|EMPTY_LIST
-return|;
-block|}
+comment|/*     @Override     public List getInterceptors() {         return Collections.EMPTY_LIST;     } */
 annotation|@
 name|Override
 DECL|method|getOutputs ()

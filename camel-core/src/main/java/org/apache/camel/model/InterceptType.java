@@ -192,19 +192,15 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|addRoutes (RouteContext routeContext, Collection<Route> routes)
+annotation|@
+name|Override
+DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
-name|void
-name|addRoutes
+name|Processor
+name|createProcessor
 parameter_list|(
 name|RouteContext
 name|routeContext
-parameter_list|,
-name|Collection
-argument_list|<
-name|Route
-argument_list|>
-name|routes
 parameter_list|)
 throws|throws
 name|Exception
@@ -227,11 +223,9 @@ specifier|final
 name|Processor
 name|interceptRoute
 init|=
-name|routeContext
-operator|.
-name|createProcessor
+name|createOutputsProcessor
 argument_list|(
-name|this
+name|routeContext
 argument_list|)
 decl_stmt|;
 name|interceptor
@@ -241,7 +235,11 @@ argument_list|(
 name|interceptRoute
 argument_list|)
 expr_stmt|;
+return|return
+name|interceptor
+return|;
 block|}
+comment|/*     public void addRoutes(RouteContext routeContext, Collection<Route> routes) throws Exception {         Interceptor interceptor = new Interceptor();         routeContext.intercept(interceptor);          final Processor interceptRoute = routeContext.createProcessor(this);         interceptor.setInterceptorLogic(interceptRoute);     } */
 comment|/**      * Applies this interceptor only if the given predicate is true      */
 DECL|method|when (Predicate predicate)
 specifier|public

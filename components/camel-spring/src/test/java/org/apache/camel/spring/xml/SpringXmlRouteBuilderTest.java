@@ -426,6 +426,18 @@ name|Exception
 block|{
 comment|// TODO
 block|}
+annotation|@
+name|Override
+DECL|method|testRouteWithInterceptor ()
+specifier|public
+name|void
+name|testRouteWithInterceptor
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// TODO
+block|}
 DECL|method|getRoutesFromContext (String classpathConfigFile)
 specifier|protected
 name|List

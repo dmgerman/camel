@@ -152,7 +152,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
+name|Predicate
 import|;
 end_import
 
@@ -164,7 +164,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Predicate
+name|Route
 import|;
 end_import
 
@@ -649,17 +649,32 @@ name|getInheritErrorHandlerFlag
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|List
+argument_list|<
+name|InterceptorType
+argument_list|>
+name|list
+init|=
+name|getInterceptors
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|InterceptorType
+name|interceptorType
+range|:
+name|list
+control|)
+block|{
 name|route
 operator|.
-name|getInterceptors
-argument_list|()
-operator|.
-name|addAll
+name|addInterceptor
 argument_list|(
-name|getInterceptors
-argument_list|()
+name|interceptorType
 argument_list|)
 expr_stmt|;
+block|}
+comment|//route.getInterceptors().addAll(getInterceptors());
 name|route
 operator|.
 name|getOutputs

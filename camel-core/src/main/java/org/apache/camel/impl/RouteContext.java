@@ -184,6 +184,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|InterceptorRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|Interceptor
@@ -704,14 +718,8 @@ name|Interceptor
 name|interceptor
 parameter_list|)
 block|{
-name|getRoute
-argument_list|()
-operator|.
-name|intercept
-argument_list|(
-name|interceptor
-argument_list|)
-expr_stmt|;
+comment|/*         InterceptorRef block = new InterceptorRef(interceptor);         RouteType route = getRoute();         List<ProcessorType<?>> list = route.getOutputs();         for (ProcessorType<?> processorType : list) {             block.addOutput(processorType);         }         route.clearOutput();         route.addInterceptor(block); */
+comment|//getRoute().getInterceptors().add(new InterceptorRef(interceptor));
 name|lastInterceptor
 operator|=
 name|interceptor

@@ -94,6 +94,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -194,23 +208,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|XmlElementRef
-DECL|field|interceptors
-specifier|private
-name|List
-argument_list|<
-name|InterceptorType
-argument_list|>
-name|interceptors
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|InterceptorType
-argument_list|>
-argument_list|()
-decl_stmt|;
+comment|/*     @XmlTransient     private List<InterceptorType> interceptors = new ArrayList<InterceptorType>(); */
 DECL|method|getOutputs ()
 specifier|public
 name|List
@@ -271,38 +269,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|getInterceptors ()
-specifier|public
-name|List
-argument_list|<
-name|InterceptorType
-argument_list|>
-name|getInterceptors
-parameter_list|()
-block|{
-return|return
-name|interceptors
-return|;
-block|}
-DECL|method|setInterceptors (List<InterceptorType> interceptors)
-specifier|public
-name|void
-name|setInterceptors
-parameter_list|(
-name|List
-argument_list|<
-name|InterceptorType
-argument_list|>
-name|interceptors
-parameter_list|)
-block|{
-name|this
-operator|.
-name|interceptors
-operator|=
-name|interceptors
-expr_stmt|;
-block|}
+comment|/*     public List<InterceptorType> getInterceptors() {         return interceptors;     }      public void setInterceptors(List<InterceptorType> interceptors) {         this.interceptors = interceptors;     }*/
 annotation|@
 name|Override
 DECL|method|configureChild (ProcessorType output)

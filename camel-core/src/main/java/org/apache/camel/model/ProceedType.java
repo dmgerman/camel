@@ -151,21 +151,7 @@ operator|.
 name|EMPTY_LIST
 return|;
 block|}
-DECL|method|getInterceptors ()
-specifier|public
-name|List
-argument_list|<
-name|InterceptorType
-argument_list|>
-name|getInterceptors
-parameter_list|()
-block|{
-return|return
-name|Collections
-operator|.
-name|EMPTY_LIST
-return|;
-block|}
+comment|/*     public List<InterceptorType> getInterceptors() {         return Collections.EMPTY_LIST;     } */
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor
