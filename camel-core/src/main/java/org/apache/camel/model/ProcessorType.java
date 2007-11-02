@@ -622,7 +622,6 @@ argument_list|>
 name|getOutputs
 parameter_list|()
 function_decl|;
-comment|/*     public abstract List<InterceptorType> getInterceptors(); */
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor

@@ -151,7 +151,6 @@ operator|.
 name|EMPTY_LIST
 return|;
 block|}
-comment|/*     public List<InterceptorType> getInterceptors() {         return Collections.EMPTY_LIST;     } */
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor

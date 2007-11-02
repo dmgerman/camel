@@ -194,7 +194,6 @@ argument_list|<
 name|ProcessorType
 argument_list|>
 block|{
-comment|/*     @XmlTransient     private List<InterceptorType> interceptors = new ArrayList<InterceptorType>(); */
 annotation|@
 name|XmlElementRef
 DECL|field|expression
@@ -281,7 +280,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*    public List<InterceptorType> getInterceptors() {         return interceptors;     }      public void setInterceptors(List<InterceptorType> interceptors) {         this.interceptors = interceptors;     }*/
 DECL|method|getExpression ()
 specifier|public
 name|ExpressionType

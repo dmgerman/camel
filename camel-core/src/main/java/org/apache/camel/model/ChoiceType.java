@@ -239,7 +239,6 @@ argument_list|<
 name|ChoiceType
 argument_list|>
 block|{
-comment|/*     @XmlElementRef     private List<InterceptorType> interceptors = new ArrayList<InterceptorType>(); */
 annotation|@
 name|XmlElementRef
 DECL|field|whenClauses
@@ -645,7 +644,6 @@ operator|=
 name|otherwise
 expr_stmt|;
 block|}
-comment|/*     public List<InterceptorType> getInterceptors() {         return interceptors;     }      public void setInterceptors(List<InterceptorType> interceptors) {         this.interceptors = interceptors;     } */
 block|}
 end_class
 

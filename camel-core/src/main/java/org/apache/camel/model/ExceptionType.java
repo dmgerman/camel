@@ -681,7 +681,6 @@ return|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
-comment|/*     public List<InterceptorType> getInterceptors() {         return interceptors;     }      public void setInterceptors(List<InterceptorType> interceptors) {         this.interceptors = interceptors;     } */
 DECL|method|getOutputs ()
 specifier|public
 name|List

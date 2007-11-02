@@ -208,7 +208,6 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/*     @XmlTransient     private List<InterceptorType> interceptors = new ArrayList<InterceptorType>(); */
 DECL|method|getOutputs ()
 specifier|public
 name|List
@@ -269,7 +268,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/*     public List<InterceptorType> getInterceptors() {         return interceptors;     }      public void setInterceptors(List<InterceptorType> interceptors) {         this.interceptors = interceptors;     }*/
 annotation|@
 name|Override
 DECL|method|configureChild (ProcessorType output)

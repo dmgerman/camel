@@ -239,7 +239,6 @@ specifier|private
 name|String
 name|ref
 decl_stmt|;
-comment|/*     @XmlElementRef     private List<InterceptorType> interceptors = new ArrayList<InterceptorType>(); */
 annotation|@
 name|XmlTransient
 DECL|field|endpoint
@@ -484,7 +483,6 @@ operator|.
 name|EMPTY_LIST
 return|;
 block|}
-comment|/*     public List<InterceptorType> getInterceptors() {         return interceptors;     }      public void setInterceptors(List<InterceptorType> interceptors) {         this.interceptors = interceptors;     } */
 comment|/**      * Returns the endpoint URI or the name of the reference to it      */
 DECL|method|getUriOrRef ()
 specifier|public

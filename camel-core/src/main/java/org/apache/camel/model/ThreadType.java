@@ -386,7 +386,6 @@ operator|=
 name|executor
 expr_stmt|;
 block|}
-comment|/*     @Override     public List getInterceptors() {         return Collections.EMPTY_LIST;     } */
 annotation|@
 name|Override
 DECL|method|getOutputs ()

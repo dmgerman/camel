@@ -203,7 +203,6 @@ argument_list|<
 name|ProcessorType
 argument_list|>
 block|{
-comment|/*     @XmlElementRef     private List<InterceptorType> interceptors = new ArrayList<InterceptorType>(); */
 annotation|@
 name|XmlElement
 argument_list|(
@@ -379,7 +378,6 @@ name|childProcessor
 argument_list|)
 return|;
 block|}
-comment|/*     public List<InterceptorType> getInterceptors() {         return interceptors;     }      public void setInterceptors(List<InterceptorType> interceptors) {         this.interceptors = interceptors;     } */
 DECL|method|getOutputs ()
 specifier|public
 name|List
