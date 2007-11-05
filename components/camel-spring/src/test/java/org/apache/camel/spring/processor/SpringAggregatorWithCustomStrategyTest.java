@@ -4,13 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.spring.processor
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spring
 operator|.
 name|processor
 package|;
@@ -24,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|CamelContext
 import|;
 end_import
 
@@ -36,9 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|ContextTestSupport
 import|;
 end_import
 
@@ -58,29 +58,54 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|AggregatorTest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|processor
+operator|.
+name|SpringTestHelper
+operator|.
+name|createSpringCamelContext
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * @version $Revision: $  */
 end_comment
 
 begin_class
-DECL|class|AggregatorTest
+DECL|class|SpringAggregatorWithCustomStrategyTest
 specifier|public
 class|class
-name|AggregatorTest
+name|SpringAggregatorWithCustomStrategyTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|messageCount
-specifier|protected
-name|int
-name|messageCount
-init|=
-literal|100
-decl_stmt|;
-DECL|method|testSendingLotsOfMessagesGetAggregatedToTheLatestMessage ()
+DECL|method|testSendingMessagesWithCustomAggregator ()
 specifier|public
 name|void
-name|testSendingLotsOfMessagesGetAggregatedToTheLatestMessage
+name|testSendingMessagesWithCustomAggregator
 parameter_list|()
 throws|throws
 name|Exception
@@ -101,9 +126,7 @@ name|resultEndpoint
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"message:"
-operator|+
-name|messageCount
+literal|"message:1 message:2 message:3"
 argument_list|)
 expr_stmt|;
 comment|// lets send a large batch of messages
@@ -116,7 +139,7 @@ literal|1
 init|;
 name|i
 operator|<=
-name|messageCount
+literal|3
 condition|;
 name|i
 operator|++
@@ -149,44 +172,21 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|createRouteBuilder ()
+DECL|method|createCamelContext ()
 specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
+name|CamelContext
+name|createCamelContext
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-specifier|public
-name|void
-name|configure
-parameter_list|()
-block|{
-comment|// START SNIPPET: ex
-name|from
+name|createSpringCamelContext
 argument_list|(
-literal|"direct:start"
+name|this
+argument_list|,
+literal|"org/apache/camel/spring/processor/aggregator-custom-strategy.xml"
 argument_list|)
-operator|.
-name|aggregator
-argument_list|(
-name|header
-argument_list|(
-literal|"cheese"
-argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-comment|// END SNIPPET: ex
-block|}
-block|}
 return|;
 block|}
 block|}
