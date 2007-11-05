@@ -509,9 +509,10 @@ name|i
 init|=
 literal|0
 init|;
+name|isBatchCompleted
+argument_list|(
 name|i
-operator|<
-name|batchSize
+argument_list|)
 condition|;
 name|i
 operator|++
@@ -619,6 +620,22 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * A strategy method to decide if the batch is completed the resulting exchanges should be sent      */
+DECL|method|isBatchCompleted (int index)
+specifier|protected
+name|boolean
+name|isBatchCompleted
+parameter_list|(
+name|int
+name|index
+parameter_list|)
+block|{
+return|return
+name|index
+operator|<
+name|batchSize
+return|;
 block|}
 comment|/**      * Strategy Method to process an exchange in the batch. This method allows      * derived classes to perform custom processing before or after an      * individual exchange is processed      */
 DECL|method|processExchange (Exchange exchange)

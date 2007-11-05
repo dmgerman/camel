@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -230,6 +240,13 @@ argument_list|,
 name|newExchange
 argument_list|)
 expr_stmt|;
+name|onAggregation
+argument_list|(
+name|correlationKey
+argument_list|,
+name|newExchange
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 literal|true
@@ -267,6 +284,33 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|clear ()
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+name|map
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * A strategy method allowing derived classes such as {@link PredicateAggregationCollection}      * to check to see if the aggregation has completed      */
+DECL|method|onAggregation (Object correlationKey, Exchange newExchange)
+specifier|protected
+name|void
+name|onAggregation
+parameter_list|(
+name|Object
+name|correlationKey
+parameter_list|,
+name|Exchange
+name|newExchange
+parameter_list|)
+block|{     }
 block|}
 end_class
 
