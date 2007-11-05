@@ -817,7 +817,7 @@ name|names
 init|=
 name|message
 operator|.
-name|getPropertyNames
+name|getMapNames
 argument_list|()
 decl_stmt|;
 while|while
