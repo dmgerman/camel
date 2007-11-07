@@ -88,6 +88,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ChoiceType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|InterceptType
 import|;
 end_import
@@ -444,7 +458,7 @@ block|}
 comment|/**      * Applies a route for an interceptor if the given predicate is true      * otherwise the interceptor route is not applied      */
 DECL|method|intercept (Predicate predicate)
 specifier|public
-name|OtherwiseType
+name|ChoiceType
 name|intercept
 parameter_list|(
 name|Predicate

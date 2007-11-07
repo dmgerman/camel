@@ -605,6 +605,18 @@ name|Block
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|parent
+specifier|private
+name|ProcessorType
+argument_list|<
+name|?
+extends|extends
+name|ProcessorType
+argument_list|>
+name|parent
+init|=
+literal|null
+decl_stmt|;
 comment|// else to use an
 comment|// optional
 comment|// attribute in
@@ -992,7 +1004,12 @@ block|}
 comment|/**      * Ends the current block      */
 DECL|method|end ()
 specifier|public
-name|Type
+name|ProcessorType
+argument_list|<
+name|?
+extends|extends
+name|ProcessorType
+argument_list|>
 name|end
 parameter_list|()
 block|{
@@ -1004,23 +1021,29 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|parent
+operator|==
+literal|null
+condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No block active!"
+literal|"Root node with no active block"
 argument_list|)
 throw|;
 block|}
-name|blocks
-operator|.
-name|removeLast
+return|return
+name|parent
+return|;
+block|}
+name|popBlock
 argument_list|()
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
 name|this
 return|;
 block|}
@@ -1207,6 +1230,13 @@ argument_list|(
 name|predicate
 argument_list|)
 decl_stmt|;
+name|filter
+operator|.
+name|setParent
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|addOutput
 argument_list|(
 name|filter
@@ -1239,6 +1269,13 @@ operator|.
 name|setExpression
 argument_list|(
 name|expression
+argument_list|)
+expr_stmt|;
+name|filter
+operator|.
+name|setParent
+argument_list|(
+name|this
 argument_list|)
 expr_stmt|;
 name|addOutput
@@ -1289,6 +1326,13 @@ operator|new
 name|ChoiceType
 argument_list|()
 decl_stmt|;
+name|answer
+operator|.
+name|setParent
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|addOutput
 argument_list|(
 name|answer
@@ -1312,6 +1356,13 @@ operator|new
 name|TryType
 argument_list|()
 decl_stmt|;
+name|answer
+operator|.
+name|setParent
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|addOutput
 argument_list|(
 name|answer
@@ -1980,16 +2031,16 @@ argument_list|(
 name|interceptor
 argument_list|)
 expr_stmt|;
-name|addBlock
+name|pushBlock
 argument_list|(
 name|interceptor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addBlock (Block block)
+DECL|method|pushBlock (Block block)
 specifier|protected
 name|void
-name|addBlock
+name|pushBlock
 parameter_list|(
 name|Block
 name|block
@@ -2002,6 +2053,26 @@ argument_list|(
 name|block
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|popBlock ()
+specifier|protected
+name|Block
+name|popBlock
+parameter_list|()
+block|{
+return|return
+name|blocks
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+literal|null
+else|:
+name|blocks
+operator|.
+name|removeLast
+argument_list|()
+return|;
 block|}
 DECL|method|proceed ()
 specifier|public
@@ -2053,7 +2124,7 @@ block|}
 comment|/**      * Apply an interceptor route if the predicate is true      */
 DECL|method|intercept (Predicate predicate)
 specifier|public
-name|OtherwiseType
+name|ChoiceType
 name|intercept
 parameter_list|(
 name|Predicate
@@ -3174,6 +3245,42 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|XmlTransient
+DECL|method|getParent ()
+name|ProcessorType
+argument_list|<
+name|?
+extends|extends
+name|ProcessorType
+argument_list|>
+name|getParent
+parameter_list|()
+block|{
+return|return
+name|parent
+return|;
+block|}
+DECL|method|setParent (ProcessorType<? extends ProcessorType> parent)
+name|void
+name|setParent
+parameter_list|(
+name|ProcessorType
+argument_list|<
+name|?
+extends|extends
+name|ProcessorType
+argument_list|>
+name|parent
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parent
+operator|=
+name|parent
+expr_stmt|;
+block|}
 annotation|@
 name|XmlTransient
 DECL|method|getErrorHandlerBuilder ()

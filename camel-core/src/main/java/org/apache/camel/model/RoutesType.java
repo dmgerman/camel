@@ -761,7 +761,7 @@ return|;
 block|}
 DECL|method|intercept (Predicate predicate)
 specifier|public
-name|OtherwiseType
+name|ChoiceType
 name|intercept
 parameter_list|(
 name|Predicate

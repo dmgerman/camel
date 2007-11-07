@@ -333,7 +333,7 @@ comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 DECL|method|handle (Class<?> exceptionType)
 specifier|public
-name|CatchType
+name|TryType
 name|handle
 parameter_list|(
 name|Class
@@ -343,6 +343,9 @@ argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
+name|popBlock
+argument_list|()
+expr_stmt|;
 name|CatchType
 name|answer
 init|=
@@ -357,16 +360,24 @@ argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
-return|return
+name|pushBlock
+argument_list|(
 name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 DECL|method|handleAll ()
 specifier|public
-name|FinallyType
+name|TryType
 name|handleAll
 parameter_list|()
 block|{
+name|popBlock
+argument_list|()
+expr_stmt|;
 name|FinallyType
 name|answer
 init|=
@@ -379,8 +390,36 @@ argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
-return|return
+name|pushBlock
+argument_list|(
 name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|end ()
+specifier|public
+name|ProcessorType
+argument_list|<
+name|?
+extends|extends
+name|ProcessorType
+argument_list|>
+name|end
+parameter_list|()
+block|{
+name|popBlock
+argument_list|()
+expr_stmt|;
+return|return
+name|super
+operator|.
+name|end
+argument_list|()
 return|;
 block|}
 comment|// Properties
@@ -484,6 +523,8 @@ name|outputs
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addOutput (ProcessorType output)
 specifier|public
 name|void
@@ -497,10 +538,9 @@ name|initialized
 operator|=
 literal|false
 expr_stmt|;
-name|getOutputs
-argument_list|()
+name|super
 operator|.
-name|add
+name|addOutput
 argument_list|(
 name|output
 argument_list|)

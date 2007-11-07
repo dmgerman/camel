@@ -112,6 +112,8 @@ name|OutputType
 argument_list|<
 name|ProcessorType
 argument_list|>
+implements|implements
+name|Block
 block|{
 annotation|@
 name|Override

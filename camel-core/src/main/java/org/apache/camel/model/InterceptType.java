@@ -243,7 +243,7 @@ comment|/*     public void addRoutes(RouteContext routeContext, Collection<Route
 comment|/**      * Applies this interceptor only if the given predicate is true      */
 DECL|method|when (Predicate predicate)
 specifier|public
-name|OtherwiseType
+name|ChoiceType
 name|when
 parameter_list|(
 name|Predicate

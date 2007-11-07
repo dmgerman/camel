@@ -139,6 +139,8 @@ class|class
 name|FilterType
 extends|extends
 name|ExpressionNode
+implements|implements
+name|Block
 block|{
 DECL|method|FilterType ()
 specifier|public

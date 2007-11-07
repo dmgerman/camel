@@ -448,7 +448,7 @@ return|;
 block|}
 DECL|method|otherwise ()
 specifier|public
-name|OtherwiseType
+name|ChoiceType
 name|otherwise
 parameter_list|()
 block|{
@@ -465,7 +465,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|answer
+name|this
 return|;
 block|}
 comment|// Properties

@@ -337,6 +337,13 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|setException
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
