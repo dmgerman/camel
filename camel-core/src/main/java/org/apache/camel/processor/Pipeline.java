@@ -613,7 +613,7 @@ name|createNextExchange
 argument_list|(
 name|processor
 argument_list|,
-name|exchange
+name|nextExchange
 argument_list|)
 expr_stmt|;
 name|sync
