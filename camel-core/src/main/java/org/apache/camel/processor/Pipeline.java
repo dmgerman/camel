@@ -720,13 +720,6 @@ condition|(
 name|previousOut
 operator|!=
 literal|null
-operator|&&
-name|previousOut
-operator|.
-name|getBody
-argument_list|()
-operator|!=
-literal|null
 condition|)
 block|{
 name|in
