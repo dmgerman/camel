@@ -175,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JMS {@link MessageListener} which can be used to delegate processing to a  * Camel endpoint.  *  * @version $Revision$  */
+comment|/**  * A JMS {@link MessageListener} which can be used to delegate processing to a  * Camel endpoint.  *  * @version $Revision$    ;';;;  */
 end_comment
 
 begin_class
@@ -260,6 +260,16 @@ operator|.
 name|processor
 operator|=
 name|processor
+expr_stmt|;
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|configure
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|onMessage (final Message message)

@@ -642,6 +642,16 @@ name|requestMapPurgePollTimeMillis
 init|=
 literal|1000L
 decl_stmt|;
+DECL|field|disableReplyTo
+specifier|private
+name|boolean
+name|disableReplyTo
+decl_stmt|;
+DECL|field|eagerLoadingOfProperties
+specifier|private
+name|boolean
+name|eagerLoadingOfProperties
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -1756,6 +1766,44 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|configure (EndpointMessageListener listener)
+specifier|public
+name|void
+name|configure
+parameter_list|(
+name|EndpointMessageListener
+name|listener
+parameter_list|)
+block|{
+if|if
+condition|(
+name|isDisableReplyTo
+argument_list|()
+condition|)
+block|{
+name|listener
+operator|.
+name|setDisableReplyTo
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|isEagerLoadingOfProperties
+argument_list|()
+condition|)
+block|{
+name|listener
+operator|.
+name|setEagerLoadingOfProperties
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getConnectionFactory ()
@@ -2747,6 +2795,60 @@ operator|.
 name|transacted
 operator|=
 name|consumerTransacted
+expr_stmt|;
+block|}
+DECL|method|isEagerLoadingOfProperties ()
+specifier|public
+name|boolean
+name|isEagerLoadingOfProperties
+parameter_list|()
+block|{
+return|return
+name|eagerLoadingOfProperties
+return|;
+block|}
+comment|/**      * Enables eager loading of JMS properties as soon as a message is loaded which generally      * is inefficient as the JMS properties may not be required but sometimes can catch early any      * issues with the underlying JMS provider and the use of JMS properties      *      * @param eagerLoadingOfProperties whether or not to enable eager loading of JMS properties      * on inbound messages      */
+DECL|method|setEagerLoadingOfProperties (boolean eagerLoadingOfProperties)
+specifier|public
+name|void
+name|setEagerLoadingOfProperties
+parameter_list|(
+name|boolean
+name|eagerLoadingOfProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eagerLoadingOfProperties
+operator|=
+name|eagerLoadingOfProperties
+expr_stmt|;
+block|}
+DECL|method|isDisableReplyTo ()
+specifier|public
+name|boolean
+name|isDisableReplyTo
+parameter_list|()
+block|{
+return|return
+name|disableReplyTo
+return|;
+block|}
+comment|/**      * Disables the use of the JMSReplyTo header for consumers so that inbound messages are treated as InOnly      * rather than InOut requests.      *      * @param disableReplyTo whether or not to disable the use of JMSReplyTo header indicating an InOut      */
+DECL|method|setDisableReplyTo (boolean disableReplyTo)
+specifier|public
+name|void
+name|setDisableReplyTo
+parameter_list|(
+name|boolean
+name|disableReplyTo
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disableReplyTo
+operator|=
+name|disableReplyTo
 expr_stmt|;
 block|}
 comment|// Implementation methods
