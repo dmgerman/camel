@@ -212,6 +212,16 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Strategy used to convert between a Camel {@JmsExchange} and {@JmsMessage}  * to and from a JMS {@link Message}  *   * @version $Revision$  */
 end_comment
@@ -238,6 +248,14 @@ name|JmsBinding
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|ignoreJmsHeaders
+specifier|private
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|ignoreJmsHeaders
 decl_stmt|;
 comment|/**      * Extracts the body from the JMS message      *       * @param exchange      * @param message      */
 DECL|method|extractBodyFromJms (Exchange exchange, Message message)
@@ -863,6 +881,60 @@ return|return
 name|answer
 return|;
 block|}
+DECL|method|getIgnoreJmsHeaders ()
+specifier|public
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getIgnoreJmsHeaders
+parameter_list|()
+block|{
+if|if
+condition|(
+name|ignoreJmsHeaders
+operator|==
+literal|null
+condition|)
+block|{
+name|ignoreJmsHeaders
+operator|=
+operator|new
+name|HashSet
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+expr_stmt|;
+name|populateIgnoreJmsHeaders
+argument_list|(
+name|ignoreJmsHeaders
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|ignoreJmsHeaders
+return|;
+block|}
+DECL|method|setIgnoreJmsHeaders (Set<String> ignoreJmsHeaders)
+specifier|public
+name|void
+name|setIgnoreJmsHeaders
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|ignoreJmsHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreJmsHeaders
+operator|=
+name|ignoreJmsHeaders
+expr_stmt|;
+block|}
 comment|/**      * Strategy to allow filtering of headers which are put on the JMS message      */
 DECL|method|shouldOutputHeader (org.apache.camel.Message camelMessage, String headerName, Object headerValue)
 specifier|protected
@@ -889,7 +961,38 @@ return|return
 name|headerValue
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|getIgnoreJmsHeaders
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|headerName
+argument_list|)
 return|;
+block|}
+comment|/**      * Populate any JMS headers that should be excluded from being copied from an input message      * onto an outgoing message      */
+DECL|method|populateIgnoreJmsHeaders (Set<String> set)
+specifier|protected
+name|void
+name|populateIgnoreJmsHeaders
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|set
+parameter_list|)
+block|{
+name|set
+operator|.
+name|add
+argument_list|(
+literal|"JMSXAppID"
+argument_list|)
+expr_stmt|;
+comment|// MQSeries really doesn't seem to like this being set
 block|}
 block|}
 end_class
