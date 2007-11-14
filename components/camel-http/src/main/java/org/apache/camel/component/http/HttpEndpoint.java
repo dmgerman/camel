@@ -209,10 +209,12 @@ argument_list|,
 operator|new
 name|HttpClientParams
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, HttpClientParams clientParams)
+DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, HttpClientParams clientParams, HttpClientConfigurer clientConfigurer)
 specifier|public
 name|HttpEndpoint
 parameter_list|(
@@ -227,6 +229,9 @@ name|httpURI
 parameter_list|,
 name|HttpClientParams
 name|clientParams
+parameter_list|,
+name|HttpClientConfigurer
+name|clientConfigurer
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -255,6 +260,12 @@ operator|.
 name|clientParams
 operator|=
 name|clientParams
+expr_stmt|;
+name|this
+operator|.
+name|httpClientConfigurer
+operator|=
+name|clientConfigurer
 expr_stmt|;
 block|}
 DECL|method|createProducer ()
