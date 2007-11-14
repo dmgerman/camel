@@ -26,9 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|saxon
+name|xquery
 operator|.
 name|XQuery
 import|;
