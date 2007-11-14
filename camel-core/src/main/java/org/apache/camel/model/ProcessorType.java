@@ -1312,6 +1312,35 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+DECL|method|loadBalance ()
+specifier|public
+name|LoadBalanceType
+name|loadBalance
+parameter_list|()
+block|{
+name|LoadBalanceType
+name|answer
+init|=
+operator|new
+name|LoadBalanceType
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setParent
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Creates a choice of one or more predicates with an otherwise clause      *      * @return the builder for a choice expression      */
 DECL|method|choice ()
 specifier|public
