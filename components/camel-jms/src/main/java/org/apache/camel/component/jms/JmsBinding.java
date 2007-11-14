@@ -180,6 +180,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|TransformerException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -187,6 +199,22 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|jaxp
+operator|.
+name|XmlConverter
 import|;
 end_import
 
@@ -246,8 +274,20 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+import|;
+end_import
+
 begin_comment
-comment|/**  * A Strategy used to convert between a Camel {@JmsExchange} and {@JmsMessage}  * to and from a JMS {@link Message}  *   * @version $Revision$  */
+comment|/**  * A Strategy used to convert between a Camel {@JmsExchange} and {@JmsMessage}  * to and from a JMS {@link Message}  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -281,7 +321,16 @@ name|String
 argument_list|>
 name|ignoreJmsHeaders
 decl_stmt|;
-comment|/**      * Extracts the body from the JMS message      *       * @param exchange      * @param message      */
+DECL|field|xmlConverter
+specifier|private
+name|XmlConverter
+name|xmlConverter
+init|=
+operator|new
+name|XmlConverter
+argument_list|()
+decl_stmt|;
+comment|/**      * Extracts the body from the JMS message      *      * @param exchange      * @param message      */
 DECL|method|extractBodyFromJms (Exchange exchange, Message message)
 specifier|public
 name|Object
@@ -406,7 +455,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Creates a JMS message from the Camel exchange and message      *       * @param session the JMS session used to create the message      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
+comment|/**      * Creates a JMS message from the Camel exchange and message      *      * @param session the JMS session used to create the message      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
 DECL|method|makeJmsMessage (Exchange exchange, org.apache.camel.Message camelMessage, Session session)
 specifier|public
 name|Message
@@ -771,6 +820,59 @@ parameter_list|)
 throws|throws
 name|JMSException
 block|{
+if|if
+condition|(
+name|body
+operator|instanceof
+name|Node
+condition|)
+block|{
+comment|// lets convert the document to a String format
+try|try
+block|{
+name|body
+operator|=
+name|xmlConverter
+operator|.
+name|toString
+argument_list|(
+operator|(
+name|Node
+operator|)
+name|body
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|TransformerException
+name|e
+parameter_list|)
+block|{
+name|JMSException
+name|jmsException
+init|=
+operator|new
+name|JMSException
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|jmsException
+operator|.
+name|setLinkedException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+name|jmsException
+throw|;
+block|}
+block|}
 if|if
 condition|(
 name|body
