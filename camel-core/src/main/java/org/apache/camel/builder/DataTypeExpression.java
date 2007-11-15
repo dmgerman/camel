@@ -122,6 +122,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|StringDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|XMLBeansDataFormat
 import|;
 end_import
@@ -225,91 +241,6 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
-comment|/**      * Uses the Java Serialization data format      */
-DECL|method|serialization ()
-specifier|public
-name|T
-name|serialization
-parameter_list|()
-block|{
-return|return
-name|dataFormat
-argument_list|(
-operator|new
-name|SerializationDataFormat
-argument_list|()
-argument_list|)
-return|;
-block|}
-comment|/**      * Uses the JAXB data format      */
-DECL|method|jaxb ()
-specifier|public
-name|T
-name|jaxb
-parameter_list|()
-block|{
-return|return
-name|dataFormat
-argument_list|(
-operator|new
-name|JaxbDataFormat
-argument_list|()
-argument_list|)
-return|;
-block|}
-comment|/**      * Uses the XStream data format      */
-DECL|method|xstream ()
-specifier|public
-name|T
-name|xstream
-parameter_list|()
-block|{
-return|return
-name|dataFormat
-argument_list|(
-operator|new
-name|XStreamDataFormat
-argument_list|()
-argument_list|)
-return|;
-block|}
-comment|/**      * Uses the JAXB data format turning pretty printing on or off      */
-DECL|method|jaxb (boolean prettyPrint)
-specifier|public
-name|T
-name|jaxb
-parameter_list|(
-name|boolean
-name|prettyPrint
-parameter_list|)
-block|{
-return|return
-name|dataFormat
-argument_list|(
-operator|new
-name|JaxbDataFormat
-argument_list|(
-name|prettyPrint
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Uses the JAXB data format      */
-DECL|method|xmlBeans ()
-specifier|public
-name|T
-name|xmlBeans
-parameter_list|()
-block|{
-return|return
-name|dataFormat
-argument_list|(
-operator|new
-name|XMLBeansDataFormat
-argument_list|()
-argument_list|)
-return|;
-block|}
 comment|/**      * Uses the      *<a href="http://activemq.apache.org/camel/artix-data-services.html">Artix Data Services</a>      * data format for dealing with lots of different message formats such as SWIFT etc.      */
 DECL|method|artixDS ()
 specifier|public
@@ -397,6 +328,107 @@ name|ArtixDSDataFormat
 argument_list|(
 name|contentType
 argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the JAXB data format      */
+DECL|method|jaxb ()
+specifier|public
+name|T
+name|jaxb
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|JaxbDataFormat
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the JAXB data format turning pretty printing on or off      */
+DECL|method|jaxb (boolean prettyPrint)
+specifier|public
+name|T
+name|jaxb
+parameter_list|(
+name|boolean
+name|prettyPrint
+parameter_list|)
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|JaxbDataFormat
+argument_list|(
+name|prettyPrint
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the Java Serialization data format      */
+DECL|method|serialization ()
+specifier|public
+name|T
+name|serialization
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|SerializationDataFormat
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the String data format      */
+DECL|method|string ()
+specifier|public
+name|T
+name|string
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|StringDataFormat
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the JAXB data format      */
+DECL|method|xmlBeans ()
+specifier|public
+name|T
+name|xmlBeans
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|XMLBeansDataFormat
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the XStream data format      */
+DECL|method|xstream ()
+specifier|public
+name|T
+name|xstream
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|XStreamDataFormat
+argument_list|()
 argument_list|)
 return|;
 block|}
