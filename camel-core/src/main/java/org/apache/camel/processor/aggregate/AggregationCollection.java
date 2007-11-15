@@ -240,6 +240,7 @@ argument_list|,
 name|newExchange
 argument_list|)
 expr_stmt|;
+block|}
 name|onAggregation
 argument_list|(
 name|correlationKey
@@ -247,7 +248,6 @@ argument_list|,
 name|newExchange
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|true
 return|;

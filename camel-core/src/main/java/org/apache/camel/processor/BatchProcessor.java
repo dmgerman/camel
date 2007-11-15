@@ -332,6 +332,11 @@ name|isRunAllowed
 argument_list|()
 condition|)
 block|{
+name|collection
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 name|processBatch
@@ -509,6 +514,7 @@ name|i
 init|=
 literal|0
 init|;
+operator|!
 name|isBatchCompleted
 argument_list|(
 name|i
@@ -609,11 +615,6 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|iter
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
 name|processExchange
 argument_list|(
 name|exchange
@@ -633,7 +634,7 @@ parameter_list|)
 block|{
 return|return
 name|index
-operator|<
+operator|>=
 name|batchSize
 return|;
 block|}

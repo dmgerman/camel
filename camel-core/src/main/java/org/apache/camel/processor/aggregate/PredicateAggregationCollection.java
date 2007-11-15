@@ -228,6 +228,11 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|super
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
