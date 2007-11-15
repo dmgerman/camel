@@ -190,10 +190,7 @@ block|{
 DECL|field|processorType
 specifier|private
 specifier|final
-name|ProcessorType
-argument_list|<
 name|T
-argument_list|>
 name|processorType
 decl_stmt|;
 DECL|field|operation
@@ -214,14 +211,11 @@ block|,
 name|Unmarshal
 block|}
 empty_stmt|;
-DECL|method|DataTypeExpression (ProcessorType<T> processorType, Operation operation)
+DECL|method|DataTypeExpression (T processorType, Operation operation)
 specifier|public
 name|DataTypeExpression
 parameter_list|(
-name|ProcessorType
-argument_list|<
 name|T
-argument_list|>
 name|processorType
 parameter_list|,
 name|Operation
@@ -450,6 +444,9 @@ case|case
 name|Unmarshal
 case|:
 return|return
+operator|(
+name|T
+operator|)
 name|processorType
 operator|.
 name|unmarshal
@@ -461,6 +458,9 @@ case|case
 name|Marshal
 case|:
 return|return
+operator|(
+name|T
+operator|)
 name|processorType
 operator|.
 name|marshal

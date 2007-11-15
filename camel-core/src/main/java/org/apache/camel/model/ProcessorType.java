@@ -3314,7 +3314,10 @@ DECL|method|unmarshal ()
 specifier|public
 name|DataTypeExpression
 argument_list|<
+name|ProcessorType
+argument_list|<
 name|Type
+argument_list|>
 argument_list|>
 name|unmarshal
 parameter_list|()
@@ -3323,7 +3326,10 @@ return|return
 operator|new
 name|DataTypeExpression
 argument_list|<
+name|ProcessorType
+argument_list|<
 name|Type
+argument_list|>
 argument_list|>
 argument_list|(
 name|this
@@ -3414,7 +3420,10 @@ DECL|method|marshal ()
 specifier|public
 name|DataTypeExpression
 argument_list|<
+name|ProcessorType
+argument_list|<
 name|Type
+argument_list|>
 argument_list|>
 name|marshal
 parameter_list|()
@@ -3423,7 +3432,10 @@ return|return
 operator|new
 name|DataTypeExpression
 argument_list|<
+name|ProcessorType
+argument_list|<
 name|Type
+argument_list|>
 argument_list|>
 argument_list|(
 name|this

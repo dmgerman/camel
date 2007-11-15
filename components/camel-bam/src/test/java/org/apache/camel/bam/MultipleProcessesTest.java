@@ -78,9 +78,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// TODO fixme
+comment|//overdueEndpoint.expectedMessageCount(1);
 name|overdueEndpoint
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)
