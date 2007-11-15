@@ -2686,6 +2686,57 @@ name|this
 return|;
 block|}
 comment|/**      * Adds a processor which sets the body on the IN message      */
+DECL|method|setBody ()
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|ProcessorType
+argument_list|<
+name|Type
+argument_list|>
+argument_list|>
+name|setBody
+parameter_list|()
+block|{
+name|ExpressionClause
+argument_list|<
+name|ProcessorType
+argument_list|<
+name|Type
+argument_list|>
+argument_list|>
+name|clause
+init|=
+operator|new
+name|ExpressionClause
+argument_list|<
+name|ProcessorType
+argument_list|<
+name|Type
+argument_list|>
+argument_list|>
+argument_list|(
+operator|(
+name|Type
+operator|)
+name|this
+argument_list|)
+decl_stmt|;
+name|process
+argument_list|(
+name|ProcessorBuilder
+operator|.
+name|setBody
+argument_list|(
+name|clause
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|clause
+return|;
+block|}
+comment|/**      * Adds a processor which sets the body on the IN message      */
 DECL|method|setBody (Expression expression)
 specifier|public
 name|Type
