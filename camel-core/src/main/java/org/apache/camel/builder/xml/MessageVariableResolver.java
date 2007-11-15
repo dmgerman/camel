@@ -543,8 +543,17 @@ init|=
 name|exchange
 operator|.
 name|getOut
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|out
+operator|!=
+literal|null
+condition|)
+block|{
 name|answer
 operator|=
 name|out
@@ -575,6 +584,7 @@ operator|.
 name|getBody
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// TODO support exposing CamelContext properties/resources via XPath?
