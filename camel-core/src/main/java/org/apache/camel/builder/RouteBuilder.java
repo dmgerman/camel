@@ -550,6 +550,59 @@ return|return
 name|routes
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|setInheritErrorHandler (boolean inheritErrorHandler)
+specifier|public
+name|void
+name|setInheritErrorHandler
+parameter_list|(
+name|boolean
+name|inheritErrorHandler
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setInheritErrorHandler
+argument_list|(
+name|inheritErrorHandler
+argument_list|)
+expr_stmt|;
+name|routeCollection
+operator|.
+name|setInheritErrorHandlerFlag
+argument_list|(
+name|inheritErrorHandler
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)
+specifier|public
+name|void
+name|setErrorHandlerBuilder
+parameter_list|(
+name|ErrorHandlerBuilder
+name|errorHandlerBuilder
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setErrorHandlerBuilder
+argument_list|(
+name|errorHandlerBuilder
+argument_list|)
+expr_stmt|;
+name|routeCollection
+operator|.
+name|setErrorHandlerBuilder
+argument_list|(
+name|getErrorHandlerBuilder
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
 DECL|method|checkInitialized ()
