@@ -48,6 +48,15 @@ name|BINARY_MESSAGE_TYPE
 init|=
 literal|"binary"
 decl_stmt|;
+DECL|field|CAMEL_TARGET_ENDPOINT_URI
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CAMEL_TARGET_ENDPOINT_URI
+init|=
+literal|"org.apache.cxf.camel.target.endpoint.uri"
+decl_stmt|;
 DECL|field|CAMEL_SERVER_REQUEST_HEADERS
 specifier|public
 specifier|static

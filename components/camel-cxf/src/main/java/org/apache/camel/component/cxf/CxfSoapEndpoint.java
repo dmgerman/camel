@@ -199,11 +199,6 @@ specifier|private
 name|Bus
 name|bus
 decl_stmt|;
-DECL|field|cxfSoapBinding
-specifier|private
-name|CxfSoapBinding
-name|cxfSoapBinding
-decl_stmt|;
 DECL|method|CxfSoapEndpoint (Endpoint endpoint)
 specifier|public
 name|CxfSoapEndpoint
@@ -471,44 +466,6 @@ block|{
 return|return
 name|endpointName
 return|;
-block|}
-DECL|method|getCxfSoapBinding ()
-specifier|public
-name|CxfSoapBinding
-name|getCxfSoapBinding
-parameter_list|()
-block|{
-if|if
-condition|(
-name|cxfSoapBinding
-operator|==
-literal|null
-condition|)
-block|{
-name|cxfSoapBinding
-operator|=
-operator|new
-name|CxfSoapBinding
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|cxfSoapBinding
-return|;
-block|}
-DECL|method|setCxfSoapBinding (CxfSoapBinding bing)
-specifier|public
-name|void
-name|setCxfSoapBinding
-parameter_list|(
-name|CxfSoapBinding
-name|bing
-parameter_list|)
-block|{
-name|cxfSoapBinding
-operator|=
-name|bing
-expr_stmt|;
 block|}
 DECL|method|init ()
 specifier|public

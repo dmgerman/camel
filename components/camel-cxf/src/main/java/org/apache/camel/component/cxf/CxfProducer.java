@@ -622,8 +622,6 @@ argument_list|(
 name|cfb
 argument_list|)
 expr_stmt|;
-comment|// Need to set the service name and endpoint name to the ClientFactoryBean's service factory
-comment|// to walk around the issue of setting EndpointName and ServiceName
 name|CxfEndpointBean
 name|cxfEndpointBean
 init|=
@@ -643,9 +641,6 @@ literal|null
 condition|)
 block|{
 name|cfb
-operator|.
-name|getServiceFactory
-argument_list|()
 operator|.
 name|setServiceName
 argument_list|(
@@ -667,9 +662,6 @@ literal|null
 condition|)
 block|{
 name|cfb
-operator|.
-name|getServiceFactory
-argument_list|()
 operator|.
 name|setEndpointName
 argument_list|(
@@ -867,9 +859,6 @@ condition|)
 block|{
 name|cfb
 operator|.
-name|getServiceFactory
-argument_list|()
-operator|.
 name|setServiceName
 argument_list|(
 name|CxfEndpointUtils
@@ -892,9 +881,6 @@ literal|null
 condition|)
 block|{
 name|cfb
-operator|.
-name|getServiceFactory
-argument_list|()
 operator|.
 name|setEndpointName
 argument_list|(

@@ -339,12 +339,12 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:provider"
+literal|"direct:producer"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"soap:mock:provider?soap.wsdl=classpath:hello/HelloWorld-DOC.wsdl"
+literal|"soap:mock:producer?soap.wsdl=classpath:hello/HelloWorld-DOC.wsdl"
 argument_list|)
 expr_stmt|;
 block|}
@@ -477,10 +477,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSoapProvider ()
+DECL|method|testSoapProducer ()
 specifier|public
 name|void
-name|testSoapProvider
+name|testSoapProducer
 parameter_list|()
 throws|throws
 name|Exception
@@ -551,7 +551,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:provider"
+literal|"direct:producer"
 argument_list|,
 name|source
 argument_list|)

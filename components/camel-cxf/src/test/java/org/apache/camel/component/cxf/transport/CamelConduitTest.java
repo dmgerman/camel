@@ -184,7 +184,6 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-comment|/*          * assertEquals("Can't get the right ClientReceiveTimeout", 500L,          * conduit.getClientConfig().getClientReceiveTimeout());          * assertEquals("Can't get the right SessionPoolConfig's LowWaterMark",          * 10, conduit.getSessionPool().getLowWaterMark()); assertEquals("Can't          * get the right AddressPolicy's ConnectionPassword", "testPassword",          * conduit.getCamelAddress().getConnectionPassword());          */
 name|bus
 operator|.
 name|shutdown

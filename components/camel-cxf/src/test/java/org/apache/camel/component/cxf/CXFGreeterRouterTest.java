@@ -266,6 +266,13 @@ argument_list|,
 name|reply
 argument_list|)
 expr_stmt|;
+name|greeter
+operator|.
+name|greetMeOneWay
+argument_list|(
+literal|"call greetMe OneWay !"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

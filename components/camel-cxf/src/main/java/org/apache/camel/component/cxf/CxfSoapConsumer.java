@@ -817,14 +817,6 @@ operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
-name|CxfSoapBinding
-name|binding
-init|=
-name|endpoint
-operator|.
-name|getCxfSoapBinding
-argument_list|()
-decl_stmt|;
 name|org
 operator|.
 name|apache
@@ -836,7 +828,7 @@ operator|.
 name|Message
 name|inMessage
 init|=
-name|binding
+name|CxfSoapBinding
 operator|.
 name|getCxfInMessage
 argument_list|(
@@ -961,14 +953,6 @@ operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
-name|CxfSoapBinding
-name|binding
-init|=
-name|endpoint
-operator|.
-name|getCxfSoapBinding
-argument_list|()
-decl_stmt|;
 comment|// TODO check if the message is oneway message
 comment|// Get the method name form the soap endpoint
 name|org
@@ -982,7 +966,7 @@ operator|.
 name|Message
 name|outMessage
 init|=
-name|binding
+name|CxfSoapBinding
 operator|.
 name|getCxfOutMessage
 argument_list|(

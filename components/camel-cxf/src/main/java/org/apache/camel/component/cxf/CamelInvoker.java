@@ -1004,7 +1004,6 @@ block|}
 comment|//System.out.println(cxfExchange.getOut().getBody());
 comment|//TODO deal with the fault message
 name|Object
-index|[]
 name|result
 decl_stmt|;
 if|if
@@ -1041,10 +1040,6 @@ else|else
 block|{
 name|result
 operator|=
-operator|(
-name|Object
-index|[]
-operator|)
 name|cxfExchange
 operator|.
 name|getOut
@@ -1053,6 +1048,22 @@ operator|.
 name|getBody
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|result
+operator|instanceof
+name|Object
+index|[]
+condition|)
+block|{
+return|return
+operator|(
+name|Object
+index|[]
+operator|)
+name|result
+return|;
+block|}
 block|}
 return|return
 name|result

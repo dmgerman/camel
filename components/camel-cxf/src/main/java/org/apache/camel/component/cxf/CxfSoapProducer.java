@@ -742,14 +742,6 @@ operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
-name|CxfSoapBinding
-name|binding
-init|=
-name|endpoint
-operator|.
-name|getCxfSoapBinding
-argument_list|()
-decl_stmt|;
 name|org
 operator|.
 name|apache
@@ -761,7 +753,7 @@ operator|.
 name|Message
 name|inMessage
 init|=
-name|binding
+name|CxfSoapBinding
 operator|.
 name|getCxfInMessage
 argument_list|(
@@ -935,14 +927,6 @@ argument_list|,
 name|cxfExchange
 argument_list|)
 expr_stmt|;
-name|CxfSoapBinding
-name|binding
-init|=
-name|endpoint
-operator|.
-name|getCxfSoapBinding
-argument_list|()
-decl_stmt|;
 name|org
 operator|.
 name|apache
@@ -954,7 +938,7 @@ operator|.
 name|Message
 name|outMessage
 init|=
-name|binding
+name|CxfSoapBinding
 operator|.
 name|getCxfOutMessage
 argument_list|(

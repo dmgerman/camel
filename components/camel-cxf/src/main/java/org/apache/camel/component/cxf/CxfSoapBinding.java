@@ -172,8 +172,14 @@ specifier|public
 class|class
 name|CxfSoapBinding
 block|{
+DECL|method|CxfSoapBinding ()
+specifier|private
+name|CxfSoapBinding
+parameter_list|()
+block|{              }
 DECL|method|getCxfInMessage (org.apache.camel.Exchange exchange, boolean isClient)
 specifier|public
+specifier|static
 name|org
 operator|.
 name|apache
@@ -358,6 +364,7 @@ return|;
 block|}
 DECL|method|getCxfOutMessage (org.apache.camel.Exchange exchange, boolean isClient)
 specifier|public
+specifier|static
 name|org
 operator|.
 name|apache

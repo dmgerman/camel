@@ -124,12 +124,15 @@ name|MessageImpl
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
 name|this
 operator|.
 name|cxfMessage
 operator|=
 name|cxfMessage
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

@@ -30,7 +30,7 @@ name|cxf
 operator|.
 name|frontend
 operator|.
-name|AbstractEndpointFactory
+name|AbstractWSDLBasedEndpointFactory
 import|;
 end_import
 
@@ -60,7 +60,7 @@ specifier|public
 class|class
 name|CxfEndpointBean
 extends|extends
-name|AbstractEndpointFactory
+name|AbstractWSDLBasedEndpointFactory
 block|{
 DECL|method|CxfEndpointBean ()
 specifier|public
