@@ -690,6 +690,26 @@ name|document
 argument_list|)
 return|;
 block|}
+comment|/**      * Converts the given Node to a Source      */
+annotation|@
+name|Converter
+DECL|method|toSource (Node node)
+specifier|public
+name|Source
+name|toSource
+parameter_list|(
+name|Node
+name|node
+parameter_list|)
+block|{
+return|return
+operator|new
+name|DOMSource
+argument_list|(
+name|node
+argument_list|)
+return|;
+block|}
 comment|/**      * Converts the given input Source into text      */
 annotation|@
 name|Converter

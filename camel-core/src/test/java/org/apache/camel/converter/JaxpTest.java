@@ -158,6 +158,18 @@ name|Document
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Element
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -354,6 +366,67 @@ argument_list|(
 literal|"Found document: "
 operator|+
 name|domSource
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNodeToSource ()
+specifier|public
+name|void
+name|testNodeToSource
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Document
+name|document
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|Document
+operator|.
+name|class
+argument_list|,
+literal|"<?xml version=\"1.0\"?><hello>world!</hello>"
+argument_list|)
+decl_stmt|;
+name|Element
+name|element
+init|=
+name|document
+operator|.
+name|getDocumentElement
+argument_list|()
+decl_stmt|;
+name|Source
+name|source
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|Source
+operator|.
+name|class
+argument_list|,
+name|element
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Could not convert from Node to Source!"
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Found source: "
+operator|+
+name|source
 argument_list|)
 expr_stmt|;
 block|}
