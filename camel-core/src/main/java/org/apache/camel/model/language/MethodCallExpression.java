@@ -124,10 +124,10 @@ name|name
 operator|=
 literal|"methodCall"
 argument_list|)
-DECL|class|MethodCall
+DECL|class|MethodCallExpression
 specifier|public
 class|class
-name|MethodCall
+name|MethodCallExpression
 extends|extends
 name|ExpressionType
 block|{
@@ -155,14 +155,14 @@ specifier|private
 name|String
 name|method
 decl_stmt|;
-DECL|method|MethodCall ()
+DECL|method|MethodCallExpression ()
 specifier|public
-name|MethodCall
+name|MethodCallExpression
 parameter_list|()
 block|{     }
-DECL|method|MethodCall (String beanName)
+DECL|method|MethodCallExpression (String beanName)
 specifier|public
-name|MethodCall
+name|MethodCallExpression
 parameter_list|(
 name|String
 name|beanName
@@ -174,9 +174,9 @@ name|beanName
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MethodCall (String beanName, String method)
+DECL|method|MethodCallExpression (String beanName, String method)
 specifier|public
-name|MethodCall
+name|MethodCallExpression
 parameter_list|(
 name|String
 name|beanName

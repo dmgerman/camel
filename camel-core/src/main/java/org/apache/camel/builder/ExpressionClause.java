@@ -68,7 +68,7 @@ name|model
 operator|.
 name|language
 operator|.
-name|MethodCall
+name|MethodCallExpression
 import|;
 end_import
 
@@ -207,20 +207,20 @@ block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 comment|/**      * Evaluates an expression using the      *<a href="http://activemq.apache.org/camel/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression value.      *      * @param bean the name of the bean looked up the registry      * @return the builder to continue processing the DSL      */
-DECL|method|bean (String bean)
+DECL|method|method (String bean)
 specifier|public
 name|T
-name|bean
+name|method
 parameter_list|(
 name|String
 name|bean
 parameter_list|)
 block|{
-name|MethodCall
+name|MethodCallExpression
 name|expression
 init|=
 operator|new
-name|MethodCall
+name|MethodCallExpression
 argument_list|(
 name|bean
 argument_list|)
@@ -235,10 +235,10 @@ name|result
 return|;
 block|}
 comment|/**      * Evaluates an expression using the      *<a href="http://activemq.apache.org/camel/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression value.      *      * @param bean the name of the bean looked up the registry      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
-DECL|method|bean (String bean, String method)
+DECL|method|method (String bean, String method)
 specifier|public
 name|T
-name|bean
+name|method
 parameter_list|(
 name|String
 name|bean
@@ -247,11 +247,11 @@ name|String
 name|method
 parameter_list|)
 block|{
-name|MethodCall
+name|MethodCallExpression
 name|expression
 init|=
 operator|new
-name|MethodCall
+name|MethodCallExpression
 argument_list|(
 name|bean
 argument_list|,

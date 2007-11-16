@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|Context
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -25,6 +35,18 @@ operator|.
 name|camel
 operator|.
 name|ContextTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Header
 import|;
 end_import
 
@@ -47,27 +69,13 @@ comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|XPathFilterTest
+DECL|class|MethodFilterTest
 specifier|public
 class|class
-name|XPathFilterTest
+name|MethodFilterTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|matchingBody
-specifier|protected
-name|String
-name|matchingBody
-init|=
-literal|"<person name='James' city='London'/>"
-decl_stmt|;
-DECL|field|notMatchingBody
-specifier|protected
-name|String
-name|notMatchingBody
-init|=
-literal|"<person name='Hiram' city='Tampa'/>"
-decl_stmt|;
 DECL|method|testSendMatchingMessage ()
 specifier|public
 name|void
@@ -76,6 +84,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|body
+init|=
+literal|"<person name='James' city='London'/>"
+decl_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -83,14 +96,20 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-name|matchingBody
+name|body
 argument_list|)
 expr_stmt|;
-name|sendBody
+name|template
+operator|.
+name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
-name|matchingBody
+name|body
+argument_list|,
+literal|"foo"
+argument_list|,
+literal|"London"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisifed
@@ -105,6 +124,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|body
+init|=
+literal|"<person name='Hiram' city='Tampa'/>"
+decl_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -115,11 +139,17 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|sendBody
+name|template
+operator|.
+name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
-name|notMatchingBody
+name|body
+argument_list|,
+literal|"foo"
+argument_list|,
+literal|"Tampa"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisifed
@@ -151,9 +181,11 @@ operator|.
 name|filter
 argument_list|()
 operator|.
-name|xpath
+name|method
 argument_list|(
-literal|"/person[@name='James']"
+literal|"myBean"
+argument_list|,
+literal|"matches"
 argument_list|)
 operator|.
 name|to
@@ -166,6 +198,73 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|createJndiContext ()
+specifier|protected
+name|Context
+name|createJndiContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Context
+name|context
+init|=
+name|super
+operator|.
+name|createJndiContext
+argument_list|()
+decl_stmt|;
+name|context
+operator|.
+name|bind
+argument_list|(
+literal|"myBean"
+argument_list|,
+operator|new
+name|MyBean
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|context
+return|;
+block|}
+comment|// START SNIPPET: filter
+DECL|class|MyBean
+specifier|public
+specifier|static
+class|class
+name|MyBean
+block|{
+DECL|method|matches (@eadername = R)String location)
+specifier|public
+name|boolean
+name|matches
+parameter_list|(
+annotation|@
+name|Header
+argument_list|(
+name|name
+operator|=
+literal|"foo"
+argument_list|)
+name|String
+name|location
+parameter_list|)
+block|{
+return|return
+literal|"London"
+operator|.
+name|equals
+argument_list|(
+name|location
+argument_list|)
+return|;
+block|}
+block|}
+comment|// END SNIPPET: filter
 block|}
 end_class
 
