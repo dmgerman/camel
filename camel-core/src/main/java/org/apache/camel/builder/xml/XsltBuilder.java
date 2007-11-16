@@ -434,6 +434,16 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
+name|out
+operator|.
+name|copyFrom
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|resultHandler
 operator|.
 name|setBody
