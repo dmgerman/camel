@@ -415,15 +415,7 @@ operator|.
 name|getResult
 argument_list|()
 decl_stmt|;
-name|transformer
-operator|.
-name|transform
-argument_list|(
-name|source
-argument_list|,
-name|result
-argument_list|)
-expr_stmt|;
+comment|// lets copy the headers before we invoke the transform in case they modify them
 name|Message
 name|out
 init|=
@@ -442,6 +434,15 @@ name|exchange
 operator|.
 name|getIn
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|transformer
+operator|.
+name|transform
+argument_list|(
+name|source
+argument_list|,
+name|result
 argument_list|)
 expr_stmt|;
 name|resultHandler
