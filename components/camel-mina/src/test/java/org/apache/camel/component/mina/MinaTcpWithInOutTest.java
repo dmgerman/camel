@@ -206,7 +206,7 @@ specifier|protected
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:6321?codec=textline"
+literal|"mina:tcp://localhost:6321?textline=true"
 decl_stmt|;
 DECL|field|producer
 specifier|protected
