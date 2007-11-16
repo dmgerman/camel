@@ -669,15 +669,24 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|warn
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"Cannot send reply message as there is no replyDestination for: "
 operator|+
 name|out
 argument_list|)
 expr_stmt|;
+block|}
 return|return;
 block|}
 name|getTemplate
