@@ -4,80 +4,88 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.model.language
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|model
-operator|.
-name|language
 package|;
 end_package
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|bind
+name|camel
 operator|.
-name|annotation
+name|spi
 operator|.
-name|XmlRootElement
+name|Registry
 import|;
 end_import
 
 begin_comment
-comment|/**  * For SQL expresions and predicates  *  * @version $Revision: 1.1 $  */
+comment|/**  * A runtime exception if a given bean could not be found in the {@link Registry}  *  * @version $Revision$  */
 end_comment
 
 begin_class
-annotation|@
-name|XmlRootElement
-argument_list|(
-name|name
-operator|=
-literal|"sql"
-argument_list|)
-DECL|class|SqlExpression
+DECL|class|NoSuchBeanException
 specifier|public
 class|class
-name|SqlExpression
+name|NoSuchBeanException
 extends|extends
-name|ExpressionType
+name|RuntimeCamelException
 block|{
-DECL|method|SqlExpression ()
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|8721487431101572630L
+decl_stmt|;
+DECL|field|name
+specifier|private
+specifier|final
+name|String
+name|name
+decl_stmt|;
+DECL|method|NoSuchBeanException (String name)
 specifier|public
-name|SqlExpression
-parameter_list|()
-block|{     }
-DECL|method|SqlExpression (String expression)
-specifier|public
-name|SqlExpression
+name|NoSuchBeanException
 parameter_list|(
 name|String
-name|expression
+name|name
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|expression
+literal|"No bean could be found in the registry for: "
+operator|+
+name|name
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
 block|}
-DECL|method|getLanguage ()
+DECL|method|getName ()
 specifier|public
 name|String
-name|getLanguage
+name|getName
 parameter_list|()
 block|{
 return|return
-literal|"sql"
+name|name
 return|;
 block|}
 block|}

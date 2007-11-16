@@ -831,6 +831,28 @@ argument_list|()
 condition|)
 block|{
 comment|// lets assume its the body
+if|if
+condition|(
+name|Exchange
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|parameterType
+argument_list|)
+condition|)
+block|{
+name|expression
+operator|=
+name|ExpressionBuilder
+operator|.
+name|exchangeExpression
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 name|expression
 operator|=
 name|ExpressionBuilder
@@ -840,6 +862,7 @@ argument_list|(
 name|parameterType
 argument_list|)
 expr_stmt|;
+block|}
 name|parameterInfo
 operator|.
 name|setExpression

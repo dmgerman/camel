@@ -68,6 +68,22 @@ name|model
 operator|.
 name|language
 operator|.
+name|MethodCall
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|language
+operator|.
 name|ExpressionType
 import|;
 end_import
@@ -190,6 +206,67 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
+comment|/**      * Evaluates an expression using the      *<a href="http://activemq.apache.org/camel/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression value.      *      * @param bean the name of the bean looked up the registry      * @return the builder to continue processing the DSL      */
+DECL|method|bean (String bean)
+specifier|public
+name|T
+name|bean
+parameter_list|(
+name|String
+name|bean
+parameter_list|)
+block|{
+name|MethodCall
+name|expression
+init|=
+operator|new
+name|MethodCall
+argument_list|(
+name|bean
+argument_list|)
+decl_stmt|;
+name|setExpressionType
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+return|return
+name|result
+return|;
+block|}
+comment|/**      * Evaluates an expression using the      *<a href="http://activemq.apache.org/camel/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression value.      *      * @param bean the name of the bean looked up the registry      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
+DECL|method|bean (String bean, String method)
+specifier|public
+name|T
+name|bean
+parameter_list|(
+name|String
+name|bean
+parameter_list|,
+name|String
+name|method
+parameter_list|)
+block|{
+name|MethodCall
+name|expression
+init|=
+operator|new
+name|MethodCall
+argument_list|(
+name|bean
+argument_list|,
+name|method
+argument_list|)
+decl_stmt|;
+name|setExpressionType
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+return|return
+name|result
+return|;
+block|}
 comment|/**      * Evaluates the<a href="http://activemq.apache.org/camel/el.html">EL Language from JSP and JSF</a>      * using the<a href="http://activemq.apache.org/camel/juel.html">JUEL library</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|el (String text)
 specifier|public
