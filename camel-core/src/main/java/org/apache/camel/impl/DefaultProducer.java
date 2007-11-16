@@ -113,6 +113,25 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Producer["
+operator|+
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
