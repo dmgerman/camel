@@ -147,6 +147,55 @@ name|Processor
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|StickyLoadBalancer ()
+specifier|public
+name|StickyLoadBalancer
+parameter_list|()
+block|{
+name|this
+operator|.
+name|loadBalancer
+operator|=
+operator|new
+name|RoundRobinLoadBalancer
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|setCorrelationExpression (Expression<Exchange> correlationExpression)
+specifier|public
+name|void
+name|setCorrelationExpression
+parameter_list|(
+name|Expression
+argument_list|<
+name|Exchange
+argument_list|>
+name|correlationExpression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|correlationExpression
+operator|=
+name|correlationExpression
+expr_stmt|;
+block|}
+DECL|method|setLoadBalancer (QueueLoadBalancer loadBalancer)
+specifier|public
+name|void
+name|setLoadBalancer
+parameter_list|(
+name|QueueLoadBalancer
+name|loadBalancer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loadBalancer
+operator|=
+name|loadBalancer
+expr_stmt|;
+block|}
 DECL|method|StickyLoadBalancer (Expression<Exchange> correlationExpression)
 specifier|public
 name|StickyLoadBalancer
