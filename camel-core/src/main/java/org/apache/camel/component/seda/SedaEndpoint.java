@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|BlockingQueue
@@ -134,35 +144,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
 import|;
 end_import
 
@@ -312,7 +296,7 @@ operator|=
 name|queue
 expr_stmt|;
 block|}
-DECL|method|SedaEndpoint (String uri, SedaComponent component)
+DECL|method|SedaEndpoint (String uri, SedaComponent component, Map parameters)
 specifier|public
 name|SedaEndpoint
 parameter_list|(
@@ -321,6 +305,9 @@ name|uri
 parameter_list|,
 name|SedaComponent
 name|component
+parameter_list|,
+name|Map
+name|parameters
 parameter_list|)
 block|{
 name|this
@@ -332,7 +319,11 @@ argument_list|,
 name|component
 operator|.
 name|createQueue
-argument_list|()
+argument_list|(
+name|uri
+argument_list|,
+name|parameters
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

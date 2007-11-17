@@ -191,6 +191,8 @@ init|=
 name|getBlockingQueue
 argument_list|(
 name|uri
+argument_list|,
+name|parameters
 argument_list|)
 decl_stmt|;
 return|return
@@ -205,7 +207,7 @@ name|blockingQueue
 argument_list|)
 return|;
 block|}
-DECL|method|getBlockingQueue (String uri)
+DECL|method|getBlockingQueue (String uri, Map parameters)
 specifier|protected
 name|BlockingQueue
 argument_list|<
@@ -215,6 +217,9 @@ name|getBlockingQueue
 parameter_list|(
 name|String
 name|uri
+parameter_list|,
+name|Map
+name|parameters
 parameter_list|)
 block|{
 synchronized|synchronized
@@ -245,7 +250,11 @@ block|{
 name|answer
 operator|=
 name|createQueue
-argument_list|()
+argument_list|(
+name|uri
+argument_list|,
+name|parameters
+argument_list|)
 expr_stmt|;
 name|queues
 operator|.
