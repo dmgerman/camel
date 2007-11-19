@@ -138,6 +138,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -751,6 +763,8 @@ DECL|method|createBatchResequencerRoute (RouteContext routeContext)
 specifier|private
 name|Route
 argument_list|<
+name|?
+extends|extends
 name|Exchange
 argument_list|>
 name|createBatchResequencerRoute
@@ -775,9 +789,6 @@ decl_stmt|;
 return|return
 operator|new
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|(
 name|routeContext
 operator|.

@@ -58,9 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|RouteType
+name|Exchange
 import|;
 end_import
 
@@ -121,12 +119,17 @@ parameter_list|)
 block|{
 comment|// do nothing
 block|}
-DECL|method|onEndpointAdd (Endpoint endpoint)
+DECL|method|onEndpointAdd (Endpoint<? extends Exchange> endpoint)
 specifier|public
 name|void
 name|onEndpointAdd
 parameter_list|(
 name|Endpoint
+argument_list|<
+name|?
+extends|extends
+name|Exchange
+argument_list|>
 name|endpoint
 parameter_list|)
 block|{
@@ -160,16 +163,13 @@ parameter_list|)
 block|{
 comment|// do nothing
 block|}
-DECL|method|beforeStartRouteType (CamelContext context, RouteType routeType)
+DECL|method|onRouteContextCreate (RouteContext routeContext)
 specifier|public
 name|void
-name|beforeStartRouteType
+name|onRouteContextCreate
 parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|RouteType
-name|routeType
+name|RouteContext
+name|routeContext
 parameter_list|)
 block|{
 comment|// do nothing

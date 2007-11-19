@@ -68,6 +68,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|InstrumentationAgent
@@ -136,7 +148,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ServiceSupport
+name|RouteContext
 import|;
 end_import
 
@@ -148,9 +160,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|impl
 operator|.
-name|RouteType
+name|ServiceSupport
 import|;
 end_import
 
@@ -309,12 +321,17 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|onEndpointAdd (Endpoint endpoint)
+DECL|method|onEndpointAdd (Endpoint<? extends Exchange> endpoint)
 specifier|public
 name|void
 name|onEndpointAdd
 parameter_list|(
 name|Endpoint
+argument_list|<
+name|?
+extends|extends
+name|Exchange
+argument_list|>
 name|endpoint
 parameter_list|)
 block|{
@@ -496,16 +513,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|beforeStartRouteType (CamelContext context, RouteType routeType)
+DECL|method|onRouteContextCreate (RouteContext routeContext)
 specifier|public
 name|void
-name|beforeStartRouteType
+name|onRouteContextCreate
 parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|RouteType
-name|routeType
+name|RouteContext
+name|routeContext
 parameter_list|)
 block|{
 name|PerformanceCounter
@@ -515,7 +529,10 @@ operator|new
 name|PerformanceCounter
 argument_list|()
 decl_stmt|;
-name|routeType
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
 operator|.
 name|intercept
 argument_list|(
@@ -526,7 +543,48 @@ name|mc
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/* 		 *  Merge performance counter with the MBean it represents instead  		 *  of registering a new MBean 		try { 			agent.register(mc, getNamingStrategy().getObjectName(context, mc)); 		} 		catch(JMException e) { 			LOG.warn("Could not register Counter MBean", e); 		} 		*/
+comment|/*          *  Merge performance counter with the MBean it represents instead          *  of registering a new MBean          */
+try|try
+block|{
+name|agent
+operator|.
+name|register
+argument_list|(
+name|mc
+argument_list|,
+name|getNamingStrategy
+argument_list|()
+operator|.
+name|getObjectName
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|mc
+argument_list|,
+name|routeContext
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|JMException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Could not register Counter MBean"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getNamingStrategy ()
 specifier|public
@@ -538,20 +596,20 @@ return|return
 name|namingStrategy
 return|;
 block|}
-DECL|method|setNamingStrategy (CamelNamingStrategy namingStrategy)
+DECL|method|setNamingStrategy (CamelNamingStrategy strategy)
 specifier|public
 name|void
 name|setNamingStrategy
 parameter_list|(
 name|CamelNamingStrategy
-name|namingStrategy
+name|strategy
 parameter_list|)
 block|{
 name|this
 operator|.
 name|namingStrategy
 operator|=
-name|namingStrategy
+name|strategy
 expr_stmt|;
 block|}
 block|}

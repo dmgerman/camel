@@ -347,39 +347,6 @@ operator|+
 name|routes
 return|;
 block|}
-DECL|method|populateRoutes (List<Route> answer)
-specifier|public
-name|void
-name|populateRoutes
-parameter_list|(
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|answer
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-for|for
-control|(
-name|RouteType
-name|route
-range|:
-name|routes
-control|)
-block|{
-name|route
-operator|.
-name|addRoutes
-argument_list|(
-name|camelContext
-argument_list|,
-name|answer
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
 DECL|method|getRoutes ()

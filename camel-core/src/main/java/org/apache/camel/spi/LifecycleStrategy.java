@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -82,9 +94,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|impl
 operator|.
-name|RouteType
+name|RouteContext
 import|;
 end_import
 
@@ -104,11 +116,16 @@ name|context
 parameter_list|)
 function_decl|;
 comment|/**      * Notification on adding an {@see Endpoint}.      */
-DECL|method|onEndpointAdd (Endpoint endpoint)
+DECL|method|onEndpointAdd (Endpoint<? extends Exchange> endpoint)
 name|void
 name|onEndpointAdd
 parameter_list|(
 name|Endpoint
+argument_list|<
+name|?
+extends|extends
+name|Exchange
+argument_list|>
 name|endpoint
 parameter_list|)
 function_decl|;
@@ -136,16 +153,13 @@ argument_list|>
 name|routes
 parameter_list|)
 function_decl|;
-comment|/**      * Notification on adding {@see Route}(s). 	 * @param context TODO      */
-DECL|method|beforeStartRouteType (CamelContext context, RouteType routeType)
+comment|/**      * Notification on adding {@see RouteContext}(s). 	 * @param routeContext      */
+DECL|method|onRouteContextCreate (RouteContext routeContext)
 name|void
-name|beforeStartRouteType
+name|onRouteContextCreate
 parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|RouteType
-name|routeType
+name|RouteContext
+name|routeContext
 parameter_list|)
 function_decl|;
 block|}
