@@ -2104,6 +2104,30 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * returns the type of the given object or null if the value is null      */
+DECL|method|type (Object bean)
+specifier|public
+specifier|static
+name|Object
+name|type
+parameter_list|(
+name|Object
+name|bean
+parameter_list|)
+block|{
+return|return
+name|bean
+operator|!=
+literal|null
+condition|?
+name|bean
+operator|.
+name|getClass
+argument_list|()
+else|:
+literal|null
+return|;
+block|}
 block|}
 end_class
 
