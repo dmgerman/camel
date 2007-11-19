@@ -507,6 +507,8 @@ operator|.
 name|ACTIVE
 condition|)
 block|{
+try|try
+block|{
 name|mayBeAddComponentFor
 argument_list|(
 name|previousBundles
@@ -515,6 +517,35 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Component "
+operator|+
+name|previousBundles
+index|[
+name|i
+index|]
+operator|+
+literal|" not added due to "
+operator|+
+name|e
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
