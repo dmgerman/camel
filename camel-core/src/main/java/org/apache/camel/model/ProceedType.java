@@ -128,29 +128,12 @@ specifier|public
 class|class
 name|ProceedType
 extends|extends
-name|ProcessorType
+name|OutputType
 argument_list|<
 name|ProcessorType
 argument_list|>
 block|{
-DECL|method|getOutputs ()
-specifier|public
-name|List
-argument_list|<
-name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
-name|getOutputs
-parameter_list|()
-block|{
-return|return
-name|Collections
-operator|.
-name|EMPTY_LIST
-return|;
-block|}
+comment|// TODO we should be just returning the outputs!
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor
@@ -162,11 +145,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|//return routeContext.createProceedProcessor();
 return|return
+name|createOutputsProcessor
+argument_list|(
 name|routeContext
-operator|.
-name|createProceedProcessor
-argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

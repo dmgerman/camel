@@ -138,6 +138,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -175,6 +189,17 @@ argument_list|<
 name|ProcessorType
 argument_list|>
 block|{
+annotation|@
+name|XmlTransient
+DECL|field|proceed
+specifier|private
+name|ProceedType
+name|proceed
+init|=
+operator|new
+name|ProceedType
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -250,7 +275,9 @@ name|Predicate
 name|predicate
 parameter_list|)
 block|{
-return|return
+name|ChoiceType
+name|choice
+init|=
 name|choice
 argument_list|()
 operator|.
@@ -263,12 +290,30 @@ argument_list|(
 name|predicate
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|choice
 operator|.
+name|addOutput
+argument_list|(
 name|proceed
-argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|choice
 operator|.
 name|otherwise
 argument_list|()
+return|;
+comment|//return choice.proceed().otherwise();
+block|}
+DECL|method|getProceed ()
+specifier|public
+name|ProceedType
+name|getProceed
+parameter_list|()
+block|{
+return|return
+name|proceed
 return|;
 block|}
 block|}
