@@ -57,6 +57,24 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|amqp
+operator|.
+name|AMQPComponent
+operator|.
+name|amqpComponent
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -73,20 +91,18 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|qpid
 operator|.
-name|component
+name|client
 operator|.
-name|amqp
+name|transport
 operator|.
-name|AMQPComponent
-operator|.
-name|amqpComponent
+name|TransportConnection
 import|;
 end_import
 
@@ -106,18 +122,6 @@ DECL|field|resultEndpoint
 specifier|protected
 name|MockEndpoint
 name|resultEndpoint
-decl_stmt|;
-DECL|field|componentName
-specifier|protected
-name|String
-name|componentName
-init|=
-literal|"amqp"
-decl_stmt|;
-DECL|field|startEndpointUri
-specifier|protected
-name|String
-name|startEndpointUri
 decl_stmt|;
 DECL|method|testJmsRouteWithTextMessage ()
 specifier|public
@@ -235,7 +239,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|startEndpointUri
+literal|"amqp:queue:test.a"
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -255,11 +259,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|startEndpointUri
-operator|=
-name|componentName
-operator|+
-literal|":queue:test.a"
+comment|// lets create an in JVM broker
+name|TransportConnection
+operator|.
+name|createVMBroker
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|super
 operator|.
@@ -276,6 +282,29 @@ operator|.
 name|getEndpoint
 argument_list|(
 literal|"mock:result"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|tearDown ()
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+name|TransportConnection
+operator|.
+name|killVMBroker
+argument_list|(
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -299,7 +328,7 @@ name|camelContext
 operator|.
 name|addComponent
 argument_list|(
-name|componentName
+literal|"amqp"
 argument_list|,
 name|amqpComponent
 argument_list|(
@@ -333,21 +362,17 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|startEndpointUri
+literal|"amqp:test.a"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-name|componentName
-operator|+
-literal|":queue:test.b"
+literal|"amqp:test.b"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-name|componentName
-operator|+
-literal|":queue:test.b"
+literal|"amqp:test.b"
 argument_list|)
 operator|.
 name|to
