@@ -201,13 +201,9 @@ name|NamingException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
+return|return
+literal|null
+return|;
 block|}
 block|}
 DECL|method|bind (String s, Object o)
