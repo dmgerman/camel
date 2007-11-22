@@ -167,17 +167,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Found: "
-operator|+
-name|xml
-argument_list|)
-expr_stmt|;
 name|log
 operator|.
 name|debug
@@ -199,8 +188,30 @@ argument_list|,
 literal|"testBean"
 argument_list|)
 decl_stmt|;
-comment|// TODO - fixme when we allow XPath injection to do proper type conversion
-comment|//assertEquals("bean.subject", "Hey", bean.getSubject());
+name|assertEquals
+argument_list|(
+literal|"bean.subject"
+argument_list|,
+literal|"Hey"
+argument_list|,
+name|bean
+operator|.
+name|getSubject
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Found bean subject: "
+operator|+
+name|bean
+operator|.
+name|getSubject
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getExpectedRouteCount ()
 specifier|protected
