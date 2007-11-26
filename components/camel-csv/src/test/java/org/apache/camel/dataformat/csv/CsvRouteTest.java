@@ -294,9 +294,28 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Received: "
+literal|"Received "
 operator|+
 name|text
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Should be able to convert received body to a string"
+argument_list|,
+name|text
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"text body"
+argument_list|,
+literal|"abc,123"
+argument_list|,
+name|text
+operator|.
+name|trim
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
