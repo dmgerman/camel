@@ -193,10 +193,10 @@ comment|/**  * An expression for constructing the different possible {@link Data
 end_comment
 
 begin_class
-DECL|class|DataTypeClause
+DECL|class|DataFormatClause
 specifier|public
 class|class
-name|DataTypeClause
+name|DataFormatClause
 parameter_list|<
 name|T
 extends|extends
@@ -227,9 +227,9 @@ block|,
 name|Unmarshal
 block|}
 empty_stmt|;
-DECL|method|DataTypeClause (T processorType, Operation operation)
+DECL|method|DataFormatClause (T processorType, Operation operation)
 specifier|public
-name|DataTypeClause
+name|DataFormatClause
 parameter_list|(
 name|T
 name|processorType
@@ -341,7 +341,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JAXB data format      */
+comment|/**      * Uses the CSV data format      */
 DECL|method|csv ()
 specifier|public
 name|T
