@@ -74,6 +74,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|CsvDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|DataFormatType
 import|;
 end_import
@@ -177,10 +193,10 @@ comment|/**  * An expression for constructing the different possible {@link Data
 end_comment
 
 begin_class
-DECL|class|DataTypeExpression
+DECL|class|DataTypeClause
 specifier|public
 class|class
-name|DataTypeExpression
+name|DataTypeClause
 parameter_list|<
 name|T
 extends|extends
@@ -211,9 +227,9 @@ block|,
 name|Unmarshal
 block|}
 empty_stmt|;
-DECL|method|DataTypeExpression (T processorType, Operation operation)
+DECL|method|DataTypeClause (T processorType, Operation operation)
 specifier|public
-name|DataTypeExpression
+name|DataTypeClause
 parameter_list|(
 name|T
 name|processorType
@@ -322,6 +338,22 @@ name|ArtixDSDataFormat
 argument_list|(
 name|contentType
 argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the JAXB data format      */
+DECL|method|csv ()
+specifier|public
+name|T
+name|csv
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|CsvDataFormat
+argument_list|()
 argument_list|)
 return|;
 block|}
