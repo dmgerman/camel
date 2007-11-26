@@ -214,7 +214,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|DataTypeClause
+name|DataFormatClause
 import|;
 end_import
 
@@ -3341,7 +3341,7 @@ comment|// ---------------------------------------------------------------------
 comment|/**      * Unmarshals the in body using a {@link DataFormat} expression to define      * the format of the input message and the output will be set on the out message body.      *      * @return the expression to create the {@link DataFormat}      */
 DECL|method|unmarshal ()
 specifier|public
-name|DataTypeClause
+name|DataFormatClause
 argument_list|<
 name|ProcessorType
 argument_list|<
@@ -3353,7 +3353,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|DataTypeClause
+name|DataFormatClause
 argument_list|<
 name|ProcessorType
 argument_list|<
@@ -3363,7 +3363,7 @@ argument_list|>
 argument_list|(
 name|this
 argument_list|,
-name|DataTypeClause
+name|DataFormatClause
 operator|.
 name|Operation
 operator|.
@@ -3447,7 +3447,7 @@ block|}
 comment|/**      * Marshals the in body using a {@link DataFormat} expression to define      * the format of the output which will be added to the out body.      *      * @return the expression to create the {@link DataFormat}      */
 DECL|method|marshal ()
 specifier|public
-name|DataTypeClause
+name|DataFormatClause
 argument_list|<
 name|ProcessorType
 argument_list|<
@@ -3459,7 +3459,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|DataTypeClause
+name|DataFormatClause
 argument_list|<
 name|ProcessorType
 argument_list|<
@@ -3469,7 +3469,7 @@ argument_list|>
 argument_list|(
 name|this
 argument_list|,
-name|DataTypeClause
+name|DataFormatClause
 operator|.
 name|Operation
 operator|.
