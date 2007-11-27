@@ -953,6 +953,13 @@ argument_list|(
 name|cxfExchange
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|copyFrom
+argument_list|(
+name|cxfExchange
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|process (CxfExchange exchange)
 specifier|public
