@@ -74,6 +74,10 @@ begin_comment
 comment|/**  * An example bean which adds some expectations on some mock endpoints and then  * asserts that the expectactions are met.  *  * @version $Revision: 1.1 $  */
 end_comment
 
+begin_comment
+comment|// START SNIPPET: example
+end_comment
+
 begin_class
 DECL|class|MyAssertions
 specifier|public
@@ -114,6 +118,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// lets add some expectations
 name|matched
 operator|.
 name|expectedMessageCount
@@ -137,6 +142,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// now lets perform some assertions that the test worked as we expect
 name|Assert
 operator|.
 name|assertNotNull
@@ -167,6 +173,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: example
+end_comment
 
 end_unit
 
