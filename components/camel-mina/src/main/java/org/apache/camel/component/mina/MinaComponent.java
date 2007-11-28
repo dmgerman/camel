@@ -1152,11 +1152,10 @@ name|addCodecFactory
 argument_list|(
 name|config
 argument_list|,
-operator|new
-name|TextLineCodecFactory
-argument_list|()
+name|codecFactory
 argument_list|)
 expr_stmt|;
+comment|//addCodecFactory(config, new TextLineCodecFactory());
 block|}
 DECL|method|toByteBuffer (Object message)
 specifier|protected
