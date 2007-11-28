@@ -207,6 +207,28 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Converter
+DECL|method|toByteBuffer (byte[] bytes)
+specifier|public
+specifier|static
+name|ByteBuffer
+name|toByteBuffer
+parameter_list|(
+name|byte
+index|[]
+name|bytes
+parameter_list|)
+block|{
+return|return
+name|ByteBuffer
+operator|.
+name|wrap
+argument_list|(
+name|bytes
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
