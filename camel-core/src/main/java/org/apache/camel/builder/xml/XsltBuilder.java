@@ -803,6 +803,7 @@ operator|=
 name|resultHandlerFactory
 expr_stmt|;
 block|}
+comment|/**      * Sets the XSLT transformer from a Source      */
 DECL|method|setTransformerSource (Source source)
 specifier|public
 name|void
@@ -826,6 +827,115 @@ argument_list|(
 name|source
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the XSLT transformer from a File      */
+DECL|method|setTransformerFile (File xslt)
+specifier|public
+name|void
+name|setTransformerFile
+parameter_list|(
+name|File
+name|xslt
+parameter_list|)
+throws|throws
+name|TransformerConfigurationException
+block|{
+name|setTransformerSource
+argument_list|(
+operator|new
+name|StreamSource
+argument_list|(
+name|xslt
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the XSLT transformer from a URL      */
+DECL|method|setTransformerURL (URL url)
+specifier|public
+name|void
+name|setTransformerURL
+parameter_list|(
+name|URL
+name|url
+parameter_list|)
+throws|throws
+name|TransformerConfigurationException
+throws|,
+name|IOException
+block|{
+name|notNull
+argument_list|(
+name|url
+argument_list|,
+literal|"url"
+argument_list|)
+expr_stmt|;
+name|setTransformerInputStream
+argument_list|(
+name|url
+operator|.
+name|openStream
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the XSLT transformer from the given input stream      */
+DECL|method|setTransformerInputStream (InputStream in)
+specifier|public
+name|void
+name|setTransformerInputStream
+parameter_list|(
+name|InputStream
+name|in
+parameter_list|)
+throws|throws
+name|TransformerConfigurationException
+throws|,
+name|IOException
+block|{
+name|notNull
+argument_list|(
+name|in
+argument_list|,
+literal|"in"
+argument_list|)
+expr_stmt|;
+name|setTransformerSource
+argument_list|(
+operator|new
+name|StreamSource
+argument_list|(
+name|in
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getConverter ()
+specifier|public
+name|XmlConverter
+name|getConverter
+parameter_list|()
+block|{
+return|return
+name|converter
+return|;
+block|}
+DECL|method|setConverter (XmlConverter converter)
+specifier|public
+name|void
+name|setConverter
+parameter_list|(
+name|XmlConverter
+name|converter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|converter
+operator|=
+name|converter
 expr_stmt|;
 block|}
 comment|// Implementation methods
