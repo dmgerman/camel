@@ -894,7 +894,12 @@ name|Object
 argument_list|>
 name|params
 init|=
-literal|null
+operator|new
+name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

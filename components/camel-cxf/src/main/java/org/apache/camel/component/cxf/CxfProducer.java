@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -953,6 +965,18 @@ argument_list|(
 name|cxfExchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
+operator|!=
+name|ExchangePattern
+operator|.
+name|InOnly
+condition|)
+block|{
 name|exchange
 operator|.
 name|copyFrom
@@ -960,6 +984,7 @@ argument_list|(
 name|cxfExchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|process (CxfExchange exchange)
 specifier|public

@@ -34,6 +34,11 @@ name|void
 name|ping
 parameter_list|()
 function_decl|;
+DECL|method|getInvocationCount ()
+name|int
+name|getInvocationCount
+parameter_list|()
+function_decl|;
 DECL|method|echo (String text)
 name|String
 name|echo

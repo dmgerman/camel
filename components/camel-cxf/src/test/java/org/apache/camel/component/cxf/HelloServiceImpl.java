@@ -26,6 +26,11 @@ name|HelloServiceImpl
 implements|implements
 name|HelloService
 block|{
+DECL|field|invocationCount
+specifier|private
+name|int
+name|invocationCount
+decl_stmt|;
 DECL|method|echo (String text)
 specifier|public
 name|String
@@ -55,7 +60,30 @@ specifier|public
 name|void
 name|ping
 parameter_list|()
-block|{      }
+block|{
+name|invocationCount
+operator|++
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"call for oneway ping"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getInvocationCount ()
+specifier|public
+name|int
+name|getInvocationCount
+parameter_list|()
+block|{
+return|return
+name|invocationCount
+return|;
+block|}
 DECL|method|sayHello ()
 specifier|public
 name|String
