@@ -458,7 +458,7 @@ operator|.
 name|REQUEST_RECEIVED
 argument_list|)
 expr_stmt|;
-name|HttpVersion
+name|ProtocolVersion
 name|ver
 init|=
 name|request
@@ -466,7 +466,7 @@ operator|.
 name|getRequestLine
 argument_list|()
 operator|.
-name|getHttpVersion
+name|getProtocolVersion
 argument_list|()
 decl_stmt|;
 if|if
@@ -1445,7 +1445,7 @@ operator|.
 name|getContext
 argument_list|()
 decl_stmt|;
-name|HttpVersion
+name|ProtocolVersion
 name|ver
 init|=
 name|request
@@ -1453,7 +1453,7 @@ operator|.
 name|getRequestLine
 argument_list|()
 operator|.
-name|getHttpVersion
+name|getProtocolVersion
 argument_list|()
 decl_stmt|;
 if|if
@@ -1513,7 +1513,7 @@ name|context
 operator|.
 name|setAttribute
 argument_list|(
-name|HttpExecutionContext
+name|ExecutionContext
 operator|.
 name|HTTP_REQUEST
 argument_list|,
@@ -1524,7 +1524,7 @@ name|context
 operator|.
 name|setAttribute
 argument_list|(
-name|HttpExecutionContext
+name|ExecutionContext
 operator|.
 name|HTTP_CONNECTION
 argument_list|,
@@ -1535,7 +1535,7 @@ name|context
 operator|.
 name|setAttribute
 argument_list|(
-name|HttpExecutionContext
+name|ExecutionContext
 operator|.
 name|HTTP_RESPONSE
 argument_list|,

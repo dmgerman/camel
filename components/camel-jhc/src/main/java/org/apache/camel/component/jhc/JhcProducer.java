@@ -1520,6 +1520,17 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|finalizeContext (HttpContext arg0)
+specifier|public
+name|void
+name|finalizeContext
+parameter_list|(
+name|HttpContext
+name|arg0
+parameter_list|)
+block|{
+comment|// TODO Auto-generated method stub
+block|}
 block|}
 DECL|class|EventLogger
 specifier|static
