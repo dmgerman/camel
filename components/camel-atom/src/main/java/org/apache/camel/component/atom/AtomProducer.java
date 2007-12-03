@@ -20,6 +20,36 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -103,7 +133,7 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
@@ -113,8 +143,6 @@ operator|.
 name|util
 operator|.
 name|ExchangeHelper
-operator|.
-name|getExchangeProperty
 import|;
 end_import
 
@@ -157,36 +185,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|OutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
 import|;
 end_import
 
@@ -348,14 +346,6 @@ name|entry
 operator|.
 name|setPublished
 argument_list|(
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|ExchangeHelper
 operator|.
 name|getExchangeProperty

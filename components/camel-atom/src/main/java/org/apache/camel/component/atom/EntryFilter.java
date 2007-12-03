@@ -24,9 +24,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|abdera
 operator|.
-name|Endpoint
+name|model
+operator|.
+name|Feed
 import|;
 end_import
 
@@ -36,67 +38,57 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|abdera
 operator|.
-name|impl
+name|model
 operator|.
-name|DefaultComponent
+name|Document
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Map
+name|abdera
+operator|.
+name|model
+operator|.
+name|Entry
 import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://activemq.apache.org/camel/atom.html">Atom Component</a>.  *  * @version $Revision: 1.1 $  */
+comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
-begin_class
-DECL|class|AtomComponent
+begin_interface
+DECL|interface|EntryFilter
 specifier|public
-class|class
-name|AtomComponent
-extends|extends
-name|DefaultComponent
+interface|interface
+name|EntryFilter
 block|{
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
-specifier|protected
-name|Endpoint
-name|createEndpoint
+DECL|method|isValidEntry (AtomEndpoint endpoint, Document<Feed> feed, Entry entry)
+name|boolean
+name|isValidEntry
 parameter_list|(
-name|String
-name|uri
-parameter_list|,
-name|String
-name|remaining
-parameter_list|,
-name|Map
-name|parameters
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
 name|AtomEndpoint
-argument_list|(
-name|uri
-argument_list|,
-name|this
-argument_list|,
-name|remaining
-argument_list|)
-return|;
+name|endpoint
+parameter_list|,
+name|Document
+argument_list|<
+name|Feed
+argument_list|>
+name|feed
+parameter_list|,
+name|Entry
+name|entry
+parameter_list|)
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
