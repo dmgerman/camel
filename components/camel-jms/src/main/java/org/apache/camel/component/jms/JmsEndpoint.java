@@ -341,7 +341,9 @@ init|=
 name|configuration
 operator|.
 name|createMessageListenerContainer
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 return|return
 name|createConsumer
@@ -696,6 +698,16 @@ name|requestTimeout
 operator|=
 name|requestTimeout
 expr_stmt|;
+block|}
+DECL|method|isPubSubDomain ()
+specifier|public
+name|boolean
+name|isPubSubDomain
+parameter_list|()
+block|{
+return|return
+name|pubSubDomain
+return|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------

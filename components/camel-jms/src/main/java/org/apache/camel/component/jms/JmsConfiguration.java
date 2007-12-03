@@ -520,8 +520,6 @@ DECL|field|cacheLevelName
 specifier|private
 name|String
 name|cacheLevelName
-init|=
-literal|"CACHE_CONNECTION"
 decl_stmt|;
 DECL|field|recoveryInterval
 specifier|private
@@ -1233,11 +1231,14 @@ return|return
 name|template
 return|;
 block|}
-DECL|method|createMessageListenerContainer ()
+DECL|method|createMessageListenerContainer (JmsEndpoint endpoint)
 specifier|public
 name|AbstractMessageListenerContainer
 name|createMessageListenerContainer
-parameter_list|()
+parameter_list|(
+name|JmsEndpoint
+name|endpoint
+parameter_list|)
 block|{
 name|AbstractMessageListenerContainer
 name|container
@@ -1248,19 +1249,24 @@ decl_stmt|;
 name|configureMessageListenerContainer
 argument_list|(
 name|container
+argument_list|,
+name|endpoint
 argument_list|)
 expr_stmt|;
 return|return
 name|container
 return|;
 block|}
-DECL|method|configureMessageListenerContainer (AbstractMessageListenerContainer container)
+DECL|method|configureMessageListenerContainer (AbstractMessageListenerContainer container, JmsEndpoint endpoint)
 specifier|protected
 name|void
 name|configureMessageListenerContainer
 parameter_list|(
 name|AbstractMessageListenerContainer
 name|container
+parameter_list|,
+name|JmsEndpoint
+name|endpoint
 parameter_list|)
 block|{
 name|container
@@ -1502,6 +1508,19 @@ operator|.
 name|setCacheLevelName
 argument_list|(
 name|cacheLevelName
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|listenerContainer
+operator|.
+name|setCacheLevel
+argument_list|(
+name|defaultCacheLevel
+argument_list|(
+name|endpoint
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1869,7 +1888,7 @@ return|return
 name|listenerConnectionFactory
 return|;
 block|}
-comment|/**      * Sets the connection factory to be used for consuming messages via the      * {@link #createMessageListenerContainer()}      *      * @param listenerConnectionFactory the connection factory to use for      *                                  consuming messages      */
+comment|/**      * Sets the connection factory to be used for consuming messages via the      * {@link #createMessageListenerContainer(JmsEndpoint)}      *      * @param listenerConnectionFactory the connection factory to use for      *                                  consuming messages      */
 DECL|method|setListenerConnectionFactory (ConnectionFactory listenerConnectionFactory)
 specifier|public
 name|void
@@ -2920,6 +2939,47 @@ operator|+
 name|consumerType
 argument_list|)
 throw|;
+block|}
+block|}
+comment|/**      * Defaults the JMS cache level if none is explicitly specified.      *      * Note that due to this      *<a href="http://opensource.atlassian.com/projects/spring/browse/SPR-3890">Spring Bug</a>      * we cannot use CACHE_CONSUMER by default which we should do as its most efficient.      * Instead we use CACHE_CONNECTION - part from for non-durable topics which must use      * CACHE_CONSUMER to avoid missing messages (due to the consumer being created and destroyed per message).      *      * @return      * @param endpoint      */
+DECL|method|defaultCacheLevel (JmsEndpoint endpoint)
+specifier|protected
+name|int
+name|defaultCacheLevel
+parameter_list|(
+name|JmsEndpoint
+name|endpoint
+parameter_list|)
+block|{
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isPubSubDomain
+argument_list|()
+operator|&&
+operator|!
+name|isSubscriptionDurable
+argument_list|()
+condition|)
+block|{
+comment|// we must cache the consumer or we will miss messages
+comment|// see https://issues.apache.org/activemq/browse/CAMEL-253
+return|return
+name|DefaultMessageListenerContainer
+operator|.
+name|CACHE_CONSUMER
+return|;
+block|}
+else|else
+block|{
+comment|// to enable consuming and sending with a single JMS session (to avoid XA) we can only use CACHE_CONNECTION
+comment|// due to this bug : http://opensource.atlassian.com/projects/spring/browse/SPR-3890
+return|return
+name|DefaultMessageListenerContainer
+operator|.
+name|CACHE_CONNECTION
+return|;
 block|}
 block|}
 comment|/**      * Factory method which allows derived classes to customize the lazy      * creation      */
