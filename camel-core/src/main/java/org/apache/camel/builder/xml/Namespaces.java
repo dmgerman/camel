@@ -483,6 +483,41 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Creates the XPath expression using the current namespace context      */
+DECL|method|xpath (String expression, Class<?> resultType)
+specifier|public
+name|XPathExpression
+name|xpath
+parameter_list|(
+name|String
+name|expression
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|)
+block|{
+name|XPathExpression
+name|answer
+init|=
+name|xpath
+argument_list|(
+name|expression
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setResultType
+argument_list|(
+name|resultType
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Creates the XQuery expression using the current namespace context      */
 DECL|method|xquery (String expression)
 specifier|public
@@ -512,7 +547,7 @@ name|answer
 return|;
 block|}
 comment|/**      * Creates the XQuery expression using the current namespace context      * and the given expected return type      */
-DECL|method|xquery (String expression, Class<?> returnType)
+DECL|method|xquery (String expression, Class<?> resultType)
 specifier|public
 name|XQueryExpression
 name|xquery
@@ -524,7 +559,7 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|returnType
+name|resultType
 parameter_list|)
 block|{
 name|XQueryExpression
@@ -540,7 +575,7 @@ name|answer
 operator|.
 name|setResultType
 argument_list|(
-name|returnType
+name|resultType
 argument_list|)
 expr_stmt|;
 name|configure

@@ -797,6 +797,30 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Registers namespaces with the builder so that the registered      * prefixes can be used in XPath expressions      *       * @param namespaces is namespaces object that should be used in the      *                      XPath expression      * @return the current builder      */
+DECL|method|namespaces (Namespaces namespaces)
+specifier|public
+name|XPathBuilder
+argument_list|<
+name|E
+argument_list|>
+name|namespaces
+parameter_list|(
+name|Namespaces
+name|namespaces
+parameter_list|)
+block|{
+name|namespaces
+operator|.
+name|configure
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Registers a variable (in the global namespace) which can be referred to      * from XPath expressions      */
 DECL|method|variable (String name, Object value)
 specifier|public
