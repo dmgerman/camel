@@ -173,6 +173,16 @@ condition|)
 block|{
 comment|// this exchange has now aggregated so lets add it to the collection of things
 comment|// to send
+name|super
+operator|.
+name|getMap
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|correlationKey
+argument_list|)
+expr_stmt|;
 name|collection
 operator|.
 name|add

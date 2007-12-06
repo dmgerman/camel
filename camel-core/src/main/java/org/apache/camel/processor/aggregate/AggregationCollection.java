@@ -141,6 +141,21 @@ name|Exchange
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|getMap ()
+specifier|protected
+name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Exchange
+argument_list|>
+name|getMap
+parameter_list|()
+block|{
+return|return
+name|map
+return|;
+block|}
 DECL|method|AggregationCollection (Expression<Exchange> correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|AggregationCollection

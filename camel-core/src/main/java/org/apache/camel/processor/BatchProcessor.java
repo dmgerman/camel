@@ -332,11 +332,6 @@ name|isRunAllowed
 argument_list|()
 condition|)
 block|{
-name|collection
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 try|try
 block|{
 name|processBatch
@@ -615,6 +610,11 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+name|iter
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
 name|processExchange
 argument_list|(
 name|exchange
