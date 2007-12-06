@@ -544,6 +544,21 @@ name|xmlReader
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|MockEndpoint
+name|endpoint
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:producer"
+argument_list|)
+decl_stmt|;
+name|endpoint
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|Object
 name|result
 init|=
@@ -556,6 +571,9 @@ argument_list|,
 name|source
 argument_list|)
 decl_stmt|;
+name|assertMockEndpointsSatisifed
+argument_list|()
+expr_stmt|;
 name|assertFalse
 argument_list|(
 literal|"The result should not be changed"

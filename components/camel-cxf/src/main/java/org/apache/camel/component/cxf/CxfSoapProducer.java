@@ -802,7 +802,6 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//TODO copy the right header information
 name|exchange
 operator|.
 name|getOut
@@ -922,7 +921,9 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-literal|"CxfExchange"
+name|CxfConstants
+operator|.
+name|CXF_EXCHANGE
 argument_list|,
 name|cxfExchange
 argument_list|)

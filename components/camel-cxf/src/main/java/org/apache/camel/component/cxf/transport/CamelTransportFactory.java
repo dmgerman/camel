@@ -255,6 +255,11 @@ name|camelContext
 decl_stmt|;
 annotation|@
 name|Resource
+argument_list|(
+name|name
+operator|=
+literal|"bus"
+argument_list|)
 DECL|method|setBus (Bus b)
 specifier|public
 name|void
@@ -291,6 +296,11 @@ return|;
 block|}
 annotation|@
 name|Resource
+argument_list|(
+name|name
+operator|=
+literal|"camelContext"
+argument_list|)
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void

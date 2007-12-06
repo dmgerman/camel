@@ -399,17 +399,6 @@ name|Message
 name|inMessage
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"invoke the message "
-operator|+
-name|inMessage
-argument_list|)
-expr_stmt|;
 name|Exchange
 name|exchange
 init|=
@@ -1051,7 +1040,6 @@ name|printStackTrace
 argument_list|()
 expr_stmt|;
 block|}
-comment|//System.out.println(cxfExchange.getOut().getBody());
 comment|//TODO deal with the fault message
 name|Object
 name|result
