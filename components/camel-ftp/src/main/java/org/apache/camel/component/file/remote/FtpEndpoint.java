@@ -197,8 +197,6 @@ specifier|protected
 name|FTPClient
 name|createFtpClient
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 specifier|final
 name|FTPClient
@@ -208,6 +206,21 @@ operator|new
 name|FTPClient
 argument_list|()
 decl_stmt|;
+return|return
+name|client
+return|;
+block|}
+DECL|method|connect (FTPClient client)
+specifier|public
+name|void
+name|connect
+parameter_list|(
+name|FTPClient
+name|client
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|RemoteFileConfiguration
 name|config
 init|=
@@ -230,19 +243,6 @@ operator|.
 name|getPort
 argument_list|()
 decl_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Connecting to host: "
-operator|+
-name|host
-operator|+
-literal|" port: "
-operator|+
-name|port
-argument_list|)
-expr_stmt|;
 name|client
 operator|.
 name|connect
@@ -285,9 +285,23 @@ operator|.
 name|ASCII_FILE_TYPE
 argument_list|)
 expr_stmt|;
-return|return
+block|}
+DECL|method|disconnect (FTPClient client)
+specifier|public
+name|void
+name|disconnect
+parameter_list|(
+name|FTPClient
 name|client
-return|;
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|client
+operator|.
+name|disconnect
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

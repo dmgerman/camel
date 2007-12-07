@@ -72,11 +72,51 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
 operator|.
 name|FileComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
 import|;
 end_import
 
@@ -112,6 +152,22 @@ name|FTPFile
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|net
+operator|.
+name|ftp
+operator|.
+name|FTPConnectionClosedException
+import|;
+end_import
+
 begin_class
 DECL|class|FtpConsumer
 specifier|public
@@ -123,6 +179,23 @@ argument_list|<
 name|RemoteFileExchange
 argument_list|>
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|FtpConsumer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|recursive
 specifier|private
 name|boolean
@@ -233,6 +306,77 @@ operator|=
 name|client
 expr_stmt|;
 block|}
+comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
+DECL|method|connectIfNecessary ()
+specifier|protected
+name|void
+name|connectIfNecessary
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+operator|!
+name|client
+operator|.
+name|isConnected
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"FtpConsumer's client isn't connected, trying to reconnect..."
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|connect
+argument_list|(
+name|client
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Connected to "
+operator|+
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
+DECL|method|disconnect ()
+specifier|protected
+name|void
+name|disconnect
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"FtpConsumer's client is being explicitly disconnected"
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|disconnect
+argument_list|(
+name|client
+argument_list|)
+expr_stmt|;
+block|}
+comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
 DECL|method|poll ()
 specifier|protected
 name|void
@@ -240,6 +384,13 @@ name|poll
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+name|connectIfNecessary
+argument_list|()
+expr_stmt|;
+comment|// If the attempt to connect isn't successful, then the thrown
+comment|// exception will signify that we couldn't poll
+try|try
 block|{
 specifier|final
 name|String
@@ -331,6 +482,68 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FTPConnectionClosedException
+name|e
+parameter_list|)
+block|{
+comment|// If the server disconnected us, then we must manually disconnect
+comment|// the client before attempting to reconnect
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Disconnecting due to exception: "
+operator|+
+name|e
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|disconnect
+argument_list|()
+expr_stmt|;
+comment|// Rethrow to signify that we didn't poll
+throw|throw
+name|e
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Caught RuntimeCamelException: "
+operator|+
+name|e
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Hoping an explicit disconnect/reconnect will solve the problem"
+argument_list|)
+expr_stmt|;
+name|disconnect
+argument_list|()
+expr_stmt|;
+comment|// Rethrow to signify that we didn't poll
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 DECL|method|pollDirectory (String dir)
 specifier|protected

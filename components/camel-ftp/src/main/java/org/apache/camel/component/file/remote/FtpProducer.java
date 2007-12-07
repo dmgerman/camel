@@ -88,6 +88,22 @@ name|apache
 operator|.
 name|commons
 operator|.
+name|net
+operator|.
+name|ftp
+operator|.
+name|FTPConnectionClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
 name|logging
 operator|.
 name|Log
@@ -175,6 +191,7 @@ operator|=
 name|client
 expr_stmt|;
 block|}
+comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -186,6 +203,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|connectIfNecessary
+argument_list|()
+expr_stmt|;
+comment|// If the attempt to connect isn't successful, then the thrown
+comment|// exception will signify that we couldn't deliver
+try|try
+block|{
 name|process
 argument_list|(
 name|endpoint
@@ -194,6 +218,138 @@ name|createExchange
 argument_list|(
 name|exchange
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FTPConnectionClosedException
+name|e
+parameter_list|)
+block|{
+comment|// If the server disconnected us, then we must manually disconnect
+comment|// the client before attempting to reconnect
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Disconnecting due to exception: "
+operator|+
+name|e
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|disconnect
+argument_list|()
+expr_stmt|;
+comment|// Rethrow to signify that we didn't deliver
+throw|throw
+name|e
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Caught RuntimeCamelException: "
+operator|+
+name|e
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Hoping an explicit disconnect/reconnect will solve the problem"
+argument_list|)
+expr_stmt|;
+name|disconnect
+argument_list|()
+expr_stmt|;
+comment|// Rethrow to signify that we didn't deliver
+throw|throw
+name|e
+throw|;
+block|}
+block|}
+comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
+DECL|method|connectIfNecessary ()
+specifier|protected
+name|void
+name|connectIfNecessary
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+operator|!
+name|client
+operator|.
+name|isConnected
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"FtpProducer's client isn't connected, trying to reconnect..."
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|connect
+argument_list|(
+name|client
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Connected to "
+operator|+
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
+DECL|method|disconnect ()
+specifier|public
+name|void
+name|disconnect
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"FtpProducer's client is being explicitly disconnected"
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|disconnect
+argument_list|(
+name|client
 argument_list|)
 expr_stmt|;
 block|}
@@ -223,29 +379,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-specifier|final
-name|String
-name|endpointFile
-init|=
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getFile
-argument_list|()
-decl_stmt|;
-name|client
-operator|.
-name|changeWorkingDirectory
-argument_list|(
-name|endpointFile
-argument_list|)
-expr_stmt|;
-comment|// TODO this line might
-comment|// not be needed...
-comment|// check after finish
-comment|// writing unit tests
 name|String
 name|fileName
 init|=
@@ -262,25 +395,60 @@ name|getConfiguration
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|buildDirectory
-argument_list|(
-name|client
-argument_list|,
-name|fileName
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
+name|int
+name|lastPathIndex
+init|=
 name|fileName
 operator|.
 name|lastIndexOf
 argument_list|(
 literal|'/'
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|lastPathIndex
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+name|String
+name|directory
+init|=
+name|fileName
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|lastPathIndex
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|buildDirectory
+argument_list|(
+name|client
+argument_list|,
+name|directory
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Couldn't buildDirectory: "
+operator|+
+name|directory
+operator|+
+literal|" (either permissions deny it, or it already exists)"
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 specifier|final
 name|boolean
 name|success
@@ -308,6 +476,48 @@ literal|"error sending file"
 argument_list|)
 throw|;
 block|}
+name|RemoteFileConfiguration
+name|config
+init|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Sent: "
+operator|+
+name|fileName
+operator|+
+literal|" to "
+operator|+
+name|config
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|config
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|indexOf
+argument_list|(
+name|config
+operator|.
+name|getFile
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -319,16 +529,43 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting"
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|connectIfNecessary
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Couldn't connect to "
+operator|+
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-comment|// client.connect(endpoint.getConfiguration().getHost());
-comment|// client.login(endpoint.getConfiguration().getUsername(),
-comment|// endpoint.getConfiguration().getPassword());
-comment|// client.setFileType(endpoint.getConfiguration().isBinary() ?
-comment|// FTPClient.BINARY_FILE_TYPE : FTPClient.ASCII_FILE_TYPE);
 block|}
 annotation|@
 name|Override
@@ -340,8 +577,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|client
+name|LOG
 operator|.
+name|info
+argument_list|(
+literal|"Stopping"
+argument_list|)
+expr_stmt|;
 name|disconnect
 argument_list|()
 expr_stmt|;
@@ -408,12 +650,12 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|'/'
+name|dir
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|dir
+literal|'/'
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -430,29 +672,6 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-name|sb
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|" = "
-operator|+
-name|success
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!

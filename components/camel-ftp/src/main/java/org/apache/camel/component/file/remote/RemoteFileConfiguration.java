@@ -151,7 +151,7 @@ block|{
 return|return
 name|protocol
 operator|+
-literal|":\\"
+literal|"://"
 operator|+
 name|username
 operator|+
@@ -165,7 +165,7 @@ name|port
 operator|+
 literal|"/"
 operator|+
-name|directory
+name|file
 return|;
 block|}
 DECL|method|configure (URI uri)
@@ -280,6 +280,28 @@ name|String
 name|file
 parameter_list|)
 block|{
+comment|// Avoid accidentally putting everything in root on
+comment|// servers that expose the full filesystem
+if|if
+condition|(
+name|file
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+name|file
+operator|=
+name|file
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|file

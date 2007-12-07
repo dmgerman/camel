@@ -141,7 +141,7 @@ name|SftpProducer
 argument_list|(
 name|this
 argument_list|,
-name|createChannelSftp
+name|createSession
 argument_list|()
 argument_list|)
 return|;
@@ -169,7 +169,10 @@ argument_list|,
 name|processor
 argument_list|,
 name|createChannelSftp
+argument_list|(
+name|createSession
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|configureConsumer
@@ -181,10 +184,10 @@ return|return
 name|consumer
 return|;
 block|}
-DECL|method|createChannelSftp ()
+DECL|method|createSession ()
 specifier|protected
-name|ChannelSftp
-name|createChannelSftp
+name|Session
+name|createSession
 parameter_list|()
 throws|throws
 name|JSchException
@@ -300,11 +303,21 @@ block|{             }
 block|}
 argument_list|)
 expr_stmt|;
+return|return
 name|session
-operator|.
-name|connect
-argument_list|()
-expr_stmt|;
+return|;
+block|}
+DECL|method|createChannelSftp (Session session)
+specifier|public
+name|ChannelSftp
+name|createChannelSftp
+parameter_list|(
+name|Session
+name|session
+parameter_list|)
+throws|throws
+name|JSchException
+block|{
 specifier|final
 name|ChannelSftp
 name|channel
@@ -319,11 +332,6 @@ argument_list|(
 literal|"sftp"
 argument_list|)
 decl_stmt|;
-name|channel
-operator|.
-name|connect
-argument_list|()
-expr_stmt|;
 return|return
 name|channel
 return|;
