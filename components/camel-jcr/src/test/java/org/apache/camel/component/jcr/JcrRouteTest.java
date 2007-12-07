@@ -409,6 +409,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: jcr
 name|from
 argument_list|(
 literal|"direct:a"
@@ -439,6 +440,7 @@ argument_list|(
 literal|"jcr://user:pass@repository/home/test"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET
 block|}
 block|}
 return|;
