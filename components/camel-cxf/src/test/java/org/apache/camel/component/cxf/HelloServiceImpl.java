@@ -18,6 +18,18 @@ name|cxf
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|Logger
+import|;
+end_import
+
 begin_class
 DECL|class|HelloServiceImpl
 specifier|public
@@ -26,6 +38,25 @@ name|HelloServiceImpl
 implements|implements
 name|HelloService
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|Logger
+operator|.
+name|getLogger
+argument_list|(
+name|HelloServiceImpl
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
 DECL|field|invocationCount
 specifier|private
 name|int
@@ -40,11 +71,9 @@ name|String
 name|text
 parameter_list|)
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"call for echo with "
 operator|+
@@ -64,11 +93,9 @@ block|{
 name|invocationCount
 operator|++
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"call for oneway ping"
 argument_list|)

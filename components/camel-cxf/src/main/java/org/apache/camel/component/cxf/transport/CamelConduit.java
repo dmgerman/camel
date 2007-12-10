@@ -687,10 +687,19 @@ condition|(
 name|endpointInfo
 operator|==
 literal|null
+operator|||
+name|endpointInfo
+operator|.
+name|getName
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 return|return
-literal|"default.camel-conduit"
+literal|"default"
+operator|+
+name|BASE_BEAN_NAME_SUFFIX
 return|;
 block|}
 return|return
@@ -698,8 +707,11 @@ name|endpointInfo
 operator|.
 name|getName
 argument_list|()
+operator|.
+name|toString
+argument_list|()
 operator|+
-literal|".camel-conduit"
+name|BASE_BEAN_NAME_SUFFIX
 return|;
 block|}
 DECL|method|initConfig ()

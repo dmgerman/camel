@@ -540,6 +540,8 @@ name|IOException
 block|{
 name|super
 argument_list|(
+name|bus
+argument_list|,
 name|getTargetReference
 argument_list|(
 name|info
@@ -832,6 +834,30 @@ operator|=
 name|template
 expr_stmt|;
 block|}
+DECL|method|setCamelContext (CamelContext context)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|camelContext
+operator|=
+name|context
+expr_stmt|;
+block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
 DECL|method|incoming (org.apache.camel.Exchange camelExchange)
 specifier|protected
 name|void
@@ -920,6 +946,26 @@ name|String
 name|getBeanName
 parameter_list|()
 block|{
+if|if
+condition|(
+name|endpointInfo
+operator|==
+literal|null
+operator|||
+name|endpointInfo
+operator|.
+name|getName
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|"default"
+operator|+
+name|BASE_BEAN_NAME_SUFFIX
+return|;
+block|}
 return|return
 name|endpointInfo
 operator|.
@@ -929,7 +975,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|".camel-destination"
+name|BASE_BEAN_NAME_SUFFIX
 return|;
 block|}
 DECL|method|initConfig ()
