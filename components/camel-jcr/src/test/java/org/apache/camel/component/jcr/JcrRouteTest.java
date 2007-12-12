@@ -440,7 +440,7 @@ argument_list|(
 literal|"jcr://user:pass@repository/home/test"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET
+comment|// END SNIPPET: jcr
 block|}
 block|}
 return|;
