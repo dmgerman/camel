@@ -275,6 +275,13 @@ name|consumeLockEntity
 init|=
 literal|true
 decl_stmt|;
+DECL|field|flushOnSend
+specifier|private
+name|boolean
+name|flushOnSend
+init|=
+literal|true
+decl_stmt|;
 DECL|method|JpaEndpoint (String uri, JpaComponent component)
 specifier|public
 name|JpaEndpoint
@@ -711,6 +718,32 @@ operator|.
 name|consumeLockEntity
 operator|=
 name|consumeLockEntity
+expr_stmt|;
+block|}
+DECL|method|isFlushOnSend ()
+specifier|public
+name|boolean
+name|isFlushOnSend
+parameter_list|()
+block|{
+return|return
+name|flushOnSend
+return|;
+block|}
+DECL|method|setFlushOnSend (boolean flushOnSend)
+specifier|public
+name|void
+name|setFlushOnSend
+parameter_list|(
+name|boolean
+name|flushOnSend
+parameter_list|)
+block|{
+name|this
+operator|.
+name|flushOnSend
+operator|=
+name|flushOnSend
 expr_stmt|;
 block|}
 comment|// Implementation methods
