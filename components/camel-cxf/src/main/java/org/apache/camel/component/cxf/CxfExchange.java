@@ -412,6 +412,22 @@ name|CxfMessage
 argument_list|()
 return|;
 block|}
+DECL|method|setExchange (Exchange exchange)
+specifier|public
+name|void
+name|setExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exchange
+operator|=
+name|exchange
+expr_stmt|;
+block|}
 comment|// Expose CXF APIs directly on the exchange
 comment|//-------------------------------------------------------------------------
 comment|/**      * Returns the underlying CXF message exchange for an inbound exchange      * or null for outbound messages      *      * @return the inbound message exchange      */

@@ -378,7 +378,8 @@ argument_list|,
 name|getWsdlURL
 argument_list|()
 argument_list|,
-literal|null
+name|getServiceQName
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|setService

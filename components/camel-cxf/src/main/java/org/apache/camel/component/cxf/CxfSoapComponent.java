@@ -199,6 +199,18 @@ return|return
 name|soapEndpoint
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|useIntrospectionOnEndpoint ()
+specifier|protected
+name|boolean
+name|useIntrospectionOnEndpoint
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 
