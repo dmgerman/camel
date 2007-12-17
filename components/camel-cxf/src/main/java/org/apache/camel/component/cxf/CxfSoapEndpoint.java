@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -363,6 +373,15 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+DECL|method|configureProperties (Map options)
+specifier|public
+name|void
+name|configureProperties
+parameter_list|(
+name|Map
+name|options
+parameter_list|)
+block|{     }
 DECL|method|getWsdl ()
 specifier|public
 name|Resource

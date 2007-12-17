@@ -84,11 +84,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileEndpoint
+name|Endpoint
 import|;
 end_import
 
@@ -105,6 +101,22 @@ operator|.
 name|file
 operator|.
 name|FileExchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|FileProcessStrategy
 import|;
 end_import
 
@@ -256,12 +268,12 @@ operator|=
 name|lockFileRenamer
 expr_stmt|;
 block|}
-DECL|method|begin (FileEndpoint endpoint, FileExchange exchange, File file)
+DECL|method|begin (Endpoint endpoint, FileExchange exchange, File file)
 specifier|public
 name|boolean
 name|begin
 parameter_list|(
-name|FileEndpoint
+name|Endpoint
 name|endpoint
 parameter_list|,
 name|FileExchange
@@ -387,12 +399,12 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|commit (FileEndpoint endpoint, FileExchange exchange, File file)
+DECL|method|commit (Endpoint endpoint, FileExchange exchange, File file)
 specifier|public
 name|void
 name|commit
 parameter_list|(
-name|FileEndpoint
+name|Endpoint
 name|endpoint
 parameter_list|,
 name|FileExchange

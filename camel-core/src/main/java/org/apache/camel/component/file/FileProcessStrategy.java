@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.strategy
+DECL|package|org.apache.camel.component.file
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|file
-operator|.
-name|strategy
 package|;
 end_package
 
@@ -38,27 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileExchange
+name|Endpoint
 import|;
 end_import
 
@@ -73,11 +51,11 @@ interface|interface
 name|FileProcessStrategy
 block|{
 comment|/**      * Called when work is about to begin on this file. This method may attempt to acquire some file lock before      * returning true; returning false if the file lock could not be obtained so that the file should be ignored.      *      * @return true if the file can be processed (such as if a file lock could be obtained)      */
-DECL|method|begin (FileEndpoint endpoint, FileExchange exchange, File file)
+DECL|method|begin (Endpoint endpoint, FileExchange exchange, File file)
 name|boolean
 name|begin
 parameter_list|(
-name|FileEndpoint
+name|Endpoint
 name|endpoint
 parameter_list|,
 name|FileExchange
@@ -90,11 +68,11 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Releases any file locks and possibly deletes or moves the file      */
-DECL|method|commit (FileEndpoint endpoint, FileExchange exchange, File file)
+DECL|method|commit (Endpoint endpoint, FileExchange exchange, File file)
 name|void
 name|commit
 parameter_list|(
-name|FileEndpoint
+name|Endpoint
 name|endpoint
 parameter_list|,
 name|FileExchange

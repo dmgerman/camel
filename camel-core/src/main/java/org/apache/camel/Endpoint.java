@@ -14,6 +14,16 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * An<a href="http://activemq.apache.org/camel/endpoint.html">endpoint</a>  * implements the<a  * href="http://activemq.apache.org/camel/message-endpoint.html">Message  * Endpoint</a> pattern and represents an endpoint that can send and receive  * message exchanges  *   * @see Exchange, Message  * @version $Revision$  */
 end_comment
@@ -106,6 +116,14 @@ name|createPollingConsumer
 parameter_list|()
 throws|throws
 name|Exception
+function_decl|;
+DECL|method|configureProperties (Map options)
+name|void
+name|configureProperties
+parameter_list|(
+name|Map
+name|options
+parameter_list|)
 function_decl|;
 block|}
 end_interface

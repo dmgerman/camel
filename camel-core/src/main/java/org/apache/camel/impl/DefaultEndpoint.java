@@ -132,6 +132,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ScheduledExecutorService
@@ -739,6 +749,15 @@ literal|10
 argument_list|)
 return|;
 block|}
+DECL|method|configureProperties (Map options)
+specifier|public
+name|void
+name|configureProperties
+parameter_list|(
+name|Map
+name|options
+parameter_list|)
+block|{ 	}
 block|}
 end_class
 
