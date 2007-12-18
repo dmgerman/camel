@@ -51,11 +51,11 @@ interface|interface
 name|FileProcessStrategy
 block|{
 comment|/**      * Called when work is about to begin on this file. This method may attempt to acquire some file lock before      * returning true; returning false if the file lock could not be obtained so that the file should be ignored.      *      * @return true if the file can be processed (such as if a file lock could be obtained)      */
-DECL|method|begin (Endpoint endpoint, FileExchange exchange, File file)
+DECL|method|begin (FileEndpoint endpoint, FileExchange exchange, File file)
 name|boolean
 name|begin
 parameter_list|(
-name|Endpoint
+name|FileEndpoint
 name|endpoint
 parameter_list|,
 name|FileExchange
@@ -68,11 +68,11 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Releases any file locks and possibly deletes or moves the file      */
-DECL|method|commit (Endpoint endpoint, FileExchange exchange, File file)
+DECL|method|commit (FileEndpoint endpoint, FileExchange exchange, File file)
 name|void
 name|commit
 parameter_list|(
-name|Endpoint
+name|FileEndpoint
 name|endpoint
 parameter_list|,
 name|FileExchange

@@ -138,6 +138,8 @@ name|lockFile
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|commit (FileEndpoint endpoint, FileExchange exchange, File file)
 specifier|public
 name|void
