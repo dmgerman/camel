@@ -252,6 +252,13 @@ name|Expression
 name|expression
 parameter_list|)
 block|{
+if|if
+condition|(
+name|expression
+operator|!=
+literal|null
+condition|)
+block|{
 name|setExpression
 argument_list|(
 operator|new
@@ -262,6 +269,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 DECL|method|ExpressionNode (Predicate predicate)
 specifier|public
 name|ExpressionNode
@@ -269,6 +277,13 @@ parameter_list|(
 name|Predicate
 name|predicate
 parameter_list|)
+block|{
+if|if
+condition|(
+name|predicate
+operator|!=
+literal|null
+condition|)
 block|{
 name|setExpression
 argument_list|(
@@ -279,6 +294,7 @@ name|predicate
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getExpression ()
 specifier|public

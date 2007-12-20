@@ -131,6 +131,33 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"seda:b"
+argument_list|,
+literal|"<hello>world!</hello>"
+argument_list|)
+expr_stmt|;
+name|resultEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+comment|// now if we wait a bit longer we should receive the message!
+name|resultEndpoint
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|resultEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -186,6 +213,23 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: ex
+comment|// START SNIPPET: ex2
+name|from
+argument_list|(
+literal|"seda:b"
+argument_list|)
+operator|.
+name|delayer
+argument_list|(
+literal|3000
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+comment|// END SNIPPET: ex2
 block|}
 block|}
 return|;
