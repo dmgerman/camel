@@ -111,15 +111,11 @@ name|answer
 init|=
 name|prefix
 operator|+
-literal|" body at:  "
+literal|" set body:  "
 operator|+
 operator|new
 name|Date
 argument_list|()
-operator|+
-literal|" body: "
-operator|+
-name|body
 decl_stmt|;
 if|if
 condition|(
