@@ -166,6 +166,18 @@ name|int
 name|redeliveryCounter
 parameter_list|)
 block|{
+if|if
+condition|(
+name|getMaximumRedeliveries
+argument_list|()
+operator|<
+literal|0
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 return|return
 name|redeliveryCounter
 operator|<
@@ -421,7 +433,7 @@ return|return
 name|maximumRedeliveries
 return|;
 block|}
-comment|/**      * Sets the maximum number of times a message exchange will be redelivered      */
+comment|/**      * Sets the maximum number of times a message exchange will be redelivered.      * Setting a negative value will retry forever.      */
 DECL|method|setMaximumRedeliveries (int maximumRedeliveries)
 specifier|public
 name|void
