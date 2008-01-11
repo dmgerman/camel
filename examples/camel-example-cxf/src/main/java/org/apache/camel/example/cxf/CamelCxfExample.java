@@ -164,7 +164,7 @@ specifier|final
 name|String
 name|SERVICE_NAME
 init|=
-literal|"serviceName=%7bhttp://apache.org/hello_world_soap_http%7dSOAPService"
+literal|"serviceName={http://apache.org/hello_world_soap_http}SOAPService"
 decl_stmt|;
 DECL|field|SOAP_OVER_HTTP_ROUTER
 specifier|private
@@ -173,7 +173,7 @@ specifier|final
 name|String
 name|SOAP_OVER_HTTP_ROUTER
 init|=
-literal|"portName=%7bhttp://apache.org/hello_world_soap_http%7dSoapOverHttpRouter"
+literal|"portName={http://apache.org/hello_world_soap_http}SoapOverHttpRouter"
 decl_stmt|;
 DECL|field|SOAP_OVER_JMS
 specifier|private
@@ -182,7 +182,7 @@ specifier|final
 name|String
 name|SOAP_OVER_JMS
 init|=
-literal|"portName=%7bhttp://apache.org/hello_world_soap_http%7dSoapOverJms"
+literal|"portName={http://apache.org/hello_world_soap_http}SoapOverJms"
 decl_stmt|;
 DECL|field|ROUTER_ENDPOINT_URI
 specifier|private
