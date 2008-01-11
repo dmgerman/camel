@@ -82,6 +82,12 @@ name|OPERATION_NAME
 init|=
 literal|"operationName"
 decl_stmt|;
+DECL|field|OPERATION_NAMESPACE
+name|String
+name|OPERATION_NAMESPACE
+init|=
+literal|"operationNameSpace"
+decl_stmt|;
 DECL|field|SPRING_CONTEXT_ENDPOINT
 name|String
 name|SPRING_CONTEXT_ENDPOINT

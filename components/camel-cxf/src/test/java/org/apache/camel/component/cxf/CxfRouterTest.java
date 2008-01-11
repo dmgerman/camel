@@ -447,7 +447,7 @@ name|assertEquals
 argument_list|(
 literal|"we should get the right answer from router"
 argument_list|,
-literal|"hello world"
+literal|"echo hello world"
 argument_list|,
 name|result
 argument_list|)

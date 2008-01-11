@@ -81,6 +81,8 @@ name|text
 argument_list|)
 expr_stmt|;
 return|return
+literal|"echo "
+operator|+
 name|text
 return|;
 block|}
