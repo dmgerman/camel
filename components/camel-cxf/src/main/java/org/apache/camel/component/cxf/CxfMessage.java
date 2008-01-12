@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An Apache CXF {@link Message} which provides access to the underlying CXF  * features  *   * @version $Revision$  */
+comment|/**  * An Apache CXF {@link Message} which provides access to the underlying CXF  * features  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -136,6 +136,75 @@ block|}
 block|}
 annotation|@
 name|Override
+DECL|method|copyFrom (org.apache.camel.Message that)
+specifier|public
+name|void
+name|copyFrom
+parameter_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+name|that
+parameter_list|)
+block|{
+name|setMessageId
+argument_list|(
+name|that
+operator|.
+name|getMessageId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|setBody
+argument_list|(
+name|that
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|getHeaders
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|that
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|that
+operator|instanceof
+name|CxfMessage
+condition|)
+block|{
+name|CxfMessage
+name|orig
+init|=
+operator|(
+name|CxfMessage
+operator|)
+name|that
+decl_stmt|;
+name|setMessage
+argument_list|(
+name|orig
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -183,7 +252,7 @@ name|getExchange
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the underlying CXF message      *       * @return the CXF message      */
+comment|/**      * Returns the underlying CXF message      *      * @return the CXF message      */
 DECL|method|getMessage ()
 specifier|public
 name|Message

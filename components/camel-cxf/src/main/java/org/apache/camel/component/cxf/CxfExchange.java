@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link Exchange} for working with Apache CXF which expoes the underlying  * CXF messages via {@link #getInMessage()} and {@link #getOutMessage()} along with the  * {@link #getExchange()}   *  * @version $Revision$  */
+comment|/**  * An {@link Exchange} for working with Apache CXF which expoes the underlying  * CXF messages via {@link #getInMessage()} and {@link #getOutMessage()} along with the  * {@link #getExchange()}  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -278,6 +278,16 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|getOutMessage
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|setOut
 argument_list|(
 operator|new
@@ -290,6 +300,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|exchange
@@ -314,6 +325,36 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|newInstance ()
+specifier|public
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+name|newInstance
+parameter_list|()
+block|{
+return|return
+operator|new
+name|CxfExchange
+argument_list|(
+name|this
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|this
+operator|.
+name|getExchange
+argument_list|()
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override

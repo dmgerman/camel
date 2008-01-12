@@ -93,6 +93,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"log:org.apache.camel?level=DEBUG"
+argument_list|)
+operator|.
+name|to
+argument_list|(
 name|serviceEndpointURI
 argument_list|)
 expr_stmt|;

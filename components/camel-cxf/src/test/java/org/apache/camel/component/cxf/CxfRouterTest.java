@@ -355,6 +355,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"log:org.apache.camel?level=DEBUG"
+argument_list|)
+operator|.
+name|to
+argument_list|(
 name|serviceEndpointURI
 argument_list|)
 expr_stmt|;
@@ -447,9 +452,9 @@ name|assertEquals
 argument_list|(
 literal|"we should get the right answer from router"
 argument_list|,
-literal|"echo hello world"
-argument_list|,
 name|result
+argument_list|,
+literal|"echo hello world"
 argument_list|)
 expr_stmt|;
 block|}
