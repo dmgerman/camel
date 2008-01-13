@@ -145,6 +145,13 @@ specifier|private
 name|URI
 name|httpUri
 decl_stmt|;
+DECL|field|workers
+specifier|private
+name|int
+name|workers
+init|=
+literal|2
+decl_stmt|;
 DECL|method|JhcEndpoint (String endpointUri, JhcComponent component, URI httpUri)
 specifier|public
 name|JhcEndpoint
@@ -209,6 +216,32 @@ name|params
 operator|=
 name|params
 expr_stmt|;
+block|}
+DECL|method|setWorkers (int workers)
+specifier|public
+name|void
+name|setWorkers
+parameter_list|(
+name|int
+name|workers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|workers
+operator|=
+name|workers
+expr_stmt|;
+block|}
+DECL|method|getWorkers ()
+specifier|public
+name|int
+name|getWorkers
+parameter_list|()
+block|{
+return|return
+name|workers
+return|;
 block|}
 DECL|method|getHttpUri ()
 specifier|public

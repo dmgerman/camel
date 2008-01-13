@@ -312,7 +312,7 @@ specifier|private
 name|int
 name|nbThreads
 init|=
-literal|2
+literal|50
 decl_stmt|;
 DECL|field|ioReactor
 specifier|private

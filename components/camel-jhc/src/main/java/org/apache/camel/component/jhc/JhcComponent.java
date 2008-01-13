@@ -522,7 +522,7 @@ name|HttpConnectionParams
 operator|.
 name|SO_TIMEOUT
 argument_list|,
-literal|5000
+literal|15000
 argument_list|)
 operator|.
 name|setIntParameter
@@ -531,7 +531,7 @@ name|HttpConnectionParams
 operator|.
 name|CONNECTION_TIMEOUT
 argument_list|,
-literal|10000
+literal|20000
 argument_list|)
 operator|.
 name|setIntParameter
@@ -551,7 +551,7 @@ name|HttpConnectionParams
 operator|.
 name|STALE_CONNECTION_CHECK
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 operator|.
 name|setBooleanParameter
