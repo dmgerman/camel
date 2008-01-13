@@ -942,6 +942,39 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.           * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the multicast type      */
+DECL|method|multicast (AggregationStrategy aggregationStrategy)
+specifier|public
+name|MulticastType
+name|multicast
+parameter_list|(
+name|AggregationStrategy
+name|aggregationStrategy
+parameter_list|)
+block|{
+name|MulticastType
+name|answer
+init|=
+operator|new
+name|MulticastType
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setAggregationStrategy
+argument_list|(
+name|aggregationStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      */
 DECL|method|pipeline (String... uris)
 specifier|public
@@ -1457,7 +1490,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      *      * @param receipients the expression on which to split      * @return the builder      */
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * This splitter responds with the latest message returned from destination      * endpoint.       *      * @param receipients the expression on which to split      * @return the builder      */
 DECL|method|splitter (Expression receipients)
 specifier|public
 name|SplitterType
@@ -1485,7 +1518,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      *      * @return the expression clause for the expression on which to split      */
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * This splitter responds with the latest message returned from destination      * endpoint.       *       * @return the expression clause for the expression on which to split      */
 DECL|method|splitter ()
 specifier|public
 name|ExpressionClause
@@ -1505,6 +1538,85 @@ decl_stmt|;
 name|addOutput
 argument_list|(
 name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|answer
+argument_list|)
+return|;
+block|}
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * Answer from the splitter is produced using given {@link AggregationStrategy}      * @param partsExpression the expression on which to split      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the builder      */
+DECL|method|splitter (Expression partsExpression, AggregationStrategy aggregationStrategy)
+specifier|public
+name|SplitterType
+name|splitter
+parameter_list|(
+name|Expression
+name|partsExpression
+parameter_list|,
+name|AggregationStrategy
+name|aggregationStrategy
+parameter_list|)
+block|{
+name|SplitterType
+name|answer
+init|=
+operator|new
+name|SplitterType
+argument_list|(
+name|partsExpression
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setAggregationStrategy
+argument_list|(
+name|aggregationStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * Answer from the splitter is produced using given {@link AggregationStrategy}      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the expression clause for the expression on which to split      */
+DECL|method|splitter (AggregationStrategy aggregationStrategy)
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|SplitterType
+argument_list|>
+name|splitter
+parameter_list|(
+name|AggregationStrategy
+name|aggregationStrategy
+parameter_list|)
+block|{
+name|SplitterType
+name|answer
+init|=
+operator|new
+name|SplitterType
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setAggregationStrategy
+argument_list|(
+name|aggregationStrategy
 argument_list|)
 expr_stmt|;
 return|return

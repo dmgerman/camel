@@ -17,6 +17,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|notNull
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -58,7 +74,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Message
 import|;
 end_import
 
@@ -70,7 +86,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
+name|Processor
 import|;
 end_import
 
@@ -110,14 +126,16 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|processor
 operator|.
-name|CollectionHelper
+name|aggregate
+operator|.
+name|AggregationStrategy
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
@@ -126,9 +144,21 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|CollectionHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|notNull
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
 import|;
 end_import
 
@@ -190,7 +220,13 @@ specifier|final
 name|Expression
 name|expression
 decl_stmt|;
-DECL|method|Splitter (Expression expression, Processor destination)
+DECL|field|aggregationStrategy
+specifier|private
+specifier|final
+name|AggregationStrategy
+name|aggregationStrategy
+decl_stmt|;
+DECL|method|Splitter (Expression expression, Processor destination, AggregationStrategy aggregationStrategy)
 specifier|public
 name|Splitter
 parameter_list|(
@@ -199,6 +235,9 @@ name|expression
 parameter_list|,
 name|Processor
 name|destination
+parameter_list|,
+name|AggregationStrategy
+name|aggregationStrategy
 parameter_list|)
 block|{
 name|this
@@ -213,6 +252,12 @@ name|expression
 operator|=
 name|expression
 expr_stmt|;
+name|this
+operator|.
+name|aggregationStrategy
+operator|=
+name|aggregationStrategy
+expr_stmt|;
 name|notNull
 argument_list|(
 name|destination
@@ -225,6 +270,13 @@ argument_list|(
 name|expression
 argument_list|,
 literal|"expression"
+argument_list|)
+expr_stmt|;
+name|notNull
+argument_list|(
+name|aggregationStrategy
+argument_list|,
+literal|"aggregationStrategy"
 argument_list|)
 expr_stmt|;
 block|}
@@ -244,6 +296,10 @@ operator|+
 literal|" to: "
 operator|+
 name|processor
+operator|+
+literal|" aggregate: "
+operator|+
+name|aggregationStrategy
 operator|+
 literal|"]"
 return|;
@@ -293,6 +349,11 @@ name|int
 name|counter
 init|=
 literal|0
+decl_stmt|;
+name|Exchange
+name|result
+init|=
+literal|null
 decl_stmt|;
 while|while
 condition|(
@@ -365,6 +426,49 @@ operator|.
 name|process
 argument_list|(
 name|newExchange
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|result
+operator|==
+literal|null
+condition|)
+block|{
+name|result
+operator|=
+name|newExchange
+expr_stmt|;
+block|}
+else|else
+block|{
+name|result
+operator|=
+name|aggregationStrategy
+operator|.
+name|aggregate
+argument_list|(
+name|result
+argument_list|,
+name|newExchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|result
+operator|!=
+literal|null
+condition|)
+block|{
+name|ExchangeHelper
+operator|.
+name|copyResults
+argument_list|(
+name|exchange
+argument_list|,
+name|result
 argument_list|)
 expr_stmt|;
 block|}
