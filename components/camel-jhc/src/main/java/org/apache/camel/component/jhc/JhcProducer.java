@@ -481,7 +481,7 @@ specifier|private
 name|int
 name|nbThreads
 init|=
-literal|50
+literal|2
 decl_stmt|;
 DECL|field|ioReactor
 specifier|private
@@ -554,14 +554,6 @@ operator|.
 name|getParams
 argument_list|()
 decl_stmt|;
-name|nbThreads
-operator|=
-name|getEndpoint
-argument_list|()
-operator|.
-name|getWorkers
-argument_list|()
-expr_stmt|;
 name|ioReactor
 operator|=
 operator|new
