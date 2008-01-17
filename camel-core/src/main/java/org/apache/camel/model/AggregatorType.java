@@ -436,6 +436,11 @@ literal|"]"
 return|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Override
 DECL|method|addRoutes (RouteContext routeContext, Collection<Route> routes)
 specifier|public
@@ -613,7 +618,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|batchSize
+name|batchTimeout
 operator|!=
 literal|null
 condition|)

@@ -1018,10 +1018,6 @@ argument_list|(
 literal|"direct:joinSurnames"
 argument_list|)
 expr_stmt|;
-comment|// FIXME: This aggregator doesn«t usually fail but could also due to timeout
-comment|// or an incorrect batch size
-comment|// Join in a list by the surname on the header and mark as
-comment|// brothers list
 name|from
 argument_list|(
 literal|"direct:joinSurnames"
@@ -1071,10 +1067,6 @@ argument_list|,
 name|brothersAggregator
 argument_list|)
 decl_stmt|;
-comment|// FIXME: If these lines get commented the test fails some times with different errors
-comment|// due to a timeout or incorrect batch size that must be adjusted by hand
-comment|// There are two brothers lists to join but we don«t know always the number "a priori"
-comment|/*                 agg.setBatchSize(2);                 agg.setBatchTimeout(10000L); */
 name|agg
 operator|.
 name|setBatchTimeout
