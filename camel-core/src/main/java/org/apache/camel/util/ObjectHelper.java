@@ -758,7 +758,7 @@ name|ObjectConverter
 operator|.
 name|iterator
 argument_list|(
-name|value
+name|collectionOrArray
 argument_list|)
 decl_stmt|;
 while|while
