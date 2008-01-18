@@ -40,23 +40,23 @@ name|StreamMessage
 extends|extends
 name|DefaultMessage
 block|{
-DECL|field|s
-name|String
-name|s
+DECL|field|o
+name|Object
+name|o
 decl_stmt|;
-DECL|method|StreamMessage (String s)
+DECL|method|StreamMessage (Object o)
 specifier|public
 name|StreamMessage
 parameter_list|(
-name|String
-name|s
+name|Object
+name|o
 parameter_list|)
 block|{
 name|this
 operator|.
-name|s
+name|o
 operator|=
-name|s
+name|o
 expr_stmt|;
 block|}
 annotation|@
@@ -68,7 +68,10 @@ name|toString
 parameter_list|()
 block|{
 return|return
-name|s
+name|o
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -80,7 +83,7 @@ name|createBody
 parameter_list|()
 block|{
 return|return
-name|s
+name|o
 return|;
 block|}
 annotation|@
@@ -92,7 +95,7 @@ name|getBody
 parameter_list|()
 block|{
 return|return
-name|s
+name|o
 return|;
 block|}
 block|}

@@ -93,6 +93,7 @@ argument_list|<
 name|StreamExchange
 argument_list|>
 block|{
+comment|/** 	 * Component providing streams connectivity 	 */
 DECL|field|log
 specifier|private
 specifier|static

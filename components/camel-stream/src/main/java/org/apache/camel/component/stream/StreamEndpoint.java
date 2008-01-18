@@ -117,10 +117,6 @@ argument_list|<
 name|StreamExchange
 argument_list|>
 block|{
-DECL|field|file
-name|String
-name|file
-decl_stmt|;
 DECL|field|producer
 name|Producer
 argument_list|<
