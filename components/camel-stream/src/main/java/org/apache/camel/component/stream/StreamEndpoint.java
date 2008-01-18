@@ -127,6 +127,11 @@ decl_stmt|;
 DECL|field|parameters
 specifier|private
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|parameters
 decl_stmt|;
 DECL|field|uri
@@ -150,7 +155,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|StreamEndpoint (StreamComponent component, String uri, String remaining, Map parameters)
+DECL|method|StreamEndpoint (StreamComponent component, String uri, String remaining, Map<String, String> parameters)
 specifier|public
 name|StreamEndpoint
 parameter_list|(
@@ -164,6 +169,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws

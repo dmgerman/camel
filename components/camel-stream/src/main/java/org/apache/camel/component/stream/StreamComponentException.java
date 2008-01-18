@@ -26,6 +26,15 @@ name|StreamComponentException
 extends|extends
 name|Exception
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|8064764690837846894L
+decl_stmt|;
 DECL|method|StreamComponentException (String s)
 specifier|public
 name|StreamComponentException
