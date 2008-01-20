@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Processor} which converts the inbound exchange to a method  * invocation on a POJO  *   * @version $Revision: $  */
+comment|/**  * A {@link Processor} which converts the inbound exchange to a method  * invocation on a POJO  *  * @version $Revision: $  */
 end_comment
 
 begin_class
@@ -513,14 +513,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// lets pass in the method name to use if its specified
-name|boolean
-name|hasToClearMethod
-init|=
-literal|false
-decl_stmt|;
-try|try
-block|{
+comment|// we just override the bean's invocation method name here
 if|if
 condition|(
 name|ObjectHelper
@@ -528,23 +521,6 @@ operator|.
 name|isNotNullAndNonEmpty
 argument_list|(
 name|method
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-name|isNullOrBlank
-argument_list|(
-name|in
-operator|.
-name|getHeader
-argument_list|(
-name|METHOD_NAME
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -557,11 +533,6 @@ argument_list|,
 name|method
 argument_list|)
 expr_stmt|;
-name|hasToClearMethod
-operator|=
-literal|true
-expr_stmt|;
-block|}
 block|}
 name|invocation
 operator|=
@@ -574,23 +545,6 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|hasToClearMethod
-condition|)
-block|{
-name|in
-operator|.
-name|removeHeader
-argument_list|(
-name|METHOD_NAME
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 if|if
 condition|(
