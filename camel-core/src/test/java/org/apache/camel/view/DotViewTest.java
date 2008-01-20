@@ -273,7 +273,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:foo/xyz?noop=true"
+literal|"file:target/foo/xyz?noop=true"
 argument_list|)
 operator|.
 name|choice
@@ -319,7 +319,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:foo/bar?noop=true"
+literal|"file:target/foo/bar?noop=true"
 argument_list|)
 operator|.
 name|filter
@@ -337,7 +337,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file:xyz?noop=true"
+literal|"file:target/xyz?noop=true"
 argument_list|)
 expr_stmt|;
 block|}
@@ -359,7 +359,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:xyz?noop=true"
+literal|"file:target/xyz?noop=true"
 argument_list|)
 operator|.
 name|filter
