@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/dsl.html">Java DSL</a> which is  * used to build {@link Route} instances in a  *   * @{link CamelContext} for smart routing.  *   * @version $Revision$  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/dsl.html">Java DSL</a> which is  * used to build {@link Route} instances in a  *  * @{link CamelContext} for smart routing.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -380,7 +380,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Installs the given error handler builder      *       * @param errorHandlerBuilder the error handler to be used by default for      *                all child routes      * @return the current builder with the error handler configured      */
+comment|/**      * Installs the given error handler builder      *      * @param errorHandlerBuilder the error handler to be used by default for      *                all child routes      * @return the current builder with the error handler configured      */
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|RouteBuilder
@@ -399,7 +399,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures whether or not the error handler is inherited by every      * processing node (or just the top most one)      *       * @param value the flag as to whether error handlers should be inherited or      *                not      * @return the current builder      */
+comment|/**      * Configures whether or not the error handler is inherited by every      * processing node (or just the top most one)      *      * @param value the flag as to whether error handlers should be inherited or      *                not      * @return the current builder      */
 DECL|method|inheritErrorHandler (boolean value)
 specifier|public
 name|RouteBuilder
@@ -703,6 +703,18 @@ name|routeCollection
 operator|=
 name|routeCollection
 expr_stmt|;
+block|}
+DECL|method|getRouteCollection ()
+specifier|public
+name|RoutesType
+name|getRouteCollection
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|routeCollection
+return|;
 block|}
 comment|/**      * Factory method      */
 DECL|method|createContainer ()
