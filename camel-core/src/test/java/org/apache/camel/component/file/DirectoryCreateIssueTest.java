@@ -294,7 +294,7 @@ specifier|final
 name|String
 name|path
 init|=
-literal|"a/b/c/d/e/f/g/h"
+literal|"target/a/b/c/d/e/f/g/h"
 decl_stmt|;
 specifier|final
 name|int
