@@ -35,6 +35,7 @@ end_comment
 begin_class
 DECL|class|ExchangeTestSupport
 specifier|public
+specifier|abstract
 class|class
 name|ExchangeTestSupport
 extends|extends
