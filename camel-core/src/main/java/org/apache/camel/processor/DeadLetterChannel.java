@@ -557,7 +557,14 @@ name|logger
 operator|.
 name|log
 argument_list|(
-literal|"On delivery attempt: "
+literal|"Failed delivery for exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|". On delivery attempt: "
 operator|+
 name|data
 operator|.
@@ -711,6 +718,24 @@ decl_stmt|;
 name|restoreExceptionOnExchange
 argument_list|(
 name|exchange
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|log
+argument_list|(
+literal|"Failed delivery for exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|". Handled by the failure processor: "
+operator|+
+name|data
+operator|.
+name|failureProcessor
 argument_list|)
 expr_stmt|;
 return|return
@@ -1208,7 +1233,7 @@ literal|"Sleeping for: "
 operator|+
 name|redeliveryDelay
 operator|+
-literal|" until attempting redelivery"
+literal|" millis until attempting redelivery"
 argument_list|)
 expr_stmt|;
 block|}
