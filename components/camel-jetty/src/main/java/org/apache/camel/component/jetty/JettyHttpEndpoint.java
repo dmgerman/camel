@@ -148,6 +148,20 @@ name|EventDrivenPollingConsumer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|httpclient
+operator|.
+name|HttpConnectionManager
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -165,7 +179,7 @@ specifier|private
 name|JettyHttpComponent
 name|component
 decl_stmt|;
-DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL)
+DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL, HttpConnectionManager httpConnectionManager)
 specifier|public
 name|JettyHttpEndpoint
 parameter_list|(
@@ -177,6 +191,9 @@ name|uri
 parameter_list|,
 name|URI
 name|httpURL
+parameter_list|,
+name|HttpConnectionManager
+name|httpConnectionManager
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -188,6 +205,8 @@ argument_list|,
 name|component
 argument_list|,
 name|httpURL
+argument_list|,
+name|httpConnectionManager
 argument_list|)
 expr_stmt|;
 name|this
@@ -260,6 +279,9 @@ block|{
 return|return
 operator|new
 name|EventDrivenPollingConsumer
+argument_list|<
+name|HttpExchange
+argument_list|>
 argument_list|(
 name|this
 argument_list|)

@@ -387,6 +387,9 @@ argument_list|,
 name|uri
 argument_list|,
 name|httpURL
+argument_list|,
+name|getHttpConnectionManager
+argument_list|()
 argument_list|)
 return|;
 block|}
