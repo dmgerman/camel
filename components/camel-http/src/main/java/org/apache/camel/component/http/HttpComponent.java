@@ -46,18 +46,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -70,19 +58,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|impl
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
+name|DefaultComponent
 import|;
 end_import
 
@@ -106,11 +84,25 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|commons
 operator|.
-name|impl
+name|httpclient
 operator|.
-name|DefaultComponent
+name|HttpConnectionManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|httpclient
+operator|.
+name|MultiThreadedHttpConnectionManager
 import|;
 end_import
 
@@ -149,6 +141,15 @@ DECL|field|httpClientConfigurer
 specifier|private
 name|HttpClientConfigurer
 name|httpClientConfigurer
+decl_stmt|;
+DECL|field|httpConnectionManager
+specifier|private
+name|HttpConnectionManager
+name|httpConnectionManager
+init|=
+operator|new
+name|MultiThreadedHttpConnectionManager
+argument_list|()
 decl_stmt|;
 comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *       * @throws Exception      */
 DECL|method|connect (HttpConsumer consumer)
@@ -198,6 +199,32 @@ operator|.
 name|httpClientConfigurer
 operator|=
 name|httpClientConfigurer
+expr_stmt|;
+block|}
+DECL|method|getHttpConnectionManager ()
+specifier|public
+name|HttpConnectionManager
+name|getHttpConnectionManager
+parameter_list|()
+block|{
+return|return
+name|httpConnectionManager
+return|;
+block|}
+DECL|method|setHttpConnectionManager ( HttpConnectionManager httpConnectionManager)
+specifier|public
+name|void
+name|setHttpConnectionManager
+parameter_list|(
+name|HttpConnectionManager
+name|httpConnectionManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpConnectionManager
+operator|=
+name|httpConnectionManager
 expr_stmt|;
 block|}
 annotation|@
@@ -255,6 +282,8 @@ name|uri
 argument_list|)
 argument_list|,
 name|params
+argument_list|,
+name|httpConnectionManager
 argument_list|,
 name|httpClientConfigurer
 argument_list|)

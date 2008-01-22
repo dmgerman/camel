@@ -92,6 +92,20 @@ name|commons
 operator|.
 name|httpclient
 operator|.
+name|HttpConnectionManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|httpclient
+operator|.
 name|params
 operator|.
 name|HttpClientParams
@@ -182,7 +196,12 @@ specifier|private
 name|HttpClientConfigurer
 name|httpClientConfigurer
 decl_stmt|;
-DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI)
+DECL|field|httpConnectionManager
+specifier|private
+name|HttpConnectionManager
+name|httpConnectionManager
+decl_stmt|;
+DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, HttpConnectionManager httpConnectionManager)
 specifier|public
 name|HttpEndpoint
 parameter_list|(
@@ -194,6 +213,9 @@ name|component
 parameter_list|,
 name|URI
 name|httpURI
+parameter_list|,
+name|HttpConnectionManager
+name|httpConnectionManager
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -210,11 +232,13 @@ operator|new
 name|HttpClientParams
 argument_list|()
 argument_list|,
+name|httpConnectionManager
+argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, HttpClientParams clientParams, HttpClientConfigurer clientConfigurer)
+DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, HttpClientParams clientParams, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|public
 name|HttpEndpoint
 parameter_list|(
@@ -229,6 +253,9 @@ name|httpURI
 parameter_list|,
 name|HttpClientParams
 name|clientParams
+parameter_list|,
+name|HttpConnectionManager
+name|httpConnectionManager
 parameter_list|,
 name|HttpClientConfigurer
 name|clientConfigurer
@@ -266,6 +293,12 @@ operator|.
 name|httpClientConfigurer
 operator|=
 name|clientConfigurer
+expr_stmt|;
+name|this
+operator|.
+name|httpConnectionManager
+operator|=
+name|httpConnectionManager
 expr_stmt|;
 block|}
 DECL|method|createProducer ()
@@ -368,6 +401,13 @@ name|getClientParams
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|answer
+operator|.
+name|setHttpConnectionManager
+argument_list|(
+name|httpConnectionManager
+argument_list|)
+expr_stmt|;
 name|HttpClientConfigurer
 name|configurer
 init|=
