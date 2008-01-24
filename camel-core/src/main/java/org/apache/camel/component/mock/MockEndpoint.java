@@ -338,6 +338,11 @@ specifier|private
 name|int
 name|counter
 decl_stmt|;
+DECL|field|defaultProcessor
+specifier|private
+name|Processor
+name|defaultProcessor
+decl_stmt|;
 DECL|field|processors
 specifier|private
 name|Map
@@ -773,6 +778,23 @@ name|index
 argument_list|,
 name|processor
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set the processor that will be invoked when the some message      * is received.      *       * This processor could be overwritten by      * {@link #whenExchangeReceived(int, Processor)} method.      *       * @param processor      */
+DECL|method|whenAnyExchangeReceived (Processor processor)
+specifier|public
+name|void
+name|whenAnyExchangeReceived
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultProcessor
+operator|=
+name|processor
 expr_stmt|;
 block|}
 comment|/**      * Validates that all the available expectations on this endpoint are      * satisfied; or throw an exception      */
@@ -2244,6 +2266,18 @@ argument_list|(
 name|getReceivedCounter
 argument_list|()
 argument_list|)
+operator|!=
+literal|null
+condition|?
+name|processors
+operator|.
+name|get
+argument_list|(
+name|getReceivedCounter
+argument_list|()
+argument_list|)
+else|:
+name|defaultProcessor
 decl_stmt|;
 if|if
 condition|(
