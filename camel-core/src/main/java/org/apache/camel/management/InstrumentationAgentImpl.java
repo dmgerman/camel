@@ -538,7 +538,8 @@ name|AnnotationJmxAttributeSource
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//naming = new CamelNamingStrategy(agent.getMBeanServer().getDefaultDomain());
+comment|// naming = new
+comment|// CamelNamingStrategy(agent.getMBeanServer().getDefaultDomain());
 name|namingStrategy
 operator|=
 operator|new
@@ -674,7 +675,8 @@ name|NotCompliantMBeanException
 name|e
 parameter_list|)
 block|{
-comment|//If this is not a "normal" MBean, then try to deploy it using JMX annotations
+comment|// If this is not a "normal" MBean, then try to deploy it using JMX
+comment|// annotations
 name|ModelMBeanInfo
 name|mbi
 init|=
@@ -933,7 +935,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//Using the array to hold the busMBeans to avoid the CurrentModificationException
+comment|// Using the array to hold the busMBeans to avoid the
+comment|// CurrentModificationException
 name|Object
 index|[]
 name|mBeans
@@ -1176,7 +1179,8 @@ literal|true
 decl_stmt|;
 try|try
 block|{
-comment|// we'll do it this way mostly to determine if we should lookup the hostName
+comment|// we'll do it this way mostly to determine if we should lookup the
+comment|// hostName
 name|SecurityManager
 name|sm
 init|=

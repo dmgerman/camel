@@ -543,7 +543,7 @@ name|mc
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/*          *  Merge performance counter with the MBean it represents instead          *  of registering a new MBean          */
+comment|/*          * Merge performance counter with the MBean it represents instead of          * registering a new MBean          */
 try|try
 block|{
 name|agent
