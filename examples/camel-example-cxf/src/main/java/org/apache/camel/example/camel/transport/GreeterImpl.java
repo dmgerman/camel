@@ -254,7 +254,7 @@ literal|"Executing operation sayHi\n"
 argument_list|)
 expr_stmt|;
 return|return
-literal|"Bonjour from"
+literal|"Bonjour from "
 operator|+
 name|suffix
 return|;
@@ -319,7 +319,7 @@ throw|throw
 operator|new
 name|PingMeFault
 argument_list|(
-literal|"PingMeFault raised by server"
+literal|"PingMeFault raised by server "
 operator|+
 name|suffix
 argument_list|,

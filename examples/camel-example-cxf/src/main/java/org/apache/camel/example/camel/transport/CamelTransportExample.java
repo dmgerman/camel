@@ -44,13 +44,27 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|//Server server = new Server();
+name|Server
+name|server
+init|=
+operator|new
+name|Server
+argument_list|()
+decl_stmt|;
 try|try
 block|{
 comment|// setup the camel context for the camel transport
-comment|//server.prepare();
+name|server
+operator|.
+name|prepare
+argument_list|()
+expr_stmt|;
 comment|// start the endpoints
-comment|//server.start();
+name|server
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 comment|// set the client's service access point
 name|Client
 name|client
@@ -89,7 +103,11 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|//server.stop();
+name|server
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|System
 operator|.
 name|exit
