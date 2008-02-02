@@ -407,7 +407,6 @@ operator|.
 name|getExchange
 argument_list|()
 decl_stmt|;
-comment|//InvokingContext invokingContext = exchange.get(InvokingContext.class);
 comment|//Set Request Context into CXF Message
 name|Map
 argument_list|<

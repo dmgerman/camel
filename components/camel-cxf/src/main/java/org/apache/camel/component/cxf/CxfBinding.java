@@ -207,7 +207,7 @@ name|Message
 name|message
 parameter_list|)
 block|{
-comment|//  TODO how do we choose a format?
+comment|// TODO how do we choose a format?
 return|return
 name|getBody
 argument_list|(
@@ -301,7 +301,8 @@ operator|.
 name|getInMessage
 argument_list|()
 decl_stmt|;
-comment|// CXF uses the stax which is based on the stream API to parser the XML, so
+comment|// CXF uses the stax which is based on the stream API to parser the XML,
+comment|// so
 comment|// the CXF transport is also based on the stream API.
 comment|// And the interceptors are also based on the stream API,
 comment|// so lets use an InputStream to host the CXF on wire message.
@@ -368,7 +369,7 @@ operator|instanceof
 name|List
 condition|)
 block|{
-comment|//just set the operation's parament
+comment|// just set the operation's parament
 name|answer
 operator|.
 name|setContent
@@ -380,7 +381,7 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-comment|//just set the method name
+comment|// just set the method name
 name|answer
 operator|.
 name|put
@@ -423,68 +424,6 @@ name|OPERATION_NAMESPACE
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|body
-operator|instanceof
-name|DOMSource
-condition|)
-block|{
-name|DOMSource
-name|source
-init|=
-operator|(
-name|DOMSource
-operator|)
-name|body
-decl_stmt|;
-try|try
-block|{
-name|ByteArrayInputStream
-name|bais
-init|=
-operator|new
-name|ByteArrayInputStream
-argument_list|(
-name|XMLUtils
-operator|.
-name|toString
-argument_list|(
-name|source
-argument_list|)
-operator|.
-name|getBytes
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|answer
-operator|.
-name|setContent
-argument_list|(
-name|InputStream
-operator|.
-name|class
-argument_list|,
-name|bais
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 return|return
 name|answer

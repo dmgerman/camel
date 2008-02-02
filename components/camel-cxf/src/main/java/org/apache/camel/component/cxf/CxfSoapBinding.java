@@ -206,7 +206,8 @@ DECL|method|CxfSoapBinding ()
 specifier|private
 name|CxfSoapBinding
 parameter_list|()
-block|{              }
+block|{      }
+comment|//TODO using the type converter to do this kind of thing
 DECL|method|getCxfInMessage (org.apache.camel.Exchange exchange, boolean isClient)
 specifier|public
 specifier|static
@@ -364,91 +365,7 @@ name|getBody
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|body
-operator|instanceof
-name|BufferedReader
-condition|)
-block|{
-comment|//do transform from BufferedReader to InputStream
-try|try
-block|{
-name|BufferedReader
-name|reader
-init|=
-operator|(
-name|BufferedReader
-operator|)
-name|body
-decl_stmt|;
-name|String
-name|line
-decl_stmt|;
-name|String
-name|content
-init|=
-literal|""
-decl_stmt|;
-while|while
-condition|(
-operator|(
-name|line
-operator|=
-name|reader
-operator|.
-name|readLine
-argument_list|()
-operator|)
-operator|!=
-literal|null
-condition|)
-block|{
-name|content
-operator|=
-name|content
-operator|+
-name|line
-expr_stmt|;
-block|}
-name|ByteArrayInputStream
-name|bais
-init|=
-operator|new
-name|ByteArrayInputStream
-argument_list|(
-name|content
-operator|.
-name|getBytes
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|answer
-operator|.
-name|setContent
-argument_list|(
-name|InputStream
-operator|.
-name|class
-argument_list|,
-name|bais
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// TODO Auto-generated catch block
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-block|}
-block|}
+comment|// we could do some message transform here
 if|if
 condition|(
 name|body
@@ -467,6 +384,10 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// the answer body is null
 block|}
 name|answer
 operator|.
