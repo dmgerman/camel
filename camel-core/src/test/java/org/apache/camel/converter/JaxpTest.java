@@ -28,6 +28,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -369,10 +379,10 @@ name|domSource
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testNodeToSource ()
+DECL|method|testNodeToSourceThenToInputStream ()
 specifier|public
 name|void
-name|testNodeToSource
+name|testNodeToSourceThenToInputStream
 parameter_list|()
 throws|throws
 name|Exception
@@ -427,6 +437,46 @@ argument_list|(
 literal|"Found source: "
 operator|+
 name|source
+argument_list|)
+expr_stmt|;
+name|InputStream
+name|in
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|InputStream
+operator|.
+name|class
+argument_list|,
+name|source
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Could not convert from Source to InputStream!"
+argument_list|,
+name|in
+argument_list|)
+expr_stmt|;
+name|String
+name|actualText
+init|=
+name|IOConverter
+operator|.
+name|toString
+argument_list|(
+name|in
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Text"
+argument_list|,
+literal|"<hello>world!</hello>"
+argument_list|,
+name|actualText
 argument_list|)
 expr_stmt|;
 block|}
