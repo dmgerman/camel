@@ -229,6 +229,13 @@ DECL|field|useLocalBroker
 specifier|protected
 name|boolean
 name|useLocalBroker
+init|=
+literal|true
+decl_stmt|;
+DECL|field|consumedMessageCount
+specifier|private
+name|int
+name|consumedMessageCount
 decl_stmt|;
 DECL|method|testSendingAndReceivingMessages ()
 specifier|public
@@ -388,10 +395,6 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
-name|assertTrue
-argument_list|(
-literal|"The message ware received by the Pojo"
-argument_list|,
 name|receivedCountDown
 operator|.
 name|await
@@ -402,6 +405,14 @@ name|TimeUnit
 operator|.
 name|SECONDS
 argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Received message count"
+argument_list|,
+name|expectedMessageCount
+argument_list|,
+name|consumedMessageCount
 argument_list|)
 expr_stmt|;
 comment|// TODO assert that messages are received in order
@@ -625,6 +636,9 @@ name|receivedCountDown
 operator|.
 name|countDown
 argument_list|()
+expr_stmt|;
+name|consumedMessageCount
+operator|++
 expr_stmt|;
 block|}
 block|}
