@@ -56,7 +56,7 @@ name|messageCount
 decl_stmt|;
 name|setExpectedMessageCount
 argument_list|(
-name|messageCount
+name|expected
 argument_list|)
 expr_stmt|;
 name|System
@@ -92,7 +92,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|20000
+literal|2000
 argument_list|)
 expr_stmt|;
 comment|// TODO now start the route!
