@@ -1418,24 +1418,7 @@ name|routeBuilder
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|">>> CamelContext: "
-operator|+
-name|getId
-argument_list|()
-operator|+
-literal|" "
-operator|+
-literal|" routeBuilderRefs "
-operator|+
-name|builderRefs
-argument_list|)
-expr_stmt|;
+comment|//System.out.println(">>> CamelContext: " + getId() + " " + " routeBuilderRefs " + builderRefs);
 comment|// lets add route builders addef from references
 if|if
 condition|(
