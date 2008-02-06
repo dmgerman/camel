@@ -278,11 +278,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{      }
-comment|// TODO for some reason this doesn't get injected with the RouteBuilderRef object!
-DECL|method|TODO_testUsingRouteBuilderRefInCamelXml ()
+DECL|method|testUsingRouteBuilderRefInCamelXml ()
 specifier|public
 name|void
-name|TODO_testUsingRouteBuilderRefInCamelXml
+name|testUsingRouteBuilderRefInCamelXml
 parameter_list|()
 throws|throws
 name|Exception

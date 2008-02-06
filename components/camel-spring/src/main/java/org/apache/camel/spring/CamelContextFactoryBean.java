@@ -1248,6 +1248,19 @@ operator|=
 name|useJmx
 expr_stmt|;
 block|}
+DECL|method|getBuilderRefs ()
+specifier|public
+name|List
+argument_list|<
+name|RouteBuilderRef
+argument_list|>
+name|getBuilderRefs
+parameter_list|()
+block|{
+return|return
+name|builderRefs
+return|;
+block|}
 DECL|method|setBuilderRefs (List<RouteBuilderRef> builderRefs)
 specifier|public
 name|void
@@ -1418,8 +1431,7 @@ name|routeBuilder
 argument_list|)
 expr_stmt|;
 block|}
-comment|//System.out.println(">>> CamelContext: " + getId() + " " + " routeBuilderRefs " + builderRefs);
-comment|// lets add route builders addef from references
+comment|// lets add route builders added from references
 if|if
 condition|(
 name|builderRefs
