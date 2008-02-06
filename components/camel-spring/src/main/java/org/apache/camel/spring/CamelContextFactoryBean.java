@@ -627,7 +627,6 @@ name|RouteBuilderRef
 argument_list|>
 argument_list|()
 decl_stmt|;
-empty_stmt|;
 annotation|@
 name|XmlElement
 argument_list|(
