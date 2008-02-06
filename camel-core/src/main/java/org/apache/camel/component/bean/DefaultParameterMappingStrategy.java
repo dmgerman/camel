@@ -125,7 +125,11 @@ DECL|method|DefaultParameterMappingStrategy ()
 specifier|public
 name|DefaultParameterMappingStrategy
 parameter_list|()
-block|{     }
+block|{
+name|loadDefaultRegistry
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|getDefaultParameterTypeExpression (Class parameterType)
 specifier|public
 specifier|synchronized
