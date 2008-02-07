@@ -261,20 +261,6 @@ block|{
 comment|// TODO we could use caching here but then we'd have possible
 comment|// concurrency issues
 comment|// so lets assume that the provider caches
-name|Map
-name|values
-init|=
-operator|new
-name|HashMap
-argument_list|()
-decl_stmt|;
-name|populateContext
-argument_list|(
-name|values
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
 name|OgnlContext
 name|oglContext
 init|=
@@ -319,52 +305,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-block|}
-DECL|method|populateContext (Map map, Exchange exchange)
-specifier|protected
-name|void
-name|populateContext
-parameter_list|(
-name|Map
-name|map
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-name|map
-operator|.
-name|put
-argument_list|(
-literal|"exchange"
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-name|map
-operator|.
-name|put
-argument_list|(
-literal|"in"
-argument_list|,
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|map
-operator|.
-name|put
-argument_list|(
-literal|"out"
-argument_list|,
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|assertionFailureMessage (Exchange exchange)
 specifier|protected

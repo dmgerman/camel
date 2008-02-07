@@ -42,10 +42,10 @@ name|OgnlTest
 extends|extends
 name|LanguageTestSupport
 block|{
-DECL|method|testElExpressions ()
+DECL|method|testOgnlExpressions ()
 specifier|public
 name|void
-name|testElExpressions
+name|testOgnlExpressions
 parameter_list|()
 throws|throws
 name|Exception
@@ -73,6 +73,13 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"request.body"
+argument_list|,
+literal|"<hello id='m123'>world!</hello>"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"getIn().headers['foo']"
 argument_list|,
 literal|"abc"
@@ -90,6 +97,58 @@ argument_list|(
 literal|"request.headers.foo"
 argument_list|,
 literal|"abc"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testGetOutFalseKeepsNullOutMessage ()
+specifier|public
+name|void
+name|testGetOutFalseKeepsNullOutMessage
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"exchange.getOut(false)"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+name|exchange
+operator|.
+name|getOut
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testResponseCreatesOutMessage ()
+specifier|public
+name|void
+name|testResponseCreatesOutMessage
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"response.body"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|exchange
+operator|.
+name|getOut
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
