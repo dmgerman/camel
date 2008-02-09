@@ -487,6 +487,16 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|boolean
+name|isExplicitMethod
+init|=
+literal|false
+decl_stmt|;
+name|String
+name|prevMethod
+init|=
+literal|null
+decl_stmt|;
 name|MethodInvocation
 name|invocation
 decl_stmt|;
@@ -524,6 +534,19 @@ name|method
 argument_list|)
 condition|)
 block|{
+name|prevMethod
+operator|=
+name|in
+operator|.
+name|getHeader
+argument_list|(
+name|METHOD_NAME
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|in
 operator|.
 name|setHeader
@@ -532,6 +555,10 @@ name|METHOD_NAME
 argument_list|,
 name|method
 argument_list|)
+expr_stmt|;
+name|isExplicitMethod
+operator|=
+literal|true
 expr_stmt|;
 block|}
 name|invocation
@@ -557,7 +584,9 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"No method invocation could be created, no maching method could be found on: "
+literal|"No method invocation could be created, "
+operator|+
+literal|"no maching method could be found on: "
 operator|+
 name|bean
 argument_list|)
@@ -604,7 +633,7 @@ name|cause
 init|=
 name|e
 operator|.
-name|getTargetException
+name|getCause
 argument_list|()
 decl_stmt|;
 if|if
@@ -623,7 +652,7 @@ throw|;
 block|}
 else|else
 block|{
-comment|// TODO deal with errors!
+comment|// do not handle errors!
 throw|throw
 name|e
 throw|;
@@ -652,6 +681,24 @@ argument_list|(
 name|throwable
 argument_list|)
 throw|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|isExplicitMethod
+condition|)
+block|{
+name|in
+operator|.
+name|setHeader
+argument_list|(
+name|METHOD_NAME
+argument_list|,
+name|prevMethod
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getProcessor ()
