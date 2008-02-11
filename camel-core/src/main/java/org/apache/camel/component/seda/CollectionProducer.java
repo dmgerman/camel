@@ -108,7 +108,7 @@ end_comment
 
 begin_class
 DECL|class|CollectionProducer
-specifier|final
+specifier|public
 class|class
 name|CollectionProducer
 extends|extends
