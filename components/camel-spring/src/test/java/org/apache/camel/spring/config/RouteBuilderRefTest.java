@@ -84,14 +84,6 @@ name|RouteBuilderRefTest
 extends|extends
 name|XmlConfigTestSupport
 block|{
-DECL|method|testDummy ()
-specifier|public
-name|void
-name|testDummy
-parameter_list|()
-throws|throws
-name|Exception
-block|{      }
 DECL|method|testUsingRouteBuilderRefInCamelXml ()
 specifier|public
 name|void
