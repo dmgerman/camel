@@ -497,15 +497,17 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|ex
 parameter_list|)
 block|{
 comment|// catch the exception and send back to cxf client
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|throw
+operator|new
+name|Fault
+argument_list|(
+name|ex
+argument_list|)
+throw|;
 block|}
 comment|// make sure the client has retrun back the message
 name|Message
@@ -1029,17 +1031,18 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|ex
 parameter_list|)
 block|{
 comment|// catch the exception and send back to cxf client
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|throw
+operator|new
+name|Fault
+argument_list|(
+name|ex
+argument_list|)
+throw|;
 block|}
-comment|//TODO deal with the fault message
 name|Object
 name|result
 decl_stmt|;

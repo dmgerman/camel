@@ -274,22 +274,7 @@ operator|)
 name|bean
 return|;
 block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Bean with name: "
-operator|+
-name|name
-operator|+
-literal|" in registry is not a Component: "
-operator|+
-name|bean
-argument_list|)
-throw|;
-block|}
+comment|// we do not throw the exception here and try to auto create a component
 block|}
 name|Class
 name|type
