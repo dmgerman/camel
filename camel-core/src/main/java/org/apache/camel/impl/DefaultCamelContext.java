@@ -1403,6 +1403,21 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Failed to resolve endpoint "
+operator|+
+name|uri
+operator|+
+literal|". Reason: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|ResolveEndpointFailedException
