@@ -1436,6 +1436,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|CamelContext
+name|camelContext
+init|=
+name|SpringCamelContext
+operator|.
+name|springCamelContext
+argument_list|(
+name|applicationContext
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -1453,16 +1463,6 @@ operator|new
 name|RouteDotGenerator
 argument_list|(
 name|dotOutputDir
-argument_list|)
-decl_stmt|;
-name|CamelContext
-name|camelContext
-init|=
-name|SpringCamelContext
-operator|.
-name|springCamelContext
-argument_list|(
-name|applicationContext
 argument_list|)
 decl_stmt|;
 name|LOG
@@ -1486,7 +1486,21 @@ name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
+name|postProcesCamelContext
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 block|}
+DECL|method|postProcesCamelContext (CamelContext camelContext)
+specifier|protected
+name|void
+name|postProcesCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{     }
 DECL|method|getVersion ()
 specifier|protected
 name|String
