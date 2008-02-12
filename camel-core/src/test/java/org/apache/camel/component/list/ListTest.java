@@ -60,6 +60,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|BrowsableEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -179,7 +193,7 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|ListEndpoint
+name|BrowsableEndpoint
 argument_list|>
 name|list
 init|=
@@ -189,7 +203,7 @@ name|getSingletonEndpoints
 argument_list|(
 name|context
 argument_list|,
-name|ListEndpoint
+name|BrowsableEndpoint
 operator|.
 name|class
 argument_list|)
@@ -208,7 +222,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|ListEndpoint
+name|BrowsableEndpoint
 name|endpoint
 range|:
 name|list

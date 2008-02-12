@@ -220,6 +220,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|BrowsableEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -310,6 +324,8 @@ name|DefaultEndpoint
 argument_list|<
 name|Exchange
 argument_list|>
+implements|implements
+name|BrowsableEndpoint
 block|{
 DECL|field|LOG
 specifier|private
@@ -692,6 +708,20 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getExchanges ()
+specifier|public
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|getExchanges
+parameter_list|()
+block|{
+return|return
+name|getReceivedExchanges
+argument_list|()
+return|;
 block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public

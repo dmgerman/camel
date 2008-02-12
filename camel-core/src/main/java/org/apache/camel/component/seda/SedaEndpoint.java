@@ -24,6 +24,26 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -114,8 +134,22 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|BrowsableEndpoint
+import|;
+end_import
+
 begin_comment
-comment|/**  * An implementation of the<a  * href="http://activemq.apache.org/camel/queue.html">Queue components</a> for  * asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  *   * @version $Revision: 519973 $  */
+comment|/**  * An implementation of the<a  * href="http://activemq.apache.org/camel/queue.html">Queue components</a> for  * asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  *  * @version $Revision: 519973 $  */
 end_comment
 
 begin_class
@@ -128,6 +162,8 @@ name|DefaultEndpoint
 argument_list|<
 name|Exchange
 argument_list|>
+implements|implements
+name|BrowsableEndpoint
 block|{
 DECL|field|queue
 specifier|private
@@ -260,6 +296,27 @@ parameter_list|()
 block|{
 return|return
 literal|true
+return|;
+block|}
+DECL|method|getExchanges ()
+specifier|public
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|getExchanges
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ArrayList
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|(
+name|getQueue
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
