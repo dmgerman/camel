@@ -574,6 +574,104 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Asserts that the given exchange has an OUT message of the given body value      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException      */
+DECL|method|assertInMessageBodyEquals (Exchange exchange, Object expected)
+specifier|protected
+name|void
+name|assertInMessageBodyEquals
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|expected
+parameter_list|)
+throws|throws
+name|InvalidPayloadException
+block|{
+name|assertNotNull
+argument_list|(
+literal|"Should have a response exchange!"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+name|Object
+name|actual
+decl_stmt|;
+if|if
+condition|(
+name|expected
+operator|==
+literal|null
+condition|)
+block|{
+name|actual
+operator|=
+name|ExchangeHelper
+operator|.
+name|getMandatoryInBody
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"in body of: "
+operator|+
+name|exchange
+argument_list|,
+name|expected
+argument_list|,
+name|actual
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|actual
+operator|=
+name|ExchangeHelper
+operator|.
+name|getMandatoryInBody
+argument_list|(
+name|exchange
+argument_list|,
+name|expected
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|assertEquals
+argument_list|(
+literal|"in body of: "
+operator|+
+name|exchange
+argument_list|,
+name|expected
+argument_list|,
+name|actual
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Received response: "
+operator|+
+name|exchange
+operator|+
+literal|" with in: "
+operator|+
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Asserts that the given exchange has an OUT message of the given body value      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException      */
 DECL|method|assertOutMessageBodyEquals (Exchange exchange, Object expected)
 specifier|protected
 name|void
