@@ -52,6 +52,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|beans
+operator|.
+name|PropertyChangeListener
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|beans
+operator|.
+name|PropertyChangeSupport
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -236,13 +256,6 @@ argument_list|<
 name|Exchange
 argument_list|>
 name|exchanges
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|Exchange
-argument_list|>
-argument_list|()
 decl_stmt|;
 DECL|field|loadBalancer
 specifier|private
@@ -252,6 +265,17 @@ init|=
 operator|new
 name|TopicLoadBalancer
 argument_list|()
+decl_stmt|;
+DECL|field|propertyChangeSupport
+specifier|private
+name|PropertyChangeSupport
+name|propertyChangeSupport
+init|=
+operator|new
+name|PropertyChangeSupport
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 DECL|method|ListEndpoint (String uri, CamelContext camelContext)
 specifier|public
@@ -271,6 +295,9 @@ argument_list|,
 name|camelContext
 argument_list|)
 expr_stmt|;
+name|reset
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|ListEndpoint (String uri, Component component)
 specifier|public
@@ -289,6 +316,9 @@ name|uri
 argument_list|,
 name|component
 argument_list|)
+expr_stmt|;
+name|reset
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()
@@ -323,6 +353,40 @@ block|{
 return|return
 name|loadBalancer
 return|;
+block|}
+DECL|method|addPropertyChangeListener (PropertyChangeListener listener)
+specifier|public
+name|void
+name|addPropertyChangeListener
+parameter_list|(
+name|PropertyChangeListener
+name|listener
+parameter_list|)
+block|{
+name|propertyChangeSupport
+operator|.
+name|addPropertyChangeListener
+argument_list|(
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|removePropertyChangeListener (PropertyChangeListener listener)
+specifier|public
+name|void
+name|removePropertyChangeListener
+parameter_list|(
+name|PropertyChangeListener
+name|listener
+parameter_list|)
+block|{
+name|propertyChangeSupport
+operator|.
+name|removePropertyChangeListener
+argument_list|(
+name|listener
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createProducer ()
 specifier|public
@@ -398,13 +462,27 @@ parameter_list|()
 block|{
 name|exchanges
 operator|=
+name|createExchangeList
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|createExchangeList ()
+specifier|protected
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|createExchangeList
+parameter_list|()
+block|{
+return|return
 operator|new
 name|CopyOnWriteArrayList
 argument_list|<
 name|Exchange
 argument_list|>
 argument_list|()
-expr_stmt|;
+return|;
 block|}
 comment|/**      * Invoked on a message exchange being sent by a producer      */
 DECL|method|onExchange (Exchange exchange)

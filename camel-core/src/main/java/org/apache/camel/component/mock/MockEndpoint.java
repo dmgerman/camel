@@ -106,6 +106,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|beans
+operator|.
+name|PropertyChangeSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|beans
+operator|.
+name|PropertyChangeListener
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -423,6 +443,17 @@ specifier|private
 name|List
 name|actualBodyValues
 decl_stmt|;
+DECL|field|propertyChangeSupport
+specifier|private
+name|PropertyChangeSupport
+name|propertyChangeSupport
+init|=
+operator|new
+name|PropertyChangeSupport
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
 DECL|method|MockEndpoint (String endpointUri, Component component)
 specifier|public
 name|MockEndpoint
@@ -722,6 +753,40 @@ return|return
 name|getReceivedExchanges
 argument_list|()
 return|;
+block|}
+DECL|method|addPropertyChangeListener (PropertyChangeListener listener)
+specifier|public
+name|void
+name|addPropertyChangeListener
+parameter_list|(
+name|PropertyChangeListener
+name|listener
+parameter_list|)
+block|{
+name|propertyChangeSupport
+operator|.
+name|addPropertyChangeListener
+argument_list|(
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|removePropertyChangeListener (PropertyChangeListener listener)
+specifier|public
+name|void
+name|removePropertyChangeListener
+parameter_list|(
+name|PropertyChangeListener
+name|listener
+parameter_list|)
+block|{
+name|propertyChangeSupport
+operator|.
+name|removePropertyChangeListener
+argument_list|(
+name|listener
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
