@@ -26,27 +26,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
 import|;
 end_import
 
@@ -128,18 +108,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -153,18 +121,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
 import|;
 end_import
 
@@ -395,22 +351,6 @@ operator|.
 name|transport
 operator|.
 name|MessageObserver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|ws
-operator|.
-name|addressing
-operator|.
-name|AttributedURIType
 import|;
 end_import
 
@@ -1203,6 +1143,34 @@ return|return
 name|LOG
 return|;
 block|}
+block|}
+comment|/**      * Mark message as a partial message.      *       * @param partialResponse the partial response message      * @param the decoupled target      * @return true iff partial responses are supported      */
+DECL|method|markPartialResponse (Message partialResponse, EndpointReferenceType decoupledTarget)
+specifier|protected
+name|boolean
+name|markPartialResponse
+parameter_list|(
+name|Message
+name|partialResponse
+parameter_list|,
+name|EndpointReferenceType
+name|decoupledTarget
+parameter_list|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|/**      * @return the associated conduit initiator      */
+DECL|method|getConduitInitiator ()
+specifier|protected
+name|ConduitInitiator
+name|getConduitInitiator
+parameter_list|()
+block|{
+return|return
+name|conduitInitiator
+return|;
 block|}
 DECL|class|CamelOutputStream
 specifier|private
