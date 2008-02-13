@@ -381,7 +381,7 @@ name|addTextNode
 argument_list|(
 name|responseMessage
 operator|+
-literal|" Request waas  "
+literal|" Request was  "
 operator|+
 name|requestMessage
 argument_list|)
