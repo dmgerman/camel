@@ -95,7 +95,7 @@ name|EndpointInject
 argument_list|(
 name|uri
 operator|=
-literal|"mock:a"
+literal|"uface:a"
 argument_list|)
 DECL|field|template
 specifier|private

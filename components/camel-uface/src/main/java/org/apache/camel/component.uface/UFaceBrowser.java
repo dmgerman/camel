@@ -618,7 +618,6 @@ operator|new
 name|BeanForm
 argument_list|()
 decl_stmt|;
-comment|/*         UIComposite detailComposite = ui.newComposite(splitter, null, ui.newGridLayout(1));          ui.newLabel(detailComposite, new UILabel.LabelUIInfo(new GridLayoutData(GridLayoutData.ALIGN_END, GridLayoutData.ALIGN_CENTER))).setText("Exchanges"); */
 name|UITable
 name|table
 init|=
