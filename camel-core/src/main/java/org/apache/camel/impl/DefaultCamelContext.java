@@ -403,6 +403,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -1367,18 +1381,21 @@ condition|(
 name|answer
 operator|!=
 literal|null
-operator|&&
+condition|)
+block|{
+name|addService
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 name|answer
 operator|.
 name|isSingleton
 argument_list|()
 condition|)
 block|{
-name|startServices
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
 name|endpoints
 operator|.
 name|put
@@ -1388,6 +1405,7 @@ argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
+comment|// TODO we should support non-singletons in the lifecycle
 name|lifecycleStrategy
 operator|.
 name|onEndpointAdd
@@ -1395,6 +1413,7 @@ argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
@@ -1686,14 +1705,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|addServiceToClose (Object object)
+comment|/**      * Adds a service, starting it so that it will be stopped with this context      */
+DECL|method|addService (Object object)
 specifier|public
 name|void
-name|addServiceToClose
+name|addService
 parameter_list|(
 name|Object
 name|object
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -1710,6 +1732,11 @@ name|Service
 operator|)
 name|object
 decl_stmt|;
+name|service
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|servicesToClose
 operator|.
 name|add
@@ -2221,18 +2248,20 @@ operator|.
 name|getServicesForRoute
 argument_list|()
 decl_stmt|;
-name|servicesToClose
-operator|.
-name|addAll
-argument_list|(
+for|for
+control|(
+name|Service
+name|service
+range|:
 name|services
+control|)
+block|{
+name|addService
+argument_list|(
+name|service
 argument_list|)
 expr_stmt|;
-name|startServices
-argument_list|(
-name|services
-argument_list|)
-expr_stmt|;
+block|}
 block|}
 block|}
 block|}
