@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|ws
+operator|.
+name|WebServiceProvider
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -247,7 +259,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A consumer of exchanges for a service in CXF  *   * @version $Revision$  */
+comment|/**  * A consumer of exchanges for a service in CXF  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -297,6 +309,11 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
+name|boolean
+name|isWebServiceProvider
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 comment|// now we just use the default bus here
@@ -339,6 +356,22 @@ name|endpointBean
 operator|.
 name|getServiceClass
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|isWebServiceProvider
+operator|=
+name|CxfEndpointUtils
+operator|.
+name|hasAnnotation
+argument_list|(
+name|endpointBean
+operator|.
+name|getServiceClass
+argument_list|()
+argument_list|,
+name|WebServiceProvider
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|endpoint
@@ -427,6 +460,19 @@ operator|.
 name|getServerFactoryBean
 argument_list|(
 name|serviceClass
+argument_list|)
+expr_stmt|;
+name|isWebServiceProvider
+operator|=
+name|CxfEndpointUtils
+operator|.
+name|hasAnnotation
+argument_list|(
+name|serviceClass
+argument_list|,
+name|WebServiceProvider
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|svrBean
@@ -534,6 +580,8 @@ name|DataFormat
 operator|.
 name|POJO
 argument_list|)
+operator|||
+name|isWebServiceProvider
 condition|)
 block|{
 name|svrBean
@@ -580,6 +628,9 @@ name|DataFormat
 operator|.
 name|POJO
 argument_list|)
+operator|&&
+operator|!
+name|isWebServiceProvider
 condition|)
 block|{
 name|CxfMessageObserver
