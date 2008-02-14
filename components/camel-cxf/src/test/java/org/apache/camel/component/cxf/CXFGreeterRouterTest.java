@@ -138,7 +138,7 @@ specifier|public
 class|class
 name|CXFGreeterRouterTest
 extends|extends
-name|CXFRouterSpringTest
+name|CxfSpringRouterTest
 block|{
 DECL|field|serviceName
 specifier|private

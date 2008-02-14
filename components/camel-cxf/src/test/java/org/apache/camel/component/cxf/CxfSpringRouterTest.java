@@ -143,10 +143,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|CXFRouterSpringTest
+DECL|class|CxfSpringRouterTest
 specifier|public
 class|class
-name|CXFRouterSpringTest
+name|CxfSpringRouterTest
 extends|extends
 name|CxfRouterTest
 block|{
