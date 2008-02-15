@@ -245,6 +245,7 @@ expr_stmt|;
 block|}
 DECL|method|poll ()
 specifier|protected
+specifier|synchronized
 name|void
 name|poll
 parameter_list|()
