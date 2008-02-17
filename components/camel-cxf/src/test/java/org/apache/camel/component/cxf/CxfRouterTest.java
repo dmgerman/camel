@@ -150,6 +150,20 @@ name|ServerFactoryBean
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|test
+operator|.
+name|TestUtilities
+import|;
+end_import
+
 begin_class
 DECL|class|CxfRouterTest
 specifier|public
@@ -235,16 +249,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
+name|BusFactory
 operator|.
-name|setUp
-argument_list|()
+name|setDefaultBus
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 name|bus
 operator|=
 name|BusFactory
 operator|.
 name|getDefaultBus
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|setUp
 argument_list|()
 expr_stmt|;
 name|startService
@@ -323,7 +344,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//bus.shutdown(true);
+comment|//TODO need to shutdown the server
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+comment|//server.stop();
+comment|//bus.shutdown(false);
 name|BusFactory
 operator|.
 name|setDefaultBus
@@ -516,7 +544,7 @@ name|create
 argument_list|()
 decl_stmt|;
 name|int
-name|invocationCount
+name|count
 init|=
 name|client
 operator|.
@@ -531,14 +559,15 @@ expr_stmt|;
 comment|//oneway ping invoked, so invocationCount ++
 name|assertEquals
 argument_list|(
+literal|"The ping should be invocated"
+argument_list|,
 name|client
 operator|.
 name|getInvocationCount
 argument_list|()
-operator|-
-literal|1
 argument_list|,
-name|invocationCount
+operator|++
+name|count
 argument_list|)
 expr_stmt|;
 block|}

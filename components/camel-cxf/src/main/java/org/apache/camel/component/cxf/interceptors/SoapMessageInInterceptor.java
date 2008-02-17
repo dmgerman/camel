@@ -738,7 +738,7 @@ name|SoapMessage
 name|inMessage
 parameter_list|)
 block|{
-comment|// need to revisited
+comment|// need to find out the soap header information
 name|Element
 name|element
 init|=

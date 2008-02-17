@@ -389,7 +389,7 @@ name|createSpringCamelContext
 argument_list|(
 name|this
 argument_list|,
-literal|"org/apache/camel/component/cxf/GreeterEndpointBeans.xml"
+literal|"org/apache/camel/component/cxf/GreeterEndpointsRouterContext.xml"
 argument_list|)
 return|;
 block|}
