@@ -20,33 +20,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|net
+name|apache
 operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|camel
 operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|namespace
-operator|.
-name|QName
+name|Consumer
 import|;
 end_import
 
@@ -58,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
+name|ExchangePattern
 import|;
 end_import
 
@@ -83,18 +63,6 @@ operator|.
 name|camel
 operator|.
 name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ExchangePattern
 import|;
 end_import
 
@@ -175,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://activemq.apache.org/camel/cxf.html">CXF Endpoint</a>  *   * @version $Revision$  */
+comment|/**  * Defines the<a href="http://activemq.apache.org/camel/cxf.html">CXF Endpoint</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -150,20 +150,6 @@ name|ServerFactoryBean
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|test
-operator|.
-name|TestUtilities
-import|;
-end_import
-
 begin_class
 DECL|class|CxfRouterTest
 specifier|public

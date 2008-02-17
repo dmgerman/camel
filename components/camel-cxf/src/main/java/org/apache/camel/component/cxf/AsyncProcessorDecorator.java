@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProcessor
+name|AsyncCallback
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|AsyncProcessor
 import|;
 end_import
 
@@ -62,21 +62,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|AsyncProcessorHelper
+name|Processor
 import|;
 end_import
 
@@ -93,6 +79,20 @@ operator|.
 name|converter
 operator|.
 name|AsyncProcessorTypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|AsyncProcessorHelper
 import|;
 end_import
 

@@ -32,20 +32,6 @@ name|Exchange
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|message
-operator|.
-name|Message
-import|;
-end_import
-
 begin_comment
 comment|/**  * The interface to provide a CXF message invoke method  */
 end_comment

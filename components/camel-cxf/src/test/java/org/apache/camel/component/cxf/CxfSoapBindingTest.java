@@ -60,16 +60,6 @@ name|java
 operator|.
 name|net
 operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
 name|URL
 import|;
 end_import
@@ -97,6 +87,16 @@ operator|.
 name|dom
 operator|.
 name|DOMSource
+import|;
+end_import
+
+begin_import
+import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
 import|;
 end_import
 
@@ -167,16 +167,6 @@ operator|.
 name|staxutils
 operator|.
 name|StaxUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
 import|;
 end_import
 
