@@ -616,16 +616,8 @@ name|PayLoadDataFormatFeature
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// add the logging feature here
-name|features
-operator|.
-name|add
-argument_list|(
-operator|new
-name|LoggingFeature
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// adding the logging feature here for debug
+comment|//features.add(new LoggingFeature());
 block|}
 if|if
 condition|(
@@ -648,6 +640,7 @@ name|MessageDataFormatFeature
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//features.add(new LoggingFeature());
 block|}
 name|svrBean
 operator|.

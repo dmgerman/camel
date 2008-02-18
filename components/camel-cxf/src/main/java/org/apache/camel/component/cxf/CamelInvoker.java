@@ -600,6 +600,13 @@ argument_list|(
 name|outMessage
 argument_list|)
 expr_stmt|;
+name|outMessage
+operator|.
+name|setExchange
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@

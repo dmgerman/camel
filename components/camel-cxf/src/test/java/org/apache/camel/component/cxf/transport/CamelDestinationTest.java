@@ -22,24 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|corba
-operator|.
-name|se
-operator|.
-name|spi
-operator|.
-name|activation
-operator|.
-name|EndPointInfo
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -89,18 +71,6 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
 import|;
 end_import
 

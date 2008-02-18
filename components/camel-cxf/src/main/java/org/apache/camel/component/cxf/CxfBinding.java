@@ -346,9 +346,13 @@ name|out
 operator|.
 name|setBody
 argument_list|(
-name|getBody
-argument_list|(
 name|response
+operator|.
+name|getContent
+argument_list|(
+name|InputStream
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
