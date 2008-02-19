@@ -249,18 +249,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|addBefore
-argument_list|(
-name|PayloadInInterceptor
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|isRequestor (Message message)
 specifier|public
