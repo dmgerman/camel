@@ -104,16 +104,7 @@ specifier|public
 interface|interface
 name|InvokingContext
 block|{
-comment|/**      * This method is called when an request from a (routing) client is observed      * at the router's transport (inbound to the router from a client).  It will       * return an "in" interceptor chain that will allow the appropriate routing       * interceptor to receive and handle the message.      * @param exchange      * @return in interceptor chain      */
-DECL|method|getRequestInInterceptorChain (Exchange exchange)
-name|PhaseInterceptorChain
-name|getRequestInInterceptorChain
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-function_decl|;
-comment|/**      * This method is called when the router is preparing an outbound message       * (orignated from the router's client) to be sent to the target CXF server.      * It sets the content in the given (out) message object.      * @param content      */
+comment|/**      * This method is called when the router is preparing an outbound message      * (orignated from the router's client) to be sent to the target CXF server.      * It sets the content in the given (out) message object.      * @param content      */
 DECL|method|setRequestOutMessageContent (Message message, Object content)
 name|void
 name|setRequestOutMessageContent
@@ -123,33 +114,6 @@ name|message
 parameter_list|,
 name|Object
 name|content
-parameter_list|)
-function_decl|;
-comment|/**      * This method is called when a response from a CXF server is observed at the      * router's transport (inbound to the router from a server).  It will return an      * "in" interceptor chain that will allow the response to be returned to the       * involved routing interceptor (with the appropriate interceptors in between).      * @param exchange      * @return in interceptor chain      */
-DECL|method|getResponseInInterceptorChain (Exchange exchange)
-name|PhaseInterceptorChain
-name|getResponseInInterceptorChain
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-function_decl|;
-comment|/**      * This method is called when the router is ready to forward a request from a client      * to the target CXF server.  It returns an "out" intercetptor chain that will deliver       * the request message to the CXF server.      * @param exchange      * @return out interceptor chain      */
-DECL|method|getRequestOutInterceptorChain (Exchange exchange)
-name|PhaseInterceptorChain
-name|getRequestOutInterceptorChain
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-function_decl|;
-comment|/**      * This method is called when the router is ready to forward a response from a CXF      * to the client who has made the request. It returns an "out" interceptor chain that       * will deliver the response message to the client.      * @param exchange      * @return out interceptor chain      */
-DECL|method|getResponseOutInterceptorChain (Exchange exchange)
-name|PhaseInterceptorChain
-name|getResponseOutInterceptorChain
-parameter_list|(
-name|Exchange
-name|exchange
 parameter_list|)
 function_decl|;
 comment|/**      * This method is call when the CxfClient receives a response from a CXF server and needs      * to extract the response object from the message.      * @param exchange      * @param responseContext      * @return response object      */
@@ -169,18 +133,6 @@ argument_list|>
 name|responseContext
 parameter_list|)
 function_decl|;
-comment|/**      * This method is called to set the fault observers on the endpoint that are specified      * to the phases meaningful to the routing context.      * @param endpointImpl      * @param bus      */
-DECL|method|setEndpointFaultObservers (EndpointImpl endpointImpl, Bus bus)
-name|void
-name|setEndpointFaultObservers
-parameter_list|(
-name|EndpointImpl
-name|endpointImpl
-parameter_list|,
-name|Bus
-name|bus
-parameter_list|)
-function_decl|;
 comment|/**      * This method is called when the routing interceptor has received a response message      * from the target CXF server and needs to set the response in the outgoing message      * that is to be sent to the client.      * @param outMessage      * @param resultPayload      */
 DECL|method|setResponseContent (Message outMessage, Object resultPayload)
 name|void
@@ -193,7 +145,7 @@ name|Object
 name|resultPayload
 parameter_list|)
 function_decl|;
-comment|/**      * This method is called when the routing interceptor has intercepted a message from      * the client and needs to extract the request content from the message.  It retreives      * and receives the request content from the incoming message.       * @param inMessage      * @return the request from client      */
+comment|/**      * This method is called when the routing interceptor has intercepted a message from      * the client and needs to extract the request content from the message.  It retreives      * and receives the request content from the incoming message.      * @param inMessage      * @return the request from client      */
 DECL|method|getRequestContent (Message inMessage)
 name|Object
 name|getRequestContent

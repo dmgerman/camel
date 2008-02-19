@@ -600,13 +600,6 @@ argument_list|(
 name|outMessage
 argument_list|)
 expr_stmt|;
-name|outMessage
-operator|.
-name|setExchange
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 annotation|@
@@ -872,8 +865,13 @@ argument_list|(
 name|bop
 argument_list|)
 decl_stmt|;
+comment|// The SEI could be the provider class which will not have the bop information.
 if|if
 condition|(
+name|bop
+operator|!=
+literal|null
+operator|&&
 name|bop
 operator|.
 name|getOperationInfo
