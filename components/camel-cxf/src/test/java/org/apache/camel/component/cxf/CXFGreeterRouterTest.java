@@ -118,6 +118,18 @@ name|GreeterImpl
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|hello_world_soap_http
+operator|.
+name|NoSuchCodeLitFault
+import|;
+end_import
+
 begin_class
 DECL|class|CXFGreeterRouterTest
 specifier|public
@@ -229,8 +241,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|String
 name|reply
 init|=
@@ -287,22 +297,30 @@ argument_list|(
 literal|"call greetMe OneWay !"
 argument_list|)
 expr_stmt|;
+comment|// test throw the exception
+try|try
+block|{
+name|greeter
+operator|.
+name|testDocLitFault
+argument_list|(
+literal|"NoSuchCodeLitFault"
+argument_list|)
+expr_stmt|;
+comment|// should get the exception here
+name|fail
+argument_list|(
+literal|"Should get the NoSuchCodeLitFault here."
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|UndeclaredThrowableException
-name|ex
+name|NoSuchCodeLitFault
+name|fault
 parameter_list|)
 block|{
-throw|throw
-operator|(
-name|Exception
-operator|)
-name|ex
-operator|.
-name|getCause
-argument_list|()
-throw|;
+comment|// expect the fault here
 block|}
 block|}
 annotation|@

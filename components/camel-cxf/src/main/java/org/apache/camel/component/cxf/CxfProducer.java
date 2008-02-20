@@ -1450,22 +1450,6 @@ name|CxfClient
 operator|)
 name|client
 decl_stmt|;
-comment|// invoke the message
-comment|//TODO need setup the call context here
-name|Object
-name|result
-init|=
-name|cxfClient
-operator|.
-name|dispatch
-argument_list|(
-name|params
-argument_list|,
-literal|null
-argument_list|,
-name|ex
-argument_list|)
-decl_stmt|;
 comment|// need to get the binding object to create the message
 name|BindingOperationInfo
 name|boi
@@ -1532,6 +1516,24 @@ argument_list|(
 name|ex
 argument_list|)
 expr_stmt|;
+comment|// invoke the message
+comment|//TODO need setup the call context here
+try|try
+block|{
+name|Object
+name|result
+init|=
+name|cxfClient
+operator|.
+name|dispatch
+argument_list|(
+name|params
+argument_list|,
+literal|null
+argument_list|,
+name|ex
+argument_list|)
+decl_stmt|;
 name|ex
 operator|.
 name|setOutMessage
@@ -1557,6 +1559,34 @@ argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|response
+operator|.
+name|setContent
+argument_list|(
+name|Exception
+operator|.
+name|class
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|cxfBinding
+operator|.
+name|storeCxfFault
+argument_list|(
+name|exchange
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
