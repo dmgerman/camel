@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://activemq.apache.org/camel/cxf.html">SOAP Component</a>  *  * @version $Revision: 576522 $  */
+comment|/**  * Defines the<a href="http://activemq.apache.org/camel/cxf.html">SOAP Component</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class

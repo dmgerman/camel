@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for persistent entities  *  * @version $Revision: $  */
+comment|/**  * A base class for persistent entities  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://activemq.apache.org/camel/msv.html">MSV Component</a> uses the  *<a href="https://msv.dev.java.net/">MSV library</a> to perform XML validation using pluggable XML schema languages.  *  * @version $Revision: 1.1 $  */
+comment|/**  * The<a href="http://activemq.apache.org/camel/msv.html">MSV Component</a> uses the  *<a href="https://msv.dev.java.net/">MSV library</a> to perform XML validation using pluggable XML schema languages.  *  * @version $Revision$  */
 end_comment
 
 begin_class

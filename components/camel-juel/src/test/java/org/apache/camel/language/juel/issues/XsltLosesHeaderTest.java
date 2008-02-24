@@ -161,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Arjan Moraal  * @version $Revision: 1.1 $  */
+comment|/**  * @author Arjan Moraal  * @version $Revision$  */
 end_comment
 
 begin_class

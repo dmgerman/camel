@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://activemq.apache.org/camel/atom.html">Atom Endpoint</a>.  *  * @version $Revision: 1.1 $  */
+comment|/**  * An<a href="http://activemq.apache.org/camel/atom.html">Atom Endpoint</a>.  *  * @version $Revision$  */
 end_comment
 
 begin_class

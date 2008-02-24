@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A test case of the builder using Spring 2.0 to load the rules  *  * @version $Revision: 520164 $  */
+comment|/**  * A test case of the builder using Spring 2.0 to load the rules  *  * @version $Revision$  */
 end_comment
 
 begin_class

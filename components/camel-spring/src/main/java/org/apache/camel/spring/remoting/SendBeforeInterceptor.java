@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Spring interceptor which sends a message exchange to an endpoint before the method is invoked  *   * @version $Revision: $  */
+comment|/**  * A Spring interceptor which sends a message exchange to an endpoint before the method is invoked  *   * @version $Revision$  */
 end_comment
 
 begin_class

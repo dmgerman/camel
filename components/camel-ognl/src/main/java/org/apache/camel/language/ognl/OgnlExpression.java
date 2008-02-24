@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://www.ognl.org/">OGNL</a> {@link Expression}  *  * @version $Revision: $  */
+comment|/**  * An<a href="http://www.ognl.org/">OGNL</a> {@link Expression}  *  * @version $Revision$  */
 end_comment
 
 begin_class

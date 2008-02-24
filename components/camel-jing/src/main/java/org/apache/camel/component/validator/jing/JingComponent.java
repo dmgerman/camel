@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A component for validating XML payloads using the  *<a href="http://www.thaiopensource.com/relaxng/jing.html">Jing library</a>  *  * @version $Revision: 1.1 $  */
+comment|/**  * A component for validating XML payloads using the  *<a href="http://www.thaiopensource.com/relaxng/jing.html">Jing library</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class

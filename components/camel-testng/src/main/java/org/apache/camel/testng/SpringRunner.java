@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper base class for running Camel based test cases using TestNG which makes it easy to overload  * system properties before the spring application context is initialised; to allow a single spring XML to be reused  * with some properties being overloaded.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A helper base class for running Camel based test cases using TestNG which makes it easy to overload  * system properties before the spring application context is initialised; to allow a single spring XML to be reused  * with some properties being overloaded.  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple POJO showing how to create a simple registry  *   * @version $Revision: 1.1 $  */
+comment|/**  * A simple POJO showing how to create a simple registry  *   * @version $Revision$  */
 end_comment
 
 begin_class

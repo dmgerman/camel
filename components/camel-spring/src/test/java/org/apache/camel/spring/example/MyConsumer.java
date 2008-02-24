@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example POJO which is injected with a CamelTemplate  *  * @version $Revision: $  */
+comment|/**  * An example POJO which is injected with a CamelTemplate  *  * @version $Revision$  */
 end_comment
 
 begin_class

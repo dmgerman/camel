@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a activity which is typically a system or could be an endpoint  *  * @version $Revision: $  */
+comment|/**  * Represents a activity which is typically a system or could be an endpoint  *  * @version $Revision$  */
 end_comment
 
 begin_class

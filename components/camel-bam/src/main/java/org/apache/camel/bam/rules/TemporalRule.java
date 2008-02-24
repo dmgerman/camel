@@ -265,7 +265,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A temporal rule for use within BAM  *  * @version $Revision: $  */
+comment|/**  * A temporal rule for use within BAM  *  * @version $Revision$  */
 end_comment
 
 begin_class
