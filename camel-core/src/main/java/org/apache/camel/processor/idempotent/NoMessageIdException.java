@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception thrown if no message ID could be found on a message which is to be used with the  *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *  * @version $Revision: 1.1 $  */
+comment|/**  * An exception thrown if no message ID could be found on a message which is to be used with the  *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *  * @version $Revision$  */
 end_comment
 
 begin_class

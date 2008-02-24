@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an object which is aware of the namespaces in which its used such as  * XPath and XQuery type expressions so that the current namespace context can be injected  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents an object which is aware of the namespaces in which its used such as  * XPath and XQuery type expressions so that the current namespace context can be injected  *  * @version $Revision$  */
 end_comment
 
 begin_interface

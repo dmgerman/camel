@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A Strategy pattern for handling exceptions; particularly in asynchronous processes such as consumers  *  * @version $Revision: 1.1 $  */
+comment|/**  * A Strategy pattern for handling exceptions; particularly in asynchronous processes such as consumers  *  * @version $Revision$  */
 end_comment
 
 begin_interface

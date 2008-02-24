@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An aggregator collection which uses a predicate to decide when an aggregation is completed for  * a particular correlation key  *  * @version $Revision: 1.1 $  */
+comment|/**  * An aggregator collection which uses a predicate to decide when an aggregation is completed for  * a particular correlation key  *  * @version $Revision$  */
 end_comment
 
 begin_class

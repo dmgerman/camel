@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy for load balancing across a number of {@link Processor} instances  *  * @version $Revision: 1.1 $  */
+comment|/**  * A strategy for load balancing across a number of {@link Processor} instances  *  * @version $Revision$  */
 end_comment
 
 begin_interface

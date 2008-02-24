@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements the round robin load balancing policy  *  * @version $Revision: 1.1 $  */
+comment|/**  * Implements the round robin load balancing policy  *  * @version $Revision$  */
 end_comment
 
 begin_class

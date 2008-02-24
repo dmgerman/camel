@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A pluggable strategy for resolving different languages in a loosely coupled manner  *   * @version $Revision: 1.1 $  */
+comment|/**  * A pluggable strategy for resolving different languages in a loosely coupled manner  *   * @version $Revision$  */
 end_comment
 
 begin_interface

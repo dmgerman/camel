@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A memory based implementation of {@link MessageIdRepository}. Care should be  * taken to use a suitable underlying {@link Map} to avoid this class being a  * memory leak  *   * @version $Revision: 1.1 $  */
+comment|/**  * A memory based implementation of {@link MessageIdRepository}. Care should be  * taken to use a suitable underlying {@link Map} to avoid this class being a  * memory leak  *   * @version $Revision$  */
 end_comment
 
 begin_class

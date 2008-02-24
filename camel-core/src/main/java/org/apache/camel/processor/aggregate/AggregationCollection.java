@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Collection} which aggregates exchanges together using a correlation  * expression so that there is only a single message exchange sent for a single  * correlation key.  *   * @version $Revision: 1.1 $  */
+comment|/**  * A {@link Collection} which aggregates exchanges together using a correlation  * expression so that there is only a single message exchange sent for a single  * correlation key.  *   * @version $Revision$  */
 end_comment
 
 begin_class

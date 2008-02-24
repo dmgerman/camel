@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Producer} implementation for File  *  * @version $Revision: 523016 $  */
+comment|/**  * A {@link Producer} implementation for File  *  * @version $Revision$  */
 end_comment
 
 begin_class

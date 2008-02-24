@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Converts from some DOM types to Java types  *  * @version $Revision: 1.1 $  */
+comment|/**  * Converts from some DOM types to Java types  *  * @version $Revision$  */
 end_comment
 
 begin_class

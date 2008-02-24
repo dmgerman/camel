@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception thrown if some illegal syntax is rejected by a specific language  *  * @version $Revision: $  */
+comment|/**  * An exception thrown if some illegal syntax is rejected by a specific language  *  * @version $Revision$  */
 end_comment
 
 begin_class

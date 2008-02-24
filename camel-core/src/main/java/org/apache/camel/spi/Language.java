@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a language to be used for {@link Expression} or {@link Predicate} instances  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents a language to be used for {@link Expression} or {@link Predicate} instances  *  * @version $Revision$  */
 end_comment
 
 begin_interface

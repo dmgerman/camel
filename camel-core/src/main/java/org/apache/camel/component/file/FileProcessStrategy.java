@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a strategy for marking that a file is processed.  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents a strategy for marking that a file is processed.  *  * @version $Revision$  */
 end_comment
 
 begin_interface

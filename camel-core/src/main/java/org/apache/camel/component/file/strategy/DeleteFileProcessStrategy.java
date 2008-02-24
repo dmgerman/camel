@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy which will delete the file when its processed  *  * @version $Revision: 1.1 $  */
+comment|/**  * A strategy which will delete the file when its processed  *  * @version $Revision$  */
 end_comment
 
 begin_class

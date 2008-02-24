@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default base class for a {@link LoadBalancer} implementation  *  * @version $Revision: 1.1 $  */
+comment|/**  * A default base class for a {@link LoadBalancer} implementation  *  * @version $Revision$  */
 end_comment
 
 begin_class

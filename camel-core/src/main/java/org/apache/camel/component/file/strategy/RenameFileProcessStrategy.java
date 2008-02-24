@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy to rename a file  *   * @version $Revision: 1.1 $  */
+comment|/**  * A strategy to rename a file  *   * @version $Revision$  */
 end_comment
 
 begin_class

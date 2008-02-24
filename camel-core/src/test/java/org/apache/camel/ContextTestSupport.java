@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class which creates a {@link CamelContext} with some routes  * along with a {@link CamelTemplate} for use in the test case  *  * @version $Revision: 1.1 $  */
+comment|/**  * A useful base class which creates a {@link CamelContext} with some routes  * along with a {@link CamelTemplate} for use in the test case  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to inject an XPath expression into a field, property, method or parameter.  *  * @version $Revision: 1.1 $  */
+comment|/**  * Used to inject an XPath expression into a field, property, method or parameter.  *  * @version $Revision$  */
 end_comment
 
 begin_annotation_defn

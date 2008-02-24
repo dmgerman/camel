@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy for aggregating two exchanges together into a single exchange.  * Possible implementations include performing some kind of combining or delta  * processing, such as adding line items together into an invoice or just using  * the newest exchange and removing old exchanges such as for state tracking or  * market data prices; where old values are of little use.  *   * @version $Revision: 1.1 $  */
+comment|/**  * A strategy for aggregating two exchanges together into a single exchange.  * Possible implementations include performing some kind of combining or delta  * processing, such as adding line items together into an invoice or just using  * the newest exchange and removing old exchanges such as for state tracking or  * market data prices; where old values are of little use.  *   * @version $Revision$  */
 end_comment
 
 begin_interface

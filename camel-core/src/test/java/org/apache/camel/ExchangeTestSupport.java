@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for a test which requires a {@link CamelContext} and  * a populated {@link Exchange}  *  * @version $Revision: 1.1 $  */
+comment|/**  * A base class for a test which requires a {@link CamelContext} and  * a populated {@link Exchange}  *  * @version $Revision$  */
 end_comment
 
 begin_class

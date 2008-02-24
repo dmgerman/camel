@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a consumer which on starting registers itself with a {@link LoadBalancer} and on closing unregisters  * itself with a load balancer  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents a consumer which on starting registers itself with a {@link LoadBalancer} and on closing unregisters  * itself with a load balancer  *  * @version $Revision$  */
 end_comment
 
 begin_class

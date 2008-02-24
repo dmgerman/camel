@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides a hook for custom {@link Processor} or {@link Component} instances to respond to  * completed or failed processing of an {@link Exchange} rather like Spring's  *<a href="http://static.springframework.org/spring/docs/2.0.x/api/org/springframework/transaction/support/TransactionSynchronization.html">TransactionSynchronization</a>  *  * @version $Revision: 1.1 $  */
+comment|/**  * Provides a hook for custom {@link Processor} or {@link Component} instances to respond to  * completed or failed processing of an {@link Exchange} rather like Spring's  *<a href="http://static.springframework.org/spring/docs/2.0.x/api/org/springframework/transaction/support/TransactionSynchronization.html">TransactionSynchronization</a>  *  * @version $Revision$  */
 end_comment
 
 begin_interface

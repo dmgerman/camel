@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Access to a repository of Message IDs to implement the  *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *  * @version $Revision: 1.1 $  */
+comment|/**  * Access to a repository of Message IDs to implement the  *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *  * @version $Revision$  */
 end_comment
 
 begin_interface

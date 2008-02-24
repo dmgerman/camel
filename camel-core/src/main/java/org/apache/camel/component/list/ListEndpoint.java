@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An endpoint which maintains a {@link List} of {@link Exchange} instances  * which can be useful for tooling, debugging and visualising routes.  *  * @version $Revision: 1.1 $  */
+comment|/**  * An endpoint which maintains a {@link List} of {@link Exchange} instances  * which can be useful for tooling, debugging and visualising routes.  *  * @version $Revision$  */
 end_comment
 
 begin_class

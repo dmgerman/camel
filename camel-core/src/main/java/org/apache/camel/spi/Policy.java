@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy capable of applying interceptors to a processor  *  * @version $Revision: 1.1 $  */
+comment|/**  * A strategy capable of applying interceptors to a processor  *  * @version $Revision$  */
 end_comment
 
 begin_interface

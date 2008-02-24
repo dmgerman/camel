@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A simple strategy which just locks the file but does not modify it  *  * @version $Revision: 1.1 $  */
+comment|/**  * A simple strategy which just locks the file but does not modify it  *  * @version $Revision$  */
 end_comment
 
 begin_class
