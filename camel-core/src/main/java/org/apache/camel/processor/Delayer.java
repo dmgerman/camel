@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/delayer.html">Delayer</a> which  * delays processing the exchange until the correct amount of time has elapsed  * using an expression to determine the delivery time.<p/> For example if you  * wish to delay JMS messages by 25 seconds from their publish time you could  * create an instance of this class with the expression  *<code>header("JMSTimestamp")</code> and a delay value of 25000L.  *   * @version $Revision: 1.1 $  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/delayer.html">Delayer</a> which  * delays processing the exchange until the correct amount of time has elapsed  * using an expression to determine the delivery time.<p/> For example if you  * wish to delay JMS messages by 25 seconds from their publish time you could  * create an instance of this class with the expression  *<code>header("JMSTimestamp")</code> and a delay value of 25000L.  *   * @version $Revision$  */
 end_comment
 
 begin_class

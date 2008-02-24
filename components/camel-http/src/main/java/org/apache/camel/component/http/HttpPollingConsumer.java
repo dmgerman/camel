@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A polling HTTP consumer which by default performs a GET  *  * @version $Revision: 1.1 $  */
+comment|/**  * A polling HTTP consumer which by default performs a GET  *  * @version $Revision$  */
 end_comment
 
 begin_class

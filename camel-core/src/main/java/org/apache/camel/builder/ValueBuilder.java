@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of expressions or predicates based on values.  *   * @version $Revision: $  */
+comment|/**  * A builder of expressions or predicates based on values.  *   * @version $Revision$  */
 end_comment
 
 begin_class

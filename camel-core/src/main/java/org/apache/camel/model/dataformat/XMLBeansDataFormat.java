@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the XMLBeans XML {@link DataFormat}  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents the XMLBeans XML {@link DataFormat}  *  * @version $Revision$  */
 end_comment
 
 begin_class

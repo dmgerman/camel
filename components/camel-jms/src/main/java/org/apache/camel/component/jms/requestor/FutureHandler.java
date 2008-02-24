@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link FutureTask} which implements {@link ReplyHandler}  * so that it can be used as a handler for a correlation ID  *  * @version $Revision: 1.1 $  */
+comment|/**  * A {@link FutureTask} which implements {@link ReplyHandler}  * so that it can be used as a handler for a correlation ID  *  * @version $Revision$  */
 end_comment
 
 begin_class

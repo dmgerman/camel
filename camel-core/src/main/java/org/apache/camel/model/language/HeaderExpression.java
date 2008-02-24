@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An expression which extracts the named header  *  * @version $Revision: 1.1 $  */
+comment|/**  * An expression which extracts the named header  *  * @version $Revision$  */
 end_comment
 
 begin_class

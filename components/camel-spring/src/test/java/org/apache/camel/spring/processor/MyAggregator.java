@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple aggregator which just appends the message bodies together  *  * @version $Revision: 1.1 $  */
+comment|/**  * A simple aggregator which just appends the message bodies together  *  * @version $Revision$  */
 end_comment
 
 begin_class

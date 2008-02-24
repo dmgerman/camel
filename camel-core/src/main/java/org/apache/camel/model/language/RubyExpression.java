@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For Ruby expresions and predicates  *  * @version $Revision: 1.1 $  */
+comment|/**  * For Ruby expresions and predicates  *  * @version $Revision$  */
 end_comment
 
 begin_class

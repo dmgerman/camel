@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception thrown if an attempted method invocation resulted in an ambiguous method  * such that multiple methods match the inbound message exchange  *  * @version $Revision: $  */
+comment|/**  * An exception thrown if an attempted method invocation resulted in an ambiguous method  * such that multiple methods match the inbound message exchange  *  * @version $Revision$  */
 end_comment
 
 begin_class

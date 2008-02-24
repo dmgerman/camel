@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://activemq.apache.org/camel/jmx.html">JMX Component</a>  * for monitoring jmx attributes  *   * @version $Revision: 523772 $  */
+comment|/**  * The<a href="http://activemq.apache.org/camel/jmx.html">JMX Component</a>  * for monitoring jmx attributes  *   * @version $Revision$  */
 end_comment
 
 begin_class

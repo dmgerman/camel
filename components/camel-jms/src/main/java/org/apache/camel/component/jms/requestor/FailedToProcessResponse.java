@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception thrown if a response message from an InOut could not be processed  *   * @version $Revision: 1.1 $  */
+comment|/**  * An exception thrown if a response message from an InOut could not be processed  *   * @version $Revision$  */
 end_comment
 
 begin_class

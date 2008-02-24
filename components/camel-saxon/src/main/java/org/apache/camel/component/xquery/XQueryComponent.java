@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://activemq.apache.org/camel/xquery.html">XQuery Component</a>  * for performing transforming messages  *  * @version $Revision: 1.1 $  */
+comment|/**  * An<a href="http://activemq.apache.org/camel/xquery.html">XQuery Component</a>  * for performing transforming messages  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Uses the java.beans.PropertyEditor conversion system to convert Objects to  * and from String values.  *   * @version $Revision: 523731 $  */
+comment|/**  * Uses the java.beans.PropertyEditor conversion system to convert Objects to  * and from String values.  *   * @version $Revision$  */
 end_comment
 
 begin_class

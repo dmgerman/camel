@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks a parameter as being a header on an inbound {@link Message}  *  * @see Message#getHeader(String)   * @version $Revision: 523756 $  */
+comment|/**  * Marks a parameter as being a header on an inbound {@link Message}  *  * @see Message#getHeader(String)   * @version $Revision$  */
 end_comment
 
 begin_annotation_defn

@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for an endpoint which the default consumer mode is to use a {@link PollingConsumer}  *  * @version $Revision: 1.1 $  */
+comment|/**  * A base class for an endpoint which the default consumer mode is to use a {@link PollingConsumer}  *  * @version $Revision$  */
 end_comment
 
 begin_class

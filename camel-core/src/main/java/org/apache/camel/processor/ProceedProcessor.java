@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Processor} which proceeds on an {@link Interceptor}  *  * @version $Revision: 1.1 $  */
+comment|/**  * A {@link Processor} which proceeds on an {@link Interceptor}  *  * @version $Revision$  */
 end_comment
 
 begin_class

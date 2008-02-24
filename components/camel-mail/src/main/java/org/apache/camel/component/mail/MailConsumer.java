@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Consumer} which consumes messages from JavaMail using a  * {@link Transport} and dispatches them to the {@link Processor}  *   * @version $Revision: 523430 $  */
+comment|/**  * A {@link Consumer} which consumes messages from JavaMail using a  * {@link Transport} and dispatches them to the {@link Processor}  *   * @version $Revision$  */
 end_comment
 
 begin_class

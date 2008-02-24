@@ -281,7 +281,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A post processor to perform injection of {@link Endpoint} and  * {@link Producer} instances together with binding methods annotated with  * {@link @MessageDriven} to a Camel consumer.  *   * @version $Revision: 1.1 $  */
+comment|/**  * A post processor to perform injection of {@link Endpoint} and  * {@link Producer} instances together with binding methods annotated with  * {@link @MessageDriven} to a Camel consumer.  *   * @version $Revision$  */
 end_comment
 
 begin_class

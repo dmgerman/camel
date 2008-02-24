@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link Logger} to  * log to an arbitrary {@link Log} with some {@link LoggingLevel}  *  * @version $Revision: 1.1 $  */
+comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link Logger} to  * log to an arbitrary {@link Log} with some {@link LoggingLevel}  *  * @version $Revision$  */
 end_comment
 
 begin_class

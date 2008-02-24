@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a CounterMonitor for jmx attributes  *   * @version $Revision: 523016 $  */
+comment|/**  * Creates a CounterMonitor for jmx attributes  *   * @version $Revision$  */
 end_comment
 
 begin_class

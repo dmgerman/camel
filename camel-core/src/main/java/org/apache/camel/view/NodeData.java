@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a node in the EIP diagram tree  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents a node in the EIP diagram tree  *  * @version $Revision$  */
 end_comment
 
 begin_class

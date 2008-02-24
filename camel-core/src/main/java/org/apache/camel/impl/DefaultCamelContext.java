@@ -477,7 +477,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the context used to configure routes and the policies to use.  *   * @version $Revision: 520517 $  */
+comment|/**  * Represents the context used to configure routes and the policies to use.  *   * @version $Revision$  */
 end_comment
 
 begin_class

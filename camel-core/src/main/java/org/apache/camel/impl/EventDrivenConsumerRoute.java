@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Route} which starts with an  *<a href="http://activemq.apache.org/camel/event-driven-consumer.html">Event Driven Consumer</a>  *  * @version $Revision: 1.1 $  */
+comment|/**  * A {@link Route} which starts with an  *<a href="http://activemq.apache.org/camel/event-driven-consumer.html">Event Driven Consumer</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class

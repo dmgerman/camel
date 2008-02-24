@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Lets test that a number of headers MQSeries doesn't like to be sent are excluded when  * forwarding a JMS message from one destination to another  *   * @version $Revision: 1.1 $  */
+comment|/**  * Lets test that a number of headers MQSeries doesn't like to be sent are excluded when  * forwarding a JMS message from one destination to another  *   * @version $Revision$  */
 end_comment
 
 begin_class

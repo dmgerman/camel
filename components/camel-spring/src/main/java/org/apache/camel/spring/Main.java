@@ -219,7 +219,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A command line tool for booting up a CamelContext using an optional Spring  * ApplicationContext  *  * @version $Revision: $  */
+comment|/**  * A command line tool for booting up a CamelContext using an optional Spring  * ApplicationContext  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks a parameter as being an injection point of a property of an {@link Exchange}  *  * @see Exchange#getProperty(String)    * @version $Revision: 523756 $  */
+comment|/**  * Marks a parameter as being an injection point of a property of an {@link Exchange}  *  * @see Exchange#getProperty(String)    * @version $Revision$  */
 end_comment
 
 begin_annotation_defn

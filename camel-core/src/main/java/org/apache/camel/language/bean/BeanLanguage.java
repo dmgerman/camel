@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/bean-language.html>bean language</a>  * which uses a simple text notation to invoke methods on beans to evaluate predicates or expressions<p/>  *<p/>  * The notation is essentially<code>beanName.methodName</code> which is then invoked using the  * beanName to lookup in the<a href="http://activemq.apache.org/camel/registry.html>registry</a>  * then the method is invoked to evaluate the expression using the  *<a href="http://activemq.apache.org/camel/bean-integration.html>bean integration</a> to bind the  * {@link Exchange} to the method arguments.  *  * @version $Revision: $  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/bean-language.html>bean language</a>  * which uses a simple text notation to invoke methods on beans to evaluate predicates or expressions<p/>  *<p/>  * The notation is essentially<code>beanName.methodName</code> which is then invoked using the  * beanName to lookup in the<a href="http://activemq.apache.org/camel/registry.html>registry</a>  * then the method is invoked to evaluate the expression using the  *<a href="http://activemq.apache.org/camel/bean-integration.html>bean integration</a> to bind the  * {@link Exchange} to the method arguments.  *  * @version $Revision$  */
 end_comment
 
 begin_class

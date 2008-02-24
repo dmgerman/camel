@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a timer endpoint that can generate periodic inbound PojoExchanges.  *  * @version $Revision: 519973 $  */
+comment|/**  * Represents a timer endpoint that can generate periodic inbound PojoExchanges.  *  * @version $Revision$  */
 end_comment
 
 begin_class

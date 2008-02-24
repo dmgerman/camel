@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link TimerEndpoint}.  It holds the  * list of {@link TimerConsumer} objects that are started.  *  * @version $Revision: 519973 $  */
+comment|/**  * Represents the component that manages {@link TimerEndpoint}.  It holds the  * list of {@link TimerConsumer} objects that are started.  *  * @version $Revision$  */
 end_comment
 
 begin_class

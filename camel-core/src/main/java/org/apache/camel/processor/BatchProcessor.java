@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for any kind of {@link Processor} which implements some kind of  * batch processing.  *   * @version $Revision: 1.1 $  */
+comment|/**  * A base class for any kind of {@link Processor} which implements some kind of  * batch processing.  *   * @version $Revision$  */
 end_comment
 
 begin_class

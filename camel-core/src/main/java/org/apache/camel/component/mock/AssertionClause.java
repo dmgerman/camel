@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of assertions on message exchanges  *   * @version $Revision: 1.1 $  */
+comment|/**  * A builder of assertions on message exchanges  *   * @version $Revision$  */
 end_comment
 
 begin_class

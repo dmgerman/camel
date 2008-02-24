@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some simple payload conversions to I/O<a  * href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  *   * @version $Revision: 533630 $  */
+comment|/**  * Some simple payload conversions to I/O<a  * href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  *   * @version $Revision$  */
 end_comment
 
 begin_class

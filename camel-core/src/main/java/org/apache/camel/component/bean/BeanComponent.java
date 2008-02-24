@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An alternative to the<a href="http://activemq.apache.org/pojo.html">POJO Component</a>  * which implements the<a href="http://activemq.apache.org/bean.html">Bean Component</a>  * which will look up the URI in the Spring ApplicationContext and use that to handle message dispatching.  *  * @version $Revision: 1.1 $  */
+comment|/**  * An alternative to the<a href="http://activemq.apache.org/pojo.html">POJO Component</a>  * which implements the<a href="http://activemq.apache.org/bean.html">Bean Component</a>  * which will look up the URI in the Spring ApplicationContext and use that to handle message dispatching.  *  * @version $Revision$  */
 end_comment
 
 begin_class

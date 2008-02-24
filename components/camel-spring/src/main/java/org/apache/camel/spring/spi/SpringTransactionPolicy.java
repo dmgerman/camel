@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Wraps the processor in a Spring transaction  *  * @version $Revision: 1.1 $  */
+comment|/**  * Wraps the processor in a Spring transaction  *  * @version $Revision$  */
 end_comment
 
 begin_class

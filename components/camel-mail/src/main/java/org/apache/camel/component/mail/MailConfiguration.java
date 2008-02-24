@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the configuration data for communicating over email  *  * @version $Revision: 532790 $  */
+comment|/**  * Represents the configuration data for communicating over email  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An endpoint which allows exchanges to be sent into it which just invokes a  * given {@link Processor}. This component does not support the use of  * consumers.  *   * @version $Revision: 1.1 $  */
+comment|/**  * An endpoint which allows exchanges to be sent into it which just invokes a  * given {@link Processor}. This component does not support the use of  * consumers.  *   * @version $Revision$  */
 end_comment
 
 begin_class

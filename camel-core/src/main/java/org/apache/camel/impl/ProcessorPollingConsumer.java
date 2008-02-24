@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple implementation of {@link PollingConsumer} which just uses  * a {@link Processor}. This implementation does not support timeout based  * receive methods such as {@link #receive(long)}  *  * @version $Revision: 1.1 $  */
+comment|/**  * A simple implementation of {@link PollingConsumer} which just uses  * a {@link Processor}. This implementation does not support timeout based  * receive methods such as {@link #receive(long)}  *  * @version $Revision$  */
 end_comment
 
 begin_class

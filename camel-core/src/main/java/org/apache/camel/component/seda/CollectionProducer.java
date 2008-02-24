@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple {@link Producer} which just appends to a {@link Collection} the {@link Exchange} object.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A simple {@link Producer} which just appends to a {@link Collection} the {@link Exchange} object.  *  * @version $Revision$  */
 end_comment
 
 begin_class

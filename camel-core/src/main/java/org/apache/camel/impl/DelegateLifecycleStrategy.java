@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for folks writing delegate listener strategies  *  * @version $Revision: 1.1 $  */
+comment|/**  * A helper class for folks writing delegate listener strategies  *  * @version $Revision$  */
 end_comment
 
 begin_class

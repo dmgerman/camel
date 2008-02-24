@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for implementation inheritance for different clauses in the<a  * href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *   * @version $Revision: $  */
+comment|/**  * Base class for implementation inheritance for different clauses in the<a  * href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *   * @version $Revision$  */
 end_comment
 
 begin_class

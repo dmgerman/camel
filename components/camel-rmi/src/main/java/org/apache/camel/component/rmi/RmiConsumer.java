@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Consumer} which uses RMI's {@see UnicastRemoteObject} to consume  * method invocations.  *   * @version $Revision: 533758 $  */
+comment|/**  * A {@link Consumer} which uses RMI's {@see UnicastRemoteObject} to consume  * method invocations.  *   * @version $Revision$  */
 end_comment
 
 begin_class

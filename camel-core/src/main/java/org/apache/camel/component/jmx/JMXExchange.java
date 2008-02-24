@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Exchange} for a jmx notification  *   * @version $Revision: 520985 $  */
+comment|/**  * A {@link Exchange} for a jmx notification  *   * @version $Revision$  */
 end_comment
 
 begin_class

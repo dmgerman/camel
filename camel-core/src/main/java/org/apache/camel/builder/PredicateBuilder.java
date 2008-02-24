@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for working with predicates  *   * @version $Revision: 520261 $  */
+comment|/**  * A helper class for working with predicates  *   * @version $Revision$  */
 end_comment
 
 begin_class

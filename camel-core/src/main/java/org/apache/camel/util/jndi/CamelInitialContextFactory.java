@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory of the Cameel InitialContext which allows a Map to be used to create a  * JNDI context.  *  * @version $Revision: 1.2 $  */
+comment|/**  * A factory of the Cameel InitialContext which allows a Map to be used to create a  * JNDI context.  *  * @version $Revision$  */
 end_comment
 
 begin_class

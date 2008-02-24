@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A variable resolver for XPath expressions which support properties on the  * messge, exchange as well as making system properties and environment  * properties available.  *   * @version $Revision: 521692 $  */
+comment|/**  * A variable resolver for XPath expressions which support properties on the  * messge, exchange as well as making system properties and environment  * properties available.  *   * @version $Revision$  */
 end_comment
 
 begin_class

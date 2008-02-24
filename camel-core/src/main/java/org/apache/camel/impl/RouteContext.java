@@ -259,7 +259,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The context used to activate new routing rules  *  * @version $Revision: $  */
+comment|/**  * The context used to activate new routing rules  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for including portions of the<a  * href="http://activemq.apache.org/camel/expression.html">expression</a> and  *<a href="http://activemq.apache.org/camel/predicate.html">predicate</a><a  * href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *   * @version $Revision: 1.1 $  */
+comment|/**  * A helper class for including portions of the<a  * href="http://activemq.apache.org/camel/expression.html">expression</a> and  *<a href="http://activemq.apache.org/camel/predicate.html">predicate</a><a  * href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *   * @version $Revision$  */
 end_comment
 
 begin_class

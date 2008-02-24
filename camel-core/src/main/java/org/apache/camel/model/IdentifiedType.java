@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The unique identifier for a bean. The scope of the identifier  * is the enclosing bean factory.  *<p/>  *<p/>  *<p>Java class for identifiedType complex type.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;complexType name="identifiedType">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}ID" />  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  *  * @version $Revision: 1.1 $  */
+comment|/**  * The unique identifier for a bean. The scope of the identifier  * is the enclosing bean factory.  *<p/>  *<p/>  *<p>Java class for identifiedType complex type.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;complexType name="identifiedType">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}ID" />  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  *  * @version $Revision$  */
 end_comment
 
 begin_class

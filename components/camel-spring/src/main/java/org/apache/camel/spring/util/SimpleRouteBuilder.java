@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple {@link RouteBuilder} which can be configured directly with one or more from URIs, zero or more to URIs  * and an optional bean processing step.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A simple {@link RouteBuilder} which can be configured directly with one or more from URIs, zero or more to URIs  * and an optional bean processing step.  *  * @version $Revision$  */
 end_comment
 
 begin_class

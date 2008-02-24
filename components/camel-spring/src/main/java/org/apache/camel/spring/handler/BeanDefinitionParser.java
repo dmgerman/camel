@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for a parser for a bean.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A base class for a parser for a bean.  *  * @version $Revision$  */
 end_comment
 
 begin_class

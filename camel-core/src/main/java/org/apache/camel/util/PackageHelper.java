@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some helper methods for working with Java packages and versioning.  *  * @version $Revision: 1.1 $  */
+comment|/**  * Some helper methods for working with Java packages and versioning.  *  * @version $Revision$  */
 end_comment
 
 begin_class

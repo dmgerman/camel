@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A number of helper methods  *  * @version $Revision: $  */
+comment|/**  * A number of helper methods  *  * @version $Revision$  */
 end_comment
 
 begin_class

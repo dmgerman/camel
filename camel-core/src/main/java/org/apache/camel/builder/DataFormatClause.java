@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An expression for constructing the different possible {@link DataFormat}  * options.  *  * @version $Revision: 1.1 $  */
+comment|/**  * An expression for constructing the different possible {@link DataFormat}  * options.  *  * @version $Revision$  */
 end_comment
 
 begin_class

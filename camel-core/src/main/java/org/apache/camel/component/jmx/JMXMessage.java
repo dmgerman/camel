@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Message} for a JMX Notification  *   * @version $Revision: 520985 $  */
+comment|/**  * A {@link Message} for a JMX Notification  *   * @version $Revision$  */
 end_comment
 
 begin_class

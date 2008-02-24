@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A number of helper methods for working with collections  *   * @version $Revision: 1.1 $  */
+comment|/**  * A number of helper methods for working with collections  *   * @version $Revision$  */
 end_comment
 
 begin_class

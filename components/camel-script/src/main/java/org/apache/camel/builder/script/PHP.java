@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation for injection of PHP expressions  *  into method parameters, fields or properties  *  * @version $Revision: 1.1 $  */
+comment|/**  * An annotation for injection of PHP expressions  *  into method parameters, fields or properties  *  * @version $Revision$  */
 end_comment
 
 begin_annotation_defn

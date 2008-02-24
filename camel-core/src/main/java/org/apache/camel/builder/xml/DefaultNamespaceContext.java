@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of {@link NamespaceContext} which uses a simple Map where  * the keys are the prefixes and the values are the URIs  *  * @version $Revision: $  */
+comment|/**  * An implementation of {@link NamespaceContext} which uses a simple Map where  * the keys are the prefixes and the values are the URIs  *  * @version $Revision$  */
 end_comment
 
 begin_class

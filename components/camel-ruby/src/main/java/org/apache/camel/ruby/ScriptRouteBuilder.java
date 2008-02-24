@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provide some helper methods for building routes from scripting languages  * with a minimum amount of noise using state for the current node in the DSL  *  * @version $Revision: 1.1 $  */
+comment|/**  * Provide some helper methods for building routes from scripting languages  * with a minimum amount of noise using state for the current node in the DSL  *  * @version $Revision$  */
 end_comment
 
 begin_class

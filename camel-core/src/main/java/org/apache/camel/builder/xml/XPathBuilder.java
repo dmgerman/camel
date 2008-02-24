@@ -329,7 +329,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an XPath expression builder which creates a nodeset result by default.  * If you want to evaluate a String expression then call {@link #stringResult()}  *  * @see XPathConstants#NODESET  *   * @version $Revision: 531854 $  */
+comment|/**  * Creates an XPath expression builder which creates a nodeset result by default.  * If you want to evaluate a String expression then call {@link #stringResult()}  *  * @see XPathConstants#NODESET  *   * @version $Revision$  */
 end_comment
 
 begin_class

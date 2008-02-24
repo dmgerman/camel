@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generate an Exchange after getting a JMX Notification  *   * @version $Revision: 523016 $  */
+comment|/**  * Generate an Exchange after getting a JMX Notification  *   * @version $Revision$  */
 end_comment
 
 begin_class

@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An exception thrown if an InOut exchange times out receiving the OUT message  *  * @version $Revision: 1.1 $  */
+comment|/**  * An exception thrown if an InOut exchange times out receiving the OUT message  *  * @version $Revision$  */
 end_comment
 
 begin_class

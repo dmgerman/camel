@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A runtime exception caused by a specific message {@ilnk Exchange}  *  * @version $Revision: 1.1 $  */
+comment|/**  * A runtime exception caused by a specific message {@ilnk Exchange}  *  * @version $Revision$  */
 end_comment
 
 begin_class

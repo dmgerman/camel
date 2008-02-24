@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default error handler which just stores all the errors so they can be reported or transformed.  *  * @version $Revision: $  */
+comment|/**  * A default error handler which just stores all the errors so they can be reported or transformed.  *  * @version $Revision$  */
 end_comment
 
 begin_class

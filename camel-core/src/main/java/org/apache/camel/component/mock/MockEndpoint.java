@@ -331,7 +331,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Mock endpoint which provides a literate, fluent API for testing routes  * using a<a href="http://jmock.org/">JMock style</a> API.  *   * @version $Revision: 1.1 $  */
+comment|/**  * A Mock endpoint which provides a literate, fluent API for testing routes  * using a<a href="http://jmock.org/">JMock style</a> API.  *   * @version $Revision$  */
 end_comment
 
 begin_class

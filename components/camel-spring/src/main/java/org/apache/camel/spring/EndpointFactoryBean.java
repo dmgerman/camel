@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link FactoryBean} which instantiates {@link Endpoint} objects  *  * @version $Revision: 1.1 $  */
+comment|/**  * A {@link FactoryBean} which instantiates {@link Endpoint} objects  *  * @version $Revision$  */
 end_comment
 
 begin_class

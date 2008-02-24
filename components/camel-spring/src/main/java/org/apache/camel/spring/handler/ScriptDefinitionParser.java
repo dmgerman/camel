@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A parser of the various scripting language expressions  *  * @version $Revision: 1.1 $  */
+comment|/**  * A parser of the various scripting language expressions  *  * @version $Revision$  */
 end_comment
 
 begin_class

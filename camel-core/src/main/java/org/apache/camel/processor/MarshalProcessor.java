@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marshals the body of the incoming message using the given  *<a href="http://activemq.apache.org/camel/data-format.html">data format</a>  *  * @version $Revision: 1.1 $  */
+comment|/**  * Marshals the body of the incoming message using the given  *<a href="http://activemq.apache.org/camel/data-format.html">data format</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class

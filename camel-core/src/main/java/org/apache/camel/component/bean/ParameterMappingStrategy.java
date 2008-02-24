@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy for creating a default parameter expression for a given type  *  * @version $Revision: $  */
+comment|/**  * A strategy for creating a default parameter expression for a given type  *  * @version $Revision$  */
 end_comment
 
 begin_interface

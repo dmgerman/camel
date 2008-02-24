@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for {@link Endpoint} which creates a {@link ScheduledPollConsumer}  *  * @version $Revision: 1.1 $  */
+comment|/**  * A base class for {@link Endpoint} which creates a {@link ScheduledPollConsumer}  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an {@link Policy} which adds no interceptors.  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents an {@link Policy} which adds no interceptors.  *  * @version $Revision$  */
 end_comment
 
 begin_class

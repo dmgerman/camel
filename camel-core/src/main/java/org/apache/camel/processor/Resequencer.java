@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>  * which can reorder messages within a batch.  *  * @version $Revision: 1.1 $  */
+comment|/**  * An implementation of the<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>  * which can reorder messages within a batch.  *  * @version $Revision$  */
 end_comment
 
 begin_class

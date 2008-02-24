@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which validates the XML version of the inbound message body  * against some schema either in XSD or RelaxNG  *   * @version $Revision: 453155 $  */
+comment|/**  * A processor which validates the XML version of the inbound message body  * against some schema either in XSD or RelaxNG  *   * @version $Revision$  */
 end_comment
 
 begin_class

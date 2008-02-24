@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of an event driven {@link Consumer} which uses the {@link PollingConsumer}  *  * @version $Revision: 1.1 $  */
+comment|/**  * A default implementation of an event driven {@link Consumer} which uses the {@link PollingConsumer}  *  * @version $Revision$  */
 end_comment
 
 begin_class

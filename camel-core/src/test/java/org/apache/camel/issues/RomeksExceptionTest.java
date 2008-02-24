@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class

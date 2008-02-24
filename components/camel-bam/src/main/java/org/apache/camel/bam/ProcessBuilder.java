@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of a process definition  *   * @version $Revision: $  */
+comment|/**  * A builder of a process definition  *   * @version $Revision$  */
 end_comment
 
 begin_class

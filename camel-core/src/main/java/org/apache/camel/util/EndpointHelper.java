@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some helper methods for working with {@link Endpoint} instances  *  * @version $Revision: 1.1 $  */
+comment|/**  * Some helper methods for working with {@link Endpoint} instances  *  * @version $Revision$  */
 end_comment
 
 begin_class

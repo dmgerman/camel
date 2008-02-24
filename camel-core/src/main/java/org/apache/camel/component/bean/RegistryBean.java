@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of a {@link BeanHolder} which will  *  * @version $Revision: 1.1 $  */
+comment|/**  * An implementation of a {@link BeanHolder} which will  *  * @version $Revision$  */
 end_comment
 
 begin_class

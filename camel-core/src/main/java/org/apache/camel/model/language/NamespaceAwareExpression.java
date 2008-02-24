@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for any expression which may be namespace or XML content aware  * such as {@link XPathExpression} or {@link XQueryExpression}  *   * @version $Revision: 1.1 $  */
+comment|/**  * A useful base class for any expression which may be namespace or XML content aware  * such as {@link XPathExpression} or {@link XQueryExpression}  *   * @version $Revision$  */
 end_comment
 
 begin_class

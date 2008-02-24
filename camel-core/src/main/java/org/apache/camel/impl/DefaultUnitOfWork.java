@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default implementation of {@link UnitOfWork}  *  * @version $Revision: 1.1 $  */
+comment|/**  * The default implementation of {@link UnitOfWork}  *  * @version $Revision$  */
 end_comment
 
 begin_class
