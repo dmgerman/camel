@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Message Transformer of an XML document to a Customer entity bean  *   * @version $Revision: 1.1 $  */
+comment|/**  * A Message Transformer of an XML document to a Customer entity bean  *   * @version $Revision$  */
 end_comment
 
 begin_comment
