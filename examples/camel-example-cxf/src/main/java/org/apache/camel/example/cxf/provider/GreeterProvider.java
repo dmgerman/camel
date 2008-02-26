@@ -82,6 +82,10 @@ name|Mode
 import|;
 end_import
 
+begin_comment
+comment|// START SNIPPET: e1
+end_comment
+
 begin_class
 annotation|@
 name|WebServiceProvider
@@ -93,7 +97,9 @@ name|Mode
 operator|.
 name|MESSAGE
 argument_list|)
-comment|/**  * This class is used by Camel just for getting the endpoint configuration parameters. All the requests   * aimed at this class would be intercepted routed to the camel route specified. The route has to set the   * appropriate response message for the service to work.  */
+comment|// END SNIPPET: e1
+comment|/**  * This class is used by Camel just for getting the endpoint configuration parameters. All the requests  * aimed at this class would be intercepted routed to the camel route specified. The route has to set the  * appropriate response message for the service to work.  */
+comment|// START SNIPPET: e2
 DECL|class|GreeterProvider
 specifier|public
 class|class
@@ -104,13 +110,13 @@ argument_list|<
 name|SOAPMessage
 argument_list|>
 block|{
-DECL|method|invoke (SOAPMessage arg0)
+DECL|method|invoke (SOAPMessage message)
 specifier|public
 name|SOAPMessage
 name|invoke
 parameter_list|(
 name|SOAPMessage
-name|arg0
+name|message
 parameter_list|)
 block|{
 comment|//request should not come here as camel route would intercept the call before this is invoked.
@@ -124,6 +130,10 @@ throw|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: e2
+end_comment
 
 end_unit
 

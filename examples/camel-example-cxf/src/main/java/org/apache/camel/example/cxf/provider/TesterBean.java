@@ -154,6 +154,10 @@ begin_comment
 comment|/**  * A simple bean demonstrating processing of SOAPMessage routed by CAMEL  *  */
 end_comment
 
+begin_comment
+comment|//START SNIPPET: e1
+end_comment
+
 begin_class
 DECL|class|TesterBean
 specifier|public
@@ -412,6 +416,10 @@ block|}
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: e1
+end_comment
 
 end_unit
 
