@@ -95,6 +95,7 @@ throws|throws
 name|Exception
 block|{
 comment|// setup the camel context for the camel transport
+comment|// START SNIPPET: e1
 name|SpringBusFactory
 name|bf
 init|=
@@ -126,6 +127,7 @@ argument_list|(
 name|bus
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 DECL|method|start ()
 specifier|public
@@ -145,6 +147,7 @@ argument_list|(
 literal|"Starting Server"
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: e2
 name|Object
 name|implementor
 init|=
@@ -193,6 +196,7 @@ argument_list|,
 name|implementor
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e2
 block|}
 DECL|method|stop ()
 specifier|public
