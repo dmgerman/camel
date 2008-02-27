@@ -872,6 +872,22 @@ return|return
 name|expressionValue
 return|;
 block|}
+DECL|method|setExpressionValue (Expression expressionValue)
+specifier|protected
+name|void
+name|setExpressionValue
+parameter_list|(
+name|Expression
+name|expressionValue
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expressionValue
+operator|=
+name|expressionValue
+expr_stmt|;
+block|}
 comment|/**      * Returns some descriptive text to describe this node      */
 DECL|method|getLabel ()
 specifier|public
