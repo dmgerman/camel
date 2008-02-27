@@ -259,6 +259,57 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * An expression of the exchange      */
+DECL|method|exchange ()
+specifier|public
+name|T
+name|exchange
+parameter_list|()
+block|{
+return|return
+name|expression
+argument_list|(
+name|ExpressionBuilder
+operator|.
+name|exchangeExpression
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * An expression of an inbound message      */
+DECL|method|inMessage ()
+specifier|public
+name|T
+name|inMessage
+parameter_list|()
+block|{
+return|return
+name|expression
+argument_list|(
+name|ExpressionBuilder
+operator|.
+name|inMessageExpression
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * An expression of an inbound message      */
+DECL|method|outMessage ()
+specifier|public
+name|T
+name|outMessage
+parameter_list|()
+block|{
+return|return
+name|expression
+argument_list|(
+name|ExpressionBuilder
+operator|.
+name|outMessageExpression
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      * An expression of an inbound message body      */
 DECL|method|body ()
 specifier|public
