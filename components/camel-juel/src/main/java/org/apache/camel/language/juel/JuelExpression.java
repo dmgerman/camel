@@ -20,11 +20,11 @@ end_package
 
 begin_import
 import|import
-name|javax
+name|java
 operator|.
-name|el
+name|util
 operator|.
-name|ELContext
+name|Properties
 import|;
 end_import
 
@@ -34,17 +34,7 @@ name|javax
 operator|.
 name|el
 operator|.
-name|ExpressionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|el
-operator|.
-name|ValueExpression
+name|*
 import|;
 end_import
 
@@ -101,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://activemq.apache.org/camel/el.html">EL Language from JSP and JSF</a>  * using the<a href="http://activemq.apache.org/camel/juel.html">JUEL library</a>  *   * @version $Revision$  */
+comment|/**  * The<a href="http://activemq.apache.org/camel/el.html">EL Language from JSP and JSF</a>  * using the<a href="http://activemq.apache.org/camel/juel.html">JUEL library</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -134,6 +124,11 @@ DECL|field|expressionFactory
 specifier|private
 name|ExpressionFactory
 name|expressionFactory
+decl_stmt|;
+DECL|field|expressionFactoryProperties
+specifier|private
+name|Properties
+name|expressionFactoryProperties
 decl_stmt|;
 DECL|method|JuelExpression (String expression, Class<?> type)
 specifier|public
@@ -243,12 +238,20 @@ operator|==
 literal|null
 condition|)
 block|{
+name|Properties
+name|properties
+init|=
+name|getExpressionFactoryProperties
+argument_list|()
+decl_stmt|;
 name|expressionFactory
 operator|=
 name|ExpressionFactory
 operator|.
 name|newInstance
-argument_list|()
+argument_list|(
+name|properties
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -269,6 +272,51 @@ operator|.
 name|expressionFactory
 operator|=
 name|expressionFactory
+expr_stmt|;
+block|}
+DECL|method|getExpressionFactoryProperties ()
+specifier|public
+name|Properties
+name|getExpressionFactoryProperties
+parameter_list|()
+block|{
+if|if
+condition|(
+name|expressionFactoryProperties
+operator|==
+literal|null
+condition|)
+block|{
+name|expressionFactoryProperties
+operator|=
+operator|new
+name|Properties
+argument_list|()
+expr_stmt|;
+name|populateDefaultExpressionProperties
+argument_list|(
+name|expressionFactoryProperties
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|expressionFactoryProperties
+return|;
+block|}
+DECL|method|setExpressionFactoryProperties (Properties expressionFactoryProperties)
+specifier|public
+name|void
+name|setExpressionFactoryProperties
+parameter_list|(
+name|Properties
+name|expressionFactoryProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expressionFactoryProperties
+operator|=
+name|expressionFactoryProperties
 expr_stmt|;
 block|}
 DECL|method|populateContext (ELContext context, Exchange exchange)
@@ -339,6 +387,27 @@ return|return
 name|context
 return|;
 block|}
+comment|/**      * A Strategy Method to populate the default properties used to create the expression factory      */
+DECL|method|populateDefaultExpressionProperties (Properties properties)
+specifier|protected
+name|void
+name|populateDefaultExpressionProperties
+parameter_list|(
+name|Properties
+name|properties
+parameter_list|)
+block|{
+comment|// lets enable method invocations
+name|properties
+operator|.
+name|setProperty
+argument_list|(
+literal|"javax.el.methodInvocations"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setVariable (ELContext context, String name, Object value, Class<?> type)
 specifier|protected
 name|void
@@ -398,10 +467,65 @@ name|ELContext
 name|createContext
 parameter_list|()
 block|{
+name|ELResolver
+name|resolver
+init|=
+operator|new
+name|CompositeELResolver
+argument_list|()
+block|{
+block|{
+comment|//add(methodResolver);
+name|add
+argument_list|(
+operator|new
+name|ArrayELResolver
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|add
+argument_list|(
+operator|new
+name|ListELResolver
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|add
+argument_list|(
+operator|new
+name|MapELResolver
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|add
+argument_list|(
+operator|new
+name|ResourceBundleELResolver
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|add
+argument_list|(
+operator|new
+name|BeanAndMethodELResolver
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+decl_stmt|;
 return|return
 operator|new
 name|SimpleContext
-argument_list|()
+argument_list|(
+name|resolver
+argument_list|)
 return|;
 block|}
 DECL|method|assertionFailureMessage (Exchange exchange)

@@ -72,6 +72,20 @@ literal|"<hello id='m123'>world!</hello>"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testElPredicates ()
+specifier|public
+name|void
+name|testElPredicates
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertPredicate
+argument_list|(
+literal|"${in.headers.foo.startsWith('a')}"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getLanguageName ()
 specifier|protected
 name|String
