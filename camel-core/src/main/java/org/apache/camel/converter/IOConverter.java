@@ -518,27 +518,6 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toByteArray (String text)
-specifier|public
-specifier|static
-name|byte
-index|[]
-name|toByteArray
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-comment|// TODO could we automatically find this?
-return|return
-name|text
-operator|.
-name|getBytes
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Converter
 DECL|method|toString (byte[] data)
 specifier|public
 specifier|static
