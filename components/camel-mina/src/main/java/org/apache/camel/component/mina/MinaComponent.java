@@ -136,6 +136,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|converter
 operator|.
 name|ObjectConverter
@@ -517,7 +529,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * The component for using the Mina libaray  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -805,7 +817,9 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-return|return
+name|MinaEndpoint
+name|endpoint
+init|=
 operator|new
 name|MinaEndpoint
 argument_list|(
@@ -821,6 +835,51 @@ name|connector
 argument_list|,
 name|config
 argument_list|)
+decl_stmt|;
+name|boolean
+name|sync
+init|=
+name|ObjectConverter
+operator|.
+name|toBool
+argument_list|(
+name|parameters
+operator|.
+name|get
+argument_list|(
+literal|"sync"
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|sync
+condition|)
+block|{
+name|endpoint
+operator|.
+name|setExchangePattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOut
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|endpoint
+operator|.
+name|setExchangePattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|endpoint
 return|;
 block|}
 DECL|method|configureSocketCodecFactory (BaseIoConnectorConfig config, Map parameters)
