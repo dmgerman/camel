@@ -392,7 +392,7 @@ argument_list|(
 literal|"seda:b"
 argument_list|)
 expr_stmt|;
-comment|// this route willÊuse the default error handler, DeadLetterChannel
+comment|// this route will use the default error handler, DeadLetterChannel
 name|from
 argument_list|(
 literal|"seda:b"
