@@ -148,6 +148,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 comment|// lets setup the out message before we invoke the dataFormat
 comment|// so that it can mutate it if necessary
 name|Message
@@ -189,6 +191,23 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+literal|null
+operator|!=
+name|stream
+condition|)
+block|{
+name|stream
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 end_class
