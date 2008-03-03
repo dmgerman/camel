@@ -212,7 +212,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|Resequencer
+name|BatchProcessor
 operator|.
 name|class
 argument_list|)
@@ -529,6 +529,24 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|timeout
+operator|<
+literal|0L
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"batch timeout expired at batch index:"
+operator|+
+name|i
+argument_list|)
+expr_stmt|;
+break|break;
+block|}
 name|Exchange
 name|exchange
 init|=
@@ -546,6 +564,19 @@ operator|==
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"receive with timeout: "
+operator|+
+name|timeout
+operator|+
+literal|" expired at batch index:"
+operator|+
+name|i
+argument_list|)
+expr_stmt|;
 break|break;
 block|}
 name|collection
@@ -568,7 +599,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Finsihed batch size: "
+literal|"Finished batch size: "
 operator|+
 name|batchSize
 operator|+
