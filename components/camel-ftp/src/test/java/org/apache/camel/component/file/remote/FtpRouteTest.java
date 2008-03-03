@@ -202,10 +202,11 @@ argument_list|(
 name|expectedBody
 argument_list|)
 expr_stmt|;
-comment|// TODO: FIX this test the line below fails because FtpConsumer[102] returns an empty array
-comment|//  I suspect the problem is mostly related to the FTPServer we are using for the test
-comment|//  The file(s) expected are present on the filesystem.
-comment|// resultEndpoint.assertIsSatisfied();
+name|resultEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|sendExchange (final Object expectedBody)
 specifier|protected
