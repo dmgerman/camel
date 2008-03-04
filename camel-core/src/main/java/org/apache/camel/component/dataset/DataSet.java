@@ -86,6 +86,12 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Returns the number of messages which should be received before reporting on the progress of the test      */
+DECL|method|getReportCount ()
+name|long
+name|getReportCount
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

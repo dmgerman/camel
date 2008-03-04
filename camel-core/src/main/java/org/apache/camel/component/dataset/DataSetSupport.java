@@ -123,6 +123,14 @@ name|size
 init|=
 literal|10
 decl_stmt|;
+DECL|field|reportCount
+specifier|private
+name|long
+name|reportCount
+init|=
+operator|-
+literal|1
+decl_stmt|;
 DECL|method|DataSetSupport ()
 specifier|public
 name|DataSetSupport
@@ -284,6 +292,8 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Properties
+comment|//-------------------------------------------------------------------------
 DECL|method|getSize ()
 specifier|public
 name|long
@@ -308,6 +318,48 @@ operator|.
 name|size
 operator|=
 name|size
+expr_stmt|;
+block|}
+DECL|method|getReportCount ()
+specifier|public
+name|long
+name|getReportCount
+parameter_list|()
+block|{
+if|if
+condition|(
+name|reportCount
+operator|<=
+literal|0
+condition|)
+block|{
+name|reportCount
+operator|=
+name|getSize
+argument_list|()
+operator|/
+literal|5
+expr_stmt|;
+block|}
+return|return
+name|reportCount
+return|;
+block|}
+comment|/**      * Sets the number of messages in a group on which we will report that messages have been received.      */
+DECL|method|setReportCount (long reportCount)
+specifier|public
+name|void
+name|setReportCount
+parameter_list|(
+name|long
+name|reportCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reportCount
+operator|=
+name|reportCount
 expr_stmt|;
 block|}
 DECL|method|getDefaultHeaders ()
@@ -396,6 +448,8 @@ operator|=
 name|outputTransformer
 expr_stmt|;
 block|}
+comment|// Implementation methods
+comment|//-------------------------------------------------------------------------
 DECL|method|createMessageBody (long messageIndex)
 specifier|protected
 specifier|abstract
