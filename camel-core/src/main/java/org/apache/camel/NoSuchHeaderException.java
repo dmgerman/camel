@@ -29,14 +29,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception caused when a mandatory property is not available on a message  * {@link Exchange}  *   * @see ExchangeHelper#getMandatoryProperty(Exchange, String, Class)  *   * @version $Revision$  */
+comment|/**  * An exception caused when a mandatory header is not available on a message  * {@link Exchange}  *  * @see ExchangeHelper#getMandatoryHeader(Exchange, String, Class)  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|NoSuchPropertyException
+DECL|class|NoSuchHeaderException
 specifier|public
 class|class
-name|NoSuchPropertyException
+name|NoSuchHeaderException
 extends|extends
 name|CamelExchangeException
 block|{
@@ -50,11 +50,11 @@ init|=
 operator|-
 literal|8721487431101572630L
 decl_stmt|;
-DECL|field|propertyName
+DECL|field|headerName
 specifier|private
 specifier|final
 name|String
-name|propertyName
+name|headerName
 decl_stmt|;
 DECL|field|type
 specifier|private
@@ -65,15 +65,15 @@ name|?
 argument_list|>
 name|type
 decl_stmt|;
-DECL|method|NoSuchPropertyException (Exchange exchange, String propertyName, Class<?> type)
+DECL|method|NoSuchHeaderException (Exchange exchange, String headerName, Class<?> type)
 specifier|public
-name|NoSuchPropertyException
+name|NoSuchHeaderException
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
 name|String
-name|propertyName
+name|headerName
 parameter_list|,
 name|Class
 argument_list|<
@@ -86,9 +86,9 @@ name|super
 argument_list|(
 literal|"No '"
 operator|+
-name|propertyName
+name|headerName
 operator|+
-literal|"' property available of type: "
+literal|"' header available of type: "
 operator|+
 name|type
 operator|.
@@ -99,7 +99,7 @@ name|reason
 argument_list|(
 name|exchange
 argument_list|,
-name|propertyName
+name|headerName
 argument_list|)
 argument_list|,
 name|exchange
@@ -107,9 +107,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|propertyName
+name|headerName
 operator|=
-name|propertyName
+name|headerName
 expr_stmt|;
 name|this
 operator|.
@@ -118,14 +118,14 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-DECL|method|getPropertyName ()
+DECL|method|getHeaderName ()
 specifier|public
 name|String
-name|getPropertyName
+name|getHeaderName
 parameter_list|()
 block|{
 return|return
-name|propertyName
+name|headerName
 return|;
 block|}
 DECL|method|getType ()
