@@ -99,10 +99,10 @@ end_comment
 begin_class
 annotation|@
 name|ContextConfiguration
-DECL|class|DataSetTest
+DECL|class|SpringDataSetTest
 specifier|public
 class|class
-name|DataSetTest
+name|SpringDataSetTest
 extends|extends
 name|AbstractJUnit38SpringContextTests
 block|{
