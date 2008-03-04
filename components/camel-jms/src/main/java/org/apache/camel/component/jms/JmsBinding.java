@@ -550,6 +550,35 @@ name|result
 return|;
 block|}
 comment|/**      * Creates a JMS message from the Camel exchange and message      *      * @param session the JMS session used to create the message      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
+DECL|method|makeJmsMessage (Exchange exchange, Session session)
+specifier|public
+name|Message
+name|makeJmsMessage
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Session
+name|session
+parameter_list|)
+throws|throws
+name|JMSException
+block|{
+return|return
+name|makeJmsMessage
+argument_list|(
+name|exchange
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|,
+name|session
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a JMS message from the Camel exchange and message      *      * @param session the JMS session used to create the message      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
 DECL|method|makeJmsMessage (Exchange exchange, org.apache.camel.Message camelMessage, Session session)
 specifier|public
 name|Message
@@ -638,6 +667,34 @@ block|}
 return|return
 name|answer
 return|;
+block|}
+comment|/**      * Appends the JMS headers from the Camel {@link JmsMessage}      */
+DECL|method|appendJmsProperties (Message jmsMessage, Exchange exchange)
+specifier|public
+name|void
+name|appendJmsProperties
+parameter_list|(
+name|Message
+name|jmsMessage
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|JMSException
+block|{
+name|appendJmsProperties
+argument_list|(
+name|jmsMessage
+argument_list|,
+name|exchange
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Appends the JMS headers from the Camel {@link JmsMessage}      */
 DECL|method|appendJmsProperties (Message jmsMessage, Exchange exchange, org.apache.camel.Message in)

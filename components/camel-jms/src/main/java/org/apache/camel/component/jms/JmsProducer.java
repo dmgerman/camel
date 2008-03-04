@@ -674,6 +674,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Preserved for backwards compatibility.      *       * @deprecated      * @see #getInOnlyTemplate()      */
+DECL|method|getTemplate ()
+specifier|public
+name|JmsOperations
+name|getTemplate
+parameter_list|()
+block|{
+return|return
+name|getInOnlyTemplate
+argument_list|()
+return|;
+block|}
 DECL|method|getInOnlyTemplate ()
 specifier|public
 name|JmsOperations
