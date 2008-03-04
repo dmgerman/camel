@@ -665,6 +665,15 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|context
+argument_list|,
+literal|"camelContext"
+argument_list|)
+expr_stmt|;
 name|Collection
 argument_list|<
 name|Endpoint
