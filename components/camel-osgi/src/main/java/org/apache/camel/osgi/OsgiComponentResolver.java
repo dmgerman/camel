@@ -198,11 +198,7 @@ name|springframework
 operator|.
 name|osgi
 operator|.
-name|internal
-operator|.
-name|context
-operator|.
-name|support
+name|util
 operator|.
 name|BundleDelegatingClassLoader
 import|;
