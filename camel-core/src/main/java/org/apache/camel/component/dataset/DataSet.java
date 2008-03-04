@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a strategy for testing endpoints with canned data.  *   * @version $Revision: 1.1 $  */
+comment|/**  * Represents a strategy for testing endpoints with canned data.  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_interface
@@ -46,9 +46,8 @@ name|INDEX_HEADER
 init|=
 literal|"camelDataSetIndex"
 decl_stmt|;
-comment|/**      * Populates a message exchange when using the DataSet as a source of messages      *       * @param exchange      */
+comment|/**      * Populates a message exchange when using the DataSet as a source of messages      *      * @param exchange      */
 DECL|method|populateMessage (Exchange exchange, long messageIndex)
-specifier|public
 name|void
 name|populateMessage
 parameter_list|(
@@ -63,10 +62,29 @@ name|Exception
 function_decl|;
 comment|/**      * Returns the size of the dataset      */
 DECL|method|getSize ()
-specifier|public
 name|long
 name|getSize
 parameter_list|()
+function_decl|;
+comment|/**      * Asserts that the expected message has been received for the given index      */
+DECL|method|assertMessageExpected (DataSetEndpoint dataSetEndpoint, Exchange expected, Exchange actual, long index)
+name|void
+name|assertMessageExpected
+parameter_list|(
+name|DataSetEndpoint
+name|dataSetEndpoint
+parameter_list|,
+name|Exchange
+name|expected
+parameter_list|,
+name|Exchange
+name|actual
+parameter_list|,
+name|long
+name|index
+parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 block|}
 end_interface
