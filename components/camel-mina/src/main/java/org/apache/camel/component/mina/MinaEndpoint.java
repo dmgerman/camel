@@ -185,7 +185,13 @@ specifier|final
 name|IoServiceConfig
 name|config
 decl_stmt|;
-DECL|method|MinaEndpoint (String endpointUri, MinaComponent component, SocketAddress address, IoAcceptor acceptor, IoConnector connector, IoServiceConfig config)
+DECL|field|lazySessionCreation
+specifier|private
+specifier|final
+name|boolean
+name|lazySessionCreation
+decl_stmt|;
+DECL|method|MinaEndpoint (String endpointUri, MinaComponent component, SocketAddress address, IoAcceptor acceptor, IoConnector connector, IoServiceConfig config, boolean lazySessionCreation)
 specifier|public
 name|MinaEndpoint
 parameter_list|(
@@ -206,6 +212,9 @@ name|connector
 parameter_list|,
 name|IoServiceConfig
 name|config
+parameter_list|,
+name|boolean
+name|lazySessionCreation
 parameter_list|)
 block|{
 name|super
@@ -238,6 +247,12 @@ operator|.
 name|connector
 operator|=
 name|connector
+expr_stmt|;
+name|this
+operator|.
+name|lazySessionCreation
+operator|=
+name|lazySessionCreation
 expr_stmt|;
 block|}
 DECL|method|createProducer ()
@@ -385,6 +400,16 @@ parameter_list|()
 block|{
 return|return
 name|config
+return|;
+block|}
+DECL|method|getLazySessionCreation ()
+specifier|public
+name|boolean
+name|getLazySessionCreation
+parameter_list|()
+block|{
+return|return
+name|lazySessionCreation
 return|;
 block|}
 DECL|method|isSingleton ()
