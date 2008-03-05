@@ -403,17 +403,19 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
-literal|"Could not load ArtixDS Element class: "
+literal|"The ArtixDS Element class "
 operator|+
 name|elementTypeName
 operator|+
-literal|" on the classpath"
+literal|" is not on the classpath! Cannot use the dataFormat "
+operator|+
+name|this
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 block|}
