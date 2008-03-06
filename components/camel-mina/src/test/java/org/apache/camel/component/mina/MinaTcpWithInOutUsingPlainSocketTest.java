@@ -169,7 +169,7 @@ specifier|protected
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:9888?textline=true&sync=true"
+literal|"mina:tcp://localhost:6333?textline=true&sync=true"
 decl_stmt|;
 DECL|method|testSendAndReceiveOnce ()
 specifier|public
@@ -391,7 +391,7 @@ name|InetSocketAddress
 argument_list|(
 literal|"localhost"
 argument_list|,
-literal|8888
+literal|6333
 argument_list|)
 argument_list|)
 expr_stmt|;
