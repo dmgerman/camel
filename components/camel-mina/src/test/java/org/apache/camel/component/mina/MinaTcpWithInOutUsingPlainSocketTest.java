@@ -255,10 +255,10 @@ name|paris
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testReceiveNoResponseSinceOutBodyIsNull ()
+DECL|method|xtestReceiveNoResponseSinceOutBodyIsNull ()
 specifier|public
 name|void
-name|testReceiveNoResponseSinceOutBodyIsNull
+name|xtestReceiveNoResponseSinceOutBodyIsNull
 parameter_list|()
 throws|throws
 name|Exception
@@ -279,10 +279,10 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testReceiveNoResponseSinceOutBodyIsNullTwice ()
+DECL|method|xtestReceiveNoResponseSinceOutBodyIsNullTwice ()
 specifier|public
 name|void
-name|testReceiveNoResponseSinceOutBodyIsNullTwice
+name|xtestReceiveNoResponseSinceOutBodyIsNullTwice
 parameter_list|()
 throws|throws
 name|Exception
