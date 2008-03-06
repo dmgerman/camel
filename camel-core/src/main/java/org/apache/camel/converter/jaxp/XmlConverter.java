@@ -2114,6 +2114,35 @@ name|in
 argument_list|)
 return|;
 block|}
+comment|/**      * Converts the given {@link InputStream} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      */
+annotation|@
+name|Converter
+DECL|method|toDOMDocument (Reader in)
+specifier|public
+name|Document
+name|toDOMDocument
+parameter_list|(
+name|Reader
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|ParserConfigurationException
+block|{
+return|return
+name|toDOMDocument
+argument_list|(
+operator|new
+name|InputSource
+argument_list|(
+name|in
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Converts the given {@link InputSource} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      */
 annotation|@
 name|Converter
@@ -2171,10 +2200,11 @@ block|{
 return|return
 name|toDOMDocument
 argument_list|(
+operator|new
+name|StringReader
+argument_list|(
 name|text
-operator|.
-name|getBytes
-argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}
