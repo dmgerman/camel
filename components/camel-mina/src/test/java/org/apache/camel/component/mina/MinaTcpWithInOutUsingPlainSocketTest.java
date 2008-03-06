@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * To test camel-mina component using a TCP client that communicates using TCP socket communication.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -255,6 +255,105 @@ name|paris
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testReceiveNoResponseSinceOutBodyIsNull ()
+specifier|public
+name|void
+name|testReceiveNoResponseSinceOutBodyIsNull
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|out
+init|=
+name|sendAndReceive
+argument_list|(
+literal|"force-null-out-body"
+argument_list|)
+decl_stmt|;
+name|assertNull
+argument_list|(
+literal|"no data should be recieved"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testReceiveNoResponseSinceOutBodyIsNullTwice ()
+specifier|public
+name|void
+name|testReceiveNoResponseSinceOutBodyIsNullTwice
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|out
+init|=
+name|sendAndReceive
+argument_list|(
+literal|"force-null-out-body"
+argument_list|)
+decl_stmt|;
+name|assertNull
+argument_list|(
+literal|"no data should be recieved"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+name|out
+operator|=
+name|sendAndReceive
+argument_list|(
+literal|"force-null-out-body"
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+literal|"no data should be recieved"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testExchangeFailedOutShouldBeNull ()
+specifier|public
+name|void
+name|testExchangeFailedOutShouldBeNull
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|out
+init|=
+name|sendAndReceive
+argument_list|(
+literal|"force-exception"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"out should not be the same as in when the exchange has failed"
+argument_list|,
+operator|!
+literal|"force-exception"
+operator|.
+name|equals
+argument_list|(
+name|out
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+literal|"no data should be retrieved"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|sendAndReceive (String input)
 specifier|private
 name|String
@@ -338,21 +437,49 @@ operator|.
 name|getInputStream
 argument_list|()
 expr_stmt|;
+name|int
+name|len
+init|=
 name|is
 operator|.
 name|read
 argument_list|(
 name|buf
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+if|if
+condition|(
+name|len
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+comment|// no data received
+return|return
+literal|null
+return|;
+block|}
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+name|is
+operator|!=
+literal|null
+condition|)
 name|is
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|os
+operator|!=
+literal|null
+condition|)
 name|os
 operator|.
 name|close
@@ -394,7 +521,7 @@ name|ch
 operator|==
 literal|'\n'
 operator|||
-name|b
+name|ch
 operator|==
 literal|0
 condition|)
@@ -510,7 +637,61 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// append newline at end to denote end of data for textline codec
+if|if
+condition|(
+literal|"force-null-out-body"
+operator|.
+name|equals
+argument_list|(
+name|in
+argument_list|)
+condition|)
+block|{
+comment|// forcing a null out body
+name|e
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"force-exception"
+operator|.
+name|equals
+argument_list|(
+name|in
+argument_list|)
+condition|)
+block|{
+comment|// clear out before throwing exception
+name|e
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Forced exception"
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+comment|// append newline as stop character for textline codec
 name|e
 operator|.
 name|getOut
@@ -525,6 +706,7 @@ operator|+
 literal|"\n"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)

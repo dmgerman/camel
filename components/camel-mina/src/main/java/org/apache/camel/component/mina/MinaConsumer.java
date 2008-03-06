@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultConsumer
@@ -153,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A @{link Consumer} implementation for MINA  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.Consumer Consumer} implementation for Apache MINA.  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -285,6 +297,43 @@ annotation|@
 name|Override
 specifier|public
 name|void
+name|exceptionCaught
+parameter_list|(
+name|IoSession
+name|session
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// close invalid session
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Closing session as an exception was thrown from MINA"
+argument_list|)
+expr_stmt|;
+name|session
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+comment|// must wrap and rethrow since cause can be of Throwable and we must only throw Exception
+throw|throw
+operator|new
+name|CamelException
+argument_list|(
+name|cause
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
 name|messageReceived
 parameter_list|(
 name|IoSession
@@ -355,6 +404,14 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
+comment|// TODO: if exchange.isFailed() then out could potential be in - (what should we do)
+if|if
+condition|(
+name|body
+operator|!=
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|LOG
@@ -380,6 +437,23 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// must close session if no data to write otherwise client will never receive a response and wait forever
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Can not write body since its null, closing session"
+argument_list|)
+expr_stmt|;
+name|session
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
