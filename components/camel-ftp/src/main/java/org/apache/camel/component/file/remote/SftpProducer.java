@@ -236,7 +236,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|info
 argument_list|(
 literal|"Session isn't connected, trying to recreate and connect..."
 argument_list|)
@@ -256,7 +256,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|warn
+name|info
 argument_list|(
 literal|"Channel isn't connected, trying to recreate and connect..."
 argument_list|)

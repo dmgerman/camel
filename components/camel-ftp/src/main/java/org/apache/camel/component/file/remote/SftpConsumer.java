@@ -226,7 +226,7 @@ name|setNames
 init|=
 literal|false
 decl_stmt|;
-DECL|method|SftpConsumer (SftpEndpoint endpoint, Processor processor, ChannelSftp channel)
+DECL|method|SftpConsumer (SftpEndpoint endpoint, Processor processor, Session session)
 specifier|public
 name|SftpConsumer
 parameter_list|(
@@ -236,8 +236,8 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ChannelSftp
-name|channel
+name|Session
+name|session
 parameter_list|)
 block|{
 name|super
@@ -255,12 +255,12 @@ name|endpoint
 expr_stmt|;
 name|this
 operator|.
-name|channel
+name|session
 operator|=
-name|channel
+name|session
 expr_stmt|;
 block|}
-DECL|method|SftpConsumer (SftpEndpoint endpoint, Processor processor, ChannelSftp channel, ScheduledExecutorService executor)
+DECL|method|SftpConsumer (SftpEndpoint endpoint, Processor processor, Session session, ScheduledExecutorService executor)
 specifier|public
 name|SftpConsumer
 parameter_list|(
@@ -270,8 +270,8 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ChannelSftp
-name|channel
+name|Session
+name|session
 parameter_list|,
 name|ScheduledExecutorService
 name|executor
@@ -294,9 +294,9 @@ name|endpoint
 expr_stmt|;
 name|this
 operator|.
-name|channel
+name|session
 operator|=
-name|channel
+name|session
 expr_stmt|;
 block|}
 comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
@@ -336,7 +336,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|info
 argument_list|(
 literal|"Session isn't connected, trying to recreate and connect..."
 argument_list|)
@@ -356,7 +356,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|warn
+name|info
 argument_list|(
 literal|"Channel isn't connected, trying to recreate and connect..."
 argument_list|)
@@ -770,15 +770,11 @@ operator|.
 name|getMTime
 argument_list|()
 operator|*
-literal|1000
+literal|1000L
 operator|>
 name|lastPollTime
 condition|)
 block|{
-comment|// TODO do
-comment|// we need
-comment|// to adjust
-comment|// the TZ?
 if|if
 condition|(
 name|isMatched

@@ -168,11 +168,8 @@ name|this
 argument_list|,
 name|processor
 argument_list|,
-name|createChannelSftp
-argument_list|(
 name|createSession
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|configureConsumer
@@ -245,10 +242,6 @@ name|getPassword
 parameter_list|()
 block|{
 return|return
-name|SftpEndpoint
-operator|.
-name|this
-operator|.
 name|getConfiguration
 argument_list|()
 operator|.
