@@ -446,6 +446,22 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|aggregate
+operator|.
+name|AggregationCollection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|idempotent
 operator|.
 name|IdempotentConsumer
@@ -1490,7 +1506,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * This splitter responds with the latest message returned from destination      * endpoint.       *      * @param receipients the expression on which to split      * @return the builder      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * This splitter responds with the latest message returned from destination      * endpoint.       *      * @param receipients the expression on which to split      * @return the builder      */
 DECL|method|splitter (Expression receipients)
 specifier|public
 name|SplitterType
@@ -1518,7 +1534,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * This splitter responds with the latest message returned from destination      * endpoint.       *       * @return the expression clause for the expression on which to split      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * This splitter responds with the latest message returned from destination      * endpoint.       *       * @return the expression clause for the expression on which to split      */
 DECL|method|splitter ()
 specifier|public
 name|ExpressionClause
@@ -1549,7 +1565,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * Answer from the splitter is produced using given {@link AggregationStrategy}      * @param partsExpression the expression on which to split      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the builder      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * Answer from the splitter is produced using given {@link AggregationStrategy}      * @param partsExpression the expression on which to split      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the builder      */
 DECL|method|splitter (Expression partsExpression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|SplitterType
@@ -1587,7 +1603,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * Answer from the splitter is produced using given {@link AggregationStrategy}      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the expression clause for the expression on which to split      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * Answer from the splitter is produced using given {@link AggregationStrategy}      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the expression clause for the expression on which to split      */
 DECL|method|splitter (AggregationStrategy aggregationStrategy)
 specifier|public
 name|ExpressionClause
@@ -1628,7 +1644,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where a list of expressions are evaluated to be able to compare      * the message exchanges to reorder them. e.g. you may wish to sort by some      * headers      *      * @return the expression clause for the expressions on which to compare messages in order      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where a list of expressions are evaluated to be able to compare      * the message exchanges to reorder them. e.g. you may wish to sort by some      * headers      *      * @return the expression clause for the expressions on which to compare messages in order      */
 DECL|method|resequencer ()
 specifier|public
 name|ExpressionClause
@@ -1676,7 +1692,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where an expression is evaluated to be able to compare the      * message exchanges to reorder them. e.g. you may wish to sort by some      * header      *      * @param expression the expression on which to compare messages in order      * @return the builder      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where an expression is evaluated to be able to compare the      * message exchanges to reorder them. e.g. you may wish to sort by some      * header      *      * @param expression the expression on which to compare messages in order      * @return the builder      */
 DECL|method|resequencer (Expression<Exchange> expression)
 specifier|public
 name|ResequencerType
@@ -1704,7 +1720,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where a list of expressions are evaluated to be able to compare      * the message exchanges to reorder them. e.g. you may wish to sort by some      * headers      *      * @param expressions the expressions on which to compare messages in order      * @return the builder      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where a list of expressions are evaluated to be able to compare      * the message exchanges to reorder them. e.g. you may wish to sort by some      * headers      *      * @param expressions the expressions on which to compare messages in order      * @return the builder      */
 DECL|method|resequencer (List<Expression> expressions)
 specifier|public
 name|ResequencerType
@@ -1735,7 +1751,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where a list of expressions are evaluated to be able to compare      * the message exchanges to reorder them. e.g. you may wish to sort by some      * headers      *      * @param expressions the expressions on which to compare messages in order      * @return the builder      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where a list of expressions are evaluated to be able to compare      * the message exchanges to reorder them. e.g. you may wish to sort by some      * headers      *      * @param expressions the expressions on which to compare messages in order      * @return the builder      */
 DECL|method|resequencer (Expression... expressions)
 specifier|public
 name|ResequencerType
@@ -1782,7 +1798,7 @@ name|list
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
 DECL|method|aggregator ()
 specifier|public
 name|ExpressionClause
@@ -1813,7 +1829,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param aggregationStrategy the strategy used for the aggregation      */
 DECL|method|aggregator (AggregationStrategy aggregationStrategy)
 specifier|public
 name|ExpressionClause
@@ -1854,7 +1870,48 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern using a custom aggregation collection implementation.      *      * @param aggregationCollection the collection used to perform the aggregation      */
+DECL|method|aggregator (AggregationCollection aggregationCollection)
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|AggregatorType
+argument_list|>
+name|aggregator
+parameter_list|(
+name|AggregationCollection
+name|aggregationCollection
+parameter_list|)
+block|{
+name|AggregatorType
+name|answer
+init|=
+operator|new
+name|AggregatorType
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setAggregationCollection
+argument_list|(
+name|aggregationCollection
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|answer
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
 DECL|method|aggregator (Expression correlationExpression)
 specifier|public
 name|AggregatorType
@@ -1882,7 +1939,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
 DECL|method|aggregator (Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|AggregatorType
@@ -1915,7 +1972,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *      * @param processAtExpression an expression to calculate the time at which      *                            the messages should be processed      * @return the builder      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *      * @param processAtExpression an expression to calculate the time at which      *                            the messages should be processed      * @return the builder      */
 DECL|method|delayer (Expression<Exchange> processAtExpression)
 specifier|public
 name|DelayerType
@@ -1937,7 +1994,7 @@ literal|0L
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *      * @param processAtExpression an expression to calculate the time at which      *                            the messages should be processed      * @param delay               the delay in milliseconds which is added to the      *                            processAtExpression to determine the time the message      *                            should be processed      * @return the builder      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *      * @param processAtExpression an expression to calculate the time at which      *                            the messages should be processed      * @param delay               the delay in milliseconds which is added to the      *                            processAtExpression to determine the time the message      *                            should be processed      * @return the builder      */
 DECL|method|delayer (Expression<Exchange> processAtExpression, long delay)
 specifier|public
 name|DelayerType
@@ -1973,7 +2030,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      * @return the expression clause to create the expression      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      * @return the expression clause to create the expression      */
 DECL|method|delayer ()
 specifier|public
 name|ExpressionClause
@@ -2004,7 +2061,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where a fixed amount of milliseconds are used to delay processing of a      * message exchange      *      * @param delay the default delay in milliseconds      * @return the builder      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where a fixed amount of milliseconds are used to delay processing of a      * message exchange      *      * @param delay the default delay in milliseconds      * @return the builder      */
 DECL|method|delayer (long delay)
 specifier|public
 name|DelayerType
@@ -2023,7 +2080,7 @@ name|delay
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *      * @return the builder      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *      * @return the builder      */
 DECL|method|throttler (long maximumRequestCount)
 specifier|public
 name|ThrottlerType
