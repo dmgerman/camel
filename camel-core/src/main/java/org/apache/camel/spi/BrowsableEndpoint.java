@@ -59,6 +59,16 @@ DECL|interface|BrowsableEndpoint
 specifier|public
 interface|interface
 name|BrowsableEndpoint
+parameter_list|<
+name|T
+extends|extends
+name|Exchange
+parameter_list|>
+extends|extends
+name|Endpoint
+argument_list|<
+name|T
+argument_list|>
 block|{
 comment|/**      * Return the exchanges available on this endpoint      *      * @return the exchanges on this endpoint      */
 DECL|method|getExchanges ()
@@ -67,14 +77,6 @@ argument_list|<
 name|Exchange
 argument_list|>
 name|getExchanges
-parameter_list|()
-function_decl|;
-comment|// TODO when we remove the generics on Endpoint we can zap the next bit
-comment|// and make this interface extend Endpoint
-comment|/**      * Returns the string representation of the endpoint URI      */
-DECL|method|getEndpointUri ()
-name|String
-name|getEndpointUri
 parameter_list|()
 function_decl|;
 block|}

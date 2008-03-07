@@ -155,6 +155,9 @@ extends|extends
 name|JmsEndpoint
 implements|implements
 name|BrowsableEndpoint
+argument_list|<
+name|JmsExchange
+argument_list|>
 block|{
 DECL|field|maximumBrowseSize
 specifier|private
