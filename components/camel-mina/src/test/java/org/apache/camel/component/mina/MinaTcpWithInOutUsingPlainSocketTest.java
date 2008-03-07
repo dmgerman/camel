@@ -317,10 +317,10 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testExchangeFailedOutShouldBeNull ()
+DECL|method|xtestExchangeFailedOutShouldBeNull ()
 specifier|public
 name|void
-name|testExchangeFailedOutShouldBeNull
+name|xtestExchangeFailedOutShouldBeNull
 parameter_list|()
 throws|throws
 name|Exception
