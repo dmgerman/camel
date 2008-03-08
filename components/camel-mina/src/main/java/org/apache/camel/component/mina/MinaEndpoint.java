@@ -114,6 +114,20 @@ name|mina
 operator|.
 name|common
 operator|.
+name|IoAcceptorConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|mina
+operator|.
+name|common
+operator|.
 name|IoConnector
 import|;
 end_import
@@ -128,7 +142,7 @@ name|mina
 operator|.
 name|common
 operator|.
-name|IoServiceConfig
+name|IoConnectorConfig
 import|;
 end_import
 
@@ -147,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Endpoint for Camel MINA.   *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -179,11 +193,17 @@ specifier|final
 name|IoConnector
 name|connector
 decl_stmt|;
-DECL|field|config
+DECL|field|acceptorConfig
 specifier|private
 specifier|final
-name|IoServiceConfig
-name|config
+name|IoAcceptorConfig
+name|acceptorConfig
+decl_stmt|;
+DECL|field|connectorConfig
+specifier|private
+specifier|final
+name|IoConnectorConfig
+name|connectorConfig
 decl_stmt|;
 DECL|field|lazySessionCreation
 specifier|private
@@ -191,7 +211,7 @@ specifier|final
 name|boolean
 name|lazySessionCreation
 decl_stmt|;
-DECL|method|MinaEndpoint (String endpointUri, MinaComponent component, SocketAddress address, IoAcceptor acceptor, IoConnector connector, IoServiceConfig config, boolean lazySessionCreation)
+DECL|method|MinaEndpoint (String endpointUri, MinaComponent component, SocketAddress address, IoAcceptor acceptor, IoAcceptorConfig acceptorConfig, IoConnector connector, IoConnectorConfig connectorConfig, boolean lazySessionCreation)
 specifier|public
 name|MinaEndpoint
 parameter_list|(
@@ -207,11 +227,14 @@ parameter_list|,
 name|IoAcceptor
 name|acceptor
 parameter_list|,
+name|IoAcceptorConfig
+name|acceptorConfig
+parameter_list|,
 name|IoConnector
 name|connector
 parameter_list|,
-name|IoServiceConfig
-name|config
+name|IoConnectorConfig
+name|connectorConfig
 parameter_list|,
 name|boolean
 name|lazySessionCreation
@@ -226,12 +249,6 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|config
-operator|=
-name|config
-expr_stmt|;
-name|this
-operator|.
 name|address
 operator|=
 name|address
@@ -241,6 +258,18 @@ operator|.
 name|acceptor
 operator|=
 name|acceptor
+expr_stmt|;
+name|this
+operator|.
+name|acceptorConfig
+operator|=
+name|acceptorConfig
+expr_stmt|;
+name|this
+operator|.
+name|connectorConfig
+operator|=
+name|connectorConfig
 expr_stmt|;
 name|this
 operator|.
@@ -392,16 +421,6 @@ return|return
 name|connector
 return|;
 block|}
-DECL|method|getConfig ()
-specifier|public
-name|IoServiceConfig
-name|getConfig
-parameter_list|()
-block|{
-return|return
-name|config
-return|;
-block|}
 DECL|method|getLazySessionCreation ()
 specifier|public
 name|boolean
@@ -410,6 +429,26 @@ parameter_list|()
 block|{
 return|return
 name|lazySessionCreation
+return|;
+block|}
+DECL|method|getAcceptorConfig ()
+specifier|public
+name|IoAcceptorConfig
+name|getAcceptorConfig
+parameter_list|()
+block|{
+return|return
+name|acceptorConfig
+return|;
+block|}
+DECL|method|getConnectorConfig ()
+specifier|public
+name|IoConnectorConfig
+name|getConnectorConfig
+parameter_list|()
+block|{
+return|return
+name|connectorConfig
 return|;
 block|}
 DECL|method|isSingleton ()

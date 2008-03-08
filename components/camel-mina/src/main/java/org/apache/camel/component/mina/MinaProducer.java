@@ -84,6 +84,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultProducer
@@ -245,6 +257,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// TODO: The max wait response should be configurable
 DECL|field|MAX_WAIT_RESPONSE
 specifier|private
 specifier|static
@@ -403,12 +416,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Writing body : "
+literal|"Writing body: "
 operator|+
 name|body
 argument_list|)
 expr_stmt|;
 block|}
+comment|// write the body
 name|latch
 operator|=
 operator|new
@@ -443,7 +457,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|CamelException
 argument_list|(
 literal|"Timed out waiting for response: "
 operator|+
@@ -451,6 +465,7 @@ name|exchange
 argument_list|)
 throw|;
 block|}
+comment|// wait for response, consider timeout
 name|latch
 operator|.
 name|await
@@ -474,7 +489,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|CamelException
 argument_list|(
 literal|"No response from server within "
 operator|+
@@ -484,6 +499,7 @@ literal|" millisecs"
 argument_list|)
 throw|;
 block|}
+comment|// did we get a response
 name|ResponseHandler
 name|handler
 init|=
@@ -507,7 +523,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|Exception
+name|CamelException
 argument_list|(
 literal|"Response Handler had an exception"
 argument_list|,
@@ -684,7 +700,7 @@ name|ioHandler
 argument_list|,
 name|endpoint
 operator|.
-name|getConfig
+name|getConnectorConfig
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -725,7 +741,6 @@ specifier|private
 name|Throwable
 name|cause
 decl_stmt|;
-comment|/**          * @param endpoint          */
 DECL|method|ResponseHandler (MinaEndpoint endpoint)
 specifier|private
 name|ResponseHandler

@@ -163,13 +163,26 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+DECL|field|PORT
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|PORT
+init|=
+literal|6333
+decl_stmt|;
 comment|// use parameter sync=true to force InOut pattern of the MinaExchange
 DECL|field|uri
 specifier|protected
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:6333?textline=true&sync=true"
+literal|"mina:tcp://localhost:"
+operator|+
+name|PORT
+operator|+
+literal|"?textline=true&sync=true"
 decl_stmt|;
 DECL|method|testSendAndReceiveOnce ()
 specifier|public
@@ -255,10 +268,10 @@ name|paris
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xtestReceiveNoResponseSinceOutBodyIsNull ()
+DECL|method|testReceiveNoResponseSinceOutBodyIsNull ()
 specifier|public
 name|void
-name|xtestReceiveNoResponseSinceOutBodyIsNull
+name|testReceiveNoResponseSinceOutBodyIsNull
 parameter_list|()
 throws|throws
 name|Exception
@@ -279,10 +292,10 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xtestReceiveNoResponseSinceOutBodyIsNullTwice ()
+DECL|method|testReceiveNoResponseSinceOutBodyIsNullTwice ()
 specifier|public
 name|void
-name|xtestReceiveNoResponseSinceOutBodyIsNullTwice
+name|testReceiveNoResponseSinceOutBodyIsNullTwice
 parameter_list|()
 throws|throws
 name|Exception
@@ -391,7 +404,7 @@ name|InetSocketAddress
 argument_list|(
 literal|"localhost"
 argument_list|,
-literal|6333
+name|PORT
 argument_list|)
 argument_list|)
 expr_stmt|;

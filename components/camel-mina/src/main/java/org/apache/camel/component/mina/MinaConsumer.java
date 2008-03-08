@@ -309,6 +309,13 @@ throws|throws
 name|Exception
 block|{
 comment|// close invalid session
+if|if
+condition|(
+name|session
+operator|!=
+literal|null
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -321,6 +328,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 comment|// must wrap and rethrow since cause can be of Throwable and we must only throw Exception
 throw|throw
 operator|new
@@ -489,7 +497,7 @@ name|handler
 argument_list|,
 name|endpoint
 operator|.
-name|getConfig
+name|getAcceptorConfig
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -504,6 +512,28 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Unbinding from server address: "
+operator|+
+name|address
+operator|+
+literal|" using acceptor: "
+operator|+
+name|acceptor
+argument_list|)
+expr_stmt|;
+block|}
 name|acceptor
 operator|.
 name|unbind

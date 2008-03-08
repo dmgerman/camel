@@ -22,16 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|InetSocketAddress
@@ -220,7 +210,7 @@ name|mina
 operator|.
 name|common
 operator|.
-name|IoSession
+name|IoServiceConfig
 import|;
 end_import
 
@@ -234,9 +224,7 @@ name|mina
 operator|.
 name|common
 operator|.
-name|support
-operator|.
-name|BaseIoConnectorConfig
+name|IoSession
 import|;
 end_import
 
@@ -404,6 +392,24 @@ name|socket
 operator|.
 name|nio
 operator|.
+name|DatagramAcceptorConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|mina
+operator|.
+name|transport
+operator|.
+name|socket
+operator|.
+name|nio
+operator|.
 name|DatagramConnector
 import|;
 end_import
@@ -441,6 +447,24 @@ operator|.
 name|nio
 operator|.
 name|SocketAcceptor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|mina
+operator|.
+name|transport
+operator|.
+name|socket
+operator|.
+name|nio
+operator|.
+name|SocketAcceptorConfig
 import|;
 end_import
 
@@ -529,7 +553,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The component for using the Mina libaray  * @version $Revision$  */
+comment|/**  * The component for using Apache MINA.  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -687,7 +711,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unrecognised MINA protocol: "
 operator|+
@@ -750,6 +774,8 @@ name|address
 argument_list|,
 name|acceptor
 argument_list|,
+literal|null
+argument_list|,
 name|connector
 argument_list|,
 literal|null
@@ -804,9 +830,9 @@ operator|new
 name|SocketConnector
 argument_list|()
 decl_stmt|;
-comment|// TODO customize the config via URI
+comment|// connector config
 name|SocketConnectorConfig
-name|config
+name|connectorConfig
 init|=
 operator|new
 name|SocketConnectorConfig
@@ -814,11 +840,44 @@ argument_list|()
 decl_stmt|;
 name|configureSocketCodecFactory
 argument_list|(
-name|config
+name|connectorConfig
 argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// TODO: verbose logging from Mina should use our logger instead of MINA INFO logger
+comment|//connectorConfig.getFilterChain().addLast("logger", new LoggingFilter());
+comment|// acceptor connectorConfig
+name|SocketAcceptorConfig
+name|acceptorConfig
+init|=
+operator|new
+name|SocketAcceptorConfig
+argument_list|()
+decl_stmt|;
+name|configureSocketCodecFactory
+argument_list|(
+name|acceptorConfig
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+name|acceptorConfig
+operator|.
+name|setReuseAddress
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|acceptorConfig
+operator|.
+name|setDisconnectOnUnbind
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// TODO: verbose logging from Mina should use our logger instead of MINA INFO logger
+comment|//acceptorConfig.getFilterChain().addLast("logger", new LoggingFilter());
 name|boolean
 name|lazySessionCreation
 init|=
@@ -848,9 +907,11 @@ name|address
 argument_list|,
 name|acceptor
 argument_list|,
+name|acceptorConfig
+argument_list|,
 name|connector
 argument_list|,
-name|config
+name|connectorConfig
 argument_list|,
 name|lazySessionCreation
 argument_list|)
@@ -901,12 +962,12 @@ return|return
 name|endpoint
 return|;
 block|}
-DECL|method|configureSocketCodecFactory (BaseIoConnectorConfig config, Map parameters)
+DECL|method|configureSocketCodecFactory (IoServiceConfig config, Map parameters)
 specifier|protected
 name|void
 name|configureSocketCodecFactory
 parameter_list|(
-name|BaseIoConnectorConfig
+name|IoServiceConfig
 name|config
 parameter_list|,
 name|Map
@@ -1031,9 +1092,8 @@ operator|new
 name|DatagramConnector
 argument_list|()
 decl_stmt|;
-comment|// TODO customize the config via URI
 name|DatagramConnectorConfig
-name|config
+name|connectorConfig
 init|=
 operator|new
 name|DatagramConnectorConfig
@@ -1041,11 +1101,37 @@ argument_list|()
 decl_stmt|;
 name|configureDataGramCodecFactory
 argument_list|(
-name|config
+name|connectorConfig
 argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// TODO: verbose logging from Mina should use our logger instead of MINA INFO logger
+comment|//connectorConfig.getFilterChain().addLast("logger", new LoggingFilter());
+name|DatagramAcceptorConfig
+name|acceptorConfig
+init|=
+operator|new
+name|DatagramAcceptorConfig
+argument_list|()
+decl_stmt|;
+name|configureDataGramCodecFactory
+argument_list|(
+name|acceptorConfig
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+name|acceptorConfig
+operator|.
+name|setDisconnectOnUnbind
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// reuse address is default true for datagram
+comment|// TODO: verbose logging from Mina should use our logger instead of MINA INFO logger
+comment|//acceptorConfig.getFilterChain().addLast("logger", new LoggingFilter());
 name|boolean
 name|lazySessionCreation
 init|=
@@ -1061,7 +1147,9 @@ literal|"lazySessionCreation"
 argument_list|)
 argument_list|)
 decl_stmt|;
-return|return
+name|MinaEndpoint
+name|endpoint
+init|=
 operator|new
 name|MinaEndpoint
 argument_list|(
@@ -1073,21 +1161,68 @@ name|address
 argument_list|,
 name|acceptor
 argument_list|,
+name|acceptorConfig
+argument_list|,
 name|connector
 argument_list|,
-name|config
+name|connectorConfig
 argument_list|,
 name|lazySessionCreation
 argument_list|)
+decl_stmt|;
+name|boolean
+name|sync
+init|=
+name|ObjectConverter
+operator|.
+name|toBool
+argument_list|(
+name|parameters
+operator|.
+name|get
+argument_list|(
+literal|"sync"
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|sync
+condition|)
+block|{
+name|endpoint
+operator|.
+name|setExchangePattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOut
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|endpoint
+operator|.
+name|setExchangePattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|endpoint
 return|;
 block|}
 comment|/**      * For datagrams the entire message is available as a single ByteBuffer so lets just pass those around by default      * and try converting whatever they payload is into ByteBuffers unless some custom converter is specified      */
-DECL|method|configureDataGramCodecFactory (BaseIoConnectorConfig config, Map parameters)
+DECL|method|configureDataGramCodecFactory (IoServiceConfig config, Map parameters)
 specifier|protected
 name|void
 name|configureDataGramCodecFactory
 parameter_list|(
-name|BaseIoConnectorConfig
+name|IoServiceConfig
 name|config
 parameter_list|,
 name|Map
@@ -1250,7 +1385,6 @@ argument_list|,
 name|codecFactory
 argument_list|)
 expr_stmt|;
-comment|//addCodecFactory(config, new TextLineCodecFactory());
 block|}
 DECL|method|toByteBuffer (Object message)
 specifier|protected
@@ -1441,12 +1575,12 @@ return|return
 name|codecFactory
 return|;
 block|}
-DECL|method|addCodecFactory (BaseIoConnectorConfig config, ProtocolCodecFactory codecFactory)
+DECL|method|addCodecFactory (IoServiceConfig config, ProtocolCodecFactory codecFactory)
 specifier|protected
 name|void
 name|addCodecFactory
 parameter_list|(
-name|BaseIoConnectorConfig
+name|IoServiceConfig
 name|config
 parameter_list|,
 name|ProtocolCodecFactory
