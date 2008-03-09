@@ -175,6 +175,22 @@ argument_list|<
 name|MinaExchange
 argument_list|>
 block|{
+DECL|field|DEFAULT_TIMEOUT
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|DEFAULT_TIMEOUT
+init|=
+literal|30000
+decl_stmt|;
+DECL|field|timeout
+specifier|private
+name|long
+name|timeout
+init|=
+name|DEFAULT_TIMEOUT
+decl_stmt|;
 DECL|field|acceptor
 specifier|private
 specifier|final
@@ -211,7 +227,7 @@ specifier|final
 name|boolean
 name|lazySessionCreation
 decl_stmt|;
-DECL|method|MinaEndpoint (String endpointUri, MinaComponent component, SocketAddress address, IoAcceptor acceptor, IoAcceptorConfig acceptorConfig, IoConnector connector, IoConnectorConfig connectorConfig, boolean lazySessionCreation)
+DECL|method|MinaEndpoint (String endpointUri, MinaComponent component, SocketAddress address, IoAcceptor acceptor, IoAcceptorConfig acceptorConfig, IoConnector connector, IoConnectorConfig connectorConfig, boolean lazySessionCreation, long timeout)
 specifier|public
 name|MinaEndpoint
 parameter_list|(
@@ -238,6 +254,9 @@ name|connectorConfig
 parameter_list|,
 name|boolean
 name|lazySessionCreation
+parameter_list|,
+name|long
+name|timeout
 parameter_list|)
 block|{
 name|super
@@ -283,6 +302,21 @@ name|lazySessionCreation
 operator|=
 name|lazySessionCreation
 expr_stmt|;
+if|if
+condition|(
+name|timeout
+operator|>
+literal|0
+condition|)
+block|{
+comment|// override default timeout if provided
+name|this
+operator|.
+name|timeout
+operator|=
+name|timeout
+expr_stmt|;
+block|}
 block|}
 DECL|method|createProducer ()
 specifier|public
@@ -424,10 +458,10 @@ return|return
 name|connector
 return|;
 block|}
-DECL|method|getLazySessionCreation ()
+DECL|method|isLazySessionCreation ()
 specifier|public
 name|boolean
-name|getLazySessionCreation
+name|isLazySessionCreation
 parameter_list|()
 block|{
 return|return
@@ -462,6 +496,16 @@ parameter_list|()
 block|{
 return|return
 literal|true
+return|;
+block|}
+DECL|method|getTimeout ()
+specifier|public
+name|long
+name|getTimeout
+parameter_list|()
+block|{
+return|return
+name|timeout
 return|;
 block|}
 block|}

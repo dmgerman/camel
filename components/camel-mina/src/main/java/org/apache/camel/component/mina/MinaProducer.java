@@ -269,17 +269,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// TODO: The max wait response should be configurable
-comment|// The URI parameter could be a option
-DECL|field|MAX_WAIT_RESPONSE
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|MAX_WAIT_RESPONSE
-init|=
-literal|30000
-decl_stmt|;
 DECL|field|session
 specifier|private
 name|IoSession
@@ -299,6 +288,11 @@ DECL|field|lazySessionCreation
 specifier|private
 name|boolean
 name|lazySessionCreation
+decl_stmt|;
+DECL|field|timeout
+specifier|private
+name|long
+name|timeout
 decl_stmt|;
 DECL|method|MinaProducer (MinaEndpoint endpoint)
 specifier|public
@@ -327,7 +321,18 @@ name|this
 operator|.
 name|endpoint
 operator|.
-name|getLazySessionCreation
+name|isLazySessionCreation
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|timeout
+operator|=
+name|this
+operator|.
+name|endpoint
+operator|.
+name|getTimeout
 argument_list|()
 expr_stmt|;
 block|}
@@ -474,7 +479,7 @@ name|ExchangeTimedOutException
 argument_list|(
 name|exchange
 argument_list|,
-name|MAX_WAIT_RESPONSE
+name|timeout
 argument_list|)
 throw|;
 block|}
@@ -483,7 +488,7 @@ name|latch
 operator|.
 name|await
 argument_list|(
-name|MAX_WAIT_RESPONSE
+name|timeout
 argument_list|,
 name|TimeUnit
 operator|.
@@ -506,7 +511,7 @@ name|ExchangeTimedOutException
 argument_list|(
 name|exchange
 argument_list|,
-name|MAX_WAIT_RESPONSE
+name|timeout
 argument_list|)
 throw|;
 block|}
@@ -686,6 +691,12 @@ operator|+
 literal|" using connector: "
 operator|+
 name|connector
+operator|+
+literal|" timeout: "
+operator|+
+name|timeout
+operator|+
+literal|" millis."
 argument_list|)
 expr_stmt|;
 block|}
