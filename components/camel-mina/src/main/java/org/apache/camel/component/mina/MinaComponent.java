@@ -368,6 +368,20 @@ name|apache
 operator|.
 name|mina
 operator|.
+name|filter
+operator|.
+name|LoggingFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|mina
+operator|.
 name|transport
 operator|.
 name|socket
@@ -845,8 +859,20 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-comment|// TODO: verbose logging from Mina should use our logger instead of MINA INFO logger
-comment|//connectorConfig.getFilterChain().addLast("logger", new LoggingFilter());
+name|connectorConfig
+operator|.
+name|getFilterChain
+argument_list|()
+operator|.
+name|addLast
+argument_list|(
+literal|"logger"
+argument_list|,
+operator|new
+name|LoggingFilter
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// acceptor connectorConfig
 name|SocketAcceptorConfig
 name|acceptorConfig
@@ -876,8 +902,20 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// TODO: verbose logging from Mina should use our logger instead of MINA INFO logger
-comment|//acceptorConfig.getFilterChain().addLast("logger", new LoggingFilter());
+name|acceptorConfig
+operator|.
+name|getFilterChain
+argument_list|()
+operator|.
+name|addLast
+argument_list|(
+literal|"logger"
+argument_list|,
+operator|new
+name|LoggingFilter
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|boolean
 name|lazySessionCreation
 init|=
@@ -1106,8 +1144,20 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-comment|// TODO: verbose logging from Mina should use our logger instead of MINA INFO logger
-comment|//connectorConfig.getFilterChain().addLast("logger", new LoggingFilter());
+name|connectorConfig
+operator|.
+name|getFilterChain
+argument_list|()
+operator|.
+name|addLast
+argument_list|(
+literal|"logger"
+argument_list|,
+operator|new
+name|LoggingFilter
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|DatagramAcceptorConfig
 name|acceptorConfig
 init|=
@@ -1130,8 +1180,20 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// reuse address is default true for datagram
-comment|// TODO: verbose logging from Mina should use our logger instead of MINA INFO logger
-comment|//acceptorConfig.getFilterChain().addLast("logger", new LoggingFilter());
+name|acceptorConfig
+operator|.
+name|getFilterChain
+argument_list|()
+operator|.
+name|addLast
+argument_list|(
+literal|"logger"
+argument_list|,
+operator|new
+name|LoggingFilter
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|boolean
 name|lazySessionCreation
 init|=

@@ -346,6 +346,8 @@ name|getContext
 argument_list|()
 argument_list|,
 name|pattern
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -372,6 +374,8 @@ argument_list|()
 argument_list|,
 name|getExchangePattern
 argument_list|()
+argument_list|,
+name|session
 argument_list|)
 decl_stmt|;
 name|exchange
@@ -384,7 +388,6 @@ argument_list|(
 name|object
 argument_list|)
 expr_stmt|;
-comment|// TODO store session in exchange?
 return|return
 name|exchange
 return|;

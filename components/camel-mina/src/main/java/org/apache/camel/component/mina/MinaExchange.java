@@ -68,8 +68,22 @@ name|DefaultExchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|mina
+operator|.
+name|common
+operator|.
+name|IoSession
+import|;
+end_import
+
 begin_comment
-comment|/**  * A {@link Exchange} for MINA  *   * @version $Revision$  */
+comment|/**  * A {@link Exchange} for Apache MINA.  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -80,7 +94,12 @@ name|MinaExchange
 extends|extends
 name|DefaultExchange
 block|{
-DECL|method|MinaExchange (CamelContext camelContext, ExchangePattern pattern)
+DECL|field|session
+specifier|private
+name|IoSession
+name|session
+decl_stmt|;
+DECL|method|MinaExchange (CamelContext camelContext, ExchangePattern pattern, IoSession session)
 specifier|public
 name|MinaExchange
 parameter_list|(
@@ -89,6 +108,9 @@ name|camelContext
 parameter_list|,
 name|ExchangePattern
 name|pattern
+parameter_list|,
+name|IoSession
+name|session
 parameter_list|)
 block|{
 name|super
@@ -98,6 +120,23 @@ argument_list|,
 name|pattern
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|session
+operator|=
+name|session
+expr_stmt|;
+block|}
+comment|/**      * The associated Mina session, is<b>only</b> available for {@link MinaConsumer}.      *       * @return the Mina session.      */
+DECL|method|getSession ()
+specifier|public
+name|IoSession
+name|getSession
+parameter_list|()
+block|{
+return|return
+name|session
+return|;
 block|}
 block|}
 end_class

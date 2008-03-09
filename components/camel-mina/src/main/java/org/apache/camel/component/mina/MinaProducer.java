@@ -96,6 +96,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangeTimedOutException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultProducer
@@ -258,6 +270,7 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// TODO: The max wait response should be configurable
+comment|// The URI parameter could be a option
 DECL|field|MAX_WAIT_RESPONSE
 specifier|private
 specifier|static
@@ -265,7 +278,7 @@ specifier|final
 name|long
 name|MAX_WAIT_RESPONSE
 init|=
-literal|10000
+literal|30000
 decl_stmt|;
 DECL|field|session
 specifier|private
@@ -457,11 +470,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|ExchangeTimedOutException
 argument_list|(
-literal|"Timed out waiting for response: "
-operator|+
 name|exchange
+argument_list|,
+name|MAX_WAIT_RESPONSE
 argument_list|)
 throw|;
 block|}
@@ -489,13 +502,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|ExchangeTimedOutException
 argument_list|(
-literal|"No response from server within "
-operator|+
+name|exchange
+argument_list|,
 name|MAX_WAIT_RESPONSE
-operator|+
-literal|" millisecs"
 argument_list|)
 throw|;
 block|}
@@ -824,6 +835,49 @@ condition|)
 block|{
 name|downLatch
 operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|sessionClosed (IoSession session)
+specifier|public
+name|void
+name|sessionClosed
+parameter_list|(
+name|IoSession
+name|session
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Session closed"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|message
+operator|==
+literal|null
+condition|)
+block|{
+comment|// session was closed but no message received. This is because the remote server had an internal error
+comment|// and could not return a proper response. We should count down to stop waiting for a response
 name|countDown
 argument_list|()
 expr_stmt|;

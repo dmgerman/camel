@@ -412,14 +412,64 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
-comment|// TODO: if exchange.isFailed() then out could potential be in - (what should we do)
+name|boolean
+name|failed
+init|=
+name|exchange
+operator|.
+name|isFailed
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|failed
+condition|)
+block|{
+comment|// can not write a response since the exchange is failed and we don't know in what state the
+comment|// in/out messages are in so the session is closed
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Can not write body since the exchange is failed, closing session: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+name|session
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|body
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+comment|// must close session if no data to write otherwise client will never receive a response
+comment|// and wait forever (if not timing out)
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Can not write body since its null, closing session: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+name|session
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// we got a response to write
 if|if
 condition|(
 name|LOG
@@ -444,22 +494,6 @@ name|write
 argument_list|(
 name|body
 argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// must close session if no data to write otherwise client will never receive a response and wait forever
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Can not write body since its null, closing session"
-argument_list|)
-expr_stmt|;
-name|session
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}
