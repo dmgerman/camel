@@ -172,6 +172,14 @@ expr_stmt|;
 name|sendUdpMessages
 argument_list|()
 expr_stmt|;
+comment|// sleeping for while to let the mock endpoint get all the message
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisifed
 argument_list|()
 expr_stmt|;
