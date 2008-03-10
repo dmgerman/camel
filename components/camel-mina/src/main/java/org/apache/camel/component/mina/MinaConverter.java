@@ -113,7 +113,6 @@ name|ByteBuffer
 name|buffer
 parameter_list|)
 block|{
-comment|// TODO is there a neater way?
 name|byte
 index|[]
 name|answer
@@ -220,13 +219,27 @@ index|[]
 name|bytes
 parameter_list|)
 block|{
-return|return
+name|ByteBuffer
+name|buf
+init|=
 name|ByteBuffer
 operator|.
-name|wrap
+name|allocate
+argument_list|(
+name|bytes
+operator|.
+name|length
+argument_list|)
+decl_stmt|;
+name|buf
+operator|.
+name|put
 argument_list|(
 name|bytes
 argument_list|)
+expr_stmt|;
+return|return
+name|buf
 return|;
 block|}
 block|}

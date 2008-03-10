@@ -257,14 +257,28 @@ argument_list|(
 name|in
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|bb
+argument_list|)
+expr_stmt|;
+comment|// convert back to byte[] and see if the bytes are equal
+name|bb
+operator|.
+name|flip
+argument_list|()
+expr_stmt|;
+comment|// must flip to change direction to read
 name|byte
 index|[]
 name|out
 init|=
-name|bb
+name|MinaConverter
 operator|.
-name|array
-argument_list|()
+name|toByteArray
+argument_list|(
+name|bb
+argument_list|)
 decl_stmt|;
 for|for
 control|(
