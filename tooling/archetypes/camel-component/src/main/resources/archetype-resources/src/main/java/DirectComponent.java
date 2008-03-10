@@ -7,7 +7,7 @@ begin_package
 package|package
 name|$
 block|{
-name|groupId
+name|packageName
 block|}
 end_package
 
