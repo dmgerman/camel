@@ -7,13 +7,25 @@ begin_package
 package|package
 name|$
 block|{
-name|packageName
+name|groupId
 block|}
 end_package
 
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Endpoint
+import|;
+end_import
 
 begin_import
 import|import
@@ -35,129 +47,89 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|impl
+operator|.
+name|DefaultComponent
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|Main
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|XPathBuilder
-operator|.
-name|xpath
+name|Map
 import|;
 end_import
 
 begin_comment
-comment|/**  * A Camel Router  *  * @version $  */
+comment|/**  * Represents the component that manages {@link DirectEndpoint}. It holds the  * list of named direct endpoints.  *  * @version  */
 end_comment
 
 begin_class
-DECL|class|MyRouteBuilder
+DECL|class|DirectComponent
 specifier|public
 class|class
-name|MyRouteBuilder
+name|DirectComponent
+parameter_list|<
+name|E
 extends|extends
-name|RouteBuilder
+name|Exchange
+parameter_list|>
+extends|extends
+name|DefaultComponent
+argument_list|<
+name|E
+argument_list|>
 block|{
-comment|/**      * A main() so we can easily run these routing rules in our IDE      */
-DECL|method|main (String... args)
-specifier|public
-specifier|static
-name|void
-name|main
+DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+specifier|protected
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|createEndpoint
 parameter_list|(
 name|String
-modifier|...
-name|args
+name|uri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Map
+name|parameters
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|Main
-operator|.
-name|main
+name|Endpoint
+argument_list|<
+name|E
+argument_list|>
+name|endpoint
+init|=
+operator|new
+name|DirectEndpoint
+argument_list|<
+name|E
+argument_list|>
 argument_list|(
-name|args
+name|uri
+argument_list|,
+name|this
+argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Lets configure the Camel routing rules using Java code...      */
-DECL|method|configure ()
-specifier|public
-name|void
-name|configure
-parameter_list|()
-block|{
-comment|// TODO create Camel routes here.
-comment|// here is a sample which processes the input files
-comment|// (leaving them in place - see the 'noop' flag)
-comment|// then performs content based routing on the message
-comment|// using XPath
-name|from
-argument_list|(
-literal|"file:src/data?noop=true"
-argument_list|)
-operator|.
-name|choice
-argument_list|()
-operator|.
-name|when
-argument_list|(
-name|xpath
-argument_list|(
-literal|"/person/city = 'London'"
-argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"file:target/messages/uk"
-argument_list|)
-operator|.
-name|otherwise
-argument_list|()
-operator|.
-name|to
-argument_list|(
-literal|"file:target/messages/others"
-argument_list|)
-expr_stmt|;
+return|return
+name|endpoint
+return|;
 block|}
 block|}
 end_class
