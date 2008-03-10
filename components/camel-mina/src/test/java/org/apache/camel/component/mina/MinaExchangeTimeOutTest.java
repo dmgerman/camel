@@ -132,6 +132,12 @@ expr_stmt|;
 comment|// default timeout is 30 sec so in the router below the response is slow and we timeout
 try|try
 block|{
+name|String
+name|result
+init|=
+operator|(
+name|String
+operator|)
 name|template
 operator|.
 name|requestBody
@@ -140,10 +146,12 @@ name|uri
 argument_list|,
 literal|"Hello World"
 argument_list|)
-expr_stmt|;
-name|fail
+decl_stmt|;
+name|assertEquals
 argument_list|(
-literal|"Should have thrown an ExchangeTimedOutException wrapped in a RuntimeCamelException"
+literal|"Okay I will be faster in the future"
+argument_list|,
+name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -153,16 +161,9 @@ name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{
-name|assertTrue
+name|fail
 argument_list|(
-literal|"Should have thrown an ExchangeTimedOutException"
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|ExchangeTimedOutException
+literal|"Should not get a RuntimeCamelException"
 argument_list|)
 expr_stmt|;
 block|}
@@ -175,14 +176,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Sending a message to Camel that takes 35 sec to reply, so be patient"
-argument_list|)
-expr_stmt|;
-comment|// use a timeout value of 40 seconds (timeout is in millis) so we should actually get a response in this test
+comment|// use a timeout value of 2 seconds (timeout is in millis) so we should actually get a response in this test
 name|Endpoint
 name|endpoint
 init|=
@@ -196,7 +190,7 @@ literal|"mina:tcp://localhost:"
 operator|+
 name|PORT
 operator|+
-literal|"?textline=true&sync=true&timeout=40000"
+literal|"?textline=true&sync=true&timeout=2000"
 argument_list|)
 decl_stmt|;
 name|Producer
@@ -230,6 +224,8 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|producer
 operator|.
 name|process
@@ -237,28 +233,28 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-name|String
-name|out
-init|=
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|getBody
+name|fail
 argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Okay I will be faster in the future"
-argument_list|,
-name|out
+literal|"Should have thrown an ExchangeTimedOutException wrapped in a RuntimeCamelException"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+literal|"Should have thrown an ExchangeTimedOutException"
+argument_list|,
+name|e
+operator|instanceof
+name|ExchangeTimedOutException
+argument_list|)
+expr_stmt|;
+block|}
 name|producer
 operator|.
 name|stop
@@ -380,13 +376,13 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// MinaProducer has a default timeout of 30 seconds so we wait 35 seconds
+comment|// MinaProducer has a default timeout of 30 seconds so we just wait 5 seconds
 comment|// (template.requestBody is a MinaProducer behind the doors)
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|35000
+literal|5000
 argument_list|)
 expr_stmt|;
 name|e
