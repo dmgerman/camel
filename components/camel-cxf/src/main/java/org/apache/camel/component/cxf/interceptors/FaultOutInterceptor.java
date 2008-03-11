@@ -108,10 +108,6 @@ name|LogUtils
 import|;
 end_import
 
-begin_comment
-comment|//import org.apache.cxf.common.i18n.BundleUtils;
-end_comment
-
 begin_import
 import|import
 name|org
@@ -182,6 +178,22 @@ name|Phase
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|service
+operator|.
+name|model
+operator|.
+name|BindingOperationInfo
+import|;
+end_import
+
 begin_class
 DECL|class|FaultOutInterceptor
 specifier|public
@@ -238,6 +250,12 @@ parameter_list|)
 throws|throws
 name|Fault
 block|{
+comment|// To walk around the FaultOutInterceptor NPE issue of CXF 2.0.4
+name|checkBindingOperationInfor
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
 name|Exception
 name|ex
 init|=
@@ -379,6 +397,60 @@ operator|.
 name|class
 argument_list|,
 name|ex
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/*      * This method is used to walk around the NPE issue of CXF 2.0.4      * org.apache.cxf.interceptor.FaultOutInterceptor.      * This issue was fixed in CXF 2.0.5 and CXF 2.1, when we upgrade CXF to that version      * we could remove this method from the interceptor      */
+DECL|method|checkBindingOperationInfor (Message message)
+specifier|private
+name|void
+name|checkBindingOperationInfor
+parameter_list|(
+name|Message
+name|message
+parameter_list|)
+block|{
+name|BindingOperationInfo
+name|bop
+init|=
+name|message
+operator|.
+name|getExchange
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|BindingOperationInfo
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|bop
+operator|==
+literal|null
+condition|)
+block|{
+name|bop
+operator|=
+operator|new
+name|FakeBindingOperationInfo
+argument_list|()
+expr_stmt|;
+name|message
+operator|.
+name|getExchange
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|BindingOperationInfo
+operator|.
+name|class
+argument_list|,
+name|bop
 argument_list|)
 expr_stmt|;
 block|}
