@@ -40,34 +40,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * To test timeout.  *  * @version $Revision$  */
 end_comment
@@ -80,22 +52,6 @@ name|MinaExchangeTimeOutTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|MinaExchangeTimeOutTest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|PORT
 specifier|private
 specifier|static
@@ -116,20 +72,12 @@ name|PORT
 operator|+
 literal|"?textline=true&sync=true"
 decl_stmt|;
-DECL|method|testTimedOut ()
+DECL|method|testDefaultTimeOut ()
 specifier|public
 name|void
-name|testTimedOut
+name|testDefaultTimeOut
 parameter_list|()
 block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Sending a message to Camel that should timeout after 30 sec, so be patient"
-argument_list|)
-expr_stmt|;
-comment|// default timeout is 30 sec so in the router below the response is slow and we timeout
 try|try
 block|{
 name|String

@@ -149,6 +149,7 @@ name|ByteBuffer
 name|buffer
 parameter_list|)
 block|{
+comment|// TODO: CAMEL-381, we should have type converters to strings that accepts a Charset parameter to handle encoding
 return|return
 name|IOConverter
 operator|.
