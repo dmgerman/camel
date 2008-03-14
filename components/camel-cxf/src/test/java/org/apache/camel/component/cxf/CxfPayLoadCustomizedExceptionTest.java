@@ -50,7 +50,7 @@ literal|"?"
 operator|+
 name|SERVICE_CLASS
 operator|+
-literal|"&DataFormat=MESSAGE"
+literal|"&DataFormat=PAYLOAD"
 expr_stmt|;
 name|super
 operator|.
