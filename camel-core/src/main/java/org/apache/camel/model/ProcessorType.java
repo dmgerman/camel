@@ -958,7 +958,50 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.           * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the multicast type      */
+comment|/**      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @param pralleProcessing if is true camel will fork thread to call the endpoint producer      * @return the multicast type      */
+DECL|method|multicast (AggregationStrategy aggregationStrategy, boolean paralleProcessing)
+specifier|public
+name|MulticastType
+name|multicast
+parameter_list|(
+name|AggregationStrategy
+name|aggregationStrategy
+parameter_list|,
+name|boolean
+name|paralleProcessing
+parameter_list|)
+block|{
+name|MulticastType
+name|answer
+init|=
+operator|new
+name|MulticastType
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setAggregationStrategy
+argument_list|(
+name|aggregationStrategy
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setParallelProcessing
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the multicast type      */
 DECL|method|multicast (AggregationStrategy aggregationStrategy)
 specifier|public
 name|MulticastType
@@ -1506,7 +1549,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * This splitter responds with the latest message returned from destination      * endpoint.       *      * @param receipients the expression on which to split      * @return the builder      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @param receipients the expression on which to split      * @return the builder      */
 DECL|method|splitter (Expression receipients)
 specifier|public
 name|SplitterType
@@ -1534,7 +1577,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * This splitter responds with the latest message returned from destination      * endpoint.       *       * @return the expression clause for the expression on which to split      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @return the expression clause for the expression on which to split      */
 DECL|method|splitter ()
 specifier|public
 name|ExpressionClause

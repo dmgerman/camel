@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor that forces async processing of the exchange using a thread pool.  *   * @version $Revision$  */
+comment|/**  * A processor that forces async processing of the exchange using a thread pool.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -277,7 +277,6 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
-empty_stmt|;
 DECL|class|ProcessCall
 class|class
 name|ProcessCall
