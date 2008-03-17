@@ -227,7 +227,13 @@ specifier|final
 name|boolean
 name|lazySessionCreation
 decl_stmt|;
-DECL|method|MinaEndpoint (String endpointUri, MinaComponent component, SocketAddress address, IoAcceptor acceptor, IoAcceptorConfig acceptorConfig, IoConnector connector, IoConnectorConfig connectorConfig, boolean lazySessionCreation, long timeout)
+DECL|field|transferExchange
+specifier|private
+specifier|final
+name|boolean
+name|transferExchange
+decl_stmt|;
+DECL|method|MinaEndpoint (String endpointUri, MinaComponent component, SocketAddress address, IoAcceptor acceptor, IoAcceptorConfig acceptorConfig, IoConnector connector, IoConnectorConfig connectorConfig, boolean lazySessionCreation, long timeout, boolean transferExchange)
 specifier|public
 name|MinaEndpoint
 parameter_list|(
@@ -257,6 +263,9 @@ name|lazySessionCreation
 parameter_list|,
 name|long
 name|timeout
+parameter_list|,
+name|boolean
+name|transferExchange
 parameter_list|)
 block|{
 name|super
@@ -317,6 +326,12 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+name|this
+operator|.
+name|transferExchange
+operator|=
+name|transferExchange
+expr_stmt|;
 block|}
 DECL|method|createProducer ()
 specifier|public
@@ -385,7 +400,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|createExchange (IoSession session, Object object)
+DECL|method|createExchange (IoSession session, Object payload)
 specifier|public
 name|MinaExchange
 name|createExchange
@@ -394,7 +409,7 @@ name|IoSession
 name|session
 parameter_list|,
 name|Object
-name|object
+name|payload
 parameter_list|)
 block|{
 name|MinaExchange
@@ -412,14 +427,13 @@ argument_list|,
 name|session
 argument_list|)
 decl_stmt|;
-name|exchange
+name|MinaPayloadHelper
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
+name|setIn
 argument_list|(
-name|object
+name|exchange
+argument_list|,
+name|payload
 argument_list|)
 expr_stmt|;
 return|return
@@ -506,6 +520,16 @@ parameter_list|()
 block|{
 return|return
 name|timeout
+return|;
+block|}
+DECL|method|isTransferExchange ()
+specifier|public
+name|boolean
+name|isTransferExchange
+parameter_list|()
+block|{
+return|return
+name|transferExchange
 return|;
 block|}
 block|}

@@ -843,6 +843,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -987,6 +989,21 @@ argument_list|(
 name|parameters
 argument_list|)
 decl_stmt|;
+name|boolean
+name|transferExchange
+init|=
+name|ObjectConverter
+operator|.
+name|toBool
+argument_list|(
+name|parameters
+operator|.
+name|get
+argument_list|(
+literal|"transferExchange"
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|MinaEndpoint
 name|endpoint
 init|=
@@ -1010,6 +1027,8 @@ argument_list|,
 name|lazySessionCreation
 argument_list|,
 name|timeout
+argument_list|,
+name|transferExchange
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1295,6 +1314,12 @@ argument_list|(
 name|parameters
 argument_list|)
 decl_stmt|;
+name|boolean
+name|transferExchange
+init|=
+literal|false
+decl_stmt|;
+comment|// transfer exchange is not supported for datagram protocol
 name|MinaEndpoint
 name|endpoint
 init|=
@@ -1318,6 +1343,8 @@ argument_list|,
 name|lazySessionCreation
 argument_list|,
 name|timeout
+argument_list|,
+name|transferExchange
 argument_list|)
 decl_stmt|;
 name|boolean
