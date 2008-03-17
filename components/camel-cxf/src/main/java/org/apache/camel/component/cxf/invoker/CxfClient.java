@@ -619,6 +619,29 @@ argument_list|,
 name|invokingContext
 argument_list|)
 decl_stmt|;
+comment|// add the endpoint props to the message
+name|Endpoint
+name|ep
+init|=
+name|getEndpoint
+argument_list|()
+decl_stmt|;
+comment|// the ep should not be null , just in case if it set to be null
+if|if
+condition|(
+name|ep
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+operator|.
+name|putAll
+argument_list|(
+name|ep
+argument_list|)
+expr_stmt|;
+block|}
 name|PhaseInterceptorChain
 name|chain
 init|=
