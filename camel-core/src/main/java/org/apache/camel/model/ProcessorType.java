@@ -3177,6 +3177,34 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Adds a processor which sets the header on the IN message to the given value      */
+DECL|method|setHeader (String name, String value)
+specifier|public
+name|Type
+name|setHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+block|{
+return|return
+operator|(
+name|Type
+operator|)
+name|setHeader
+argument_list|(
+name|name
+argument_list|)
+operator|.
+name|constant
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
 comment|/**      * Adds a processor which sets the header on the OUT message      */
 DECL|method|setOutHeader (String name)
 specifier|public
@@ -3257,6 +3285,34 @@ name|name
 argument_list|,
 name|expression
 argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Adds a processor which sets the header on the OUT message      */
+DECL|method|setOutHeader (String name, String value)
+specifier|public
+name|Type
+name|setOutHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+block|{
+return|return
+operator|(
+name|Type
+operator|)
+name|setOutHeader
+argument_list|(
+name|name
+argument_list|)
+operator|.
+name|constant
+argument_list|(
+name|value
 argument_list|)
 return|;
 block|}
