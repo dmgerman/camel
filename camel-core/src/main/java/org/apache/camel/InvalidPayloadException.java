@@ -49,6 +49,36 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
+name|this
+argument_list|(
+name|exchange
+argument_list|,
+name|type
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|InvalidPayloadException (Exchange exchange, Class<?> type, Message message)
+specifier|public
+name|InvalidPayloadException
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
+name|Message
+name|message
+parameter_list|)
+block|{
 name|super
 argument_list|(
 literal|"No in body available of type: "
@@ -62,14 +92,15 @@ name|NoSuchPropertyException
 operator|.
 name|valueDescription
 argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
+name|message
 operator|.
 name|getBody
 argument_list|()
 argument_list|)
+operator|+
+literal|" on: "
+operator|+
+name|message
 argument_list|,
 name|exchange
 argument_list|)
