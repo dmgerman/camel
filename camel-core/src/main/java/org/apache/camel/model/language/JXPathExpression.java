@@ -77,7 +77,7 @@ name|getLanguage
 parameter_list|()
 block|{
 return|return
-literal|"jaxpath"
+literal|"jxpath"
 return|;
 block|}
 block|}
