@@ -84,18 +84,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executor
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|RejectedExecutionException
 import|;
 end_import
@@ -209,22 +197,6 @@ operator|.
 name|impl
 operator|.
 name|ServiceSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|ThreadProcessor
-operator|.
-name|ProcessCall
 import|;
 end_import
 
@@ -358,7 +330,7 @@ name|this
 argument_list|(
 name|processors
 argument_list|,
-literal|null
+name|aggregationStrategy
 argument_list|,
 literal|false
 argument_list|,
@@ -386,6 +358,13 @@ name|ThreadPoolExecutor
 name|executor
 parameter_list|)
 block|{
+name|notNull
+argument_list|(
+name|processors
+argument_list|,
+literal|"processors"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|processors
@@ -461,13 +440,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|notNull
-argument_list|(
-name|processors
-argument_list|,
-literal|"processors"
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * A helper method to convert a list of endpoints into a list of processors      */
 DECL|method|toProducers (Collection<Endpoint> endpoints)
