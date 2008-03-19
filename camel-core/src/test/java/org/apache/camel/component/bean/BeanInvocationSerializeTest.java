@@ -203,11 +203,9 @@ argument_list|,
 name|object
 argument_list|)
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Received "
 operator|+
@@ -227,11 +225,9 @@ name|String
 name|b
 parameter_list|)
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Called with a: "
 operator|+
