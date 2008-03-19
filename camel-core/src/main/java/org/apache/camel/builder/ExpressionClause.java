@@ -625,6 +625,25 @@ name|text
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates a<a href="http://commons.apache.org/jxpath/">JXPath expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+DECL|method|jxpath (String text)
+specifier|public
+name|T
+name|jxpath
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|language
+argument_list|(
+literal|"jxpath"
+argument_list|,
+name|text
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates an<a href="http://activemq.apache.org/camel/ognl.html">OGNL expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|ognl (String text)
 specifier|public
