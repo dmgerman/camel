@@ -96,6 +96,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAttribute
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -195,9 +209,16 @@ argument_list|<
 name|ProcessorType
 argument_list|>
 block|{
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|field|parallelProcessing
 specifier|private
-name|boolean
+name|Boolean
 name|parallelProcessing
 decl_stmt|;
 annotation|@
@@ -285,7 +306,8 @@ name|list
 argument_list|,
 name|aggregationStrategy
 argument_list|,
-name|parallelProcessing
+name|isParallelProcessing
+argument_list|()
 argument_list|,
 name|threadPoolExecutor
 argument_list|)
@@ -325,6 +347,12 @@ parameter_list|()
 block|{
 return|return
 name|parallelProcessing
+operator|!=
+literal|null
+condition|?
+name|parallelProcessing
+else|:
+literal|false
 return|;
 block|}
 DECL|method|setParallelProcessing (boolean parallelProcessing)
