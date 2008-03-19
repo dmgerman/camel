@@ -461,11 +461,9 @@ name|boolean
 name|doneSynchronously
 parameter_list|)
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Completed: "
 operator|+

@@ -387,21 +387,6 @@ operator|+
 name|this
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"read() method called with: "
-operator|+
-name|body
-operator|+
-literal|" on "
-operator|+
-name|this
-argument_list|)
-expr_stmt|;
 return|return
 name|id
 return|;
