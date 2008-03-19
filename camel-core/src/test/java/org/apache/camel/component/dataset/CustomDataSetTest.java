@@ -235,13 +235,11 @@ name|index
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
-literal|">>>> evaluating predicate: "
+literal|"evaluating predicate: "
 operator|+
 name|predicate
 argument_list|)

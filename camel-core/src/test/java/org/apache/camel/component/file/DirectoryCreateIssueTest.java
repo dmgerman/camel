@@ -217,23 +217,9 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|BasicConfigurator
-operator|.
-name|configure
-argument_list|()
-expr_stmt|;
-name|Logger
-operator|.
-name|getRootLogger
-argument_list|()
-operator|.
-name|setLevel
-argument_list|(
-name|Level
-operator|.
-name|DEBUG
-argument_list|)
-expr_stmt|;
+comment|// The following code is removed
+comment|// if you want to enable debugging, add the src/test/ide-resources directory to your IDE classpath
+comment|/*         BasicConfigurator.configure();         Logger.getRootLogger().setLevel(Level.DEBUG); */
 name|context
 operator|=
 operator|new
