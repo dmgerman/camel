@@ -65,15 +65,20 @@ interface|interface
 name|InvokingContext
 block|{
 comment|/**      * This method is called when the router is preparing an outbound message      * (orignated from the router's client) to be sent to the target CXF server.      * It sets the content in the given (out) message object.      * @param content      */
-DECL|method|setRequestOutMessageContent (Message message, Object content)
+DECL|method|setRequestOutMessageContent (Message message, Map<Class, Object> contents)
 name|void
 name|setRequestOutMessageContent
 parameter_list|(
 name|Message
 name|message
 parameter_list|,
+name|Map
+argument_list|<
+name|Class
+argument_list|,
 name|Object
-name|content
+argument_list|>
+name|contents
 parameter_list|)
 function_decl|;
 comment|/**      * This method is call when the CxfClient receives a response from a CXF server and needs      * to extract the response object from the message.      * @param exchange      * @param responseContext      * @return response object      */
@@ -105,9 +110,14 @@ name|Object
 name|resultPayload
 parameter_list|)
 function_decl|;
-comment|/**      * This method is called when the routing interceptor has intercepted a message from      * the client and needs to extract the request content from the message.  It retreives      * and receives the request content from the incoming message.      * @param inMessage      * @return the request from client      */
+comment|/**      * This method is called when the routing interceptor has intercepted a message from      * the client and needs to extract the request content from the message.  It retreives      * and receives the request content from the incoming message.      * @param inMessage      * @return the request contents from client      */
 DECL|method|getRequestContent (Message inMessage)
+name|Map
+argument_list|<
+name|Class
+argument_list|,
 name|Object
+argument_list|>
 name|getRequestContent
 parameter_list|(
 name|Message

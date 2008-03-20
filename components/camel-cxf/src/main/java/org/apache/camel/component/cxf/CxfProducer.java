@@ -1451,7 +1451,7 @@ name|invokingContext
 argument_list|)
 expr_stmt|;
 block|}
-name|Object
+name|Map
 name|params
 init|=
 name|invokingContext

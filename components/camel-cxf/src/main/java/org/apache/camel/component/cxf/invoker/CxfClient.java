@@ -308,12 +308,17 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|dispatch (Object params, Map<String, Object> context, Exchange exchange)
+DECL|method|dispatch (Map<Class, Object> params, Map<String, Object> context, Exchange exchange)
 specifier|public
 name|Object
 name|dispatch
 parameter_list|(
+name|Map
+argument_list|<
+name|Class
+argument_list|,
 name|Object
+argument_list|>
 name|params
 parameter_list|,
 name|Map
@@ -448,7 +453,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|invokeWithMessageStream (BindingOperationInfo bi, Object param, Map<String, Object> context, InvokingContext invokingContext)
+DECL|method|invokeWithMessageStream (BindingOperationInfo bi, Map<Class, Object> param, Map<String, Object> context, InvokingContext invokingContext)
 specifier|public
 name|Object
 name|invokeWithMessageStream
@@ -456,7 +461,12 @@ parameter_list|(
 name|BindingOperationInfo
 name|bi
 parameter_list|,
+name|Map
+argument_list|<
+name|Class
+argument_list|,
 name|Object
+argument_list|>
 name|param
 parameter_list|,
 name|Map
@@ -953,7 +963,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|prepareMessage (Exchange exchange, Map<String, Object> requestContext, Object param, InvokingContext InvokingContext)
+DECL|method|prepareMessage (Exchange exchange, Map<String, Object> requestContext, Map<Class, Object> param, InvokingContext InvokingContext)
 specifier|private
 name|Message
 name|prepareMessage
@@ -969,7 +979,12 @@ name|Object
 argument_list|>
 name|requestContext
 parameter_list|,
+name|Map
+argument_list|<
+name|Class
+argument_list|,
 name|Object
+argument_list|>
 name|param
 parameter_list|,
 name|InvokingContext

@@ -46,6 +46,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|IdentityHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|logging
 operator|.
 name|Level
@@ -136,7 +146,7 @@ specifier|public
 name|PayloadInvokingContext
 parameter_list|()
 block|{      }
-DECL|method|setRequestOutMessageContent (Message message, Object content)
+DECL|method|setRequestOutMessageContent (Message message, Map<Class, Object> contents)
 specifier|public
 name|void
 name|setRequestOutMessageContent
@@ -144,8 +154,13 @@ parameter_list|(
 name|Message
 name|message
 parameter_list|,
+name|Map
+argument_list|<
+name|Class
+argument_list|,
 name|Object
-name|content
+argument_list|>
+name|contents
 parameter_list|)
 block|{
 name|PayloadMessage
@@ -154,7 +169,14 @@ init|=
 operator|(
 name|PayloadMessage
 operator|)
-name|content
+name|contents
+operator|.
+name|get
+argument_list|(
+name|PayloadMessage
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|Element
 name|header
@@ -493,7 +515,12 @@ literal|"unchecked"
 argument_list|)
 DECL|method|getRequestContent (Message inMessage)
 specifier|public
+name|Map
+argument_list|<
+name|Class
+argument_list|,
 name|Object
+argument_list|>
 name|getRequestContent
 parameter_list|(
 name|Message
@@ -553,7 +580,31 @@ name|payload
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|Map
+argument_list|<
+name|Class
+argument_list|,
+name|Object
+argument_list|>
+name|contents
+init|=
+operator|new
+name|IdentityHashMap
+argument_list|<
+name|Class
+argument_list|,
+name|Object
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|contents
+operator|.
+name|put
+argument_list|(
+name|PayloadMessage
+operator|.
+name|class
+argument_list|,
 operator|new
 name|PayloadMessage
 argument_list|(
@@ -561,6 +612,10 @@ name|payload
 argument_list|,
 name|header
 argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|contents
 return|;
 block|}
 block|}
