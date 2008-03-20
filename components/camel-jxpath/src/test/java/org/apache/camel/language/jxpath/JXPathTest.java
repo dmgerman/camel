@@ -38,6 +38,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|language
 operator|.
 name|ExpressionEvaluationException
@@ -56,6 +80,19 @@ name|JXPathTest
 extends|extends
 name|LanguageTestSupport
 block|{
+DECL|field|body
+specifier|protected
+name|PersonBean
+name|body
+init|=
+operator|new
+name|PersonBean
+argument_list|(
+literal|"James"
+argument_list|,
+literal|"London"
+argument_list|)
+decl_stmt|;
 comment|/** 	 * Test JXPath expressions 	 */
 DECL|method|testJXPathExpressions ()
 specifier|public
@@ -141,12 +178,9 @@ argument_list|(
 literal|"ins/body"
 argument_list|)
 expr_stmt|;
-name|assertInvalidPredicate
-argument_list|(
-literal|"in/body"
-argument_list|)
-expr_stmt|;
+comment|//assertInvalidPredicate("in/body");
 block|}
+comment|/*     @Override     protected void populateExchange(Exchange exchange) {         Message in = exchange.getIn();         in.setHeader("foo", "abc");         in.setHeader("bar", 123);         in.setBody(body);     }*/
 DECL|method|assertInvalidExpression (String expression)
 specifier|private
 name|void
