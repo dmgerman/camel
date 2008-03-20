@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to inject a simple expression into a field, property, method or parameter when using  *<a href="http://activemq.apache.org/camel/bean-integration.html">Bean Integration</a>.  *  * @version $Revision$  */
+comment|/**  * Used to inject a bean expression into a field, property, method or parameter when using  *<a href="http://activemq.apache.org/camel/bean-integration.html">Bean Integration</a>.  *  * @version $Revision$  */
 end_comment
 
 begin_annotation_defn
@@ -98,15 +98,16 @@ name|LanguageAnnotation
 argument_list|(
 name|language
 operator|=
-literal|"simple"
+literal|"bean"
 argument_list|)
-DECL|annotation|Simple
+DECL|annotation|Bean
 specifier|public
 annotation_defn|@interface
-name|Simple
+name|Bean
 block|{
 DECL|method|value ()
 specifier|public
+specifier|abstract
 name|String
 name|value
 parameter_list|()

@@ -67,6 +67,26 @@ operator|=
 name|location
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"PersonBean[name: "
+operator|+
+name|name
+operator|+
+literal|" location: "
+operator|+
+name|location
+operator|+
+literal|"]"
+return|;
+block|}
 DECL|method|getLocation ()
 specifier|public
 name|String

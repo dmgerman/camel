@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to inject an XPath expression into a field, property, method or parameter.  *  * @version $Revision$  */
+comment|/**  * Used to inject an XPath expression into a field, property, method or parameter when using  *<a href="http://activemq.apache.org/camel/bean-integration.html">Bean Integration</a>.  *  * @version $Revision$  */
 end_comment
 
 begin_annotation_defn

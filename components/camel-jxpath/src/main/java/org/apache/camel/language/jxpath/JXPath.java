@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.language
+DECL|package|org.apache.camel.language.jxpath
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|language
+operator|.
+name|jxpath
 package|;
 end_package
 
@@ -64,8 +66,22 @@ name|ElementType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|LanguageAnnotation
+import|;
+end_import
+
 begin_comment
-comment|/**  * Used to inject a simple expression into a field, property, method or parameter when using  *<a href="http://activemq.apache.org/camel/bean-integration.html">Bean Integration</a>.  *  * @version $Revision$  */
+comment|/**  * An annotation used to inject a<a href="http://commons.apache.org/jxpath/">JXPath</a>  * expression into a method parameter when using  *<a href="http://activemq.apache.org/camel/bean-integration.html">Bean Integration</a>  *  * @version $Revision$  */
 end_comment
 
 begin_annotation_defn
@@ -98,15 +114,16 @@ name|LanguageAnnotation
 argument_list|(
 name|language
 operator|=
-literal|"simple"
+literal|"jxpath"
 argument_list|)
-DECL|annotation|Simple
+DECL|annotation|JXPath
 specifier|public
 annotation_defn|@interface
-name|Simple
+name|JXPath
 block|{
 DECL|method|value ()
 specifier|public
+specifier|abstract
 name|String
 name|value
 parameter_list|()
