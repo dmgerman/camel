@@ -168,7 +168,7 @@ name|ignoredHeaders
 init|=
 name|DEFAULT_HEADERS_TO_IGNORE
 decl_stmt|;
-comment|/**      * Writes the exchange to the servlet response      *       * @param response      * @throws IOException      */
+comment|/**      * Writes the exchange to the servlet response      *      * @param response      * @throws IOException      */
 DECL|method|writeResponse (HttpExchange exchange, HttpServletResponse response)
 specifier|public
 name|void
@@ -198,6 +198,49 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// Set the status code in the response.  Default is 200.
+if|if
+condition|(
+name|out
+operator|.
+name|getHeader
+argument_list|(
+name|HttpProducer
+operator|.
+name|HTTP_RESPONSE_CODE
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+name|int
+name|responseCode
+init|=
+operator|(
+operator|(
+name|Integer
+operator|)
+name|out
+operator|.
+name|getHeader
+argument_list|(
+name|HttpProducer
+operator|.
+name|HTTP_RESPONSE_CODE
+argument_list|)
+operator|)
+operator|.
+name|intValue
+argument_list|()
+decl_stmt|;
+name|response
+operator|.
+name|setStatus
+argument_list|(
+name|responseCode
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Write out the headers...
 for|for
 control|(
