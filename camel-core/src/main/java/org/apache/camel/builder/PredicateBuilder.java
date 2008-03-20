@@ -697,7 +697,7 @@ name|getOperationText
 parameter_list|()
 block|{
 return|return
-literal|"=="
+literal|"!="
 return|;
 block|}
 block|}

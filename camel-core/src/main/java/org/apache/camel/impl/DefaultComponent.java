@@ -318,7 +318,7 @@ argument_list|,
 literal|"camelContext"
 argument_list|)
 expr_stmt|;
-comment|//endcode uri sting to the unsafe URI characters
+comment|//endcode uri string to the unsafe URI characters
 name|URI
 name|u
 init|=
