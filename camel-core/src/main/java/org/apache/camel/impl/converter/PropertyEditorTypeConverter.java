@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|beans
+operator|.
+name|PropertyEditor
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|beans
+operator|.
+name|PropertyEditorManager
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -44,28 +64,8 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|beans
-operator|.
-name|PropertyEditor
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|beans
-operator|.
-name|PropertyEditorManager
-import|;
-end_import
-
 begin_comment
-comment|/**  * Uses the java.beans.PropertyEditor conversion system to convert Objects to  * and from String values.  *   * @version $Revision$  */
+comment|/**  * Uses the java.beans.PropertyEditor conversion system to convert Objects to  * and from String values.  *  * @version $Revision$  */
 end_comment
 
 begin_class

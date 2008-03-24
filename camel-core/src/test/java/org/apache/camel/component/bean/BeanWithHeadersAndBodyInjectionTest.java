@@ -446,7 +446,7 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|myMethod (@eaders Map<String, Object> headers,Object body)
+DECL|method|myMethod (@eaders Map<String, Object> headers, Object body)
 specifier|public
 name|void
 name|myMethod
@@ -487,7 +487,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|anotherMethod (@eaders Map<String, Object> headers,Object body)
+DECL|method|anotherMethod (@eaders Map<String, Object> headers, Object body)
 specifier|public
 name|void
 name|anotherMethod

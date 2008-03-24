@@ -55,12 +55,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for creating proxies which delegate to Camel  *   * @version $Revision$  */
+comment|/**  * A helper class for creating proxies which delegate to Camel  *  * @version $Revision$  */
 end_comment
 
 begin_class
 DECL|class|ProxyHelper
 specifier|public
+specifier|final
 class|class
 name|ProxyHelper
 block|{
@@ -69,8 +70,8 @@ DECL|method|ProxyHelper ()
 specifier|private
 name|ProxyHelper
 parameter_list|()
-block|{             }
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *       * @throws Exception      */
+block|{     }
+comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *      * @throws Exception      */
 DECL|method|createProxy (final Endpoint endpoint, ClassLoader cl, Class interfaces[])
 specifier|public
 specifier|static
@@ -119,7 +120,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *       * @throws Exception      */
+comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *      * @throws Exception      */
 DECL|method|createProxy (Endpoint endpoint, Class interfaces[])
 specifier|public
 specifier|static
@@ -170,7 +171,7 @@ name|interfaces
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *       * @throws Exception      */
+comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *      * @throws Exception      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -219,7 +220,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *       * @throws Exception      */
+comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *      * @throws Exception      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

@@ -31,24 +31,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|XPathBuilder
-operator|.
-name|xpath
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -75,22 +57,6 @@ operator|.
 name|spring
 operator|.
 name|SpringTestSupport
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|Time
-operator|.
-name|seconds
 import|;
 end_import
 
@@ -133,6 +99,40 @@ operator|.
 name|support
 operator|.
 name|TransactionTemplate
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|XPathBuilder
+operator|.
+name|xpath
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|Time
+operator|.
+name|seconds
 import|;
 end_import
 

@@ -20,6 +20,28 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -153,28 +175,6 @@ operator|.
 name|support
 operator|.
 name|TransactionTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Method
 import|;
 end_import
 
@@ -553,7 +553,8 @@ argument_list|(
 name|entity
 argument_list|)
 expr_stmt|;
-comment|// Now we must flush to avoid concurrent updates clashing trying to insert the
+comment|// Now we must flush to avoid concurrent updates clashing trying to
+comment|// insert the
 comment|// same row
 name|LOG
 operator|.

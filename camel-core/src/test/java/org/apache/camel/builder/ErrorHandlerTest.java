@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -102,34 +112,6 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DelegateAsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|DelegateProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
 name|FilterProcessor
 import|;
 end_import
@@ -176,16 +158,6 @@ name|SendProcessor
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -198,11 +170,11 @@ name|ErrorHandlerTest
 extends|extends
 name|TestSupport
 block|{
-comment|// TODO
-DECL|method|TODO_testOverloadingTheDefaultErrorHandler ()
+comment|// TODO get the test fixed
+DECL|method|xtestOverloadingTheDefaultErrorHandler ()
 specifier|public
 name|void
-name|TODO_testOverloadingTheDefaultErrorHandler
+name|xtestOverloadingTheDefaultErrorHandler
 parameter_list|()
 throws|throws
 name|Exception
@@ -392,7 +364,8 @@ argument_list|(
 literal|"seda:b"
 argument_list|)
 expr_stmt|;
-comment|// this route will use the default error handler, DeadLetterChannel
+comment|// this route will use the default error handler,
+comment|// DeadLetterChannel
 name|from
 argument_list|(
 literal|"seda:b"
@@ -714,11 +687,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// TODO
-DECL|method|TODO_testConfigureDeadLetterChannelWithCustomRedeliveryPolicy ()
+comment|// TODO Fix the test
+DECL|method|xtestConfigureDeadLetterChannelWithCustomRedeliveryPolicy ()
 specifier|public
 name|void
-name|TODO_testConfigureDeadLetterChannelWithCustomRedeliveryPolicy
+name|xtestConfigureDeadLetterChannelWithCustomRedeliveryPolicy
 parameter_list|()
 throws|throws
 name|Exception

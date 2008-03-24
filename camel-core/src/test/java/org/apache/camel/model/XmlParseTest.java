@@ -18,17 +18,23 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
 operator|.
-name|model
+name|xml
 operator|.
-name|language
+name|bind
 operator|.
-name|ExpressionType
+name|JAXBException
 import|;
 end_import
 
@@ -42,9 +48,9 @@ name|camel
 operator|.
 name|model
 operator|.
-name|loadbalancer
+name|language
 operator|.
-name|LoadBalancerType
+name|ExpressionType
 import|;
 end_import
 
@@ -77,28 +83,6 @@ operator|.
 name|loadbalancer
 operator|.
 name|StickyLoadBalanceStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|JAXBException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -433,10 +417,11 @@ literal|"seda:d"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|TODO_testParseRouteWithInterceptorXml ()
+comment|//TODO get the test fixed
+DECL|method|xtestParseRouteWithInterceptorXml ()
 specifier|public
 name|void
-name|TODO_testParseRouteWithInterceptorXml
+name|xtestParseRouteWithInterceptorXml
 parameter_list|()
 throws|throws
 name|Exception

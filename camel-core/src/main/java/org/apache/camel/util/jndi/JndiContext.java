@@ -267,7 +267,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default JNDI context  *   * @version $Revision$ $Date$  */
+comment|/**  * A default JNDI context  *  * @version $Revision$ $Date$  */
 end_comment
 
 begin_class
@@ -754,7 +754,7 @@ return|return
 name|frozen
 return|;
 block|}
-comment|/**      * internalBind is intended for use only during setup or possibly by      * suitably synchronized superclasses. It binds every possible lookup into a      * map in each context. To do this, each context strips off one name segment      * and if necessary creates a new context for it. Then it asks that context      * to bind the remaining name. It returns a map containing all the bindings      * from the next context, plus the context it just created (if it in fact      * created it). (the names are suitably extended by the segment originally      * lopped off).      *       * @param name      * @param value      * @return      * @throws javax.naming.NamingException      */
+comment|/**      * internalBind is intended for use only during setup or possibly by      * suitably synchronized superclasses. It binds every possible lookup into a      * map in each context. To do this, each context strips off one name segment      * and if necessary creates a new context for it. Then it asks that context      * to bind the remaining name. It returns a map containing all the bindings      * from the next context, plus the context it just created (if it in fact      * created it). (the names are suitably extended by the segment originally      * lopped off).      *      * @param name      * @param value      * @return      * @throws javax.naming.NamingException      */
 DECL|method|internalBind (String name, Object value)
 specifier|protected
 name|Map

@@ -67,12 +67,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A collection of helper methods for working with {@link Service} objects  *   * @version $Revision$  */
+comment|/**  * A collection of helper methods for working with {@link Service} objects  *  * @version $Revision$  */
 end_comment
 
 begin_class
 DECL|class|ServiceHelper
 specifier|public
+specifier|final
 class|class
 name|ServiceHelper
 block|{
@@ -98,7 +99,7 @@ DECL|method|ServiceHelper ()
 specifier|private
 name|ServiceHelper
 parameter_list|()
-block|{             }
+block|{     }
 DECL|method|startService (Object value)
 specifier|public
 specifier|static

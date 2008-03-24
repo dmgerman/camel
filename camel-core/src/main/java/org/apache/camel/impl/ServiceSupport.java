@@ -18,32 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -80,15 +54,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|jmx
+name|camel
 operator|.
-name|export
-operator|.
-name|annotation
-operator|.
-name|ManagedAttribute
+name|Service
 import|;
 end_import
 
@@ -96,31 +66,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|jmx
+name|camel
 operator|.
-name|export
+name|util
 operator|.
-name|annotation
-operator|.
-name|ManagedOperation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jmx
-operator|.
-name|export
-operator|.
-name|annotation
-operator|.
-name|ManagedResource
+name|ServiceHelper
 import|;
 end_import
 
@@ -338,7 +290,7 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/**      * @return true if this service is       */
+comment|/**      * @return true if this service is      */
 DECL|method|isStarting ()
 specifier|public
 name|boolean
@@ -366,7 +318,7 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/**      * Helper methods so the service knows if it should keep running.  Returns      * false if the service is being stopped or is stopped.      *        * @return true if the service should continue to run.      */
+comment|/**      * Helper methods so the service knows if it should keep running.  Returns      * false if the service is being stopped or is stopped.      *      * @return true if the service should continue to run.      */
 DECL|method|isRunAllowed ()
 specifier|protected
 name|boolean

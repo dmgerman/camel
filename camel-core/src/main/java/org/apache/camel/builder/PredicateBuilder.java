@@ -151,12 +151,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for working with predicates  *   * @version $Revision$  */
+comment|/**  * A helper class for working with predicates  *  * @version $Revision$  */
 end_comment
 
 begin_class
 DECL|class|PredicateBuilder
 specifier|public
+specifier|final
 class|class
 name|PredicateBuilder
 block|{
@@ -165,7 +166,7 @@ DECL|method|PredicateBuilder ()
 specifier|private
 name|PredicateBuilder
 parameter_list|()
-block|{             }
+block|{     }
 comment|/**      * Converts the given expression into an {@link Predicate}      */
 DECL|method|toPredicate (final Expression<E> expression)
 specifier|public
@@ -1297,7 +1298,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns a predicate which is true if the expression matches the given      * regular expression      *       * @param expression the expression to evaluate      * @param regex the regular expression to match against      * @return a new predicate      */
+comment|/**      * Returns a predicate which is true if the expression matches the given      * regular expression      *      * @param expression the expression to evaluate      * @param regex the regular expression to match against      * @return a new predicate      */
 DECL|method|regex (final Expression<E> expression, final String regex)
 specifier|public
 specifier|static
@@ -1338,7 +1339,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate which is true if the expression matches the given      * regular expression      *       * @param expression the expression to evaluate      * @param pattern the regular expression to match against      * @return a new predicate      */
+comment|/**      * Returns a predicate which is true if the expression matches the given      * regular expression      *      * @param expression the expression to evaluate      * @param pattern the regular expression to match against      * @return a new predicate      */
 DECL|method|regex (final Expression<E> expression, final Pattern pattern)
 specifier|public
 specifier|static

@@ -18,55 +18,21 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
+name|Closeable
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|ObjectConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
+name|IOException
 import|;
 end_import
 
@@ -160,31 +126,66 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|Closeable
+name|camel
+operator|.
+name|RuntimeCamelException
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|camel
+operator|.
+name|converter
+operator|.
+name|ObjectConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
 import|;
 end_import
 
 begin_comment
-comment|/**  * A number of useful helper methods for working with Objects  *   * @version $Revision$  */
+comment|/**  * A number of useful helper methods for working with Objects  *  * @version $Revision$  */
 end_comment
 
 begin_class
 DECL|class|ObjectHelper
 specifier|public
+specifier|final
 class|class
 name|ObjectHelper
 block|{
@@ -210,7 +211,7 @@ DECL|method|ObjectHelper ()
 specifier|private
 name|ObjectHelper
 parameter_list|()
-block|{             }
+block|{     }
 comment|/**      * @deprecated use the equal method instead      *      * @see #equal(Object, Object)      */
 DECL|method|equals (Object a, Object b)
 specifier|public
@@ -706,7 +707,7 @@ return|return
 name|rc
 return|;
 block|}
-comment|/**      * Removes any starting characters on the given text which match the given      * character      *       * @param text the string      * @param ch the initial characters to remove      * @return either the original string or the new substring      */
+comment|/**      * Removes any starting characters on the given text which match the given      * character      *      * @param text the string      * @param ch the initial characters to remove      * @return either the original string or the new substring      */
 DECL|method|removeStartingCharacters (String text, char ch)
 specifier|public
 specifier|static
@@ -913,7 +914,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Returns the predicate matching boolean on a {@link List} result set where      * if the first element is a boolean its value is used otherwise this method      * returns true if the collection is not empty      *       * @returns true if the first element is a boolean and its value is true or      *          if the list is non empty      */
+comment|/**      * Returns the predicate matching boolean on a {@link List} result set where      * if the first element is a boolean its value is used otherwise this method      * returns true if the collection is not empty      *      * @returns true if the first element is a boolean and its value is true or      *          if the list is non empty      */
 DECL|method|matches (List list)
 specifier|public
 specifier|static
@@ -1029,7 +1030,7 @@ operator|<=
 literal|0
 return|;
 block|}
-comment|/**      * A helper method to access a system property, catching any security      * exceptions      *       * @param name the name of the system property required      * @param defaultValue the default value to use if the property is not      *                available or a security exception prevents access      * @return the system property value or the default value if the property is      *         not available or security does not allow its access      */
+comment|/**      * A helper method to access a system property, catching any security      * exceptions      *      * @param name the name of the system property required      * @param defaultValue the default value to use if the property is not      *                available or a security exception prevents access      * @return the system property value or the default value if the property is      *         not available or security does not allow its access      */
 DECL|method|getSystemProperty (String name, String defaultValue)
 specifier|public
 specifier|static
@@ -1142,7 +1143,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Attempts to load the given class name using the thread context class      * loader or the class loader used to load this class      *       * @param name the name of the class to load      * @return the class or null if it could not be loaded      */
+comment|/**      * Attempts to load the given class name using the thread context class      * loader or the class loader used to load this class      *      * @param name the name of the class to load      * @return the class or null if it could not be loaded      */
 DECL|method|loadClass (String name)
 specifier|public
 specifier|static
@@ -1170,7 +1171,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Attempts to load the given class name using the thread context class      * loader or the given class loader      *       * @param name the name of the class to load      * @param loader the class loader to use after the thread context class      *                loader      * @return the class or null if it could not be loaded      */
+comment|/**      * Attempts to load the given class name using the thread context class      * loader or the given class loader      *      * @param name the name of the class to load      * @param loader the class loader to use after the thread context class      *                loader      * @return the class or null if it could not be loaded      */
 DECL|method|loadClass (String name, ClassLoader loader)
 specifier|public
 specifier|static
@@ -1259,7 +1260,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * A helper method to invoke a method via reflection and wrap any exceptions      * as {@link RuntimeCamelException} instances      *       * @param method the method to invoke      * @param instance the object instance (or null for static methods)      * @param parameters the parameters to the method      * @return the result of the method invocation      */
+comment|/**      * A helper method to invoke a method via reflection and wrap any exceptions      * as {@link RuntimeCamelException} instances      *      * @param method the method to invoke      * @param instance the object instance (or null for static methods)      * @param parameters the parameters to the method      * @return the result of the method invocation      */
 DECL|method|invokeMethod (Method method, Object instance, Object... parameters)
 specifier|public
 specifier|static
@@ -1322,7 +1323,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns a list of methods which are annotated with the given annotation      *       * @param type the type to reflect on      * @param annotationType the annotation type      * @return a list of the methods found      */
+comment|/**      * Returns a list of methods which are annotated with the given annotation      *      * @param type the type to reflect on      * @param annotationType the annotation type      * @return a list of the methods found      */
 DECL|method|findMethodsWithAnnotation (Class<?> type, Class<? extends Annotation> annotationType)
 specifier|public
 specifier|static
@@ -1419,7 +1420,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Turns the given object arrays into a meaningful string      *       * @param objects an array of objects or null      * @return a meaningful string      */
+comment|/**      * Turns the given object arrays into a meaningful string      *      * @param objects an array of objects or null      * @return a meaningful string      */
 DECL|method|asString (Object[] objects)
 specifier|public
 specifier|static

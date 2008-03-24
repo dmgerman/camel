@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a direct endpoint that synchronously invokes the consumers of the  * endpoint when a producer sends a message to it.  *   * @version $Revision$  */
+comment|/**  * Represents a direct endpoint that synchronously invokes the consumers of the  * endpoint when a producer sends a message to it.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -180,6 +180,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|allowMultipleConsumers
+name|boolean
+name|allowMultipleConsumers
+init|=
+literal|true
+decl_stmt|;
 DECL|field|consumers
 specifier|private
 specifier|final
@@ -201,12 +207,6 @@ name|E
 argument_list|>
 argument_list|>
 argument_list|()
-decl_stmt|;
-DECL|field|allowMultipleConsumers
-name|boolean
-name|allowMultipleConsumers
-init|=
-literal|true
 decl_stmt|;
 DECL|method|DirectEndpoint (String uri, DirectComponent<E> component)
 specifier|public

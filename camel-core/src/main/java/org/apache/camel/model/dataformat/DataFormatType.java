@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -234,6 +234,41 @@ specifier|private
 name|String
 name|dataFormatTypeName
 decl_stmt|;
+DECL|method|DataFormatType ()
+specifier|public
+name|DataFormatType
+parameter_list|()
+block|{     }
+DECL|method|DataFormatType (DataFormat dataFormat)
+specifier|public
+name|DataFormatType
+parameter_list|(
+name|DataFormat
+name|dataFormat
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataFormat
+operator|=
+name|dataFormat
+expr_stmt|;
+block|}
+DECL|method|DataFormatType (String dataFormatTypeName)
+specifier|protected
+name|DataFormatType
+parameter_list|(
+name|String
+name|dataFormatTypeName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataFormatTypeName
+operator|=
+name|dataFormatTypeName
+expr_stmt|;
+block|}
 DECL|method|getDataFormat (RouteContext routeContext, DataFormatType type, String ref)
 specifier|public
 specifier|static
@@ -308,26 +343,6 @@ argument_list|(
 name|routeContext
 argument_list|)
 return|;
-block|}
-DECL|method|DataFormatType ()
-specifier|public
-name|DataFormatType
-parameter_list|()
-block|{     }
-DECL|method|DataFormatType (DataFormat dataFormat)
-specifier|public
-name|DataFormatType
-parameter_list|(
-name|DataFormat
-name|dataFormat
-parameter_list|)
-block|{
-name|this
-operator|.
-name|dataFormat
-operator|=
-name|dataFormat
-expr_stmt|;
 block|}
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
 specifier|public
@@ -579,21 +594,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-block|}
-DECL|method|DataFormatType (String dataFormatTypeName)
-specifier|protected
-name|DataFormatType
-parameter_list|(
-name|String
-name|dataFormatTypeName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|dataFormatTypeName
-operator|=
-name|dataFormatTypeName
-expr_stmt|;
 block|}
 block|}
 end_class

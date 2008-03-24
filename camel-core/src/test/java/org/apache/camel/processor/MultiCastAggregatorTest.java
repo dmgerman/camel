@@ -560,7 +560,7 @@ name|newExchange
 return|;
 block|}
 comment|/**          * An expression used to determine if the aggreagation is complete          */
-DECL|method|isCompleted (@eadername=R) Integer aggregated)
+DECL|method|isCompleted (@eadername = R) Integer aggregated)
 specifier|public
 name|boolean
 name|isCompleted

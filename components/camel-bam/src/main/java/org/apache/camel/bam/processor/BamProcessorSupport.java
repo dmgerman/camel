@@ -20,6 +20,40 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|ParameterizedType
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Type
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|EntityExistsException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -174,40 +208,6 @@ name|TransactionTemplate
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|persistence
-operator|.
-name|EntityExistsException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|ParameterizedType
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Type
-import|;
-end_import
-
 begin_comment
 comment|/**  * A base {@link Processor} for working on<a  * href="http://activemq.apache.org/camel/bam.html">BAM</a> which a derived  * class would do the actual persistence such as the {@link JpaBamProcessor}  *  * @version $Revision$  */
 end_comment
@@ -278,32 +278,6 @@ name|maximumRetries
 init|=
 literal|30
 decl_stmt|;
-DECL|method|getMaximumRetries ()
-specifier|public
-name|int
-name|getMaximumRetries
-parameter_list|()
-block|{
-return|return
-name|maximumRetries
-return|;
-block|}
-DECL|method|setMaximumRetries (int maximumRetries)
-specifier|public
-name|void
-name|setMaximumRetries
-parameter_list|(
-name|int
-name|maximumRetries
-parameter_list|)
-block|{
-name|this
-operator|.
-name|maximumRetries
-operator|=
-name|maximumRetries
-expr_stmt|;
-block|}
 DECL|method|BamProcessorSupport (TransactionTemplate transactionTemplate, Expression<Exchange> correlationKeyExpression)
 specifier|protected
 name|BamProcessorSupport
@@ -687,6 +661,32 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getMaximumRetries ()
+specifier|public
+name|int
+name|getMaximumRetries
+parameter_list|()
+block|{
+return|return
+name|maximumRetries
+return|;
+block|}
+DECL|method|setMaximumRetries (int maximumRetries)
+specifier|public
+name|void
+name|setMaximumRetries
+parameter_list|(
+name|int
+name|maximumRetries
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maximumRetries
+operator|=
+name|maximumRetries
+expr_stmt|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------

@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|MessageSupport
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -39,7 +25,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements the<a  * href="http://activemq.apache.org/camel/message.html">Message</a> pattern and  * represents an inbound or outbound message as part of an {@link Exchange}  *   * @version $Revision$  */
+comment|/**  * Implements the<a  * href="http://activemq.apache.org/camel/message.html">Message</a> pattern and  * represents an inbound or outbound message as part of an {@link Exchange}  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -54,7 +40,7 @@ name|String
 name|getMessageId
 parameter_list|()
 function_decl|;
-comment|/**      * set the id of the message      *       * @param messageId      */
+comment|/**      * set the id of the message      *      * @param messageId      */
 DECL|method|setMessageId (String messageId)
 name|void
 name|setMessageId
@@ -63,13 +49,13 @@ name|String
 name|messageId
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the exchange this message is related to      *       * @return      */
+comment|/**      * Returns the exchange this message is related to      *      * @return      */
 DECL|method|getExchange ()
 name|Exchange
 name|getExchange
 parameter_list|()
 function_decl|;
-comment|/**      * Accesses a specific header      *       * @param name      * @return object header associated with the name      */
+comment|/**      * Accesses a specific header      *      * @param name      * @return object header associated with the name      */
 DECL|method|getHeader (String name)
 name|Object
 name|getHeader
@@ -78,7 +64,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Returns a header associated with this message by name and specifying the      * type required      *       * @param name the name of the header      * @param type the type of the header      * @return the value of the given header or null if there is no property for      *         the given name or it cannot be converted to the given type      */
+comment|/**      * Returns a header associated with this message by name and specifying the      * type required      *      * @param name the name of the header      * @param type the type of the header      * @return the value of the given header or null if there is no property for      *         the given name or it cannot be converted to the given type      */
 DECL|method|getHeader (String name, Class<T> type)
 parameter_list|<
 name|T
@@ -96,7 +82,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Sets a header on the message      *       * @param name of the header      * @param value to associate with the name      */
+comment|/**      * Sets a header on the message      *      * @param name of the header      * @param value to associate with the name      */
 DECL|method|setHeader (String name, Object value)
 name|void
 name|setHeader
@@ -117,7 +103,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Returns all of the headers associated with the message      *       * @return all the headers in a Map      */
+comment|/**      * Returns all of the headers associated with the message      *      * @return all the headers in a Map      */
 DECL|method|getHeaders ()
 name|Map
 argument_list|<
@@ -128,7 +114,7 @@ argument_list|>
 name|getHeaders
 parameter_list|()
 function_decl|;
-comment|/**      * Set all the headers associated with this message      *       * @param headers      */
+comment|/**      * Set all the headers associated with this message      *      * @param headers      */
 DECL|method|setHeaders (Map<String, Object> headers)
 name|void
 name|setHeaders
@@ -142,13 +128,13 @@ argument_list|>
 name|headers
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the body of the message as a POJO      *       * @return the body of the message      */
+comment|/**      * Returns the body of the message as a POJO      *      * @return the body of the message      */
 DECL|method|getBody ()
 name|Object
 name|getBody
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the body as the specified type      *       * @param type the type that the body      * @return the body of the message as the specified type      */
+comment|/**      * Returns the body as the specified type      *      * @param type the type that the body      * @return the body of the message as the specified type      */
 DECL|method|getBody (Class<T> type)
 parameter_list|<
 name|T
@@ -190,7 +176,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a copy of this message so that it can be used and possibly      * modified further in another exchange      *       * @return a new message instance copied from this message      */
+comment|/**      * Creates a copy of this message so that it can be used and possibly      * modified further in another exchange      *      * @return a new message instance copied from this message      */
 DECL|method|copy ()
 name|Message
 name|copy

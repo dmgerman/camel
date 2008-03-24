@@ -203,7 +203,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/file.html">File Endpoint</a> for  * working with file systems  *   * @version $Revision$  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/file.html">File Endpoint</a> for  * working with file systems  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -660,7 +660,7 @@ return|return
 name|fileProcessStrategy
 return|;
 block|}
-comment|/**      * Sets the strategy to be used when the file has been processed such as      * deleting or renaming it etc.      *       * @param fileProcessStrategy the new stategy to use      */
+comment|/**      * Sets the strategy to be used when the file has been processed such as      * deleting or renaming it etc.      *      * @param fileProcessStrategy the new stategy to use      */
 DECL|method|setFileStrategy (FileProcessStrategy fileProcessStrategy)
 specifier|public
 name|void
@@ -739,7 +739,7 @@ return|return
 name|moveNamePostfix
 return|;
 block|}
-comment|/**      * Sets the name postfix appended to moved files. For example to rename all      * the files from * to *.done set this value to ".done"      *       * @param moveNamePostfix      * @see DefaultFileRenamer#setNamePostfix(String)      */
+comment|/**      * Sets the name postfix appended to moved files. For example to rename all      * the files from * to *.done set this value to ".done"      *      * @param moveNamePostfix      * @see DefaultFileRenamer#setNamePostfix(String)      */
 DECL|method|setMoveNamePostfix (String moveNamePostfix)
 specifier|public
 name|void
@@ -766,7 +766,7 @@ return|return
 name|moveNamePrefix
 return|;
 block|}
-comment|/**      * Sets the name prefix appended to moved files. For example to move      * processed files into a hidden directory called ".camel" set this value to      * ".camel/"      *       * @see DefaultFileRenamer#setNamePrefix(String)      */
+comment|/**      * Sets the name prefix appended to moved files. For example to move      * processed files into a hidden directory called ".camel" set this value to      * ".camel/"      *      * @see DefaultFileRenamer#setNamePrefix(String)      */
 DECL|method|setMoveNamePrefix (String moveNamePrefix)
 specifier|public
 name|void
@@ -851,7 +851,7 @@ return|return
 name|noop
 return|;
 block|}
-comment|/**      * If set to true then the default {@link FileProcessStrategy} will be to use the      * {@link NoOpFileProcessStrategy} to not move or copy processed files      *       * @param noop      */
+comment|/**      * If set to true then the default {@link FileProcessStrategy} will be to use the      * {@link NoOpFileProcessStrategy} to not move or copy processed files      *      * @param noop      */
 DECL|method|setNoop (boolean noop)
 specifier|public
 name|void

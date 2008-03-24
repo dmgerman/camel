@@ -154,20 +154,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|LifecycleStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -240,20 +226,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|RouteType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -273,6 +245,20 @@ operator|.
 name|converter
 operator|.
 name|DefaultTypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|RouteType
 import|;
 end_import
 
@@ -356,6 +342,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|LifecycleStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Registry
 import|;
 end_import
@@ -408,11 +408,25 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|commons
 operator|.
-name|util
+name|logging
 operator|.
-name|ServiceHelper
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
 import|;
 end_import
 
@@ -448,36 +462,8 @@ name|stopServices
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
-comment|/**  * Represents the context used to configure routes and the policies to use.  *   * @version $Revision$  */
+comment|/**  * Represents the context used to configure routes and the policies to use.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -518,13 +504,11 @@ name|NAME_PREFIX
 init|=
 literal|"camel-"
 decl_stmt|;
-DECL|field|NAME_SUFFIX
+DECL|field|nameSuffix
 specifier|private
 specifier|static
 name|int
-name|NAME_SUFFIX
-init|=
-literal|0
+name|nameSuffix
 decl_stmt|;
 DECL|field|name
 specifier|private
@@ -667,10 +651,10 @@ operator|=
 name|NAME_PREFIX
 operator|+
 operator|++
-name|NAME_SUFFIX
+name|nameSuffix
 expr_stmt|;
 block|}
-comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the      * registry      *       * @param jndiContext      */
+comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the      * registry      *      * @param jndiContext      */
 DECL|method|DefaultCamelContext (Context jndiContext)
 specifier|public
 name|DefaultCamelContext
@@ -976,7 +960,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Removes a previously added component.      *       * @param componentName      * @return the previously added component or null if it had not been      *         previously added.      */
+comment|/**      * Removes a previously added component.      *      * @param componentName      * @return the previously added component or null if it had not been      *         previously added.      */
 DECL|method|removeComponent (String componentName)
 specifier|public
 name|Component
@@ -1001,7 +985,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Gets the a previously added component by name or lazily creates the      * component using the factory Callback.      *       * @param componentName      * @param factory used to create a new component instance if the component      *                was not previously added.      * @return      */
+comment|/**      * Gets the a previously added component by name or lazily creates the      * component using the factory Callback.      *      * @param componentName      * @param factory used to create a new component instance if the component      *                was not previously added.      * @return      */
 DECL|method|getOrCreateComponent (String componentName, Callable<Component> factory)
 specifier|public
 name|Component
@@ -2438,7 +2422,7 @@ name|JndiRegistry
 argument_list|()
 return|;
 block|}
-comment|/**      * A pluggable strategy to allow an endpoint to be created without requiring      * a component to be its factory, such as for looking up the URI inside some      * {@link Registry}      *       * @param uri the uri for the endpoint to be created      * @return the newly created endpoint or null if it could not be resolved      */
+comment|/**      * A pluggable strategy to allow an endpoint to be created without requiring      * a component to be its factory, such as for looking up the URI inside some      * {@link Registry}      *      * @param uri the uri for the endpoint to be created      * @return the newly created endpoint or null if it could not be resolved      */
 DECL|method|createEndpoint (String uri)
 specifier|protected
 name|Endpoint
@@ -2517,7 +2501,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Attempt to convert the bean from a {@link Registry} to an endpoint using      * some kind of transformation or wrapper      *       * @param uri the uri for the endpoint (and name in the registry)      * @param bean the bean to be converted to an endpoint, which will be not      *                null      * @return a new endpoint      */
+comment|/**      * Attempt to convert the bean from a {@link Registry} to an endpoint using      * some kind of transformation or wrapper      *      * @param uri the uri for the endpoint (and name in the registry)      * @param bean the bean to be converted to an endpoint, which will be not      *                null      * @return a new endpoint      */
 DECL|method|convertBeanToEndpoint (String uri, Object bean)
 specifier|protected
 name|Endpoint

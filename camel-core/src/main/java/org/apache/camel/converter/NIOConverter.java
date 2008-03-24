@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Converter
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -88,8 +76,20 @@ name|ByteBuffer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Converter
+import|;
+end_import
+
 begin_comment
-comment|/**  * Some core java.nio based   *<a href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  *  * @version $Revision$  */
+comment|/**  * Some core java.nio based  *<a href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -97,6 +97,7 @@ annotation|@
 name|Converter
 DECL|class|NIOConverter
 specifier|public
+specifier|final
 class|class
 name|NIOConverter
 block|{
@@ -105,7 +106,7 @@ DECL|method|NIOConverter ()
 specifier|private
 name|NIOConverter
 parameter_list|()
-block|{             }
+block|{     }
 annotation|@
 name|Converter
 DECL|method|toByteArray (ByteBuffer buffer)

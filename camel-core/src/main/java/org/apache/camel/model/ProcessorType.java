@@ -444,7 +444,7 @@ name|processor
 operator|.
 name|aggregate
 operator|.
-name|AggregationStrategy
+name|AggregationCollection
 import|;
 end_import
 
@@ -460,7 +460,7 @@ name|processor
 operator|.
 name|aggregate
 operator|.
-name|AggregationCollection
+name|AggregationStrategy
 import|;
 end_import
 
@@ -642,8 +642,6 @@ extends|extends
 name|ProcessorType
 argument_list|>
 name|parent
-init|=
-literal|null
 decl_stmt|;
 comment|// else to use an
 comment|// optional

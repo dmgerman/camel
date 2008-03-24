@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|management
+operator|.
+name|Notification
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -68,18 +78,8 @@ name|DefaultExchange
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|management
-operator|.
-name|Notification
-import|;
-end_import
-
 begin_comment
-comment|/**  * A {@link Exchange} for a jmx notification  *   * @version $Revision$  */
+comment|/**  * A {@link Exchange} for a jmx notification  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -90,7 +90,7 @@ name|JMXExchange
 extends|extends
 name|DefaultExchange
 block|{
-comment|/**      * Constructor      *       * @param camelContext      * @param pattern      */
+comment|/**      * Constructor      *      * @param camelContext      * @param pattern      */
 DECL|method|JMXExchange (CamelContext camelContext, ExchangePattern pattern, Notification notification)
 specifier|public
 name|JMXExchange

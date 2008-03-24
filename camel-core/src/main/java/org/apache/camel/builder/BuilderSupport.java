@@ -80,20 +80,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|LoggingLevel
@@ -111,6 +97,20 @@ operator|.
 name|processor
 operator|.
 name|SendProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for implementation inheritance for different clauses in the<a  * href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *   * @version $Revision$  */
+comment|/**  * Base class for implementation inheritance for different clauses in the<a  * href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -434,7 +434,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves the given URI to an endpoint      *       * @throws NoSuchEndpointException if the endpoint URI could not be resolved      */
+comment|/**      * Resolves the given URI to an endpoint      *      * @throws NoSuchEndpointException if the endpoint URI could not be resolved      */
 DECL|method|endpoint (String uri)
 specifier|public
 name|Endpoint
@@ -549,7 +549,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Resolves the list of URIs into a list of {@link Endpoint} instances      *       * @throws NoSuchEndpointException if an endpoint URI could not be resolved      */
+comment|/**      * Resolves the list of URIs into a list of {@link Endpoint} instances      *      * @throws NoSuchEndpointException if an endpoint URI could not be resolved      */
 DECL|method|endpoints (String... uris)
 specifier|public
 name|List

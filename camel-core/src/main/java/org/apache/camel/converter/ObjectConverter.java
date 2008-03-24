@@ -18,42 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Converter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Node
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|NodeList
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -102,8 +66,44 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|NodeList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Converter
+import|;
+end_import
+
 begin_comment
-comment|/**  * Some core java.lang based<a  * href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  *   * @version $Revision$  */
+comment|/**  * Some core java.lang based<a  * href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -111,6 +111,7 @@ annotation|@
 name|Converter
 DECL|class|ObjectConverter
 specifier|public
+specifier|final
 class|class
 name|ObjectConverter
 block|{
@@ -119,7 +120,7 @@ DECL|method|ObjectConverter ()
 specifier|private
 name|ObjectConverter
 parameter_list|()
-block|{             }
+block|{     }
 DECL|method|isCollection (Object value)
 specifier|public
 specifier|static

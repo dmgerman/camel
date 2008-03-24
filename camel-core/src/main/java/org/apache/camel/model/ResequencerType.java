@@ -104,46 +104,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -398,7 +358,7 @@ name|batch
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Configures the stream-based resequencing algorithm using the default      * configuration.      *       * @return<code>this</code> instance.      */
+comment|/**      * Configures the stream-based resequencing algorithm using the default      * configuration.      *      * @return<code>this</code> instance.      */
 DECL|method|stream ()
 specifier|public
 name|ResequencerType
@@ -415,7 +375,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Configures the batch-based resequencing algorithm using the default      * configuration.      *       * @return<code>this</code> instance.      */
+comment|/**      * Configures the batch-based resequencing algorithm using the default      * configuration.      *      * @return<code>this</code> instance.      */
 DECL|method|batch ()
 specifier|public
 name|ResequencerType
@@ -432,7 +392,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Configures the stream-based resequencing algorithm using the given      * {@link StreamResequencerConfig}.      *       * @return<code>this</code> instance.      */
+comment|/**      * Configures the stream-based resequencing algorithm using the given      * {@link StreamResequencerConfig}.      *      * @return<code>this</code> instance.      */
 DECL|method|stream (StreamResequencerConfig config)
 specifier|public
 name|ResequencerType
@@ -458,7 +418,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures the batch-based resequencing algorithm using the given      * {@link BatchResequencerConfig}.      *       * @return<code>this</code> instance.      */
+comment|/**      * Configures the batch-based resequencing algorithm using the given      * {@link BatchResequencerConfig}.      *      * @return<code>this</code> instance.      */
 DECL|method|batch (BatchResequencerConfig config)
 specifier|public
 name|ResequencerType

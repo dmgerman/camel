@@ -75,6 +75,34 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ExpressionClause
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ValueBuilder
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -106,50 +134,8 @@ name|headerExpression
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ExpressionClause
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ExpressionClause
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ValueBuilder
-import|;
-end_import
-
 begin_comment
-comment|/**  * A builder of assertions on message exchanges  *   * @version $Revision$  */
+comment|/**  * A builder of assertions on message exchanges  *  * @version $Revision$  */
 end_comment
 
 begin_class

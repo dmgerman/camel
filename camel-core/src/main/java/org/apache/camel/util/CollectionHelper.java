@@ -81,12 +81,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A number of helper methods for working with collections  *   * @version $Revision$  */
+comment|/**  * A number of helper methods for working with collections  *  * @version $Revision$  */
 end_comment
 
 begin_class
 DECL|class|CollectionHelper
 specifier|public
+specifier|final
 class|class
 name|CollectionHelper
 block|{
@@ -95,7 +96,7 @@ DECL|method|CollectionHelper ()
 specifier|private
 name|CollectionHelper
 parameter_list|()
-block|{             }
+block|{     }
 comment|/**      * Returns the size of the collection if it can be determined to be a collection      */
 DECL|method|size (Object value)
 specifier|public
@@ -233,7 +234,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Sets the value of the entry in the map for the given key, though if the      * map already contains a value for the given key then the value is appended      * to a list of values.      *       * @param map the map to add the entry to      * @param key the key in the map      * @param value the value to put in the map      */
+comment|/**      * Sets the value of the entry in the map for the given key, though if the      * map already contains a value for the given key then the value is appended      * to a list of values.      *      * @param map the map to add the entry to      * @param key the key in the map      * @param value the value to put in the map      */
 DECL|method|appendValue (Map map, Object key, Object value)
 specifier|public
 specifier|static

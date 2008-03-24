@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -45,30 +45,30 @@ enum|enum
 name|ExchangePattern
 block|{
 DECL|enumConstant|InOnly
+DECL|enumConstant|RobustInOnly
+DECL|enumConstant|InOut
+DECL|enumConstant|InOptionalOut
+DECL|enumConstant|OutOnly
+DECL|enumConstant|RobustOutOnly
+DECL|enumConstant|OutIn
+DECL|enumConstant|OutOptionalIn
 name|InOnly
 block|,
-DECL|enumConstant|RobustInOnly
 name|RobustInOnly
 block|,
-DECL|enumConstant|InOut
 name|InOut
 block|,
-DECL|enumConstant|InOptionalOut
 name|InOptionalOut
 block|,
-DECL|enumConstant|OutOnly
 name|OutOnly
 block|,
-DECL|enumConstant|RobustOutOnly
 name|RobustOutOnly
 block|,
-DECL|enumConstant|OutIn
 name|OutIn
 block|,
-DECL|enumConstant|OutOptionalIn
 name|OutOptionalIn
 block|;
-DECL|field|map
+DECL|field|MAP
 specifier|protected
 specifier|static
 specifier|final
@@ -78,7 +78,7 @@ name|String
 argument_list|,
 name|ExchangePattern
 argument_list|>
-name|map
+name|MAP
 init|=
 operator|new
 name|HashMap
@@ -254,7 +254,7 @@ name|wsdlUri
 parameter_list|)
 block|{
 return|return
-name|map
+name|MAP
 operator|.
 name|get
 argument_list|(
@@ -281,7 +281,7 @@ operator|.
 name|getWsdlUri
 argument_list|()
 decl_stmt|;
-name|map
+name|MAP
 operator|.
 name|put
 argument_list|(
@@ -307,7 +307,7 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
-name|map
+name|MAP
 operator|.
 name|put
 argument_list|(
@@ -318,7 +318,7 @@ argument_list|,
 name|mep
 argument_list|)
 expr_stmt|;
-name|map
+name|MAP
 operator|.
 name|put
 argument_list|(

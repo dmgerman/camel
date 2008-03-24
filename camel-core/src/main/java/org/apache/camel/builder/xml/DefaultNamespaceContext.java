@@ -185,7 +185,7 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|DefaultNamespaceContext (NamespaceContext parent, Map<String,String> map)
+DECL|method|DefaultNamespaceContext (NamespaceContext parent, Map<String, String> map)
 specifier|public
 name|DefaultNamespaceContext
 parameter_list|(

@@ -18,16 +18,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -110,20 +100,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|CreateRouteWithNonExistingEndpointTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Language
@@ -140,9 +116,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|jndi
-operator|.
-name|JndiTest
+name|CamelContextHelper
 import|;
 end_import
 
@@ -156,7 +130,9 @@ name|camel
 operator|.
 name|util
 operator|.
-name|CamelContextHelper
+name|jndi
+operator|.
+name|JndiTest
 import|;
 end_import
 
@@ -544,7 +520,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Factory method which derived classes can use to create an array of      * {@link RouteBuilder}s to define the routes for testing      *       * @see #createRouteBuilder()      */
+comment|/**      * Factory method which derived classes can use to create an array of      * {@link RouteBuilder}s to define the routes for testing      *      * @see #createRouteBuilder()      */
 DECL|method|createRouteBuilders ()
 specifier|protected
 name|RouteBuilder

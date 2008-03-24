@@ -20,13 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|naming
 operator|.
-name|camel
-operator|.
-name|ContextTestSupport
+name|Context
 import|;
 end_import
 
@@ -38,9 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|BeanRouteTest
+name|ContextTestSupport
 import|;
 end_import
 
@@ -69,6 +65,20 @@ operator|.
 name|language
 operator|.
 name|Simple
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|BeanRouteTest
 import|;
 end_import
 
@@ -113,16 +123,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|Context
 import|;
 end_import
 

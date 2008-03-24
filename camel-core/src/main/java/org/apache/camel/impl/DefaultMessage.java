@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -48,8 +36,20 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+import|;
+end_import
+
 begin_comment
-comment|/**  * The default implementation of {@link Message}  *   * @version $Revision$  */
+comment|/**  * The default implementation of {@link Message}  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -276,7 +276,7 @@ name|DefaultMessage
 argument_list|()
 return|;
 block|}
-comment|/**      * A factory method to lazily create the headers to make it easy to create      * efficient Message implementations which only construct and populate the      * Map on demand      *       * @return return a newly constructed Map possibly containing headers from      *         the underlying inbound transport      */
+comment|/**      * A factory method to lazily create the headers to make it easy to create      * efficient Message implementations which only construct and populate the      * Map on demand      *      * @return return a newly constructed Map possibly containing headers from      *         the underlying inbound transport      */
 DECL|method|createHeaders ()
 specifier|protected
 name|Map
@@ -314,7 +314,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/**      * A strategy method populate the initial set of headers on an inbound      * message from an underlying binding      *       * @param map is the empty header map to populate      */
+comment|/**      * A strategy method populate the initial set of headers on an inbound      * message from an underlying binding      *      * @param map is the empty header map to populate      */
 DECL|method|populateInitialHeaders (Map<String, Object> map)
 specifier|protected
 name|void

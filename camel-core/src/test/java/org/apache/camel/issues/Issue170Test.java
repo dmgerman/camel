@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -70,24 +70,24 @@ name|Issue170Test
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|Q1
+DECL|field|qOne
 specifier|protected
 name|String
-name|Q1
+name|qOne
 init|=
 literal|"seda:Q1"
 decl_stmt|;
-DECL|field|Q2
+DECL|field|qTwo
 specifier|protected
 name|String
-name|Q2
+name|qTwo
 init|=
 literal|"mock:Q2"
 decl_stmt|;
-DECL|field|Q3
+DECL|field|qThree
 specifier|protected
 name|String
-name|Q3
+name|qThree
 init|=
 literal|"mock:Q3"
 decl_stmt|;
@@ -104,7 +104,7 @@ name|q2
 init|=
 name|getMockEndpoint
 argument_list|(
-name|Q2
+name|qTwo
 argument_list|)
 decl_stmt|;
 name|MockEndpoint
@@ -112,7 +112,7 @@ name|q3
 init|=
 name|getMockEndpoint
 argument_list|(
-name|Q3
+name|qThree
 argument_list|)
 decl_stmt|;
 name|String
@@ -196,19 +196,19 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|Q1
+name|qOne
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-name|Q1
+name|qOne
 argument_list|)
 operator|.
 name|to
 argument_list|(
-name|Q2
+name|qTwo
 argument_list|,
-name|Q3
+name|qThree
 argument_list|)
 expr_stmt|;
 comment|// write to Q3 but not to Q2

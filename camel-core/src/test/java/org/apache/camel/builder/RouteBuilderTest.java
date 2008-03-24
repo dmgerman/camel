@@ -18,13 +18,21 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|CamelContext
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -111,20 +119,6 @@ operator|.
 name|impl
 operator|.
 name|EventDrivenConsumerRoute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultCamelContext
 import|;
 end_import
 
@@ -287,26 +281,6 @@ operator|.
 name|MemoryMessageIdRepository
 operator|.
 name|memoryMessageIdRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -1467,7 +1441,7 @@ argument_list|(
 literal|"seda:d"
 argument_list|)
 expr_stmt|;
-comment|/*                  *                   * TODO keep old DSL? .intercept() .add(interceptor1)                  * .add(interceptor2) .target().to("seda:d");                  */
+comment|/*                  *                  * TODO keep old DSL? .intercept() .add(interceptor1)                  * .add(interceptor2) .target().to("seda:d");                  */
 block|}
 block|}
 decl_stmt|;
@@ -1744,7 +1718,7 @@ operator|+
 name|processor
 argument_list|)
 expr_stmt|;
-comment|/*              * TODO FilterProcessor filterProcessor =              * assertIsInstanceOf(FilterProcessor.class, processor);              *               * SendProcessor sendProcessor =              * assertIsInstanceOf(SendProcessor.class,              * filterProcessor.getProcessor()); assertEquals("Endpoint URI",              * "seda:b", sendProcessor.getDestination().getEndpointUri());              */
+comment|/*              * TODO FilterProcessor filterProcessor =              * assertIsInstanceOf(FilterProcessor.class, processor);              *              * SendProcessor sendProcessor =              * assertIsInstanceOf(SendProcessor.class,              * filterProcessor.getProcessor()); assertEquals("Endpoint URI",              * "seda:b", sendProcessor.getDestination().getEndpointUri());              */
 block|}
 block|}
 DECL|method|buildStaticRecipientList ()

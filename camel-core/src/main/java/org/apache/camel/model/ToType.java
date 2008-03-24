@@ -22,16 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -118,20 +108,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlElementRef
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -151,20 +127,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
 import|;
 end_import
 
@@ -196,8 +158,22 @@ name|SendProcessor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents an XML&lt;to/&gt; element  *   * @version $Revision$  */
+comment|/**  * Represents an XML&lt;to/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -395,7 +371,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * Sets the URI of the endpoint to use      *       * @param uri the endpoint URI to use      */
+comment|/**      * Sets the URI of the endpoint to use      *      * @param uri the endpoint URI to use      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void
@@ -422,7 +398,7 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**      * Sets the name of the endpoint within the registry (such as the Spring      * ApplicationContext or JNDI) to use      *       * @param ref the reference name to use      */
+comment|/**      * Sets the name of the endpoint within the registry (such as the Spring      * ApplicationContext or JNDI) to use      *      * @param ref the reference name to use      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void

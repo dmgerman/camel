@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Producer
+name|ExchangePattern
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
+name|Producer
 import|;
 end_import
 

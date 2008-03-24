@@ -18,58 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|RouteContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -138,8 +86,60 @@ name|XmlTransient
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents an XML&lt;from/&gt; element  *   * @version $Revision$  */
+comment|/**  * Represents an XML&lt;from/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -315,7 +315,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * Sets the URI of the endpoint to use      *       * @param uri the endpoint URI to use      */
+comment|/**      * Sets the URI of the endpoint to use      *      * @param uri the endpoint URI to use      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void
@@ -342,7 +342,7 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**      * Sets the name of the endpoint within the registry (such as the Spring      * ApplicationContext or JNDI) to use      *       * @param ref the reference name to use      */
+comment|/**      * Sets the name of the endpoint within the registry (such as the Spring      * ApplicationContext or JNDI) to use      *      * @param ref the reference name to use      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void

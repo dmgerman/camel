@@ -186,6 +186,54 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Document
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|NodeList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|InputSource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -243,40 +291,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|Namespaces
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|ObjectConverter
-operator|.
-name|toBoolean
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -305,55 +319,95 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|w3c
+name|apache
 operator|.
-name|dom
+name|camel
 operator|.
-name|Document
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Node
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|NodeList
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|builder
 operator|.
 name|xml
 operator|.
-name|sax
+name|Namespaces
 operator|.
-name|InputSource
+name|DEFAULT_NAMESPACE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|Namespaces
+operator|.
+name|IN_NAMESPACE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|Namespaces
+operator|.
+name|OUT_NAMESPACE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|Namespaces
+operator|.
+name|isMatchingNamespaceOrEmptyNamespace
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|ObjectConverter
+operator|.
+name|toBoolean
 import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an XPath expression builder which creates a nodeset result by default.  * If you want to evaluate a String expression then call {@link #stringResult()}  *  * @see XPathConstants#NODESET  *   * @version $Revision$  */
+comment|/**  * Creates an XPath expression builder which creates a nodeset result by default.  * If you want to evaluate a String expression then call {@link #stringResult()}  *  * @see XPathConstants#NODESET  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -645,7 +699,7 @@ return|;
 block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the expression result type to boolean      *       * @return the current builder      */
+comment|/**      * Sets the expression result type to boolean      *      * @return the current builder      */
 DECL|method|booleanResult ()
 specifier|public
 name|XPathBuilder
@@ -665,7 +719,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the expression result type to boolean      *       * @return the current builder      */
+comment|/**      * Sets the expression result type to boolean      *      * @return the current builder      */
 DECL|method|nodeResult ()
 specifier|public
 name|XPathBuilder
@@ -685,7 +739,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the expression result type to boolean      *       * @return the current builder      */
+comment|/**      * Sets the expression result type to boolean      *      * @return the current builder      */
 DECL|method|nodeSetResult ()
 specifier|public
 name|XPathBuilder
@@ -705,7 +759,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the expression result type to boolean      *       * @return the current builder      */
+comment|/**      * Sets the expression result type to boolean      *      * @return the current builder      */
 DECL|method|numberResult ()
 specifier|public
 name|XPathBuilder
@@ -725,7 +779,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the expression result type to boolean      *       * @return the current builder      */
+comment|/**      * Sets the expression result type to boolean      *      * @return the current builder      */
 DECL|method|stringResult ()
 specifier|public
 name|XPathBuilder
@@ -767,7 +821,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the object model URI to use      *       * @return the current builder      */
+comment|/**      * Sets the object model URI to use      *      * @return the current builder      */
 DECL|method|objectModel (String uri)
 specifier|public
 name|XPathBuilder
@@ -790,7 +844,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the {@link XPathFunctionResolver} instance to use on these XPath      * expressions      *       * @return the current builder      */
+comment|/**      * Sets the {@link XPathFunctionResolver} instance to use on these XPath      * expressions      *      * @return the current builder      */
 DECL|method|functionResolver (XPathFunctionResolver functionResolver)
 specifier|public
 name|XPathBuilder
@@ -813,7 +867,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Registers the namespace prefix and URI with the builder so that the      * prefix can be used in XPath expressions      *       * @param prefix is the namespace prefix that can be used in the XPath      *                expressions      * @param uri is the namespace URI to which the prefix refers      * @return the current builder      */
+comment|/**      * Registers the namespace prefix and URI with the builder so that the      * prefix can be used in XPath expressions      *      * @param prefix is the namespace prefix that can be used in the XPath      *                expressions      * @param uri is the namespace URI to which the prefix refers      * @return the current builder      */
 DECL|method|namespace (String prefix, String uri)
 specifier|public
 name|XPathBuilder
@@ -843,7 +897,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Registers namespaces with the builder so that the registered      * prefixes can be used in XPath expressions      *       * @param namespaces is namespaces object that should be used in the      *                      XPath expression      * @return the current builder      */
+comment|/**      * Registers namespaces with the builder so that the registered      * prefixes can be used in XPath expressions      *      * @param namespaces is namespaces object that should be used in the      *                      XPath expression      * @return the current builder      */
 DECL|method|namespaces (Namespaces namespaces)
 specifier|public
 name|XPathBuilder
@@ -1143,7 +1197,7 @@ return|return
 name|expression
 return|;
 block|}
-DECL|method|setNamespaces (Map<String,String> namespaces)
+DECL|method|setNamespaces (Map<String, String> namespaces)
 specifier|public
 name|void
 name|setNamespaces

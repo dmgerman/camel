@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|FailedToCreateProducerException
 import|;
 end_import
@@ -117,18 +129,6 @@ operator|.
 name|camel
 operator|.
 name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ExchangePattern
 import|;
 end_import
 
@@ -337,7 +337,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Sends the exchange to the given endpoint      *       * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      */
+comment|/**      * Sends the exchange to the given endpoint      *      * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      */
 DECL|method|send (Endpoint<E> endpoint, E exchange)
 specifier|public
 name|void
@@ -389,7 +389,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sends an exchange to an endpoint using a supplied      * @{link Processor} to populate the exchange      *       * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
+comment|/**      * Sends an exchange to an endpoint using a supplied      * @{link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
 DECL|method|send (Endpoint<E> endpoint, Processor processor)
 specifier|public
 name|E
@@ -454,7 +454,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sends an exchange to an endpoint using a supplied      * @{link Processor} to populate the exchange.  The callback       * will be called when the exchange is completed.      *       * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
+comment|/**      * Sends an exchange to an endpoint using a supplied      * @{link Processor} to populate the exchange.  The callback      * will be called when the exchange is completed.      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
 DECL|method|send (Endpoint<E> endpoint, Processor processor, AsyncCallback callback)
 specifier|public
 name|E

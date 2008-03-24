@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -44,18 +54,8 @@ name|DefaultMessage
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
 begin_comment
-comment|/**  * A {@link Exchange} for File  *   * @version $Revision$  */
+comment|/**  * A {@link Exchange} for File  *  * @version $Revision$  */
 end_comment
 
 begin_class

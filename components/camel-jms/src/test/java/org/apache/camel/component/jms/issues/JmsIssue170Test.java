@@ -122,7 +122,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Q1
+name|qOne
 operator|=
 literal|"activemq:Test.Q1"
 expr_stmt|;
@@ -198,13 +198,13 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|Q1
+name|qOne
 argument_list|)
 expr_stmt|;
 comment|// write to Q3 but not to Q2
 name|from
 argument_list|(
-name|Q1
+name|qOne
 argument_list|)
 operator|.
 name|to
@@ -222,7 +222,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|Q2
+name|qTwo
 argument_list|)
 expr_stmt|;
 name|from
@@ -232,7 +232,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|Q3
+name|qThree
 argument_list|)
 expr_stmt|;
 block|}

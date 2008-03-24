@@ -81,22 +81,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|equal
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -128,6 +112,22 @@ name|TypeConverterRegistry
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|equal
+import|;
+end_import
+
 begin_class
 DECL|class|ReportingTypeConverterLoader
 specifier|public
@@ -136,21 +136,6 @@ name|ReportingTypeConverterLoader
 extends|extends
 name|AnnotationTypeConverterLoader
 block|{
-DECL|field|typeMappings
-specifier|private
-name|List
-argument_list|<
-name|TypeMapping
-argument_list|>
-name|typeMappings
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|TypeMapping
-argument_list|>
-argument_list|()
-decl_stmt|;
 DECL|field|COMPARE_LAST_LOADED_FIRST
 specifier|private
 specifier|static
@@ -256,6 +241,21 @@ return|;
 block|}
 block|}
 decl_stmt|;
+DECL|field|typeMappings
+specifier|private
+name|List
+argument_list|<
+name|TypeMapping
+argument_list|>
+name|typeMappings
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|TypeMapping
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|method|getTypeConversions ()
 specifier|public
 name|TypeMapping
@@ -336,8 +336,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getTypeName (Class type)
-specifier|static
 specifier|private
+specifier|static
 name|String
 name|getTypeName
 parameter_list|(
@@ -370,8 +370,6 @@ specifier|private
 specifier|static
 name|int
 name|counter
-init|=
-literal|0
 decl_stmt|;
 DECL|field|toType
 name|Class
@@ -392,8 +390,6 @@ decl_stmt|;
 DECL|field|index
 name|int
 name|index
-init|=
-literal|0
 decl_stmt|;
 DECL|method|TypeMapping (Class toType, Class fromType, Class converterType, Method method)
 specifier|public

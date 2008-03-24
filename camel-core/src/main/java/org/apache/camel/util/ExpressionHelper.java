@@ -41,12 +41,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A collection of helper methods for working with expressions.  *   * @version $Revision$  */
+comment|/**  * A collection of helper methods for working with expressions.  *  * @version $Revision$  */
 end_comment
 
 begin_class
 DECL|class|ExpressionHelper
 specifier|public
+specifier|final
 class|class
 name|ExpressionHelper
 block|{
@@ -55,8 +56,8 @@ DECL|method|ExpressionHelper ()
 specifier|private
 name|ExpressionHelper
 parameter_list|()
-block|{             }
-comment|/**      * Evaluates the given expression on the exchange as a String value      *       * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @return the result of the evaluation as a string.      */
+block|{     }
+comment|/**      * Evaluates the given expression on the exchange as a String value      *      * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @return the result of the evaluation as a string.      */
 DECL|method|evaluateAsString (Expression<E> expression, E exchange)
 specifier|public
 specifier|static
@@ -91,7 +92,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates the given expression on the exchange, converting the result to      * the given type      *       * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @param resultType the type of the result that is required      * @return the result of the evaluation as the specified type.      */
+comment|/**      * Evaluates the given expression on the exchange, converting the result to      * the given type      *      * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @param resultType the type of the result that is required      * @return the result of the evaluation as the specified type.      */
 DECL|method|evaluateAsType (Expression<E> expression, E exchange, Class<T> resultType)
 specifier|public
 specifier|static

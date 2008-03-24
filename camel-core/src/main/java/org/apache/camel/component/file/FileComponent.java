@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -56,28 +76,8 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
-comment|/**  * The<a href="http://activemq.apache.org/camel/file.html">File Component</a>  * for working with file systems  *   * @version $Revision$  */
+comment|/**  * The<a href="http://activemq.apache.org/camel/file.html">File Component</a>  * for working with file systems  *  * @version $Revision$  */
 end_comment
 
 begin_class

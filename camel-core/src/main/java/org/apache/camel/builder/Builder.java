@@ -41,12 +41,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for including portions of the<a  * href="http://activemq.apache.org/camel/expression.html">expression</a> and  *<a href="http://activemq.apache.org/camel/predicate.html">predicate</a><a  * href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *   * @version $Revision$  */
+comment|/**  * A helper class for including portions of the<a  * href="http://activemq.apache.org/camel/expression.html">expression</a> and  *<a href="http://activemq.apache.org/camel/predicate.html">predicate</a><a  * href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
 DECL|class|Builder
 specifier|public
+specifier|final
 class|class
 name|Builder
 block|{
@@ -55,7 +56,7 @@ DECL|method|Builder ()
 specifier|private
 name|Builder
 parameter_list|()
-block|{             }
+block|{     }
 comment|/**      * Returns a constant expression      */
 DECL|method|constant (Object value)
 specifier|public

@@ -20,13 +20,23 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|AsyncCallback
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
 import|;
 end_import
 
@@ -38,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|AsyncCallback
 import|;
 end_import
 
@@ -96,52 +106,6 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Future
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -174,6 +138,28 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|filesBeingProcessed
+name|ConcurrentHashMap
+argument_list|<
+name|File
+argument_list|,
+name|File
+argument_list|>
+name|filesBeingProcessed
+init|=
+operator|new
+name|ConcurrentHashMap
+argument_list|<
+name|File
+argument_list|,
+name|File
+argument_list|>
+argument_list|()
+decl_stmt|;
+DECL|field|generateEmptyExchangeWhenIdle
+name|boolean
+name|generateEmptyExchangeWhenIdle
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -199,23 +185,34 @@ specifier|private
 name|long
 name|lastPollTime
 decl_stmt|;
-DECL|field|generateEmptyExchangeWhenIdle
-name|boolean
-name|generateEmptyExchangeWhenIdle
-decl_stmt|;
 DECL|field|unchangedDelay
 specifier|private
 name|int
 name|unchangedDelay
-init|=
-literal|0
 decl_stmt|;
 DECL|field|unchangedSize
 specifier|private
 name|boolean
 name|unchangedSize
+decl_stmt|;
+DECL|field|fileSizes
+specifier|private
+name|ConcurrentHashMap
+argument_list|<
+name|File
+argument_list|,
+name|Long
+argument_list|>
+name|fileSizes
 init|=
-literal|false
+operator|new
+name|ConcurrentHashMap
+argument_list|<
+name|File
+argument_list|,
+name|Long
+argument_list|>
+argument_list|()
 decl_stmt|;
 DECL|method|FileConsumer (final FileEndpoint endpoint, Processor processor)
 specifier|public
@@ -320,7 +317,7 @@ name|currentTimeMillis
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      *       * @param fileOrDirectory      * @param processDir      * @return the number of files processed or being processed async.      */
+comment|/**      * @param fileOrDirectory      * @param processDir      * @return the number of files processed or being processed async.      */
 DECL|method|pollFileOrDirectory (File fileOrDirectory, boolean processDir)
 specifier|protected
 name|int
@@ -440,24 +437,6 @@ literal|0
 return|;
 block|}
 block|}
-DECL|field|filesBeingProcessed
-name|ConcurrentHashMap
-argument_list|<
-name|File
-argument_list|,
-name|File
-argument_list|>
-name|filesBeingProcessed
-init|=
-operator|new
-name|ConcurrentHashMap
-argument_list|<
-name|File
-argument_list|,
-name|File
-argument_list|>
-argument_list|()
-decl_stmt|;
 comment|/**      * @param file      * @return the number of files processed or being processed async.      */
 DECL|method|pollFile (final File file)
 specifier|protected
@@ -495,7 +474,8 @@ return|return
 literal|0
 return|;
 block|}
-comment|// we only care about file modified times if we are not deleting/moving files
+comment|// we only care about file modified times if we are not deleting/moving
+comment|// files
 if|if
 condition|(
 name|endpoint
@@ -822,25 +802,6 @@ return|return
 name|result
 return|;
 block|}
-DECL|field|fileSizes
-specifier|private
-name|ConcurrentHashMap
-argument_list|<
-name|File
-argument_list|,
-name|Long
-argument_list|>
-name|fileSizes
-init|=
-operator|new
-name|ConcurrentHashMap
-argument_list|<
-name|File
-argument_list|,
-name|Long
-argument_list|>
-argument_list|()
-decl_stmt|;
 DECL|method|isUnchanged (File file)
 specifier|protected
 name|boolean
@@ -910,12 +871,10 @@ argument_list|()
 expr_stmt|;
 name|lastModifiedCheck
 operator|=
-operator|(
 name|modifiedDuration
 operator|>=
 name|getUnchangedDelay
 argument_list|()
-operator|)
 expr_stmt|;
 block|}
 name|boolean
@@ -971,11 +930,9 @@ name|prevFileSize
 expr_stmt|;
 name|sizeCheck
 operator|=
-operator|(
 literal|0
 operator|==
 name|sizeDifference
-operator|)
 expr_stmt|;
 block|}
 name|boolean

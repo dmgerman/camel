@@ -20,13 +20,13 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
+name|concurrent
 operator|.
-name|Exchange
+name|BlockingQueue
 import|;
 end_import
 
@@ -55,18 +55,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|BlockingQueue
 import|;
 end_import
 

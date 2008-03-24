@@ -108,7 +108,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|ExchangeHelper
 import|;
 end_import
 
@@ -122,7 +122,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ExchangeHelper
+name|ObjectHelper
 import|;
 end_import
 

@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
+name|Exchange
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|PollingConsumer
 import|;
 end_import
 
@@ -88,32 +88,8 @@ name|Producer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|PollingConsumer
-import|;
-end_import
-
 begin_comment
-comment|/**  * An endpoint which allows exchanges to be sent into it which just invokes a  * given {@link Processor}. This component does not support the use of  * consumers.  *   * @version $Revision$  */
+comment|/**  * An endpoint which allows exchanges to be sent into it which just invokes a  * given {@link Processor}. This component does not support the use of  * consumers.  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -22,6 +22,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|beans
+operator|.
+name|PropertyChangeListener
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|beans
+operator|.
+name|PropertyChangeSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -101,26 +121,6 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|beans
-operator|.
-name|PropertyChangeSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|beans
-operator|.
-name|PropertyChangeListener
 import|;
 end_import
 
@@ -240,20 +240,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|BrowsableEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -271,6 +257,20 @@ operator|.
 name|impl
 operator|.
 name|DefaultProducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|BrowsableEndpoint
 import|;
 end_import
 
@@ -331,7 +331,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Mock endpoint which provides a literate, fluent API for testing routes  * using a<a href="http://jmock.org/">JMock style</a> API.  *   * @version $Revision$  */
+comment|/**  * A Mock endpoint which provides a literate, fluent API for testing routes  * using a<a href="http://jmock.org/">JMock style</a> API.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -887,7 +887,7 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the processor that will be invoked when the some message      * is received.      *       * This processor could be overwritten by      * {@link #whenExchangeReceived(int, Processor)} method.      *       * @param processor      */
+comment|/**      * Set the processor that will be invoked when the some message      * is received.      *      * This processor could be overwritten by      * {@link #whenExchangeReceived(int, Processor)} method.      *      * @param processor      */
 DECL|method|whenAnyExchangeReceived (Processor processor)
 specifier|public
 name|void
@@ -919,7 +919,7 @@ name|sleepForEmptyTest
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Validates that all the available expectations on this endpoint are      * satisfied; or throw an exception      *       * @param timeoutForEmptyEndpoints the timeout in milliseconds that we      *                should wait for the test to be true      */
+comment|/**      * Validates that all the available expectations on this endpoint are      * satisfied; or throw an exception      *      * @param timeoutForEmptyEndpoints the timeout in milliseconds that we      *                should wait for the test to be true      */
 DECL|method|assertIsSatisfied (long timeoutForEmptyEndpoints)
 specifier|public
 name|void
@@ -1148,7 +1148,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Specifies the expected number of message exchanges that should be      * received by this endpoint      *       * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
+comment|/**      * Specifies the expected number of message exchanges that should be      * received by this endpoint      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
 DECL|method|expectedMessageCount (int expectedCount)
 specifier|public
 name|void
@@ -1188,7 +1188,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Specifies the minimum number of expected message exchanges that should be      * received by this endpoint      *       * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
+comment|/**      * Specifies the minimum number of expected message exchanges that should be      * received by this endpoint      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
 DECL|method|expectedMinimumMessageCount (int expectedCount)
 specifier|public
 name|void
@@ -1389,7 +1389,7 @@ name|bodyList
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that messages received should have ascending values      * of the given expression such as a user generated counter value      *       * @param expression      */
+comment|/**      * Adds an expectation that messages received should have ascending values      * of the given expression such as a user generated counter value      *      * @param expression      */
 DECL|method|expectsAscending (final Expression<Exchange> expression)
 specifier|public
 name|void
@@ -1424,7 +1424,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that messages received should have descending values      * of the given expression such as a user generated counter value      *       * @param expression      */
+comment|/**      * Adds an expectation that messages received should have descending values      * of the given expression such as a user generated counter value      *      * @param expression      */
 DECL|method|expectsDescending (final Expression<Exchange> expression)
 specifier|public
 name|void
@@ -1459,7 +1459,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that no duplicate messages should be received using      * the expression to determine the message ID      *       * @param expression the expression used to create a unique message ID for      *                message comparison (which could just be the message      *                payload if the payload can be tested for uniqueness using      *                {@link Object#equals(Object)} and      *                {@link Object#hashCode()}      */
+comment|/**      * Adds an expectation that no duplicate messages should be received using      * the expression to determine the message ID      *      * @param expression the expression used to create a unique message ID for      *                message comparison (which could just be the message      *                payload if the payload can be tested for uniqueness using      *                {@link Object#equals(Object)} and      *                {@link Object#hashCode()}      */
 DECL|method|expectsNoDuplicates (final Expression<Exchange> expression)
 specifier|public
 name|void
@@ -1900,7 +1900,7 @@ name|runnable
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an assertion to the given message index      *       * @param messageIndex the number of the message      * @return the assertion clause      */
+comment|/**      * Adds an assertion to the given message index      *      * @param messageIndex the number of the message      * @return the assertion clause      */
 DECL|method|message (final int messageIndex)
 specifier|public
 name|AssertionClause
@@ -1949,7 +1949,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Adds an assertion to all the received messages      *       * @return the assertion clause      */
+comment|/**      * Adds an assertion to all the received messages      *      * @return the assertion clause      */
 DECL|method|allMessages ()
 specifier|public
 name|AssertionClause
@@ -2114,7 +2114,7 @@ return|return
 name|sleepForEmptyTest
 return|;
 block|}
-comment|/**      * Allows a sleep to be specified to wait to check that this endpoint really      * is empty when {@link #expectedMessageCount(int)} is called with zero      *       * @param sleepForEmptyTest the milliseconds to sleep for to determine that      *                this endpoint really is empty      */
+comment|/**      * Allows a sleep to be specified to wait to check that this endpoint really      * is empty when {@link #expectedMessageCount(int)} is called with zero      *      * @param sleepForEmptyTest the milliseconds to sleep for to determine that      *                this endpoint really is empty      */
 DECL|method|setSleepForEmptyTest (long sleepForEmptyTest)
 specifier|public
 name|void

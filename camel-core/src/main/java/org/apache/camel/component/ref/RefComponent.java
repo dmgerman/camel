@@ -20,13 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|Exchange
+name|Map
 import|;
 end_import
 
@@ -50,19 +48,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultComponent
+name|Exchange
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Map
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultComponent
 import|;
 end_import
 

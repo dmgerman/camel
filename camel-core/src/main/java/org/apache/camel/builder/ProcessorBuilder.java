@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Message
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
+name|Processor
 import|;
 end_import
 
@@ -71,6 +71,7 @@ end_comment
 begin_class
 DECL|class|ProcessorBuilder
 specifier|public
+specifier|final
 class|class
 name|ProcessorBuilder
 block|{
@@ -79,7 +80,7 @@ DECL|method|ProcessorBuilder ()
 specifier|private
 name|ProcessorBuilder
 parameter_list|()
-block|{             }
+block|{     }
 comment|/**      * Creates a processor which sets the body of the IN message to the value of the expression      */
 DECL|method|setBody (final Expression expression)
 specifier|public

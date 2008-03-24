@@ -17,22 +17,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|notNull
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -176,8 +160,24 @@ name|ServiceHelper
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|notNull
+import|;
+end_import
+
 begin_comment
-comment|/**  * Implements a dynamic<a  * href="http://activemq.apache.org/camel/splitter.html">Splitter</a> pattern  * where an expression is evaluated to iterate through each of the parts of a  * message and then each part is then send to some endpoint.  *   * @version $Revision$  */
+comment|/**  * Implements a dynamic<a  * href="http://activemq.apache.org/camel/splitter.html">Splitter</a> pattern  * where an expression is evaluated to iterate through each of the parts of a  * message and then each part is then send to some endpoint.  *  * @version $Revision$  */
 end_comment
 
 begin_class

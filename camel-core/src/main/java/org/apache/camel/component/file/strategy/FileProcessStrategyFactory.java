@@ -39,9 +39,17 @@ end_import
 begin_class
 DECL|class|FileProcessStrategyFactory
 specifier|public
+specifier|final
 class|class
 name|FileProcessStrategyFactory
 block|{
+DECL|method|FileProcessStrategyFactory ()
+specifier|private
+name|FileProcessStrategyFactory
+parameter_list|()
+block|{
+comment|// Utility class
+block|}
 comment|/**      * A strategy method to lazily create the file strategy      */
 DECL|method|createFileProcessStrategy (boolean isNoop, boolean isDelete, boolean isLock, String moveNamePrefix, String moveNamePostfix)
 specifier|public

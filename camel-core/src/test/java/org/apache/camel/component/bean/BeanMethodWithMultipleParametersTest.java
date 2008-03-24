@@ -216,10 +216,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{      }
-DECL|method|DISABLED_testSendMessage ()
+comment|//TODO fix this test
+DECL|method|xtestSendMessage ()
 specifier|public
 name|void
-name|DISABLED_testSendMessage
+name|xtestSendMessage
 parameter_list|()
 throws|throws
 name|Exception

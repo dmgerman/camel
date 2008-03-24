@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|TypeConverter
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|beans
@@ -188,9 +176,22 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TypeConverter
+import|;
+end_import
+
 begin_class
 DECL|class|IntrospectionSupport
 specifier|public
+specifier|final
 class|class
 name|IntrospectionSupport
 block|{
@@ -199,7 +200,7 @@ DECL|method|IntrospectionSupport ()
 specifier|private
 name|IntrospectionSupport
 parameter_list|()
-block|{             }
+block|{     }
 DECL|method|getProperties (Object target, Map props, String optionPrefix)
 specifier|public
 specifier|static
@@ -936,8 +937,6 @@ argument_list|()
 condition|;
 control|)
 block|{
-name|Map
-operator|.
 name|Entry
 name|entry
 init|=
