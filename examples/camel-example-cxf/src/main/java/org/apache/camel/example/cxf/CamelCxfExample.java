@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example class for demonstrating camel works as Router.  * This example shows how camel can route a SOAP over HTTP client's request  * to a SOAP over JMS Service.   *  */
+comment|/**  * An example class for demonstrating camel works as Router.  * This example shows how camel can route a SOAP over HTTP client's request  * to a SOAP over JMS Service.  *  */
 end_comment
 
 begin_class
@@ -187,6 +187,7 @@ decl_stmt|;
 DECL|field|ROUTER_ENDPOINT_URI
 specifier|private
 specifier|static
+specifier|final
 name|String
 name|ROUTER_ENDPOINT_URI
 init|=
@@ -215,6 +216,7 @@ decl_stmt|;
 DECL|field|SERVICE_ENDPOINT_URI
 specifier|private
 specifier|static
+specifier|final
 name|String
 name|SERVICE_ENDPOINT_URI
 init|=
@@ -244,7 +246,7 @@ DECL|method|CamelCxfExample ()
 specifier|private
 name|CamelCxfExample
 parameter_list|()
-block|{             }
+block|{     }
 DECL|method|main (String args[])
 specifier|public
 specifier|static

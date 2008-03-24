@@ -23,6 +23,7 @@ end_package
 begin_class
 DECL|class|CamelTransportExample
 specifier|public
+specifier|final
 class|class
 name|CamelTransportExample
 block|{

@@ -101,26 +101,6 @@ name|GreeterImpl
 implements|implements
 name|Greeter
 block|{
-DECL|field|suffix
-specifier|private
-name|String
-name|suffix
-decl_stmt|;
-DECL|method|GreeterImpl (String suffix)
-specifier|public
-name|GreeterImpl
-parameter_list|(
-name|String
-name|suffix
-parameter_list|)
-block|{
-name|this
-operator|.
-name|suffix
-operator|=
-name|suffix
-expr_stmt|;
-block|}
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -143,6 +123,26 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|suffix
+specifier|private
+name|String
+name|suffix
+decl_stmt|;
+DECL|method|GreeterImpl (String suffix)
+specifier|public
+name|GreeterImpl
+parameter_list|(
+name|String
+name|suffix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|suffix
+operator|=
+name|suffix
+expr_stmt|;
+block|}
 comment|/* (non-Javadoc)      * @see org.apache.hello_world_soap_http.Greeter#greetMe(java.lang.String)      */
 DECL|method|greetMe (String me)
 specifier|public

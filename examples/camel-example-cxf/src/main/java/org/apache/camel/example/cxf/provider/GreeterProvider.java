@@ -52,6 +52,20 @@ name|xml
 operator|.
 name|ws
 operator|.
+name|Service
+operator|.
+name|Mode
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|ws
+operator|.
 name|ServiceMode
 import|;
 end_import
@@ -65,20 +79,6 @@ operator|.
 name|ws
 operator|.
 name|WebServiceProvider
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|ws
-operator|.
-name|Service
-operator|.
-name|Mode
 import|;
 end_import
 
@@ -98,7 +98,7 @@ operator|.
 name|MESSAGE
 argument_list|)
 comment|// END SNIPPET: e1
-comment|/**  * This class is used by Camel just for getting the endpoint configuration parameters. All the requests  * aimed at this class would be intercepted routed to the camel route specified. The route has to set the  * appropriate response message for the service to work.  */
+comment|/**  * This class is used by Camel just for getting the endpoint configuration  * parameters. All the requests aimed at this class would be intercepted routed  * to the camel route specified. The route has to set the appropriate response  * message for the service to work.  */
 comment|// START SNIPPET: e2
 DECL|class|GreeterProvider
 specifier|public
@@ -119,7 +119,8 @@ name|SOAPMessage
 name|message
 parameter_list|)
 block|{
-comment|//request should not come here as camel route would intercept the call before this is invoked.
+comment|// request should not come here as camel route would intercept the call
+comment|// before this is invoked.
 throw|throw
 operator|new
 name|UnsupportedOperationException
@@ -132,7 +133,7 @@ block|}
 end_class
 
 begin_comment
-comment|//END SNIPPET: e2
+comment|// END SNIPPET: e2
 end_comment
 
 end_unit

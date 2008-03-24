@@ -169,8 +169,6 @@ comment|// The endpoint address of the service
 DECL|field|endpointAddress
 name|String
 name|endpointAddress
-init|=
-literal|null
 decl_stmt|;
 DECL|method|Client (String endpointAddress)
 specifier|public
