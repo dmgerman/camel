@@ -963,7 +963,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|prepareMessage (Exchange exchange, Map<String, Object> requestContext, Map<Class, Object> param, InvokingContext InvokingContext)
+DECL|method|prepareMessage (Exchange exchange, Map<String, Object> requestContext, Map<Class, Object> param, InvokingContext invokingContext)
 specifier|private
 name|Message
 name|prepareMessage
@@ -988,7 +988,7 @@ argument_list|>
 name|param
 parameter_list|,
 name|InvokingContext
-name|InvokingContext
+name|invokingContext
 parameter_list|)
 block|{
 name|Message
@@ -1052,7 +1052,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|InvokingContext
+name|invokingContext
 operator|.
 name|setRequestOutMessageContent
 argument_list|(

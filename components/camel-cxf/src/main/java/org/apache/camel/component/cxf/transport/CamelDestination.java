@@ -423,13 +423,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|camelTemplate
-specifier|private
-name|CamelTemplate
-argument_list|<
-name|Exchange
-argument_list|>
-name|camelTemplate
+DECL|field|conduitInitiator
+specifier|final
+name|ConduitInitiator
+name|conduitInitiator
 decl_stmt|;
 DECL|field|camelContext
 name|CamelContext
@@ -443,10 +440,13 @@ DECL|field|camelDestinationUri
 name|String
 name|camelDestinationUri
 decl_stmt|;
-DECL|field|conduitInitiator
-specifier|final
-name|ConduitInitiator
-name|conduitInitiator
+DECL|field|camelTemplate
+specifier|private
+name|CamelTemplate
+argument_list|<
+name|Exchange
+argument_list|>
+name|camelTemplate
 decl_stmt|;
 DECL|field|distinationEndpoint
 specifier|private
@@ -1075,7 +1075,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Register a message observer for incoming messages.          *           * @param observer the observer to notify on receipt of incoming          */
+comment|/**          * Register a message observer for incoming messages.          *          * @param observer the observer to notify on receipt of incoming          */
 DECL|method|setMessageObserver (MessageObserver observer)
 specifier|public
 name|void
@@ -1087,7 +1087,7 @@ parameter_list|)
 block|{
 comment|// shouldn't be called for a back channel conduit
 block|}
-comment|/**          * Send an outbound message, assumed to contain all the name-value          * mappings of the corresponding input message (if any).          *           * @param message the message to be sent.          */
+comment|/**          * Send an outbound message, assumed to contain all the name-value          * mappings of the corresponding input message (if any).          *          * @param message the message to be sent.          */
 DECL|method|prepare (Message message)
 specifier|public
 name|void
@@ -1144,7 +1144,7 @@ name|LOG
 return|;
 block|}
 block|}
-comment|/**      * Mark message as a partial message.      *       * @param partialResponse the partial response message      * @param the decoupled target      * @return true iff partial responses are supported      */
+comment|/**      * Mark message as a partial message.      *      * @param partialResponse the partial response message      * @param the decoupled target      * @return true iff partial responses are supported      */
 DECL|method|markPartialResponse (Message partialResponse, EndpointReferenceType decoupledTarget)
 specifier|protected
 name|boolean

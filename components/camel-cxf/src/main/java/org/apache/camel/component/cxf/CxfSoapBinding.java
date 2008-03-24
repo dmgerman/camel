@@ -71,6 +71,7 @@ end_import
 begin_class
 DECL|class|CxfSoapBinding
 specifier|public
+specifier|final
 class|class
 name|CxfSoapBinding
 block|{

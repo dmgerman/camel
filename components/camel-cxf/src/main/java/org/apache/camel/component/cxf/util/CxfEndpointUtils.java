@@ -707,7 +707,6 @@ name|cls
 parameter_list|)
 block|{
 return|return
-operator|(
 name|hasAnnotation
 argument_list|(
 name|cls
@@ -725,7 +724,6 @@ name|WebServiceProvider
 operator|.
 name|class
 argument_list|)
-operator|)
 return|;
 block|}
 DECL|method|hasAnnotation (Class<?> cls, Class<? extends Annotation> annotation)

@@ -36,17 +36,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
+name|IdentityHashMap
 import|;
 end_import
 
@@ -66,7 +56,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|IdentityHashMap
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -364,6 +364,7 @@ name|obj
 operator|instanceof
 name|Class
 condition|)
+block|{
 name|contents
 operator|.
 name|put
@@ -390,6 +391,7 @@ name|obj
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|contents

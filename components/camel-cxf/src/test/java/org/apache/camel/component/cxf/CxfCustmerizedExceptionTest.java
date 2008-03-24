@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -276,20 +276,6 @@ name|SERVICE_CLASS
 init|=
 literal|"serviceClass=org.apache.camel.component.cxf.HelloService"
 decl_stmt|;
-DECL|field|ROUTER_ENDPOINT_URI
-specifier|protected
-specifier|static
-name|String
-name|ROUTER_ENDPOINT_URI
-init|=
-literal|"cxf://"
-operator|+
-name|ROUTER_ADDRESS
-operator|+
-literal|"?"
-operator|+
-name|SERVICE_CLASS
-decl_stmt|;
 DECL|field|EXCEPTION_MESSAGE
 specifier|private
 specifier|static
@@ -311,8 +297,23 @@ decl_stmt|;
 DECL|field|SOAP_FAULT
 specifier|private
 specifier|static
+specifier|final
 name|SoapFault
 name|SOAP_FAULT
+decl_stmt|;
+DECL|field|routerEndpointURI
+specifier|protected
+specifier|static
+name|String
+name|routerEndpointURI
+init|=
+literal|"cxf://"
+operator|+
+name|ROUTER_ADDRESS
+operator|+
+literal|"?"
+operator|+
+name|SERVICE_CLASS
 decl_stmt|;
 DECL|field|bus
 specifier|private
@@ -440,7 +441,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-name|ROUTER_ENDPOINT_URI
+name|routerEndpointURI
 argument_list|)
 operator|.
 name|throwFault

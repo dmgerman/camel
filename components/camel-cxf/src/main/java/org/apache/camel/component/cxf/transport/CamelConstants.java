@@ -27,6 +27,7 @@ end_comment
 begin_class
 DECL|class|CamelConstants
 specifier|public
+specifier|final
 class|class
 name|CamelConstants
 block|{
@@ -201,6 +202,13 @@ name|CAMEL_CORRELATION_ID
 init|=
 literal|"org.apache.cxf.camel.correlationId"
 decl_stmt|;
+DECL|method|CamelConstants ()
+specifier|private
+name|CamelConstants
+parameter_list|()
+block|{
+comment|// Utility class
+block|}
 block|}
 end_class
 

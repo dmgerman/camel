@@ -663,7 +663,7 @@ name|MessageDataFormatFeature
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//features.add(new LoggingFeature());
+comment|// features.add(new LoggingFeature());
 block|}
 if|if
 condition|(
@@ -686,7 +686,7 @@ name|PayLoadDataFormatFeature
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//features.add(new LoggingFeature());
+comment|// features.add(new LoggingFeature());
 block|}
 name|cfb
 operator|.
@@ -702,7 +702,7 @@ name|cfb
 argument_list|)
 return|;
 block|}
-comment|//If cfb is null ,we will try to find a right cfb to use.
+comment|// If cfb is null ,we will try to find a right cfb to use.
 DECL|method|createClientFormClientFactoryBean (ClientFactoryBean cfb)
 specifier|private
 name|Client
@@ -823,7 +823,8 @@ condition|)
 block|{
 try|try
 block|{
-comment|//we need to choice the right front end to create the clientFactoryBean
+comment|// we need to choice the right front end to create the
+comment|// clientFactoryBean
 name|Class
 name|serviceClass
 init|=
@@ -972,7 +973,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// throw the exception for insufficiency of the endpoint info
+comment|// throw the exception for insufficiency of the endpoint
+comment|// info
 throw|throw
 operator|new
 name|CamelException
@@ -1137,7 +1139,7 @@ name|POJO
 argument_list|)
 condition|)
 block|{
-comment|//InputStream is = m.getContent(InputStream.class);
+comment|// InputStream is = m.getContent(InputStream.class);
 comment|// now we just deal with the POJO invocations
 name|List
 name|parameters
@@ -1696,7 +1698,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|//TODO add the fault message handling work
+comment|// TODO add the fault message handling work
 throw|throw
 operator|new
 name|RuntimeCamelException

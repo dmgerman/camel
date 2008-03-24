@@ -348,11 +348,9 @@ name|beanId
 argument_list|)
 expr_stmt|;
 assert|assert
-operator|(
 name|cxfEndpointBean
 operator|!=
 literal|null
-operator|)
 assert|;
 block|}
 block|}
