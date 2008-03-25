@@ -115,6 +115,68 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|testMistypedProtocol ()
+specifier|public
+name|void
+name|testMistypedProtocol
+parameter_list|()
+block|{
+try|try
+block|{
+comment|// the protocol is mistyped as a colon is missing after tcp
+name|template
+operator|.
+name|setDefaultEndpointUri
+argument_list|(
+literal|"mina:tcp//localhost:8080"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"mina:tcp//localhost:8080"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown a ResolveEndpointFailedException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ResolveEndpointFailedException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+literal|"Should be an IAE exception"
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|IllegalArgumentException
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Unrecognised MINA protocol: null for uri: mina:tcp//localhost:8080"
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 end_class
 
