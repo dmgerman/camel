@@ -333,6 +333,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|assertTimeoutSeconds
+specifier|protected
+name|int
+name|assertTimeoutSeconds
+init|=
+literal|10
+decl_stmt|;
 DECL|field|mockEndpointA
 specifier|private
 name|MockEndpoint
@@ -357,13 +364,6 @@ DECL|field|mockEndpointD
 specifier|private
 name|MockEndpoint
 name|mockEndpointD
-decl_stmt|;
-DECL|field|assertTimeoutSeconds
-specifier|protected
-name|int
-name|assertTimeoutSeconds
-init|=
-literal|10
 decl_stmt|;
 annotation|@
 name|Override
@@ -1114,7 +1114,7 @@ name|destroy
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This test seems to be fail every other run.      *       * @throws Exception      */
+comment|/**      * This test seems to be fail every other run.      *      * @throws Exception      */
 DECL|method|disabledtestSenarioF ()
 specifier|public
 name|void
@@ -1250,10 +1250,11 @@ name|mockEndpointA
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|TODO_testSenarioB ()
+comment|//TODO should fix this test
+DECL|method|xtestSenarioB ()
 specifier|public
 name|void
-name|TODO_testSenarioB
+name|xtestSenarioB
 parameter_list|()
 throws|throws
 name|Exception

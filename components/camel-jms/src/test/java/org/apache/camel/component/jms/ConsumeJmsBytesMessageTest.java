@@ -30,26 +30,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|jms
@@ -75,16 +55,6 @@ operator|.
 name|jms
 operator|.
 name|JMSException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|MapMessage
 import|;
 end_import
 
@@ -171,24 +141,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsComponent
-operator|.
-name|jmsComponentClientAcknowledge
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -229,6 +181,24 @@ operator|.
 name|core
 operator|.
 name|MessageCreator
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsComponent
+operator|.
+name|jmsComponentClientAcknowledge
 import|;
 end_import
 

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -19,24 +19,6 @@ operator|.
 name|tx
 package|;
 end_package
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|processor
-operator|.
-name|SpringTestHelper
-operator|.
-name|createSpringCamelContext
-import|;
-end_import
 
 begin_import
 import|import
@@ -168,8 +150,26 @@ name|Logger
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|processor
+operator|.
+name|SpringTestHelper
+operator|.
+name|createSpringCamelContext
+import|;
+end_import
+
 begin_comment
-comment|/**  * Test case derived from:  *      http://activemq.apache.org/camel/transactional-client.html  *  and  *      Martin Krasser's sample: http://www.nabble.com/JMS-Transactions---How-To-td15168958s22882.html#a15198803  *  * @author Kevin Ross  *  */
+comment|/**  * Test case derived from:  * http://activemq.apache.org/camel/transactional-client.html and Martin  * Krasser's sample:  * http://www.nabble.com/JMS-Transactions---How-To-td15168958s22882.html#a15198803  *  * @author Kevin Ross  */
 end_comment
 
 begin_class
@@ -181,24 +181,14 @@ name|AbstractTransactionTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|log
-specifier|private
-name|Logger
-name|log
-init|=
-name|Logger
-operator|.
-name|getLogger
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-decl_stmt|;
 comment|// keep a ref to easily check the count at the end.
-comment|//    private ConditionalExceptionProcessor conditionalExceptionProcessor;
-comment|//    Policy required = new SpringTransactionPolicy( bean( TransactionTemplate.class, "PROPAGATION_REQUIRED" ) );
-comment|//    Policy notSupported = new SpringTransactionPolicy( bean( TransactionTemplate.class, "PROPAGATION_NOT_SUPPORTED" ) );
-comment|//    Policy requireNew = new SpringTransactionPolicy( bean( TransactionTemplate.class, "PROPAGATION_REQUIRES_NEW" ) );
+comment|// private ConditionalExceptionProcessor conditionalExceptionProcessor;
+comment|// Policy required = new SpringTransactionPolicy( bean(
+comment|// TransactionTemplate.class, "PROPAGATION_REQUIRED" ) );
+comment|// Policy notSupported = new SpringTransactionPolicy( bean(
+comment|// TransactionTemplate.class, "PROPAGATION_NOT_SUPPORTED" ) );
+comment|// Policy requireNew = new SpringTransactionPolicy( bean(
+comment|// TransactionTemplate.class, "PROPAGATION_REQUIRES_NEW" ) );
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -214,7 +204,8 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|//        setConditionalExceptionProcessor( new ConditionalExceptionProcessor() );
+comment|// setConditionalExceptionProcessor( new ConditionalExceptionProcessor()
+comment|// );
 block|}
 DECL|method|tearDown ()
 specifier|protected
@@ -242,7 +233,7 @@ name|template
 operator|=
 literal|null
 expr_stmt|;
-comment|//        setConditionalExceptionProcessor( null );
+comment|// setConditionalExceptionProcessor( null );
 block|}
 DECL|method|createCamelContext ()
 specifier|protected
@@ -339,7 +330,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * By default routes should be wrapped in the {@link DeadLetterChannel} so      * lets unwrap that and return the actual processor      */
-DECL|method|getConditionalExceptionProcessor ( Route route )
+DECL|method|getConditionalExceptionProcessor (Route route)
 specifier|protected
 name|ConditionalExceptionProcessor
 name|getConditionalExceptionProcessor
@@ -349,7 +340,8 @@ name|route
 parameter_list|)
 block|{
 comment|//
-comment|// the following is very specific (and brittle) and is not generally useful outside these transaction tests (nor intended to be).
+comment|// the following is very specific (and brittle) and is not generally
+comment|// useful outside these transaction tests (nor intended to be).
 comment|//
 name|EventDrivenConsumerRoute
 name|consumerRoute
@@ -390,7 +382,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Find the first instance of a Processor of a given class.      *      * @param processor      * @param findClass      * @return      */
-DECL|method|findProcessorByClass ( Processor processor, Class findClass )
+DECL|method|findProcessorByClass (Processor processor, Class findClass)
 specifier|protected
 name|Processor
 name|findProcessorByClass
@@ -524,7 +516,7 @@ return|;
 block|}
 block|}
 block|}
-DECL|method|unwrapDeadLetter ( Processor processor )
+DECL|method|unwrapDeadLetter (Processor processor)
 specifier|private
 name|Processor
 name|unwrapDeadLetter

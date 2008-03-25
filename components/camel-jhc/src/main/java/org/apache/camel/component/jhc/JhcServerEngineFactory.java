@@ -55,6 +55,7 @@ end_import
 begin_class
 DECL|class|JhcServerEngineFactory
 specifier|public
+specifier|final
 class|class
 name|JhcServerEngineFactory
 block|{
@@ -78,19 +79,29 @@ name|JhcServerEngine
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|getJhcServerEngine (HttpParams params, int port, String protocol)
+DECL|method|JhcServerEngineFactory ()
+specifier|private
+name|JhcServerEngineFactory
+parameter_list|()
+block|{
+comment|//Utility Class
+block|}
+DECL|method|getJhcServerEngine (final HttpParams params, final int port, final String protocol)
 specifier|public
-specifier|synchronized
 specifier|static
+specifier|synchronized
 name|JhcServerEngine
 name|getJhcServerEngine
 parameter_list|(
+specifier|final
 name|HttpParams
 name|params
 parameter_list|,
+specifier|final
 name|int
 name|port
 parameter_list|,
+specifier|final
 name|String
 name|protocol
 parameter_list|)

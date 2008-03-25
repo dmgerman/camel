@@ -194,6 +194,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -297,18 +309,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Node
 import|;
 end_import
 
@@ -919,9 +919,10 @@ argument_list|()
 condition|)
 block|{
 comment|// The following properties are set by the MessageProducer
-comment|//   JMSDeliveryMode, JMSDestination, JMSExpiration, JMSPriority,
+comment|// JMSDeliveryMode, JMSDestination, JMSExpiration,
+comment|// JMSPriority,
 comment|// The following are set on the underlying JMS provider
-comment|//   JMSMessageID, JMSTimestamp, JMSRedelivered
+comment|// JMSMessageID, JMSTimestamp, JMSRedelivered
 name|LOG
 operator|.
 name|debug
@@ -1117,7 +1118,8 @@ name|JMSException
 name|e
 parameter_list|)
 block|{
-comment|// if MapMessage creation failed then fall back to Object Message
+comment|// if MapMessage creation failed then fall back to Object
+comment|// Message
 block|}
 block|}
 if|if
@@ -1165,7 +1167,7 @@ name|createMessage
 argument_list|()
 return|;
 block|}
-comment|/**      * Populates a {@link MapMessage} from a {@link Map} instance.       */
+comment|/**      * Populates a {@link MapMessage} from a {@link Map} instance.      */
 DECL|method|populateMapMessage (MapMessage message, Map<?, ?> map, CamelContext context)
 specifier|protected
 name|void
@@ -1422,7 +1424,7 @@ name|headerName
 argument_list|)
 return|;
 block|}
-comment|/**      * Populate any JMS headers that should be excluded from being copied from an input message      * onto an outgoing message      */
+comment|/**      * Populate any JMS headers that should be excluded from being copied from      * an input message onto an outgoing message      */
 DECL|method|populateIgnoreJmsHeaders (Set<String> set)
 specifier|protected
 name|void

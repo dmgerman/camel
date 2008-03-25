@@ -148,7 +148,7 @@ name|net
 operator|.
 name|ftp
 operator|.
-name|FTPFile
+name|FTPConnectionClosedException
 import|;
 end_import
 
@@ -164,7 +164,7 @@ name|net
 operator|.
 name|ftp
 operator|.
-name|FTPConnectionClosedException
+name|FTPFile
 import|;
 end_import
 
@@ -196,6 +196,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|endpoint
+specifier|private
+specifier|final
+name|FtpEndpoint
+name|endpoint
+decl_stmt|;
 DECL|field|recursive
 specifier|private
 name|boolean
@@ -215,12 +221,6 @@ specifier|private
 name|long
 name|lastPollTime
 decl_stmt|;
-DECL|field|endpoint
-specifier|private
-specifier|final
-name|FtpEndpoint
-name|endpoint
-decl_stmt|;
 DECL|field|client
 specifier|private
 name|FTPClient
@@ -230,8 +230,6 @@ DECL|field|setNames
 specifier|private
 name|boolean
 name|setNames
-init|=
-literal|false
 decl_stmt|;
 DECL|method|FtpConsumer (FtpEndpoint endpoint, Processor processor, FTPClient client)
 specifier|public

@@ -79,24 +79,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsComponent
-operator|.
-name|jmsComponentTransacted
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -113,16 +95,20 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|springframework
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
 operator|.
 name|jms
 operator|.
-name|listener
+name|JmsComponent
 operator|.
-name|DefaultMessageListenerContainer
+name|jmsComponentTransacted
 import|;
 end_import
 

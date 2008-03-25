@@ -28,18 +28,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Message
 import|;
 end_import
@@ -224,8 +212,8 @@ name|answer
 return|;
 block|}
 DECL|method|connectIfNecessary ()
-specifier|abstract
 specifier|protected
+specifier|abstract
 name|void
 name|connectIfNecessary
 parameter_list|()
@@ -233,8 +221,8 @@ throws|throws
 name|Exception
 function_decl|;
 DECL|method|disconnect ()
-specifier|abstract
 specifier|protected
+specifier|abstract
 name|void
 name|disconnect
 parameter_list|()

@@ -38,9 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|ScheduledPollEndpoint
+name|ExchangePattern
 import|;
 end_import
 
@@ -52,7 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
+name|impl
+operator|.
+name|ScheduledPollEndpoint
 import|;
 end_import
 

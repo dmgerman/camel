@@ -441,8 +441,6 @@ DECL|field|acknowledgementModeName
 specifier|private
 name|String
 name|acknowledgementModeName
-init|=
-literal|null
 decl_stmt|;
 comment|// Used to configure the spring Container
 DECL|field|exceptionListener
@@ -716,7 +714,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Creates a JmsOperations object used for request/response using a request timeout value      */
+comment|/**      * Creates a JmsOperations object used for request/response using a request      * timeout value      */
 DECL|method|createInOutTemplate (boolean pubSubDomain, String destination, long requestTimeout)
 specifier|public
 name|JmsOperations
@@ -809,7 +807,8 @@ init|=
 name|getTemplateConnectionFactory
 argument_list|()
 decl_stmt|;
-comment|// I whish the spring templates had built in support for preserving the message
+comment|// I whish the spring templates had built in support for preserving the
+comment|// message
 comment|// qos when doing a send. :(
 name|JmsTemplate
 name|template
@@ -1207,7 +1206,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// This is here for completeness, but the template should not get used
+comment|// This is here for completeness, but the template should not get
+comment|// used
 comment|// for receiving messages.
 if|if
 condition|(
@@ -1902,7 +1902,7 @@ return|return
 name|listenerConnectionFactory
 return|;
 block|}
-comment|/**      * Sets the connection factory to be used for consuming messages via the      * {@link #createMessageListenerContainer(JmsEndpoint)}      *      * @param listenerConnectionFactory the connection factory to use for      *                                  consuming messages      */
+comment|/**      * Sets the connection factory to be used for consuming messages via the      * {@link #createMessageListenerContainer(JmsEndpoint)}      *      * @param listenerConnectionFactory the connection factory to use for      *                consuming messages      */
 DECL|method|setListenerConnectionFactory (ConnectionFactory listenerConnectionFactory)
 specifier|public
 name|void
@@ -1942,7 +1942,7 @@ return|return
 name|templateConnectionFactory
 return|;
 block|}
-comment|/**      * Sets the connection factory to be used for sending messages via the      * {@link JmsTemplate} via {@link #createInOnlyTemplate(boolean, String)}      *      * @param templateConnectionFactory the connection factory for sending      *                                  messages      */
+comment|/**      * Sets the connection factory to be used for sending messages via the      * {@link JmsTemplate} via {@link #createInOnlyTemplate(boolean, String)}      *      * @param templateConnectionFactory the connection factory for sending      *                messages      */
 DECL|method|setTemplateConnectionFactory (ConnectionFactory templateConnectionFactory)
 specifier|public
 name|void
@@ -2840,7 +2840,7 @@ return|return
 name|eagerLoadingOfProperties
 return|;
 block|}
-comment|/**      * Enables eager loading of JMS properties as soon as a message is loaded which generally      * is inefficient as the JMS properties may not be required but sometimes can catch early any      * issues with the underlying JMS provider and the use of JMS properties      *      * @param eagerLoadingOfProperties whether or not to enable eager loading of JMS properties      * on inbound messages      */
+comment|/**      * Enables eager loading of JMS properties as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties      *      * @param eagerLoadingOfProperties whether or not to enable eager loading of      *                JMS properties on inbound messages      */
 DECL|method|setEagerLoadingOfProperties (boolean eagerLoadingOfProperties)
 specifier|public
 name|void
@@ -2867,7 +2867,7 @@ return|return
 name|disableReplyTo
 return|;
 block|}
-comment|/**      * Disables the use of the JMSReplyTo header for consumers so that inbound messages are treated as InOnly      * rather than InOut requests.      *      * @param disableReplyTo whether or not to disable the use of JMSReplyTo header indicating an InOut      */
+comment|/**      * Disables the use of the JMSReplyTo header for consumers so that inbound      * messages are treated as InOnly rather than InOut requests.      *      * @param disableReplyTo whether or not to disable the use of JMSReplyTo      *                header indicating an InOut      */
 DECL|method|setDisableReplyTo (boolean disableReplyTo)
 specifier|public
 name|void
@@ -2955,7 +2955,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Defaults the JMS cache level if none is explicitly specified.      *      * Note that due to this      *<a href="http://opensource.atlassian.com/projects/spring/browse/SPR-3890">Spring Bug</a>      * we cannot use CACHE_CONSUMER by default (which we should do as its most efficient)      * unless the spring version is 2.5.1 or later.      * Instead we use CACHE_CONNECTION - part from for non-durable topics which must use      * CACHE_CONSUMER to avoid missing messages (due to the consumer being created and destroyed per message).      *      * @return      * @param endpoint      */
+comment|/**      * Defaults the JMS cache level if none is explicitly specified. Note that      * due to this<a      * href="http://opensource.atlassian.com/projects/spring/browse/SPR-3890">Spring      * Bug</a> we cannot use CACHE_CONSUMER by default (which we should do as      * its most efficient) unless the spring version is 2.5.1 or later. Instead      * we use CACHE_CONNECTION - part from for non-durable topics which must use      * CACHE_CONSUMER to avoid missing messages (due to the consumer being      * created and destroyed per message).      *      * @return      * @param endpoint      */
 DECL|method|defaultCacheLevel (JmsEndpoint endpoint)
 specifier|protected
 name|int
@@ -3008,8 +3008,10 @@ return|;
 block|}
 else|else
 block|{
-comment|// to enable consuming and sending with a single JMS session (to avoid XA) we can only use CACHE_CONNECTION
-comment|// due to this bug : http://opensource.atlassian.com/projects/spring/browse/SPR-3890
+comment|// to enable consuming and sending with a single JMS session (to
+comment|// avoid XA) we can only use CACHE_CONNECTION
+comment|// due to this bug :
+comment|// http://opensource.atlassian.com/projects/spring/browse/SPR-3890
 return|return
 name|DefaultMessageListenerContainer
 operator|.
@@ -3072,7 +3074,7 @@ return|return
 name|preserveMessageQos
 return|;
 block|}
-comment|/**      * Set to true if you want to send message using the QoS settings specified      * on the message.  Normally the QoS settings used are the one configured      * on this Object.      *      * @param preserveMessageQos      */
+comment|/**      * Set to true if you want to send message using the QoS settings specified      * on the message. Normally the QoS settings used are the one configured on      * this Object.      *      * @param preserveMessageQos      */
 DECL|method|setPreserveMessageQos (boolean preserveMessageQos)
 specifier|public
 name|void
@@ -3151,7 +3153,7 @@ return|return
 name|requestMapPurgePollTimeMillis
 return|;
 block|}
-comment|/**      * Sets the frequency that the requestMap for InOut exchanges is purged      * for timed out message exchanges      *      * @param requestMapPurgePollTimeMillis      */
+comment|/**      * Sets the frequency that the requestMap for InOut exchanges is purged for      * timed out message exchanges      *      * @param requestMapPurgePollTimeMillis      */
 DECL|method|setRequestMapPurgePollTimeMillis (long requestMapPurgePollTimeMillis)
 specifier|public
 name|void

@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://activemq.apache.org/camel/http.html">HTTP  * Component</a>  *   * @version $Revision$  */
+comment|/**  * Defines the<a href="http://activemq.apache.org/camel/http.html">HTTP  * Component</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -151,7 +151,7 @@ operator|new
 name|MultiThreadedHttpConnectionManager
 argument_list|()
 decl_stmt|;
-comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *       * @throws Exception      */
+comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *      * @throws Exception      */
 DECL|method|connect (HttpConsumer consumer)
 specifier|public
 name|void
@@ -163,7 +163,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
-comment|/**      * Disconnects the URL specified on the endpoint from the specified      * processor.      *       * @throws Exception      */
+comment|/**      * Disconnects the URL specified on the endpoint from the specified      * processor.      *      * @throws Exception      */
 DECL|method|disconnect (HttpConsumer consumer)
 specifier|public
 name|void
@@ -211,7 +211,7 @@ return|return
 name|httpConnectionManager
 return|;
 block|}
-DECL|method|setHttpConnectionManager ( HttpConnectionManager httpConnectionManager)
+DECL|method|setHttpConnectionManager (HttpConnectionManager httpConnectionManager)
 specifier|public
 name|void
 name|setHttpConnectionManager

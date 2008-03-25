@@ -50,9 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultExchange
+name|ExchangePattern
 import|;
 end_import
 
@@ -64,12 +62,14 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
+name|impl
+operator|.
+name|DefaultExchange
 import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a HTTP exchange which exposes the underlying HTTP abtractions via  * {@link #getRequest()} and {@link #getResponse()}   *  * @version $Revision$  */
+comment|/**  * Represents a HTTP exchange which exposes the underlying HTTP abtractions via  * {@link #getRequest()} and {@link #getResponse()}  *  * @version $Revision$  */
 end_comment
 
 begin_class

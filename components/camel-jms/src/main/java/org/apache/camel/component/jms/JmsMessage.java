@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a {@link org.apache.camel.Message} for working with JMS  *   * @version $Revision:520964 $  */
+comment|/**  * Represents a {@link org.apache.camel.Message} for working with JMS  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -263,7 +263,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Returns the underlying JMS message      *       * @return the underlying JMS message      */
+comment|/**      * Returns the underlying JMS message      *      * @return the underlying JMS message      */
 DECL|method|getJmsMessage ()
 specifier|public
 name|Message

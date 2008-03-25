@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Provide description for TestDataSource.  *   * @author<a href="mailto:nsandhu@raleys.com">nsandhu</a>  *  */
+comment|/**  * TODO Provide description for TestDataSource.  *  * @author<a href="mailto:nsandhu@raleys.com">nsandhu</a>  *  */
 end_comment
 
 begin_class
@@ -81,14 +81,21 @@ implements|implements
 name|DataSource
 block|{
 DECL|field|url
-DECL|field|username
-DECL|field|password
 specifier|private
+specifier|final
 name|String
 name|url
-decl_stmt|,
+decl_stmt|;
+DECL|field|username
+specifier|private
+specifier|final
+name|String
 name|username
-decl_stmt|,
+decl_stmt|;
+DECL|field|password
+specifier|private
+specifier|final
+name|String
 name|password
 decl_stmt|;
 DECL|method|TestDataSource (String url, String user, String password)

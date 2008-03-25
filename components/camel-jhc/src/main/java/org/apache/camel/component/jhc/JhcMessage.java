@@ -39,7 +39,7 @@ class|class
 name|JhcMessage
 extends|extends
 name|DefaultMessage
-block|{ 	 }
+block|{  }
 end_class
 
 end_unit

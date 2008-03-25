@@ -19,24 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsComponent
-operator|.
-name|jmsComponentClientAcknowledge
-import|;
-end_import
-
-begin_import
 import|import
 name|javax
 operator|.
@@ -182,6 +164,24 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsComponent
+operator|.
+name|jmsComponentClientAcknowledge
+import|;
+end_import
+
 begin_class
 DECL|class|AggregratedJmsRouteTest
 specifier|public
@@ -214,7 +214,7 @@ name|startEndpointUri
 init|=
 literal|"jms:queue:test.a"
 decl_stmt|;
-comment|/*      * negative recieve wait timeout for jms is blocking so timeout during processing does not hang       */
+comment|/*      * negative recieve wait timeout for jms is blocking so timeout during processing does not hang      */
 DECL|method|testJmsBatchTimeoutExpiryWithAggregrationDelay ()
 specifier|public
 name|void
