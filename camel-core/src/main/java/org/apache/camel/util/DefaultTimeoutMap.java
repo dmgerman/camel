@@ -568,17 +568,6 @@ name|entry
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Evicting inactive request for correlationID: "
-operator|+
-name|entry
-argument_list|)
-expr_stmt|;
 name|map
 operator|.
 name|remove
