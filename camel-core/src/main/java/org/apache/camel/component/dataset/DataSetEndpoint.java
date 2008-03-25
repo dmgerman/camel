@@ -345,6 +345,16 @@ operator|+
 literal|" on  "
 operator|+
 name|exchange
+operator|+
+literal|" with headers: "
+operator|+
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -485,6 +495,41 @@ expr_stmt|;
 return|return
 name|exchange
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|waitForCompleteLatch ()
+specifier|protected
+name|void
+name|waitForCompleteLatch
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+comment|// TODO lets do a much better version of this!
+name|long
+name|size
+init|=
+name|getDataSet
+argument_list|()
+operator|.
+name|getSize
+argument_list|()
+decl_stmt|;
+name|size
+operator|*=
+literal|4000
+expr_stmt|;
+name|setDefaulResultWaitMillis
+argument_list|(
+name|size
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|waitForCompleteLatch
+argument_list|()
+expr_stmt|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
@@ -770,6 +815,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+literal|"Header: "
+operator|+
 name|DataSet
 operator|.
 name|INDEX_HEADER
