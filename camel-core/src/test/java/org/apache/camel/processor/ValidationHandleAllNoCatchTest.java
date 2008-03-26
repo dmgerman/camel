@@ -175,11 +175,12 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// allEndpoint receives 6 messages, as redelivery is involved
 name|allEndpoint
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|6
 argument_list|)
 expr_stmt|;
 name|template
