@@ -20,13 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|net
 operator|.
-name|camel
-operator|.
-name|Processor
+name|SocketAddress
 import|;
 end_import
 
@@ -39,6 +37,18 @@ operator|.
 name|camel
 operator|.
 name|CamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
@@ -154,18 +164,8 @@ name|IoSession
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|SocketAddress
-import|;
-end_import
-
 begin_comment
-comment|/**  * A {@link org.apache.camel.Consumer Consumer} implementation for Apache MINA.  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.Consumer Consumer} implementation for Apache MINA.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -239,6 +239,8 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
+name|this
+operator|.
 name|address
 operator|=
 name|endpoint
@@ -246,6 +248,8 @@ operator|.
 name|getAddress
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
 name|acceptor
 operator|=
 name|endpoint
@@ -264,6 +268,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -290,11 +299,81 @@ name|IoHandler
 name|handler
 init|=
 operator|new
-name|IoHandlerAdapter
+name|ReceiveHandler
 argument_list|()
+decl_stmt|;
+name|acceptor
+operator|.
+name|bind
+argument_list|(
+name|address
+argument_list|,
+name|handler
+argument_list|,
+name|endpoint
+operator|.
+name|getAcceptorConfig
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Unbinding from server address: "
+operator|+
+name|address
+operator|+
+literal|" using acceptor: "
+operator|+
+name|acceptor
+argument_list|)
+expr_stmt|;
+block|}
+name|acceptor
+operator|.
+name|unbind
+argument_list|(
+name|address
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Handles comsuming messages and replying if the exchange is out capable.      */
+DECL|class|ReceiveHandler
+specifier|private
+specifier|final
+class|class
+name|ReceiveHandler
+extends|extends
+name|IoHandlerAdapter
 block|{
 annotation|@
 name|Override
+DECL|method|exceptionCaught (IoSession session, Throwable cause)
 specifier|public
 name|void
 name|exceptionCaught
@@ -340,6 +419,7 @@ throw|;
 block|}
 annotation|@
 name|Override
+DECL|method|messageReceived (IoSession session, Object object)
 specifier|public
 name|void
 name|messageReceived
@@ -489,11 +569,15 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-name|session
+name|MinaHelper
 operator|.
-name|write
+name|writeBody
 argument_list|(
+name|session
+argument_list|,
 name|body
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -520,67 +604,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-decl_stmt|;
-name|acceptor
-operator|.
-name|bind
-argument_list|(
-name|address
-argument_list|,
-name|handler
-argument_list|,
-name|endpoint
-operator|.
-name|getAcceptorConfig
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Unbinding from server address: "
-operator|+
-name|address
-operator|+
-literal|" using acceptor: "
-operator|+
-name|acceptor
-argument_list|)
-expr_stmt|;
-block|}
-name|acceptor
-operator|.
-name|unbind
-argument_list|(
-name|address
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_class

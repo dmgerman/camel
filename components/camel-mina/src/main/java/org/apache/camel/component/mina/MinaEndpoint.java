@@ -333,6 +333,13 @@ operator|=
 name|transferExchange
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|}
+argument_list|)
 DECL|method|createProducer ()
 specifier|public
 name|Producer

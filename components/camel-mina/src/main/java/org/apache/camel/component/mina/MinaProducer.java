@@ -60,30 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|CamelException
 import|;
 end_import
@@ -96,7 +72,31 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ExchangeTimedOutException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Producer
 import|;
 end_import
 
@@ -234,9 +234,13 @@ name|apache
 operator|.
 name|mina
 operator|.
-name|common
+name|transport
 operator|.
-name|WriteFuture
+name|socket
+operator|.
+name|nio
+operator|.
+name|SocketConnector
 import|;
 end_import
 
@@ -294,6 +298,23 @@ specifier|private
 name|long
 name|timeout
 decl_stmt|;
+DECL|field|connector
+specifier|private
+name|IoConnector
+name|connector
+decl_stmt|;
+DECL|field|sync
+specifier|private
+name|boolean
+name|sync
+decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|}
+argument_list|)
 DECL|method|MinaProducer (MinaEndpoint endpoint)
 specifier|public
 name|MinaProducer
@@ -405,24 +426,40 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No payload for exchange: "
+literal|"No payload to send for exchange: "
 operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
+return|return;
+comment|// exit early since nothing to write
 block|}
-else|else
-block|{
-if|if
-condition|(
+comment|// if sync is true then we should also wait for a response (synchronous mode)
+name|sync
+operator|=
 name|ExchangeHelper
 operator|.
 name|isOutCapable
 argument_list|(
 name|exchange
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|sync
 condition|)
 block|{
+comment|// only initialize latch if we should get a response
+name|latch
+operator|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+comment|// write the body
 if|if
 condition|(
 name|LOG
@@ -441,50 +478,30 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-comment|// write the body
-name|latch
-operator|=
-operator|new
-name|CountDownLatch
+name|MinaHelper
+operator|.
+name|writeBody
 argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|WriteFuture
-name|future
-init|=
 name|session
-operator|.
-name|write
-argument_list|(
+argument_list|,
 name|body
+argument_list|,
+name|exchange
 argument_list|)
-decl_stmt|;
-name|future
-operator|.
-name|join
-argument_list|()
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|future
-operator|.
-name|isWritten
-argument_list|()
+name|sync
 condition|)
 block|{
-throw|throw
-operator|new
-name|ExchangeTimedOutException
-argument_list|(
-name|exchange
-argument_list|,
-name|timeout
-argument_list|)
-throw|;
-block|}
 comment|// wait for response, consider timeout
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Waiting for response"
+argument_list|)
+expr_stmt|;
 name|latch
 operator|.
 name|await
@@ -553,27 +570,6 @@ throw|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Handler message: "
-operator|+
-name|handler
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|MinaPayloadHelper
 operator|.
 name|setOut
@@ -584,17 +580,6 @@ name|handler
 operator|.
 name|getMessage
 argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-name|session
-operator|.
-name|write
-argument_list|(
-name|body
 argument_list|)
 expr_stmt|;
 block|}
@@ -610,6 +595,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -633,6 +623,70 @@ name|Exception
 block|{
 if|if
 condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Stopping connector: "
+operator|+
+name|connector
+operator|+
+literal|" at address: "
+operator|+
+name|endpoint
+operator|.
+name|getAddress
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|connector
+operator|instanceof
+name|SocketConnector
+condition|)
+block|{
+comment|// Change the worker timeout to 0 second to make the I/O thread quit soon when there's no connection to manage.
+comment|// Default worker timeout is 60 sec and therefore the client using MinaProducer can not terminate the JVM
+comment|// asap but must wait for the timeout to happend, so to speed this up we set the timeout to 0.
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Setting SocketConnector WorkerTimeout=0 to force MINA stopping its resources faster"
+argument_list|)
+expr_stmt|;
+block|}
+operator|(
+operator|(
+name|SocketConnector
+operator|)
+name|connector
+operator|)
+operator|.
+name|setWorkerTimeout
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|session
 operator|!=
 literal|null
@@ -642,13 +696,13 @@ name|session
 operator|.
 name|close
 argument_list|()
-operator|.
-name|join
-argument_list|(
-literal|2000
-argument_list|)
 expr_stmt|;
 block|}
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|openConnection ()
 specifier|private
@@ -664,14 +718,13 @@ operator|.
 name|getAddress
 argument_list|()
 decl_stmt|;
-name|IoConnector
 name|connector
-init|=
+operator|=
 name|endpoint
 operator|.
 name|getConnector
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -709,6 +762,7 @@ argument_list|(
 name|endpoint
 argument_list|)
 decl_stmt|;
+comment|// connect and wait until the connection is established
 name|ConnectFuture
 name|future
 init|=
@@ -866,6 +920,16 @@ name|Exception
 block|{
 if|if
 condition|(
+name|sync
+operator|&&
+name|message
+operator|==
+literal|null
+condition|)
+block|{
+comment|// sync=true (InOut mode) so we expected a message as reply but did not get one before the session is closed
+if|if
+condition|(
 name|LOG
 operator|.
 name|isDebugEnabled
@@ -876,19 +940,19 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Session closed"
+literal|"Session closed but no message received from address: "
+operator|+
+name|this
+operator|.
+name|endpoint
+operator|.
+name|getAddress
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|message
-operator|==
-literal|null
-condition|)
-block|{
-comment|// session was closed but no message received. This is because the remote server had an internal error
-comment|// and could not return a proper response. We should count down to stop waiting for a response
+comment|// session was closed but no message received. This could be because the remote server had an internal error
+comment|// and could not return a response. We should count down to stop waiting for a response
 name|countDown
 argument_list|()
 expr_stmt|;
@@ -958,9 +1022,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-name|countDown
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|getCause ()
 specifier|public

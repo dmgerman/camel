@@ -147,12 +147,6 @@ name|URI
 init|=
 literal|"mina:tcp://localhost:6321?sync=true&transferExchange=true"
 decl_stmt|;
-DECL|field|id
-specifier|private
-specifier|static
-name|String
-name|id
-decl_stmt|;
 DECL|method|testMinaTransferExchangeOption ()
 specifier|public
 name|void
@@ -179,13 +173,6 @@ operator|.
 name|createExchange
 argument_list|()
 decl_stmt|;
-name|id
-operator|=
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
-expr_stmt|;
 name|Message
 name|message
 init|=
@@ -252,17 +239,6 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"out"
-operator|+
-name|out
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Goodbye!"
@@ -295,16 +271,6 @@ name|getProperty
 argument_list|(
 literal|"salami"
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-name|id
-argument_list|,
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// in should stay the same
@@ -394,14 +360,6 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
-comment|// to force some delay to test that the id stays the same even though time is 100 millis later
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
 name|Assert
 operator|.
 name|assertNotNull
@@ -484,8 +442,6 @@ literal|"ham"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// do not marshal the exchangeId here
-comment|//Assert.assertEquals(id, e.getExchangeId());
 name|Assert
 operator|.
 name|assertEquals
