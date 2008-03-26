@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -71,18 +83,6 @@ operator|.
 name|camel
 operator|.
 name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ExchangePattern
 import|;
 end_import
 
@@ -319,7 +319,7 @@ name|folder
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a consumer using the given processor and transport      *       * @param processor the processor to use to process the messages      * @param folder the JavaMail Folder to use for inbound messages      * @return a newly created consumer      * @throws Exception if the consumer cannot be created      */
+comment|/**      * Creates a consumer using the given processor and transport      *      * @param processor the processor to use to process the messages      * @param folder the JavaMail Folder to use for inbound messages      * @return a newly created consumer      * @throws Exception if the consumer cannot be created      */
 DECL|method|createConsumer (Processor processor, Folder folder)
 specifier|public
 name|Consumer
@@ -436,7 +436,7 @@ return|return
 name|binding
 return|;
 block|}
-comment|/**      * Sets the binding used to convert from a Camel message to and from a Mail      * message      *       * @param binding the binding to use      */
+comment|/**      * Sets the binding used to convert from a Camel message to and from a Mail      * message      *      * @param binding the binding to use      */
 DECL|method|setBinding (MailBinding binding)
 specifier|public
 name|void
