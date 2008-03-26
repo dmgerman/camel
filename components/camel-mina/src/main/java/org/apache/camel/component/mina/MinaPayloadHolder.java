@@ -34,7 +34,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|LinkedHashMap
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|LinkedHashMap
+name|Map
 import|;
 end_import
 

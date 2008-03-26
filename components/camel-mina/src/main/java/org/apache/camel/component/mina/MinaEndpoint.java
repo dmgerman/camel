@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -61,18 +73,6 @@ operator|.
 name|camel
 operator|.
 name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ExchangePattern
 import|;
 end_import
 
@@ -161,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint for Camel MINA.   *  * @version $Revision$  */
+comment|/**  * Endpoint for Camel MINA.  *  * @version $Revision$  */
 end_comment
 
 begin_class

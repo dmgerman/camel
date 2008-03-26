@@ -37,9 +37,17 @@ end_comment
 begin_class
 DECL|class|MinaPayloadHelper
 specifier|public
+specifier|final
 class|class
 name|MinaPayloadHelper
 block|{
+DECL|method|MinaPayloadHelper ()
+specifier|private
+name|MinaPayloadHelper
+parameter_list|()
+block|{
+comment|//Utility Class
+block|}
 DECL|method|getIn (MinaEndpoint endpoint, Exchange exchange)
 specifier|public
 specifier|static

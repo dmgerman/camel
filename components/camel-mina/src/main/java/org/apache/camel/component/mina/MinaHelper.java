@@ -24,6 +24,30 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|mina
 operator|.
 name|common
@@ -46,30 +70,6 @@ name|WriteFuture
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelExchangeException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Helper class used internally by camel-mina using Apache MINA.  */
 end_comment
@@ -77,6 +77,7 @@ end_comment
 begin_class
 DECL|class|MinaHelper
 specifier|public
+specifier|final
 class|class
 name|MinaHelper
 block|{
@@ -84,8 +85,10 @@ DECL|method|MinaHelper ()
 specifier|private
 name|MinaHelper
 parameter_list|()
-block|{}
-comment|/**      * Writes the given body to MINA session. Will wait until the body has been written.      *       * @param session   the MINA session      * @param body      the body to write (send)      * @param exchange  the mina exchange used for error reporting      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
+block|{
+comment|//Utility Class
+block|}
+comment|/**      * Writes the given body to MINA session. Will wait until the body has been written.      *      * @param session   the MINA session      * @param body      the body to write (send)      * @param exchange  the mina exchange used for error reporting      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
 DECL|method|writeBody (IoSession session, Object body, Exchange exchange)
 specifier|public
 specifier|static
