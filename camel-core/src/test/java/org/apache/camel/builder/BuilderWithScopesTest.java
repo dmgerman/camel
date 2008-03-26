@@ -1825,7 +1825,7 @@ argument_list|(
 name|orderProcessor
 argument_list|)
 operator|.
-name|handleAll
+name|finallyBlock
 argument_list|()
 operator|.
 name|process
@@ -1838,7 +1838,7 @@ argument_list|(
 name|orderProcessor3
 argument_list|)
 expr_stmt|;
-comment|// continuation of the handleAll clause
+comment|// continuation of the finallyBlock clause
 block|}
 block|}
 return|;
@@ -2061,7 +2061,7 @@ argument_list|(
 name|orderProcessor
 argument_list|)
 operator|.
-name|handleAll
+name|finallyBlock
 argument_list|()
 operator|.
 name|process

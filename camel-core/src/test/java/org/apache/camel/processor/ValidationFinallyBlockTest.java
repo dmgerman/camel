@@ -97,14 +97,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test handleAll  *  * @author<a href="mailto:nsandhu@raleys.com">nsandhu</a>  */
+comment|/**  * Test finallyBlock  *  * @author<a href="mailto:nsandhu@raleys.com">nsandhu</a>  */
 end_comment
 
 begin_class
-DECL|class|ValidationHandleAllTest
+DECL|class|ValidationFinallyBlockTest
 specifier|public
 class|class
-name|ValidationHandleAllTest
+name|ValidationFinallyBlockTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -342,7 +342,7 @@ argument_list|)
 expr_stmt|;
 name|tryType
 operator|.
-name|handleAll
+name|finallyBlock
 argument_list|()
 operator|.
 name|to

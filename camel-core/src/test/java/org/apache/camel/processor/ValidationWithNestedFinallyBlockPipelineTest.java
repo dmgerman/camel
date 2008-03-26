@@ -47,10 +47,10 @@ comment|/**  * The handle catch clause has a pipeline processing the exception. 
 end_comment
 
 begin_class
-DECL|class|ValidationWithNestedHandleAllPipelineTest
+DECL|class|ValidationWithNestedFinallyBlockPipelineTest
 specifier|public
 class|class
-name|ValidationWithNestedHandleAllPipelineTest
+name|ValidationWithNestedFinallyBlockPipelineTest
 extends|extends
 name|ValidationTest
 block|{
@@ -119,7 +119,7 @@ argument_list|(
 literal|"mock:valid"
 argument_list|)
 operator|.
-name|handleAll
+name|finallyBlock
 argument_list|()
 operator|.
 name|setHeader

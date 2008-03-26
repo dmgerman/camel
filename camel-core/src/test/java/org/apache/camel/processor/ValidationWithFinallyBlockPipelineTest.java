@@ -47,10 +47,10 @@ comment|/**  * The handle catch clause has a pipeline processing the exception. 
 end_comment
 
 begin_class
-DECL|class|ValidationWithHandleAllPipelineTest
+DECL|class|ValidationWithFinallyBlockPipelineTest
 specifier|public
 class|class
-name|ValidationWithHandleAllPipelineTest
+name|ValidationWithFinallyBlockPipelineTest
 extends|extends
 name|ValidationTest
 block|{
@@ -110,7 +110,7 @@ literal|false
 argument_list|)
 argument_list|)
 operator|.
-name|handleAll
+name|finallyBlock
 argument_list|()
 operator|.
 name|setBody

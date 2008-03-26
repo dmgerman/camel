@@ -89,10 +89,10 @@ comment|/**  * No catch blocks but handle all should work  *  * @author<a href="
 end_comment
 
 begin_class
-DECL|class|ValidationHandleAllNoCatchTest
+DECL|class|ValidationFinallyBlockNoCatchTest
 specifier|public
 class|class
-name|ValidationHandleAllNoCatchTest
+name|ValidationFinallyBlockNoCatchTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -283,7 +283,7 @@ argument_list|)
 decl_stmt|;
 name|tryType
 operator|.
-name|handleAll
+name|finallyBlock
 argument_list|()
 operator|.
 name|to

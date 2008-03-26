@@ -369,7 +369,7 @@ throw|;
 block|}
 finally|finally
 block|{
-name|handleAll
+name|processFinally
 argument_list|(
 name|exchange
 argument_list|)
@@ -378,17 +378,17 @@ block|}
 block|}
 else|else
 block|{
-name|handleAll
+name|processFinally
 argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|handleAll (Exchange exchange)
+DECL|method|processFinally (Exchange exchange)
 specifier|private
 name|void
-name|handleAll
+name|processFinally
 parameter_list|(
 name|Exchange
 name|exchange

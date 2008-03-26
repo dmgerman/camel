@@ -369,10 +369,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|handleAll ()
+DECL|method|finallyBlock ()
 specifier|public
 name|TryType
-name|handleAll
+name|finallyBlock
 parameter_list|()
 block|{
 name|popBlock
