@@ -1233,7 +1233,7 @@ return|return
 name|duration
 return|;
 block|}
-comment|/**      * Sets the duration to run the application for in milliseconds until it should be terminated.      * Defaults to -1. Any value<= 0 will run forever.      *      * @param duration      */
+comment|/**      * Sets the duration to run the application for in milliseconds until it      * should be terminated. Defaults to -1. Any value<= 0 will run forever.      *      * @param duration      */
 DECL|method|setDuration (long duration)
 specifier|public
 name|void
@@ -1287,7 +1287,7 @@ return|return
 name|dotOutputDir
 return|;
 block|}
-comment|/**      * Sets the output directory of the generated DOT Files      * to show the visual representation of the routes.      * A null value disables the dot file generation      */
+comment|/**      * Sets the output directory of the generated DOT Files to show the visual      * representation of the routes. A null value disables the dot file      * generation      */
 DECL|method|setDotOutputDir (String dotOutputDir)
 specifier|public
 name|void

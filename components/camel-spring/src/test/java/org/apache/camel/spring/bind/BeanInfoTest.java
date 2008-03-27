@@ -189,7 +189,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|camelContext
-specifier|private
+specifier|protected
 name|DefaultCamelContext
 name|camelContext
 init|=

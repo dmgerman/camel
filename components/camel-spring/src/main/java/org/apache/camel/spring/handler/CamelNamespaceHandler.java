@@ -98,6 +98,42 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Element
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|NodeList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -290,7 +326,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|EndpointFactoryBean
+name|CamelTemplateFactoryBean
 import|;
 end_import
 
@@ -304,7 +340,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|CamelTemplateFactoryBean
+name|EndpointFactoryBean
 import|;
 end_import
 
@@ -464,42 +500,6 @@ name|ParserContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Element
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Node
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|NodeList
-import|;
-end_import
-
 begin_class
 DECL|class|CamelNamespaceHandler
 specifier|public
@@ -515,7 +515,9 @@ specifier|final
 name|String
 name|JAXB_PACKAGES
 init|=
-literal|"org.apache.camel.spring:org.apache.camel.model:org.apache.camel.model.config:org.apache.camel.model.dataformat:org.apache.camel.model.language:org.apache.camel.model.loadbalancer"
+literal|"org.apache.camel.spring:org.apache.camel.model:org.apache.camel.model.config:"
+operator|+
+literal|"org.apache.camel.model.dataformat:org.apache.camel.model.language:org.apache.camel.model.loadbalancer"
 decl_stmt|;
 DECL|field|endpointParser
 specifier|protected
@@ -661,7 +663,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|//load balancers
+comment|// load balancers
 name|addBeanDefinitionParser
 argument_list|(
 literal|"roundRobin"
@@ -925,7 +927,7 @@ argument_list|(
 name|element
 argument_list|)
 return|;
-comment|/*             Unmarshaller unmarshaller = getJaxbContext().createUnmarshaller();             return unmarshaller.unmarshal(element); */
+comment|/*              * Unmarshaller unmarshaller =              * getJaxbContext().createUnmarshaller(); return              * unmarshaller.unmarshal(element);              */
 block|}
 catch|catch
 parameter_list|(

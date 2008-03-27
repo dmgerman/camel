@@ -1296,7 +1296,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * A Factory method to create a started {@link Producer} to be injected into a POJO      */
+comment|/**      * A Factory method to create a started {@link Producer} to be injected into      * a POJO      */
 DECL|method|createInjectionProducer (Endpoint endpoint)
 specifier|protected
 name|Producer
