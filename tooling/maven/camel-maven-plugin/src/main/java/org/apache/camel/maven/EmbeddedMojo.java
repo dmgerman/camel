@@ -18,34 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|maven
-operator|.
-name|plugin
-operator|.
-name|MojoExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|mojo
-operator|.
-name|exec
-operator|.
-name|AbstractExecMojo
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -128,6 +100,34 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugin
+operator|.
+name|MojoExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|mojo
+operator|.
+name|exec
+operator|.
+name|AbstractExecMojo
+import|;
+end_import
+
 begin_comment
 comment|/**  * Runs a CamelContext using any Spring XML configuration files found in  *<code>META-INF/spring/*.xml</code> and<code>camel-*.xml</code>  * and starting up the context; then generating  * the DOT file before closing the context down.  *  * @goal embedded  * @requiresDependencyResolution runtime  * @execute phase="test-compile"  */
 end_comment
@@ -140,12 +140,6 @@ name|EmbeddedMojo
 extends|extends
 name|AbstractExecMojo
 block|{
-comment|/**      * Project classpath.      *      * @parameter expression="${project.testClasspathElements}"      * @required      * @readonly      */
-DECL|field|classpathElements
-specifier|private
-name|List
-name|classpathElements
-decl_stmt|;
 comment|/**      * The duration to run the application for which by default is in milliseconds.      *      * @parameter expression="-1"      * @readonly      */
 DECL|field|duration
 specifier|protected
@@ -163,6 +157,12 @@ DECL|field|dotEnabled
 specifier|protected
 name|boolean
 name|dotEnabled
+decl_stmt|;
+comment|/**      * Project classpath.      *      * @parameter expression="${project.testClasspathElements}"      * @required      * @readonly      */
+DECL|field|classpathElements
+specifier|private
+name|List
+name|classpathElements
 decl_stmt|;
 comment|/**      * This method will run the mojo      */
 DECL|method|execute ()

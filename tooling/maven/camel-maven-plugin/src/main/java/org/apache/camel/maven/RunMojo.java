@@ -18,6 +18,148 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|MalformedURLException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URLClassLoader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Properties
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -320,150 +462,8 @@ name|Property
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Method
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|MalformedURLException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URL
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URLClassLoader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
-comment|/**  * Runs a CamelContext using any Spring XML configuration files found in  *<code>META-INF/spring/*.xml</code> and<code>camel-*.xml</code> and starting up the context.  *   * @goal run  * @requiresDependencyResolution runtime  * @execute phase="test-compile"  */
+comment|/**  * Runs a CamelContext using any Spring XML configuration files found in  *<code>META-INF/spring/*.xml</code> and<code>camel-*.xml</code> and  * starting up the context.  *  * @goal run  * @requiresDependencyResolution runtime  * @execute phase="test-compile"  */
 end_comment
 
 begin_class
@@ -480,19 +480,19 @@ comment|//
 comment|// If we could avoid the mega-cut-n-paste it would really really help!
 comment|// ideally all I wanna do is auto-default 2 values!
 comment|// namely the main and the command line arguments..
-comment|/**      * The maven project.      *       * @parameter expression="${project}"      * @required      * @readonly      */
+comment|/**      * The maven project.      *      * @parameter expression="${project}"      * @required      * @readonly      */
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The duration to run the application for which by default is in milliseconds.      * A value<= 0 will       *      * @parameter expression="-1"      * @readonly      */
+comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will      *      * @parameter expression="-1"      * @readonly      */
 DECL|field|duration
 specifier|protected
 name|String
 name|duration
 decl_stmt|;
-comment|/**      * The DOT outputd irectory name used to generate the DOT diagram of the route definitions      *      * @parameter expression="${project.build.directory}/site/cameldoc"      * @readonly      */
+comment|/**      * The DOT outputd irectory name used to generate the DOT diagram of the      * route definitions      *      * @parameter expression="${project.build.directory}/site/cameldoc"      * @readonly      */
 DECL|field|dotDir
 specifier|protected
 name|String
@@ -546,69 +546,69 @@ specifier|private
 name|List
 name|pluginDependencies
 decl_stmt|;
-comment|/**      * The main class to execute.      *       * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.spring.Main"      * @required      */
+comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.spring.Main"      * @required      */
 DECL|field|mainClass
 specifier|private
 name|String
 name|mainClass
 decl_stmt|;
-comment|/**      * The class arguments.      *       * @parameter expression="${camel.applicationContext}"      */
+comment|/**      * The class arguments.      *      * @parameter expression="${camel.applicationContext}"      */
 DECL|field|arguments
 specifier|private
 name|String
 index|[]
 name|arguments
 decl_stmt|;
-comment|/**      * A list of system properties to be passed. Note: as the execution is not      * forked, some system properties required by the JVM cannot be passed here.      * Use MAVEN_OPTS or the exec:exec instead. See the user guide for more      * information.      *       * @parameter      */
+comment|/**      * A list of system properties to be passed. Note: as the execution is not      * forked, some system properties required by the JVM cannot be passed here.      * Use MAVEN_OPTS or the exec:exec instead. See the user guide for more      * information.      *      * @parameter      */
 DECL|field|systemProperties
 specifier|private
 name|Property
 index|[]
 name|systemProperties
 decl_stmt|;
-comment|/**      * Deprecated; this is not needed anymore. Indicates if mojo should be kept      * running after the mainclass terminates. Usefull for serverlike apps with      * deamonthreads.      *       * @parameter expression="${camel.keepAlive}" default-value="false"      */
+comment|/**      * Deprecated; this is not needed anymore. Indicates if mojo should be kept      * running after the mainclass terminates. Usefull for serverlike apps with      * deamonthreads.      *      * @parameter expression="${camel.keepAlive}" default-value="false"      */
 DECL|field|keepAlive
 specifier|private
 name|boolean
 name|keepAlive
 decl_stmt|;
-comment|/**      * Indicates if the project dependencies should be used when executing the      * main class.      *       * @parameter expression="${camel.includeProjectDependencies}"      *            default-value="true"      */
+comment|/**      * Indicates if the project dependencies should be used when executing the      * main class.      *      * @parameter expression="${camel.includeProjectDependencies}"      *            default-value="true"      */
 DECL|field|includeProjectDependencies
 specifier|private
 name|boolean
 name|includeProjectDependencies
 decl_stmt|;
-comment|/**      * Indicates if this plugin's dependencies should be used when executing the      * main class.<p/> This is useful when project dependencies are not      * appropriate. Using only the plugin dependencies can be particularly      * useful when the project is not a java project. For example a mvn project      * using the csharp plugins only expects to see dotnet libraries as      * dependencies.      *       * @parameter expression="${camel.includePluginDependencies}"      *            default-value="false"      */
+comment|/**      * Indicates if this plugin's dependencies should be used when executing the      * main class.<p/> This is useful when project dependencies are not      * appropriate. Using only the plugin dependencies can be particularly      * useful when the project is not a java project. For example a mvn project      * using the csharp plugins only expects to see dotnet libraries as      * dependencies.      *      * @parameter expression="${camel.includePluginDependencies}"      *            default-value="false"      */
 DECL|field|includePluginDependencies
 specifier|private
 name|boolean
 name|includePluginDependencies
 decl_stmt|;
-comment|/**      * If provided the ExecutableDependency identifies which of the plugin      * dependencies contains the executable class. This will have the affect of      * only including plugin dependencies required by the identified      * ExecutableDependency.<p/> If includeProjectDependencies is set to      *<code>true</code>, all of the project dependencies will be included on      * the executable's classpath. Whether a particular project dependency is a      * dependency of the identified ExecutableDependency will be irrelevant to      * its inclusion in the classpath.      *       * @parameter      * @optional      */
+comment|/**      * If provided the ExecutableDependency identifies which of the plugin      * dependencies contains the executable class. This will have the affect of      * only including plugin dependencies required by the identified      * ExecutableDependency.<p/> If includeProjectDependencies is set to      *<code>true</code>, all of the project dependencies will be included on      * the executable's classpath. Whether a particular project dependency is a      * dependency of the identified ExecutableDependency will be irrelevant to      * its inclusion in the classpath.      *      * @parameter      * @optional      */
 DECL|field|executableDependency
 specifier|private
 name|ExecutableDependency
 name|executableDependency
 decl_stmt|;
-comment|/**      * Wether to interrupt/join and possibly stop the daemon threads upon      * quitting.<br/> If this is<code>false</code>, maven does nothing      * about the daemon threads. When maven has no more work to do, the VM will      * normally terminate any remaining daemon threads.      *<p>      * In certain cases (in particular if maven is embedded), you might need to      * keep this enabled to make sure threads are properly cleaned up to ensure      * they don't interfere with subsequent activity. In that case, see      * {@link #daemonThreadJoinTimeout} and      * {@link #stopUnresponsiveDaemonThreads} for further tuning.      *</p>      *       * @parameter expression="${camel.cleanupDaemonThreads} default-value="true"      */
+comment|/**      * Wether to interrupt/join and possibly stop the daemon threads upon      * quitting.<br/> If this is<code>false</code>, maven does nothing      * about the daemon threads. When maven has no more work to do, the VM will      * normally terminate any remaining daemon threads.      *<p>      * In certain cases (in particular if maven is embedded), you might need to      * keep this enabled to make sure threads are properly cleaned up to ensure      * they don't interfere with subsequent activity. In that case, see      * {@link #daemonThreadJoinTimeout} and      * {@link #stopUnresponsiveDaemonThreads} for further tuning.      *</p>      *      * @parameter expression="${camel.cleanupDaemonThreads} default-value="true"      */
 DECL|field|cleanupDaemonThreads
 specifier|private
 name|boolean
 name|cleanupDaemonThreads
 decl_stmt|;
-comment|/**      * This defines the number of milliseconds to wait for daemon threads to      * quit following their interruption.<br/> This is only taken into account      * if {@link #cleanupDaemonThreads} is<code>true</code>. A value&lt;=0      * means to not timeout (i.e. wait indefinitely for threads to finish).      * Following a timeout, a warning will be logged.      *<p>      * Note: properly coded threads<i>should</i> terminate upon interruption      * but some threads may prove problematic: as the VM does interrupt daemon      * threads, some code may not have been written to handle interruption      * properly. For example java.util.Timer is known to not handle      * interruptions in JDK&lt;= 1.6. So it is not possible for us to      * infinitely wait by default otherwise maven could hang. A sensible default      * value has been chosen, but this default value<i>may change</i> in the      * future based on user feedback.      *</p>      *       * @parameter expression="${camel.daemonThreadJoinTimeout}"      *            default-value="15000"      */
+comment|/**      * This defines the number of milliseconds to wait for daemon threads to      * quit following their interruption.<br/> This is only taken into account      * if {@link #cleanupDaemonThreads} is<code>true</code>. A value&lt;=0      * means to not timeout (i.e. wait indefinitely for threads to finish).      * Following a timeout, a warning will be logged.      *<p>      * Note: properly coded threads<i>should</i> terminate upon interruption      * but some threads may prove problematic: as the VM does interrupt daemon      * threads, some code may not have been written to handle interruption      * properly. For example java.util.Timer is known to not handle      * interruptions in JDK&lt;= 1.6. So it is not possible for us to      * infinitely wait by default otherwise maven could hang. A sensible default      * value has been chosen, but this default value<i>may change</i> in the      * future based on user feedback.      *</p>      *      * @parameter expression="${camel.daemonThreadJoinTimeout}"      *            default-value="15000"      */
 DECL|field|daemonThreadJoinTimeout
 specifier|private
 name|long
 name|daemonThreadJoinTimeout
 decl_stmt|;
-comment|/**      * Wether to call {@link Thread#stop()} following a timing out of waiting      * for an interrupted thread to finish. This is only taken into account if      * {@link #cleanupDaemonThreads} is<code>true</code> and the      * {@link #daemonThreadJoinTimeout} threshold has been reached for an      * uncooperative thread. If this is<code>false</code>, or if      * {@link Thread#stop()} fails to get the thread to stop, then a warning is      * logged and Maven will continue on while the affected threads (and related      * objects in memory) linger on. Consider setting this to<code>true</code>      * if you are invoking problematic code that you can't fix. An example is      * {@link java.util.Timer} which doesn't respond to interruption. To have      *<code>Timer</code> fixed, vote for<a      * href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6336543">this      * bug</a>.      *       * @parameter expression="${camel.stopUnresponsiveDaemonThreads}      *            default-value="false"      */
+comment|/**      * Wether to call {@link Thread#stop()} following a timing out of waiting      * for an interrupted thread to finish. This is only taken into account if      * {@link #cleanupDaemonThreads} is<code>true</code> and the      * {@link #daemonThreadJoinTimeout} threshold has been reached for an      * uncooperative thread. If this is<code>false</code>, or if      * {@link Thread#stop()} fails to get the thread to stop, then a warning is      * logged and Maven will continue on while the affected threads (and related      * objects in memory) linger on. Consider setting this to<code>true</code>      * if you are invoking problematic code that you can't fix. An example is      * {@link java.util.Timer} which doesn't respond to interruption. To have      *<code>Timer</code> fixed, vote for<a      * href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6336543">this      * bug</a>.      *      * @parameter expression="${camel.stopUnresponsiveDaemonThreads}      *            default-value="false"      */
 DECL|field|stopUnresponsiveDaemonThreads
 specifier|private
 name|boolean
 name|stopUnresponsiveDaemonThreads
 decl_stmt|;
-comment|/**      * Deprecated this is not needed anymore.      *       * @parameter expression="${camel.killAfter}" default-value="-1"      */
+comment|/**      * Deprecated this is not needed anymore.      *      * @parameter expression="${camel.killAfter}" default-value="-1"      */
 DECL|field|killAfter
 specifier|private
 name|long
@@ -619,7 +619,7 @@ specifier|private
 name|Properties
 name|originalSystemProperties
 decl_stmt|;
-comment|/**      * Execute goal.      *       * @throws MojoExecutionException execution of the main class or one of the      *                 threads it generated failed.      * @throws MojoFailureException something bad happened...      */
+comment|/**      * Execute goal.      *      * @throws MojoExecutionException execution of the main class or one of the      *                 threads it generated failed.      * @throws MojoFailureException something bad happened...      */
 DECL|method|execute ()
 specifier|public
 name|void
@@ -1860,7 +1860,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Set up a classloader for the execution of the main class.      *       * @return the classloader      * @throws MojoExecutionException      */
+comment|/**      * Set up a classloader for the execution of the main class.      *      * @return the classloader      * @throws MojoExecutionException      */
 DECL|method|getClassLoader ()
 specifier|private
 name|ClassLoader
@@ -1914,7 +1914,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Add any relevant project dependencies to the classpath. Indirectly takes      * includePluginDependencies and ExecutableDependency into consideration.      *       * @param path classpath of {@link java.net.URL} objects      * @throws MojoExecutionException      */
+comment|/**      * Add any relevant project dependencies to the classpath. Indirectly takes      * includePluginDependencies and ExecutableDependency into consideration.      *      * @param path classpath of {@link java.net.URL} objects      * @throws MojoExecutionException      */
 DECL|method|addRelevantPluginDependenciesToClasspath (List path)
 specifier|private
 name|void
@@ -2017,7 +2017,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Add any relevant project dependencies to the classpath. Takes      * includeProjectDependencies into consideration.      *       * @param path classpath of {@link java.net.URL} objects      * @throws MojoExecutionException      */
+comment|/**      * Add any relevant project dependencies to the classpath. Takes      * includeProjectDependencies into consideration.      *      * @param path classpath of {@link java.net.URL} objects      * @throws MojoExecutionException      */
 DECL|method|addRelevantProjectDependenciesToClasspath (List path)
 specifier|private
 name|void
@@ -2277,7 +2277,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-comment|//if (artifact.getScope().equals(Artifact.SCOPE_SYSTEM)) {
+comment|// if (artifact.getScope().equals(Artifact.SCOPE_SYSTEM)) {
 name|systemScopeArtifacts
 operator|.
 name|add
@@ -2285,7 +2285,7 @@ argument_list|(
 name|artifact
 argument_list|)
 expr_stmt|;
-comment|//}
+comment|// }
 block|}
 return|return
 name|systemScopeArtifacts
@@ -2583,7 +2583,7 @@ return|return
 name|artifacts
 return|;
 block|}
-comment|/**      * Determine all plugin dependencies relevant to the executable. Takes      * includePlugins, and the executableDependency into consideration.      *       * @return a set of Artifact objects. (Empty set is returned if there are no      *         relevant plugin dependencies.)      * @throws MojoExecutionException      */
+comment|/**      * Determine all plugin dependencies relevant to the executable. Takes      * includePlugins, and the executableDependency into consideration.      *      * @return a set of Artifact objects. (Empty set is returned if there are no      *         relevant plugin dependencies.)      * @throws MojoExecutionException      */
 DECL|method|determineRelevantPluginDependencies ()
 specifier|private
 name|Set
@@ -2690,7 +2690,7 @@ return|return
 name|relevantDependencies
 return|;
 block|}
-comment|/**      * Get the artifact which refers to the POM of the executable artifact.      *       * @param executableArtifact this artifact refers to the actual assembly.      * @return an artifact which refers to the POM of the executable artifact.      */
+comment|/**      * Get the artifact which refers to the POM of the executable artifact.      *      * @param executableArtifact this artifact refers to the actual assembly.      * @return an artifact which refers to the POM of the executable artifact.      */
 DECL|method|getExecutablePomArtifact (Artifact executableArtifact)
 specifier|private
 name|Artifact
@@ -2726,7 +2726,7 @@ literal|"pom"
 argument_list|)
 return|;
 block|}
-comment|/**      * Examine the plugin dependencies to find the executable artifact.      *       * @return an artifact which refers to the actual executable tool (not a      *         POM)      * @throws MojoExecutionException      */
+comment|/**      * Examine the plugin dependencies to find the executable artifact.      *      * @return an artifact which refers to the actual executable tool (not a      *         POM)      * @throws MojoExecutionException      */
 DECL|method|findExecutableArtifact ()
 specifier|private
 name|Artifact
@@ -2958,7 +2958,7 @@ return|return
 name|executableDependencies
 return|;
 block|}
-comment|/**      * Stop program execution for nn millis.      *       * @param millis the number of millis-seconds to wait for,<code>0</code>      *                stops program forever.      */
+comment|/**      * Stop program execution for nn millis.      *      * @param millis the number of millis-seconds to wait for,<code>0</code>      *                stops program forever.      */
 DECL|method|waitFor (long millis)
 specifier|private
 name|void

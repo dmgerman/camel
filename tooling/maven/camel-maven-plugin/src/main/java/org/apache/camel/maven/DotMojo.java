@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -340,6 +340,22 @@ name|SUBDIRECTORY
 init|=
 literal|"cameldoc"
 decl_stmt|;
+comment|//
+comment|// For running Camel embedded
+comment|//-------------------------------------------------------------------------
+comment|//
+comment|/**      * The duration to run the application for which by default is in milliseconds.      *      * @parameter expression="2s"      * @readonly      */
+DECL|field|duration
+specifier|protected
+name|String
+name|duration
+decl_stmt|;
+comment|/**      * Whether we should boot up camel with the META-INF/services/*.xml to generate the DOT file      *      * @parameter expression="true"      * @readonly      */
+DECL|field|runCamel
+specifier|protected
+name|boolean
+name|runCamel
+decl_stmt|;
 DECL|field|indexHtmlContent
 specifier|private
 name|String
@@ -387,22 +403,6 @@ DECL|field|renderer
 specifier|private
 name|Renderer
 name|renderer
-decl_stmt|;
-comment|//
-comment|// For running Camel embedded
-comment|//-------------------------------------------------------------------------
-comment|//
-comment|/**      * The duration to run the application for which by default is in milliseconds.      *      * @parameter expression="2s"      * @readonly      */
-DECL|field|duration
-specifier|protected
-name|String
-name|duration
-decl_stmt|;
-comment|/**      * Whether we should boot up camel with the META-INF/services/*.xml to generate the DOT file      *      * @parameter expression="true"      * @readonly      */
-DECL|field|runCamel
-specifier|protected
-name|boolean
-name|runCamel
 decl_stmt|;
 comment|/**      * @param locale report locale.      * @return report description.      * @see org.apache.maven.reporting.MavenReport#getDescription(Locale)      */
 DECL|method|getDescription (final Locale locale)
@@ -607,7 +607,7 @@ name|ex
 throw|;
 block|}
 block|}
-comment|/**      * Executes DOT generator.      *      * @param outputDir report output directory.      * @param locale    report locale.      * @throws MojoExecutionException if there were any execution errors.      */
+comment|/**      * Executes DOT generator.      *      * @param outputDir report output directory.      * @param locale report locale.      * @throws MojoExecutionException if there were any execution errors.      */
 DECL|method|execute (final File outputDir, final Locale locale)
 specifier|protected
 name|void
