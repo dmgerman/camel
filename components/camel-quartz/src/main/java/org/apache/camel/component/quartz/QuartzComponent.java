@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -158,28 +178,8 @@ name|StdSchedulerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/quartz.html">Quartz Component</a>  *   * @version $Revision:520964 $  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/quartz.html">Quartz Component</a>  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class

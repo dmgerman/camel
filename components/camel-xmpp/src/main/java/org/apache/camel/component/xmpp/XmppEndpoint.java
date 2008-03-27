@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -51,18 +63,6 @@ operator|.
 name|camel
 operator|.
 name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ExchangePattern
 import|;
 end_import
 
@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An XMPP Endpoint  *   * @version $Revision:520964 $  */
+comment|/**  * An XMPP Endpoint  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -502,7 +502,7 @@ return|return
 name|binding
 return|;
 block|}
-comment|/**      * Sets the binding used to convert from a Camel message to and from an XMPP      * message      *       * @param binding the binding to use      */
+comment|/**      * Sets the binding used to convert from a Camel message to and from an XMPP      * message      *      * @param binding the binding to use      */
 DECL|method|setBinding (XmppBinding binding)
 specifier|public
 name|void

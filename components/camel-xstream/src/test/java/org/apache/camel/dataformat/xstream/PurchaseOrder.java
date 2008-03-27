@@ -152,6 +152,36 @@ return|return
 literal|false
 return|;
 block|}
+DECL|method|hashCode ()
+specifier|public
+name|int
+name|hashCode
+parameter_list|()
+block|{
+return|return
+call|(
+name|int
+call|)
+argument_list|(
+name|name
+operator|.
+name|hashCode
+argument_list|()
+operator|+
+operator|(
+name|price
+operator|*
+literal|100
+operator|)
+operator|+
+operator|(
+name|amount
+operator|*
+literal|100
+operator|)
+argument_list|)
+return|;
+block|}
 DECL|method|getAmount ()
 specifier|public
 name|double

@@ -56,6 +56,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -69,18 +81,6 @@ operator|.
 name|camel
 operator|.
 name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ExchangePattern
 import|;
 end_import
 
@@ -243,7 +243,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/quartz.html">Quartz Endpoint</a>  *   * @version $Revision:520964 $  */
+comment|/**  * A<a href="http://activemq.apache.org/quartz.html">Quartz Endpoint</a>  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -613,7 +613,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method is invoked when a Quartz job is fired.      *       * @param jobExecutionContext the Quartz Job context      */
+comment|/**      * This method is invoked when a Quartz job is fired.      *      * @param jobExecutionContext the Quartz Job context      */
 DECL|method|onJobExecute (JobExecutionContext jobExecutionContext)
 specifier|public
 name|void
