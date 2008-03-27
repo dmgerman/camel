@@ -20,24 +20,6 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|Context
-import|;
-end_import
-
-begin_import
-import|import
-name|edu
-operator|.
-name|emory
-operator|.
-name|mathcs
-operator|.
-name|backport
-operator|.
 name|java
 operator|.
 name|util
@@ -50,14 +32,6 @@ end_import
 
 begin_import
 import|import
-name|edu
-operator|.
-name|emory
-operator|.
-name|mathcs
-operator|.
-name|backport
-operator|.
 name|java
 operator|.
 name|util
@@ -65,6 +39,16 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|Context
 import|;
 end_import
 
