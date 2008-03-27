@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -205,12 +205,12 @@ argument_list|<
 name|StreamExchange
 argument_list|>
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 name|Log
-name|log
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -265,6 +265,15 @@ literal|","
 argument_list|)
 argument_list|)
 decl_stmt|;
+DECL|field|outputStream
+specifier|protected
+name|OutputStream
+name|outputStream
+init|=
+name|System
+operator|.
+name|out
+decl_stmt|;
 DECL|field|uri
 specifier|private
 name|String
@@ -279,15 +288,6 @@ argument_list|,
 name|String
 argument_list|>
 name|parameters
-decl_stmt|;
-DECL|field|outputStream
-specifier|protected
-name|OutputStream
-name|outputStream
-init|=
-name|System
-operator|.
-name|out
 decl_stmt|;
 DECL|method|StreamProducer (Endpoint<StreamExchange> endpoint, String uri, Map<String, String> parameters)
 specifier|public
@@ -329,7 +329,7 @@ argument_list|(
 name|uri
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -565,7 +565,7 @@ argument_list|(
 name|fileName
 argument_list|)
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -608,12 +608,14 @@ name|o
 operator|instanceof
 name|OutputStream
 condition|)
+block|{
 return|return
 operator|(
 name|OutputStream
 operator|)
 name|o
 return|;
+block|}
 else|else
 block|{
 throw|throw
@@ -638,7 +640,7 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -679,7 +681,7 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -699,7 +701,7 @@ operator|instanceof
 name|String
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -739,7 +741,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -884,11 +886,13 @@ name|outputStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|outputStream
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
