@@ -64,17 +64,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|ufacekit
+name|eclipse
 operator|.
-name|ui
-operator|.
-name|swing
+name|core
 operator|.
 name|databinding
 operator|.
-name|swing
+name|observable
 operator|.
-name|SwingRealm
+name|Realm
 import|;
 end_import
 
@@ -90,6 +88,16 @@ name|UFaceTest
 extends|extends
 name|ContextTestSupport
 block|{
+comment|// lets install a Realm to avoid null pointer exceptions
+DECL|field|realm
+specifier|private
+name|Realm
+name|realm
+init|=
+operator|new
+name|TestRealm
+argument_list|()
+decl_stmt|;
 DECL|method|testUFaceEndpoints ()
 specifier|public
 name|void
@@ -134,12 +142,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Lets enable Swing as the Realm
-name|SwingRealm
-operator|.
-name|createDefault
-argument_list|()
-expr_stmt|;
 return|return
 operator|new
 name|RouteBuilder
@@ -170,6 +172,38 @@ expr_stmt|;
 block|}
 block|}
 return|;
+block|}
+DECL|class|TestRealm
+specifier|protected
+specifier|static
+class|class
+name|TestRealm
+extends|extends
+name|Realm
+block|{
+DECL|method|TestRealm ()
+specifier|public
+name|TestRealm
+parameter_list|()
+block|{
+name|Realm
+operator|.
+name|setDefault
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isCurrent ()
+specifier|public
+name|boolean
+name|isCurrent
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 block|}
 end_class
