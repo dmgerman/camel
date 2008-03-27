@@ -68,6 +68,26 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Asserts that the given predicate expression evaluated on the current language and message      * exchange evaluates to false      */
+DECL|method|assertPredicateFails (String expression)
+specifier|protected
+name|void
+name|assertPredicateFails
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+name|assertPredicate
+argument_list|(
+name|exchange
+argument_list|,
+name|expression
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Asserts that the given predicate expression evaluated on the current language and message      * exchange evaluates to the expected value      */
 DECL|method|assertPredicate (String expression, boolean expected)
 specifier|protected

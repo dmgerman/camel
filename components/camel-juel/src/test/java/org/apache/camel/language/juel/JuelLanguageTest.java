@@ -85,6 +85,26 @@ argument_list|(
 literal|"${in.headers.foo.startsWith('a')}"
 argument_list|)
 expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.headers.foo == 'abc'}"
+argument_list|)
+expr_stmt|;
+name|assertPredicateFails
+argument_list|(
+literal|"${in.headers.foo == 'badString'}"
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.headers['foo'] == 'abc'}"
+argument_list|)
+expr_stmt|;
+name|assertPredicateFails
+argument_list|(
+literal|"${in.headers['foo'] == 'badString'}"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getLanguageName ()
 specifier|protected
