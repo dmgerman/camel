@@ -186,13 +186,9 @@ block|{
 name|MockEndpoint
 name|mockEndpoint
 init|=
-name|resolveMandatoryEndpoint
+name|getMockEndpoint
 argument_list|(
 literal|"mock:a"
-argument_list|,
-name|MockEndpoint
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
 name|mockEndpoint
