@@ -457,6 +457,21 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
+DECL|field|headerName
+specifier|private
+name|String
+name|headerName
+decl_stmt|;
+DECL|field|headerValue
+specifier|private
+name|String
+name|headerValue
+decl_stmt|;
+DECL|field|actualHeader
+specifier|private
+name|Object
+name|actualHeader
+decl_stmt|;
 DECL|method|MockEndpoint (String endpointUri, Component component)
 specifier|public
 name|MockEndpoint
@@ -1227,6 +1242,69 @@ name|expectedMinimumCount
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Adds an expectation that the given header name& value are received by this      * endpoint      */
+DECL|method|expectedHeaderReceived (String name, String value)
+specifier|public
+name|void
+name|expectedHeaderReceived
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerName
+operator|=
+name|name
+expr_stmt|;
+name|this
+operator|.
+name|headerValue
+operator|=
+name|value
+expr_stmt|;
+name|expects
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+name|assertTrue
+argument_list|(
+literal|"No header with name "
+operator|+
+name|headerName
+operator|+
+literal|" found."
+argument_list|,
+name|actualHeader
+operator|!=
+literal|null
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Header of message"
+argument_list|,
+name|headerValue
+argument_list|,
+name|actualHeader
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Adds an expectation that the given body values are received by this      * endpoint      */
 DECL|method|expectedBodiesReceived (final List bodies)
@@ -2324,6 +2402,23 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|headerName
+operator|!=
+literal|null
+condition|)
+block|{
+name|actualHeader
+operator|=
+name|in
+operator|.
+name|getHeader
+argument_list|(
+name|headerName
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|expectedBodyValues

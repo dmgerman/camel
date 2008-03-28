@@ -1149,7 +1149,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Causes subsequent processors to be called asynchronously      *      * @param coreSize the number of threads that will be used to process      *                 messages in subsequent processors.      * @return a ThreadType builder that can be used to futher configure the      *         the thread pool.      */
+comment|/**      * Causes subsequent processors to be called asynchronously      *      * @param coreSize the number of threads that will be used to process      *                 messages in subsequent processors.      * @return a ThreadType builder that can be used to further configure the      *         the thread pool.      */
 DECL|method|thread (int coreSize)
 specifier|public
 name|ThreadType
@@ -1282,7 +1282,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a predciate expression which only if it is true then the      * exchange is forwarded to the destination      *      * @return the clause used to create the filter expression      */
+comment|/**      * Creates a predicate expression which only if it is true then the      * exchange is forwarded to the destination      *      * @return the clause used to create the filter expression      */
 DECL|method|filter ()
 specifier|public
 name|ExpressionClause
@@ -1499,7 +1499,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *      * @return the expression clasue for the expression used in the      *                    {@link RecipientList} to decide the destinations      */
+comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *      * @return the expression clause for the expression used in the      *                    {@link RecipientList} to decide the destinations      */
 DECL|method|recipientList ()
 specifier|public
 name|ExpressionClause
@@ -1557,6 +1557,99 @@ argument_list|)
 expr_stmt|;
 return|return
 name|clause
+return|;
+block|}
+comment|/**      * Creates a<a      * href="http://activemq.apache.org/camel/routing-slip.html">Routing      * Slip</a> pattern.      *      * @param header is the header that the {@link RoutingSlip} class will      * look in for the list of URIs to route the message to.      * @param uriDelimiter is the delimiter that will be used to split up      * the list of URIs in the routing slip.      */
+DECL|method|routingSlip (String header, String uriDelimiter)
+specifier|public
+name|Type
+name|routingSlip
+parameter_list|(
+name|String
+name|header
+parameter_list|,
+name|String
+name|uriDelimiter
+parameter_list|)
+block|{
+name|RoutingSlipType
+name|answer
+init|=
+operator|new
+name|RoutingSlipType
+argument_list|(
+name|header
+argument_list|,
+name|uriDelimiter
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Creates a<a      * href="http://activemq.apache.org/camel/routing-slip.html">Routing      * Slip</a> pattern.      *      * @param header is the header that the {@link RoutingSlip} class will      * look in for the list of URIs to route the message to. The list of URIs      * will be split based on the default delimiter       * {@link RoutingSlipType#DEFAULT_DELIMITER}.      */
+DECL|method|routingSlip (String header)
+specifier|public
+name|Type
+name|routingSlip
+parameter_list|(
+name|String
+name|header
+parameter_list|)
+block|{
+name|RoutingSlipType
+name|answer
+init|=
+operator|new
+name|RoutingSlipType
+argument_list|(
+name|header
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Creates a<a      * href="http://activemq.apache.org/camel/routing-slip.html">Routing      * Slip</a> pattern with the default header {@link RoutingSlipType#ROUTING_SLIP_HEADER}.      * The list of URIs in the header will be split based on the default delimiter       * {@link RoutingSlipType#DEFAULT_DELIMITER}.      */
+DECL|method|routingSlip ()
+specifier|public
+name|Type
+name|routingSlip
+parameter_list|()
+block|{
+name|RoutingSlipType
+name|answer
+init|=
+operator|new
+name|RoutingSlipType
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
 return|;
 block|}
 comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/splitter.html">Splitter</a>      * pattern where an expression is evaluated to iterate through each of the      * parts of a message and then each part is then send to some endpoint.      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @param receipients the expression on which to split      * @return the builder      */
@@ -2669,7 +2762,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Configures whether or not the error handler is inherited by every      * processing node (or just the top most one)      *      * @param condition the falg as to whether error handlers should be      *                  inherited or not      * @return the current builder      */
+comment|/**      * Configures whether or not the error handler is inherited by every      * processing node (or just the top most one)      *      * @param condition the flag as to whether error handlers should be      *                  inherited or not      * @return the current builder      */
 DECL|method|inheritErrorHandler (boolean condition)
 specifier|public
 name|Type
