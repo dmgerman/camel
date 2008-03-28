@@ -212,7 +212,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// START SNIPPET: marshal-result
+comment|// START SNIPPET: marshalInput
 name|Map
 name|body
 init|=
@@ -238,7 +238,7 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: marshal-result
+comment|// END SNIPPET: marshalInput
 name|template
 operator|.
 name|sendBody
@@ -363,7 +363,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|// START SNIPPET : unmarshal-result
+comment|// START SNIPPET : unmarshalResult
 name|List
 argument_list|<
 name|List
@@ -435,7 +435,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// END SNIPPET : unmarshal-result
+comment|// END SNIPPET : unmarshalResult
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
