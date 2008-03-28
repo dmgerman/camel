@@ -453,7 +453,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// START SNIPPET: marshal
+comment|// START SNIPPET: marshalRoute
 name|from
 argument_list|(
 literal|"direct:start"
@@ -470,8 +470,8 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: marshal
-comment|// START SNIPPET: unmarshal
+comment|// END SNIPPET: marshalRoute
+comment|// START SNIPPET: unmarshalRoute
 name|from
 argument_list|(
 literal|"file:src/test/resources/daltons.csv?noop=true"
@@ -488,7 +488,7 @@ argument_list|(
 literal|"mock:daltons"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: unmarshal
+comment|// END SNIPPET: unmarshalRoute
 block|}
 block|}
 return|;
