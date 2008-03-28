@@ -226,6 +226,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|interceptor
+operator|.
+name|StreamCachingInterceptor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -937,6 +953,42 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*         List<InterceptorType> list = output.getInterceptors();         if (list == null) {             LOG.warn("No interceptor collection: " + output);         } else {             list.addAll(getInterceptors());         } */
+block|}
+comment|/**      * Disable stream caching for this Route.      */
+DECL|method|noStreamCaching ()
+specifier|public
+name|RouteType
+name|noStreamCaching
+parameter_list|()
+block|{
+name|StreamCachingInterceptor
+operator|.
+name|noStreamCaching
+argument_list|(
+name|interceptors
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Enable stream caching for this Route.      */
+DECL|method|streamCaching ()
+specifier|public
+name|RouteType
+name|streamCaching
+parameter_list|()
+block|{
+name|intercept
+argument_list|(
+operator|new
+name|StreamCachingInterceptor
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 block|}
 end_class

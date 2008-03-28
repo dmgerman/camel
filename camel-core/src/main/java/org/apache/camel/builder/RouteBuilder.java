@@ -164,6 +164,34 @@ name|camel
 operator|.
 name|model
 operator|.
+name|InterceptorRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|InterceptorType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|ProcessorType
 import|;
 end_import
@@ -207,6 +235,22 @@ operator|.
 name|processor
 operator|.
 name|DelegateProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|interceptor
+operator|.
+name|StreamCachingInterceptor
 import|;
 end_import
 
@@ -701,6 +745,41 @@ name|this
 operator|.
 name|routeCollection
 return|;
+block|}
+comment|/**      * Completely disable stream caching for all routes being defined in the same RouteBuilder after this.       */
+DECL|method|noStreamCaching ()
+specifier|public
+name|void
+name|noStreamCaching
+parameter_list|()
+block|{
+name|StreamCachingInterceptor
+operator|.
+name|noStreamCaching
+argument_list|(
+name|routeCollection
+operator|.
+name|getInterceptors
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Enable stream caching for all routes being defined in the same RouteBuilder after this call.      */
+DECL|method|streamCaching ()
+specifier|public
+name|void
+name|streamCaching
+parameter_list|()
+block|{
+name|routeCollection
+operator|.
+name|intercept
+argument_list|(
+operator|new
+name|StreamCachingInterceptor
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Factory method      */
 DECL|method|createContainer ()

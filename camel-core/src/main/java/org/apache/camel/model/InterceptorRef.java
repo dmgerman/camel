@@ -382,6 +382,19 @@ literal|""
 return|;
 block|}
 block|}
+comment|/**      * Get the underlying {@link DelegateProcessor} implementation      *       * @return the {@link DelegateProcessor}      */
+annotation|@
+name|XmlTransient
+DECL|method|getInterceptor ()
+specifier|public
+name|DelegateProcessor
+name|getInterceptor
+parameter_list|()
+block|{
+return|return
+name|interceptor
+return|;
+block|}
 block|}
 end_class
 
