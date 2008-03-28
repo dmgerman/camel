@@ -613,13 +613,18 @@ block|}
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|RuntimeException
+comment|// TODO: Type can be symbolic link etc. so what should we do?
+name|LOG
+operator|.
+name|warn
 argument_list|(
-literal|""
+literal|"Unsupported type of FTPFile: "
+operator|+
+name|ftpFile
+operator|+
+literal|" not a file or directory"
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -659,6 +664,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// TODO do we need to adjust the TZ? can we?
 if|if
 condition|(
 name|ftpFile
@@ -672,15 +678,6 @@ operator|>
 name|lastPollTime
 condition|)
 block|{
-comment|// TODO
-comment|// do we
-comment|// need
-comment|// to
-comment|// adjust
-comment|// the
-comment|// TZ?
-comment|// can
-comment|// we?
 if|if
 condition|(
 name|isMatched

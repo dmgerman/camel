@@ -442,7 +442,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Couldn't buildDirectory: "
+literal|"Couldn't build directory: "
 operator|+
 name|directory
 operator|+
@@ -470,11 +470,14 @@ operator|!
 name|success
 condition|)
 block|{
+comment|// TODO: Should we not have better exception for this?
 throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"error sending file"
+literal|"Error sending file: "
+operator|+
+name|fileName
 argument_list|)
 throw|;
 block|}
@@ -525,9 +528,9 @@ finally|finally
 block|{
 if|if
 condition|(
-literal|null
-operator|!=
 name|payload
+operator|!=
+literal|null
 condition|)
 block|{
 name|payload
@@ -677,6 +680,32 @@ argument_list|(
 literal|'/'
 argument_list|)
 expr_stmt|;
+name|String
+name|directory
+init|=
+name|sb
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Trying to build directory: "
+operator|+
+name|directory
+argument_list|)
+expr_stmt|;
+block|}
 specifier|final
 name|boolean
 name|success
@@ -685,10 +714,7 @@ name|ftpClient
 operator|.
 name|makeDirectory
 argument_list|(
-name|sb
-operator|.
-name|toString
-argument_list|()
+name|directory
 argument_list|)
 decl_stmt|;
 if|if

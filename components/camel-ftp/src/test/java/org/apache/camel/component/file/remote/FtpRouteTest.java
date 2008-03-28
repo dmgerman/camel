@@ -264,12 +264,7 @@ argument_list|()
 expr_stmt|;
 name|resultEndpoint
 operator|=
-operator|(
-name|MockEndpoint
-operator|)
-name|context
-operator|.
-name|getEndpoint
+name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
