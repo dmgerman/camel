@@ -42,6 +42,34 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|Lock
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|ReentrantLock
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -213,6 +241,18 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|lock
+specifier|private
+specifier|static
+specifier|final
+name|Lock
+name|lock
+init|=
+operator|new
+name|ReentrantLock
+argument_list|()
+decl_stmt|;
+comment|// lock used for concurrency issues
 DECL|field|activityRules
 specifier|private
 name|ActivityRules
@@ -489,6 +529,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|lock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 name|T
 name|entity
 init|=
@@ -554,8 +601,7 @@ name|entity
 argument_list|)
 expr_stmt|;
 comment|// Now we must flush to avoid concurrent updates clashing trying to
-comment|// insert the
-comment|// same row
+comment|// insert the same row
 name|LOG
 operator|.
 name|debug
@@ -578,6 +624,15 @@ block|}
 return|return
 name|entity
 return|;
+block|}
+finally|finally
+block|{
+name|lock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|findEntityByCorrelationKey (Object key)
 specifier|protected
