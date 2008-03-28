@@ -45,6 +45,30 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|ValidationException (String message, Exchange exchange, Throwable cause)
+specifier|public
+name|ValidationException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|exchange
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
