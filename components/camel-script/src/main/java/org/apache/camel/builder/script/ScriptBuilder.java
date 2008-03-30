@@ -561,7 +561,7 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the named language and script      *       * @{link Resource}      * @param language the language to use for the script      * @param scriptResource the resource used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the named language and script {@link Resource}      *       * @param language the language to use for the script      * @param scriptResource the resource used to load the script      * @return the builder      */
 DECL|method|script (String language, Resource scriptResource)
 specifier|public
 specifier|static
@@ -585,7 +585,7 @@ name|scriptResource
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the named language and script      *       * @{link File}      * @param language the language to use for the script      * @param scriptFile the file used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the named language and script {@link File}      *      * @param language the language to use for the script      * @param scriptFile the file used to load the script      * @return the builder      */
 DECL|method|script (String language, File scriptFile)
 specifier|public
 specifier|static
@@ -613,7 +613,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the named language and script      *       * @{link URL}      * @param language the language to use for the script      * @param scriptURL the URL used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the named language and script {@link URL}      *       * @param language the language to use for the script      * @param scriptURL the URL used to load the script      * @return the builder      */
 DECL|method|script (String language, URL scriptURL)
 specifier|public
 specifier|static
@@ -664,7 +664,7 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the groovy script      *       * @{link Resource}      * @param scriptResource the resource used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the groovy script {@link Resource}      *      * @param scriptResource the resource used to load the script      * @return the builder      */
 DECL|method|groovy (Resource scriptResource)
 specifier|public
 specifier|static
@@ -685,7 +685,7 @@ name|scriptResource
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the groovy script      *       * @{link File}      * @param scriptFile the file used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the groovy script {@link File}      *       * @param scriptFile the file used to load the script      * @return the builder      */
 DECL|method|groovy (File scriptFile)
 specifier|public
 specifier|static
@@ -710,7 +710,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the groovy script      *       * @{link URL}      * @param scriptURL the URL used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the groovy script {@link URL}      *       * @param scriptURL the URL used to load the script      * @return the builder      */
 DECL|method|groovy (URL scriptURL)
 specifier|public
 specifier|static
@@ -779,7 +779,7 @@ name|scriptResource
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the JavaScript/ECMAScript script      *       * @{link File}      * @param scriptFile the file used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the JavaScript/ECMAScript script {@link File}      *      * @param scriptFile the file used to load the script      * @return the builder      */
 DECL|method|javaScript (File scriptFile)
 specifier|public
 specifier|static
@@ -804,7 +804,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the JavaScript/ECMAScript script      *       * @{link URL}      * @param scriptURL the URL used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the JavaScript/ECMAScript script {@link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      */
 DECL|method|javaScript (URL scriptURL)
 specifier|public
 specifier|static
@@ -852,7 +852,7 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the PHP script      *       * @{link Resource}      * @param scriptResource the resource used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the PHP script {@link Resource}      *      * @param scriptResource the resource used to load the script      * @return the builder      */
 DECL|method|php (Resource scriptResource)
 specifier|public
 specifier|static
@@ -873,7 +873,7 @@ name|scriptResource
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the PHP script      *       * @{link File}      * @param scriptFile the file used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the PHP script {@link File}      *      * @param scriptFile the file used to load the script      * @return the builder      */
 DECL|method|php (File scriptFile)
 specifier|public
 specifier|static
@@ -898,7 +898,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the PHP script      *       * @{link URL}      * @param scriptURL the URL used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the PHP script {@link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      */
 DECL|method|php (URL scriptURL)
 specifier|public
 specifier|static
@@ -946,7 +946,7 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the Python script      *       * @{link Resource}      * @param scriptResource the resource used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the Python script {@link Resource}      *      * @param scriptResource the resource used to load the script      * @return the builder      */
 DECL|method|python (Resource scriptResource)
 specifier|public
 specifier|static
@@ -967,7 +967,7 @@ name|scriptResource
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the Python script      *       * @{link File}      * @param scriptFile the file used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the Python script {@link File}      *      * @param scriptFile the file used to load the script      * @return the builder      */
 DECL|method|python (File scriptFile)
 specifier|public
 specifier|static
@@ -992,7 +992,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the Python script      *       * @{link URL}      * @param scriptURL the URL used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the Python script {@link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      */
 DECL|method|python (URL scriptURL)
 specifier|public
 specifier|static
@@ -1040,7 +1040,7 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the Ruby/JRuby script      *       * @{link Resource}      * @param scriptResource the resource used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the Ruby/JRuby script {@link Resource}      *      * @param scriptResource the resource used to load the script      * @return the builder      */
 DECL|method|ruby (Resource scriptResource)
 specifier|public
 specifier|static
@@ -1061,7 +1061,7 @@ name|scriptResource
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the Ruby/JRuby script      *       * @{link File}      * @param scriptFile the file used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the Ruby/JRuby script {@link File}      *      * @param scriptFile the file used to load the script      * @return the builder      */
 DECL|method|ruby (File scriptFile)
 specifier|public
 specifier|static
@@ -1086,7 +1086,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the Ruby/JRuby script      *       * @{link URL}      * @param scriptURL the URL used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the Ruby/JRuby script {@link URL}      *       * @param scriptURL the URL used to load the script      * @return the builder      */
 DECL|method|ruby (URL scriptURL)
 specifier|public
 specifier|static

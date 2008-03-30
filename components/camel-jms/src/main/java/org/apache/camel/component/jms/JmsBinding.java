@@ -313,7 +313,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy used to convert between a Camel {@JmsExchange} and {@JmsMessage}  * to and from a JMS {@link Message}  *  * @version $Revision$  */
+comment|/**  * A Strategy used to convert between a Camel {@link JmsExchange} and {@link JmsMessage}  * to and from a JMS {@link Message}  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -356,7 +356,7 @@ operator|new
 name|XmlConverter
 argument_list|()
 decl_stmt|;
-comment|/**      * Extracts the body from the JMS message      *      * @param exchange      * @param message      */
+comment|/**      * Extracts the body from the JMS message      *      * @param exchange the exchange      * @param message  the message to extract its body      * @return the body, can be<tt>null</tt>      */
 DECL|method|extractBodyFromJms (Exchange exchange, Message message)
 specifier|public
 name|Object

@@ -101,7 +101,7 @@ operator|=
 name|response
 expr_stmt|;
 block|}
-comment|/**      * The response message which caused the exception      *      * @return      */
+comment|/**      * The response message which caused the exception      */
 DECL|method|getResponse ()
 specifier|public
 name|Message

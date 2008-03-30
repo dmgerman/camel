@@ -2955,7 +2955,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Defaults the JMS cache level if none is explicitly specified. Note that      * due to this<a      * href="http://opensource.atlassian.com/projects/spring/browse/SPR-3890">Spring      * Bug</a> we cannot use CACHE_CONSUMER by default (which we should do as      * its most efficient) unless the spring version is 2.5.1 or later. Instead      * we use CACHE_CONNECTION - part from for non-durable topics which must use      * CACHE_CONSUMER to avoid missing messages (due to the consumer being      * created and destroyed per message).      *      * @return      * @param endpoint      */
+comment|/**      * Defaults the JMS cache level if none is explicitly specified. Note that      * due to this<a      * href="http://opensource.atlassian.com/projects/spring/browse/SPR-3890">Spring      * Bug</a> we cannot use CACHE_CONSUMER by default (which we should do as      * its most efficient) unless the spring version is 2.5.1 or later. Instead      * we use CACHE_CONNECTION - part from for non-durable topics which must use      * CACHE_CONSUMER to avoid missing messages (due to the consumer being      * created and destroyed per message).      *      * @param endpoint the endpoint      * @return the cacne level      */
 DECL|method|defaultCacheLevel (JmsEndpoint endpoint)
 specifier|protected
 name|int

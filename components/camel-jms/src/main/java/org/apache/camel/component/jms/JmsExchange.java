@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an {@ilnk Exchange} for working with JMS messages while exposing the inbound and outbound JMS {@link Message}  * objects via {@link #getInMessage()} and {@link #getOutMessage()}  *  * @version $Revision:520964 $  */
+comment|/**  * Represents an {@link Exchange} for working with JMS messages while exposing the inbound and outbound JMS {@link Message}  * objects via {@link #getInMessage()} and {@link #getOutMessage()}  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class

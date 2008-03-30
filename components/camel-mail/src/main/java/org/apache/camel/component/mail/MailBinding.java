@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy used to convert between a Camel {@Exchange} and {@Message} to and  * from a Mail {@link MimeMessage}  *   * @version $Revision$  */
+comment|/**  * A Strategy used to convert between a Camel {@link Exchange} and {@link Message} to and  * from a Mail {@link MimeMessage}  *   * @version $Revision$  */
 end_comment
 
 begin_class
