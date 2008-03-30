@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class which provides a JAXP {@link Source} from a byte[]  * which can be read as many times as required.  *  * @version $Revision$  */
+comment|/**  * A helper class which provides a JAXP {@link javax.xml.transform.Source Source} from a byte[]  * which can be read as many times as required.  *  * @version $Revision$  */
 end_comment
 
 begin_class

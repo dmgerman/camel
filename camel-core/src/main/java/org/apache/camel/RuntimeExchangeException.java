@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A runtime exception caused by a specific message {@ilnk Exchange}  *  * @version $Revision$  */
+comment|/**  * A runtime exception caused by a specific message {@link Exchange}  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -97,7 +97,7 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
-comment|/**      * Returns the exchange which caused the exception      *      * @return the exchange which caused the exception      */
+comment|/**      * Returns the exchange which caused the exception      */
 DECL|method|getExchange ()
 specifier|public
 name|Exchange

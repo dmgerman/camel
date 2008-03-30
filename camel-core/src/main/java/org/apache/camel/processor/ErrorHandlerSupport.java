@@ -194,7 +194,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Attempts to invoke the handler for this particular exception if one is available      *      * @param exchange      * @param exception      * @return      */
+comment|/**      * Attempts to invoke the handler for this particular exception if one is available      */
 DECL|method|customProcessorForException (Exchange exchange, Throwable exception)
 specifier|protected
 name|boolean

@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/routes.html">Route</a>  * defines the processing used on an inbound message exchange  * from a specific {@see Endpoint} within a {@link CamelContext}  *  * @version $Revision$  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/routes.html">Route</a>  * defines the processing used on an inbound message exchange  * from a specific {@link Endpoint} within a {@link CamelContext}  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -229,7 +229,7 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
-comment|/**      * This property map is used to associate information about      * the route.      *      * @return      */
+comment|/**      * This property map is used to associate information about      * the route.      */
 DECL|method|getProperties ()
 specifier|public
 name|Map

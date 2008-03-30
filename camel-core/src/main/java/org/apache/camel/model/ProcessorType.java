@@ -968,8 +968,8 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @param pralleProcessing if is true camel will fork thread to call the endpoint producer      * @return the multicast type      */
-DECL|method|multicast (AggregationStrategy aggregationStrategy, boolean paralleProcessing)
+comment|/**      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the multicast type      */
+DECL|method|multicast (AggregationStrategy aggregationStrategy, boolean parallelProcessing)
 specifier|public
 name|MulticastType
 name|multicast
@@ -978,7 +978,7 @@ name|AggregationStrategy
 name|aggregationStrategy
 parameter_list|,
 name|boolean
-name|paralleProcessing
+name|parallelProcessing
 parameter_list|)
 block|{
 name|MulticastType
@@ -1004,7 +1004,7 @@ name|answer
 operator|.
 name|setParallelProcessing
 argument_list|(
-literal|true
+name|parallelProcessing
 argument_list|)
 expr_stmt|;
 return|return
@@ -1559,7 +1559,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Creates a<a      * href="http://activemq.apache.org/camel/routing-slip.html">Routing      * Slip</a> pattern.      *      * @param header is the header that the {@link RoutingSlip} class will      * look in for the list of URIs to route the message to.      * @param uriDelimiter is the delimiter that will be used to split up      * the list of URIs in the routing slip.      */
+comment|/**      * Creates a<a      * href="http://activemq.apache.org/camel/routing-slip.html">Routing      * Slip</a> pattern.      *      * @param header is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      * class will look in for the list of URIs to route the message to.      * @param uriDelimiter is the delimiter that will be used to split up      * the list of URIs in the routing slip.      */
 DECL|method|routingSlip (String header, String uriDelimiter)
 specifier|public
 name|Type
@@ -1595,7 +1595,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Creates a<a      * href="http://activemq.apache.org/camel/routing-slip.html">Routing      * Slip</a> pattern.      *      * @param header is the header that the {@link RoutingSlip} class will      * look in for the list of URIs to route the message to. The list of URIs      * will be split based on the default delimiter       * {@link RoutingSlipType#DEFAULT_DELIMITER}.      */
+comment|/**      * Creates a<a      * href="http://activemq.apache.org/camel/routing-slip.html">Routing      * Slip</a> pattern.      *      * @param header is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      * class will look in for the list of URIs to route the message to. The list of URIs      * will be split based on the default delimiter       * {@link RoutingSlipType#DEFAULT_DELIMITER}.      */
 DECL|method|routingSlip (String header)
 specifier|public
 name|Type
@@ -1944,7 +1944,7 @@ name|list
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      */
 DECL|method|aggregator ()
 specifier|public
 name|ExpressionClause
@@ -1975,7 +1975,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param aggregationStrategy the strategy used for the aggregation      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      *      * @param aggregationStrategy the strategy used for the aggregation      */
 DECL|method|aggregator (AggregationStrategy aggregationStrategy)
 specifier|public
 name|ExpressionClause
@@ -2057,7 +2057,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
 DECL|method|aggregator (Expression correlationExpression)
 specifier|public
 name|AggregatorType
@@ -2085,7 +2085,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of      * {@link AggregationStrategy ) (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.<p/> A good example of this is stock      * market data; you may be receiving 30,000 messages/second and you may want      * to throttle it right down so that multiple messages for the same stock      * are combined (or just the latest message is used and older prices are      * discarded). Another idea is to combine line item messages together into a      * single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
 DECL|method|aggregator (Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|AggregatorType
@@ -2620,7 +2620,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the {@link #DEFAULT_TRACE_CATEGORY} logging category.      *      * @return      */
+comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the {@link #DEFAULT_TRACE_CATEGORY} logging category.      */
 DECL|method|trace ()
 specifier|public
 name|Type
@@ -2634,7 +2634,7 @@ name|DEFAULT_TRACE_CATEGORY
 argument_list|)
 return|;
 block|}
-comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the specified logging category.      *      * @param category the logging category trace messages will sent to.      * @return      */
+comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the specified logging category.      *      * @param category the logging category trace messages will sent to.      */
 DECL|method|trace (String category)
 specifier|public
 name|Type
@@ -4155,7 +4155,7 @@ operator|=
 name|nodeFactory
 expr_stmt|;
 block|}
-comment|/**      * Returns a label to describe this node such as the expression if some kind of expression node      *      * @return      */
+comment|/**      * Returns a label to describe this node such as the expression if some kind of expression node      */
 DECL|method|getLabel ()
 specifier|public
 name|String

@@ -692,7 +692,6 @@ operator|=
 name|registry
 expr_stmt|;
 block|}
-comment|/**      * Gets the name of the this context.      */
 DECL|method|getName ()
 specifier|public
 name|String
@@ -720,7 +719,6 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-comment|/**      * Adds a component to the container.      */
 DECL|method|addComponent (String componentName, final Component component)
 specifier|public
 name|void
@@ -960,7 +958,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Removes a previously added component.      *      * @param componentName      * @return the previously added component or null if it had not been      *         previously added.      */
 DECL|method|removeComponent (String componentName)
 specifier|public
 name|Component
@@ -985,7 +982,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Gets the a previously added component by name or lazily creates the      * component using the factory Callback.      *      * @param componentName      * @param factory used to create a new component instance if the component      *                was not previously added.      * @return      */
 DECL|method|getOrCreateComponent (String componentName, Callable<Component> factory)
 specifier|public
 name|Component
@@ -1218,7 +1214,6 @@ return|return
 name|oldEndpoint
 return|;
 block|}
-comment|/**      * Resolves the given URI to an endpoint      */
 DECL|method|getEndpoint (String uri)
 specifier|public
 name|Endpoint
@@ -1732,7 +1727,6 @@ block|}
 block|}
 comment|// Helper methods
 comment|// -----------------------------------------------------------------------
-comment|/**      * Resolves a language for creating expressions      */
 DECL|method|resolveLanguage (String language)
 specifier|public
 name|Language

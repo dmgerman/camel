@@ -181,7 +181,7 @@ specifier|private
 name|CamelContextHelper
 parameter_list|()
 block|{     }
-comment|/**      * Returns the mandatory endpoint for the given URI or the      * {@link org.apache.camel.NoSuchEndpointException} is thrown      *      * @param camelContext      * @param uri      * @return      */
+comment|/**      * Returns the mandatory endpoint for the given URI or the      * {@link org.apache.camel.NoSuchEndpointException} is thrown      */
 DECL|method|getMandatoryEndpoint (CamelContext camelContext, String uri)
 specifier|public
 specifier|static
@@ -613,7 +613,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Resolves the given language name into a {@link Language} or throws an exception if it could not be converted      *      * @param camelContext      * @param languageName      * @return      */
+comment|/**      * Resolves the given language name into a {@link Language} or throws an exception if it could not be converted      */
 DECL|method|resolveMandatoryLanguage (CamelContext camelContext, String languageName)
 specifier|public
 specifier|static

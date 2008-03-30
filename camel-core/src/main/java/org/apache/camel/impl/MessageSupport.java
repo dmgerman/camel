@@ -352,7 +352,7 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
-comment|/**      * Returns a new instance      *       * @return      */
+comment|/**      * Returns a new instance      */
 DECL|method|newInstance ()
 specifier|public
 specifier|abstract

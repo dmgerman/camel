@@ -962,7 +962,7 @@ return|return
 literal|""
 return|;
 block|}
-comment|/**      * Allows derived classes to set a lazily created expressionType instance      * such as if using the {@link ExpressionClause#      *      * @param expressionType      */
+comment|/**      * Allows derived classes to set a lazily created expressionType instance      * such as if using the {@link ExpressionClause}      */
 DECL|method|setExpressionType (ExpressionType expressionType)
 specifier|protected
 name|void

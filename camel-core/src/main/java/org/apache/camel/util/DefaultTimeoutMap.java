@@ -679,7 +679,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A hook to allow derivations to avoid evicting the current entry      *      * @param entry      * @return      */
+comment|/**      * A hook to allow derivations to avoid evicting the current entry      */
 DECL|method|isValidForEviction (TimeoutMapEntry entry)
 specifier|protected
 name|boolean

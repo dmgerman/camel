@@ -214,7 +214,7 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.      *      * @param componentName the name of the component      * @param factory       used to create a new component instance if the component was not previously added.      * @return      */
+comment|/**      * Gets the a previously added component by name or lazily creates the component      * using the factory Callback.      *      * @param componentName the name of the component      * @param factory       used to create a new component instance if the component was not previously added.      * @return the component      */
 DECL|method|getOrCreateComponent (String componentName, Callable<Component> factory)
 name|Component
 name|getOrCreateComponent
@@ -231,7 +231,7 @@ parameter_list|)
 function_decl|;
 comment|// Endpoint Management Methods
 comment|//-----------------------------------------------------------------------
-comment|/**      * Resolves the given URI to an {@see Endpoint}.  If the URI has a singleton endpoint      * registered, then the singleton is returned.  Otherwise, a new {@see Endpoint} is created      * and if the endpoint is a singleton it is registered as a singleton endpoint.      */
+comment|/**      * Resolves the given URI to an {@link Endpoint}.  If the URI has a singleton endpoint      * registered, then the singleton is returned.  Otherwise, a new {@link Endpoint} is created      * and if the endpoint is a singleton it is registered as a singleton endpoint.      */
 DECL|method|getEndpoint (String uri)
 name|Endpoint
 name|getEndpoint
@@ -240,7 +240,7 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Resolves the given URI to an {@see Endpoint} of the specified type.      * If the URI has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@see Endpoint} is created and if the endpoint is a      * singleton it is registered as a singleton endpoint.      */
+comment|/**      * Resolves the given URI to an {@link Endpoint} of the specified type.      * If the URI has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and if the endpoint is a      * singleton it is registered as a singleton endpoint.      */
 DECL|method|getEndpoint (String name, Class<T> endpointType)
 parameter_list|<
 name|T
@@ -305,7 +305,7 @@ argument_list|>
 name|getRouteDefinitions
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the current routes in this context      *      * @return the current routes in this context      */
+comment|/**      * Returns the current routes in this context      */
 DECL|method|getRoutes ()
 name|List
 argument_list|<
@@ -367,7 +367,7 @@ name|Exception
 function_decl|;
 comment|// Properties
 comment|//-----------------------------------------------------------------------
-comment|/**      * Returns the converter of exchanges from one type to another      * @return      */
+comment|/**      * Returns the converter of exchanges from one type to another      */
 DECL|method|getExchangeConverter ()
 name|ExchangeConverter
 name|getExchangeConverter

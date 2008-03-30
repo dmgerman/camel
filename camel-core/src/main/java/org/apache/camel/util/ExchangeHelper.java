@@ -1011,7 +1011,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Populates the Map with the variables which are made available to a script or template      *      * @param exchange the exchange to make available      * @param map      the map to populate      * @return a Map populated with the require dvariables      */
+comment|/**      * Populates the Map with the variables which are made available to a script or template      *      * @param exchange the exchange to make available      * @param map      the map to populate      */
 DECL|method|populateVariableMap (Exchange exchange, Map map)
 specifier|public
 specifier|static

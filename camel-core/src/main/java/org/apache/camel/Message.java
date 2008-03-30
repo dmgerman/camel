@@ -34,13 +34,13 @@ specifier|public
 interface|interface
 name|Message
 block|{
-comment|/**      * @return the id of the message      */
+comment|/**      * Returns the id of the message      *      * @return the id of the message      */
 DECL|method|getMessageId ()
 name|String
 name|getMessageId
 parameter_list|()
 function_decl|;
-comment|/**      * set the id of the message      *      * @param messageId      */
+comment|/**      * Sets the id of the message      *      * @param messageId      */
 DECL|method|setMessageId (String messageId)
 name|void
 name|setMessageId
@@ -49,13 +49,13 @@ name|String
 name|messageId
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the exchange this message is related to      *      * @return      */
+comment|/**      * Returns the exchange this message is related to      */
 DECL|method|getExchange ()
 name|Exchange
 name|getExchange
 parameter_list|()
 function_decl|;
-comment|/**      * Accesses a specific header      *      * @param name      * @return object header associated with the name      */
+comment|/**      * Accesses a specific header      *      * @param name  name of header      * @return object header associated with the name      */
 DECL|method|getHeader (String name)
 name|Object
 name|getHeader

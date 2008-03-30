@@ -205,7 +205,7 @@ literal|1000L
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link BatchResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements      * of the sequence are compared using the {@link DefaultExchangeComparator}.      *       * @param capacity      *            capacity of the resequencer's inbound queue.      * @param timeout.      *            minimum time to wait for missing elements (messages).      */
+comment|/**      * Creates a new {@link BatchResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements      * of the sequence are compared using the {@link DefaultExchangeComparator}.      *       * @param capacity   capacity of the resequencer's inbound queue.      * @param timeout    minimum time to wait for missing elements (messages).      */
 DECL|method|StreamResequencerConfig (int capacity, long timeout)
 specifier|public
 name|StreamResequencerConfig
@@ -229,7 +229,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link BatchResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements      * of the sequence are compared with the given      * {@link ExpressionResultComparator}.      *       * @param capacity      *            capacity of the resequencer's inbound queue.      * @param timeout.      *            minimum time to wait for missing elements (messages).      */
+comment|/**      * Creates a new {@link BatchResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements      * of the sequence are compared with the given      * {@link ExpressionResultComparator}.      *       * @param capacity   capacity of the resequencer's inbound queue.      * @param timeout    minimum time to wait for missing elements (messages).      */
 DECL|method|StreamResequencerConfig (int capacity, long timeout, ExpressionResultComparator<Exchange> comparator)
 specifier|public
 name|StreamResequencerConfig

@@ -388,7 +388,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Finds the names of the packages to search for on the classpath looking      * for text files on the classpath at the      *      * @return a collection of packages to search for      * @throws IOException      * @{link #META_INF_SERVICES} location      */
+comment|/**      * Finds the names of the packages to search for on the classpath looking      * for text files on the classpath at the {@link #META_INF_SERVICES} location.      *      * @return a collection of packages to search for      * @throws IOException is thrown for IO relatede errors      */
 DECL|method|findPackageNames ()
 specifier|protected
 name|String

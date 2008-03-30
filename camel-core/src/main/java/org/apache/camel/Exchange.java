@@ -128,7 +128,7 @@ name|Message
 name|in
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the outbound message, lazily creating one if one has not already      * been associated with this exchange. If you want to inspect this property      * but not force lazy creation then invoke the {@link #getOut(boolean)}      * method passing in null      *      * @return the response      */
+comment|/**      * Returns the outbound message, lazily creating one if one has not already      * been associated with this exchange. If you want to inspect this property      * but not force lazy creation then invoke the {@link #getOut(boolean)}      * method passing in<tt>false</tt>      *      * @return the response      */
 DECL|method|getOut ()
 name|Message
 name|getOut
@@ -158,7 +158,7 @@ name|Message
 name|getFault
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the fault message; optionally lazily creating one if one has      * not been associated with this exchange      *      * @return the response      */
+comment|/**      * Returns the fault message; optionally lazily creating one if one has      * not been associated with this exchange      *      * @param lazyCreate<tt>true</tt> will lazy create the fault message      *      * @return the fault      */
 DECL|method|getFault (boolean lazyCreate)
 name|Message
 name|getFault
@@ -173,7 +173,7 @@ name|Throwable
 name|getException
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the exception associated with this exchange      *      * @param e      */
+comment|/**      * Sets the exception associated with this exchange      *      * @param e  the caused exception      */
 DECL|method|setException (Throwable e)
 name|void
 name|setException
@@ -194,7 +194,7 @@ name|CamelContext
 name|getContext
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a new exchange instance with empty messages, headers and properties      *      * @return      */
+comment|/**      * Creates a new exchange instance with empty messages, headers and properties      */
 DECL|method|newInstance ()
 name|Exchange
 name|newInstance
@@ -206,7 +206,7 @@ name|Exchange
 name|copy
 parameter_list|()
 function_decl|;
-comment|/**      * Copies the data into this exchange from the given exchange      *<p/>      * #param source is the source from which headers and messages will be      * copied      */
+comment|/**      * Copies the data into this exchange from the given exchange      *       * @param source is the source from which headers and messages will be copied      */
 DECL|method|copyFrom (Exchange source)
 name|void
 name|copyFrom

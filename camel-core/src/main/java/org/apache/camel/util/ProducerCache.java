@@ -389,7 +389,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sends an exchange to an endpoint using a supplied      * @{link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
+comment|/**      * Sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
 DECL|method|send (Endpoint<E> endpoint, Processor processor)
 specifier|public
 name|E
@@ -454,7 +454,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sends an exchange to an endpoint using a supplied      * @{link Processor} to populate the exchange.  The callback      * will be called when the exchange is completed.      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
+comment|/**      * Sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange.  The callback      * will be called when the exchange is completed.      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
 DECL|method|send (Endpoint<E> endpoint, Processor processor, AsyncCallback callback)
 specifier|public
 name|E
@@ -615,7 +615,7 @@ name|FALSE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends an exchange to an endpoint using a supplied      * @{link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor the transformer used to populate the new exchange      */
+comment|/**      * Sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor the transformer used to populate the new exchange      */
 DECL|method|send (Endpoint<E> endpoint, ExchangePattern pattern, Processor processor)
 specifier|public
 name|E

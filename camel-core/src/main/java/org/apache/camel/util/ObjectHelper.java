@@ -951,7 +951,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Returns the predicate matching boolean on a {@link List} result set where      * if the first element is a boolean its value is used otherwise this method      * returns true if the collection is not empty      *      * @returns true if the first element is a boolean and its value is true or      *          if the list is non empty      */
+comment|/**      * Returns the predicate matching boolean on a {@link List} result set where      * if the first element is a boolean its value is used otherwise this method      * returns true if the collection is not empty      *      * @return<tt>true</tt> if the first element is a boolean and its value is true or      *          if the list is non empty      */
 DECL|method|matches (List list)
 specifier|public
 specifier|static

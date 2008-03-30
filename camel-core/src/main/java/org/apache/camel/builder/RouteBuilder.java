@@ -255,7 +255,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/dsl.html">Java DSL</a> which is  * used to build {@link Route} instances in a  *  * @{link CamelContext} for smart routing.  *  * @version $Revision$  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/dsl.html">Java DSL</a> which is  * used to build {@link Route} instances in a {@link CamelContext} for smart routing.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -471,7 +471,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a route for an interceptor; use the {@link ProcessorType#proceed()} method      * to continue processing the underying route being intercepted.      *      * @return      */
+comment|/**      * Adds a route for an interceptor; use the {@link ProcessorType#proceed()} method      * to continue processing the underying route being intercepted.      */
 DECL|method|intercept ()
 specifier|public
 name|InterceptType

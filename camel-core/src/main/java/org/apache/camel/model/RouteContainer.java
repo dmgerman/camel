@@ -50,7 +50,7 @@ specifier|public
 interface|interface
 name|RouteContainer
 block|{
-comment|/**      * A list of routes      *      * @return      */
+comment|/**      * Returns the routes      */
 annotation|@
 name|XmlElementRef
 DECL|method|getRoutes ()
@@ -61,7 +61,7 @@ argument_list|>
 name|getRoutes
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the routes to use      *      * @param routes      */
+comment|/**      * Sets the routes to use      */
 DECL|method|setRoutes (List<RouteType> routes)
 name|void
 name|setRoutes

@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * The callback interface for an {@see AsyncProcessor} so that it can   * notify you when an {@see Exchange} has completed.   */
+comment|/**  * The callback interface for an {@link AsyncProcessor} so that it can  * notify you when an {@link Exchange} has completed.   */
 end_comment
 
 begin_interface
@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|AsyncCallback
 block|{
-comment|/**      * This method is invoked once the Exchange is completed.  If an error       * occurred while processing the exchange, the exception field of the       * {@see Exchange} being processed will hold the error.       *        * @param doneSynchronously set to true if the processing of the exchange was completed synchronously thread.      */
+comment|/**      * This method is invoked once the Exchange is completed.  If an error       * occurred while processing the exchange, the exception field of the       * {@link Exchange} being processed will hold the error.       *        * @param doneSynchronously set to true if the processing of the exchange was completed synchronously thread.      */
 DECL|method|done (boolean doneSynchronously)
 name|void
 name|done

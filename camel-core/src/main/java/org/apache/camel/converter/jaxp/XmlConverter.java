@@ -1930,7 +1930,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**      * Create a DOM element from the given source.      *      * @param source      * @return      * @throws TransformerException      * @throws ParserConfigurationException      * @throws IOException      * @throws SAXException      */
+comment|/**      * Create a DOM element from the given source.      */
 annotation|@
 name|Converter
 DECL|method|toDOMElement (Source source)
@@ -1965,7 +1965,7 @@ name|node
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a DOM element from the DOM node.      * Simply cast if the node is an Element, or      * return the root element if it is a Document.      *      * @param node      * @return      * @throws TransformerException      */
+comment|/**      * Create a DOM element from the DOM node.      * Simply cast if the node is an Element, or      * return the root element if it is a Document.      */
 annotation|@
 name|Converter
 DECL|method|toDOMElement (Node node)
@@ -2234,7 +2234,7 @@ name|file
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a DOM document from the given source.      *      * @param source      * @return      * @throws TransformerException      * @throws ParserConfigurationException      * @throws IOException      * @throws SAXException      */
+comment|/**      * Create a DOM document from the given source.      */
 annotation|@
 name|Converter
 DECL|method|toDOMDocument (Source source)
@@ -2269,7 +2269,7 @@ name|node
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a DOM document from the given Node.      * If the node is an document, just cast it,      * if the node is an root element, retrieve its      * owner element or create a new document and import      * the node.      *      * @param node      * @return      * @throws ParserConfigurationException      * @throws TransformerException      */
+comment|/**      * Create a DOM document from the given Node.      * If the node is an document, just cast it,      * if the node is an root element, retrieve its      * owner element or create a new document and import      * the node.      */
 annotation|@
 name|Converter
 DECL|method|toDOMDocument (Node node)

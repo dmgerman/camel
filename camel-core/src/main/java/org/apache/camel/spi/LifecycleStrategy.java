@@ -106,7 +106,7 @@ specifier|public
 interface|interface
 name|LifecycleStrategy
 block|{
-comment|/**      * Notification on adding a {@see CamelContext}.      */
+comment|/**      * Notification on adding a {@link CamelContext}.      */
 DECL|method|onContextCreate (CamelContext context)
 name|void
 name|onContextCreate
@@ -115,7 +115,7 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
-comment|/**      * Notification on adding an {@see Endpoint}.      */
+comment|/**      * Notification on adding an {@link Endpoint}.      */
 DECL|method|onEndpointAdd (Endpoint<? extends Exchange> endpoint)
 name|void
 name|onEndpointAdd
@@ -129,7 +129,7 @@ argument_list|>
 name|endpoint
 parameter_list|)
 function_decl|;
-comment|/**      * Notification on adding a {@see Service}.      */
+comment|/**      * Notification on adding a {@link Service}.      */
 DECL|method|onServiceAdd (CamelContext context, Service service)
 name|void
 name|onServiceAdd
@@ -141,7 +141,7 @@ name|Service
 name|service
 parameter_list|)
 function_decl|;
-comment|/**      * Notification on adding {@see Route}(s).      */
+comment|/**      * Notification on adding {@link Route}(s).      */
 DECL|method|onRoutesAdd (Collection<Route> routes)
 name|void
 name|onRoutesAdd
@@ -153,7 +153,7 @@ argument_list|>
 name|routes
 parameter_list|)
 function_decl|;
-comment|/**      * Notification on adding {@see RouteContext}(s).      *      * @param routeContext      */
+comment|/**      * Notification on adding {@link RouteContext}(s).      *      * @param routeContext      */
 DECL|method|onRouteContextCreate (RouteContext routeContext)
 name|void
 name|onRouteContextCreate
