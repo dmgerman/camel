@@ -653,7 +653,7 @@ name|image
 operator|=
 name|imagePrefix
 operator|+
-literal|"RoutingSlipIcon.png"
+literal|"RoutingTableIcon.png"
 expr_stmt|;
 name|this
 operator|.
