@@ -64,7 +64,7 @@ specifier|public
 interface|interface
 name|InvokingContext
 block|{
-comment|/**      * This method is called when the router is preparing an outbound message      * (orignated from the router's client) to be sent to the target CXF server.      * It sets the content in the given (out) message object.      * @param content      */
+comment|/**      * This method is called when the router is preparing an outbound message      * (orignated from the router's client) to be sent to the target CXF server.      * It sets the content in the given (out) message object.      */
 DECL|method|setRequestOutMessageContent (Message message, Map<Class, Object> contents)
 name|void
 name|setRequestOutMessageContent
@@ -81,7 +81,7 @@ argument_list|>
 name|contents
 parameter_list|)
 function_decl|;
-comment|/**      * This method is call when the CxfClient receives a response from a CXF server and needs      * to extract the response object from the message.      * @param exchange      * @param responseContext      * @return response object      */
+comment|/**      * This method is call when the CxfClient receives a response from a CXF server and needs      * to extract the response object from the message.      */
 DECL|method|getResponseObject (Exchange exchange, Map<String, Object> responseContext)
 name|Object
 name|getResponseObject
@@ -98,7 +98,7 @@ argument_list|>
 name|responseContext
 parameter_list|)
 function_decl|;
-comment|/**      * This method is called when the routing interceptor has received a response message      * from the target CXF server and needs to set the response in the outgoing message      * that is to be sent to the client.      * @param outMessage      * @param resultPayload      */
+comment|/**      * This method is called when the routing interceptor has received a response message      * from the target CXF server and needs to set the response in the outgoing message      * that is to be sent to the client.      */
 DECL|method|setResponseContent (Message outMessage, Object resultPayload)
 name|void
 name|setResponseContent
@@ -110,7 +110,7 @@ name|Object
 name|resultPayload
 parameter_list|)
 function_decl|;
-comment|/**      * This method is called when the routing interceptor has intercepted a message from      * the client and needs to extract the request content from the message.  It retreives      * and receives the request content from the incoming message.      * @param inMessage      * @return the request contents from client      */
+comment|/**      * This method is called when the routing interceptor has intercepted a message from      * the client and needs to extract the request content from the message.  It retreives      * and receives the request content from the incoming message.      */
 DECL|method|getRequestContent (Message inMessage)
 name|Map
 argument_list|<

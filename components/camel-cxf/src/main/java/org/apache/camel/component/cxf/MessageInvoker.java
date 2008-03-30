@@ -42,7 +42,7 @@ specifier|public
 interface|interface
 name|MessageInvoker
 block|{
-comment|/**      * This method is called when the incoming message is to be passed into the      * camel processor. The return value is the response from the processor      *      * @param the cxf exchange which holds the in and out message      */
+comment|/**      * This method is called when the incoming message is to be passed into the      * camel processor. The return value is the response from the processor      *      * @param exchange the cxf exchange which holds the in and out message      */
 DECL|method|invoke (Exchange exchange)
 name|void
 name|invoke

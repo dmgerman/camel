@@ -419,14 +419,10 @@ argument_list|,
 name|endpointInfo
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|assertEquals
 argument_list|(
-literal|"get the destination bean name"
-operator|+
+literal|"{http://activemq.apache.org/camel-test}port.camel-destination"
+argument_list|,
 name|destination
 operator|.
 name|getBeanName

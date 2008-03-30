@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -450,12 +462,6 @@ name|camelTemplate
 decl_stmt|;
 DECL|field|distinationEndpoint
 specifier|private
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 name|distinationEndpoint
 decl_stmt|;
@@ -636,6 +642,7 @@ name|Exception
 name|ex
 parameter_list|)
 block|{
+comment|// TODO: Is it okay just to log severe errors such as this?
 name|getLogger
 argument_list|()
 operator|.
@@ -645,7 +652,7 @@ name|Level
 operator|.
 name|SEVERE
 argument_list|,
-literal|"Camel connect failed with EException : "
+literal|"Camel connect failed with Exception : "
 argument_list|,
 name|ex
 argument_list|)
@@ -672,11 +679,20 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO need to handle the exception somewhere
-name|e
-operator|.
-name|printStackTrace
+comment|// TODO: Is it okay just to log severe errors such as this?
+name|getLogger
 argument_list|()
+operator|.
+name|log
+argument_list|(
+name|Level
+operator|.
+name|SEVERE
+argument_list|,
+literal|"Camel stop failed with Exception : "
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1144,7 +1160,7 @@ name|LOG
 return|;
 block|}
 block|}
-comment|/**      * Mark message as a partial message.      *      * @param partialResponse the partial response message      * @param the decoupled target      * @return true iff partial responses are supported      */
+comment|/**      * Mark message as a partial message.      *      * @param partialResponse the partial response message      * @param decoupledTarget the decoupled target      * @return<tt>true</tt> if partial responses is supported      */
 DECL|method|markPartialResponse (Message partialResponse, EndpointReferenceType decoupledTarget)
 specifier|protected
 name|boolean

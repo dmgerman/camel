@@ -778,7 +778,7 @@ name|header
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method is called to convert a incoming message format e.g Stax Stream      * to a DOM Tree. Default Implementation converts Stax Stream to a DOM      * @param inMessage      * @param Document      */
+comment|/**      * This method is called to convert a incoming message format e.g Stax Stream      * to a DOM Tree. Default Implementation converts Stax Stream to a DOM      */
 DECL|method|createDOMMessage (T message)
 specifier|protected
 name|Document
@@ -882,7 +882,7 @@ name|Logger
 name|getLogger
 parameter_list|()
 function_decl|;
-comment|/**      * This method is called on incoming to check if it is a fault.      * @param inMessage      * @param boolean      */
+comment|/**      * This method is called on incoming to check if it is a fault.      */
 DECL|method|isFaultMessage (T message)
 specifier|protected
 specifier|abstract
@@ -893,7 +893,7 @@ name|T
 name|message
 parameter_list|)
 function_decl|;
-comment|/**      * This method is called when the routing message interceptor has received a inbound message      * It infers the binding operation by matching the root Element with a binding operation      * from the service model.      * @param inMessage      * @param resultPayload      */
+comment|/**      * This method is called when the routing message interceptor has received a inbound message      * It infers the binding operation by matching the root Element with a binding operation      * from the service model.      */
 DECL|method|getBindingOperation (T inMessage, Document document)
 specifier|protected
 specifier|abstract
@@ -907,7 +907,7 @@ name|Document
 name|document
 parameter_list|)
 function_decl|;
-comment|/**      * This method is called when the routing message interceptor has intercepted a inbound      * message as a DOM Content.  It retreives the message parts as DOM Element      * and returns a List<Element>      * @param inMessage      * @param rootElement      * @param bindingMessageInfo      * @return List<Element>      */
+comment|/**      * This method is called when the routing message interceptor has intercepted a inbound      * message as a DOM Content.  It retreives the message parts as DOM Element      * and returns a List of Element.      */
 DECL|method|getPartList (T inMessage, Element rootElement, BindingMessageInfo boi)
 specifier|protected
 specifier|abstract
@@ -927,7 +927,7 @@ name|BindingMessageInfo
 name|boi
 parameter_list|)
 function_decl|;
-comment|/**      * This method is called when the routing message interceptor has intercepted a inbound      * message as a DOM Content.  It retreives the header parts as DOM Element      * and returns a Element.      * @param inMessage      * @return Element      */
+comment|/**      * This method is called when the routing message interceptor has intercepted a inbound      * message as a DOM Content.  It retreives the header parts as DOM Element      * and returns a Element.      */
 DECL|method|getHeader (T inMessage)
 specifier|protected
 specifier|abstract

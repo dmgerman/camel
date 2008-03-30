@@ -104,22 +104,6 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|binding
-operator|.
-name|soap
-operator|.
-name|SoapFault
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
 name|endpoint
 operator|.
 name|Endpoint
@@ -319,7 +303,7 @@ operator|=
 name|consumer
 expr_stmt|;
 block|}
-comment|/**     * This method is called when the incoming message is to     * be passed into the camel processor. The return value is the response     * from the processor     * @param inMessage     */
+comment|/**     * This method is called when the incoming message is to     * be passed into the camel processor. The return value is the response     * from the processor     */
 DECL|method|invoke (Exchange exchange)
 specifier|public
 name|void
@@ -341,9 +325,6 @@ comment|//TODO set the request context here
 name|CxfEndpoint
 name|endpoint
 init|=
-operator|(
-name|CxfEndpoint
-operator|)
 name|cxfConsumer
 operator|.
 name|getEndpoint
@@ -752,7 +733,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * This method is called when the incoming pojo or WebServiceProvider invocation is called      * from the service invocation interceptor. The return value is the response      * from the processor      * @param inMessage      * @return outMessage      */
+comment|/**      * This method is called when the incoming pojo or WebServiceProvider invocation is called      * from the service invocation interceptor. The return value is the response      * from the processor      */
 DECL|method|invoke (Exchange exchange, Object o)
 specifier|public
 name|Object
@@ -768,9 +749,6 @@ block|{
 name|CxfEndpoint
 name|endpoint
 init|=
-operator|(
-name|CxfEndpoint
-operator|)
 name|cxfConsumer
 operator|.
 name|getEndpoint
