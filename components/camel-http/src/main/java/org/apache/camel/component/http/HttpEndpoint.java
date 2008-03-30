@@ -511,7 +511,7 @@ return|return
 name|httpClientConfigurer
 return|;
 block|}
-comment|/**      * Register a custom configuration strategy for new {@ilnk HttpClient} instances      * created by producers or consumers such as to configure authentication mechanisms etc      *      * @param httpClientConfigurer the strategy for configuring new {@ilnk HttpClient} instances      */
+comment|/**      * Register a custom configuration strategy for new {@link HttpClient} instances      * created by producers or consumers such as to configure authentication mechanisms etc      *      * @param httpClientConfigurer the strategy for configuring new {@link HttpClient} instances      */
 DECL|method|setHttpClientConfigurer (HttpClientConfigurer httpClientConfigurer)
 specifier|public
 name|void
