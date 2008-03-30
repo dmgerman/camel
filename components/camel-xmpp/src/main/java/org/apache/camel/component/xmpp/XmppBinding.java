@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy used to convert between a Camel {@XmppExchange} and {@XmppMessage} to and from a  * XMPP {@link Message}  *  * @version $Revision$  */
+comment|/**  * A Strategy used to convert between a Camel {@link XmppExchange} and {@link XmppMessage} to and from a  * XMPP {@link Message}  *  * @version $Revision$  */
 end_comment
 
 begin_class

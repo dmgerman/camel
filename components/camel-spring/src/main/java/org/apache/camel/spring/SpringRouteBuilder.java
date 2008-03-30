@@ -267,7 +267,7 @@ name|type
 argument_list|)
 throw|;
 block|}
-comment|/**      * Returns the application context which has been configured via the      * {@link #setApplicationContext(ApplicationContext)} method or from the      * underlying {@link SpringCamelContext}      *       * @return      */
+comment|/**      * Returns the application context which has been configured via the      * {@link #setApplicationContext(ApplicationContext)} method or from the      * underlying {@link SpringCamelContext}      */
 DECL|method|getApplicationContext ()
 specifier|public
 name|ApplicationContext

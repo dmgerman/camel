@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Consumer} which listens to XMPP packets  *   * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.Consumer Consumer} which listens to XMPP packets  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -346,6 +346,7 @@ operator|instanceof
 name|RosterPacket
 condition|)
 block|{
+comment|// TODO: what to do with a RosterPacket other than debug logging it
 name|RosterPacket
 name|rosterPacket
 init|=

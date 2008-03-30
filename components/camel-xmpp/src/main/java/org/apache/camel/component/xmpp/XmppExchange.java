@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an {@ilnk Exchange} for working with XMPP  *  * @version $Revision:520964 $  */
+comment|/**  * Represents an {@link Exchange} for working with XMPP  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
