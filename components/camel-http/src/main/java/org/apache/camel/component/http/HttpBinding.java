@@ -168,6 +168,13 @@ name|ignoredHeaders
 init|=
 name|DEFAULT_HEADERS_TO_IGNORE
 decl_stmt|;
+DECL|field|useReaderForPayload
+specifier|private
+name|boolean
+name|useReaderForPayload
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Writes the exchange to the servlet response      *      * @param response      * @throws IOException      */
 DECL|method|writeResponse (HttpExchange exchange, HttpServletResponse response)
 specifier|public
@@ -414,12 +421,28 @@ operator|.
 name|getRequest
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|isUseReaderForPayload
+argument_list|()
+condition|)
+block|{
 return|return
 name|request
 operator|.
 name|getReader
 argument_list|()
 return|;
+block|}
+else|else
+block|{
+return|return
+name|request
+operator|.
+name|getInputStream
+argument_list|()
+return|;
+block|}
 block|}
 comment|/*      * Exclude a set of headers from responses and new requests as all headers get      * propagated between exchanges by default      */
 DECL|method|shouldHeaderBePropagated (String headerName, String headerValue)
@@ -511,6 +534,33 @@ block|{
 return|return
 name|ignoredHeaders
 return|;
+block|}
+DECL|method|isUseReaderForPayload ()
+specifier|public
+name|boolean
+name|isUseReaderForPayload
+parameter_list|()
+block|{
+return|return
+name|useReaderForPayload
+return|;
+block|}
+comment|/**      * Should the {@link HttpServletRequest#getReader()} be exposed as the payload of input messages in the Camel      * {@link Message#getBody()} or not. If false then the {@link HttpServletRequest#getInputStream()} will be exposed.      *      * @param useReaderForPayload      */
+DECL|method|setUseReaderForPayload (boolean useReaderForPayload)
+specifier|public
+name|void
+name|setUseReaderForPayload
+parameter_list|(
+name|boolean
+name|useReaderForPayload
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useReaderForPayload
+operator|=
+name|useReaderForPayload
+expr_stmt|;
 block|}
 block|}
 end_class
