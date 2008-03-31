@@ -360,6 +360,11 @@ name|SUBDIRECTORY
 init|=
 literal|"cameldoc"
 decl_stmt|;
+DECL|field|indexHtmlContent
+specifier|private
+name|String
+name|indexHtmlContent
+decl_stmt|;
 comment|//
 comment|// For running Camel embedded
 comment|//-------------------------------------------------------------------------
@@ -375,11 +380,6 @@ DECL|field|runCamel
 specifier|protected
 name|boolean
 name|runCamel
-decl_stmt|;
-DECL|field|indexHtmlContent
-specifier|private
-name|String
-name|indexHtmlContent
 decl_stmt|;
 comment|/**      * Reference to Maven 2 Project.      *      * @parameter expression="${project}"      * @required      * @readonly      */
 DECL|field|project
