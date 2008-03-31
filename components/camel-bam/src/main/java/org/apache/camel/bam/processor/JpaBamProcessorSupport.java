@@ -241,12 +241,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|lock
+DECL|field|LOCK
 specifier|private
 specifier|static
 specifier|final
 name|Lock
-name|lock
+name|LOCK
 init|=
 operator|new
 name|ReentrantLock
@@ -529,7 +529,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|lock
+name|LOCK
 operator|.
 name|lock
 argument_list|()
@@ -627,7 +627,7 @@ return|;
 block|}
 finally|finally
 block|{
-name|lock
+name|LOCK
 operator|.
 name|unlock
 argument_list|()
