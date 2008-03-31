@@ -98,35 +98,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|MessageSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
 name|ServiceSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|FromType
 import|;
 end_import
 
@@ -173,22 +145,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|notNull
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -230,8 +186,24 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|notNull
+import|;
+end_import
+
 begin_comment
-comment|/**  * Implements a<a  * href="http://activemq.apache.org/camel/routing-slip.html">Routing Slip</a>  * pattern where the list of actual endpoints to send a message exchange to are  * dependent on the value of a message header.  *   */
+comment|/**  * Implements a<a  * href="http://activemq.apache.org/camel/routing-slip.html">Routing Slip</a>  * pattern where the list of actual endpoints to send a message exchange to are  * dependent on the value of a message header.  */
 end_comment
 
 begin_class
@@ -558,7 +530,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the outbound message if available. Otherwise return the inbound message.      */
+comment|/**      * Returns the outbound message if available. Otherwise return the inbound      * message.      */
 DECL|method|getResultMessage (Exchange exchange)
 specifier|private
 name|Message
@@ -599,7 +571,7 @@ return|return
 name|message
 return|;
 block|}
-comment|/**      * Return the list of recipients defined in the routing slip in the specified message.      */
+comment|/**      * Return the list of recipients defined in the routing slip in the      * specified message.      */
 DECL|method|recipients (Message message)
 specifier|private
 name|String
@@ -654,7 +626,7 @@ index|[]
 block|{}
 return|;
 block|}
-comment|/**      * Return a string representation of the element list with the first element removed.      */
+comment|/**      * Return a string representation of the element list with the first element      * removed.      */
 DECL|method|removeFirstElement (String[] elements)
 specifier|private
 name|String

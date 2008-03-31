@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link Interceptor} that converts a message into a re-readable format   */
+comment|/**  * {@link Interceptor} that converts a message into a re-readable format  */
 end_comment
 
 begin_class
