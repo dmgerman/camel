@@ -111,6 +111,11 @@ name|FileNotFoundException
 throws|,
 name|IOException
 block|{
+name|int
+name|fileSize
+init|=
+literal|962
+decl_stmt|;
 name|byte
 index|[]
 name|data
@@ -126,9 +131,33 @@ literal|"src/test/resources/org/apache/camel/converter/dummy.txt"
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// since we set the dummy.txt svn property svn:eol-style to be native,
+comment|// the file size could be different when you run the test in Windows box
+if|if
+condition|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"os.name"
+argument_list|)
+operator|.
+name|startsWith
+argument_list|(
+literal|"Windows"
+argument_list|)
+condition|)
+block|{
+name|fileSize
+operator|=
+literal|979
+expr_stmt|;
+block|}
 name|assertEquals
 argument_list|(
-literal|962
+literal|"get the wrong byte size"
+argument_list|,
+name|fileSize
 argument_list|,
 name|data
 operator|.
