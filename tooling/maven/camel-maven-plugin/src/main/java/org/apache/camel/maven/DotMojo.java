@@ -381,6 +381,12 @@ specifier|protected
 name|boolean
 name|runCamel
 decl_stmt|;
+comment|/**      * Should we try run the DOT executable on the generated .DOT file to generate images      *      * @parameter expression="true"      * @readonly      */
+DECL|field|useDot
+specifier|protected
+name|boolean
+name|useDot
+decl_stmt|;
 comment|/**      * Reference to Maven 2 Project.      *      * @parameter expression="${project}"      * @required      * @readonly      */
 DECL|field|project
 specifier|private
@@ -903,6 +909,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|generated
+operator|!=
+literal|null
+operator|&&
 name|format
 operator|.
 name|equals
@@ -1623,6 +1633,23 @@ init|=
 name|getLog
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|useDot
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"DOT generation disabled"
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
 if|if
 condition|(
 name|this
