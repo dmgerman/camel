@@ -152,6 +152,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: example
 name|from
 argument_list|(
 literal|"direct:start"
@@ -172,6 +173,7 @@ argument_list|,
 literal|"mock:z"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: example
 block|}
 empty_stmt|;
 block|}
