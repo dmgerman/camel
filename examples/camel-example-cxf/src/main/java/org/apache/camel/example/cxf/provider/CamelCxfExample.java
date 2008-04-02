@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An example demonstrating routing of messages to JAXWS WebServiceProvider  * Endpoint through the camel route. The message could be SOAPEnvelope or Plain  * XML over HTTP or as defined by the JaxWS specification.  */
+comment|/**  * An example demonstrating routing of messages to a JAXWS WebServiceProvider  * endpoint through a Camel route. The message could be either a SOAP envelope   * or plain XML over HTTP as defined by the JAX-WS specification.  */
 end_comment
 
 begin_class
@@ -74,7 +74,7 @@ argument_list|(
 literal|"http://localhost:9000/GreeterContext/SOAPMessageService"
 argument_list|)
 decl_stmt|;
-comment|// invoking the services
+comment|// invoke the services
 name|client
 operator|.
 name|invoke

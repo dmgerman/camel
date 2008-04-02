@@ -79,7 +79,7 @@ decl_stmt|;
 comment|// invoking the services
 name|client
 operator|.
-name|invock
+name|invoke
 argument_list|()
 expr_stmt|;
 name|Thread

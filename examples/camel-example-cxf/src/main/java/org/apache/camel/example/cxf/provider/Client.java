@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple client that uses JaxWS Dispatch API to call a service endpoint  * exposed in a servlet container.  */
+comment|/**  * A simple client that uses the JAX-WS Dispatch API to call   * a service endpoint exposed in a servlet container.  */
 end_comment
 
 begin_class
@@ -193,7 +193,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Qnames for service as defined in wsdl.
+comment|// Service Qname as defined in the WSDL.
 name|QName
 name|serviceName
 init|=
@@ -205,7 +205,7 @@ argument_list|,
 literal|"SOAPService"
 argument_list|)
 decl_stmt|;
-comment|// QName for Port As defined in wsdl.
+comment|// Port QName as defined in the WSDL.
 name|QName
 name|portName
 init|=
@@ -358,7 +358,7 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-comment|// Invoke Endpoint Operation and read response
+comment|// Invoke endpoint operation and read response
 name|reply
 operator|=
 name|dispatch

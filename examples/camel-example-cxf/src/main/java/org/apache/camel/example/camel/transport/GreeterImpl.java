@@ -187,7 +187,7 @@ literal|"Hello "
 operator|+
 name|me
 operator|+
-literal|"form "
+literal|" from "
 operator|+
 name|suffix
 return|;

@@ -90,7 +90,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// setup the camel context using spring
+comment|// Setup the Camel context using Spring
 name|SpringBusFactory
 name|bf
 init|=

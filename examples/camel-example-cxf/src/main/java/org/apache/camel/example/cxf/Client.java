@@ -228,10 +228,10 @@ name|SERVICE_NAME
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|invock ()
+DECL|method|invoke ()
 specifier|public
 name|void
-name|invock
+name|invoke
 parameter_list|()
 throws|throws
 name|Exception

@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple bean demonstrating processing of SOAPMessage routed by CAMEL  *  */
+comment|/**  * A simple bean demonstrating the processing of a SOAPMessage routed by Camel  *  */
 end_comment
 
 begin_comment
@@ -173,9 +173,9 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// since the camel-cxf endpoint use list to store the parameters
-comment|// and bean component use bodyAs expression to get the value
-comment|// we need to do deal the parameters ourself
+comment|// Since the Camel-CXF endpoint uses a list to store the parameters
+comment|// and bean component uses the bodyAs expression to get the value
+comment|// we'll need to deal with the parameters ourself
 name|SOAPMessage
 name|soapMessage
 init|=
@@ -212,7 +212,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Incoming null message deteced..."
+literal|"Incoming null message detected..."
 argument_list|)
 expr_stmt|;
 return|return

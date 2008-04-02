@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example class for demonstrating camel works as Router.  * This example shows how camel can route a SOAP over HTTP client's request  * to a SOAP over JMS Service.  *  */
+comment|/**  * An example for demonstrating how Camel works as a Router.  * This example shows how Camel can route a SOAP client's HTTP request  * to a SOAP over JMS Service.  *  */
 end_comment
 
 begin_class
@@ -269,7 +269,7 @@ name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
 comment|// END SNIPPET: e1
-comment|// set up the jms broker and the CXF SOAP over JMS server
+comment|// Set up the JMS broker and the CXF SOAP over JMS server
 comment|// START SNIPPET: e2
 name|JmsBroker
 name|broker
@@ -328,7 +328,7 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e3
-comment|// Staring the routing context
+comment|// Starting the routing context
 comment|// Using the CXF Client to kick off the invocations
 comment|// START SNIPPET: e4
 name|context
@@ -348,10 +348,10 @@ literal|"?wsdl"
 argument_list|)
 decl_stmt|;
 comment|// END SNIPPET: e4
-comment|// Now everything is set up - lets start the context
+comment|// Now everything is set up - let's start the context
 name|client
 operator|.
-name|invock
+name|invoke
 argument_list|()
 expr_stmt|;
 name|Thread
