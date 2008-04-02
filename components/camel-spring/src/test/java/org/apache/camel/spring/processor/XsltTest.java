@@ -20,23 +20,13 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URL
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|CamelTemplate
 import|;
 end_import
 
@@ -60,32 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|mock
@@ -95,20 +59,18 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|apache
+name|springframework
 operator|.
-name|camel
+name|beans
 operator|.
-name|builder
+name|factory
 operator|.
-name|xml
+name|annotation
 operator|.
-name|XsltBuilder
-operator|.
-name|xslt
+name|Autowired
 import|;
 end_import
 
@@ -139,22 +101,6 @@ operator|.
 name|junit38
 operator|.
 name|AbstractJUnit38SpringContextTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|beans
-operator|.
-name|factory
-operator|.
-name|annotation
-operator|.
-name|Autowired
 import|;
 end_import
 

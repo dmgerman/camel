@@ -212,7 +212,7 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-comment|// create our mock and record expected behaviour = that worker timeout should be set to 0
+comment|// create our mock and record expected behavior = that worker timeout should be set to 0
 name|SocketConnector
 name|mockConnector
 init|=

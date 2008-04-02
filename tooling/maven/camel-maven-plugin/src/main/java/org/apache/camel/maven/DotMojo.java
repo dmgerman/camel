@@ -323,7 +323,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Runs Camel embedded with META-INF/services/*.xml spring files to try create DOT files for the  * routing rules, then converts the DOT files into another format such as PNG  *  * @version $Revision$  * @goal dot  * @requiresDependencyResolution runtime  * @phase prepare-package  * @execute phase="test-compile"  * @see<a href="http://www.graphviz.org/">GraphViz</a>  */
+comment|/**  * Runs Camel embedded with META-INF/services/*.xml spring files to try create  * DOT files for the routing rules, then converts the DOT files into another  * format such as PNG  *  * @version $Revision$  * @goal dot  * @requiresDependencyResolution runtime  * @phase prepare-package  * @execute phase="test-compile"  * @see<a href="http://www.graphviz.org/">GraphViz</a>  */
 end_comment
 
 begin_class
@@ -360,28 +360,23 @@ name|SUBDIRECTORY
 init|=
 literal|"cameldoc"
 decl_stmt|;
-DECL|field|indexHtmlContent
-specifier|private
-name|String
-name|indexHtmlContent
-decl_stmt|;
 comment|//
 comment|// For running Camel embedded
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 comment|//
-comment|/**      * The duration to run the application for which by default is in milliseconds.      *      * @parameter expression="2s"      * @readonly      */
+comment|/**      * The duration to run the application for which by default is in      * milliseconds.      *      * @parameter expression="2s"      * @readonly      */
 DECL|field|duration
 specifier|protected
 name|String
 name|duration
 decl_stmt|;
-comment|/**      * Whether we should boot up camel with the META-INF/services/*.xml to generate the DOT file      *      * @parameter expression="true"      * @readonly      */
+comment|/**      * Whether we should boot up camel with the META-INF/services/*.xml to      * generate the DOT file      *      * @parameter expression="true"      * @readonly      */
 DECL|field|runCamel
 specifier|protected
 name|boolean
 name|runCamel
 decl_stmt|;
-comment|/**      * Should we try run the DOT executable on the generated .DOT file to generate images      *      * @parameter expression="true"      * @readonly      */
+comment|/**      * Should we try run the DOT executable on the generated .DOT file to      * generate images      *      * @parameter expression="true"      * @readonly      */
 DECL|field|useDot
 specifier|protected
 name|boolean
@@ -405,19 +400,19 @@ specifier|private
 name|File
 name|outputDirectory
 decl_stmt|;
-comment|/**      * In the case of multiple camel contexts, setting aggregate == true will aggregate all      * into a monolithic context, otherwise they will be processed independently.      *      * @parameter      */
+comment|/**      * In the case of multiple camel contexts, setting aggregate == true will      * aggregate all into a monolithic context, otherwise they will be processed      * independently.      *      * @parameter      */
 DECL|field|aggregate
 specifier|private
 name|String
 name|aggregate
 decl_stmt|;
-comment|/**      * GraphViz executable location; visualization (images) will be      * generated only if you install this program and set this property to the      * executable dot (dot.exe on Win).      *      * @parameter expression="dot"      */
+comment|/**      * GraphViz executable location; visualization (images) will be generated      * only if you install this program and set this property to the executable      * dot (dot.exe on Win).      *      * @parameter expression="dot"      */
 DECL|field|executable
 specifier|private
 name|String
 name|executable
 decl_stmt|;
-comment|/**      * Graphviz output types. Default is png. Possible values: png, jpg, gif, svg.      *      * @required      */
+comment|/**      * Graphviz output types. Default is png. Possible values: png, jpg, gif,      * svg.      *      * @required      */
 DECL|field|graphvizOutputType
 specifier|private
 name|String
@@ -435,6 +430,11 @@ DECL|field|renderer
 specifier|private
 name|Renderer
 name|renderer
+decl_stmt|;
+DECL|field|indexHtmlContent
+specifier|private
+name|String
+name|indexHtmlContent
 decl_stmt|;
 comment|/**      * @param locale report locale.      * @return report description.      * @see org.apache.maven.reporting.MavenReport#getDescription(Locale)      */
 DECL|method|getDescription (final Locale locale)
@@ -669,7 +669,7 @@ name|ex
 throw|;
 block|}
 block|}
-comment|/**      * Executes DOT generator.      *      * @param outputDir report output directory.      * @param locale    report locale.      * @throws MojoExecutionException if there were any execution errors.      */
+comment|/**      * Executes DOT generator.      *      * @param outputDir report output directory.      * @param locale report locale.      * @throws MojoExecutionException if there were any execution errors.      */
 DECL|method|execute (final File outputDir, final Locale locale)
 specifier|protected
 name|void
@@ -821,19 +821,20 @@ argument_list|()
 operator|>
 literal|1
 decl_stmt|;
-for|for
-control|(
 name|int
-name|i
-init|=
-literal|0
-init|,
 name|size
 init|=
 name|files
 operator|.
 name|size
 argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
 init|;
 name|i
 operator|<
@@ -1407,7 +1408,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//File dir = outputDirectory;
+comment|// File dir = outputDirectory;
 name|dir
 operator|.
 name|mkdirs

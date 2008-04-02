@@ -358,7 +358,9 @@ name|util
 operator|.
 name|cli
 operator|.
-name|StreamConsumer
+name|Commandline
+operator|.
+name|Argument
 import|;
 end_import
 
@@ -374,14 +376,12 @@ name|util
 operator|.
 name|cli
 operator|.
-name|Commandline
-operator|.
-name|Argument
+name|StreamConsumer
 import|;
 end_import
 
 begin_comment
-comment|/**  * Goal which extracts the content div from the html page and converts to PDF  * using Prince  *   * @goal compile  * @phase compile  */
+comment|/**  * Goal which extracts the content div from the html page and converts to PDF  * using Prince  *  * @goal compile  * @phase compile  */
 end_comment
 
 begin_class
@@ -392,32 +392,32 @@ name|HtmlToPdfMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|/**      * The URL to the confluence page to convert.      *       * @parameter expression="${page}"      *            default-value="http://cwiki.apache.org/confluence/display/CAMEL/Index"      * @required      */
+comment|/**      * The URL to the confluence page to convert.      *      * @parameter expression="${page}"      *            default-value="http://cwiki.apache.org/confluence/display/CAMEL/Index"      * @required      */
 DECL|field|page
 specifier|private
 name|String
 name|page
 decl_stmt|;
-comment|/**      * The output file name for the pdf.      *       * @parameter expression="${pdf}"      *            default-value="${project.build.directory}/site/manual/${project.artifactId}-${project.version}.pdf"      */
+comment|/**      * The output file name for the pdf.      *      * @parameter expression="${pdf}"      *            default-value="${project.build.directory}/site/manual/${project.artifactId}-${project.version}.pdf"      */
 DECL|field|pdf
 specifier|private
 name|String
 name|pdf
 decl_stmt|;
-comment|/**      * The css style sheets that should be linked.      *       * @parameter      */
+comment|/**      * The css style sheets that should be linked.      *      * @parameter      */
 DECL|field|styleSheets
 specifier|private
 name|String
 index|[]
 name|styleSheets
 decl_stmt|;
-comment|/**      * Content that should be added in the head element of the html file.      *       * @parameter      */
+comment|/**      * Content that should be added in the head element of the html file.      *      * @parameter      */
 DECL|field|head
 specifier|private
 name|String
 name|head
 decl_stmt|;
-comment|/**      * The first div with who's class matches the contentDivClass will be      * assumed to be the content section of the HTML and is what will be used as      * the content in the PDF.      *       * @parameter default-value="wiki-content"      */
+comment|/**      * The first div with who's class matches the contentDivClass will be      * assumed to be the content section of the HTML and is what will be used as      * the content in the PDF.      *      * @parameter default-value="wiki-content"      */
 DECL|field|contentDivClass
 specifier|private
 name|String
@@ -425,26 +425,26 @@ name|contentDivClass
 init|=
 literal|"wiki-content"
 decl_stmt|;
-comment|/**      * Arguments that should be passed to the prince html to pdf processor.      *       * @parameter      */
+comment|/**      * Arguments that should be passed to the prince html to pdf processor.      *      * @parameter      */
 DECL|field|princeArgs
 specifier|private
 name|String
 index|[]
 name|princeArgs
 decl_stmt|;
-comment|/**      * If there is an error converting the HTML to PDF should the build fail?      * default to false since this requires the prince tool to be installed and      * on the PATH of the system.      *       * @parameter default-value="false"      */
+comment|/**      * If there is an error converting the HTML to PDF should the build fail?      * default to false since this requires the prince tool to be installed and      * on the PATH of the system.      *      * @parameter default-value="false"      */
 DECL|field|errorOnConverionFailure
 specifier|private
 name|boolean
 name|errorOnConverionFailure
 decl_stmt|;
-comment|/**      * If there is an error downloading the HTML should the build fail? default      * to false since this usually requires the user to be online.      *       * @parameter default-value="false"      */
+comment|/**      * If there is an error downloading the HTML should the build fail? default      * to false since this usually requires the user to be online.      *      * @parameter default-value="false"      */
 DECL|field|errorOnDownloadFailure
 specifier|private
 name|boolean
 name|errorOnDownloadFailure
 decl_stmt|;
-comment|/**      * The maven project.      *       * @parameter expression="${project}"      * @required      * @readonly      */
+comment|/**      * The maven project.      *      * @parameter expression="${project}"      * @required      * @readonly      */
 DECL|field|project
 specifier|private
 name|MavenProject
@@ -456,13 +456,13 @@ specifier|private
 name|MavenProjectHelper
 name|projectHelper
 decl_stmt|;
-comment|/**      * The type used when attaching the artifact to the deployment.      *       * @parameter default-value="pdf"      */
+comment|/**      * The type used when attaching the artifact to the deployment.      *      * @parameter default-value="pdf"      */
 DECL|field|type
 specifier|private
 name|String
 name|type
 decl_stmt|;
-comment|/**      * Classifier to add to the artifact generated.      *       * @parameter      */
+comment|/**      * Classifier to add to the artifact generated.      *      * @parameter      */
 DECL|field|classifier
 specifier|private
 name|String
