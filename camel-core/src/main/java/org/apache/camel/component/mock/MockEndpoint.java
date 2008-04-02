@@ -426,10 +426,10 @@ specifier|private
 name|long
 name|sleepForEmptyTest
 decl_stmt|;
-DECL|field|defaulResultWaitMillis
+DECL|field|resultWaitTime
 specifier|private
 name|long
-name|defaulResultWaitMillis
+name|resultWaitTime
 decl_stmt|;
 DECL|field|expectedMinimumCount
 specifier|private
@@ -471,6 +471,11 @@ DECL|field|actualHeader
 specifier|private
 name|Object
 name|actualHeader
+decl_stmt|;
+DECL|field|reporter
+specifier|private
+name|Processor
+name|reporter
 decl_stmt|;
 DECL|method|MockEndpoint (String endpointUri, Component component)
 specifier|public
@@ -875,6 +880,16 @@ block|}
 block|}
 return|;
 block|}
+DECL|method|reset ()
+specifier|public
+name|void
+name|reset
+parameter_list|()
+block|{
+name|init
+argument_list|()
+expr_stmt|;
+block|}
 comment|// Testing API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Set the processor that will be invoked when the index      * message is received.      *      * @param index      * @param processor      */
@@ -1173,35 +1188,11 @@ name|int
 name|expectedCount
 parameter_list|)
 block|{
-name|this
-operator|.
-name|expectedCount
-operator|=
-name|expectedCount
-expr_stmt|;
-if|if
-condition|(
-name|expectedCount
-operator|<=
-literal|0
-condition|)
-block|{
-name|latch
-operator|=
-literal|null
-expr_stmt|;
-block|}
-else|else
-block|{
-name|latch
-operator|=
-operator|new
-name|CountDownLatch
+name|setExpectedMessageCount
 argument_list|(
 name|expectedCount
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Specifies the minimum number of expected message exchanges that should be      * received by this endpoint      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
 DECL|method|expectedMinimumMessageCount (int expectedCount)
@@ -1213,35 +1204,11 @@ name|int
 name|expectedCount
 parameter_list|)
 block|{
-name|this
-operator|.
-name|expectedMinimumCount
-operator|=
-name|expectedCount
-expr_stmt|;
-if|if
-condition|(
-name|expectedCount
-operator|<=
-literal|0
-condition|)
-block|{
-name|latch
-operator|=
-literal|null
-expr_stmt|;
-block|}
-else|else
-block|{
-name|latch
-operator|=
-operator|new
-name|CountDownLatch
+name|setMinimumExpectedMessageCount
 argument_list|(
-name|expectedMinimumCount
+name|expectedCount
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Adds an expectation that the given header name& value are received by this      * endpoint      */
 DECL|method|expectedHeaderReceived (String name, String value)
@@ -2209,43 +2176,142 @@ operator|=
 name|sleepForEmptyTest
 expr_stmt|;
 block|}
-DECL|method|getDefaulResultWaitMillis ()
+DECL|method|getResultWaitTime ()
 specifier|public
 name|long
-name|getDefaulResultWaitMillis
+name|getResultWaitTime
 parameter_list|()
 block|{
 return|return
-name|defaulResultWaitMillis
+name|resultWaitTime
 return|;
 block|}
 comment|/**      * Sets the maximum amount of time the {@link #assertIsSatisfied()} will      * wait on a latch until it is satisfied      */
-DECL|method|setDefaulResultWaitMillis (long defaulResultWaitMillis)
+DECL|method|setResultWaitTime (long resultWaitTime)
 specifier|public
 name|void
-name|setDefaulResultWaitMillis
+name|setResultWaitTime
 parameter_list|(
 name|long
-name|defaulResultWaitMillis
+name|resultWaitTime
 parameter_list|)
 block|{
 name|this
 operator|.
-name|defaulResultWaitMillis
+name|resultWaitTime
 operator|=
-name|defaulResultWaitMillis
+name|resultWaitTime
 expr_stmt|;
 block|}
-DECL|method|reset ()
+comment|/**      * Specifies the expected number of message exchanges that should be      * received by this endpoint      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
+DECL|method|setExpectedMessageCount (int expectedCount)
 specifier|public
 name|void
-name|reset
-parameter_list|()
+name|setExpectedMessageCount
+parameter_list|(
+name|int
+name|expectedCount
+parameter_list|)
 block|{
-name|init
-argument_list|()
+name|this
+operator|.
+name|expectedCount
+operator|=
+name|expectedCount
+expr_stmt|;
+if|if
+condition|(
+name|expectedCount
+operator|<=
+literal|0
+condition|)
+block|{
+name|latch
+operator|=
+literal|null
 expr_stmt|;
 block|}
+else|else
+block|{
+name|latch
+operator|=
+operator|new
+name|CountDownLatch
+argument_list|(
+name|expectedCount
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Specifies the minimum number of expected message exchanges that should be      * received by this endpoint      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
+DECL|method|setMinimumExpectedMessageCount (int expectedCount)
+specifier|public
+name|void
+name|setMinimumExpectedMessageCount
+parameter_list|(
+name|int
+name|expectedCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expectedMinimumCount
+operator|=
+name|expectedCount
+expr_stmt|;
+if|if
+condition|(
+name|expectedCount
+operator|<=
+literal|0
+condition|)
+block|{
+name|latch
+operator|=
+literal|null
+expr_stmt|;
+block|}
+else|else
+block|{
+name|latch
+operator|=
+operator|new
+name|CountDownLatch
+argument_list|(
+name|expectedMinimumCount
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|getReporter ()
+specifier|public
+name|Processor
+name|getReporter
+parameter_list|()
+block|{
+return|return
+name|reporter
+return|;
+block|}
+comment|/**      * Allows a processor to added to the endpoint to report on progress of the test      */
+DECL|method|setReporter (Processor reporter)
+specifier|public
+name|void
+name|setReporter
+parameter_list|(
+name|Processor
+name|reporter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reporter
+operator|=
+name|reporter
+expr_stmt|;
+block|}
+comment|// Implementation methods
+comment|// -------------------------------------------------------------------------
 DECL|method|init ()
 specifier|private
 name|void
@@ -2307,7 +2373,7 @@ name|sleepForEmptyTest
 operator|=
 literal|1000L
 expr_stmt|;
-name|defaulResultWaitMillis
+name|resultWaitTime
 operator|=
 literal|20000L
 expr_stmt|;
@@ -2327,8 +2393,6 @@ name|ArrayList
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Implementation methods
-comment|// -------------------------------------------------------------------------
 DECL|method|onExchange (Exchange exchange)
 specifier|protected
 specifier|synchronized
@@ -2341,6 +2405,21 @@ parameter_list|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|reporter
+operator|!=
+literal|null
+condition|)
+block|{
+name|reporter
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 name|performAssertions
 argument_list|(
 name|exchange
@@ -2580,7 +2659,7 @@ name|debug
 argument_list|(
 literal|"Waiting on the latch for: "
 operator|+
-name|defaulResultWaitMillis
+name|resultWaitTime
 operator|+
 literal|" millis"
 argument_list|)
@@ -2589,7 +2668,7 @@ name|latch
 operator|.
 name|await
 argument_list|(
-name|defaulResultWaitMillis
+name|resultWaitTime
 argument_list|,
 name|TimeUnit
 operator|.

@@ -106,7 +106,7 @@ argument_list|)
 expr_stmt|;
 name|resultEndpoint
 operator|.
-name|setDefaulResultWaitMillis
+name|setResultWaitTime
 argument_list|(
 literal|1000
 argument_list|)

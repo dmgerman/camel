@@ -296,7 +296,7 @@ argument_list|)
 expr_stmt|;
 name|overdueEndpoint
 operator|.
-name|setDefaulResultWaitMillis
+name|setResultWaitTime
 argument_list|(
 literal|8000
 argument_list|)

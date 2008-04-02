@@ -102,7 +102,7 @@ argument_list|)
 expr_stmt|;
 name|result
 operator|.
-name|setDefaulResultWaitMillis
+name|setResultWaitTime
 argument_list|(
 literal|5000
 argument_list|)

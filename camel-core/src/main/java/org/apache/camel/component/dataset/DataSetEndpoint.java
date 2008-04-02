@@ -520,7 +520,7 @@ name|size
 operator|*=
 literal|4000
 expr_stmt|;
-name|setDefaulResultWaitMillis
+name|setResultWaitTime
 argument_list|(
 name|size
 argument_list|)
@@ -667,6 +667,14 @@ name|index
 argument_list|)
 decl_stmt|;
 comment|// now lets assert that they are the same
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -680,6 +688,7 @@ operator|+
 name|actual
 argument_list|)
 expr_stmt|;
+block|}
 name|assertMessageExpected
 argument_list|(
 name|index
