@@ -111,7 +111,7 @@ expr_stmt|;
 comment|// the following will dump the database to files
 name|from
 argument_list|(
-literal|"jpa:org.apache.camel.example.etl.CustomerEntity?consumeDelete=false?consumer.delay=3000&consumeLockEntity=false"
+literal|"jpa:org.apache.camel.example.etl.CustomerEntity?consumeDelete=false&consumer.delay=3000&consumeLockEntity=false"
 argument_list|)
 operator|.
 name|setHeader
