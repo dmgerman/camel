@@ -444,7 +444,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/*      * Exclude a set of headers from responses and new requests as all headers get      * propagated between exchanges by default      */
+comment|/*      * Exclude a set of headers from responses and new requests as all headers      * get propagated between exchanges by default      */
 DECL|method|shouldHeaderBePropagated (String headerName, String headerValue)
 specifier|public
 name|boolean
