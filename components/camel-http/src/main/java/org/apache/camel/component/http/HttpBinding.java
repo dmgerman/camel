@@ -173,7 +173,7 @@ specifier|private
 name|boolean
 name|useReaderForPayload
 init|=
-literal|true
+literal|false
 decl_stmt|;
 comment|/**      * Writes the exchange to the servlet response      *      * @param response      * @throws IOException      */
 DECL|method|writeResponse (HttpExchange exchange, HttpServletResponse response)
