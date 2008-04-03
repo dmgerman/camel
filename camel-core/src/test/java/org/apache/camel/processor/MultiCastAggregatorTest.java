@@ -222,7 +222,7 @@ literal|"direct:sequential"
 expr_stmt|;
 block|}
 name|Exchange
-name|result
+name|exchange
 init|=
 name|template
 operator|.
@@ -274,7 +274,7 @@ name|assertNotNull
 argument_list|(
 literal|"We should get result here"
 argument_list|,
-name|result
+name|exchange
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -283,7 +283,7 @@ literal|"Can't get the right result"
 argument_list|,
 literal|"inputx+inputy+inputz"
 argument_list|,
-name|result
+name|exchange
 operator|.
 name|getOut
 argument_list|()
@@ -610,6 +610,8 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: example
+comment|// The message will be parallely sent to the endpoints
 name|from
 argument_list|(
 literal|"direct:parallel"
@@ -633,6 +635,7 @@ argument_list|,
 literal|"direct:z"
 argument_list|)
 expr_stmt|;
+comment|// Mulitcast the message in a sequential way
 name|from
 argument_list|(
 literal|"direct:sequential"
@@ -746,6 +749,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: example
 block|}
 block|}
 return|;
