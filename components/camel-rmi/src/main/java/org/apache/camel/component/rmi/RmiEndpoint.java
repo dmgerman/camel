@@ -220,6 +220,11 @@ specifier|private
 name|int
 name|port
 decl_stmt|;
+DECL|field|method
+specifier|private
+name|String
+name|method
+decl_stmt|;
 DECL|method|RmiEndpoint (String endpointUri, RmiComponent component)
 specifier|protected
 name|RmiEndpoint
@@ -581,6 +586,32 @@ operator|.
 name|port
 operator|=
 name|port
+expr_stmt|;
+block|}
+DECL|method|getMethod ()
+specifier|public
+name|String
+name|getMethod
+parameter_list|()
+block|{
+return|return
+name|method
+return|;
+block|}
+DECL|method|setMethod (String method)
+specifier|public
+name|void
+name|setMethod
+parameter_list|(
+name|String
+name|method
+parameter_list|)
+block|{
+name|this
+operator|.
+name|method
+operator|=
+name|method
 expr_stmt|;
 block|}
 block|}
