@@ -86,7 +86,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// lets populate the message queue with some messages
+comment|// populate the message queue with some messages
 name|from
 argument_list|(
 literal|"file:src/data?noop=true"

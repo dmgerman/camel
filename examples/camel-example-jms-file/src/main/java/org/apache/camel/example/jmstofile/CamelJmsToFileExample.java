@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example class for demonstrating some of the basics behind camel This  * example will send some text messages on to a JMS Queue, consume them and  * persist them to disk  *   * @version $Revision$  */
+comment|/**  * An example class for demonstrating some of the basics behind Camel. This  * example sends some text messages on to a JMS Queue, consumes them and  * persists them to disk  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -181,7 +181,7 @@ argument_list|(
 literal|"vm://localhost?broker.persistent=false"
 argument_list|)
 decl_stmt|;
-comment|// note we can explicity name the component
+comment|// Note we can explicity name the component
 name|context
 operator|.
 name|addComponent
@@ -283,16 +283,15 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// now send some test text to a component - for this case a JMS Queue
+comment|// Now send some test text to a component - for this case a JMS Queue
 comment|// The text get converted to JMS messages - and sent to the Queue
 comment|// test.queue
 comment|// The file component is listening for messages from the Queue
 comment|// test.queue, consumes
 comment|// them and stores them to disk. The content of each file will be the
-comment|// test test we sent here.
-comment|// The listener on the file component gets notfied when new files are
-comment|// found ...
-comment|// that's it!
+comment|// test we sent here.
+comment|// The listener on the file component gets notified when new files are
+comment|// found ... that's it!
 comment|// START SNIPPET: e5
 for|for
 control|(
