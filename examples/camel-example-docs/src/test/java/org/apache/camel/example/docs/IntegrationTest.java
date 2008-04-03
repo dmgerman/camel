@@ -62,7 +62,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// lets boot up the Spring application context for 2 seconds to check it works OK
+comment|// let's boot up the Spring application context for 2 seconds to check it works OK
 name|Main
 operator|.
 name|main

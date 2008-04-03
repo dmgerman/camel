@@ -163,7 +163,7 @@ argument_list|(
 name|user
 argument_list|)
 decl_stmt|;
-comment|// lets convert information from the document into the entity bean
+comment|// let's convert information from the document into the entity bean
 name|customer
 operator|.
 name|setFirstName

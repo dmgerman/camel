@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple pipilne example  *  * @version $Revision$  */
+comment|/**  * A simple pipeline example  *  * @version $Revision$  */
 end_comment
 
 begin_class

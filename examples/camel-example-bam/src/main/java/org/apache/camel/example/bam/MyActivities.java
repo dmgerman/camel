@@ -163,7 +163,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// lets define some activities, correlating on an XPath on the message bodies
+comment|// let's define some activities, correlating on an XPath on the message bodies
 name|ActivityBuilder
 name|purchaseOrder
 init|=
@@ -202,7 +202,7 @@ name|stringResult
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// now lets add some BAM rules
+comment|// now let's add some BAM rules
 name|invoice
 operator|.
 name|starts
