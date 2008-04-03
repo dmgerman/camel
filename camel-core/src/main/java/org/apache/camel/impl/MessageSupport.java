@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|UuidGenerator
@@ -156,7 +168,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
+name|TypeConverter
+name|converter
+init|=
 name|e
 operator|.
 name|getContext
@@ -164,6 +178,11 @@ argument_list|()
 operator|.
 name|getTypeConverter
 argument_list|()
+decl_stmt|;
+name|T
+name|answer
+init|=
+name|converter
 operator|.
 name|convertTo
 argument_list|(
@@ -172,6 +191,32 @@ argument_list|,
 name|getBody
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+condition|)
+block|{
+comment|// lets first try converting the message itself first
+comment|// as for some types like InputStream v Reader its more efficient to do the transformation
+comment|// from the Message itself as its got efficient implementations of them, before trying the
+comment|// payload
+name|answer
+operator|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|type
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
 return|;
 block|}
 return|return

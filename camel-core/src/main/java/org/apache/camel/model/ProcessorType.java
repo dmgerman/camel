@@ -210,6 +210,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|Builder
@@ -429,6 +441,20 @@ operator|.
 name|processor
 operator|.
 name|RecipientList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|ConvertBodyProcessor
 import|;
 end_import
 
@@ -3863,24 +3889,15 @@ block|{
 return|return
 name|process
 argument_list|(
-name|ProcessorBuilder
-operator|.
-name|setBody
-argument_list|(
-name|Builder
-operator|.
-name|body
-argument_list|()
-operator|.
-name|convertTo
+operator|new
+name|ConvertBodyProcessor
 argument_list|(
 name|type
 argument_list|)
 argument_list|)
-argument_list|)
 return|;
 block|}
-comment|/**      * Converts the OUT message body to the specified type      */
+comment|/**      * Converts the OUT message body to the specified type      *      * @deprecated Please use {@link #convertBodyTo(Class)} instead      */
 DECL|method|convertOutBodyTo (Class type)
 specifier|public
 name|Type
@@ -3890,22 +3907,15 @@ name|Class
 name|type
 parameter_list|)
 block|{
+comment|// TODO deprecate method?
+comment|//return process(ProcessorBuilder.setOutBody(Builder.outBody().convertTo(type)));
 return|return
 name|process
 argument_list|(
-name|ProcessorBuilder
-operator|.
-name|setOutBody
-argument_list|(
-name|Builder
-operator|.
-name|outBody
-argument_list|()
-operator|.
-name|convertTo
+operator|new
+name|ConvertBodyProcessor
 argument_list|(
 name|type
-argument_list|)
 argument_list|)
 argument_list|)
 return|;
@@ -3920,22 +3930,15 @@ name|Class
 name|type
 parameter_list|)
 block|{
+comment|// TODO deprecate method?
+comment|//return process(ProcessorBuilder.setFaultBody(Builder.faultBody().convertTo(type)));
 return|return
 name|process
 argument_list|(
-name|ProcessorBuilder
-operator|.
-name|setFaultBody
-argument_list|(
-name|Builder
-operator|.
-name|faultBody
-argument_list|()
-operator|.
-name|convertTo
+operator|new
+name|ConvertBodyProcessor
 argument_list|(
 name|type
-argument_list|)
 argument_list|)
 argument_list|)
 return|;
