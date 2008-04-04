@@ -80,7 +80,7 @@ specifier|private
 name|CxfSoapBinding
 parameter_list|()
 block|{      }
-comment|//TODO using the type converter to do this kind of thing
+comment|//TODO use the type converter to do this kind of thing
 DECL|method|getCxfInMessage (org.apache.camel.Exchange exchange, boolean isClient)
 specifier|public
 specifier|static

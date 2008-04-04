@@ -418,7 +418,7 @@ block|}
 block|}
 else|else
 block|{
-comment|// setup the serverFactoryBean with the URI paraments
+comment|// setup the serverFactoryBean with the URI parameters
 name|Class
 name|serviceClass
 init|=
@@ -565,7 +565,7 @@ name|this
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// apply the feature here
+comment|// apply feature here
 if|if
 condition|(
 operator|!
@@ -619,6 +619,7 @@ expr_stmt|;
 comment|// adding the logging feature here for debug
 comment|//features.add(new LoggingFeature());
 block|}
+elseif|else
 if|if
 condition|(
 name|dataFormat

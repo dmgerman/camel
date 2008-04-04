@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link Exchange} for working with Apache CXF which expoes the underlying  * CXF messages via {@link #getInMessage()} and {@link #getOutMessage()} along with the  * {@link #getExchange()}  *  * @version $Revision$  */
+comment|/**  * An {@link Exchange} for working with Apache CXF which exposes the underlying  * CXF messages via {@link #getInMessage()} and {@link #getOutMessage()} along with the  * {@link #getExchange()}  *  * @version $Revision$  */
 end_comment
 
 begin_class

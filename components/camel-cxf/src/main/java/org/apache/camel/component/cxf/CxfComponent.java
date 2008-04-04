@@ -122,7 +122,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// now we need to add the address, endpoint name, wsdl url or the SEI to build up a endpoint
+comment|// Now we need to add the address, endpoint name, WSDL url or the SEI to build up an endpoint
 name|CxfEndpoint
 name|result
 init|=

@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple class to wrap an existing processor (synchronous or asynchronous)  * with two synchronous processor that will be executed before and after the  * main processor.  */
+comment|/**  * A simple class to wrap an existing processor (synchronous or asynchronous)  * with two synchronous processors that will be executed before and after the  * main processor.  */
 end_comment
 
 begin_class

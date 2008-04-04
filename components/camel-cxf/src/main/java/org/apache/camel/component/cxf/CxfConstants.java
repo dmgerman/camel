@@ -40,9 +40,9 @@ name|SERVICE_CLASS
 init|=
 literal|"serviceClass"
 decl_stmt|;
-DECL|field|DATA_FORMATE
+DECL|field|DATA_FORMAT
 name|String
-name|DATA_FORMATE
+name|DATA_FORMAT
 init|=
 literal|"dataFormat"
 decl_stmt|;

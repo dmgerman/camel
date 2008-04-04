@@ -275,7 +275,7 @@ name|isSpringContextEndpoint
 operator|=
 literal|true
 expr_stmt|;
-comment|//get the bean from spring context
+comment|// Get the bean from the Spring context
 name|beanId
 operator|=
 name|address

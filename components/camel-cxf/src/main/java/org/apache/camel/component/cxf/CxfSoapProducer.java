@@ -471,7 +471,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|//create the endpoint and setup the intercepters
+comment|//create the endpoint and setup the interceptors
 name|Class
 name|sei
 init|=

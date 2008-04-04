@@ -303,7 +303,7 @@ operator|=
 name|consumer
 expr_stmt|;
 block|}
-comment|/**     * This method is called when the incoming message is to     * be passed into the camel processor. The return value is the response     * from the processor     */
+comment|/**     * This method is called when the incoming message is to     * be passed into the Camel processor. The return value is the response     * from the processor     */
 DECL|method|invoke (Exchange exchange)
 specifier|public
 name|void
@@ -368,7 +368,7 @@ name|ex
 argument_list|)
 throw|;
 block|}
-comment|// make sure the client has return back the message
+comment|// make sure the client has returned back the message
 name|copybackExchange
 argument_list|(
 name|cxfExchange

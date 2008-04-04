@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * The data format the user expoects to see at the camel cxf components.  It can be  * configured as a property (DataFormat) in the Camel cxf endpoint.  */
+comment|/**  * The data format the user expects to see at the Camel CXF components.  It can be  * configured as a property (DataFormat) in the Camel CXF endpoint.  */
 end_comment
 
 begin_enum

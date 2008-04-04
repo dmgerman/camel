@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The binding of how Camel messages get mapped to Apache CXF and back again  *  * @version $Revision$  */
+comment|/**  * The binding/mapping of Camel messages to Apache CXF and back again  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -179,11 +179,10 @@ operator|.
 name|getInMessage
 argument_list|()
 decl_stmt|;
-comment|// CXF uses the stax which is based on the stream API to parser the XML,
-comment|// so
-comment|// the CXF transport is also based on the stream API.
+comment|// CXF uses StAX which is based on the stream API to parse the XML,
+comment|// so the CXF transport is also based on the stream API.
 comment|// And the interceptors are also based on the stream API,
-comment|// so lets use an InputStream to host the CXF on wire message.
+comment|// so let's use an InputStream to host the CXF on wire message.
 name|CxfMessage
 name|in
 init|=
@@ -247,7 +246,7 @@ operator|instanceof
 name|List
 condition|)
 block|{
-comment|// just set the operation's parament
+comment|// just set the operation's parameter
 name|answer
 operator|.
 name|setContent

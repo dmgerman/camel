@@ -255,7 +255,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A CXF based soap consumer.  * The consumer will delegate to another endpoint for the transport layer  * and will provide SOAP support on top of it.  */
+comment|/**  * A CXF based SOAP consumer (client).  * The consumer will delegate to another endpoint for the transport layer  * and will provide SOAP support on top of it.  */
 end_comment
 
 begin_class
@@ -713,8 +713,8 @@ operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// TODO check if the message is oneway message
-comment|// Get the method name form the soap endpoint
+comment|// TODO check if the message is one-way message
+comment|// Get the method name from the soap endpoint
 name|org
 operator|.
 name|apache

@@ -514,7 +514,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// create CxfClient for message
+comment|// Create CxfClient for message
 name|client
 operator|=
 name|createClientForStreamMessge
@@ -665,6 +665,7 @@ argument_list|)
 expr_stmt|;
 comment|// features.add(new LoggingFeature());
 block|}
+elseif|else
 if|if
 condition|(
 name|dataFormat
@@ -702,7 +703,7 @@ name|cfb
 argument_list|)
 return|;
 block|}
-comment|// If cfb is null ,we will try to find a right cfb to use.
+comment|// If cfb is null, we will try to find the right cfb to use.
 DECL|method|createClientFormClientFactoryBean (ClientFactoryBean cfb)
 specifier|private
 name|Client
@@ -823,7 +824,7 @@ condition|)
 block|{
 try|try
 block|{
-comment|// we need to choice the right front end to create the
+comment|// We need to choose the right front end to create the
 comment|// clientFactoryBean
 name|Class
 name|serviceClass
@@ -973,13 +974,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// throw the exception for insufficiency of the endpoint
-comment|// info
+comment|// Throw an exception indicating insufficient endpoint info
 throw|throw
 operator|new
 name|CamelException
 argument_list|(
-literal|"Insufficiency of the endpoint info"
+literal|"Not enough information to create a CXF endpoint. (Provide WSDL url or service class name.)"
 argument_list|)
 throw|;
 block|}
