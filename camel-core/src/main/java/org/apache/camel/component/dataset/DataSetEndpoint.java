@@ -268,6 +268,13 @@ specifier|private
 name|long
 name|startTime
 decl_stmt|;
+DECL|field|preloadSize
+specifier|private
+name|long
+name|preloadSize
+init|=
+literal|0
+decl_stmt|;
 DECL|method|DataSetEndpoint (String endpointUri, Component component, DataSet dataSet)
 specifier|public
 name|DataSetEndpoint
@@ -557,6 +564,33 @@ operator|.
 name|dataSet
 operator|=
 name|dataSet
+expr_stmt|;
+block|}
+DECL|method|getPreloadSize ()
+specifier|public
+name|long
+name|getPreloadSize
+parameter_list|()
+block|{
+return|return
+name|preloadSize
+return|;
+block|}
+comment|/**      * Sets how many messages should be preloaded (sent) before the route completes its initialisation      */
+DECL|method|setPreloadSize (long preloadSize)
+specifier|public
+name|void
+name|setPreloadSize
+parameter_list|(
+name|long
+name|preloadSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preloadSize
+operator|=
+name|preloadSize
 expr_stmt|;
 block|}
 DECL|method|getConsumeDelay ()
