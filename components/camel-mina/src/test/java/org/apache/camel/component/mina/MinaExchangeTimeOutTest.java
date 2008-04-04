@@ -147,7 +147,7 @@ specifier|final
 name|int
 name|PORT
 init|=
-literal|6335
+literal|6336
 decl_stmt|;
 DECL|field|uri
 specifier|protected
