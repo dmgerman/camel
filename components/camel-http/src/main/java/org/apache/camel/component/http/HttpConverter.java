@@ -163,26 +163,6 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toInputStream (HttpMessage message)
-specifier|public
-name|ServletInputStream
-name|toInputStream
-parameter_list|(
-name|HttpMessage
-name|message
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toServletInputStream
-argument_list|(
-name|message
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Converter
 DECL|method|toReader (HttpMessage message)
 specifier|public
 name|BufferedReader
