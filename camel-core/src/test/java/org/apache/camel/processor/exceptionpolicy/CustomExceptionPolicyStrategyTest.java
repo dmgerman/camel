@@ -170,7 +170,7 @@ name|MyPolicyException
 extends|extends
 name|Exception
 block|{     }
-comment|// START SNIPPET customExceptionPolicyStrategyMyPolicy
+comment|// START SNIPPET e2
 DECL|class|MyPolicy
 specifier|public
 specifier|static
@@ -213,7 +213,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// END SNIPPET customExceptionPolicyStrategyMyPolicy
+comment|// END SNIPPET e2
 DECL|method|testCustomPolicy ()
 specifier|public
 name|void
@@ -274,6 +274,7 @@ operator|new
 name|RouteBuilder
 argument_list|()
 block|{
+comment|// START SNIPPET e1
 specifier|public
 name|void
 name|configure
@@ -281,7 +282,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// START SNIPPET customExceptionPolicyStrategy
 comment|// configure the error handler to use my policy instead of the default from Camel
 name|errorHandler
 argument_list|(
@@ -344,7 +344,7 @@ argument_list|(
 name|errorQueue
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET customExceptionPolicyStrategy
+comment|// END SNIPPET e1
 name|from
 argument_list|(
 literal|"direct:a"
