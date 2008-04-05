@@ -170,6 +170,7 @@ name|MyPolicyException
 extends|extends
 name|Exception
 block|{     }
+comment|// START SNIPPET customExceptionPolicyStrategyMyPolicy
 DECL|class|MyPolicy
 specifier|public
 specifier|static
@@ -198,8 +199,8 @@ name|Throwable
 name|exception
 parameter_list|)
 block|{
-comment|// We forced a CamelException in the test below but our custom policy will
-comment|// override and let MyPolicyException handle it instead
+comment|// This is just an example that always forces the exception type configured
+comment|// with MyPolicyException to win.
 return|return
 name|exceptionPolicices
 operator|.
@@ -212,6 +213,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|// END SNIPPET customExceptionPolicyStrategyMyPolicy
 DECL|method|testCustomPolicy ()
 specifier|public
 name|void
