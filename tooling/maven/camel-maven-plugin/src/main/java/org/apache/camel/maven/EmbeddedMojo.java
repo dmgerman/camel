@@ -174,6 +174,12 @@ specifier|protected
 name|boolean
 name|dotAggregationEnabled
 decl_stmt|;
+comment|/**      * The application context uri that spring wants to get.      *      * @parameter expression="${camel.applicationContextUri}"      */
+DECL|field|applicationContextUri
+specifier|protected
+name|String
+name|applicationContextUri
+decl_stmt|;
 comment|/**      * Project classpath.      *      * @parameter expression="${project.testClasspathElements}"      * @required      * @readonly      */
 DECL|field|classpathElements
 specifier|private
@@ -600,6 +606,28 @@ operator|.
 name|add
 argument_list|(
 literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|applicationContextUri
+operator|!=
+literal|null
+condition|)
+block|{
+name|args
+operator|.
+name|add
+argument_list|(
+literal|"-applicationContext"
+argument_list|)
+expr_stmt|;
+name|args
+operator|.
+name|add
+argument_list|(
+name|applicationContextUri
 argument_list|)
 expr_stmt|;
 block|}
