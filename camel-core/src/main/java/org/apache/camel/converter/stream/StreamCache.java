@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tagging interface to indicate that a type is capable of caching the underlying data stream.  * This is a useful feature for avoid message re-readability issues.  This interface is mainly used by the {@link StreamCachingInterceptor} for determining if/how to wrap a stream-based message.  */
+comment|/**  * Tagging interface to indicate that a type is capable of caching the underlying data stream.  *<p/>  * This is a useful feature for avoid message re-readability issues.  * This interface is mainly used by the {@link StreamCachingInterceptor} for determining if/how to wrap a  * stream-based message.  */
 end_comment
 
 begin_interface

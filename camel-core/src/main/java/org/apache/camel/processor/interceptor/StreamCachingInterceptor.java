@@ -206,7 +206,7 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Remove this interceptor from the given list of interceptors      * @param interceptors the list of interceptos      */
+comment|/**      * Remove the {@link StreamCachingInterceptor} type of interceptor from the given list of interceptors      *      * @param interceptors the list of interceptors      */
 DECL|method|noStreamCaching (List<InterceptorType> interceptors)
 specifier|public
 specifier|static
