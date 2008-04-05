@@ -2070,6 +2070,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+comment|// TODO: LOG or rethrow
 name|e
 operator|.
 name|printStackTrace
