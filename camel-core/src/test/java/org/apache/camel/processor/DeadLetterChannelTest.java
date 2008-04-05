@@ -94,24 +94,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-operator|.
-name|assertIsSatisfied
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -471,7 +453,8 @@ argument_list|(
 name|processor
 argument_list|)
 expr_stmt|;
-comment|/*                  * TODO - currently process().to() results in two separate                  * operations which have their own error handler                  *                   * .to("mock:success");                  */
+comment|// TODO - currently process().to() results in two separate operations which have their own error handler
+comment|// to("mock:success");
 block|}
 block|}
 return|;

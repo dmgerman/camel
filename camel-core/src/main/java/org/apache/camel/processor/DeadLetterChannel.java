@@ -96,6 +96,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|exceptionpolicy
+operator|.
+name|ExceptionPolicyStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|converter
@@ -331,10 +347,15 @@ name|DeadLetterChannel
 operator|.
 name|createDefaultLogger
 argument_list|()
+argument_list|,
+name|ErrorHandlerSupport
+operator|.
+name|createDefaultExceptionPolicyStrategy
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DeadLetterChannel (Processor output, Processor deadLetter, RedeliveryPolicy redeliveryPolicy, Logger logger)
+DECL|method|DeadLetterChannel (Processor output, Processor deadLetter, RedeliveryPolicy redeliveryPolicy, Logger logger, ExceptionPolicyStrategy exceptionPolicyStrategy)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
@@ -349,6 +370,9 @@ name|redeliveryPolicy
 parameter_list|,
 name|Logger
 name|logger
+parameter_list|,
+name|ExceptionPolicyStrategy
+name|exceptionPolicyStrategy
 parameter_list|)
 block|{
 name|this
@@ -385,6 +409,11 @@ operator|.
 name|logger
 operator|=
 name|logger
+expr_stmt|;
+name|setExceptionPolicy
+argument_list|(
+name|exceptionPolicyStrategy
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createDefaultLogger ()
@@ -901,7 +930,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|// error occured so loop back around.....
+comment|// error occurred so loop back around.....
 block|}
 block|}
 DECL|method|isFailureHandled (Exchange exchange)
@@ -1265,7 +1294,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Thread interupted: "
+literal|"Thread interrupted: "
 operator|+
 name|e
 argument_list|,
