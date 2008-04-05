@@ -158,7 +158,7 @@ name|?
 argument_list|>
 name|type
 decl_stmt|;
-comment|/** 	 * Creates a new JXPathExpression instance 	 *  	 * @param expression the JXPath expression to be evaluated 	 * @param type the expected result type 	 */
+comment|/**      * Creates a new JXPathExpression instance      *       * @param expression the JXPath expression to be evaluated      * @param type the expected result type      */
 DECL|method|JXPathExpression (String expression, Class<?> type)
 specifier|public
 name|JXPathExpression
@@ -253,7 +253,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/* 	 * Check if the result is of the specified type 	 */
+comment|/*      * Check if the result is of the specified type      */
 DECL|method|assertResultType (Exchange exchange, Object result)
 specifier|private
 name|void
@@ -268,6 +268,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|result
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|type
 operator|.
@@ -316,7 +320,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/* 	 * Get a compiled expression instance for better performance 	 */
+comment|/*      * Get a compiled expression instance for better performance      */
 DECL|method|getJXPathExpression ()
 specifier|private
 specifier|synchronized

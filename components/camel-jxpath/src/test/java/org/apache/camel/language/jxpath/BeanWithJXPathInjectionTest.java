@@ -182,6 +182,52 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSendNullMessage ()
+specifier|public
+name|void
+name|testSendNullMessage
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:in"
+argument_list|,
+operator|new
+name|PersonBean
+argument_list|(
+literal|null
+argument_list|,
+literal|"London"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"bean foo: "
+operator|+
+name|myBean
+argument_list|,
+literal|null
+argument_list|,
+name|myBean
+operator|.
+name|name
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Should pass body as well"
+argument_list|,
+name|myBean
+operator|.
+name|body
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createJndiContext ()
