@@ -434,7 +434,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2
+literal|8
 operator|*
 literal|1000
 argument_list|)
