@@ -102,24 +102,6 @@ name|file
 operator|.
 name|strategy
 operator|.
-name|DefaultFileRenamer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|strategy
-operator|.
 name|FileProcessStrategyFactory
 import|;
 end_import
@@ -349,7 +331,6 @@ operator|=
 name|file
 expr_stmt|;
 block|}
-comment|/**      * @return a Producer      * @throws Exception      * @see org.apache.camel.Endpoint#createProducer()      */
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -377,8 +358,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * @param file      * @return a Consumer      * @throws Exception      * @see org.apache.camel.Endpoint#createConsumer(org.apache.camel.Processor)      */
-DECL|method|createConsumer (Processor file)
+DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
 argument_list|<
@@ -387,7 +367,7 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-name|file
+name|processor
 parameter_list|)
 throws|throws
 name|Exception
@@ -403,7 +383,7 @@ name|FileConsumer
 argument_list|(
 name|this
 argument_list|,
-name|file
+name|processor
 argument_list|)
 decl_stmt|;
 name|configureConsumer
@@ -415,7 +395,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * @param file      * @return a FileExchange      * @see org.apache.camel.Endpoint#createExchange()      */
+comment|/**      * Create a new exchange for communicating with this endpoint      *      * @param file  the file      * @return the created exchange      */
 DECL|method|createExchange (File file)
 specifier|public
 name|FileExchange
@@ -439,7 +419,6 @@ name|file
 argument_list|)
 return|;
 block|}
-comment|/**      * @return an Exchange      * @see org.apache.camel.Endpoint#createExchange()      */
 DECL|method|createExchange ()
 specifier|public
 name|FileExchange
@@ -594,7 +573,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * @return the autoCreate      */
 DECL|method|isAutoCreate ()
 specifier|public
 name|boolean
@@ -607,7 +585,6 @@ operator|.
 name|autoCreate
 return|;
 block|}
-comment|/**      * @param autoCreate the autoCreate to set      */
 DECL|method|setAutoCreate (boolean autoCreate)
 specifier|public
 name|void
@@ -660,7 +637,7 @@ return|return
 name|fileProcessStrategy
 return|;
 block|}
-comment|/**      * Sets the strategy to be used when the file has been processed such as      * deleting or renaming it etc.      *      * @param fileProcessStrategy the new stategy to use      */
+comment|/**      * Sets the strategy to be used when the file has been processed such as      * deleting or renaming it etc.      *      * @param fileProcessStrategy the new strategy to use      */
 DECL|method|setFileStrategy (FileProcessStrategy fileProcessStrategy)
 specifier|public
 name|void
@@ -739,7 +716,7 @@ return|return
 name|moveNamePostfix
 return|;
 block|}
-comment|/**      * Sets the name postfix appended to moved files. For example to rename all      * the files from * to *.done set this value to ".done"      *      * @param moveNamePostfix      * @see DefaultFileRenamer#setNamePostfix(String)      */
+comment|/**      * Sets the name postfix appended to moved files. For example to rename all      * the files from<tt>*</tt> to<tt>*.done</tt> set this value to<tt>.done</tt>      */
 DECL|method|setMoveNamePostfix (String moveNamePostfix)
 specifier|public
 name|void
@@ -766,7 +743,7 @@ return|return
 name|moveNamePrefix
 return|;
 block|}
-comment|/**      * Sets the name prefix appended to moved files. For example to move      * processed files into a hidden directory called ".camel" set this value to      * ".camel/"      *      * @see DefaultFileRenamer#setNamePrefix(String)      */
+comment|/**      * Sets the name prefix appended to moved files. For example to move      * processed files into a hidden directory called<tt>.camel</tt> set this value to      *<tt>.camel/</tt>      */
 DECL|method|setMoveNamePrefix (String moveNamePrefix)
 specifier|public
 name|void
@@ -794,7 +771,7 @@ return|return
 name|excludedNamePrefixes
 return|;
 block|}
-comment|/**      * Sets the excluded file name prefixes, such as "." for hidden files which      * are excluded by default      */
+comment|/**      * Sets the excluded file name prefixes, such as<tt>"."</tt> for hidden files which      * are excluded by default      */
 DECL|method|setExcludedNamePrefixes (String[] excludedNamePrefixes)
 specifier|public
 name|void
@@ -851,7 +828,7 @@ return|return
 name|noop
 return|;
 block|}
-comment|/**      * If set to true then the default {@link FileProcessStrategy} will be to use the      * {@link NoOpFileProcessStrategy} to not move or copy processed files      *      * @param noop      */
+comment|/**      * If set to true then the default {@link FileProcessStrategy} will be to use the      * {@link NoOpFileProcessStrategy} to not move or copy processed files      */
 DECL|method|setNoop (boolean noop)
 specifier|public
 name|void
