@@ -96,6 +96,25 @@ return|;
 block|}
 annotation|@
 name|Converter
+DECL|method|toString (ByteArrayOutputStream os)
+specifier|public
+specifier|static
+name|String
+name|toString
+parameter_list|(
+name|ByteArrayOutputStream
+name|os
+parameter_list|)
+block|{
+return|return
+name|os
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Converter
 DECL|method|toInputStream (ByteArrayOutputStream os)
 specifier|public
 specifier|static

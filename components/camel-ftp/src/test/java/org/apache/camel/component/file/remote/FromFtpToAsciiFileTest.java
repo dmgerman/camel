@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -167,12 +177,52 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// wait until the file producer has written the file
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
+comment|// assert the file
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+literal|"target/ftptest/deleteme.txt"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"The ASCII file should exists"
+argument_list|,
+name|file
+operator|.
+name|exists
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"File size wrong"
+argument_list|,
+name|file
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|10
+argument_list|)
+expr_stmt|;
 comment|// let some time pass to let the consumer etc. properly do its business before closing
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|1000
 argument_list|)
 expr_stmt|;
 block|}

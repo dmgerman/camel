@@ -38,6 +38,38 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|FileComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -80,47 +112,15 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
 begin_comment
-comment|/**  * Unit test for consuming files from a FTP Server to files where we want to use the filename  * from the FTPServer instead of explicit setting a filename using the file headername option.  */
+comment|/**  * Unit testing a FTP ASCII transfer that Camel provides the needed conversion to String from  * the input stream.   */
 end_comment
 
 begin_class
-DECL|class|FromFtpToFileNoFileNameHeaderTest
+DECL|class|FromFtpToAsciiFileNoBodyConversionTest
 specifier|public
 class|class
-name|FromFtpToFileNoFileNameHeaderTest
+name|FromFtpToAsciiFileNoBodyConversionTest
 extends|extends
 name|FtpServerTestSupport
 block|{
@@ -129,7 +129,7 @@ specifier|private
 name|String
 name|port
 init|=
-literal|"20015"
+literal|"20016"
 decl_stmt|;
 DECL|field|ftpUrl
 specifier|private
@@ -140,12 +140,12 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/tmp3/camel?password=admin&binary=false"
+literal|"/tmp6/camel?password=admin&binary=false"
 decl_stmt|;
-DECL|method|testCorrectFilename ()
+DECL|method|testFromFtpToAsciiFileNoBodyConversion ()
 specifier|public
 name|void
-name|testCorrectFilename
+name|testFromFtpToAsciiFileNoBodyConversion
 parameter_list|()
 throws|throws
 name|Exception
@@ -169,13 +169,8 @@ name|resultEndpoint
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World from FTPServer"
+literal|"Hello ASCII from FTPServer"
 argument_list|)
-expr_stmt|;
-name|resultEndpoint
-operator|.
-name|assertIsSatisfied
-argument_list|()
 expr_stmt|;
 comment|// wait until the file producer has written the file
 name|Thread
@@ -192,12 +187,12 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/ftptest/hello.txt"
+literal|"target/ftptest/helloascii.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The file should exists"
+literal|"The ASCII file should exists"
 argument_list|,
 name|file
 operator|.
@@ -290,7 +285,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|"Hello World from FTPServer"
+literal|"Hello ASCII from FTPServer"
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -304,7 +299,7 @@ name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
-literal|"hello.txt"
+literal|"helloascii.txt"
 argument_list|)
 expr_stmt|;
 name|Producer
@@ -358,27 +353,15 @@ name|fileUrl
 init|=
 literal|"file:target/ftptest/?append=false&noop=true"
 decl_stmt|;
-comment|// we do not set any filename in the header propery so the filename should be the one
-comment|// from the FTP server we downloaded
 name|from
 argument_list|(
 name|ftpUrl
 argument_list|)
 operator|.
-name|convertBodyTo
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-operator|.
 name|to
 argument_list|(
 name|fileUrl
-argument_list|)
-operator|.
-name|to
-argument_list|(
+argument_list|,
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
