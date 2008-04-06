@@ -304,7 +304,6 @@ operator|=
 name|client
 expr_stmt|;
 block|}
-comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
 DECL|method|connectIfNecessary ()
 specifier|protected
 name|void
@@ -313,6 +312,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
 if|if
 condition|(
 operator|!
@@ -350,7 +350,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
 DECL|method|disconnect ()
 specifier|protected
 name|void
@@ -374,7 +373,6 @@ name|client
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
 DECL|method|poll ()
 specifier|protected
 name|void

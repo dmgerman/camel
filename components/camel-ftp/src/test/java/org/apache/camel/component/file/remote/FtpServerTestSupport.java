@@ -163,14 +163,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ftpServer
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
 name|super
 operator|.
 name|tearDown
+argument_list|()
+expr_stmt|;
+comment|// must stop server after super to let the clients stop correctly (CAMEL-444)
+name|ftpServer
+operator|.
+name|stop
 argument_list|()
 expr_stmt|;
 block|}

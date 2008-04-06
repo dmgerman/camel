@@ -80,10 +80,10 @@ name|port
 operator|+
 literal|"/tmp2/camel?password=admin"
 decl_stmt|;
-DECL|method|testFtpRoute ()
+DECL|method|testFromFileToFtp ()
 specifier|public
 name|void
-name|testFtpRoute
+name|testFromFileToFtp
 parameter_list|()
 throws|throws
 name|Exception
@@ -107,6 +107,14 @@ name|resultEndpoint
 operator|.
 name|assertIsSatisfied
 argument_list|()
+expr_stmt|;
+comment|// let some time pass to let the consumer etc. properly do its business before closing
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getPort ()
