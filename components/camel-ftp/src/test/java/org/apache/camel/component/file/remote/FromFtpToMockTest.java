@@ -55,22 +55,34 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|FromFileToFtpTest
+DECL|class|FromFtpToMockTest
 specifier|public
 class|class
-name|FromFileToFtpTest
+name|FromFtpToMockTest
 extends|extends
 name|FtpServerTestSupport
 block|{
+DECL|field|resultEndpoint
+specifier|protected
+name|MockEndpoint
+name|resultEndpoint
+decl_stmt|;
+DECL|field|expectedBody
+specifier|protected
+name|String
+name|expectedBody
+init|=
+literal|"Hello there!"
+decl_stmt|;
 DECL|field|port
-specifier|private
+specifier|protected
 name|String
 name|port
 init|=
-literal|"20011"
+literal|"20010"
 decl_stmt|;
 DECL|field|ftpUrl
-specifier|private
+specifier|protected
 name|String
 name|ftpUrl
 init|=
@@ -78,7 +90,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/tmp2/camel?password=admin"
+literal|"/tmp/camel?password=admin"
 decl_stmt|;
 DECL|method|testFtpRoute ()
 specifier|public
@@ -98,9 +110,25 @@ argument_list|)
 decl_stmt|;
 name|resultEndpoint
 operator|.
-name|expectedMinimumMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|1
+name|expectedBody
+argument_list|)
+expr_stmt|;
+comment|// TODO when we support multiple marshallers for messages
+comment|// we can support passing headers over files using serialized/XML files
+comment|//resultEndpoint.message(0).header("cheese").isEqualTo(123);
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+name|ftpUrl
+argument_list|,
+name|expectedBody
+argument_list|,
+literal|"cheese"
+argument_list|,
+literal|123
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
@@ -108,16 +136,6 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|getPort ()
-specifier|public
-name|String
-name|getPort
-parameter_list|()
-block|{
-return|return
-name|port
-return|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -141,16 +159,6 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:src/main/data?noop=true"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-name|ftpUrl
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
 name|ftpUrl
 argument_list|)
 operator|.
@@ -161,6 +169,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|;
+block|}
+DECL|method|getPort ()
+specifier|public
+name|String
+name|getPort
+parameter_list|()
+block|{
+return|return
+name|port
 return|;
 block|}
 block|}

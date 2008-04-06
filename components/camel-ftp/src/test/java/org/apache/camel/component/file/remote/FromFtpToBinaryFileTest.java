@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -102,15 +112,29 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|IOConverter
+import|;
+end_import
+
 begin_comment
-comment|/**  * Unit test to verify that we can pool an ASCII file from the FTP Server and store it on a local file path  */
+comment|/**  * Unit test to verify that we can pool a BINARY file from the FTP Server and store it on a local file path  */
 end_comment
 
 begin_class
-DECL|class|FromFtpToAsciiFileTest
+DECL|class|FromFtpToBinaryFileTest
 specifier|public
 class|class
-name|FromFtpToAsciiFileTest
+name|FromFtpToBinaryFileTest
 extends|extends
 name|FtpServerTestSupport
 block|{
@@ -119,8 +143,9 @@ specifier|private
 name|String
 name|port
 init|=
-literal|"20013"
+literal|"20014"
 decl_stmt|;
+comment|// must user "consumer." prefix on the parameters to the file component
 DECL|field|ftpUrl
 specifier|private
 name|String
@@ -130,7 +155,9 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/tmp3/camel?password=admin&binary=false"
+literal|"/tmp4/camel?password=admin&binary=true"
+operator|+
+literal|"&consumer.delay=2000&consumer.recursive=false&consumer.append=false"
 decl_stmt|;
 DECL|method|testFtpRoute ()
 specifier|public
@@ -150,22 +177,88 @@ argument_list|)
 decl_stmt|;
 name|resultEndpoint
 operator|.
-name|expectedMinimumMessageCount
+name|expectedMessageCount
 argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
 operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World from FTPServer"
-argument_list|)
-expr_stmt|;
-name|resultEndpoint
-operator|.
 name|assertIsSatisfied
 argument_list|()
+expr_stmt|;
+name|Exchange
+name|ex
+init|=
+name|resultEndpoint
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+name|byte
+index|[]
+name|bytes
+init|=
+name|ex
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|byte
+index|[]
+operator|.
+expr|class
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Logo size wrong"
+argument_list|,
+name|bytes
+operator|.
+name|length
+operator|>
+literal|10000
+argument_list|)
+expr_stmt|;
+comment|// assert the file
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+literal|"target/ftptest/deleteme.jpg"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"The binary file should exists"
+argument_list|,
+name|file
+operator|.
+name|exists
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Logo size wrong"
+argument_list|,
+name|file
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|10000
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getPort ()
@@ -232,7 +325,12 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|"Hello World from FTPServer"
+name|IOConverter
+operator|.
+name|toFile
+argument_list|(
+literal|"src/test/data/ftpbinarytest/logo.jpeg"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -246,7 +344,7 @@ name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
-literal|"hello.txt"
+literal|"logo.jpeg"
 argument_list|)
 expr_stmt|;
 name|Producer
@@ -298,7 +396,7 @@ block|{
 name|String
 name|fileUrl
 init|=
-literal|"file:target/ftptest/?append=false&noop=true"
+literal|"file:target/ftptest/?noop=true"
 decl_stmt|;
 name|from
 argument_list|(
@@ -313,24 +411,14 @@ name|HEADER_FILE_NAME
 argument_list|,
 name|constant
 argument_list|(
-literal|"deleteme.txt"
+literal|"deleteme.jpg"
 argument_list|)
-argument_list|)
-operator|.
-name|convertBodyTo
-argument_list|(
-name|String
-operator|.
-name|class
 argument_list|)
 operator|.
 name|to
 argument_list|(
 name|fileUrl
-argument_list|)
-operator|.
-name|to
-argument_list|(
+argument_list|,
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
