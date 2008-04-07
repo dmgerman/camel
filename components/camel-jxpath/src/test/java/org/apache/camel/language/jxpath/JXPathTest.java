@@ -38,30 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|language
 operator|.
 name|ExpressionEvaluationException
@@ -93,7 +69,7 @@ argument_list|,
 literal|"London"
 argument_list|)
 decl_stmt|;
-comment|/** 	 * Test JXPath expressions 	 */
+comment|/**      * Test JXPath expressions      */
 DECL|method|testJXPathExpressions ()
 specifier|public
 name|void
@@ -144,7 +120,7 @@ literal|"abc"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Test JXPath predicates 	 */
+comment|/**      * Test JXPath predicates      */
 DECL|method|testJXPathPredicates ()
 specifier|public
 name|void
@@ -159,7 +135,7 @@ literal|"in/headers/@foo = 'abc'"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Test exceptions being thrown appropriately 	 */
+comment|/**      * Test exceptions being thrown appropriately      */
 DECL|method|testExceptions ()
 specifier|public
 name|void
@@ -178,9 +154,9 @@ argument_list|(
 literal|"ins/body"
 argument_list|)
 expr_stmt|;
-comment|//assertInvalidPredicate("in/body");
+comment|// assertInvalidPredicate("in/body");
 block|}
-comment|/*     @Override     protected void populateExchange(Exchange exchange) {         Message in = exchange.getIn();         in.setHeader("foo", "abc");         in.setHeader("bar", 123);         in.setBody(body);     }*/
+comment|/*      * @Override protected void populateExchange(Exchange exchange) { Message in =      * exchange.getIn(); in.setHeader("foo", "abc"); in.setHeader("bar", 123);      * in.setBody(body); }      */
 DECL|method|assertInvalidExpression (String expression)
 specifier|private
 name|void
@@ -211,7 +187,7 @@ name|ExpressionEvaluationException
 name|e
 parameter_list|)
 block|{
-comment|//nothing to do -- test success
+comment|// nothing to do -- test success
 block|}
 block|}
 DECL|method|assertInvalidPredicate (String predicate)

@@ -22,13 +22,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|Converter
+name|ByteArrayInputStream
 import|;
 end_import
 
@@ -54,11 +52,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|ByteArrayInputStream
+name|camel
+operator|.
+name|Converter
 import|;
 end_import
 
@@ -71,9 +71,17 @@ annotation|@
 name|Converter
 DECL|class|RemoteFileConverter
 specifier|public
+specifier|final
 class|class
 name|RemoteFileConverter
 block|{
+DECL|method|RemoteFileConverter ()
+specifier|private
+name|RemoteFileConverter
+parameter_list|()
+block|{
+comment|// Helper Class
+block|}
 annotation|@
 name|Converter
 DECL|method|toByteArray (ByteArrayOutputStream os)

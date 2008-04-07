@@ -118,6 +118,48 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -268,48 +310,6 @@ name|removeStartingCharacters
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Component</a>  *  * @version $Revision:520964 $  */
 end_comment
@@ -327,23 +327,6 @@ argument_list|>
 implements|implements
 name|ApplicationContextAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|JmsComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|QUEUE_PREFIX
 specifier|public
 specifier|static
@@ -361,6 +344,32 @@ name|String
 name|TOPIC_PREFIX
 init|=
 literal|"topic:"
+decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|JmsComponent
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+DECL|field|DEFAULT_QUEUE_BROWSE_STRATEGY
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_QUEUE_BROWSE_STRATEGY
+init|=
+literal|"org.apache.camel.component.jms.DefaultQueueBrowseStrategy"
 decl_stmt|;
 DECL|field|configuration
 specifier|private
@@ -386,15 +395,6 @@ DECL|field|attemptedToCreateQueueBrowserStrategy
 specifier|private
 name|boolean
 name|attemptedToCreateQueueBrowserStrategy
-decl_stmt|;
-DECL|field|DEFAULT_QUEUE_BROWSE_STRATEGY
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_QUEUE_BROWSE_STRATEGY
-init|=
-literal|"org.apache.camel.component.jms.DefaultQueueBrowseStrategy"
 decl_stmt|;
 DECL|method|JmsComponent ()
 specifier|public
@@ -634,7 +634,7 @@ argument_list|)
 return|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -1566,7 +1566,7 @@ name|queueBrowseStrategy
 expr_stmt|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 annotation|@
 name|Override
 DECL|method|doStop ()
@@ -1831,7 +1831,7 @@ name|JmsConfiguration
 argument_list|()
 return|;
 block|}
-comment|/**      * Attempts to instantiate the default {@link QueueBrowseStrategy} which should work fine if Spring 2.5.x or later is      * on the classpath but this will fail if 2.0.x are on the classpath. We can continue to operate on this version      * we just cannot support the browsable queues supported by {@link JmsQueueEndpoint}      *      * @return the queue browse strategy or null if it cannot be supported      */
+comment|/**      * Attempts to instantiate the default {@link QueueBrowseStrategy} which      * should work fine if Spring 2.5.x or later is on the classpath but this      * will fail if 2.0.x are on the classpath. We can continue to operate on      * this version we just cannot support the browsable queues supported by      * {@link JmsQueueEndpoint}      *      * @return the queue browse strategy or null if it cannot be supported      */
 DECL|method|tryCreateDefaultQueueBrowseStrategy ()
 specifier|protected
 specifier|static

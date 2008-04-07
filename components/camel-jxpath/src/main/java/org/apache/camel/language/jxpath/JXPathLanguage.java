@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<a href="http://commons.apache.org/jxpath/">JXPath</a> {@link Language} provider  */
+comment|/**  *<a href="http://commons.apache.org/jxpath/">JXPath</a> {@link Language}  * provider  */
 end_comment
 
 begin_class
