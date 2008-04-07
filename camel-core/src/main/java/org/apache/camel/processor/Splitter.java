@@ -17,22 +17,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|notNull
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -173,6 +157,22 @@ operator|.
 name|util
 operator|.
 name|CollectionHelper
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|notNull
 import|;
 end_import
 
@@ -402,8 +402,6 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-for|for
-control|(
 name|Iterator
 argument_list|<
 name|Object
@@ -416,13 +414,14 @@ name|iterator
 argument_list|(
 name|value
 argument_list|)
-init|;
+decl_stmt|;
+while|while
+condition|(
 name|iter
 operator|.
 name|hasNext
 argument_list|()
-condition|;
-control|)
+condition|)
 block|{
 name|Object
 name|part

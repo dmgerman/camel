@@ -64,6 +64,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|ErrorHandlerSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|Logger
 import|;
 end_import
@@ -120,20 +134,6 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|ErrorHandlerSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
 name|exceptionpolicy
 operator|.
 name|ExceptionPolicyStrategy
@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of a<a  * href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter  * Channel</a>  *   * @version $Revision$  */
+comment|/**  * A builder of a<a  * href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter  * Channel</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -773,7 +773,7 @@ return|return
 name|defaultDeadLetterEndpointUri
 return|;
 block|}
-comment|/**      * Sets the default dead letter endpoint URI used if no factory is provided      * via {@link #setDeadLetterFactory(ProcessorFactory)} and no expression is      * provided via {@link #setDefaultDeadLetterEndpointExpression(Expression)}      *       * @param defaultDeadLetterEndpointUri the default URI if no deadletter      *                factory or expression is provided      */
+comment|/**      * Sets the default dead letter endpoint URI used if no factory is provided      * via {@link #setDeadLetterFactory(ProcessorFactory)} and no expression is      * provided via {@link #setDefaultDeadLetterEndpointExpression(Expression)}      *      * @param defaultDeadLetterEndpointUri the default URI if no deadletter      *                factory or expression is provided      */
 DECL|method|setDefaultDeadLetterEndpointUri (String defaultDeadLetterEndpointUri)
 specifier|public
 name|void

@@ -272,8 +272,6 @@ DECL|field|preloadSize
 specifier|private
 name|long
 name|preloadSize
-init|=
-literal|0
 decl_stmt|;
 DECL|method|DataSetEndpoint (String endpointUri, Component component, DataSet dataSet)
 specifier|public

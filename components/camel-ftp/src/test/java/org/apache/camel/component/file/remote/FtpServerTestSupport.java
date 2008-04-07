@@ -50,18 +50,6 @@ name|apache
 operator|.
 name|ftpserver
 operator|.
-name|FtpServer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|ftpserver
-operator|.
 name|ConfigurableFtpServerContext
 import|;
 end_import
@@ -74,9 +62,7 @@ name|apache
 operator|.
 name|ftpserver
 operator|.
-name|interfaces
-operator|.
-name|FtpServerContext
+name|FtpServer
 import|;
 end_import
 
@@ -105,6 +91,20 @@ operator|.
 name|ftplet
 operator|.
 name|Configuration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|ftpserver
+operator|.
+name|interfaces
+operator|.
+name|FtpServerContext
 import|;
 end_import
 

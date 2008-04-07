@@ -110,7 +110,7 @@ name|processor
 operator|.
 name|exceptionpolicy
 operator|.
-name|ExceptionPolicyStrategy
+name|DefaultExceptionPolicyStrategy
 import|;
 end_import
 
@@ -126,7 +126,7 @@ name|processor
 operator|.
 name|exceptionpolicy
 operator|.
-name|DefaultExceptionPolicyStrategy
+name|ExceptionPolicyStrategy
 import|;
 end_import
 

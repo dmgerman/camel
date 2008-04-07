@@ -50,9 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|impl
 operator|.
-name|ThroughputLogger
+name|DefaultConsumer
 import|;
 end_import
 
@@ -64,9 +64,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
 operator|.
-name|DefaultConsumer
+name|ThroughputLogger
 import|;
 end_import
 

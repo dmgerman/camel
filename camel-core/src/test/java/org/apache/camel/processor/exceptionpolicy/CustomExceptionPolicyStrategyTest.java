@@ -153,12 +153,12 @@ name|MESSAGE_INFO
 init|=
 literal|"messageInfo"
 decl_stmt|;
-DECL|field|errorQueue
+DECL|field|ERROR_QUEUE
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|errorQueue
+name|ERROR_QUEUE
 init|=
 literal|"mock:error"
 decl_stmt|;
@@ -227,7 +227,7 @@ name|mock
 init|=
 name|getMockEndpoint
 argument_list|(
-name|errorQueue
+name|ERROR_QUEUE
 argument_list|)
 decl_stmt|;
 name|mock
@@ -317,7 +317,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|errorQueue
+name|ERROR_QUEUE
 argument_list|)
 expr_stmt|;
 name|exception
@@ -341,7 +341,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|errorQueue
+name|ERROR_QUEUE
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET e1

@@ -583,7 +583,7 @@ decl_stmt|;
 specifier|final
 name|String
 index|[]
-name|NAMES
+name|names
 init|=
 block|{
 literal|"James"
@@ -653,7 +653,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|NAMES
+name|names
 index|[
 name|splitCounter
 index|]

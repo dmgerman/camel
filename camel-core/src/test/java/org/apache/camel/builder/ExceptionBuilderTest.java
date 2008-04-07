@@ -151,32 +151,32 @@ name|MESSAGE_INFO
 init|=
 literal|"messageInfo"
 decl_stmt|;
-DECL|field|errorQueue
+DECL|field|ERROR_QUEUE
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|errorQueue
+name|ERROR_QUEUE
 init|=
 literal|"mock:error"
 decl_stmt|;
-DECL|field|businessErrorQueue
+DECL|field|BUSINESS_ERROR_QUEUE
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|businessErrorQueue
+name|BUSINESS_ERROR_QUEUE
 init|=
 literal|"mock:badBusiness"
 decl_stmt|;
-DECL|field|securityErrorQueue
+DECL|field|SECURITY_ERROR_QUEUE
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|securityErrorQueue
+name|SECURITY_ERROR_QUEUE
 init|=
-literal|"mock:securitError"
+literal|"mock:securityError"
 decl_stmt|;
 DECL|method|testNPE ()
 specifier|public
@@ -191,7 +191,7 @@ name|mock
 init|=
 name|getMockEndpoint
 argument_list|(
-name|errorQueue
+name|ERROR_QUEUE
 argument_list|)
 decl_stmt|;
 name|mock
@@ -238,7 +238,7 @@ name|mock
 init|=
 name|getMockEndpoint
 argument_list|(
-name|errorQueue
+name|ERROR_QUEUE
 argument_list|)
 decl_stmt|;
 name|mock
@@ -285,7 +285,7 @@ name|mock
 init|=
 name|getMockEndpoint
 argument_list|(
-name|errorQueue
+name|ERROR_QUEUE
 argument_list|)
 decl_stmt|;
 name|mock
@@ -332,7 +332,7 @@ name|mock
 init|=
 name|getMockEndpoint
 argument_list|(
-name|businessErrorQueue
+name|BUSINESS_ERROR_QUEUE
 argument_list|)
 decl_stmt|;
 name|mock
@@ -380,7 +380,7 @@ name|mock
 init|=
 name|getMockEndpoint
 argument_list|(
-name|securityErrorQueue
+name|SECURITY_ERROR_QUEUE
 argument_list|)
 decl_stmt|;
 name|mock
@@ -472,7 +472,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|errorQueue
+name|ERROR_QUEUE
 argument_list|)
 expr_stmt|;
 name|exception
@@ -509,7 +509,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|errorQueue
+name|ERROR_QUEUE
 argument_list|)
 expr_stmt|;
 name|exception
@@ -538,7 +538,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|errorQueue
+name|ERROR_QUEUE
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: exceptionBuilder1
@@ -568,7 +568,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|businessErrorQueue
+name|BUSINESS_ERROR_QUEUE
 argument_list|)
 expr_stmt|;
 name|exception
@@ -599,7 +599,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|securityErrorQueue
+name|SECURITY_ERROR_QUEUE
 argument_list|)
 expr_stmt|;
 name|from
