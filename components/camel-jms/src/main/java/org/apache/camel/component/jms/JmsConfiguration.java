@@ -2796,9 +2796,15 @@ name|taskExecutor
 argument_list|)
 expr_stmt|;
 block|}
+name|PlatformTransactionManager
+name|tm
+init|=
+name|getTransactionManager
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
-name|transactionManager
+name|tm
 operator|!=
 literal|null
 condition|)
@@ -2807,7 +2813,7 @@ name|listenerContainer
 operator|.
 name|setTransactionManager
 argument_list|(
-name|transactionManager
+name|tm
 argument_list|)
 expr_stmt|;
 block|}
