@@ -164,34 +164,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptorRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|InterceptorType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|ProcessorType
 import|;
 end_import
@@ -267,10 +239,10 @@ name|RouteBuilder
 extends|extends
 name|BuilderSupport
 block|{
-DECL|field|initalized
+DECL|field|initialized
 specifier|private
 name|AtomicBoolean
-name|initalized
+name|initialized
 init|=
 operator|new
 name|AtomicBoolean
@@ -429,7 +401,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures whether or not the error handler is inherited by every      * processing node (or just the top most one)      *      * @param value the flag as to whether error handlers should be inherited or      *                not      * @return the current builder      */
+comment|/**      * Configures whether or not the error handler is inherited by every      * processing node (or just the top most one)      *      * @param value the flag as to whether error handlers should be inherited or not      * @return the current builder      */
 DECL|method|inheritErrorHandler (boolean value)
 specifier|public
 name|RouteBuilder
@@ -471,7 +443,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a route for an interceptor; use the {@link ProcessorType#proceed()} method      * to continue processing the underying route being intercepted.      */
+comment|/**      * Adds a route for an interceptor; use the {@link ProcessorType#proceed()} method      * to continue processing the underlying route being intercepted.      */
 DECL|method|intercept ()
 specifier|public
 name|InterceptType
@@ -645,7 +617,7 @@ name|Exception
 block|{
 if|if
 condition|(
-name|initalized
+name|initialized
 operator|.
 name|compareAndSet
 argument_list|(
