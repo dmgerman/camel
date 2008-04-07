@@ -153,7 +153,7 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// candidate is the best candidate found so far
+comment|// candidate is the best candidate found so far to return
 name|ExceptionType
 name|candidate
 init|=
@@ -228,6 +228,27 @@ name|exception
 argument_list|)
 condition|)
 block|{
+comment|// exact match
+if|if
+condition|(
+name|clazz
+operator|.
+name|equals
+argument_list|(
+name|exception
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|candidate
+operator|=
+name|type
+expr_stmt|;
+break|break;
+block|}
+comment|// not an exact match so find the best candidate
 name|int
 name|level
 init|=
