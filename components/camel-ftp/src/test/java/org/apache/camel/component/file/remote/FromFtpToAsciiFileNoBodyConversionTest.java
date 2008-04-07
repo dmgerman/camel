@@ -129,7 +129,7 @@ specifier|private
 name|String
 name|port
 init|=
-literal|"20016"
+literal|"20012"
 decl_stmt|;
 DECL|field|ftpUrl
 specifier|private
@@ -140,7 +140,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/tmp6/camel?password=admin&binary=false"
+literal|"/tmp5/camel?password=admin&binary=false"
 decl_stmt|;
 DECL|method|testFromFtpToAsciiFileNoBodyConversion ()
 specifier|public
@@ -187,7 +187,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/ftptest/helloascii.txt"
+literal|"target/ftptest/ascii.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -299,7 +299,7 @@ name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
-literal|"helloascii.txt"
+literal|"ascii.txt"
 argument_list|)
 expr_stmt|;
 name|Producer
