@@ -133,10 +133,10 @@ comment|/**  * To test timeout.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|MinaExchangeTimeOutTest
+DECL|class|MinaExchangeDefaultTimeOutTest
 specifier|public
 class|class
-name|MinaExchangeTimeOutTest
+name|MinaExchangeDefaultTimeOutTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -147,7 +147,7 @@ specifier|final
 name|int
 name|PORT
 init|=
-literal|6336
+literal|6338
 decl_stmt|;
 DECL|field|uri
 specifier|protected
@@ -160,98 +160,49 @@ name|PORT
 operator|+
 literal|"?textline=true&sync=true"
 decl_stmt|;
-DECL|method|testUsingTimeoutParameter ()
+DECL|method|testDefaultTimeOut ()
 specifier|public
 name|void
-name|testUsingTimeoutParameter
+name|testDefaultTimeOut
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-comment|// use a timeout value of 2 seconds (timeout is in millis) so we should actually get a response in this test
-name|Endpoint
-name|endpoint
-init|=
-name|this
-operator|.
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-literal|"mina:tcp://localhost:"
-operator|+
-name|PORT
-operator|+
-literal|"?textline=true&sync=true&timeout=2000"
-argument_list|)
-decl_stmt|;
-name|Producer
-name|producer
-init|=
-name|endpoint
-operator|.
-name|createProducer
-argument_list|()
-decl_stmt|;
-name|producer
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-name|Exchange
-name|exchange
-init|=
-name|producer
-operator|.
-name|createExchange
-argument_list|()
-decl_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
 try|try
 block|{
-name|producer
+name|String
+name|result
+init|=
+operator|(
+name|String
+operator|)
+name|template
 operator|.
-name|process
+name|requestBody
 argument_list|(
-name|exchange
+name|uri
+argument_list|,
+literal|"Hello World"
 argument_list|)
-expr_stmt|;
-name|fail
+decl_stmt|;
+name|assertEquals
 argument_list|(
-literal|"Should have thrown an ExchangeTimedOutException wrapped in a RuntimeCamelException"
+literal|"Okay I will be faster in the future"
+argument_list|,
+name|result
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{
-name|assertTrue
+name|fail
 argument_list|(
-literal|"Should have thrown an ExchangeTimedOutException"
-argument_list|,
-name|e
-operator|instanceof
-name|ExchangeTimedOutException
+literal|"Should not get a RuntimeCamelException"
 argument_list|)
 expr_stmt|;
 block|}
-name|producer
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
