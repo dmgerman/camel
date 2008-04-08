@@ -143,7 +143,7 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-comment|// we can check the endpoint integration here
+comment|// We can check the endpoint integration here
 return|return
 name|result
 return|;
