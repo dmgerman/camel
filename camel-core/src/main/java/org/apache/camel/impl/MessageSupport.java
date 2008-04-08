@@ -104,11 +104,6 @@ DECL|field|messageId
 specifier|private
 name|String
 name|messageId
-init|=
-name|DEFALT_ID_GENERATOR
-operator|.
-name|generateId
-argument_list|()
 decl_stmt|;
 DECL|method|getBody ()
 specifier|public
@@ -423,6 +418,19 @@ name|String
 name|getMessageId
 parameter_list|()
 block|{
+if|if
+condition|(
+name|messageId
+operator|==
+literal|null
+condition|)
+block|{
+name|messageId
+operator|=
+name|createMessageId
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|this
 operator|.
@@ -445,6 +453,20 @@ name|messageId
 operator|=
 name|messageId
 expr_stmt|;
+block|}
+comment|/**      * Lets allow implementations to auto-create a messageId      */
+DECL|method|createMessageId ()
+specifier|protected
+name|String
+name|createMessageId
+parameter_list|()
+block|{
+return|return
+name|DEFALT_ID_GENERATOR
+operator|.
+name|generateId
+argument_list|()
+return|;
 block|}
 block|}
 end_class

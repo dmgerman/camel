@@ -342,15 +342,11 @@ name|E
 name|exchange
 parameter_list|)
 block|{
+comment|//E convertedExchange = endpoint.createExchange(exchange);
 name|E
 name|convertedExchange
 init|=
-name|endpoint
-operator|.
-name|createExchange
-argument_list|(
 name|exchange
-argument_list|)
 decl_stmt|;
 name|producerCache
 operator|.
