@@ -1107,18 +1107,10 @@ name|CxfExchange
 name|exchange
 parameter_list|)
 block|{
-name|CxfBinding
-name|cxfBinding
-init|=
-name|endpoint
-operator|.
-name|getBinding
-argument_list|()
-decl_stmt|;
 name|Message
 name|inMessage
 init|=
-name|cxfBinding
+name|CxfBinding
 operator|.
 name|createCxfMessage
 argument_list|(
@@ -1282,7 +1274,7 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-name|cxfBinding
+name|CxfBinding
 operator|.
 name|storeCxfResponse
 argument_list|(
@@ -1309,7 +1301,7 @@ argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
-name|cxfBinding
+name|CxfBinding
 operator|.
 name|storeCxfFault
 argument_list|(
@@ -1653,7 +1645,7 @@ argument_list|(
 name|responseContext
 argument_list|)
 expr_stmt|;
-name|cxfBinding
+name|CxfBinding
 operator|.
 name|storeCxfResponse
 argument_list|(
@@ -1680,7 +1672,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-name|cxfBinding
+name|CxfBinding
 operator|.
 name|storeCxfFault
 argument_list|(

@@ -598,46 +598,6 @@ return|return
 name|serviceName
 return|;
 block|}
-DECL|method|getBinding ()
-specifier|public
-name|CxfBinding
-name|getBinding
-parameter_list|()
-block|{
-if|if
-condition|(
-name|binding
-operator|==
-literal|null
-condition|)
-block|{
-name|binding
-operator|=
-operator|new
-name|CxfBinding
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|binding
-return|;
-block|}
-DECL|method|setBinding (CxfBinding binding)
-specifier|public
-name|void
-name|setBinding
-parameter_list|(
-name|CxfBinding
-name|binding
-parameter_list|)
-block|{
-name|this
-operator|.
-name|binding
-operator|=
-name|binding
-expr_stmt|;
-block|}
 DECL|method|isInOut ()
 specifier|public
 name|boolean

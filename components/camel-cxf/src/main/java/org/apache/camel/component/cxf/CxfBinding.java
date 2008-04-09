@@ -69,9 +69,17 @@ end_comment
 begin_class
 DECL|class|CxfBinding
 specifier|public
+specifier|final
 class|class
 name|CxfBinding
 block|{
+DECL|method|CxfBinding ()
+specifier|private
+name|CxfBinding
+parameter_list|()
+block|{
+comment|// Helper class
+block|}
 DECL|method|extractBodyFromCxf (CxfExchange exchange, Message message)
 specifier|public
 specifier|static
@@ -164,6 +172,7 @@ return|;
 block|}
 DECL|method|createCxfMessage (CxfExchange exchange)
 specifier|public
+specifier|static
 name|Message
 name|createCxfMessage
 parameter_list|(
@@ -308,6 +317,7 @@ return|;
 block|}
 DECL|method|storeCxfResponse (CxfExchange exchange, Message response)
 specifier|public
+specifier|static
 name|void
 name|storeCxfResponse
 parameter_list|(
@@ -359,6 +369,7 @@ block|}
 block|}
 DECL|method|storeCxfResponse (CxfExchange exchange, Object response)
 specifier|public
+specifier|static
 name|void
 name|storeCxfResponse
 parameter_list|(
@@ -395,6 +406,7 @@ block|}
 block|}
 DECL|method|storeCxfFault (CxfExchange exchange, Message message)
 specifier|public
+specifier|static
 name|void
 name|storeCxfFault
 parameter_list|(
