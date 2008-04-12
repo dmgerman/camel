@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Used for renaming files.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -40,6 +40,7 @@ specifier|public
 interface|interface
 name|FileRenamer
 block|{
+comment|/**      * Renames the given file      *      * @param file  the original file.      * @return  the renamed file.      */
 DECL|method|renameFile (File file)
 name|File
 name|renameFile

@@ -155,7 +155,6 @@ operator|=
 name|file
 expr_stmt|;
 block|}
-comment|/**      * @return the file      */
 DECL|method|getFile ()
 specifier|public
 name|File
@@ -168,7 +167,6 @@ operator|.
 name|file
 return|;
 block|}
-comment|/**      * @param file the file to set      */
 DECL|method|setFile (File file)
 specifier|public
 name|void

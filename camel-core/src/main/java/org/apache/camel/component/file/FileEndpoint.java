@@ -623,11 +623,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|""
-operator|+
-name|this
-operator|+
-literal|" using strategy: "
+literal|"Using file process strategy: "
 operator|+
 name|fileProcessStrategy
 argument_list|)
@@ -855,7 +851,7 @@ return|return
 name|append
 return|;
 block|}
-comment|/**      * When writing do we append to the end of the file, or replace it?      * The default is to append      *      * @param append whether to append (or replace)      */
+comment|/**      * When writing do we append to the end of the file, or replace it?      * The default is to append      */
 DECL|method|setAppend (boolean append)
 specifier|public
 name|void

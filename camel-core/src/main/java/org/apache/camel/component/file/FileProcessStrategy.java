@@ -28,18 +28,6 @@ name|File
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a strategy for marking that a file is processed.  *  * @version $Revision$  */
 end_comment
@@ -50,7 +38,7 @@ specifier|public
 interface|interface
 name|FileProcessStrategy
 block|{
-comment|/**      * Called when work is about to begin on this file. This method may attempt to acquire some file lock before      * returning true; returning false if the file lock could not be obtained so that the file should be ignored.      *      * @return true if the file can be processed (such as if a file lock could be obtained)      */
+comment|/**      * Called when work is about to begin on this file. This method may attempt to acquire some file lock before      * returning true; returning false if the file lock could not be obtained so that the file should be ignored.      *      * @param endpoint  the endpoint      * @param exchange  the exchange      * @param file      the file      * @return true if the file can be processed (such as if a file lock could be obtained)      * @throws Exception can be thrown in case of errors      */
 DECL|method|begin (FileEndpoint endpoint, FileExchange exchange, File file)
 name|boolean
 name|begin
@@ -67,7 +55,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Releases any file locks and possibly deletes or moves the file      */
+comment|/**      * Releases any file locks and possibly deletes or moves the file      *      * @param endpoint  the endpoint      * @param exchange  the exchange      * @param file      the file      * @throws Exception can be thrown in case of errors      */
 DECL|method|commit (FileEndpoint endpoint, FileExchange exchange, File file)
 name|void
 name|commit

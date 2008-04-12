@@ -36,6 +36,10 @@ name|FileProcessStrategy
 import|;
 end_import
 
+begin_comment
+comment|/**  * Factory to provide the {@link org.apache.camel.component.file.FileProcessStrategy} to use.  */
+end_comment
+
 begin_class
 DECL|class|FileProcessStrategyFactory
 specifier|public
@@ -50,7 +54,7 @@ parameter_list|()
 block|{
 comment|// Utility class
 block|}
-comment|/**      * A strategy method to lazily create the file strategy      */
+comment|/**      * A strategy method to lazily create the file strategy to use.      */
 DECL|method|createFileProcessStrategy (boolean isNoop, boolean isDelete, boolean isLock, String moveNamePrefix, String moveNamePostfix)
 specifier|public
 specifier|static

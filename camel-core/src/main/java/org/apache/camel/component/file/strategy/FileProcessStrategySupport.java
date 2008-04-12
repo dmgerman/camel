@@ -84,18 +84,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|file
@@ -179,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Base class for {@link org.apache.camel.component.file.FileProcessStrategy} implementation to extend.  *  * @version $Revision$  */
 end_comment
 
 begin_class

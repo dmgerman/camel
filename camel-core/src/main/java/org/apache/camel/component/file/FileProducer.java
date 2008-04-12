@@ -213,7 +213,6 @@ argument_list|)
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
-specifier|final
 name|FileEndpoint
 name|endpoint
 decl_stmt|;
@@ -253,7 +252,6 @@ name|getEndpoint
 argument_list|()
 return|;
 block|}
-comment|/**      * @param exchange      * @see org.apache.camel.Processor#process(Exchange)      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -614,7 +612,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/*         ByteBuffer payload = exchange.getIn().getBody(ByteBuffer.class);         if (payload == null) {             InputStream in = ExchangeHelper.getMandatoryInBody(exchange, InputStream.class);             payload = ExchangeHelper.convertToMandatoryType(exchange, ByteBuffer.class, in);         }         payload.flip();         File file = createFileName(exchange);         buildDirectory(file);         if (LOG.isDebugEnabled()) {             LOG.debug("Creating file: " + file);         }         FileChannel fc = null;         try {             if (getEndpoint().isAppend()) {                 fc = new RandomAccessFile(file, "rw").getChannel();                 fc.position(fc.size());             }             else {                 fc = new FileOutputStream(file).getChannel();             }             fc.write(payload);         }         catch (Throwable e) {             LOG.error("Failed to write to File: " + file, e);         }         finally {             if (fc != null) {                 fc.close();             }         }         */
 block|}
 DECL|method|createFileName (Message message)
 specifier|protected
@@ -627,14 +624,6 @@ parameter_list|)
 block|{
 name|File
 name|answer
-decl_stmt|;
-name|File
-name|endpointFile
-init|=
-name|endpoint
-operator|.
-name|getFile
-argument_list|()
 decl_stmt|;
 name|String
 name|name
@@ -666,6 +655,14 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+name|File
+name|endpointFile
+init|=
+name|endpoint
+operator|.
+name|getFile
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|endpointFile

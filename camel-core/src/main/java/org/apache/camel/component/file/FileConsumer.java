@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * For consuming files.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -138,7 +138,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|endpoint
+specifier|private
+name|FileEndpoint
+name|endpoint
+decl_stmt|;
 DECL|field|filesBeingProcessed
+specifier|private
 name|ConcurrentHashMap
 argument_list|<
 name|File
@@ -156,15 +162,29 @@ name|File
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|fileSizes
+specifier|private
+name|ConcurrentHashMap
+argument_list|<
+name|File
+argument_list|,
+name|Long
+argument_list|>
+name|fileSizes
+init|=
+operator|new
+name|ConcurrentHashMap
+argument_list|<
+name|File
+argument_list|,
+name|Long
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|field|generateEmptyExchangeWhenIdle
+specifier|private
 name|boolean
 name|generateEmptyExchangeWhenIdle
-decl_stmt|;
-DECL|field|endpoint
-specifier|private
-specifier|final
-name|FileEndpoint
-name|endpoint
 decl_stmt|;
 DECL|field|recursive
 specifier|private
@@ -194,25 +214,6 @@ DECL|field|unchangedSize
 specifier|private
 name|boolean
 name|unchangedSize
-decl_stmt|;
-DECL|field|fileSizes
-specifier|private
-name|ConcurrentHashMap
-argument_list|<
-name|File
-argument_list|,
-name|Long
-argument_list|>
-name|fileSizes
-init|=
-operator|new
-name|ConcurrentHashMap
-argument_list|<
-name|File
-argument_list|,
-name|Long
-argument_list|>
-argument_list|()
 decl_stmt|;
 DECL|method|FileConsumer (final FileEndpoint endpoint, Processor processor)
 specifier|public
@@ -317,7 +318,7 @@ name|currentTimeMillis
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * @param fileOrDirectory      * @param processDir      * @return the number of files processed or being processed async.      */
+comment|/**      * Pools the given file or directory for files to process.      *      * @param fileOrDirectory  file or directory      * @param processDir  recursive      * @return the number of files processed or being processed async.      */
 DECL|method|pollFileOrDirectory (File fileOrDirectory, boolean processDir)
 specifier|protected
 name|int
@@ -386,29 +387,17 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
+name|File
+name|file
+range|:
 name|files
-operator|.
-name|length
-condition|;
-name|i
-operator|++
 control|)
 block|{
 name|rc
 operator|+=
 name|pollFileOrDirectory
 argument_list|(
-name|files
-index|[
-name|i
-index|]
+name|file
 argument_list|,
 name|isRecursive
 argument_list|()
@@ -437,7 +426,7 @@ literal|0
 return|;
 block|}
 block|}
-comment|/**      * @param file      * @return the number of files processed or being processed async.      */
+comment|/**      * Polls the given file      *      * @param file  the file      * @return returns 1 if the file was processed, 0 otherwise.      */
 DECL|method|pollFile (final File file)
 specifier|protected
 name|int
@@ -627,8 +616,7 @@ argument_list|)
 condition|)
 block|{
 comment|// Use the async processor interface so that processing of
-comment|// the
-comment|// exchange can happen asynchronously
+comment|// the exchange can happen asynchronously
 name|getAsyncProcessor
 argument_list|()
 operator|.
@@ -666,9 +654,6 @@ name|commit
 argument_list|(
 name|endpoint
 argument_list|,
-operator|(
-name|FileExchange
-operator|)
 name|exchange
 argument_list|,
 name|file
@@ -777,8 +762,7 @@ name|exists
 argument_list|()
 condition|)
 block|{
-comment|// TODO: maybe use a configurable strategy instead of the
-comment|// hardcoded one based on last file change
+comment|// TODO: maybe use a configurable strategy instead of the hardcoded one based on last file change
 if|if
 condition|(
 name|isMatched
@@ -930,9 +914,11 @@ name|prevFileSize
 expr_stmt|;
 name|sizeCheck
 operator|=
-literal|0
-operator|==
+operator|(
 name|sizeDifference
+operator|==
+literal|0
+operator|)
 expr_stmt|;
 block|}
 name|boolean
@@ -1158,7 +1144,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * @return the recursive      */
 DECL|method|isRecursive ()
 specifier|public
 name|boolean
@@ -1171,7 +1156,6 @@ operator|.
 name|recursive
 return|;
 block|}
-comment|/**      * @param recursive the recursive to set      */
 DECL|method|setRecursive (boolean recursive)
 specifier|public
 name|void
@@ -1188,7 +1172,6 @@ operator|=
 name|recursive
 expr_stmt|;
 block|}
-comment|/**      * @return the regexPattern      */
 DECL|method|getRegexPattern ()
 specifier|public
 name|String
@@ -1201,7 +1184,6 @@ operator|.
 name|regexPattern
 return|;
 block|}
-comment|/**      * @param regexPattern the regexPattern to set      */
 DECL|method|setRegexPattern (String regexPattern)
 specifier|public
 name|void
