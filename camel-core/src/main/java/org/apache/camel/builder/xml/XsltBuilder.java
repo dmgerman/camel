@@ -803,7 +803,7 @@ operator|=
 name|resultHandlerFactory
 expr_stmt|;
 block|}
-comment|/**      * Sets the XSLT transformer from a Source      */
+comment|/**      * Sets the XSLT transformer from a Source      *      * @param source  the source      * @throws TransformerConfigurationException is thrown if creating a XSLT transformer failed.      */
 DECL|method|setTransformerSource (Source source)
 specifier|public
 name|void
@@ -815,8 +815,12 @@ parameter_list|)
 throws|throws
 name|TransformerConfigurationException
 block|{
-name|setTransformer
-argument_list|(
+comment|// Check that the call to newTransformer() returns a valid transformer instance.
+comment|// In case of an xslt parse error, it will return null and we should stop the
+comment|// deployment and raise an exception as the route will not be setup properly.
+name|Transformer
+name|transformer
+init|=
 name|converter
 operator|.
 name|getTransformerFactory
@@ -826,8 +830,34 @@ name|newTransformer
 argument_list|(
 name|source
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|transformer
+operator|!=
+literal|null
+condition|)
+block|{
+name|setTransformer
+argument_list|(
+name|transformer
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|TransformerConfigurationException
+argument_list|(
+literal|"Error creating XSLT transformer. "
+operator|+
+literal|"This is most likely be caused by an XML parse error. "
+operator|+
+literal|"Please verify your XSLT file configured."
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      * Sets the XSLT transformer from a File      */
 DECL|method|setTransformerFile (File xslt)
