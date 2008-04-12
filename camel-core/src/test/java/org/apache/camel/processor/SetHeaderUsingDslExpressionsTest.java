@@ -363,10 +363,10 @@ name|assertMockEndpointsSatisifed
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testUseBodyExpresion ()
+DECL|method|testUseBodyExpression ()
 specifier|public
 name|void
-name|testUseBodyExpresion
+name|testUseBodyExpression
 parameter_list|()
 throws|throws
 name|Exception
@@ -421,10 +421,10 @@ name|assertMockEndpointsSatisifed
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testUseBodyAsTypeExpresion ()
+DECL|method|testUseBodyAsTypeExpression ()
 specifier|public
 name|void
-name|testUseBodyAsTypeExpresion
+name|testUseBodyAsTypeExpression
 parameter_list|()
 throws|throws
 name|Exception

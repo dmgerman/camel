@@ -653,7 +653,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the contant value      *      * @param value the value the expression will return      * @return an expression object which will return the constant value      */
+comment|/**      * Returns an expression for the constant value      *      * @param value the value the expression will return      * @return an expression object which will return the constant value      */
 DECL|method|constantExpression (final Object value)
 specifier|public
 specifier|static
