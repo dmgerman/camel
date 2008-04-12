@@ -198,7 +198,6 @@ argument_list|)
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
-specifier|final
 name|FtpEndpoint
 name|endpoint
 decl_stmt|;

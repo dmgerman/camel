@@ -153,12 +153,12 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|endpoint
+specifier|private
 name|FtpEndpoint
 name|endpoint
 decl_stmt|;
 DECL|field|client
 specifier|private
-specifier|final
 name|FTPClient
 name|client
 decl_stmt|;

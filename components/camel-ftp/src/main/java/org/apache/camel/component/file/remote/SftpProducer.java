@@ -157,6 +157,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|endpoint
+specifier|private
 name|SftpEndpoint
 name|endpoint
 decl_stmt|;
@@ -199,7 +200,6 @@ operator|=
 name|session
 expr_stmt|;
 block|}
-comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
 DECL|method|connectIfNecessary ()
 specifier|protected
 name|void
@@ -292,7 +292,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
 DECL|method|disconnect ()
 specifier|protected
 name|void
@@ -342,7 +341,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -354,6 +352,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
 name|connectIfNecessary
 argument_list|()
 expr_stmt|;
@@ -495,13 +494,9 @@ operator|-
 literal|1
 condition|)
 block|{
-name|boolean
-name|success
+name|String
+name|directory
 init|=
-name|buildDirectory
-argument_list|(
-name|channel
-argument_list|,
 name|fileName
 operator|.
 name|substring
@@ -510,6 +505,15 @@ literal|0
 argument_list|,
 name|lastPathIndex
 argument_list|)
+decl_stmt|;
+name|boolean
+name|success
+init|=
+name|buildDirectory
+argument_list|(
+name|channel
+argument_list|,
+name|directory
 argument_list|)
 decl_stmt|;
 if|if
@@ -522,16 +526,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Couldn't buildDirectory: "
+literal|"Couldn't build directory: "
 operator|+
-name|fileName
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-name|lastPathIndex
-argument_list|)
+name|directory
 operator|+
 literal|" (either permissions deny it, or it already exists)"
 argument_list|)
@@ -568,9 +565,9 @@ finally|finally
 block|{
 if|if
 condition|(
-literal|null
-operator|!=
 name|payload
+operator|!=
+literal|null
 condition|)
 block|{
 name|payload
@@ -669,6 +666,8 @@ name|dirName
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|SftpException
 block|{
 name|boolean
 name|atLeastOneSuccess
@@ -720,16 +719,37 @@ argument_list|(
 literal|'/'
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|sftpClient
-operator|.
-name|mkdir
-argument_list|(
+name|String
+name|directory
+init|=
 name|sb
 operator|.
 name|toString
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Trying to build directory: "
+operator|+
+name|directory
+argument_list|)
+expr_stmt|;
+block|}
+name|sftpClient
+operator|.
+name|mkdir
+argument_list|(
+name|directory
 argument_list|)
 expr_stmt|;
 if|if
@@ -742,15 +762,6 @@ name|atLeastOneSuccess
 operator|=
 literal|true
 expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|SftpException
-name|e
-parameter_list|)
-block|{
-comment|// TODO: not sure what to do here...
 block|}
 block|}
 return|return
