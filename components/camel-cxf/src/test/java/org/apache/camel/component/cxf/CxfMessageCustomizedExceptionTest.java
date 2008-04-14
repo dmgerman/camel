@@ -40,7 +40,7 @@ specifier|public
 class|class
 name|CxfMessageCustomizedExceptionTest
 extends|extends
-name|CxfCustmerizedExceptionTest
+name|CxfCustomizedExceptionTest
 block|{
 annotation|@
 name|Override

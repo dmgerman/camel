@@ -28,7 +28,7 @@ specifier|public
 class|class
 name|CxfPayLoadCustomizedExceptionTest
 extends|extends
-name|CxfCustmerizedExceptionTest
+name|CxfCustomizedExceptionTest
 block|{
 annotation|@
 name|Override
