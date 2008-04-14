@@ -82,11 +82,19 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
+comment|// TODO: we should only expect 1 message, but seda queues can sometimes send multiple
 name|mock
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -124,9 +132,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// lets log all steps in all routes
-comment|// TODO: this does not work as expected. if enabled the exchange is not routed to seda:bar
-comment|//intercept().to("log:foo");
+comment|// lets log all steps in all routes (must use proceed to let the exchange gots by its
+comment|// normal route path instead of swalling it here by our interception
+name|intercept
+argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"log:foo"
+argument_list|)
+operator|.
+name|proceed
+argument_list|()
+expr_stmt|;
 name|from
 argument_list|(
 literal|"seda:foo"

@@ -442,20 +442,6 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|SetHeaderProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
 name|aggregate
 operator|.
 name|AggregationCollection
@@ -657,10 +643,7 @@ name|ProcessorType
 argument_list|>
 name|parent
 decl_stmt|;
-comment|// else to use an
-comment|// optional
-comment|// attribute in
-comment|// JAXB2
+comment|// else to use an optional attribute in JAXB2
 DECL|method|getOutputs ()
 specifier|public
 specifier|abstract
@@ -2693,6 +2676,26 @@ argument_list|()
 expr_stmt|;
 break|break;
 block|}
+block|}
+if|if
+condition|(
+name|this
+operator|instanceof
+name|InterceptType
+condition|)
+block|{
+name|proceed
+operator|=
+operator|(
+operator|(
+name|InterceptType
+operator|)
+name|this
+operator|)
+operator|.
+name|getProceed
+argument_list|()
+expr_stmt|;
 block|}
 if|if
 condition|(
