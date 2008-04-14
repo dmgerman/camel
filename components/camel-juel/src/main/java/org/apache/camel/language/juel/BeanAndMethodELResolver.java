@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An extension of the JUEL {@link BeanELResolver} which also supports the resolving of methods  *  * @version $Revision: 1.1 $  */
+comment|/**  * An extension of the JUEL {@link BeanELResolver} which also supports the resolving of methods  *  * @version $Revision$  */
 end_comment
 
 begin_class
