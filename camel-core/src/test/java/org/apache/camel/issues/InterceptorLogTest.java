@@ -136,8 +136,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// lets log all steps in all routes (must use proceed to let the exchange gots by its
-comment|// normal route path instead of swalling it here by our interception
+comment|// lets log all steps in all routes (must use proceed to let the exchange continue its
+comment|// normal route path instead of swallowing it here by our intercepter.
 name|intercept
 argument_list|()
 operator|.

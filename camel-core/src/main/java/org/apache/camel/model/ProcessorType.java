@@ -2633,6 +2633,33 @@ name|proceed
 init|=
 literal|null
 decl_stmt|;
+if|if
+condition|(
+name|this
+operator|instanceof
+name|InterceptType
+condition|)
+block|{
+name|proceed
+operator|=
+operator|(
+operator|(
+name|InterceptType
+operator|)
+name|this
+operator|)
+operator|.
+name|getProceed
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|proceed
+operator|==
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|ProcessorType
@@ -2677,6 +2704,7 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+block|}
 if|if
 condition|(
 name|this
@@ -2712,8 +2740,6 @@ literal|"Cannot use proceed() without being within an intercept() block"
 argument_list|)
 throw|;
 block|}
-comment|// TODO we should be looking up the stack to find the last InterceptType
-comment|// and returning its ProceedType!
 name|addOutput
 argument_list|(
 name|proceed
