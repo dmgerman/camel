@@ -914,11 +914,9 @@ name|prevFileSize
 expr_stmt|;
 name|sizeCheck
 operator|=
-operator|(
 name|sizeDifference
 operator|==
 literal|0
-operator|)
 expr_stmt|;
 block|}
 name|boolean

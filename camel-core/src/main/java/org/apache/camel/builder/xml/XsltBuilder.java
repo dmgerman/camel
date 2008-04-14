@@ -255,7 +255,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a<a href="http://activemq.apache.org/camel/processor.html">Processor</a>  * which performs an XSLT transformation of the IN message body  *   * @version $Revision$  */
+comment|/**  * Creates a<a href="http://activemq.apache.org/camel/processor.html">Processor</a>  * which performs an XSLT transformation of the IN message body  *  * @version $Revision$  */
 end_comment
 
 begin_class
