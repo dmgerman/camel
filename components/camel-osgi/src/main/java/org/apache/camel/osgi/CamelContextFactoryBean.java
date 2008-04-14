@@ -112,10 +112,6 @@ name|BundleContextAware
 import|;
 end_import
 
-begin_comment
-comment|/**  * Created by IntelliJ IDEA.  * User: gnodet  * Date: Sep 20, 2007  * Time: 10:31:52 AM  * To change this template use File | Settings | File Templates.  */
-end_comment
-
 begin_class
 annotation|@
 name|XmlRootElement

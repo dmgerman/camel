@@ -40,10 +40,6 @@ name|JAXBException
 import|;
 end_import
 
-begin_comment
-comment|/**  * Created by IntelliJ IDEA.  * User: gnodet  * Date: Sep 20, 2007  * Time: 11:24:23 AM  * To change this template use File | Settings | File Templates.  */
-end_comment
-
 begin_class
 DECL|class|CamelNamespaceHandler
 specifier|public
