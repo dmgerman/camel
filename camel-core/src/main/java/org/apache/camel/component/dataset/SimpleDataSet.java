@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple DataSet that allows a static payload to be used to create each message exchange  * along with using a pluggable transformer to randomize the message.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A simple DataSet that allows a static payload to be used to create each message exchange  * along with using a pluggable transformer to randomize the message.  *  * @version $Revision$  */
 end_comment
 
 begin_class

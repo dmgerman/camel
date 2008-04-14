@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which converts the payload of the input message to be of the given type  *  * @version $Revision: 1.1 $  */
+comment|/**  * A processor which converts the payload of the input message to be of the given type  *  * @version $Revision$  */
 end_comment
 
 begin_class

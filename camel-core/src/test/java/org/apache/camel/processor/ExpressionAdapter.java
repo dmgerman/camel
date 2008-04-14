@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for developers wishing to implement an {@link Expression} using Java code with a minimum amount  * of code to write so that the developer only needs to implement the {@link #evaluate(Exchange)} method.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A helper class for developers wishing to implement an {@link Expression} using Java code with a minimum amount  * of code to write so that the developer only needs to implement the {@link #evaluate(Exchange)} method.  *  * @version $Revision$  */
 end_comment
 
 begin_class
