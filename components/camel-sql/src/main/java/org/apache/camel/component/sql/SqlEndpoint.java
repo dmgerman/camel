@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|sql
@@ -108,6 +118,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|jdbc
@@ -143,7 +167,7 @@ specifier|private
 name|String
 name|query
 decl_stmt|;
-DECL|method|SqlEndpoint (String uri, String query, Component component, DataSource dataSource)
+DECL|method|SqlEndpoint (String uri, String query, Component component, DataSource dataSource, Map parameters)
 specifier|public
 name|SqlEndpoint
 parameter_list|(
@@ -158,7 +182,12 @@ name|component
 parameter_list|,
 name|DataSource
 name|dataSource
+parameter_list|,
+name|Map
+name|parameters
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|super
 argument_list|(
@@ -175,6 +204,17 @@ operator|new
 name|JdbcTemplate
 argument_list|(
 name|dataSource
+argument_list|)
+expr_stmt|;
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+name|jdbcTemplate
+argument_list|,
+name|parameters
+argument_list|,
+literal|"template."
 argument_list|)
 expr_stmt|;
 name|this
