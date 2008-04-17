@@ -209,7 +209,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Returns the underlying Mail message      *       * @return the underlying Mail message      */
+comment|/**      * Returns the underlying Mail message      */
 DECL|method|getMessage ()
 specifier|public
 name|Message
