@@ -339,6 +339,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|endpoint
+specifier|private
+name|JmsEndpoint
+name|endpoint
+decl_stmt|;
 DECL|field|ignoreJmsHeaders
 specifier|private
 name|Set
@@ -356,6 +361,26 @@ operator|new
 name|XmlConverter
 argument_list|()
 decl_stmt|;
+DECL|method|JmsBinding ()
+specifier|public
+name|JmsBinding
+parameter_list|()
+block|{     }
+DECL|method|JmsBinding (JmsEndpoint endpoint)
+specifier|public
+name|JmsBinding
+parameter_list|(
+name|JmsEndpoint
+name|endpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
+block|}
 comment|/**      * Extracts the body from the JMS message      *      * @param exchange the exchange      * @param message  the message to extract its body      * @return the body, can be<tt>null</tt>      */
 DECL|method|extractBodyFromJms (Exchange exchange, Message message)
 specifier|public
@@ -607,8 +632,30 @@ name|answer
 init|=
 literal|null
 decl_stmt|;
+name|boolean
+name|alwaysCopy
+init|=
+operator|(
+name|endpoint
+operator|!=
+literal|null
+operator|)
+condition|?
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isAlwaysCopyMessage
+argument_list|()
+else|:
+literal|false
+decl_stmt|;
 if|if
 condition|(
+operator|!
+name|alwaysCopy
+operator|&&
 name|camelMessage
 operator|instanceof
 name|JmsMessage

@@ -443,7 +443,7 @@ decl_stmt|;
 name|keys
 operator|=
 operator|new
-name|String
+name|Object
 index|[
 name|keySet
 operator|.
@@ -462,6 +462,25 @@ block|}
 return|return
 name|keys
 return|;
+block|}
+DECL|method|size ()
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+synchronized|synchronized
+init|(
+name|map
+init|)
+block|{
+return|return
+name|map
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 block|}
 comment|/**      * The timer task which purges old requests and schedules another poll      */
 DECL|method|run ()

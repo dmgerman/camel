@@ -548,7 +548,9 @@ name|binding
 operator|=
 operator|new
 name|JmsBinding
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -631,6 +633,7 @@ return|;
 block|}
 DECL|method|getRequestor ()
 specifier|public
+specifier|synchronized
 name|Requestor
 name|getRequestor
 parameter_list|()

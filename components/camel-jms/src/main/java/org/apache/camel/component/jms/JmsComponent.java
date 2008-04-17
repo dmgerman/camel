@@ -1153,6 +1153,42 @@ name|messageTimestampEnabled
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setAlwaysCopyMessage (boolean alwaysCopyMessage)
+specifier|public
+name|void
+name|setAlwaysCopyMessage
+parameter_list|(
+name|boolean
+name|alwaysCopyMessage
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setAlwaysCopyMessage
+argument_list|(
+name|alwaysCopyMessage
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setUseMessageIDAsCorrelationID (boolean useMessageIDAsCorrelationID)
+specifier|public
+name|void
+name|setUseMessageIDAsCorrelationID
+parameter_list|(
+name|boolean
+name|useMessageIDAsCorrelationID
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setUseMessageIDAsCorrelationID
+argument_list|(
+name|useMessageIDAsCorrelationID
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setPriority (int priority)
 specifier|public
 name|void
@@ -1425,6 +1461,7 @@ expr_stmt|;
 block|}
 DECL|method|getRequestor ()
 specifier|public
+specifier|synchronized
 name|Requestor
 name|getRequestor
 parameter_list|()
@@ -1695,6 +1732,8 @@ init|=
 name|convertPathToActualDestination
 argument_list|(
 name|remaining
+argument_list|,
+name|parameters
 argument_list|)
 decl_stmt|;
 comment|// lets make sure we copy the configuration as each endpoint can
@@ -1805,13 +1844,16 @@ name|endpoint
 return|;
 block|}
 comment|/**      * A strategy method allowing the URI destination to be translated into the      * actual JMS destination name (say by looking up in JNDI or something)      */
-DECL|method|convertPathToActualDestination (String path)
+DECL|method|convertPathToActualDestination (String path, Map parameters)
 specifier|protected
 name|String
 name|convertPathToActualDestination
 parameter_list|(
 name|String
 name|path
+parameter_list|,
+name|Map
+name|parameters
 parameter_list|)
 block|{
 return|return

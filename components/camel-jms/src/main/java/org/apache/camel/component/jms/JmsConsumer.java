@@ -101,6 +101,11 @@ specifier|final
 name|AbstractMessageListenerContainer
 name|listenerContainer
 decl_stmt|;
+DECL|field|messageListener
+specifier|private
+name|EndpointMessageListener
+name|messageListener
+decl_stmt|;
 DECL|method|JmsConsumer (JmsEndpoint endpoint, Processor processor, AbstractMessageListenerContainer listenerContainer)
 specifier|public
 name|JmsConsumer
@@ -128,16 +133,13 @@ name|listenerContainer
 operator|=
 name|listenerContainer
 expr_stmt|;
-name|MessageListener
-name|messageListener
-init|=
 name|createMessageListener
 argument_list|(
 name|endpoint
 argument_list|,
 name|processor
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|this
 operator|.
 name|listenerContainer
@@ -158,9 +160,19 @@ return|return
 name|listenerContainer
 return|;
 block|}
+DECL|method|getEndpointMessageListener ()
+specifier|public
+name|EndpointMessageListener
+name|getEndpointMessageListener
+parameter_list|()
+block|{
+return|return
+name|messageListener
+return|;
+block|}
 DECL|method|createMessageListener (JmsEndpoint endpoint, Processor processor)
 specifier|protected
-name|MessageListener
+name|void
 name|createMessageListener
 parameter_list|(
 name|JmsEndpoint
@@ -170,9 +182,8 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
-name|EndpointMessageListener
 name|messageListener
-init|=
+operator|=
 operator|new
 name|EndpointMessageListener
 argument_list|(
@@ -180,7 +191,7 @@ name|endpoint
 argument_list|,
 name|processor
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|messageListener
 operator|.
 name|setBinding
@@ -191,9 +202,6 @@ name|getBinding
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
-name|messageListener
-return|;
 block|}
 annotation|@
 name|Override

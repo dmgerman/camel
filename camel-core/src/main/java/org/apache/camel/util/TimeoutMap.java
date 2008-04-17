@@ -44,6 +44,11 @@ index|[]
 name|getKeys
 parameter_list|()
 function_decl|;
+DECL|method|size ()
+name|int
+name|size
+parameter_list|()
+function_decl|;
 comment|/**      * Adds the key value pair into the map such that some time after the given      * timeout the entry will be evicted      */
 DECL|method|put (Object key, Object value, long timeoutMillis)
 name|void
