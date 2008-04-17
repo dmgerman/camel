@@ -936,8 +936,7 @@ name|isPrimitive
 argument_list|()
 condition|)
 block|{
-comment|// TODO can we try walking the inheritence-tree for the element
-comment|// types?
+comment|// TODO can we try walking the inheritance-tree for the element types?
 if|if
 condition|(
 operator|!
@@ -1171,7 +1170,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|// lets try load any other failback converters
+comment|// lets try load any other fallback converters
 try|try
 block|{
 name|loadFallbackTypeConverters
