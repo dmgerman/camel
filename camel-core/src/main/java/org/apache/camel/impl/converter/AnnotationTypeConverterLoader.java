@@ -184,20 +184,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|CachingInjector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -388,7 +374,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Finds the names of the packages to search for on the classpath looking      * for text files on the classpath at the {@link #META_INF_SERVICES} location.      *      * @return a collection of packages to search for      * @throws IOException is thrown for IO relatede errors      */
+comment|/**      * Finds the names of the packages to search for on the classpath looking      * for text files on the classpath at the {@link #META_INF_SERVICES} location.      *      * @return a collection of packages to search for      * @throws IOException is thrown for IO related errors      */
 DECL|method|findPackageNames ()
 specifier|protected
 name|String

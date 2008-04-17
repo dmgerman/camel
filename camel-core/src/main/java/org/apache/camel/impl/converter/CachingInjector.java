@@ -4,20 +4,8 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.impl.converter
 package|package
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-package|;
-end_package
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -27,13 +15,11 @@ operator|.
 name|impl
 operator|.
 name|converter
-operator|.
-name|TypeConverterRegistry
-import|;
-end_import
+package|;
+end_package
 
 begin_comment
-comment|/**  * A caching proxy so that a single   * @version $Revision$  */
+comment|/**  * A caching proxy  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -131,9 +117,6 @@ name|t
 parameter_list|)
 block|{
 return|return
-operator|(
-name|T
-operator|)
 name|repository
 operator|.
 name|getInjector

@@ -62,20 +62,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|CachingInjector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -182,7 +168,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Could not instantiate aninstance of: "
+literal|"Could not instantiate an instance of: "
 operator|+
 name|type
 operator|.
