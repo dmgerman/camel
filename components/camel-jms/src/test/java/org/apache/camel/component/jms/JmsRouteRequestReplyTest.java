@@ -356,7 +356,6 @@ interface|interface
 name|ContextBuilder
 block|{
 DECL|method|buildContext (CamelContext context)
-specifier|public
 name|CamelContext
 name|buildContext
 parameter_list|(
@@ -1401,7 +1400,7 @@ name|runRequestReplyThreaded
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*      * REVISIT: This currently fails because there is a single instance of Requestor per JmsComponent      * which shares requestMap amongst JmsProducers. This is a problem in case where the same correlationID      * value travels between nodes serviced by the same JmsComponent:      * client -> producer1 -> corrId -> consumer1 -> producer2 -> corrId -> consumer      * producer1 (Bum! @)<- corrId<- consumer1<- producer2<- corrId<- reply      *       * @ - The request entry for corrId was already removed from JmsProducer shared requestMap      *       * Possible ways to solve this: Each JmsProducer gets its own replyTo destination      *           public void testUseCorrelationIDMultiNode() throws Exception {             runRequestReplyThreaded();         }     */
+comment|/*      * REVISIT: This currently fails because there is a single instance of Requestor per JmsComponent      * which shares requestMap amongst JmsProducers. This is a problem in case where the same correlationID      * value travels between nodes serviced by the same JmsComponent:      * client -> producer1 -> corrId -> consumer1 -> producer2 -> corrId -> consumer      * producer1 (Bum! @)<- corrId<- consumer1<- producer2<- corrId<- reply      *      * @ - The request entry for corrId was already removed from JmsProducer shared requestMap      *      * Possible ways to solve this: Each JmsProducer gets its own replyTo destination      *          public void testUseCorrelationIDMultiNode() throws Exception {             runRequestReplyThreaded();         }     */
 DECL|method|runRequestReplyThreaded ()
 specifier|protected
 name|void

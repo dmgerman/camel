@@ -490,23 +490,6 @@ name|JmsConfiguration
 implements|implements
 name|Cloneable
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|JmsConfiguration
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|TRANSACTED
 specifier|protected
 specifier|static
@@ -542,6 +525,23 @@ name|String
 name|DUPS_OK_ACKNOWLEDGE
 init|=
 literal|"DUPS_OK_ACKNOWLEDGE"
+decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|JmsConfiguration
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 DECL|field|jmsOperations
 specifier|private
@@ -813,15 +813,11 @@ DECL|field|alwaysCopyMessage
 specifier|private
 name|boolean
 name|alwaysCopyMessage
-init|=
-literal|false
 decl_stmt|;
 DECL|field|useMessageIDAsCorrelationID
 specifier|private
 name|boolean
 name|useMessageIDAsCorrelationID
-init|=
-literal|false
 decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
@@ -946,7 +942,6 @@ interface|interface
 name|MessageSentCallback
 block|{
 DECL|method|sent (Message message)
-specifier|public
 name|void
 name|sent
 parameter_list|(
@@ -1405,7 +1400,8 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-comment|// Check commit - avoid commit call within a JTA transaction.
+comment|// Check commit - avoid commit call within a JTA
+comment|// transaction.
 if|if
 condition|(
 name|session
@@ -1419,7 +1415,8 @@ name|session
 argument_list|)
 condition|)
 block|{
-comment|// Transacted session created by this template -> commit.
+comment|// Transacted session created by this template ->
+comment|// commit.
 name|JmsUtils
 operator|.
 name|commitIfNecessary

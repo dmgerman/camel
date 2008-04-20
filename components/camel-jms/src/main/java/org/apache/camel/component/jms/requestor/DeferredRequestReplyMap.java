@@ -64,7 +64,9 @@ name|component
 operator|.
 name|jms
 operator|.
-name|JmsProducer
+name|JmsConfiguration
+operator|.
+name|MessageSentCallback
 import|;
 end_import
 
@@ -80,9 +82,7 @@ name|component
 operator|.
 name|jms
 operator|.
-name|JmsConfiguration
-operator|.
-name|MessageSentCallback
+name|JmsProducer
 import|;
 end_import
 

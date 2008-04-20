@@ -22,7 +22,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStream
+name|ByteArrayInputStream
 import|;
 end_import
 
@@ -32,7 +32,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayInputStream
+name|InputStream
 import|;
 end_import
 
@@ -104,11 +104,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|builder
 operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|RouteBuilder
 import|;
 end_import
 
@@ -120,9 +118,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|RouteBuilder
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
