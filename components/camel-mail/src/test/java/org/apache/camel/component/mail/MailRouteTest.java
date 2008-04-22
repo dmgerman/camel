@@ -136,22 +136,6 @@ name|Mailbox
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|asString
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -164,11 +148,6 @@ name|MailRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|resultEndpoint
-specifier|private
-name|MockEndpoint
-name|resultEndpoint
-decl_stmt|;
 DECL|method|testSendAndReceiveMails ()
 specifier|public
 name|void
@@ -177,13 +156,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
 name|resultEndpoint
-operator|=
+init|=
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|resultEndpoint
 operator|.
 name|expectedBodiesReceived
@@ -234,8 +214,7 @@ argument_list|(
 literal|"route-test-james@localhost"
 argument_list|)
 expr_stmt|;
-comment|// lets sleep to check that the mail poll does not redeliver duplicate
-comment|// mails
+comment|// lets sleep to check that the mail poll does not redeliver duplicate mails
 name|Thread
 operator|.
 name|sleep
@@ -348,9 +327,50 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-name|logMessage
+name|assertEquals
 argument_list|(
+literal|"hello world!"
+argument_list|,
 name|message
+operator|.
+name|getContent
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"camel@localhost"
+argument_list|,
+name|message
+operator|.
+name|getFrom
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|name
+argument_list|,
+name|message
+operator|.
+name|getRecipients
+argument_list|(
+name|RecipientType
+operator|.
+name|TO
+argument_list|)
+index|[
+literal|0
+index|]
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -414,56 +434,6 @@ expr_stmt|;
 block|}
 block|}
 return|;
-block|}
-DECL|method|logMessage (Message message)
-specifier|protected
-name|void
-name|logMessage
-parameter_list|(
-name|Message
-name|message
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|MessagingException
-block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Received: "
-operator|+
-name|message
-operator|.
-name|getContent
-argument_list|()
-operator|+
-literal|" from: "
-operator|+
-name|asString
-argument_list|(
-name|message
-operator|.
-name|getFrom
-argument_list|()
-argument_list|)
-operator|+
-literal|" to: "
-operator|+
-name|asString
-argument_list|(
-name|message
-operator|.
-name|getRecipients
-argument_list|(
-name|RecipientType
-operator|.
-name|TO
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

@@ -119,22 +119,22 @@ extends|extends
 name|ContextTestSupport
 block|{
 DECL|field|mailSession
-specifier|protected
+specifier|private
 name|Session
 name|mailSession
 decl_stmt|;
 DECL|field|mimeMessage
-specifier|protected
+specifier|private
 name|MimeMessage
 name|mimeMessage
 decl_stmt|;
 DECL|field|endpoint
-specifier|protected
+specifier|private
 name|MailEndpoint
 name|endpoint
 decl_stmt|;
 DECL|field|body
-specifier|protected
+specifier|private
 name|String
 name|body
 init|=
@@ -194,8 +194,20 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"mail body"
+argument_list|,
+name|body
+argument_list|,
+name|in
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|String
-name|value
+name|to
 init|=
 name|in
 operator|.
@@ -210,24 +222,11 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"value"
+literal|"should have 2 receivers"
 argument_list|,
 literal|"james@localhost, bar@localhost"
 argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-comment|/*          * String[] values = assertIsInstanceOf(String[].class, header);          * log.debug("Found values: " + ObjectHelper.asString(values));          * assertEquals("Size", 2, values.length); assertEquals("values[0]",          * "james@localhost", values[0]); assertEquals("values[1]",          * "bar@localhost", values[1]);          */
-name|assertEquals
-argument_list|(
-literal|"body"
-argument_list|,
-name|body
-argument_list|,
-name|in
-operator|.
-name|getBody
-argument_list|()
+name|to
 argument_list|)
 expr_stmt|;
 block|}

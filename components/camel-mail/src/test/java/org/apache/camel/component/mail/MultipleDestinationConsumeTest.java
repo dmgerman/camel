@@ -192,20 +192,15 @@ name|MultipleDestinationConsumeTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|resultEndpoint
-specifier|protected
-name|MockEndpoint
-name|resultEndpoint
-decl_stmt|;
 DECL|field|body
-specifier|protected
+specifier|private
 name|String
 name|body
 init|=
 literal|"hello world!"
 decl_stmt|;
 DECL|field|mailSession
-specifier|protected
+specifier|private
 name|Session
 name|mailSession
 decl_stmt|;
@@ -217,13 +212,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
 name|resultEndpoint
-operator|=
+init|=
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|resultEndpoint
 operator|.
 name|expectedMinimumMessageCount
@@ -315,36 +311,10 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|log
-operator|.
-name|debug
+name|assertNotNull
 argument_list|(
-literal|"Received: "
-operator|+
-name|in
-operator|.
-name|getBody
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|String
-name|text
-init|=
-name|in
-operator|.
-name|getBody
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Has headers: "
-operator|+
+literal|"Should have headers"
+argument_list|,
 name|in
 operator|.
 name|getHeaders
@@ -375,6 +345,50 @@ argument_list|(
 literal|"In message has no JavaMail message!"
 argument_list|,
 name|inMessage
+argument_list|)
+expr_stmt|;
+name|String
+name|text
+init|=
+name|in
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"mail body"
+argument_list|,
+name|body
+argument_list|,
+name|text
+argument_list|)
+expr_stmt|;
+name|String
+name|to
+init|=
+name|in
+operator|.
+name|getHeader
+argument_list|(
+literal|"TO"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"TO Header"
+argument_list|,
+literal|"james@localhost, bar@localhost"
+argument_list|,
+name|to
 argument_list|)
 expr_stmt|;
 name|Enumeration
@@ -440,35 +454,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|assertEquals
-argument_list|(
-literal|"body"
-argument_list|,
-name|body
-argument_list|,
-name|text
-argument_list|)
-expr_stmt|;
-name|Object
-name|value
-init|=
-name|in
-operator|.
-name|getHeader
-argument_list|(
-literal|"TO"
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"TO Header"
-argument_list|,
-literal|"james@localhost, bar@localhost"
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-comment|/*         List list = assertIsInstanceOf(List.class, value);         assertEquals("to list", 2, list.size()); */
 block|}
 annotation|@
 name|Override

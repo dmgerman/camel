@@ -180,13 +180,8 @@ name|MimeMessageConsumeTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|resultEndpoint
-specifier|protected
-name|MockEndpoint
-name|resultEndpoint
-decl_stmt|;
 DECL|field|body
-specifier|protected
+specifier|private
 name|String
 name|body
 init|=
@@ -200,13 +195,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
 name|resultEndpoint
-operator|=
+init|=
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|resultEndpoint
 operator|.
 name|expectedMinimumMessageCount
@@ -295,21 +291,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Received: "
-operator|+
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|String
 name|text
 init|=
@@ -327,7 +308,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"body"
+literal|"mail body"
 argument_list|,
 name|body
 argument_list|,
