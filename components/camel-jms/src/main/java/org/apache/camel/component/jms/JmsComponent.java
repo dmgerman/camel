@@ -401,6 +401,7 @@ name|applicationContext
 decl_stmt|;
 DECL|field|requestor
 specifier|private
+specifier|volatile
 name|Requestor
 name|requestor
 decl_stmt|;
@@ -1493,6 +1494,11 @@ operator|==
 literal|null
 condition|)
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 name|requestor
 operator|=
 operator|new
@@ -1510,6 +1516,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 return|return
 name|requestor
