@@ -4,9 +4,13 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.example.server
+DECL|package|org.apache.camel.example.server
 package|package
 name|org
+operator|.
+name|apache
+operator|.
+name|camel
 operator|.
 name|example
 operator|.
@@ -14,58 +18,27 @@ name|server
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author martin.gilday  */
 end_comment
 
-begin_class
-DECL|class|ServerRoutes
+begin_interface
+DECL|interface|Multiplier
 specifier|public
-class|class
-name|ServerRoutes
-extends|extends
-name|RouteBuilder
+interface|interface
+name|Multiplier
 block|{
-comment|/*      * (non-Javadoc)      *      * @see org.apache.camel.builder.RouteBuilder#configure()      */
-annotation|@
-name|Override
-DECL|method|configure ()
-specifier|public
-name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|from
-argument_list|(
-literal|"jms:queue:numbers"
-argument_list|)
-operator|.
-name|beanRef
-argument_list|(
-literal|"multiplier"
-argument_list|,
-literal|"multiply"
-argument_list|)
-expr_stmt|;
+comment|/**      * Multiplies the given number by a pre-defined constant.      *      * @param originalNumber The number to be multiplied      * @return The result of the multiplication      */
+DECL|method|multiply (int originalNumber)
+name|int
+name|multiply
+parameter_list|(
+name|int
+name|originalNumber
+parameter_list|)
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

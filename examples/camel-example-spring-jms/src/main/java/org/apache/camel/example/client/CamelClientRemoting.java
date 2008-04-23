@@ -4,15 +4,35 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.example.server
+DECL|package|org.apache.camel.example.client
 package|package
 name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|example
+operator|.
+name|client
+package|;
+end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
 operator|.
 name|example
 operator|.
 name|server
-package|;
-end_package
+operator|.
+name|Multiplier
+import|;
+end_import
 
 begin_import
 import|import
@@ -41,24 +61,23 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author martin.gilday  */
+comment|/**  * Requires that the JMS broker is running, as well as CamelServer  *  * @author martin.gilday  */
 end_comment
 
 begin_class
-DECL|class|CamelServer
+DECL|class|CamelClientRemoting
 specifier|public
 specifier|final
 class|class
-name|CamelServer
+name|CamelClientRemoting
 block|{
-DECL|method|CamelServer ()
+DECL|method|CamelClientRemoting ()
 specifier|private
-name|CamelServer
+name|CamelClientRemoting
 parameter_list|()
 block|{
 comment|// the main class
 block|}
-comment|/**      * @param args      */
 DECL|method|main (final String[] args)
 specifier|public
 specifier|static
@@ -71,72 +90,49 @@ index|[]
 name|args
 parameter_list|)
 block|{
-name|JmsBroker
-name|broker
-init|=
-operator|new
-name|JmsBroker
-argument_list|()
-decl_stmt|;
-try|try
-block|{
-name|broker
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|ApplicationContext
 name|context
 init|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"META-INF/spring/camel-server.xml"
+literal|"camel-client-remoting.xml"
 argument_list|)
 decl_stmt|;
-name|Thread
+name|Multiplier
+name|multiplier
+init|=
+operator|(
+name|Multiplier
+operator|)
+name|context
 operator|.
-name|sleep
+name|getBean
 argument_list|(
-literal|5
-operator|*
-literal|60
-operator|*
-literal|1000
+literal|"multiplierProxy"
+argument_list|)
+decl_stmt|;
+name|int
+name|response
+init|=
+name|multiplier
+operator|.
+name|multiply
+argument_list|(
+literal|22
+argument_list|)
+decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Invoking the multiply with 22, the result is "
+operator|+
+name|response
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// get the exception
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-block|}
-finally|finally
-block|{
-try|try
-block|{
-name|broker
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// do nothing here
-block|}
 name|System
 operator|.
 name|exit
@@ -144,7 +140,6 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class
