@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for implementation inheritence providing the core  * {@link Message} body handling features but letting the derived class deal  * with headers.  *   * Unless a specific provider wishes to do something particularly clever with  * headers you probably want to just derive from {@link DefaultMessage}  *   * @version $Revision$  */
+comment|/**  * A base class for implementation inheritence providing the core  * {@link Message} body handling features but letting the derived class deal  * with headers.  *  * Unless a specific provider wishes to do something particularly clever with  * headers you probably want to just derive from {@link DefaultMessage}  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -365,6 +365,17 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|getAttachments
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|that
+operator|.
+name|getAttachments
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getExchange ()
 specifier|public
@@ -400,7 +411,7 @@ name|Message
 name|newInstance
 parameter_list|()
 function_decl|;
-comment|/**      * A factory method to allow a provider to lazily create the message body      * for inbound messages from other sources      *       * @return the value of the message body or null if there is no value      *         available      */
+comment|/**      * A factory method to allow a provider to lazily create the message body      * for inbound messages from other sources      *      * @return the value of the message body or null if there is no value      *         available      */
 DECL|method|createBody ()
 specifier|protected
 name|Object

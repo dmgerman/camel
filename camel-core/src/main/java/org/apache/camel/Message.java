@@ -24,6 +24,26 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|activation
+operator|.
+name|DataHandler
+import|;
+end_import
+
 begin_comment
 comment|/**  * Implements the<a  * href="http://activemq.apache.org/camel/message.html">Message</a> pattern and  * represents an inbound or outbound message as part of an {@link Exchange}  *  * @version $Revision$  */
 end_comment
@@ -189,6 +209,70 @@ name|copyFrom
 parameter_list|(
 name|Message
 name|message
+parameter_list|)
+function_decl|;
+comment|/**      * returns the attachment specified by the id      *      * @param id        the id under which the attachment is stored      * @return          the data handler for this attachment or null      */
+DECL|method|getAttachment (String id)
+name|DataHandler
+name|getAttachment
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
+comment|/**      * returns a set of attachment names of the message      *      * @return  a set of attachment names      */
+DECL|method|getAttachmentNames ()
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getAttachmentNames
+parameter_list|()
+function_decl|;
+comment|/**      * removes the attachment specified by the id      *      * @param id        the id of the attachment to remove      */
+DECL|method|removeAttachment (String id)
+name|void
+name|removeAttachment
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
+comment|/**      * adds an attachment to the message using the id      *      * @param id        the id to store the attachment under      * @param content   the data handler for the attachment      */
+DECL|method|addAttachment (String id, DataHandler content)
+name|void
+name|addAttachment
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|DataHandler
+name|content
+parameter_list|)
+function_decl|;
+comment|/**      * returns all attachments of the message      *      * @return  the attachments in a map or null      */
+DECL|method|getAttachments ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|DataHandler
+argument_list|>
+name|getAttachments
+parameter_list|()
+function_decl|;
+comment|/**      * Set all the attachments associated with this message      *      * @param attachments      */
+DECL|method|setAttachments (Map<String, DataHandler> attachments)
+name|void
+name|setAttachments
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|DataHandler
+argument_list|>
+name|attachments
 parameter_list|)
 function_decl|;
 block|}
