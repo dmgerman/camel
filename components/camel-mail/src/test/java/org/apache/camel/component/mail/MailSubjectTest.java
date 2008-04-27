@@ -241,13 +241,13 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp:localhost?username=james"
+literal|"smtp://james@localhost"
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1
 name|from
 argument_list|(
-literal|"pop3:localhost?username=james"
+literal|"pop3://localhost?username=james&password=secret"
 argument_list|)
 operator|.
 name|to
