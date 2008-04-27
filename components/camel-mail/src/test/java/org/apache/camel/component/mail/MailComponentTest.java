@@ -1190,7 +1190,7 @@ name|assertEquals
 argument_list|(
 literal|"getDestination()"
 argument_list|,
-literal|null
+literal|"james@myhost"
 argument_list|,
 name|config
 operator|.

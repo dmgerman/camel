@@ -253,7 +253,8 @@ operator|.
 name|getProtocol
 argument_list|()
 decl_stmt|;
-comment|// TODO: Why do we change protocol from smtp to pop3?
+comment|// replace smtp with pop3 since we are creating a consumer and thus we need to use pop3 as protocol
+comment|// as stmp is only for sending
 if|if
 condition|(
 name|protocol

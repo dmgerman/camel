@@ -682,6 +682,25 @@ name|username
 operator|=
 name|username
 expr_stmt|;
+if|if
+condition|(
+name|destination
+operator|==
+literal|null
+condition|)
+block|{
+comment|// set default destination to username@host for backwards compatibility
+comment|// can be overridden by URI parameters
+name|setDestination
+argument_list|(
+name|username
+operator|+
+literal|"@"
+operator|+
+name|host
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getDestination ()
 specifier|public

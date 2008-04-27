@@ -253,6 +253,27 @@ name|destination
 argument_list|)
 expr_stmt|;
 block|}
+comment|// must have a destination otherwise we do not know where to send the mail
+if|if
+condition|(
+name|mimeMessage
+operator|.
+name|getAllRecipients
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The MineMessage does not have any recipients set. "
+operator|+
+literal|"Add a destination (Recipient.TO) to the MailConfiguration."
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|empty
