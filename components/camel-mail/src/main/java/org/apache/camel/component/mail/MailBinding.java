@@ -361,6 +361,9 @@ argument_list|(
 literal|"Failed to populate body due to: "
 operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 operator|+
 literal|". Exchange: "
 operator|+
@@ -393,7 +396,7 @@ operator|==
 literal|0
 return|;
 block|}
-comment|/**      * Extracts the body from the Mail message      *       * @param exchange      * @param message      */
+comment|/**      * Extracts the body from the Mail message      */
 DECL|method|extractBodyFromMail (MailExchange exchange, Message message)
 specifier|public
 name|Object
@@ -428,6 +431,13 @@ argument_list|(
 literal|"Failed to extract body due to: "
 operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". Exchange: "
+operator|+
+name|exchange
 operator|+
 literal|". Message: "
 operator|+
@@ -682,8 +692,6 @@ argument_list|)
 expr_stmt|;
 name|BodyPart
 name|messageBodyPart
-init|=
-literal|null
 decl_stmt|;
 name|Set
 argument_list|<
@@ -867,7 +875,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Strategy to allow filtering of attachments which are put on the Mail      * message      */
+comment|/**      * Strategy to allow filtering of attachments which are put on the Mail message      */
 DECL|method|shouldOutputAttachment (org.apache.camel.Message camelMessage, String headerName, DataHandler headerValue)
 specifier|protected
 name|boolean

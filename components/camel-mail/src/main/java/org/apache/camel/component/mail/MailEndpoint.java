@@ -253,6 +253,7 @@ operator|.
 name|getProtocol
 argument_list|()
 decl_stmt|;
+comment|// TODO: Why do we change protocol from smtp to pop3?
 if|if
 condition|(
 name|protocol
