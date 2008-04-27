@@ -84,6 +84,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|mail
+operator|.
+name|search
+operator|.
+name|FlagTerm
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -137,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Consumer Consumer} which consumes messages from JavaMail using a  * {@link javax.mail.Transport Transport} and dispatches them to the {@link Processor}  *   * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.Consumer Consumer} which consumes messages from JavaMail using a  * {@link javax.mail.Transport Transport} and dispatches them to the {@link Processor}  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -231,9 +243,6 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-name|ensureFolderIsOpen
-argument_list|()
-expr_stmt|;
 name|folder
 operator|.
 name|addMessageCountListener
@@ -259,6 +268,14 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|folder
+operator|.
+name|isOpen
+argument_list|()
+condition|)
+block|{
 name|folder
 operator|.
 name|close
@@ -266,6 +283,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 name|super
 operator|.
 name|doStop
@@ -323,11 +341,32 @@ argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
-name|flagMessageDeleted
+name|flagMessageProcessed
 argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Skipping message as it was flagged as DELETED: "
+operator|+
+name|message
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
@@ -378,37 +417,18 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-try|try
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Removing message: "
+literal|"Removed message number "
 operator|+
 name|message
 operator|.
-name|getSubject
+name|getMessageNumber
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|MessagingException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Ignored: "
-operator|+
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -423,6 +443,8 @@ block|{
 name|ensureFolderIsOpen
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|int
 name|count
 init|=
@@ -441,12 +463,54 @@ block|{
 name|Message
 index|[]
 name|messages
-init|=
+decl_stmt|;
+comment|// TODO: add unit test for this new property and add it to wiki documentation
+comment|// should we process all messages or only unseen messages
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isProcessOnlyUnseenMessages
+argument_list|()
+condition|)
+block|{
+name|messages
+operator|=
+name|folder
+operator|.
+name|search
+argument_list|(
+operator|new
+name|FlagTerm
+argument_list|(
+operator|new
+name|Flags
+argument_list|(
+name|Flags
+operator|.
+name|Flag
+operator|.
+name|SEEN
+argument_list|)
+argument_list|,
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|messages
+operator|=
 name|folder
 operator|.
 name|getMessages
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 name|MessageCountEvent
 name|event
 init|=
@@ -494,6 +558,18 @@ literal|" is closed"
 argument_list|)
 throw|;
 block|}
+block|}
+finally|finally
+block|{
+comment|// need to ensure we release resources
+if|if
+condition|(
+name|folder
+operator|.
+name|isOpen
+argument_list|()
+condition|)
+block|{
 name|folder
 operator|.
 name|close
@@ -501,6 +577,8 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|processMessage (Message message)
 specifier|protected
@@ -523,6 +601,24 @@ argument_list|(
 name|message
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Processing message "
+operator|+
+name|message
+argument_list|)
+expr_stmt|;
+block|}
 name|getProcessor
 argument_list|()
 operator|.
@@ -573,10 +669,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|flagMessageDeleted (Message message)
+DECL|method|flagMessageProcessed (Message message)
 specifier|protected
 name|void
-name|flagMessageDeleted
+name|flagMessageProcessed
 parameter_list|(
 name|Message
 name|message

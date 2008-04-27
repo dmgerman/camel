@@ -306,6 +306,7 @@ return|return
 name|port
 return|;
 block|}
+comment|// TODO: Add public method for aiding mail message logging
 block|}
 end_class
 

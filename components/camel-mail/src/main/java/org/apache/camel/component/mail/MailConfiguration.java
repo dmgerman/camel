@@ -166,6 +166,13 @@ name|ignoreUriScheme
 init|=
 literal|false
 decl_stmt|;
+DECL|field|processOnlyUnseenMessages
+specifier|private
+name|boolean
+name|processOnlyUnseenMessages
+init|=
+literal|false
+decl_stmt|;
 DECL|method|MailConfiguration ()
 specifier|public
 name|MailConfiguration
@@ -830,6 +837,32 @@ operator|.
 name|ignoreUriScheme
 operator|=
 name|ignoreUriScheme
+expr_stmt|;
+block|}
+DECL|method|isProcessOnlyUnseenMessages ()
+specifier|public
+name|boolean
+name|isProcessOnlyUnseenMessages
+parameter_list|()
+block|{
+return|return
+name|processOnlyUnseenMessages
+return|;
+block|}
+DECL|method|setProcessOnlyUnseenMessages (boolean processOnlyUnseenMessages)
+specifier|public
+name|void
+name|setProcessOnlyUnseenMessages
+parameter_list|(
+name|boolean
+name|processOnlyUnseenMessages
+parameter_list|)
+block|{
+name|this
+operator|.
+name|processOnlyUnseenMessages
+operator|=
+name|processOnlyUnseenMessages
 expr_stmt|;
 block|}
 block|}
