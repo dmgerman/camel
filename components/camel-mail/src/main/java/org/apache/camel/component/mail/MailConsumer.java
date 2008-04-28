@@ -464,7 +464,6 @@ name|Message
 index|[]
 name|messages
 decl_stmt|;
-comment|// TODO: add unit test for this new property and add it to wiki documentation
 comment|// should we process all messages or only unseen messages
 if|if
 condition|(
