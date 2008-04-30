@@ -167,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A consumer of exchanges for the Spring Integration  * Please specify the inputChannel in the endpoint url for this consumer.  * If the message pattern is inOut, the outputChannel property  * should be set for the outgoing message.  * @version  */
+comment|/**  * A consumer of exchanges for the Spring Integration  * Please specify the inputChannel in the endpoint url for this consumer.  * If the message pattern is inOut, the outputChannel property  * should be set for the outgoing message.  * @version $Revision  */
 end_comment
 
 begin_class
@@ -245,6 +245,20 @@ operator|.
 name|getContext
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|context
+operator|!=
+literal|null
+operator|&&
+name|endpoint
+operator|.
+name|getMessageChannel
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 name|channelRegistry
 operator|=
 operator|(
@@ -330,9 +344,41 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Can't find the right inputChannelName"
+literal|"Can't find the right inputChannelName, , please check your configuration."
 argument_list|)
 throw|;
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getMessageChannel
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|inputChannel
+operator|=
+name|endpoint
+operator|.
+name|getMessageChannel
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Can't find the right message channel, please check your configuration."
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(

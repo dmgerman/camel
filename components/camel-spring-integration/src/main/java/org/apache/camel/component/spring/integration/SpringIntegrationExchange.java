@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link Exchange} for working with Spring Integration endpoints which exposes the underlying  * Spring messages via {@link #getInMessage()} and {@link #getOutMessage()}  *  * @version  */
+comment|/**  * An {@link Exchange} for working with Spring Integration endpoints which exposes the underlying  * Spring messages via {@link #getInMessage()} and {@link #getOutMessage()}  *  * @version $Revision  */
 end_comment
 
 begin_class

@@ -20,29 +20,40 @@ name|integration
 package|;
 end_package
 
-begin_comment
-comment|/**  * The bean class which implements the business logical  */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|support
+operator|.
+name|ClassPathXmlApplicationContext
+import|;
+end_import
 
 begin_class
-DECL|class|HelloWorldService
+DECL|class|SpringIntegrationChannelConverterTest
 specifier|public
 class|class
-name|HelloWorldService
+name|SpringIntegrationChannelConverterTest
+extends|extends
+name|SpringIntegrationOneWayConsumerTest
 block|{
-DECL|method|sayHello (String name)
+DECL|method|createApplicationContext ()
 specifier|public
-name|String
-name|sayHello
-parameter_list|(
-name|String
-name|name
-parameter_list|)
+name|ClassPathXmlApplicationContext
+name|createApplicationContext
+parameter_list|()
 block|{
 return|return
-literal|"Hello "
-operator|+
-name|name
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+literal|"org/apache/camel/component/spring/integration/springChannelConverter.xml"
+argument_list|)
 return|;
 block|}
 block|}

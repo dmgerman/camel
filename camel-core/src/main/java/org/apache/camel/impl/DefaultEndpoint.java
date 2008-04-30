@@ -370,6 +370,22 @@ return|return
 name|component
 return|;
 block|}
+DECL|method|setContext (CamelContext context)
+specifier|public
+name|void
+name|setContext
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|this
+operator|.
+name|context
+operator|=
+name|context
+expr_stmt|;
+block|}
 comment|/**      * @return the executor      */
 DECL|method|getExecutorService ()
 specifier|public

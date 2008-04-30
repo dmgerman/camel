@@ -25,7 +25,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://activemq.apache.org/camel/endpoint.html">endpoint</a>  * implements the<a  * href="http://activemq.apache.org/camel/message-endpoint.html">Message  * Endpoint</a> pattern and represents an endpoint that can send and receive  * message exchanges  *   * @see Exchange  * @see Message  * @version $Revision$  */
+comment|/**  * An<a href="http://activemq.apache.org/camel/endpoint.html">endpoint</a>  * implements the<a  * href="http://activemq.apache.org/camel/message-endpoint.html">Message  * Endpoint</a> pattern and represents an endpoint that can send and receive  * message exchanges  *  * @see Exchange  * @see Message  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -75,13 +75,13 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the context which created the endpoint      *       * @return the context which created the endpoint      */
+comment|/**      * Returns the context which created the endpoint      *      * @return the context which created the endpoint      */
 DECL|method|getContext ()
 name|CamelContext
 name|getContext
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a new producer which is used send messages into the endpoint      *       * @return a newly created producer      */
+comment|/**      * Creates a new producer which is used send messages into the endpoint      *      * @return a newly created producer      */
 DECL|method|createProducer ()
 name|Producer
 argument_list|<
@@ -92,7 +92,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Creates a new<a      * href="http://activemq.apache.org/camel/event-driven-consumer.html">Event      * Driven Consumer</a> which consumes messages from the endpoint using the      * given processor      *       * @return a newly created consumer      */
+comment|/**      * Creates a new<a      * href="http://activemq.apache.org/camel/event-driven-consumer.html">Event      * Driven Consumer</a> which consumes messages from the endpoint using the      * given processor      *      * @return a newly created consumer      */
 DECL|method|createConsumer (Processor processor)
 name|Consumer
 argument_list|<
@@ -106,7 +106,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Creates a new<a      * href="http://activemq.apache.org/camel/polling-consumer.html">Polling      * Consumer</a> so that the caller can poll message exchanges from the      * consumer using {@link PollingConsumer#receive()},      * {@link PollingConsumer#receiveNoWait()} or      * {@link PollingConsumer#receive(long)} whenever it is ready to do so      * rather than using the<a      * href="http://activemq.apache.org/camel/event-driven-consumer.html">Event      * Based Consumer</a> returned by {@link #createConsumer(Processor)}      *       * @return a newly created pull consumer      * @throws Exception if the pull consumer could not be created      */
+comment|/**      * Creates a new<a      * href="http://activemq.apache.org/camel/polling-consumer.html">Polling      * Consumer</a> so that the caller can poll message exchanges from the      * consumer using {@link PollingConsumer#receive()},      * {@link PollingConsumer#receiveNoWait()} or      * {@link PollingConsumer#receive(long)} whenever it is ready to do so      * rather than using the<a      * href="http://activemq.apache.org/camel/event-driven-consumer.html">Event      * Based Consumer</a> returned by {@link #createConsumer(Processor)}      *      * @return a newly created pull consumer      * @throws Exception if the pull consumer could not be created      */
 DECL|method|createPollingConsumer ()
 name|PollingConsumer
 argument_list|<
@@ -123,6 +123,14 @@ name|configureProperties
 parameter_list|(
 name|Map
 name|options
+parameter_list|)
+function_decl|;
+DECL|method|setContext (CamelContext context)
+name|void
+name|setContext
+parameter_list|(
+name|CamelContext
+name|context
 parameter_list|)
 function_decl|;
 block|}

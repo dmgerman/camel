@@ -22,23 +22,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|camel
 operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CopyOnWriteArrayList
+name|CamelContext
 import|;
 end_import
 
@@ -51,18 +41,6 @@ operator|.
 name|camel
 operator|.
 name|Consumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
 import|;
 end_import
 
@@ -112,35 +90,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
 name|DefaultEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
 import|;
 end_import
 
@@ -172,8 +122,22 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|integration
+operator|.
+name|channel
+operator|.
+name|MessageChannel
+import|;
+end_import
+
 begin_comment
-comment|/**  * Defines the<a href="http://activemq.apache.org/camel/springIntergration.html">Spring Intergration Endpoint</a>  *  * @version  */
+comment|/**  * Defines the<a href="http://activemq.apache.org/camel/springIntergration.html">Spring Intergration Endpoint</a>  *  * @version $Revision  */
 end_comment
 
 begin_class
@@ -218,6 +182,11 @@ specifier|private
 name|String
 name|defaultChannel
 decl_stmt|;
+DECL|field|messageChannel
+specifier|private
+name|MessageChannel
+name|messageChannel
+decl_stmt|;
 DECL|field|inOut
 specifier|private
 name|boolean
@@ -245,6 +214,32 @@ name|component
 argument_list|)
 expr_stmt|;
 name|defaultChannel
+operator|=
+name|channel
+expr_stmt|;
+block|}
+DECL|method|SpringIntegrationEndpoint (String uri, MessageChannel channel, CamelContext context)
+specifier|public
+name|SpringIntegrationEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|MessageChannel
+name|channel
+parameter_list|,
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|uri
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
+name|messageChannel
 operator|=
 name|channel
 expr_stmt|;
@@ -382,6 +377,16 @@ parameter_list|()
 block|{
 return|return
 name|defaultChannel
+return|;
+block|}
+DECL|method|getMessageChannel ()
+specifier|public
+name|MessageChannel
+name|getMessageChannel
+parameter_list|()
+block|{
+return|return
+name|messageChannel
 return|;
 block|}
 DECL|method|isSingleton ()
