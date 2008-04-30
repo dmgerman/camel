@@ -163,15 +163,11 @@ DECL|field|ignoreUriScheme
 specifier|private
 name|boolean
 name|ignoreUriScheme
-init|=
-literal|false
 decl_stmt|;
 DECL|field|processOnlyUnseenMessages
 specifier|private
 name|boolean
 name|processOnlyUnseenMessages
-init|=
-literal|false
 decl_stmt|;
 DECL|method|MailConfiguration ()
 specifier|public
