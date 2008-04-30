@@ -1113,6 +1113,14 @@ operator|.
 name|destroy
 argument_list|()
 expr_stmt|;
+comment|// Waiting for the broker shutdown
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * This test seems to be fail every other run.      *      * @throws Exception      */
 DECL|method|disabledtestSenarioF ()
