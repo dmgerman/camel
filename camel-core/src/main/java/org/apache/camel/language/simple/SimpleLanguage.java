@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/simple.html>simple language</a>  * which maps simple property style notations to acces headers and bodies.  * Examples of supported expressions are<p/>  *<ul>  *<li>in.header.foo or header.foo to access an inbound header called 'foo'</li>  *<li>in.body or body to access the inbound body</li>  *<li>out.header.foo to access an outbound header called 'foo'</li>  *<li>out.body to access the inbound body</li>  *<li>property.foo to access the exchange property called 'foo'</li>  *<li>sys.foo to access the system property called 'foo'</li>  *</ul>  *  * @version $Revision$  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/simple.html>simple language</a>  * which maps simple property style notations to access headers and bodies.  * Examples of supported expressions are<p/>  *<ul>  *<li>in.header.foo or header.foo to access an inbound header called 'foo'</li>  *<li>in.body or body to access the inbound body</li>  *<li>out.header.foo to access an outbound header called 'foo'</li>  *<li>out.body to access the inbound body</li>  *<li>property.foo to access the exchange property called 'foo'</li>  *<li>sys.foo to access the system property called 'foo'</li>  *</ul>  *  * @version $Revision$  */
 end_comment
 
 begin_class

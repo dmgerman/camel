@@ -3378,7 +3378,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the OUT message      */
+comment|/**      * Adds a processor which sets the body on the OUT message      *       * @deprecated Please use {@link #transform(Expression)} instead      */
 DECL|method|setOutBody (Expression expression)
 specifier|public
 name|Type
@@ -3389,18 +3389,13 @@ name|expression
 parameter_list|)
 block|{
 return|return
-name|process
-argument_list|(
-name|ProcessorBuilder
-operator|.
-name|setOutBody
+name|transform
 argument_list|(
 name|expression
 argument_list|)
-argument_list|)
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the OUT message      */
+comment|/**      * Adds a processor which sets the body on the OUT message      *      * @deprecated Please use {@link #transform()} instead      */
 DECL|method|setOutBody ()
 specifier|public
 name|ExpressionClause
@@ -3411,6 +3406,55 @@ name|Type
 argument_list|>
 argument_list|>
 name|setOutBody
+parameter_list|()
+block|{
+return|return
+name|transform
+argument_list|()
+return|;
+block|}
+comment|/**      * Adds a processor which sets the body on the OUT message      */
+DECL|method|transform (Expression expression)
+specifier|public
+name|Type
+name|transform
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|TransformType
+name|answer
+init|=
+operator|new
+name|TransformType
+argument_list|(
+name|expression
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Adds a processor which sets the body on the OUT message      */
+DECL|method|transform ()
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|ProcessorType
+argument_list|<
+name|Type
+argument_list|>
+argument_list|>
+name|transform
 parameter_list|()
 block|{
 name|ExpressionClause
@@ -3437,21 +3481,25 @@ operator|)
 name|this
 argument_list|)
 decl_stmt|;
-name|process
-argument_list|(
-name|ProcessorBuilder
-operator|.
-name|setOutBody
+name|TransformType
+name|answer
+init|=
+operator|new
+name|TransformType
 argument_list|(
 name|clause
 argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
 argument_list|)
 expr_stmt|;
 return|return
 name|clause
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the FAULT message      */
+comment|/** 	 * Adds a processor which sets the body on the FAULT message 	 */
 DECL|method|setFaultBody (Expression expression)
 specifier|public
 name|Type
