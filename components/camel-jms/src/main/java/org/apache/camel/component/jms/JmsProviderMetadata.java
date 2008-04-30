@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A class which represents some metadata about the underlying JMS provider  * so that we can properly bridge JMS providers such as for dealing with temporary destinations.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A class which represents some metadata about the underlying JMS provider  * so that we can properly bridge JMS providers such as for dealing with temporary destinations.  *  * @version $Revision$  */
 end_comment
 
 begin_class

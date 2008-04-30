@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A processor which is capable of transforming the  *  * @version $Revision: 1.1 $  */
+comment|/**  * A processor which is capable of transforming the  *  * @version $Revision$  */
 end_comment
 
 begin_class

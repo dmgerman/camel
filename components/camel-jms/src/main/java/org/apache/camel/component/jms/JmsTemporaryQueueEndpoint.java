@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  * for working with a {@link TemporaryQueue}  *  * @version $Revision: 1.1 $  */
+comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  * for working with a {@link TemporaryQueue}  *  * @version $Revision$  */
 end_comment
 
 begin_comment
