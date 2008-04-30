@@ -132,14 +132,6 @@ argument_list|,
 literal|"Message 3"
 argument_list|)
 expr_stmt|;
-comment|// let Camel have time to consume and process the mailbox
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -155,33 +147,11 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// TODO: below fails for Mail component, maybe a converter is missing
-comment|//mock.expectedBodiesReceived("Message 3");
-name|String
-name|body
-init|=
 name|mock
 operator|.
-name|assertExchangeReceived
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|assertEquals
+name|expectedBodiesReceived
 argument_list|(
 literal|"Message 3"
-argument_list|,
-name|body
 argument_list|)
 expr_stmt|;
 name|mock

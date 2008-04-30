@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * JavaMail specific converters.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -104,7 +104,7 @@ specifier|public
 class|class
 name|MailConverters
 block|{
-comment|/**      * Converts the given JavaMail message to a String body      *      * @param message the message      * @return the String content      * @throws MessagingException      * @throws IOException      */
+comment|/**      * Converts the given JavaMail message to a String body.      * Can return null.      */
 annotation|@
 name|Converter
 DECL|method|toString (Message message)
@@ -190,6 +190,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Converts the given JavaMail multipart to a String body, where the contenttype of the multipart      * must be text based (ie start with text). Can return null.      */
 annotation|@
 name|Converter
 DECL|method|toString (Multipart multipart)
