@@ -551,6 +551,20 @@ name|JmsMessage
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns true if a new JMS message instance should be created to send to the next component      */
+DECL|method|shouldCreateNewMessage ()
+specifier|public
+name|boolean
+name|shouldCreateNewMessage
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|hasPopulatedHeaders
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createBody ()

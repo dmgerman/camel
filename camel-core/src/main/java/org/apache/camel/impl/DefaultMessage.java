@@ -582,6 +582,19 @@ operator|=
 name|attachments
 expr_stmt|;
 block|}
+comment|/**      * Returns true if the headers have been mutated in some way      */
+DECL|method|hasPopulatedHeaders ()
+specifier|protected
+name|boolean
+name|hasPopulatedHeaders
+parameter_list|()
+block|{
+return|return
+name|headers
+operator|!=
+literal|null
+return|;
+block|}
 block|}
 end_class
 
