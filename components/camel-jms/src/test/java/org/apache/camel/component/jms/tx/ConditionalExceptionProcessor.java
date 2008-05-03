@@ -86,6 +86,11 @@ specifier|private
 name|int
 name|count
 decl_stmt|;
+DECL|method|ConditionalExceptionProcessor ()
+specifier|public
+name|ConditionalExceptionProcessor
+parameter_list|()
+block|{              }
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -105,6 +110,7 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// System.out.println(this + "; getCount() = " + getCount());
 name|AbstractTransactionTest
 operator|.
 name|assertTrue

@@ -203,6 +203,11 @@ specifier|private
 name|String
 name|transitionalID
 decl_stmt|;
+DECL|field|message
+specifier|private
+name|Message
+name|message
+decl_stmt|;
 DECL|field|monitor
 specifier|private
 name|Object
@@ -262,6 +267,16 @@ return|return
 name|transitionalID
 return|;
 block|}
+DECL|method|getMessage ()
+specifier|public
+name|Message
+name|getMessage
+parameter_list|()
+block|{
+return|return
+name|message
+return|;
+block|}
 DECL|method|sent (Message message)
 specifier|public
 name|void
@@ -271,6 +286,12 @@ name|Message
 name|message
 parameter_list|)
 block|{
+name|this
+operator|.
+name|message
+operator|=
+name|message
+expr_stmt|;
 name|map
 operator|.
 name|processDeferredReplies
@@ -627,6 +648,7 @@ operator|.
 name|getJMSMessageID
 argument_list|()
 decl_stmt|;
+comment|// System.out.println("DeferredRequestReplyMap.processDeferredReplies: sent messageID = " + correlationID);
 name|Object
 name|in
 init|=

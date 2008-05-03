@@ -175,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JMS {@link MessageListener} which can be used to delegate processing to a  * Camel endpoint.  *  * @version $Revision$    ;';;;  */
+comment|/**  * A JMS {@link MessageListener} which can be used to delegate processing to a  * Camel endpoint.  *  * Note that instance of this object has to be thread safe (reentrant)  *   * @version $Revision$    ;';;;  */
 end_comment
 
 begin_class
@@ -534,6 +534,7 @@ expr_stmt|;
 block|}
 DECL|method|getTemplate ()
 specifier|public
+specifier|synchronized
 name|JmsOperations
 name|getTemplate
 parameter_list|()

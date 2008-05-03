@@ -75,6 +75,9 @@ class|class
 name|FutureHandler
 extends|extends
 name|FutureTask
+argument_list|<
+name|Message
+argument_list|>
 implements|implements
 name|ReplyHandler
 block|{
@@ -83,14 +86,20 @@ specifier|private
 specifier|static
 specifier|final
 name|Callable
+argument_list|<
+name|Message
+argument_list|>
 name|EMPTY_CALLABLE
 init|=
 operator|new
 name|Callable
+argument_list|<
+name|Message
+argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|Object
+name|Message
 name|call
 parameter_list|()
 throws|throws
@@ -113,13 +122,13 @@ name|EMPTY_CALLABLE
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|set (Object result)
+DECL|method|set (Message result)
 specifier|public
 specifier|synchronized
 name|void
 name|set
 parameter_list|(
-name|Object
+name|Message
 name|result
 parameter_list|)
 block|{
