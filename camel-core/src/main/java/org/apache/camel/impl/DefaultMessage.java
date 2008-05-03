@@ -412,7 +412,6 @@ argument_list|>
 name|map
 parameter_list|)
 block|{     }
-comment|/* (non-Javadoc)      * @see org.apache.camel.Message#addAttachment(java.lang.String, javax.activation.DataHandler)      */
 DECL|method|addAttachment (String id, DataHandler content)
 specifier|public
 name|void
@@ -448,7 +447,6 @@ name|content
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.Message#getAttachment(java.lang.String)      */
 DECL|method|getAttachment (String id)
 specifier|public
 name|DataHandler
@@ -468,7 +466,6 @@ name|id
 argument_list|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.Message#getAttachmentNames()      */
 DECL|method|getAttachmentNames ()
 specifier|public
 name|Set
@@ -498,7 +495,6 @@ name|keySet
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.Message#removeAttachment(java.lang.String)      */
 DECL|method|removeAttachment (String id)
 specifier|public
 name|void
@@ -531,7 +527,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.Message#getAttachments()      */
 DECL|method|getAttachments ()
 specifier|public
 name|Map
@@ -560,7 +555,6 @@ return|return
 name|attachments
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.Message#setAttachments(java.util.Map)      */
 DECL|method|setAttachments (Map<String, DataHandler> attachments)
 specifier|public
 name|void
@@ -581,6 +575,29 @@ name|attachments
 operator|=
 name|attachments
 expr_stmt|;
+block|}
+DECL|method|hasAttachments ()
+specifier|public
+name|boolean
+name|hasAttachments
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|attachments
+operator|!=
+literal|null
+operator|&&
+name|this
+operator|.
+name|attachments
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+return|;
 block|}
 comment|/**      * Returns true if the headers have been mutated in some way      */
 DECL|method|hasPopulatedHeaders ()

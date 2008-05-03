@@ -211,7 +211,7 @@ name|Message
 name|message
 parameter_list|)
 function_decl|;
-comment|/**      * returns the attachment specified by the id      *      * @param id        the id under which the attachment is stored      * @return          the data handler for this attachment or null      */
+comment|/**      * Returns the attachment specified by the id      *      * @param id        the id under which the attachment is stored      * @return          the data handler for this attachment or null      */
 DECL|method|getAttachment (String id)
 name|DataHandler
 name|getAttachment
@@ -220,7 +220,7 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * returns a set of attachment names of the message      *      * @return  a set of attachment names      */
+comment|/**      * Returns a set of attachment names of the message      *      * @return  a set of attachment names      */
 DECL|method|getAttachmentNames ()
 name|Set
 argument_list|<
@@ -229,7 +229,7 @@ argument_list|>
 name|getAttachmentNames
 parameter_list|()
 function_decl|;
-comment|/**      * removes the attachment specified by the id      *      * @param id        the id of the attachment to remove      */
+comment|/**      * Removes the attachment specified by the id      *      * @param id        the id of the attachment to remove      */
 DECL|method|removeAttachment (String id)
 name|void
 name|removeAttachment
@@ -238,7 +238,7 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * adds an attachment to the message using the id      *      * @param id        the id to store the attachment under      * @param content   the data handler for the attachment      */
+comment|/**      * Adds an attachment to the message using the id      *      * @param id        the id to store the attachment under      * @param content   the data handler for the attachment      */
 DECL|method|addAttachment (String id, DataHandler content)
 name|void
 name|addAttachment
@@ -250,7 +250,7 @@ name|DataHandler
 name|content
 parameter_list|)
 function_decl|;
-comment|/**      * returns all attachments of the message      *      * @return  the attachments in a map or null      */
+comment|/**      * Returns all attachments of the message      *      * @return  the attachments in a map or null      */
 DECL|method|getAttachments ()
 name|Map
 argument_list|<
@@ -274,6 +274,12 @@ name|DataHandler
 argument_list|>
 name|attachments
 parameter_list|)
+function_decl|;
+comment|/**      * Returns<tt>true</tt> if this message has any attachments.      */
+DECL|method|hasAttachments ()
+name|boolean
+name|hasAttachments
+parameter_list|()
 function_decl|;
 block|}
 end_interface
