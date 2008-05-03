@@ -40,16 +40,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|activation
@@ -74,16 +64,6 @@ name|javax
 operator|.
 name|mail
 operator|.
-name|BodyPart
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|mail
-operator|.
 name|Message
 import|;
 end_import
@@ -95,6 +75,16 @@ operator|.
 name|mail
 operator|.
 name|MessagingException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|mail
+operator|.
+name|BodyPart
 import|;
 end_import
 
@@ -128,7 +118,7 @@ name|mail
 operator|.
 name|internet
 operator|.
-name|MimeBodyPart
+name|MimeMessage
 import|;
 end_import
 
@@ -140,7 +130,7 @@ name|mail
 operator|.
 name|internet
 operator|.
-name|MimeMessage
+name|MimeBodyPart
 import|;
 end_import
 
@@ -165,6 +155,18 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -206,8 +208,8 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
-block|{
-try|try
+throws|throws
+name|MessagingException
 block|{
 name|appendHeadersFromCamel
 argument_list|(
@@ -221,7 +223,7 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// set the recipients (receives) of the mail
+comment|// set the recipients (receivers) of the mail
 name|Map
 argument_list|<
 name|Message
@@ -412,23 +414,8 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getAttachments
+name|hasAttachments
 argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getAttachments
-argument_list|()
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
 condition|)
 block|{
 name|appendAttachmentsFromCamel
@@ -465,54 +452,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeMailException
-argument_list|(
-literal|"Failed to populate body due to: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|+
-literal|". Exchange: "
-operator|+
-name|exchange
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-DECL|method|empty (Address[] addresses)
-specifier|protected
-name|boolean
-name|empty
-parameter_list|(
-name|Address
-index|[]
-name|addresses
-parameter_list|)
-block|{
-return|return
-name|addresses
-operator|==
-literal|null
-operator|||
-name|addresses
-operator|.
-name|length
-operator|==
-literal|0
-return|;
-block|}
 comment|/**      * Extracts the body from the Mail message      */
 DECL|method|extractBodyFromMail (MailExchange exchange, Message message)
 specifier|public
@@ -543,7 +482,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeMailException
+name|RuntimeCamelException
 argument_list|(
 literal|"Failed to extract body due to: "
 operator|+
@@ -589,27 +528,6 @@ parameter_list|)
 throws|throws
 name|MessagingException
 block|{
-name|Set
-argument_list|<
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|>
-name|entries
-init|=
-name|camelMessage
-operator|.
-name|getHeaders
-argument_list|()
-operator|.
-name|entrySet
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|Map
@@ -622,7 +540,13 @@ name|Object
 argument_list|>
 name|entry
 range|:
-name|entries
+name|camelMessage
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|entrySet
+argument_list|()
 control|)
 block|{
 name|String
@@ -758,7 +682,6 @@ parameter_list|)
 throws|throws
 name|MessagingException
 block|{
-comment|// TODO: Use spring mail support to add the attachment
 comment|// Create a Multipart
 name|MimeMultipart
 name|multipart
@@ -808,30 +731,6 @@ argument_list|(
 name|textBodyPart
 argument_list|)
 expr_stmt|;
-name|BodyPart
-name|messageBodyPart
-decl_stmt|;
-name|Set
-argument_list|<
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|String
-argument_list|,
-name|DataHandler
-argument_list|>
-argument_list|>
-name|entries
-init|=
-name|camelMessage
-operator|.
-name|getAttachments
-argument_list|()
-operator|.
-name|entrySet
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|Map
@@ -844,11 +743,17 @@ name|DataHandler
 argument_list|>
 name|entry
 range|:
-name|entries
+name|camelMessage
+operator|.
+name|getAttachments
+argument_list|()
+operator|.
+name|entrySet
+argument_list|()
 control|)
 block|{
 name|String
-name|attName
+name|attachmentFilename
 init|=
 name|entry
 operator|.
@@ -856,7 +761,7 @@ name|getKey
 argument_list|()
 decl_stmt|;
 name|DataHandler
-name|attValue
+name|handler
 init|=
 name|entry
 operator|.
@@ -865,7 +770,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|attValue
+name|handler
 operator|!=
 literal|null
 condition|)
@@ -876,25 +781,26 @@ name|shouldOutputAttachment
 argument_list|(
 name|camelMessage
 argument_list|,
-name|attName
+name|attachmentFilename
 argument_list|,
-name|attValue
+name|handler
 argument_list|)
 condition|)
 block|{
 comment|// Create another body part
+name|BodyPart
 name|messageBodyPart
-operator|=
+init|=
 operator|new
 name|MimeBodyPart
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 comment|// Set the data handler to the attachment
 name|messageBodyPart
 operator|.
 name|setDataHandler
 argument_list|(
-name|attValue
+name|handler
 argument_list|)
 expr_stmt|;
 comment|// Set the filename
@@ -902,7 +808,7 @@ name|messageBodyPart
 operator|.
 name|setFileName
 argument_list|(
-name|attName
+name|attachmentFilename
 argument_list|)
 expr_stmt|;
 comment|// Set Disposition
@@ -935,38 +841,6 @@ name|multipart
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Converts the given object value to a String      */
-DECL|method|asString (Exchange exchange, Object value)
-specifier|protected
-name|String
-name|asString
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|Object
-name|value
-parameter_list|)
-block|{
-return|return
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|convertTo
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|,
-name|value
-argument_list|)
-return|;
-block|}
 comment|/**      * Strategy to allow filtering of headers which are put on the Mail message      */
 DECL|method|shouldOutputHeader (org.apache.camel.Message camelMessage, String headerName, Object headerValue)
 specifier|protected
@@ -994,7 +868,7 @@ literal|true
 return|;
 block|}
 comment|/**      * Strategy to allow filtering of attachments which are put on the Mail message      */
-DECL|method|shouldOutputAttachment (org.apache.camel.Message camelMessage, String headerName, DataHandler headerValue)
+DECL|method|shouldOutputAttachment (org.apache.camel.Message camelMessage, String attachmentFilename, DataHandler handler)
 specifier|protected
 name|boolean
 name|shouldOutputAttachment
@@ -1009,14 +883,69 @@ name|Message
 name|camelMessage
 parameter_list|,
 name|String
-name|headerName
+name|attachmentFilename
 parameter_list|,
 name|DataHandler
-name|headerValue
+name|handler
 parameter_list|)
 block|{
 return|return
 literal|true
+return|;
+block|}
+DECL|method|empty (Address[] addresses)
+specifier|private
+specifier|static
+name|boolean
+name|empty
+parameter_list|(
+name|Address
+index|[]
+name|addresses
+parameter_list|)
+block|{
+return|return
+name|addresses
+operator|==
+literal|null
+operator|||
+name|addresses
+operator|.
+name|length
+operator|==
+literal|0
+return|;
+block|}
+DECL|method|asString (Exchange exchange, Object value)
+specifier|private
+specifier|static
+name|String
+name|asString
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|,
+name|value
+argument_list|)
 return|;
 block|}
 block|}

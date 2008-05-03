@@ -136,6 +136,18 @@ name|CollectionHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a {@link org.apache.camel.Message} for working with Mail  *  * @version $Revision:520964 $  */
 end_comment
@@ -318,8 +330,10 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|MessageHeaderAccessException
+name|RuntimeCamelException
 argument_list|(
+literal|"Error accessing header: "
+operator|+
 name|name
 argument_list|,
 name|e
@@ -435,35 +449,16 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Enumeration
-name|names
-decl_stmt|;
 try|try
 block|{
+name|Enumeration
 name|names
-operator|=
+init|=
 name|mailMessage
 operator|.
 name|getAllHeaders
 argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|MessagingException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|MessageHeaderNamesAccessException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-try|try
-block|{
+decl_stmt|;
 while|while
 condition|(
 name|names
@@ -514,14 +509,21 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|MessagingException
 name|e
 parameter_list|)
 block|{
 throw|throw
 operator|new
-name|MessageHeaderNamesAccessException
+name|RuntimeCamelException
 argument_list|(
+literal|"Error accessing headers due to: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -555,23 +557,25 @@ try|try
 block|{
 name|extractAttachments
 argument_list|(
+name|mailMessage
+argument_list|,
 name|map
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|MessagingException
-name|ex
+name|Exception
+name|e
 parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeMailException
+name|RuntimeCamelException
 argument_list|(
 literal|"Error populating the initial mail message attachments"
 argument_list|,
-name|ex
+name|e
 argument_list|)
 throw|;
 block|}
@@ -624,12 +628,16 @@ name|mailMessage
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Parses the attachments of the mail message and puts them to the message      *      * @param map       the attachments map      * @throws javax.mail.MessagingException      */
-DECL|method|extractAttachments (Map<String, DataHandler> map)
+comment|/**      * Parses the attachments of the given mail message and adds them to the map      *      * @param  message  the mail message with attachments      * @param  map      the map to add found attachments (attachmentFilename is the key)      */
+DECL|method|extractAttachments (Message message, Map<String, DataHandler> map)
 specifier|protected
+specifier|static
 name|void
 name|extractAttachments
 parameter_list|(
+name|Message
+name|message
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -644,26 +652,17 @@ operator|.
 name|mail
 operator|.
 name|MessagingException
+throws|,
+name|IOException
 block|{
-comment|// TODO: Reuse spring mail support to handle the attachment
-comment|// now convert the mail attachments and put it to the msg
-name|Multipart
-name|mp
-decl_stmt|;
 name|Object
 name|content
-decl_stmt|;
-try|try
-block|{
-name|content
-operator|=
-name|this
-operator|.
-name|mailMessage
+init|=
+name|message
 operator|.
 name|getContent
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|content
@@ -672,20 +671,13 @@ name|Multipart
 condition|)
 block|{
 comment|// mail with attachment
+name|Multipart
 name|mp
-operator|=
+init|=
 operator|(
 name|Multipart
 operator|)
 name|content
-expr_stmt|;
-name|int
-name|nbMP
-init|=
-name|mp
-operator|.
-name|getCount
-argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -696,7 +688,10 @@ literal|0
 init|;
 name|i
 operator|<
-name|nbMP
+name|mp
+operator|.
+name|getCount
+argument_list|()
 condition|;
 name|i
 operator|++
@@ -725,8 +720,10 @@ condition|(
 name|disposition
 operator|!=
 literal|null
-operator|&&
-operator|(
+condition|)
+block|{
+if|if
+condition|(
 name|disposition
 operator|.
 name|equalsIgnoreCase
@@ -744,7 +741,6 @@ name|Part
 operator|.
 name|INLINE
 argument_list|)
-operator|)
 condition|)
 block|{
 comment|// only add named attachments
@@ -758,19 +754,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Parts marked with a disposition of
-comment|// Part.ATTACHMENT
-comment|// from part.getDisposition() are clearly
-comment|// attachments
-name|DataHandler
-name|att
-init|=
-name|part
-operator|.
-name|getDataHandler
-argument_list|()
-decl_stmt|;
-comment|// this is clearly a attachment
+comment|// Parts marked with a disposition of Part.ATTACHMENT are clearly attachments
 name|CollectionHelper
 operator|.
 name|appendValue
@@ -782,53 +766,16 @@ operator|.
 name|getFileName
 argument_list|()
 argument_list|,
-name|att
+name|part
+operator|.
+name|getDataHandler
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|MessagingException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|javax
-operator|.
-name|mail
-operator|.
-name|MessagingException
-argument_list|(
-literal|"Error while setting content on normalized message"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|javax
-operator|.
-name|mail
-operator|.
-name|MessagingException
-argument_list|(
-literal|"Error while fetching content"
-argument_list|,
-name|e
-argument_list|)
-throw|;
 block|}
 block|}
 block|}
