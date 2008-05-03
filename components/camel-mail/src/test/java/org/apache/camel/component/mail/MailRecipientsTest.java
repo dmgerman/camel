@@ -621,7 +621,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp:james@mymailserver.com?password=secret&From=james@apache.org"
+literal|"smtp://james@mymailserver.com?password=secret&From=james@apache.org"
 operator|+
 name|recipients
 argument_list|)
