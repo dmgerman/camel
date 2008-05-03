@@ -40,6 +40,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|mail
@@ -50,13 +70,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|mail
 operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
+name|Message
 import|;
 end_import
 
@@ -83,8 +101,6 @@ DECL|class|MailConfiguration
 specifier|public
 class|class
 name|MailConfiguration
-implements|implements
-name|Cloneable
 block|{
 DECL|field|DEFAULT_FOLDER_NAME
 specifier|public
@@ -154,11 +170,6 @@ name|from
 init|=
 name|DEFAULT_FROM
 decl_stmt|;
-DECL|field|destination
-specifier|private
-name|String
-name|destination
-decl_stmt|;
 DECL|field|folderName
 specifier|private
 name|String
@@ -183,43 +194,34 @@ specifier|private
 name|boolean
 name|processOnlyUnseenMessages
 decl_stmt|;
+DECL|field|recipients
+specifier|private
+name|Map
+argument_list|<
+name|Message
+operator|.
+name|RecipientType
+argument_list|,
+name|String
+argument_list|>
+name|recipients
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|Message
+operator|.
+name|RecipientType
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|method|MailConfiguration ()
 specifier|public
 name|MailConfiguration
 parameter_list|()
 block|{     }
-comment|/**      * Returns a copy of this configuration      */
-DECL|method|copy ()
-specifier|public
-name|MailConfiguration
-name|copy
-parameter_list|()
-block|{
-try|try
-block|{
-return|return
-operator|(
-name|MailConfiguration
-operator|)
-name|clone
-argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|CloneNotSupportedException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
 DECL|method|configure (URI uri)
 specifier|public
 name|void
@@ -301,13 +303,26 @@ argument_list|)
 expr_stmt|;
 comment|// set default destination to userInfo@host for backwards compatibility
 comment|// can be overridden by URI parameters
-name|setDestination
-argument_list|(
+name|String
+name|address
+init|=
 name|userInfo
 operator|+
 literal|"@"
 operator|+
 name|host
+decl_stmt|;
+name|recipients
+operator|.
+name|put
+argument_list|(
+name|Message
+operator|.
+name|RecipientType
+operator|.
+name|TO
+argument_list|,
+name|address
 argument_list|)
 expr_stmt|;
 block|}
@@ -698,34 +713,67 @@ name|username
 expr_stmt|;
 if|if
 condition|(
-name|destination
-operator|==
-literal|null
+operator|!
+name|recipients
+operator|.
+name|containsKey
+argument_list|(
+name|Message
+operator|.
+name|RecipientType
+operator|.
+name|TO
+argument_list|)
 condition|)
 block|{
 comment|// set default destination to username@host for backwards compatibility
 comment|// can be overridden by URI parameters
-name|setDestination
-argument_list|(
+name|String
+name|address
+init|=
 name|username
 operator|+
 literal|"@"
 operator|+
 name|host
+decl_stmt|;
+name|recipients
+operator|.
+name|put
+argument_list|(
+name|Message
+operator|.
+name|RecipientType
+operator|.
+name|TO
+argument_list|,
+name|address
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Gets the destination (recipient<tt>To</tt> email address).      *      * @deprecated use {@link #getRecipients()}      */
 DECL|method|getDestination ()
 specifier|public
 name|String
 name|getDestination
 parameter_list|()
 block|{
+comment|// for backwards compatibility
 return|return
-name|destination
+name|recipients
+operator|.
+name|get
+argument_list|(
+name|Message
+operator|.
+name|RecipientType
+operator|.
+name|TO
+argument_list|)
 return|;
 block|}
+comment|/**      * Sets the destination (recipient<tt>To</tt> email address).      *      * @deprecated use {@link #setTo(String)}      */
 DECL|method|setDestination (String destination)
 specifier|public
 name|void
@@ -735,11 +783,19 @@ name|String
 name|destination
 parameter_list|)
 block|{
-name|this
+comment|// for backwards compatibility
+name|recipients
 operator|.
+name|put
+argument_list|(
+name|Message
+operator|.
+name|RecipientType
+operator|.
+name|TO
+argument_list|,
 name|destination
-operator|=
-name|destination
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getFrom ()
@@ -871,6 +927,95 @@ name|processOnlyUnseenMessages
 operator|=
 name|processOnlyUnseenMessages
 expr_stmt|;
+block|}
+comment|/**      * Sets the<tt>To</tt> email address. Separate multiple email addresses with comma.      */
+DECL|method|setTo (String address)
+specifier|public
+name|void
+name|setTo
+parameter_list|(
+name|String
+name|address
+parameter_list|)
+block|{
+name|recipients
+operator|.
+name|put
+argument_list|(
+name|Message
+operator|.
+name|RecipientType
+operator|.
+name|TO
+argument_list|,
+name|address
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the<tt>CC</tt> email address. Separate multiple email addresses with comma.      */
+DECL|method|setCC (String address)
+specifier|public
+name|void
+name|setCC
+parameter_list|(
+name|String
+name|address
+parameter_list|)
+block|{
+name|recipients
+operator|.
+name|put
+argument_list|(
+name|Message
+operator|.
+name|RecipientType
+operator|.
+name|CC
+argument_list|,
+name|address
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the<tt>BCC</tt> email address. Separate multiple email addresses with comma.      */
+DECL|method|setBCC (String address)
+specifier|public
+name|void
+name|setBCC
+parameter_list|(
+name|String
+name|address
+parameter_list|)
+block|{
+name|recipients
+operator|.
+name|put
+argument_list|(
+name|Message
+operator|.
+name|RecipientType
+operator|.
+name|BCC
+argument_list|,
+name|address
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getRecipients ()
+specifier|public
+name|Map
+argument_list|<
+name|Message
+operator|.
+name|RecipientType
+argument_list|,
+name|String
+argument_list|>
+name|getRecipients
+parameter_list|()
+block|{
+return|return
+name|recipients
+return|;
 block|}
 block|}
 end_class

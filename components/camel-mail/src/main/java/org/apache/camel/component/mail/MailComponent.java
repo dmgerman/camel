@@ -205,10 +205,8 @@ block|{
 name|MailConfiguration
 name|config
 init|=
-name|getConfiguration
-argument_list|()
-operator|.
-name|copy
+operator|new
+name|MailConfiguration
 argument_list|()
 decl_stmt|;
 name|config

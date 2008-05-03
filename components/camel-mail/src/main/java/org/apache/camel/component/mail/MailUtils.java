@@ -494,7 +494,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// TODO: Maybe we need to get the subject from the header properties
 name|String
 name|subject
 init|=
