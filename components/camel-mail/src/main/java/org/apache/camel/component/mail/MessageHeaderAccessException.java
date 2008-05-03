@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision:520964 $  */
+comment|/**  * @deprecated we should not use runtime exception for the attachment binding  * @version $Revision:520964 $  */
 end_comment
 
 begin_class

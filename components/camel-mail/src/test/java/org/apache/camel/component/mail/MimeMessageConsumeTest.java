@@ -724,7 +724,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"smtp://james@localhost"
+literal|"pop3://james@localhost"
 argument_list|)
 operator|.
 name|convertBodyTo

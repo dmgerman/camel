@@ -514,7 +514,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -528,7 +528,6 @@ throw|;
 block|}
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.impl.DefaultMessage#populateInitialAttachments(java.util.Map)      */
 annotation|@
 name|Override
 DECL|method|populateInitialAttachments (Map<String, DataHandler> map)
@@ -625,7 +624,7 @@ name|mailMessage
 expr_stmt|;
 block|}
 block|}
-comment|/**      * parses the attachments of the mail message and puts them to the message      *      * @param map       the attachments map      * @throws javax.mail.MessagingException      */
+comment|/**      * Parses the attachments of the mail message and puts them to the message      *      * @param map       the attachments map      * @throws javax.mail.MessagingException      */
 DECL|method|extractAttachments (Map<String, DataHandler> map)
 specifier|protected
 name|void
@@ -646,6 +645,7 @@ name|mail
 operator|.
 name|MessagingException
 block|{
+comment|// TODO: Reuse spring mail support to handle the attachment
 comment|// now convert the mail attachments and put it to the msg
 name|Multipart
 name|mp

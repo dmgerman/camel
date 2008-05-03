@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An extension of Spring's {@link JavaMailSenderImpl} to provide helper methods  * for listening for new mail  *   * @version $Revision$  */
+comment|/**  * An extension of Spring's {@link JavaMailSenderImpl} to provide helper methods  * for listening for new mail  *  * @deprecated use Spring {@link JavaMailSenderImpl} directly  * @version $Revision$  */
 end_comment
 
 begin_class

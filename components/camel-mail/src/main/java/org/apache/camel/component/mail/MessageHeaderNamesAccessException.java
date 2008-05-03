@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @version $Revision:520964 $  */
+comment|/**  * @deprecated we should not use runtime exception for the attachment binding  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -50,7 +50,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"Failed to acess the Mail message property names"
+literal|"Failed to access the Mail message property names"
 argument_list|,
 name|e
 argument_list|)

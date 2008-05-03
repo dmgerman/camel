@@ -662,6 +662,7 @@ parameter_list|)
 throws|throws
 name|MessagingException
 block|{
+comment|// TODO: Use spring mail support to add the attachment
 comment|// Create a Multipart
 name|MimeMultipart
 name|multipart

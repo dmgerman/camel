@@ -239,12 +239,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending MineMessage: MessageID="
+literal|"Sending MineMessage: "
 operator|+
-name|mimeMessage
+name|MailUtils
 operator|.
-name|getMessageID
-argument_list|()
+name|dumpMessage
+argument_list|(
+name|mimeMessage
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

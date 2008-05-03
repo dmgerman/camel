@@ -60,6 +60,20 @@ name|RuntimeCamelException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|mail
+operator|.
+name|javamail
+operator|.
+name|JavaMailSenderImpl
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the configuration data for communicating over email  *  * @version $Revision$  */
 end_comment
@@ -336,20 +350,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|createJavaMailConnection (MailEndpoint mailEndpoint)
-specifier|public
-name|JavaMailConnection
-name|createJavaMailConnection
-parameter_list|(
-name|MailEndpoint
-name|mailEndpoint
-parameter_list|)
+DECL|method|createJavaMailSender ()
+specifier|protected
+name|JavaMailSenderImpl
+name|createJavaMailSender
+parameter_list|()
 block|{
-name|JavaMailConnection
+name|JavaMailSenderImpl
 name|answer
 init|=
 operator|new
-name|JavaMailConnection
+name|JavaMailSenderImpl
 argument_list|()
 decl_stmt|;
 if|if

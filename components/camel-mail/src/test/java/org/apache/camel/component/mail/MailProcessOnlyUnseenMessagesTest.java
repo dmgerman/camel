@@ -54,6 +54,16 @@ name|javax
 operator|.
 name|mail
 operator|.
+name|Store
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|mail
+operator|.
 name|internet
 operator|.
 name|MimeMessage
@@ -99,6 +109,20 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|mail
+operator|.
+name|javamail
+operator|.
+name|JavaMailSenderImpl
 import|;
 end_import
 
@@ -159,6 +183,39 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// reset mock so we can make new assertions
+name|mock
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+comment|// send a new message, now we should only receive this new massages as all the others has been SEEN
+name|sendBody
+argument_list|(
+literal|"direct:a"
+argument_list|,
+literal|"Message 4"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Message 4"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|prepareMailbox ()
 specifier|private
@@ -168,51 +225,47 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|JavaMailConnection
-name|connection
+comment|// connect to mailbox
+name|JavaMailSenderImpl
+name|sender
 init|=
 operator|new
-name|JavaMailConnection
+name|JavaMailSenderImpl
 argument_list|()
 decl_stmt|;
-name|connection
+name|Store
+name|store
+init|=
+name|sender
 operator|.
-name|setProtocol
+name|getSession
+argument_list|()
+operator|.
+name|getStore
 argument_list|(
-literal|"pop3"
+literal|"imap"
 argument_list|)
-expr_stmt|;
-name|connection
+decl_stmt|;
+name|store
 operator|.
-name|setHost
+name|connect
 argument_list|(
 literal|"localhost"
-argument_list|)
-expr_stmt|;
-name|connection
-operator|.
-name|setPort
-argument_list|(
+argument_list|,
 literal|25
-argument_list|)
-expr_stmt|;
-name|connection
-operator|.
-name|setUsername
-argument_list|(
+argument_list|,
 literal|"claus"
+argument_list|,
+literal|"secret"
 argument_list|)
 expr_stmt|;
-comment|// inserts two messages with the SEEN flag
 name|Folder
 name|folder
 init|=
-name|connection
+name|store
 operator|.
 name|getFolder
 argument_list|(
-literal|"pop3"
-argument_list|,
 literal|"INBOX"
 argument_list|)
 decl_stmt|;
@@ -225,6 +278,7 @@ operator|.
 name|READ_WRITE
 argument_list|)
 expr_stmt|;
+comment|// inserts two messages with the SEEN flag
 name|Message
 index|[]
 name|msg
@@ -243,7 +297,7 @@ operator|=
 operator|new
 name|MimeMessage
 argument_list|(
-name|connection
+name|sender
 operator|.
 name|getSession
 argument_list|()
@@ -283,7 +337,7 @@ operator|=
 operator|new
 name|MimeMessage
 argument_list|(
-name|connection
+name|sender
 operator|.
 name|getSession
 argument_list|()
@@ -360,20 +414,9 @@ argument_list|(
 literal|"smtp://claus@localhost"
 argument_list|)
 expr_stmt|;
-comment|// START SNIPPET: e1
-comment|// consume only new unseen massages from the mailbox and poll the mailbox with 60 seconds interval
-name|long
-name|delay
-init|=
-literal|60
-operator|*
-literal|1000L
-decl_stmt|;
 name|from
 argument_list|(
-literal|"pop3://localhost?username=claus&password=secret&processOnlyUnseenMessages=true&consumer.delay="
-operator|+
-name|delay
+literal|"imap://localhost?username=claus&password=secret&processOnlyUnseenMessages=true"
 argument_list|)
 operator|.
 name|to
@@ -381,7 +424,6 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
