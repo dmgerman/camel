@@ -204,6 +204,11 @@ specifier|private
 name|String
 name|beanId
 decl_stmt|;
+DECL|field|isWrapped
+specifier|private
+name|boolean
+name|isWrapped
+decl_stmt|;
 DECL|field|isSpringContextEndpoint
 specifier|private
 name|boolean
@@ -622,6 +627,30 @@ operator|.
 name|inOut
 operator|=
 name|inOut
+expr_stmt|;
+block|}
+DECL|method|isWrapped ()
+specifier|public
+name|boolean
+name|isWrapped
+parameter_list|()
+block|{
+return|return
+name|isWrapped
+return|;
+block|}
+DECL|method|setWrapped (boolean wrapped)
+specifier|public
+name|void
+name|setWrapped
+parameter_list|(
+name|boolean
+name|wrapped
+parameter_list|)
+block|{
+name|isWrapped
+operator|=
+name|wrapped
 expr_stmt|;
 block|}
 DECL|method|getComponent ()

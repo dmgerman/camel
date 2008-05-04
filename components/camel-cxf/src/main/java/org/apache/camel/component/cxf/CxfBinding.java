@@ -351,20 +351,6 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|setBody
-argument_list|(
-name|response
-operator|.
-name|getContent
-argument_list|(
-name|InputStream
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|storeCxfResponse (CxfExchange exchange, Object response)
