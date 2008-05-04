@@ -406,6 +406,27 @@ name|Exception
 block|{
 if|if
 condition|(
+name|store
+operator|==
+literal|null
+operator|||
+name|folder
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"MailConsumer did not start properly. Camel does not have access to the MailStore or MailFolder."
+operator|+
+literal|" Check log files for errors reported during starting this component"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|LOG
 operator|.
 name|isDebugEnabled
