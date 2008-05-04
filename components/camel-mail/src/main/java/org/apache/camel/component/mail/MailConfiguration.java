@@ -225,6 +225,11 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+DECL|field|debugMode
+specifier|private
+name|boolean
+name|debugMode
+decl_stmt|;
 DECL|method|MailConfiguration ()
 specifier|public
 name|MailConfiguration
@@ -386,6 +391,17 @@ operator|new
 name|JavaMailSenderImpl
 argument_list|()
 decl_stmt|;
+comment|// sets the debug mode of the underlying mail framework
+name|answer
+operator|.
+name|getSession
+argument_list|()
+operator|.
+name|setDebug
+argument_list|(
+name|debugMode
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|defaultEncoding
@@ -1049,6 +1065,32 @@ operator|.
 name|fetchSize
 operator|=
 name|fetchSize
+expr_stmt|;
+block|}
+DECL|method|isDebugMode ()
+specifier|public
+name|boolean
+name|isDebugMode
+parameter_list|()
+block|{
+return|return
+name|debugMode
+return|;
+block|}
+DECL|method|setDebugMode (boolean debugMode)
+specifier|public
+name|void
+name|setDebugMode
+parameter_list|(
+name|boolean
+name|debugMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|debugMode
+operator|=
+name|debugMode
 expr_stmt|;
 block|}
 block|}
