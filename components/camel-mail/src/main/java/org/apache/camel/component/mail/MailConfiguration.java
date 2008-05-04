@@ -217,6 +217,14 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|fetchSize
+specifier|private
+name|int
+name|fetchSize
+init|=
+operator|-
+literal|1
+decl_stmt|;
 DECL|method|MailConfiguration ()
 specifier|public
 name|MailConfiguration
@@ -1016,6 +1024,32 @@ block|{
 return|return
 name|recipients
 return|;
+block|}
+DECL|method|getFetchSize ()
+specifier|public
+name|int
+name|getFetchSize
+parameter_list|()
+block|{
+return|return
+name|fetchSize
+return|;
+block|}
+DECL|method|setFetchSize (int fetchSize)
+specifier|public
+name|void
+name|setFetchSize
+parameter_list|(
+name|int
+name|fetchSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fetchSize
+operator|=
+name|fetchSize
+expr_stmt|;
 block|}
 block|}
 end_class
