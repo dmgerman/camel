@@ -195,6 +195,7 @@ block|{
 DECL|field|REPLY_TO_DESTINATION_SELECTOR_NAME
 specifier|protected
 specifier|static
+specifier|final
 name|String
 name|REPLY_TO_DESTINATION_SELECTOR_NAME
 init|=

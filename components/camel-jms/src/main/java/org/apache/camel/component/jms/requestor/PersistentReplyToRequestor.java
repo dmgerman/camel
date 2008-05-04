@@ -561,7 +561,6 @@ block|{
 name|boolean
 name|dynamicSelector
 init|=
-operator|(
 name|getConfiguration
 argument_list|()
 operator|.
@@ -569,7 +568,6 @@ name|getReplyToDestinationSelectorName
 argument_list|()
 operator|==
 literal|null
-operator|)
 decl_stmt|;
 if|if
 condition|(
@@ -606,7 +604,6 @@ block|{
 name|boolean
 name|dynamicSelector
 init|=
-operator|(
 name|getConfiguration
 argument_list|()
 operator|.
@@ -614,7 +611,6 @@ name|getReplyToDestinationSelectorName
 argument_list|()
 operator|==
 literal|null
-operator|)
 decl_stmt|;
 if|if
 condition|(

@@ -218,7 +218,9 @@ name|jms
 operator|.
 name|requestor
 operator|.
-name|PersistentReplyToRequestor
+name|DeferredRequestReplyMap
+operator|.
+name|DeferredMessageSentCallback
 import|;
 end_import
 
@@ -236,9 +238,7 @@ name|jms
 operator|.
 name|requestor
 operator|.
-name|DeferredRequestReplyMap
-operator|.
-name|DeferredMessageSentCallback
+name|PersistentReplyToRequestor
 import|;
 end_import
 
@@ -387,6 +387,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|affinity
+name|RequestorAffinity
+name|affinity
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -417,10 +421,6 @@ DECL|field|requestor
 specifier|private
 name|Requestor
 name|requestor
-decl_stmt|;
-DECL|field|affinity
-name|RequestorAffinity
-name|affinity
 decl_stmt|;
 DECL|field|started
 specifier|private
@@ -605,12 +605,11 @@ name|RuntimeCamelException
 block|{
 if|if
 condition|(
+operator|!
 name|started
 operator|.
 name|get
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 synchronized|synchronized
@@ -620,16 +619,13 @@ init|)
 block|{
 if|if
 condition|(
+operator|!
 name|started
 operator|.
 name|get
 argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
-return|return;
-block|}
 try|try
 block|{
 name|JmsConfiguration
@@ -786,6 +782,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 DECL|method|testAndUnsetRequestor ()
 specifier|protected
 name|void
@@ -800,8 +797,6 @@ name|started
 operator|.
 name|get
 argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
 synchronized|synchronized
@@ -811,12 +806,11 @@ init|)
 block|{
 if|if
 condition|(
+operator|!
 name|started
 operator|.
 name|get
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 return|return;

@@ -3378,7 +3378,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the OUT message      *       * @deprecated Please use {@link #transform(Expression)} instead      */
+comment|/**      * Adds a processor which sets the body on the OUT message      *      * @deprecated Please use {@link #transform(Expression)} instead      */
 DECL|method|setOutBody (Expression expression)
 specifier|public
 name|Type
@@ -3499,7 +3499,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/** 	 * Adds a processor which sets the body on the FAULT message 	 */
+comment|/**      * Adds a processor which sets the body on the FAULT message      */
 DECL|method|setFaultBody (Expression expression)
 specifier|public
 name|Type

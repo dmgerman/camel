@@ -19,22 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|removeStartingCharacters
-import|;
-end_import
-
-begin_import
 import|import
 name|javax
 operator|.
@@ -473,6 +457,22 @@ operator|.
 name|util
 operator|.
 name|Assert
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|removeStartingCharacters
 import|;
 end_import
 
