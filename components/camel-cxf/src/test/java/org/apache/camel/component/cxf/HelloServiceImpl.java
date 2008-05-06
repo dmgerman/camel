@@ -123,6 +123,19 @@ return|return
 literal|"hello"
 return|;
 block|}
+DECL|method|echoBoolean (Boolean bool)
+specifier|public
+name|Boolean
+name|echoBoolean
+parameter_list|(
+name|Boolean
+name|bool
+parameter_list|)
+block|{
+return|return
+name|bool
+return|;
+block|}
 block|}
 end_class
 

@@ -47,6 +47,14 @@ name|String
 name|text
 parameter_list|)
 function_decl|;
+DECL|method|echoBoolean (Boolean bool)
+name|Boolean
+name|echoBoolean
+parameter_list|(
+name|Boolean
+name|bool
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

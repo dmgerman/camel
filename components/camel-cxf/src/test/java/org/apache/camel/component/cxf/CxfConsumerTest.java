@@ -224,6 +224,15 @@ name|ECHO_OPERATION
 init|=
 literal|"echo"
 decl_stmt|;
+DECL|field|ECHO_BOOLEAN_OPERATION
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ECHO_BOOLEAN_OPERATION
+init|=
+literal|"echoBoolean"
+decl_stmt|;
 DECL|field|TEST_MESSAGE
 specifier|private
 specifier|static
@@ -307,9 +316,23 @@ operator|.
 name|OPERATION_NAME
 argument_list|)
 decl_stmt|;
-name|String
+name|Object
 name|result
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|operation
+operator|.
+name|equals
+argument_list|(
+name|ECHO_OPERATION
+argument_list|)
+condition|)
+block|{
+name|result
+operator|=
 name|operation
 operator|+
 literal|" "
@@ -323,7 +346,31 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|operation
+operator|.
+name|equals
+argument_list|(
+name|ECHO_BOOLEAN_OPERATION
+argument_list|)
+condition|)
+block|{
+name|result
+operator|=
+operator|(
+name|Boolean
+operator|)
+name|parameter
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Put the result back
 name|exchange
 operator|.
@@ -416,11 +463,42 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"we should get the right answer from router"
+literal|"We should get the echo string result from router"
 argument_list|,
 name|result
 argument_list|,
 literal|"echo hello world"
+argument_list|)
+expr_stmt|;
+name|Boolean
+name|bool
+init|=
+name|client
+operator|.
+name|echoBoolean
+argument_list|(
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"The result should not be null"
+argument_list|,
+name|bool
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"We should get the echo boolean result from router "
+argument_list|,
+name|bool
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+literal|"true"
 argument_list|)
 expr_stmt|;
 block|}
