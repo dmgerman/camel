@@ -51,16 +51,31 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"No converter available to convert value: "
+literal|"No type converter available to convert from type: "
 operator|+
+operator|(
 name|value
+operator|!=
+literal|null
+condition|?
+name|value
+operator|.
+name|getClass
+argument_list|()
+else|:
+literal|null
+operator|)
 operator|+
-literal|" to the required type: "
+literal|" to the required type "
 operator|+
 name|type
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|" with value "
+operator|+
+name|value
 argument_list|)
 expr_stmt|;
 name|this
@@ -76,7 +91,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-comment|/**      * Returns the value which could not be converted      *       * @return the value that could not be converted      */
+comment|/**      * Returns the value which could not be converted      */
 DECL|method|getValue ()
 specifier|public
 name|Object
@@ -87,7 +102,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**      * Returns the required type      *       * @return the required type      */
+comment|/**      * Returns the required<tt>to</tt> type      */
 DECL|method|getType ()
 specifier|public
 name|Class
@@ -97,6 +112,34 @@ block|{
 return|return
 name|type
 return|;
+block|}
+comment|/**      * Returns the required<tt>from</tt> type.      * Returns<tt>null</tt> if the provided value was null.      */
+DECL|method|getFromType ()
+specifier|public
+name|Class
+name|getFromType
+parameter_list|()
+block|{
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|value
+operator|.
+name|getClass
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 block|}
 end_class
