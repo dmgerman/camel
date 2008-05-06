@@ -44,6 +44,16 @@ name|javax
 operator|.
 name|mail
 operator|.
+name|FolderNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|mail
+operator|.
 name|Message
 import|;
 end_import
@@ -65,16 +75,6 @@ operator|.
 name|mail
 operator|.
 name|Store
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|FolderNotFoundException
 import|;
 end_import
 

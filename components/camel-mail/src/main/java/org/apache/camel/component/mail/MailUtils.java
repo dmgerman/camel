@@ -54,7 +54,7 @@ name|javax
 operator|.
 name|mail
 operator|.
-name|MessagingException
+name|Message
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|javax
 operator|.
 name|mail
 operator|.
-name|Message
+name|MessagingException
 import|;
 end_import
 

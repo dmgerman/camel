@@ -116,6 +116,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultMessage
@@ -133,18 +145,6 @@ operator|.
 name|util
 operator|.
 name|CollectionHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
 import|;
 end_import
 

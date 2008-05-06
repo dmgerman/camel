@@ -34,7 +34,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
+name|HashMap
 import|;
 end_import
 
@@ -54,17 +54,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|Session
+name|Properties
 import|;
 end_import
 
@@ -75,6 +65,16 @@ operator|.
 name|mail
 operator|.
 name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|mail
+operator|.
+name|Session
 import|;
 end_import
 
