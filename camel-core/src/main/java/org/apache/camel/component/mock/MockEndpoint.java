@@ -2186,7 +2186,7 @@ return|return
 name|resultWaitTime
 return|;
 block|}
-comment|/**      * Sets the maximum amount of time the {@link #assertIsSatisfied()} will      * wait on a latch until it is satisfied      */
+comment|/**      * Sets the maximum amount of time (in millis) the {@link #assertIsSatisfied()} will      * wait on a latch until it is satisfied      */
 DECL|method|setResultWaitTime (long resultWaitTime)
 specifier|public
 name|void
