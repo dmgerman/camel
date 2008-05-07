@@ -172,7 +172,7 @@ name|contextId
 argument_list|)
 condition|)
 block|{
-comment|//set the contextId default value here
+comment|//Set the contextId default value here
 return|return
 name|DEFAULT_CAMEL_CONTEXT_NAME
 return|;
@@ -221,7 +221,7 @@ name|BeanDefinitionBuilder
 name|bean
 parameter_list|)
 block|{
-comment|// paser the id attribute
+comment|// Parser the id attribute
 name|bean
 operator|.
 name|setAbstract
@@ -295,7 +295,7 @@ name|name
 argument_list|)
 condition|)
 block|{
-comment|// paraser the camel context
+comment|// Parser the camel context
 name|BeanDefinition
 name|bd
 init|=
@@ -312,7 +312,7 @@ operator|)
 name|n
 argument_list|)
 decl_stmt|;
-comment|// get the inner camel context id
+comment|// Get the inner camel context id
 name|String
 name|contextId
 init|=
