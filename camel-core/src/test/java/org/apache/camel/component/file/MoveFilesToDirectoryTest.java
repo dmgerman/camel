@@ -280,6 +280,14 @@ argument_list|(
 name|newFile
 argument_list|)
 expr_stmt|;
+comment|// now lets wait for multiple polls to check we only process it once
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisifed
 argument_list|()
 expr_stmt|;
