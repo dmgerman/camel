@@ -864,7 +864,7 @@ name|resolveMandatoryEndpoint
 argument_list|(
 literal|"smtp://james@myhost:30/subject?password=secret"
 operator|+
-literal|"&from=me@camelriders.org&DeleteProcessedMessages=false&defaultEncoding=iso-8859-1&folderName=riders"
+literal|"&from=me@camelriders.org&deleteProcessedMessages=false&defaultEncoding=iso-8859-1&folderName=riders"
 argument_list|)
 decl_stmt|;
 name|MailConfiguration

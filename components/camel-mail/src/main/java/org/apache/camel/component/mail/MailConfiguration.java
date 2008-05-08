@@ -708,6 +708,68 @@ return|return
 name|properties
 return|;
 block|}
+comment|/**      * Is the used protocol to be secure or not      */
+DECL|method|isSecureProtocol ()
+specifier|public
+name|boolean
+name|isSecureProtocol
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|protocol
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+literal|"smtps"
+argument_list|)
+operator|||
+name|this
+operator|.
+name|protocol
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+literal|"pop3s"
+argument_list|)
+operator|||
+name|this
+operator|.
+name|protocol
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+literal|"imaps"
+argument_list|)
+return|;
+block|}
+DECL|method|getMailStoreLogInformation ()
+specifier|public
+name|String
+name|getMailStoreLogInformation
+parameter_list|()
+block|{
+return|return
+literal|"MailStore ["
+operator|+
+name|protocol
+operator|+
+literal|"//"
+operator|+
+name|host
+operator|+
+literal|":"
+operator|+
+name|port
+operator|+
+literal|"] folder=["
+operator|+
+name|folderName
+operator|+
+literal|"]"
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getDefaultEncoding ()
