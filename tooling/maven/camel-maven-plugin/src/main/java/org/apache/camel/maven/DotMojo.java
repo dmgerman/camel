@@ -364,19 +364,19 @@ comment|//
 comment|// For running Camel embedded
 comment|// -------------------------------------------------------------------------
 comment|//
-comment|/**      * The duration to run the application for which by default is in      * milliseconds.      *      * @parameter expression="2s"      * @readonly      */
+comment|/**      * The duration to run the application for which by default is in      * milliseconds.      *      * @parameter expression="2s"      */
 DECL|field|duration
 specifier|protected
 name|String
 name|duration
 decl_stmt|;
-comment|/**      * Whether we should boot up camel with the META-INF/services/*.xml to      * generate the DOT file      *      * @parameter expression="true"      * @readonly      */
+comment|/**      * Whether we should boot up camel with the META-INF/services/*.xml to      * generate the DOT file      *      * @parameter expression="true"      */
 DECL|field|runCamel
 specifier|protected
 name|boolean
 name|runCamel
 decl_stmt|;
-comment|/**      * Should we try run the DOT executable on the generated .DOT file to      * generate images      *      * @parameter expression="true"      * @readonly      */
+comment|/**      * Should we try run the DOT executable on the generated .DOT file to      * generate images      *      * @parameter expression="true"      */
 DECL|field|useDot
 specifier|protected
 name|boolean
@@ -388,13 +388,13 @@ specifier|private
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * Base output directory.      *      * @parameter expression="${project.build.directory}"      * @required      * @readonly      */
+comment|/**      * Base output directory.      *      * @parameter expression="${project.build.directory}"      * @required      */
 DECL|field|buildDirectory
 specifier|private
 name|File
 name|buildDirectory
 decl_stmt|;
-comment|/**      * Base output directory for reports.      *      * @parameter default-value="${project.build.directory}/site/cameldoc"      * @readonly      * @required      */
+comment|/**      * Base output directory for reports.      *      * @parameter default-value="${project.build.directory}/site/cameldoc"      * @required      */
 DECL|field|outputDirectory
 specifier|private
 name|File
@@ -519,6 +519,32 @@ operator|.
 name|aggregate
 operator|=
 name|aggregate
+expr_stmt|;
+block|}
+DECL|method|isUseDot ()
+specifier|public
+name|boolean
+name|isUseDot
+parameter_list|()
+block|{
+return|return
+name|useDot
+return|;
+block|}
+DECL|method|setUseDot (boolean useDot)
+specifier|public
+name|void
+name|setUseDot
+parameter_list|(
+name|boolean
+name|useDot
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useDot
+operator|=
+name|useDot
 expr_stmt|;
 block|}
 comment|/**      * @see org.apache.maven.plugin.Mojo#execute()      */
