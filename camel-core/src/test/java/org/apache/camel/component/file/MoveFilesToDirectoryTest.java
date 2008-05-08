@@ -121,6 +121,13 @@ name|expectedBody
 init|=
 literal|"Hello there!"
 decl_stmt|;
+DECL|field|noop
+specifier|protected
+name|boolean
+name|noop
+init|=
+literal|false
+decl_stmt|;
 DECL|method|testFileRoute ()
 specifier|public
 name|void
@@ -204,15 +211,27 @@ name|fileName
 argument_list|)
 decl_stmt|;
 name|File
-name|newFile
+name|outDir
 init|=
 operator|new
 name|File
 argument_list|(
 name|outputDirectory
-operator|+
-literal|"/"
-operator|+
+argument_list|)
+decl_stmt|;
+name|outDir
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
+name|File
+name|newFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|outDir
+argument_list|,
 name|fileName
 argument_list|)
 decl_stmt|;
@@ -350,9 +369,8 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"file:"
-operator|+
-name|outputDirectory
+name|getOutputEndpointUri
+argument_list|()
 argument_list|)
 operator|.
 name|to
@@ -362,6 +380,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|;
+block|}
+DECL|method|getOutputEndpointUri ()
+specifier|protected
+name|String
+name|getOutputEndpointUri
+parameter_list|()
+block|{
+return|return
+literal|"file:"
+operator|+
+name|outputDirectory
 return|;
 block|}
 block|}
