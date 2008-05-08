@@ -97,13 +97,9 @@ block|{
 name|MockEndpoint
 name|result
 init|=
-name|resolveMandatoryEndpoint
+name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
-argument_list|,
-name|MockEndpoint
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
 name|result
@@ -133,9 +129,7 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-name|result
-operator|.
-name|assertIsSatisfied
+name|assertMockEndpointsSatisifed
 argument_list|()
 expr_stmt|;
 block|}
