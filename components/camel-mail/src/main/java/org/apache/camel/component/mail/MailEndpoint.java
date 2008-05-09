@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision:520964 $  */
+comment|/**  * Endpoint for Camel Mail.  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -236,6 +236,34 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|configuration
+operator|.
+name|getProtocol
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"smtp"
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Protocol "
+operator|+
+name|configuration
+operator|.
+name|getProtocol
+argument_list|()
+operator|+
+literal|" can not be used for a MailConsumer. Please use another protocol such as pop3 or imap."
+argument_list|)
+throw|;
+block|}
 name|JavaMailSenderImpl
 name|sender
 init|=

@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A Producer to send messages using JavaMail.  *    * @version $Revision$  */
 end_comment
 
 begin_class
@@ -239,7 +239,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending MineMessage: "
+literal|"Sending MimeMessage: "
 operator|+
 name|MailUtils
 operator|.
