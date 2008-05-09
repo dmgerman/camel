@@ -2633,9 +2633,14 @@ name|proceed
 init|=
 literal|null
 decl_stmt|;
+name|ProcessorType
+name|currentProcessor
+init|=
+name|this
+decl_stmt|;
 if|if
 condition|(
-name|this
+name|currentProcessor
 operator|instanceof
 name|InterceptType
 condition|)
@@ -2646,7 +2651,7 @@ operator|(
 operator|(
 name|InterceptType
 operator|)
-name|this
+name|currentProcessor
 operator|)
 operator|.
 name|getProceed
@@ -2707,7 +2712,7 @@ block|}
 block|}
 if|if
 condition|(
-name|this
+name|currentProcessor
 operator|instanceof
 name|InterceptType
 condition|)
@@ -2718,7 +2723,7 @@ operator|(
 operator|(
 name|InterceptType
 operator|)
-name|this
+name|currentProcessor
 operator|)
 operator|.
 name|getProceed
