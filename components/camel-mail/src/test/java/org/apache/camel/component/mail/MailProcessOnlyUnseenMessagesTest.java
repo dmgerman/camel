@@ -278,6 +278,11 @@ operator|.
 name|READ_WRITE
 argument_list|)
 expr_stmt|;
+name|folder
+operator|.
+name|expunge
+argument_list|()
+expr_stmt|;
 comment|// inserts two messages with the SEEN flag
 name|Message
 index|[]
@@ -416,7 +421,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"imap://localhost?username=claus&password=secret&processOnlyUnseenMessages=true"
+literal|"imap://localhost?username=claus&password=secret&processOnlyUnseenMessages=true&consumer.delay=1000"
 argument_list|)
 operator|.
 name|to

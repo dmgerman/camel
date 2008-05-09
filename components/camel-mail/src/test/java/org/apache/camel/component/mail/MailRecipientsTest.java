@@ -115,7 +115,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"james@apache.org"
+literal|"you@apache.org"
 argument_list|,
 name|msg
 operator|.
@@ -237,7 +237,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"james@apache.org"
+literal|"you@apache.org"
 argument_list|,
 name|msg
 operator|.
@@ -359,7 +359,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"james@apache.org"
+literal|"you@apache.org"
 argument_list|,
 name|msg
 operator|.
@@ -481,7 +481,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"james@apache.org"
+literal|"you@apache.org"
 argument_list|,
 name|msg
 operator|.
@@ -621,7 +621,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp://james@mymailserver.com?password=secret&From=james@apache.org"
+literal|"smtp://you@mymailserver.com?password=secret&From=you@apache.org"
 operator|+
 name|recipients
 argument_list|)

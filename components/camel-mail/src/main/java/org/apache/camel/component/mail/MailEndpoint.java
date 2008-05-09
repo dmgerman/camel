@@ -312,6 +312,17 @@ argument_list|,
 name|sender
 argument_list|)
 decl_stmt|;
+comment|// ScheduledPollConsumer default delay is 500 millis and that is too often for polling a mailbox,
+comment|// so we override with a new default value. End user can override this value by providing a consumer.delay parameter
+name|answer
+operator|.
+name|setDelay
+argument_list|(
+name|MailConsumer
+operator|.
+name|DEFAULT_CONSUMER_DELAY
+argument_list|)
+expr_stmt|;
 name|configureConsumer
 argument_list|(
 name|answer

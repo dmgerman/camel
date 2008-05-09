@@ -383,7 +383,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://james@mymailserver.com?password=secret"
+literal|"pop3://james@mymailserver.com?password=secret&consumer.delay=1000"
 argument_list|)
 operator|.
 name|to

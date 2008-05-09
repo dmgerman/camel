@@ -342,7 +342,7 @@ name|RecipientType
 operator|.
 name|TO
 argument_list|,
-literal|"james@localhost"
+literal|"james3@localhost"
 argument_list|)
 expr_stmt|;
 name|Transport
@@ -724,7 +724,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"pop3://james@localhost"
+literal|"pop3://james3@localhost?consumer.delay=1000"
 argument_list|)
 operator|.
 name|convertBodyTo

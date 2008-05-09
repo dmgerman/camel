@@ -394,7 +394,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"pop3://route-test-james@localhost"
+literal|"pop3://route-test-james@localhost?consumer.delay=1000"
 argument_list|)
 operator|.
 name|to
@@ -416,7 +416,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"pop3://route-test-result@localhost"
+literal|"pop3://route-test-result@localhost?consumer.delay=1000"
 argument_list|)
 operator|.
 name|convertBodyTo

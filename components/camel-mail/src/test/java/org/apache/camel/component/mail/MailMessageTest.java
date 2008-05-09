@@ -165,7 +165,7 @@ block|{
 operator|new
 name|InternetAddress
 argument_list|(
-literal|"james@localhost"
+literal|"foo@localhost"
 argument_list|)
 block|,
 operator|new
@@ -224,7 +224,7 @@ name|assertEquals
 argument_list|(
 literal|"should have 2 receivers"
 argument_list|,
-literal|"james@localhost, bar@localhost"
+literal|"foo@localhost, bar@localhost"
 argument_list|,
 name|to
 argument_list|)
@@ -255,7 +255,7 @@ block|{
 operator|new
 name|InternetAddress
 argument_list|(
-literal|"james@localhost"
+literal|"frank@localhost"
 argument_list|)
 block|}
 argument_list|)
@@ -304,7 +304,7 @@ name|assertEquals
 argument_list|(
 literal|"value"
 argument_list|,
-literal|"james@localhost"
+literal|"frank@localhost"
 argument_list|,
 name|value
 argument_list|)
@@ -341,7 +341,7 @@ name|endpoint
 operator|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"pop3://james@myhost:30/subject"
+literal|"pop3://someone@myhost:30/subject"
 argument_list|)
 expr_stmt|;
 name|Properties

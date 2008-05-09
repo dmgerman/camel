@@ -190,6 +190,17 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|DEFAULT_CONSUMER_DELAY
+specifier|public
+specifier|static
+specifier|final
+name|long
+name|DEFAULT_CONSUMER_DELAY
+init|=
+literal|60
+operator|*
+literal|1000L
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final

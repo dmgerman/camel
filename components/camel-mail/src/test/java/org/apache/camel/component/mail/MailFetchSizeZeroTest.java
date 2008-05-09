@@ -158,7 +158,7 @@ name|Mailbox
 operator|.
 name|get
 argument_list|(
-literal|"james@localhost"
+literal|"bill@localhost"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -248,7 +248,7 @@ literal|"localhost"
 argument_list|,
 literal|25
 argument_list|,
-literal|"james"
+literal|"bill"
 argument_list|,
 literal|"secret"
 argument_list|)
@@ -271,6 +271,11 @@ name|Folder
 operator|.
 name|READ_WRITE
 argument_list|)
+expr_stmt|;
+name|folder
+operator|.
+name|expunge
+argument_list|()
 expr_stmt|;
 comment|// inserts 5 new messages
 name|Message
@@ -362,7 +367,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://james@localhost?password=secret&fetchSize=0"
+literal|"pop3://bill@localhost?password=secret&fetchSize=0&consumer.delay=1000"
 argument_list|)
 operator|.
 name|to

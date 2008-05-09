@@ -38,9 +38,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|RouteBuilder
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
@@ -52,53 +54,39 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|builder
 operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|RouteBuilder
 import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for Mail subject support.  */
+comment|/**  * Unit test for testing mail polling is happening according to the default poll interval.  */
 end_comment
 
 begin_class
-DECL|class|MailSubjectTest
+DECL|class|MailDefaultDelayForMailConsumeTest
 specifier|public
 class|class
-name|MailSubjectTest
+name|MailDefaultDelayForMailConsumeTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|subject
-specifier|private
-name|String
-name|subject
-init|=
-literal|"Camel rocks"
-decl_stmt|;
-DECL|method|testMailSubject ()
+DECL|method|testConsuming ()
 specifier|public
 name|void
-name|testMailSubject
+name|testConsuming
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|String
-name|body
-init|=
-literal|"Hello Claus.\nYes it does.\n\nRegards James."
-decl_stmt|;
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:a"
+literal|"smtp://bond@localhost"
 argument_list|,
-name|body
+literal|"Hello London"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -111,31 +99,92 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|expectedHeaderReceived
-argument_list|(
-literal|"subject"
-argument_list|,
-name|subject
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedBodiesReceived
 argument_list|(
-name|body
+literal|"Hello London"
+argument_list|)
+expr_stmt|;
+comment|// first poll should happend immediately
+name|mock
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|1000
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|()
+expr_stmt|;
+name|long
+name|start
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
+name|mock
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"smtp://bond@localhost"
+argument_list|,
+literal|"Hello Paris"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello Paris"
+argument_list|)
+expr_stmt|;
+comment|// poll next mail and that is should be done within the default delay + 2 sec slack
+name|mock
+operator|.
+name|setResultWaitTime
+argument_list|(
+name|MailConsumer
+operator|.
+name|DEFAULT_CONSUMER_DELAY
+operator|+
+literal|2000L
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+name|long
+name|delta
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|-
+name|start
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Camel should not default poll the mailbox to often"
+argument_list|,
+name|delta
+operator|>
+name|MailConsumer
+operator|.
+name|DEFAULT_CONSUMER_DELAY
+operator|-
+literal|1000L
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
@@ -158,28 +207,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"direct:a"
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-literal|"subject"
-argument_list|,
-name|subject
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"smtp://james2@localhost"
-argument_list|)
-expr_stmt|;
-comment|// END SNIPPET: e1
-name|from
-argument_list|(
-literal|"pop3://localhost?username=james2&password=secret&consumer.delay=1000"
+literal|"pop3://bond@localhost"
 argument_list|)
 operator|.
 name|to
