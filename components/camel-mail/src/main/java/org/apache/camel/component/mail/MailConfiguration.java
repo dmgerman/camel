@@ -751,8 +751,6 @@ name|getMailStoreLogInformation
 parameter_list|()
 block|{
 return|return
-literal|"MailStore ["
-operator|+
 name|protocol
 operator|+
 literal|"//"
@@ -763,11 +761,18 @@ literal|":"
 operator|+
 name|port
 operator|+
-literal|"] folder=["
+operator|(
+name|isSecureProtocol
+argument_list|()
+condition|?
+literal|" (SSL enabled)"
+else|:
+literal|""
+operator|)
+operator|+
+literal|", folder="
 operator|+
 name|folderName
-operator|+
-literal|"]"
 return|;
 block|}
 comment|// Properties

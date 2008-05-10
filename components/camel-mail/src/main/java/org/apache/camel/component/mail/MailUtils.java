@@ -357,7 +357,7 @@ return|return
 name|port
 return|;
 block|}
-comment|/**      * Gets a log dump of the given message that can be used for tracing etc.      *      * @param message the Mail message      * @return a log string with important fields dumped      * @throws MessagingException can be thrown by the Mail API      */
+comment|/**      * Gets a log dump of the given message that can be used for tracing etc.      *      * @param message the Mail message      * @return a log string with important fields dumped      */
 DECL|method|dumpMessage (Message message)
 specifier|public
 specifier|static
@@ -367,8 +367,8 @@ parameter_list|(
 name|Message
 name|message
 parameter_list|)
-throws|throws
-name|MessagingException
+block|{
+try|try
 block|{
 name|StringBuilder
 name|sb
@@ -615,6 +615,21 @@ operator|.
 name|toString
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|MessagingException
+name|e
+parameter_list|)
+block|{
+comment|// ignore the error and just return tostring
+return|return
+name|message
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
 block|}
 block|}
 end_class

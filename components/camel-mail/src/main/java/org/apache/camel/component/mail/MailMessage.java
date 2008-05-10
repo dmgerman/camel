@@ -203,7 +203,12 @@ block|{
 return|return
 literal|"MailMessage: "
 operator|+
+name|MailUtils
+operator|.
+name|dumpMessage
+argument_list|(
 name|mailMessage
+argument_list|)
 return|;
 block|}
 else|else

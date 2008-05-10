@@ -377,31 +377,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Polling mailfolder "
-operator|+
-name|folder
-operator|.
-name|getFullName
-argument_list|()
-operator|+
-literal|" at host "
+literal|"Polling mailfolder: "
 operator|+
 name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getHost
-argument_list|()
-operator|+
-literal|":"
-operator|+
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getPort
+name|getMailStoreLogInformation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -623,18 +606,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Connecting to MailStore at host "
+literal|"Connecting to MailStore "
 operator|+
-name|config
+name|endpoint
 operator|.
-name|getHost
+name|getConfiguration
 argument_list|()
-operator|+
-literal|" on port "
-operator|+
-name|config
 operator|.
-name|getPort
+name|getMailStoreLogInformation
 argument_list|()
 argument_list|)
 expr_stmt|;
