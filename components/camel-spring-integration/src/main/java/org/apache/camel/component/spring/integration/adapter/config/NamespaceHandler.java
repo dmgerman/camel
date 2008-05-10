@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.spring.integration
+DECL|package|org.apache.camel.component.spring.integration.adapter.config
 package|package
 name|org
 operator|.
@@ -17,51 +17,65 @@ operator|.
 name|spring
 operator|.
 name|integration
+operator|.
+name|adapter
+operator|.
+name|config
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|beans
+operator|.
+name|factory
+operator|.
+name|xml
+operator|.
+name|NamespaceHandlerSupport
+import|;
+end_import
+
 begin_comment
-comment|/**  * The bean class which implements the business logical  */
+comment|/**  * The name space handler Spring Integration Camel Adapter  *  * @author Willem Jiang  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|HelloWorldService
+DECL|class|NamespaceHandler
 specifier|public
 class|class
-name|HelloWorldService
+name|NamespaceHandler
+extends|extends
+name|NamespaceHandlerSupport
 block|{
-DECL|field|count
-specifier|private
-name|int
-name|count
-decl_stmt|;
-DECL|method|sayHello (String name)
+DECL|method|init ()
 specifier|public
-name|String
-name|sayHello
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|count
-operator|++
-expr_stmt|;
-return|return
-literal|"Hello "
-operator|+
-name|name
-return|;
-block|}
-DECL|method|getCount ()
-specifier|public
-name|int
-name|getCount
+name|void
+name|init
 parameter_list|()
 block|{
-return|return
-name|count
-return|;
+name|registerBeanDefinitionParser
+argument_list|(
+literal|"camelSource"
+argument_list|,
+operator|new
+name|CamelSourceAdpaterParser
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|registerBeanDefinitionParser
+argument_list|(
+literal|"camelTarget"
+argument_list|,
+operator|new
+name|CamelTargetAdapterParser
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
