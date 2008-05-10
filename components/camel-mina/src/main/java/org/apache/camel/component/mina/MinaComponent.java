@@ -626,6 +626,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|DEFAULT_CONNECT_TIMEOUT
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|DEFAULT_CONNECT_TIMEOUT
+init|=
+literal|30000
+decl_stmt|;
 comment|// encoder used for datagram
 DECL|field|encoder
 specifier|private
@@ -1024,7 +1033,32 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: CAMEL-396 override connector timeout to either default or timeout provided by end user: connectorConfig.setConnectTimeout();
+comment|// set connect timeout to mina in seconds
+name|long
+name|connectTimeout
+init|=
+name|timeout
+operator|>
+literal|0
+condition|?
+name|timeout
+else|:
+name|DEFAULT_CONNECT_TIMEOUT
+decl_stmt|;
+name|connectorConfig
+operator|.
+name|setConnectTimeout
+argument_list|(
+call|(
+name|int
+call|)
+argument_list|(
+name|connectTimeout
+operator|/
+literal|1000
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// acceptor connectorConfig
 name|SocketAcceptorConfig
 name|acceptorConfig
@@ -1409,7 +1443,32 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: CAMEL-396 override connector timeout to either default or timeout provided by end user: connectorConfig.setConnectTimeout();
+comment|// set connect timeout to mina in seconds
+name|long
+name|connectTimeout
+init|=
+name|timeout
+operator|>
+literal|0
+condition|?
+name|timeout
+else|:
+name|DEFAULT_CONNECT_TIMEOUT
+decl_stmt|;
+name|connectorConfig
+operator|.
+name|setConnectTimeout
+argument_list|(
+call|(
+name|int
+call|)
+argument_list|(
+name|connectTimeout
+operator|/
+literal|1000
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|DatagramAcceptorConfig
 name|acceptorConfig
 init|=
