@@ -125,8 +125,6 @@ DECL|field|noop
 specifier|protected
 name|boolean
 name|noop
-init|=
-literal|false
 decl_stmt|;
 DECL|method|testFileRoute ()
 specifier|public

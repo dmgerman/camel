@@ -28,7 +28,7 @@ name|security
 operator|.
 name|cert
 operator|.
-name|X509Certificate
+name|CertificateException
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|security
 operator|.
 name|cert
 operator|.
-name|CertificateException
+name|X509Certificate
 import|;
 end_import
 
@@ -66,7 +66,7 @@ name|commons
 operator|.
 name|logging
 operator|.
-name|LogFactory
+name|Log
 import|;
 end_import
 
@@ -80,7 +80,7 @@ name|commons
 operator|.
 name|logging
 operator|.
-name|Log
+name|LogFactory
 import|;
 end_import
 

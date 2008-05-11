@@ -144,7 +144,7 @@ name|velocity
 operator|.
 name|app
 operator|.
-name|VelocityEngine
+name|Velocity
 import|;
 end_import
 
@@ -158,7 +158,7 @@ name|velocity
 operator|.
 name|app
 operator|.
-name|Velocity
+name|VelocityEngine
 import|;
 end_import
 

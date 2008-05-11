@@ -619,13 +619,14 @@ init|)
 block|{
 if|if
 condition|(
-operator|!
 name|started
 operator|.
 name|get
 argument_list|()
 condition|)
 block|{
+return|return;
+block|}
 try|try
 block|{
 name|JmsConfiguration
@@ -779,7 +780,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

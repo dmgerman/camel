@@ -64,7 +64,7 @@ name|javax
 operator|.
 name|mail
 operator|.
-name|Message
+name|Authenticator
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|javax
 operator|.
 name|mail
 operator|.
-name|Session
+name|Message
 import|;
 end_import
 
@@ -94,7 +94,7 @@ name|javax
 operator|.
 name|mail
 operator|.
-name|Authenticator
+name|Session
 import|;
 end_import
 

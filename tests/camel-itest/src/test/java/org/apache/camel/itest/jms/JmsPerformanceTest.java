@@ -196,8 +196,6 @@ DECL|field|consumerSleep
 specifier|protected
 name|long
 name|consumerSleep
-init|=
-literal|0L
 decl_stmt|;
 DECL|field|expectedMessageCount
 specifier|protected
