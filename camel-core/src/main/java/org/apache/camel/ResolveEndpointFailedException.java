@@ -63,6 +63,35 @@ operator|=
 name|uri
 expr_stmt|;
 block|}
+DECL|method|ResolveEndpointFailedException (String uri, String message)
+specifier|public
+name|ResolveEndpointFailedException
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|message
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"Failed to resolve endpoint: "
+operator|+
+name|uri
+operator|+
+literal|" due to: "
+operator|+
+name|message
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
+expr_stmt|;
+block|}
 DECL|method|getUri ()
 specifier|public
 name|String

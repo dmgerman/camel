@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * URI utilities.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -603,11 +603,11 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|parseParamters (URI uri)
+DECL|method|parseParameters (URI uri)
 specifier|public
 specifier|static
 name|Map
-name|parseParamters
+name|parseParameters
 parameter_list|(
 name|URI
 name|uri

@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * The<a href="http://activemq.apache.org/camel/log.html">Log Component</a>  * to log message exchanges to the underlying logging mechanism.  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -308,6 +308,13 @@ argument_list|(
 literal|"level"
 argument_list|)
 decl_stmt|;
+name|parameters
+operator|.
+name|remove
+argument_list|(
+literal|"level"
+argument_list|)
+expr_stmt|;
 name|LoggingLevel
 name|level
 init|=

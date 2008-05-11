@@ -128,6 +128,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ResolveEndpointFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Injector
@@ -218,8 +230,36 @@ name|UnsafeUriCharactersEncoder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Default component to use for base for components implementations.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -241,6 +281,23 @@ argument_list|<
 name|E
 argument_list|>
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|DefaultComponent
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|defaultThreadPoolSize
 specifier|private
 name|int
@@ -302,7 +359,7 @@ argument_list|,
 literal|"camelContext"
 argument_list|)
 expr_stmt|;
-comment|//endcode uri string to the unsafe URI characters
+comment|//encode URI string to the unsafe URI characters
 name|URI
 name|u
 init|=
@@ -380,11 +437,48 @@ name|parameters
 init|=
 name|URISupport
 operator|.
-name|parseParamters
+name|parseParameters
 argument_list|(
 name|u
 argument_list|)
 decl_stmt|;
+name|validateURI
+argument_list|(
+name|uri
+argument_list|,
+name|path
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Creating endpoint uri=["
+operator|+
+name|uri
+operator|+
+literal|"], path=["
+operator|+
+name|path
+operator|+
+literal|"], parameters=["
+operator|+
+name|parameters
+operator|+
+literal|"]"
+argument_list|)
+expr_stmt|;
+block|}
 name|Endpoint
 argument_list|<
 name|E
@@ -439,10 +533,96 @@ name|parameters
 argument_list|)
 expr_stmt|;
 block|}
+comment|// fail if there are parameters that could not be set, then they are probably miss spelt or not supported at all
+if|if
+condition|(
+name|parameters
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|ResolveEndpointFailedException
+argument_list|(
+name|uri
+argument_list|,
+literal|"There are "
+operator|+
+name|parameters
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" parameters that couldn't be set on the endpoint."
+operator|+
+literal|" Check the uri if the parameters are spelt correctly and that they are properties of the endpoint."
+operator|+
+literal|" Unknown parameters=["
+operator|+
+name|parameters
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 return|return
 name|endpoint
 return|;
+block|}
+comment|/**      * Strategy for validation of the uri when creating the endpoint.      *      * @param uri        the uri - the uri the end user provided untouched      * @param path       the path - part after the scheme      * @param parameters the parameters, an empty map if no parameters given      * @throws ResolveEndpointFailedException should be thrown if the URI validation failed      */
+DECL|method|validateURI (String uri, String path, Map parameters)
+specifier|protected
+name|void
+name|validateURI
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|path
+parameter_list|,
+name|Map
+name|parameters
+parameter_list|)
+throws|throws
+name|ResolveEndpointFailedException
+block|{
+comment|// check for uri containing& but no ? marker
+if|if
+condition|(
+name|uri
+operator|.
+name|contains
+argument_list|(
+literal|"&"
+argument_list|)
+operator|&&
+operator|!
+name|uri
+operator|.
+name|contains
+argument_list|(
+literal|"?"
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|ResolveEndpointFailedException
+argument_list|(
+name|uri
+argument_list|,
+literal|"Invalid uri syntax: no ? marker however the uri "
+operator|+
+literal|"has& parameter separators. Check the uri if its missing a ? marker."
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|getCamelContext ()
 specifier|public
