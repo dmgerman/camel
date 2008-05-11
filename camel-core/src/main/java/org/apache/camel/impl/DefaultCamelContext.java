@@ -517,6 +517,7 @@ name|name
 decl_stmt|;
 DECL|field|endpoints
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -536,6 +537,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|components
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -2495,7 +2497,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Attempt to convert the bean from a {@link Registry} to an endpoint using      * some kind of transformation or wrapper      *      * @param uri the uri for the endpoint (and name in the registry)      * @param bean the bean to be converted to an endpoint, which will be not      *                null      * @return a new endpoint      */
+comment|/**      * Attempt to convert the bean from a {@link Registry} to an endpoint using      * some kind of transformation or wrapper      *      * @param uri the uri for the endpoint (and name in the registry)      * @param bean the bean to be converted to an endpoint, which will be not null      * @return a new endpoint      */
 DECL|method|convertBeanToEndpoint (String uri, Object bean)
 specifier|protected
 name|Endpoint

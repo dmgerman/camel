@@ -840,7 +840,6 @@ return|return
 name|rc
 return|;
 block|}
-comment|/**      * @param uri      * @param rc      * @param ssp      * @throws URISyntaxException      */
 DECL|method|parseComposite (URI uri, CompositeData rc, String ssp)
 specifier|private
 specifier|static
@@ -1166,7 +1165,6 @@ name|EMPTY_MAP
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @param str      * @return      */
 DECL|method|splitComponents (String str)
 specifier|private
 specifier|static
@@ -1583,7 +1581,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Creates a URI from the original URI and the remaining paramaters      *       * @throws URISyntaxException      */
+comment|/**      * Creates a URI from the original URI and the remaining parameters      *       * @throws URISyntaxException      */
 DECL|method|createRemainingURI (URI originalURI, Map params)
 specifier|public
 specifier|static
@@ -1786,6 +1784,7 @@ return|return
 name|result
 return|;
 block|}
+comment|/**      * @deprecated this method will be removed in a future release       */
 DECL|method|indexOfParenthesisMatch (String str)
 specifier|public
 name|int

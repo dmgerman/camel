@@ -95,7 +95,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified initial capacity, maximumCacheSize,load factor and ordering mode.      *      * @param initialCapacity  the initial capacity.      * @param maximumCacheSize      * @param loadFactor       the load factor.      * @param accessOrder      the ordering mode -<tt>true</tt> for      *                         access-order,<tt>false</tt> for insertion-order.      * @throws IllegalArgumentException if the initial capacity is negative      *                                  or the load factor is nonpositive.      */
+comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified initial capacity, maximumCacheSize,load factor and ordering mode.      *      * @param initialCapacity  the initial capacity.      * @param maximumCacheSize      * @param loadFactor       the load factor.      * @param accessOrder      the ordering mode -<tt>true</tt> for      *                         access-order,<tt>false</tt> for insertion-order.      * @throws IllegalArgumentException if the initial capacity is negative      *                                  or the load factor is non positive.      */
 DECL|method|LRUCache (int initialCapacity, int maximumCacheSize, float loadFactor, boolean accessOrder)
 specifier|public
 name|LRUCache
@@ -129,7 +129,7 @@ operator|=
 name|maximumCacheSize
 expr_stmt|;
 block|}
-comment|/**      * @return Returns the maxCacheSize.      */
+comment|/**      * Returns the maxCacheSize.      */
 DECL|method|getMaxCacheSize ()
 specifier|public
 name|int

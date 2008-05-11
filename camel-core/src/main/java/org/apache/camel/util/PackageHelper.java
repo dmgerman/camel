@@ -56,7 +56,7 @@ class|class
 name|PackageHelper
 block|{
 DECL|field|LOG
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 specifier|transient

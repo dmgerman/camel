@@ -188,6 +188,34 @@ name|TypeConverter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_class
 DECL|class|IntrospectionSupport
 specifier|public
@@ -195,6 +223,22 @@ specifier|final
 class|class
 name|IntrospectionSupport
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|IntrospectionSupport
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * Utility classes should not have a public constructor.      */
 DECL|method|IntrospectionSupport ()
 specifier|private
@@ -443,7 +487,9 @@ parameter_list|(
 name|Throwable
 name|ignore
 parameter_list|)
-block|{                 }
+block|{
+comment|// ignore
+block|}
 block|}
 block|}
 return|return
@@ -2049,7 +2095,9 @@ parameter_list|(
 name|Throwable
 name|e
 parameter_list|)
-block|{                     }
+block|{
+comment|// ignore
+block|}
 block|}
 name|map
 operator|.
@@ -2070,11 +2118,14 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-comment|// TODO: LOG or rethrow
-name|e
+name|LOG
 operator|.
-name|printStackTrace
-argument_list|()
+name|debug
+argument_list|(
+literal|"Error adding fields"
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}

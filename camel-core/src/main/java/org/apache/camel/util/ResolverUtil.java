@@ -307,7 +307,7 @@ name|Annotation
 argument_list|>
 name|annotation
 decl_stmt|;
-comment|/** Construts an AnnotatedWith test for the specified annotation type. */
+comment|/**          * Constructs an AnnotatedWith test for the specified annotation type.          */
 DECL|method|AnnotatedWith (Class<? extends Annotation> annotation)
 specifier|public
 name|AnnotatedWith
@@ -961,7 +961,6 @@ operator|.
 name|trim
 argument_list|()
 expr_stmt|;
-block|}
 name|builder
 operator|.
 name|append
@@ -1029,6 +1028,7 @@ argument_list|,
 name|packageOrClass
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1102,7 +1102,6 @@ operator|.
 name|trim
 argument_list|()
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -1133,6 +1132,7 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

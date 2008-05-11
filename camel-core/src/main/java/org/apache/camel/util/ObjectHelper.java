@@ -772,6 +772,17 @@ name|String
 name|text
 parameter_list|)
 block|{
+if|if
+condition|(
+name|text
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|int
 name|length
 init|=
@@ -782,10 +793,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|text
-operator|==
-literal|null
-operator|||
 name|length
 operator|==
 literal|0
@@ -1720,6 +1727,7 @@ name|Byte
 operator|.
 name|class
 expr_stmt|;
+comment|// TODO: Why is boolean disabled
 comment|/*             } else if (type == boolean.class) {                 rc = Boolean.class; */
 block|}
 block|}
@@ -2263,7 +2271,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * returns the type of the given object or null if the value is null      */
+comment|/**      * Returns the type of the given object or null if the value is null      */
 DECL|method|type (Object bean)
 specifier|public
 specifier|static
