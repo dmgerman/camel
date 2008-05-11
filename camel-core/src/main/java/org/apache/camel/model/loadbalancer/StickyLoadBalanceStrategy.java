@@ -245,7 +245,7 @@ operator|=
 name|expressionType
 expr_stmt|;
 block|}
-DECL|method|StickyLoadBalanceStrategy (ExpressionType expressionType, LoadBalancerType loadBalancerTyep)
+DECL|method|StickyLoadBalanceStrategy (ExpressionType expressionType, LoadBalancerType loadBalancerType)
 specifier|public
 name|StickyLoadBalanceStrategy
 parameter_list|(
@@ -253,7 +253,7 @@ name|ExpressionType
 name|expressionType
 parameter_list|,
 name|LoadBalancerType
-name|loadBalancerTyep
+name|loadBalancerType
 parameter_list|)
 block|{
 name|this
