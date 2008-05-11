@@ -332,11 +332,9 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-name|bean
-operator|.
-name|addPropertyReference
+name|wireCamelContext
 argument_list|(
-literal|"camelContext"
+name|bean
 argument_list|,
 name|getContextId
 argument_list|(
@@ -364,11 +362,9 @@ operator|.
 name|getTextContent
 argument_list|()
 decl_stmt|;
-name|bean
-operator|.
-name|addPropertyReference
+name|wireCamelContext
 argument_list|(
-literal|"camelContext"
+name|bean
 argument_list|,
 name|getContextId
 argument_list|(
