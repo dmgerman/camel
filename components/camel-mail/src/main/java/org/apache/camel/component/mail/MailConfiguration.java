@@ -80,6 +80,26 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|mail
+operator|.
+name|PasswordAuthentication
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|mail
+operator|.
+name|Authenticator
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -558,6 +578,33 @@ name|session
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// use our authenticator that does no live user interaction but returns the already configured username and password
+name|Session
+name|session
+init|=
+name|Session
+operator|.
+name|getDefaultInstance
+argument_list|(
+name|answer
+operator|.
+name|getJavaMailProperties
+argument_list|()
+argument_list|,
+name|getAuthenticator
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setSession
+argument_list|(
+name|session
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|username
@@ -732,6 +779,7 @@ condition|(
 name|debugMode
 condition|)
 block|{
+comment|// add more debug for the SSL communication as well
 name|properties
 operator|.
 name|put
@@ -836,6 +884,38 @@ name|equalsIgnoreCase
 argument_list|(
 literal|"imaps"
 argument_list|)
+return|;
+block|}
+comment|/**      * Returns an authenticator object for use in sessions      */
+DECL|method|getAuthenticator ()
+specifier|public
+name|Authenticator
+name|getAuthenticator
+parameter_list|()
+block|{
+return|return
+operator|new
+name|Authenticator
+argument_list|()
+block|{
+specifier|protected
+name|PasswordAuthentication
+name|getPasswordAuthentication
+parameter_list|()
+block|{
+return|return
+operator|new
+name|PasswordAuthentication
+argument_list|(
+name|getUsername
+argument_list|()
+argument_list|,
+name|getPassword
+argument_list|()
+argument_list|)
+return|;
+block|}
+block|}
 return|;
 block|}
 DECL|method|getMailStoreLogInformation ()

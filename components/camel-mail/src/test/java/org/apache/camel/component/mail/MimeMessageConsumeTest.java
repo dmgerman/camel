@@ -311,7 +311,7 @@ name|session
 init|=
 name|Session
 operator|.
-name|getDefaultInstance
+name|getInstance
 argument_list|(
 name|properties
 argument_list|,
