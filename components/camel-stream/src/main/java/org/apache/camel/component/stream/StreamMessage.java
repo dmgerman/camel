@@ -41,6 +41,7 @@ extends|extends
 name|DefaultMessage
 block|{
 DECL|field|o
+specifier|private
 name|Object
 name|o
 decl_stmt|;

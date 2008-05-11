@@ -79,7 +79,6 @@ argument_list|(
 name|parent
 argument_list|)
 expr_stmt|;
-comment|// TODO Auto-generated constructor stub
 block|}
 block|}
 end_class

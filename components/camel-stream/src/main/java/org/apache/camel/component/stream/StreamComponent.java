@@ -54,33 +54,9 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
+begin_comment
+comment|/**  * Component providing streams connectivity  */
+end_comment
 
 begin_class
 DECL|class|StreamComponent
@@ -93,7 +69,6 @@ argument_list|<
 name|StreamExchange
 argument_list|>
 block|{
-comment|/**      * Component providing streams connectivity      */
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)

@@ -78,34 +78,6 @@ name|DefaultEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_class
 DECL|class|StreamEndpoint
 specifier|public
@@ -117,22 +89,6 @@ argument_list|<
 name|StreamExchange
 argument_list|>
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|StreamConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|producer
 name|Producer
 argument_list|<
@@ -198,21 +154,6 @@ name|uri
 operator|=
 name|uri
 expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-name|uri
-operator|+
-literal|" / "
-operator|+
-name|remaining
-operator|+
-literal|" / "
-operator|+
-name|parameters
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|producer
@@ -228,7 +169,7 @@ name|parameters
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createConsumer (Processor p)
+DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
 argument_list|<
@@ -237,7 +178,7 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-name|p
+name|processor
 parameter_list|)
 throws|throws
 name|Exception
@@ -248,7 +189,7 @@ name|StreamConsumer
 argument_list|(
 name|this
 argument_list|,
-name|p
+name|processor
 argument_list|,
 name|uri
 argument_list|,
