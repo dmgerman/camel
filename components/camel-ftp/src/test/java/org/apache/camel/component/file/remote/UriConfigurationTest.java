@@ -596,7 +596,7 @@ argument_list|)
 expr_stmt|;
 name|assertRemoteFileEndpointFile
 argument_list|(
-literal|"sftp://user@hostname:123//foo/bar?password=secret&completegibberish"
+literal|"sftp://user@hostname:123//foo/bar?password=secret"
 argument_list|,
 literal|"/foo/bar"
 argument_list|)
