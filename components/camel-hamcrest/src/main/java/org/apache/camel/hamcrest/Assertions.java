@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A set of useful assertions you can use when testing  *   * @version $Revision: 1.1 $  */
+comment|/**  * A set of useful assertions you can use when testing  *   * @version $Revision$  */
 end_comment
 
 begin_class
