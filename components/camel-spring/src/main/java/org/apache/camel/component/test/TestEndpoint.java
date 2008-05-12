@@ -236,6 +236,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -245,6 +253,7 @@ operator|+
 name|expectedMessageEndpoint
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|List
 name|expectedBodies
@@ -294,6 +303,14 @@ argument_list|,
 name|timeout
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -310,6 +327,7 @@ operator|+
 name|expectedMessageEndpoint
 argument_list|)
 expr_stmt|;
+block|}
 name|expectedBodiesReceived
 argument_list|(
 name|expectedBodies
@@ -324,7 +342,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{     }
-comment|/**      * This method allows us to convert or cooerce the expected message body into some other type      */
+comment|/**      * This method allows us to convert or coerce the expected message body into some other type      */
 DECL|method|getInBody (Exchange exchange)
 specifier|protected
 name|Object
