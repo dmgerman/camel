@@ -190,6 +190,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|orm
@@ -308,6 +322,43 @@ name|getEntityManagerFactory
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|JpaEndpoint (String endpointUri, EntityManagerFactory entityManagerFactory)
+specifier|public
+name|JpaEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|EntityManagerFactory
+name|entityManagerFactory
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|entityManagerFactory
+operator|=
+name|entityManagerFactory
+expr_stmt|;
+block|}
+DECL|method|JpaEndpoint (String endpointUri)
+specifier|public
+name|JpaEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -319,6 +370,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|validate
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|JpaProducer
@@ -344,6 +398,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|validate
+argument_list|()
+expr_stmt|;
 name|JpaConsumer
 name|consumer
 init|=
@@ -748,6 +805,23 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
+DECL|method|validate ()
+specifier|protected
+name|void
+name|validate
+parameter_list|()
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|getEntityManagerFactory
+argument_list|()
+argument_list|,
+literal|"entityManagerFactory property"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createTemplate ()
 specifier|protected
 name|JpaTemplate

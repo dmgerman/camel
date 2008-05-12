@@ -323,7 +323,7 @@ name|SpringCamelContext
 operator|)
 name|this
 operator|.
-name|getContext
+name|getCamelContext
 argument_list|()
 decl_stmt|;
 name|configurer
@@ -412,7 +412,7 @@ return|return
 operator|new
 name|CxfExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|getExchangePattern
@@ -433,7 +433,7 @@ return|return
 operator|new
 name|CxfExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|pattern
@@ -453,7 +453,7 @@ return|return
 operator|new
 name|CxfExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|getExchangePattern

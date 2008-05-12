@@ -864,7 +864,7 @@ condition|)
 block|{
 name|endpoint
 operator|.
-name|setContext
+name|setCamelContext
 argument_list|(
 name|this
 argument_list|)

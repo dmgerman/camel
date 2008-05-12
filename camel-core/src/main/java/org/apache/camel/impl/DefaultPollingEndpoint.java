@@ -147,6 +147,20 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|DefaultPollingEndpoint (String endpointUri)
+specifier|protected
+name|DefaultPollingEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer

@@ -464,7 +464,7 @@ name|getContextId
 argument_list|(
 name|ep
 operator|.
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|)
 operator|+
@@ -659,7 +659,7 @@ name|getContextId
 argument_list|(
 name|ep
 operator|.
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|)
 else|:
@@ -884,7 +884,7 @@ name|getContextId
 argument_list|(
 name|ep
 operator|.
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|)
 else|:

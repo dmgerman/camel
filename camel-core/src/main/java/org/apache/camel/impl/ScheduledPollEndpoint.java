@@ -164,6 +164,20 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|ScheduledPollEndpoint (String endpointUri)
+specifier|protected
+name|ScheduledPollEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getConsumerProperties ()
 specifier|public
 name|Map
@@ -216,7 +230,7 @@ name|IntrospectionSupport
 operator|.
 name|setProperties
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 operator|.
 name|getTypeConverter

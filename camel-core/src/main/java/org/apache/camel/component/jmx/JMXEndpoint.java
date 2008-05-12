@@ -255,6 +255,20 @@ operator|=
 name|endpointUri
 expr_stmt|;
 block|}
+DECL|method|JMXEndpoint (String endpointUri)
+specifier|public
+name|JMXEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * @return a Producer      * @throws Exception      * @see org.apache.camel.Endpoint#createProducer()      */
 DECL|method|createProducer ()
 specifier|public
@@ -457,7 +471,7 @@ return|return
 operator|new
 name|JMXExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|getExchangePattern
@@ -477,7 +491,7 @@ return|return
 operator|new
 name|JMXExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|getExchangePattern
@@ -500,7 +514,7 @@ return|return
 operator|new
 name|JMXExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|pattern

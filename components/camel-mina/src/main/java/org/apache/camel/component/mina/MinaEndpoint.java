@@ -398,7 +398,7 @@ return|return
 operator|new
 name|MinaExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|pattern
@@ -425,7 +425,7 @@ init|=
 operator|new
 name|MinaExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|getExchangePattern

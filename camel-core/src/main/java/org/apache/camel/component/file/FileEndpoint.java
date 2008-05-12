@@ -331,6 +331,29 @@ operator|=
 name|file
 expr_stmt|;
 block|}
+DECL|method|FileEndpoint (String endpointUri, File file)
+specifier|public
+name|FileEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|File
+name|file
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|file
+operator|=
+name|file
+expr_stmt|;
+block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -409,7 +432,7 @@ return|return
 operator|new
 name|FileExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|getExchangePattern
@@ -446,7 +469,7 @@ return|return
 operator|new
 name|FileExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|pattern

@@ -164,6 +164,30 @@ name|ApplicationEvent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|ApplicationContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|beans
+operator|.
+name|BeansException
+import|;
+end_import
+
 begin_comment
 comment|/**  * An<a href="http://activemq.apache.org/camel/event.html">Event Endpoint</a>  * for working with Spring ApplicationEvents  *   * @version $Revision$  */
 end_comment
@@ -178,17 +202,18 @@ name|DefaultEndpoint
 argument_list|<
 name|Exchange
 argument_list|>
+implements|implements
+name|ApplicationContextAware
 block|{
-DECL|field|component
-specifier|private
-specifier|final
-name|EventComponent
-name|component
-decl_stmt|;
 DECL|field|loadBalancer
 specifier|private
 name|LoadBalancer
 name|loadBalancer
+decl_stmt|;
+DECL|field|applicationContext
+specifier|private
+name|ApplicationContext
+name|applicationContext
 decl_stmt|;
 DECL|method|EventEndpoint (String endpointUri, EventComponent component)
 specifier|public
@@ -210,22 +235,45 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|component
+name|applicationContext
 operator|=
 name|component
+operator|.
+name|getApplicationContext
+argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|getComponent ()
+DECL|method|EventEndpoint (String endpointUri)
 specifier|public
-name|EventComponent
-name|getComponent
-parameter_list|()
+name|EventEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
 block|{
-return|return
-name|component
-return|;
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setApplicationContext (ApplicationContext applicationContext)
+specifier|public
+name|void
+name|setApplicationContext
+parameter_list|(
+name|ApplicationContext
+name|applicationContext
+parameter_list|)
+throws|throws
+name|BeansException
+block|{
+name|this
+operator|.
+name|applicationContext
+operator|=
+name|applicationContext
+expr_stmt|;
 block|}
 DECL|method|getApplicationContext ()
 specifier|public
@@ -234,11 +282,7 @@ name|getApplicationContext
 parameter_list|()
 block|{
 return|return
-name|getComponent
-argument_list|()
-operator|.
-name|getApplicationContext
-argument_list|()
+name|applicationContext
 return|;
 block|}
 DECL|method|isSingleton ()

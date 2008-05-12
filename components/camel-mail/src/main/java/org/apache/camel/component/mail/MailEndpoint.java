@@ -171,6 +171,47 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+DECL|method|MailEndpoint (String endpointUri, MailConfiguration configuration)
+specifier|public
+name|MailEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|MailConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
+DECL|method|MailEndpoint (String endpointUri)
+specifier|public
+name|MailEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|endpointUri
+argument_list|,
+operator|new
+name|MailConfiguration
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -347,7 +388,7 @@ return|return
 operator|new
 name|MailExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|pattern
@@ -370,7 +411,7 @@ return|return
 operator|new
 name|MailExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|getExchangePattern

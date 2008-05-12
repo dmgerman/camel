@@ -111,6 +111,47 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+DECL|method|RemoteFileEndpoint (String endpointUri, RemoteFileConfiguration configuration)
+specifier|protected
+name|RemoteFileEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|RemoteFileConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
+DECL|method|RemoteFileEndpoint (String endpointUri)
+specifier|protected
+name|RemoteFileEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|endpointUri
+argument_list|,
+operator|new
+name|RemoteFileConfiguration
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createRemoteFileBinding ()
 specifier|protected
 name|RemoteFileBinding
@@ -136,7 +177,7 @@ operator|)
 operator|new
 name|RemoteFileExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|getExchangePattern
@@ -163,7 +204,7 @@ operator|)
 operator|new
 name|RemoteFileExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|pattern
@@ -192,7 +233,7 @@ operator|)
 operator|new
 name|RemoteFileExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|getExchangePattern
@@ -271,6 +312,22 @@ block|{
 return|return
 name|configuration
 return|;
+block|}
+DECL|method|setConfiguration (RemoteFileConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|RemoteFileConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
 block|}
 block|}
 end_class

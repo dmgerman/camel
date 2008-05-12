@@ -140,6 +140,25 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|JmsTemporaryTopicEndpoint (String endpointUri, String destination)
+specifier|public
+name|JmsTemporaryTopicEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|String
+name|destination
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|destination
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * This endpoint is a singleton so that the temporary destination instances are shared across all      * producers and consumers of the same endpoint URI      *      * @return true      */
 DECL|method|isSingleton ()
 specifier|public

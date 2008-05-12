@@ -135,6 +135,20 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|UFaceEndpoint (String endpointUri)
+specifier|public
+name|UFaceEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createExchangeList ()

@@ -127,6 +127,20 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|SftpEndpoint (String endpointUri)
+specifier|public
+name|SftpEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createProducer ()
 specifier|public
 name|SftpProducer

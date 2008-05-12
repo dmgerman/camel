@@ -205,6 +205,34 @@ operator|=
 name|resourceUri
 expr_stmt|;
 block|}
+DECL|method|ResourceBasedEndpoint (String endpointUri, Processor processor, String resourceUri)
+specifier|protected
+name|ResourceBasedEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|String
+name|resourceUri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|processor
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|resourceUri
+operator|=
+name|resourceUri
+expr_stmt|;
+block|}
 DECL|method|getResource ()
 specifier|public
 name|Resource

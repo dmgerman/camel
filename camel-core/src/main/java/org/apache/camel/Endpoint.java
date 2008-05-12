@@ -76,9 +76,9 @@ name|exchange
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the context which created the endpoint      *      * @return the context which created the endpoint      */
-DECL|method|getContext ()
+DECL|method|getCamelContext ()
 name|CamelContext
-name|getContext
+name|getCamelContext
 parameter_list|()
 function_decl|;
 comment|/**      * Creates a new producer which is used send messages into the endpoint      *      * @return a newly created producer      */
@@ -125,9 +125,9 @@ name|Map
 name|options
 parameter_list|)
 function_decl|;
-DECL|method|setContext (CamelContext context)
+DECL|method|setCamelContext (CamelContext context)
 name|void
-name|setContext
+name|setCamelContext
 parameter_list|(
 name|CamelContext
 name|context

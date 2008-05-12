@@ -215,7 +215,7 @@ operator|)
 name|getEndpoint
 argument_list|()
 operator|.
-name|getContext
+name|getCamelContext
 argument_list|()
 operator|.
 name|getRegistry

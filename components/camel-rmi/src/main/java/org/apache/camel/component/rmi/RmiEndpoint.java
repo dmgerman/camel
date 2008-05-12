@@ -256,6 +256,32 @@ name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|RmiEndpoint (String endpointUri)
+specifier|public
+name|RmiEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+throws|throws
+name|URISyntaxException
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|uri
+operator|=
+operator|new
+name|URI
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -281,7 +307,7 @@ return|return
 operator|new
 name|BeanExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|pattern

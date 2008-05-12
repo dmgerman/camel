@@ -158,6 +158,29 @@ operator|=
 name|entityName
 expr_stmt|;
 block|}
+DECL|method|IBatisEndpoint (String endpointUri, String entityName)
+specifier|public
+name|IBatisEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|String
+name|entityName
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|entityName
+operator|=
+name|entityName
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|getComponent ()

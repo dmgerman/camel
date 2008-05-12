@@ -28,18 +28,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExchangeException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ExchangePattern
 import|;
 end_import
@@ -152,20 +140,6 @@ name|MessageBusParser
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|integration
-operator|.
-name|message
-operator|.
-name|GenericMessage
-import|;
-end_import
-
 begin_comment
 comment|/**  * A consumer of exchanges for the Spring Integration  * Please specify the inputChannel in the endpoint url for this consumer.  * If the message pattern is inOut, the outputChannel property  * should be set for the outgoing message.  *  * @version $Revision$  */
 end_comment
@@ -242,7 +216,7 @@ name|SpringCamelContext
 operator|)
 name|endpoint
 operator|.
-name|getContext
+name|getCamelContext
 argument_list|()
 expr_stmt|;
 if|if

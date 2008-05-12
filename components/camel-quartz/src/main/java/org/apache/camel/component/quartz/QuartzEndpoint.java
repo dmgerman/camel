@@ -336,6 +336,29 @@ operator|=
 name|scheduler
 expr_stmt|;
 block|}
+DECL|method|QuartzEndpoint (String endpointUri, Scheduler scheduler)
+specifier|public
+name|QuartzEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Scheduler
+name|scheduler
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|scheduler
+operator|=
+name|scheduler
+expr_stmt|;
+block|}
 DECL|method|addTriggers (Map<Trigger, JobDetail> triggerMap)
 specifier|public
 name|void
@@ -702,7 +725,7 @@ return|return
 operator|new
 name|QuartzExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|pattern
@@ -724,7 +747,7 @@ return|return
 operator|new
 name|QuartzExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|getExchangePattern

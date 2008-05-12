@@ -154,6 +154,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -180,16 +192,18 @@ name|Endpoint
 argument_list|<
 name|E
 argument_list|>
+implements|,
+name|CamelContextAware
 block|{
 DECL|field|endpointUri
 specifier|private
 name|String
 name|endpointUri
 decl_stmt|;
-DECL|field|context
+DECL|field|camelContext
 specifier|private
 name|CamelContext
-name|context
+name|camelContext
 decl_stmt|;
 DECL|field|component
 specifier|private
@@ -238,7 +252,7 @@ operator|=
 name|component
 expr_stmt|;
 block|}
-DECL|method|DefaultEndpoint (String endpointUri, CamelContext context)
+DECL|method|DefaultEndpoint (String endpointUri, CamelContext camelContext)
 specifier|protected
 name|DefaultEndpoint
 parameter_list|(
@@ -246,7 +260,27 @@ name|String
 name|endpointUri
 parameter_list|,
 name|CamelContext
-name|context
+name|camelContext
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+block|}
+DECL|method|DefaultEndpoint (String endpointUri)
+specifier|protected
+name|DefaultEndpoint
+parameter_list|(
+name|String
+name|endpointUri
 parameter_list|)
 block|{
 name|this
@@ -254,12 +288,6 @@ operator|.
 name|endpointUri
 operator|=
 name|endpointUri
-expr_stmt|;
-name|this
-operator|.
-name|context
-operator|=
-name|context
 expr_stmt|;
 block|}
 DECL|method|hashCode ()
@@ -350,14 +378,14 @@ return|return
 name|endpointUri
 return|;
 block|}
-DECL|method|getContext ()
+DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
-name|getContext
+name|getCamelContext
 parameter_list|()
 block|{
 return|return
-name|context
+name|camelContext
 return|;
 block|}
 DECL|method|getComponent ()
@@ -370,20 +398,20 @@ return|return
 name|component
 return|;
 block|}
-DECL|method|setContext (CamelContext context)
+DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
-name|setContext
+name|setCamelContext
 parameter_list|(
 name|CamelContext
-name|context
+name|camelContext
 parameter_list|)
 block|{
 name|this
 operator|.
-name|context
+name|camelContext
 operator|=
-name|context
+name|camelContext
 expr_stmt|;
 block|}
 comment|/**      * @return the executor      */
@@ -529,7 +557,7 @@ argument_list|)
 return|;
 block|}
 return|return
-name|getContext
+name|getCamelContext
 argument_list|()
 operator|.
 name|getExchangeConverter
@@ -718,7 +746,7 @@ operator|)
 operator|new
 name|DefaultExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|pattern

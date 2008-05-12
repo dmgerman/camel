@@ -256,7 +256,7 @@ name|SpringCamelContext
 operator|)
 name|endpoint
 operator|.
-name|getContext
+name|getCamelContext
 argument_list|()
 expr_stmt|;
 if|if

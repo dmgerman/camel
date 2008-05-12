@@ -393,16 +393,16 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|getContext ()
+DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
-name|getContext
+name|getCamelContext
 parameter_list|()
 block|{
 return|return
 name|endpoint
 operator|.
-name|getContext
+name|getCamelContext
 argument_list|()
 return|;
 block|}
@@ -717,10 +717,10 @@ return|return
 name|serviceName
 return|;
 block|}
-DECL|method|setContext (CamelContext context)
+DECL|method|setCamelContext (CamelContext context)
 specifier|public
 name|void
-name|setContext
+name|setCamelContext
 parameter_list|(
 name|CamelContext
 name|context
@@ -728,7 +728,7 @@ parameter_list|)
 block|{
 name|endpoint
 operator|.
-name|setContext
+name|setCamelContext
 argument_list|(
 name|context
 argument_list|)

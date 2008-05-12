@@ -238,6 +238,32 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|SedaEndpoint (String endpointUri, BlockingQueue<Exchange> queue)
+specifier|public
+name|SedaEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|BlockingQueue
+argument_list|<
+name|Exchange
+argument_list|>
+name|queue
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|queue
+operator|=
+name|queue
+expr_stmt|;
+block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer

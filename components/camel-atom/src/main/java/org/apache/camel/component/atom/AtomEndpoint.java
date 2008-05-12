@@ -204,6 +204,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultPollingEndpoint
@@ -267,6 +281,43 @@ operator|=
 name|atomUri
 expr_stmt|;
 block|}
+DECL|method|AtomEndpoint (String endpointUri, String atomUri)
+specifier|public
+name|AtomEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|String
+name|atomUri
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|atomUri
+operator|=
+name|atomUri
+expr_stmt|;
+block|}
+DECL|method|AtomEndpoint (String endpointUri)
+specifier|public
+name|AtomEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -285,6 +336,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|validate
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|AtomProducer
@@ -303,6 +357,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|validate
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|isSplitEntries
@@ -530,6 +587,24 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
+comment|/**      * Validates the endpoint is configured properly      */
+DECL|method|validate ()
+specifier|protected
+name|void
+name|validate
+parameter_list|()
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|getAtomUri
+argument_list|()
+argument_list|,
+literal|"atomUri property"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createAtomFactory ()
 specifier|protected
 name|Factory

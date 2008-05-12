@@ -150,6 +150,26 @@ operator|=
 name|endpointUri
 expr_stmt|;
 block|}
+DECL|method|StreamEndpoint (String endpointUri)
+specifier|public
+name|StreamEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|uri
+operator|=
+name|endpointUri
+expr_stmt|;
+block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer

@@ -232,7 +232,7 @@ return|return
 operator|new
 name|MyExchange
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 argument_list|,
 name|pattern

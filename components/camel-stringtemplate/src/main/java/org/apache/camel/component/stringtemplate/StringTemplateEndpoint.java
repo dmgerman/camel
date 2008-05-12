@@ -106,6 +106,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|ResourceBasedEndpoint
@@ -152,12 +164,6 @@ name|StringTemplateEndpoint
 extends|extends
 name|ResourceBasedEndpoint
 block|{
-DECL|field|component
-specifier|private
-specifier|final
-name|StringTemplateComponent
-name|component
-decl_stmt|;
 DECL|method|StringTemplateEndpoint (String uri, StringTemplateComponent component, String resourceUri, Map parameters)
 specifier|public
 name|StringTemplateEndpoint
@@ -186,11 +192,29 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|component
-operator|=
-name|component
+block|}
+DECL|method|StringTemplateEndpoint (String endpointUri, Processor processor, String resourceUri)
+specifier|public
+name|StringTemplateEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|String
+name|resourceUri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|processor
+argument_list|,
+name|resourceUri
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()
