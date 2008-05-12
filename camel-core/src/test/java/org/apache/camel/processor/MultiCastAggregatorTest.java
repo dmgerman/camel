@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -142,19 +130,6 @@ name|MultiCastAggregatorTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|startEndpoint
-specifier|protected
-name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
-name|startEndpoint
-decl_stmt|;
-DECL|field|result
-specifier|protected
-name|MockEndpoint
-name|result
-decl_stmt|;
 DECL|method|testMulticastReceivesItsOwnExchangeParallelly ()
 specifier|public
 name|void
@@ -194,6 +169,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
+name|result
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
 name|result
 operator|.
 name|expectedBodiesReceived
@@ -300,40 +283,20 @@ name|assertMockEndpointsSatisifed
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|result
-operator|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-block|}
 DECL|class|AppendingProcessor
+specifier|private
 class|class
 name|AppendingProcessor
 implements|implements
 name|Processor
 block|{
 DECL|field|appendingString
+specifier|private
 name|String
 name|appendingString
 decl_stmt|;
 DECL|method|AppendingProcessor (String string)
+specifier|public
 name|AppendingProcessor
 parameter_list|(
 name|String
@@ -387,6 +350,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|BodyOutAggregatingStrategy
+specifier|private
 class|class
 name|BodyOutAggregatingStrategy
 implements|implements
@@ -456,6 +420,7 @@ return|;
 block|}
 block|}
 DECL|class|BodyInAggregatingStrategy
+specifier|private
 class|class
 name|BodyInAggregatingStrategy
 implements|implements
@@ -559,7 +524,7 @@ return|return
 name|newExchange
 return|;
 block|}
-comment|/**          * An expression used to determine if the aggreagation is complete          */
+comment|/**          * An expression used to determine if the aggregation is complete          */
 DECL|method|isCompleted (@eadername = R) Integer aggregated)
 specifier|public
 name|boolean
@@ -611,7 +576,7 @@ name|configure
 parameter_list|()
 block|{
 comment|// START SNIPPET: example
-comment|// The message will be parallely sent to the endpoints
+comment|// The message will be sent parallelly to the endpoints
 name|from
 argument_list|(
 literal|"direct:parallel"
@@ -635,7 +600,7 @@ argument_list|,
 literal|"direct:z"
 argument_list|)
 expr_stmt|;
-comment|// Mulitcast the message in a sequential way
+comment|// Multicast the message in a sequential way
 name|from
 argument_list|(
 literal|"direct:sequential"
