@@ -1554,7 +1554,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not instantiate the QueueBrowseStrategy are you using Spring 2.0.x by any chance? Error: "
+literal|"Could not instantiate the QueueBrowseStrategy are you using Spring 2.0.x"
+operator|+
+literal|" by any chance? Error: "
 operator|+
 name|e
 argument_list|,
@@ -1925,14 +1927,15 @@ block|}
 name|String
 name|selector
 init|=
-operator|(
-name|String
-operator|)
-name|parameters
-operator|.
-name|remove
+name|getAndRemoveParameter
 argument_list|(
+name|parameters
+argument_list|,
 literal|"selector"
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -1994,7 +1997,7 @@ name|JmsConfiguration
 argument_list|()
 return|;
 block|}
-comment|/**      * Attempts to instantiate the default {@link QueueBrowseStrategy} which      * should work fine if Spring 2.5.x or later is on the classpath but this      * will fail if 2.0.x are on the classpath. We can continue to operate on      * this version we just cannot support the browsable queues supported by      * {@link JmsQueueEndpoint}      *      * @return the queue browse strategy or null if it cannot be supported      */
+comment|/**      * Attempts to instantiate the default {@link QueueBrowseStrategy} which      * should work fine if Spring 2.5.x or later is on the classpath but this      * will fail if 2.0.x are on the classpath. We can continue to operate on      * this version we just cannot support the browseable queues supported by      * {@link JmsQueueEndpoint}      *      * @return the queue browse strategy or null if it cannot be supported      */
 DECL|method|tryCreateDefaultQueueBrowseStrategy ()
 specifier|protected
 specifier|static
