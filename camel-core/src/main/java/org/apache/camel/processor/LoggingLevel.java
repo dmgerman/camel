@@ -43,7 +43,7 @@ block|,
 name|TRACE
 block|,
 name|WARN
-block|; }
+block|}
 end_enum
 
 end_unit
