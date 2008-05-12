@@ -62,21 +62,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-name|o
-operator|.
-name|toString
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createBody ()
 specifier|protected
 name|Object
@@ -97,6 +82,21 @@ parameter_list|()
 block|{
 return|return
 name|o
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|o
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 block|}
