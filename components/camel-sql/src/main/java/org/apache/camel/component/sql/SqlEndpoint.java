@@ -224,39 +224,7 @@ operator|=
 name|query
 expr_stmt|;
 block|}
-DECL|method|SqlEndpoint (String endpointUri, JdbcTemplate jdbcTemplate, String query)
-specifier|public
-name|SqlEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|JdbcTemplate
-name|jdbcTemplate
-parameter_list|,
-name|String
-name|query
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|jdbcTemplate
-operator|=
-name|jdbcTemplate
-expr_stmt|;
-name|this
-operator|.
-name|query
-operator|=
-name|query
-expr_stmt|;
-block|}
-DECL|method|createConsumer (Processor arg0)
+DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
 argument_list|<
@@ -265,7 +233,7 @@ argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
-name|arg0
+name|processor
 parameter_list|)
 throws|throws
 name|Exception
