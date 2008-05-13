@@ -128,12 +128,12 @@ argument_list|<
 name|Exchange
 argument_list|>
 block|{
-DECL|field|LOG
+DECL|field|log
 specifier|protected
 specifier|final
 specifier|transient
 name|Log
-name|LOG
+name|log
 init|=
 name|LogFactory
 operator|.

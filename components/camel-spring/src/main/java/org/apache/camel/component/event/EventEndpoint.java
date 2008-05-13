@@ -90,20 +90,6 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
 name|DefaultProducer
 import|;
 end_import
@@ -146,9 +132,9 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|context
+name|beans
 operator|.
-name|ApplicationContext
+name|BeansException
 import|;
 end_import
 
@@ -160,7 +146,7 @@ name|springframework
 operator|.
 name|context
 operator|.
-name|ApplicationEvent
+name|ApplicationContext
 import|;
 end_import
 
@@ -182,14 +168,14 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|beans
+name|context
 operator|.
-name|BeansException
+name|ApplicationEvent
 import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://activemq.apache.org/camel/event.html">Event Endpoint</a>  * for working with Spring ApplicationEvents  *   * @version $Revision$  */
+comment|/**  * An<a href="http://activemq.apache.org/camel/event.html">Event Endpoint</a>  * for working with Spring ApplicationEvents  *  * @version $Revision$  */
 end_comment
 
 begin_class

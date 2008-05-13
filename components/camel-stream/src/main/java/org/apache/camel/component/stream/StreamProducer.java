@@ -126,7 +126,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|CamelExchangeException
 import|;
 end_import
 
@@ -138,7 +138,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExchangeException
+name|Exchange
 import|;
 end_import
 

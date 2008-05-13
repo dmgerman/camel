@@ -204,9 +204,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|impl
 operator|.
-name|ObjectHelper
+name|DefaultPollingEndpoint
 import|;
 end_import
 
@@ -218,9 +218,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|DefaultPollingEndpoint
+name|ObjectHelper
 import|;
 end_import
 
