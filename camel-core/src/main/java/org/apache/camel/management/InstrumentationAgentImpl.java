@@ -929,6 +929,35 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// close JMX Connector
+if|if
+condition|(
+name|cs
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|cs
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+name|cs
+operator|=
+literal|null
+expr_stmt|;
+block|}
 comment|// Using the array to hold the busMBeans to avoid the
 comment|// CurrentModificationException
 name|Object
