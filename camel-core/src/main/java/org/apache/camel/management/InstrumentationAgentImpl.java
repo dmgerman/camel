@@ -413,6 +413,17 @@ name|SYSTEM_PROPERTY_JMX
 init|=
 literal|"org.apache.camel.jmx"
 decl_stmt|;
+DECL|field|SYSTEM_PROPERTY_JMX_USE_PLATFORM_MBS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SYSTEM_PROPERTY_JMX_USE_PLATFORM_MBS
+init|=
+name|SYSTEM_PROPERTY_JMX
+operator|+
+literal|".usePlatformMBeanServer"
+decl_stmt|;
 DECL|field|DEFAULT_DOMAIN
 specifier|public
 specifier|static
@@ -598,11 +609,8 @@ operator|==
 literal|null
 condition|)
 block|{
-name|server
-operator|=
-name|ManagementFactory
-operator|.
-name|getPlatformMBeanServer
+comment|// The MBeanServer was not injected
+name|createMBeanServer
 argument_list|()
 expr_stmt|;
 block|}
@@ -825,10 +833,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// The MBeanServer was not injected
-name|createMBeanServer
-argument_list|()
-expr_stmt|;
+comment|// No mbean server or jmx not enabled
+return|return;
 block|}
 if|if
 condition|(
@@ -1421,6 +1427,27 @@ block|{
 return|return;
 block|}
 comment|// jmx is enabled but there's no MBeanServer, so create one
+if|if
+condition|(
+name|Boolean
+operator|.
+name|getBoolean
+argument_list|(
+name|SYSTEM_PROPERTY_JMX_USE_PLATFORM_MBS
+argument_list|)
+condition|)
+block|{
+name|server
+operator|=
+name|ManagementFactory
+operator|.
+name|getPlatformMBeanServer
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// jmx is enabled but there's no MBeanServer, so create one
 name|List
 name|servers
 init|=
@@ -1465,6 +1492,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// we need a connector too
 try|try

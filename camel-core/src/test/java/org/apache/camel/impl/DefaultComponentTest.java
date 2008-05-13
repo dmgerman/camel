@@ -86,6 +86,7 @@ name|ContextTestSupport
 block|{
 DECL|class|MyComponent
 specifier|private
+specifier|final
 class|class
 name|MyComponent
 extends|extends
