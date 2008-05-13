@@ -1441,7 +1441,7 @@ block|}
 block|}
 comment|/**      * Recursively delete a directory, useful to zapping test data      *      * @param file the directory to be deleted      */
 DECL|method|deleteDirectory (String file)
-specifier|protected
+specifier|public
 specifier|static
 name|void
 name|deleteDirectory
@@ -1462,7 +1462,7 @@ expr_stmt|;
 block|}
 comment|/**      * Recursively delete a directory, useful to zapping test data      *      * @param file the directory to be deleted      */
 DECL|method|deleteDirectory (File file)
-specifier|protected
+specifier|public
 specifier|static
 name|void
 name|deleteDirectory
