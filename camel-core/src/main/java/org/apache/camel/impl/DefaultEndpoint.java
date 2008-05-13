@@ -285,11 +285,17 @@ parameter_list|)
 block|{
 name|this
 operator|.
+name|setEndpointUri
+argument_list|(
 name|endpointUri
-operator|=
-name|endpointUri
+argument_list|)
 expr_stmt|;
 block|}
+DECL|method|DefaultEndpoint ()
+specifier|protected
+name|DefaultEndpoint
+parameter_list|()
+block|{     }
 DECL|method|hashCode ()
 specifier|public
 name|int
@@ -297,7 +303,8 @@ name|hashCode
 parameter_list|()
 block|{
 return|return
-name|endpointUri
+name|getEndpointUri
+argument_list|()
 operator|.
 name|hashCode
 argument_list|()
@@ -340,11 +347,13 @@ name|equal
 argument_list|(
 name|this
 operator|.
-name|endpointUri
+name|getEndpointUri
+argument_list|()
 argument_list|,
 name|that
 operator|.
-name|endpointUri
+name|getEndpointUri
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -363,7 +372,8 @@ block|{
 return|return
 literal|"Endpoint["
 operator|+
-name|endpointUri
+name|getEndpointUri
+argument_list|()
 operator|+
 literal|"]"
 return|;
@@ -374,6 +384,42 @@ name|String
 name|getEndpointUri
 parameter_list|()
 block|{
+if|if
+condition|(
+name|endpointUri
+operator|==
+literal|null
+condition|)
+block|{
+name|endpointUri
+operator|=
+name|createEndpointUri
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|endpointUri
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"endpointUri is not specified and "
+operator|+
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" does not implement createEndpointUri() to create a default value"
+argument_list|)
+throw|;
+block|}
+block|}
 return|return
 name|endpointUri
 return|;
@@ -802,6 +848,33 @@ name|Map
 name|options
 parameter_list|)
 block|{     }
+comment|/**      * A factory method to lazily create the endpointUri if none is specified       * @return      */
+DECL|method|createEndpointUri ()
+specifier|protected
+name|String
+name|createEndpointUri
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+DECL|method|setEndpointUri (String endpointUri)
+specifier|protected
+name|void
+name|setEndpointUri
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointUri
+operator|=
+name|endpointUri
+expr_stmt|;
+block|}
 block|}
 end_class
 

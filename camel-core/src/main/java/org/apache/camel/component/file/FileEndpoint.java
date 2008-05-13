@@ -96,6 +96,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -354,6 +368,26 @@ operator|=
 name|file
 expr_stmt|;
 block|}
+DECL|method|FileEndpoint (File file)
+specifier|public
+name|FileEndpoint
+parameter_list|(
+name|File
+name|file
+parameter_list|)
+block|{
+name|this
+operator|.
+name|file
+operator|=
+name|file
+expr_stmt|;
+block|}
+DECL|method|FileEndpoint ()
+specifier|public
+name|FileEndpoint
+parameter_list|()
+block|{     }
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -565,6 +599,15 @@ name|File
 name|getFile
 parameter_list|()
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|file
+argument_list|,
+literal|"file"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|autoCreate
@@ -585,6 +628,22 @@ block|}
 return|return
 name|file
 return|;
+block|}
+DECL|method|setFile (File file)
+specifier|public
+name|void
+name|setFile
+parameter_list|(
+name|File
+name|file
+parameter_list|)
+block|{
+name|this
+operator|.
+name|file
+operator|=
+name|file
+expr_stmt|;
 block|}
 DECL|method|isSingleton ()
 specifier|public
@@ -970,6 +1029,24 @@ name|moveNamePrefix
 argument_list|,
 name|moveNamePostfix
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createEndpointUri ()
+specifier|protected
+name|String
+name|createEndpointUri
+parameter_list|()
+block|{
+return|return
+literal|"file://"
+operator|+
+name|getFile
+argument_list|()
+operator|.
+name|getAbsolutePath
+argument_list|()
 return|;
 block|}
 block|}

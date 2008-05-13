@@ -178,6 +178,11 @@ name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|ScheduledPollEndpoint ()
+specifier|protected
+name|ScheduledPollEndpoint
+parameter_list|()
+block|{     }
 DECL|method|getConsumerProperties ()
 specifier|public
 name|Map
