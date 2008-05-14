@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Consumer to poll atom feeds and return the full feed.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -95,6 +95,9 @@ class|class
 name|AtomPollingConsumer
 extends|extends
 name|PollingConsumerSupport
+argument_list|<
+name|Exchange
+argument_list|>
 block|{
 DECL|field|endpoint
 specifier|private
@@ -136,31 +139,31 @@ name|Feed
 argument_list|>
 name|document
 init|=
-name|endpoint
+name|AtomUtils
 operator|.
 name|parseDocument
+argument_list|(
+name|endpoint
+operator|.
+name|getAtomUri
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|Feed
+name|feed
+init|=
+name|document
+operator|.
+name|getRoot
 argument_list|()
 decl_stmt|;
-name|Exchange
-name|exchange
-init|=
+return|return
 name|endpoint
 operator|.
 name|createExchange
-argument_list|()
-decl_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
 argument_list|(
-name|document
+name|feed
 argument_list|)
-expr_stmt|;
-return|return
-name|exchange
 return|;
 block|}
 catch|catch

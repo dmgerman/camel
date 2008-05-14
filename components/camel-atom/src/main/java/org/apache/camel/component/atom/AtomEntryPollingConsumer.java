@@ -22,9 +22,29 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
 import|;
 end_import
 
@@ -67,6 +87,20 @@ operator|.
 name|model
 operator|.
 name|Feed
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|abdera
+operator|.
+name|parser
+operator|.
+name|ParseException
 import|;
 end_import
 
@@ -109,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Consumer to poll atom feeds and return each entry from the feed step by step.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -119,6 +153,9 @@ class|class
 name|AtomEntryPollingConsumer
 extends|extends
 name|PollingConsumerSupport
+argument_list|<
+name|Exchange
+argument_list|>
 block|{
 DECL|field|endpoint
 specifier|private
@@ -143,10 +180,6 @@ DECL|field|entryFilter
 specifier|private
 name|EntryFilter
 name|entryFilter
-init|=
-operator|new
-name|UpdatedDateFilter
-argument_list|()
 decl_stmt|;
 DECL|field|list
 specifier|private
@@ -156,12 +189,18 @@ name|Entry
 argument_list|>
 name|list
 decl_stmt|;
-DECL|method|AtomEntryPollingConsumer (AtomEndpoint endpoint)
+DECL|method|AtomEntryPollingConsumer (AtomEndpoint endpoint, boolean filter, Date lastUpdate)
 specifier|public
 name|AtomEntryPollingConsumer
 parameter_list|(
 name|AtomEndpoint
 name|endpoint
+parameter_list|,
+name|boolean
+name|filter
+parameter_list|,
+name|Date
+name|lastUpdate
 parameter_list|)
 block|{
 name|super
@@ -175,6 +214,20 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
+if|if
+condition|(
+name|filter
+condition|)
+block|{
+name|entryFilter
+operator|=
+operator|new
+name|UpdatedDateFilter
+argument_list|(
+name|lastUpdate
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|receiveNoWait ()
 specifier|public
@@ -187,6 +240,14 @@ block|{
 name|getDocument
 argument_list|()
 expr_stmt|;
+name|Feed
+name|feed
+init|=
+name|document
+operator|.
+name|getRoot
+argument_list|()
+decl_stmt|;
 while|while
 condition|(
 name|hasNextEntry
@@ -204,8 +265,20 @@ name|entryIndex
 operator|--
 argument_list|)
 decl_stmt|;
+name|boolean
+name|valid
+init|=
+literal|true
+decl_stmt|;
 if|if
 condition|(
+name|entryFilter
+operator|!=
+literal|null
+condition|)
+block|{
+name|valid
+operator|=
 name|entryFilter
 operator|.
 name|isValidEntry
@@ -216,6 +289,11 @@ name|document
 argument_list|,
 name|entry
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|valid
 condition|)
 block|{
 return|return
@@ -223,13 +301,14 @@ name|endpoint
 operator|.
 name|createExchange
 argument_list|(
-name|document
+name|feed
 argument_list|,
 name|entry
 argument_list|)
 return|;
 block|}
 block|}
+comment|// reset document to be able to poll again
 name|document
 operator|=
 literal|null
@@ -278,36 +357,6 @@ name|receiveNoWait
 argument_list|()
 return|;
 block|}
-comment|// Properties
-comment|//-------------------------------------------------------------------------
-DECL|method|getEntryFilter ()
-specifier|public
-name|EntryFilter
-name|getEntryFilter
-parameter_list|()
-block|{
-return|return
-name|entryFilter
-return|;
-block|}
-DECL|method|setEntryFilter (EntryFilter entryFilter)
-specifier|public
-name|void
-name|setEntryFilter
-parameter_list|(
-name|EntryFilter
-name|entryFilter
-parameter_list|)
-block|{
-name|this
-operator|.
-name|entryFilter
-operator|=
-name|entryFilter
-expr_stmt|;
-block|}
-comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -325,7 +374,7 @@ throws|throws
 name|Exception
 block|{     }
 DECL|method|getDocument ()
-specifier|public
+specifier|private
 name|Document
 argument_list|<
 name|Feed
@@ -333,7 +382,9 @@ argument_list|>
 name|getDocument
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
+throws|,
+name|ParseException
 block|{
 if|if
 condition|(
@@ -344,10 +395,15 @@ condition|)
 block|{
 name|document
 operator|=
-name|endpoint
+name|AtomUtils
 operator|.
 name|parseDocument
+argument_list|(
+name|endpoint
+operator|.
+name|getAtomUri
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|list
 operator|=
@@ -374,7 +430,7 @@ name|document
 return|;
 block|}
 DECL|method|hasNextEntry ()
-specifier|protected
+specifier|private
 name|boolean
 name|hasNextEntry
 parameter_list|()
