@@ -109,7 +109,16 @@ name|MyProcessor
 name|component
 decl_stmt|;
 annotation|@
-name|Autowired
+name|EndpointInject
+argument_list|(
+name|name
+operator|=
+literal|"start"
+argument_list|)
+DECL|field|startEndpoint
+name|Endpoint
+name|startEndpoint
+decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
@@ -133,7 +142,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"direct:start"
+name|startEndpoint
 argument_list|)
 operator|.
 name|process

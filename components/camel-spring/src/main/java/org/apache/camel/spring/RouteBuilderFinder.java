@@ -120,6 +120,22 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|beans
+operator|.
+name|factory
+operator|.
+name|config
+operator|.
+name|BeanPostProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|context
 operator|.
 name|ApplicationContext
@@ -180,7 +196,12 @@ operator|new
 name|ResolverUtil
 argument_list|()
 decl_stmt|;
-DECL|method|RouteBuilderFinder (SpringCamelContext camelContext, String[] packages, ClassLoader classLoader)
+DECL|field|beanPostProcessor
+specifier|private
+name|BeanPostProcessor
+name|beanPostProcessor
+decl_stmt|;
+DECL|method|RouteBuilderFinder (SpringCamelContext camelContext, String[] packages, ClassLoader classLoader, BeanPostProcessor postProcessor)
 specifier|public
 name|RouteBuilderFinder
 parameter_list|(
@@ -193,6 +214,9 @@ name|packages
 parameter_list|,
 name|ClassLoader
 name|classLoader
+parameter_list|,
+name|BeanPostProcessor
+name|postProcessor
 parameter_list|)
 block|{
 name|this
@@ -216,7 +240,13 @@ name|packages
 operator|=
 name|packages
 expr_stmt|;
-comment|// lets add all the available class loaders just in case of wierdness
+name|this
+operator|.
+name|beanPostProcessor
+operator|=
+name|postProcessor
+expr_stmt|;
+comment|// lets add all the available class loaders just in case of weirdness
 comment|// we could make this more strict once we've worked out all the gremlins
 comment|// in servicemix-camel
 name|Set
@@ -335,6 +365,27 @@ argument_list|(
 name|aClass
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|beanPostProcessor
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// Inject the annotated resource
+name|beanPostProcessor
+operator|.
+name|postProcessBeforeInitialization
+argument_list|(
+name|builder
+argument_list|,
+name|builder
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|list
 operator|.
 name|add

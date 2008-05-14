@@ -763,7 +763,7 @@ name|parser
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createBeanPostProcessor (ParserContext parserContext, String contextId, Element childElement)
+DECL|method|createBeanPostProcessor (ParserContext parserContext, String contextId, Element childElement, BeanDefinitionBuilder parentBuilder)
 specifier|protected
 name|void
 name|createBeanPostProcessor
@@ -776,6 +776,9 @@ name|contextId
 parameter_list|,
 name|Element
 name|childElement
+parameter_list|,
+name|BeanDefinitionBuilder
+name|parentBuilder
 parameter_list|)
 block|{
 name|String
@@ -820,6 +823,15 @@ name|RuntimeBeanReference
 argument_list|(
 name|contextId
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|parentBuilder
+operator|.
+name|addPropertyReference
+argument_list|(
+literal|"beanPostProcessor"
+argument_list|,
+name|beanPostProcessorId
 argument_list|)
 expr_stmt|;
 block|}
@@ -1246,6 +1258,8 @@ argument_list|,
 name|contextId
 argument_list|,
 name|childElement
+argument_list|,
+name|builder
 argument_list|)
 expr_stmt|;
 name|createdBeanPostProcessor
@@ -1411,7 +1425,7 @@ operator|!
 name|createdBeanPostProcessor
 condition|)
 block|{
-comment|// no bean processor element so lets add a fake one
+comment|// no bean processor element so lets create it by ourself
 name|Element
 name|childElement
 init|=
@@ -1439,6 +1453,8 @@ argument_list|,
 name|contextId
 argument_list|,
 name|childElement
+argument_list|,
+name|builder
 argument_list|)
 expr_stmt|;
 block|}
