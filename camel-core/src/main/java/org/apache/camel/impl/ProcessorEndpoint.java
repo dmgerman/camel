@@ -105,10 +105,28 @@ argument_list|>
 block|{
 DECL|field|processor
 specifier|private
-specifier|final
 name|Processor
 name|processor
 decl_stmt|;
+DECL|method|ProcessorEndpoint ()
+specifier|protected
+name|ProcessorEndpoint
+parameter_list|()
+block|{     }
+DECL|method|ProcessorEndpoint (String endpointUri)
+specifier|protected
+name|ProcessorEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|ProcessorEndpoint (String endpointUri, CamelContext context, Processor processor)
 specifier|public
 name|ProcessorEndpoint
@@ -188,6 +206,25 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
+DECL|method|ProcessorEndpoint (String endpointUri, Component component)
+specifier|protected
+name|ProcessorEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Component
+name|component
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|component
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -257,6 +294,8 @@ specifier|public
 name|Processor
 name|getProcessor
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -264,6 +303,24 @@ name|processor
 operator|==
 literal|null
 condition|)
+block|{
+name|processor
+operator|=
+name|createProcessor
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|processor
+return|;
+block|}
+DECL|method|createProcessor ()
+specifier|protected
+name|Processor
+name|createProcessor
+parameter_list|()
+throws|throws
+name|Exception
 block|{
 return|return
 operator|new
@@ -289,10 +346,6 @@ block|}
 block|}
 return|;
 block|}
-return|return
-name|processor
-return|;
-block|}
 DECL|method|onExchange (Exchange exchange)
 specifier|protected
 name|void
@@ -304,7 +357,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|processor
+name|getProcessor
+argument_list|()
 operator|.
 name|process
 argument_list|(

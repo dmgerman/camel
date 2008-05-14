@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of a {@link BeanHolder} which will  *  * @version $Revision$  */
+comment|/**  * An implementation of a {@link BeanHolder} which will look up a bean from the registry and act as a cache of its metadata  *  * @version $Revision$  */
 end_comment
 
 begin_class
