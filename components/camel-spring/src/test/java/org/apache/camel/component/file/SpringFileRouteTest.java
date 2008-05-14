@@ -84,6 +84,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|hamcrest
+operator|.
 name|Assertions
 import|;
 end_import
@@ -211,13 +213,13 @@ name|fileEndpoint
 init|=
 name|Assertions
 operator|.
-name|assertIsInstanceOf
+name|assertInstanceOf
 argument_list|(
+name|inputFile
+argument_list|,
 name|FileEndpoint
 operator|.
 name|class
-argument_list|,
-name|inputFile
 argument_list|)
 decl_stmt|;
 name|assertEquals
