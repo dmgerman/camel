@@ -76,20 +76,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision:520964 $  */
 end_comment
@@ -101,9 +87,6 @@ class|class
 name|SqlComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|DefaultExchange
-argument_list|>
 block|{
 DECL|field|dataSource
 specifier|private
@@ -134,9 +117,6 @@ name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|Endpoint
-argument_list|<
-name|DefaultExchange
-argument_list|>
 name|createEndpoint
 parameter_list|(
 name|String

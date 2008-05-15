@@ -108,20 +108,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|IntrospectionSupport
@@ -153,9 +139,6 @@ class|class
 name|SqlEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|DefaultExchange
-argument_list|>
 block|{
 DECL|field|jdbcTemplate
 specifier|private
@@ -259,9 +242,6 @@ block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
-argument_list|<
-name|DefaultExchange
-argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
@@ -281,9 +261,6 @@ block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
-argument_list|<
-name|DefaultExchange
-argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws
