@@ -92,6 +92,13 @@ name|DATE_PATTERN_NO_TIMEZONE
 init|=
 literal|"yyyy-MM-dd'T'HH:mm:ss"
 decl_stmt|;
+DECL|method|AtomConverter ()
+specifier|private
+name|AtomConverter
+parameter_list|()
+block|{
+comment|//Helper class
+block|}
 annotation|@
 name|Converter
 DECL|method|toDate (String text)

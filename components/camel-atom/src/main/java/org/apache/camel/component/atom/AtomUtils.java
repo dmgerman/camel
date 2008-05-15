@@ -123,9 +123,17 @@ end_comment
 begin_class
 DECL|class|AtomUtils
 specifier|public
+specifier|final
 class|class
 name|AtomUtils
 block|{
+DECL|method|AtomUtils ()
+specifier|private
+name|AtomUtils
+parameter_list|()
+block|{
+comment|// Helper class
+block|}
 comment|/**      * Gets the Atom parser.      */
 DECL|method|getAtomParser ()
 specifier|public
@@ -144,7 +152,7 @@ name|getParser
 argument_list|()
 return|;
 block|}
-comment|/**      * Parses the given uri and returns the response as a atom feed document.      *        * @param uri the uri for the atom feed.      * @return  the document      * @throws IOException is thrown if error reading from the uri      * @throws ParseException is thrown if the parsing failed      */
+comment|/**      * Parses the given uri and returns the response as a atom feed document.      *      * @param uri the uri for the atom feed.      * @return  the document      * @throws IOException is thrown if error reading from the uri      * @throws ParseException is thrown if the parsing failed      */
 DECL|method|parseDocument (String uri)
 specifier|public
 specifier|static

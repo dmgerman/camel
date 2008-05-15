@@ -20,13 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|naming
 operator|.
-name|camel
-operator|.
-name|Body
+name|Context
 import|;
 end_import
 
@@ -135,16 +133,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|Context
 import|;
 end_import
 

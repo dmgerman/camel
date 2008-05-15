@@ -34,7 +34,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Date
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Date
+name|List
 import|;
 end_import
 
