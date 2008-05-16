@@ -42,6 +42,8 @@ name|enableJmx
 argument_list|(
 name|domainName
 argument_list|,
+literal|"/jmxtest"
+argument_list|,
 literal|1099
 argument_list|)
 expr_stmt|;

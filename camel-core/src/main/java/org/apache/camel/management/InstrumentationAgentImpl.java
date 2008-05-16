@@ -451,6 +451,15 @@ name|DEFAULT_PORT
 init|=
 literal|1099
 decl_stmt|;
+DECL|field|DEFAULT_CONNECTOR_PATH
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_CONNECTOR_PATH
+init|=
+literal|"/jmxrmi"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -518,10 +527,27 @@ specifier|private
 name|int
 name|jmxConnectorPort
 decl_stmt|;
+DECL|field|jmxConnectorPath
+specifier|private
+name|String
+name|jmxConnectorPath
+decl_stmt|;
 DECL|field|namingStrategy
 specifier|private
 name|CamelNamingStrategy
 name|namingStrategy
+decl_stmt|;
+DECL|field|createConnector
+specifier|private
+name|boolean
+name|createConnector
+init|=
+literal|true
+decl_stmt|;
+DECL|field|usePlatformMBeanServer
+specifier|private
+name|boolean
+name|usePlatformMBeanServer
 decl_stmt|;
 DECL|method|InstrumentationAgentImpl ()
 specifier|public
@@ -574,6 +600,34 @@ block|{
 name|context
 operator|=
 name|camelContext
+expr_stmt|;
+block|}
+DECL|method|setCreateConnector (boolean flag)
+specifier|public
+name|void
+name|setCreateConnector
+parameter_list|(
+name|boolean
+name|flag
+parameter_list|)
+block|{
+name|createConnector
+operator|=
+name|flag
+expr_stmt|;
+block|}
+DECL|method|setUsePlatformMBeanServer (boolean flag)
+specifier|public
+name|void
+name|setUsePlatformMBeanServer
+parameter_list|(
+name|boolean
+name|flag
+parameter_list|)
+block|{
+name|usePlatformMBeanServer
+operator|=
+name|flag
 expr_stmt|;
 block|}
 DECL|method|setMBeanServer (MBeanServer server)
@@ -1140,13 +1194,32 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|enableJmx (String domainName, int port)
+DECL|method|enableJmx ()
+specifier|public
+name|void
+name|enableJmx
+parameter_list|()
+block|{
+name|enableJmx
+argument_list|(
+name|DEFAULT_DOMAIN
+argument_list|,
+name|DEFAULT_CONNECTOR_PATH
+argument_list|,
+name|DEFAULT_PORT
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|enableJmx (String domainName, String connectorPath, int port)
 specifier|public
 name|void
 name|enableJmx
 parameter_list|(
 name|String
 name|domainName
+parameter_list|,
+name|String
+name|connectorPath
 parameter_list|,
 name|int
 name|port
@@ -1162,6 +1235,10 @@ name|domainName
 expr_stmt|;
 name|configureDomainName
 argument_list|()
+expr_stmt|;
+name|jmxConnectorPath
+operator|=
+name|connectorPath
 expr_stmt|;
 name|jmxConnectorPort
 operator|=
@@ -1435,6 +1512,8 @@ name|getBoolean
 argument_list|(
 name|SYSTEM_PROPERTY_JMX_USE_PLATFORM_MBS
 argument_list|)
+operator|||
+name|usePlatformMBeanServer
 condition|)
 block|{
 name|server
@@ -1494,14 +1573,20 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// we need a connector too
 try|try
+block|{
+comment|// Create the connector if we need
+if|if
+condition|(
+name|createConnector
+condition|)
 block|{
 name|createJmxConnector
 argument_list|(
 name|hostName
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1554,13 +1639,25 @@ name|RemoteException
 name|ex
 parameter_list|)
 block|{
-comment|// the registry may had been created
+comment|// The registry may had been created
 name|LocateRegistry
 operator|.
 name|getRegistry
 argument_list|(
 name|jmxConnectorPort
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|jmxConnectorPath
+operator|==
+literal|null
+condition|)
+block|{
+name|jmxConnectorPath
+operator|=
+name|DEFAULT_CONNECTOR_PATH
 expr_stmt|;
 block|}
 comment|// Create an RMI connector and start it
@@ -1578,7 +1675,7 @@ literal|":"
 operator|+
 name|jmxConnectorPort
 operator|+
-literal|"/jmxrmi"
+name|jmxConnectorPath
 argument_list|)
 decl_stmt|;
 name|cs

@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The JAXB type class for the configuration of jmxAgent  * @author Willem Jiang  *  * @version $Revision:$  */
+comment|/**  * The JAXB type class for the configuration of jmxAgent  * @author Willem Jiang  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -114,6 +114,11 @@ name|IdentifiedType
 block|{
 annotation|@
 name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|field|connectorPort
 specifier|private
 name|Integer
@@ -121,10 +126,51 @@ name|connectorPort
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|field|jmxDomainName
 specifier|private
 name|String
 name|jmxDomainName
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|connectorPath
+specifier|private
+name|String
+name|connectorPath
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|createConnector
+specifier|private
+name|Boolean
+name|createConnector
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|usePlatformMBeanServer
+specifier|private
+name|Boolean
+name|usePlatformMBeanServer
 decl_stmt|;
 DECL|method|setConnectorPort (Integer port)
 specifier|public
@@ -172,6 +218,78 @@ parameter_list|()
 block|{
 return|return
 name|jmxDomainName
+return|;
+block|}
+DECL|method|setConnectorPath (String path)
+specifier|public
+name|void
+name|setConnectorPath
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+name|connectorPath
+operator|=
+name|path
+expr_stmt|;
+block|}
+DECL|method|getConnectorPath ()
+specifier|public
+name|String
+name|getConnectorPath
+parameter_list|()
+block|{
+return|return
+name|connectorPath
+return|;
+block|}
+DECL|method|setCreateConnector (Boolean flag)
+specifier|public
+name|void
+name|setCreateConnector
+parameter_list|(
+name|Boolean
+name|flag
+parameter_list|)
+block|{
+name|createConnector
+operator|=
+name|flag
+expr_stmt|;
+block|}
+DECL|method|isCreateConnector ()
+specifier|public
+name|Boolean
+name|isCreateConnector
+parameter_list|()
+block|{
+return|return
+name|createConnector
+return|;
+block|}
+DECL|method|setUsePlatformMBeanServer (Boolean flag)
+specifier|public
+name|void
+name|setUsePlatformMBeanServer
+parameter_list|(
+name|Boolean
+name|flag
+parameter_list|)
+block|{
+name|usePlatformMBeanServer
+operator|=
+name|flag
+expr_stmt|;
+block|}
+DECL|method|isUsePlatformMBeanServer ()
+specifier|public
+name|Boolean
+name|isUsePlatformMBeanServer
+parameter_list|()
+block|{
+return|return
+name|usePlatformMBeanServer
 return|;
 block|}
 block|}
