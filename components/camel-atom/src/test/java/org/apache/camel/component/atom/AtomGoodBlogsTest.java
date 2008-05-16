@@ -150,42 +150,6 @@ name|AtomGoodBlogsTest
 extends|extends
 name|TestSupport
 block|{
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|setupCamel
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|tearDown ()
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
-name|context
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-block|}
 comment|// START SNIPPET: e1
 comment|// This is the CamelContext that is the heart of Camel
 DECL|field|context
@@ -434,6 +398,42 @@ return|;
 block|}
 block|}
 comment|// END SNIPPET: e1
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|setupCamel
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|tearDown ()
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+name|context
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -82,39 +82,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URL
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URLClassLoader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
 import|;
 end_import
 
@@ -226,7 +196,9 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ReportingTypeConverterRegistry
+name|ReportingTypeConverterLoader
+operator|.
+name|TypeMapping
 import|;
 end_import
 
@@ -240,9 +212,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ReportingTypeConverterLoader
-operator|.
-name|TypeMapping
+name|ReportingTypeConverterRegistry
 import|;
 end_import
 
@@ -601,7 +571,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generate report of available type conversions.  *   * @goal converters-report  * @requiresDependencyResolution runtime  * @phase verify  */
+comment|/**  * Generate report of available type conversions.  *  * @goal converters-report  * @requiresDependencyResolution runtime  * @phase verify  */
 end_comment
 
 begin_class
@@ -613,8 +583,8 @@ extends|extends
 name|AbstractMavenReport
 block|{
 DECL|field|WIKI_TYPECONVERER_URL
-specifier|static
 specifier|private
+specifier|static
 specifier|final
 name|String
 name|WIKI_TYPECONVERER_URL
@@ -622,8 +592,8 @@ init|=
 literal|"http://activemq.apache.org/camel/type-converter.html"
 decl_stmt|;
 DECL|field|CONVERTER_TYPE_STATIC
-specifier|static
 specifier|private
+specifier|static
 specifier|final
 name|String
 name|CONVERTER_TYPE_STATIC
@@ -631,8 +601,8 @@ init|=
 literal|"org.apache.camel.impl.converter.StaticMethodTypeConverter"
 decl_stmt|;
 DECL|field|CONVERTER_TYPE_INSTANCE
-specifier|static
 specifier|private
+specifier|static
 specifier|final
 name|String
 name|CONVERTER_TYPE_INSTANCE
@@ -640,8 +610,8 @@ init|=
 literal|"org.apache.camel.impl.converter.InstanceMethodTypeConverter"
 decl_stmt|;
 DECL|field|REPORT_METHOD_STATIC
-specifier|static
 specifier|private
+specifier|static
 specifier|final
 name|String
 name|REPORT_METHOD_STATIC
@@ -649,8 +619,8 @@ init|=
 literal|"STATIC"
 decl_stmt|;
 DECL|field|REPORT_METHOD_INSTANCE
-specifier|static
 specifier|private
+specifier|static
 specifier|final
 name|String
 name|REPORT_METHOD_INSTANCE
@@ -658,57 +628,57 @@ init|=
 literal|"INSTANCE"
 decl_stmt|;
 DECL|field|REPORT_METHOD_UNKNOWN
-specifier|static
 specifier|private
+specifier|static
 specifier|final
 name|String
 name|REPORT_METHOD_UNKNOWN
 init|=
 literal|"UNKNOWN"
 decl_stmt|;
-comment|/**      * Base output directory for reports.      *       * @parameter default-value="${project.build.directory}/site"      * @readonly      * @required      */
-DECL|field|outputDirectory
-specifier|private
-name|File
-name|outputDirectory
-decl_stmt|;
-comment|/**      * Reference to Maven 2 Project.      *       * @parameter expression="${project}"      * @required      * @readonly      */
-DECL|field|project
-specifier|private
-name|MavenProject
-name|project
-decl_stmt|;
-comment|/**      * Doxia SiteRenderer.      *       * @component      */
-DECL|field|renderer
-specifier|private
-name|Renderer
-name|renderer
-decl_stmt|;
-comment|/**      * Remote repositories which will be searched for source attachments.      *       * @parameter expression="${project.remoteArtifactRepositories}"      * @required      * @readonly      */
+comment|/**      * Remote repositories which will be searched for source attachments.      *      * @parameter expression="${project.remoteArtifactRepositories}"      * @required      * @readonly      */
 DECL|field|remoteArtifactRepositories
 specifier|protected
 name|List
 name|remoteArtifactRepositories
 decl_stmt|;
-comment|/**      * Local maven repository.      *       * @parameter expression="${localRepository}"      * @required      * @readonly      */
+comment|/**      * Local maven repository.      *      * @parameter expression="${localRepository}"      * @required      * @readonly      */
 DECL|field|localRepository
 specifier|protected
 name|ArtifactRepository
 name|localRepository
 decl_stmt|;
-comment|/**      * The component that is used to resolve additional artifacts required.      *       * @component      */
+comment|/**      * The component that is used to resolve additional artifacts required.      *      * @component      */
 DECL|field|artifactResolver
 specifier|protected
 name|ArtifactResolver
 name|artifactResolver
 decl_stmt|;
-comment|/**      * The component used for creating artifact instances.      *       * @component      */
+comment|/**      * The component used for creating artifact instances.      *      * @component      */
 DECL|field|artifactFactory
 specifier|protected
 name|ArtifactFactory
 name|artifactFactory
 decl_stmt|;
-comment|/**      * Gets resource bundle for given locale.      *       * @param locale      *            locale      * @return resource bundle      */
+comment|/**      * Base output directory for reports.      *      * @parameter default-value="${project.build.directory}/site"      * @readonly      * @required      */
+DECL|field|outputDirectory
+specifier|private
+name|File
+name|outputDirectory
+decl_stmt|;
+comment|/**      * Reference to Maven 2 Project.      *      * @parameter expression="${project}"      * @required      * @readonly      */
+DECL|field|project
+specifier|private
+name|MavenProject
+name|project
+decl_stmt|;
+comment|/**      * Doxia SiteRenderer.      *      * @component      */
+DECL|field|renderer
+specifier|private
+name|Renderer
+name|renderer
+decl_stmt|;
+comment|/**      * Gets resource bundle for given locale.      *      * @param locale      *            locale      * @return resource bundle      */
 DECL|method|getBundle (final Locale locale)
 specifier|protected
 name|ResourceBundle
