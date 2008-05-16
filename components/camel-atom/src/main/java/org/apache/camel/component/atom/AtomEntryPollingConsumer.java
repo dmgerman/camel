@@ -292,6 +292,8 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// return and wait for the next poll to continue from last time (this consumer is stateful)
+return|return;
 block|}
 block|}
 comment|// reset document to be able to poll again

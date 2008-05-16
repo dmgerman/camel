@@ -150,7 +150,7 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|2
+literal|4
 argument_list|)
 expr_stmt|;
 name|mock
@@ -181,7 +181,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"atom:file:src/test/data/feed.atom?splitEntries=true"
+literal|"atom:file:src/test/data/feed.atom?splitEntries=true&consumer.delay=500"
 argument_list|)
 operator|.
 name|to
@@ -191,7 +191,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"atom:file:src/test/data/feed.atom?splitEntries=true&filter=false"
+literal|"atom:file:src/test/data/feed.atom?splitEntries=true&filter=false&consumer.delay=500"
 argument_list|)
 operator|.
 name|to
@@ -201,7 +201,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"atom:file:src/test/data/feed.atom?splitEntries=true&filter=true&lastUpdate=2007-11-13T23:59:00"
+literal|"atom:file:src/test/data/feed.atom?splitEntries=true&filter=true&lastUpdate=2007-11-13T14:35:00&consumer.delay=500"
 argument_list|)
 operator|.
 name|to
