@@ -455,7 +455,7 @@ argument_list|)
 operator|.
 name|getString
 argument_list|(
-literal|"report.description"
+literal|"report.dot.description"
 argument_list|)
 return|;
 block|}
@@ -478,7 +478,7 @@ argument_list|)
 operator|.
 name|getString
 argument_list|(
-literal|"report.name"
+literal|"report.dot.name"
 argument_list|)
 return|;
 block|}

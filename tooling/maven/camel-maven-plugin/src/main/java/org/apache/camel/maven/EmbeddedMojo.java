@@ -664,7 +664,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|createClassLoader (ClassLoader parent)
-specifier|protected
+specifier|public
 name|ClassLoader
 name|createClassLoader
 parameter_list|(
