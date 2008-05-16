@@ -278,13 +278,27 @@ name|void
 name|run
 parameter_list|()
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Starting to poll"
+literal|"Starting to poll: "
+operator|+
+name|this
+operator|.
+name|getEndpoint
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|poll
@@ -297,13 +311,24 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// TODO: We should not swallow this but handle it better. See CAMEL-501
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Caught: "
+literal|"An exception occured while polling: "
+operator|+
+name|this
+operator|.
+name|getEndpoint
+argument_list|()
+operator|+
+literal|": "
 operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -418,7 +443,7 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * The polling method which is invoked periodically to poll this consumer      *       * @throws Exception      */
+comment|/**      * The polling method which is invoked periodically to poll this consumer      *       * @throws Exception can be thrown if an exception occured during polling      */
 DECL|method|poll ()
 specifier|protected
 specifier|abstract
