@@ -124,21 +124,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|PollingConsumerSupport
+name|Processor
 import|;
 end_import
 
@@ -152,17 +138,8 @@ specifier|public
 class|class
 name|AtomEntryPollingConsumer
 extends|extends
-name|PollingConsumerSupport
-argument_list|<
-name|Exchange
-argument_list|>
+name|AtomPollingConsumer
 block|{
-DECL|field|endpoint
-specifier|private
-specifier|final
-name|AtomEndpoint
-name|endpoint
-decl_stmt|;
 DECL|field|document
 specifier|private
 name|Document
@@ -189,12 +166,15 @@ name|Entry
 argument_list|>
 name|list
 decl_stmt|;
-DECL|method|AtomEntryPollingConsumer (AtomEndpoint endpoint, boolean filter, Date lastUpdate)
+DECL|method|AtomEntryPollingConsumer (AtomEndpoint endpoint, Processor processor, boolean filter, Date lastUpdate)
 specifier|public
 name|AtomEntryPollingConsumer
 parameter_list|(
 name|AtomEndpoint
 name|endpoint
+parameter_list|,
+name|Processor
+name|processor
 parameter_list|,
 name|boolean
 name|filter
@@ -206,13 +186,9 @@ block|{
 name|super
 argument_list|(
 name|endpoint
+argument_list|,
+name|processor
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
 expr_stmt|;
 if|if
 condition|(
@@ -229,13 +205,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|receiveNoWait ()
+DECL|method|poll ()
 specifier|public
-name|Exchange
-name|receiveNoWait
+name|void
+name|poll
 parameter_list|()
-block|{
-try|try
+throws|throws
+name|Exception
 block|{
 name|getDocument
 argument_list|()
@@ -296,7 +272,9 @@ condition|(
 name|valid
 condition|)
 block|{
-return|return
+name|Exchange
+name|exchange
+init|=
 name|endpoint
 operator|.
 name|createExchange
@@ -305,7 +283,15 @@ name|feed
 argument_list|,
 name|entry
 argument_list|)
-return|;
+decl_stmt|;
+name|getProcessor
+argument_list|()
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// reset document to be able to poll again
@@ -313,66 +299,7 @@ name|document
 operator|=
 literal|null
 expr_stmt|;
-return|return
-literal|null
-return|;
 block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-DECL|method|receive ()
-specifier|public
-name|Exchange
-name|receive
-parameter_list|()
-block|{
-return|return
-name|receiveNoWait
-argument_list|()
-return|;
-block|}
-DECL|method|receive (long timeout)
-specifier|public
-name|Exchange
-name|receive
-parameter_list|(
-name|long
-name|timeout
-parameter_list|)
-block|{
-return|return
-name|receiveNoWait
-argument_list|()
-return|;
-block|}
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
 DECL|method|getDocument ()
 specifier|private
 name|Document

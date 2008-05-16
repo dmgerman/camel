@@ -148,6 +148,7 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+comment|// timestamp from the feed to use as base
 comment|// 2007-11-13T13:35:25.014Z
 name|Calendar
 name|cal
@@ -181,18 +182,6 @@ argument_list|,
 literal|35
 argument_list|,
 literal|0
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|cal
-operator|.
-name|getTime
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|EntryFilter
