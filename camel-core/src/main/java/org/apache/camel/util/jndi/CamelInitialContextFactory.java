@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory of the Cameel InitialContext which allows a Map to be used to create a  * JNDI context.  *  * @version $Revision$  */
+comment|/**  * A factory of the Camel InitialContext which allows a Map to be used to create a  * JNDI context.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -72,6 +72,7 @@ name|CamelInitialContextFactory
 implements|implements
 name|InitialContextFactory
 block|{
+comment|/**      * Creates a new context with the given environment.      *      * @param  environment  the environment, must not be<tt>null</tt>      * @return the created context.      * @throws NamingException is thrown if creation failed.      */
 DECL|method|getInitialContext (Hashtable environment)
 specifier|public
 name|Context
