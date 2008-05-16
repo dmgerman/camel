@@ -150,7 +150,7 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|4
+literal|2
 argument_list|)
 expr_stmt|;
 name|mock
@@ -201,7 +201,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"atom:file:src/test/data/feed.atom?splitEntries=true&filter=true&lastUpdate=2007-11-13T14:35:00"
+literal|"atom:file:src/test/data/feed.atom?splitEntries=true&filter=true&lastUpdate=2007-11-13T23:59:00"
 argument_list|)
 operator|.
 name|to
