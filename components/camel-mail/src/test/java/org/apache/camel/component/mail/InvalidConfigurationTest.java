@@ -54,6 +54,18 @@ name|PollingConsumer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ResolveEndpointFailedException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for various invalid configurations etc.  */
 end_comment
@@ -164,6 +176,50 @@ name|e
 parameter_list|)
 block|{
 comment|// expected
+block|}
+block|}
+DECL|method|testNNTPNotSupported ()
+specifier|public
+name|void
+name|testNNTPNotSupported
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+try|try
+block|{
+name|this
+operator|.
+name|context
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"nntp://localhost?username=james"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown UnsupportedOperationException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ResolveEndpointFailedException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|UnsupportedOperationException
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
