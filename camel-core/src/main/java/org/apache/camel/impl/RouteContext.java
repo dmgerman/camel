@@ -244,6 +244,20 @@ name|UnitOfWorkProcessor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|InterceptStrategy
+import|;
+end_import
+
 begin_comment
 comment|/**  * The context used to activate new routing rules  *  * @version $Revision$  */
 end_comment
@@ -306,6 +320,11 @@ DECL|field|camelContext
 specifier|private
 name|CamelContext
 name|camelContext
+decl_stmt|;
+DECL|field|interceptStrategy
+specifier|private
+name|InterceptStrategy
+name|interceptStrategy
 decl_stmt|;
 DECL|method|RouteContext (RouteType route, FromType from, Collection<Route> routes)
 specifier|public
@@ -834,6 +853,32 @@ name|lastInterceptor
 argument_list|)
 return|;
 block|}
+block|}
+comment|/**      * This method retrieves the InterceptStrategy on this route context.      *      * @return InterceptStrategy      */
+DECL|method|getInterceptStrategy ()
+specifier|public
+name|InterceptStrategy
+name|getInterceptStrategy
+parameter_list|()
+block|{
+return|return
+name|interceptStrategy
+return|;
+block|}
+comment|/**      * This method sets the InterceptStrategy on this route context.      *      * @param strategy      */
+DECL|method|setInterceptStrategy (InterceptStrategy strategy)
+specifier|public
+name|void
+name|setInterceptStrategy
+parameter_list|(
+name|InterceptStrategy
+name|strategy
+parameter_list|)
+block|{
+name|interceptStrategy
+operator|=
+name|strategy
+expr_stmt|;
 block|}
 block|}
 end_class

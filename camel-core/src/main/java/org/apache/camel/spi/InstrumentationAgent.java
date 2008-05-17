@@ -58,20 +58,6 @@ name|Service
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|management
-operator|.
-name|CamelNamingStrategy
-import|;
-end_import
-
 begin_interface
 DECL|interface|InstrumentationAgent
 specifier|public
@@ -126,11 +112,6 @@ comment|/**      * Get the MBeanServer which hosts managed components      * NOT
 DECL|method|getMBeanServer ()
 name|MBeanServer
 name|getMBeanServer
-parameter_list|()
-function_decl|;
-DECL|method|getNamingStrategy ()
-name|CamelNamingStrategy
-name|getNamingStrategy
 parameter_list|()
 function_decl|;
 block|}

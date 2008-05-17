@@ -532,11 +532,6 @@ specifier|private
 name|String
 name|jmxConnectorPath
 decl_stmt|;
-DECL|field|namingStrategy
-specifier|private
-name|CamelNamingStrategy
-name|namingStrategy
-decl_stmt|;
 DECL|field|createConnector
 specifier|private
 name|boolean
@@ -568,14 +563,6 @@ operator|new
 name|AnnotationJmxAttributeSource
 argument_list|()
 argument_list|)
-expr_stmt|;
-comment|// naming = new
-comment|// CamelNamingStrategy(agent.getMBeanServer().getDefaultDomain());
-name|namingStrategy
-operator|=
-operator|new
-name|CamelNamingStrategy
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getCamelContext ()
@@ -836,32 +823,6 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getNamingStrategy ()
-specifier|public
-name|CamelNamingStrategy
-name|getNamingStrategy
-parameter_list|()
-block|{
-return|return
-name|namingStrategy
-return|;
-block|}
-DECL|method|setNamingStrategy (CamelNamingStrategy namingStrategy)
-specifier|public
-name|void
-name|setNamingStrategy
-parameter_list|(
-name|CamelNamingStrategy
-name|namingStrategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|namingStrategy
-operator|=
-name|namingStrategy
-expr_stmt|;
-block|}
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -928,9 +889,6 @@ name|DEFAULT_DOMAIN
 expr_stmt|;
 block|}
 block|}
-name|configureDomainName
-argument_list|()
-expr_stmt|;
 name|LOG
 operator|.
 name|debug
@@ -963,6 +921,12 @@ operator|new
 name|InstrumentationLifecycleStrategy
 argument_list|(
 name|this
+argument_list|,
+operator|new
+name|CamelNamingStrategy
+argument_list|(
+name|jmxDomainName
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|dc
@@ -1233,9 +1197,6 @@ name|jmxDomainName
 operator|=
 name|domainName
 expr_stmt|;
-name|configureDomainName
-argument_list|()
-expr_stmt|;
 name|jmxConnectorPath
 operator|=
 name|connectorPath
@@ -1244,28 +1205,6 @@ name|jmxConnectorPort
 operator|=
 name|port
 expr_stmt|;
-block|}
-DECL|method|configureDomainName ()
-specifier|protected
-name|void
-name|configureDomainName
-parameter_list|()
-block|{
-if|if
-condition|(
-name|jmxDomainName
-operator|!=
-literal|null
-condition|)
-block|{
-name|namingStrategy
-operator|.
-name|setDomainName
-argument_list|(
-name|jmxDomainName
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|createMBeanServer ()
 specifier|protected
