@@ -161,6 +161,11 @@ DECL|class|FromType
 specifier|public
 class|class
 name|FromType
+extends|extends
+name|OptionalIdentifiedType
+argument_list|<
+name|FromType
+argument_list|>
 block|{
 annotation|@
 name|XmlAttribute

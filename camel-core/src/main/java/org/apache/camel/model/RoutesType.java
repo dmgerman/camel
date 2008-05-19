@@ -219,6 +219,11 @@ DECL|class|RoutesType
 specifier|public
 class|class
 name|RoutesType
+extends|extends
+name|OptionalIdentifiedType
+argument_list|<
+name|RoutesType
+argument_list|>
 implements|implements
 name|RouteContainer
 block|{
@@ -229,10 +234,6 @@ DECL|field|inheritErrorHandlerFlag
 specifier|private
 name|Boolean
 name|inheritErrorHandlerFlag
-init|=
-name|Boolean
-operator|.
-name|TRUE
 decl_stmt|;
 annotation|@
 name|XmlElementRef
@@ -510,14 +511,13 @@ name|isInheritErrorHandler
 parameter_list|()
 block|{
 return|return
-name|inheritErrorHandlerFlag
-operator|!=
-literal|null
-operator|&&
-name|inheritErrorHandlerFlag
+name|ProcessorType
 operator|.
-name|booleanValue
+name|isInheritErrorHandler
+argument_list|(
+name|getInheritErrorHandlerFlag
 argument_list|()
+argument_list|)
 return|;
 block|}
 DECL|method|getInheritErrorHandlerFlag ()

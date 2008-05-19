@@ -64,6 +64,38 @@ name|GroovyExpression
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|language
+operator|.
+name|ELExpression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|language
+operator|.
+name|XQueryExpression
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -110,14 +142,23 @@ name|route
 operator|.
 name|filter
 argument_list|(
-literal|"juel"
-argument_list|,
+operator|new
+name|XQueryExpression
+argument_list|(
 literal|"in.header.foo == 'bar'"
+argument_list|)
 argument_list|)
 operator|.
 name|to
 argument_list|(
 literal|"seda:b"
+argument_list|)
+expr_stmt|;
+name|route
+operator|.
+name|description
+argument_list|(
+literal|"This is a description of the route"
 argument_list|)
 expr_stmt|;
 name|dump
@@ -266,6 +307,17 @@ expr_stmt|;
 name|log
 operator|.
 name|info
+argument_list|(
+literal|"Created: "
+operator|+
+name|buffer
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
 argument_list|(
 literal|"Created: "
 operator|+
