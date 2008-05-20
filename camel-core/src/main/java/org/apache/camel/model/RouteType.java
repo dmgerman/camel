@@ -990,6 +990,39 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Enable stream caching on this route      * @param enable<code>true</code> for enabling stream caching      */
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|method|setStreamCaching (Boolean enable)
+specifier|public
+name|void
+name|setStreamCaching
+parameter_list|(
+name|Boolean
+name|enable
+parameter_list|)
+block|{
+if|if
+condition|(
+name|enable
+condition|)
+block|{
+name|streamCaching
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|noStreamCaching
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 end_class
 
