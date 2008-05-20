@@ -506,7 +506,7 @@ condition|)
 block|{
 name|client
 operator|=
-name|createClientFormClientFactoryBean
+name|createClientFromClientFactoryBean
 argument_list|(
 literal|null
 argument_list|)
@@ -514,18 +514,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// Create CxfClient for message
+comment|// Create CxfClient for message or payload type
 name|client
 operator|=
-name|createClientForStreamMessge
+name|createClientForStreamMessage
 argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|createClientForStreamMessge ()
+DECL|method|createClientForStreamMessage ()
 specifier|private
 name|Client
-name|createClientForStreamMessge
+name|createClientForStreamMessage
 parameter_list|()
 throws|throws
 name|CamelException
@@ -568,6 +568,24 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getServiceClass
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|CamelException
+argument_list|(
+literal|"serviceClass setting missing from CXF endpoint configuration"
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 name|serviceClass
@@ -697,17 +715,17 @@ name|features
 argument_list|)
 expr_stmt|;
 return|return
-name|createClientFormClientFactoryBean
+name|createClientFromClientFactoryBean
 argument_list|(
 name|cfb
 argument_list|)
 return|;
 block|}
 comment|// If cfb is null, we will try to find the right cfb to use.
-DECL|method|createClientFormClientFactoryBean (ClientFactoryBean cfb)
+DECL|method|createClientFromClientFactoryBean (ClientFactoryBean cfb)
 specifier|private
 name|Client
-name|createClientFormClientFactoryBean
+name|createClientFromClientFactoryBean
 parameter_list|(
 name|ClientFactoryBean
 name|cfb

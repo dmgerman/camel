@@ -359,7 +359,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Mesage exchange has failed so breaking out of pipeline: "
+literal|"Message exchange has failed so breaking out of pipeline: "
 operator|+
 name|nextExchange
 operator|+
@@ -583,7 +583,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Mesage exchange has failed so breaking out of pipeline: "
+literal|"Message exchange has failed so breaking out of pipeline: "
 operator|+
 name|nextExchange
 operator|+
