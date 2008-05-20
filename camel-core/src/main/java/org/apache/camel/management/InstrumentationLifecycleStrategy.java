@@ -734,7 +734,7 @@ expr_stmt|;
 block|}
 name|routeContext
 operator|.
-name|setInterceptStrategy
+name|addInterceptStrategy
 argument_list|(
 operator|new
 name|InstrumentationInterceptStrategy

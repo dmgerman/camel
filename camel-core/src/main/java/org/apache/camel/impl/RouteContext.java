@@ -321,10 +321,20 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
-DECL|field|interceptStrategy
+DECL|field|interceptStrategies
 specifier|private
+name|List
+argument_list|<
 name|InterceptStrategy
-name|interceptStrategy
+argument_list|>
+name|interceptStrategies
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|InterceptStrategy
+argument_list|>
+argument_list|()
 decl_stmt|;
 DECL|method|RouteContext (RouteType route, FromType from, Collection<Route> routes)
 specifier|public
@@ -854,30 +864,56 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * This method retrieves the InterceptStrategy on this route context.      *      * @return InterceptStrategy      */
-DECL|method|getInterceptStrategy ()
+comment|/**      * This method retrieves the InterceptStrategy instances this route context.      *      * @return InterceptStrategy      */
+DECL|method|getInterceptStrategies ()
 specifier|public
+name|List
+argument_list|<
 name|InterceptStrategy
-name|getInterceptStrategy
+argument_list|>
+name|getInterceptStrategies
 parameter_list|()
 block|{
 return|return
-name|interceptStrategy
+name|interceptStrategies
 return|;
 block|}
-comment|/**      * This method sets the InterceptStrategy on this route context.      *      * @param strategy      */
-DECL|method|setInterceptStrategy (InterceptStrategy strategy)
+comment|/**      * This method sets the InterceptStrategy instances on this route context.      *      * @param interceptStrategies      */
+DECL|method|setInterceptStrategies (List<InterceptStrategy> interceptStrategies)
 specifier|public
 name|void
-name|setInterceptStrategy
+name|setInterceptStrategies
 parameter_list|(
+name|List
+argument_list|<
 name|InterceptStrategy
-name|strategy
+argument_list|>
+name|interceptStrategies
 parameter_list|)
 block|{
-name|interceptStrategy
+name|this
+operator|.
+name|interceptStrategies
 operator|=
-name|strategy
+name|interceptStrategies
+expr_stmt|;
+block|}
+DECL|method|addInterceptStrategy (InterceptStrategy interceptStrategy)
+specifier|public
+name|void
+name|addInterceptStrategy
+parameter_list|(
+name|InterceptStrategy
+name|interceptStrategy
+parameter_list|)
+block|{
+name|getInterceptStrategies
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|interceptStrategy
+argument_list|)
 expr_stmt|;
 block|}
 block|}
