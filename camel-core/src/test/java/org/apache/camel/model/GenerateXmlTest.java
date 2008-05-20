@@ -313,17 +313,7 @@ operator|+
 name|buffer
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Created: "
-operator|+
-name|buffer
-argument_list|)
-expr_stmt|;
+comment|//System.out.println("Created: " + buffer);
 block|}
 block|}
 end_class
