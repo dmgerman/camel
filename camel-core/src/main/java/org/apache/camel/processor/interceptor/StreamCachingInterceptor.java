@@ -206,6 +206,18 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"StreamCachingInterceptor"
+return|;
+block|}
 comment|/**      * Remove the {@link StreamCachingInterceptor} type of interceptor from the given list of interceptors      *      * @param interceptors the list of interceptors      */
 DECL|method|noStreamCaching (List<InterceptorType> interceptors)
 specifier|public

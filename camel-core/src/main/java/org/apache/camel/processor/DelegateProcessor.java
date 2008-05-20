@@ -114,6 +114,21 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
+if|if
+condition|(
+name|processor
+operator|==
+name|this
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Recursive DelegateProcessor!"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|processor

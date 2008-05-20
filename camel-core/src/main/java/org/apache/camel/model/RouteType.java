@@ -242,6 +242,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|DelegateProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -304,7 +318,7 @@ name|XmlAccessorType
 argument_list|(
 name|XmlAccessType
 operator|.
-name|FIELD
+name|PROPERTY
 argument_list|)
 DECL|class|RouteType
 specifier|public
@@ -335,8 +349,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|XmlTransient
 DECL|field|interceptors
 specifier|private
 name|List
@@ -352,8 +364,6 @@ name|InterceptorType
 argument_list|>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|XmlElementRef
 DECL|field|inputs
 specifier|private
 name|List
@@ -369,8 +379,6 @@ name|FromType
 argument_list|>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|XmlElementRef
 DECL|field|outputs
 specifier|private
 name|List
@@ -392,19 +400,20 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|group
 specifier|private
 name|String
 name|group
 decl_stmt|;
-annotation|@
-name|XmlTransient
 DECL|field|camelContext
 specifier|private
 name|CamelContext
 name|camelContext
+decl_stmt|;
+DECL|field|streamCaching
+specifier|private
+name|Boolean
+name|streamCaching
 decl_stmt|;
 DECL|method|RouteType ()
 specifier|public
@@ -629,6 +638,8 @@ return|return
 name|interceptors
 return|;
 block|}
+annotation|@
+name|XmlTransient
 DECL|method|setInterceptors (List<InterceptorType> interceptors)
 specifier|public
 name|void
@@ -661,6 +672,8 @@ return|return
 name|inputs
 return|;
 block|}
+annotation|@
+name|XmlElementRef
 DECL|method|setInputs (List<FromType> inputs)
 specifier|public
 name|void
@@ -696,6 +709,8 @@ return|return
 name|outputs
 return|;
 block|}
+annotation|@
+name|XmlElementRef
 DECL|method|setOutputs (List<ProcessorType<?>> outputs)
 specifier|public
 name|void
@@ -717,6 +732,7 @@ name|outputs
 operator|=
 name|outputs
 expr_stmt|;
+comment|// TODO I don't think this is called when using JAXB!
 if|if
 condition|(
 name|outputs
@@ -750,6 +766,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|XmlTransient
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -777,6 +795,8 @@ return|return
 name|group
 return|;
 block|}
+annotation|@
+name|XmlAttribute
 DECL|method|setGroup (String group)
 specifier|public
 name|void
@@ -792,6 +812,59 @@ name|group
 operator|=
 name|group
 expr_stmt|;
+block|}
+DECL|method|getStreamCaching ()
+specifier|public
+name|Boolean
+name|getStreamCaching
+parameter_list|()
+block|{
+return|return
+name|streamCaching
+return|;
+block|}
+comment|/**      * Enable stream caching on this route      * @param streamCaching<code>true</code> for enabling stream caching      */
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|method|setStreamCaching (Boolean streamCaching)
+specifier|public
+name|void
+name|setStreamCaching
+parameter_list|(
+name|Boolean
+name|streamCaching
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamCaching
+operator|=
+name|streamCaching
+expr_stmt|;
+if|if
+condition|(
+name|streamCaching
+operator|!=
+literal|null
+operator|&&
+name|streamCaching
+condition|)
+block|{
+name|streamCaching
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|noStreamCaching
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
@@ -979,7 +1052,7 @@ name|RouteType
 name|streamCaching
 parameter_list|()
 block|{
-name|intercept
+name|addInterceptor
 argument_list|(
 operator|new
 name|StreamCachingInterceptor
@@ -990,38 +1063,25 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enable stream caching on this route      * @param enable<code>true</code> for enabling stream caching      */
 annotation|@
-name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
-DECL|method|setStreamCaching (Boolean enable)
+name|Override
+DECL|method|addInterceptor (InterceptorType interceptor)
 specifier|public
 name|void
-name|setStreamCaching
+name|addInterceptor
 parameter_list|(
-name|Boolean
-name|enable
+name|InterceptorType
+name|interceptor
 parameter_list|)
 block|{
-if|if
-condition|(
-name|enable
-condition|)
-block|{
-name|streamCaching
+name|getInterceptors
 argument_list|()
+operator|.
+name|add
+argument_list|(
+name|interceptor
+argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|noStreamCaching
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 end_class

@@ -72,6 +72,26 @@ name|java
 operator|.
 name|util
 operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ThreadPoolExecutor
@@ -311,20 +331,6 @@ operator|.
 name|builder
 operator|.
 name|ProcessorBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|ObjectConverter
 import|;
 end_import
 
@@ -658,6 +664,21 @@ extends|extends
 name|ProcessorType
 argument_list|>
 name|parent
+decl_stmt|;
+DECL|field|interceptors
+specifier|private
+name|List
+argument_list|<
+name|InterceptorType
+argument_list|>
+name|interceptors
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|InterceptorType
+argument_list|>
+argument_list|()
 decl_stmt|;
 comment|// else to use an optional attribute in JAXB2
 DECL|method|getOutputs ()
@@ -2500,6 +2521,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      */
 DECL|method|interceptor (String ref)
 specifier|public
 name|Type
@@ -2518,7 +2540,7 @@ argument_list|(
 name|ref
 argument_list|)
 decl_stmt|;
-name|addInterceptor
+name|intercept
 argument_list|(
 name|interceptor
 argument_list|)
@@ -2530,6 +2552,7 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      */
 DECL|method|intercept (DelegateProcessor interceptor)
 specifier|public
 name|Type
@@ -2539,7 +2562,7 @@ name|DelegateProcessor
 name|interceptor
 parameter_list|)
 block|{
-name|addInterceptor
+name|intercept
 argument_list|(
 operator|new
 name|InterceptorRef
@@ -2556,6 +2579,7 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      */
 DECL|method|intercept ()
 specifier|public
 name|InterceptType
@@ -2578,10 +2602,11 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|addInterceptor (InterceptorType interceptor)
+comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      */
+DECL|method|intercept (InterceptorType interceptor)
 specifier|public
 name|void
-name|addInterceptor
+name|intercept
 parameter_list|(
 name|InterceptorType
 name|interceptor
@@ -2595,6 +2620,44 @@ expr_stmt|;
 name|pushBlock
 argument_list|(
 name|interceptor
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Adds an interceptor around the whole of this nodes processing      *      * @param interceptor      */
+DECL|method|addInterceptor (InterceptorType interceptor)
+specifier|public
+name|void
+name|addInterceptor
+parameter_list|(
+name|InterceptorType
+name|interceptor
+parameter_list|)
+block|{
+name|interceptors
+operator|.
+name|add
+argument_list|(
+name|interceptor
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Adds an interceptor around the whole of this nodes processing      *      * @param interceptor      */
+DECL|method|addInterceptor (DelegateProcessor interceptor)
+specifier|public
+name|void
+name|addInterceptor
+parameter_list|(
+name|DelegateProcessor
+name|interceptor
+parameter_list|)
+block|{
+name|addInterceptor
+argument_list|(
+operator|new
+name|InterceptorRef
+argument_list|(
+name|interceptor
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4553,7 +4616,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
+name|target
+operator|=
 name|strategy
 operator|.
 name|wrapProcessorInInterceptors
@@ -4562,14 +4626,117 @@ name|this
 argument_list|,
 name|target
 argument_list|)
-return|;
+expr_stmt|;
 block|}
-else|else
+name|List
+argument_list|<
+name|InterceptorType
+argument_list|>
+name|list
+init|=
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getInterceptors
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|interceptors
+operator|!=
+literal|null
+condition|)
 block|{
+name|list
+operator|.
+name|addAll
+argument_list|(
+name|interceptors
+argument_list|)
+expr_stmt|;
+block|}
+comment|// lets reverse the list so we apply the inner interceptors first
+name|Collections
+operator|.
+name|reverse
+argument_list|(
+name|list
+argument_list|)
+expr_stmt|;
+name|Set
+argument_list|<
+name|Processor
+argument_list|>
+name|interceptors
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|Processor
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|interceptors
+operator|.
+name|add
+argument_list|(
+name|target
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|InterceptorType
+name|interceptorType
+range|:
+name|list
+control|)
+block|{
+name|DelegateProcessor
+name|interceptor
+init|=
+name|interceptorType
+operator|.
+name|createInterceptor
+argument_list|(
+name|routeContext
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|interceptors
+operator|.
+name|contains
+argument_list|(
+name|interceptor
+argument_list|)
+condition|)
+block|{
+name|interceptors
+operator|.
+name|add
+argument_list|(
+name|interceptor
+argument_list|)
+expr_stmt|;
+name|interceptor
+operator|.
+name|setProcessor
+argument_list|(
+name|target
+argument_list|)
+expr_stmt|;
+name|target
+operator|=
+name|interceptor
+expr_stmt|;
+block|}
+block|}
 return|return
 name|target
 return|;
-block|}
 block|}
 comment|/**      * A strategy method to allow newly created processors to be wrapped in an      * error handler.      */
 DECL|method|wrapInErrorHandler (Processor processor)

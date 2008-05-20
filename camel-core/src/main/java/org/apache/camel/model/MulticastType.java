@@ -397,6 +397,27 @@ operator|=
 name|executor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|wrapProcessorInInterceptors (RouteContext routeContext, Processor target)
+specifier|protected
+name|Processor
+name|wrapProcessorInInterceptors
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Processor
+name|target
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// No need to wrap me in interceptors as they are all applied directly to my children
+return|return
+name|target
+return|;
+block|}
 block|}
 end_class
 

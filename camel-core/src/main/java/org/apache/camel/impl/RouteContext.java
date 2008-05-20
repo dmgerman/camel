@@ -815,7 +815,7 @@ name|Interceptor
 name|interceptor
 parameter_list|)
 block|{
-comment|/*         InterceptorRef block = new InterceptorRef(interceptor);         RouteType route = getRoute();         List<ProcessorType<?>> list = route.getOutputs();         for (ProcessorType<?> processorType : list) {             block.addOutput(processorType);         }         route.clearOutput();         route.addInterceptor(block); */
+comment|/*         InterceptorRef block = new InterceptorRef(interceptor);         RouteType route = getRoute();         List<ProcessorType<?>> list = route.getOutputs();         for (ProcessorType<?> processorType : list) {             block.addOutput(processorType);         }         route.clearOutput();         route.intercept(block); */
 comment|//getRoute().getInterceptors().add(new InterceptorRef(interceptor));
 name|lastInterceptor
 operator|=

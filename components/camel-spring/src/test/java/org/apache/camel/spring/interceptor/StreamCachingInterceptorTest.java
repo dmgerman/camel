@@ -44,6 +44,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -101,6 +111,20 @@ operator|.
 name|camel
 operator|.
 name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|hamcrest
+operator|.
+name|Assertions
 import|;
 end_import
 
@@ -196,6 +220,39 @@ expr_stmt|;
 name|assertMockEndpointsSatisifed
 argument_list|()
 expr_stmt|;
+name|Exchange
+name|exchange
+init|=
+name|a
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+name|StreamCache
+name|streamCache
+init|=
+name|Assertions
+operator|.
+name|assertInstanceOf
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|,
+name|StreamCache
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|//assertTrue(a.assertExchangeReceived(0).getIn().getBody() instanceof StreamCache);
 block|}
 DECL|method|createCamelContext ()
