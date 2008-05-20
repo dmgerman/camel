@@ -216,7 +216,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// filiter the unused phase
+comment|// filter the unused phase
 DECL|field|REMOVING_IN_PHASES
 specifier|private
 specifier|static
