@@ -18,6 +18,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|spec
+operator|.
+name|ECField
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -921,7 +933,7 @@ return|;
 block|}
 comment|// Methods using an InOut ExchangePattern
 comment|// -----------------------------------------------------------------------
-comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint      * @param processor the processor which will populate the exchange before sending      * @return the result      */
+comment|/**      * Send the body to an endpoint returning any result output body      * Uses an {@link ExchangePattern#InOut} message exchange pattern      *      * @param endpoint      * @param processor the processor which will populate the exchange before sending      * @return the result      */
 DECL|method|request (Endpoint<E> endpoint, Processor processor)
 specifier|public
 name|E
@@ -950,7 +962,7 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint      * @param body     = the payload      * @return the result      */
+comment|/**      * Send the body to an endpoint returning any result output body      * Uses an {@link ExchangePattern#InOut} message exchange pattern      *      * @param endpoint      * @param body     = the payload      * @return the result      */
 DECL|method|requestBody (Endpoint<E> endpoint, Object body)
 specifier|public
 name|Object
@@ -979,7 +991,7 @@ name|body
 argument_list|)
 return|;
 block|}
-comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint      * @param body        = the payload      * @param header      * @param headerValue      * @return the result      */
+comment|/**      * Send the body to an endpoint returning any result output body      * Uses an {@link ExchangePattern#InOut} message exchange pattern      *      * @param endpoint      * @param body        = the payload      * @param header      * @param headerValue      * @return the result      */
 DECL|method|requestBodyAndHeader (Endpoint<E> endpoint, Object body, String header, Object headerValue)
 specifier|public
 name|Object
@@ -1018,7 +1030,7 @@ name|headerValue
 argument_list|)
 return|;
 block|}
-comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint      * @param processor the processor which will populate the exchange before sending      * @return the result      */
+comment|/**      * Send the body to an endpoint returning any result output body      * Uses an {@link ExchangePattern#InOut} message exchange pattern      *      * @param endpoint      * @param processor the processor which will populate the exchange before sending      * @return the result      */
 DECL|method|request (String endpoint, Processor processor)
 specifier|public
 name|E
@@ -1044,7 +1056,7 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint      * @param body     = the payload      * @return the result      */
+comment|/**      * Send the body to an endpoint returning any result output body      * Uses an {@link ExchangePattern#InOut} message exchange pattern      *      * @param endpoint      * @param body     = the payload      * @return the result      */
 DECL|method|requestBody (String endpoint, Object body)
 specifier|public
 name|Object
@@ -1070,7 +1082,7 @@ name|body
 argument_list|)
 return|;
 block|}
-comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint      * @param body        = the payload      * @param header      * @param headerValue      * @return the result      */
+comment|/**      * Send the body to an endpoint returning any result output body      * Uses an {@link ExchangePattern#InOut} message exchange pattern      *      * @param endpoint      * @param body        = the payload      * @param header      * @param headerValue      * @return the result      */
 DECL|method|requestBodyAndHeader (String endpoint, Object body, String header, Object headerValue)
 specifier|public
 name|Object
@@ -1168,6 +1180,7 @@ name|processor
 argument_list|)
 return|;
 block|}
+comment|/**      * Sends an {@link ExchangePattern#InOnly} exchange to the default endpoint using the supplied body, header and header value      * @param body the message body      * @param header the message header      * @param headerValue the message header value      */
 DECL|method|sendBodyAndHeader (Object body, String header, Object headerValue)
 specifier|public
 name|Object
@@ -1197,6 +1210,7 @@ name|headerValue
 argument_list|)
 return|;
 block|}
+comment|/**      * Sends an {@link ExchangePattern#InOnly} exchange to the default endpoint      * @param body the message body      * @param headers a map with header values       */
 DECL|method|sendBodyAndHeaders (Object body, Map<String, Object> headers)
 specifier|public
 name|Object
