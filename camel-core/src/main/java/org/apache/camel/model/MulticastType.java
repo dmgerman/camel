@@ -180,6 +180,22 @@ name|UseLatestAggregationStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|interceptor
+operator|.
+name|StreamCachingInterceptor
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -415,7 +431,11 @@ name|Exception
 block|{
 comment|// No need to wrap me in interceptors as they are all applied directly to my children
 return|return
+operator|new
+name|StreamCachingInterceptor
+argument_list|(
 name|target
+argument_list|)
 return|;
 block|}
 block|}

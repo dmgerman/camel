@@ -360,9 +360,6 @@ argument_list|(
 literal|"direct:a"
 argument_list|)
 operator|.
-name|streamCaching
-argument_list|()
-operator|.
 name|multicast
 argument_list|()
 operator|.
