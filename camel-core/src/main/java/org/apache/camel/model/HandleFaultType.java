@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.processor
+DECL|package|org.apache.camel.model
 package|package
 name|org
 operator|.
@@ -12,21 +12,49 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
-name|processor
+name|model
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|xml
 operator|.
-name|camel
+name|bind
 operator|.
-name|CamelContext
+name|annotation
+operator|.
+name|XmlAccessType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAccessorType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlRootElement
 import|;
 end_import
 
@@ -40,82 +68,65 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|FaultRouteTest
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|processor
-operator|.
-name|SpringTestHelper
-operator|.
-name|createSpringCamelContext
+name|HandleFaultProcessor
 import|;
 end_import
 
 begin_comment
-comment|/**  * The spring context test for the FaultRoute  */
+comment|/**  * @version $Revision: 36565 $  */
 end_comment
 
 begin_class
-DECL|class|SpringFaultRouteTest
+annotation|@
+name|XmlRootElement
+argument_list|(
+name|name
+operator|=
+literal|"handleFault"
+argument_list|)
+annotation|@
+name|XmlAccessorType
+argument_list|(
+name|XmlAccessType
+operator|.
+name|FIELD
+argument_list|)
+DECL|class|HandleFaultType
 specifier|public
 class|class
-name|SpringFaultRouteTest
+name|HandleFaultType
 extends|extends
-name|FaultRouteTest
+name|InterceptorRef
 block|{
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
+DECL|method|HandleFaultType ()
+specifier|public
+name|HandleFaultType
 parameter_list|()
-throws|throws
-name|Exception
+block|{
+name|super
+argument_list|(
+operator|new
+name|HandleFaultProcessor
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
 block|{
 return|return
-name|createSpringCamelContext
-argument_list|(
-name|this
-argument_list|,
-literal|"org/apache/camel/spring/processor/faultRoute.xml"
-argument_list|)
+literal|"HandleFault["
+operator|+
+name|getLabel
+argument_list|()
+operator|+
+literal|"]"
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|testWithThrowFaultMessageUnhandled ()
-specifier|public
-name|void
-name|testWithThrowFaultMessageUnhandled
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// Route cannot be configured due to lack of support for errorHandler
-comment|// in the xml dsl (CAMEL-122)
-block|}
-annotation|@
-name|Override
-DECL|method|testWithHandleFaultMessage ()
-specifier|public
-name|void
-name|testWithHandleFaultMessage
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// Route cannot be configured due to lack of support for errorHandler
-comment|// in the xml dsl (CAMEL-122)
 block|}
 block|}
 end_class

@@ -3094,6 +3094,27 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Forces handling of faults as exceptions      *      * @return the current builder with the fault handler configured      */
+DECL|method|handleFault ()
+specifier|public
+name|Type
+name|handleFault
+parameter_list|()
+block|{
+name|intercept
+argument_list|(
+operator|new
+name|HandleFaultType
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
 comment|/**      * Installs the given error handler builder      *      * @param errorHandlerBuilder the error handler to be used by default for      *                            all child routes      * @return the current builder with the error handler configured      */
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
