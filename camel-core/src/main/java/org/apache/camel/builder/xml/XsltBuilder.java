@@ -132,6 +132,18 @@ name|xml
 operator|.
 name|transform
 operator|.
+name|Templates
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
 name|Transformer
 import|;
 end_import
@@ -294,10 +306,10 @@ operator|new
 name|XmlConverter
 argument_list|()
 decl_stmt|;
-DECL|field|transformer
+DECL|field|template
 specifier|private
-name|Transformer
-name|transformer
+name|Templates
+name|template
 decl_stmt|;
 DECL|field|resultHandlerFactory
 specifier|private
@@ -320,19 +332,19 @@ specifier|public
 name|XsltBuilder
 parameter_list|()
 block|{     }
-DECL|method|XsltBuilder (Transformer transformer)
+DECL|method|XsltBuilder (Templates templates)
 specifier|public
 name|XsltBuilder
 parameter_list|(
-name|Transformer
-name|transformer
+name|Templates
+name|templates
 parameter_list|)
 block|{
 name|this
 operator|.
-name|transformer
+name|template
 operator|=
-name|transformer
+name|templates
 expr_stmt|;
 block|}
 annotation|@
@@ -346,14 +358,13 @@ block|{
 return|return
 literal|"XSLT["
 operator|+
-name|transformer
+name|template
 operator|+
 literal|"]"
 return|;
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public
-specifier|synchronized
 name|void
 name|process
 parameter_list|(
@@ -363,15 +374,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Transformer
-name|transformer
-init|=
-name|getTransformer
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|transformer
+name|getTemplate
+argument_list|()
 operator|==
 literal|null
 condition|)
@@ -380,10 +386,19 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No transformer configured!"
+literal|"No template configured!"
 argument_list|)
 throw|;
 block|}
+name|Transformer
+name|transformer
+init|=
+name|getTemplate
+argument_list|()
+operator|.
+name|newTransformer
+argument_list|()
+decl_stmt|;
 name|configureTransformer
 argument_list|(
 name|transformer
@@ -455,22 +470,22 @@ expr_stmt|;
 block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * Creates an XSLT processor using the given transformer instance      */
-DECL|method|xslt (Transformer transformer)
+comment|/**      * Creates an XSLT processor using the given templates instance      */
+DECL|method|xslt (Templates templates)
 specifier|public
 specifier|static
 name|XsltBuilder
 name|xslt
 parameter_list|(
-name|Transformer
-name|transformer
+name|Templates
+name|templates
 parameter_list|)
 block|{
 return|return
 operator|new
 name|XsltBuilder
 argument_list|(
-name|transformer
+name|templates
 argument_list|)
 return|;
 block|}
@@ -725,31 +740,31 @@ operator|=
 name|parameters
 expr_stmt|;
 block|}
-DECL|method|getTransformer ()
-specifier|public
-name|Transformer
-name|getTransformer
-parameter_list|()
-block|{
-return|return
-name|transformer
-return|;
-block|}
-DECL|method|setTransformer (Transformer transformer)
+DECL|method|setTemplate (Templates template)
 specifier|public
 name|void
-name|setTransformer
+name|setTemplate
 parameter_list|(
-name|Transformer
-name|transformer
+name|Templates
+name|template
 parameter_list|)
 block|{
 name|this
 operator|.
-name|transformer
+name|template
 operator|=
-name|transformer
+name|template
 expr_stmt|;
+block|}
+DECL|method|getTemplate ()
+specifier|public
+name|Templates
+name|getTemplate
+parameter_list|()
+block|{
+return|return
+name|template
+return|;
 block|}
 DECL|method|isFailOnNullBody ()
 specifier|public
@@ -815,32 +830,32 @@ parameter_list|)
 throws|throws
 name|TransformerConfigurationException
 block|{
-comment|// Check that the call to newTransformer() returns a valid transformer instance.
+comment|// Check that the call to newTemplates() returns a valid template instance.
 comment|// In case of an xslt parse error, it will return null and we should stop the
 comment|// deployment and raise an exception as the route will not be setup properly.
-name|Transformer
-name|transformer
+name|Templates
+name|templates
 init|=
 name|converter
 operator|.
 name|getTransformerFactory
 argument_list|()
 operator|.
-name|newTransformer
+name|newTemplates
 argument_list|(
 name|source
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|transformer
+name|templates
 operator|!=
 literal|null
 condition|)
 block|{
-name|setTransformer
+name|setTemplate
 argument_list|(
-name|transformer
+name|templates
 argument_list|)
 expr_stmt|;
 block|}
@@ -850,7 +865,7 @@ throw|throw
 operator|new
 name|TransformerConfigurationException
 argument_list|(
-literal|"Error creating XSLT transformer. "
+literal|"Error creating XSLT template. "
 operator|+
 literal|"This is most likely be caused by an XML parse error. "
 operator|+
@@ -1062,7 +1077,7 @@ return|return
 name|source
 return|;
 block|}
-comment|/**      * Configures the transformerwith exchange specific parameters      */
+comment|/**      * Configures the transformer with exchange specific parameters      */
 DECL|method|configureTransformer (Transformer transformer, Exchange exchange)
 specifier|protected
 name|void
