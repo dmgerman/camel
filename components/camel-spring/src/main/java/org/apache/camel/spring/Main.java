@@ -368,8 +368,6 @@ DECL|field|debug
 specifier|private
 name|boolean
 name|debug
-init|=
-literal|false
 decl_stmt|;
 DECL|field|routeBuilders
 specifier|private

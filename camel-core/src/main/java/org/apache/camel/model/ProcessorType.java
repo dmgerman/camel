@@ -20,6 +20,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|rmi
+operator|.
+name|registry
+operator|.
+name|Registry
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -43,6 +55,16 @@ operator|.
 name|util
 operator|.
 name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
 import|;
 end_import
 
@@ -82,19 +104,37 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
+name|concurrent
+operator|.
+name|ThreadPoolExecutor
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|javax
 operator|.
-name|util
+name|xml
 operator|.
-name|concurrent
+name|bind
 operator|.
-name|ThreadPoolExecutor
+name|annotation
+operator|.
+name|XmlAccessType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAccessorType
 import|;
 end_import
 
@@ -128,29 +168,13 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|bind
+name|camel
 operator|.
-name|annotation
-operator|.
-name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAccessType
+name|CamelContext
 import|;
 end_import
 
@@ -258,18 +282,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|DataFormatClause
@@ -356,7 +368,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|RouteContext
+name|DefaultCamelContext
 import|;
 end_import
 
@@ -370,7 +382,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultCamelContext
+name|RouteContext
 import|;
 end_import
 
@@ -460,6 +472,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|MulticastProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|Pipeline
 import|;
 end_import
@@ -474,7 +500,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|MulticastProcessor
+name|RecipientList
 import|;
 end_import
 
@@ -522,7 +548,7 @@ name|processor
 operator|.
 name|idempotent
 operator|.
-name|MessageIdRepository
+name|IdempotentConsumer
 import|;
 end_import
 
@@ -538,7 +564,7 @@ name|processor
 operator|.
 name|idempotent
 operator|.
-name|IdempotentConsumer
+name|MessageIdRepository
 import|;
 end_import
 
