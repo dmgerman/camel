@@ -141,6 +141,12 @@ argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
+comment|// must acquire the Byte buffer to avoid release if more than twice
+name|buffer
+operator|.
+name|acquire
+argument_list|()
+expr_stmt|;
 return|return
 name|answer
 return|;
