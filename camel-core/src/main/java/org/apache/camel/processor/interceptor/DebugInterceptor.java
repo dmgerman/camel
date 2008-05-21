@@ -90,6 +90,20 @@ name|Message
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|DelegateProcessor
+import|;
+end_import
+
 begin_comment
 comment|/**  * An interceptor for debugging and tracing routes  *   * @version $Revision: 1.1 $  */
 end_comment
@@ -99,20 +113,14 @@ DECL|class|DebugInterceptor
 specifier|public
 class|class
 name|DebugInterceptor
-implements|implements
-name|Processor
+extends|extends
+name|DelegateProcessor
 block|{
 DECL|field|node
 specifier|private
 specifier|final
 name|ProcessorType
 name|node
-decl_stmt|;
-DECL|field|target
-specifier|private
-specifier|final
-name|Processor
-name|target
 decl_stmt|;
 DECL|field|exchanges
 specifier|private
@@ -154,17 +162,16 @@ argument_list|>
 name|exchanges
 parameter_list|)
 block|{
-name|this
-operator|.
-name|node
-operator|=
-name|node
+name|super
+argument_list|(
+name|target
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|target
+name|node
 operator|=
-name|target
+name|node
 expr_stmt|;
 name|this
 operator|.
@@ -210,9 +217,9 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-name|target
+name|super
 operator|.
-name|process
+name|proceed
 argument_list|(
 name|exchange
 argument_list|)
@@ -226,16 +233,6 @@ parameter_list|()
 block|{
 return|return
 name|node
-return|;
-block|}
-DECL|method|getTarget ()
-specifier|public
-name|Processor
-name|getTarget
-parameter_list|()
-block|{
-return|return
-name|target
 return|;
 block|}
 DECL|method|getExchanges ()
