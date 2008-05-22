@@ -114,6 +114,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|RouteType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -255,6 +269,30 @@ argument_list|(
 literal|"o2"
 argument_list|)
 decl_stmt|;
+comment|// now lets get the routes
+name|List
+argument_list|<
+name|RouteType
+argument_list|>
+name|routes
+init|=
+name|main
+operator|.
+name|getRouteDefinitions
+argument_list|()
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Number of routes"
+argument_list|,
+literal|1
+argument_list|,
+name|routes
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// now lets send a message
 name|CamelTemplate
 name|template
