@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A set of {@link Converter} methods for wrapping stream-based messages in a {@link StreamCache} implementation to ensure message re-readability (e.g. multicasting, retrying, ...)    */
+comment|/**  * A set of {@link Converter} methods for wrapping stream-based messages in a {@link StreamCache} implementation to ensure message re-readability.  * e.g. multicasting, retrying, ...  */
 end_comment
 
 begin_class
