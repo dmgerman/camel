@@ -137,6 +137,22 @@ specifier|protected
 name|MockEndpoint
 name|endpoint
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|endpoint
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|testFilterWithJXPath ()
 specifier|public
 name|void
