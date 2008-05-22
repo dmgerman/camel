@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Properties
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -55,31 +65,71 @@ block|{
 comment|// Utility class
 block|}
 comment|/**      * A strategy method to lazily create the file strategy to use.      */
-DECL|method|createFileProcessStrategy (boolean isNoop, boolean isDelete, boolean isLock, String moveNamePrefix, String moveNamePostfix)
+DECL|method|createFileProcessStrategy (Properties params)
 specifier|public
 specifier|static
 name|FileProcessStrategy
 name|createFileProcessStrategy
 parameter_list|(
-name|boolean
-name|isNoop
-parameter_list|,
-name|boolean
-name|isDelete
-parameter_list|,
-name|boolean
-name|isLock
-parameter_list|,
-name|String
-name|moveNamePrefix
-parameter_list|,
-name|String
-name|moveNamePostfix
+name|Properties
+name|params
 parameter_list|)
 block|{
+comment|// We assume a value is present only if its value not null for String and 'true' for boolean
+name|boolean
+name|isDelete
+init|=
+name|params
+operator|.
+name|getProperty
+argument_list|(
+literal|"delete"
+argument_list|)
+operator|!=
+literal|null
+decl_stmt|;
+name|boolean
+name|isLock
+init|=
+name|params
+operator|.
+name|getProperty
+argument_list|(
+literal|"lock"
+argument_list|)
+operator|!=
+literal|null
+decl_stmt|;
+name|String
+name|moveNamePrefix
+init|=
+name|params
+operator|.
+name|getProperty
+argument_list|(
+literal|"moveNamePrefix"
+argument_list|)
+decl_stmt|;
+name|String
+name|moveNamePostfix
+init|=
+name|params
+operator|.
+name|getProperty
+argument_list|(
+literal|"moveNamePostfix"
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|isNoop
+name|params
+operator|.
+name|getProperty
+argument_list|(
+literal|"noop"
+argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
@@ -109,7 +159,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"You cannot set the deleteFiles property and a moveFilenamePostfix or moveFilenamePrefix"
+literal|"You cannot set the deleteFiles property "
+operator|+
+literal|"and a moveFilenamePostfix or moveFilenamePrefix"
 argument_list|)
 throw|;
 block|}

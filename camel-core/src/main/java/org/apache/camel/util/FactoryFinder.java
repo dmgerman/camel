@@ -571,7 +571,7 @@ name|clazz
 operator|=
 name|newInstance
 argument_list|(
-name|doFindFactoryProperies
+name|doFindFactoryProperties
 argument_list|(
 name|key
 argument_list|)
@@ -786,10 +786,10 @@ return|return
 name|clazz
 return|;
 block|}
-DECL|method|doFindFactoryProperies (String key)
+DECL|method|doFindFactoryProperties (String key)
 specifier|private
 name|Properties
-name|doFindFactoryProperies
+name|doFindFactoryProperties
 parameter_list|(
 name|String
 name|key
