@@ -208,6 +208,13 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|3
@@ -252,6 +259,13 @@ name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|()
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
