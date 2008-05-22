@@ -138,9 +138,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
 operator|.
-name|RouteContext
+name|ThrowFaultProcessor
 import|;
 end_import
 
@@ -152,9 +152,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|ThrowFaultProcessor
+name|RouteContext
 import|;
 end_import
 

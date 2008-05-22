@@ -82,9 +82,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|RouteContext
+name|DataFormat
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|DataFormat
+name|RouteContext
 import|;
 end_import
 

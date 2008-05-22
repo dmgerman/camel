@@ -120,23 +120,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
 name|RouteContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|OutputType
 import|;
 end_import
 

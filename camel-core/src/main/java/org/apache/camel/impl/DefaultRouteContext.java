@@ -254,6 +254,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|InterceptStrategy
 import|;
 end_import
@@ -263,9 +277,11 @@ comment|/**  * The context used to activate new routing rules  *  * @version $Re
 end_comment
 
 begin_class
-DECL|class|RouteContext
+DECL|class|DefaultRouteContext
 specifier|public
 class|class
+name|DefaultRouteContext
+implements|implements
 name|RouteContext
 block|{
 DECL|field|route
@@ -336,9 +352,9 @@ name|InterceptStrategy
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|RouteContext (RouteType route, FromType from, Collection<Route> routes)
+DECL|method|DefaultRouteContext (RouteType route, FromType from, Collection<Route> routes)
 specifier|public
-name|RouteContext
+name|DefaultRouteContext
 parameter_list|(
 name|RouteType
 name|route
@@ -373,9 +389,9 @@ name|routes
 expr_stmt|;
 block|}
 comment|/**      * Only used for lazy construction from inside ExpressionType      */
-DECL|method|RouteContext (CamelContext camelContext)
+DECL|method|DefaultRouteContext (CamelContext camelContext)
 specifier|public
-name|RouteContext
+name|DefaultRouteContext
 parameter_list|(
 name|CamelContext
 name|camelContext
@@ -526,7 +542,6 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves an endpoint from either a URI or a named reference      */
 DECL|method|resolveEndpoint (String uri, String ref)
 specifier|public
 name|Endpoint
@@ -644,7 +659,6 @@ name|endpoint
 return|;
 block|}
 block|}
-comment|/**      * lookup an object by name and type      */
 DECL|method|lookup (String name, Class<T> type)
 specifier|public
 parameter_list|<
@@ -678,7 +692,6 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Lets complete the route creation, creating a single event driven route      * for the current from endpoint with any processors required      */
 DECL|method|commit ()
 specifier|public
 name|void

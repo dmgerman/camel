@@ -146,9 +146,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
 operator|.
-name|RouteContext
+name|ConvertBodyProcessor
 import|;
 end_import
 
@@ -160,9 +160,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|ConvertBodyProcessor
+name|RouteContext
 import|;
 end_import
 

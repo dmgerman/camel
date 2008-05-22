@@ -38,9 +38,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
 operator|.
-name|RouteContext
+name|DelegateProcessor
 import|;
 end_import
 
@@ -52,9 +52,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|DelegateProcessor
+name|RouteContext
 import|;
 end_import
 

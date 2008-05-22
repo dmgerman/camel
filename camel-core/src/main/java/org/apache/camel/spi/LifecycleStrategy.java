@@ -86,20 +86,6 @@ name|Service
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|RouteContext
-import|;
-end_import
-
 begin_interface
 DECL|interface|LifecycleStrategy
 specifier|public

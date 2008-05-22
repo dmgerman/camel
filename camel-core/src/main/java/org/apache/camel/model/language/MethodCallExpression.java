@@ -118,9 +118,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|language
 operator|.
-name|RouteContext
+name|bean
+operator|.
+name|BeanExpression
 import|;
 end_import
 
@@ -132,11 +134,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|spi
 operator|.
-name|bean
-operator|.
-name|BeanExpression
+name|RouteContext
 import|;
 end_import
 

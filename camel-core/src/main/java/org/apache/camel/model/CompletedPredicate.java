@@ -106,9 +106,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|model
 operator|.
-name|RouteContext
+name|language
+operator|.
+name|ExpressionType
 import|;
 end_import
 
@@ -120,11 +122,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|spi
 operator|.
-name|language
-operator|.
-name|ExpressionType
+name|RouteContext
 import|;
 end_import
 

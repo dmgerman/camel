@@ -230,7 +230,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|RouteContext
+name|DefaultRouteContext
 import|;
 end_import
 
@@ -245,6 +245,20 @@ operator|.
 name|spi
 operator|.
 name|Language
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteContext
 import|;
 end_import
 
@@ -504,7 +518,7 @@ name|RouteContext
 name|routeContext
 init|=
 operator|new
-name|RouteContext
+name|DefaultRouteContext
 argument_list|(
 name|exchange
 operator|.
@@ -597,7 +611,7 @@ name|RouteContext
 name|routeContext
 init|=
 operator|new
-name|RouteContext
+name|DefaultRouteContext
 argument_list|(
 name|exchange
 operator|.
