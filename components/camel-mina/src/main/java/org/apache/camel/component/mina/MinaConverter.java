@@ -134,18 +134,29 @@ name|remaining
 argument_list|()
 index|]
 decl_stmt|;
+try|try
+block|{
+comment|// must acquire the Byte buffer to avoid release if more than twice
+name|buffer
+operator|.
+name|acquire
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|ex
+parameter_list|)
+block|{
+comment|// catch the exception if we acquire the buffer which is already released.
+block|}
 name|buffer
 operator|.
 name|get
 argument_list|(
 name|answer
 argument_list|)
-expr_stmt|;
-comment|// must acquire the Byte buffer to avoid release if more than twice
-name|buffer
-operator|.
-name|acquire
-argument_list|()
 expr_stmt|;
 return|return
 name|answer
@@ -234,6 +245,15 @@ index|[]
 name|bytes
 parameter_list|)
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"calling to ByteBuffer"
+argument_list|)
+expr_stmt|;
 name|ByteBuffer
 name|buf
 init|=
