@@ -629,6 +629,18 @@ argument_list|,
 name|invokingContext
 argument_list|)
 decl_stmt|;
+comment|// add the invocation context
+name|message
+operator|.
+name|put
+argument_list|(
+name|Message
+operator|.
+name|INVOCATION_CONTEXT
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
 comment|// add the endpoint props to the message
 name|Endpoint
 name|ep
