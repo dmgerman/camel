@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelTemplate
+name|Endpoint
 import|;
 end_import
 
@@ -48,7 +48,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|impl
+operator|.
+name|CamelTemplate
 import|;
 end_import
 

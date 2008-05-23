@@ -46,7 +46,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelTemplate
+name|Exchange
 import|;
 end_import
 
@@ -58,7 +58,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|impl
+operator|.
+name|CamelTemplate
 import|;
 end_import
 

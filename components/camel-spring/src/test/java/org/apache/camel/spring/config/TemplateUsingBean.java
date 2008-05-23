@@ -26,6 +26,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
 name|CamelTemplate
 import|;
 end_import

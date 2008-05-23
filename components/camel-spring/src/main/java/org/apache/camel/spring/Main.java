@@ -144,7 +144,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelTemplate
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
@@ -156,9 +158,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|impl
 operator|.
-name|RouteBuilder
+name|CamelTemplate
 import|;
 end_import
 
