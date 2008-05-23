@@ -82,18 +82,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|FromType
@@ -139,34 +127,6 @@ operator|.
 name|processor
 operator|.
 name|Interceptor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|InterceptStrategy
 import|;
 end_import
 
@@ -267,7 +227,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Lets complete the route creation, creating a single event driven route      * for the current from endpoint with any processors required      */
 DECL|method|commit ()
-specifier|public
 name|void
 name|commit
 parameter_list|()

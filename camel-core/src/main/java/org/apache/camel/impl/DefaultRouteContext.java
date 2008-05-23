@@ -254,7 +254,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|RouteContext
+name|InterceptStrategy
 import|;
 end_import
 
@@ -268,7 +268,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|InterceptStrategy
+name|RouteContext
 import|;
 end_import
 

@@ -110,7 +110,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlType
+name|XmlTransient
 import|;
 end_import
 
@@ -124,7 +124,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlTransient
+name|XmlType
 import|;
 end_import
 
@@ -191,6 +191,20 @@ name|OptionalIdentifiedType
 parameter_list|>
 block|{
 annotation|@
+name|XmlTransient
+DECL|field|nodeCounter
+specifier|protected
+specifier|static
+name|AtomicInteger
+name|nodeCounter
+init|=
+operator|new
+name|AtomicInteger
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
+annotation|@
 name|XmlAttribute
 argument_list|(
 name|required
@@ -222,20 +236,6 @@ DECL|field|description
 specifier|private
 name|Description
 name|description
-decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|nodeCounter
-specifier|protected
-specifier|static
-name|AtomicInteger
-name|nodeCounter
-init|=
-operator|new
-name|AtomicInteger
-argument_list|(
-literal|1
-argument_list|)
 decl_stmt|;
 comment|/**      * Gets the value of the id property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getId ()
