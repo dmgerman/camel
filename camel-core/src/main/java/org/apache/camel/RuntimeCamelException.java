@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Base class for all Camel unchecked exceptions.  *  * @version $Revision$  */
 end_comment
 
 begin_class

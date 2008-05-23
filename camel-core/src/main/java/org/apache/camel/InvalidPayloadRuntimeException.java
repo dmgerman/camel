@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Runtime version of the {@link org.apache.camel.InvalidTypeException}.  *  * @version $Revision$  */
 end_comment
 
 begin_class

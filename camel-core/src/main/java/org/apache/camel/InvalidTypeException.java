@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Is thrown if type conversion failed.  *  * @version $Revision$  */
 end_comment
 
 begin_class

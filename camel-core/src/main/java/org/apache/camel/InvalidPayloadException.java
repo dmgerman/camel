@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Is thrown if the payload from the exchange could not be retrieve because of being null, wrong class type etc.  *  * @version $Revision$  */
 end_comment
 
 begin_class
