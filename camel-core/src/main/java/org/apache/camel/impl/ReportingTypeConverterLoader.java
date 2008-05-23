@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.util
+DECL|package|org.apache.camel.impl
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|impl
 package|;
 end_package
 
@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
@@ -123,8 +123,6 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
-operator|.
-name|equal
 import|;
 end_import
 
@@ -166,6 +164,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|ObjectHelper
+operator|.
 name|equal
 argument_list|(
 name|t1
@@ -179,6 +179,8 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|ObjectHelper
+operator|.
 name|equal
 argument_list|(
 name|t1

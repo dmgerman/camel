@@ -80,7 +80,9 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ReflectionInjector
+name|converter
+operator|.
+name|DefaultTypeConverter
 import|;
 end_import
 
@@ -92,11 +94,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|converter
-operator|.
-name|DefaultTypeConverter
+name|ReflectionInjector
 import|;
 end_import
 

@@ -170,7 +170,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|impl
 operator|.
 name|ProducerCache
 import|;

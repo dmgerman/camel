@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.util
 package|package
 name|org
 operator|.
@@ -12,21 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
-import|;
-end_import
 
 begin_import
 import|import
@@ -39,20 +27,6 @@ operator|.
 name|spi
 operator|.
 name|Injector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
 import|;
 end_import
 
