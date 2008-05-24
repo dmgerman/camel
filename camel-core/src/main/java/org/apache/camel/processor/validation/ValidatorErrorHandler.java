@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Validator error handler.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -98,7 +98,7 @@ name|void
 name|reset
 parameter_list|()
 function_decl|;
-comment|/**      * Process any errors which may have occurred during validation      *      * @param exchange      * @param schema      * @param result      */
+comment|/**      * Process any errors which may have occurred during validation      *      * @param exchange the exchange      * @param schema   the schema      * @param result   the result      */
 DECL|method|handleErrors (Exchange exchange, Schema schema, DOMResult result)
 name|void
 name|handleErrors

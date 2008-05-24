@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Factory of {@link Predicate} objects typically implemented by a builder such as @{XPathBuilder}  *  * @version $Revision$  */
+comment|/**  * A Factory of {@link Predicate} objects typically implemented by a builder such as  * {@link org.apache.camel.builder.xml.XPathBuilder XPathBuilder}  *  * @version $Revision$  */
 end_comment
 
 begin_interface

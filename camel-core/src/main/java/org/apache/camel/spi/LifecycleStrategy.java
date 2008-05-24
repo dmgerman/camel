@@ -86,6 +86,10 @@ name|Service
 import|;
 end_import
 
+begin_comment
+comment|/**  * Strategy for notifications  */
+end_comment
+
 begin_interface
 DECL|interface|LifecycleStrategy
 specifier|public

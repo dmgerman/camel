@@ -215,6 +215,7 @@ specifier|final
 name|Operation
 name|operation
 decl_stmt|;
+comment|/**      * {@link DataFormat} operations.      */
 DECL|enum|Operation
 specifier|public
 enum|enum
@@ -226,7 +227,6 @@ name|Marshal
 block|,
 name|Unmarshal
 block|}
-empty_stmt|;
 DECL|method|DataFormatClause (T processorType, Operation operation)
 specifier|public
 name|DataFormatClause
@@ -534,7 +534,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unknown value: "
+literal|"Unknown DataFormat operation: "
 operator|+
 name|operation
 argument_list|)

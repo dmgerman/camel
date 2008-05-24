@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Factory for {@link StreamResultHandler}  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Exception thrown if invocation of bean failed.  *  * @version $Revision$  */
 end_comment
 
 begin_class

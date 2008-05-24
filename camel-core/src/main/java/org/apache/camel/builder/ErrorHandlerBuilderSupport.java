@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Base class for builders of error handling.  *  * @version $Revision$  */
 end_comment
 
 begin_class

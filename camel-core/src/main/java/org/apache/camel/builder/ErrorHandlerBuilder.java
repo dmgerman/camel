@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A builder of a<a href="http://activemq.apache.org/camel/error-handler.html">Error Handler</a>  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -69,6 +69,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Adds error handler for the given exception type      * @param exception  the exception to handle      */
 DECL|method|addErrorHandlers (ExceptionType exception)
 name|void
 name|addErrorHandlers

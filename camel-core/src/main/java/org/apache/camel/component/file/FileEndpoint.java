@@ -1191,7 +1191,7 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|".createFileProcessStrategy(Properties params) moethod not found"
+literal|".createFileProcessStrategy(Properties params) method not found"
 argument_list|,
 name|e
 argument_list|)

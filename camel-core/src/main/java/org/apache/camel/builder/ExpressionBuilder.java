@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A helper class for working with<a href="http://activemq.apache.org/camel/expression.html">expressions</a>.  *  * @version $Revision$  */
 end_comment
 
 begin_class

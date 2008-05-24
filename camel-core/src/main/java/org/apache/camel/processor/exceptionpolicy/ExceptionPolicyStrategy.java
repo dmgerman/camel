@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy to determine witch {@link org.apache.camel.model.ExceptionType} should handle the thrown  * exception.  *  * @see org.apache.camel.processor.exceptionpolicy.DefaultExceptionPolicyStrategy DefaultExceptionPolicy  */
+comment|/**  * A strategy to determine which {@link org.apache.camel.model.ExceptionType} should handle the thrown  * exception.  *  * @see org.apache.camel.processor.exceptionpolicy.DefaultExceptionPolicyStrategy DefaultExceptionPolicy  */
 end_comment
 
 begin_interface

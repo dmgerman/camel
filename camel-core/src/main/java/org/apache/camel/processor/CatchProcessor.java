@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A processor which catches exceptions.  *  * @version $Revision$  */
 end_comment
 
 begin_class

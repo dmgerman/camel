@@ -58,6 +58,10 @@ name|Service
 import|;
 end_import
 
+begin_comment
+comment|/**  * Camel JMX service agent  */
+end_comment
+
 begin_interface
 DECL|interface|InstrumentationAgent
 specifier|public
@@ -66,7 +70,7 @@ name|InstrumentationAgent
 extends|extends
 name|Service
 block|{
-comment|/**      * Registers object with management infrastructure with a specific name. Object must be annotated or       * implement standard MBean interface.      * @param obj      * @param name      * @throws JMException      */
+comment|/**      * Registers object with management infrastructure with a specific name. Object must be annotated or       * implement standard MBean interface.      *      * @param obj  the object to register      * @param name the name      * @throws JMException is thrown if the registration failed      */
 DECL|method|register (Object obj, ObjectName name)
 name|void
 name|register
@@ -80,7 +84,7 @@ parameter_list|)
 throws|throws
 name|JMException
 function_decl|;
-comment|/**      * Registers object with management infrastructure with a specific name. Object must be annotated or       * implement standard MBean interface.      * @param obj      * @param name      * @param forceRegistration if set to true, then component will be registered despite existing component.      * @throws JMException      */
+comment|/**      * Registers object with management infrastructure with a specific name. Object must be annotated or       * implement standard MBean interface.      *      * @param obj  the object to register      * @param name the name      * @param forceRegistration if set to<tt>true</tt>, then object will be registered despite      * existing object is already registered with the name.      * @throws JMException is thrown if the registration failed      */
 DECL|method|register (Object obj, ObjectName name, boolean forceRegistration)
 name|void
 name|register
@@ -97,7 +101,7 @@ parameter_list|)
 throws|throws
 name|JMException
 function_decl|;
-comment|/**      * Unregisters component based upon registered name      * @param name      * @throws JMException      */
+comment|/**      * Unregisters object based upon registered name      *      * @param name the name      * @throws JMException is thrown if the unregistration failed      */
 DECL|method|unregister (ObjectName name)
 name|void
 name|unregister
@@ -108,7 +112,7 @@ parameter_list|)
 throws|throws
 name|JMException
 function_decl|;
-comment|/**      * Get the MBeanServer which hosts managed components      * NOTE: if the configuration is not set the JMXEnabled to be true, this method      * will return null      * @return the MBeanServer       */
+comment|/**      * Get the MBeanServer which hosts managed objects.      *<p/>      * NOTE: if the JMXEnabled configuration is not set to true, this method will return null.      *       * @return the MBeanServer      */
 DECL|method|getMBeanServer ()
 name|MBeanServer
 name|getMBeanServer

@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Processor for forwarding exchanges to an endpoint destination.  *  * @version $Revision$  */
 end_comment
 
 begin_class

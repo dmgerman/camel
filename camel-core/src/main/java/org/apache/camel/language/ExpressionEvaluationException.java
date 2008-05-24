@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * An exception thrown if evaluation of the expression failed.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -125,6 +125,16 @@ parameter_list|()
 block|{
 return|return
 name|expression
+return|;
+block|}
+DECL|method|getExchange ()
+specifier|public
+name|Exchange
+name|getExchange
+parameter_list|()
+block|{
+return|return
+name|exchange
 return|;
 block|}
 block|}
