@@ -925,7 +925,7 @@ return|return
 name|noop
 return|;
 block|}
-comment|/**      * If set to true then the default {@link FileProcessStrategy} will be to use the      * {@link NoOpFileProcessStrategy} to not move or copy processed files      */
+comment|/**      * If set to true then the default {@link FileProcessStrategy} will be to use the      * {@link org.apache.camel.component.file.strategy.NoOpFileProcessStrategy NoOpFileProcessStrategy}      * to not move or copy processed files      */
 DECL|method|setNoop (boolean noop)
 specifier|public
 name|void

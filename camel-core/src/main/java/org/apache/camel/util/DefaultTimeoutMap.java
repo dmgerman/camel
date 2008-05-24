@@ -160,6 +160,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|map
 specifier|private
+specifier|final
 name|Map
 name|map
 init|=

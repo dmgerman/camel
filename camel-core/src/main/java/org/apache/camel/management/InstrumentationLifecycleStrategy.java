@@ -242,6 +242,10 @@ name|LogFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * JMX agent that registeres Camel lifecycle events in JMX.  */
+end_comment
+
 begin_class
 DECL|class|InstrumentationLifecycleStrategy
 specifier|public

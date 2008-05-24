@@ -79,8 +79,10 @@ DECL|method|AsyncProcessorHelper ()
 specifier|private
 name|AsyncProcessorHelper
 parameter_list|()
-block|{     }
-comment|/**      * Calls the async version of the processor's process method and waits      * for it to complete before returning.  This can be used by AsyncProcessor      * objects to implement their sync version of the process method.      *       * @param processor      * @param exchange      * @throws Exception      */
+block|{
+comment|// utility class
+block|}
+comment|/**      * Calls the async version of the processor's process method and waits      * for it to complete before returning. This can be used by AsyncProcessor      * objects to implement their sync version of the process method.      */
 DECL|method|process (AsyncProcessor processor, Exchange exchange)
 specifier|public
 specifier|static

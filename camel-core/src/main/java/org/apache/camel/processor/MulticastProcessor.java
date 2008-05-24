@@ -1074,7 +1074,10 @@ argument_list|(
 operator|new
 name|Processor
 index|[
-literal|0
+name|processors
+operator|.
+name|size
+argument_list|()
 index|]
 argument_list|)
 decl_stmt|;

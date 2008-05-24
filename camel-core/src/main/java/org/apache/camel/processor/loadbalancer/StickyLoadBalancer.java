@@ -130,6 +130,7 @@ literal|1024
 decl_stmt|;
 DECL|field|stickyMap
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|Object

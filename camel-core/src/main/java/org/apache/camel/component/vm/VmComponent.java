@@ -135,6 +135,7 @@ block|{
 DECL|field|queues
 specifier|protected
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String

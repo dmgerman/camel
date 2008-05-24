@@ -66,6 +66,7 @@ name|MessageIdRepository
 block|{
 DECL|field|cache
 specifier|private
+specifier|final
 name|Map
 name|cache
 decl_stmt|;

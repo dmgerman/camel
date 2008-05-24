@@ -104,20 +104,20 @@ name|AsyncProcessorTypeConverter
 implements|implements
 name|TypeConverter
 block|{
-DECL|class|ProcessorToAsynProcessorBridge
+DECL|class|ProcessorToAsyncProcessorBridge
 specifier|private
 specifier|static
 specifier|final
 class|class
-name|ProcessorToAsynProcessorBridge
+name|ProcessorToAsyncProcessorBridge
 extends|extends
 name|DelegateProcessor
 implements|implements
 name|AsyncProcessor
 block|{
-DECL|method|ProcessorToAsynProcessorBridge (Processor processor)
+DECL|method|ProcessorToAsyncProcessorBridge (Processor processor)
 specifier|private
-name|ProcessorToAsynProcessorBridge
+name|ProcessorToAsyncProcessorBridge
 parameter_list|(
 name|Processor
 name|processor
@@ -255,7 +255,7 @@ operator|.
 name|cast
 argument_list|(
 operator|new
-name|ProcessorToAsynProcessorBridge
+name|ProcessorToAsyncProcessorBridge
 argument_list|(
 name|processor
 argument_list|)
@@ -294,7 +294,7 @@ return|;
 block|}
 return|return
 operator|new
-name|ProcessorToAsynProcessorBridge
+name|ProcessorToAsyncProcessorBridge
 argument_list|(
 name|value
 argument_list|)

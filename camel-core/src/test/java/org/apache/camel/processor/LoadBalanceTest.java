@@ -175,7 +175,6 @@ argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: example
 block|}
-empty_stmt|;
 block|}
 return|;
 block|}

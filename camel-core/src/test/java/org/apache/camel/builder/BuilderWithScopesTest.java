@@ -815,7 +815,6 @@ block|}
 block|}
 return|;
 block|}
-empty_stmt|;
 DECL|method|testRouteWithChoice1 ()
 specifier|public
 name|void
@@ -1125,7 +1124,6 @@ block|}
 block|}
 return|;
 block|}
-empty_stmt|;
 DECL|method|testRouteWithChoiceOtherwise1 ()
 specifier|public
 name|void
@@ -1426,7 +1424,6 @@ block|}
 block|}
 return|;
 block|}
-empty_stmt|;
 DECL|method|testRouteWithTryCatchNoEndNoException ()
 specifier|public
 name|void
@@ -1628,7 +1625,6 @@ block|}
 block|}
 return|;
 block|}
-empty_stmt|;
 DECL|method|testRouteWithTryCatchEndNoException ()
 specifier|public
 name|void
@@ -1854,7 +1850,6 @@ block|}
 block|}
 return|;
 block|}
-empty_stmt|;
 DECL|method|testRouteWithTryCatchFinallyNoEndNoException ()
 specifier|public
 name|void

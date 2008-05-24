@@ -233,6 +233,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|typeMappings
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|TypeMapping

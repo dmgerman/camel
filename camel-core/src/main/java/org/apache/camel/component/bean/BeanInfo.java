@@ -445,7 +445,6 @@ name|MethodInfo
 argument_list|>
 argument_list|()
 decl_stmt|;
-empty_stmt|;
 DECL|method|BeanInfo (CamelContext camelContext, Class type)
 specifier|public
 name|BeanInfo
