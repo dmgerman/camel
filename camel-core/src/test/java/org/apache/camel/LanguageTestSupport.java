@@ -14,20 +14,6 @@ name|camel
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
 begin_comment
 comment|/**  * A useful base class for testing the language plugins in Camel  * @version $Revision$  */
 end_comment

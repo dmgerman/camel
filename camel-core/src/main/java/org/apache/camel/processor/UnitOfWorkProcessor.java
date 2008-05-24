@@ -66,20 +66,6 @@ name|DefaultUnitOfWork
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|UnitOfWork
-import|;
-end_import
-
 begin_comment
 comment|/**   * Handles calling the UnitOfWork.done() method when processing of an exchange  * is complete.  */
 end_comment

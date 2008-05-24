@@ -20,16 +20,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|InterruptedIOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|concurrent
@@ -47,20 +37,6 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicBoolean
 import|;
 end_import
 

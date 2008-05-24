@@ -114,20 +114,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|CamelContextHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -171,22 +157,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|isNullOrBlank
 import|;
 end_import
 
