@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Default implementation of a type converter registry used for  *<a href="http://activemq.apache.org/camel/type-converter.html">type converters</a> in Camel.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -449,8 +449,7 @@ name|rc
 return|;
 block|}
 block|}
-comment|// lets avoid NullPointerException when converting to boolean for null
-comment|// values
+comment|// lets avoid NullPointerException when converting to boolean for null values
 if|if
 condition|(
 name|boolean

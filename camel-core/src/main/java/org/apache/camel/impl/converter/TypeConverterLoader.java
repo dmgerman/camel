@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A pluggable strategy to load type converters into a registry from some kind of mechanism  *  * @version $Revision$  */
 end_comment
 
 begin_interface

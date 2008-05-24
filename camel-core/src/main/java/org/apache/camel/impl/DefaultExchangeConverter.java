@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Default implementation of {@link org.apache.camel.spi.ExchangeConverter}.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -73,9 +73,13 @@ name|exchange
 parameter_list|)
 block|{
 comment|// TODO use some kinda introspection to find available exchange conversions
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not implemented yet"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class

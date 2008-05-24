@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * @version $Revision$  */
+comment|/**  * Default implementation of the {@link TimeoutMap}.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -413,7 +413,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Returns a copy of the keys in the map      */
 DECL|method|getKeys ()
 specifier|public
 name|Object
@@ -496,7 +495,6 @@ name|schedulePoll
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Purges any old entries from the map      */
 DECL|method|purge ()
 specifier|public
 name|void

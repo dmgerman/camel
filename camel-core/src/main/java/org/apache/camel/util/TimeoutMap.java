@@ -28,7 +28,7 @@ name|TimeoutMap
 extends|extends
 name|Runnable
 block|{
-comment|/**      * Looks up the value in the map by the given key.      *      * @param key      *            the key of the value to search for      * @return the value for the given key or null if it is not present (or has      *         timed out)      */
+comment|/**      * Looks up the value in the map by the given key.      *      * @param key the key of the value to search for      * @return the value for the given key or null if it is not present (or has timed out)      */
 DECL|method|get (Object key)
 name|Object
 name|get
@@ -44,6 +44,7 @@ index|[]
 name|getKeys
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the size of the map      */
 DECL|method|size ()
 name|int
 name|size
@@ -64,6 +65,7 @@ name|long
 name|timeoutMillis
 parameter_list|)
 function_decl|;
+comment|/**      * Removes the object with the given key      *      * @param key  key for the object to remove      */
 DECL|method|remove (Object key)
 name|void
 name|remove

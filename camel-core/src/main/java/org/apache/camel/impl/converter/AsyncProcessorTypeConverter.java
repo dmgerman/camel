@@ -74,18 +74,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|TypeConverter
 import|;
 end_import
@@ -105,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple converter that can convert any Processor to an AsyncProcessor.  * Processing will still occur synchronously but it will provide the required  * notifications that the caller expects.  *   * @version $Revision$  */
+comment|/**  * A simple converter that can convert any {@link Processor} to an {@link AsyncProcessor}.  * Processing will still occur synchronously but it will provide the required  * notifications that the caller expects.  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -117,7 +105,7 @@ implements|implements
 name|TypeConverter
 block|{
 DECL|class|ProcessorToAsynProcessorBridge
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 class|class

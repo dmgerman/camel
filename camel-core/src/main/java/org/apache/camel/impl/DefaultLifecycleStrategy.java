@@ -114,6 +114,10 @@ name|RouteContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Default implementation of the lifecycle strategy.  */
+end_comment
+
 begin_class
 DECL|class|DefaultLifecycleStrategy
 specifier|public
