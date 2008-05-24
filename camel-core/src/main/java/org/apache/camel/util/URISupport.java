@@ -126,6 +126,7 @@ specifier|public
 class|class
 name|URISupport
 block|{
+comment|/**      * Holder to get parts of the URI.      */
 DECL|class|CompositeData
 specifier|public
 specifier|static
@@ -465,28 +466,16 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
+name|String
+name|parameter
+range|:
 name|parameters
-operator|.
-name|length
-condition|;
-name|i
-operator|++
 control|)
 block|{
 name|int
 name|p
 init|=
-name|parameters
-index|[
-name|i
-index|]
+name|parameter
 operator|.
 name|indexOf
 argument_list|(
@@ -507,10 +496,7 @@ name|URLDecoder
 operator|.
 name|decode
 argument_list|(
-name|parameters
-index|[
-name|i
-index|]
+name|parameter
 operator|.
 name|substring
 argument_list|(
@@ -529,10 +515,7 @@ name|URLDecoder
 operator|.
 name|decode
 argument_list|(
-name|parameters
-index|[
-name|i
-index|]
+name|parameter
 operator|.
 name|substring
 argument_list|(
@@ -560,10 +543,7 @@ name|rc
 operator|.
 name|put
 argument_list|(
-name|parameters
-index|[
-name|i
-index|]
+name|parameter
 argument_list|,
 literal|null
 argument_list|)
@@ -1581,7 +1561,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Creates a URI from the original URI and the remaining parameters      *       * @throws URISyntaxException      */
+comment|/**      * Creates a URI from the original URI and the remaining parameters      */
 DECL|method|createRemainingURI (URI originalURI, Map params)
 specifier|public
 specifier|static

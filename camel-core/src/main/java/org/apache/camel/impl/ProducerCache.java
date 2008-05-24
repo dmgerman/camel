@@ -142,20 +142,6 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ServiceSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
 name|converter
 operator|.
 name|AsyncProcessorTypeConverter
@@ -205,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Cache containing created {@link Producer}.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -860,6 +846,11 @@ operator|.
 name|values
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|producers
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|doStart ()

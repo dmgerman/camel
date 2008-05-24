@@ -78,6 +78,10 @@ name|Injector
 import|;
 end_import
 
+begin_comment
+comment|/**  * Registry for reporting type converters.  *  * @deprecated not used  */
+end_comment
+
 begin_class
 DECL|class|ReportingTypeConverterRegistry
 specifier|public

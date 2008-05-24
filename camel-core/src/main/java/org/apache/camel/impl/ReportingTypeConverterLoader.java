@@ -126,6 +126,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * Type converter loader that is capable of reporting the loaded type converters.  *  * @deprecated not used  */
+end_comment
+
 begin_class
 DECL|class|ReportingTypeConverterLoader
 specifier|public
@@ -360,7 +364,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**      * Represents a mapping from one type (which can be null) to another      */
+comment|/**      * Represents a mapping from one type (which can be null) to another      *      * @deprecated not used      */
 DECL|class|TypeMapping
 specifier|public
 specifier|static
@@ -374,22 +378,27 @@ name|int
 name|counter
 decl_stmt|;
 DECL|field|toType
+specifier|private
 name|Class
 name|toType
 decl_stmt|;
 DECL|field|fromType
+specifier|private
 name|Class
 name|fromType
 decl_stmt|;
 DECL|field|converterType
+specifier|private
 name|Class
 name|converterType
 decl_stmt|;
 DECL|field|method
+specifier|private
 name|Method
 name|method
 decl_stmt|;
 DECL|field|index
+specifier|private
 name|int
 name|index
 decl_stmt|;

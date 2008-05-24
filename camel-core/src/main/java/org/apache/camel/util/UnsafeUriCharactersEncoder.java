@@ -64,6 +64,10 @@ name|LogFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * Encoder for unsafe URI characters.  */
+end_comment
+
 begin_class
 DECL|class|UnsafeUriCharactersEncoder
 specifier|public
@@ -72,6 +76,7 @@ class|class
 name|UnsafeUriCharactersEncoder
 block|{
 DECL|field|unsafeCharacters
+specifier|private
 specifier|static
 name|BitSet
 name|unsafeCharacters
@@ -287,9 +292,9 @@ return|return
 name|s
 return|;
 block|}
-comment|// First check whether we actually need to encode
 try|try
 block|{
+comment|// First check whether we actually need to encode
 name|byte
 index|[]
 name|bytes
@@ -341,6 +346,7 @@ name|s
 return|;
 block|}
 block|}
+comment|// okay there are some unsafe characters so we do need to encode
 name|StringBuffer
 name|sb
 init|=
@@ -370,9 +376,6 @@ name|appendEscape
 argument_list|(
 name|sb
 argument_list|,
-operator|(
-name|byte
-operator|)
 name|b
 argument_list|)
 expr_stmt|;
