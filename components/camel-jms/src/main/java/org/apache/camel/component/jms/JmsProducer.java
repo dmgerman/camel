@@ -284,7 +284,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|Out
+name|UuidGenerator
 import|;
 end_import
 
@@ -298,7 +298,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|UuidGenerator
+name|ValueHolder
 import|;
 end_import
 
@@ -982,14 +982,14 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|Out
+name|ValueHolder
 argument_list|<
 name|FutureTask
 argument_list|>
 name|futureHolder
 init|=
 operator|new
-name|Out
+name|ValueHolder
 argument_list|<
 name|FutureTask
 argument_list|>
