@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Exchange} for a jmx notification  *  * @version $Revision$  */
+comment|/**  * A {@link Exchange} for JMX notification  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -90,7 +90,6 @@ name|JMXExchange
 extends|extends
 name|DefaultExchange
 block|{
-comment|/**      * Constructor      *      * @param camelContext      * @param pattern      */
 DECL|method|JMXExchange (CamelContext camelContext, ExchangePattern pattern, Notification notification)
 specifier|public
 name|JMXExchange

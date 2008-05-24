@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultMessage
@@ -55,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Exchange} for File  *  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.Message Message} for File  *  * @version $Revision$  */
 end_comment
 
 begin_class

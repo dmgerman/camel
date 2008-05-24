@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * @deprecated not used - to be removed in due course  * @version $Revision$  */
 end_comment
 
 begin_class

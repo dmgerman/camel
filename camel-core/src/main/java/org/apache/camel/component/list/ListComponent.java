@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * The<a href="http://activemq.apache.org/camel/list.html">List</a> component.  *  * @version $Revision$  */
 end_comment
 
 begin_class

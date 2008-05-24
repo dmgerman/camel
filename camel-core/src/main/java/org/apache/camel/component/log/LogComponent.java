@@ -246,6 +246,7 @@ name|logger
 argument_list|)
 return|;
 block|}
+comment|/**      * Gets the logging level, will default to use INFO if no level parameter provided.      */
 DECL|method|getLoggingLevel (Map parameters)
 specifier|protected
 name|LoggingLevel

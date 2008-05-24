@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a CounterMonitor for jmx attributes  *  * @version $Revision$  */
+comment|/**  * JMXEndpoint for monitoring JMX attributs using {@link CounterMonitor}.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -269,7 +269,6 @@ name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @return a Producer      * @throws Exception      * @see org.apache.camel.Endpoint#createProducer()      */
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -283,13 +282,12 @@ name|Exception
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|UnsupportedOperationException
 argument_list|(
-literal|"Not supported"
+literal|"Producer not supported"
 argument_list|)
 throw|;
 block|}
-comment|/**      * @param proc      * @return a Consumer      * @throws Exception      * @see org.apache.camel.Endpoint#createConsumer(org.apache.camel.Processor)      */
 DECL|method|createConsumer (Processor proc)
 specifier|public
 name|Consumer
@@ -420,6 +418,30 @@ argument_list|(
 name|offset
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Registering and adding notification listener for ["
+operator|+
+name|counterMonitor
+operator|+
+literal|"] with name ["
+operator|+
+name|ourName
+operator|+
+literal|"]"
+argument_list|)
+expr_stmt|;
+block|}
 name|mbeanServer
 operator|.
 name|registerMBean
@@ -429,6 +451,7 @@ argument_list|,
 name|ourName
 argument_list|)
 expr_stmt|;
+comment|// TODO: How do we remove the listener?
 name|mbeanServer
 operator|.
 name|addNotificationListener
