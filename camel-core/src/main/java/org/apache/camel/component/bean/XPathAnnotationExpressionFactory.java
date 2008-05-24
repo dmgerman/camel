@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Factory for the XPath expression annotations.  *  * @version $Revision$  */
 end_comment
 
 begin_class

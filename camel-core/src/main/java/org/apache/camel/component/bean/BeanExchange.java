@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Exchange for the bean component.  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Information about a method to be used for invocation.  *  * @version $Revision$  */
 end_comment
 
 begin_class

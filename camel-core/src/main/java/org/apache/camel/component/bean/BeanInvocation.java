@@ -132,6 +132,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * Invocation of beans that can handle being serialized.  */
+end_comment
+
 begin_class
 DECL|class|BeanInvocation
 specifier|public

@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Component for<a href="http://activemq.apache.org/camel/dataset.html">DataSet</a>.  *  * @version $Revision$  */
 end_comment
 
 begin_class

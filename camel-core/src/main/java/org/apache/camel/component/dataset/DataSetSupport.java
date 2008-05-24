@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Base class for DataSet  *  * @version $Revision$  */
 end_comment
 
 begin_class
