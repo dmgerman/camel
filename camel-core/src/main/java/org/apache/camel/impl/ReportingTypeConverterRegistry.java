@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Registry for reporting type converters.  *  * @deprecated not used  */
+comment|/**  * Registry for reporting type converters.  *<p/>  * Used by the camel-maven-plugin.  */
 end_comment
 
 begin_class

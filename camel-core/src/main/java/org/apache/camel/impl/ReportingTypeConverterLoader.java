@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Type converter loader that is capable of reporting the loaded type converters.  *  * @deprecated not used  */
+comment|/**  * Type converter loader that is capable of reporting the loaded type converters.  *<p/>  * Used by the camel-maven-plugin.  */
 end_comment
 
 begin_class
