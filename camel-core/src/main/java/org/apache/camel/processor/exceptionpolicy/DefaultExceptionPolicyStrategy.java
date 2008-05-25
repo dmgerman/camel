@@ -141,6 +141,30 @@ name|Throwable
 name|exception
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Finding best suited exception policy for thrown exception "
+operator|+
+name|exception
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// the goal is to find the exception with the same/closet inheritance level as the target exception being thrown
 name|int
 name|targetLevel
@@ -291,6 +315,13 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|candidate
+operator|!=
+literal|null
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -302,6 +333,17 @@ operator|+
 literal|" as the exception policy"
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"No candidate found to be used as exception policy"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|candidate
