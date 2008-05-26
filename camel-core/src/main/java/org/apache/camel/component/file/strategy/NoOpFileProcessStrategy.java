@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A simple strategy which just locks the file but does not modify it  *  * @version $Revision$  */
+comment|/**  * A simple strategy which does not move or delete the processed files in any way.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -39,7 +39,21 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|false
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|NoOpFileProcessStrategy (boolean isLock)
+specifier|public
+name|NoOpFileProcessStrategy
+parameter_list|(
+name|boolean
+name|isLock
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|isLock
 argument_list|)
 expr_stmt|;
 block|}

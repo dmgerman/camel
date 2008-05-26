@@ -62,7 +62,7 @@ specifier|private
 name|FileProcessStrategyFactory
 parameter_list|()
 block|{
-comment|// Utility class
+comment|// Factory class
 block|}
 comment|/**      * A strategy method to lazily create the file strategy to use.      */
 DECL|method|createFileProcessStrategy (Properties params)
@@ -135,7 +135,9 @@ block|{
 return|return
 operator|new
 name|NoOpFileProcessStrategy
-argument_list|()
+argument_list|(
+name|isLock
+argument_list|)
 return|;
 block|}
 elseif|else

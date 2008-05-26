@@ -1,8 +1,4 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
-begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
-end_comment
-
 begin_package
 DECL|package|org.apache.camel.component.file
 package|package
@@ -30,11 +26,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|FileWriter
+name|camel
+operator|.
+name|ContextTestSupport
 import|;
 end_import
 
@@ -46,7 +44,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
@@ -74,9 +84,11 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mock
+name|file
 operator|.
-name|MockEndpoint
+name|strategy
+operator|.
+name|FileProcessStrategySupport
 import|;
 end_import
 
@@ -88,21 +100,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|component
 operator|.
-name|IOConverter
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for the FileRenameStrategy  */
+comment|/**  * Unit test to verify that the noop file strategy usage of lock files.  */
 end_comment
 
 begin_class
-DECL|class|FileProducerRenameStrategyTest
+DECL|class|FileNoOpLockFileTest
 specifier|public
 class|class
-name|FileProducerRenameStrategyTest
+name|FileNoOpLockFileTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -123,28 +137,18 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/done"
-argument_list|)
-expr_stmt|;
-name|deleteDirectory
-argument_list|(
 literal|"target/reports"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testRenameSuccess ()
+DECL|method|testLocked ()
 specifier|public
 name|void
-name|testRenameSuccess
+name|testLocked
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/done"
-argument_list|)
-expr_stmt|;
 name|deleteDirectory
 argument_list|(
 literal|"target/reports"
@@ -162,22 +166,22 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello Paris"
+literal|"Hello Locked"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/reports"
+literal|"file:target/reports/locked"
 argument_list|,
-literal|"Hello Paris"
+literal|"Hello Locked"
 argument_list|,
 name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
-literal|"paris.txt"
+literal|"report.txt"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -185,97 +189,33 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// sleep to let the file consumer do its renaming
+comment|// sleep to let file consumer do its unlocking
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|200
 argument_list|)
 expr_stmt|;
-comment|// content of file should be Hello Paris
-name|String
-name|content
-init|=
-name|IOConverter
-operator|.
-name|toString
+comment|// should be deleted after processing
+name|checkLockFile
 argument_list|(
-operator|new
-name|File
-argument_list|(
-literal|"./target/done/paris.txt"
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"The file should have been renamed"
-argument_list|,
-literal|"Hello Paris"
-argument_list|,
-name|content
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testRenameFileExists ()
+DECL|method|testNotLocked ()
 specifier|public
 name|void
-name|testRenameFileExists
+name|testNotLocked
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/done"
-argument_list|)
-expr_stmt|;
-name|deleteDirectory
-argument_list|(
 literal|"target/reports"
 argument_list|)
-expr_stmt|;
-comment|// create a file in done to let there be a duplicate file
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"target/done"
-argument_list|)
-decl_stmt|;
-name|file
-operator|.
-name|mkdirs
-argument_list|()
-expr_stmt|;
-name|FileWriter
-name|fw
-init|=
-operator|new
-name|FileWriter
-argument_list|(
-literal|"./target/done/london.txt"
-argument_list|)
-decl_stmt|;
-name|fw
-operator|.
-name|write
-argument_list|(
-literal|"I was there once in London"
-argument_list|)
-expr_stmt|;
-name|fw
-operator|.
-name|flush
-argument_list|()
-expr_stmt|;
-name|fw
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|MockEndpoint
 name|mock
@@ -289,22 +229,22 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello London"
+literal|"Hello Not Locked"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/reports"
+literal|"file:target/reports/notlocked"
 argument_list|,
-literal|"Hello London"
+literal|"Hello Not Locked"
 argument_list|,
 name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
-literal|"london.txt"
+literal|"report.txt"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -312,36 +252,79 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// sleep to let the file consumer do its renaming
+comment|// sleep to let file consumer do its unlocking
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|200
 argument_list|)
 expr_stmt|;
-comment|// content of file should be Hello London
-name|String
-name|content
-init|=
-name|IOConverter
-operator|.
-name|toString
+comment|// no lock files should exists after processing
+name|checkLockFile
 argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|checkLockFile (boolean expected)
+specifier|private
+specifier|static
+name|void
+name|checkLockFile
+parameter_list|(
+name|boolean
+name|expected
+parameter_list|)
+block|{
+name|String
+name|filename
+init|=
+literal|"target/reports/"
+decl_stmt|;
+name|filename
+operator|+=
+name|expected
+condition|?
+literal|"locked/"
+else|:
+literal|"notlocked/"
+expr_stmt|;
+name|filename
+operator|+=
+literal|"report.txt"
+operator|+
+name|FileProcessStrategySupport
+operator|.
+name|DEFAULT_LOCK_FILE_POSTFIX
+expr_stmt|;
+name|File
+name|file
+init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/done/london.txt"
-argument_list|)
+name|filename
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"The file should have been renamed replacing any existing files"
+literal|"Lock file should "
+operator|+
+operator|(
+name|expected
+condition|?
+literal|"exists"
+else|:
+literal|"not exists"
+operator|)
 argument_list|,
-literal|"Hello London"
+name|expected
 argument_list|,
-name|content
+name|file
+operator|.
+name|exists
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -365,9 +348,35 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// for locks
 name|from
 argument_list|(
-literal|"file://target/reports?moveNamePrefix=../done/&consumer.delay=5000"
+literal|"file://target/reports/locked/?noop=true"
+argument_list|)
+operator|.
+name|process
+argument_list|(
+operator|new
+name|MyNoopProcessor
+argument_list|()
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:report"
+argument_list|)
+expr_stmt|;
+comment|// for no locks
+name|from
+argument_list|(
+literal|"file://target/reports/notlocked/?noop=true&lock=false"
+argument_list|)
+operator|.
+name|process
+argument_list|(
+operator|new
+name|MyNoopProcessor
+argument_list|()
 argument_list|)
 operator|.
 name|to
@@ -378,6 +387,56 @@ expr_stmt|;
 block|}
 block|}
 return|;
+block|}
+DECL|class|MyNoopProcessor
+specifier|private
+class|class
+name|MyNoopProcessor
+implements|implements
+name|Processor
+block|{
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|String
+name|body
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|boolean
+name|locked
+init|=
+literal|"Hello Locked"
+operator|.
+name|equals
+argument_list|(
+name|body
+argument_list|)
+decl_stmt|;
+name|checkLockFile
+argument_list|(
+name|locked
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
