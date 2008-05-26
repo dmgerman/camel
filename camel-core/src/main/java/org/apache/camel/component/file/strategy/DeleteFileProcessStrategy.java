@@ -175,11 +175,31 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
+name|deleted
+init|=
 name|file
 operator|.
 name|delete
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|deleted
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Could not delete file: "
+operator|+
+name|file
+argument_list|)
 expr_stmt|;
+block|}
+comment|// must commit to release the lock
 name|super
 operator|.
 name|commit

@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -243,14 +233,6 @@ argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
-name|newName
-operator|.
-name|getParentFile
-argument_list|()
-operator|.
-name|mkdirs
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -273,6 +255,30 @@ name|newName
 argument_list|)
 expr_stmt|;
 block|}
+comment|// deleting any existing files before renaming
+if|if
+condition|(
+name|newName
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|newName
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
+block|}
+comment|// make parent folder if missing
+name|newName
+operator|.
+name|getParentFile
+argument_list|()
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
 name|boolean
 name|renamed
 init|=
@@ -289,9 +295,9 @@ operator|!
 name|renamed
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
+name|LOG
+operator|.
+name|warn
 argument_list|(
 literal|"Could not rename file from: "
 operator|+
@@ -301,8 +307,9 @@ literal|" to "
 operator|+
 name|newName
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
+comment|// must commit to release the lock
 name|super
 operator|.
 name|commit
