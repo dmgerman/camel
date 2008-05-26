@@ -460,7 +460,6 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
-comment|/**      * @return the executor      */
 DECL|method|getExecutorService ()
 specifier|public
 specifier|synchronized
@@ -526,7 +525,6 @@ return|return
 name|executorService
 return|;
 block|}
-comment|/**      * @param executorService the executor to set      */
 DECL|method|setExecutorService (ScheduledExecutorService executorService)
 specifier|public
 specifier|synchronized
@@ -848,7 +846,7 @@ name|Map
 name|options
 parameter_list|)
 block|{     }
-comment|/**      * A factory method to lazily create the endpointUri if none is specified       * @return      */
+comment|/**      * A factory method to lazily create the endpointUri if none is specified       */
 DECL|method|createEndpointUri ()
 specifier|protected
 name|String

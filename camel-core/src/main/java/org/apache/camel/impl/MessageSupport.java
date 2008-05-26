@@ -422,7 +422,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * @return the messageId      */
 DECL|method|getMessageId ()
 specifier|public
 name|String
@@ -448,7 +447,6 @@ operator|.
 name|messageId
 return|;
 block|}
-comment|/**      * @param messageId the messageId to set      */
 DECL|method|setMessageId (String messageId)
 specifier|public
 name|void

@@ -84,7 +84,7 @@ operator|=
 name|fault
 expr_stmt|;
 block|}
-comment|/** Set the fault message in the exchange      * @see org.apache.camel.Processor#process(org.apache.camel.Exchange)      */
+comment|/**      * Set the fault message in the exchange      * @see org.apache.camel.Processor#process(org.apache.camel.Exchange)      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

@@ -79,6 +79,7 @@ implements|implements
 name|NotificationListener
 block|{
 DECL|field|jmxEndpoint
+specifier|private
 name|JMXEndpoint
 name|jmxEndpoint
 decl_stmt|;

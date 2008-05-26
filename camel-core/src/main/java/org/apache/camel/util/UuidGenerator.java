@@ -50,13 +50,29 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
+operator|.
+name|commons
 operator|.
 name|logging
 operator|.
-name|Logger
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
 import|;
 end_import
 
@@ -74,19 +90,17 @@ DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
-name|Logger
+specifier|transient
+name|Log
 name|LOG
 init|=
-name|Logger
+name|LogFactory
 operator|.
-name|getLogger
+name|getLog
 argument_list|(
 name|UuidGenerator
 operator|.
 name|class
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|UNIQUE_STUB
@@ -230,13 +244,9 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
-literal|"could not generate unique stub"
+literal|"Could not generate unique stub"
 argument_list|,
 name|ioe
 argument_list|)
@@ -266,7 +276,6 @@ operator|=
 name|stub
 expr_stmt|;
 block|}
-comment|/**      * Construct an IdGenerator      *       */
 DECL|method|UuidGenerator (String prefix)
 specifier|public
 name|UuidGenerator
@@ -322,7 +331,7 @@ return|return
 name|hostName
 return|;
 block|}
-comment|/**      * Generate a unqiue id      *       * @return a unique id      */
+comment|/**      * Generate a unqiue id      */
 DECL|method|generateId ()
 specifier|public
 specifier|synchronized

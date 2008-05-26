@@ -472,7 +472,7 @@ argument_list|,
 literal|"UTF-8"
 argument_list|)
 decl_stmt|;
-comment|/*      * When converting a DOM tree to a SAXSource,      * we try to use Xalan internal DOM parser if      * available.  Else, transform the DOM tree      * to a String and build a SAXSource on top of      * it.      */
+comment|/*      * When converting a DOM tree to a SAXSource, we try to use Xalan internal DOM parser if      * available. Else, transform the DOM tree to a String and build a SAXSource on top of it.      */
 DECL|field|DOM_TO_SAX_CLASS
 specifier|private
 specifier|static
@@ -492,6 +492,7 @@ name|transformerFactory
 decl_stmt|;
 static|static
 block|{
+comment|// TODO: Use ObjectHelper.loadClass instead
 name|Class
 name|cl
 init|=

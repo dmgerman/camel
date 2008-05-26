@@ -1069,7 +1069,8 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|/*          *          * TODO allow an annotation to expose the operation name to use          *          * if (method.getAnnotation(Operation.class) != null) { String name =          * method.getAnnotation(Operation.class).name(); if (name != null&&          * name.length()> 0) { opName = name; } }          */
+comment|// TODO allow an annotation to expose the operation name to use
+comment|/* if (method.getAnnotation(Operation.class) != null) { String name =          * method.getAnnotation(Operation.class).name(); if (name != null&&          * name.length()> 0) { opName = name; } }          */
 name|MethodInfo
 name|methodInfo
 init|=

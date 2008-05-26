@@ -204,7 +204,7 @@ specifier|public
 name|void
 name|reset
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|done (Exchange exchange)
 specifier|public
 name|void

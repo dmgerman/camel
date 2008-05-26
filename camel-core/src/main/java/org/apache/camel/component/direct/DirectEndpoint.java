@@ -168,6 +168,7 @@ DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
+specifier|transient
 name|Log
 name|LOG
 init|=
@@ -181,6 +182,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|allowMultipleConsumers
+specifier|private
 name|boolean
 name|allowMultipleConsumers
 init|=

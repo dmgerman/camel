@@ -187,6 +187,7 @@ DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
+specifier|transient
 name|Log
 name|LOG
 init|=

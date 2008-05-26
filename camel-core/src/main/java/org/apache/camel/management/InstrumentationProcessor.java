@@ -42,6 +42,10 @@ name|DelegateProcessor
 import|;
 end_import
 
+begin_comment
+comment|/**  * JMX enabled processor that uses the {@link Counter} for instrumenting  * processing of exchanges.  */
+end_comment
+
 begin_class
 DECL|class|InstrumentationProcessor
 specifier|public
@@ -56,6 +60,7 @@ name|PerformanceCounter
 name|counter
 decl_stmt|;
 DECL|method|InstrumentationProcessor (PerformanceCounter counter)
+specifier|public
 name|InstrumentationProcessor
 parameter_list|(
 name|PerformanceCounter
@@ -70,6 +75,7 @@ name|counter
 expr_stmt|;
 block|}
 DECL|method|InstrumentationProcessor ()
+specifier|public
 name|InstrumentationProcessor
 parameter_list|()
 block|{     }
@@ -124,12 +130,11 @@ condition|)
 block|{
 if|if
 condition|(
+operator|!
 name|exchange
 operator|.
-name|getException
+name|isFailed
 argument_list|()
-operator|==
-literal|null
 condition|)
 block|{
 name|counter

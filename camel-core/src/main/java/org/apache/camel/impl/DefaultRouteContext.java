@@ -877,7 +877,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * This method retrieves the InterceptStrategy instances this route context.      *      * @return InterceptStrategy      */
 DECL|method|getInterceptStrategies ()
 specifier|public
 name|List
@@ -891,7 +890,6 @@ return|return
 name|interceptStrategies
 return|;
 block|}
-comment|/**      * This method sets the InterceptStrategy instances on this route context.      *      * @param interceptStrategies      */
 DECL|method|setInterceptStrategies (List<InterceptStrategy> interceptStrategies)
 specifier|public
 name|void

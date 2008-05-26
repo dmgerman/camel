@@ -89,7 +89,7 @@ name|ExchangePattern
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * Returns the WSDL URI for this message exchange pattern      *      * @return the WSDL URI for this message exchange pattern      */
+comment|/**      * Returns the WSDL URI for this message exchange pattern      */
 DECL|method|getWsdlUri ()
 specifier|public
 name|String

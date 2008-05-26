@@ -545,7 +545,7 @@ name|buffer
 argument_list|)
 return|;
 block|}
-comment|/**      * Implements the naming strategy for a {@link org.apache.camel.impl.ServiceSupport Service}.      * The convention used for a {@link org.apache.camel.Service Service} ObjectName is      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,type=service,name=&lt;service-name&gt;</tt>      *      * @param context the camel context      * @param mbean      * @return generated ObjectName      * @throws MalformedObjectNameException      */
+comment|/**      * Implements the naming strategy for a {@link org.apache.camel.impl.ServiceSupport Service}.      * The convention used for a {@link org.apache.camel.Service Service} ObjectName is      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,type=service,name=&lt;service-name&gt;</tt>      */
 DECL|method|getObjectName (CamelContext context, ManagedService mbean)
 specifier|public
 name|ObjectName
@@ -646,7 +646,7 @@ name|buffer
 argument_list|)
 return|;
 block|}
-comment|/**      * Implements the naming strategy for a {@link ManagedRoute}.      * The convention used for a {@link ManagedRoute} ObjectName is:      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,route=&lt;route-name&gt;,type=route,name=&lt;route-name&gt;</tt>      *      * @param mbean       * @return generated ObjectName      * @throws MalformedObjectNameException      */
+comment|/**      * Implements the naming strategy for a {@link ManagedRoute}.      * The convention used for a {@link ManagedRoute} ObjectName is:      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,route=&lt;route-name&gt;,type=route,name=&lt;route-name&gt;</tt>      */
 DECL|method|getObjectName (ManagedRoute mbean)
 specifier|public
 name|ObjectName
@@ -826,7 +826,7 @@ name|buffer
 argument_list|)
 return|;
 block|}
-comment|/**      * Implements the naming strategy for a {@link ProcessorType}.      * The convention used for a {@link ProcessorType} ObjectName is:      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,route=&lt;route-name&gt;,type=processor,name=&lt;processor-name&gt;</tt>      *       * @param routeContext      * @param processor      * @return      * @throws MalformedObjectNameException      */
+comment|/**      * Implements the naming strategy for a {@link ProcessorType}.      * The convention used for a {@link ProcessorType} ObjectName is:      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,route=&lt;route-name&gt;,type=processor,name=&lt;processor-name&gt;</tt>      */
 DECL|method|getObjectName (RouteContext routeContext, ProcessorType processor)
 specifier|public
 name|ObjectName

@@ -1093,7 +1093,6 @@ operator|=
 name|id
 expr_stmt|;
 block|}
-comment|/**      * Returns true if this exchange failed due to either an exception or fault      *      * @see Exchange#getException()      * @see Exchange#getFault()      * @return true if this exchange failed due to either an exception or fault      */
 DECL|method|isFailed ()
 specifier|public
 name|boolean
