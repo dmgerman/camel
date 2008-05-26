@@ -26,7 +26,7 @@ name|camel
 operator|.
 name|management
 operator|.
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 import|;
 end_import
 
@@ -92,7 +92,7 @@ specifier|public
 class|class
 name|SpringInstrumentationAgent
 extends|extends
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 implements|implements
 name|InitializingBean
 implements|,
