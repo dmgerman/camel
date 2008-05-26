@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Represents the base XML type for DataFormat.  *  * @version $Revision$  */
 end_comment
 
 begin_class

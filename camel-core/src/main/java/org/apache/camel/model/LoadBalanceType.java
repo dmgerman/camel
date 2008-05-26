@@ -358,6 +358,10 @@ name|CollectionStringBuffer
 import|;
 end_import
 
+begin_comment
+comment|/**  * Represents an XML&lt;loadBalance/&gt; element  */
+end_comment
+
 begin_class
 annotation|@
 name|XmlRootElement
@@ -481,7 +485,7 @@ DECL|method|LoadBalanceType ()
 specifier|public
 name|LoadBalanceType
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|getRef ()
 specifier|public
 name|String
@@ -574,7 +578,7 @@ range|:
 name|outputs
 control|)
 block|{
-comment|//The outputs should be the SendProcessor
+comment|// The outputs should be the SendProcessor
 name|SendProcessor
 name|processor
 init|=
@@ -637,7 +641,7 @@ name|getOutputs
 argument_list|()
 control|)
 block|{
-comment|//The outputs should be the SendProcessor
+comment|// The outputs should be the SendProcessor
 name|SendProcessor
 name|processor
 init|=

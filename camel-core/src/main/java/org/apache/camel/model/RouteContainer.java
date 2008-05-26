@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Container to hold {@link org.apache.camel.model.RouteType Route}.  *  * @version $Revision$  */
 end_comment
 
 begin_interface

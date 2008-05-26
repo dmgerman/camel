@@ -154,6 +154,10 @@ name|RouteContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Represents an XML&lt;setHeader/&gt; element  */
+end_comment
+
 begin_class
 annotation|@
 name|XmlRootElement

@@ -158,6 +158,10 @@ name|RouteContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Represents an XML&lt;throwFault/&gt; element  */
+end_comment
+
 begin_class
 annotation|@
 name|XmlRootElement
@@ -213,7 +217,7 @@ DECL|method|ThrowFaultType ()
 specifier|public
 name|ThrowFaultType
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|setFault (Throwable fault)
 specifier|public
 name|void

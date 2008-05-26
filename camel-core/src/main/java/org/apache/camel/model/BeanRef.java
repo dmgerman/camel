@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;bean/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class

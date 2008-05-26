@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The unique identifier for a bean. The scope of the identifier  * is the enclosing bean factory.  *<p/>  *<p/>  *<p>Java class for identifiedType complex type.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;complexType name="identifiedType">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}ID" />  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  *  * @version $Revision$  */
+comment|/**  * The unique identifier for a bean. The scope of the identifier is the enclosing bean factory.  *<p>  * The following schema fragment specifies the expected content contained within this class.  *<pre>  *&lt;complexType name="identifiedType">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}ID" />  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -159,7 +159,7 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
-comment|/**      * Gets the value of the id property.      *      * @return possible object is      *         {@link String }      */
+comment|/**      * Gets the value of the id property.      */
 DECL|method|getId ()
 specifier|public
 name|String
@@ -170,7 +170,7 @@ return|return
 name|id
 return|;
 block|}
-comment|/**      * Sets the value of the id property.      *      * @param value allowed object is      *              {@link String }      */
+comment|/**      * Sets the value of the id property.      */
 DECL|method|setId (String value)
 specifier|public
 name|void

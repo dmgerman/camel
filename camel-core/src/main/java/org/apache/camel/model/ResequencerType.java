@@ -241,7 +241,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;resequencer/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -588,9 +588,6 @@ return|return
 name|streamConfig
 return|;
 block|}
-comment|//
-comment|// TODO: find out how to have these two within an<xsd:choice>
-comment|//
 annotation|@
 name|XmlElement
 argument_list|(
@@ -611,6 +608,7 @@ name|BatchResequencerConfig
 name|batchConfig
 parameter_list|)
 block|{
+comment|// TODO: find out how to have these two within an<xsd:choice>
 name|batch
 argument_list|(
 name|batchConfig
@@ -637,15 +635,13 @@ name|StreamResequencerConfig
 name|streamConfig
 parameter_list|)
 block|{
+comment|// TODO: find out how to have these two within an<xsd:choice>
 name|stream
 argument_list|(
 name|streamConfig
 argument_list|)
 expr_stmt|;
 block|}
-comment|//
-comment|// END_TODO
-comment|//
 annotation|@
 name|Override
 DECL|method|createProcessor (RouteContext routeContext)

@@ -196,6 +196,10 @@ name|notNull
 import|;
 end_import
 
+begin_comment
+comment|/**  * Represents an XML&lt;loadBalance/&gt; element  */
+end_comment
+
 begin_class
 annotation|@
 name|XmlType
