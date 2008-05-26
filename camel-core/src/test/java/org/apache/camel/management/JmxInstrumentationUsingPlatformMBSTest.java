@@ -52,7 +52,7 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 operator|.
 name|SYSTEM_PROPERTY_JMX_USE_PLATFORM_MBS
 argument_list|,
@@ -80,7 +80,7 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 operator|.
 name|SYSTEM_PROPERTY_JMX_USE_PLATFORM_MBS
 argument_list|,

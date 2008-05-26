@@ -392,11 +392,15 @@ name|MetadataMBeanInfoAssembler
 import|;
 end_import
 
+begin_comment
+comment|/**  * Default implementation of the Camel JMX service agent  */
+end_comment
+
 begin_class
-DECL|class|InstrumentationAgentImpl
+DECL|class|DefaultInstrumentationAgent
 specifier|public
 class|class
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -472,7 +476,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 operator|.
 name|class
 argument_list|)
@@ -544,9 +548,9 @@ specifier|private
 name|boolean
 name|usePlatformMBeanServer
 decl_stmt|;
-DECL|method|InstrumentationAgentImpl ()
+DECL|method|DefaultInstrumentationAgent ()
 specifier|public
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 parameter_list|()
 block|{
 name|assembler
@@ -889,6 +893,14 @@ name|DEFAULT_DOMAIN
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -899,6 +911,7 @@ name|getMBeanServer
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|context
@@ -1062,9 +1075,9 @@ literal|"A number of "
 operator|+
 name|caught
 operator|+
-literal|" exceptions caught while unregistering MBeans during stop operation.  "
+literal|" exceptions caught while unregistering MBeans during stop operation."
 operator|+
-literal|"See INFO log for details."
+literal|" See INFO log for details."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1359,7 +1372,7 @@ literal|"="
 operator|+
 name|portValue
 operator|+
-literal|"].  Using default: "
+literal|"]. Using default: "
 operator|+
 name|DEFAULT_PORT
 argument_list|)
@@ -1394,7 +1407,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Cannot determine host name.  Using default: "
+literal|"Cannot determine localhost name. Using default: "
 operator|+
 name|DEFAULT_PORT
 argument_list|,
@@ -1690,7 +1703,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Jmx connector thread started on "
+literal|"JMX connector thread started on "
 operator|+
 name|url
 argument_list|)

@@ -129,7 +129,7 @@ literal|1099
 decl_stmt|;
 DECL|field|iAgent
 specifier|protected
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 name|iAgent
 decl_stmt|;
 DECL|field|domainName
@@ -137,7 +137,7 @@ specifier|protected
 name|String
 name|domainName
 init|=
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 operator|.
 name|DEFAULT_DOMAIN
 decl_stmt|;
@@ -697,7 +697,7 @@ block|{
 name|iAgent
 operator|=
 operator|new
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 argument_list|()
 expr_stmt|;
 name|iAgent

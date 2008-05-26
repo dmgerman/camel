@@ -62,7 +62,7 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 operator|.
 name|SYSTEM_PROPERTY_JMX
 argument_list|,
@@ -73,7 +73,7 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 operator|.
 name|SYSTEM_PROPERTY_JMX
 operator|+
@@ -86,7 +86,7 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 operator|.
 name|SYSTEM_PROPERTY_JMX
 operator|+
@@ -116,7 +116,7 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 operator|.
 name|SYSTEM_PROPERTY_JMX
 argument_list|,
@@ -127,7 +127,7 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 operator|.
 name|SYSTEM_PROPERTY_JMX
 operator|+
@@ -140,7 +140,7 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-name|InstrumentationAgentImpl
+name|DefaultInstrumentationAgent
 operator|.
 name|SYSTEM_PROPERTY_JMX
 operator|+
