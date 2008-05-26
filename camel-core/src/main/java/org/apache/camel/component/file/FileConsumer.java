@@ -72,9 +72,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|impl
 operator|.
-name|DeadLetterChannel
+name|ScheduledPollConsumer
 import|;
 end_import
 
@@ -86,9 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
 operator|.
-name|ScheduledPollConsumer
+name|DeadLetterChannel
 import|;
 end_import
 

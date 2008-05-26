@@ -276,6 +276,14 @@ name|String
 name|toString
 parameter_list|()
 block|{
+if|if
+condition|(
+name|getOtherwise
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 literal|"Choice[ "
 operator|+
@@ -289,6 +297,18 @@ argument_list|()
 operator|+
 literal|"]"
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|"Choice[ "
+operator|+
+name|getWhenClauses
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 annotation|@
 name|Override

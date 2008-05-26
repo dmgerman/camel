@@ -603,6 +603,16 @@ name|getWhenClauses
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|choice
+operator|.
+name|getOtherwise
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|outputs
 operator|.
 name|add
@@ -613,6 +623,7 @@ name|getOtherwise
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|outputs
@@ -764,6 +775,10 @@ name|this
 operator|.
 name|nodeType
 argument_list|)
+operator|&&
+name|node
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// TODO we could add this to the model?

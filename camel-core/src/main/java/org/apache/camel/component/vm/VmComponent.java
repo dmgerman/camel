@@ -132,7 +132,7 @@ name|VmComponent
 extends|extends
 name|SedaComponent
 block|{
-DECL|field|queues
+DECL|field|QUEUES
 specifier|protected
 specifier|static
 specifier|final
@@ -142,7 +142,7 @@ name|String
 argument_list|,
 name|BlockingQueue
 argument_list|>
-name|queues
+name|QUEUES
 init|=
 operator|new
 name|HashMap
@@ -225,7 +225,7 @@ parameter_list|)
 block|{
 synchronized|synchronized
 init|(
-name|queues
+name|QUEUES
 init|)
 block|{
 name|BlockingQueue
@@ -234,7 +234,7 @@ name|Exchange
 argument_list|>
 name|answer
 init|=
-name|queues
+name|QUEUES
 operator|.
 name|get
 argument_list|(
@@ -257,7 +257,7 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-name|queues
+name|QUEUES
 operator|.
 name|put
 argument_list|(
@@ -320,7 +320,7 @@ condition|)
 block|{
 synchronized|synchronized
 init|(
-name|queues
+name|QUEUES
 init|)
 block|{
 for|for
@@ -328,7 +328,7 @@ control|(
 name|BlockingQueue
 name|q
 range|:
-name|queues
+name|QUEUES
 operator|.
 name|values
 argument_list|()
@@ -340,7 +340,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-name|queues
+name|QUEUES
 operator|.
 name|clear
 argument_list|()

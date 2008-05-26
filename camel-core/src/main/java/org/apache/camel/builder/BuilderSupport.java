@@ -32,7 +32,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Arrays
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
+name|List
 import|;
 end_import
 

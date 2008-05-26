@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|Endpoint
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|Exchange
 import|;
 end_import
 
