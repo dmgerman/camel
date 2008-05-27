@@ -364,7 +364,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**      * Represents a mapping from one type (which can be null) to another      *      * @deprecated not used      */
+comment|/**      * Represents a mapping from one type (which can be null) to another      *      * Used by the camel-maven-plugin.      */
 DECL|class|TypeMapping
 specifier|public
 specifier|static
