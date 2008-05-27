@@ -722,8 +722,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// TODO we need to find other way to instrument the route.
-comment|// below codes adding wrap the processor with all the processors which are already wrapped
-comment|// by the InstrumentationInterceptStrategy
+comment|// Below codes will wrap the interceptor (route instrumentation processor) to
+comment|// the each processors which are already wrapped by the InstrumentationInterceptStrategy,
+comment|// And the router couter will be increased when the processors process the exchange
 comment|/*         // Add an InstrumentationProcessor at the beginning of each route and         // set up the interceptorMap for onRoutesAdd() method to register the         // ManagedRoute MBeans.          RouteType routeType = routeContext.getRoute();         if (routeType.getInputs() != null&& !routeType.getInputs().isEmpty()) {             if (routeType.getInputs().size()> 1) {                 LOG.warn("Add InstrumentationProcessor to first input only.");             }              Endpoint endpoint  = routeType.getInputs().get(0).getEndpoint();              InstrumentationProcessor processor = new InstrumentationProcessor();              routeType.addInterceptor(processor);              interceptorMap.put(endpoint, processor);         }*/
 block|}
 DECL|method|getNamingStrategy ()
