@@ -192,7 +192,7 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|channel
+name|gateway
 operator|.
 name|RequestReplyTemplate
 import|;
