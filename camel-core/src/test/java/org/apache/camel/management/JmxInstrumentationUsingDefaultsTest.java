@@ -370,7 +370,19 @@ operator|.
 name|getMBeanServer
 argument_list|()
 decl_stmt|;
-comment|//verifyCounter(mbs, new ObjectName(domainName + ":type=route,*"));
+name|verifyCounter
+argument_list|(
+name|mbs
+argument_list|,
+operator|new
+name|ObjectName
+argument_list|(
+name|domainName
+operator|+
+literal|":type=route,*"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|verifyCounter
 argument_list|(
 name|mbs
