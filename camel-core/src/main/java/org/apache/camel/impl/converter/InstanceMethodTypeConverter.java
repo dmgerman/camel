@@ -132,7 +132,6 @@ return|;
 block|}
 DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
-specifier|synchronized
 parameter_list|<
 name|T
 parameter_list|>
