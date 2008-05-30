@@ -130,6 +130,11 @@ argument_list|(
 literal|"Server ready..."
 argument_list|)
 expr_stmt|;
+name|server
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|Thread
 operator|.
 name|sleep
