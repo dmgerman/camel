@@ -182,7 +182,9 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ReportingTypeConverterRegistry
+name|ReportingTypeConverterLoader
+operator|.
+name|TypeMapping
 import|;
 end_import
 
@@ -196,9 +198,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ReportingTypeConverterLoader
-operator|.
-name|TypeMapping
+name|ReportingTypeConverterRegistry
 import|;
 end_import
 
