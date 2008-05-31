@@ -359,15 +359,28 @@ name|String
 name|generateSanitizedId
 parameter_list|()
 block|{
-name|String
-name|result
-init|=
+return|return
+name|generateSanitizedId
+argument_list|(
 name|generateId
 argument_list|()
-decl_stmt|;
-name|result
+argument_list|)
+return|;
+block|}
+comment|/**      * Ensures that the id is friendly for a URL or file system      *      * @param id the unique id      * @return the id as file friendly id      */
+DECL|method|generateSanitizedId (String id)
+specifier|public
+specifier|static
+name|String
+name|generateSanitizedId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|id
 operator|=
-name|result
+name|id
 operator|.
 name|replace
 argument_list|(
@@ -376,9 +389,9 @@ argument_list|,
 literal|'-'
 argument_list|)
 expr_stmt|;
-name|result
+name|id
 operator|=
-name|result
+name|id
 operator|.
 name|replace
 argument_list|(
@@ -387,9 +400,9 @@ argument_list|,
 literal|'-'
 argument_list|)
 expr_stmt|;
-name|result
+name|id
 operator|=
-name|result
+name|id
 operator|.
 name|replace
 argument_list|(
@@ -399,7 +412,7 @@ literal|'-'
 argument_list|)
 expr_stmt|;
 return|return
-name|result
+name|id
 return|;
 block|}
 block|}
