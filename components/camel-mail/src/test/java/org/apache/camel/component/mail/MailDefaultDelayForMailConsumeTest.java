@@ -109,7 +109,7 @@ name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|1000
+literal|2000L
 argument_list|)
 expr_stmt|;
 name|mock
