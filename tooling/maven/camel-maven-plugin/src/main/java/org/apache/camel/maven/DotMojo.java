@@ -364,7 +364,7 @@ comment|//
 comment|// For running Camel embedded
 comment|// -------------------------------------------------------------------------
 comment|//
-comment|/**      * The duration to run the application for which by default is in      * milliseconds.      *      * @parameter expression="2s"      */
+comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter expression="2s"      */
 DECL|field|duration
 specifier|protected
 name|String
@@ -482,7 +482,6 @@ literal|"report.dot.name"
 argument_list|)
 return|;
 block|}
-comment|/**      * @see org.apache.maven.reporting.MavenReport#getOutputName()      */
 DECL|method|getOutputName ()
 specifier|public
 name|String
@@ -547,7 +546,6 @@ operator|=
 name|useDot
 expr_stmt|;
 block|}
-comment|/**      * @see org.apache.maven.plugin.Mojo#execute()      */
 DECL|method|execute ()
 specifier|public
 name|void
@@ -601,7 +599,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * @see org.apache.maven.reporting.AbstractMavenReport#executeReport(Locale)      */
 DECL|method|executeReport (final Locale locale)
 specifier|protected
 name|void
@@ -2285,7 +2282,6 @@ operator|.
 name|renderer
 return|;
 block|}
-comment|/**      * @see org.apache.maven.reporting.AbstractMavenReport#getOutputDirectory()      */
 DECL|method|getOutputDirectory ()
 specifier|protected
 name|String

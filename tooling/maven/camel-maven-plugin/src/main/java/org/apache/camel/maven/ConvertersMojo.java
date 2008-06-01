@@ -678,7 +678,7 @@ specifier|private
 name|Renderer
 name|renderer
 decl_stmt|;
-comment|/**      * Gets resource bundle for given locale.      *      * @param locale      *            locale      * @return resource bundle      */
+comment|/**      * Gets resource bundle for given locale.      *      * @param locale    locale      * @return resource bundle      */
 DECL|method|getBundle (final Locale locale)
 specifier|protected
 name|ResourceBundle
@@ -754,7 +754,6 @@ literal|"report.converters.name"
 argument_list|)
 return|;
 block|}
-comment|/**      * @see org.apache.maven.reporting.MavenReport#getOutputName()      */
 DECL|method|getOutputName ()
 specifier|public
 name|String
@@ -806,7 +805,6 @@ return|return
 name|renderer
 return|;
 block|}
-comment|/**      * @see org.apache.maven.reporting.AbstractMavenReport#execute()      */
 DECL|method|execute ()
 specifier|public
 name|void
@@ -1062,7 +1060,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * @see org.apache.maven.reporting.AbstractMavenReport#execute()      */
 annotation|@
 name|Override
 DECL|method|executeReport (Locale locale)
