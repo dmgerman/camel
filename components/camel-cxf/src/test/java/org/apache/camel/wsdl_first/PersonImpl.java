@@ -87,15 +87,7 @@ parameter_list|)
 throws|throws
 name|UnknownPersonFault
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"the server is invoked "
-argument_list|)
-expr_stmt|;
+comment|//System.out.println("the server is invoked ");
 if|if
 condition|(
 name|personId
