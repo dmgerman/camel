@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a description element which can be used on any element in the EIP route  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents a description element which can be used on any element in the EIP route  *  * @version $Revision$  */
 end_comment
 
 begin_class

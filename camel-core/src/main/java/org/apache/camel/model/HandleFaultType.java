@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;handleFault/&gt; element  *  * @version $Revision: 36565 $  */
+comment|/**  * Represents an XML&lt;handleFault/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class

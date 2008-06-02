@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interceptor strategy for debugging and tracing routes  *  * @version $Revision: 1.1 $  */
+comment|/**  * An interceptor strategy for debugging and tracing routes  *  * @version $Revision$  */
 end_comment
 
 begin_class
