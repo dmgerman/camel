@@ -576,7 +576,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"About to process file:  "
+literal|"About to process file: "
 operator|+
 name|file
 operator|+
