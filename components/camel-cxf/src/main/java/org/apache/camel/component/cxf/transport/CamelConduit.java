@@ -1116,9 +1116,7 @@ specifier|public
 name|void
 name|shutdown
 parameter_list|()
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{         }
 DECL|method|setMessageObserver (MessageObserver observer)
 specifier|public
 specifier|synchronized

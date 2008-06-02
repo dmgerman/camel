@@ -261,7 +261,6 @@ parameter_list|)
 throws|throws
 name|SQLException
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|false
 return|;

@@ -212,7 +212,6 @@ name|password
 init|=
 literal|""
 decl_stmt|;
-comment|/*     protected String driverClass = "org.apache.derby.jdbc.EmbeddedDriver";     protected String url = "jdbc:derby:target/testdb;create=true"; */
 DECL|field|connection
 specifier|protected
 name|Connection
@@ -226,6 +225,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: register
 name|DataSource
 name|ds
 init|=
@@ -239,7 +239,6 @@ argument_list|,
 name|password
 argument_list|)
 decl_stmt|;
-comment|// START SNIPPET: register
 name|JndiContext
 name|context
 init|=
@@ -449,7 +448,6 @@ argument_list|(
 name|driverClass
 argument_list|)
 expr_stmt|;
-comment|// sysinfo.main(new String[] { "JdbcRouteTest.setUp()" });
 name|connection
 operator|=
 name|DriverManager
@@ -525,7 +523,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|// DriverManager.getConnection("jdbc:derby;shutdown=true").close();
 block|}
 block|}
 end_class

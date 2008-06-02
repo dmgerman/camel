@@ -148,40 +148,6 @@ name|this
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// TODO Auto-generated method stub
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// TODO Auto-generated method stub
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 end_class
 

@@ -139,9 +139,7 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{     }
 DECL|method|close (Message message)
 specifier|public
 name|void
@@ -185,7 +183,6 @@ name|Destination
 name|getBackChannel
 parameter_list|()
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;
@@ -196,7 +193,6 @@ name|EndpointReferenceType
 name|getTarget
 parameter_list|()
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;
@@ -239,9 +235,7 @@ parameter_list|(
 name|MessageObserver
 name|observer
 parameter_list|)
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{     }
 block|}
 end_class
 

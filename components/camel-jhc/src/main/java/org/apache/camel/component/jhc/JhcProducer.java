@@ -616,10 +616,6 @@ name|ThreadFactory
 import|;
 end_import
 
-begin_comment
-comment|/**  * Created by IntelliJ IDEA.  * User: gnodet  * Date: Sep 7, 2007  * Time: 8:15:14 PM  * To change this template use File | Settings | File Templates.  */
-end_comment
-
 begin_class
 DECL|class|JhcProducer
 specifier|public
@@ -678,6 +674,7 @@ DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
+specifier|transient
 name|Log
 name|LOG
 init|=
@@ -1870,17 +1867,15 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|finalizeContext (HttpContext arg0)
+DECL|method|finalizeContext (HttpContext httpContext)
 specifier|public
 name|void
 name|finalizeContext
 parameter_list|(
 name|HttpContext
-name|arg0
+name|httpContext
 parameter_list|)
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{         }
 block|}
 DECL|class|EventLogger
 specifier|static
