@@ -1135,6 +1135,17 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|CxfExchange
+operator|.
+name|DATA_FORMAT
+argument_list|,
+name|dataFormat
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 if|if

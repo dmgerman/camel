@@ -124,6 +124,15 @@ name|CxfExchange
 extends|extends
 name|DefaultExchange
 block|{
+DECL|field|DATA_FORMAT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DATA_FORMAT
+init|=
+literal|"DATA_FORMAT"
+decl_stmt|;
 DECL|field|exchange
 specifier|private
 name|Exchange
