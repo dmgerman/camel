@@ -1643,7 +1643,7 @@ block|}
 if|if
 condition|(
 name|in
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
