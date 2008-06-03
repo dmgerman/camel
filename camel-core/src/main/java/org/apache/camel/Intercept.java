@@ -15,25 +15,27 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/processor.html">processor</a> is  * used to implement the   *<a href="http://activemq.apache.org/camel/event-driven-consumer.html">  * Event Driven Consumer</a> and   *<a href="http://activemq.apache.org/camel/message-translator.html">  * Message Translator</a> patterns and to process message exchanges.  *   * @version $Revision$  */
+comment|/**  * An interface which provides the processing logic as a pluggable processor  *  * @version $Revision:  $  */
 end_comment
 
 begin_interface
-DECL|interface|Processor
+DECL|interface|Intercept
 specifier|public
 interface|interface
-name|Processor
+name|Intercept
 block|{
-comment|/**      * Processes the message exchange      *       * @throws Exception if an internal processing error has occurred.      */
-DECL|method|process (Exchange exchange)
+DECL|method|getInterceptorLogic ()
+name|Processor
+name|getInterceptorLogic
+parameter_list|()
+function_decl|;
+DECL|method|setInterceptorLogic (Processor interceptorLogic)
 name|void
-name|process
+name|setInterceptorLogic
 parameter_list|(
-name|Exchange
-name|exchange
+name|Processor
+name|interceptorLogic
 parameter_list|)
-throws|throws
-name|Exception
 function_decl|;
 block|}
 end_interface

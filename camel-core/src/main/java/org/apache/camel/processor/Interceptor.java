@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Intercept
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -65,6 +77,8 @@ class|class
 name|Interceptor
 extends|extends
 name|DelegateProcessor
+implements|implements
+name|Intercept
 block|{
 DECL|field|interceptorLogic
 specifier|private

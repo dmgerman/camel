@@ -102,6 +102,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Intercept
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NoSuchEndpointException
 import|;
 end_import
@@ -829,12 +841,12 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|intercept (Interceptor interceptor)
+DECL|method|intercept (Intercept interceptor)
 specifier|public
 name|void
 name|intercept
 parameter_list|(
-name|Interceptor
+name|Intercept
 name|interceptor
 parameter_list|)
 block|{
@@ -842,6 +854,9 @@ comment|/*         InterceptorRef block = new InterceptorRef(interceptor);      
 comment|//getRoute().getInterceptors().add(new InterceptorRef(interceptor));
 name|lastInterceptor
 operator|=
+operator|(
+name|Interceptor
+operator|)
 name|interceptor
 expr_stmt|;
 block|}

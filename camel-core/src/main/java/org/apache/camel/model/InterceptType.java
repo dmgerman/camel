@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Intercept
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Predicate
 import|;
 end_import
@@ -242,7 +254,6 @@ return|return
 name|interceptor
 return|;
 block|}
-comment|/*     public void addRoutes(RouteContext routeContext, Collection<Route> routes) throws Exception {         Interceptor interceptor = new Interceptor();         routeContext.intercept(interceptor);          final Processor interceptRoute = routeContext.createProcessor(this);         interceptor.setInterceptorLogic(interceptRoute);     } */
 comment|/**      * Applies this interceptor only if the given predicate is true      */
 DECL|method|when (Predicate predicate)
 specifier|public

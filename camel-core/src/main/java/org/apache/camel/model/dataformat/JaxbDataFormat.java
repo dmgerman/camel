@@ -82,9 +82,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|spi
 operator|.
-name|ObjectConverter
+name|DataFormat
 import|;
 end_import
 
@@ -96,9 +96,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|util
 operator|.
-name|DataFormat
+name|ObjectHelper
 import|;
 end_import
 
@@ -243,15 +243,27 @@ name|DataFormat
 name|dataFormat
 parameter_list|)
 block|{
-if|if
-condition|(
-name|ObjectConverter
+name|Boolean
+name|answer
+init|=
+name|ObjectHelper
 operator|.
-name|toBool
+name|toBoolean
 argument_list|(
 name|getPrettyPrint
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+operator|&&
+name|answer
+operator|.
+name|booleanValue
+argument_list|()
 condition|)
 block|{
 name|setProperty
