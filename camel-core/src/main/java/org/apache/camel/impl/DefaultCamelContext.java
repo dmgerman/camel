@@ -190,6 +190,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Routes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -1644,12 +1656,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|addRoutes (RouteBuilder builder)
+DECL|method|addRoutes (Routes builder)
 specifier|public
 name|void
 name|addRoutes
 parameter_list|(
-name|RouteBuilder
+name|Routes
 name|builder
 parameter_list|)
 throws|throws

@@ -106,6 +106,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Routes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -238,6 +250,8 @@ class|class
 name|RouteBuilder
 extends|extends
 name|BuilderSupport
+implements|implements
+name|Routes
 block|{
 DECL|field|initialized
 specifier|private
