@@ -189,13 +189,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|template
-operator|.
-name|setDefaultEndpointUri
-argument_list|(
-literal|"direct:a"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|clean ()
 specifier|private
@@ -278,6 +271,8 @@ name|template
 operator|.
 name|send
 argument_list|(
+literal|"direct:a"
+argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;

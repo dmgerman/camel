@@ -158,11 +158,23 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|w3c
 operator|.
-name|camel
+name|dom
 operator|.
-name|Converter
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|NodeList
 import|;
 end_import
 
@@ -203,30 +215,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Node
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|NodeList
 import|;
 end_import
 
@@ -2665,7 +2653,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/** 	 * Evaluate the value as a predicate which attempts to convert the value to 	 * a boolean otherwise true is returned if the value is not null 	 */
+comment|/**      * Evaluate the value as a predicate which attempts to convert the value to      * a boolean otherwise true is returned if the value is not null      */
 DECL|method|evaluateValuePredicate (Object value)
 specifier|public
 specifier|static

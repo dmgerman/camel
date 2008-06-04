@@ -84,7 +84,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TestSupport
+name|ProducerTemplate
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
+name|TestSupport
 import|;
 end_import
 
