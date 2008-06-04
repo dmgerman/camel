@@ -484,7 +484,10 @@ operator|=
 operator|new
 name|ThreadPoolExecutor
 argument_list|(
-literal|1
+name|processors
+operator|.
+name|size
+argument_list|()
 argument_list|,
 name|processors
 operator|.
