@@ -341,7 +341,7 @@ return|;
 block|}
 DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
-name|void
+name|MulticastType
 name|setAggregationStrategy
 parameter_list|(
 name|AggregationStrategy
@@ -354,6 +354,9 @@ name|aggregationStrategy
 operator|=
 name|aggregationStrategy
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|isParallelProcessing ()
 specifier|public
@@ -373,7 +376,7 @@ return|;
 block|}
 DECL|method|setParallelProcessing (boolean parallelProcessing)
 specifier|public
-name|void
+name|MulticastType
 name|setParallelProcessing
 parameter_list|(
 name|boolean
@@ -386,6 +389,9 @@ name|parallelProcessing
 operator|=
 name|parallelProcessing
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|getThreadPoolExecutor ()
 specifier|public
@@ -399,7 +405,7 @@ return|;
 block|}
 DECL|method|setThreadPoolExecutor (ThreadPoolExecutor executor)
 specifier|public
-name|void
+name|MulticastType
 name|setThreadPoolExecutor
 parameter_list|(
 name|ThreadPoolExecutor
@@ -412,6 +418,9 @@ name|threadPoolExecutor
 operator|=
 name|executor
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 annotation|@
 name|Override
