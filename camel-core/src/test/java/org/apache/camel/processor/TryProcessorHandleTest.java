@@ -94,11 +94,6 @@ name|TryProcessorHandleTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|resultEndpoint
-specifier|private
-name|MockEndpoint
-name|resultEndpoint
-decl_stmt|;
 DECL|field|handled
 specifier|private
 name|boolean
