@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TestSupport
 import|;
 end_import
@@ -133,7 +145,7 @@ name|context
 decl_stmt|;
 DECL|field|template
 specifier|private
-name|CamelTemplate
+name|ProducerTemplate
 name|template
 decl_stmt|;
 DECL|method|setUp ()
@@ -152,11 +164,10 @@ argument_list|()
 expr_stmt|;
 name|template
 operator|=
-operator|new
-name|CamelTemplate
-argument_list|(
 name|context
-argument_list|)
+operator|.
+name|createProducerTemplate
+argument_list|()
 expr_stmt|;
 name|template
 operator|.

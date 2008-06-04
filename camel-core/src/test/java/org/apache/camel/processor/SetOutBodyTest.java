@@ -42,6 +42,11 @@ name|SetOutBodyTest
 extends|extends
 name|TransformProcessorTest
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

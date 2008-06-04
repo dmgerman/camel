@@ -2203,9 +2203,9 @@ expr_stmt|;
 name|JmsEndpoint
 name|endpoint
 init|=
-name|template
+name|context
 operator|.
-name|getResolvedEndpoint
+name|getEndpoint
 argument_list|(
 name|endpoingUriA
 argument_list|,
@@ -2308,9 +2308,9 @@ expr_stmt|;
 name|JmsEndpoint
 name|endpoint
 init|=
-name|template
+name|context
 operator|.
-name|getResolvedEndpoint
+name|getEndpoint
 argument_list|(
 name|endpoingUriA
 argument_list|,

@@ -392,6 +392,20 @@ name|String
 name|language
 parameter_list|)
 function_decl|;
+comment|/**      * Creates a new ProducerTemplate      */
+DECL|method|createProducerTemplate ()
+parameter_list|<
+name|E
+extends|extends
+name|Exchange
+parameter_list|>
+name|ProducerTemplate
+argument_list|<
+name|E
+argument_list|>
+name|createProducerTemplate
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

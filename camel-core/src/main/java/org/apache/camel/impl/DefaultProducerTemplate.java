@@ -171,14 +171,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A client helper object (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and sending {@link Message} instances in an  * {@link Exchange} to an {@link Endpoint}.  *  * @version $Revision$  * @deprecated use {@link ProducerTemplate} instead, can be created using {@link org.apache.camel.CamelContext#createProducerTemplate()}.  */
+comment|/**  * A client helper object (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and sending {@link org.apache.camel.Message} instances in an  * {@link org.apache.camel.Exchange} to an {@link org.apache.camel.Endpoint}.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|CamelTemplate
+DECL|class|DefaultProducerTemplate
 specifier|public
 class|class
-name|CamelTemplate
+name|DefaultProducerTemplate
 parameter_list|<
 name|E
 extends|extends
@@ -254,9 +254,9 @@ name|E
 argument_list|>
 name|defaultEndpoint
 decl_stmt|;
-DECL|method|CamelTemplate (CamelContext context)
+DECL|method|DefaultProducerTemplate (CamelContext context)
 specifier|public
-name|CamelTemplate
+name|DefaultProducerTemplate
 parameter_list|(
 name|CamelContext
 name|context
@@ -269,9 +269,9 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-DECL|method|CamelTemplate (CamelContext context, Endpoint defaultEndpoint)
+DECL|method|DefaultProducerTemplate (CamelContext context, Endpoint defaultEndpoint)
 specifier|public
-name|CamelTemplate
+name|DefaultProducerTemplate
 parameter_list|(
 name|CamelContext
 name|context
@@ -433,7 +433,6 @@ name|E
 name|exchange
 parameter_list|)
 block|{
-comment|//E convertedExchange = endpoint.createExchange(exchange);
 name|E
 name|convertedExchange
 init|=

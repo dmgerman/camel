@@ -248,6 +248,18 @@ name|handled
 operator|=
 literal|true
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should not be marked as failed"
+argument_list|,
+literal|false
+argument_list|,
+name|exchange
+operator|.
+name|isFailed
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Exception
 name|e
 init|=
