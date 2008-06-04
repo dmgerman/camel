@@ -2665,6 +2665,45 @@ else|:
 literal|null
 return|;
 block|}
+comment|/** 	 * Evaluate the value as a predicate which attempts to convert the value to 	 * a boolean otherwise true is returned if the value is not null 	 */
+DECL|method|evaluateValuePredicate (Object value)
+specifier|public
+specifier|static
+name|boolean
+name|evaluateValuePredicate
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+name|value
+operator|instanceof
+name|Boolean
+condition|)
+block|{
+name|Boolean
+name|aBoolean
+init|=
+operator|(
+name|Boolean
+operator|)
+name|value
+decl_stmt|;
+return|return
+name|aBoolean
+operator|.
+name|booleanValue
+argument_list|()
+return|;
+block|}
+return|return
+name|value
+operator|!=
+literal|null
+return|;
+block|}
 block|}
 end_class
 

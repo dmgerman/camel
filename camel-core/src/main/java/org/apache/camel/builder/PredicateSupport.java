@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.builder
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|builder
 package|;
 end_package
 
@@ -36,88 +36,31 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Expression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Predicate
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
-comment|/**  * A useful base class for {@link Predicate} and {@link Expression} implementations  *  * @version $Revision$  */
+comment|/**  * A useful base class for {@link Predicate} implementations  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ExpressionSupport
+DECL|class|PredicateSupport
 specifier|public
 specifier|abstract
 class|class
-name|ExpressionSupport
+name|PredicateSupport
 parameter_list|<
 name|E
 extends|extends
 name|Exchange
 parameter_list|>
 implements|implements
-name|Expression
-argument_list|<
-name|E
-argument_list|>
-implements|,
 name|Predicate
 argument_list|<
 name|E
 argument_list|>
 block|{
-DECL|method|matches (E exchange)
-specifier|public
-name|boolean
-name|matches
-parameter_list|(
-name|E
-name|exchange
-parameter_list|)
-block|{
-name|Object
-name|value
-init|=
-name|evaluate
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
-return|return
-name|ObjectHelper
-operator|.
-name|evaluateValuePredicate
-argument_list|(
-name|value
-argument_list|)
-return|;
-block|}
 DECL|method|assertMatches (String text, E exchange)
 specifier|public
 name|void
@@ -143,16 +86,12 @@ throw|throw
 operator|new
 name|AssertionError
 argument_list|(
-name|text
-operator|+
-literal|" "
-operator|+
 name|assertionFailureMessage
 argument_list|(
 name|exchange
 argument_list|)
 operator|+
-literal|" for exchange: "
+literal|" on "
 operator|+
 name|exchange
 argument_list|)
@@ -161,14 +100,18 @@ block|}
 block|}
 DECL|method|assertionFailureMessage (E exchange)
 specifier|protected
-specifier|abstract
 name|String
 name|assertionFailureMessage
 parameter_list|(
 name|E
 name|exchange
 parameter_list|)
-function_decl|;
+block|{
+return|return
+name|toString
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
