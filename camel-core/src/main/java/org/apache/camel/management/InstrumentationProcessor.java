@@ -141,16 +141,12 @@ name|counter
 operator|.
 name|completedExchange
 argument_list|(
-operator|(
 name|System
 operator|.
 name|nanoTime
 argument_list|()
 operator|-
 name|startTime
-operator|)
-operator|/
-literal|1000
 argument_list|)
 expr_stmt|;
 block|}
