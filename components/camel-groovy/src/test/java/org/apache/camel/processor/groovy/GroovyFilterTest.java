@@ -40,7 +40,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|RouteBuilder
+name|NoRouteBuilder
 import|;
 end_import
 
@@ -52,9 +52,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|builder
 operator|.
-name|NoRouteBuilder
+name|RouteBuilder
 import|;
 end_import
 

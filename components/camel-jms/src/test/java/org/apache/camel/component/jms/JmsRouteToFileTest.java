@@ -44,9 +44,9 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|activemq
 operator|.
-name|ContextTestSupport
+name|ActiveMQConnectionFactory
 import|;
 end_import
 
@@ -63,20 +63,14 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsComponent
-operator|.
-name|jmsComponentClientAcknowledge
+name|ContextTestSupport
 import|;
 end_import
 
@@ -109,14 +103,20 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
 operator|.
-name|activemq
+name|camel
 operator|.
-name|ActiveMQConnectionFactory
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsComponent
+operator|.
+name|jmsComponentClientAcknowledge
 import|;
 end_import
 
