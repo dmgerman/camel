@@ -64,15 +64,10 @@ try|try
 block|{
 name|template
 operator|.
-name|setDefaultEndpointUri
-argument_list|(
-literal|"mina:xxx://localhost:8080"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
 name|sendBody
 argument_list|(
+literal|"mina:xxx://localhost:8080"
+argument_list|,
 literal|"mina:xxx://localhost:8080"
 argument_list|)
 expr_stmt|;
@@ -126,15 +121,10 @@ block|{
 comment|// the protocol is mistyped as a colon is missing after tcp
 name|template
 operator|.
-name|setDefaultEndpointUri
-argument_list|(
-literal|"mina:tcp//localhost:8080"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
 name|sendBody
 argument_list|(
+literal|"mina:tcp//localhost:8080"
+argument_list|,
 literal|"mina:tcp//localhost:8080"
 argument_list|)
 expr_stmt|;
