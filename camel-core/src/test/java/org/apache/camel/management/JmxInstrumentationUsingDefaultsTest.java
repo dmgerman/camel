@@ -646,6 +646,34 @@ operator|<=
 name|valueofMaxProcessingTime
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Expected first completion time to be available"
+argument_list|,
+name|mbs
+operator|.
+name|getAttribute
+argument_list|(
+name|pcob
+argument_list|,
+literal|"FirstExchangeCompletionTime"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Expected last completion time to be available"
+argument_list|,
+name|mbs
+operator|.
+name|getAttribute
+argument_list|(
+name|pcob
+argument_list|,
+literal|"LastExchangeCompletionTime"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|enableJmx ()
 specifier|protected
