@@ -668,12 +668,11 @@ name|File
 argument_list|(
 name|answer
 argument_list|,
-name|getFileFriendlyMessageId
+name|endpoint
+operator|.
+name|getGeneratedFileName
 argument_list|(
 name|message
-operator|.
-name|getMessageId
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -688,12 +687,11 @@ name|File
 argument_list|(
 name|endpointFile
 argument_list|,
-name|getFileFriendlyMessageId
+name|endpoint
+operator|.
+name|getGeneratedFileName
 argument_list|(
 name|message
-operator|.
-name|getMessageId
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -727,6 +725,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// TODO lets store the name in the header?
+comment|//message.setHeader(FileComponent.HEADER_FILE_NAME, answer.toString());
 return|return
 name|answer
 return|;
@@ -793,25 +793,6 @@ name|mkdirs
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-DECL|method|getFileFriendlyMessageId (String id)
-specifier|private
-specifier|static
-name|String
-name|getFileFriendlyMessageId
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-block|{
-return|return
-name|UuidGenerator
-operator|.
-name|generateSanitizedId
-argument_list|(
-name|id
-argument_list|)
-return|;
 block|}
 block|}
 end_class
