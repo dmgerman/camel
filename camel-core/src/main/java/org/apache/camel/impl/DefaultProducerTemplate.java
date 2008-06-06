@@ -1753,6 +1753,11 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+name|endpointCache
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|extractResultBody (E result)
 specifier|protected

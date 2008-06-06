@@ -370,7 +370,7 @@ literal|" but was: "
 operator|+
 name|actual
 operator|+
-literal|" on  "
+literal|" on "
 operator|+
 name|exchange
 operator|+
