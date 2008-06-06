@@ -384,9 +384,9 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-literal|"CamelBean"
+literal|"org.apache.camel.bean.BeanHolder"
 argument_list|,
-name|bean
+name|beanHolder
 argument_list|)
 expr_stmt|;
 name|Processor
