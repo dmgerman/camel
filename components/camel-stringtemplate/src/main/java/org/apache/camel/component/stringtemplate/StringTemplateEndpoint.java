@@ -217,6 +217,8 @@ name|resourceUri
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -271,7 +273,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-comment|// TODO we might wanna add some kinda resource caching of the template
+comment|// getResourceAsInputStream also considers the content cache
 name|String
 name|text
 init|=
@@ -279,10 +281,7 @@ name|IOConverter
 operator|.
 name|toString
 argument_list|(
-name|getResource
-argument_list|()
-operator|.
-name|getInputStream
+name|getResourceAsInputStream
 argument_list|()
 argument_list|)
 decl_stmt|;
