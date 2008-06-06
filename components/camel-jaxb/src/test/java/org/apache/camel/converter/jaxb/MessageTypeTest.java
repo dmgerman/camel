@@ -104,31 +104,47 @@ argument_list|(
 literal|"Should have created a valid message Type"
 argument_list|)
 expr_stmt|;
-name|log
-operator|.
-name|info
+name|assertEquals
 argument_list|(
-literal|"headers: "
-operator|+
+literal|"abc"
+argument_list|,
 name|messageType
 operator|.
 name|getHeaderMap
 argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"foo"
+argument_list|)
 argument_list|)
 expr_stmt|;
-name|log
-operator|.
-name|info
+name|assertEquals
 argument_list|(
-literal|"body: "
-operator|+
+literal|123
+argument_list|,
+name|messageType
+operator|.
+name|getHeaderMap
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"bar"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"<hello id='m123'>world!</hello>"
+argument_list|,
 name|messageType
 operator|.
 name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|dump
+name|marshalMessage
 argument_list|(
 name|messageType
 argument_list|)
@@ -159,10 +175,10 @@ literal|"org.apache.camel.converter.jaxb"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|dump (Object object)
+DECL|method|marshalMessage (Object object)
 specifier|protected
 name|void
-name|dump
+name|marshalMessage
 parameter_list|(
 name|Object
 name|object
@@ -207,13 +223,69 @@ argument_list|,
 name|buffer
 argument_list|)
 expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Created: "
-operator|+
+name|String
+name|out
+init|=
 name|buffer
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should be XML"
+argument_list|,
+name|out
+operator|.
+name|startsWith
+argument_list|(
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should containt string header"
+argument_list|,
+name|out
+operator|.
+name|indexOf
+argument_list|(
+literal|"<header value=\"abc\" name=\"foo\"/>"
+argument_list|)
+operator|>
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should containt int header"
+argument_list|,
+name|out
+operator|.
+name|indexOf
+argument_list|(
+literal|"<intHeader value=\"123\" name=\"bar\"/>"
+argument_list|)
+operator|>
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should containt the body"
+argument_list|,
+name|out
+operator|.
+name|indexOf
+argument_list|(
+literal|"&lt;hello id='m123'&gt;world!&lt;/hello&gt;"
+argument_list|)
+operator|>
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 block|}

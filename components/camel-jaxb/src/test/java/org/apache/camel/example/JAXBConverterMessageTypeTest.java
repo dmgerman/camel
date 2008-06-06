@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.jaxb
+DECL|package|org.apache.camel.example
 package|package
 name|org
 operator|.
@@ -12,19 +12,17 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|jaxb
+name|example
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|junit
 operator|.
-name|apache
+name|framework
 operator|.
-name|camel
-operator|.
-name|ContextTestSupport
+name|TestCase
 import|;
 end_import
 
@@ -36,9 +34,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|RouteBuilder
+name|apache
+operator|.
+name|camel
+operator|.
+name|TypeConverter
 import|;
 end_import
 
@@ -58,73 +66,61 @@ name|MessageType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultCamelContext
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Unit test for JABX conversion of MessageType  */
 end_comment
 
 begin_class
-DECL|class|DumpToXmlTest
+DECL|class|JAXBConverterMessageTypeTest
 specifier|public
 class|class
-name|DumpToXmlTest
+name|JAXBConverterMessageTypeTest
 extends|extends
-name|ContextTestSupport
+name|TestCase
 block|{
-DECL|method|testDumplFilesToJaxb ()
+DECL|field|context
+specifier|protected
+name|CamelContext
+name|context
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
+DECL|field|converter
+specifier|protected
+name|TypeConverter
+name|converter
+init|=
+name|context
+operator|.
+name|getTypeConverter
+argument_list|()
+decl_stmt|;
+DECL|method|testConverter ()
 specifier|public
 name|void
-name|testDumplFilesToJaxb
+name|testConverter
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: Needs assertions, fails see CAMEL-583
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|5000
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|createRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
-parameter_list|()
-block|{
-return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-specifier|public
-name|void
-name|configure
-parameter_list|()
-block|{
-name|from
-argument_list|(
-literal|"file:src/test/data?noop=true"
-argument_list|)
-operator|.
-name|convertBodyTo
-argument_list|(
-name|MessageType
-operator|.
-name|class
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"file:target/camel/dump"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|;
+comment|// TODO: fails see CAMEL-583
+comment|/*         MessageType message = converter.convertTo(MessageType.class, "<message><hello>bar</hello></message>");         System.out.println(message);          assertNotNull("Message should not be null!", message);         */
 block|}
 block|}
 end_class

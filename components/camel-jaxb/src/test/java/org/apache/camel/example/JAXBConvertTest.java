@@ -64,34 +64,6 @@ name|DefaultCamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -104,23 +76,6 @@ name|JAXBConvertTest
 extends|extends
 name|TestCase
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|JAXBConvertTest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|context
 specifier|protected
 name|CamelContext
@@ -162,15 +117,6 @@ argument_list|,
 literal|"<purchaseOrder name='foo' amount='123.45' price='2.22'/>"
 argument_list|)
 decl_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Parsed: "
-operator|+
-name|purchaseOrder
-argument_list|)
-expr_stmt|;
 name|assertNotNull
 argument_list|(
 literal|"Purchase order should not be null!"
