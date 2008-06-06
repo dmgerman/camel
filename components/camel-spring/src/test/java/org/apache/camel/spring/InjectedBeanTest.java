@@ -235,7 +235,7 @@ name|testSendAndReceive
 parameter_list|()
 throws|throws
 name|Exception
-block|{      }
+block|{     }
 annotation|@
 name|Override
 DECL|method|setUp ()
