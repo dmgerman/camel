@@ -252,7 +252,9 @@ specifier|private
 name|ObjectHelper
 parameter_list|()
 block|{     }
-comment|/**      * @deprecated use the equal method instead      *      * @see #equal(Object, Object)      */
+comment|/**      * @deprecated use the equal method instead. Will be removed in Camel 2.0.      *      * @see #equal(Object, Object)      */
+annotation|@
+name|Deprecated
 DECL|method|equals (Object a, Object b)
 specifier|public
 specifier|static

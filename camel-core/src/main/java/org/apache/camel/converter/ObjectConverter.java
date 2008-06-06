@@ -112,7 +112,7 @@ argument_list|()
 operator|)
 return|;
 block|}
-comment|/**      * Creates an iterator over the value      */
+comment|/**      * Creates an iterator over the value      *      * @deprecated use {@link org.apache.camel.util.ObjectHelper#createIterator(Object)}. Will be removed in Camel 2.0.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -120,6 +120,8 @@ literal|"unchecked"
 argument_list|)
 annotation|@
 name|Converter
+annotation|@
+name|Deprecated
 DECL|method|iterator (Object value)
 specifier|public
 specifier|static

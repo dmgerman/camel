@@ -15,10 +15,12 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @deprecated use {@link InvalidTypeException}  * @version $Revision$  */
+comment|/**  * @deprecated use {@link InvalidTypeException}. Will be removed in Camel 2.0.  * @version $Revision$  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|InvalidHeaderTypeException
 specifier|public
 class|class

@@ -1764,7 +1764,9 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * @deprecated this method will be removed in a future release       */
+comment|/**      * @deprecated this method will be removed in Camel 2.0.      */
+annotation|@
+name|Deprecated
 DECL|method|indexOfParenthesisMatch (String str)
 specifier|public
 name|int

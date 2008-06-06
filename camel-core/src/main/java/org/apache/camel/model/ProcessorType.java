@@ -3538,7 +3538,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the OUT message      *      * @deprecated Please use {@link #transform(Expression)} instead      */
+comment|/**      * Adds a processor which sets the body on the OUT message      *      * @deprecated Please use {@link #transform(Expression)} instead. Will be removed in Camel 2.0.      */
+annotation|@
+name|Deprecated
 DECL|method|setOutBody (Expression expression)
 specifier|public
 name|Type
@@ -3555,7 +3557,9 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the OUT message      *      * @deprecated Please use {@link #transform()} instead      */
+comment|/**      * Adds a processor which sets the body on the OUT message      *      * @deprecated Please use {@link #transform()} instead. Will be removed in Camel 2.0.      */
+annotation|@
+name|Deprecated
 DECL|method|setOutBody ()
 specifier|public
 name|ExpressionClause
@@ -4148,7 +4152,9 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Converts the OUT message body to the specified type      *      * @deprecated Please use {@link #convertBodyTo(Class)} instead      */
+comment|/**      * Converts the OUT message body to the specified type      *      * @deprecated Please use {@link #convertBodyTo(Class)} instead. Will be removed in Camel 2.0.      */
+annotation|@
+name|Deprecated
 DECL|method|convertOutBodyTo (Class type)
 specifier|public
 name|Type
@@ -4158,8 +4164,6 @@ name|Class
 name|type
 parameter_list|)
 block|{
-comment|// TODO deprecate method?
-comment|//return process(ProcessorBuilder.setOutBody(Builder.outBody().convertTo(type)));
 return|return
 name|process
 argument_list|(
@@ -4171,7 +4175,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the FAULT message body to the specified type      */
+comment|/**      * Converts the FAULT message body to the specified type      *      * @deprecated Please use {@link #convertBodyTo(Class)} instead. Will be removed in Camel 2.0.      */
+annotation|@
+name|Deprecated
 DECL|method|convertFaultBodyTo (Class type)
 specifier|public
 name|Type
@@ -4181,8 +4187,6 @@ name|Class
 name|type
 parameter_list|)
 block|{
-comment|// TODO deprecate method?
-comment|//return process(ProcessorBuilder.setFaultBody(Builder.faultBody().convertTo(type)));
 return|return
 name|process
 argument_list|(

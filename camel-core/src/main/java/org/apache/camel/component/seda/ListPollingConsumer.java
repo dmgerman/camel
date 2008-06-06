@@ -67,10 +67,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @deprecated not used - to be removed in due course  * @version $Revision$  */
+comment|/**  * @deprecated not used. Will be removed in Camel 2.0.  * @version $Revision$  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|ListPollingConsumer
 specifier|public
 class|class
