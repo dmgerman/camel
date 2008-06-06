@@ -418,6 +418,9 @@ name|target
 argument_list|,
 name|createExchangeList
 argument_list|()
+argument_list|,
+name|createExceptionsList
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|interceptors
@@ -500,6 +503,25 @@ argument_list|>
 argument_list|()
 return|;
 block|}
+block|}
+DECL|method|createExceptionsList ()
+specifier|protected
+name|List
+argument_list|<
+name|ExceptionEvent
+argument_list|>
+name|createExceptionsList
+parameter_list|()
+block|{
+comment|// TODO allow some kinda LRU based fixed size list to be used?
+return|return
+operator|new
+name|ArrayList
+argument_list|<
+name|ExceptionEvent
+argument_list|>
+argument_list|()
+return|;
 block|}
 block|}
 end_class

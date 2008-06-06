@@ -131,6 +131,15 @@ name|Exchange
 argument_list|>
 name|exchanges
 decl_stmt|;
+DECL|field|exceptions
+specifier|private
+specifier|final
+name|List
+argument_list|<
+name|ExceptionEvent
+argument_list|>
+name|exceptions
+decl_stmt|;
 DECL|field|traceFilter
 specifier|private
 name|Predicate
@@ -145,7 +154,14 @@ operator|new
 name|Breakpoint
 argument_list|()
 decl_stmt|;
-DECL|method|DebugInterceptor (ProcessorType node, Processor target, List<Exchange> exchanges)
+DECL|field|traceExceptions
+specifier|private
+name|boolean
+name|traceExceptions
+init|=
+literal|true
+decl_stmt|;
+DECL|method|DebugInterceptor (ProcessorType node, Processor target, List<Exchange> exchanges, List<ExceptionEvent> exceptions)
 specifier|public
 name|DebugInterceptor
 parameter_list|(
@@ -160,6 +176,12 @@ argument_list|<
 name|Exchange
 argument_list|>
 name|exchanges
+parameter_list|,
+name|List
+argument_list|<
+name|ExceptionEvent
+argument_list|>
+name|exceptions
 parameter_list|)
 block|{
 name|super
@@ -178,6 +200,12 @@ operator|.
 name|exchanges
 operator|=
 name|exchanges
+expr_stmt|;
+name|this
+operator|.
+name|exceptions
+operator|=
+name|exceptions
 expr_stmt|;
 block|}
 annotation|@
@@ -217,6 +245,8 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|super
 operator|.
 name|proceed
@@ -224,6 +254,41 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|onException
+argument_list|(
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|Error
+name|e
+parameter_list|)
+block|{
+name|onException
+argument_list|(
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 DECL|method|getNode ()
 specifier|public
@@ -246,6 +311,19 @@ parameter_list|()
 block|{
 return|return
 name|exchanges
+return|;
+block|}
+DECL|method|getExceptions ()
+specifier|public
+name|List
+argument_list|<
+name|ExceptionEvent
+argument_list|>
+name|getExceptions
+parameter_list|()
+block|{
+return|return
+name|exceptions
 return|;
 block|}
 DECL|method|getBreakpoint ()
@@ -284,6 +362,32 @@ operator|=
 name|traceFilter
 expr_stmt|;
 block|}
+DECL|method|isTraceExceptions ()
+specifier|public
+name|boolean
+name|isTraceExceptions
+parameter_list|()
+block|{
+return|return
+name|traceExceptions
+return|;
+block|}
+DECL|method|setTraceExceptions (boolean traceExceptions)
+specifier|public
+name|void
+name|setTraceExceptions
+parameter_list|(
+name|boolean
+name|traceExceptions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|traceExceptions
+operator|=
+name|traceExceptions
+expr_stmt|;
+block|}
 comment|/**      * Stategy method to wait for a breakpoint if one is set      */
 DECL|method|checkForBreakpoint (Exchange exchange)
 specifier|protected
@@ -301,6 +405,63 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Fired when an exception is thrown when processing the underlying processor      */
+DECL|method|onException (Exchange exchange, Throwable e)
+specifier|protected
+name|void
+name|onException
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Throwable
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|shouldTraceExceptionEvents
+argument_list|(
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+condition|)
+block|{
+name|exceptions
+operator|.
+name|add
+argument_list|(
+operator|new
+name|ExceptionEvent
+argument_list|(
+name|this
+argument_list|,
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|shouldTraceExceptionEvents (Exchange exchange, Throwable e)
+specifier|private
+name|boolean
+name|shouldTraceExceptionEvents
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Throwable
+name|e
+parameter_list|)
+block|{
+return|return
+name|isTraceExceptions
+argument_list|()
+return|;
 block|}
 comment|/**      * Strategy method to store the exchange in a trace log if it is enabled      */
 DECL|method|addTraceExchange (Exchange exchange)
