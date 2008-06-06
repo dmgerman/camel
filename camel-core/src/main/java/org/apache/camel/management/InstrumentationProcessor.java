@@ -111,7 +111,7 @@ name|startTime
 init|=
 name|System
 operator|.
-name|nanoTime
+name|currentTimeMillis
 argument_list|()
 decl_stmt|;
 name|super
@@ -143,7 +143,7 @@ name|completedExchange
 argument_list|(
 name|System
 operator|.
-name|nanoTime
+name|currentTimeMillis
 argument_list|()
 operator|-
 name|startTime

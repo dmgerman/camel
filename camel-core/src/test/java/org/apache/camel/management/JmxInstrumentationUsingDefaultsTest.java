@@ -576,7 +576,7 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|valueofMinProcessingTime
-operator|>
+operator|>=
 literal|0
 argument_list|)
 expr_stmt|;
@@ -607,7 +607,7 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|valueofMaxProcessingTime
-operator|>
+operator|>=
 literal|0
 argument_list|)
 expr_stmt|;

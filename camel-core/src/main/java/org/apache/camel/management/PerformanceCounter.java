@@ -252,7 +252,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Min Processing Time [ns]"
+literal|"Min Processing Time [milli-seconds]"
 argument_list|)
 DECL|method|getMinProcessingTime ()
 specifier|public
@@ -272,7 +272,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Mean Processing Time [ns]"
+literal|"Mean Processing Time [milli-seconds]"
 argument_list|)
 DECL|method|getMeanProcessingTime ()
 specifier|public
@@ -311,7 +311,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Max Processing Time [ns]"
+literal|"Max Processing Time [milli-seconds]"
 argument_list|)
 DECL|method|getMaxProcessingTime ()
 specifier|public
