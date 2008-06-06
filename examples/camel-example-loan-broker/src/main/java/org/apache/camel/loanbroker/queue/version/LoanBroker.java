@@ -299,7 +299,7 @@ argument_list|,
 literal|"test-jms:queue:bank3"
 argument_list|)
 expr_stmt|;
-comment|// Each bank process will process the message and put the response message into the bankReplyQueue
+comment|// Each bank processor will process the message and put the response message into the bankReplyQueue
 name|from
 argument_list|(
 literal|"test-jms:queue:bank1"
@@ -358,7 +358,7 @@ literal|"test-jms:queue:bankReplyQueue"
 argument_list|)
 expr_stmt|;
 comment|// Now we aggregating the response message by using the Constants.PROPERTY_SSN header
-comment|// The aggregation will completed when the three bank responses are received
+comment|// The aggregation will completed when all the three bank responses are received
 name|from
 argument_list|(
 literal|"test-jms:queue:bankReplyQueue"

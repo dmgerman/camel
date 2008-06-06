@@ -22,6 +22,10 @@ name|credit
 package|;
 end_package
 
+begin_comment
+comment|//START SNIPPET: creditAgencyImpl
+end_comment
+
 begin_class
 DECL|class|CreditAgency
 specifier|public
