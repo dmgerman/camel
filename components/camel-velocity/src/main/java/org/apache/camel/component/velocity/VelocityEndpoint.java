@@ -494,6 +494,24 @@ init|=
 name|getVelocityEngine
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Velocity is evaluating using velocity context: "
+operator|+
+name|variableMap
+argument_list|)
+expr_stmt|;
+block|}
 name|engine
 operator|.
 name|evaluate

@@ -147,6 +147,13 @@ argument_list|,
 literal|"Camel in Action"
 argument_list|)
 expr_stmt|;
+name|msg
+operator|.
+name|setBody
+argument_list|(
+literal|"PS: Next beer is on me, James"
+argument_list|)
+expr_stmt|;
 return|return
 name|exchange
 return|;
@@ -178,7 +185,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Dear Ibsen, Claus\n\nThanks for the order of Camel in Action.\n\nRegards Camel Riders Bookstore"
+literal|"Dear Ibsen, Claus\n\nThanks for the order of Camel in Action.\n\nRegards Camel Riders Bookstore\nPS: Next beer is on me, James"
 argument_list|)
 expr_stmt|;
 name|template
