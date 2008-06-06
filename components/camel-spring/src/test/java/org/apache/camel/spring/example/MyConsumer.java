@@ -50,9 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|CamelTemplate
+name|ProducerTemplate
 import|;
 end_import
 
@@ -133,7 +131,7 @@ literal|"mock:result"
 argument_list|)
 DECL|field|destination
 specifier|private
-name|CamelTemplate
+name|ProducerTemplate
 name|destination
 decl_stmt|;
 annotation|@
@@ -180,7 +178,7 @@ expr_stmt|;
 block|}
 DECL|method|getDestination ()
 specifier|public
-name|CamelTemplate
+name|ProducerTemplate
 name|getDestination
 parameter_list|()
 block|{
@@ -188,12 +186,12 @@ return|return
 name|destination
 return|;
 block|}
-DECL|method|setDestination (CamelTemplate destination)
+DECL|method|setDestination (ProducerTemplate destination)
 specifier|public
 name|void
 name|setDestination
 parameter_list|(
-name|CamelTemplate
+name|ProducerTemplate
 name|destination
 parameter_list|)
 block|{

@@ -84,6 +84,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -103,20 +115,6 @@ operator|.
 name|jms
 operator|.
 name|JmsComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|CamelTemplate
 import|;
 end_import
 
@@ -269,14 +267,13 @@ expr_stmt|;
 comment|// END SNIPPET: e3
 comment|// Camel template - a handy class for kicking off exchanges
 comment|// START SNIPPET: e4
-name|CamelTemplate
+name|ProducerTemplate
 name|template
 init|=
-operator|new
-name|CamelTemplate
-argument_list|(
 name|context
-argument_list|)
+operator|.
+name|createProducerTemplate
+argument_list|()
 decl_stmt|;
 comment|// END SNIPPET: e4
 comment|// Now everything is set up - lets start the context

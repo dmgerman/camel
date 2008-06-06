@@ -4,17 +4,13 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.config
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|spring
-operator|.
-name|config
 package|;
 end_package
 
@@ -26,49 +22,63 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
+name|impl
+operator|.
+name|DefaultProducerTemplate
 import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A client helper object (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and sending {@link Message} instances in an  * {@link Exchange} to an {@link Endpoint}.  *  * @version $Revision$  * @deprecated use {@link ProducerTemplate} instead, can be created using {@link org.apache.camel.CamelContext#createProducerTemplate()}.  */
 end_comment
 
 begin_class
-DECL|class|TemplateUsingBean
+DECL|class|CamelTemplate
 specifier|public
 class|class
-name|TemplateUsingBean
+name|CamelTemplate
+parameter_list|<
+name|E
+extends|extends
+name|Exchange
+parameter_list|>
+extends|extends
+name|DefaultProducerTemplate
+argument_list|<
+name|E
+argument_list|>
 block|{
-DECL|field|template
-specifier|private
-name|ProducerTemplate
-name|template
-decl_stmt|;
-DECL|method|getTemplate ()
+DECL|method|CamelTemplate (CamelContext context)
 specifier|public
-name|ProducerTemplate
-name|getTemplate
-parameter_list|()
-block|{
-return|return
-name|template
-return|;
-block|}
-DECL|method|setTemplate (ProducerTemplate template)
-specifier|public
-name|void
-name|setTemplate
+name|CamelTemplate
 parameter_list|(
-name|ProducerTemplate
-name|template
+name|CamelContext
+name|context
 parameter_list|)
 block|{
-name|this
-operator|.
-name|template
-operator|=
-name|template
+name|super
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|CamelTemplate (CamelContext context, Endpoint defaultEndpoint)
+specifier|public
+name|CamelTemplate
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Endpoint
+name|defaultEndpoint
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|,
+name|defaultEndpoint
+argument_list|)
 expr_stmt|;
 block|}
 block|}

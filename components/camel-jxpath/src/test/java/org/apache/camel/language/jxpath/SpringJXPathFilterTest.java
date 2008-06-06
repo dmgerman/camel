@@ -38,11 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|ProducerTemplate
 import|;
 end_import
 
@@ -54,9 +50,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
 operator|.
-name|CamelTemplate
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
@@ -124,7 +122,7 @@ annotation|@
 name|Autowired
 DECL|field|template
 specifier|protected
-name|CamelTemplate
+name|ProducerTemplate
 name|template
 decl_stmt|;
 annotation|@

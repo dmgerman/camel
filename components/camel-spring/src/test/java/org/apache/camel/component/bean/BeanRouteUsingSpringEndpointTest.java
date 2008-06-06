@@ -48,9 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|CamelTemplate
+name|ProducerTemplate
 import|;
 end_import
 
@@ -118,7 +116,7 @@ annotation|@
 name|Autowired
 DECL|field|template
 specifier|protected
-name|CamelTemplate
+name|ProducerTemplate
 name|template
 decl_stmt|;
 annotation|@

@@ -144,9 +144,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|ProducerTemplate
 import|;
 end_import
 
@@ -158,9 +156,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|builder
 operator|.
-name|CamelTemplate
+name|RouteBuilder
 import|;
 end_import
 
@@ -455,7 +453,7 @@ name|parentApplicationContextUri
 decl_stmt|;
 DECL|field|camelTemplate
 specifier|private
-name|CamelTemplate
+name|ProducerTemplate
 name|camelTemplate
 decl_stmt|;
 DECL|method|Main ()
@@ -1759,10 +1757,10 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Returns a {@link CamelTemplate} from the Spring {@link ApplicationContext} instances      * or lazily creates a new one dynamically      *      * @return      */
+comment|/**      * Returns a {@link ProducerTemplate} from the Spring {@link ApplicationContext} instances      * or lazily creates a new one dynamically      *      * @return      */
 DECL|method|getCamelTemplate ()
 specifier|public
-name|CamelTemplate
+name|ProducerTemplate
 name|getCamelTemplate
 parameter_list|()
 block|{
@@ -1787,7 +1785,7 @@ comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|findOrCreateCamelTemplate ()
 specifier|protected
-name|CamelTemplate
+name|ProducerTemplate
 name|findOrCreateCamelTemplate
 parameter_list|()
 block|{
@@ -1800,7 +1798,7 @@ argument_list|()
 operator|.
 name|getBeanNamesForType
 argument_list|(
-name|CamelTemplate
+name|ProducerTemplate
 operator|.
 name|class
 argument_list|)
@@ -1820,7 +1818,7 @@ condition|)
 block|{
 return|return
 operator|(
-name|CamelTemplate
+name|ProducerTemplate
 operator|)
 name|getApplicationContext
 argument_list|()
@@ -1832,7 +1830,7 @@ index|[
 literal|0
 index|]
 argument_list|,
-name|CamelTemplate
+name|ProducerTemplate
 operator|.
 name|class
 argument_list|)
@@ -1847,18 +1845,17 @@ name|camelContexts
 control|)
 block|{
 return|return
-operator|new
-name|CamelTemplate
-argument_list|(
 name|camelContext
-argument_list|)
+operator|.
+name|createProducerTemplate
+argument_list|()
 return|;
 block|}
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No CamelContexts are available so cannot create a CamelTemplate!"
+literal|"No CamelContexts are available so cannot create a ProducerTemplate!"
 argument_list|)
 throw|;
 block|}

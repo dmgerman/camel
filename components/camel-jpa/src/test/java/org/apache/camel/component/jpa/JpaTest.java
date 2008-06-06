@@ -19,6 +19,38 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+operator|.
+name|startServices
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+operator|.
+name|stopServices
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -150,9 +182,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|examples
-operator|.
-name|SendEmail
+name|ProducerTemplate
 import|;
 end_import
 
@@ -164,9 +194,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|examples
 operator|.
-name|CamelTemplate
+name|SendEmail
 import|;
 end_import
 
@@ -240,38 +270,6 @@ name|JpaTemplate
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-operator|.
-name|startServices
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-operator|.
-name|stopServices
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -312,14 +310,13 @@ argument_list|()
 decl_stmt|;
 DECL|field|template
 specifier|protected
-name|CamelTemplate
+name|ProducerTemplate
 name|template
 init|=
-operator|new
-name|CamelTemplate
-argument_list|(
 name|camelContext
-argument_list|)
+operator|.
+name|createProducerTemplate
+argument_list|()
 decl_stmt|;
 DECL|field|endpoint
 specifier|protected

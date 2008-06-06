@@ -58,9 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|CamelTemplate
+name|ProducerTemplate
 import|;
 end_import
 
@@ -296,7 +294,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// now lets send a message
-name|CamelTemplate
+name|ProducerTemplate
 name|template
 init|=
 name|main

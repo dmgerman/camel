@@ -122,9 +122,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|ProducerTemplate
 import|;
 end_import
 
@@ -136,9 +134,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|builder
 operator|.
-name|CamelTemplate
+name|RouteBuilder
 import|;
 end_import
 
@@ -314,20 +312,16 @@ argument_list|(
 literal|"direct:hello"
 argument_list|)
 decl_stmt|;
-name|CamelTemplate
+name|ProducerTemplate
 argument_list|<
 name|Exchange
 argument_list|>
 name|template
 init|=
-operator|new
-name|CamelTemplate
-argument_list|<
-name|Exchange
-argument_list|>
-argument_list|(
 name|camelContext
-argument_list|)
+operator|.
+name|createProducerTemplate
+argument_list|()
 decl_stmt|;
 name|Exchange
 name|exchange

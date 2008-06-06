@@ -76,20 +76,6 @@ name|ProducerTemplate
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|CamelTemplate
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -143,12 +129,12 @@ literal|"direct:fieldInjectedCamelTemplate"
 argument_list|)
 DECL|field|fieldInjectedCamelTemplate
 specifier|private
-name|CamelTemplate
+name|ProducerTemplate
 name|fieldInjectedCamelTemplate
 decl_stmt|;
 DECL|field|propertyInjectedCamelTemplate
 specifier|private
-name|CamelTemplate
+name|ProducerTemplate
 name|propertyInjectedCamelTemplate
 decl_stmt|;
 annotation|@
@@ -274,7 +260,7 @@ comment|// CamelTemplate
 comment|//-----------------------------------------------------------------------
 DECL|method|getFieldInjectedCamelTemplate ()
 specifier|public
-name|CamelTemplate
+name|ProducerTemplate
 name|getFieldInjectedCamelTemplate
 parameter_list|()
 block|{
@@ -284,7 +270,7 @@ return|;
 block|}
 DECL|method|getPropertyInjectedCamelTemplate ()
 specifier|public
-name|CamelTemplate
+name|ProducerTemplate
 name|getPropertyInjectedCamelTemplate
 parameter_list|()
 block|{
@@ -299,12 +285,12 @@ name|uri
 operator|=
 literal|"direct:propertyInjectedCamelTemplate"
 argument_list|)
-DECL|method|setPropertyInjectedCamelTemplate (CamelTemplate propertyInjectedCamelTemplate)
+DECL|method|setPropertyInjectedCamelTemplate (ProducerTemplate propertyInjectedCamelTemplate)
 specifier|public
 name|void
 name|setPropertyInjectedCamelTemplate
 parameter_list|(
-name|CamelTemplate
+name|ProducerTemplate
 name|propertyInjectedCamelTemplate
 parameter_list|)
 block|{

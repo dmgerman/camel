@@ -242,7 +242,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|CamelTemplate
+name|DefaultProducerTemplate
 import|;
 end_import
 
@@ -1193,7 +1193,7 @@ name|type
 operator|.
 name|isAssignableFrom
 argument_list|(
-name|CamelTemplate
+name|DefaultProducerTemplate
 operator|.
 name|class
 argument_list|)
@@ -1201,7 +1201,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|CamelTemplate
+name|DefaultProducerTemplate
 argument_list|(
 name|getCamelContext
 argument_list|()

@@ -38,11 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsExchange
+name|ProducerTemplate
 import|;
 end_import
 
@@ -54,9 +50,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
 operator|.
-name|CamelTemplate
+name|jms
+operator|.
+name|JmsExchange
 import|;
 end_import
 
@@ -125,14 +123,14 @@ argument_list|(
 literal|"camel-client.xml"
 argument_list|)
 decl_stmt|;
-name|CamelTemplate
+name|ProducerTemplate
 argument_list|<
 name|JmsExchange
 argument_list|>
 name|camelTemplate
 init|=
 operator|(
-name|CamelTemplate
+name|ProducerTemplate
 operator|)
 name|context
 operator|.

@@ -114,9 +114,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|CamelTemplate
+name|ProducerTemplate
 import|;
 end_import
 
@@ -329,20 +327,16 @@ argument_list|()
 decl_stmt|;
 DECL|field|template
 specifier|protected
-name|CamelTemplate
+name|ProducerTemplate
 argument_list|<
 name|CxfExchange
 argument_list|>
 name|template
 init|=
-operator|new
-name|CamelTemplate
-argument_list|<
-name|CxfExchange
-argument_list|>
-argument_list|(
 name|camelContext
-argument_list|)
+operator|.
+name|createProducerTemplate
+argument_list|()
 decl_stmt|;
 DECL|field|simpleServer
 specifier|private

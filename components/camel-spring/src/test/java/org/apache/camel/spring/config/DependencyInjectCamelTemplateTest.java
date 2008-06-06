@@ -38,11 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|ProducerTemplate
 import|;
 end_import
 
@@ -54,9 +50,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
 operator|.
-name|CamelTemplate
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
@@ -161,7 +159,7 @@ argument_list|,
 name|bean
 argument_list|)
 expr_stmt|;
-name|CamelTemplate
+name|ProducerTemplate
 name|template
 init|=
 name|bean

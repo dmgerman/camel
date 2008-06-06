@@ -150,9 +150,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|examples
-operator|.
-name|MultiSteps
+name|ProducerTemplate
 import|;
 end_import
 
@@ -164,9 +162,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|examples
 operator|.
-name|CamelTemplate
+name|MultiSteps
 import|;
 end_import
 
@@ -294,14 +292,13 @@ argument_list|()
 decl_stmt|;
 DECL|field|template
 specifier|protected
-name|CamelTemplate
+name|ProducerTemplate
 name|template
 init|=
-operator|new
-name|CamelTemplate
-argument_list|(
 name|camelContext
-argument_list|)
+operator|.
+name|createProducerTemplate
+argument_list|()
 decl_stmt|;
 DECL|field|endpoint
 specifier|protected

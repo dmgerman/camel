@@ -132,7 +132,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|CamelTemplate
+name|DefaultProducerTemplate
 import|;
 end_import
 
@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Spring {@link FactoryBean} for creating a new {@link CamelTemplate}  * instance with a minimum of XML  *   * @version $Revision$  */
+comment|/**  * A Spring {@link FactoryBean} for creating a new {@link ProducerTemplate}  * instance with a minimum of XML  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -305,7 +305,7 @@ else|else
 block|{
 return|return
 operator|new
-name|CamelTemplate
+name|DefaultProducerTemplate
 argument_list|(
 name|context
 argument_list|,
@@ -316,7 +316,7 @@ block|}
 block|}
 return|return
 operator|new
-name|CamelTemplate
+name|DefaultProducerTemplate
 argument_list|(
 name|context
 argument_list|)
@@ -329,7 +329,7 @@ name|getObjectType
 parameter_list|()
 block|{
 return|return
-name|CamelTemplate
+name|DefaultProducerTemplate
 operator|.
 name|class
 return|;
