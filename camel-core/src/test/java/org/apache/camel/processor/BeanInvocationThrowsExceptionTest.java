@@ -271,7 +271,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|// START SNIPPET: e1
+comment|// END SNIPPET: e1
 block|}
 end_class
 
