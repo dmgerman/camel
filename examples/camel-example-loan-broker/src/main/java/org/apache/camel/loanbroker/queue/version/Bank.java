@@ -72,6 +72,10 @@ name|LogFactory
 import|;
 end_import
 
+begin_comment
+comment|//START SNIPPET: bank
+end_comment
+
 begin_class
 DECL|class|Bank
 specifier|public
@@ -134,7 +138,7 @@ literal|"Receiving bank request"
 argument_list|)
 expr_stmt|;
 name|String
-name|clientId
+name|ssn
 init|=
 operator|(
 name|String
@@ -148,7 +152,7 @@ name|getHeader
 argument_list|(
 name|Constants
 operator|.
-name|PROPERTY_CLIENT_ID
+name|PROPERTY_SSN
 argument_list|)
 decl_stmt|;
 name|double
@@ -171,7 +175,7 @@ name|bankName
 operator|+
 literal|" for client: "
 operator|+
-name|clientId
+name|ssn
 operator|+
 literal|" 's rate "
 operator|+
@@ -219,9 +223,9 @@ name|setHeader
 argument_list|(
 name|Constants
 operator|.
-name|PROPERTY_CLIENT_ID
+name|PROPERTY_SSN
 argument_list|,
-name|clientId
+name|ssn
 argument_list|)
 expr_stmt|;
 comment|// Sleep some time
@@ -258,6 +262,10 @@ block|}
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: bank
+end_comment
 
 end_unit
 

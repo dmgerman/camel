@@ -48,6 +48,10 @@ name|AggregationStrategy
 import|;
 end_import
 
+begin_comment
+comment|//START SNIPPET: aggregation
+end_comment
+
 begin_class
 DECL|class|BankResponseAggregationStrategy
 specifier|public
@@ -56,6 +60,7 @@ name|BankResponseAggregationStrategy
 implements|implements
 name|AggregationStrategy
 block|{
+comment|// Here we put the bank response together
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
 name|Exchange
@@ -153,6 +158,7 @@ operator|=
 name|newExchange
 expr_stmt|;
 block|}
+comment|// Set the property for the completeness condition
 name|result
 operator|.
 name|setProperty
@@ -164,13 +170,16 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// copy the bank response together
 return|return
 name|result
 return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: aggregation
+end_comment
 
 end_unit
 

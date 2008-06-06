@@ -72,6 +72,10 @@ name|LogFactory
 import|;
 end_import
 
+begin_comment
+comment|//START SNIPPET: creditAgency
+end_comment
+
 begin_class
 DECL|class|CreditAgency
 specifier|public
@@ -116,7 +120,7 @@ literal|"Receiving credit agency request"
 argument_list|)
 expr_stmt|;
 name|String
-name|clientId
+name|ssn
 init|=
 operator|(
 name|String
@@ -130,7 +134,7 @@ name|getHeader
 argument_list|(
 name|Constants
 operator|.
-name|PROPERTY_CLIENT_ID
+name|PROPERTY_SSN
 argument_list|)
 decl_stmt|;
 name|int
@@ -212,14 +216,18 @@ name|setHeader
 argument_list|(
 name|Constants
 operator|.
-name|PROPERTY_CLIENT_ID
+name|PROPERTY_SSN
 argument_list|,
-name|clientId
+name|ssn
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: creditAgency
+end_comment
 
 end_unit
 

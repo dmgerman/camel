@@ -134,6 +134,20 @@ name|DefaultCamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultProducerTemplate
+import|;
+end_import
+
 begin_class
 DECL|class|Client
 specifier|public
@@ -209,6 +223,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// START SNIPPET: sending
+comment|// send out the request message
 for|for
 control|(
 name|int
@@ -234,7 +250,7 @@ literal|"Quote for the lowerst rate of loaning bank"
 argument_list|,
 name|Constants
 operator|.
-name|PROPERTY_CLIENT_ID
+name|PROPERTY_SSN
 argument_list|,
 literal|"Client"
 operator|+
@@ -242,6 +258,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
+comment|// END SNIPPET: sending
 comment|// Start the loan broker
 name|Thread
 operator|.
@@ -258,16 +275,17 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Lets configure the Camel routing rules using Java code...      */
+comment|/**      * Lets configure the Camel routing rules using Java code to pull the response message      */
 DECL|method|configure ()
 specifier|public
 name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: pulling
 name|from
 argument_list|(
-literal|"test-jms:queue:loanReply"
+literal|"test-jms:queue:loanReplyQueue"
 argument_list|)
 operator|.
 name|process
@@ -286,7 +304,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// Print out the message
+comment|// Print out the response message
 name|System
 operator|.
 name|out
@@ -306,6 +324,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: pulling
 block|}
 block|}
 end_class

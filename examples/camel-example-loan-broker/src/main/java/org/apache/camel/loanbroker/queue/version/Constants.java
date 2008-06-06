@@ -26,12 +26,6 @@ specifier|public
 interface|interface
 name|Constants
 block|{
-DECL|field|LOANBROKER_NS
-name|String
-name|LOANBROKER_NS
-init|=
-literal|"http://servicemix.org/demos/loan-broker"
-decl_stmt|;
 DECL|field|LOANBROKER_SERVICE
 name|String
 name|LOANBROKER_SERVICE
@@ -85,12 +79,6 @@ name|String
 name|PROPERTY_RECIPIENTS
 init|=
 literal|"recipients"
-decl_stmt|;
-DECL|field|PROPERTY_CLIENT_ID
-name|String
-name|PROPERTY_CLIENT_ID
-init|=
-literal|"client_Id"
 decl_stmt|;
 DECL|field|PROPERTY_RATE
 name|String

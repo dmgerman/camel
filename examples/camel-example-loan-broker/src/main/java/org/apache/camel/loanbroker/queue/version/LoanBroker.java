@@ -141,6 +141,7 @@ extends|extends
 name|RouteBuilder
 block|{
 comment|/**      * A main() so we can easily run these routing rules in our IDE      * @throws Exception      */
+comment|// START SNIPPET: starting
 DECL|method|main (String... args)
 specifier|public
 specifier|static
@@ -183,7 +184,7 @@ argument_list|(
 literal|"tcp://localhost:61616"
 argument_list|)
 decl_stmt|;
-comment|// Note we can explicity name the component
+comment|// Note we can explicitly name the component
 name|context
 operator|.
 name|addComponent
@@ -207,12 +208,12 @@ name|LoanBroker
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Start the loan broker
 name|context
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// Start the loan broker
 name|Thread
 operator|.
 name|sleep
@@ -242,6 +243,7 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+comment|// END SNIPPET: starting
 comment|/**      * Lets configure the Camel routing rules using Java code...      */
 DECL|method|configure ()
 specifier|public
@@ -249,6 +251,8 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: dsl
+comment|// Put the message from loanRequestQueue to the creditRequestQueue
 name|from
 argument_list|(
 literal|"test-jms:queue:loanRequestQueue"
@@ -259,6 +263,7 @@ argument_list|(
 literal|"test-jms:queue:creditRequestQueue"
 argument_list|)
 expr_stmt|;
+comment|// Now we can let the CreditAgency process the request, then the message will be put into creditResponseQueue
 name|from
 argument_list|(
 literal|"test-jms:queue:creditRequestQueue"
@@ -276,6 +281,7 @@ argument_list|(
 literal|"test-jms:queue:creditResponseQueue"
 argument_list|)
 expr_stmt|;
+comment|// Here we use the multicast pattern to send the message to three different bank queue
 name|from
 argument_list|(
 literal|"test-jms:queue:creditResponseQueue"
@@ -293,6 +299,7 @@ argument_list|,
 literal|"test-jms:queue:bank3"
 argument_list|)
 expr_stmt|;
+comment|// Each bank process will process the message and put the response message into the bankReplyQueue
 name|from
 argument_list|(
 literal|"test-jms:queue:bank1"
@@ -350,6 +357,8 @@ argument_list|(
 literal|"test-jms:queue:bankReplyQueue"
 argument_list|)
 expr_stmt|;
+comment|// Now we aggregating the response message by using the Constants.PROPERTY_SSN header
+comment|// The aggregation will completed when the three bank responses are received
 name|from
 argument_list|(
 literal|"test-jms:queue:bankReplyQueue"
@@ -361,7 +370,7 @@ name|header
 argument_list|(
 name|Constants
 operator|.
-name|PROPERTY_CLIENT_ID
+name|PROPERTY_SSN
 argument_list|)
 argument_list|,
 operator|new
@@ -381,6 +390,7 @@ argument_list|(
 literal|3
 argument_list|)
 argument_list|)
+comment|// Here we do some translation and put the message back to loanReplyQueue
 operator|.
 name|process
 argument_list|(
@@ -391,9 +401,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test-jms:queue:loanReply"
+literal|"test-jms:queue:loanReplyQueue"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: dsl
 block|}
 block|}
 end_class

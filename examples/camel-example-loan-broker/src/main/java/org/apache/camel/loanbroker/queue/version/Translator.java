@@ -44,6 +44,10 @@ name|Processor
 import|;
 end_import
 
+begin_comment
+comment|//START SNIPPET: translator
+end_comment
+
 begin_class
 DECL|class|Translator
 specifier|public
@@ -100,7 +104,7 @@ name|PROPERTY_RATE
 argument_list|)
 decl_stmt|;
 name|String
-name|clientId
+name|ssn
 init|=
 operator|(
 name|String
@@ -114,7 +118,7 @@ name|getHeader
 argument_list|(
 name|Constants
 operator|.
-name|PROPERTY_CLIENT_ID
+name|PROPERTY_SSN
 argument_list|)
 decl_stmt|;
 name|exchange
@@ -126,7 +130,7 @@ name|setBody
 argument_list|(
 literal|"Loan quotion for Client "
 operator|+
-name|clientId
+name|ssn
 operator|+
 literal|"The lowest rate of bank is "
 operator|+
@@ -140,6 +144,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: translator
+end_comment
 
 end_unit
 
