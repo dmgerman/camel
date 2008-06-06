@@ -93,5 +93,9 @@ block|}
 block|}
 end_class
 
+begin_comment
+comment|//END SNIPPET: creditAgencyImpl
+end_comment
+
 end_unit
 

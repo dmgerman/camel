@@ -32,6 +32,10 @@ name|WebService
 import|;
 end_import
 
+begin_comment
+comment|//START SNIPPET: creditAgency
+end_comment
+
 begin_interface
 annotation|@
 name|WebService
@@ -58,6 +62,10 @@ parameter_list|)
 function_decl|;
 block|}
 end_interface
+
+begin_comment
+comment|//END SNIPPET: creditAgency
+end_comment
 
 end_unit
 

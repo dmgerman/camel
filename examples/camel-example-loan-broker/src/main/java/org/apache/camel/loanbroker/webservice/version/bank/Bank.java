@@ -22,6 +22,10 @@ name|bank
 package|;
 end_package
 
+begin_comment
+comment|//START SNIPPET: bankImpl
+end_comment
+
 begin_class
 DECL|class|Bank
 specifier|public
@@ -156,6 +160,10 @@ return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: bankImpl
+end_comment
 
 end_unit
 

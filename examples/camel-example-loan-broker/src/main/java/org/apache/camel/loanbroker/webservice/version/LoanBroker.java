@@ -326,7 +326,7 @@ name|LoanBroker
 extends|extends
 name|RouteBuilder
 block|{
-comment|/**      * A main() so we can easily run these routing rules in our IDE      * @throws Exception      */
+comment|//START SNIPPET: server
 DECL|method|main (String... args)
 specifier|public
 specifier|static
@@ -354,11 +354,13 @@ operator|new
 name|CreditAgencyServer
 argument_list|()
 decl_stmt|;
+comment|// Start the credit server
 name|creditAgencyServer
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// Start the bank server
 name|BankServer
 name|bankServer
 init|=
@@ -371,6 +373,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// Start the camel context
 name|context
 operator|.
 name|addRoutes
@@ -420,6 +423,7 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+comment|//END SNIPPET: server
 comment|/**      * Lets configure the Camel routing rules using Java code...      */
 DECL|method|configure ()
 specifier|public
@@ -427,13 +431,15 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// Option 1 to call the bank endpoints sequentially
+comment|// START SNIPPET: dsl
+comment|// Router 1 to call the bank endpoints sequentially
 name|from
 argument_list|(
 name|Constants
 operator|.
 name|LOANBROKER_URI
 argument_list|)
+comment|// Using the CreditScoreProcessor to call the credit agency service
 operator|.
 name|process
 argument_list|(
@@ -445,6 +451,7 @@ operator|.
 name|CREDITAGENCY_ADDRESS
 argument_list|)
 argument_list|)
+comment|// Set the aggregation strategy on the multicast pattern
 operator|.
 name|multicast
 argument_list|(
@@ -452,6 +459,7 @@ operator|new
 name|BankResponseAggregationStrategy
 argument_list|()
 argument_list|)
+comment|// Send out the request the below three different banks sequentially
 operator|.
 name|to
 argument_list|(
@@ -468,7 +476,7 @@ operator|.
 name|BANK3_URI
 argument_list|)
 expr_stmt|;
-comment|// Option 2 to call the bank endpoints parallelly
+comment|// Router 2 to call the bank endpoints parallelly
 name|from
 argument_list|(
 name|Constants
@@ -486,6 +494,7 @@ operator|.
 name|CREDITAGENCY_ADDRESS
 argument_list|)
 argument_list|)
+comment|// Using the thread pool to send out message to the below three different banks parallelly
 operator|.
 name|multicast
 argument_list|(
@@ -511,7 +520,9 @@ operator|.
 name|BANK3_URI
 argument_list|)
 expr_stmt|;
+comment|//END SNIPPET: dsl
 block|}
+comment|//START SNIPPET: credit
 DECL|class|CreditScoreProcessor
 class|class
 name|CreditScoreProcessor
@@ -552,6 +563,7 @@ name|CreditAgencyWS
 name|getProxy
 parameter_list|()
 block|{
+comment|// Here we use JaxWs front end to create the proxy
 name|JaxWsProxyFactoryBean
 name|proxyFactory
 init|=
@@ -571,9 +583,7 @@ name|clientBean
 operator|.
 name|setAddress
 argument_list|(
-name|Constants
-operator|.
-name|CREDITAGENCY_ADDRESS
+name|creditAgencyAddress
 argument_list|)
 expr_stmt|;
 name|clientBean
@@ -705,7 +715,6 @@ argument_list|(
 name|ssn
 argument_list|)
 decl_stmt|;
-comment|//exchange.getOut().setBody("The ssn's historyLength is " + historyLength + " score is " + score);
 comment|// create the invocation message for Bank client
 name|List
 argument_list|<
@@ -781,6 +790,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|//END SNIPPET: credit
 block|}
 end_class
 

@@ -64,6 +64,10 @@ begin_comment
 comment|/**  * The client that will invoke the loan broker service  */
 end_comment
 
+begin_comment
+comment|//START SNIPPET: client
+end_comment
+
 begin_class
 DECL|class|Client
 specifier|public
@@ -79,6 +83,7 @@ name|String
 name|address
 parameter_list|)
 block|{
+comment|// Now we use the simple front API to create the client proxy
 name|ClientProxyFactoryBean
 name|proxyFactory
 init|=
@@ -288,6 +293,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: client
+end_comment
 
 end_unit
 

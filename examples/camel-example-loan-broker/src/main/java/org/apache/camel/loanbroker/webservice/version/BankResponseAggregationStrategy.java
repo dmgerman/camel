@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|//START SNIPPET: aggregating
 end_comment
 
 begin_class
@@ -101,6 +101,7 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
+comment|// Get the bank quote instance from the exchange
 name|BankQuote
 name|oldQuote
 init|=
@@ -115,6 +116,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// Get the oldQute from out message body if we can't get it from the exchange
 if|if
 condition|(
 name|oldQuote
@@ -149,6 +151,7 @@ literal|0
 index|]
 expr_stmt|;
 block|}
+comment|// Get the newQuote
 name|Object
 index|[]
 name|newResult
@@ -217,7 +220,7 @@ operator|=
 name|newQuote
 expr_stmt|;
 block|}
-comment|// Copy the bank response together
+comment|// Set the lower rate BankQuote instance back to aggregated exchange
 name|result
 operator|.
 name|setProperty
@@ -227,6 +230,7 @@ argument_list|,
 name|bankQuote
 argument_list|)
 expr_stmt|;
+comment|// Set the return message for the client
 name|result
 operator|.
 name|getOut
@@ -248,6 +252,10 @@ return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: aggregating
+end_comment
 
 end_unit
 

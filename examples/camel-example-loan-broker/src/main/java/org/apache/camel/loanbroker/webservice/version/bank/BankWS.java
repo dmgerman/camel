@@ -32,6 +32,14 @@ name|WebService
 import|;
 end_import
 
+begin_comment
+comment|//START SNIPPET: bank
+end_comment
+
+begin_comment
+comment|// Since we use @WebServices here, please make sure to use JaxWs frontend API create the client and server
+end_comment
+
 begin_interface
 annotation|@
 name|WebService
@@ -67,6 +75,10 @@ parameter_list|)
 function_decl|;
 block|}
 end_interface
+
+begin_comment
+comment|//END SNIPPET: bank
+end_comment
 
 end_unit
 

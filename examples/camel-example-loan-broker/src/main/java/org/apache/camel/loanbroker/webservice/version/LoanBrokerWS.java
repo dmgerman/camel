@@ -20,6 +20,14 @@ name|version
 package|;
 end_package
 
+begin_comment
+comment|//START SNIPPET: loanBroker
+end_comment
+
+begin_comment
+comment|// This SEI has no @WebService annotation, we use the simple frontend API to create client and server
+end_comment
+
 begin_interface
 DECL|interface|LoanBrokerWS
 specifier|public
@@ -42,6 +50,10 @@ parameter_list|)
 function_decl|;
 block|}
 end_interface
+
+begin_comment
+comment|//END SNIPPET: loanBroker
+end_comment
 
 end_unit
 
