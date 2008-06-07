@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a JAXB2 representation of a Camel {@link Message}  *  * @version $Revision$  */
+comment|/**  * Represents a JAXB2 representation of a Camel {@link Message} -<b>Important</b>: work in progress!  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -204,15 +204,17 @@ specifier|public
 class|class
 name|MessageType
 block|{
+comment|// TODO: XmlElementRef to the abstrac class HeaderType does not work (CAMEL-583)
+comment|//@XmlElementRef(type = HeaderType.class)
 annotation|@
-name|XmlElementRef
+name|XmlAnyElement
 argument_list|(
-name|type
+name|lax
 operator|=
-name|HeaderType
-operator|.
-name|class
+literal|true
 argument_list|)
+annotation|@
+name|XmlMixed
 DECL|field|headers
 name|List
 argument_list|<
