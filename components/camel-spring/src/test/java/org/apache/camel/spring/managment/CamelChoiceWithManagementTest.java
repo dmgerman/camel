@@ -19,24 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-operator|.
-name|expectsMessageCount
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -113,6 +95,24 @@ operator|.
 name|spring
 operator|.
 name|SpringInstrumentationAgent
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+operator|.
+name|expectsMessageCount
 import|;
 end_import
 

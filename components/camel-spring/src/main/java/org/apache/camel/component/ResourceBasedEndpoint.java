@@ -22,7 +22,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|ByteArrayInputStream
 import|;
 end_import
 
@@ -32,7 +32,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayInputStream
+name|IOException
 import|;
 end_import
 
@@ -220,8 +220,6 @@ DECL|field|contentCache
 specifier|private
 name|boolean
 name|contentCache
-init|=
-literal|false
 decl_stmt|;
 DECL|field|buffer
 specifier|private
@@ -390,7 +388,7 @@ operator|=
 name|contentCache
 expr_stmt|;
 block|}
-comment|/**      * Gets the resource as an input stream considering the cache flag as well.      *<p/>      * If cache is enabled then the resource content is cached in an internal buffer and this content is      * returned to avoid loading the resource over and over again.      *       * @return  the input stream      * @throws IOException is thrown if error loading the content of the resource to the local cache buffer      */
+comment|/**      * Gets the resource as an input stream considering the cache flag as well.      *<p/>      * If cache is enabled then the resource content is cached in an internal buffer and this content is      * returned to avoid loading the resource over and over again.      *      * @return  the input stream      * @throws IOException is thrown if error loading the content of the resource to the local cache buffer      */
 DECL|method|getResourceAsInputStream ()
 specifier|public
 name|InputStream

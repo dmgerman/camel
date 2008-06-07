@@ -38,6 +38,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -62,22 +76,8 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
-import|;
-end_import
-
 begin_comment
-comment|/**  * Unit test the cahce when reloading .vm files in the classpath  */
+comment|/**  * Unit test the cache when reloading .vm files in the classpath  */
 end_comment
 
 begin_class
