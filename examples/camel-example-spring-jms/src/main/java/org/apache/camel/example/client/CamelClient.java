@@ -50,11 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsExchange
+name|CamelContext
 import|;
 end_import
 
@@ -95,13 +91,6 @@ specifier|final
 class|class
 name|CamelClient
 block|{
-DECL|method|CamelClient ()
-specifier|private
-name|CamelClient
-parameter_list|()
-block|{
-comment|// The main class
-block|}
 DECL|method|main (final String[] args)
 specifier|public
 specifier|static
@@ -113,7 +102,18 @@ name|String
 index|[]
 name|args
 parameter_list|)
+throws|throws
+name|Exception
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Notice this client requires that the CamelServer is already running!"
+argument_list|)
+expr_stmt|;
 name|ApplicationContext
 name|context
 init|=
@@ -124,9 +124,6 @@ literal|"camel-client.xml"
 argument_list|)
 decl_stmt|;
 name|ProducerTemplate
-argument_list|<
-name|JmsExchange
-argument_list|>
 name|camelTemplate
 init|=
 operator|(
@@ -139,6 +136,16 @@ argument_list|(
 literal|"camelTemplate"
 argument_list|)
 decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Invoking the multiply with 22"
+argument_list|)
+expr_stmt|;
+comment|// as opposed to the CamelClientRemoting example we need to define the service URI in this java code
 name|int
 name|response
 init|=
@@ -164,7 +171,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Invoking the multiply with 22, the result is "
+literal|"... the result is: "
 operator|+
 name|response
 argument_list|)

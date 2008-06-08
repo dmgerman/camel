@@ -44,7 +44,6 @@ name|ServerRoutes
 extends|extends
 name|RouteBuilder
 block|{
-comment|/*      * (non-Javadoc)      *      * @see org.apache.camel.builder.RouteBuilder#configure()      */
 annotation|@
 name|Override
 DECL|method|configure ()
@@ -55,6 +54,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// invoke the bean with the id multiplier, and its multiply method
 name|from
 argument_list|(
 literal|"jms:queue:numbers"

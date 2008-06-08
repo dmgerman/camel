@@ -49,7 +49,6 @@ name|Treble
 implements|implements
 name|Multiplier
 block|{
-comment|/*      * (non-Javadoc)      *      * @see org.example.server.Multiplier#multiply(int)      */
 DECL|method|multiply (final int originalNumber)
 specifier|public
 name|int

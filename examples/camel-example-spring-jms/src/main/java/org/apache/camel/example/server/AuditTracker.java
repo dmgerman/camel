@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.example.client
+DECL|package|org.apache.camel.example.server
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|example
 operator|.
-name|client
+name|server
 package|;
 end_package
 
@@ -26,11 +26,47 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|example
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|server
+name|apache
 operator|.
-name|Multiplier
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|aspectj
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Aspect
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|aspectj
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Before
 import|;
 end_import
 
@@ -40,101 +76,74 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|context
+name|beans
 operator|.
-name|ApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|factory
 operator|.
-name|springframework
+name|annotation
 operator|.
-name|context
-operator|.
-name|support
-operator|.
-name|ClassPathXmlApplicationContext
+name|Required
 import|;
 end_import
 
 begin_comment
-comment|/**  * Requires that the JMS broker is running, as well as CamelServer  *  * @author martin.gilday  */
+comment|/**  * For audit tracking of all incoming invocations of our business (Multiplier)  */
 end_comment
 
 begin_class
-DECL|class|CamelClientRemoting
+annotation|@
+name|Aspect
+DECL|class|AuditTracker
 specifier|public
-specifier|final
 class|class
-name|CamelClientRemoting
+name|AuditTracker
 block|{
-DECL|method|main (final String[] args)
+comment|// endpoint we use for backup store of audit tracks
+DECL|field|store
+specifier|private
+name|Endpoint
+name|store
+decl_stmt|;
+annotation|@
+name|Required
+DECL|method|setStore (Endpoint store)
 specifier|public
-specifier|static
 name|void
-name|main
+name|setStore
 parameter_list|(
-specifier|final
-name|String
-index|[]
-name|args
+name|Endpoint
+name|store
 parameter_list|)
 block|{
-name|System
+name|this
 operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Notice this client requires that the CamelServer is already running!"
-argument_list|)
+name|store
+operator|=
+name|store
 expr_stmt|;
-name|ApplicationContext
-name|context
-init|=
-operator|new
-name|ClassPathXmlApplicationContext
+block|}
+annotation|@
+name|Before
 argument_list|(
-literal|"camel-client-remoting.xml"
+literal|"execution(* org.apache.camel.example.server.Multiplier.*(..))&& args(originalNumber)"
 argument_list|)
-decl_stmt|;
-comment|// just get the proxy to the service and we as the client can use the "proxy" as it was
-comment|// a local object we are invocing. Camel will under the covers do the remote communication
-comment|// to the remote ActiveMQ server and fetch the response.
-name|Multiplier
-name|multiplier
-init|=
-operator|(
-name|Multiplier
-operator|)
-name|context
-operator|.
-name|getBean
-argument_list|(
-literal|"multiplierProxy"
-argument_list|)
-decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Invoking the multiply with 33"
-argument_list|)
-expr_stmt|;
+DECL|method|audit (int originalNumber)
+specifier|public
+name|void
+name|audit
+parameter_list|(
 name|int
-name|response
+name|originalNumber
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|String
+name|msg
 init|=
-name|multiplier
-operator|.
-name|multiply
-argument_list|(
-literal|33
-argument_list|)
+literal|"Someone called us with this number "
+operator|+
+name|originalNumber
 decl_stmt|;
 name|System
 operator|.
@@ -142,16 +151,36 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"... the result is: "
-operator|+
-name|response
+name|msg
 argument_list|)
 expr_stmt|;
-name|System
+comment|// now send the message to the backup store using the Camel Message Endpoint pattern
+name|Exchange
+name|exchange
+init|=
+name|store
 operator|.
-name|exit
+name|createExchange
+argument_list|()
+decl_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
 argument_list|(
-literal|0
+name|msg
+argument_list|)
+expr_stmt|;
+name|store
+operator|.
+name|createProducer
+argument_list|()
+operator|.
+name|process
+argument_list|(
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
