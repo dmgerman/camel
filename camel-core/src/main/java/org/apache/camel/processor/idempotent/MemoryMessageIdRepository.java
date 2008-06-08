@@ -85,7 +85,7 @@ operator|=
 name|set
 expr_stmt|;
 block|}
-comment|/**      * Creates a new MemoryMessageIdRepository with a memory based respository.      *<b>Warning</b> this method should only really be used for testing as it      * will involve keeping all message IDs in RAM.      */
+comment|/**      * Creates a new MemoryMessageIdRepository with a memory based repository.      *<b>Warning</b> this method should only really be used for testing as it      * will involve keeping all message IDs in RAM.      */
 DECL|method|memoryMessageIdRepository ()
 specifier|public
 specifier|static
@@ -102,7 +102,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new MemoryMessageIdRepository with a memory based respository.      *<b>Warning</b> this method should only really be used for testing as it      * will involve keeping all message IDs in RAM.      */
+comment|/**      * Creates a new MemoryMessageIdRepository with a memory based repository.      *<b>Warning</b> this method should only really be used for testing as it      * will involve keeping all message IDs in RAM.      */
 DECL|method|memoryMessageIdRepository (int cacheSize)
 specifier|public
 specifier|static
@@ -124,7 +124,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new MemoryMessageIdRepository using the given {@link Map} to      * use to store the processed Message ID objects. Warning be cafeful of the      * implementation of Map you use as if you are not careful it could be a      * memory leak.      */
+comment|/**      * Creates a new MemoryMessageIdRepository using the given {@link Map} to      * use to store the processed Message ID objects. Warning be careful of the      * implementation of Map you use as if you are not careful it could be a      * memory leak.      */
 DECL|method|memoryMessageIdRepository (Map cache)
 specifier|public
 specifier|static
