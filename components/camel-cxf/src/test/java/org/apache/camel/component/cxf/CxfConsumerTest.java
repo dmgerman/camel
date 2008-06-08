@@ -176,6 +176,28 @@ name|CxfConsumerTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|SIMPLE_ENDPOINT_ADDRESS
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|SIMPLE_ENDPOINT_ADDRESS
+init|=
+literal|"http://localhost:28080/test"
+decl_stmt|;
+DECL|field|SIMPLE_ENDPOINT_URI
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|SIMPLE_ENDPOINT_URI
+init|=
+literal|"cxf://"
+operator|+
+name|SIMPLE_ENDPOINT_ADDRESS
+operator|+
+literal|"?serviceClass=org.apache.camel.component.cxf.HelloService"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -192,28 +214,6 @@ name|CxfProducerRouterTest
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-DECL|field|SIMPLE_ENDPOINT_ADDRESS
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|SIMPLE_ENDPOINT_ADDRESS
-init|=
-literal|"http://localhost:28080/test"
-decl_stmt|;
-DECL|field|SIMPLE_ENDPOINT_URI
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|SIMPLE_ENDPOINT_URI
-init|=
-literal|"cxf://"
-operator|+
-name|SIMPLE_ENDPOINT_ADDRESS
-operator|+
-literal|"?serviceClass=org.apache.camel.component.cxf.HelloService"
 decl_stmt|;
 DECL|field|ECHO_OPERATION
 specifier|private
@@ -458,7 +458,7 @@ name|client
 operator|.
 name|echo
 argument_list|(
-literal|"hello world"
+name|TEST_MESSAGE
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -467,7 +467,9 @@ literal|"We should get the echo string result from router"
 argument_list|,
 name|result
 argument_list|,
-literal|"echo hello world"
+literal|"echo "
+operator|+
+name|TEST_MESSAGE
 argument_list|)
 expr_stmt|;
 name|Boolean
