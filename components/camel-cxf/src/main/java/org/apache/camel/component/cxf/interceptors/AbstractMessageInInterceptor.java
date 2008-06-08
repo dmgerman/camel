@@ -325,22 +325,6 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LogUtils
-operator|.
-name|getL7dLogger
-argument_list|(
-name|AbstractMessageInInterceptor
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|AbstractMessageInInterceptor (String phase)
 specifier|public
 name|AbstractMessageInInterceptor
@@ -382,7 +366,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Infer the OperationInfo from the XML Document and get the list of       * parts as DOM Element      */
+comment|/**      * Infer the OperationInfo from the XML Document and get the list of      * parts as DOM Element      */
 DECL|method|handleMessage (T message)
 specifier|public
 name|void
@@ -635,7 +619,8 @@ name|Message
 argument_list|(
 literal|"REQ_NOT_UNDERSTOOD"
 argument_list|,
-name|LOG
+name|getLogger
+argument_list|()
 argument_list|,
 name|startQName
 argument_list|)
@@ -864,7 +849,8 @@ name|Message
 argument_list|(
 literal|"STAX_READ_EXC"
 argument_list|,
-name|LOG
+name|getLogger
+argument_list|()
 argument_list|)
 argument_list|,
 name|xe

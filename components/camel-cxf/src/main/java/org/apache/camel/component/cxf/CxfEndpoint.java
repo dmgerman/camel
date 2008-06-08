@@ -179,11 +179,6 @@ specifier|private
 name|String
 name|serviceClass
 decl_stmt|;
-DECL|field|binding
-specifier|private
-name|CxfBinding
-name|binding
-decl_stmt|;
 DECL|field|portName
 specifier|private
 name|String

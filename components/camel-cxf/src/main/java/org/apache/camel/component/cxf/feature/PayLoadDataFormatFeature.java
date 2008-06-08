@@ -211,7 +211,7 @@ name|LogUtils
 operator|.
 name|getL7dLogger
 argument_list|(
-name|MessageDataFormatFeature
+name|PayLoadDataFormatFeature
 operator|.
 name|class
 argument_list|)

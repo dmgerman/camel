@@ -277,16 +277,13 @@ specifier|final
 name|Logger
 name|LOG
 init|=
-name|Logger
+name|LogUtils
 operator|.
-name|getLogger
+name|getL7dLogger
 argument_list|(
 name|CxfClient
 operator|.
 name|class
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|method|CxfClient (Bus b, Endpoint e)
