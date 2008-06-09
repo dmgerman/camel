@@ -1829,12 +1829,6 @@ decl_stmt|;
 name|JmsEndpoint
 name|endpoint
 decl_stmt|;
-name|QueueBrowseStrategy
-name|strategy
-init|=
-name|getQueueBrowseStrategy
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|pubSubDomain
@@ -1882,6 +1876,12 @@ block|}
 block|}
 else|else
 block|{
+name|QueueBrowseStrategy
+name|strategy
+init|=
+name|getQueueBrowseStrategy
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|tempDestination
