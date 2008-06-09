@@ -509,6 +509,8 @@ name|file
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchange ()
 specifier|public
 name|FileExchange
@@ -523,6 +525,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchange (ExchangePattern pattern)
 specifier|public
 name|FileExchange
@@ -1065,6 +1069,9 @@ name|createFileStrategy
 parameter_list|()
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|factory
 init|=
 literal|null
@@ -1243,9 +1250,7 @@ name|Boolean
 operator|.
 name|toString
 argument_list|(
-name|Boolean
-operator|.
-name|TRUE
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1266,9 +1271,7 @@ name|Boolean
 operator|.
 name|toString
 argument_list|(
-name|Boolean
-operator|.
-name|TRUE
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1289,9 +1292,7 @@ name|Boolean
 operator|.
 name|toString
 argument_list|(
-name|Boolean
-operator|.
-name|TRUE
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1312,9 +1313,7 @@ name|Boolean
 operator|.
 name|toString
 argument_list|(
-name|Boolean
-operator|.
-name|TRUE
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

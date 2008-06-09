@@ -841,14 +841,6 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 block|{
-name|RouteType
-name|route
-init|=
-name|routeContext
-operator|.
-name|getRoute
-argument_list|()
-decl_stmt|;
 name|Endpoint
 argument_list|<
 name|?

@@ -215,7 +215,7 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
-name|Double
+name|double
 name|number
 init|=
 name|Double

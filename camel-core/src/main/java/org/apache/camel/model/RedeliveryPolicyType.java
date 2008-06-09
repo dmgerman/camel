@@ -354,7 +354,9 @@ parameter_list|()
 block|{
 name|setUseCollisionAvoidance
 argument_list|(
-literal|true
+name|Boolean
+operator|.
+name|TRUE
 argument_list|)
 expr_stmt|;
 return|return
@@ -369,7 +371,9 @@ parameter_list|()
 block|{
 name|setUseExponentialBackOff
 argument_list|(
-literal|true
+name|Boolean
+operator|.
+name|TRUE
 argument_list|)
 expr_stmt|;
 return|return

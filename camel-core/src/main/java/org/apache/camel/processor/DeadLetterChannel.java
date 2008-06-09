@@ -1216,7 +1216,9 @@ name|setHeader
 argument_list|(
 name|REDELIVERED
 argument_list|,
-literal|true
+name|Boolean
+operator|.
+name|TRUE
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -1305,6 +1307,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -1323,6 +1327,8 @@ name|deadLetter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
