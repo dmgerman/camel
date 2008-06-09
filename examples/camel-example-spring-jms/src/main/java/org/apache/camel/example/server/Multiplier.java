@@ -22,6 +22,10 @@ begin_comment
 comment|/**  * @author martin.gilday  */
 end_comment
 
+begin_comment
+comment|// START SNIPPET: e1
+end_comment
+
 begin_interface
 DECL|interface|Multiplier
 specifier|public
@@ -39,6 +43,10 @@ parameter_list|)
 function_decl|;
 block|}
 end_interface
+
+begin_comment
+comment|// END SNIPPET: e1
+end_comment
 
 end_unit
 

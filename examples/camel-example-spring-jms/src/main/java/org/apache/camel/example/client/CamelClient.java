@@ -91,6 +91,7 @@ specifier|final
 class|class
 name|CamelClient
 block|{
+comment|// START SNIPPET: e1
 DECL|method|main (final String[] args)
 specifier|public
 specifier|static
@@ -184,6 +185,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+comment|// END SNIPPET: e1
 block|}
 end_class
 

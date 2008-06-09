@@ -34,6 +34,10 @@ begin_comment
 comment|/**  * @author martin.gilday  */
 end_comment
 
+begin_comment
+comment|// START SNIPPET: e1
+end_comment
+
 begin_class
 annotation|@
 name|Service
@@ -67,6 +71,10 @@ return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: e1
+end_comment
 
 end_unit
 
