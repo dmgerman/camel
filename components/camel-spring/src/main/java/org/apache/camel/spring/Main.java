@@ -506,7 +506,7 @@ literal|"a"
 argument_list|,
 literal|"applicationContext"
 argument_list|,
-literal|"Sets the classpath based pring ApplicationContext"
+literal|"Sets the classpath based spring ApplicationContext"
 argument_list|,
 literal|"applicationContext"
 argument_list|)
