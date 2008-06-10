@@ -1155,6 +1155,7 @@ return|;
 block|}
 else|else
 block|{
+comment|// if the result is the single object
 name|MessageContentsList
 name|resList
 init|=

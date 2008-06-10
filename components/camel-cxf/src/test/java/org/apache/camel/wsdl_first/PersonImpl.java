@@ -87,7 +87,6 @@ parameter_list|)
 throws|throws
 name|UnknownPersonFault
 block|{
-comment|//System.out.println("the server is invoked ");
 if|if
 condition|(
 name|personId
@@ -146,7 +145,7 @@ throw|throw
 operator|new
 name|UnknownPersonFault
 argument_list|(
-literal|null
+literal|"Get the null value of person name"
 argument_list|,
 name|fault
 argument_list|)
