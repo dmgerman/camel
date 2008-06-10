@@ -138,7 +138,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:a"
+literal|"seda:a"
 argument_list|,
 literal|"<hello id='123'>A</hello>"
 argument_list|)
@@ -147,7 +147,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:a"
+literal|"seda:a"
 argument_list|,
 literal|"<hello id='124'>B</hello>"
 argument_list|)
@@ -156,7 +156,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:a"
+literal|"seda:a"
 argument_list|,
 literal|"<hello id='125'>C</hello>"
 argument_list|)
@@ -204,7 +204,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:b"
+literal|"seda:b"
 argument_list|,
 literal|"<hello id='123'>A</hello>"
 argument_list|)
@@ -213,7 +213,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:b"
+literal|"seda:b"
 argument_list|,
 literal|"<hello id='125'>C</hello>"
 argument_list|)

@@ -68,28 +68,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// TODO fixme
+comment|//overdueEndpoint.expectedMessageCount(1);
 name|overdueEndpoint
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|overdueEndpoint
-operator|.
-name|message
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|predicate
-argument_list|(
-name|el
-argument_list|(
-literal|"${in.body.correlationKey == '124'}"
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//overdueEndpoint.message(0).predicate(el("${in.body.correlationKey == '124'}"));
 specifier|final
 name|CountDownLatch
 name|startLatch

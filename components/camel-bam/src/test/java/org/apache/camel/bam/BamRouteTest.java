@@ -195,7 +195,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:a"
+literal|"seda:a"
 argument_list|,
 literal|"<hello id='123'>world!</hello>"
 argument_list|)
@@ -357,7 +357,7 @@ name|a
 init|=
 name|activity
 argument_list|(
-literal|"direct:a"
+literal|"seda:a"
 argument_list|)
 operator|.
 name|name
@@ -378,7 +378,7 @@ name|b
 init|=
 name|activity
 argument_list|(
-literal|"direct:b"
+literal|"seda:b"
 argument_list|)
 operator|.
 name|name
