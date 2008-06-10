@@ -102,6 +102,13 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|jobExecutionContext
+operator|!=
+literal|null
+condition|)
+block|{
 name|setBody
 argument_list|(
 name|jobExecutionContext
@@ -110,6 +117,7 @@ name|getJobDetail
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getJobExecutionContext ()
 specifier|public
