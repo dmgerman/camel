@@ -501,11 +501,6 @@ name|fault
 parameter_list|)
 block|{
 comment|// We expect to get fault here
-name|fault
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}
