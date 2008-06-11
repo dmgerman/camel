@@ -26,6 +26,42 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ExchangePattern
 import|;
 end_import
@@ -38,19 +74,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
+name|Producer
 import|;
 end_import
 
@@ -81,15 +105,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Client that uses the {@link ProducerTemplate} to easily exchange messages with the Server.  *<p/>  * Requires that the JMS broker is running, as well as CamelServer  */
+comment|/**  * Client that uses the<a href="http://activemq.apache.org/camel/message-endpoint.html">Mesage Endpoint</a>  * pattern to easily exchange messages with the Server.  *<p/>  * Notice this very same API can use for all components in Camel, so if we were using TCP communication instead  * of JMS messaging we could just use<code>camel.getEndpoint("mina:tcp://someserver:port")</code>.  *<p/>  * Requires that the JMS broker is running, as well as CamelServer  */
 end_comment
 
 begin_class
-DECL|class|CamelClient
+DECL|class|CamelClientEndpoint
 specifier|public
 specifier|final
 class|class
-name|CamelClient
+name|CamelClientEndpoint
 block|{
 comment|// START SNIPPET: e1
 DECL|method|main (final String[] args)
@@ -124,47 +148,101 @@ argument_list|(
 literal|"camel-client.xml"
 argument_list|)
 decl_stmt|;
-comment|// get the camel template for Spring template style sending of messages (= producer)
-name|ProducerTemplate
-name|camelTemplate
+name|CamelContext
+name|camel
 init|=
 operator|(
-name|ProducerTemplate
+name|CamelContext
 operator|)
 name|context
 operator|.
 name|getBean
 argument_list|(
-literal|"camelTemplate"
+literal|"camel"
 argument_list|)
 decl_stmt|;
+comment|// get the endpoint from the camel context
+name|Endpoint
+name|endpoint
+init|=
+name|camel
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"jms:queue:numbers"
+argument_list|)
+decl_stmt|;
+comment|// create the exchange used for the communication
+comment|// we use the in out pattern for a synchronized exchange where we expect a response
+name|Exchange
+name|exchange
+init|=
+name|endpoint
+operator|.
+name|createExchange
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOut
+argument_list|)
+decl_stmt|;
+comment|// set the input on the in body
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"11"
+argument_list|)
+expr_stmt|;
+comment|// to send the exchange we need an producer to do it for us
+name|Producer
+name|producer
+init|=
+name|endpoint
+operator|.
+name|createProducer
+argument_list|()
+decl_stmt|;
+comment|// start the producer so it can operate
+name|producer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+comment|// let the producer process the exchange where it does all the work in this oneline of code
 name|System
 operator|.
 name|out
 operator|.
 name|println
 argument_list|(
-literal|"Invoking the multiply with 22"
+literal|"Invoking the multiply with 11"
 argument_list|)
 expr_stmt|;
-comment|// as opposed to the CamelClientRemoting example we need to define the service URI in this java code
+name|producer
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+comment|// get the response from the out body and cast it to an integer
 name|int
 name|response
 init|=
-operator|(
-name|Integer
-operator|)
-name|camelTemplate
+name|exchange
 operator|.
-name|sendBody
+name|getOut
+argument_list|()
+operator|.
+name|getBody
 argument_list|(
-literal|"jms:queue:numbers"
-argument_list|,
-name|ExchangePattern
+name|Integer
 operator|.
-name|InOut
-argument_list|,
-literal|22
+name|class
 argument_list|)
 decl_stmt|;
 name|System
@@ -177,6 +255,12 @@ literal|"... the result is: "
 operator|+
 name|response
 argument_list|)
+expr_stmt|;
+comment|// stop and exit the client
+name|producer
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 name|System
 operator|.
