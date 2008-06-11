@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author martin.gilday  */
+comment|/**  * This class defines the routes on the Server. The class extends a base class in Camel {@link RouteBuilder}  * that can be used to easily setup the routes in the configure() method.  */
 end_comment
 
 begin_comment
@@ -58,19 +58,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// invoke the bean with the id multiplier, and its multiply method
+comment|// route from the numbers queue to our business that is a spring bean registered with the id=multiplier
+comment|// Camel will introspect the multiplier bean and find the best candidate of the method to invoke.
+comment|// You can add annotations etc to help Camel find the method to invoke.
+comment|// As our multiplier bean only have one method its easy for Camel to find the method to use.
 name|from
 argument_list|(
 literal|"jms:queue:numbers"
 argument_list|)
 operator|.
-name|beanRef
+name|to
 argument_list|(
 literal|"multiplier"
-argument_list|,
-literal|"multiply"
 argument_list|)
 expr_stmt|;
+comment|// Camel has several ways to configure the same routing, we have defined some of them here below
+comment|// as above but with the bean: prefix
+comment|//from("jms:queue:numbers").to("bean:multiplier");
+comment|// beanRef is using explicity bean bindings to lookup the multiplier bean and invoke the multiply method
+comment|//from("jms:queue:numbers").beanRef("multiplier", "multiply");
+comment|// the same as above but expressed as a URI configuration
+comment|//from("jms:queue:numbers").to("bean:multiplier?methodName=multiply");
 block|}
 block|}
 end_class

@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author martin.gilday  */
+comment|/**  * Our business service.   */
 end_comment
 
 begin_comment

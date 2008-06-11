@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Requires that the JMS broker is running, as well as CamelServer  *  * @author martin.gilday  */
+comment|/**  * Client that uses Camel Spring Remoting for very easy integration with the server.  *<p/>  * Requires that the JMS broker is running, as well as CamelServer  */
 end_comment
 
 begin_class

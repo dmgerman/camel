@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author martin.gilday  */
+comment|/**  * This is the implementation of the business service.  */
 end_comment
 
 begin_comment

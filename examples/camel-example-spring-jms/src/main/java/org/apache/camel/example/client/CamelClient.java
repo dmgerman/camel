@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Requires that the JMS broker is running, as well as CamelServer  *  * @author martin.gilday  */
+comment|/**  * Client that uses the {@link ProducerTemplate} to easily exchange messages with the Server.  *<p/>  * Requires that the JMS broker is running, as well as CamelServer  */
 end_comment
 
 begin_class
