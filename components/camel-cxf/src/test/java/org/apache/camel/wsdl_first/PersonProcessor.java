@@ -110,6 +110,10 @@ name|MessageContentsList
 import|;
 end_import
 
+begin_comment
+comment|// START SNIPPET: personProcessor
+end_comment
+
 begin_class
 DECL|class|PersonProcessor
 specifier|public
@@ -153,6 +157,7 @@ argument_list|(
 literal|"processing exchange in camel"
 argument_list|)
 expr_stmt|;
+comment|// Get the parameters list which element is the holder.
 name|MessageContentsList
 name|msgList
 init|=
@@ -242,7 +247,6 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// only wrote the rubbish above to get into this section
 name|LOG
 operator|.
 name|info
@@ -250,6 +254,7 @@ argument_list|(
 literal|"person id 123, so throwing exception"
 argument_list|)
 expr_stmt|;
+comment|// Try to throw out the soap fault message
 name|org
 operator|.
 name|apache
@@ -311,6 +316,8 @@ argument_list|,
 name|personFault
 argument_list|)
 decl_stmt|;
+comment|// Since camel has its own exception handler framework, we can't throw the exception to trigger it
+comment|// We just set the fault message in the exchange for camel-cxf component handling
 name|exchange
 operator|.
 name|getFault
@@ -341,6 +348,8 @@ argument_list|(
 literal|"setting Bonjour as the response"
 argument_list|)
 expr_stmt|;
+comment|// Set the response message, first element is the return value of the operation,
+comment|// the others are the holders of method parameters
 name|exchange
 operator|.
 name|getOut
@@ -365,6 +374,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: personProcessor
+end_comment
 
 end_unit
 

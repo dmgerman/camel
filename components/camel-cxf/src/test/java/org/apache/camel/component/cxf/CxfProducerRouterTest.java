@@ -432,6 +432,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: sending
 name|Exchange
 name|senderExchange
 init|=
@@ -459,6 +460,7 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// Prepare the request message for the camel-cxf procedure
 name|params
 operator|.
 name|add
@@ -516,6 +518,8 @@ operator|.
 name|getOut
 argument_list|()
 decl_stmt|;
+comment|// The response message's body is an object array which first element is the return value of the operation,
+comment|// If there are some holder parameters, the holder parameter will be filled in the reset of array.
 name|Object
 index|[]
 name|output
@@ -609,6 +613,7 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: sending
 block|}
 DECL|method|testInvokingSimpleServerWithMessageDataFormat ()
 specifier|public
