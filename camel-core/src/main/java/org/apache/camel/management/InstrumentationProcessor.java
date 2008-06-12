@@ -111,7 +111,7 @@ name|startTime
 init|=
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
 decl_stmt|;
 name|super
@@ -137,16 +137,21 @@ name|isFailed
 argument_list|()
 condition|)
 block|{
+comment|// convert nanoseconds to milliseconds
 name|counter
 operator|.
 name|completedExchange
 argument_list|(
+operator|(
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
 operator|-
 name|startTime
+operator|)
+operator|/
+literal|1000000.0
 argument_list|)
 expr_stmt|;
 block|}

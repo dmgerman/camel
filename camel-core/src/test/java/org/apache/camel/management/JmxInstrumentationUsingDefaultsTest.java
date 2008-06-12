@@ -473,7 +473,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Expected attribute not found. MBean registerred under a "
+literal|"Expected attribute found. MBean registered under a "
 operator|+
 literal|"'<domain>:name=Stats,*' key must be of type PerformanceCounter.class"
 argument_list|,
@@ -504,7 +504,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Expected attribute not found. MBean registerred under a "
+literal|"Expected attribute found. MBean registered under a "
 operator|+
 literal|"'<domain>:name=Stats,*' key must be of type PerformanceCounter.class"
 argument_list|,
@@ -535,7 +535,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Expected attribute not found. MBean registerred under a "
+literal|"Expected attribute found. MBean registered under a "
 operator|+
 literal|"'<domain>:name=Stats,*' key must be of type PerformanceCounter.class"
 argument_list|,
@@ -549,11 +549,11 @@ operator|==
 literal|0
 argument_list|)
 expr_stmt|;
-name|Long
+name|Double
 name|valueofMinProcessingTime
 init|=
 operator|(
-name|Long
+name|Double
 operator|)
 name|mbs
 operator|.
@@ -561,12 +561,12 @@ name|getAttribute
 argument_list|(
 name|pcob
 argument_list|,
-literal|"MinProcessingTime"
+literal|"MinProcessingTimeMillis"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Expected attribute not found. MBean registerred under a "
+literal|"Expected attribute found. MBean registered under a "
 operator|+
 literal|"'<domain>:name=Stats,*' key must be of type PerformanceCounter.class"
 argument_list|,
@@ -576,15 +576,15 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|valueofMinProcessingTime
-operator|>=
+operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-name|Long
+name|Double
 name|valueofMaxProcessingTime
 init|=
 operator|(
-name|Long
+name|Double
 operator|)
 name|mbs
 operator|.
@@ -592,12 +592,12 @@ name|getAttribute
 argument_list|(
 name|pcob
 argument_list|,
-literal|"MaxProcessingTime"
+literal|"MaxProcessingTimeMillis"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Expected attribute not found. MBean registerred under a "
+literal|"Expected attribute found. MBean registered under a "
 operator|+
 literal|"'<domain>:name=Stats,*' key must be of type PerformanceCounter.class"
 argument_list|,
@@ -607,15 +607,15 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|valueofMaxProcessingTime
-operator|>=
+operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-name|Long
+name|Double
 name|valueofMeanProcessingTime
 init|=
 operator|(
-name|Long
+name|Double
 operator|)
 name|mbs
 operator|.
@@ -623,12 +623,12 @@ name|getAttribute
 argument_list|(
 name|pcob
 argument_list|,
-literal|"MeanProcessingTime"
+literal|"MeanProcessingTimeMillis"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Expected attribute not found. MBean registerred under a "
+literal|"Expected attribute found. MBean registered under a "
 operator|+
 literal|"'<domain>:name=Stats,*' key must be of type PerformanceCounter.class"
 argument_list|,
@@ -644,6 +644,37 @@ operator|&&
 name|valueofMeanProcessingTime
 operator|<=
 name|valueofMaxProcessingTime
+argument_list|)
+expr_stmt|;
+name|Double
+name|totalProcessingTime
+init|=
+operator|(
+name|Double
+operator|)
+name|mbs
+operator|.
+name|getAttribute
+argument_list|(
+name|pcob
+argument_list|,
+literal|"TotalProcessingTimeMillis"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Expected attribute found. MBean registered under a "
+operator|+
+literal|"'<domain>:name=Stats,*' key must be of type PerformanceCounter.class"
+argument_list|,
+name|totalProcessingTime
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|totalProcessingTime
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertNotNull

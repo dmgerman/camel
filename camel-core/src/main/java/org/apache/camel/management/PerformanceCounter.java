@@ -120,19 +120,16 @@ argument_list|)
 decl_stmt|;
 DECL|field|minProcessingTime
 specifier|private
-name|long
+name|double
 name|minProcessingTime
 init|=
 operator|-
-literal|1L
+literal|1.0
 decl_stmt|;
 DECL|field|maxProcessingTime
 specifier|private
-name|long
+name|double
 name|maxProcessingTime
-init|=
-operator|-
-literal|1L
 decl_stmt|;
 DECL|field|totalProcessingTime
 specifier|private
@@ -179,15 +176,16 @@ argument_list|)
 expr_stmt|;
 name|minProcessingTime
 operator|=
-literal|0L
+operator|-
+literal|1.0
 expr_stmt|;
 name|maxProcessingTime
 operator|=
-literal|0L
+literal|0.0
 expr_stmt|;
 name|totalProcessingTime
 operator|=
-literal|0
+literal|0.0
 expr_stmt|;
 name|lastExchangeCompletionTime
 operator|=
@@ -252,13 +250,13 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Min Processing Time [milli-seconds]"
+literal|"Min Processing Time [milliseconds]"
 argument_list|)
-DECL|method|getMinProcessingTime ()
+DECL|method|getMinProcessingTimeMillis ()
 specifier|public
 specifier|synchronized
-name|long
-name|getMinProcessingTime
+name|double
+name|getMinProcessingTimeMillis
 parameter_list|()
 throws|throws
 name|Exception
@@ -272,13 +270,13 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Mean Processing Time [milli-seconds]"
+literal|"Mean Processing Time [milliseconds]"
 argument_list|)
-DECL|method|getMeanProcessingTime ()
+DECL|method|getMeanProcessingTimeMillis ()
 specifier|public
 specifier|synchronized
-name|long
-name|getMeanProcessingTime
+name|double
+name|getMeanProcessingTimeMillis
 parameter_list|()
 throws|throws
 name|Exception
@@ -296,14 +294,11 @@ name|count
 operator|>
 literal|0
 condition|?
-operator|(
-name|long
-operator|)
 name|totalProcessingTime
 operator|/
 name|count
 else|:
-literal|0L
+literal|0.0
 return|;
 block|}
 annotation|@
@@ -311,19 +306,39 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Max Processing Time [milli-seconds]"
+literal|"Max Processing Time [milliseconds]"
 argument_list|)
-DECL|method|getMaxProcessingTime ()
+DECL|method|getMaxProcessingTimeMillis ()
 specifier|public
 specifier|synchronized
-name|long
-name|getMaxProcessingTime
+name|double
+name|getMaxProcessingTimeMillis
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 return|return
 name|maxProcessingTime
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total Processing Time [milliseconds]"
+argument_list|)
+DECL|method|getTotalProcessingTimeMillis ()
+specifier|public
+specifier|synchronized
+name|double
+name|getTotalProcessingTimeMillis
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|totalProcessingTime
 return|;
 block|}
 annotation|@
@@ -362,13 +377,14 @@ return|return
 name|firstExchangeCompletionTime
 return|;
 block|}
-DECL|method|completedExchange (long time)
+comment|/**      * This method is called when an exchange has been processed successfully.      *       * @param time in milliseconds it spent on processing the exchange      */
+DECL|method|completedExchange (double time)
 specifier|public
 specifier|synchronized
 name|void
 name|completedExchange
 parameter_list|(
-name|long
+name|double
 name|time
 parameter_list|)
 block|{

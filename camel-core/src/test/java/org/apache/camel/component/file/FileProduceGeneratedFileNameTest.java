@@ -171,23 +171,13 @@ operator|+
 name|id
 argument_list|)
 decl_stmt|;
+comment|// use absolute file to let unittest pass on all platforms
 name|file
 operator|=
 name|file
 operator|.
 name|getAbsoluteFile
 argument_list|()
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"absolute file: "
-operator|+
-name|file
-argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
