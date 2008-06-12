@@ -62,6 +62,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|URL
@@ -170,8 +182,20 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|framework
+operator|.
+name|Bundle
+import|;
+end_import
+
 begin_comment
-comment|/**  *<p>  * ResolverUtil is used to locate classes that are available in the/a class path  * and meet arbitrary conditions. The two most common conditions are that a  * class implements/extends another class, or that is it annotated with a  * specific annotation. However, through the use of the {@link Test} class it is  * possible to search using arbitrary conditions.  *</p>  *  *<p>  * A ClassLoader is used to locate all locations (directories and jar files) in  * the class path that contain classes within certain packages, and then to load  * those classes and check them. By default the ClassLoader returned by  * {@code Thread.currentThread().getContextClassLoader()} is used, but this can  * be overridden by calling {@link #setClassLoaders(Set)} prior to  * invoking any of the {@code find()} methods.  *</p>  *  *<p>  * General searches are initiated by calling the  * {@link #find(ResolverUtil.Test, String)} ()} method and supplying a package  * name and a Test instance. This will cause the named package<b>and all  * sub-packages</b> to be scanned for classes that meet the test. There are  * also utility methods for the common use cases of scanning multiple packages  * for extensions of particular classes, or classes annotated with a specific  * annotation.  *</p>  *  *<p>  * The standard usage pattern for the ResolverUtil class is as follows:  *</p>  *  *<pre>  * esolverUtil&lt;ActionBean&gt; resolver = new ResolverUtil&lt;ActionBean&gt;();  * esolver.findImplementation(ActionBean.class, pkg1, pkg2);  * esolver.find(new CustomTest(), pkg1);  * esolver.find(new CustomTest(), pkg2);  * ollection&lt;ActionBean&gt; beans = resolver.getClasses();  *</pre>  *  * @author Tim Fennell  */
+comment|/**  *<p>  * ResolverUtil is used to locate classes that are available in the/a class path  * and meet arbitrary conditions. The two most common conditions are that a  * class implements/extends another class, or that is it annotated with a  * specific annotation. However, through the use of the {@link Test} class it is  * possible to search using arbitrary conditions.  *</p>  *<p/>  *<p>  * A ClassLoader is used to locate all locations (directories and jar files) in  * the class path that contain classes within certain packages, and then to load  * those classes and check them. By default the ClassLoader returned by  * {@code Thread.currentThread().getContextClassLoader()} is used, but this can  * be overridden by calling {@link #setClassLoaders(Set)} prior to  * invoking any of the {@code find()} methods.  *</p>  *<p/>  *<p>  * General searches are initiated by calling the  * {@link #find(ResolverUtil.Test, String)} ()} method and supplying a package  * name and a Test instance. This will cause the named package<b>and all  * sub-packages</b> to be scanned for classes that meet the test. There are  * also utility methods for the common use cases of scanning multiple packages  * for extensions of particular classes, or classes annotated with a specific  * annotation.  *</p>  *<p/>  *<p>  * The standard usage pattern for the ResolverUtil class is as follows:  *</p>  *<p/>  *<pre>  * esolverUtil&lt;ActionBean&gt; resolver = new ResolverUtil&lt;ActionBean&gt;();  * esolver.findImplementation(ActionBean.class, pkg1, pkg2);  * esolver.find(new CustomTest(), pkg1);  * esolver.find(new CustomTest(), pkg2);  * ollection&lt;ActionBean&gt; beans = resolver.getClasses();  *</pre>  *  * @author Tim Fennell  */
 end_comment
 
 begin_class
@@ -369,7 +393,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/** The set of matches being accumulated. */
+comment|/**      * The set of matches being accumulated.      */
 DECL|field|matches
 specifier|private
 name|Set
@@ -423,7 +447,7 @@ return|return
 name|matches
 return|;
 block|}
-comment|/**      * Returns the classloaders that will be used for scanning for classes. If no      * explicit ClassLoader has been set by the calling, the context class      * loader will be used.      *      * @return the ClassLoader instances that will be used to scan for classes      */
+comment|/**      * Returns the classloaders that will be used for scanning for classes. If no      * explicit ClassLoader has been set by the calling, the context class      * loader will and the one that has loaded this class ResolverUtil be used.      *      * @return the ClassLoader instances that will be used to scan for classes      */
 DECL|method|getClassLoaders ()
 specifier|public
 name|Set
@@ -462,6 +486,18 @@ name|getContextClassLoader
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|classLoaders
+operator|.
+name|add
+argument_list|(
+name|ResolverUtil
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|classLoaders
@@ -487,7 +523,7 @@ operator|=
 name|classLoaders
 expr_stmt|;
 block|}
-comment|/**      * Attempts to discover classes that are assignable to the type provided. In      * the case that an interface is provided this method will collect      * implementations. In the case of a non-interface class, subclasses will be      * collected. Accumulated classes can be accessed by calling      * {@link #getClasses()}.      *      * @param parent the class of interface to find subclasses or      *                implementations of      * @param packageNames one or more package names to scan (including      *                subpackages) for classes      */
+comment|/**      * Attempts to discover classes that are assignable to the type provided. In      * the case that an interface is provided this method will collect      * implementations. In the case of a non-interface class, subclasses will be      * collected. Accumulated classes can be accessed by calling      * {@link #getClasses()}.      *      * @param parent       the class of interface to find subclasses or      *                     implementations of      * @param packageNames one or more package names to scan (including      *                     subpackages) for classes      */
 DECL|method|findImplementations (Class parent, String... packageNames)
 specifier|public
 name|void
@@ -510,6 +546,14 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -531,6 +575,7 @@ name|packageNames
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|Test
 name|test
 init|=
@@ -556,6 +601,14 @@ name|pkg
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -567,7 +620,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Attempts to discover classes that are annotated with to the annotation.      * Accumulated classes can be accessed by calling {@link #getClasses()}.      *      * @param annotation the annotation that should be present on matching      *                classes      * @param packageNames one or more package names to scan (including      *                subpackages) for classes      */
+block|}
+comment|/**      * Attempts to discover classes that are annotated with to the annotation.      * Accumulated classes can be accessed by calling {@link #getClasses()}.      *      * @param annotation   the annotation that should be present on matching      *                     classes      * @param packageNames one or more package names to scan (including      *                     subpackages) for classes      */
 DECL|method|findAnnotated (Class<? extends Annotation> annotation, String... packageNames)
 specifier|public
 name|void
@@ -595,6 +649,36 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Searching for annotations of "
+operator|+
+name|annotation
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" in packages: "
+operator|+
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|packageNames
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|Test
 name|test
 init|=
@@ -620,8 +704,27 @@ name|pkg
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Found: "
+operator|+
+name|getClasses
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
-comment|/**      * Scans for classes starting at the package provided and descending into      * subpackages. Each class is offered up to the Test as it is discovered,      * and if the Test returns true the class is retained. Accumulated classes      * can be fetched by calling {@link #getClasses()}.      *      * @param test an instance of {@link Test} that will be used to filter      *                classes      * @param packageName the name of the package from which to start scanning      *                for classes, e.g. {@code net.sourceforge.stripes}      */
+block|}
+comment|/**      * Scans for classes starting at the package provided and descending into      * subpackages. Each class is offered up to the Test as it is discovered,      * and if the Test returns true the class is retained. Accumulated classes      * can be fetched by calling {@link #getClasses()}.      *      * @param test        an instance of {@link Test} that will be used to filter      *                    classes      * @param packageName the name of the package from which to start scanning      *                    for classes, e.g. {@code net.sourceforge.stripes}      */
 DECL|method|find (Test test, String packageName)
 specifier|public
 name|void
@@ -662,15 +765,6 @@ range|:
 name|set
 control|)
 block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Searching: "
-operator|+
-name|classLoader
-argument_list|)
-expr_stmt|;
 name|find
 argument_list|(
 name|test
@@ -697,6 +791,106 @@ name|ClassLoader
 name|loader
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Searching for: "
+operator|+
+name|test
+operator|+
+literal|" in package: "
+operator|+
+name|packageName
+operator|+
+literal|" using classloader: "
+operator|+
+name|loader
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|Method
+name|mth
+init|=
+name|loader
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getMethod
+argument_list|(
+literal|"getBundle"
+argument_list|,
+operator|new
+name|Class
+index|[]
+block|{}
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|mth
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// it's osgi bundle class loader, so we need to load implementation in bundles
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Loading from osgi buindle using classloader: "
+operator|+
+name|loader
+argument_list|)
+expr_stmt|;
+block|}
+name|loadImplementationsInBundle
+argument_list|(
+name|test
+argument_list|,
+name|packageName
+argument_list|,
+name|loader
+argument_list|,
+name|mth
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchMethodException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"It's not an osgi bundle classloader"
+argument_list|)
+expr_stmt|;
+block|}
 name|Enumeration
 argument_list|<
 name|URL
@@ -742,16 +936,20 @@ name|hasMoreElements
 argument_list|()
 condition|)
 block|{
-try|try
-block|{
 name|URL
 name|url
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|url
+operator|=
 name|urls
 operator|.
 name|nextElement
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|String
 name|urlPath
 init|=
@@ -822,9 +1020,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
 name|LOG
 operator|.
-name|debug
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
 literal|"Scanning for classes in ["
 operator|+
@@ -835,6 +1041,7 @@ operator|+
 name|test
 argument_list|)
 expr_stmt|;
+block|}
 name|File
 name|file
 init|=
@@ -852,6 +1059,24 @@ name|isDirectory
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Loading from directory: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+block|}
 name|loadImplementationsInDirectory
 argument_list|(
 name|test
@@ -864,6 +1089,24 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Loading from jar: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+block|}
 name|loadImplementationsInJar
 argument_list|(
 name|test
@@ -885,7 +1128,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"could not read entries"
+literal|"Could not read entries in url: "
+operator|+
+name|url
 argument_list|,
 name|ioe
 argument_list|)
@@ -893,7 +1138,166 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Finds matches in a physical directory on a filesystem. Examines all files      * within a directory - if the File object is not a directory, and ends with      *<i>.class</i> the file is loaded and tested to see if it is acceptable      * according to the Test. Operates recursively to find classes within a      * folder structure matching the package structure.      *      * @param test a Test used to filter the classes that are discovered      * @param parent the package name up to this directory in the package      *                hierarchy. E.g. if /classes is in the classpath and we      *                wish to examine files in /classes/org/apache then the      *                values of<i>parent</i> would be<i>org/apache</i>      * @param location a File object representing a directory      */
+DECL|method|loadImplementationsInBundle (Test test, String packageName, ClassLoader loader, Method mth)
+specifier|private
+name|void
+name|loadImplementationsInBundle
+parameter_list|(
+name|Test
+name|test
+parameter_list|,
+name|String
+name|packageName
+parameter_list|,
+name|ClassLoader
+name|loader
+parameter_list|,
+name|Method
+name|mth
+parameter_list|)
+block|{
+try|try
+block|{
+name|Bundle
+name|bundle
+init|=
+operator|(
+name|Bundle
+operator|)
+name|mth
+operator|.
+name|invoke
+argument_list|(
+name|loader
+argument_list|)
+decl_stmt|;
+name|Bundle
+index|[]
+name|bundles
+init|=
+name|bundle
+operator|.
+name|getBundleContext
+argument_list|()
+operator|.
+name|getBundles
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|Bundle
+name|bd
+range|:
+name|bundles
+control|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Searching in bundle:"
+operator|+
+name|bd
+argument_list|)
+expr_stmt|;
+block|}
+name|Enumeration
+argument_list|<
+name|URL
+argument_list|>
+name|paths
+init|=
+operator|(
+name|Enumeration
+argument_list|<
+name|URL
+argument_list|>
+operator|)
+name|bd
+operator|.
+name|findEntries
+argument_list|(
+literal|"/"
+operator|+
+name|packageName
+argument_list|,
+literal|"*.class"
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+while|while
+condition|(
+name|paths
+operator|!=
+literal|null
+operator|&&
+name|paths
+operator|.
+name|hasMoreElements
+argument_list|()
+condition|)
+block|{
+name|URL
+name|path
+init|=
+name|paths
+operator|.
+name|nextElement
+argument_list|()
+decl_stmt|;
+comment|// substring to avoid leading slashes
+name|addIfMatching
+argument_list|(
+name|test
+argument_list|,
+name|path
+operator|.
+name|getPath
+argument_list|()
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Could not search osgi bundles for classes matching criteria: "
+operator|+
+name|test
+operator|+
+literal|"due to an Exception: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Finds matches in a physical directory on a filesystem. Examines all files      * within a directory - if the File object is not a directory, and ends with      *<i>.class</i> the file is loaded and tested to see if it is acceptable      * according to the Test. Operates recursively to find classes within a      * folder structure matching the package structure.      *      * @param test     a Test used to filter the classes that are discovered      * @param parent   the package name up to this directory in the package      *                 hierarchy. E.g. if /classes is in the classpath and we wish to      *                 examine files in /classes/org/apache then the values of      *<i>parent</i> would be<i>org/apache</i>      * @param location a File object representing a directory      */
 DECL|method|loadImplementationsInDirectory (Test test, String parent, File location)
 specifier|private
 name|void
@@ -1032,7 +1436,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Finds matching classes within a jar files that contains a folder      * structure matching the package structure. If the File is not a JarFile or      * does not exist a warning will be logged, but no error will be raised.      *      * @param test a Test used to filter the classes that are discovered      * @param parent the parent package under which classes must be in order to      *                be considered      * @param jarfile the jar file to be examined for classes      */
+comment|/**      * Finds matching classes within a jar files that contains a folder      * structure matching the package structure. If the File is not a JarFile or      * does not exist a warning will be logged, but no error will be raised.      *      * @param test    a Test used to filter the classes that are discovered      * @param parent  the parent package under which classes must be in order to      *                be considered      * @param jarfile the jar file to be examined for classes      */
 DECL|method|loadImplementationsInJar (Test test, String parent, File jarfile)
 specifier|private
 name|void
@@ -1055,9 +1459,6 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|JarEntry
-name|entry
-decl_stmt|;
 name|jarStream
 operator|=
 operator|new
@@ -1070,6 +1471,9 @@ name|jarfile
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|JarEntry
+name|entry
+decl_stmt|;
 while|while
 condition|(
 operator|(
@@ -1158,55 +1562,36 @@ literal|"' for classes matching criteria: "
 operator|+
 name|test
 operator|+
-literal|"due to an IOException: "
+literal|" due to an IOException: "
 operator|+
 name|ioe
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|ioe
 argument_list|)
 expr_stmt|;
 block|}
 finally|finally
 block|{
-try|try
-block|{
-if|if
-condition|(
-name|jarStream
-operator|!=
-literal|null
-condition|)
-name|jarStream
+name|ObjectHelper
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
 argument_list|(
-literal|"Failed to close jar stream: "
-operator|+
+name|jarStream
+argument_list|,
 name|jarfile
 operator|.
 name|getPath
 argument_list|()
 argument_list|,
-name|e
+name|LOG
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-comment|/**      * Add the class designated by the fully qualified class name provided to      * the set of resolved classes if and only if it is approved by the Test      * supplied.      *      * @param test the test used to determine if the class matches      * @param fqn the fully qualified name of a class      */
+comment|/**      * Add the class designated by the fully qualified class name provided to      * the set of resolved classes if and only if it is approved by the Test      * supplied.      *      * @param test the test used to determine if the class matches      * @param fqn  the fully qualified name of a class      */
 DECL|method|addIfMatching (Test test, String fqn)
 specifier|protected
 name|void
@@ -1267,11 +1652,19 @@ range|:
 name|set
 control|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Checking to see if class "
+literal|"Testing for class "
 operator|+
 name|externalName
 operator|+
@@ -1282,6 +1675,7 @@ operator|+
 literal|"]"
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|Class
@@ -1304,6 +1698,28 @@ name|type
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Found class: "
+operator|+
+name|type
+operator|+
+literal|" in classloader: "
+operator|+
+name|classLoader
+argument_list|)
+expr_stmt|;
+block|}
 name|matches
 operator|.
 name|add
@@ -1338,7 +1754,7 @@ literal|"Could not find class '"
 operator|+
 name|fqn
 operator|+
-literal|"' in class loader: "
+literal|"' in classloader: "
 operator|+
 name|classLoader
 operator|+
@@ -1365,7 +1781,7 @@ literal|"Could not find class '"
 operator|+
 name|fqn
 operator|+
-literal|"' in any class loaders: "
+literal|"' in any classloaders: "
 operator|+
 name|set
 argument_list|)
@@ -1402,6 +1818,8 @@ name|t
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 block|}
