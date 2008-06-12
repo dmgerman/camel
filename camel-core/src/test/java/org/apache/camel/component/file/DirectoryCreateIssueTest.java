@@ -128,18 +128,6 @@ name|DefaultCamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|log4j
-operator|.
-name|Logger
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author Albert Moraal  * @version $Revision$  */
 end_comment
@@ -152,22 +140,6 @@ name|DirectoryCreateIssueTest
 extends|extends
 name|TestSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|Logger
-operator|.
-name|getLogger
-argument_list|(
-name|DirectoryCreateIssueTest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|context
 specifier|private
 name|CamelContext
@@ -193,9 +165,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|// The following code is removed
-comment|// if you want to enable debugging, add the src/test/ide-resources directory to your IDE classpath
-comment|/*         BasicConfigurator.configure();         Logger.getRootLogger().setLevel(Level.DEBUG); */
 name|context
 operator|=
 operator|new
@@ -405,6 +374,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+comment|// must sleep for some time to make sure runs on all platforms
 name|Thread
 operator|.
 name|sleep
