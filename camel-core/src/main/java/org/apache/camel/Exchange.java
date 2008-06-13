@@ -54,6 +54,15 @@ name|ExchangePattern
 name|getPattern
 parameter_list|()
 function_decl|;
+comment|/**      * Allows the {@link ExchangePattern} (MEP) of this exchange to be customized.      *      * This typically won't be required as an exchange can be created with a specific MEP      * by calling {@link Endpoint#createExchange(ExchangePattern)} but it is here just in case      * it is needed.      */
+DECL|method|setPattern (ExchangePattern pattern)
+name|void
+name|setPattern
+parameter_list|(
+name|ExchangePattern
+name|pattern
+parameter_list|)
+function_decl|;
 comment|/**      * Returns a property associated with this exchange by name      *      * @param name the name of the property      * @return the value of the given header or null if there is no property for      *         the given name      */
 DECL|method|getProperty (String name)
 name|Object
