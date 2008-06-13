@@ -862,7 +862,24 @@ operator|.
 name|getJMSCorrelationID
 argument_list|()
 decl_stmt|;
-comment|// System.out.println("Requestor.onMessage: correlationID " + correlationID);
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Message correlationID: "
+operator|+
+name|correlationID
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|correlationID

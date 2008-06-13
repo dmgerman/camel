@@ -285,15 +285,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|body
-argument_list|)
-expr_stmt|;
 name|log
 operator|.
 name|debug

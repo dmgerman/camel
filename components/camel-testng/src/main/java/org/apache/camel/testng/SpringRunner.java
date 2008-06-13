@@ -317,15 +317,6 @@ name|getProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Setup!"
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|AfterTest
@@ -353,15 +344,6 @@ operator|.
 name|setProperties
 argument_list|(
 name|oldSystemProperties
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Tearning down!"
 argument_list|)
 expr_stmt|;
 block|}

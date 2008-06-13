@@ -648,7 +648,6 @@ operator|.
 name|getJMSMessageID
 argument_list|()
 decl_stmt|;
-comment|// System.out.println("DeferredRequestReplyMap.processDeferredReplies: sent messageID = " + correlationID);
 name|Object
 name|in
 init|=
