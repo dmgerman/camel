@@ -126,15 +126,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Converting to an InputStream using the HttpConverter!"
-argument_list|)
-expr_stmt|;
 name|HttpServletRequest
 name|request
 init|=
