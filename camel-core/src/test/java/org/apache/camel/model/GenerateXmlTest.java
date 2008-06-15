@@ -297,7 +297,34 @@ operator|+
 name|buffer
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("Created: " + buffer);
+name|assertNotNull
+argument_list|(
+name|buffer
+argument_list|)
+expr_stmt|;
+name|String
+name|out
+init|=
+name|buffer
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should contain the description"
+argument_list|,
+name|out
+operator|.
+name|indexOf
+argument_list|(
+literal|"This is a description of the route"
+argument_list|)
+operator|>
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
