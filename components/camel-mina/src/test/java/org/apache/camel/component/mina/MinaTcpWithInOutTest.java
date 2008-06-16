@@ -591,7 +591,6 @@ name|Exchange
 name|e
 parameter_list|)
 block|{
-comment|// System.out.println("Received exchange: " + e.getIn());
 name|receivedExchange
 operator|=
 name|e

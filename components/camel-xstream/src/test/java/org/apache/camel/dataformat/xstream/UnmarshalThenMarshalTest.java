@@ -216,17 +216,6 @@ operator|+
 name|actualBody
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Received "
-operator|+
-name|actualBody
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Received body"
@@ -280,27 +269,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"marshalled: "
-operator|+
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|log
 operator|.
 name|debug

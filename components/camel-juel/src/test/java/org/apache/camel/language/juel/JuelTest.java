@@ -133,19 +133,13 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|assertEquals
 argument_list|(
-literal|"Found: "
-operator|+
+literal|"Result is a Long object"
+argument_list|,
+literal|246L
+argument_list|,
 name|value
-operator|+
-literal|" for expression: "
-operator|+
-name|valueExpression
 argument_list|)
 expr_stmt|;
 block|}

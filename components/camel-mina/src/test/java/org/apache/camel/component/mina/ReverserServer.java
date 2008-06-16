@@ -223,7 +223,6 @@ argument_list|,
 name|cfg
 argument_list|)
 expr_stmt|;
-comment|// System.out.println("Listening on port " + port);
 block|}
 DECL|method|stop ()
 specifier|public

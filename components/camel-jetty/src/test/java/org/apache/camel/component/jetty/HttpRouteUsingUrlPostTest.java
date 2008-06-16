@@ -253,8 +253,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|//        InputStream is = url.openConnection().getInputStream();
-comment|//        System.out.println("Content: "+is);
 block|}
 block|}
 end_class

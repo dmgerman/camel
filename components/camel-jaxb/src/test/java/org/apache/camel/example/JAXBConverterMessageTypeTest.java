@@ -120,7 +120,7 @@ throws|throws
 name|Exception
 block|{
 comment|// TODO: fails see CAMEL-583
-comment|/*         MessageType message = converter.convertTo(MessageType.class, "<message><hello>bar</hello></message>");         System.out.println(message);          assertNotNull("Message should not be null!", message);         */
+comment|/*         MessageType message = converter.convertTo(MessageType.class, "<message><hello>bar</hello></message>");          assertNotNull("Message should not be null!", message);         */
 block|}
 block|}
 end_class
