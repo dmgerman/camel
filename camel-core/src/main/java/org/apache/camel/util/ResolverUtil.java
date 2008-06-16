@@ -1766,6 +1766,32 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|NoClassDefFoundError
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Could not find the class defintion '"
+operator|+
+name|fqn
+operator|+
+literal|"' in classloader: "
+operator|+
+name|classLoader
+operator|+
+literal|". Reason: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

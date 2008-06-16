@@ -206,6 +206,13 @@ argument_list|(
 literal|"seda:b"
 argument_list|)
 expr_stmt|;
+name|route
+operator|.
+name|description
+argument_list|(
+literal|"This is a description of the route"
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|ProcessorType
@@ -321,8 +328,7 @@ argument_list|(
 literal|"This is a description of the route"
 argument_list|)
 operator|>
-operator|-
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
