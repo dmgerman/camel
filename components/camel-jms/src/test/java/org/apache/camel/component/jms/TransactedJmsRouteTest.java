@@ -106,6 +106,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -1061,9 +1073,27 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|// for (Route route : this.context.getRoutes()) {
-comment|// System.out.println(route);
-comment|// }
+for|for
+control|(
+name|Route
+name|route
+range|:
+name|this
+operator|.
+name|context
+operator|.
+name|getRoutes
+argument_list|()
+control|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
+block|}
 name|mockEndpointA
 operator|=
 name|getMockEndpoint
@@ -1287,6 +1317,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// May be more since spring seems to go into tight loop re-delivering.
 name|mockEndpointB
 operator|.
 name|expectedMinimumMessageCount
@@ -1294,10 +1325,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|// May be more since
-comment|// spring seems to go
-comment|// into tight loop
-comment|// re-delivering.
 name|sendBody
 argument_list|(
 literal|"activemq:queue:b"
@@ -1347,6 +1374,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// Should only get 1 message the incoming transaction does not rollback.
 name|mockEndpointB
 operator|.
 name|expectedMessageCount
@@ -1354,9 +1382,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// Should only get 1 message the
-comment|// incoming transaction does not
-comment|// rollback.
 name|sendBody
 argument_list|(
 literal|"activemq:queue:c"

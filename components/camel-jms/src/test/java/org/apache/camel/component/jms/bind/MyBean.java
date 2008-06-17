@@ -131,21 +131,6 @@ name|String
 name|body
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Invoked bean with: "
-operator|+
-name|headers
-operator|+
-literal|" and body: "
-operator|+
-name|body
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|headers

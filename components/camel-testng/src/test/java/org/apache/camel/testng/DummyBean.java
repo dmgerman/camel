@@ -73,26 +73,6 @@ operator|=
 name|message
 expr_stmt|;
 block|}
-DECL|method|afterPropertiesSet ()
-specifier|public
-name|void
-name|afterPropertiesSet
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"DummyBean says "
-operator|+
-name|message
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 

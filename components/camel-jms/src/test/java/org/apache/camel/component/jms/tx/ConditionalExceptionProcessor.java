@@ -50,9 +50,25 @@ name|org
 operator|.
 name|apache
 operator|.
-name|log4j
+name|commons
 operator|.
-name|Logger
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
 import|;
 end_import
 
@@ -68,17 +84,21 @@ name|ConditionalExceptionProcessor
 implements|implements
 name|Processor
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
-name|Logger
-name|log
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
 init|=
-name|Logger
+name|LogFactory
 operator|.
-name|getLogger
+name|getLog
 argument_list|(
-name|getClass
-argument_list|()
+name|ConditionalExceptionProcessor
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|field|count
@@ -90,7 +110,7 @@ DECL|method|ConditionalExceptionProcessor ()
 specifier|public
 name|ConditionalExceptionProcessor
 parameter_list|()
-block|{              }
+block|{     }
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -110,7 +130,6 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// System.out.println(this + "; getCount() = " + getCount());
 name|AbstractTransactionTest
 operator|.
 name|assertTrue
@@ -120,7 +139,7 @@ operator|+
 name|getCount
 argument_list|()
 operator|+
-literal|".  There should be 1 for intentionally triggered rollback, and 1 for the redelivery."
+literal|". There should be 1 for intentionally triggered rollback, and 1 for redelivery."
 argument_list|,
 name|getCount
 argument_list|()
@@ -129,7 +148,7 @@ literal|2
 argument_list|)
 expr_stmt|;
 comment|// should be printed 2 times due to one re-delivery after one failure
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(

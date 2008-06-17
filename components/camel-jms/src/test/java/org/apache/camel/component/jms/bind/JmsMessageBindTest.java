@@ -166,17 +166,6 @@ argument_list|,
 name|headers
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Headers: "
-operator|+
-name|headers
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"foo header"

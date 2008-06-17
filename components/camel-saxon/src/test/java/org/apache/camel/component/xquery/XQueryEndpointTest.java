@@ -167,23 +167,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|assertNotNull
 argument_list|(
-literal|"Found: "
-operator|+
+literal|"The transformed XML should not be null"
+argument_list|,
 name|xml
 argument_list|)
 expr_stmt|;
-name|log
-operator|.
-name|debug
+name|assertEquals
 argument_list|(
-literal|"Found: "
+literal|"transformed"
+argument_list|,
+literal|"<transformed subject=\"Hey\"><mail><subject>Hey</subject>"
 operator|+
+literal|"<body>Hello world!</body></mail></transformed>"
+argument_list|,
 name|xml
 argument_list|)
 expr_stmt|;
@@ -199,8 +197,18 @@ argument_list|,
 literal|"testBean"
 argument_list|)
 decl_stmt|;
-comment|// TODO - fixme when we allow XQuery injection to do proper type conversion
-comment|//assertEquals("bean.subject", "Hey", bean.getSubject());
+name|assertEquals
+argument_list|(
+literal|"bean.subject"
+argument_list|,
+literal|"Hey"
+argument_list|,
+name|bean
+operator|.
+name|getSubject
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getExpectedRouteCount ()
 specifier|protected
@@ -208,7 +216,6 @@ name|int
 name|getExpectedRouteCount
 parameter_list|()
 block|{
-comment|// TODO why zero?
 return|return
 literal|0
 return|;

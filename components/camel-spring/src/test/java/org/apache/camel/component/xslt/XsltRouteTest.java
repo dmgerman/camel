@@ -167,13 +167,64 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|log
-operator|.
-name|debug
+name|assertNotNull
 argument_list|(
-literal|"Found: "
-operator|+
+literal|"The transformed XML should not be null"
+argument_list|,
 name|xml
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|xml
+operator|.
+name|indexOf
+argument_list|(
+literal|"transformed"
+argument_list|)
+operator|>
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// the cheese tag is in the transform.xsl
+name|assertTrue
+argument_list|(
+name|xml
+operator|.
+name|indexOf
+argument_list|(
+literal|"cheese"
+argument_list|)
+operator|>
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|xml
+operator|.
+name|indexOf
+argument_list|(
+literal|"<subject>Hey</subject>"
+argument_list|)
+operator|>
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|xml
+operator|.
+name|indexOf
+argument_list|(
+literal|"<body>Hello world!</body>"
+argument_list|)
+operator|>
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|TestBean
@@ -200,18 +251,6 @@ name|getSubject
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Found bean subject: "
-operator|+
-name|bean
-operator|.
-name|getSubject
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|getExpectedRouteCount ()
 specifier|protected
@@ -219,7 +258,6 @@ name|int
 name|getExpectedRouteCount
 parameter_list|()
 block|{
-comment|// TODO why zero?
 return|return
 literal|0
 return|;
