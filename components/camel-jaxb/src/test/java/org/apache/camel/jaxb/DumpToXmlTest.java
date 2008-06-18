@@ -109,6 +109,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 name|File
 name|file
 init|=
@@ -118,13 +125,6 @@ argument_list|(
 literal|"target/camel/dump"
 argument_list|)
 decl_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|2000
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"The dump folder should exists"
