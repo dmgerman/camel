@@ -379,12 +379,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|)
 operator|.
 name|to
