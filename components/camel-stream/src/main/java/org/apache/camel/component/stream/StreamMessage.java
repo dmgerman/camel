@@ -32,6 +32,10 @@ name|DefaultMessage
 import|;
 end_import
 
+begin_comment
+comment|/**  * @deprecated Camel Stream uses a DefaultMessage to contain the body. Will be removed in Camel 2.0  */
+end_comment
+
 begin_class
 DECL|class|StreamMessage
 specifier|public

@@ -219,7 +219,7 @@ specifier|final
 name|String
 name|TYPES
 init|=
-literal|"in,out,err,file,url,header"
+literal|"out,err,file,header,url"
 decl_stmt|;
 DECL|field|INVALID_URI
 specifier|private
@@ -731,6 +731,8 @@ name|outputStream
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|bw
 operator|.
 name|write
@@ -753,11 +755,15 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|bw
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
