@@ -71,6 +71,13 @@ specifier|final
 class|class
 name|CamelClientRemoting
 block|{
+DECL|method|CamelClientRemoting ()
+specifier|private
+name|CamelClientRemoting
+parameter_list|()
+block|{
+comment|//Helper class
+block|}
 comment|// START SNIPPET: e1
 DECL|method|main (final String[] args)
 specifier|public

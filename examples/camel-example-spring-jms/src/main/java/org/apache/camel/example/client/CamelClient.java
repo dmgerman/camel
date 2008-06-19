@@ -46,18 +46,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|context
@@ -91,6 +79,13 @@ specifier|final
 class|class
 name|CamelClient
 block|{
+DECL|method|CamelClient ()
+specifier|private
+name|CamelClient
+parameter_list|()
+block|{
+comment|// Helper class
+block|}
 comment|// START SNIPPET: e1
 DECL|method|main (final String[] args)
 specifier|public

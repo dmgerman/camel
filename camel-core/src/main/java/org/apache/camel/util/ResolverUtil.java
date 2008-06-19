@@ -1193,9 +1193,17 @@ block|}
 DECL|class|OsgiUtil
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|OsgiUtil
 block|{
+DECL|method|OsgiUtil ()
+specifier|private
+name|OsgiUtil
+parameter_list|()
+block|{
+comment|// Helper class
+block|}
 DECL|method|getImplementationsInBundle (Test test, String packageName, ClassLoader loader, Method mth)
 specifier|static
 name|Set
