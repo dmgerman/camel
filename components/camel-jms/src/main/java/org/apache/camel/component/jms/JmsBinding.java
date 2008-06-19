@@ -959,6 +959,10 @@ name|equals
 argument_list|(
 literal|"JMSReplyTo"
 argument_list|)
+operator|&&
+name|headerValue
+operator|!=
+literal|null
 condition|)
 block|{
 name|jmsMessage
@@ -1539,6 +1543,8 @@ parameter_list|)
 block|{
 comment|// ignore provider specified JMS extension headers
 comment|// see page 39 of JMS 1.1 specification
+comment|//
+comment|// added "JMSXRecvTimestamp" as a workaround for an Oracle bug/typo in AqjmsMessage
 name|String
 index|[]
 name|ignore
@@ -1555,6 +1561,8 @@ block|,
 literal|"JMSXConsumerTXID"
 block|,
 literal|"JMSXRcvTimestamp"
+block|,
+literal|"JMSXRecvTimestamp"
 block|,
 literal|"JMSXState"
 block|}
