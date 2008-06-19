@@ -90,11 +90,33 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Delete the dump directory
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+literal|"target/camel/dump"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|file
+operator|.
+name|getAbsoluteFile
+argument_list|()
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
 name|deleteDirectory
 argument_list|(
 literal|"target/camel/dump"
 argument_list|)
 expr_stmt|;
+block|}
 name|super
 operator|.
 name|setUp
@@ -113,7 +135,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|3000
 argument_list|)
 expr_stmt|;
 name|File
@@ -125,6 +147,13 @@ argument_list|(
 literal|"target/camel/dump"
 argument_list|)
 decl_stmt|;
+name|file
+operator|=
+name|file
+operator|.
+name|getAbsoluteFile
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"The dump folder should exists"
