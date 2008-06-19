@@ -2843,27 +2843,6 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-block|}
-if|if
-condition|(
-name|currentProcessor
-operator|instanceof
-name|InterceptType
-condition|)
-block|{
-name|proceed
-operator|=
-operator|(
-operator|(
-name|InterceptType
-operator|)
-name|currentProcessor
-operator|)
-operator|.
-name|getProceed
-argument_list|()
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|proceed
@@ -2878,6 +2857,7 @@ argument_list|(
 literal|"Cannot use proceed() without being within an intercept() block"
 argument_list|)
 throw|;
+block|}
 block|}
 name|addOutput
 argument_list|(
@@ -4693,7 +4673,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"target provided."
+literal|"target not provided."
 argument_list|)
 throw|;
 block|}

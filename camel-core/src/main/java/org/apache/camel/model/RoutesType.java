@@ -710,18 +710,28 @@ range|:
 name|intercepts
 control|)
 block|{
+comment|// need to create a proxy for this one and use the
+comment|// proceed of the proxy which will be local to this route
+name|InterceptType
+name|proxy
+init|=
+name|intercept
+operator|.
+name|createProxy
+argument_list|()
+decl_stmt|;
 name|route
 operator|.
 name|addOutput
 argument_list|(
-name|intercept
+name|proxy
 argument_list|)
 expr_stmt|;
 name|route
 operator|.
 name|pushBlock
 argument_list|(
-name|intercept
+name|proxy
 operator|.
 name|getProceed
 argument_list|()
