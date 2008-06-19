@@ -309,10 +309,17 @@ decl_stmt|;
 if|if
 condition|(
 name|delay
-operator|>
-literal|0
+operator|<
+literal|1
 condition|)
 block|{
+comment|// if no delay set then we must sleep at lest for 1 millis to avoid concurrency
+comment|// issues with extremly high throughtput
+name|delay
+operator|=
+literal|1
+expr_stmt|;
+block|}
 name|Thread
 operator|.
 name|sleep
@@ -320,21 +327,6 @@ argument_list|(
 name|delay
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// if no delay set then we must sleep at lest for 1 nano to avoid concurrency
-comment|// issues with extremly high throughtput
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|0
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
