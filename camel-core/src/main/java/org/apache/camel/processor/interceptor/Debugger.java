@@ -220,6 +220,22 @@ name|DebugInterceptor
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|logExchanges
+specifier|private
+name|boolean
+name|logExchanges
+init|=
+literal|true
+decl_stmt|;
+DECL|field|formatter
+specifier|private
+name|TraceFormatter
+name|formatter
+init|=
+operator|new
+name|TraceFormatter
+argument_list|()
+decl_stmt|;
 comment|/**      * A helper method to return the debugger instance for a given {@link CamelContext} if one is enabled      *      * @param context the camel context the debugger is connected to      * @return the debugger or null if none can be found      */
 DECL|method|getDebugger (CamelContext context)
 specifier|public
@@ -406,6 +422,24 @@ operator|.
 name|idOrCreate
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|logExchanges
+condition|)
+block|{
+name|target
+operator|=
+operator|new
+name|TraceInterceptor
+argument_list|(
+name|processorType
+argument_list|,
+name|target
+argument_list|,
+name|formatter
+argument_list|)
+expr_stmt|;
+block|}
 name|DebugInterceptor
 name|interceptor
 init|=
