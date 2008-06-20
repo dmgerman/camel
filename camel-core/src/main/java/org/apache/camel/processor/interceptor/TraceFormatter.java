@@ -66,6 +66,13 @@ specifier|public
 class|class
 name|TraceFormatter
 block|{
+DECL|field|showNode
+specifier|private
+name|boolean
+name|showNode
+init|=
+literal|true
+decl_stmt|;
 DECL|field|showProperties
 specifier|private
 name|boolean
@@ -151,6 +158,19 @@ name|interceptor
 argument_list|)
 operator|+
 literal|" "
+operator|+
+operator|(
+name|showNode
+condition|?
+name|interceptor
+operator|.
+name|getNode
+argument_list|()
+operator|+
+literal|" "
+else|:
+literal|""
+operator|)
 operator|+
 name|exchange
 operator|.
@@ -356,6 +376,32 @@ operator|.
 name|showProperties
 operator|=
 name|showProperties
+expr_stmt|;
+block|}
+DECL|method|isShowNode ()
+specifier|public
+name|boolean
+name|isShowNode
+parameter_list|()
+block|{
+return|return
+name|showNode
+return|;
+block|}
+DECL|method|setShowNode (boolean showNode)
+specifier|public
+name|void
+name|setShowNode
+parameter_list|(
+name|boolean
+name|showNode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|showNode
+operator|=
+name|showNode
 expr_stmt|;
 block|}
 comment|// Implementation methods

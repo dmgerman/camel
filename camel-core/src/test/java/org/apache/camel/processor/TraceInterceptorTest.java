@@ -183,6 +183,17 @@ name|Exception
 block|{
 comment|// do nothing
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"MyProcessor"
+return|;
+block|}
 block|}
 argument_list|)
 operator|.
