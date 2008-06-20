@@ -102,6 +102,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -138,7 +150,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Message
 import|;
 end_import
 
@@ -150,7 +162,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
+name|Processor
 import|;
 end_import
 
@@ -211,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Consumer that can read from any stream  */
+comment|/**  * Consumer that can read from streams  */
 end_comment
 
 begin_class
@@ -426,19 +438,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|inputStream
-operator|!=
-literal|null
-condition|)
-block|{
-name|inputStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
+comment|// important: do not close the stream as it will close the standard system.in etc.
 name|super
 operator|.
 name|doStop
@@ -453,6 +453,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Charset
+name|charset
+init|=
+name|endpoint
+operator|.
+name|getCharset
+argument_list|()
+decl_stmt|;
 name|BufferedReader
 name|br
 init|=
@@ -463,14 +471,14 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|inputStream
+argument_list|,
+name|charset
 argument_list|)
 argument_list|)
 decl_stmt|;
 name|String
 name|line
 decl_stmt|;
-try|try
-block|{
 while|while
 condition|(
 operator|(
@@ -491,15 +499,7 @@ name|line
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
-name|br
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
+comment|// important: do not close the reader as it will close the standard system.in etc.
 block|}
 DECL|method|consumeLine (Object line)
 specifier|private

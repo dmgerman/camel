@@ -82,6 +82,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Writer
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|URL
@@ -95,6 +105,18 @@ operator|.
 name|net
 operator|.
 name|URLConnection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
 import|;
 end_import
 
@@ -183,6 +205,10 @@ operator|.
 name|LogFactory
 import|;
 end_import
+
+begin_comment
+comment|/**  * Producer that can write to streams  */
+end_comment
 
 begin_class
 DECL|class|StreamProducer
@@ -315,19 +341,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|outputStream
-operator|!=
-literal|null
-condition|)
-block|{
-name|outputStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
+comment|// important: do not close the stream as it will close the standard system.out etc.
 name|super
 operator|.
 name|doStop
@@ -670,6 +684,8 @@ name|exchange
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|CamelExchangeException
 block|{
 name|Object
 name|body
@@ -684,6 +700,41 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|body
+operator|instanceof
+name|String
+condition|)
+block|{
+name|Charset
+name|charset
+init|=
+name|endpoint
+operator|.
+name|getCharset
+argument_list|()
+decl_stmt|;
+name|Writer
+name|writer
+init|=
+operator|new
+name|OutputStreamWriter
+argument_list|(
+name|outputStream
+argument_list|,
+name|charset
+argument_list|)
+decl_stmt|;
+name|BufferedWriter
+name|bw
+init|=
+operator|new
+name|BufferedWriter
+argument_list|(
+name|writer
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
 name|LOG
 operator|.
 name|isDebugEnabled
@@ -694,45 +745,20 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Writing "
+literal|"Writing as text: "
 operator|+
 name|body
 operator|+
 literal|" to "
 operator|+
 name|outputStream
+operator|+
+literal|" using encoding:"
+operator|+
+name|charset
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|body
-operator|instanceof
-name|String
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"in text buffered mode"
-argument_list|)
-expr_stmt|;
-name|BufferedWriter
-name|bw
-init|=
-operator|new
-name|BufferedWriter
-argument_list|(
-operator|new
-name|OutputStreamWriter
-argument_list|(
-name|outputStream
-argument_list|)
-argument_list|)
-decl_stmt|;
-try|try
-block|{
 name|bw
 operator|.
 name|write
@@ -755,25 +781,39 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+comment|// important: do not close the writer as it will close the standard system.out etc.
 block|}
-finally|finally
+elseif|else
+if|if
+condition|(
+name|body
+operator|instanceof
+name|byte
+index|[]
+condition|)
 block|{
-name|bw
+if|if
+condition|(
+name|LOG
 operator|.
-name|close
+name|isDebugEnabled
 argument_list|()
-expr_stmt|;
-block|}
-block|}
-else|else
+condition|)
 block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"in binary stream mode"
+literal|"Writing as text: "
+operator|+
+name|body
+operator|+
+literal|" to "
+operator|+
+name|outputStream
 argument_list|)
 expr_stmt|;
+block|}
 name|outputStream
 operator|.
 name|write
@@ -785,6 +825,20 @@ operator|)
 name|body
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"The body is neither a String or byte array. "
+operator|+
+literal|"Can not write body to output stream"
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
 block|}
 block|}
 DECL|method|validateUri (String uri)

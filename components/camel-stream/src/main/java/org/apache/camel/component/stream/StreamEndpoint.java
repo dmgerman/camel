@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -92,6 +104,34 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_class
 DECL|class|StreamEndpoint
 specifier|public
@@ -103,6 +143,23 @@ argument_list|<
 name|Exchange
 argument_list|>
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|StreamEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|uri
 specifier|private
 name|String
@@ -122,6 +179,11 @@ DECL|field|delay
 specifier|private
 name|long
 name|delay
+decl_stmt|;
+DECL|field|encoding
+specifier|private
+name|String
+name|encoding
 decl_stmt|;
 DECL|method|StreamEndpoint (String endpointUri, Component component)
 specifier|public
@@ -239,6 +301,7 @@ return|return
 name|file
 return|;
 block|}
+comment|/**      * @deprecated use camel-file component. Will be removed in Camel 2.0      */
 DECL|method|setFile (String file)
 specifier|public
 name|void
@@ -265,6 +328,7 @@ return|return
 name|url
 return|;
 block|}
+comment|/**      * @deprecated use camel-jetty or camel-http component. Will be removed in Camel 2.0      */
 DECL|method|setUrl (String url)
 specifier|public
 name|void
@@ -306,6 +370,107 @@ name|delay
 operator|=
 name|delay
 expr_stmt|;
+block|}
+DECL|method|getEncoding ()
+specifier|public
+name|String
+name|getEncoding
+parameter_list|()
+block|{
+return|return
+name|encoding
+return|;
+block|}
+DECL|method|setEncoding (String encoding)
+specifier|public
+name|void
+name|setEncoding
+parameter_list|(
+name|String
+name|encoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encoding
+operator|=
+name|encoding
+expr_stmt|;
+block|}
+comment|// Implementations
+comment|//-------------------------------------------------------------------------
+DECL|method|getCharset ()
+name|Charset
+name|getCharset
+parameter_list|()
+block|{
+if|if
+condition|(
+name|encoding
+operator|==
+literal|null
+condition|)
+block|{
+name|encoding
+operator|=
+name|Charset
+operator|.
+name|defaultCharset
+argument_list|()
+operator|.
+name|name
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"No encoding parameter using default charset: "
+operator|+
+name|encoding
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+operator|!
+name|Charset
+operator|.
+name|isSupported
+argument_list|(
+name|encoding
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The encoding: "
+operator|+
+name|encoding
+operator|+
+literal|" is not supported"
+argument_list|)
+throw|;
+block|}
+return|return
+name|Charset
+operator|.
+name|forName
+argument_list|(
+name|encoding
+argument_list|)
+return|;
 block|}
 block|}
 end_class

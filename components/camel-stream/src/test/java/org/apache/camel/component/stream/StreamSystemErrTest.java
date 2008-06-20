@@ -44,11 +44,15 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_comment
+comment|/**  * Unit test for System.err  */
+end_comment
+
 begin_class
-DECL|class|StreamRouteBuilderTest
+DECL|class|StreamSystemErrTest
 specifier|public
 class|class
-name|StreamRouteBuilderTest
+name|StreamSystemErrTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -57,14 +61,16 @@ specifier|public
 name|void
 name|testStringContent
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:start"
+literal|"direct:in"
 argument_list|,
-literal|"this is text\n"
+literal|"Hello Text World\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -78,9 +84,9 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:start"
+literal|"direct:in"
 argument_list|,
-literal|"This is bytes\n"
+literal|"Hello Bytes World\n"
 operator|.
 name|getBytes
 argument_list|()
@@ -105,28 +111,12 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"direct:start"
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-literal|"stream"
-argument_list|,
-name|constant
-argument_list|(
-name|System
-operator|.
-name|out
-argument_list|)
+literal|"direct:in"
 argument_list|)
 operator|.
 name|to
 argument_list|(
 literal|"stream:err"
-argument_list|,
-literal|"stream:out"
-argument_list|,
-literal|"stream:header"
 argument_list|)
 expr_stmt|;
 block|}
