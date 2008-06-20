@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.management
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|management
 package|;
 end_package
 
@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|Map
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Processor
 import|;
 end_import
 
@@ -46,43 +46,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|model
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Service
+name|ProcessorType
 import|;
 end_import
 
@@ -96,101 +62,92 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|LifecycleStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteContext
+name|ErrorHandlerWrappingStrategy
 import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of the lifecycle strategy.  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|DefaultLifecycleStrategy
+DECL|class|InstrumentationErrorHandlerWrappingStrategy
 specifier|public
 class|class
-name|DefaultLifecycleStrategy
+name|InstrumentationErrorHandlerWrappingStrategy
 implements|implements
-name|LifecycleStrategy
+name|ErrorHandlerWrappingStrategy
 block|{
-DECL|method|onContextStart (CamelContext context)
-specifier|public
-name|void
-name|onContextStart
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-comment|// do nothing
-block|}
-DECL|method|onEndpointAdd (Endpoint<? extends Exchange> endpoint)
-specifier|public
-name|void
-name|onEndpointAdd
-parameter_list|(
-name|Endpoint
+DECL|field|counterMap
+specifier|private
+name|Map
 argument_list|<
-name|?
-extends|extends
-name|Exchange
+name|ProcessorType
+argument_list|,
+name|PerformanceCounter
 argument_list|>
-name|endpoint
+name|counterMap
+decl_stmt|;
+DECL|method|InstrumentationErrorHandlerWrappingStrategy ( Map<ProcessorType, PerformanceCounter> counterMap)
+specifier|public
+name|InstrumentationErrorHandlerWrappingStrategy
+parameter_list|(
+name|Map
+argument_list|<
+name|ProcessorType
+argument_list|,
+name|PerformanceCounter
+argument_list|>
+name|counterMap
 parameter_list|)
 block|{
-comment|// do nothing
+name|this
+operator|.
+name|counterMap
+operator|=
+name|counterMap
+expr_stmt|;
 block|}
-DECL|method|onServiceAdd (CamelContext context, Service service)
+DECL|method|wrapProcessorInErrorHandler (ProcessorType processorType, Processor target)
 specifier|public
-name|void
-name|onServiceAdd
+name|Processor
+name|wrapProcessorInErrorHandler
 parameter_list|(
-name|CamelContext
-name|context
+name|ProcessorType
+name|processorType
 parameter_list|,
-name|Service
-name|service
+name|Processor
+name|target
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-comment|// do nothing
+comment|// don't wrap our instrumentation interceptors
+if|if
+condition|(
+name|counterMap
+operator|.
+name|containsKey
+argument_list|(
+name|processorType
+argument_list|)
+condition|)
+block|{
+return|return
+name|processorType
+operator|.
+name|getErrorHandlerBuilder
+argument_list|()
+operator|.
+name|createErrorHandler
+argument_list|(
+name|target
+argument_list|)
+return|;
 block|}
-DECL|method|onRoutesAdd (Collection<Route> routes)
-specifier|public
-name|void
-name|onRoutesAdd
-parameter_list|(
-name|Collection
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-parameter_list|)
-block|{
-comment|// do nothing
-block|}
-DECL|method|onRouteContextCreate (RouteContext routeContext)
-specifier|public
-name|void
-name|onRouteContextCreate
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|)
-block|{
-comment|// do nothing
+return|return
+name|target
+return|;
 block|}
 block|}
 end_class

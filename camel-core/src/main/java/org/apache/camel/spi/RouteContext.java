@@ -279,6 +279,21 @@ name|InterceptStrategy
 name|interceptStrategy
 parameter_list|)
 function_decl|;
+comment|/**      * This method retrieves the ErrorHandlerWrappingStrategy.      *        * @return ErrorHandlerWrappingStrategy      */
+DECL|method|getErrorHandlerWrappingStrategy ()
+name|ErrorHandlerWrappingStrategy
+name|getErrorHandlerWrappingStrategy
+parameter_list|()
+function_decl|;
+comment|/**      * This method sets the ErrorHandlerWrappingStrategy.      *       */
+DECL|method|setErrorHandlerWrappingStrategy (ErrorHandlerWrappingStrategy strategy)
+name|void
+name|setErrorHandlerWrappingStrategy
+parameter_list|(
+name|ErrorHandlerWrappingStrategy
+name|strategy
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

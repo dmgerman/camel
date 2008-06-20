@@ -655,6 +655,27 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// TODO:
+comment|// streamConfig is null and is causing NPE downstream
+comment|// return createStreamResequencer(routeContext, streamConfig);
+if|if
+condition|(
+name|batchConfig
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|createBatchResequencer
+argument_list|(
+name|routeContext
+argument_list|,
+name|batchConfig
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 name|createStreamResequencer
 argument_list|(
@@ -663,6 +684,7 @@ argument_list|,
 name|streamConfig
 argument_list|)
 return|;
+block|}
 block|}
 annotation|@
 name|Override

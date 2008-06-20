@@ -181,6 +181,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|Runnable
+implements|,
+name|Processor
 block|{
 DECL|field|DEFAULT_BATCH_TIMEOUT
 specifier|public
@@ -767,6 +769,19 @@ block|{
 return|return
 name|collection
 return|;
+block|}
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// empty since exchanges come from endpoint's polling consumer
 block|}
 block|}
 end_class

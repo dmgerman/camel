@@ -147,10 +147,10 @@ operator|=
 name|delegate
 expr_stmt|;
 block|}
-DECL|method|onContextCreate (CamelContext context)
+DECL|method|onContextStart (CamelContext context)
 specifier|public
 name|void
-name|onContextCreate
+name|onContextStart
 parameter_list|(
 name|CamelContext
 name|context
@@ -158,7 +158,7 @@ parameter_list|)
 block|{
 name|delegate
 operator|.
-name|onContextCreate
+name|onContextStart
 argument_list|(
 name|context
 argument_list|)

@@ -112,6 +112,33 @@ name|CamelJMXAgentType
 extends|extends
 name|IdentifiedType
 block|{
+comment|/**      * Disable JMI (default false)      */
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|disabled
+specifier|private
+name|Boolean
+name|disabled
+decl_stmt|;
+comment|/**      * RMI connector registry port (default 1099)      */
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|registryPort
+specifier|private
+name|Integer
+name|registryPort
+decl_stmt|;
+comment|/**      * RMI connector server port (default -1 not used)      */
 annotation|@
 name|XmlAttribute
 argument_list|(
@@ -124,6 +151,7 @@ specifier|private
 name|Integer
 name|connectorPort
 decl_stmt|;
+comment|/**      * MBean server default domain name (default org.apache.camel)      */
 annotation|@
 name|XmlAttribute
 argument_list|(
@@ -131,11 +159,12 @@ name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|jmxDomainName
+DECL|field|mbeanServerDefaultDomain
 specifier|private
 name|String
-name|jmxDomainName
+name|mbeanServerDefaultDomain
 decl_stmt|;
+comment|/**      * MBean object domain name (default org.apache.camel)      */
 annotation|@
 name|XmlAttribute
 argument_list|(
@@ -143,11 +172,25 @@ name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|connectorPath
+DECL|field|mbeanObjectDomainName
 specifier|private
 name|String
-name|connectorPath
+name|mbeanObjectDomainName
 decl_stmt|;
+comment|/**      * JMX Service URL path (default /jmxrmi)      */
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|serviceUrlPath
+specifier|private
+name|String
+name|serviceUrlPath
+decl_stmt|;
+comment|/**      * A flag that indicates whether the agent should be created      */
 annotation|@
 name|XmlAttribute
 argument_list|(
@@ -160,6 +203,7 @@ specifier|private
 name|Boolean
 name|createConnector
 decl_stmt|;
+comment|/**      * A flag that indicates whether the platform mbean server should be used      */
 annotation|@
 name|XmlAttribute
 argument_list|(
@@ -172,20 +216,6 @@ specifier|private
 name|Boolean
 name|usePlatformMBeanServer
 decl_stmt|;
-DECL|method|setConnectorPort (Integer port)
-specifier|public
-name|void
-name|setConnectorPort
-parameter_list|(
-name|Integer
-name|port
-parameter_list|)
-block|{
-name|connectorPort
-operator|=
-name|port
-expr_stmt|;
-block|}
 DECL|method|getConnectorPort ()
 specifier|public
 name|Integer
@@ -196,66 +226,114 @@ return|return
 name|connectorPort
 return|;
 block|}
-DECL|method|setJmxDomainName (String name)
+DECL|method|setConnectorPort (Integer value)
 specifier|public
 name|void
-name|setJmxDomainName
+name|setConnectorPort
 parameter_list|(
-name|String
-name|name
+name|Integer
+name|value
 parameter_list|)
 block|{
-name|jmxDomainName
+name|connectorPort
 operator|=
-name|name
+name|value
 expr_stmt|;
 block|}
-DECL|method|getJmxDomainName ()
+DECL|method|getRegistryPort ()
 specifier|public
-name|String
-name|getJmxDomainName
+name|Integer
+name|getRegistryPort
 parameter_list|()
 block|{
 return|return
-name|jmxDomainName
+name|registryPort
 return|;
 block|}
-DECL|method|setConnectorPath (String path)
+DECL|method|setRegistryPort (Integer value)
 specifier|public
 name|void
-name|setConnectorPath
+name|setRegistryPort
 parameter_list|(
-name|String
-name|path
+name|Integer
+name|value
 parameter_list|)
 block|{
-name|connectorPath
+name|registryPort
 operator|=
-name|path
+name|value
 expr_stmt|;
 block|}
-DECL|method|getConnectorPath ()
+DECL|method|getMbeanServerDefaultDomain ()
 specifier|public
 name|String
-name|getConnectorPath
+name|getMbeanServerDefaultDomain
 parameter_list|()
 block|{
 return|return
-name|connectorPath
+name|mbeanServerDefaultDomain
 return|;
 block|}
-DECL|method|setCreateConnector (Boolean flag)
+DECL|method|setMbeanServerDefaultDomain (String value)
 specifier|public
 name|void
-name|setCreateConnector
+name|setMbeanServerDefaultDomain
 parameter_list|(
-name|Boolean
-name|flag
+name|String
+name|value
 parameter_list|)
 block|{
-name|createConnector
+name|mbeanServerDefaultDomain
 operator|=
-name|flag
+name|value
+expr_stmt|;
+block|}
+DECL|method|getMbeanObjectDomainName ()
+specifier|public
+name|String
+name|getMbeanObjectDomainName
+parameter_list|()
+block|{
+return|return
+name|mbeanObjectDomainName
+return|;
+block|}
+DECL|method|getMbeanObjectDomainName (String value)
+specifier|public
+name|void
+name|getMbeanObjectDomainName
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+name|mbeanObjectDomainName
+operator|=
+name|value
+expr_stmt|;
+block|}
+DECL|method|getServiceUrlPath ()
+specifier|public
+name|String
+name|getServiceUrlPath
+parameter_list|()
+block|{
+return|return
+name|serviceUrlPath
+return|;
+block|}
+DECL|method|getServiceUrlPath (String value)
+specifier|public
+name|void
+name|getServiceUrlPath
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+name|serviceUrlPath
+operator|=
+name|value
 expr_stmt|;
 block|}
 DECL|method|isCreateConnector ()
@@ -268,18 +346,18 @@ return|return
 name|createConnector
 return|;
 block|}
-DECL|method|setUsePlatformMBeanServer (Boolean flag)
+DECL|method|setCreateConnector (Boolean value)
 specifier|public
 name|void
-name|setUsePlatformMBeanServer
+name|setCreateConnector
 parameter_list|(
 name|Boolean
-name|flag
+name|value
 parameter_list|)
 block|{
-name|usePlatformMBeanServer
+name|createConnector
 operator|=
-name|flag
+name|value
 expr_stmt|;
 block|}
 DECL|method|isUsePlatformMBeanServer ()
@@ -291,6 +369,44 @@ block|{
 return|return
 name|usePlatformMBeanServer
 return|;
+block|}
+DECL|method|setUsePlatformMBeanServer (Boolean value)
+specifier|public
+name|void
+name|setUsePlatformMBeanServer
+parameter_list|(
+name|Boolean
+name|value
+parameter_list|)
+block|{
+name|usePlatformMBeanServer
+operator|=
+name|value
+expr_stmt|;
+block|}
+DECL|method|isDisabled ()
+specifier|public
+name|Boolean
+name|isDisabled
+parameter_list|()
+block|{
+return|return
+name|disabled
+return|;
+block|}
+DECL|method|setDisabled (Boolean value)
+specifier|public
+name|void
+name|setDisabled
+parameter_list|(
+name|Boolean
+name|value
+parameter_list|)
+block|{
+name|disabled
+operator|=
+name|value
+expr_stmt|;
 block|}
 block|}
 end_class

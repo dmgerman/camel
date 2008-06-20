@@ -192,6 +192,17 @@ parameter_list|)
 block|{
 comment|// TODO Auto-generated method stub
 block|}
+DECL|method|onContextStart (CamelContext arg0)
+specifier|public
+name|void
+name|onContextStart
+parameter_list|(
+name|CamelContext
+name|arg0
+parameter_list|)
+block|{
+comment|// TODO Auto-generated method stub
+block|}
 block|}
 end_class
 

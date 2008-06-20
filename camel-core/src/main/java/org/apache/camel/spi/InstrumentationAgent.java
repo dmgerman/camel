@@ -118,6 +118,12 @@ name|MBeanServer
 name|getMBeanServer
 parameter_list|()
 function_decl|;
+comment|/**      * Get domain name for Camel MBeans.  Notice that this can be different that the       * default domain name of the MBean Server.        *       * @return domain name      */
+DECL|method|getMBeanObjectDomainName ()
+name|String
+name|getMBeanObjectDomainName
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

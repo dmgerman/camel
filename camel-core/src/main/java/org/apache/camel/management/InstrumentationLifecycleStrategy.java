@@ -22,6 +22,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -33,6 +43,16 @@ operator|.
 name|util
 operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -154,6 +174,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ExceptionType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|ProcessorType
 import|;
 end_import
@@ -169,22 +203,6 @@ operator|.
 name|model
 operator|.
 name|RouteType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|Debugger
 import|;
 end_import
 
@@ -259,7 +277,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JMX agent that registeres Camel lifecycle events in JMX.  */
+comment|/**  * JMX agent that registeres Camel lifecycle events in JMX.  *   * @version $Revision$  *   */
 end_comment
 
 begin_class
@@ -297,6 +315,11 @@ specifier|private
 name|CamelNamingStrategy
 name|namingStrategy
 decl_stmt|;
+DECL|field|initialized
+specifier|private
+name|boolean
+name|initialized
+decl_stmt|;
 comment|// A map (Endpoint -> InstrumentationProcessor) to facilitate
 comment|// adding per-route interceptor and registering ManagedRoute MBean
 DECL|field|interceptorMap
@@ -318,15 +341,25 @@ name|InstrumentationProcessor
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|InstrumentationLifecycleStrategy (InstrumentationAgent agent, CamelNamingStrategy namingStrategy)
+DECL|method|InstrumentationLifecycleStrategy ()
+specifier|public
+name|InstrumentationLifecycleStrategy
+parameter_list|()
+block|{
+name|this
+argument_list|(
+operator|new
+name|DefaultInstrumentationAgent
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|InstrumentationLifecycleStrategy (InstrumentationAgent agent)
 specifier|public
 name|InstrumentationLifecycleStrategy
 parameter_list|(
 name|InstrumentationAgent
 name|agent
-parameter_list|,
-name|CamelNamingStrategy
-name|namingStrategy
 parameter_list|)
 block|{
 name|this
@@ -335,17 +368,35 @@ name|agent
 operator|=
 name|agent
 expr_stmt|;
+block|}
+comment|/**      * Constructor for camel context that has been started.      *       * @param agent      * @param context      */
+DECL|method|InstrumentationLifecycleStrategy (InstrumentationAgent agent, CamelContext context)
+specifier|public
+name|InstrumentationLifecycleStrategy
+parameter_list|(
+name|InstrumentationAgent
+name|agent
+parameter_list|,
+name|CamelContext
+name|context
+parameter_list|)
+block|{
 name|this
 operator|.
-name|namingStrategy
+name|agent
 operator|=
-name|namingStrategy
+name|agent
+expr_stmt|;
+name|onContextStart
+argument_list|(
+name|context
+argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onContextCreate (CamelContext context)
+DECL|method|onContextStart (CamelContext context)
 specifier|public
 name|void
-name|onContextCreate
+name|onContextStart
 parameter_list|(
 name|CamelContext
 name|context
@@ -360,6 +411,10 @@ condition|)
 block|{
 try|try
 block|{
+name|initialized
+operator|=
+literal|true
+expr_stmt|;
 name|DefaultCamelContext
 name|dc
 init|=
@@ -368,6 +423,25 @@ name|DefaultCamelContext
 operator|)
 name|context
 decl_stmt|;
+comment|// call addService so that context will start and stop the agent
+name|dc
+operator|.
+name|addService
+argument_list|(
+name|agent
+argument_list|)
+expr_stmt|;
+name|namingStrategy
+operator|=
+operator|new
+name|CamelNamingStrategy
+argument_list|(
+name|agent
+operator|.
+name|getMBeanObjectDomainName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|ManagedService
 name|ms
 init|=
@@ -395,7 +469,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|JMException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -425,6 +499,15 @@ argument_list|>
 name|endpoint
 parameter_list|)
 block|{
+comment|// the agent hasn't been started
+if|if
+condition|(
+operator|!
+name|initialized
+condition|)
+block|{
+return|return;
+block|}
 try|try
 block|{
 name|ManagedEndpoint
@@ -481,6 +564,15 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
+comment|// the agent hasn't been started
+if|if
+condition|(
+operator|!
+name|initialized
+condition|)
+block|{
+return|return;
+block|}
 for|for
 control|(
 name|Route
@@ -590,6 +682,15 @@ name|Service
 name|service
 parameter_list|)
 block|{
+comment|// the agent hasn't been started
+if|if
+condition|(
+operator|!
+name|initialized
+condition|)
+block|{
+return|return;
+block|}
 if|if
 condition|(
 name|service
@@ -656,6 +757,15 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
+comment|// the agent hasn't been started
+if|if
+condition|(
+operator|!
+name|initialized
+condition|)
+block|{
+return|return;
+block|}
 comment|// Create a map (ProcessorType -> PerformanceCounter)
 comment|// to be passed to InstrumentationInterceptStrategy.
 name|Map
@@ -763,6 +873,17 @@ name|counterMap
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|routeContext
+operator|.
+name|setErrorHandlerWrappingStrategy
+argument_list|(
+operator|new
+name|InstrumentationErrorHandlerWrappingStrategy
+argument_list|(
+name|counterMap
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// Add an InstrumentationProcessor at the beginning of each route and
 comment|// set up the interceptorMap for onRoutesAdd() method to register the
 comment|// ManagedRoute MBeans.
@@ -830,35 +951,103 @@ operator|.
 name|getEndpoint
 argument_list|()
 decl_stmt|;
+name|List
+argument_list|<
 name|ProcessorType
 argument_list|<
 name|?
 argument_list|>
-index|[]
+argument_list|>
+name|exceptionHandlers
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|List
+argument_list|<
+name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
 name|outputs
 init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+argument_list|()
+decl_stmt|;
+comment|// separate out the exception handers in the outputs
+for|for
+control|(
+name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
+name|output
+range|:
 name|routeType
 operator|.
 name|getOutputs
 argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|output
+operator|instanceof
+name|ExceptionType
+condition|)
+block|{
+name|exceptionHandlers
 operator|.
-name|toArray
+name|add
 argument_list|(
-operator|new
-name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
-index|[
-literal|0
-index|]
+name|output
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|outputs
+operator|.
+name|add
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// clearing the outputs
 name|routeType
 operator|.
 name|clearOutput
 argument_list|()
 expr_stmt|;
+comment|// add exception handlers as top children
+name|routeType
+operator|.
+name|getOutputs
+argument_list|()
+operator|.
+name|addAll
+argument_list|(
+name|exceptionHandlers
+argument_list|)
+expr_stmt|;
+comment|// add an interceptor
 name|InstrumentationProcessor
 name|processor
 init|=
@@ -873,13 +1062,14 @@ argument_list|(
 name|processor
 argument_list|)
 expr_stmt|;
+comment|// add the output
 for|for
 control|(
 name|ProcessorType
 argument_list|<
 name|?
 argument_list|>
-name|output
+name|processorType
 range|:
 name|outputs
 control|)
@@ -888,7 +1078,7 @@ name|routeType
 operator|.
 name|addOutput
 argument_list|(
-name|output
+name|processorType
 argument_list|)
 expr_stmt|;
 block|}
@@ -927,6 +1117,22 @@ operator|.
 name|namingStrategy
 operator|=
 name|strategy
+expr_stmt|;
+block|}
+DECL|method|setAgent (InstrumentationAgent agent)
+specifier|public
+name|void
+name|setAgent
+parameter_list|(
+name|InstrumentationAgent
+name|agent
+parameter_list|)
+block|{
+name|this
+operator|.
+name|agent
+operator|=
+name|agent
 expr_stmt|;
 block|}
 block|}

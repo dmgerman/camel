@@ -266,6 +266,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ErrorHandlerWrappingStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|InterceptStrategy
 import|;
 end_import
@@ -363,6 +377,11 @@ argument_list|<
 name|InterceptStrategy
 argument_list|>
 argument_list|()
+decl_stmt|;
+DECL|field|errorHandlerWrappingStrategy
+specifier|private
+name|ErrorHandlerWrappingStrategy
+name|errorHandlerWrappingStrategy
 decl_stmt|;
 DECL|method|DefaultRouteContext (RouteType route, FromType from, Collection<Route> routes)
 specifier|public
@@ -940,6 +959,30 @@ name|add
 argument_list|(
 name|interceptStrategy
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getErrorHandlerWrappingStrategy ()
+specifier|public
+name|ErrorHandlerWrappingStrategy
+name|getErrorHandlerWrappingStrategy
+parameter_list|()
+block|{
+return|return
+name|errorHandlerWrappingStrategy
+return|;
+block|}
+DECL|method|setErrorHandlerWrappingStrategy (ErrorHandlerWrappingStrategy strategy)
+specifier|public
+name|void
+name|setErrorHandlerWrappingStrategy
+parameter_list|(
+name|ErrorHandlerWrappingStrategy
+name|strategy
+parameter_list|)
+block|{
+name|errorHandlerWrappingStrategy
+operator|=
+name|strategy
 expr_stmt|;
 block|}
 block|}

@@ -96,10 +96,10 @@ specifier|public
 interface|interface
 name|LifecycleStrategy
 block|{
-comment|/**      * Notification on adding a {@link CamelContext}.      */
-DECL|method|onContextCreate (CamelContext context)
+comment|/**      * Notification on starting a {@link CamelContext}.      */
+DECL|method|onContextStart (CamelContext context)
 name|void
-name|onContextCreate
+name|onContextStart
 parameter_list|(
 name|CamelContext
 name|context

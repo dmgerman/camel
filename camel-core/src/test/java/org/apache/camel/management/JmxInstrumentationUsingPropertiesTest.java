@@ -36,6 +36,10 @@ name|ObjectName
 import|;
 end_import
 
+begin_comment
+comment|/**  * This module contains test cases that verifies jmx system property uses.  *  * @version $Revision$  */
+end_comment
+
 begin_class
 DECL|class|JmxInstrumentationUsingPropertiesTest
 specifier|public
@@ -62,22 +66,9 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-name|DefaultInstrumentationAgent
+name|JmxSystemPropertyKeys
 operator|.
-name|SYSTEM_PROPERTY_JMX
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|setProperty
-argument_list|(
-name|DefaultInstrumentationAgent
-operator|.
-name|SYSTEM_PROPERTY_JMX
-operator|+
-literal|".domain"
+name|DOMAIN
 argument_list|,
 name|domainName
 argument_list|)
@@ -86,13 +77,11 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-name|DefaultInstrumentationAgent
+name|JmxSystemPropertyKeys
 operator|.
-name|SYSTEM_PROPERTY_JMX
-operator|+
-literal|".port"
+name|MBEAN_DOMAIN
 argument_list|,
-literal|"1099"
+name|domainName
 argument_list|)
 expr_stmt|;
 name|super
@@ -114,39 +103,20 @@ block|{
 comment|// restore environment to original state
 name|System
 operator|.
-name|setProperty
+name|clearProperty
 argument_list|(
-name|DefaultInstrumentationAgent
+name|JmxSystemPropertyKeys
 operator|.
-name|SYSTEM_PROPERTY_JMX
-argument_list|,
-literal|""
+name|DOMAIN
 argument_list|)
 expr_stmt|;
 name|System
 operator|.
-name|setProperty
+name|clearProperty
 argument_list|(
-name|DefaultInstrumentationAgent
+name|JmxSystemPropertyKeys
 operator|.
-name|SYSTEM_PROPERTY_JMX
-operator|+
-literal|".domain"
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|setProperty
-argument_list|(
-name|DefaultInstrumentationAgent
-operator|.
-name|SYSTEM_PROPERTY_JMX
-operator|+
-literal|".port"
-argument_list|,
-literal|""
+name|MBEAN_DOMAIN
 argument_list|)
 expr_stmt|;
 name|super
@@ -154,16 +124,6 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|enableJmx ()
-specifier|protected
-name|void
-name|enableJmx
-parameter_list|()
-block|{
-comment|// do not enable here, System properties should do the job
 block|}
 DECL|method|testMBeanServerType ()
 specifier|public
@@ -175,10 +135,7 @@ name|Exception
 block|{
 try|try
 block|{
-name|iAgent
-operator|.
-name|getMBeanServer
-argument_list|()
+name|mbsc
 operator|.
 name|getMBeanInfo
 argument_list|(
