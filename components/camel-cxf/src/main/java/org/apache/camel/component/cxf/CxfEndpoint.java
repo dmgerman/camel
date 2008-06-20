@@ -228,6 +228,11 @@ name|inOut
 init|=
 literal|true
 decl_stmt|;
+DECL|field|isSetDefaultBus
+specifier|private
+name|boolean
+name|isSetDefaultBus
+decl_stmt|;
 DECL|field|configurer
 specifier|private
 name|ConfigurerImpl
@@ -537,6 +542,30 @@ name|wsdlURL
 operator|=
 name|url
 expr_stmt|;
+block|}
+DECL|method|setSetDefaultBus (boolean set)
+specifier|public
+name|void
+name|setSetDefaultBus
+parameter_list|(
+name|boolean
+name|set
+parameter_list|)
+block|{
+name|isSetDefaultBus
+operator|=
+name|set
+expr_stmt|;
+block|}
+DECL|method|isSetDefaultBus ()
+specifier|public
+name|boolean
+name|isSetDefaultBus
+parameter_list|()
+block|{
+return|return
+name|isSetDefaultBus
+return|;
 block|}
 DECL|method|getServiceClass ()
 specifier|public
