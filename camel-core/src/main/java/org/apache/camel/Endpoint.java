@@ -133,6 +133,23 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
+annotation|@
+name|Deprecated
+DECL|method|getContext ()
+name|CamelContext
+name|getContext
+parameter_list|()
+function_decl|;
+annotation|@
+name|Deprecated
+DECL|method|setContext (CamelContext context)
+name|void
+name|setContext
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
