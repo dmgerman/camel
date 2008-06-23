@@ -785,10 +785,12 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|endpoint
+name|CxfEndpointUtils
 operator|.
-name|isSetDefaultBus
-argument_list|()
+name|getSetDefaultBus
+argument_list|(
+name|endpoint
+argument_list|)
 condition|)
 block|{
 name|BusFactory

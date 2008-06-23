@@ -230,7 +230,7 @@ literal|true
 decl_stmt|;
 DECL|field|isSetDefaultBus
 specifier|private
-name|boolean
+name|Boolean
 name|isSetDefaultBus
 decl_stmt|;
 DECL|field|configurer
@@ -543,12 +543,12 @@ operator|=
 name|url
 expr_stmt|;
 block|}
-DECL|method|setSetDefaultBus (boolean set)
+DECL|method|setSetDefaultBus (Boolean set)
 specifier|public
 name|void
 name|setSetDefaultBus
 parameter_list|(
-name|boolean
+name|Boolean
 name|set
 parameter_list|)
 block|{
@@ -559,7 +559,7 @@ expr_stmt|;
 block|}
 DECL|method|isSetDefaultBus ()
 specifier|public
-name|boolean
+name|Boolean
 name|isSetDefaultBus
 parameter_list|()
 block|{

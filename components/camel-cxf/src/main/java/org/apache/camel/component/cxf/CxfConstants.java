@@ -46,6 +46,12 @@ name|DATA_FORMAT
 init|=
 literal|"dataFormat"
 decl_stmt|;
+DECL|field|SET_DEFAULT_BUS
+name|String
+name|SET_DEFAULT_BUS
+init|=
+literal|"setDefaultBus"
+decl_stmt|;
 DECL|field|WSDL_URL
 name|String
 name|WSDL_URL
