@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Processor} which just logs to a {@link Log} object which can be used  * as an exception handler instead of using a dead letter queue.  *   * @version $Revision$  */
+comment|/**  * A {@link Processor} which just logs to a {@link Log} object which can be used  * as an exception handler instead of using a dead letter queue.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -249,7 +249,7 @@ name|level
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Logger (Log log,ExchangeFormatter formatter)
+DECL|method|Logger (Log log, ExchangeFormatter formatter)
 specifier|public
 name|Logger
 parameter_list|(

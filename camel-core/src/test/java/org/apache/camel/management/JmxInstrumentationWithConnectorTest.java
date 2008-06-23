@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test that verifies JMX connector server can be connected by  * a client.  *   * @version $Revision$  *  */
+comment|/**  * Test that verifies JMX connector server can be connected by  * a client.  *  * @version $Revision$  *  */
 end_comment
 
 begin_class
@@ -74,11 +74,6 @@ name|JmxInstrumentationWithConnectorTest
 extends|extends
 name|JmxInstrumentationUsingDefaultsTest
 block|{
-DECL|field|clientConnector
-specifier|protected
-name|JMXConnector
-name|clientConnector
-decl_stmt|;
 DECL|field|JMXSERVICEURL
 specifier|protected
 specifier|static
@@ -87,6 +82,11 @@ name|String
 name|JMXSERVICEURL
 init|=
 literal|"service:jmx:rmi:///jndi/rmi://localhost:2000/jmxrmi"
+decl_stmt|;
+DECL|field|clientConnector
+specifier|protected
+name|JMXConnector
+name|clientConnector
 decl_stmt|;
 annotation|@
 name|Override

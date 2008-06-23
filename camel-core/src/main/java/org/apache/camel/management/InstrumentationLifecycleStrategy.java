@@ -277,7 +277,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JMX agent that registeres Camel lifecycle events in JMX.  *   * @version $Revision$  *   */
+comment|/**  * JMX agent that registeres Camel lifecycle events in JMX.  *  * @version $Revision$  *  */
 end_comment
 
 begin_class
@@ -369,7 +369,7 @@ operator|=
 name|agent
 expr_stmt|;
 block|}
-comment|/**      * Constructor for camel context that has been started.      *       * @param agent      * @param context      */
+comment|/**      * Constructor for camel context that has been started.      *      * @param agent      * @param context      */
 DECL|method|InstrumentationLifecycleStrategy (InstrumentationAgent agent, CamelContext context)
 specifier|public
 name|InstrumentationLifecycleStrategy
