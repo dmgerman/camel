@@ -993,9 +993,6 @@ comment|// separate out the exception handers in the outputs
 for|for
 control|(
 name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
 name|output
 range|:
 name|routeType

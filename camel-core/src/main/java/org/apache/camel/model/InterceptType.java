@@ -394,9 +394,6 @@ condition|)
 block|{
 comment|// this is for the predicate version
 name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
 name|processor
 init|=
 name|answer
@@ -405,9 +402,6 @@ name|processor
 operator|=
 operator|(
 name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|answer
 operator|.
