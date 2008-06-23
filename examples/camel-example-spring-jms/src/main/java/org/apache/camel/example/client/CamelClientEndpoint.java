@@ -115,6 +115,13 @@ specifier|final
 class|class
 name|CamelClientEndpoint
 block|{
+DECL|method|CamelClientEndpoint ()
+specifier|private
+name|CamelClientEndpoint
+parameter_list|()
+block|{
+comment|//Helper class
+block|}
 comment|// START SNIPPET: e1
 DECL|method|main (final String[] args)
 specifier|public
