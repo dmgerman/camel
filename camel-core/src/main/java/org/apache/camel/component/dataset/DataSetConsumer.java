@@ -310,14 +310,14 @@ if|if
 condition|(
 name|delay
 operator|<
-literal|1
+literal|3
 condition|)
 block|{
-comment|// if no delay set then we must sleep at lest for 1 millis to avoid concurrency
-comment|// issues with extremly high throughtput
+comment|// if no delay set then we must sleep at lest for 3 millis to avoid concurrency
+comment|// issues with extremely high throughput
 name|delay
 operator|=
-literal|1
+literal|3
 expr_stmt|;
 block|}
 name|Thread
