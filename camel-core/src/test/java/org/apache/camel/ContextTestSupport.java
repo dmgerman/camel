@@ -136,6 +136,20 @@ name|JndiTest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|JmxSystemPropertyKeys
+import|;
+end_import
+
 begin_comment
 comment|/**  * A useful base class which creates a {@link CamelContext} with some routes  * along with a {@link ProducerTemplate} for use in the test case  *  * @version $Revision$  */
 end_comment
@@ -1018,6 +1032,44 @@ expr_stmt|;
 return|return
 name|endpoint
 return|;
+block|}
+comment|/**      * Disables the JMX agent. Must be called before the {@link #setUp()} method.      */
+DECL|method|disableJMX ()
+specifier|protected
+name|void
+name|disableJMX
+parameter_list|()
+block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|DISABLED
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Enables the JMX agent. Must be called before the {@link #setUp()} method.      */
+DECL|method|enableJMX ()
+specifier|protected
+name|void
+name|enableJMX
+parameter_list|()
+block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|DISABLED
+argument_list|,
+literal|"false"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
