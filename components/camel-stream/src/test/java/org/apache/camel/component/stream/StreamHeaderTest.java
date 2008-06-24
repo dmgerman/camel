@@ -24,7 +24,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|OutputStream
+name|IOException
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|OutputStream
 import|;
 end_import
 
