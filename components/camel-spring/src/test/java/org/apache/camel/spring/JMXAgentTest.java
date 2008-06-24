@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test that verifies JMX properties can be configured via   * Spring.  *   * @version $Revision$  *  */
+comment|/**  * Test that verifies JMX properties can be configured via  * Spring.  *  * @version $Revision$  *  */
 end_comment
 
 begin_class
@@ -95,7 +95,7 @@ specifier|final
 name|String
 name|JMXSERVICEURL
 init|=
-literal|"service:jmx:rmi:///jndi/rmi://localhost:20008/jmxrmi"
+literal|"service:jmx:rmi:///jndi/rmi://localhost:20008/jmxrmi/camel"
 decl_stmt|;
 DECL|field|clientConnector
 specifier|protected
