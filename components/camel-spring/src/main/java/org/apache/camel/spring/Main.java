@@ -411,6 +411,11 @@ specifier|private
 name|boolean
 name|debug
 decl_stmt|;
+DECL|field|trace
+specifier|private
+name|boolean
+name|trace
+decl_stmt|;
 DECL|field|routeBuilders
 specifier|private
 name|List
@@ -735,7 +740,40 @@ argument_list|>
 name|remainingArgs
 parameter_list|)
 block|{
-name|enableDebugging
+name|enableDebug
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+name|addOption
+argument_list|(
+operator|new
+name|Option
+argument_list|(
+literal|"t"
+argument_list|,
+literal|"trace"
+argument_list|,
+literal|"Enables tracing"
+argument_list|)
+block|{
+specifier|protected
+name|void
+name|doProcess
+parameter_list|(
+name|String
+name|arg
+parameter_list|,
+name|LinkedList
+argument_list|<
+name|String
+argument_list|>
+name|remainingArgs
+parameter_list|)
+block|{
+name|enableTrace
 argument_list|()
 expr_stmt|;
 block|}
@@ -1653,10 +1691,10 @@ return|return
 name|debug
 return|;
 block|}
-DECL|method|enableDebugging ()
+DECL|method|enableDebug ()
 specifier|public
 name|void
-name|enableDebugging
+name|enableDebug
 parameter_list|()
 block|{
 name|this
@@ -1671,7 +1709,35 @@ literal|"/META-INF/services/org/apache/camel/spring/debug.xml"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the currently active debugger if one is enabled      *      * @return the current debugger or null if none is active      * @see #enableDebugging()      */
+DECL|method|isTrace ()
+specifier|public
+name|boolean
+name|isTrace
+parameter_list|()
+block|{
+return|return
+name|trace
+return|;
+block|}
+DECL|method|enableTrace ()
+specifier|public
+name|void
+name|enableTrace
+parameter_list|()
+block|{
+name|this
+operator|.
+name|trace
+operator|=
+literal|true
+expr_stmt|;
+name|setParentApplicationContextUri
+argument_list|(
+literal|"/META-INF/services/org/apache/camel/spring/trace.xml"
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Returns the currently active debugger if one is enabled      *      * @return the current debugger or null if none is active      * @see #enableDebug()      */
 DECL|method|getDebugger ()
 specifier|public
 name|Debugger

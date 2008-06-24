@@ -63,10 +63,10 @@ comment|/**  * An interceptor strategy for tracing routes  *  * @version $Revisi
 end_comment
 
 begin_class
-DECL|class|TraceStrategy
+DECL|class|Tracer
 specifier|public
 class|class
-name|TraceStrategy
+name|Tracer
 implements|implements
 name|InterceptStrategy
 block|{

@@ -40,21 +40,7 @@ name|processor
 operator|.
 name|interceptor
 operator|.
-name|TraceStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|ObjectConverter
+name|Tracer
 import|;
 end_import
 
@@ -2023,7 +2009,7 @@ if|if
 condition|(
 name|strategy
 operator|instanceof
-name|TraceStrategy
+name|Tracer
 condition|)
 block|{
 name|found
@@ -2041,7 +2027,7 @@ block|{
 name|addInterceptStrategy
 argument_list|(
 operator|new
-name|TraceStrategy
+name|Tracer
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -546,6 +546,18 @@ specifier|private
 name|List
 name|pluginDependencies
 decl_stmt|;
+comment|/**      * Whether to enable the debugger or not      *      * @parameter expression="${camel.debug}"      *            default-value="false"      * @required      */
+DECL|field|debug
+specifier|private
+name|boolean
+name|debug
+decl_stmt|;
+comment|/**      * Whether to enable the tracer or not      *      * @parameter expression="${camel.trace}"      *            default-value="false"      * @required      */
+DECL|field|trace
+specifier|private
+name|boolean
+name|trace
+decl_stmt|;
 comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.spring.Main"      * @required      */
 DECL|field|mainClass
 specifier|private
@@ -688,6 +700,32 @@ operator|.
 name|add
 argument_list|(
 name|dotDir
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|debug
+condition|)
+block|{
+name|args
+operator|.
+name|add
+argument_list|(
+literal|"-x"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|trace
+condition|)
+block|{
+name|args
+operator|.
+name|add
+argument_list|(
+literal|"-t"
 argument_list|)
 expr_stmt|;
 block|}

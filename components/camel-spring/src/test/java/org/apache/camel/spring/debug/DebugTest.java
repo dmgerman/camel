@@ -214,7 +214,7 @@ argument_list|()
 expr_stmt|;
 name|main
 operator|.
-name|enableDebugging
+name|enableDebug
 argument_list|()
 expr_stmt|;
 name|main
