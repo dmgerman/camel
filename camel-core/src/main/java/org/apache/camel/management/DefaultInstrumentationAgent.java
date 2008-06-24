@@ -398,7 +398,7 @@ specifier|final
 name|String
 name|DEFAULT_SERVICE_URL_PATH
 init|=
-literal|"/jmxrmi"
+literal|"/jmxrmi/camel"
 decl_stmt|;
 DECL|field|LOG
 specifier|private
@@ -1447,7 +1447,7 @@ name|RemoteException
 name|ex
 parameter_list|)
 block|{
-comment|// The registry may had been created
+comment|// The registry may had been created, we could get the registry instead
 block|}
 comment|// Create an RMI connector and start it
 name|JMXServiceURL

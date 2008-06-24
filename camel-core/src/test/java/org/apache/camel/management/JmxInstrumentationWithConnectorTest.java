@@ -81,7 +81,7 @@ specifier|final
 name|String
 name|JMXSERVICEURL
 init|=
-literal|"service:jmx:rmi:///jndi/rmi://localhost:2000/jmxrmi"
+literal|"service:jmx:rmi:///jndi/rmi://localhost:2000/jmxrmi/camel"
 decl_stmt|;
 DECL|field|clientConnector
 specifier|protected
