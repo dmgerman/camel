@@ -100,12 +100,16 @@ argument_list|(
 literal|"target/camel/dump"
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+name|file
+operator|=
 name|file
 operator|.
 name|getAbsoluteFile
 argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|file
 operator|.
 name|exists
 argument_list|()
@@ -131,13 +135,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// sleep to let the file and jaxb do its works
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|3000
+literal|5000
 argument_list|)
 expr_stmt|;
+comment|// assert dump file exists
 name|File
 name|file
 init|=
