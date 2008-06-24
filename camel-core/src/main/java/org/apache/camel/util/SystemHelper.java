@@ -85,7 +85,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Looks up the given system property name returning null if any exceptions occur      * @param name      * @return      */
+comment|/**      * Looks up the given system property name returning null if any exceptions occur      */
 DECL|method|getSystemProperty (String name)
 specifier|public
 specifier|static
@@ -133,7 +133,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Looks up the given system property value and returns true or false if it is not enabled      */
+comment|/**      * Looks up the given system property boolean value. Returns false if the system property doesn't exist.      */
 DECL|method|isSystemProperty (String name)
 specifier|public
 specifier|static
