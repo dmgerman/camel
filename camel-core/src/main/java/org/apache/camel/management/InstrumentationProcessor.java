@@ -80,8 +80,36 @@ name|AsyncProcessorHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  * JMX enabled processor that uses the {@link Counter} for instrumenting  * processing of exchanges.  *  * @version $Revision$  *  */
+comment|/**  * JMX enabled processor that uses the {@link Counter} for instrumenting  * processing of exchanges.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -94,6 +122,23 @@ name|DelegateProcessor
 implements|implements
 name|AsyncProcessor
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|InstrumentationProcessor
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|counter
 specifier|private
 name|PerformanceCounter
@@ -321,6 +366,28 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Recording duration: "
+operator|+
+name|duration
+operator|+
+literal|" millis for exchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 operator|!
 name|exchange
 operator|.
@@ -347,7 +414,7 @@ else|else
 block|{
 name|counter
 operator|.
-name|completedExchange
+name|failedExchange
 argument_list|()
 expr_stmt|;
 block|}

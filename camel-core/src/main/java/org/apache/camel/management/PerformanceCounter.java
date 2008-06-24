@@ -141,10 +141,20 @@ specifier|private
 name|Date
 name|lastExchangeCompletionTime
 decl_stmt|;
+DECL|field|lastExchangeFailureTime
+specifier|private
+name|Date
+name|lastExchangeFailureTime
+decl_stmt|;
 DECL|field|firstExchangeCompletionTime
 specifier|private
 name|Date
 name|firstExchangeCompletionTime
+decl_stmt|;
+DECL|field|firstExchangeFailureTime
+specifier|private
+name|Date
+name|firstExchangeFailureTime
 decl_stmt|;
 annotation|@
 name|Override
@@ -191,7 +201,15 @@ name|lastExchangeCompletionTime
 operator|=
 literal|null
 expr_stmt|;
+name|lastExchangeFailureTime
+operator|=
+literal|null
+expr_stmt|;
 name|firstExchangeCompletionTime
+operator|=
+literal|null
+expr_stmt|;
+name|firstExchangeFailureTime
 operator|=
 literal|null
 expr_stmt|;
@@ -377,6 +395,42 @@ return|return
 name|firstExchangeCompletionTime
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Last Exchange Failed Timestamp"
+argument_list|)
+DECL|method|getLastExchangeFailureTime ()
+specifier|public
+specifier|synchronized
+name|Date
+name|getLastExchangeFailureTime
+parameter_list|()
+block|{
+return|return
+name|lastExchangeFailureTime
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"First Exchange Failed Timestamp"
+argument_list|)
+DECL|method|getFirstExchangeFailureTime ()
+specifier|public
+specifier|synchronized
+name|Date
+name|getFirstExchangeFailureTime
+parameter_list|()
+block|{
+return|return
+name|firstExchangeFailureTime
+return|;
+block|}
 comment|/**      * This method is called when an exchange has been processed successfully.      *       * @param time in milliseconds it spent on processing the exchange      */
 DECL|method|completedExchange (double time)
 specifier|public
@@ -452,16 +506,39 @@ operator|=
 name|timestamp
 expr_stmt|;
 block|}
-DECL|method|completedExchange ()
+comment|/**      * This method is called when an exchange has been processed and failed.      */
+DECL|method|failedExchange ()
 specifier|public
+specifier|synchronized
 name|void
-name|completedExchange
+name|failedExchange
 parameter_list|()
 block|{
-name|numExchanges
-operator|.
-name|incrementAndGet
+name|increment
 argument_list|()
+expr_stmt|;
+name|Date
+name|timestamp
+init|=
+operator|new
+name|Date
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|firstExchangeFailureTime
+operator|==
+literal|null
+condition|)
+block|{
+name|firstExchangeFailureTime
+operator|=
+name|timestamp
+expr_stmt|;
+block|}
+name|lastExchangeFailureTime
+operator|=
+name|timestamp
 expr_stmt|;
 block|}
 block|}

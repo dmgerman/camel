@@ -417,7 +417,7 @@ name|buffer
 argument_list|)
 return|;
 block|}
-comment|/**      * Implements the naming strategy for a {@link ManagedEndpoint}.      * The convention used for a {@link ManagedEndpoint} ObjectName is:      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,type=endpoint,component=&lt;component-name&gt;name=&lt;endpoint-name&gt;</tt>      *      * @param mbean      * @return generated ObjectName      * @throws MalformedObjectNameException      */
+comment|/**      * Implements the naming strategy for a {@link ManagedEndpoint}.      * The convention used for a {@link ManagedEndpoint} ObjectName is:      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,type=endpoint,component=&lt;component-name&gt;name=&lt;endpoint-name&gt;</tt>      */
 DECL|method|getObjectName (ManagedEndpoint mbean)
 specifier|public
 name|ObjectName
