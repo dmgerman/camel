@@ -1203,7 +1203,7 @@ condition|)
 block|{
 name|id
 operator|+=
-literal|"."
+literal|"@"
 operator|+
 name|Integer
 operator|.
