@@ -938,6 +938,24 @@ operator|.
 name|nextElement
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"URL from classloader: "
+operator|+
+name|url
+argument_list|)
+expr_stmt|;
+block|}
 name|String
 name|urlPath
 init|=
