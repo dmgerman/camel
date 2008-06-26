@@ -750,10 +750,10 @@ name|InterceptStrategy
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|tracing
+DECL|field|trace
 specifier|private
 name|Boolean
-name|tracing
+name|trace
 decl_stmt|;
 DECL|method|DefaultCamelContext ()
 specifier|public
@@ -2228,11 +2228,11 @@ name|interceptStrategy
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns true if tracing has been enabled or disabled via the {@link #setTracing(Boolean)} method      * or it has not been specified then default to the<b>camel.trace</b> system property      */
-DECL|method|isTracing ()
+comment|/**      * Returns true if tracing has been enabled or disabled via the {@link #setTrace(Boolean)} method      * or it has not been specified then default to the<b>camel.trace</b> system property      */
+DECL|method|getTrace ()
 specifier|public
 name|boolean
-name|isTracing
+name|getTrace
 parameter_list|()
 block|{
 specifier|final
@@ -2272,23 +2272,23 @@ name|getTracing
 parameter_list|()
 block|{
 return|return
-name|tracing
+name|trace
 return|;
 block|}
-DECL|method|setTracing (Boolean tracing)
+DECL|method|setTrace (Boolean trace)
 specifier|public
 name|void
-name|setTracing
+name|setTrace
 parameter_list|(
 name|Boolean
-name|tracing
+name|trace
 parameter_list|)
 block|{
 name|this
 operator|.
-name|tracing
+name|trace
 operator|=
-name|tracing
+name|trace
 expr_stmt|;
 block|}
 comment|// Implementation methods
@@ -2303,7 +2303,7 @@ name|Exception
 block|{
 if|if
 condition|(
-name|isTracing
+name|getTrace
 argument_list|()
 condition|)
 block|{

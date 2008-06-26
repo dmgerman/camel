@@ -599,10 +599,10 @@ name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|tracing
+DECL|field|trace
 specifier|private
 name|Boolean
-name|tracing
+name|trace
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -1757,6 +1757,32 @@ operator|=
 name|agent
 expr_stmt|;
 block|}
+DECL|method|getTrace ()
+specifier|public
+name|Boolean
+name|getTrace
+parameter_list|()
+block|{
+return|return
+name|trace
+return|;
+block|}
+DECL|method|setTrace (Boolean trace)
+specifier|public
+name|void
+name|setTrace
+parameter_list|(
+name|Boolean
+name|trace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|trace
+operator|=
+name|trace
+expr_stmt|;
+block|}
 DECL|method|getCamelJMXAgent ()
 specifier|public
 name|CamelJMXAgentType
@@ -1845,16 +1871,16 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|tracing
+name|trace
 operator|!=
 literal|null
 condition|)
 block|{
 name|ctx
 operator|.
-name|setTracing
+name|setTrace
 argument_list|(
-name|tracing
+name|trace
 argument_list|)
 expr_stmt|;
 block|}
