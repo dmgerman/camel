@@ -50,6 +50,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|UnitOfWork
@@ -103,6 +117,13 @@ DECL|field|showBody
 specifier|private
 name|boolean
 name|showBody
+init|=
+literal|true
+decl_stmt|;
+DECL|field|showBodyType
+specifier|private
+name|boolean
+name|showBodyType
 init|=
 literal|true
 decl_stmt|;
@@ -215,6 +236,24 @@ literal|""
 operator|)
 operator|+
 operator|(
+name|showBodyType
+condition|?
+literal|" BodyType:"
+operator|+
+name|ObjectHelper
+operator|.
+name|className
+argument_list|(
+name|in
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+else|:
+literal|""
+operator|)
+operator|+
+operator|(
 name|showBody
 condition|?
 literal|" Body:"
@@ -264,6 +303,32 @@ operator|.
 name|showBody
 operator|=
 name|showBody
+expr_stmt|;
+block|}
+DECL|method|isShowBodyType ()
+specifier|public
+name|boolean
+name|isShowBodyType
+parameter_list|()
+block|{
+return|return
+name|showBodyType
+return|;
+block|}
+DECL|method|setShowBodyType (boolean showBodyType)
+specifier|public
+name|void
+name|setShowBodyType
+parameter_list|(
+name|boolean
+name|showBodyType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|showBodyType
+operator|=
+name|showBodyType
 expr_stmt|;
 block|}
 DECL|method|isShowBreadCrumb ()
@@ -477,7 +542,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|getId
+name|idOrCreate
 argument_list|()
 return|;
 block|}
