@@ -486,6 +486,18 @@ specifier|public
 name|LoadBalanceType
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
+DECL|method|getShortName ()
+specifier|public
+name|String
+name|getShortName
+parameter_list|()
+block|{
+return|return
+literal|"loadbalance"
+return|;
+block|}
 DECL|method|getRef ()
 specifier|public
 name|String

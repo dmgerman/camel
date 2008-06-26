@@ -167,6 +167,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getShortName ()
+specifier|public
+name|String
+name|getShortName
+parameter_list|()
+block|{
+return|return
+literal|"when"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|FilterProcessor

@@ -358,6 +358,18 @@ name|batch
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getShortName ()
+specifier|public
+name|String
+name|getShortName
+parameter_list|()
+block|{
+return|return
+literal|"resequencer"
+return|;
+block|}
 comment|/**      * Configures the stream-based resequencing algorithm using the default      * configuration.      *      * @return<code>this</code> instance.      */
 DECL|method|stream ()
 specifier|public

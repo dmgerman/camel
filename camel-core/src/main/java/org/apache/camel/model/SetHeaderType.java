@@ -299,6 +299,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getShortName ()
+specifier|public
+name|String
+name|getShortName
+parameter_list|()
+block|{
+return|return
+literal|"setHeader"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor

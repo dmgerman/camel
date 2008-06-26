@@ -246,6 +246,18 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getShortName ()
+specifier|public
+name|String
+name|getShortName
+parameter_list|()
+block|{
+return|return
+literal|"idempotentConsumer"
+return|;
+block|}
 DECL|method|getMessageIdRepositoryRef ()
 specifier|public
 name|String

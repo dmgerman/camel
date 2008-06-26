@@ -113,6 +113,18 @@ argument_list|<
 name|ProcessorType
 argument_list|>
 block|{
+annotation|@
+name|Override
+DECL|method|getShortName ()
+specifier|public
+name|String
+name|getShortName
+parameter_list|()
+block|{
+return|return
+literal|"proceed"
+return|;
+block|}
 comment|// TODO we should be just returning the outputs!
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public

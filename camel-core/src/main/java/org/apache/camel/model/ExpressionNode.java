@@ -282,6 +282,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|getShortName ()
+specifier|public
+name|String
+name|getShortName
+parameter_list|()
+block|{
+return|return
+literal|"exp"
+return|;
+block|}
 DECL|method|getExpression ()
 specifier|public
 name|ExpressionType

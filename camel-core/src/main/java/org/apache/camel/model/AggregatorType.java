@@ -459,6 +459,18 @@ literal|"]"
 return|;
 block|}
 annotation|@
+name|Override
+DECL|method|getShortName ()
+specifier|public
+name|String
+name|getShortName
+parameter_list|()
+block|{
+return|return
+literal|"aggregator"
+return|;
+block|}
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
