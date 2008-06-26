@@ -31,14 +31,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * @version $Revision:  $  */
 end_comment
 
 begin_class
-DECL|class|InterceptWithPredicateAndProceedRouteTest
+DECL|class|InterceptWithPredicateAndStopRouteTest
 specifier|public
 class|class
-name|InterceptWithPredicateAndProceedRouteTest
+name|InterceptWithPredicateAndStopRouteTest
 extends|extends
 name|InterceptRouteTestSupport
 block|{
@@ -78,7 +78,7 @@ argument_list|(
 literal|"mock:b"
 argument_list|)
 operator|.
-name|proceed
+name|stop
 argument_list|()
 expr_stmt|;
 name|from
@@ -107,7 +107,7 @@ name|a
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|b
@@ -130,7 +130,7 @@ name|a
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|b
