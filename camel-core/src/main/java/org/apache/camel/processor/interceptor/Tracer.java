@@ -93,6 +93,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// Force the creation of an id, otherwise the id is not available when the trace formatter is
+comment|// outputting trace information
+name|String
+name|id
+init|=
+name|processorType
+operator|.
+name|idOrCreate
+argument_list|()
+decl_stmt|;
 return|return
 operator|new
 name|TraceInterceptor

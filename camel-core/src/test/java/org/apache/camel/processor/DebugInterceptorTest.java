@@ -82,31 +82,15 @@ name|Debugger
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|Tracer
-import|;
-end_import
-
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|TraceInterceptorTest
+DECL|class|DebugInterceptorTest
 specifier|public
 class|class
-name|TraceInterceptorTest
+name|DebugInterceptorTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -171,7 +155,7 @@ operator|.
 name|addInterceptStrategy
 argument_list|(
 operator|new
-name|Tracer
+name|Debugger
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -478,7 +478,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"adding interceptor: "
+literal|"Adding "
+operator|+
+name|id
+operator|+
+literal|" interceptor: "
 operator|+
 name|interceptor
 argument_list|)
