@@ -94,6 +94,7 @@ name|DebugInterceptorTest
 extends|extends
 name|ContextTestSupport
 block|{
+comment|// START SNIPPET: e1
 DECL|method|testSendingSomeMessages ()
 specifier|public
 name|void
@@ -149,6 +150,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// add debugger as an interceptor. The debugger is an enhanced tracer that also
+comment|// logs the exchanges at runtime. It is also a framework where we programatically
+comment|// can access the internal states of Camel etc.
 name|getContext
 argument_list|()
 operator|.
@@ -210,6 +214,7 @@ block|}
 block|}
 return|;
 block|}
+comment|// END SNIPPET: e1
 block|}
 end_class
 

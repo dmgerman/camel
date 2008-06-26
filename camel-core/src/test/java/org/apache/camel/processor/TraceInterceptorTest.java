@@ -110,6 +110,7 @@ name|TraceInterceptorTest
 extends|extends
 name|ContextTestSupport
 block|{
+comment|// START SNIPPET: e1
 DECL|method|testSendingSomeMessages ()
 specifier|public
 name|void
@@ -165,6 +166,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// add tracer as an interceptor so it will log the exchange executions at runtime
+comment|// this can aid us to understand/see how the exchanges is routed etc.
 name|getContext
 argument_list|()
 operator|.
@@ -226,6 +229,7 @@ block|}
 block|}
 return|;
 block|}
+comment|// END SNIPPET: e1
 block|}
 end_class
 
