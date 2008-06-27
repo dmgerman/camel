@@ -48,6 +48,34 @@ name|AggregationStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|//START SNIPPET: aggregation
 end_comment
@@ -60,6 +88,23 @@ name|BankResponseAggregationStrategy
 implements|implements
 name|AggregationStrategy
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|BankResponseAggregationStrategy
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// Here we put the bank response together
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
@@ -73,6 +118,19 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Get the exchange to aggregate, older: "
+operator|+
+name|oldExchange
+operator|+
+literal|" newer:"
+operator|+
+name|newExchange
+argument_list|)
+expr_stmt|;
 name|Integer
 name|old
 init|=
@@ -158,6 +216,15 @@ operator|=
 name|newExchange
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Get the lower rate exchange "
+operator|+
+name|result
+argument_list|)
+expr_stmt|;
 comment|// Set the property for the completeness condition
 name|result
 operator|.

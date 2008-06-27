@@ -132,7 +132,7 @@ name|Exception
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Receiving bank request"
 argument_list|)

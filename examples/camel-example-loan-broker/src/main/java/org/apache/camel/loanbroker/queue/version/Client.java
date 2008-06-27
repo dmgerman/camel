@@ -257,6 +257,13 @@ operator|+
 name|i
 argument_list|)
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 block|}
 comment|// END SNIPPET: sending
 comment|// Start the loan broker
@@ -266,7 +273,7 @@ name|sleep
 argument_list|(
 literal|1000
 operator|*
-literal|60
+literal|5
 argument_list|)
 expr_stmt|;
 name|context
