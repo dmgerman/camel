@@ -50,9 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spi
 operator|.
-name|ObjectHelper
+name|UnitOfWork
 import|;
 end_import
 
@@ -64,9 +64,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|util
 operator|.
-name|UnitOfWork
+name|ObjectHelper
 import|;
 end_import
 

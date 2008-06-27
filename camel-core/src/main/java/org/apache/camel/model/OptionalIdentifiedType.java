@@ -22,21 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicInteger
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
+name|HashMap
 import|;
 end_import
 
@@ -56,7 +42,11 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
 import|;
 end_import
 
