@@ -1112,6 +1112,13 @@ argument_list|()
 operator|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"JMXAgent disabled"
+argument_list|)
+expr_stmt|;
 name|getContext
 argument_list|()
 operator|.
@@ -1131,6 +1138,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"JMXAgent enabled"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|lifecycleStrategy
@@ -1705,7 +1719,7 @@ return|return
 name|beanPostProcessor
 return|;
 block|}
-comment|/**      * This method merely retrieves the value of the "useJmx" attribute and does       * not consider the "dusabled" flag in jmxAgent element.  The useJmx       * attribute will be removed in 2.0.  Please the jmxAgent element instead.      *       * @deprecated       */
+comment|/**      * This method merely retrieves the value of the "useJmx" attribute and does       * not consider the "disabled" flag in jmxAgent element.  The useJmx       * attribute will be removed in 2.0.  Please the jmxAgent element instead.      *       * @deprecated Please the jmxAgent element instead. Will be removed in Camel 2.0.      */
 DECL|method|isJmxEnabled ()
 specifier|public
 name|boolean
@@ -1729,6 +1743,7 @@ return|return
 name|useJmx
 return|;
 block|}
+comment|/**      * @deprecated Please the jmxAgent element instead. Will be removed in Camel 2.0.      */
 DECL|method|setUseJmx (Boolean useJmx)
 specifier|public
 name|void
