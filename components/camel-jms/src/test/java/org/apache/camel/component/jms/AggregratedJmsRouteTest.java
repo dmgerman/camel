@@ -233,7 +233,7 @@ name|multicastEndpointUri
 init|=
 literal|"jms:queue:mutilcast"
 decl_stmt|;
-comment|/*      * negative recieve wait timeout for jms is blocking so timeout during processing does not hang      */
+comment|/*      * negative receive wait timeout for jms is blocking so timeout during processing does not hang      */
 DECL|method|testJmsBatchTimeoutExpiryWithAggregrationDelay ()
 specifier|public
 name|void
@@ -344,7 +344,7 @@ literal|1
 init|;
 name|i
 operator|<=
-literal|6
+literal|2
 condition|;
 name|i
 operator|++
@@ -359,7 +359,7 @@ name|i
 decl_stmt|;
 name|sendExchange
 argument_list|(
-literal|"jms:queue:point1"
+name|multicastEndpointUri
 argument_list|,
 name|body
 argument_list|)
