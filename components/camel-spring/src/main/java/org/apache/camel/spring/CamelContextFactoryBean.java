@@ -1089,16 +1089,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|camelJMXAgent
-operator|!=
-literal|null
-operator|&&
+operator|!
 name|isJmxEnabled
 argument_list|()
-condition|)
-block|{
-if|if
-condition|(
+operator|||
+operator|(
+name|camelJMXAgent
+operator|!=
+literal|null
+operator|&&
 name|camelJMXAgent
 operator|.
 name|isDisabled
@@ -1110,6 +1109,7 @@ name|camelJMXAgent
 operator|.
 name|isDisabled
 argument_list|()
+operator|)
 condition|)
 block|{
 name|getContext
@@ -1123,7 +1123,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|camelJMXAgent
+operator|!=
+literal|null
+condition|)
 block|{
 if|if
 condition|(
@@ -1229,7 +1235,6 @@ name|agent
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -1700,6 +1705,7 @@ return|return
 name|beanPostProcessor
 return|;
 block|}
+comment|/**      * This method merely retrieves the value of the "useJmx" attribute and does       * not consider the "dusabled" flag in jmxAgent element.  The useJmx       * attribute will be removed in 2.0.  Please the jmxAgent element instead.      *       * @deprecated       */
 DECL|method|isJmxEnabled ()
 specifier|public
 name|boolean
@@ -1707,10 +1713,6 @@ name|isJmxEnabled
 parameter_list|()
 block|{
 return|return
-name|useJmx
-operator|!=
-literal|null
-operator|&&
 name|useJmx
 operator|.
 name|booleanValue
