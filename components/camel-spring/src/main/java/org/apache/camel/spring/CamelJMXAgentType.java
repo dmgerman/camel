@@ -298,10 +298,10 @@ return|return
 name|mbeanObjectDomainName
 return|;
 block|}
-DECL|method|getMbeanObjectDomainName (String value)
+DECL|method|setMbeanObjectDomainName (String value)
 specifier|public
 name|void
-name|getMbeanObjectDomainName
+name|setMbeanObjectDomainName
 parameter_list|(
 name|String
 name|value
@@ -322,10 +322,10 @@ return|return
 name|serviceUrlPath
 return|;
 block|}
-DECL|method|getServiceUrlPath (String value)
+DECL|method|setServiceUrlPath (String value)
 specifier|public
 name|void
-name|getServiceUrlPath
+name|setServiceUrlPath
 parameter_list|(
 name|String
 name|value

@@ -1166,11 +1166,35 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Registered objectname "
+operator|+
+name|instance
+operator|.
+name|getObjectName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|mbeans
 operator|.
 name|add
 argument_list|(
-name|name
+name|instance
+operator|.
+name|getObjectName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1376,6 +1400,27 @@ control|)
 block|{
 if|if
 condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Found MBeanServer with default domain "
+operator|+
+name|server
+operator|.
+name|getDefaultDomain
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|mBeanServerDefaultDomain
 operator|.
 name|equals
@@ -1434,7 +1479,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"created RMI regisry on port "
+literal|"Created RMI regisry on port "
 operator|+
 name|registryPort
 argument_list|)
