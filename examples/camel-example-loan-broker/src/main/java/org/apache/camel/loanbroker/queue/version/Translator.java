@@ -132,7 +132,9 @@ literal|"Loan quotion for Client "
 operator|+
 name|ssn
 operator|+
-literal|"The lowest rate of bank is "
+literal|"."
+operator|+
+literal|" The lowest rate of bank is "
 operator|+
 name|bank
 operator|+
