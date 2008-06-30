@@ -129,7 +129,7 @@ block|}
 annotation|@
 name|Before
 argument_list|(
-literal|"execution(* org.apache.camel.example.server.Multiplier.*(..))&& args(originalNumber)"
+literal|"execution(int org.apache.camel.example.server.Multiplier.multiply(int))&& args(originalNumber)"
 argument_list|)
 DECL|method|audit (int originalNumber)
 specifier|public

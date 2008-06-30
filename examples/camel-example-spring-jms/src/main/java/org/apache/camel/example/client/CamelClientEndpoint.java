@@ -194,6 +194,7 @@ name|InOut
 argument_list|)
 decl_stmt|;
 comment|// set the input on the in body
+comment|// must you correct type to match the expected type of an Integer object
 name|exchange
 operator|.
 name|getIn
@@ -201,7 +202,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|"11"
+literal|11
 argument_list|)
 expr_stmt|;
 comment|// to send the exchange we need an producer to do it for us
