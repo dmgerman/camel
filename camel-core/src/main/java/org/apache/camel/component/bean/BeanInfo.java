@@ -1220,8 +1220,7 @@ parameter_list|)
 throws|throws
 name|AmbiguousMethodCallException
 block|{
-comment|// lets see if we can find a method who's body param type matches
-comment|// the message body
+comment|// lets see if we can find a method who's body param type matches the message body
 name|Message
 name|in
 init|=
@@ -1274,6 +1273,35 @@ range|:
 name|operationList
 control|)
 block|{
+comment|// TODO: AOP proxies have additioan methods - consider having a static
+comment|// method exclude list to skip all known AOP proxy methods
+comment|// TODO: This class could use some TRACE logging
+comment|// test for MEP pattern matching
+name|boolean
+name|out
+init|=
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
+operator|.
+name|isOutCapable
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|out
+operator|&&
+name|methodInfo
+operator|.
+name|isReturnTypeVoid
+argument_list|()
+condition|)
+block|{
+comment|// skip this method as the MEP is Out so the method must return someting
+continue|continue;
+block|}
+comment|// try to match the arguments
 if|if
 condition|(
 name|methodInfo
@@ -1450,6 +1478,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|// no match so return null
 return|return
 literal|null
 return|;

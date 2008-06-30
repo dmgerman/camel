@@ -480,6 +480,27 @@ return|return
 name|hasCustomAnnotation
 return|;
 block|}
+DECL|method|isReturnTypeVoid ()
+specifier|public
+name|boolean
+name|isReturnTypeVoid
+parameter_list|()
+block|{
+return|return
+name|method
+operator|.
+name|getReturnType
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"void"
+argument_list|)
+return|;
+block|}
 DECL|method|invoke (Method mth, Object pojo, Object[] arguments, Exchange exchange)
 specifier|protected
 name|Object
