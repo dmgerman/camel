@@ -197,6 +197,12 @@ name|boolean
 name|isFailed
 parameter_list|()
 function_decl|;
+comment|/**      * Returns true if this exchange is transacted      */
+DECL|method|isTransacted ()
+name|boolean
+name|isTransacted
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the container so that a processor can resolve endpoints from URIs      *      * @return the container which owns this exchange      */
 DECL|method|getContext ()
 name|CamelContext

@@ -106,11 +106,43 @@ specifier|private
 name|int
 name|count
 decl_stmt|;
+DECL|field|maxCalls
+specifier|private
+name|int
+name|maxCalls
+decl_stmt|;
+DECL|field|errorMsg
+specifier|private
+name|String
+name|errorMsg
+decl_stmt|;
 DECL|method|ConditionalExceptionProcessor ()
 specifier|public
 name|ConditionalExceptionProcessor
 parameter_list|()
-block|{     }
+block|{
+name|this
+operator|.
+name|maxCalls
+operator|=
+literal|1
+expr_stmt|;
+block|}
+DECL|method|ConditionalExceptionProcessor (int maxCalls)
+specifier|public
+name|ConditionalExceptionProcessor
+parameter_list|(
+name|int
+name|maxCalls
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxCalls
+operator|=
+name|maxCalls
+expr_stmt|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -130,23 +162,32 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-name|AbstractTransactionTest
-operator|.
-name|assertTrue
-argument_list|(
-literal|"Expected only 2 calls to process() but encountered "
-operator|+
+if|if
+condition|(
 name|getCount
 argument_list|()
-operator|+
-literal|". There should be 1 for intentionally triggered rollback, and 1 for redelivery."
-argument_list|,
-name|getCount
-argument_list|()
-operator|<=
+operator|>
+name|maxCalls
+operator|*
 literal|2
-argument_list|)
+condition|)
+block|{
+name|errorMsg
+operator|=
+literal|"Expected only "
+operator|+
+name|maxCalls
+operator|*
+literal|2
+operator|+
+literal|" calls to process() but encountered "
+operator|+
+name|getCount
+argument_list|()
+operator|+
+literal|". There should be 1 for intentionally triggered rollback, and 1 for redelivery for each call."
 expr_stmt|;
+block|}
 comment|// should be printed 2 times due to one re-delivery after one failure
 name|LOG
 operator|.
@@ -163,8 +204,10 @@ operator|(
 operator|(
 name|getCount
 argument_list|()
-operator|<=
-literal|1
+operator|%
+literal|2
+operator|!=
+literal|0
 operator|)
 condition|?
 literal|"Should rollback"
@@ -177,13 +220,15 @@ operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// force rollback on the second attempt
+comment|// force rollback on every mod 2 attempt
 if|if
 condition|(
 name|getCount
 argument_list|()
-operator|<=
-literal|1
+operator|%
+literal|2
+operator|!=
+literal|0
 condition|)
 block|{
 throw|throw
@@ -224,6 +269,16 @@ parameter_list|()
 block|{
 return|return
 name|count
+return|;
+block|}
+DECL|method|getErrorMessage ()
+specifier|public
+name|String
+name|getErrorMessage
+parameter_list|()
+block|{
+return|return
+name|errorMsg
 return|;
 block|}
 block|}

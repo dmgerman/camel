@@ -174,7 +174,6 @@ argument_list|(
 literal|"activemq"
 argument_list|)
 decl_stmt|;
-comment|// c.getConfiguration().setRequestTimeout(600000);
 name|JmsComponent
 name|c1
 init|=
@@ -186,6 +185,16 @@ operator|.
 name|getComponent
 argument_list|(
 literal|"activemq-1"
+argument_list|)
+decl_stmt|;
+specifier|final
+name|ConditionalExceptionProcessor
+name|cp
+init|=
+operator|new
+name|ConditionalExceptionProcessor
+argument_list|(
+literal|10
 argument_list|)
 decl_stmt|;
 name|context
@@ -229,9 +238,7 @@ argument_list|)
 operator|.
 name|process
 argument_list|(
-operator|new
-name|ConditionalExceptionProcessor
-argument_list|()
+name|cp
 argument_list|)
 operator|.
 name|to
@@ -334,6 +341,21 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+literal|10
+condition|;
+operator|++
+name|i
+control|)
+block|{
 name|Object
 name|reply
 init|=
@@ -344,6 +366,8 @@ argument_list|(
 literal|"activemq:queue:foo"
 argument_list|,
 literal|"blah"
+operator|+
+name|i
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -355,9 +379,27 @@ operator|.
 name|equals
 argument_list|(
 literal|"Re: blah"
+operator|+
+name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|cp
+operator|.
+name|getErrorMessage
+argument_list|()
+argument_list|,
+name|cp
+operator|.
+name|getErrorMessage
+argument_list|()
+operator|==
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/*  * This is a working test but is commented out because there is bug in that ConditionalExceptionProcessor   * gets somehow reused among different tests, which it should not and then the second test always get its request   * flow rolled back  *   * I didn't split this test into two separate tests as I think this will be a good reminder of the problem that  * needs fixing  *   * The bellow log crearly shows the same processor reused between tests  *  testRollbackUsingXmlQueueToQueueRequestReplyUsingDynamicMessageSelector()  *  org.apache.camel.component.jms.tx.ConditionalExceptionProcessor@63a721; getCount() = 1  *  org.apache.camel.component.jms.tx.ConditionalExceptionProcessor@63a721; getCount() = 2  *         *  testRollbackUsingXmlQueueToQueueRequestReplyUsingMessageSelectorPerProducer()  *  org.apache.camel.component.jms.tx.ConditionalExceptionProcessor@63a721; getCount() = 3  *  org.apache.camel.component.jms.tx.ConditionalExceptionProcessor@63a721; getCount() = 4 */
 comment|/*     public void testRollbackUsingXmlQueueToQueueRequestReplyUsingMessageSelectorPerProducer() throws Exception {          JmsComponent c = (JmsComponent)context.getComponent("activemq");         c.getConfiguration().setReplyToDestinationSelectorName("camelProvider");         JmsComponent c1 = (JmsComponent)context.getComponent("activemq-1");         c1.getConfiguration().setReplyToDestinationSelectorName("camelProvider");                  context.addRoutes(new SpringRouteBuilder() {             @Override             public void configure() throws Exception {                 Policy required = bean(SpringTransactionPolicy.class, "PROPAGATION_REQUIRED_POLICY");                 from("activemq:queue:foo?replyTo=queue:foo.reply").policy(required).process(new ConditionalExceptionProcessor()).to("activemq-1:queue:bar?replyTo=queue:bar.reply");                 from("activemq-1:queue:bar").process(new Processor() {                     public void process(Exchange e) {                         String request = e.getIn().getBody(String.class);                         Message out = e.getOut(true);                         String selectorValue = e.getIn().getHeader("camelProvider", String.class);                         out.setHeader("camelProvider", selectorValue);                         out.setBody("Re: " + request);                     }                 });             }         });          Object reply = template.requestBody("activemq:queue:foo", "blah");         assertTrue("Received unexpeced reply", reply.equals("Re: blah"));     }     */

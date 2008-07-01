@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangeProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Message
 import|;
 end_import
@@ -556,6 +568,11 @@ operator|.
 name|sync
 return|;
 block|}
+name|resetMaxDeliveryIfTransacted
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|exchange
@@ -931,6 +948,32 @@ literal|true
 return|;
 block|}
 comment|// error occurred so loop back around.....
+block|}
+block|}
+DECL|method|resetMaxDeliveryIfTransacted (Exchange exchange)
+specifier|public
+name|void
+name|resetMaxDeliveryIfTransacted
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|isTransacted
+argument_list|()
+condition|)
+block|{
+name|redeliveryPolicy
+operator|.
+name|setMaximumRedeliveries
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|isFailureHandled (Exchange exchange)
