@@ -1719,7 +1719,7 @@ return|return
 name|beanPostProcessor
 return|;
 block|}
-comment|/**      * This method merely retrieves the value of the "useJmx" attribute and does       * not consider the "disabled" flag in jmxAgent element.  The useJmx       * attribute will be removed in 2.0.  Please the jmxAgent element instead.      *       * @deprecated Please the jmxAgent element instead. Will be removed in Camel 2.0.      */
+comment|/**      * This method merely retrieves the value of the "useJmx" attribute and does      * not consider the "disabled" flag in jmxAgent element.  The useJmx      * attribute will be removed in 2.0.  Please the jmxAgent element instead.      *      * @deprecated Please the jmxAgent element instead. Will be removed in Camel 2.0.      */
 DECL|method|isJmxEnabled ()
 specifier|public
 name|boolean
