@@ -616,7 +616,7 @@ break|break;
 default|default:
 name|rc
 operator|=
-literal|"UNKOWN"
+literal|"UNKNOWN"
 expr_stmt|;
 block|}
 return|return
