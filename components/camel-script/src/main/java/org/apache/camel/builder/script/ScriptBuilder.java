@@ -1380,7 +1380,7 @@ block|{
 return|return
 name|ObjectConverter
 operator|.
-name|toBoolean
+name|toBool
 argument_list|(
 name|scriptValue
 argument_list|)
