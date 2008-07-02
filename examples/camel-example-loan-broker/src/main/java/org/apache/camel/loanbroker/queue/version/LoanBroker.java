@@ -389,7 +389,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"direct:queue:bankReplyQueue"
+literal|"test-jms:queue:bankReplyQueue"
 argument_list|)
 expr_stmt|;
 name|from
@@ -408,7 +408,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"direct:queue:bankReplyQueue"
+literal|"test-jms:queue:bankReplyQueue"
 argument_list|)
 expr_stmt|;
 name|from
@@ -427,14 +427,14 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"direct:queue:bankReplyQueue"
+literal|"test-jms:queue:bankReplyQueue"
 argument_list|)
 expr_stmt|;
 comment|// Now we aggregating the response message by using the Constants.PROPERTY_SSN header
 comment|// The aggregation will completed when all the three bank responses are received
 name|from
 argument_list|(
-literal|"direct:queue:bankReplyQueue"
+literal|"test-jms:queue:bankReplyQueue"
 argument_list|)
 operator|.
 name|aggregator
