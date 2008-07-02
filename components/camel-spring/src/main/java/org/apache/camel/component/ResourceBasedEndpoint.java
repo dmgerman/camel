@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for endpoints which depend on a resource  * such as things like Velocity or XQuery based components  *  * @version $Revision$  */
+comment|/**  * A useful base class for endpoints which depend on a resource  * such as things like Velocity or XQuery based components.  *  * @version $Revision$  */
 end_comment
 
 begin_class

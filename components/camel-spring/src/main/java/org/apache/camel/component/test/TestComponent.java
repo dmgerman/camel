@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Test Component.  *  * @see org.apache.camel.component.test.TestEndpoint  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$ */
+comment|/**  * The&lt;proxy&gt; tag element.  *  * @version $Revision$ */
 end_comment
 
 begin_comment

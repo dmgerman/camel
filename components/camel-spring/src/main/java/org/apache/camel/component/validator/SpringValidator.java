@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Validator that uses Spring for reading the scheme resource.  *  * @version $Revision$  */
 end_comment
 
 begin_class

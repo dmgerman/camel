@@ -78,6 +78,10 @@ name|Modifier
 import|;
 end_import
 
+begin_comment
+comment|/**  * Reflection utilities, extending Spring ReflectionUtils.  */
+end_comment
+
 begin_class
 DECL|class|ReflectionUtils
 specifier|public

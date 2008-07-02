@@ -514,6 +514,10 @@ name|ParserContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Camel namespace for the spring XML configuration file.  */
+end_comment
+
 begin_class
 DECL|class|CamelNamespaceHandler
 specifier|public

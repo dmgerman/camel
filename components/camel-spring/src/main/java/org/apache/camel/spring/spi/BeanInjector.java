@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Dependeny Injected Bean injector.   *  * @version $Revision$  * @deprecated not used. Will be removed in Camel 2.0.  */
 end_comment
 
 begin_class

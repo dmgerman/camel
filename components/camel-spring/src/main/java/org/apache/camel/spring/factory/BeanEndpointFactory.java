@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Spring {@link org.springframework.beans.factory.FactoryBean} for creating  * Camel {@link BeanEndpoint} objects.  *  * @version $Revision$  */
 end_comment
 
 begin_class
