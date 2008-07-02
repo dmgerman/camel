@@ -301,7 +301,7 @@ block|{
 name|CSVConfig
 name|conf
 init|=
-name|createConfig
+name|getConfig
 argument_list|()
 decl_stmt|;
 comment|// lets add fields
