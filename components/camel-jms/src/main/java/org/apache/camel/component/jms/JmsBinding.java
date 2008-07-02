@@ -1056,11 +1056,20 @@ name|headerValue
 argument_list|)
 condition|)
 block|{
+comment|// must encode to safe JMS header name before setting property on jmsMessage
+name|String
+name|key
+init|=
+name|encodeToSafeJmsHeaderName
+argument_list|(
+name|headerName
+argument_list|)
+decl_stmt|;
 name|jmsMessage
 operator|.
 name|setObjectProperty
 argument_list|(
-name|headerName
+name|key
 argument_list|,
 name|headerValue
 argument_list|)
@@ -1484,7 +1493,7 @@ operator|=
 name|ignoreJmsHeaders
 expr_stmt|;
 block|}
-comment|/**      * Strategy to allow filtering of headers which are put on the JMS message      */
+comment|/**      * Strategy to allow filtering of headers which are put on the JMS message      *<p/>      *<b>Note</b>: Currently only supports sending java identifiers as keys      */
 DECL|method|shouldOutputHeader (org.apache.camel.Message camelMessage, String headerName, Object headerValue)
 specifier|protected
 name|boolean
@@ -1506,6 +1515,14 @@ name|Object
 name|headerValue
 parameter_list|)
 block|{
+name|String
+name|key
+init|=
+name|encodeToSafeJmsHeaderName
+argument_list|(
+name|headerName
+argument_list|)
+decl_stmt|;
 return|return
 name|headerValue
 operator|!=
@@ -1524,7 +1541,51 @@ name|ObjectHelper
 operator|.
 name|isJavaIdentifier
 argument_list|(
+name|key
+argument_list|)
+return|;
+block|}
+comment|/**      * Encoder to encode JMS header keys that is that can be sent over the JMS transport.      *<p/>      * For example: Sending dots is the key is not allowed. Especially the Bean component has      * this problem if you want to provide the method name to invoke on the bean.      *<p/>      *<b>Note</b>: Currently this encoder is simple as it only supports encoding dots to underscores.      *      * @param headerName  the header name      * @return  the key to use instead for storing properties and to be for lookup of the same property      */
+DECL|method|encodeToSafeJmsHeaderName (String headerName)
+specifier|public
+specifier|static
+name|String
+name|encodeToSafeJmsHeaderName
+parameter_list|(
+name|String
 name|headerName
+parameter_list|)
+block|{
+return|return
+name|headerName
+operator|.
+name|replace
+argument_list|(
+literal|"."
+argument_list|,
+literal|"_"
+argument_list|)
+return|;
+block|}
+comment|/**      * Decode operation for the {@link #encodeToSafeJmsHeaderName(String)}.      *      * @param headerName  the header name      * @return  the original key      */
+DECL|method|decodeFromSafeJmsHeaderName (String headerName)
+specifier|public
+specifier|static
+name|String
+name|decodeFromSafeJmsHeaderName
+parameter_list|(
+name|String
+name|headerName
+parameter_list|)
+block|{
+return|return
+name|headerName
+operator|.
+name|replace
+argument_list|(
+literal|"_"
+argument_list|,
+literal|"."
 argument_list|)
 return|;
 block|}
@@ -1541,9 +1602,7 @@ argument_list|>
 name|set
 parameter_list|)
 block|{
-comment|// ignore provider specified JMS extension headers
-comment|// see page 39 of JMS 1.1 specification
-comment|//
+comment|// ignore provider specified JMS extension headers see page 39 of JMS 1.1 specification
 comment|// added "JMSXRecvTimestamp" as a workaround for an Oracle bug/typo in AqjmsMessage
 name|String
 index|[]

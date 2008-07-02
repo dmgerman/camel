@@ -858,11 +858,23 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+comment|// must decode back from safe JMS header name to original header name
+comment|// when storing on this Camel JmsMessage object.
+name|String
+name|key
+init|=
+name|JmsBinding
+operator|.
+name|decodeFromSafeJmsHeaderName
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
 name|map
 operator|.
 name|put
 argument_list|(
-name|name
+name|key
 argument_list|,
 name|value
 argument_list|)
