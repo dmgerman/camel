@@ -231,7 +231,7 @@ specifier|private
 name|String
 name|multicastEndpointUri
 init|=
-literal|"jms:queue:mutilcast"
+literal|"jms:queue:multicast"
 decl_stmt|;
 comment|/*      * negative receive wait timeout for jms is blocking so timeout during processing does not hang      */
 DECL|method|testJmsBatchTimeoutExpiryWithAggregrationDelay ()
@@ -308,10 +308,10 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|xtestJmsMulticastAndAggregration ()
+DECL|method|testJmsMulticastAndAggregration ()
 specifier|public
 name|void
-name|xtestJmsMulticastAndAggregration
+name|testJmsMulticastAndAggregration
 parameter_list|()
 throws|throws
 name|Exception
@@ -635,6 +635,14 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
+name|Exchange
+name|copy
+init|=
+name|newExchange
+operator|.
+name|copy
+argument_list|()
+decl_stmt|;
 name|LOG
 operator|.
 name|info
@@ -670,7 +678,7 @@ block|}
 name|Exchange
 name|result
 init|=
-name|newExchange
+name|copy
 decl_stmt|;
 name|result
 operator|.

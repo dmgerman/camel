@@ -383,6 +383,11 @@ specifier|private
 name|ErrorHandlerWrappingStrategy
 name|errorHandlerWrappingStrategy
 decl_stmt|;
+DECL|field|routeAdded
+specifier|private
+name|boolean
+name|routeAdded
+decl_stmt|;
 DECL|method|DefaultRouteContext (RouteType route, FromType from, Collection<Route> routes)
 specifier|public
 name|DefaultRouteContext
@@ -983,6 +988,30 @@ block|{
 name|errorHandlerWrappingStrategy
 operator|=
 name|strategy
+expr_stmt|;
+block|}
+DECL|method|isRouteAdded ()
+specifier|public
+name|boolean
+name|isRouteAdded
+parameter_list|()
+block|{
+return|return
+name|routeAdded
+return|;
+block|}
+DECL|method|setIsRouteAdded (boolean b)
+specifier|public
+name|void
+name|setIsRouteAdded
+parameter_list|(
+name|boolean
+name|b
+parameter_list|)
+block|{
+name|routeAdded
+operator|=
+name|b
 expr_stmt|;
 block|}
 block|}

@@ -294,6 +294,21 @@ name|ErrorHandlerWrappingStrategy
 name|strategy
 parameter_list|)
 function_decl|;
+comment|/**      * If this flag is true, {@link ProcessorType#addRoutes(RouteContext, java.util.Collection)      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *       */
+DECL|method|setIsRouteAdded (boolean value)
+name|void
+name|setIsRouteAdded
+parameter_list|(
+name|boolean
+name|value
+parameter_list|)
+function_decl|;
+comment|/**      * @see {@link #setIsRouteAdded(boolean)}      *       */
+DECL|method|isRouteAdded ()
+name|boolean
+name|isRouteAdded
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

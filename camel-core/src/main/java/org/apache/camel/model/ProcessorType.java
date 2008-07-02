@@ -813,6 +813,15 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|routeContext
+operator|.
+name|isRouteAdded
+argument_list|()
+condition|)
+block|{
 name|routeContext
 operator|.
 name|addEventDrivenProcessor
@@ -820,6 +829,7 @@ argument_list|(
 name|processor
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Wraps the child processor in whatever necessary interceptors and error      * handlers      */
 DECL|method|wrapProcessor (RouteContext routeContext, Processor processor)
