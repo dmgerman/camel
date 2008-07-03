@@ -36,6 +36,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|ExceptionType
@@ -59,10 +73,13 @@ name|copy
 parameter_list|()
 function_decl|;
 comment|/**      * Creates the error handler interceptor      */
-DECL|method|createErrorHandler (Processor processor)
+DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 name|Processor
 name|createErrorHandler
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|Processor
 name|processor
 parameter_list|)

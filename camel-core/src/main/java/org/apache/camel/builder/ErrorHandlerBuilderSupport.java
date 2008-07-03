@@ -135,6 +135,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|getExceptions ()
+specifier|public
+name|List
+argument_list|<
+name|ExceptionType
+argument_list|>
+name|getExceptions
+parameter_list|()
+block|{
+return|return
+name|exceptions
+return|;
+block|}
 block|}
 end_class
 

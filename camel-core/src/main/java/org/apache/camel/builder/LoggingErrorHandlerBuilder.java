@@ -36,6 +36,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|Logger
@@ -210,11 +224,14 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|createErrorHandler (Processor processor)
+DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor
 name|createErrorHandler
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|Processor
 name|processor
 parameter_list|)

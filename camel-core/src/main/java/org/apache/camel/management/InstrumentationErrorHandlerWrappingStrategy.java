@@ -66,6 +66,20 @@ name|ErrorHandlerWrappingStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -108,11 +122,14 @@ operator|=
 name|counterMap
 expr_stmt|;
 block|}
-DECL|method|wrapProcessorInErrorHandler (ProcessorType processorType, Processor target)
+DECL|method|wrapProcessorInErrorHandler (RouteContext routeContext, ProcessorType processorType, Processor target)
 specifier|public
 name|Processor
 name|wrapProcessorInErrorHandler
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|ProcessorType
 name|processorType
 parameter_list|,
@@ -141,6 +158,8 @@ argument_list|()
 operator|.
 name|createErrorHandler
 argument_list|(
+name|routeContext
+argument_list|,
 name|target
 argument_list|)
 return|;

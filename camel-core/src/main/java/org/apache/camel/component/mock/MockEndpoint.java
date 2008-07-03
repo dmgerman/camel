@@ -318,6 +318,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelContextHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -525,6 +539,35 @@ expr_stmt|;
 name|init
 argument_list|()
 expr_stmt|;
+block|}
+comment|/**      * A helper method to resolve the mock endpoint of the given URI on the given context      *      * @param context the camel context to try resolve the mock endpoint from      * @param uri the uri of the endpoint to resolve      * @return the endpoint      */
+DECL|method|resolve (CamelContext context, String uri)
+specifier|public
+specifier|static
+name|MockEndpoint
+name|resolve
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+name|CamelContextHelper
+operator|.
+name|getMandatoryEndpoint
+argument_list|(
+name|context
+argument_list|,
+name|uri
+argument_list|,
+name|MockEndpoint
+operator|.
+name|class
+argument_list|)
+return|;
 block|}
 DECL|method|assertWait (long timeout, TimeUnit unit, MockEndpoint... endpoints)
 specifier|public

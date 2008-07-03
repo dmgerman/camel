@@ -229,6 +229,52 @@ name|endpoint
 return|;
 block|}
 block|}
+comment|/**      * Returns the mandatory endpoint for the given URI and type or the      * {@link org.apache.camel.NoSuchEndpointException} is thrown      */
+DECL|method|getMandatoryEndpoint (CamelContext camelContext, String uri, Class<T> type)
+specifier|public
+specifier|static
+parameter_list|<
+name|T
+extends|extends
+name|Endpoint
+parameter_list|>
+name|T
+name|getMandatoryEndpoint
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|String
+name|uri
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+name|Endpoint
+name|endpoint
+init|=
+name|getMandatoryEndpoint
+argument_list|(
+name|camelContext
+argument_list|,
+name|uri
+argument_list|)
+decl_stmt|;
+return|return
+name|ObjectHelper
+operator|.
+name|cast
+argument_list|(
+name|type
+argument_list|,
+name|endpoint
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a list of all endpoints of the given type      *      * @param camelContext      * @param type the type of the endpoints requested      * @return a list which may be empty of all the endpoint instances of the      *         given type      */
 DECL|method|getSingletonEndpoints (CamelContext camelContext, Class<T> type)
 specifier|public

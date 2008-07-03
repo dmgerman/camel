@@ -250,6 +250,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|ErrorHandlerBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|converter
@@ -754,6 +768,11 @@ DECL|field|trace
 specifier|private
 name|Boolean
 name|trace
+decl_stmt|;
+DECL|field|errorHandlerBuilder
+specifier|private
+name|ErrorHandlerBuilder
+name|errorHandlerBuilder
 decl_stmt|;
 DECL|method|DefaultCamelContext ()
 specifier|public
@@ -2308,6 +2327,58 @@ operator|=
 name|trace
 expr_stmt|;
 block|}
+DECL|method|createProducerTemplate ()
+specifier|public
+parameter_list|<
+name|E
+extends|extends
+name|Exchange
+parameter_list|>
+name|ProducerTemplate
+argument_list|<
+name|E
+argument_list|>
+name|createProducerTemplate
+parameter_list|()
+block|{
+return|return
+operator|new
+name|DefaultProducerTemplate
+argument_list|<
+name|E
+argument_list|>
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
+DECL|method|getErrorHandlerBuilder ()
+specifier|public
+name|ErrorHandlerBuilder
+name|getErrorHandlerBuilder
+parameter_list|()
+block|{
+return|return
+name|errorHandlerBuilder
+return|;
+block|}
+comment|/**      * Sets the default error handler builder which is inherited by the routes      */
+DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)
+specifier|public
+name|void
+name|setErrorHandlerBuilder
+parameter_list|(
+name|ErrorHandlerBuilder
+name|errorHandlerBuilder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|errorHandlerBuilder
+operator|=
+name|errorHandlerBuilder
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
 DECL|method|doStart ()
@@ -2875,31 +2946,6 @@ operator|&&
 operator|!
 name|isStarting
 argument_list|()
-return|;
-block|}
-DECL|method|createProducerTemplate ()
-specifier|public
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
-name|ProducerTemplate
-argument_list|<
-name|E
-argument_list|>
-name|createProducerTemplate
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultProducerTemplate
-argument_list|<
-name|E
-argument_list|>
-argument_list|(
-name|this
-argument_list|)
 return|;
 block|}
 block|}

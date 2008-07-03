@@ -28,6 +28,20 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * A builder to disable the use of an error handler so that any exceptions are thrown.  * This not recommended in general, the  *<a href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter Channel</a> should be used  * if you are unsure; however it can be useful sometimes to disable an error handler inside a complex route  * so that exceptions bubble up to the parent {@link Processor}  *  * @version $Revision$  */
 end_comment
@@ -50,11 +64,14 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|createErrorHandler (Processor processor)
+DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor
 name|createErrorHandler
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
