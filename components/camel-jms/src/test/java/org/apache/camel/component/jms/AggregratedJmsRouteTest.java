@@ -368,7 +368,9 @@ block|}
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
-argument_list|()
+argument_list|(
+literal|8000
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|sendExchange (String uri, final Object expectedBody)
