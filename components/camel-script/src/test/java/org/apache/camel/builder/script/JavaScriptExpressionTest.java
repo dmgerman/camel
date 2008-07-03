@@ -248,7 +248,7 @@ argument_list|()
 operator|.
 name|javaScript
 argument_list|(
-literal|"request.headers['foo'] == 'bar'"
+literal|"request.headers.get('foo') == 'bar'"
 argument_list|)
 operator|.
 name|to

@@ -52,19 +52,25 @@ name|Exception
 block|{
 name|assertExpression
 argument_list|(
-literal|"exchange.in.headers.foo"
+literal|"exchange.getIn()"
 argument_list|,
-literal|"abc"
+literal|"Message:<hello id='m123'>world!</hello>"
 argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"request.headers.foo"
+literal|"exchange.getIn().body"
+argument_list|,
+literal|"<hello id='m123'>world!</hello>"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"request.headers.get('foo')"
 argument_list|,
 literal|"abc"
 argument_list|)
 expr_stmt|;
-comment|//assertExpression("headers.foo", "abc");
 block|}
 DECL|method|getLanguageName ()
 specifier|protected

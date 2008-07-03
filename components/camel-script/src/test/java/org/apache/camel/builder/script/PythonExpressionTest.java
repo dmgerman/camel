@@ -249,7 +249,7 @@ argument_list|()
 operator|.
 name|python
 argument_list|(
-literal|"request.headers['foo'] == 'bar'"
+literal|"result = request.headers['foo']=='bar'"
 argument_list|)
 operator|.
 name|to
