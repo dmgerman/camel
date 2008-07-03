@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|HashMap
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Map
 import|;
 end_import
 
@@ -241,7 +241,7 @@ operator|.
 name|choice
 argument_list|()
 operator|.
-comment|// The following python expression should return a boolean
+comment|// The following java script expression should return a boolean
 comment|// but it seems to always return false -- what's up with that?
 name|when
 argument_list|()

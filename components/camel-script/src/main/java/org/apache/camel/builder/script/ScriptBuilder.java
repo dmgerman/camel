@@ -60,18 +60,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|InvocationTargetException
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|script
@@ -263,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder class for creating {@link Processor}, {@link Expression} and  * {@link Predicate} objects using the JSR 223 scripting engine.  *   * @version $Revision$  */
+comment|/**  * A builder class for creating {@link Processor}, {@link Expression} and  * {@link Predicate} objects using the JSR 223 scripting engine.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -516,7 +504,7 @@ expr_stmt|;
 block|}
 comment|// Builder API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the attribute on the context so that it is available to the script      * as a variable in the {@link ScriptContext#ENGINE_SCOPE}      *       * @param name the name of the attribute      * @param value the attribute value      * @return this builder      */
+comment|/**      * Sets the attribute on the context so that it is available to the script      * as a variable in the {@link ScriptContext#ENGINE_SCOPE}      *      * @param name the name of the attribute      * @param value the attribute value      * @return this builder      */
 DECL|method|attribute (String name, Object value)
 specifier|public
 name|ScriptBuilder
@@ -549,7 +537,7 @@ return|;
 block|}
 comment|// Create any scripting language builder recognised by JSR 223
 comment|// -------------------------------------------------------------------------
-comment|/**      * Creates a script builder for the named language and script contents      *       * @param language the language to use for the script      * @param scriptText the script text to be evaluted      * @return the builder      */
+comment|/**      * Creates a script builder for the named language and script contents      *      * @param language the language to use for the script      * @param scriptText the script text to be evaluted      * @return the builder      */
 DECL|method|script (String language, String scriptText)
 specifier|public
 specifier|static
@@ -573,7 +561,7 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the named language and script {@link Resource}      *       * @param language the language to use for the script      * @param scriptResource the resource used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the named language and script {@link Resource}      *      * @param language the language to use for the script      * @param scriptResource the resource used to load the script      * @return the builder      */
 DECL|method|script (String language, Resource scriptResource)
 specifier|public
 specifier|static
@@ -625,7 +613,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the named language and script {@link URL}      *       * @param language the language to use for the script      * @param scriptURL the URL used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the named language and script {@link URL}      *      * @param language the language to use for the script      * @param scriptURL the URL used to load the script      * @return the builder      */
 DECL|method|script (String language, URL scriptURL)
 specifier|public
 specifier|static
@@ -655,7 +643,7 @@ return|;
 block|}
 comment|// Groovy
 comment|// -------------------------------------------------------------------------
-comment|/**      * Creates a script builder for the groovy script contents      *       * @param scriptText the script text to be evaluted      * @return the builder      */
+comment|/**      * Creates a script builder for the groovy script contents      *      * @param scriptText the script text to be evaluted      * @return the builder      */
 DECL|method|groovy (String scriptText)
 specifier|public
 specifier|static
@@ -697,7 +685,7 @@ name|scriptResource
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the groovy script {@link File}      *       * @param scriptFile the file used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the groovy script {@link File}      *      * @param scriptFile the file used to load the script      * @return the builder      */
 DECL|method|groovy (File scriptFile)
 specifier|public
 specifier|static
@@ -722,7 +710,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the groovy script {@link URL}      *       * @param scriptURL the URL used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the groovy script {@link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      */
 DECL|method|groovy (URL scriptURL)
 specifier|public
 specifier|static
@@ -749,7 +737,7 @@ return|;
 block|}
 comment|// JavaScript
 comment|// -------------------------------------------------------------------------
-comment|/**      * Creates a script builder for the JavaScript/ECMAScript script contents      *       * @param scriptText the script text to be evaluted      * @return the builder      */
+comment|/**      * Creates a script builder for the JavaScript/ECMAScript script contents      *      * @param scriptText the script text to be evaluted      * @return the builder      */
 DECL|method|javaScript (String scriptText)
 specifier|public
 specifier|static
@@ -770,7 +758,7 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the JavaScript/ECMAScript script      *       * @{link Resource}      * @param scriptResource the resource used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the JavaScript/ECMAScript script      *      * @{link Resource}      * @param scriptResource the resource used to load the script      * @return the builder      */
 DECL|method|javaScript (Resource scriptResource)
 specifier|public
 specifier|static
@@ -843,7 +831,7 @@ return|;
 block|}
 comment|// PHP
 comment|// -------------------------------------------------------------------------
-comment|/**      * Creates a script builder for the PHP script contents      *       * @param scriptText the script text to be evaluted      * @return the builder      */
+comment|/**      * Creates a script builder for the PHP script contents      *      * @param scriptText the script text to be evaluted      * @return the builder      */
 DECL|method|php (String scriptText)
 specifier|public
 specifier|static
@@ -937,7 +925,7 @@ return|;
 block|}
 comment|// Python
 comment|// -------------------------------------------------------------------------
-comment|/**      * Creates a script builder for the Python script contents      *       * @param scriptText the script text to be evaluted      * @return the builder      */
+comment|/**      * Creates a script builder for the Python script contents      *      * @param scriptText the script text to be evaluted      * @return the builder      */
 DECL|method|python (String scriptText)
 specifier|public
 specifier|static
@@ -1031,7 +1019,7 @@ return|;
 block|}
 comment|// Ruby/JRuby
 comment|// -------------------------------------------------------------------------
-comment|/**      * Creates a script builder for the Ruby/JRuby script contents      *       * @param scriptText the script text to be evaluted      * @return the builder      */
+comment|/**      * Creates a script builder for the Ruby/JRuby script contents      *      * @param scriptText the script text to be evaluted      * @return the builder      */
 DECL|method|ruby (String scriptText)
 specifier|public
 specifier|static
@@ -1098,7 +1086,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the Ruby/JRuby script {@link URL}      *       * @param scriptURL the URL used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the Ruby/JRuby script {@link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      */
 DECL|method|ruby (URL scriptURL)
 specifier|public
 specifier|static
@@ -1202,7 +1190,7 @@ return|return
 name|scriptEngineName
 return|;
 block|}
-comment|/**      * Returns a description of the script      *       * @return the script description      */
+comment|/**      * Returns a description of the script      *      * @return the script description      */
 DECL|method|getScriptDescription ()
 specifier|public
 name|String
@@ -1853,7 +1841,9 @@ parameter_list|(
 name|Exception
 name|e1
 parameter_list|)
-block|{}
+block|{
+comment|// do nothing here
+block|}
 block|}
 return|return
 operator|new
