@@ -241,8 +241,6 @@ operator|.
 name|choice
 argument_list|()
 operator|.
-comment|// The following java script expression should return a boolean
-comment|// but it seems to always return false -- what's up with that?
 name|when
 argument_list|()
 operator|.

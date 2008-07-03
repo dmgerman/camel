@@ -242,8 +242,7 @@ operator|.
 name|choice
 argument_list|()
 operator|.
-comment|// The following python expression should return a boolean
-comment|// but it seems to return null instead -- what's up with that?
+comment|// The result variable is used to retrieve the python script evaluation result
 name|when
 argument_list|()
 operator|.

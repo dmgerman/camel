@@ -1544,7 +1544,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"the script result is "
+literal|"The script evaluation result is: "
 operator|+
 name|result
 argument_list|)
@@ -1653,6 +1653,8 @@ literal|"jython"
 argument_list|)
 condition|)
 block|{
+comment|// Retrieve the evaluation result for Python script
+comment|// Python script should store the evaluation result into result variable
 name|result
 operator|=
 name|compiledScript
@@ -1718,6 +1720,8 @@ literal|"jython"
 argument_list|)
 condition|)
 block|{
+comment|// Retrieve the evaluation result for python script
+comment|// Python script should store the evaluation result into result variable
 name|result
 operator|=
 name|getEngine
