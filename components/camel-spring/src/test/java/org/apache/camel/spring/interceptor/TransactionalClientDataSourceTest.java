@@ -76,6 +76,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Policy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -366,7 +380,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|SpringTransactionPolicy
+name|Policy
 name|required
 init|=
 operator|new
@@ -375,6 +389,8 @@ argument_list|(
 name|tt
 argument_list|)
 decl_stmt|;
+comment|// END SNIPPET: e1
+comment|// START SNIPPET: e2
 comment|// set the required policy for this route
 name|from
 argument_list|(
@@ -412,8 +428,6 @@ argument_list|(
 literal|"bookService"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: e1
-comment|// START SNIPPET: e2
 comment|// set the required policy for this route
 name|from
 argument_list|(
