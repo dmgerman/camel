@@ -52,6 +52,20 @@ name|camel
 operator|.
 name|spring
 operator|.
+name|SpringRouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
 name|SpringTestSupport
 import|;
 end_import
@@ -69,20 +83,6 @@ operator|.
 name|spi
 operator|.
 name|SpringTransactionPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Policy
 import|;
 end_import
 
@@ -141,9 +141,16 @@ extends|extends
 name|SpringTestSupport
 block|{
 DECL|field|jdbc
-specifier|private
+specifier|protected
 name|JdbcTemplate
 name|jdbc
+decl_stmt|;
+DECL|field|useTransactionErrorHandler
+specifier|protected
+name|boolean
+name|useTransactionErrorHandler
+init|=
+literal|true
 decl_stmt|;
 DECL|method|createApplicationContext ()
 specifier|protected
@@ -349,9 +356,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
+comment|// Notice that we use the SpringRouteBuilder that has a few more features than
+comment|// the standard RouteBuilder
 return|return
 operator|new
-name|RouteBuilder
+name|SpringRouteBuilder
 argument_list|()
 block|{
 specifier|public
@@ -380,7 +390,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Policy
+name|SpringTransactionPolicy
 name|required
 init|=
 operator|new
@@ -389,6 +399,39 @@ argument_list|(
 name|tt
 argument_list|)
 decl_stmt|;
+comment|// use this error handler instead of DeadLetterChannel that is the default
+comment|// Notice: transactionErrorHandler is in SpringRouteBuilder
+if|if
+condition|(
+name|useTransactionErrorHandler
+condition|)
+block|{
+comment|// useTransactionErrorHandler is only used for unit testing to reuse code
+comment|// for doing a 2nd test without this transaction error handler, so ignore
+comment|// this. For spring based transaction, end users is encured to use the
+comment|// transaction error handler instead of the default DeadLetterChannel.
+name|errorHandler
+argument_list|(
+name|transactionErrorHandler
+argument_list|(
+name|required
+argument_list|)
+operator|.
+comment|// notice that the builder has builder methods for chained configuration
+name|maximumRedeliveries
+argument_list|(
+literal|3
+argument_list|)
+operator|.
+name|initialRedeliveryDelay
+argument_list|(
+literal|5
+operator|*
+literal|1000L
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|// END SNIPPET: e1
 comment|// START SNIPPET: e2
 comment|// set the required policy for this route

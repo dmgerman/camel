@@ -451,6 +451,27 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|maximumRedeliveryDelay (long maximumRedeliveryDelay)
+specifier|public
+name|DeadLetterChannelBuilder
+name|maximumRedeliveryDelay
+parameter_list|(
+name|long
+name|maximumRedeliveryDelay
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|maximumRedeliveryDelay
+argument_list|(
+name|maximumRedeliveryDelay
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|useCollisionAvoidance ()
 specifier|public
 name|DeadLetterChannelBuilder

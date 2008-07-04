@@ -432,6 +432,7 @@ name|TransactionStatus
 name|status
 parameter_list|)
 block|{
+comment|// TODO: The delay is in some cases never triggered - see CAMEL-663
 if|if
 condition|(
 name|redeliveryPolicy
