@@ -568,11 +568,47 @@ operator|.
 name|sync
 return|;
 block|}
-name|resetMaxDeliveryIfTransacted
+comment|// if the exchange is transacted then let the underlysing system handle the redelivery etc.
+comment|// this DeadLetterChannel is only for non transacted exchanges
+if|if
+condition|(
+name|exchange
+operator|.
+name|isTransacted
+argument_list|()
+operator|&&
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
+literal|"Transacted Exchange, this DeadLetterChannel is bypassed: "
+operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+return|return
+name|data
+operator|.
+name|sync
+return|;
+block|}
 if|if
 condition|(
 name|exchange
@@ -948,32 +984,6 @@ literal|true
 return|;
 block|}
 comment|// error occurred so loop back around.....
-block|}
-block|}
-DECL|method|resetMaxDeliveryIfTransacted (Exchange exchange)
-specifier|public
-name|void
-name|resetMaxDeliveryIfTransacted
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-if|if
-condition|(
-name|exchange
-operator|.
-name|isTransacted
-argument_list|()
-condition|)
-block|{
-name|redeliveryPolicy
-operator|.
-name|setMaximumRedeliveries
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|isFailureHandled (Exchange exchange)
