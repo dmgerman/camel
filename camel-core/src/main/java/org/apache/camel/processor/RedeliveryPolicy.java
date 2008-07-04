@@ -553,28 +553,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables collision avoidence and sets the percentage used      */
-DECL|method|collisionAvoidancePercent (double collisionAvoidancePercent)
-specifier|public
-name|RedeliveryPolicy
-name|collisionAvoidancePercent
-parameter_list|(
-name|double
-name|collisionAvoidancePercent
-parameter_list|)
-block|{
-name|useCollisionAvoidance
-argument_list|()
-expr_stmt|;
-name|setCollisionAvoidancePercent
-argument_list|(
-name|collisionAvoidancePercent
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets the maximum redelivery delay if using exponential back off.      * Use -1 if you wish to have no maximum      */
 DECL|method|maximumRedeliveryDelay (long maximumRedeliveryDelay)
 specifier|public
