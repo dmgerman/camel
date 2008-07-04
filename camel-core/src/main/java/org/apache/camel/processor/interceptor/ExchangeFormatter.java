@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A plugin used to turn an {@link Exchange} into a String  * so it can be logged to a file  *  * @version $Revision: 1.1 $  */
+comment|/**  * A plugin used to turn an {@link Exchange} into a String  * so it can be logged to a file  *  * @version $Revision$  */
 end_comment
 
 begin_interface

@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an exception that occurred when processing an exchange  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents an exception that occurred when processing an exchange  *  * @version $Revision$  */
 end_comment
 
 begin_class

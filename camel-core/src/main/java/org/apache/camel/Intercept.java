@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An interface which provides the processing logic as a pluggable processor  *  * @version $Revision:  $  */
+comment|/**  * An interface which provides the processing logic as a pluggable processor  *  * @version $Revision$  */
 end_comment
 
 begin_interface
