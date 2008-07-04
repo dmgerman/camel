@@ -189,6 +189,7 @@ argument_list|()
 expr_stmt|;
 comment|// END SNIPPET: e1
 block|}
+comment|// START SNIPPET: e2
 DECL|class|MyProcessor
 specifier|public
 specifier|static
@@ -257,6 +258,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// END SNIPPET: e2
 block|}
 end_class
 
