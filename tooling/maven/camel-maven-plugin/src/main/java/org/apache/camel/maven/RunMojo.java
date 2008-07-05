@@ -564,11 +564,17 @@ specifier|private
 name|String
 name|mainClass
 decl_stmt|;
-comment|/**      * The application context uri that spring want to gets.      *      * @parameter expression="${camel.applicationContextUri}"      */
+comment|/**      * The classpath based application context uri that spring want to gets.      *      * @parameter expression="${camel.applicationContextUri}"      */
 DECL|field|applicationContextUri
 specifier|private
 name|String
 name|applicationContextUri
+decl_stmt|;
+comment|/**      * The filesystem based application context uri that spring want to gets.      *      * @parameter expression="${camel.fileApplicationContextUri}"      */
+DECL|field|fileApplicationContextUri
+specifier|private
+name|String
+name|fileApplicationContextUri
 decl_stmt|;
 comment|/**      * The class arguments.      *      * @parameter expression="${camel.arguments}"      */
 DECL|field|arguments
@@ -748,6 +754,29 @@ operator|.
 name|add
 argument_list|(
 name|applicationContextUri
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|fileApplicationContextUri
+operator|!=
+literal|null
+condition|)
+block|{
+name|args
+operator|.
+name|add
+argument_list|(
+literal|"-fa"
+argument_list|)
+expr_stmt|;
+name|args
+operator|.
+name|add
+argument_list|(
+name|fileApplicationContextUri
 argument_list|)
 expr_stmt|;
 block|}

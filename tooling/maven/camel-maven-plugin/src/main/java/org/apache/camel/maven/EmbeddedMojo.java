@@ -174,11 +174,17 @@ specifier|protected
 name|boolean
 name|dotAggregationEnabled
 decl_stmt|;
-comment|/**      * The application context uri that spring wants to get.      *      * @parameter expression="${camel.applicationContextUri}"      */
+comment|/**      * The classpath based application context uri that spring wants to get.      *      * @parameter expression="${camel.applicationContextUri}"      */
 DECL|field|applicationContextUri
 specifier|protected
 name|String
 name|applicationContextUri
+decl_stmt|;
+comment|/**      * The filesystem based application context uri that spring wants to get.      *      * @parameter expression="${camel.fileApplicationContextUri}"      */
+DECL|field|fileApplicationContextUri
+specifier|protected
+name|String
+name|fileApplicationContextUri
 decl_stmt|;
 comment|/**      * Project classpath.      *      * @parameter expression="${project.testClasspathElements}"      * @required      * @readonly      */
 DECL|field|classpathElements
@@ -628,6 +634,29 @@ operator|.
 name|add
 argument_list|(
 name|applicationContextUri
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|fileApplicationContextUri
+operator|!=
+literal|null
+condition|)
+block|{
+name|args
+operator|.
+name|add
+argument_list|(
+literal|"-fileApplicationContext"
+argument_list|)
+expr_stmt|;
+name|args
+operator|.
+name|add
+argument_list|(
+name|fileApplicationContextUri
 argument_list|)
 expr_stmt|;
 block|}
