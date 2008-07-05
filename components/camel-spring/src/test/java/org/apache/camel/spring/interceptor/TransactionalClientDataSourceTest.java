@@ -114,20 +114,6 @@ name|JdbcTemplate
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|transaction
-operator|.
-name|support
-operator|.
-name|TransactionTemplate
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test to demonstrate the transactional client pattern.  */
 end_comment
@@ -373,8 +359,8 @@ name|Exception
 block|{
 comment|// START SNIPPET: e1
 comment|// setup the transaction policy
-name|TransactionTemplate
-name|tt
+name|SpringTransactionPolicy
+name|required
 init|=
 name|context
 operator|.
@@ -385,18 +371,9 @@ name|lookup
 argument_list|(
 literal|"PROPAGATION_REQUIRED"
 argument_list|,
-name|TransactionTemplate
+name|SpringTransactionPolicy
 operator|.
 name|class
-argument_list|)
-decl_stmt|;
-name|SpringTransactionPolicy
-name|required
-init|=
-operator|new
-name|SpringTransactionPolicy
-argument_list|(
-name|tt
 argument_list|)
 decl_stmt|;
 comment|// use this error handler instead of DeadLetterChannel that is the default

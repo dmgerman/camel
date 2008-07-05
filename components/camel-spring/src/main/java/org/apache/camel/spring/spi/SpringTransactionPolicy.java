@@ -86,6 +86,18 @@ name|TransactionTemplate
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|transaction
+operator|.
+name|PlatformTransactionManager
+import|;
+end_import
+
 begin_comment
 comment|/**  * Wraps the processor in a Spring transaction  *  * @version $Revision$  */
 end_comment
@@ -126,6 +138,12 @@ specifier|private
 name|TransactionTemplate
 name|template
 decl_stmt|;
+comment|/**      * Default constructor for easy spring configuration.      */
+DECL|method|SpringTransactionPolicy ()
+specifier|public
+name|SpringTransactionPolicy
+parameter_list|()
+block|{     }
 DECL|method|SpringTransactionPolicy (TransactionTemplate template)
 specifier|public
 name|SpringTransactionPolicy
@@ -219,6 +237,31 @@ operator|.
 name|template
 operator|=
 name|template
+expr_stmt|;
+block|}
+comment|/**      * Sets the transaction manager to use creating and also setting indirectly      * the transaction template.      */
+DECL|method|setTransactionManager (PlatformTransactionManager transactionManager)
+specifier|public
+name|void
+name|setTransactionManager
+parameter_list|(
+name|PlatformTransactionManager
+name|transactionManager
+parameter_list|)
+block|{
+name|TransactionTemplate
+name|template
+init|=
+operator|new
+name|TransactionTemplate
+argument_list|(
+name|transactionManager
+argument_list|)
+decl_stmt|;
+name|setTemplate
+argument_list|(
+name|template
+argument_list|)
 expr_stmt|;
 block|}
 block|}
