@@ -454,6 +454,7 @@ operator|instanceof
 name|ChoiceType
 condition|)
 block|{
+comment|// special cases for predicates (choices)
 name|choice
 operator|=
 operator|(
@@ -503,6 +504,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// add proceed to the when clause
 name|addProceedProxy
 argument_list|(
 name|this
@@ -545,6 +547,7 @@ name|booleanValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// force adding a proceed at the end (otherwise) if its not a stop type
 name|addProceedProxy
 argument_list|(
 name|this
@@ -562,9 +565,61 @@ operator|.
 name|getOtherwise
 argument_list|()
 argument_list|,
-literal|false
+operator|!
+name|stop
+operator|.
+name|booleanValue
+argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|stop
+operator|.
+name|booleanValue
+argument_list|()
+condition|)
+block|{
+comment|// must add proceed to when clause if stop is explictiy declared, otherwise when the
+comment|// predicate test fails then there is no proceed
+comment|// See example: InterceptorSimpleRouteTest (City Paris is never proceeded)
+name|addProceedProxy
+argument_list|(
+name|this
+operator|.
+name|getProceed
+argument_list|()
+argument_list|,
+name|answer
+operator|.
+name|getProceed
+argument_list|()
+argument_list|,
+name|choice
+operator|.
+name|getWhenClauses
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|choice
+operator|.
+name|getWhenClauses
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+argument_list|,
+name|usePredicate
+operator|.
+name|booleanValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 break|break;
 block|}
 block|}
@@ -575,6 +630,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// force adding a proceed at the end if its not a stop type
 name|addProceedProxy
 argument_list|(
 name|this

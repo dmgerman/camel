@@ -476,8 +476,11 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// TODO: Fix me in CAMEL-676 and the mockOk assertion should pass
-comment|//mockOk.assertIsSatisfied();
+name|mockOk
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testInterceptorWithPredicateAndProceed ()
 specifier|public

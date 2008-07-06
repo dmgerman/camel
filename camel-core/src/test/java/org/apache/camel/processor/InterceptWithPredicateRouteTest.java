@@ -60,6 +60,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// no stop so the message will proceed in its normal route also
 name|intercept
 argument_list|(
 name|header
@@ -104,7 +105,7 @@ name|a
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|b
