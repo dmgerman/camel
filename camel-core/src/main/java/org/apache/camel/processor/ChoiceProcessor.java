@@ -205,12 +205,11 @@ name|exchange
 argument_list|)
 condition|)
 block|{
+comment|// process next will also take care (has not null test) if next was a stop()
+comment|// and this not a processor if so there is no processer to execute
 name|filterProcessor
 operator|.
-name|getProcessor
-argument_list|()
-operator|.
-name|process
+name|processNext
 argument_list|(
 name|exchange
 argument_list|)
