@@ -205,8 +205,8 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-comment|// process next will also take care (has not null test) if next was a stop()
-comment|// and this not a processor if so there is no processer to execute
+comment|// process next will also take care (has not null test) if next was a stop().
+comment|// stop() has no processor to execute, and thus we will end in a NPE
 name|filterProcessor
 operator|.
 name|processNext
