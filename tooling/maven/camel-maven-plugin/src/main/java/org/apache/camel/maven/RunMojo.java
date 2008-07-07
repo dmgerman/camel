@@ -486,13 +486,13 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter expression="-1"      * @readonly      */
+comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter expression="-1"      *      */
 DECL|field|duration
 specifier|protected
 name|String
 name|duration
 decl_stmt|;
-comment|/**      * The DOT outputd irectory name used to generate the DOT diagram of the      * route definitions      *      * @parameter expression="${project.build.directory}/site/cameldoc"      * @readonly      */
+comment|/**      * The DOT output directory name used to generate the DOT diagram of the      * route definitions      *      * @parameter expression="${project.build.directory}/site/cameldoc"      * @readonly      */
 DECL|field|dotDir
 specifier|protected
 name|String
