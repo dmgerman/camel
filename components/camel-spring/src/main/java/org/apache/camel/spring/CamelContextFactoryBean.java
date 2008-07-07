@@ -180,7 +180,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|RouteBuilder
+name|ErrorHandlerBuilder
 import|;
 end_import
 
@@ -194,7 +194,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|ErrorHandlerBuilder
+name|RouteBuilder
 import|;
 end_import
 

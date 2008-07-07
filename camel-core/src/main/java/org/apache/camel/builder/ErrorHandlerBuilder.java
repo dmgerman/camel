@@ -36,9 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|model
 operator|.
-name|RouteContext
+name|ExceptionType
 import|;
 end_import
 
@@ -50,9 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|spi
 operator|.
-name|ExceptionType
+name|RouteContext
 import|;
 end_import
 

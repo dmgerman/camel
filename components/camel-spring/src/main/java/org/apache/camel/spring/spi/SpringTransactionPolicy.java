@@ -80,9 +80,7 @@ name|springframework
 operator|.
 name|transaction
 operator|.
-name|support
-operator|.
-name|TransactionTemplate
+name|PlatformTransactionManager
 import|;
 end_import
 
@@ -94,7 +92,9 @@ name|springframework
 operator|.
 name|transaction
 operator|.
-name|PlatformTransactionManager
+name|support
+operator|.
+name|TransactionTemplate
 import|;
 end_import
 

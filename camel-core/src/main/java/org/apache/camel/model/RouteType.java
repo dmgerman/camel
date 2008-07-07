@@ -228,7 +228,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultRouteContext
+name|DefaultCamelContext
 import|;
 end_import
 
@@ -242,7 +242,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultCamelContext
+name|DefaultRouteContext
 import|;
 end_import
 

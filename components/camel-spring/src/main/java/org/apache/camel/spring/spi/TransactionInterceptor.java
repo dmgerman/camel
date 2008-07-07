@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|Processor
 import|;
 end_import
 
@@ -62,7 +62,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|RuntimeCamelException
 import|;
 end_import
 

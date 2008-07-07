@@ -21,24 +21,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|activemq
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|ActiveMQComponent
-operator|.
-name|activeMQComponent
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -111,6 +93,24 @@ operator|.
 name|impl
 operator|.
 name|JndiRegistry
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|activemq
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|ActiveMQComponent
+operator|.
+name|activeMQComponent
 import|;
 end_import
 
