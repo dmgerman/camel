@@ -179,6 +179,11 @@ specifier|private
 name|JettyHttpComponent
 name|component
 decl_stmt|;
+DECL|field|sessionSupport
+specifier|private
+name|boolean
+name|sessionSupport
+decl_stmt|;
 DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL, HttpConnectionManager httpConnectionManager)
 specifier|public
 name|JettyHttpEndpoint
@@ -297,6 +302,30 @@ parameter_list|()
 block|{
 return|return
 name|component
+return|;
+block|}
+DECL|method|setSessionSupport (boolean support)
+specifier|public
+name|void
+name|setSessionSupport
+parameter_list|(
+name|boolean
+name|support
+parameter_list|)
+block|{
+name|sessionSupport
+operator|=
+name|support
+expr_stmt|;
+block|}
+DECL|method|isSessionSupport ()
+specifier|public
+name|boolean
+name|isSessionSupport
+parameter_list|()
+block|{
+return|return
+name|sessionSupport
 return|;
 block|}
 block|}

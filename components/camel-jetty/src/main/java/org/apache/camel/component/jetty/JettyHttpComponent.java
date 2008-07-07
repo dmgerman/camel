@@ -230,12 +230,54 @@ name|jetty
 operator|.
 name|servlet
 operator|.
+name|HashSessionIdManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mortbay
+operator|.
+name|jetty
+operator|.
+name|servlet
+operator|.
+name|HashSessionManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mortbay
+operator|.
+name|jetty
+operator|.
+name|servlet
+operator|.
 name|ServletHolder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|mortbay
+operator|.
+name|jetty
+operator|.
+name|servlet
+operator|.
+name|SessionHandler
+import|;
+end_import
+
 begin_comment
-comment|/**  * An HttpComponent which starts an embedded Jetty for to handle consuming from  * the http endpoints.  *   * @version $Revision$  */
+comment|/**  * An HttpComponent which starts an embedded Jetty for to handle consuming from  * the http endpoints.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -398,7 +440,9 @@ argument_list|(
 name|uri
 argument_list|)
 decl_stmt|;
-return|return
+name|JettyHttpEndpoint
+name|result
+init|=
 operator|new
 name|JettyHttpEndpoint
 argument_list|(
@@ -411,9 +455,19 @@ argument_list|,
 name|getHttpConnectionManager
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|result
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|result
 return|;
 block|}
-comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *       * @throws Exception      */
+comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *      * @throws Exception      */
 annotation|@
 name|Override
 DECL|method|connect (HttpConsumer consumer)
@@ -428,11 +482,11 @@ throws|throws
 name|Exception
 block|{
 comment|// Make sure that there is a connector for the requested endpoint.
-name|HttpEndpoint
+name|JettyHttpEndpoint
 name|endpoint
 init|=
 operator|(
-name|HttpEndpoint
+name|JettyHttpEndpoint
 operator|)
 name|consumer
 operator|.
@@ -525,6 +579,19 @@ argument_list|(
 name|connector
 argument_list|)
 expr_stmt|;
+comment|// check the session support
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isSessionSupport
+argument_list|()
+condition|)
+block|{
+name|enableSessionSupport
+argument_list|()
+expr_stmt|;
+block|}
 name|connector
 operator|.
 name|start
@@ -556,6 +623,19 @@ operator|.
 name|increment
 argument_list|()
 expr_stmt|;
+comment|// check the session support
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isSessionSupport
+argument_list|()
+condition|)
+block|{
+name|enableSessionSupport
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 name|camelServlet
@@ -566,7 +646,77 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Disconnects the URL specified on the endpoint from the specified      * processor.      *       * @throws Exception      */
+DECL|method|enableSessionSupport ()
+specifier|private
+name|void
+name|enableSessionSupport
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Context
+name|context
+init|=
+operator|(
+name|Context
+operator|)
+name|getServer
+argument_list|()
+operator|.
+name|getChildHandlerByClass
+argument_list|(
+name|Context
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|context
+operator|.
+name|getSessionHandler
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|SessionHandler
+name|sessionHandler
+init|=
+operator|new
+name|SessionHandler
+argument_list|()
+decl_stmt|;
+name|context
+operator|.
+name|setSessionHandler
+argument_list|(
+name|sessionHandler
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|context
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
+comment|// restart the context
+name|context
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|/**      * Disconnects the URL specified on the endpoint from the specified      * processor.      *      * @throws Exception      */
 annotation|@
 name|Override
 DECL|method|disconnect (HttpConsumer consumer)
