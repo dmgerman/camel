@@ -134,7 +134,7 @@ name|ssn
 operator|+
 literal|"."
 operator|+
-literal|" The lowest rate of bank is "
+literal|" The lowest rate bank is "
 operator|+
 name|bank
 operator|+
