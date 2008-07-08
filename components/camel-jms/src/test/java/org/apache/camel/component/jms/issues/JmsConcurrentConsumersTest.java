@@ -191,6 +191,14 @@ argument_list|(
 literal|5
 argument_list|)
 decl_stmt|;
+name|long
+name|start
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
 comment|// setup a task executor to be able send the messages in parallel
 name|ThreadPoolTaskExecutor
 name|executor
@@ -303,6 +311,29 @@ name|getCount
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|long
+name|delta
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|-
+name|start
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should be faster than 10000 millis, took "
+operator|+
+name|delta
+operator|+
+literal|" millis"
+argument_list|,
+name|delta
+operator|<
+literal|10000L
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createCamelContext ()
 specifier|protected
@@ -411,12 +442,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// sleep a little for concurrency issues
+comment|// sleep a little to simulate heacy work and force concurrency processing
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|3000
 argument_list|)
 expr_stmt|;
 name|exchange
