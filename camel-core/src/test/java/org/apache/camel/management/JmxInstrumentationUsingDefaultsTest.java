@@ -393,7 +393,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|verifyCounter (MBeanServerConnection beanServer, ObjectName name)
-specifier|private
+specifier|protected
 name|void
 name|verifyCounter
 parameter_list|(
