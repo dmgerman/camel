@@ -210,6 +210,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|WebSphereResolverUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -294,6 +308,43 @@ name|Class
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|AnnotationTypeConverterLoader ()
+specifier|public
+name|AnnotationTypeConverterLoader
+parameter_list|()
+block|{
+comment|// use WebSphere specific resolver if running on WebSphere
+if|if
+condition|(
+name|WebSphereResolverUtil
+operator|.
+name|isWebSphereClassLoader
+argument_list|(
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Using WebSphere specific ResolverUtil"
+argument_list|)
+expr_stmt|;
+name|resolver
+operator|=
+operator|new
+name|WebSphereResolverUtil
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|load (TypeConverterRegistry registry)
 specifier|public
 name|void

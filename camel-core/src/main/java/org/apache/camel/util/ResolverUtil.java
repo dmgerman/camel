@@ -196,7 +196,7 @@ name|T
 parameter_list|>
 block|{
 DECL|field|LOG
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 specifier|transient
@@ -889,13 +889,30 @@ try|try
 block|{
 name|urls
 operator|=
-name|loader
-operator|.
 name|getResources
 argument_list|(
+name|loader
+argument_list|,
 name|packageName
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|urls
+operator|.
+name|hasMoreElements
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"No URLs returned by classloader"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1143,6 +1160,55 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|/**      * Strategy to get the resources by the given classloader.      *<p/>      * Notice that in WebSphere platforms there is a {@link org.apache.camel.util.WebSphereResolverUtil}      * to take care of WebSphere's odditiy of resource loading.      *      * @param loader  the classloader      * @param packageName   the packagename for the package to load      * @return  URL's for the given package      * @throws IOException is thrown by the classloader      */
+DECL|method|getResources (ClassLoader loader, String packageName)
+specifier|protected
+name|Enumeration
+argument_list|<
+name|URL
+argument_list|>
+name|getResources
+parameter_list|(
+name|ClassLoader
+name|loader
+parameter_list|,
+name|String
+name|packageName
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Getting resource URL for package: "
+operator|+
+name|packageName
+operator|+
+literal|" with classloader: "
+operator|+
+name|loader
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|loader
+operator|.
+name|getResources
+argument_list|(
+name|packageName
+argument_list|)
+return|;
 block|}
 DECL|method|loadImplementationsInBundle (Test test, String packageName, ClassLoader loader, Method mth)
 specifier|private
