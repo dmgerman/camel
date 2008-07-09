@@ -84,10 +84,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Currently, this test fails because the Python expression in createRouteBuilder
-comment|// below returns null and that is treated as 'false', therefore it's as if the
-comment|// message didn't match the expression
-comment|// To fix that, we need to figure out how to get the expression to return a boolean
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -242,13 +238,12 @@ operator|.
 name|choice
 argument_list|()
 operator|.
-comment|// The result variable is used to retrieve the python script evaluation result
 name|when
 argument_list|()
 operator|.
 name|python
 argument_list|(
-literal|"result = request.headers['foo']=='bar'"
+literal|"request.headers['foo']=='bar'"
 argument_list|)
 operator|.
 name|to

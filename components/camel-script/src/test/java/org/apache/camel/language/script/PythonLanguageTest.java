@@ -52,28 +52,28 @@ name|Exception
 block|{
 name|assertExpression
 argument_list|(
-literal|"result=exchange.in.headers"
+literal|"exchange.in.headers"
 argument_list|,
 literal|"{foo=abc, bar=123}"
 argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"result=exchange.in"
+literal|"exchange.in"
 argument_list|,
 literal|"Message:<hello id='m123'>world!</hello>"
 argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"result=exchange.in.headers.get('foo')"
+literal|"exchange.in.headers.get('foo')"
 argument_list|,
 literal|"abc"
 argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"result=request.headers.get('foo')"
+literal|"request.headers['foo']"
 argument_list|,
 literal|"abc"
 argument_list|)
