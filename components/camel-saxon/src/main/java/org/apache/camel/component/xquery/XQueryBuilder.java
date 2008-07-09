@@ -1780,8 +1780,6 @@ specifier|public
 name|StaticQueryContext
 name|getStaticQueryContext
 parameter_list|()
-throws|throws
-name|StaticError
 block|{
 if|if
 condition|(
@@ -1850,13 +1848,11 @@ argument_list|()
 decl_stmt|;
 name|staticQueryContext
 operator|.
-name|declarePassiveNamespace
+name|declareNamespace
 argument_list|(
 name|prefix
 argument_list|,
 name|uri
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|staticQueryContext
@@ -2314,7 +2310,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * To avoid keeping around any unnecessary objects after the expresion has      * been created lets nullify references here      */
+comment|/**      * To avoid keeping around any unnecessary objects after the expression has      * been created lets nullify references here      */
 DECL|method|clearBuilderReferences ()
 specifier|protected
 name|void
