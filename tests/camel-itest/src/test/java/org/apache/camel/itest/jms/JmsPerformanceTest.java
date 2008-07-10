@@ -628,13 +628,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|consumedMessageCount
+operator|++
+expr_stmt|;
 name|receivedCountDown
 operator|.
 name|countDown
 argument_list|()
-expr_stmt|;
-name|consumedMessageCount
-operator|++
 expr_stmt|;
 block|}
 block|}
