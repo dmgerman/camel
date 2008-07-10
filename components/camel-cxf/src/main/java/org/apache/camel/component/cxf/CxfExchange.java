@@ -138,12 +138,15 @@ specifier|private
 name|Exchange
 name|exchange
 decl_stmt|;
-DECL|method|CxfExchange (CamelContext context, Exchange exchange)
+DECL|method|CxfExchange (CamelContext context, ExchangePattern pattern, Exchange exchange)
 specifier|public
 name|CxfExchange
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|,
 name|Exchange
 name|exchange
@@ -152,6 +155,8 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|pattern
 argument_list|)
 expr_stmt|;
 name|this
@@ -373,6 +378,11 @@ argument_list|(
 name|this
 operator|.
 name|getContext
+argument_list|()
+argument_list|,
+name|this
+operator|.
+name|getPattern
 argument_list|()
 argument_list|,
 name|this
