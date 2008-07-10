@@ -578,6 +578,14 @@ condition|(
 name|value
 operator|!=
 literal|null
+operator|&&
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
+operator|.
+name|isOutCapable
+argument_list|()
 condition|)
 block|{
 name|exchange

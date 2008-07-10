@@ -802,8 +802,34 @@ operator|+
 literal|" using classloader: "
 operator|+
 name|loader
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|loader
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|"org.apache.felix.framework.searchpolicy.ContentClassLoader"
+argument_list|)
+condition|)
+block|{
+comment|//this classloader is in OSGI env which is not URLClassloader, we should resort to the
+comment|//BundleDelegatingClassLoader in OSGI, so just return
+return|return;
 block|}
 try|try
 block|{

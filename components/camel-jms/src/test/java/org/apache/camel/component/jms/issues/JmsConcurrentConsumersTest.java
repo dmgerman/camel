@@ -129,6 +129,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|scheduling
+operator|.
+name|concurrent
+operator|.
+name|ThreadPoolTaskExecutor
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -143,20 +157,6 @@ operator|.
 name|JmsComponent
 operator|.
 name|jmsComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|scheduling
-operator|.
-name|concurrent
-operator|.
-name|ThreadPoolTaskExecutor
 import|;
 end_import
 
