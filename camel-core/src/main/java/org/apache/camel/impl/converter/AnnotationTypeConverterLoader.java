@@ -341,7 +341,9 @@ name|resolver
 operator|=
 operator|new
 name|WebSphereResolverUtil
-argument_list|()
+argument_list|(
+name|META_INF_SERVICES
+argument_list|)
 expr_stmt|;
 block|}
 block|}

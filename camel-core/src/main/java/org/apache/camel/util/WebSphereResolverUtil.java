@@ -46,22 +46,6 @@ name|Enumeration
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|converter
-operator|.
-name|AnnotationTypeConverterLoader
-import|;
-end_import
-
 begin_comment
 comment|/**  * WebSphere specific resolver util to handle loading annotated resources in JAR files.  */
 end_comment
@@ -74,6 +58,27 @@ name|WebSphereResolverUtil
 extends|extends
 name|ResolverUtil
 block|{
+DECL|field|resourcePath
+specifier|private
+name|String
+name|resourcePath
+decl_stmt|;
+comment|/**      * Constructor.      *      * @param resourcePath  the fixed resource path to use for fetching camel jars in WebSphere.      */
+DECL|method|WebSphereResolverUtil (String resourcePath)
+specifier|public
+name|WebSphereResolverUtil
+parameter_list|(
+name|String
+name|resourcePath
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resourcePath
+operator|=
+name|resourcePath
+expr_stmt|;
+block|}
 comment|/**      * Is the classloader from IBM and thus the WebSphere platform?      *      * @param loader  the classloader      * @return<tt>true</tt> if IBM classloader,<tt>false</tt> otherwise.      */
 DECL|method|isWebSphereClassLoader (ClassLoader loader)
 specifier|public
@@ -163,9 +168,7 @@ name|loader
 operator|.
 name|getResources
 argument_list|(
-name|AnnotationTypeConverterLoader
-operator|.
-name|META_INF_SERVICES
+name|resourcePath
 argument_list|)
 expr_stmt|;
 block|}
