@@ -115,6 +115,32 @@ name|formatter
 argument_list|)
 return|;
 block|}
+DECL|method|getFormatter ()
+specifier|public
+name|TraceFormatter
+name|getFormatter
+parameter_list|()
+block|{
+return|return
+name|formatter
+return|;
+block|}
+DECL|method|setFormatter (TraceFormatter formatter)
+specifier|public
+name|void
+name|setFormatter
+parameter_list|(
+name|TraceFormatter
+name|formatter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|formatter
+operator|=
+name|formatter
+expr_stmt|;
+block|}
 block|}
 end_class
 
