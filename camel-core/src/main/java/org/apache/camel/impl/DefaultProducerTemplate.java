@@ -576,6 +576,8 @@ return|return
 name|extractResultBody
 argument_list|(
 name|result
+argument_list|,
+name|pattern
 argument_list|)
 return|;
 block|}
@@ -806,6 +808,8 @@ return|return
 name|extractResultBody
 argument_list|(
 name|result
+argument_list|,
+name|pattern
 argument_list|)
 return|;
 block|}
@@ -856,6 +860,8 @@ return|return
 name|extractResultBody
 argument_list|(
 name|result
+argument_list|,
+name|pattern
 argument_list|)
 return|;
 block|}
@@ -1759,6 +1765,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Extracts the body from the given result.      *      * @param result   the result      * @return  the result, can be<tt>null</tt>.      */
 DECL|method|extractResultBody (E result)
 specifier|protected
 name|Object
@@ -1766,6 +1773,28 @@ name|extractResultBody
 parameter_list|(
 name|E
 name|result
+parameter_list|)
+block|{
+return|return
+name|extractResultBody
+argument_list|(
+name|result
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Extracts the body from the given result.      *<p/>      * If the exchange pattern is provided it will try to honor it and retrive the body      * from either IN or OUT according to the pattern.      *      * @param result   the result      * @param pattern  exchange pattern if given, can be<tt>null</tt>      * @return  the result, can be<tt>null</tt>.      */
+DECL|method|extractResultBody (E result, ExchangePattern pattern)
+specifier|protected
+name|Object
+name|extractResultBody
+parameter_list|(
+name|E
+name|result
+parameter_list|,
+name|ExchangePattern
+name|pattern
 parameter_list|)
 block|{
 name|Object
@@ -1780,8 +1809,22 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Message
-name|out
+comment|// try to honor pattern if provided
+name|boolean
+name|notOut
+init|=
+name|pattern
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|pattern
+operator|.
+name|isOutCapable
+argument_list|()
+decl_stmt|;
+name|boolean
+name|hasOut
 init|=
 name|result
 operator|.
@@ -1789,17 +1832,23 @@ name|getOut
 argument_list|(
 literal|false
 argument_list|)
+operator|!=
+literal|null
 decl_stmt|;
 if|if
 condition|(
-name|out
-operator|!=
-literal|null
+name|hasOut
+operator|&&
+operator|!
+name|notOut
 condition|)
 block|{
 name|answer
 operator|=
-name|out
+name|result
+operator|.
+name|getOut
+argument_list|()
 operator|.
 name|getBody
 argument_list|()
