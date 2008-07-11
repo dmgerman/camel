@@ -188,7 +188,7 @@ name|invoice
 init|=
 name|activity
 argument_list|(
-literal|"file:src/data/invoices?noop=true"
+literal|"file:src/data/invoices?noop=true&consumer.initialDelay=5000"
 argument_list|)
 operator|.
 name|correlate
@@ -220,7 +220,7 @@ name|expectWithin
 argument_list|(
 name|seconds
 argument_list|(
-literal|1
+literal|10
 argument_list|)
 argument_list|)
 operator|.
@@ -228,7 +228,7 @@ name|errorIfOver
 argument_list|(
 name|seconds
 argument_list|(
-literal|2
+literal|20
 argument_list|)
 argument_list|)
 operator|.

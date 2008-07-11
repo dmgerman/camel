@@ -164,6 +164,34 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * The default state for a specific activity within a process  *  * @version $Revision$  */
 end_comment
@@ -178,6 +206,23 @@ name|ActivityState
 extends|extends
 name|TemporalEntity
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|ActivityState
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|processInstance
 specifier|private
 name|ProcessInstance
@@ -706,6 +751,24 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Activity first message: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Called when the expected number of messages are is reached      */
@@ -731,6 +794,12 @@ name|currentTime
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// must also clear overdue otherwise we will get failures
+name|setTimeOverdue
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|onCompleted
@@ -738,6 +807,24 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Activity complete: "
+operator|+
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Called when an excess message (after the expected number of messages) are      * received      */
