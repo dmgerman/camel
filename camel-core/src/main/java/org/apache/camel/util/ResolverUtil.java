@@ -827,6 +827,13 @@ literal|"org.apache.felix.framework.searchpolicy.ContentClassLoader"
 argument_list|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"This is not an URL classloader, skipping"
+argument_list|)
+expr_stmt|;
 comment|//this classloader is in OSGI env which is not URLClassloader, we should resort to the
 comment|//BundleDelegatingClassLoader in OSGI, so just return
 return|return;
@@ -1018,6 +1025,24 @@ argument_list|,
 literal|"UTF-8"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Decoded urlPath: "
+operator|+
+name|urlPath
+argument_list|)
+expr_stmt|;
+block|}
 comment|// If it's a file in a directory, trim the stupid file: spec
 if|if
 condition|(
@@ -1038,6 +1063,26 @@ argument_list|(
 literal|5
 argument_list|)
 expr_stmt|;
+block|}
+comment|// osgi bundles should be skipped
+if|if
+condition|(
+name|urlPath
+operator|.
+name|startsWith
+argument_list|(
+literal|"bundle:"
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"It's a virtual osgi bundle, skipping"
+argument_list|)
+expr_stmt|;
+continue|continue;
 block|}
 comment|// Else it's in a JAR, grab the path to the jar
 if|if
