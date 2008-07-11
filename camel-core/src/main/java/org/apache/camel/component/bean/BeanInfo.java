@@ -1969,7 +1969,10 @@ name|Method
 name|method
 parameter_list|)
 block|{
-return|return
+comment|// must be a public method
+if|if
+condition|(
+operator|!
 name|Modifier
 operator|.
 name|isPublic
@@ -1979,6 +1982,41 @@ operator|.
 name|getModifiers
 argument_list|()
 argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// return type must not be an Exchange
+if|if
+condition|(
+name|method
+operator|.
+name|getReturnType
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|Exchange
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|method
+operator|.
+name|getReturnType
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+return|return
+literal|true
 return|;
 block|}
 DECL|method|createParameterMappingStrategy (CamelContext camelContext)
