@@ -710,6 +710,26 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
+comment|// propogate headers
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|evaluate (Exchange exchange)
 specifier|public
@@ -2218,18 +2238,17 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-name|dynamicQueryContext
-operator|.
-name|setParameter
-argument_list|(
-literal|"in"
-argument_list|,
+if|if
+condition|(
 name|exchange
 operator|.
-name|getIn
+name|getPattern
 argument_list|()
-argument_list|)
-expr_stmt|;
+operator|.
+name|isOutCapable
+argument_list|()
+condition|)
+block|{
 name|dynamicQueryContext
 operator|.
 name|setParameter
@@ -2242,6 +2261,7 @@ name|getOut
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|addParameters (DynamicQueryContext dynamicQueryContext, Map<String, Object> map)
 specifier|protected
