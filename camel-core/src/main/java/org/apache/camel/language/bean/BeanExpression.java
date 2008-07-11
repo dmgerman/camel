@@ -234,7 +234,7 @@ name|copy
 argument_list|()
 decl_stmt|;
 comment|// The BeanExperession always has a result regardless of the ExchangePattern,
-comment|// so I add a checker here to make sure we can get the result .
+comment|// so I add a checker here to make sure we can get the result.
 if|if
 condition|(
 operator|!
