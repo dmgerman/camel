@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An XMPP Endpoint  *  * @version $Revision:520964 $  */
+comment|/**  * A XMPP Endpoint  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -521,7 +521,7 @@ return|return
 name|binding
 return|;
 block|}
-comment|/**      * Sets the binding used to convert from a Camel message to and from an XMPP      * message      *      * @param binding the binding to use      */
+comment|/**      * Sets the binding used to convert from a Camel message to and from an XMPP      * message      */
 DECL|method|setBinding (XmppBinding binding)
 specifier|public
 name|void
@@ -1028,22 +1028,7 @@ name|loginAnonymously
 argument_list|()
 expr_stmt|;
 block|}
-comment|// now lets send a presence
-name|connection
-operator|.
-name|sendPacket
-argument_list|(
-operator|new
-name|Presence
-argument_list|(
-name|Presence
-operator|.
-name|Type
-operator|.
-name|AVAILABLE
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// presence is not needed to be sent after login
 block|}
 return|return
 name|connection
