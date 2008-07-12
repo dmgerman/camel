@@ -132,6 +132,10 @@ name|RouteContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Naming strategy used when registering MBeans.  */
+end_comment
+
 begin_class
 DECL|class|CamelNamingStrategy
 specifier|public
@@ -830,8 +834,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
-comment|/**      * Implements the naming strategy for a {@link ProcessorType}.      * The convention used for a {@link ProcessorType} ObjectName is:      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,route=&lt;route-name&gt;,type=processor,name=&lt;processor-name&gt;,nodeid=&lt;node-id&gt;,instance=&lt;instance-id&gt;</tt>      */
-DECL|method|getObjectName (RouteContext routeContext, ProcessorType processor, Integer instanceCount)
+comment|/**      * Implements the naming strategy for a {@link ProcessorType}.      * The convention used for a {@link ProcessorType} ObjectName is:      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,route=&lt;route-name&gt;,type=processor,name=&lt;processor-name&gt;,nodeid=&lt;node-id&gt;</tt>      */
+DECL|method|getObjectName (RouteContext routeContext, ProcessorType processor)
 specifier|public
 name|ObjectName
 name|getObjectName
@@ -841,9 +845,6 @@ name|routeContext
 parameter_list|,
 name|ProcessorType
 name|processor
-parameter_list|,
-name|Integer
-name|instanceCount
 parameter_list|)
 throws|throws
 name|MalformedObjectNameException
@@ -911,6 +912,14 @@ name|getEndpointId
 argument_list|(
 name|ep
 argument_list|)
+decl_stmt|;
+name|String
+name|nodeId
+init|=
+name|processor
+operator|.
+name|idOrCreate
+argument_list|()
 decl_stmt|;
 name|StringBuffer
 name|buffer
@@ -989,36 +998,18 @@ argument_list|(
 name|KEY_NODE_ID
 operator|+
 literal|"="
-operator|+
-name|processor
-operator|.
-name|getId
-argument_list|()
-operator|+
-literal|","
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|instanceCount
-operator|!=
-literal|null
-condition|)
-block|{
-name|buffer
 operator|.
 name|append
 argument_list|(
-name|KEY_INSTANCE
-operator|+
-literal|"="
-operator|+
-name|instanceCount
-operator|+
+name|id
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|","
 argument_list|)
 expr_stmt|;
-block|}
 name|buffer
 operator|.
 name|append

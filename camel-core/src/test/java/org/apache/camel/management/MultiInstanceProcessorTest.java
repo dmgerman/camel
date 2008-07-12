@@ -355,7 +355,7 @@ name|ObjectName
 argument_list|(
 name|domainName
 operator|+
-literal|":type=processor,instance=0,*"
+literal|":type=processor,nodeid=to3,*"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -368,7 +368,7 @@ name|ObjectName
 argument_list|(
 name|domainName
 operator|+
-literal|":type=processor,instance=1,*"
+literal|":type=processor,nodeid=to4,*"
 argument_list|)
 argument_list|)
 expr_stmt|;
