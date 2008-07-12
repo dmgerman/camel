@@ -102,7 +102,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"xmpp://camel-user@localhost:123/test-user@localhost"
+literal|"xmpp://camel-user@localhost:123/test-user@localhost?password=secret"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -164,6 +164,16 @@ name|getParticipant
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"secret"
+argument_list|,
+name|xmppEndpoint
+operator|.
+name|getPassword
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testGroupChatConfiguration ()
 specifier|public
@@ -180,7 +190,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"xmpp://camel-user@im.google.com:123?room=cheese"
+literal|"xmpp://camel-user@im.google.com:123?room=cheese&password=secret"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -239,6 +249,16 @@ argument_list|,
 name|xmppEndpoint
 operator|.
 name|getRoom
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"secret"
+argument_list|,
+name|xmppEndpoint
+operator|.
+name|getPassword
 argument_list|()
 argument_list|)
 expr_stmt|;
