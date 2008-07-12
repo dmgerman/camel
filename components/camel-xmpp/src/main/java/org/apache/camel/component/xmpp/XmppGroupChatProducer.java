@@ -78,9 +78,11 @@ name|org
 operator|.
 name|jivesoftware
 operator|.
-name|smack
+name|smackx
 operator|.
-name|GroupChat
+name|muc
+operator|.
+name|MultiUserChat
 import|;
 end_import
 
@@ -153,7 +155,7 @@ name|room
 decl_stmt|;
 DECL|field|chat
 specifier|private
-name|GroupChat
+name|MultiUserChat
 name|chat
 decl_stmt|;
 DECL|method|XmppGroupChatProducer (XmppEndpoint endpoint, String room)
@@ -317,14 +319,27 @@ condition|)
 block|{
 name|chat
 operator|=
+operator|new
+name|MultiUserChat
+argument_list|(
 name|endpoint
 operator|.
 name|getConnection
 argument_list|()
-operator|.
-name|createGroupChat
-argument_list|(
+argument_list|,
 name|room
+argument_list|)
+expr_stmt|;
+name|chat
+operator|.
+name|join
+argument_list|(
+name|this
+operator|.
+name|endpoint
+operator|.
+name|getResource
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -366,7 +381,7 @@ comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getChat ()
 specifier|public
-name|GroupChat
+name|MultiUserChat
 name|getChat
 parameter_list|()
 block|{
@@ -374,12 +389,12 @@ return|return
 name|chat
 return|;
 block|}
-DECL|method|setChat (GroupChat chat)
+DECL|method|setChat (MultiUserChat chat)
 specifier|public
 name|void
 name|setChat
 parameter_list|(
-name|GroupChat
+name|MultiUserChat
 name|chat
 parameter_list|)
 block|{
