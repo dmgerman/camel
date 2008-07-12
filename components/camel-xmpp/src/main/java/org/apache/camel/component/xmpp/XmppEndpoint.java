@@ -282,6 +282,11 @@ specifier|private
 name|String
 name|participant
 decl_stmt|;
+DECL|field|nickname
+specifier|private
+name|String
+name|nickname
+decl_stmt|;
 DECL|method|XmppEndpoint (String uri, XmppComponent component)
 specifier|public
 name|XmppEndpoint
@@ -791,6 +796,32 @@ operator|.
 name|participant
 operator|=
 name|participant
+expr_stmt|;
+block|}
+DECL|method|getNickname ()
+specifier|public
+name|String
+name|getNickname
+parameter_list|()
+block|{
+return|return
+name|nickname
+return|;
+block|}
+DECL|method|setNickname (String nickname)
+specifier|public
+name|void
+name|setNickname
+parameter_list|(
+name|String
+name|nickname
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nickname
+operator|=
+name|nickname
 expr_stmt|;
 block|}
 DECL|method|getConnection ()

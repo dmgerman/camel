@@ -190,7 +190,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"xmpp://camel-user@im.google.com:123?room=cheese&password=secret"
+literal|"xmpp://camel-user@im.google.com:123?room=cheese&password=secret&nickname=incognito"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -259,6 +259,67 @@ argument_list|,
 name|xmppEndpoint
 operator|.
 name|getPassword
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"incognito"
+argument_list|,
+name|xmppEndpoint
+operator|.
+name|getNickname
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Changes in default resource name may break
+comment|// clients program assuming the default "Camel" resource name
+comment|// so it is better to avoid changing it.
+DECL|method|testDefaultResource ()
+specifier|public
+name|void
+name|testDefaultResource
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Endpoint
+name|endpoint
+init|=
+name|context
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"xmpp://camel-user@im.google.com?password=secret"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Endpoint not an XmppEndpoint: "
+operator|+
+name|endpoint
+argument_list|,
+name|endpoint
+operator|instanceof
+name|XmppEndpoint
+argument_list|)
+expr_stmt|;
+name|XmppEndpoint
+name|xmppEndpoint
+init|=
+operator|(
+name|XmppEndpoint
+operator|)
+name|endpoint
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Camel"
+argument_list|,
+name|xmppEndpoint
+operator|.
+name|getResource
 argument_list|()
 argument_list|)
 expr_stmt|;
