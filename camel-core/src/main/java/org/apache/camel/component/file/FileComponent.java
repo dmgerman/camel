@@ -91,7 +91,7 @@ argument_list|<
 name|FileExchange
 argument_list|>
 block|{
-comment|/**      * Header key hold the value: the fixed filename to use for prodcuing files.      */
+comment|/**      * Header key holding the value: the fixed filename to use for producing files.      */
 DECL|field|HEADER_FILE_NAME
 specifier|public
 specifier|static
@@ -101,7 +101,7 @@ name|HEADER_FILE_NAME
 init|=
 literal|"org.apache.camel.file.name"
 decl_stmt|;
-comment|/**      * Header key holding the value: absolute filepath for the file produced.      */
+comment|/**      * Header key holding the value: absolute filepath for the actual file produced.      * Value is set automatically by Camel      */
 DECL|field|HEADER_FILE_NAME_PRODUCED
 specifier|public
 specifier|static
