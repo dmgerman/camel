@@ -324,15 +324,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Received: "
-operator|+
-name|text
-argument_list|)
-expr_stmt|;
 name|assertStringContains
 argument_list|(
 name|text
