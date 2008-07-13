@@ -305,41 +305,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|ExchangeHelper
-operator|.
-name|isOutCapable
-argument_list|(
-name|exchange
-argument_list|)
-condition|)
-block|{
-comment|// lets poll the file
-name|Message
-name|out
-init|=
-name|exchange
-operator|.
-name|getOut
-argument_list|(
-literal|true
-argument_list|)
-decl_stmt|;
-name|endpoint
-operator|.
-name|configureMessage
-argument_list|(
-name|endpoint
-operator|.
-name|getFile
-argument_list|()
-argument_list|,
-name|out
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
 name|InputStream
 name|in
 init|=
@@ -725,8 +690,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// TODO lets store the name in the header?
-comment|//message.setHeader(FileComponent.HEADER_FILE_NAME, answer.toString());
+comment|// lets store the name we really used in the header, so end-users can retrieve it
+name|message
+operator|.
+name|setHeader
+argument_list|(
+name|FileComponent
+operator|.
+name|HEADER_FILE_NAME_PRODUCED
+argument_list|,
+name|answer
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;
