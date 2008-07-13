@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|Context
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -93,20 +103,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -124,6 +120,36 @@ name|el
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jndi
+operator|.
+name|JndiContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -136,6 +162,51 @@ name|SimulatorTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|method|createJndiContext ()
+specifier|protected
+name|Context
+name|createJndiContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JndiContext
+name|answer
+init|=
+operator|new
+name|JndiContext
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|bind
+argument_list|(
+literal|"foo"
+argument_list|,
+operator|new
+name|MyBean
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|bind
+argument_list|(
+literal|"bar"
+argument_list|,
+operator|new
+name|MyBean
+argument_list|(
+literal|"bar"
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 DECL|method|testReceivesFooResponse ()
 specifier|public
 name|void
@@ -148,7 +219,7 @@ name|assertRespondsWith
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|"fooResponse"
+literal|"Bye said foo"
 argument_list|)
 expr_stmt|;
 block|}
@@ -164,7 +235,7 @@ name|assertRespondsWith
 argument_list|(
 literal|"bar"
 argument_list|,
-literal|"barResponse"
+literal|"Bye said bar"
 argument_list|)
 expr_stmt|;
 block|}
@@ -255,15 +326,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Received: "
-operator|+
-name|text
-argument_list|)
-expr_stmt|;
 name|assertStringContains
 argument_list|(
 name|text
@@ -298,7 +360,7 @@ name|recipientList
 argument_list|(
 name|el
 argument_list|(
-literal|"file:src/test/data/${in.headers.cheese}.xml"
+literal|"bean:${in.headers.cheese}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -306,6 +368,48 @@ comment|// END SNIPPET: example
 block|}
 block|}
 return|;
+block|}
+DECL|class|MyBean
+specifier|public
+specifier|static
+class|class
+name|MyBean
+block|{
+DECL|field|value
+specifier|private
+name|String
+name|value
+decl_stmt|;
+DECL|method|MyBean (String value)
+specifier|public
+name|MyBean
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+name|this
+operator|.
+name|value
+operator|=
+name|value
+expr_stmt|;
+block|}
+DECL|method|doSomething (String in)
+specifier|public
+name|String
+name|doSomething
+parameter_list|(
+name|String
+name|in
+parameter_list|)
+block|{
+return|return
+literal|"Bye said "
+operator|+
+name|value
+return|;
+block|}
 block|}
 block|}
 end_class
