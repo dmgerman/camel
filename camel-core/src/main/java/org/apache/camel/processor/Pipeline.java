@@ -661,7 +661,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Strategy method to create the next exchange from the      *      * @param producer         the producer used to send to the endpoint      * @param previousExchange the previous exchange      * @return a new exchange      */
+comment|/**      * Strategy method to create the next exchange from the previous exchange.      *      * @param producer         the producer used to send to the endpoint      * @param previousExchange the previous exchange      * @return a new exchange      */
 DECL|method|createNextExchange (Processor producer, Exchange previousExchange)
 specifier|protected
 name|Exchange
