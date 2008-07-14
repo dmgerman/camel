@@ -352,6 +352,22 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"The cxf endpoint's DataFromat should be MESSAGE"
+argument_list|,
+name|CxfEndpointUtils
+operator|.
+name|getDataFormat
+argument_list|(
+name|endpoint
+argument_list|)
+argument_list|,
+name|DataFormat
+operator|.
+name|MESSAGE
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testGetDataFormatFromCxfEndpontProperties ()
 specifier|public
@@ -374,7 +390,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"We should get the Message DataFormat"
+literal|"We should get the PAYLOAD DataFormat"
 argument_list|,
 name|CxfEndpointUtils
 operator|.
