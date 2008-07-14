@@ -58,9 +58,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|builder
 operator|.
-name|IOConverter
+name|RouteBuilder
 import|;
 end_import
 
@@ -72,9 +72,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|converter
 operator|.
-name|RouteBuilder
+name|IOConverter
 import|;
 end_import
 
