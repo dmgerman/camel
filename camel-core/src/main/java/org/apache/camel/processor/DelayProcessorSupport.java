@@ -339,6 +339,15 @@ name|InterruptedException
 block|{
 if|if
 condition|(
+name|delay
+operator|<=
+literal|0
+condition|)
+block|{
+return|return;
+block|}
+if|if
+condition|(
 name|LOG
 operator|.
 name|isDebugEnabled
