@@ -143,7 +143,7 @@ specifier|private
 name|boolean
 name|ignoreFirstRecord
 init|=
-literal|false
+literal|true
 decl_stmt|;
 DECL|method|DelimitedEndpoint (String uri, Resource resource)
 specifier|public
