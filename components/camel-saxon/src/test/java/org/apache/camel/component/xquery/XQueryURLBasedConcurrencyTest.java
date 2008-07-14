@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|DeadLetterChannelBuilder
@@ -99,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Concurrency test of XQuery.  */
+comment|/**  * Concurrency test of XQuery using classpath resources (to).  */
 end_comment
 
 begin_class
@@ -121,7 +133,7 @@ block|{
 name|int
 name|total
 init|=
-literal|100
+literal|1000
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -197,7 +209,7 @@ name|start
 init|=
 name|threadCount
 operator|*
-literal|20
+literal|200
 decl_stmt|;
 for|for
 control|(
@@ -208,7 +220,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|20
+literal|200
 condition|;
 name|i
 operator|++
@@ -246,7 +258,15 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"<mail><subject>Hey</subject><body>Hello world!</body></mail>"
+literal|"<mail><subject>"
+operator|+
+operator|(
+name|start
+operator|+
+name|i
+operator|)
+operator|+
+literal|"</subject><body>Hello world!</body></mail>"
 argument_list|)
 expr_stmt|;
 block|}
@@ -255,49 +275,23 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-name|mock
-operator|.
-name|assertNoDuplicates
-argument_list|(
-name|body
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"The End"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
+comment|// must use bodyAs(String.class) to force DOM to be converted to String XML
+comment|// for duplication detection
 name|mock
 operator|.
-name|getExchanges
-argument_list|()
-operator|.
-name|get
+name|assertNoDuplicates
 argument_list|(
-literal|0
+name|bodyAs
+argument_list|(
+name|String
+operator|.
+name|class
 argument_list|)
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

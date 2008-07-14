@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Concurrency test of XQuery.  */
+comment|/**  * Concurrency test of XQuery using transform.xquery DSL.  */
 end_comment
 
 begin_class
@@ -265,16 +265,16 @@ expr_stmt|;
 block|}
 name|mock
 operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+name|mock
+operator|.
 name|assertNoDuplicates
 argument_list|(
 name|body
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
