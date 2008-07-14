@@ -121,7 +121,7 @@ block|{
 name|int
 name|total
 init|=
-literal|100
+literal|1000
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -197,7 +197,7 @@ name|start
 init|=
 name|threadCount
 operator|*
-literal|20
+literal|200
 decl_stmt|;
 for|for
 control|(
@@ -208,7 +208,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|20
+literal|200
 condition|;
 name|i
 operator|++
@@ -227,7 +227,7 @@ argument_list|()
 operator|.
 name|nextInt
 argument_list|(
-literal|100
+literal|10
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -265,16 +265,16 @@ expr_stmt|;
 block|}
 name|mock
 operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-name|mock
-operator|.
 name|assertNoDuplicates
 argument_list|(
 name|body
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
@@ -297,18 +297,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// only retry at max 2 times to cather
-comment|// if set to 0 we can get interal Saxon errors - SENR0001
+comment|// no retry as we want every failure to submerge
 name|errorHandler
 argument_list|(
-operator|new
-name|DeadLetterChannelBuilder
+name|noErrorHandler
 argument_list|()
-operator|.
-name|maximumRedeliveries
-argument_list|(
-literal|1
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|from
@@ -318,7 +311,7 @@ argument_list|)
 operator|.
 name|thread
 argument_list|(
-literal|10
+literal|5
 argument_list|)
 operator|.
 name|transform

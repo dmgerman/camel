@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -100,7 +110,6 @@ name|XQueryURLBasedConcurrencyTest
 extends|extends
 name|ContextTestSupport
 block|{
-comment|// TODO: Work in progress
 DECL|method|testConcurrency ()
 specifier|public
 name|void
@@ -112,7 +121,7 @@ block|{
 name|int
 name|total
 init|=
-literal|1
+literal|100
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -158,7 +167,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|1
+literal|5
 condition|;
 name|i
 operator|++
@@ -199,27 +208,45 @@ literal|0
 init|;
 name|i
 operator|<
-literal|1
+literal|20
 condition|;
 name|i
 operator|++
 control|)
 block|{
+try|try
+block|{
+comment|// do some random sleep to simulate spread in user activity
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+operator|new
+name|Random
+argument_list|()
+operator|.
+name|nextInt
+argument_list|(
+literal|10
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:in"
+literal|"direct:start"
 argument_list|,
-literal|"<mail><subject>"
-operator|+
-operator|(
-name|start
-operator|+
-name|i
-operator|)
-operator|+
-literal|"</subject><body>Hello world!</body></mail>"
+literal|"<mail><subject>Hey</subject><body>Hello world!</body></mail>"
 argument_list|)
 expr_stmt|;
 block|}
@@ -228,16 +255,48 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-name|mock
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
 name|mock
 operator|.
 name|assertNoDuplicates
 argument_list|(
 name|body
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"The End"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|mock
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -262,28 +321,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// only retry at max 2 times to cather
-comment|// if set to 0 we can get interal Saxon errors - SENR0001
+comment|// no retry as we want every failure to submerge
 name|errorHandler
 argument_list|(
-operator|new
-name|DeadLetterChannelBuilder
+name|noErrorHandler
 argument_list|()
-operator|.
-name|maximumRedeliveries
-argument_list|(
-literal|2
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:in"
+literal|"direct:start"
 argument_list|)
 operator|.
 name|thread
 argument_list|(
-literal|10
+literal|5
 argument_list|)
 operator|.
 name|to
