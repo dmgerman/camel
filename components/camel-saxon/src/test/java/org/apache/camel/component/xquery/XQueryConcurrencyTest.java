@@ -20,30 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -153,16 +129,6 @@ name|total
 argument_list|)
 expr_stmt|;
 comment|// setup a task executor to be able send the messages in parallel
-specifier|final
-name|CountDownLatch
-name|latch
-init|=
-operator|new
-name|CountDownLatch
-argument_list|(
-literal|5
-argument_list|)
-decl_stmt|;
 name|ThreadPoolTaskExecutor
 name|executor
 init|=
@@ -216,7 +182,6 @@ name|void
 name|run
 parameter_list|()
 block|{
-comment|// requestbody is InOut pattern and thus we expect a reply (JMSReply)
 name|int
 name|start
 init|=
@@ -260,40 +225,11 @@ literal|"'>James</person>"
 argument_list|)
 decl_stmt|;
 block|}
-name|latch
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|// wait for test completion, timeout after 10 sec to let other unit test run to not wait forever
-name|latch
-operator|.
-name|await
-argument_list|(
-literal|10000L
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Latch should be zero"
-argument_list|,
-literal|0
-argument_list|,
-name|latch
-operator|.
-name|getCount
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied
