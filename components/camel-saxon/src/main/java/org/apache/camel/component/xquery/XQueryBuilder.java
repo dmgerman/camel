@@ -160,32 +160,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Semaphore
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicBoolean
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -675,30 +649,6 @@ specifier|private
 name|Class
 name|resultType
 decl_stmt|;
-DECL|field|lock
-specifier|private
-specifier|final
-name|Semaphore
-name|lock
-init|=
-operator|new
-name|Semaphore
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
-DECL|field|initialized
-specifier|private
-specifier|final
-name|AtomicBoolean
-name|initialized
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -776,55 +726,30 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-try|try
-block|{
-comment|// handle concurrency issue when initializing, allow only one to initialize
 if|if
 condition|(
-operator|!
-name|initialized
+name|LOG
 operator|.
-name|get
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-try|try
-block|{
-name|lock
+name|LOG
 operator|.
-name|acquire
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|initialized
-operator|.
-name|get
-argument_list|()
-condition|)
-block|{
-name|initialize
-argument_list|()
-expr_stmt|;
-name|initialized
-operator|.
-name|set
+name|debug
 argument_list|(
-literal|true
+literal|"Evaluation "
+operator|+
+name|expression
+operator|+
+literal|" for exchange: "
+operator|+
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-finally|finally
+try|try
 block|{
-name|lock
-operator|.
-name|release
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 if|if
 condition|(
 name|resultType
@@ -1798,6 +1723,7 @@ comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getExpression ()
 specifier|public
+specifier|synchronized
 name|XQueryExpression
 name|getExpression
 parameter_list|()
@@ -1831,6 +1757,7 @@ return|;
 block|}
 DECL|method|getConfiguration ()
 specifier|public
+specifier|synchronized
 name|Configuration
 name|getConfiguration
 parameter_list|()
@@ -1880,6 +1807,7 @@ expr_stmt|;
 block|}
 DECL|method|getStaticQueryContext ()
 specifier|public
+specifier|synchronized
 name|StaticQueryContext
 name|getStaticQueryContext
 parameter_list|()
@@ -2420,9 +2348,14 @@ name|void
 name|clearBuilderReferences
 parameter_list|()
 block|{
-comment|// TODO: These causes problems if we null them in concurrency environments
-comment|//staticQueryContext = null;
-comment|//configuration = null;
+name|staticQueryContext
+operator|=
+literal|null
+expr_stmt|;
+name|configuration
+operator|=
+literal|null
+expr_stmt|;
 block|}
 DECL|method|matches (Exchange exchange, List results)
 specifier|protected
@@ -2444,20 +2377,6 @@ argument_list|(
 name|results
 argument_list|)
 return|;
-block|}
-DECL|method|initialize ()
-specifier|protected
-name|void
-name|initialize
-parameter_list|()
-throws|throws
-name|XPathException
-throws|,
-name|IOException
-block|{
-name|getExpression
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_class

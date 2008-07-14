@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -103,13 +93,14 @@ comment|/**  * Concurrency test of XQuery.  */
 end_comment
 
 begin_class
-DECL|class|XQueryConcurrencyTest
+DECL|class|XQueryURLBasedConcurrencyTest
 specifier|public
 class|class
-name|XQueryConcurrencyTest
+name|XQueryURLBasedConcurrencyTest
 extends|extends
 name|ContextTestSupport
 block|{
+comment|// TODO: Work in progress
 DECL|method|testConcurrency ()
 specifier|public
 name|void
@@ -121,7 +112,7 @@ block|{
 name|int
 name|total
 init|=
-literal|100
+literal|1
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -167,7 +158,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|5
+literal|1
 condition|;
 name|i
 operator|++
@@ -208,45 +199,19 @@ literal|0
 init|;
 name|i
 operator|<
-literal|20
+literal|1
 condition|;
 name|i
 operator|++
 control|)
 block|{
-try|try
-block|{
-comment|// do some random sleep to simulate spread in user activity
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-operator|new
-name|Random
-argument_list|()
-operator|.
-name|nextInt
-argument_list|(
-literal|100
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|template
 operator|.
 name|sendBody
 argument_list|(
 literal|"seda:in"
 argument_list|,
-literal|"<person><id>"
+literal|"<mail><subject>"
 operator|+
 operator|(
 name|start
@@ -254,7 +219,7 @@ operator|+
 name|i
 operator|)
 operator|+
-literal|"</id><name>James</name></person>"
+literal|"</subject><body>Hello world!</body></mail>"
 argument_list|)
 expr_stmt|;
 block|}
@@ -307,7 +272,7 @@ argument_list|()
 operator|.
 name|maximumRedeliveries
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -321,16 +286,9 @@ argument_list|(
 literal|10
 argument_list|)
 operator|.
-name|transform
-argument_list|()
-operator|.
-name|xquery
+name|to
 argument_list|(
-literal|"/person/id"
-argument_list|,
-name|String
-operator|.
-name|class
+literal|"xquery:org/apache/camel/component/xquery/transform.xquery"
 argument_list|)
 operator|.
 name|to
