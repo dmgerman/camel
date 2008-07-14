@@ -99,9 +99,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hi Claus how are you? Its a nice day.\n"
-operator|+
-literal|"Give my regards to the family Ibsen."
+literal|"Hi Claus how are you? Its a nice day.\nGive my regards to the family Ibsen."
 argument_list|)
 expr_stmt|;
 name|MyPerson
