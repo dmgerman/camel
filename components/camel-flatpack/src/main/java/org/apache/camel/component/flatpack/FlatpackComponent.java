@@ -182,6 +182,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// lets assume the rest of the string is just a name
+comment|// to differentiate different named delimited endpoints
+name|remaining
+operator|=
+literal|""
+expr_stmt|;
+block|}
 name|Resource
 name|resource
 init|=

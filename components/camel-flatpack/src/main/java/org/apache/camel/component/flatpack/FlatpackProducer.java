@@ -73,9 +73,9 @@ comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|FlatpackProcessor
+DECL|class|FlatpackProducer
 class|class
-name|FlatpackProcessor
+name|FlatpackProducer
 extends|extends
 name|DefaultProducer
 argument_list|<
@@ -87,9 +87,9 @@ specifier|private
 name|FixedLengthEndpoint
 name|endpoint
 decl_stmt|;
-DECL|method|FlatpackProcessor (FixedLengthEndpoint endpoint)
+DECL|method|FlatpackProducer (FixedLengthEndpoint endpoint)
 specifier|public
-name|FlatpackProcessor
+name|FlatpackProducer
 parameter_list|(
 name|FixedLengthEndpoint
 name|endpoint

@@ -298,7 +298,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|FlatpackProcessor
+name|FlatpackProducer
 argument_list|(
 name|this
 argument_list|)
