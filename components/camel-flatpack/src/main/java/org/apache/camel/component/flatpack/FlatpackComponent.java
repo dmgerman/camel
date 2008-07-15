@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -50,9 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|component
 operator|.
-name|ObjectHelper
+name|ResourceBasedComponent
 import|;
 end_import
 
@@ -64,9 +74,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|util
 operator|.
-name|ResourceBasedComponent
+name|ObjectHelper
 import|;
 end_import
 
@@ -81,16 +91,6 @@ operator|.
 name|io
 operator|.
 name|Resource
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
