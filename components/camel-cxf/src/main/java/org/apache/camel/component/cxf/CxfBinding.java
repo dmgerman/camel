@@ -252,10 +252,6 @@ operator|.
 name|getInMessage
 argument_list|()
 decl_stmt|;
-comment|// CXF uses StAX which is based on the stream API to parse the XML,
-comment|// so the CXF transport is also based on the stream API.
-comment|// And the interceptors are also based on the stream API,
-comment|// so let's use an InputStream to host the CXF on wire message.
 name|CxfMessage
 name|in
 init|=
@@ -264,6 +260,7 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+comment|// Check the body if the POJO parameter list first
 name|Object
 name|body
 init|=
@@ -271,47 +268,11 @@ name|in
 operator|.
 name|getBody
 argument_list|(
-name|InputStream
+name|List
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|body
-operator|==
-literal|null
-condition|)
-block|{
-name|body
-operator|=
-name|in
-operator|.
-name|getBody
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|body
-operator|instanceof
-name|InputStream
-condition|)
-block|{
-name|answer
-operator|.
-name|setContent
-argument_list|(
-name|InputStream
-operator|.
-name|class
-argument_list|,
-name|body
-argument_list|)
-expr_stmt|;
-comment|// we need copy context
-block|}
-elseif|else
 if|if
 condition|(
 name|body
@@ -374,6 +335,43 @@ name|OPERATION_NAMESPACE
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// CXF uses StAX which is based on the stream API to parse the XML,
+comment|// so the CXF transport is also based on the stream API.
+comment|// And the interceptors are also based on the stream API,
+comment|// so let's use an InputStream to host the CXF on wire message.
+name|body
+operator|=
+name|in
+operator|.
+name|getBody
+argument_list|(
+name|InputStream
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|body
+operator|instanceof
+name|InputStream
+condition|)
+block|{
+name|answer
+operator|.
+name|setContent
+argument_list|(
+name|InputStream
+operator|.
+name|class
+argument_list|,
+name|body
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|answer

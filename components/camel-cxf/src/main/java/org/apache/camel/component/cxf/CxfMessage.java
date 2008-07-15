@@ -66,7 +66,7 @@ name|cxf
 operator|.
 name|message
 operator|.
-name|MessageImpl
+name|MessageContentsList
 import|;
 end_import
 
@@ -80,7 +80,7 @@ name|cxf
 operator|.
 name|message
 operator|.
-name|MessageContentsList
+name|MessageImpl
 import|;
 end_import
 
