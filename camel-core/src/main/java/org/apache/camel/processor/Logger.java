@@ -1032,6 +1032,22 @@ operator|=
 name|level
 expr_stmt|;
 block|}
+DECL|method|setFormatter (ExchangeFormatter formatter)
+specifier|public
+name|void
+name|setFormatter
+parameter_list|(
+name|ExchangeFormatter
+name|formatter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|formatter
+operator|=
+name|formatter
+expr_stmt|;
+block|}
 block|}
 end_class
 

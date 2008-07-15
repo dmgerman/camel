@@ -623,6 +623,29 @@ literal|"has& parameter separators. Check the uri if its missing a ? marker."
 argument_list|)
 throw|;
 block|}
+comment|// check for uri containing double&& markers
+if|if
+condition|(
+name|uri
+operator|.
+name|contains
+argument_list|(
+literal|"&&"
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|ResolveEndpointFailedException
+argument_list|(
+name|uri
+argument_list|,
+literal|"Invalid uri syntax: Double&& marker found. "
+operator|+
+literal|"Check the uri and remove the duplicate& marker."
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|getCamelContext ()
 specifier|public
