@@ -358,7 +358,7 @@ name|fileUrl
 init|=
 literal|"file:target/ftptest/?append=false&noop=true"
 decl_stmt|;
-comment|// we do not set any filename in the header propery so the filename should be the one
+comment|// we do not set any filename in the header property so the filename should be the one
 comment|// from the FTP server we downloaded
 name|from
 argument_list|(

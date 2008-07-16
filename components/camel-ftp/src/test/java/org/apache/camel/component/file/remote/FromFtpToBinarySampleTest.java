@@ -101,7 +101,7 @@ literal|1000L
 decl_stmt|;
 comment|// from the given FTP server we poll (= download) all the files
 comment|// from the public/reports folder as BINARY types and store this as files
-comment|// in a local directory. Camle will use the filenames from the FTPServer
+comment|// in a local directory. Camel will use the filenames from the FTPServer
 comment|// notice that the FTPConsumer properties must be prefixed with "consumer." in the URL
 comment|// the delay parameter is from the FileConsumer component so we should use consumer.delay as
 comment|// the URI parameter name. The FTP Component is an extension of the File Component.
