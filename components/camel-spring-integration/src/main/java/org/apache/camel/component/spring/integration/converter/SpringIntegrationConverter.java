@@ -116,7 +116,7 @@ name|integration
 operator|.
 name|message
 operator|.
-name|GenericMessage
+name|DefaultMessageHeader
 import|;
 end_import
 
@@ -130,7 +130,7 @@ name|integration
 operator|.
 name|message
 operator|.
-name|MessageHeader
+name|GenericMessage
 import|;
 end_import
 
@@ -281,11 +281,11 @@ return|;
 block|}
 block|}
 comment|// Create a new spring message and copy the attributes and body from the camel message
-name|MessageHeader
+name|DefaultMessageHeader
 name|messageHeader
 init|=
 operator|new
-name|MessageHeader
+name|DefaultMessageHeader
 argument_list|()
 decl_stmt|;
 name|Map
