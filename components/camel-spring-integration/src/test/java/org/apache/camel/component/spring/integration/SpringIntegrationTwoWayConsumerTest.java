@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -123,6 +133,60 @@ name|MESSAGE_BODY
 init|=
 literal|"Request message"
 decl_stmt|;
+DECL|method|testDelyConfiguration ()
+specifier|public
+name|void
+name|testDelyConfiguration
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|SpringIntegrationEndpoint
+name|endpoint
+init|=
+operator|(
+name|SpringIntegrationEndpoint
+operator|)
+name|resolveMandatoryEndpoint
+argument_list|(
+literal|"spring-integration://requestChannel?outputChannel=responseChannel&inOut=true&consumer.delay=5000"
+argument_list|)
+decl_stmt|;
+name|Map
+name|map
+init|=
+name|endpoint
+operator|.
+name|getConsumerProperties
+argument_list|()
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"There should have a delay property "
+argument_list|,
+name|map
+operator|.
+name|size
+argument_list|()
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"The delay value is not right"
+argument_list|,
+name|map
+operator|.
+name|get
+argument_list|(
+literal|"delay"
+argument_list|)
+argument_list|,
+literal|"5000"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testSendingTwoWayMessage ()
 specifier|public
 name|void
