@@ -728,6 +728,8 @@ name|sftpFile
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|SftpException
 block|{
 return|return
 name|channel
