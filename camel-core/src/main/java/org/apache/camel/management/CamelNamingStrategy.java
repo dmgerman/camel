@@ -259,15 +259,6 @@ name|KEY_NODE_ID
 init|=
 literal|"nodeid"
 decl_stmt|;
-DECL|field|KEY_INSTANCE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|KEY_INSTANCE
-init|=
-literal|"instance"
-decl_stmt|;
 DECL|field|domainName
 specifier|protected
 name|String

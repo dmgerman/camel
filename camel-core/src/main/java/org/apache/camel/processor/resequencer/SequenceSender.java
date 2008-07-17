@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A thread that takes re-ordered {@link Exchange}s from a blocking queue and  * send them to the linked processor.    *   * @author Martin Krasser  *   * @version $Revision  */
+comment|/**  * A thread that takes re-ordered {@link Exchange}s from a blocking queue and  * send them to the linked processor.    *   * @author Martin Krasser  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -170,7 +170,7 @@ specifier|private
 name|Processor
 name|processor
 decl_stmt|;
-comment|/**      * Creates a new {@link SequenceSender} thread.      *       * @param processor      *            the processor to send re-ordered {@link Exchange}s.      */
+comment|/**      * Creates a new {@link SequenceSender} thread.      *       * @param processor the processor to send re-ordered {@link Exchange}s.      */
 DECL|method|SequenceSender (Processor processor)
 specifier|public
 name|SequenceSender
@@ -186,7 +186,7 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
-comment|/**      * Sets the {@link BlockingQueue} to take messages from.      *       * @param queue      *            the {@link BlockingQueue} to take messages from.      */
+comment|/**      * Sets the {@link BlockingQueue} to take messages from.      *       * @param queue the {@link BlockingQueue} to take messages from.      */
 DECL|method|setQueue (BlockingQueue<Exchange> queue)
 specifier|public
 name|void
@@ -238,7 +238,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"exit processing loop after cancellation"
+literal|"Exit processing loop after cancellation"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -261,7 +261,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"exit processing loop after interrupt"
+literal|"Exit processing loop after interrupt"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -276,7 +276,12 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"exception during exchange processing"
+literal|"Exception during exchange processing: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -368,7 +373,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"illegal method invocation on stop signal"
+literal|"Illegal method invocation on stop signal"
 argument_list|)
 throw|;
 block|}

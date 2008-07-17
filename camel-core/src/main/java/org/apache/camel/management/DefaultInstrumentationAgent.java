@@ -1103,36 +1103,34 @@ parameter_list|)
 throws|throws
 name|JMException
 block|{
-name|ObjectInstance
-name|instance
+comment|// have we already registered the bean, there can be shared instances in the camel routes
+name|boolean
+name|exists
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|instance
-operator|=
 name|server
 operator|.
-name|registerMBean
+name|isRegistered
 argument_list|(
-name|obj
-argument_list|,
 name|name
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InstanceAlreadyExistsException
-name|e
-parameter_list|)
+decl_stmt|;
+if|if
+condition|(
+name|exists
+condition|)
 block|{
 if|if
 condition|(
 name|forceRegistration
 condition|)
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"ForceRegistration enabled, unregistering existing MBean"
+argument_list|)
+expr_stmt|;
 name|server
 operator|.
 name|unregisterMBean
@@ -1140,32 +1138,10 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-name|instance
-operator|=
-name|server
-operator|.
-name|registerMBean
-argument_list|(
-name|obj
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
 block|}
 else|else
 block|{
-throw|throw
-name|e
-throw|;
-block|}
-block|}
-if|if
-condition|(
-name|instance
-operator|!=
-literal|null
-condition|)
-block|{
+comment|// okay ignore we do not want to force it and it could be a shared instance
 if|if
 condition|(
 name|LOG
@@ -1178,12 +1154,88 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Registered objectname "
+literal|"MBean already registered with objectname: "
 operator|+
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|// register bean if by force or not exsists
+name|ObjectInstance
+name|instance
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|forceRegistration
+operator|||
+operator|!
+name|exists
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Registering MBean with objectname: "
+operator|+
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+name|instance
+operator|=
+name|server
+operator|.
+name|registerMBean
+argument_list|(
+name|obj
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|instance
+operator|!=
+literal|null
+condition|)
+block|{
+name|ObjectName
+name|registeredName
+init|=
 name|instance
 operator|.
 name|getObjectName
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Registered MBean with objectname: "
+operator|+
+name|registeredName
 argument_list|)
 expr_stmt|;
 block|}
@@ -1191,10 +1243,7 @@ name|mbeans
 operator|.
 name|add
 argument_list|(
-name|instance
-operator|.
-name|getObjectName
-argument_list|()
+name|registeredName
 argument_list|)
 expr_stmt|;
 block|}
@@ -1330,7 +1379,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not create and start jmx connector."
+literal|"Could not create and start JMX connector."
 argument_list|,
 name|ioe
 argument_list|)
@@ -1479,7 +1528,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created RMI regisry on port "
+literal|"Created JMXConnector RMI regisry on port "
 operator|+
 name|registryPort
 argument_list|)
@@ -1593,7 +1642,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not start jmx connector thread."
+literal|"Could not start JMXConnector thread."
 argument_list|,
 name|ioe
 argument_list|)
@@ -1606,7 +1655,7 @@ name|connectorThread
 operator|.
 name|setName
 argument_list|(
-literal|"JMX Connector Thread ["
+literal|"Camel JMX Connector Thread ["
 operator|+
 name|url
 operator|+
@@ -1622,7 +1671,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"JMX connector thread started on "
+literal|"JMX Connector thread started and listening at: "
 operator|+
 name|url
 argument_list|)
