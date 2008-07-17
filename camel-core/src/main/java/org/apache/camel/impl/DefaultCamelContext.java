@@ -798,6 +798,13 @@ name|DISABLED
 argument_list|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"JMX is disabled. Using DefaultLifecycleStrategy."
+argument_list|)
+expr_stmt|;
 name|lifecycleStrategy
 operator|=
 operator|new
@@ -807,12 +814,86 @@ expr_stmt|;
 block|}
 else|else
 block|{
+try|try
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"JMX enabled. Using InstrumentationLifecycleStrategy."
+argument_list|)
+expr_stmt|;
 name|lifecycleStrategy
 operator|=
 operator|new
 name|InstrumentationLifecycleStrategy
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoClassDefFoundError
+name|e
+parameter_list|)
+block|{
+comment|// if we can't instantiate the JMX enabled strategy then fallback to default
+comment|// could be because of missing .jars on the classpath
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Could not find needed classes for JMX lifecycle strategy."
+operator|+
+literal|" Are you missing spring-context.jar by any chance? NoClassDefFoundError: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Could not create JMX lifecycle strategy, caused by: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// if not created then fallback to default
+if|if
+condition|(
+name|lifecycleStrategy
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Not possible to use JMX lifecycle strategy. Using DefaultLifecycleStrategy instead."
+argument_list|)
+expr_stmt|;
+name|lifecycleStrategy
+operator|=
+operator|new
+name|DefaultLifecycleStrategy
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the      * registry      *      * @param jndiContext      */
