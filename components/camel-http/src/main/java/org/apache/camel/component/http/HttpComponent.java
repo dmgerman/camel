@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ResolveEndpointFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -151,7 +163,7 @@ operator|new
 name|MultiThreadedHttpConnectionManager
 argument_list|()
 decl_stmt|;
-comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *      * @throws Exception      */
+comment|/**      * Connects the URL specified on the endpoint to the specified processor.      */
 DECL|method|connect (HttpConsumer consumer)
 specifier|public
 name|void
@@ -163,7 +175,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
-comment|/**      * Disconnects the URL specified on the endpoint from the specified      * processor.      *      * @throws Exception      */
+comment|/**      * Disconnects the URL specified on the endpoint from the specified      * processor.      */
 DECL|method|disconnect (HttpConsumer consumer)
 specifier|public
 name|void
@@ -267,6 +279,66 @@ argument_list|,
 literal|"httpClient."
 argument_list|)
 expr_stmt|;
+comment|// validate http uri that end-user did not duplicate the http part that can be a common error
+name|URI
+name|httpUri
+init|=
+operator|new
+name|URI
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+name|String
+name|part
+init|=
+name|httpUri
+operator|.
+name|getSchemeSpecificPart
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|part
+operator|!=
+literal|null
+condition|)
+block|{
+name|part
+operator|=
+name|part
+operator|.
+name|toLowerCase
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|part
+operator|.
+name|startsWith
+argument_list|(
+literal|"//http://"
+argument_list|)
+operator|||
+name|part
+operator|.
+name|startsWith
+argument_list|(
+literal|"//https://"
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|ResolveEndpointFailedException
+argument_list|(
+name|uri
+argument_list|,
+literal|"The uri part is not configured correctly. You have duplicated the http(s) protocol."
+argument_list|)
+throw|;
+block|}
+block|}
 return|return
 operator|new
 name|HttpEndpoint
@@ -275,11 +347,7 @@ name|uri
 argument_list|,
 name|this
 argument_list|,
-operator|new
-name|URI
-argument_list|(
-name|uri
-argument_list|)
+name|httpUri
 argument_list|,
 name|params
 argument_list|,

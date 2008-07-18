@@ -24,26 +24,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|BufferedInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -121,6 +101,24 @@ operator|.
 name|camel
 operator|.
 name|Producer
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|http
+operator|.
+name|HttpMethods
+operator|.
+name|HTTP_METHOD
 import|;
 end_import
 
@@ -257,24 +255,6 @@ operator|.
 name|io
 operator|.
 name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|HttpMethods
-operator|.
-name|HTTP_METHOD
 import|;
 end_import
 
@@ -680,6 +660,7 @@ argument_list|(
 name|HTTP_METHOD
 argument_list|)
 decl_stmt|;
+comment|// TODO: Damm this is not readable code (nested ? - please dont)
 name|HttpMethods
 name|ms
 init|=
