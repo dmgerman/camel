@@ -780,6 +780,10 @@ decl_stmt|;
 if|if
 condition|(
 name|answer
+operator|!=
+literal|null
+operator|&&
+name|answer
 operator|.
 name|startsWith
 argument_list|(
