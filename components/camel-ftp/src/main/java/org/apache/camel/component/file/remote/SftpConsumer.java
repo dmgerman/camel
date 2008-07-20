@@ -625,6 +625,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|String
+name|currentDir
+init|=
+name|channel
+operator|.
+name|pwd
+argument_list|()
+decl_stmt|;
 name|channel
 operator|.
 name|cd
@@ -715,6 +723,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// change back to original current dir
+name|channel
+operator|.
+name|cd
+argument_list|(
+name|currentDir
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getFullFileName (ChannelSftp.LsEntry sftpFile)
 specifier|protected

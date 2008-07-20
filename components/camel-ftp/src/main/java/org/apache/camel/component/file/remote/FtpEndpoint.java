@@ -212,16 +212,10 @@ name|FTPClient
 name|createFtpClient
 parameter_list|()
 block|{
-specifier|final
-name|FTPClient
-name|client
-init|=
+return|return
 operator|new
 name|FTPClient
 argument_list|()
-decl_stmt|;
-return|return
-name|client
 return|;
 block|}
 DECL|method|connect (FTPClient client)
@@ -235,6 +229,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO: connect and disconnect. createFtpClient should be moved to another class they don't
+comment|// belong on this endpoint class that is only for Camel related stuff
 name|RemoteFileConfiguration
 name|config
 init|=
@@ -257,6 +253,14 @@ operator|.
 name|getPort
 argument_list|()
 decl_stmt|;
+name|String
+name|username
+init|=
+name|config
+operator|.
+name|getUsername
+argument_list|()
+decl_stmt|;
 name|client
 operator|.
 name|connect
@@ -268,22 +272,16 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-literal|null
+name|username
 operator|!=
-name|config
-operator|.
-name|getUsername
-argument_list|()
+literal|null
 condition|)
 block|{
 name|client
 operator|.
 name|login
 argument_list|(
-name|config
-operator|.
-name|getUsername
-argument_list|()
+name|username
 argument_list|,
 name|config
 operator|.

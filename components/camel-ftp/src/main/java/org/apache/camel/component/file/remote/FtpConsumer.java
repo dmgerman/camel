@@ -560,6 +560,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|String
+name|currentDir
+init|=
+name|client
+operator|.
+name|printWorkingDirectory
+argument_list|()
+decl_stmt|;
 name|client
 operator|.
 name|changeWorkingDirectory
@@ -633,10 +641,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// change back to original current dir
 name|client
 operator|.
-name|changeToParentDirectory
-argument_list|()
+name|changeWorkingDirectory
+argument_list|(
+name|currentDir
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getFullFileName (FTPFile ftpFile)
