@@ -633,6 +633,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|client
+operator|.
+name|changeToParentDirectory
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|getFullFileName (FTPFile ftpFile)
 specifier|protected
