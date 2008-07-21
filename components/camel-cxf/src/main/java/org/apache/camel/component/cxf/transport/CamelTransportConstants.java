@@ -25,11 +25,11 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|CamelConstants
+DECL|class|CamelTransportConstants
 specifier|public
 specifier|final
 class|class
-name|CamelConstants
+name|CamelTransportConstants
 block|{
 DECL|field|TEXT_MESSAGE_TYPE
 specifier|public
@@ -202,9 +202,18 @@ name|CAMEL_CORRELATION_ID
 init|=
 literal|"org.apache.cxf.camel.correlationId"
 decl_stmt|;
-DECL|method|CamelConstants ()
+DECL|field|CONTENT_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CONTENT_TYPE
+init|=
+literal|"content.type"
+decl_stmt|;
+DECL|method|CamelTransportConstants ()
 specifier|private
-name|CamelConstants
+name|CamelTransportConstants
 parameter_list|()
 block|{
 comment|// Utility class
