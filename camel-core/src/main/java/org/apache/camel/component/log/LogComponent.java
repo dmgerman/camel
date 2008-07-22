@@ -60,20 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
-name|IntrospectionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|converter
 operator|.
 name|ObjectConverter
@@ -150,8 +136,22 @@ name|ThroughputLogger
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
 begin_comment
-comment|/**  * The<a href="http://activemq.apache.org/camel/log.html">Log Component</a>  * to log message exchanges to the underlying logging mechanism.  *   * @version $Revision$  */
+comment|/**  * The<a href="http://activemq.apache.org/camel/log.html">Log Component</a>  * to log message exchanges to the underlying logging mechanism.  *  * @version $Revision$  */
 end_comment
 
 begin_class

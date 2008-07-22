@@ -26,22 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|ExchangeFormatter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -55,6 +39,22 @@ operator|.
 name|camel
 operator|.
 name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|interceptor
+operator|.
+name|ExchangeFormatter
 import|;
 end_import
 
@@ -165,6 +165,7 @@ if|if
 condition|(
 name|multiline
 condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -172,6 +173,7 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
@@ -199,6 +201,7 @@ if|if
 condition|(
 name|multiline
 condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -206,6 +209,7 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
@@ -233,6 +237,7 @@ if|if
 condition|(
 name|multiline
 condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -240,6 +245,7 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
@@ -267,6 +273,7 @@ if|if
 condition|(
 name|multiline
 condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -274,6 +281,7 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
@@ -301,6 +309,7 @@ if|if
 condition|(
 name|multiline
 condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -308,6 +317,7 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
@@ -359,6 +369,7 @@ if|if
 condition|(
 name|multiline
 condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -366,6 +377,7 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
@@ -393,6 +405,7 @@ if|if
 condition|(
 name|multiline
 condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -400,6 +413,7 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
@@ -427,6 +441,7 @@ if|if
 condition|(
 name|multiline
 condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -434,6 +449,7 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
@@ -457,6 +473,7 @@ if|if
 condition|(
 name|multiline
 condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -464,6 +481,7 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
