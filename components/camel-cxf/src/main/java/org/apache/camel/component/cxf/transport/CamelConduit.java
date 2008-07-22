@@ -502,7 +502,14 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|getTargetReference
+argument_list|(
+name|epInfo
+argument_list|,
 name|targetReference
+argument_list|,
+name|b
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|String
@@ -1051,6 +1058,7 @@ argument_list|,
 name|contentType
 argument_list|)
 expr_stmt|;
+comment|// TODO support different encoding
 name|ex
 operator|.
 name|getIn
