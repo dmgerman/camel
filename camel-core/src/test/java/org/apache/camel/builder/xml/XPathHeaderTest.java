@@ -146,20 +146,13 @@ argument_list|(
 literal|"<name>Kong</name>"
 argument_list|)
 expr_stmt|;
-comment|// TODO: must send header type so $type evaluates
-comment|// however maybe we should support missing headers is evaluated to false
-comment|// if so the we should test by sending no headers
 name|template
 operator|.
-name|sendBodyAndHeader
+name|sendBody
 argument_list|(
 literal|"direct:in"
 argument_list|,
 literal|"<name>Kong</name>"
-argument_list|,
-literal|"type"
-argument_list|,
-literal|"Donkey"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -191,20 +184,13 @@ argument_list|(
 literal|"<name>Other</name>"
 argument_list|)
 expr_stmt|;
-comment|// TODO: must send header type so $type evaluates
-comment|// however maybe we should support missing headers is evaluated to false
-comment|// if so the we should test by sending no headers
 name|template
 operator|.
-name|sendBodyAndHeader
+name|sendBody
 argument_list|(
 literal|"direct:in"
 argument_list|,
 literal|"<name>Other</name>"
-argument_list|,
-literal|"type"
-argument_list|,
-literal|"Foo"
 argument_list|)
 expr_stmt|;
 name|mock
