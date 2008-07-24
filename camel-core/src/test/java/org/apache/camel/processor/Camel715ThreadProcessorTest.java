@@ -338,14 +338,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|Long
-name|startTime
-init|=
-name|System
-operator|.
-name|nanoTime
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -417,6 +409,7 @@ operator|+
 literal|"here"
 argument_list|)
 expr_stmt|;
+comment|// Make sure we the threads will exit, or the test will hung
 name|System
 operator|.
 name|exit
