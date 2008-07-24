@@ -164,7 +164,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/spring/errorHandler.xml"
+literal|"org/apache/camel/spring/config/errorHandler.xml"
 argument_list|)
 return|;
 block|}
