@@ -140,6 +140,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|DelegateAsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|FilterProcessor
 import|;
 end_import
@@ -198,11 +212,10 @@ name|ErrorHandlerTest
 extends|extends
 name|TestSupport
 block|{
-comment|// TODO get the test fixed
-DECL|method|xtestOverloadingTheDefaultErrorHandler ()
+DECL|method|testOverloadingTheDefaultErrorHandler ()
 specifier|public
 name|void
-name|xtestOverloadingTheDefaultErrorHandler
+name|testOverloadingTheDefaultErrorHandler
 parameter_list|()
 throws|throws
 name|Exception
@@ -315,6 +328,13 @@ operator|.
 name|getProcessor
 argument_list|()
 decl_stmt|;
+name|processor
+operator|=
+name|unwrap
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
 name|LoggingErrorHandler
 name|loggingProcessor
 init|=
@@ -327,6 +347,16 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
+name|processor
+operator|=
+name|unwrap
+argument_list|(
+name|loggingProcessor
+operator|.
+name|getOutput
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|SendProcessor
 name|sendProcessor
 init|=
@@ -336,10 +366,7 @@ name|SendProcessor
 operator|.
 name|class
 argument_list|,
-name|loggingProcessor
-operator|.
-name|getOutput
-argument_list|()
+name|processor
 argument_list|)
 decl_stmt|;
 name|log
@@ -799,11 +826,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// TODO Fix the test
-DECL|method|xtestConfigureDeadLetterChannelWithCustomRedeliveryPolicy ()
+DECL|method|testConfigureDeadLetterChannelWithCustomRedeliveryPolicy ()
 specifier|public
 name|void
-name|xtestConfigureDeadLetterChannelWithCustomRedeliveryPolicy
+name|testConfigureDeadLetterChannelWithCustomRedeliveryPolicy
 parameter_list|()
 throws|throws
 name|Exception
@@ -924,6 +950,13 @@ operator|.
 name|getProcessor
 argument_list|()
 decl_stmt|;
+name|processor
+operator|=
+name|unwrap
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
 name|DeadLetterChannel
 name|deadLetterChannel
 init|=

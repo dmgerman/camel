@@ -54,6 +54,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|ErrorHandlerBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|RouteType
@@ -426,6 +440,23 @@ name|addInterceptStrategy
 parameter_list|(
 name|InterceptStrategy
 name|interceptStrategy
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the default error handler builder which is inherited by the routes      */
+DECL|method|getErrorHandlerBuilder ()
+specifier|public
+name|ErrorHandlerBuilder
+name|getErrorHandlerBuilder
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the default error handler builder which is inherited by the routes      */
+DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)
+specifier|public
+name|void
+name|setErrorHandlerBuilder
+parameter_list|(
+name|ErrorHandlerBuilder
+name|errorHandlerBuilder
 parameter_list|)
 function_decl|;
 block|}
