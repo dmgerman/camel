@@ -38,6 +38,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -513,7 +525,7 @@ return|;
 block|}
 return|return
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -761,6 +773,14 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// avoid the NULLPointException
 name|getProperties
 argument_list|()
 operator|.
@@ -771,6 +791,27 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// if the value is null , we just remove the key from the map
+if|if
+condition|(
+name|name
+operator|!=
+literal|null
+condition|)
+block|{
+name|getProperties
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|validateExchangePropertyIsExpectedType (ExchangeProperty<?> property, Class<T> type, Object value)
 specifier|private
@@ -882,7 +923,7 @@ block|{
 name|properties
 operator|=
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<
 name|String
 argument_list|,
