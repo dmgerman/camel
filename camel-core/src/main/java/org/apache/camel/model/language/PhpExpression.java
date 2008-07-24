@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For PHP expresions and predicates  *  * @version $Revision$  */
+comment|/**  * For PHP expressions and predicates  *  * @version $Revision$  */
 end_comment
 
 begin_class

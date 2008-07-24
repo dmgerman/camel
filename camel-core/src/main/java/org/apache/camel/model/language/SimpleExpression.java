@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For expresions and predicates using the  *<a href="http://activemq.apache.org/camel/simple.html>simple language</a>  *  * @version $Revision$  */
+comment|/**  * For expressions and predicates using the  *<a href="http://activemq.apache.org/camel/simple.html>simple language</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class

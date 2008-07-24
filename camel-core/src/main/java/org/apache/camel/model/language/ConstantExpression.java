@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For JavaScript expressions and predicates  *  * @version $Revision$  */
+comment|/**  * For expressions and predicates using a constant  *  */
 end_comment
 
 begin_class
@@ -42,23 +42,23 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"javaScript"
+literal|"constant"
 argument_list|)
-DECL|class|JavaScriptExpression
+DECL|class|ConstantExpression
 specifier|public
 class|class
-name|JavaScriptExpression
+name|ConstantExpression
 extends|extends
 name|ExpressionType
 block|{
-DECL|method|JavaScriptExpression ()
+DECL|method|ConstantExpression ()
 specifier|public
-name|JavaScriptExpression
+name|ConstantExpression
 parameter_list|()
 block|{     }
-DECL|method|JavaScriptExpression (String expression)
+DECL|method|ConstantExpression (String expression)
 specifier|public
-name|JavaScriptExpression
+name|ConstantExpression
 parameter_list|(
 name|String
 name|expression
@@ -77,7 +77,7 @@ name|getLanguage
 parameter_list|()
 block|{
 return|return
-literal|"js"
+literal|"constant"
 return|;
 block|}
 block|}

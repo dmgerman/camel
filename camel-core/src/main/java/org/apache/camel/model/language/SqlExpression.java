@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For SQL expresions and predicates  *  * @version $Revision$  */
+comment|/**  * For SQL expressions and predicates  *  * @version $Revision$  */
 end_comment
 
 begin_class

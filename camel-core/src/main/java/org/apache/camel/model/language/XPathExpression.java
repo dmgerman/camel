@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For XPath expresions and predicates  *  * @version $Revision$  */
+comment|/**  * For XPath expressions and predicates  *  * @version $Revision$  */
 end_comment
 
 begin_class

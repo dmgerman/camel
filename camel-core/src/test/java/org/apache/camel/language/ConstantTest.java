@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.model.language
+DECL|package|org.apache.camel.language
 package|package
 name|org
 operator|.
@@ -12,72 +12,70 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
 name|language
 package|;
 end_package
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|bind
+name|camel
 operator|.
-name|annotation
-operator|.
-name|XmlRootElement
+name|LanguageTestSupport
 import|;
 end_import
 
-begin_comment
-comment|/**  * For JavaScript expressions and predicates  *  * @version $Revision$  */
-end_comment
-
 begin_class
-annotation|@
-name|XmlRootElement
-argument_list|(
-name|name
-operator|=
-literal|"javaScript"
-argument_list|)
-DECL|class|JavaScriptExpression
+DECL|class|ConstantTest
 specifier|public
 class|class
-name|JavaScriptExpression
+name|ConstantTest
 extends|extends
-name|ExpressionType
+name|LanguageTestSupport
 block|{
-DECL|method|JavaScriptExpression ()
+DECL|method|testSimpleExpressions ()
 specifier|public
-name|JavaScriptExpression
+name|void
+name|testSimpleExpressions
 parameter_list|()
-block|{     }
-DECL|method|JavaScriptExpression (String expression)
-specifier|public
-name|JavaScriptExpression
-parameter_list|(
-name|String
-name|expression
-parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|super
+comment|// We can put anything in here, the expression will
+comment|// always evaluate to itself
+name|assertExpression
 argument_list|(
-name|expression
+literal|"a value"
+argument_list|,
+literal|"a value"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getLanguage ()
+DECL|method|testPredicates ()
 specifier|public
+name|void
+name|testPredicates
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertPredicate
+argument_list|(
+literal|"another value"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getLanguageName ()
+specifier|protected
 name|String
-name|getLanguage
+name|getLanguageName
 parameter_list|()
 block|{
 return|return
-literal|"js"
+literal|"constant"
 return|;
 block|}
 block|}
