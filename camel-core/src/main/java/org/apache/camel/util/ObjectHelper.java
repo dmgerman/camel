@@ -1493,6 +1493,41 @@ literal|null
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the canoical type name of the given value      */
+DECL|method|classCanoicalName (Object value)
+specifier|public
+specifier|static
+name|String
+name|classCanoicalName
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
 comment|/**      * Attempts to load the given class name using the thread context class      * loader or the class loader used to load this class      *      * @param name the name of the class to load      * @return the class or null if it could not be loaded      */
 DECL|method|loadClass (String name)
 specifier|public

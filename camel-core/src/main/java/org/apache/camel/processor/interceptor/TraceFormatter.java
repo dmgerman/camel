@@ -536,7 +536,7 @@ name|answer
 init|=
 name|ObjectHelper
 operator|.
-name|className
+name|classCanoicalName
 argument_list|(
 name|message
 operator|.

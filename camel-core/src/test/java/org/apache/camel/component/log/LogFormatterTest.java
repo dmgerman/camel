@@ -231,6 +231,27 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSendByteArrayMessageToLogDefault ()
+specifier|public
+name|void
+name|testSendByteArrayMessageToLogDefault
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"log:org.apache.camel.TEST"
+argument_list|,
+literal|"Hello World"
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testSendExchangeWithOut ()
 specifier|public
 name|void
