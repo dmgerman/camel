@@ -641,6 +641,32 @@ literal|true
 argument_list|)
 condition|)
 block|{
+comment|// Set the CamelContext ErrorHandler here
+name|CamelContext
+name|camelContext
+init|=
+name|getContext
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|camelContext
+operator|.
+name|getErrorHandlerBuilder
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|setErrorHandlerBuilder
+argument_list|(
+name|camelContext
+operator|.
+name|getErrorHandlerBuilder
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|configure
 argument_list|()
 expr_stmt|;
@@ -732,7 +758,7 @@ operator|.
 name|routeCollection
 return|;
 block|}
-comment|/**      * Completely disable stream caching for all routes being defined in the same RouteBuilder after this.       */
+comment|/**      * Completely disable stream caching for all routes being defined in the same RouteBuilder after this.      */
 DECL|method|noStreamCaching ()
 specifier|public
 name|void

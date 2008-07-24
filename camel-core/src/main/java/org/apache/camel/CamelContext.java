@@ -444,14 +444,12 @@ parameter_list|)
 function_decl|;
 comment|/**      * Gets the default error handler builder which is inherited by the routes      */
 DECL|method|getErrorHandlerBuilder ()
-specifier|public
 name|ErrorHandlerBuilder
 name|getErrorHandlerBuilder
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the default error handler builder which is inherited by the routes      */
 DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)
-specifier|public
 name|void
 name|setErrorHandlerBuilder
 parameter_list|(
