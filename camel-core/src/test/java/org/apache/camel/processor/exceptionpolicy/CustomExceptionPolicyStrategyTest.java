@@ -312,7 +312,10 @@ name|setHeader
 argument_list|(
 name|MESSAGE_INFO
 argument_list|,
+name|constant
+argument_list|(
 literal|"Damm my policy exception"
+argument_list|)
 argument_list|)
 operator|.
 name|to
@@ -336,7 +339,10 @@ name|setHeader
 argument_list|(
 name|MESSAGE_INFO
 argument_list|,
+name|constant
+argument_list|(
 literal|"Damm a Camel exception"
+argument_list|)
 argument_list|)
 operator|.
 name|to

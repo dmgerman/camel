@@ -3882,7 +3882,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which sets the header on the IN message to the given value      */
+comment|/**      * Adds a processor which sets the header on the IN message to the given value      * @deprecated Please use {@link #setHeader(String, Expression)} instead. Will be removed in Camel 2.0.      */
 DECL|method|setHeader (String name, String value)
 specifier|public
 name|Type
@@ -4000,42 +4000,6 @@ argument_list|(
 name|name
 argument_list|,
 name|expression
-argument_list|)
-decl_stmt|;
-name|addOutput
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-operator|(
-name|Type
-operator|)
-name|this
-return|;
-block|}
-comment|/**      * Adds a processor which sets the header on the OUT message to the given value      */
-DECL|method|setOutHeader (String name, String value)
-specifier|public
-name|Type
-name|setOutHeader
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|String
-name|value
-parameter_list|)
-block|{
-name|SetOutHeaderType
-name|answer
-init|=
-operator|new
-name|SetOutHeaderType
-argument_list|(
-name|name
-argument_list|,
-name|value
 argument_list|)
 decl_stmt|;
 name|addOutput

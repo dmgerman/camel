@@ -225,7 +225,10 @@ name|setHeader
 argument_list|(
 literal|"foo"
 argument_list|,
+name|constant
+argument_list|(
 literal|"bar"
+argument_list|)
 argument_list|)
 operator|.
 name|to

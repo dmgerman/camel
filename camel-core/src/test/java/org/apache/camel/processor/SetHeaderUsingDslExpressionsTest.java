@@ -190,7 +190,10 @@ name|setHeader
 argument_list|(
 literal|"foo"
 argument_list|,
+name|constant
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 operator|.
 name|to

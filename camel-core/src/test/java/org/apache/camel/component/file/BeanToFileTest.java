@@ -226,7 +226,10 @@ name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
+name|constant
+argument_list|(
 literal|"BeanToFileTest.txt"
+argument_list|)
 argument_list|)
 operator|.
 name|to

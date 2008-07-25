@@ -168,7 +168,10 @@ name|setHeader
 argument_list|(
 literal|"subject"
 argument_list|,
+name|constant
+argument_list|(
 name|subject
+argument_list|)
 argument_list|)
 operator|.
 name|to

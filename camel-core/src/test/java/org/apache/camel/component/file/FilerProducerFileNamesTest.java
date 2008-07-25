@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for the how FileProducer behaves a bit strantegly when generating filenames  */
+comment|/**  * Unit test for the how FileProducer behaves a bit strangely when generating filenames  */
 end_comment
 
 begin_class
@@ -314,7 +314,10 @@ name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
+name|constant
+argument_list|(
 literal|"report-super.txt"
+argument_list|)
 argument_list|)
 operator|.
 name|to

@@ -249,7 +249,10 @@ name|setHeader
 argument_list|(
 literal|"user"
 argument_list|,
+name|constant
+argument_list|(
 literal|"admin"
+argument_list|)
 argument_list|)
 operator|.
 name|to

@@ -467,7 +467,10 @@ name|setHeader
 argument_list|(
 name|MESSAGE_INFO
 argument_list|,
+name|constant
+argument_list|(
 literal|"Damm a NPE"
+argument_list|)
 argument_list|)
 operator|.
 name|to
@@ -504,7 +507,10 @@ name|setHeader
 argument_list|(
 name|MESSAGE_INFO
 argument_list|,
+name|constant
+argument_list|(
 literal|"Damm somekind of IO exception"
+argument_list|)
 argument_list|)
 operator|.
 name|to
@@ -533,7 +539,10 @@ name|setHeader
 argument_list|(
 name|MESSAGE_INFO
 argument_list|,
+name|constant
+argument_list|(
 literal|"Damm just exception"
+argument_list|)
 argument_list|)
 operator|.
 name|to
@@ -563,7 +572,10 @@ name|setHeader
 argument_list|(
 name|MESSAGE_INFO
 argument_list|,
+name|constant
+argument_list|(
 literal|"Damm my business is not going to well"
+argument_list|)
 argument_list|)
 operator|.
 name|to
@@ -594,7 +606,10 @@ name|setHeader
 argument_list|(
 name|MESSAGE_INFO
 argument_list|,
+name|constant
+argument_list|(
 literal|"Damm some security error"
+argument_list|)
 argument_list|)
 operator|.
 name|to
