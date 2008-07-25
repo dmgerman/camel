@@ -1014,36 +1014,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"No expression available for method: "
-operator|+
-name|method
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|" which already has a body so ignoring parameter: "
-operator|+
-name|i
-operator|+
-literal|" so ignoring method"
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-literal|null
-return|;
+comment|// will ignore the expression for parameter evaluation
 block|}
 block|}
 block|}

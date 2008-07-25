@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the strategy used to figure out how to map a message exchange to a POJO method invocation  *  * @version $Revision:$  */
+comment|/**  * Represents the strategy used to figure out how to map a message exchange to a POJO method invocation  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -140,13 +140,18 @@ name|Class
 name|parameterType
 parameter_list|)
 block|{
-return|return
+name|Expression
+name|expression
+init|=
 name|parameterTypeToExpressionMap
 operator|.
 name|get
 argument_list|(
 name|parameterType
 argument_list|)
+decl_stmt|;
+return|return
+name|expression
 return|;
 block|}
 comment|/**      * Adds a default parameter type mapping to an expression      */
@@ -174,7 +179,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Creates an invocation on the given POJO using annotations to decide which method to invoke      * and to figure out which parameters to use      */
-comment|/*     public MethodInvocation createInvocation(Object pojo,                                              BeanInfo beanInfo,                                               Exchange messageExchange,                                              Endpoint pojoEndpoint) throws RuntimeCamelException {         return beanInfo.createInvocation(pojo, messageExchange);     } */
+comment|/*     public MethodInvocation createInvocation(Object pojo,                                              BeanInfo beanInfo,                                              Exchange messageExchange,                                              Endpoint pojoEndpoint) throws RuntimeCamelException {         return beanInfo.createInvocation(pojo, messageExchange);     } */
 DECL|method|loadDefaultRegistry ()
 specifier|public
 name|void

@@ -85,6 +85,11 @@ specifier|private
 name|boolean
 name|cache
 decl_stmt|;
+DECL|field|multiParameterArray
+specifier|private
+name|boolean
+name|multiParameterArray
+decl_stmt|;
 DECL|field|beanName
 specifier|private
 name|String
@@ -223,6 +228,30 @@ operator|.
 name|beanName
 operator|=
 name|beanName
+expr_stmt|;
+block|}
+DECL|method|isMultiParameterArray ()
+specifier|public
+name|boolean
+name|isMultiParameterArray
+parameter_list|()
+block|{
+return|return
+name|multiParameterArray
+return|;
+block|}
+DECL|method|setMultiParameterArray (boolean mpArray)
+specifier|public
+name|void
+name|setMultiParameterArray
+parameter_list|(
+name|boolean
+name|mpArray
+parameter_list|)
+block|{
+name|multiParameterArray
+operator|=
+name|mpArray
 expr_stmt|;
 block|}
 DECL|method|isCache ()
@@ -426,6 +455,14 @@ name|method
 argument_list|)
 expr_stmt|;
 block|}
+name|processor
+operator|.
+name|setMultiParameterArray
+argument_list|(
+name|isMultiParameterArray
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|processor
 return|;
