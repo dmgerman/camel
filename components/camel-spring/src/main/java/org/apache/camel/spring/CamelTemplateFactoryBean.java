@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Spring {@link FactoryBean} for creating a new {@link ProducerTemplate}  * instance with a minimum of XML  *   * @version $Revision$  */
+comment|/**  * A Spring {@link FactoryBean} for creating a new {@link org.apache.camel.ProducerTemplate}  * instance with a minimum of XML  *   * @version $Revision$  */
 end_comment
 
 begin_class

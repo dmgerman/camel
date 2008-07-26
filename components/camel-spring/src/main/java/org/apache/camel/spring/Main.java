@@ -1908,7 +1908,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Returns a {@link ProducerTemplate} from the Spring {@link ApplicationContext} instances      * or lazily creates a new one dynamically      *      * @return      */
+comment|/**      * Returns a {@link ProducerTemplate} from the Spring {@link ApplicationContext} instances      * or lazily creates a new one dynamically      */
 DECL|method|getCamelTemplate ()
 specifier|public
 name|ProducerTemplate
