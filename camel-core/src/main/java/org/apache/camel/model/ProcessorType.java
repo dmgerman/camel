@@ -937,7 +937,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to a list of endpoints using the      * {@link MulticastProcessor} pattern      */
+comment|/**      * Sends the exchange to a list of endpoints using the      * {@link org.apache.camel.processor.MulticastProcessor} pattern      */
 DECL|method|to (String... uris)
 specifier|public
 name|Type
@@ -973,7 +973,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to a list of endpoints using the      * {@link MulticastProcessor} pattern      */
+comment|/**      * Sends the exchange to a list of endpoints using the      * {@link org.apache.camel.processor.MulticastProcessor} pattern      */
 DECL|method|to (Endpoint... endpoints)
 specifier|public
 name|Type
@@ -1009,7 +1009,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to a list of endpoint using the      * {@link MulticastProcessor} pattern      */
+comment|/**      * Sends the exchange to a list of endpoint using the      * {@link org.apache.camel.processor.MulticastProcessor} pattern      */
 DECL|method|to (Collection<Endpoint> endpoints)
 specifier|public
 name|Type
@@ -1310,7 +1310,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Creates an {@link IdempotentConsumer} to avoid duplicate messages      */
+comment|/**      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer}       * to avoid duplicate messages      */
 DECL|method|idempotentConsumer (Expression messageIdExpression, MessageIdRepository messageIdRepository)
 specifier|public
 name|IdempotentConsumerType
@@ -1343,7 +1343,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates an {@link IdempotentConsumer} to avoid duplicate messages      *      * @return the builder used to create the expression      */
+comment|/**      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer}      * to avoid duplicate messages      *      * @return the builder used to create the expression      */
 DECL|method|idempotentConsumer (MessageIdRepository messageIdRepository)
 specifier|public
 name|ExpressionClause
@@ -1570,7 +1570,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *      * @param receipients is the builder of the expression used in the      *                    {@link RecipientList} to decide the destinations      */
+comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *      * @param receipients is the builder of the expression used in the      *                    {@link org.apache.camel.processor.RecipientList}      *                    to decide the destinations      */
 DECL|method|recipientList (Expression receipients)
 specifier|public
 name|Type
@@ -1601,7 +1601,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *      * @return the expression clause for the expression used in the      *                    {@link RecipientList} to decide the destinations      */
+comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *      * @return the expression clause for the expression used in the      *                    {@link org.apache.camel.processor.RecipientList}      *                    to decide the destinations      */
 DECL|method|recipientList ()
 specifier|public
 name|ExpressionClause
@@ -4366,7 +4366,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * reference in the {@link Registry} and sets the output on the out message body.      *      * @return this object      */
+comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @return this object      */
 DECL|method|unmarshal (String dataTypeRef)
 specifier|public
 name|Type
@@ -4472,7 +4472,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Marshals the in body the specified {@link DataFormat}      * reference in the {@link Registry} and sets the output on the out message body.      *      * @return this object      */
+comment|/**      * Marshals the in body the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @return this object      */
 DECL|method|marshal (String dataTypeRef)
 specifier|public
 name|Type

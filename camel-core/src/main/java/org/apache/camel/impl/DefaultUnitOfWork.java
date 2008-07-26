@@ -310,7 +310,6 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the unique ID of this unit of work, lazily creating one if it does not yet have one      *      * @return      */
 DECL|method|getId ()
 specifier|public
 name|String

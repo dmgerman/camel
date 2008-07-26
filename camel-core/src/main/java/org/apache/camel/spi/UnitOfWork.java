@@ -38,7 +38,7 @@ specifier|public
 interface|interface
 name|UnitOfWork
 block|{
-comment|/**      * Adds a synchronization hook      *      * @param synchronization      */
+comment|/**      * Adds a synchronization hook      */
 DECL|method|addSynchronization (Synchronization synchronization)
 name|void
 name|addSynchronization
@@ -47,7 +47,7 @@ name|Synchronization
 name|synchronization
 parameter_list|)
 function_decl|;
-comment|/**      * Removes a synchronization hook      *      * @param synchronization      */
+comment|/**      * Removes a synchronization hook      */
 DECL|method|removeSynchronization (Synchronization synchronization)
 name|void
 name|removeSynchronization
@@ -65,7 +65,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the unique ID of this unit of work, lazily creating one if it does not yet have one      *      * @return      */
+comment|/**      * Returns the unique ID of this unit of work, lazily creating one if it does not yet have one      */
 DECL|method|getId ()
 name|String
 name|getId

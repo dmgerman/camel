@@ -250,7 +250,7 @@ name|Processor
 name|createProceedProcessor
 parameter_list|()
 function_decl|;
-comment|/**      * This method retrieves the InterceptStrategy instances this route context.      *      * @return InterceptStrategy      */
+comment|/**      * This method retrieves the InterceptStrategy instances this route context.      */
 DECL|method|getInterceptStrategies ()
 name|List
 argument_list|<
@@ -259,7 +259,7 @@ argument_list|>
 name|getInterceptStrategies
 parameter_list|()
 function_decl|;
-comment|/**      * This method sets the InterceptStrategy instances on this route context.      *      * @param interceptStrategies      */
+comment|/**      * This method sets the InterceptStrategy instances on this route context.      */
 DECL|method|setInterceptStrategies (List<InterceptStrategy> interceptStrategies)
 name|void
 name|setInterceptStrategies
@@ -279,13 +279,13 @@ name|InterceptStrategy
 name|interceptStrategy
 parameter_list|)
 function_decl|;
-comment|/**      * This method retrieves the ErrorHandlerWrappingStrategy.      *        * @return ErrorHandlerWrappingStrategy      */
+comment|/**      * This method retrieves the ErrorHandlerWrappingStrategy.      */
 DECL|method|getErrorHandlerWrappingStrategy ()
 name|ErrorHandlerWrappingStrategy
 name|getErrorHandlerWrappingStrategy
 parameter_list|()
 function_decl|;
-comment|/**      * This method sets the ErrorHandlerWrappingStrategy.      *       */
+comment|/**      * This method sets the ErrorHandlerWrappingStrategy.      */
 DECL|method|setErrorHandlerWrappingStrategy (ErrorHandlerWrappingStrategy strategy)
 name|void
 name|setErrorHandlerWrappingStrategy
@@ -294,7 +294,7 @@ name|ErrorHandlerWrappingStrategy
 name|strategy
 parameter_list|)
 function_decl|;
-comment|/**      * If this flag is true, {@link ProcessorType#addRoutes(RouteContext, java.util.Collection)      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *       */
+comment|/**      * If this flag is true, {@link ProcessorType#addRoutes(RouteContext, java.util.Collection)}      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *       */
 DECL|method|setIsRouteAdded (boolean value)
 name|void
 name|setIsRouteAdded
@@ -303,7 +303,6 @@ name|boolean
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * @see {@link #setIsRouteAdded(boolean)}      *       */
 DECL|method|isRouteAdded ()
 name|boolean
 name|isRouteAdded
