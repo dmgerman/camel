@@ -149,6 +149,22 @@ name|toString
 parameter_list|()
 block|{
 return|return
+name|remoteServerInformation
+argument_list|()
+operator|+
+literal|"/"
+operator|+
+name|file
+return|;
+block|}
+comment|/**      * Returns human readable server information for logging purpose      */
+DECL|method|remoteServerInformation ()
+specifier|public
+name|String
+name|remoteServerInformation
+parameter_list|()
+block|{
+return|return
 name|protocol
 operator|+
 literal|"://"
@@ -162,10 +178,6 @@ operator|+
 literal|":"
 operator|+
 name|port
-operator|+
-literal|"/"
-operator|+
-name|file
 return|;
 block|}
 DECL|method|configure (URI uri)

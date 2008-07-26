@@ -236,9 +236,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Session isn't connected, trying to recreate and connect..."
+literal|"Session isn't connected, trying to recreate and connect."
 argument_list|)
 expr_stmt|;
 name|session
@@ -256,9 +256,9 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Channel isn't connected, trying to recreate and connect..."
+literal|"Channel isn't connected, trying to recreate and connect."
 argument_list|)
 expr_stmt|;
 name|channel
@@ -286,7 +286,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|toString
+name|remoteServerInformation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -309,7 +309,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Session is being explicitly disconnected"
 argument_list|)
@@ -329,7 +329,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Channel is being explicitly disconnected"
 argument_list|)
@@ -352,7 +352,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
 name|connectIfNecessary
 argument_list|()
 expr_stmt|;
@@ -387,7 +386,7 @@ literal|"Disconnecting due to exception: "
 operator|+
 name|e
 operator|.
-name|toString
+name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -415,16 +414,21 @@ literal|"Caught SftpException:"
 operator|+
 name|e
 operator|.
-name|toString
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Doing nothing for now, need to determine an appropriate action"
+literal|"Hoping an explicit disconnect/reconnect will solve the problem"
 argument_list|)
+expr_stmt|;
+name|disconnect
+argument_list|()
 expr_stmt|;
 comment|// Rethrow to signify that we didn't deliver
 throw|throw
@@ -460,6 +464,17 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|String
+name|remoteServer
+init|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|remoteServerInformation
+argument_list|()
+decl_stmt|;
 name|String
 name|fileName
 init|=
@@ -530,7 +545,7 @@ literal|"Couldn't build directory: "
 operator|+
 name|directory
 operator|+
-literal|" (either permissions deny it, or it already exists)"
+literal|" (could be because of denied permissions)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -544,6 +559,14 @@ argument_list|,
 name|fileName
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
@@ -552,14 +575,12 @@ literal|"Sent: "
 operator|+
 name|fileName
 operator|+
-literal|" to "
+literal|" to: "
 operator|+
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
+name|remoteServer
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
@@ -611,11 +632,14 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Couldn't connect to "
+literal|"Couldn't connect to: "
 operator|+
 name|endpoint
 operator|.
 name|getConfiguration
+argument_list|()
+operator|.
+name|remoteServerInformation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -669,64 +693,50 @@ name|IOException
 throws|,
 name|SftpException
 block|{
+name|String
+name|originalDirectory
+init|=
+name|sftpClient
+operator|.
+name|pwd
+argument_list|()
+decl_stmt|;
 name|boolean
-name|atLeastOneSuccess
+name|success
 init|=
 literal|false
 decl_stmt|;
-specifier|final
-name|StringBuilder
-name|sb
-init|=
-operator|new
-name|StringBuilder
-argument_list|(
-name|dirName
-operator|.
-name|length
-argument_list|()
-argument_list|)
-decl_stmt|;
-specifier|final
-name|String
-index|[]
-name|dirs
-init|=
-name|dirName
-operator|.
-name|split
-argument_list|(
-literal|"\\/"
-argument_list|)
-decl_stmt|;
-for|for
-control|(
-name|String
-name|dir
-range|:
-name|dirs
-control|)
+try|try
 block|{
-name|sb
+comment|// maybe the full directory already exsits
+try|try
+block|{
+name|sftpClient
 operator|.
-name|append
+name|cd
 argument_list|(
-name|dir
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|'/'
+name|dirName
 argument_list|)
 expr_stmt|;
-name|String
-name|directory
-init|=
-name|sb
-operator|.
-name|toString
-argument_list|()
-decl_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SftpException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, we could not change directory so try to create it instead
+block|}
+if|if
+condition|(
+operator|!
+name|success
+condition|)
+block|{
 if|if
 condition|(
 name|LOG
@@ -739,9 +749,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Trying to build directory: "
+literal|"Trying to build remote directory: "
 operator|+
-name|directory
+name|dirName
 argument_list|)
 expr_stmt|;
 block|}
@@ -749,23 +759,28 @@ name|sftpClient
 operator|.
 name|mkdir
 argument_list|(
-name|directory
+name|dirName
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|atLeastOneSuccess
-condition|)
-block|{
-name|atLeastOneSuccess
+name|success
 operator|=
 literal|true
 expr_stmt|;
 block|}
 block|}
+finally|finally
+block|{
+comment|// change back to original directory
+name|sftpClient
+operator|.
+name|cd
+argument_list|(
+name|originalDirectory
+argument_list|)
+expr_stmt|;
+block|}
 return|return
-name|atLeastOneSuccess
+name|success
 return|;
 block|}
 block|}
