@@ -981,7 +981,7 @@ name|newName
 init|=
 name|originalName
 operator|+
-literal|".camel"
+literal|".exclusiveRead"
 decl_stmt|;
 name|boolean
 name|exclusive
