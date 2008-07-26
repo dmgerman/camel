@@ -1838,7 +1838,9 @@ name|session
 parameter_list|)
 throws|throws
 name|Exception
-block|{                          }
+block|{
+comment|// do nothing
+block|}
 block|}
 return|;
 block|}
@@ -1897,7 +1899,9 @@ name|out
 parameter_list|)
 throws|throws
 name|Exception
-block|{                         }
+block|{
+comment|// do nothing
+block|}
 specifier|public
 name|void
 name|dispose
@@ -1907,7 +1911,9 @@ name|session
 parameter_list|)
 throws|throws
 name|Exception
-block|{                         }
+block|{
+comment|// do nothing
+block|}
 block|}
 return|;
 block|}
