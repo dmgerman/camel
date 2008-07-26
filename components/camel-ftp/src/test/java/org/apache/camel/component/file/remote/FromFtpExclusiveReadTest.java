@@ -131,7 +131,7 @@ specifier|private
 name|String
 name|port
 init|=
-literal|"21900"
+literal|"20019"
 decl_stmt|;
 DECL|field|ftpUrl
 specifier|private
