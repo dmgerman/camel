@@ -230,6 +230,13 @@ name|setNames
 init|=
 literal|true
 decl_stmt|;
+DECL|field|exclusiveRead
+specifier|private
+name|boolean
+name|exclusiveRead
+init|=
+literal|true
+decl_stmt|;
 DECL|method|FtpConsumer (FtpEndpoint endpoint, Processor processor, FTPClient client)
 specifier|public
 name|FtpConsumer
@@ -311,7 +318,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
 if|if
 condition|(
 operator|!
@@ -323,9 +329,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|debug
 argument_list|(
-literal|"FtpConsumer's client isn't connected, trying to reconnect..."
+literal|"Not connected, trying to reconnect."
 argument_list|)
 expr_stmt|;
 name|endpoint
@@ -345,6 +351,9 @@ name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
+operator|.
+name|remoteServerInformation
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -359,9 +368,17 @@ name|IOException
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"FtpConsumer's client is being explicitly disconnected"
+literal|"Disconnecting from "
+operator|+
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|remoteServerInformation
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|endpoint
@@ -380,6 +397,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Polling "
+operator|+
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|connectIfNecessary
 argument_list|()
 expr_stmt|;
@@ -503,7 +541,7 @@ literal|"Disconnecting due to exception: "
 operator|+
 name|e
 operator|.
-name|toString
+name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -529,8 +567,10 @@ literal|"Caught RuntimeCamelException: "
 operator|+
 name|e
 operator|.
-name|toString
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -627,16 +667,15 @@ block|}
 block|}
 else|else
 block|{
-comment|// TODO: Type can be symbolic link etc. so what should we do?
 name|LOG
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Unsupported type of FTPFile: "
 operator|+
 name|ftpFile
 operator|+
-literal|" not a file or directory"
+literal|" (not a file or directory). Is skipped."
 argument_list|)
 expr_stmt|;
 block|}
@@ -686,9 +725,27 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO do we need to adjust the TZ? can we?
 if|if
 condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Polling file: "
+operator|+
+name|ftpFile
+argument_list|)
+expr_stmt|;
+block|}
+name|long
+name|ts
+init|=
 name|ftpFile
 operator|.
 name|getTimestamp
@@ -696,18 +753,31 @@ argument_list|()
 operator|.
 name|getTimeInMillis
 argument_list|()
-operator|>
-name|lastPollTime
-condition|)
-block|{
+decl_stmt|;
+comment|// TODO do we need to adjust the TZ? can we?
 if|if
 condition|(
+name|ts
+operator|>
+name|lastPollTime
+operator|&&
 name|isMatched
 argument_list|(
 name|ftpFile
 argument_list|)
 condition|)
 block|{
+name|String
+name|remoteServer
+init|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|remoteServerInformation
+argument_list|()
+decl_stmt|;
 name|String
 name|fullFileName
 init|=
@@ -716,6 +786,21 @@ argument_list|(
 name|ftpFile
 argument_list|)
 decl_stmt|;
+comment|// is we use excluse read then acquire the exclusive read (waiting until we got it)
+if|if
+condition|(
+name|exclusiveRead
+condition|)
+block|{
+name|acquireExclusiveRead
+argument_list|(
+name|client
+argument_list|,
+name|ftpFile
+argument_list|)
+expr_stmt|;
+block|}
+comment|// retrieve the file
 specifier|final
 name|ByteArrayOutputStream
 name|byteArrayOutputStream
@@ -736,6 +821,31 @@ argument_list|,
 name|byteArrayOutputStream
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Retrieved file: "
+operator|+
+name|ftpFile
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" from: "
+operator|+
+name|remoteServer
+argument_list|)
+expr_stmt|;
+block|}
 name|RemoteFileExchange
 name|exchange
 init|=
@@ -834,6 +944,129 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|acquireExclusiveRead (FTPClient client, FTPFile ftpFile)
+specifier|protected
+name|void
+name|acquireExclusiveRead
+parameter_list|(
+name|FTPClient
+name|client
+parameter_list|,
+name|FTPFile
+name|ftpFile
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Acquiring exclusive read (avoid reading file that is in progress of being written)"
+argument_list|)
+expr_stmt|;
+comment|// the trick is to try to rename the file, if we can rename then we have exclusive read
+comment|// since its a remote file we can not use java.nio to get a RW access
+name|String
+name|originalName
+init|=
+name|ftpFile
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+name|String
+name|newName
+init|=
+name|originalName
+operator|+
+literal|".camel"
+decl_stmt|;
+name|boolean
+name|exclusive
+init|=
+literal|false
+decl_stmt|;
+while|while
+condition|(
+operator|!
+name|exclusive
+condition|)
+block|{
+name|exclusive
+operator|=
+name|client
+operator|.
+name|rename
+argument_list|(
+name|originalName
+argument_list|,
+name|newName
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|exclusive
+condition|)
+block|{
+comment|// rename it back so we can read it
+name|client
+operator|.
+name|rename
+argument_list|(
+name|newName
+argument_list|,
+name|originalName
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Exclusive read not granted. Sleeping for 1000 millis"
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+block|}
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Acquired exclusive read to: "
+operator|+
+name|originalName
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|isMatched (FTPFile file)
@@ -983,6 +1216,32 @@ operator|.
 name|setNames
 operator|=
 name|setNames
+expr_stmt|;
+block|}
+DECL|method|isExclusiveRead ()
+specifier|public
+name|boolean
+name|isExclusiveRead
+parameter_list|()
+block|{
+return|return
+name|exclusiveRead
+return|;
+block|}
+DECL|method|setExclusiveRead (boolean exclusiveRead)
+specifier|public
+name|void
+name|setExclusiveRead
+parameter_list|(
+name|boolean
+name|exclusiveRead
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exclusiveRead
+operator|=
+name|exclusiveRead
 expr_stmt|;
 block|}
 block|}

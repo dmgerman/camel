@@ -224,6 +224,13 @@ specifier|private
 name|boolean
 name|setNames
 decl_stmt|;
+DECL|field|exclusiveRead
+specifier|private
+name|boolean
+name|exclusiveRead
+init|=
+literal|true
+decl_stmt|;
 DECL|method|SftpConsumer (SftpEndpoint endpoint, Processor processor, Session session)
 specifier|public
 name|SftpConsumer
@@ -333,9 +340,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Session isn't connected, trying to recreate and connect..."
+literal|"Session isn't connected, trying to recreate and connect."
 argument_list|)
 expr_stmt|;
 name|session
@@ -353,9 +360,9 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Channel isn't connected, trying to recreate and connect..."
+literal|"Channel isn't connected, trying to recreate and connect."
 argument_list|)
 expr_stmt|;
 name|channel
@@ -383,7 +390,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|toString
+name|remoteServerInformation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -406,7 +413,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Session is being explicitly disconnected"
 argument_list|)
@@ -426,7 +433,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Channel is being explicitly disconnected"
 argument_list|)
@@ -446,7 +453,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: is there a way to avoid copy-pasting the reconnect logic?
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Polling "
+operator|+
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|connectIfNecessary
 argument_list|()
 expr_stmt|;
@@ -569,7 +596,7 @@ literal|"Disconnecting due to exception: "
 operator|+
 name|e
 operator|.
-name|toString
+name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -597,15 +624,17 @@ literal|"Caught SftpException:"
 operator|+
 name|e
 operator|.
-name|toString
+name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Doing nothing for now, need to determine an appropriate action"
+literal|"Hoping an explicit disconnect/reconnect will solve the problem"
 argument_list|)
 expr_stmt|;
 comment|// Rethrow to signify that we didn't poll
@@ -776,6 +805,25 @@ name|Exception
 block|{
 if|if
 condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Polling file: "
+operator|+
+name|sftpFile
+argument_list|)
+expr_stmt|;
+block|}
+name|long
+name|ts
+init|=
 name|sftpFile
 operator|.
 name|getAttrs
@@ -785,18 +833,44 @@ name|getMTime
 argument_list|()
 operator|*
 literal|1000L
-operator|>
-name|lastPollTime
-condition|)
-block|{
+decl_stmt|;
+comment|// TODO do we need to adjust the TZ? can we?
 if|if
 condition|(
+name|ts
+operator|>
+name|lastPollTime
+operator|&&
 name|isMatched
 argument_list|(
 name|sftpFile
 argument_list|)
 condition|)
 block|{
+name|String
+name|remoteServer
+init|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|remoteServerInformation
+argument_list|()
+decl_stmt|;
+comment|// is we use excluse read then acquire the exclusive read (waiting until we got it)
+if|if
+condition|(
+name|exclusiveRead
+condition|)
+block|{
+name|acquireExclusiveRead
+argument_list|(
+name|sftpFile
+argument_list|)
+expr_stmt|;
+block|}
+comment|// retrieve the file
 specifier|final
 name|ByteArrayOutputStream
 name|byteArrayOutputStream
@@ -817,6 +891,31 @@ argument_list|,
 name|byteArrayOutputStream
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Retrieved file: "
+operator|+
+name|sftpFile
+operator|.
+name|getFilename
+argument_list|()
+operator|+
+literal|" from: "
+operator|+
+name|remoteServer
+argument_list|)
+expr_stmt|;
+block|}
 name|RemoteFileExchange
 name|exchange
 init|=
@@ -904,6 +1003,141 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|acquireExclusiveRead (ChannelSftp.LsEntry sftpFile)
+specifier|protected
+name|void
+name|acquireExclusiveRead
+parameter_list|(
+name|ChannelSftp
+operator|.
+name|LsEntry
+name|sftpFile
+parameter_list|)
+throws|throws
+name|SftpException
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Acquiring exclusive read (avoid reading file that is in progress of being written)"
+argument_list|)
+expr_stmt|;
+comment|// the trick is to try to rename the file, if we can rename then we have exclusive read
+comment|// since its a remote file we can not use java.nio to get a RW access
+name|String
+name|originalName
+init|=
+name|sftpFile
+operator|.
+name|getFilename
+argument_list|()
+decl_stmt|;
+name|String
+name|newName
+init|=
+name|originalName
+operator|+
+literal|".camel"
+decl_stmt|;
+name|boolean
+name|exclusive
+init|=
+literal|false
+decl_stmt|;
+while|while
+condition|(
+operator|!
+name|exclusive
+condition|)
+block|{
+try|try
+block|{
+name|channel
+operator|.
+name|rename
+argument_list|(
+name|originalName
+argument_list|,
+name|newName
+argument_list|)
+expr_stmt|;
+name|exclusive
+operator|=
+literal|true
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SftpException
+name|e
+parameter_list|)
+block|{
+comment|// ignore we can not rename it
+block|}
+if|if
+condition|(
+name|exclusive
+condition|)
+block|{
+comment|// rename it back so we can read it
+name|channel
+operator|.
+name|rename
+argument_list|(
+name|newName
+argument_list|,
+name|originalName
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Exclusive read not granted. Sleeping for 1000 millis"
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+block|}
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Acquired exclusive read to: "
+operator|+
+name|originalName
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|isMatched (ChannelSftp.LsEntry sftpFile)
@@ -1056,6 +1290,32 @@ operator|.
 name|setNames
 operator|=
 name|setNames
+expr_stmt|;
+block|}
+DECL|method|isExclusiveRead ()
+specifier|public
+name|boolean
+name|isExclusiveRead
+parameter_list|()
+block|{
+return|return
+name|exclusiveRead
+return|;
+block|}
+DECL|method|setExclusiveRead (boolean exclusiveRead)
+specifier|public
+name|void
+name|setExclusiveRead
+parameter_list|(
+name|boolean
+name|exclusiveRead
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exclusiveRead
+operator|=
+name|exclusiveRead
 expr_stmt|;
 block|}
 block|}

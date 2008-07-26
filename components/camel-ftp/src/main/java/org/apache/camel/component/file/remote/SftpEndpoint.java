@@ -232,7 +232,6 @@ name|getHost
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// TODO there's got to be a better way to deal with accepting new hosts...
 name|session
 operator|.
 name|setUserInfo
