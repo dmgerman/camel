@@ -73,14 +73,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that Camel can build remote directory on FTP server if missing (full or part of).   */
+comment|/**  * Unit test to verify that Camel can build remote directory on FTP server if missing (full or part of).  */
 end_comment
 
 begin_class
-DECL|class|FtpProducerBuildDirectoryTest
+DECL|class|FtpProducerBuildPartOfDirectoryTest
 specifier|public
 class|class
-name|FtpProducerBuildDirectoryTest
+name|FtpProducerBuildPartOfDirectoryTest
 extends|extends
 name|FtpServerTestSupport
 block|{
@@ -89,7 +89,7 @@ specifier|private
 name|String
 name|port
 init|=
-literal|"20018"
+literal|"20021"
 decl_stmt|;
 DECL|field|ftpUrl
 specifier|private
@@ -112,10 +112,10 @@ return|return
 name|port
 return|;
 block|}
-DECL|method|testProduceAndBuildFullRemotFolderTest ()
+DECL|method|testProduceAndBuildPartOfRemotFolderTest ()
 specifier|public
 name|void
-name|testProduceAndBuildFullRemotFolderTest
+name|testProduceAndBuildPartOfRemotFolderTest
 parameter_list|()
 throws|throws
 name|Exception
@@ -125,13 +125,18 @@ argument_list|(
 literal|"./res/home/"
 argument_list|)
 expr_stmt|;
+name|createDirectory
+argument_list|(
+literal|"./res/home/upload/user/superman"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
 name|ftpUrl
 argument_list|,
-literal|"Hello World"
+literal|"Bye World"
 argument_list|,
 name|FileComponent
 operator|.
@@ -168,7 +173,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Hello World"
+literal|"Bye World"
 argument_list|,
 name|IOConverter
 operator|.

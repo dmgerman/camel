@@ -231,6 +231,11 @@ name|exclusiveRead
 init|=
 literal|true
 decl_stmt|;
+DECL|field|deleteFile
+specifier|private
+name|boolean
+name|deleteFile
+decl_stmt|;
 DECL|method|SftpConsumer (SftpEndpoint endpoint, Processor processor, Session session)
 specifier|public
 name|SftpConsumer
@@ -994,6 +999,75 @@ name|relativePath
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|deleteFile
+condition|)
+block|{
+comment|// delete file after consuming
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Deleteing file: "
+operator|+
+name|sftpFile
+operator|.
+name|getFilename
+argument_list|()
+operator|+
+literal|" from: "
+operator|+
+name|remoteServer
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|channel
+operator|.
+name|rm
+argument_list|(
+name|sftpFile
+operator|.
+name|getFilename
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SftpException
+name|e
+parameter_list|)
+block|{
+comment|// ignore just log a warning
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Could not delete file: "
+operator|+
+name|sftpFile
+operator|.
+name|getFilename
+argument_list|()
+operator|+
+literal|" from: "
+operator|+
+name|remoteServer
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|getProcessor
 argument_list|()
 operator|.
@@ -1039,7 +1113,7 @@ name|newName
 init|=
 name|originalName
 operator|+
-literal|"..exclusiveRead"
+literal|".camel"
 decl_stmt|;
 name|boolean
 name|exclusive
@@ -1316,6 +1390,32 @@ operator|.
 name|exclusiveRead
 operator|=
 name|exclusiveRead
+expr_stmt|;
+block|}
+DECL|method|isDeleteFile ()
+specifier|public
+name|boolean
+name|isDeleteFile
+parameter_list|()
+block|{
+return|return
+name|deleteFile
+return|;
+block|}
+DECL|method|setDeleteFile (boolean deleteFile)
+specifier|public
+name|void
+name|setDeleteFile
+parameter_list|(
+name|boolean
+name|deleteFile
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deleteFile
+operator|=
+name|deleteFile
 expr_stmt|;
 block|}
 block|}

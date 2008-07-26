@@ -815,6 +815,7 @@ expr_stmt|;
 comment|// the trick is to try to rename the file, if we can rename then we have exclusive read
 comment|// NOTE: using java.nio (channel lokc) doesn't help us as we can have write access but the
 comment|// file is still in progress of being written (slow writer)
+comment|// TODO: Seems to not work on Unix boxes (see the unit test FileExclusiveReadTest)
 name|String
 name|originalName
 init|=
@@ -881,7 +882,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exclusive read not granted. Sleeping for 1000 millis"
+literal|"Exclusive read not granted. Sleeping for 1000 millis."
 argument_list|)
 expr_stmt|;
 try|try
