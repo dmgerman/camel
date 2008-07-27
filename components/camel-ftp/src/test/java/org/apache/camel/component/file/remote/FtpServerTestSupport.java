@@ -149,11 +149,20 @@ expr_stmt|;
 name|initFtpServer
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|ftpServer
+operator|.
+name|isStopped
+argument_list|()
+condition|)
+block|{
 name|ftpServer
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|tearDown ()
 specifier|protected
@@ -168,6 +177,15 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|ftpServer
+operator|.
+name|isStopped
+argument_list|()
+condition|)
+block|{
 comment|// must stop server after super to let the clients stop correctly (CAMEL-444)
 name|ftpServer
 operator|.
@@ -181,6 +199,15 @@ name|ftpServer
 operator|.
 name|stop
 argument_list|()
+expr_stmt|;
+block|}
+comment|// give it time to properly stop the server
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|3000
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|initFtpServer ()

@@ -366,9 +366,47 @@ literal|"Stopping"
 argument_list|)
 expr_stmt|;
 comment|// disconnect when stopping
+try|try
+block|{
 name|disconnect
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore just log a warning
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Exception occured during disconecting from "
+operator|+
+name|remoteServer
+argument_list|()
+operator|+
+literal|". "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|doStop
@@ -528,7 +566,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// TODO: This code can be nicer
 name|int
 name|index
 init|=
@@ -547,6 +584,7 @@ operator|-
 literal|1
 condition|)
 block|{
+comment|// cd to the folder of the filename
 name|client
 operator|.
 name|changeWorkingDirectory
@@ -562,6 +600,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// list the files in the fold and poll the first file
 specifier|final
 name|FTPFile
 index|[]
@@ -825,6 +864,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|ftpFile
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 if|if
 condition|(
 name|LOG
@@ -1284,6 +1332,31 @@ operator|.
 name|matches
 argument_list|(
 name|regexPattern
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Matching file: "
+operator|+
+name|file
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" is "
+operator|+
+name|result
 argument_list|)
 expr_stmt|;
 block|}

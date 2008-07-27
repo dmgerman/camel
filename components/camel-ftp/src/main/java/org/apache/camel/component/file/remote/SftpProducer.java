@@ -665,9 +665,48 @@ argument_list|(
 literal|"Stopping"
 argument_list|)
 expr_stmt|;
+comment|// disconnect when stopping
+try|try
+block|{
 name|disconnect
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore just log a warning
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Exception occured during disconecting from "
+operator|+
+name|remoteServer
+argument_list|()
+operator|+
+literal|". "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|doStop

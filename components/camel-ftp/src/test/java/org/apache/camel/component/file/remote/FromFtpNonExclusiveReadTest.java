@@ -142,7 +142,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/slowfile?password=admin&binary=false&consumer.exclusiveRead=false&consumer.delay=500"
+literal|"/slowfile?password=admin&consumer.exclusiveRead=false&consumer.delay=500"
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public
@@ -154,10 +154,10 @@ return|return
 name|port
 return|;
 block|}
-DECL|method|testPollFileWhileSlowFileIsBeingWritten ()
+DECL|method|testPollFileWhileSlowFileIsBeingWrittenUsingNonExclusiveRead ()
 specifier|public
 name|void
-name|testPollFileWhileSlowFileIsBeingWritten
+name|testPollFileWhileSlowFileIsBeingWrittenUsingNonExclusiveRead
 parameter_list|()
 throws|throws
 name|Exception

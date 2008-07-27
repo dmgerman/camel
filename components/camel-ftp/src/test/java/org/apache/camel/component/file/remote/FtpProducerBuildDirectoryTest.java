@@ -89,7 +89,7 @@ specifier|private
 name|String
 name|port
 init|=
-literal|"20026"
+literal|"20098"
 decl_stmt|;
 DECL|field|ftpUrl
 specifier|private
