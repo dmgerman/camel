@@ -192,6 +192,17 @@ operator|.
 name|getServerContext
 argument_list|()
 operator|.
+name|getConnectionManager
+argument_list|()
+operator|.
+name|closeAllConnections
+argument_list|()
+expr_stmt|;
+name|ftpServer
+operator|.
+name|getServerContext
+argument_list|()
+operator|.
 name|dispose
 argument_list|()
 expr_stmt|;
@@ -201,14 +212,6 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-comment|// give it time to properly stop the server
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|3000
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|initFtpServer ()
 specifier|protected
