@@ -832,7 +832,7 @@ name|File
 argument_list|(
 name|originalName
 operator|+
-literal|".exclusiveRead"
+literal|".camelExclusiveRead"
 argument_list|)
 decl_stmt|;
 name|boolean

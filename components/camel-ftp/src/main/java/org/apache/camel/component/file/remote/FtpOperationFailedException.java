@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * @version $Revision$  * @deprecated not used will be removed in Camel 2.0.  */
 end_comment
 
 begin_class
@@ -69,12 +69,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"Ftp Operation failed: "
+literal|"Ftp operation failed: "
 operator|+
 name|reason
-operator|.
-name|trim
-argument_list|()
 operator|+
 literal|" Code: "
 operator|+

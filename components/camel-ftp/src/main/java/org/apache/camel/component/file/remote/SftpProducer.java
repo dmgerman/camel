@@ -200,6 +200,129 @@ operator|=
 name|session
 expr_stmt|;
 block|}
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processing "
+operator|+
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|connectIfNecessary
+argument_list|()
+expr_stmt|;
+comment|// If the attempt to connect isn't successful, then the thrown
+comment|// exception will signify that we couldn't deliver
+try|try
+block|{
+name|process
+argument_list|(
+name|endpoint
+operator|.
+name|createExchange
+argument_list|(
+name|exchange
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|isStopping
+argument_list|()
+operator|||
+name|isStopped
+argument_list|()
+condition|)
+block|{
+comment|// if we are stopping then ignore any exception during a poll
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Producer is stopping. Ignoring caught exception: "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Exception occured during processing: "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|disconnect
+argument_list|()
+expr_stmt|;
+comment|// Rethrow to signify that we didn't poll
+throw|throw
+name|e
+throw|;
+block|}
+block|}
+block|}
 DECL|method|connectIfNecessary ()
 specifier|protected
 name|void
@@ -302,18 +425,30 @@ name|JSchException
 block|{
 if|if
 condition|(
-name|session
-operator|!=
-literal|null
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Session is being explicitly disconnected"
+literal|"Disconnecting from "
+operator|+
+name|remoteServer
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|session
+operator|!=
+literal|null
+condition|)
+block|{
 name|session
 operator|.
 name|disconnect
@@ -327,113 +462,11 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Channel is being explicitly disconnected"
-argument_list|)
-expr_stmt|;
 name|channel
 operator|.
 name|disconnect
 argument_list|()
 expr_stmt|;
-block|}
-block|}
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|connectIfNecessary
-argument_list|()
-expr_stmt|;
-comment|// If the attempt to connect isn't successful, then the thrown
-comment|// exception will signify that we couldn't deliver
-try|try
-block|{
-name|process
-argument_list|(
-name|endpoint
-operator|.
-name|createExchange
-argument_list|(
-name|exchange
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|JSchException
-name|e
-parameter_list|)
-block|{
-comment|// If the connection has gone stale, then we must manually disconnect
-comment|// the client before attempting to reconnect
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Disconnecting due to exception: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|disconnect
-argument_list|()
-expr_stmt|;
-comment|// Rethrow to signify that we didn't deliver
-throw|throw
-name|e
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|SftpException
-name|e
-parameter_list|)
-block|{
-comment|// Still not sure if/when these come up and what we should do about them
-comment|// client.disconnect();
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Caught SftpException:"
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Hoping an explicit disconnect/reconnect will solve the problem"
-argument_list|)
-expr_stmt|;
-name|disconnect
-argument_list|()
-expr_stmt|;
-comment|// Rethrow to signify that we didn't deliver
-throw|throw
-name|e
-throw|;
 block|}
 block|}
 DECL|method|process (RemoteFileExchange exchange)
@@ -559,14 +592,6 @@ argument_list|,
 name|fileName
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
@@ -580,7 +605,6 @@ operator|+
 name|remoteServer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 finally|finally
 block|{
@@ -616,34 +640,8 @@ argument_list|(
 literal|"Starting"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|connectIfNecessary
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|JSchException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Couldn't connect to: "
-operator|+
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|remoteServerInformation
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|// do not connect when componet starts, just wait until we process as we will
+comment|// connect at that time if needed
 name|super
 operator|.
 name|doStart
@@ -781,6 +779,22 @@ expr_stmt|;
 block|}
 return|return
 name|success
+return|;
+block|}
+DECL|method|remoteServer ()
+specifier|private
+name|String
+name|remoteServer
+parameter_list|()
+block|{
+return|return
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|remoteServerInformation
+argument_list|()
 return|;
 block|}
 block|}

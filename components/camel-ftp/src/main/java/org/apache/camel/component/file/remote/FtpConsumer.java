@@ -84,6 +84,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -315,6 +329,52 @@ operator|=
 name|client
 expr_stmt|;
 block|}
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Stopping"
+argument_list|)
+expr_stmt|;
+comment|// disconnect when stopping
+name|disconnect
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|connectIfNecessary ()
 specifier|protected
 name|void
@@ -332,18 +392,35 @@ name|isConnected
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Not connected, trying to reconnect."
+literal|"Not connected, connecting to "
+operator|+
+name|remoteServer
+argument_list|()
 argument_list|)
 expr_stmt|;
-name|endpoint
+block|}
+name|FtpUtils
 operator|.
 name|connect
 argument_list|(
 name|client
+argument_list|,
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -352,12 +429,7 @@ name|info
 argument_list|(
 literal|"Connected to "
 operator|+
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|remoteServerInformation
+name|remoteServer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -377,16 +449,11 @@ name|debug
 argument_list|(
 literal|"Disconnecting from "
 operator|+
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|remoteServerInformation
+name|remoteServer
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|endpoint
+name|FtpUtils
 operator|.
 name|disconnect
 argument_list|(
@@ -461,6 +528,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// TODO: This code can be nicer
 name|int
 name|index
 init|=
@@ -532,17 +600,60 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|FTPConnectionClosedException
+name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// If the server disconnected us, then we must manually disconnect
-comment|// the client before attempting to reconnect
+if|if
+condition|(
+name|isStopping
+argument_list|()
+operator|||
+name|isStopped
+argument_list|()
+condition|)
+block|{
+comment|// if we are stopping then ignore any exception during a poll
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Disconnecting due to exception: "
+literal|"Consumer is stopping. Ignoring caught exception: "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Exception occured during polling: "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" message: "
 operator|+
 name|e
 operator|.
@@ -558,40 +669,6 @@ throw|throw
 name|e
 throw|;
 block|}
-catch|catch
-parameter_list|(
-name|RuntimeCamelException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Caught RuntimeCamelException: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Hoping an explicit disconnect/reconnect will solve the problem"
-argument_list|)
-expr_stmt|;
-name|disconnect
-argument_list|()
-expr_stmt|;
-comment|// Rethrow to signify that we didn't poll
-throw|throw
-name|e
-throw|;
 block|}
 block|}
 DECL|method|pollDirectory (String dir)
@@ -605,6 +682,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Polling directory: "
+operator|+
+name|dir
+argument_list|)
+expr_stmt|;
+block|}
 name|String
 name|currentDir
 init|=
@@ -773,17 +868,6 @@ argument_list|)
 condition|)
 block|{
 name|String
-name|remoteServer
-init|=
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|remoteServerInformation
-argument_list|()
-decl_stmt|;
-name|String
 name|fullFileName
 init|=
 name|getFullFileName
@@ -848,6 +932,7 @@ operator|+
 literal|" from: "
 operator|+
 name|remoteServer
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -968,6 +1053,7 @@ operator|+
 literal|" from: "
 operator|+
 name|remoteServer
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1005,6 +1091,7 @@ operator|+
 literal|" from: "
 operator|+
 name|remoteServer
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1055,7 +1142,7 @@ name|newName
 init|=
 name|originalName
 operator|+
-literal|".camel"
+literal|".camelExclusiveRead"
 decl_stmt|;
 name|boolean
 name|exclusive
@@ -1142,6 +1229,22 @@ name|originalName
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|remoteServer ()
+specifier|private
+name|String
+name|remoteServer
+parameter_list|()
+block|{
+return|return
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|remoteServerInformation
+argument_list|()
+return|;
 block|}
 DECL|method|isMatched (FTPFile file)
 specifier|protected

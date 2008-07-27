@@ -202,6 +202,27 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processing "
+operator|+
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|connectIfNecessary
 argument_list|()
 expr_stmt|;
@@ -222,17 +243,60 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|FTPConnectionClosedException
+name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// If the server disconnected us, then we must manually disconnect
-comment|// the client before attempting to reconnect
+if|if
+condition|(
+name|isStopping
+argument_list|()
+operator|||
+name|isStopped
+argument_list|()
+condition|)
+block|{
+comment|// if we are stopping then ignore any exception during a poll
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Disconnecting due to exception: "
+literal|"Producer is stopping. Ignoring caught exception: "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Exception occured during processing: "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" message: "
 operator|+
 name|e
 operator|.
@@ -243,45 +307,11 @@ expr_stmt|;
 name|disconnect
 argument_list|()
 expr_stmt|;
-comment|// Rethrow to signify that we didn't deliver
+comment|// Rethrow to signify that we didn't poll
 throw|throw
 name|e
 throw|;
 block|}
-catch|catch
-parameter_list|(
-name|RuntimeCamelException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Caught RuntimeCamelException: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Hoping an explicit disconnect/reconnect will solve the problem"
-argument_list|)
-expr_stmt|;
-name|disconnect
-argument_list|()
-expr_stmt|;
-comment|// Rethrow to signify that we didn't deliver
-throw|throw
-name|e
-throw|;
 block|}
 block|}
 DECL|method|connectIfNecessary ()
@@ -301,18 +331,35 @@ name|isConnected
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Not connected, trying to reconnect."
+literal|"Not connected, connecting to "
+operator|+
+name|remoteServer
+argument_list|()
 argument_list|)
 expr_stmt|;
-name|endpoint
+block|}
+name|FtpUtils
 operator|.
 name|connect
 argument_list|(
 name|client
+argument_list|,
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -321,12 +368,7 @@ name|info
 argument_list|(
 literal|"Connected to "
 operator|+
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|remoteServerInformation
+name|remoteServer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -340,22 +382,26 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
 literal|"Disconnecting from "
 operator|+
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|remoteServerInformation
+name|remoteServer
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|endpoint
+block|}
+name|FtpUtils
 operator|.
 name|disconnect
 argument_list|(
@@ -391,17 +437,6 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|String
-name|remoteServer
-init|=
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|remoteServerInformation
-argument_list|()
-decl_stmt|;
 name|String
 name|fileName
 init|=
@@ -501,17 +536,10 @@ operator|+
 literal|" to: "
 operator|+
 name|remoteServer
+argument_list|()
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
@@ -523,9 +551,9 @@ operator|+
 literal|" to: "
 operator|+
 name|remoteServer
+argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 finally|finally
 block|{
@@ -561,34 +589,8 @@ argument_list|(
 literal|"Starting"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|connectIfNecessary
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Couldn't connect to: "
-operator|+
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|remoteServerInformation
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|// do not connect when componet starts, just wait until we process as we will
+comment|// connect at that time if needed
 name|super
 operator|.
 name|doStart
@@ -709,6 +711,22 @@ expr_stmt|;
 block|}
 return|return
 name|success
+return|;
+block|}
+DECL|method|remoteServer ()
+specifier|private
+name|String
+name|remoteServer
+parameter_list|()
+block|{
+return|return
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|remoteServerInformation
+argument_list|()
 return|;
 block|}
 block|}

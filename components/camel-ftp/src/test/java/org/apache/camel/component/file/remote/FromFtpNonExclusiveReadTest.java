@@ -99,14 +99,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify exclusive read - that we do not poll files that is in progress of being written.  */
+comment|/**  * Unit test to verify *NON* exclusive read.  */
 end_comment
 
 begin_class
-DECL|class|FromFtpExclusiveReadTest
+DECL|class|FromFtpNonExclusiveReadTest
 specifier|public
 class|class
-name|FromFtpExclusiveReadTest
+name|FromFtpNonExclusiveReadTest
 extends|extends
 name|FtpServerTestSupport
 block|{
@@ -131,7 +131,7 @@ specifier|private
 name|String
 name|port
 init|=
-literal|"20025"
+literal|"20027"
 decl_stmt|;
 DECL|field|ftpUrl
 specifier|private
@@ -142,7 +142,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/slowfile?password=admin&binary=false&consumer.exclusiveRead=true&consumer.delay=500"
+literal|"/slowfile?password=admin&binary=false&consumer.exclusiveRead=false&consumer.delay=500"
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public
@@ -187,13 +187,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello WorldLine #0Line #1Line #2Bye World"
-argument_list|)
-expr_stmt|;
 name|createSlowFile
 argument_list|()
 expr_stmt|;
@@ -201,6 +194,43 @@ name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|()
+expr_stmt|;
+comment|// we read only part of the file as we dont have exclusive read and thus read part of the
+comment|// file currently in progress of being written - so we get only the Hello World part
+name|String
+name|body
+init|=
+name|mock
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertFalse
+argument_list|(
+literal|"Should not get the entire file"
+argument_list|,
+name|body
+operator|.
+name|endsWith
+argument_list|(
+literal|"Bye World"
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createSlowFile ()

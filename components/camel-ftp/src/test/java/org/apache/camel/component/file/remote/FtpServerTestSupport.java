@@ -171,6 +171,14 @@ expr_stmt|;
 comment|// must stop server after super to let the clients stop correctly (CAMEL-444)
 name|ftpServer
 operator|.
+name|getServerContext
+argument_list|()
+operator|.
+name|dispose
+argument_list|()
+expr_stmt|;
+name|ftpServer
+operator|.
 name|stop
 argument_list|()
 expr_stmt|;

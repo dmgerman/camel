@@ -309,6 +309,52 @@ operator|=
 name|session
 expr_stmt|;
 block|}
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Stopping"
+argument_list|)
+expr_stmt|;
+comment|// disconnect when stopping
+name|disconnect
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|connectIfNecessary ()
 specifier|protected
 name|void
@@ -390,12 +436,7 @@ name|info
 argument_list|(
 literal|"Connected to "
 operator|+
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|remoteServerInformation
+name|remoteServer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -411,18 +452,30 @@ name|JSchException
 block|{
 if|if
 condition|(
-name|session
-operator|!=
-literal|null
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Session is being explicitly disconnected"
+literal|"Disconnecting from "
+operator|+
+name|remoteServer
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|session
+operator|!=
+literal|null
+condition|)
+block|{
 name|session
 operator|.
 name|disconnect
@@ -436,13 +489,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Channel is being explicitly disconnected"
-argument_list|)
-expr_stmt|;
 name|channel
 operator|.
 name|disconnect
@@ -517,6 +563,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// TODO: This code could be neater
 name|channel
 operator|.
 name|cd
@@ -587,17 +634,60 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|JSchException
+name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// If the connection has gone stale, then we must manually disconnect
-comment|// the client before attempting to reconnect
+if|if
+condition|(
+name|isStopping
+argument_list|()
+operator|||
+name|isStopped
+argument_list|()
+condition|)
+block|{
+comment|// if we are stopping then ignore any exception during a poll
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Disconnecting due to exception: "
+literal|"Consumer is stopping. Ignoring caught exception: "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Exception occured during polling: "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" message: "
 operator|+
 name|e
 operator|.
@@ -613,39 +703,6 @@ throw|throw
 name|e
 throw|;
 block|}
-catch|catch
-parameter_list|(
-name|SftpException
-name|e
-parameter_list|)
-block|{
-comment|// Still not sure if/when these come up and what we should do about them
-comment|// client.disconnect();
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Caught SftpException:"
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Hoping an explicit disconnect/reconnect will solve the problem"
-argument_list|)
-expr_stmt|;
-comment|// Rethrow to signify that we didn't poll
-throw|throw
-name|e
-throw|;
 block|}
 block|}
 DECL|method|pollDirectory (String dir)
@@ -659,6 +716,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Polling directory: "
+operator|+
+name|dir
+argument_list|)
+expr_stmt|;
+block|}
 name|String
 name|currentDir
 init|=
@@ -853,15 +928,12 @@ argument_list|)
 condition|)
 block|{
 name|String
-name|remoteServer
+name|fullFileName
 init|=
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|remoteServerInformation
-argument_list|()
+name|getFullFileName
+argument_list|(
+name|sftpFile
+argument_list|)
 decl_stmt|;
 comment|// is we use excluse read then acquire the exclusive read (waiting until we got it)
 if|if
@@ -918,6 +990,7 @@ operator|+
 literal|" from: "
 operator|+
 name|remoteServer
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -943,15 +1016,8 @@ argument_list|()
 condition|)
 block|{
 name|String
-name|relativePath
+name|ftpBasePath
 init|=
-name|getFullFileName
-argument_list|(
-name|sftpFile
-argument_list|)
-operator|.
-name|substring
-argument_list|(
 name|endpoint
 operator|.
 name|getConfiguration
@@ -959,28 +1025,48 @@ argument_list|()
 operator|.
 name|getFile
 argument_list|()
+decl_stmt|;
+name|String
+name|relativePath
+init|=
+name|fullFileName
+operator|.
+name|substring
+argument_list|(
+name|ftpBasePath
 operator|.
 name|length
 argument_list|()
+operator|+
+literal|1
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|relativePath
-operator|.
-name|startsWith
-argument_list|(
-literal|"/"
-argument_list|)
-condition|)
-block|{
 name|relativePath
 operator|=
 name|relativePath
 operator|.
-name|substring
+name|replaceFirst
 argument_list|(
-literal|1
+literal|"/"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Setting exchange filename to "
+operator|+
+name|relativePath
 argument_list|)
 expr_stmt|;
 block|}
@@ -1027,6 +1113,7 @@ operator|+
 literal|" from: "
 operator|+
 name|remoteServer
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1064,6 +1151,7 @@ operator|+
 literal|" from: "
 operator|+
 name|remoteServer
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1113,7 +1201,7 @@ name|newName
 init|=
 name|originalName
 operator|+
-literal|".camel"
+literal|".camelExclusiveRead"
 decl_stmt|;
 name|boolean
 name|exclusive
@@ -1213,6 +1301,22 @@ name|originalName
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|remoteServer ()
+specifier|private
+name|String
+name|remoteServer
+parameter_list|()
+block|{
+return|return
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|remoteServerInformation
+argument_list|()
+return|;
 block|}
 DECL|method|isMatched (ChannelSftp.LsEntry sftpFile)
 specifier|protected
