@@ -232,7 +232,7 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|// TODO: Fix on Bamboo
+comment|// TODO: Not possible to test in the same JVM (see javadoc for FileLock)
 DECL|method|xxxtestPollFileWhileSlowFileIsBeingWritten ()
 specifier|public
 name|void
@@ -270,7 +270,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World"
+literal|"Hello WorldLine #0Line #1Line #2Bye Worl"
 argument_list|)
 expr_stmt|;
 name|createSlowFile
@@ -315,7 +315,6 @@ argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
-comment|// get a lock so we are the only one working on this file
 name|FileLock
 name|lock
 init|=
@@ -327,25 +326,16 @@ operator|.
 name|lock
 argument_list|()
 decl_stmt|;
-name|byte
-index|[]
-name|buffer
-init|=
+name|fos
+operator|.
+name|write
+argument_list|(
 literal|"Hello World"
 operator|.
 name|getBytes
 argument_list|()
-decl_stmt|;
-name|ByteBuffer
-name|bb
-init|=
-name|ByteBuffer
-operator|.
-name|wrap
-argument_list|(
-name|buffer
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -355,14 +345,33 @@ literal|0
 init|;
 name|i
 operator|<
-name|buffer
-operator|.
-name|length
+literal|3
 condition|;
 name|i
 operator|++
 control|)
 block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
+name|fos
+operator|.
+name|write
+argument_list|(
+operator|(
+literal|"Line #"
+operator|+
+name|i
+operator|)
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|info
@@ -370,46 +379,21 @@ argument_list|(
 literal|"Appending to slowfile"
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|300
-argument_list|)
-expr_stmt|;
 block|}
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Writing to file"
-argument_list|)
-expr_stmt|;
 name|fos
 operator|.
 name|write
 argument_list|(
-name|buffer
-argument_list|)
-expr_stmt|;
-name|LOG
+literal|"Bye World"
 operator|.
-name|info
-argument_list|(
-literal|"Releasing lock"
+name|getBytes
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|lock
 operator|.
 name|release
 argument_list|()
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Closing file"
-argument_list|)
 expr_stmt|;
 name|fos
 operator|.

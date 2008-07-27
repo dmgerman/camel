@@ -1243,13 +1243,24 @@ parameter_list|)
 throws|throws
 name|SftpException
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Acquiring exclusive read (avoid reading file that is in progress of being written)"
+literal|"Waiting for exclusive lock to file: "
+operator|+
+name|sftpFile
 argument_list|)
 expr_stmt|;
+block|}
 comment|// the trick is to try to rename the file, if we can rename then we have exclusive read
 comment|// since its a remote file we can not use java.nio to get a RW access
 name|String
@@ -1307,6 +1318,24 @@ condition|(
 name|exclusive
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Acquired exclusive lock to file: "
+operator|+
+name|originalName
+argument_list|)
+expr_stmt|;
+block|}
 comment|// rename it back so we can read it
 name|channel
 operator|.
@@ -1324,7 +1353,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exclusive read not granted. Sleeping for 1000 millis"
+literal|"Exclusive lock not granted. Sleeping for 1000 millis"
 argument_list|)
 expr_stmt|;
 try|try
@@ -1346,24 +1375,6 @@ block|{
 comment|// ignore
 block|}
 block|}
-block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Acquired exclusive read to: "
-operator|+
-name|originalName
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|remoteServer ()

@@ -743,7 +743,7 @@ literal|", handled by failure processor: "
 operator|+
 name|handled
 else|:
-literal|"OK"
+literal|"processed OK"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -863,7 +863,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Acquiring exclusive read (avoid reading file that is in progress of being written) to "
+literal|"Waiting for exclusive lock to file: "
 operator|+
 name|file
 argument_list|)
@@ -894,6 +894,28 @@ operator|.
 name|lock
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Acquired exclusive lock: "
+operator|+
+name|lock
+operator|+
+literal|" to file: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+block|}
 comment|// just release it now we dont want to hold it during the rest of the processing
 name|lock
 operator|.
@@ -910,27 +932,9 @@ name|close
 argument_list|(
 name|channel
 argument_list|,
-literal|"FileConsumer during acquiring of exclusive read"
+literal|"FileConsumer during acquiring of exclusive lock"
 argument_list|,
 name|LOG
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Acquired exclusive read to: "
-operator|+
-name|file
 argument_list|)
 expr_stmt|;
 block|}

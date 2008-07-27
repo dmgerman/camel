@@ -154,7 +154,7 @@ return|return
 name|port
 return|;
 block|}
-comment|// TODO fix on Bamboo
+comment|// TODO: Not possible to test in single JVM
 DECL|method|testPollFileWhileSlowFileIsBeingWritten ()
 specifier|public
 name|void
