@@ -310,8 +310,6 @@ DECL|field|exclusiveRead
 specifier|private
 name|boolean
 name|exclusiveRead
-init|=
-literal|true
 decl_stmt|;
 DECL|method|FileConsumer (final FileEndpoint endpoint, Processor processor)
 specifier|public
