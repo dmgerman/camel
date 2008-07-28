@@ -46,9 +46,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|ScheduledExecutorService
+name|Vector
 import|;
 end_import
 
@@ -58,7 +56,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|Vector
+name|concurrent
+operator|.
+name|ScheduledExecutorService
 import|;
 end_import
 

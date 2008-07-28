@@ -38,7 +38,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|component
+operator|.
+name|file
+operator|.
+name|FileComponent
 import|;
 end_import
 
@@ -53,22 +57,6 @@ operator|.
 name|converter
 operator|.
 name|IOConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileComponent
 import|;
 end_import
 
