@@ -260,17 +260,6 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"The deadLetterChannel is "
-operator|+
-name|deadLetterChannel
-argument_list|)
-expr_stmt|;
 name|RedeliveryPolicy
 name|redeliveryPolicy
 init|=
