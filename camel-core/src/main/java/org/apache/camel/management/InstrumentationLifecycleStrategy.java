@@ -866,7 +866,7 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-comment|// add to map now that it has ben registered
+comment|// add to map now that it has been registered
 name|counterMap
 operator|.
 name|put

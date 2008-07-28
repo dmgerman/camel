@@ -205,7 +205,7 @@ literal|"Number routes created"
 operator|+
 name|list
 argument_list|,
-literal|1
+literal|2
 argument_list|,
 name|list
 operator|.
@@ -221,26 +221,6 @@ range|:
 name|list
 control|)
 block|{
-name|Endpoint
-name|key
-init|=
-name|route
-operator|.
-name|getEndpoint
-argument_list|()
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"From endpoint"
-argument_list|,
-literal|"seda:a"
-argument_list|,
-name|key
-operator|.
-name|getEndpointUri
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|EventDrivenConsumerRoute
 name|consumerRoute
 init|=
@@ -280,6 +260,17 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"The deadLetterChannel is "
+operator|+
+name|deadLetterChannel
+argument_list|)
+expr_stmt|;
 name|RedeliveryPolicy
 name|redeliveryPolicy
 init|=

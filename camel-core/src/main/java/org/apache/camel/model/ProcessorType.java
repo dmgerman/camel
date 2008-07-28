@@ -1310,7 +1310,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer}       * to avoid duplicate messages      */
+comment|/**      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer}      * to avoid duplicate messages      */
 DECL|method|idempotentConsumer (Expression messageIdExpression, MessageIdRepository messageIdRepository)
 specifier|public
 name|IdempotentConsumerType
