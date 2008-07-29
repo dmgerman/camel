@@ -382,7 +382,15 @@ DECL|method|JmsComponent ()
 specifier|public
 name|JmsComponent
 parameter_list|()
-block|{     }
+block|{
+name|setHeaderFilterStrategy
+argument_list|(
+operator|new
+name|JmsHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|JmsComponent (JmsConfiguration configuration)
 specifier|public
 name|JmsComponent
@@ -397,6 +405,13 @@ name|configuration
 operator|=
 name|configuration
 expr_stmt|;
+name|setHeaderFilterStrategy
+argument_list|(
+operator|new
+name|JmsHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|JmsComponent (CamelContext context)
 specifier|public
@@ -409,6 +424,13 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|)
+expr_stmt|;
+name|setHeaderFilterStrategy
+argument_list|(
+operator|new
+name|JmsHeaderFilterStrategy
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

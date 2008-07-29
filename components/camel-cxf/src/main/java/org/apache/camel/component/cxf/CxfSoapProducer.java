@@ -775,6 +775,11 @@ name|CxfSoapBinding
 operator|.
 name|getCxfInMessage
 argument_list|(
+name|endpoint
+operator|.
+name|getHeaderFilterStrategy
+argument_list|()
+argument_list|,
 name|exchange
 argument_list|,
 literal|true
@@ -961,6 +966,11 @@ name|CxfSoapBinding
 operator|.
 name|getCxfOutMessage
 argument_list|(
+name|endpoint
+operator|.
+name|getHeaderFilterStrategy
+argument_list|()
+argument_list|,
 name|exchange
 argument_list|,
 literal|true

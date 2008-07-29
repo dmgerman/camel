@@ -59,16 +59,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|JmsRouteUsingSpringTest
+DECL|class|JmsHeaderFilteringWithSpringTest
 specifier|public
 class|class
-name|JmsRouteUsingSpringTest
+name|JmsHeaderFilteringWithSpringTest
 extends|extends
-name|JmsRouteTest
+name|JmsHeaderFilteringTest
 block|{
 DECL|field|applicationContext
 specifier|private
@@ -100,7 +100,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|createApplicationContext ()
-specifier|protected
+specifier|private
 name|ClassPathXmlApplicationContext
 name|createApplicationContext
 parameter_list|()
@@ -109,7 +109,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/component/jms/jmsRouteUsingSpring.xml"
+literal|"org/apache/camel/component/jms/jmsHeaderFilteringWithSpring.xml"
 argument_list|)
 return|;
 block|}
@@ -123,14 +123,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
+if|if
+condition|(
+name|applicationContext
+operator|!=
+literal|null
+condition|)
+block|{
 name|applicationContext
 operator|.
 name|close
+argument_list|()
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|tearDown
 argument_list|()
 expr_stmt|;
 block|}

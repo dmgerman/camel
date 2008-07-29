@@ -176,6 +176,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|cxf
 operator|.
 name|Bus
@@ -293,6 +307,11 @@ specifier|private
 name|Bus
 name|bus
 decl_stmt|;
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+decl_stmt|;
 DECL|method|CxfSoapEndpoint (Endpoint endpoint)
 specifier|public
 name|CxfSoapEndpoint
@@ -302,10 +321,37 @@ name|endpoint
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|endpoint
+argument_list|,
+operator|new
+name|CxfHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|CxfSoapEndpoint (Endpoint endpoint, HeaderFilterStrategy headerFilterStrategy)
+specifier|public
+name|CxfSoapEndpoint
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+parameter_list|)
+block|{
+name|this
 operator|.
 name|endpoint
 operator|=
 name|endpoint
+expr_stmt|;
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|headerFilterStrategy
 expr_stmt|;
 block|}
 DECL|method|getInnerEndpoint ()
@@ -763,6 +809,16 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|headerFilterStrategy
+return|;
 block|}
 block|}
 end_class

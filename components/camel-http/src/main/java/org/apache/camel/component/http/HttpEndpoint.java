@@ -545,7 +545,10 @@ name|binding
 operator|=
 operator|new
 name|HttpBinding
+argument_list|(
+name|getHeaderFilterStrategy
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 return|return

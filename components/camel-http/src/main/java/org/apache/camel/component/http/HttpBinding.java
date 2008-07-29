@@ -114,6 +114,34 @@ name|Message
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultHeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategy
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -125,6 +153,8 @@ class|class
 name|HttpBinding
 block|{
 comment|// This should be a set of lower-case strings
+annotation|@
+name|Deprecated
 DECL|field|DEFAULT_HEADERS_TO_IGNORE
 specifier|public
 specifier|static
@@ -158,21 +188,36 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-DECL|field|ignoredHeaders
-specifier|private
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|ignoredHeaders
-init|=
-name|DEFAULT_HEADERS_TO_IGNORE
-decl_stmt|;
+comment|//private Set<String> ignoredHeaders = DEFAULT_HEADERS_TO_IGNORE;
 DECL|field|useReaderForPayload
 specifier|private
 name|boolean
 name|useReaderForPayload
 decl_stmt|;
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+init|=
+operator|new
+name|HttpHeaderFilterStrategy
+argument_list|()
+decl_stmt|;
+DECL|method|HttpBinding (HeaderFilterStrategy headerFilterStrategy)
+specifier|public
+name|HttpBinding
+parameter_list|(
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|headerFilterStrategy
+expr_stmt|;
+block|}
 comment|/**      * Writes the exchange to the servlet response      *      * @param response      * @throws IOException      */
 DECL|method|writeResponse (HttpExchange exchange, HttpServletResponse response)
 specifier|public
@@ -277,7 +322,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|shouldHeaderBePropagated
+name|headerFilterStrategy
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|headerFilterStrategy
+operator|.
+name|applyFilterToCamelHeaders
 argument_list|(
 name|key
 argument_list|,
@@ -442,7 +494,9 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/*      * Exclude a set of headers from responses and new requests as all headers      * get propagated between exchanges by default      */
+comment|/*      * Exclude a set of headers from responses and new requests as all headers      * get propagated between exchanges by default      *           * @deprecated please use {@link HeaderPropagationStrategy} instead      *       */
+annotation|@
+name|Deprecated
 DECL|method|shouldHeaderBePropagated (String headerName, String headerValue)
 specifier|public
 name|boolean
@@ -466,43 +520,25 @@ return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-name|headerName
-operator|.
-name|startsWith
-argument_list|(
-literal|"org.apache.camel"
-argument_list|)
-condition|)
-block|{
 return|return
-literal|false
-return|;
-block|}
-if|if
-condition|(
-name|getIgnoredHeaders
-argument_list|()
+name|headerFilterStrategy
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|headerFilterStrategy
 operator|.
-name|contains
+name|applyFilterToCamelHeaders
 argument_list|(
 name|headerName
-operator|.
-name|toLowerCase
-argument_list|()
+argument_list|,
+name|headerValue
 argument_list|)
-condition|)
-block|{
-return|return
-literal|false
 return|;
 block|}
-return|return
-literal|true
-return|;
-block|}
-comment|/*      * override the set of headers to ignore for responses and new requests      * @param headersToIgnore should be a set of lower-case strings      */
+comment|/*      * override the set of headers to ignore for responses and new requests      * @param headersToIgnore should be a set of lower-case strings      *       * @deprecated please use {@link HeaderPropagationStrategy} instead      *       */
+annotation|@
+name|Deprecated
 DECL|method|setIgnoredHeaders (Set<String> headersToIgnore)
 specifier|public
 name|void
@@ -515,11 +551,30 @@ argument_list|>
 name|headersToIgnore
 parameter_list|)
 block|{
-name|ignoredHeaders
-operator|=
+if|if
+condition|(
+name|headerFilterStrategy
+operator|instanceof
+name|DefaultHeaderFilterStrategy
+condition|)
+block|{
+operator|(
+operator|(
+name|DefaultHeaderFilterStrategy
+operator|)
+name|headerFilterStrategy
+operator|)
+operator|.
+name|setOutFilter
+argument_list|(
 name|headersToIgnore
+argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * @deprecated please use {@link HeaderPropagationStrategy} instead      */
+annotation|@
+name|Deprecated
 DECL|method|getIgnoredHeaders ()
 specifier|public
 name|Set
@@ -529,9 +584,31 @@ argument_list|>
 name|getIgnoredHeaders
 parameter_list|()
 block|{
+if|if
+condition|(
+name|headerFilterStrategy
+operator|instanceof
+name|DefaultHeaderFilterStrategy
+condition|)
+block|{
 return|return
-name|ignoredHeaders
+operator|(
+operator|(
+name|DefaultHeaderFilterStrategy
+operator|)
+name|headerFilterStrategy
+operator|)
+operator|.
+name|getOutFilter
+argument_list|()
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|isUseReaderForPayload ()
 specifier|public

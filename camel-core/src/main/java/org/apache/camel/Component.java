@@ -14,6 +14,20 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategy
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://activemq.apache.org/camel/component.html">component</a> is  * a factory of {@link Endpoint} objects.  *   * @version $Revision$  */
 end_comment
@@ -57,6 +71,21 @@ name|uri
 parameter_list|)
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * @return strategy object that handles header filter for this component.      */
+DECL|method|getHeaderFilterStrategy ()
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+function_decl|;
+comment|/**      * Sets strategy object that handles header filtering for this component.      */
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+parameter_list|)
 function_decl|;
 block|}
 end_interface

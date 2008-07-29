@@ -163,6 +163,21 @@ operator|new
 name|MultiThreadedHttpConnectionManager
 argument_list|()
 decl_stmt|;
+DECL|method|HttpComponent ()
+specifier|public
+name|HttpComponent
+parameter_list|()
+block|{
+name|this
+operator|.
+name|setHeaderFilterStrategy
+argument_list|(
+operator|new
+name|HttpHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Connects the URL specified on the endpoint to the specified processor.      */
 DECL|method|connect (HttpConsumer consumer)
 specifier|public

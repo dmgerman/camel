@@ -108,6 +108,19 @@ name|CxfSoapComponent
 extends|extends
 name|DefaultComponent
 block|{
+DECL|method|CxfSoapComponent ()
+specifier|public
+name|CxfSoapComponent
+parameter_list|()
+block|{
+name|setHeaderFilterStrategy
+argument_list|(
+operator|new
+name|CxfHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
@@ -181,6 +194,9 @@ operator|new
 name|CxfSoapEndpoint
 argument_list|(
 name|endpoint
+argument_list|,
+name|getHeaderFilterStrategy
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|setProperties
