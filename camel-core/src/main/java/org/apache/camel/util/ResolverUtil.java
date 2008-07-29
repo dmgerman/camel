@@ -50,6 +50,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|lang
 operator|.
 name|annotation
@@ -77,6 +87,16 @@ operator|.
 name|net
 operator|.
 name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URLConnection
 import|;
 end_import
 
@@ -1183,6 +1203,71 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|InputStream
+name|stream
+decl_stmt|;
+if|if
+condition|(
+name|urlPath
+operator|.
+name|startsWith
+argument_list|(
+literal|"http:"
+argument_list|)
+condition|)
+block|{
+comment|// load resources using http such as java webstart
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"The current jar is accessed via http"
+argument_list|)
+expr_stmt|;
+name|URL
+name|urlStream
+init|=
+operator|new
+name|URL
+argument_list|(
+name|urlPath
+argument_list|)
+decl_stmt|;
+name|URLConnection
+name|con
+init|=
+name|urlStream
+operator|.
+name|openConnection
+argument_list|()
+decl_stmt|;
+comment|// disable cache mainly to avoid jar file locking on Windows
+name|con
+operator|.
+name|setUseCaches
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|stream
+operator|=
+name|con
+operator|.
+name|getInputStream
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|stream
+operator|=
+operator|new
+name|FileInputStream
+argument_list|(
+name|file
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|LOG
@@ -1207,7 +1292,9 @@ name|test
 argument_list|,
 name|packageName
 argument_list|,
-name|file
+name|stream
+argument_list|,
+name|urlPath
 argument_list|)
 expr_stmt|;
 block|}
@@ -1697,8 +1784,8 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Finds matching classes within a jar files that contains a folder      * structure matching the package structure. If the File is not a JarFile or      * does not exist a warning will be logged, but no error will be raised.      *      * @param test    a Test used to filter the classes that are discovered      * @param parent  the parent package under which classes must be in order to      *                be considered      * @param jarfile the jar file to be examined for classes      */
-DECL|method|loadImplementationsInJar (Test test, String parent, File jarfile)
+comment|/**      * Finds matching classes within a jar files that contains a folder      * structure matching the package structure. If the File is not a JarFile or      * does not exist a warning will be logged, but no error will be raised.      *      * @param test    a Test used to filter the classes that are discovered      * @param parent  the parent package under which classes must be in order to      *                be considered      * @param jarfile the jar file to be examined for classes      * @param stream  the inputstream of the jar file to be examined for classes      * @param urlPath the url of the jar file to be examined for classes      */
+DECL|method|loadImplementationsInJar (Test test, String parent, InputStream stream, String urlPath)
 specifier|private
 name|void
 name|loadImplementationsInJar
@@ -1709,8 +1796,11 @@ parameter_list|,
 name|String
 name|parent
 parameter_list|,
-name|File
-name|jarfile
+name|InputStream
+name|stream
+parameter_list|,
+name|String
+name|urlPath
 parameter_list|)
 block|{
 name|JarInputStream
@@ -1725,11 +1815,7 @@ operator|=
 operator|new
 name|JarInputStream
 argument_list|(
-operator|new
-name|FileInputStream
-argument_list|(
-name|jarfile
-argument_list|)
+name|stream
 argument_list|)
 expr_stmt|;
 name|JarEntry
@@ -1817,7 +1903,7 @@ name|error
 argument_list|(
 literal|"Could not search jar file '"
 operator|+
-name|jarfile
+name|urlPath
 operator|+
 literal|"' for classes matching criteria: "
 operator|+
@@ -1842,10 +1928,7 @@ name|close
 argument_list|(
 name|jarStream
 argument_list|,
-name|jarfile
-operator|.
-name|getPath
-argument_list|()
+name|urlPath
 argument_list|,
 name|LOG
 argument_list|)
