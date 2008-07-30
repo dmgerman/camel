@@ -150,10 +150,10 @@ name|setNames
 init|=
 literal|true
 decl_stmt|;
-DECL|field|exclusiveRead
+DECL|field|exclusiveReadLock
 specifier|protected
 name|boolean
-name|exclusiveRead
+name|exclusiveReadLock
 init|=
 literal|true
 decl_stmt|;
@@ -509,30 +509,30 @@ operator|=
 name|setNames
 expr_stmt|;
 block|}
-DECL|method|isExclusiveRead ()
+DECL|method|isExclusiveReadLock ()
 specifier|public
 name|boolean
-name|isExclusiveRead
+name|isExclusiveReadLock
 parameter_list|()
 block|{
 return|return
-name|exclusiveRead
+name|exclusiveReadLock
 return|;
 block|}
-DECL|method|setExclusiveRead (boolean exclusiveRead)
+DECL|method|setExclusiveReadLock (boolean exclusiveReadLock)
 specifier|public
 name|void
-name|setExclusiveRead
+name|setExclusiveReadLock
 parameter_list|(
 name|boolean
-name|exclusiveRead
+name|exclusiveReadLock
 parameter_list|)
 block|{
 name|this
 operator|.
-name|exclusiveRead
+name|exclusiveReadLock
 operator|=
-name|exclusiveRead
+name|exclusiveReadLock
 expr_stmt|;
 block|}
 DECL|method|isDeleteFile ()

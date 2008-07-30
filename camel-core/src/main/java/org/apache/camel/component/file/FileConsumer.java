@@ -306,10 +306,12 @@ name|regexPattern
 init|=
 literal|""
 decl_stmt|;
-DECL|field|exclusiveRead
+DECL|field|exclusiveReadLock
 specifier|private
 name|boolean
-name|exclusiveRead
+name|exclusiveReadLock
+init|=
+literal|true
 decl_stmt|;
 DECL|method|FileConsumer (final FileEndpoint endpoint, Processor processor)
 specifier|public
@@ -360,6 +362,7 @@ name|isRecursive
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// if no files consumes and using generateEmptyExchangeWhenIdle option then process an empty exchange
 if|if
 condition|(
 name|rc
@@ -436,13 +439,13 @@ name|isDirectory
 argument_list|()
 condition|)
 block|{
+comment|// process the file
 return|return
 name|pollFile
 argument_list|(
 name|fileOrDirectory
 argument_list|)
 return|;
-comment|// process the file
 block|}
 elseif|else
 if|if
@@ -450,6 +453,7 @@ condition|(
 name|processDir
 condition|)
 block|{
+comment|// directory that can be recursive
 name|int
 name|rc
 init|=
@@ -463,15 +467,24 @@ name|fileOrDirectory
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|debug
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
 literal|"Polling directory "
 operator|+
 name|fileOrDirectory
 argument_list|)
 expr_stmt|;
+block|}
 name|File
 index|[]
 name|files
@@ -508,15 +521,24 @@ return|;
 block|}
 else|else
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|debug
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
 literal|"Skipping directory "
 operator|+
 name|fileOrDirectory
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|0
 return|;
@@ -533,6 +555,24 @@ name|File
 name|file
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Polling file: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -630,10 +670,10 @@ block|{
 comment|// is we use excluse read then acquire the exclusive read (waiting until we got it)
 if|if
 condition|(
-name|exclusiveRead
+name|exclusiveReadLock
 condition|)
 block|{
-name|acquireExclusiveRead
+name|acquireExclusiveReadLock
 argument_list|(
 name|file
 argument_list|)
@@ -816,7 +856,7 @@ name|debug
 argument_list|(
 name|endpoint
 operator|+
-literal|" cannot process file: "
+literal|" can not process file: "
 operator|+
 name|file
 argument_list|)
@@ -840,10 +880,11 @@ return|return
 literal|1
 return|;
 block|}
-DECL|method|acquireExclusiveRead (File file)
+comment|/**      * Acquires exclusive read lock to the given file. Will wait until the lock is granted.      * After granting the read lock it is realeased, we just want to make sure that when we start      * consuming the file its not currently in progress of being written by third party.      */
+DECL|method|acquireExclusiveReadLock (File file)
 specifier|protected
 name|void
-name|acquireExclusiveRead
+name|acquireExclusiveReadLock
 parameter_list|(
 name|File
 name|file
@@ -863,7 +904,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for exclusive lock to file: "
+literal|"Waiting for exclusive read lock to file: "
 operator|+
 name|file
 argument_list|)
@@ -898,15 +939,15 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Acquired exclusive lock: "
+literal|"Acquired exclusive read lock: "
 operator|+
 name|lock
 operator|+
@@ -932,7 +973,7 @@ name|close
 argument_list|(
 name|channel
 argument_list|,
-literal|"FileConsumer during acquiring of exclusive lock"
+literal|"FileConsumer during acquiring of exclusive read lock"
 argument_list|,
 name|LOG
 argument_list|)
@@ -1602,30 +1643,30 @@ operator|=
 name|unchangedSize
 expr_stmt|;
 block|}
-DECL|method|isExclusiveRead ()
+DECL|method|isExclusiveReadLock ()
 specifier|public
 name|boolean
-name|isExclusiveRead
+name|isExclusiveReadLock
 parameter_list|()
 block|{
 return|return
-name|exclusiveRead
+name|exclusiveReadLock
 return|;
 block|}
-DECL|method|setExclusiveRead (boolean exclusiveRead)
+DECL|method|setExclusiveReadLock (boolean exclusiveReadLock)
 specifier|public
 name|void
-name|setExclusiveRead
+name|setExclusiveReadLock
 parameter_list|(
 name|boolean
-name|exclusiveRead
+name|exclusiveReadLock
 parameter_list|)
 block|{
 name|this
 operator|.
-name|exclusiveRead
+name|exclusiveReadLock
 operator|=
-name|exclusiveRead
+name|exclusiveReadLock
 expr_stmt|;
 block|}
 block|}

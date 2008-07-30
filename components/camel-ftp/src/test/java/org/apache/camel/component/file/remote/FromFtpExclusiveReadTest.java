@@ -60,22 +60,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|commons
 operator|.
 name|logging
@@ -142,7 +126,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/slowfile?password=admin&consumer.exclusiveRead=true&consumer.delay=500"
+literal|"/slowfile?password=admin&consumer.exclusiveReadLock=true&consumer.delay=500"
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public

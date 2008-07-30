@@ -691,7 +691,7 @@ literal|"Unsupported type of FTPFile: "
 operator|+
 name|ftpFile
 operator|+
-literal|" (not a file or directory). Is skipped."
+literal|" (not a file or directory). It is skipped."
 argument_list|)
 expr_stmt|;
 block|}
@@ -803,10 +803,10 @@ decl_stmt|;
 comment|// is we use excluse read then acquire the exclusive read (waiting until we got it)
 if|if
 condition|(
-name|exclusiveRead
+name|exclusiveReadLock
 condition|)
 block|{
-name|acquireExclusiveRead
+name|acquireExclusiveReadLock
 argument_list|(
 name|client
 argument_list|,
@@ -1006,7 +1006,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not delete file: "
+literal|"Can not delete file: "
 operator|+
 name|ftpFile
 operator|.
@@ -1132,11 +1132,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Couldn't build directory: "
+literal|"Can not build directory: "
 operator|+
 name|directory
 operator|+
-literal|" (could be because of denied permissions)"
+literal|" (maybe because of denied permissions)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1165,7 +1165,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not move file: "
+literal|"Can not move file: "
 operator|+
 name|fromName
 operator|+
@@ -1186,10 +1186,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|acquireExclusiveRead (FTPClient client, FTPFile ftpFile)
+DECL|method|acquireExclusiveReadLock (FTPClient client, FTPFile ftpFile)
 specifier|protected
 name|void
-name|acquireExclusiveRead
+name|acquireExclusiveReadLock
 parameter_list|(
 name|FTPClient
 name|client
@@ -1212,7 +1212,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for exclusive lock to file: "
+literal|"Waiting for exclusive read lock to file: "
 operator|+
 name|ftpFile
 argument_list|)
@@ -1233,7 +1233,7 @@ name|newName
 init|=
 name|originalName
 operator|+
-literal|".camelExclusiveRead"
+literal|".camelExclusiveReadLock"
 decl_stmt|;
 name|boolean
 name|exclusive
@@ -1274,7 +1274,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Acquired exclusive lock to file: "
+literal|"Acquired exclusive read lock to file: "
 operator|+
 name|originalName
 argument_list|)
@@ -1297,7 +1297,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exclusive lock not granted. Sleeping for 1000 millis."
+literal|"Exclusive read lock not granted. Sleeping for 1000 millis."
 argument_list|)
 expr_stmt|;
 try|try

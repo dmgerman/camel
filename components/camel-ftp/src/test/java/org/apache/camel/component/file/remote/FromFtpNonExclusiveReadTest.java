@@ -142,7 +142,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/slowfile?password=admin&consumer.exclusiveRead=false&consumer.delay=500"
+literal|"/slowfile?password=admin&consumer.exclusiveReadLock=false&consumer.delay=500"
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public

@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileOutputStream
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -142,7 +132,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/slowfile?password=admin&binary=false&consumer.exclusiveRead=true&consumer.delay=500"
+literal|"/slowfile?password=admin&binary=false&consumer.exclusiveReadLock=true&consumer.delay=500"
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public
