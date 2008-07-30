@@ -22,16 +22,6 @@ name|javax
 operator|.
 name|management
 operator|.
-name|InstanceNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|management
-operator|.
 name|ObjectName
 import|;
 end_import
@@ -133,8 +123,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
+comment|// default is platform mbs
+name|assertNotNull
+argument_list|(
 name|mbsc
 operator|.
 name|getMBeanInfo
@@ -145,22 +136,8 @@ argument_list|(
 literal|"java.lang:type=OperatingSystem"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
-comment|// should not get here
-block|}
-catch|catch
-parameter_list|(
-name|InstanceNotFoundException
-name|e
-parameter_list|)
-block|{
-comment|// expect exception since this is not a platform mbean server
-block|}
 block|}
 block|}
 end_class

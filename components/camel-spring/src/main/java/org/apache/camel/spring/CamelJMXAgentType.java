@@ -215,6 +215,10 @@ DECL|field|usePlatformMBeanServer
 specifier|private
 name|Boolean
 name|usePlatformMBeanServer
+init|=
+name|Boolean
+operator|.
+name|TRUE
 decl_stmt|;
 DECL|method|getConnectorPort ()
 specifier|public

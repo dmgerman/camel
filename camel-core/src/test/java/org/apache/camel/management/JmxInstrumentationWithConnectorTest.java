@@ -113,6 +113,18 @@ argument_list|,
 literal|"True"
 argument_list|)
 expr_stmt|;
+comment|// need to explicit set it to false to use non-platform mbs
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|USE_PLATFORM_MBS
+argument_list|,
+literal|"False"
+argument_list|)
+expr_stmt|;
 name|System
 operator|.
 name|setProperty
@@ -156,6 +168,15 @@ argument_list|(
 name|JmxSystemPropertyKeys
 operator|.
 name|CREATE_CONNECTOR
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|USE_PLATFORM_MBS
 argument_list|)
 expr_stmt|;
 if|if

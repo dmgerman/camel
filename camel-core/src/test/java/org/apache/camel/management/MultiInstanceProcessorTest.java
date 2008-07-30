@@ -128,6 +128,17 @@ name|Exception
 block|{
 if|if
 condition|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|USE_PLATFORM_MBS
+argument_list|)
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|Boolean
 operator|.

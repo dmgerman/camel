@@ -168,18 +168,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getDomainName ()
-specifier|protected
-name|String
-name|getDomainName
-parameter_list|()
-block|{
-return|return
-literal|"org.apache.camel.test"
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|ClassPathXmlApplicationContext

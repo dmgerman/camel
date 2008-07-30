@@ -116,16 +116,6 @@ name|javax
 operator|.
 name|management
 operator|.
-name|InstanceAlreadyExistsException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|management
-operator|.
 name|JMException
 import|;
 end_import
@@ -476,6 +466,8 @@ DECL|field|usePlatformMBeanServer
 specifier|private
 name|Boolean
 name|usePlatformMBeanServer
+init|=
+literal|true
 decl_stmt|;
 DECL|field|createConnector
 specifier|private
@@ -612,10 +604,18 @@ name|CREATE_CONNECTOR
 argument_list|)
 expr_stmt|;
 block|}
+comment|// "Use platform mbean server" is true by default
 if|if
 condition|(
-name|usePlatformMBeanServer
-operator|==
+name|System
+operator|.
+name|getProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|USE_PLATFORM_MBS
+argument_list|)
+operator|!=
 literal|null
 condition|)
 block|{
@@ -1400,15 +1400,6 @@ block|{
 comment|// return platform mbean server if the option is specified.
 if|if
 condition|(
-name|Boolean
-operator|.
-name|getBoolean
-argument_list|(
-name|JmxSystemPropertyKeys
-operator|.
-name|USE_PLATFORM_MBS
-argument_list|)
-operator|||
 name|usePlatformMBeanServer
 condition|)
 block|{

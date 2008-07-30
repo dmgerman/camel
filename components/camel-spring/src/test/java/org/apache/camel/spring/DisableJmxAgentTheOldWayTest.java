@@ -40,7 +40,7 @@ specifier|public
 class|class
 name|DisableJmxAgentTheOldWayTest
 extends|extends
-name|DefaultJMXAgentTest
+name|DisableJmxAgentTest
 block|{
 annotation|@
 name|Override
@@ -57,20 +57,6 @@ argument_list|(
 literal|"org/apache/camel/spring/disableJmxTheOldWayConfig.xml"
 argument_list|)
 return|;
-block|}
-DECL|method|testGetJMXConnector ()
-specifier|public
-name|void
-name|testGetJMXConnector
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertNull
-argument_list|(
-name|mbsc
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class
