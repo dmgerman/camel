@@ -2381,7 +2381,7 @@ name|SystemHelper
 operator|.
 name|isSystemProperty
 argument_list|(
-literal|"canel.trace"
+literal|"camel.trace"
 argument_list|)
 return|;
 block|}
