@@ -344,6 +344,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|instance
+specifier|private
+specifier|static
+name|Main
+name|instance
+decl_stmt|;
 DECL|field|applicationContextUri
 specifier|private
 name|String
@@ -851,15 +857,36 @@ modifier|...
 name|args
 parameter_list|)
 block|{
+name|Main
+name|main
+init|=
 operator|new
 name|Main
 argument_list|()
+decl_stmt|;
+name|instance
+operator|=
+name|main
+expr_stmt|;
+name|main
 operator|.
 name|run
 argument_list|(
 name|args
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Returns the currently executing main      *      * @return      */
+DECL|method|getInstance ()
+specifier|public
+specifier|static
+name|Main
+name|getInstance
+parameter_list|()
+block|{
+return|return
+name|instance
+return|;
 block|}
 comment|/**      * Parses the command line arguments then runs the program      */
 DECL|method|run (String[] args)
