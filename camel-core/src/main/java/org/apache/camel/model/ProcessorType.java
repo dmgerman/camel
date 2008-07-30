@@ -4833,9 +4833,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|IllegalArgumentException
 argument_list|(
-literal|"target not provided."
+literal|"target not provided on node: "
+operator|+
+name|this
 argument_list|)
 throw|;
 block|}
@@ -5095,9 +5097,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|IllegalArgumentException
 argument_list|(
-literal|"target not provided."
+literal|"target not provided on node: "
+operator|+
+name|this
 argument_list|)
 throw|;
 block|}
