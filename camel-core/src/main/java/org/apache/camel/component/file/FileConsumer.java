@@ -1394,6 +1394,21 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+comment|// folders/names starting with dot is always skipped (eg. ".", ".camel", ".camelLock")
+if|if
+condition|(
+name|name
+operator|.
+name|startsWith
+argument_list|(
+literal|"."
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 if|if
 condition|(
 name|regexPattern
@@ -1415,8 +1430,7 @@ name|name
 operator|.
 name|matches
 argument_list|(
-name|getRegexPattern
-argument_list|()
+name|regexPattern
 argument_list|)
 condition|)
 block|{
