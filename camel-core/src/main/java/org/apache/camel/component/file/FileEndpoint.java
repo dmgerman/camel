@@ -326,6 +326,16 @@ name|String
 index|[]
 name|excludedNamePostfixes
 decl_stmt|;
+DECL|field|excludedNamePrefix
+specifier|private
+name|String
+name|excludedNamePrefix
+decl_stmt|;
+DECL|field|excludedNamePostfix
+specifier|private
+name|String
+name|excludedNamePostfix
+decl_stmt|;
 DECL|field|bufferSize
 specifier|private
 name|int
@@ -896,7 +906,7 @@ return|return
 name|excludedNamePrefixes
 return|;
 block|}
-comment|/**      * Sets the excluded file name prefixes, such as<tt>"."</tt> for hidden files which      * are excluded by default      */
+comment|/**      * Sets the excluded file name prefixes, such as<tt>"."</tt> for hidden files which      * are excluded by default      *      * @deprecated use ExcludedNamePrefix. Will be removed in Camel 2.0.      */
 DECL|method|setExcludedNamePrefixes (String[] excludedNamePrefixes)
 specifier|public
 name|void
@@ -925,7 +935,7 @@ return|return
 name|excludedNamePostfixes
 return|;
 block|}
-comment|/**      * Sets the excluded file name postfixes, such as {@link FileProcessStrategySupport#DEFAULT_LOCK_FILE_POSTFIX}      * to ignore lock files by default.      */
+comment|/**      * Sets the excluded file name postfixes, such as {@link FileProcessStrategySupport#DEFAULT_LOCK_FILE_POSTFIX}      * to ignore lock files by default.      *      * @deprecated use ExcludedNamePostfix. Will be removed in Camel 2.0.      */
 DECL|method|setExcludedNamePostfixes (String[] excludedNamePostfixes)
 specifier|public
 name|void
@@ -1049,6 +1059,58 @@ operator|.
 name|ignoreFileNameHeader
 operator|=
 name|ignoreFileNameHeader
+expr_stmt|;
+block|}
+DECL|method|getExcludedNamePrefix ()
+specifier|public
+name|String
+name|getExcludedNamePrefix
+parameter_list|()
+block|{
+return|return
+name|excludedNamePrefix
+return|;
+block|}
+DECL|method|setExcludedNamePrefix (String excludedNamePrefix)
+specifier|public
+name|void
+name|setExcludedNamePrefix
+parameter_list|(
+name|String
+name|excludedNamePrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|excludedNamePrefix
+operator|=
+name|excludedNamePrefix
+expr_stmt|;
+block|}
+DECL|method|getExcludedNamePostfix ()
+specifier|public
+name|String
+name|getExcludedNamePostfix
+parameter_list|()
+block|{
+return|return
+name|excludedNamePostfix
+return|;
+block|}
+DECL|method|setExcludedNamePostfix (String excludedNamePostfix)
+specifier|public
+name|void
+name|setExcludedNamePostfix
+parameter_list|(
+name|String
+name|excludedNamePostfix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|excludedNamePostfix
+operator|=
+name|excludedNamePostfix
 expr_stmt|;
 block|}
 comment|/**      * A strategy method to lazily create the file strategy      */

@@ -172,6 +172,16 @@ specifier|protected
 name|String
 name|moveNamePostfix
 decl_stmt|;
+DECL|field|excludedNamePrefix
+specifier|protected
+name|String
+name|excludedNamePrefix
+decl_stmt|;
+DECL|field|excludedNamePostfix
+specifier|protected
+name|String
+name|excludedNamePostfix
+decl_stmt|;
 DECL|method|RemoteFileConsumer (RemoteFileEndpoint<T> endpoint, Processor processor)
 specifier|public
 name|RemoteFileConsumer
@@ -238,7 +248,7 @@ name|Object
 name|file
 parameter_list|)
 function_decl|;
-comment|/**      * Is the given file matched to be consumed (will consider regexp if provided as an option).      *<p/>      * Note: Returns true if no reg exp is used.      */
+comment|/**      * Is the given file matched to be consumed.      */
 DECL|method|isMatched (Object file)
 specifier|protected
 name|boolean
@@ -249,18 +259,28 @@ name|file
 parameter_list|)
 block|{
 name|String
-name|fileName
+name|name
 init|=
 name|getFileName
 argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
-name|boolean
-name|result
-init|=
-literal|true
-decl_stmt|;
+comment|// folders/names starting with dot is always skipped (eg. ".", ".camel", ".camelLock")
+if|if
+condition|(
+name|name
+operator|.
+name|startsWith
+argument_list|(
+literal|"."
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 if|if
 condition|(
 name|regexPattern
@@ -275,40 +295,68 @@ operator|>
 literal|0
 condition|)
 block|{
-name|result
-operator|=
-name|fileName
+if|if
+condition|(
+operator|!
+name|name
 operator|.
 name|matches
 argument_list|(
 name|regexPattern
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 if|if
 condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
+name|excludedNamePrefix
+operator|!=
+literal|null
 condition|)
 block|{
-name|LOG
+if|if
+condition|(
+name|name
 operator|.
-name|trace
+name|startsWith
 argument_list|(
-literal|"Matching file: "
-operator|+
-name|fileName
-operator|+
-literal|" is "
-operator|+
-name|result
+name|excludedNamePrefix
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+if|if
+condition|(
+name|excludedNamePostfix
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|name
+operator|.
+name|endsWith
+argument_list|(
+name|excludedNamePostfix
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 return|return
-name|result
+literal|true
 return|;
 block|}
 comment|/**      * Should the file be moved after consuming?      */
@@ -328,7 +376,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Gets the to filename for moving.      *       * @param name the original filename      * @return the move filename      */
+comment|/**      * Gets the to filename for moving.      *      * @param name the original filename      * @return the move filename      */
 DECL|method|getMoveFileName (String name)
 specifier|protected
 name|String
@@ -611,6 +659,58 @@ operator|.
 name|moveNamePostfix
 operator|=
 name|moveNamePostfix
+expr_stmt|;
+block|}
+DECL|method|getExcludedNamePrefix ()
+specifier|public
+name|String
+name|getExcludedNamePrefix
+parameter_list|()
+block|{
+return|return
+name|excludedNamePrefix
+return|;
+block|}
+DECL|method|setExcludedNamePrefix (String excludedNamePrefix)
+specifier|public
+name|void
+name|setExcludedNamePrefix
+parameter_list|(
+name|String
+name|excludedNamePrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|excludedNamePrefix
+operator|=
+name|excludedNamePrefix
+expr_stmt|;
+block|}
+DECL|method|getExcludedNamePostfix ()
+specifier|public
+name|String
+name|getExcludedNamePostfix
+parameter_list|()
+block|{
+return|return
+name|excludedNamePostfix
+return|;
+block|}
+DECL|method|setExcludedNamePostfix (String excludedNamePostfix)
+specifier|public
+name|void
+name|setExcludedNamePostfix
+parameter_list|(
+name|String
+name|excludedNamePostfix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|excludedNamePostfix
+operator|=
+name|excludedNamePostfix
 expr_stmt|;
 block|}
 block|}
