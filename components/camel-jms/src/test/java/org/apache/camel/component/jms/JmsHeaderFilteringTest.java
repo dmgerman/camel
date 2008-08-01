@@ -19,24 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsComponent
-operator|.
-name|jmsComponentClientAcknowledge
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -196,6 +178,24 @@ name|DefaultHeaderFilterStrategy
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsComponent
+operator|.
+name|jmsComponentClientAcknowledge
+import|;
+end_import
+
 begin_comment
 comment|/**  *  * @version $Revision$  */
 end_comment
@@ -219,7 +219,6 @@ literal|"(org_apache_camel)[_|a-z|A-Z|0-9]*(test)[_|a-z|A-Z|0-9]*"
 decl_stmt|;
 DECL|field|componentName
 specifier|private
-specifier|static
 specifier|final
 name|String
 name|componentName
@@ -228,7 +227,6 @@ literal|"jms"
 decl_stmt|;
 DECL|field|testQueueEndpointA
 specifier|private
-specifier|static
 specifier|final
 name|String
 name|testQueueEndpointA
@@ -239,7 +237,6 @@ literal|":queue:test.a"
 decl_stmt|;
 DECL|field|testQueueEndpointB
 specifier|private
-specifier|static
 specifier|final
 name|String
 name|testQueueEndpointB
@@ -250,7 +247,6 @@ literal|":queue:test.b"
 decl_stmt|;
 DECL|field|assertionReceiver
 specifier|private
-specifier|static
 specifier|final
 name|String
 name|assertionReceiver

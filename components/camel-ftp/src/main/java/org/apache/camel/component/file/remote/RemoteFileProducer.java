@@ -107,12 +107,12 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-DECL|field|LOG
+DECL|field|log
 specifier|protected
 specifier|final
 specifier|transient
 name|Log
-name|LOG
+name|log
 init|=
 name|LogFactory
 operator|.
@@ -294,7 +294,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -319,7 +319,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -340,7 +340,7 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore just log a warning
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(

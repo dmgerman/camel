@@ -137,7 +137,7 @@ specifier|private
 name|CxfHeaderHelper
 parameter_list|()
 block|{     }
-comment|/**      * Progagates Camel headers to CXF message.      *       * @param strategy header filter strategy      * @param headers Camel header      * @param message CXF meassage      */
+comment|/**      * Progagates Camel headers to CXF message.      *      * @param strategy header filter strategy      * @param headers Camel header      * @param message CXF meassage      */
 DECL|method|propagateCamelToCxf (HeaderFilterStrategy strategy, Map<String, Object> headers, Message message)
 specifier|public
 specifier|static

@@ -494,7 +494,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/*      * Exclude a set of headers from responses and new requests as all headers      * get propagated between exchanges by default      *           * @deprecated please use {@link HeaderPropagationStrategy} instead      *       */
+comment|/*      * Exclude a set of headers from responses and new requests as all headers      * get propagated between exchanges by default      *      * @deprecated please use {@link HeaderPropagationStrategy} instead      *      */
 annotation|@
 name|Deprecated
 DECL|method|shouldHeaderBePropagated (String headerName, String headerValue)
@@ -536,7 +536,7 @@ name|headerValue
 argument_list|)
 return|;
 block|}
-comment|/*      * override the set of headers to ignore for responses and new requests      * @param headersToIgnore should be a set of lower-case strings      *       * @deprecated please use {@link HeaderPropagationStrategy} instead      *       */
+comment|/*      * override the set of headers to ignore for responses and new requests      * @param headersToIgnore should be a set of lower-case strings      *      * @deprecated please use {@link HeaderPropagationStrategy} instead      *      */
 annotation|@
 name|Deprecated
 DECL|method|setIgnoredHeaders (Set<String> headersToIgnore)
