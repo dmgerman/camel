@@ -765,6 +765,50 @@ init|=
 name|getClassLoaders
 argument_list|()
 decl_stmt|;
+name|ClassLoader
+name|osgiClassLoader
+init|=
+name|getOsgiClassLoader
+argument_list|(
+name|set
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|osgiClassLoader
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// if we have an osgi bundle loader use this one only
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using only osgi bundle classloader"
+argument_list|)
+expr_stmt|;
+name|find
+argument_list|(
+name|test
+argument_list|,
+name|packageName
+argument_list|,
+name|osgiClassLoader
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using only regular classloaders"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|ClassLoader
@@ -773,6 +817,15 @@ range|:
 name|set
 control|)
 block|{
+if|if
+condition|(
+operator|!
+name|isOsgiClassloader
+argument_list|(
+name|classLoader
+argument_list|)
+condition|)
+block|{
 name|find
 argument_list|(
 name|test
@@ -780,11 +833,110 @@ argument_list|,
 name|packageName
 argument_list|,
 name|classLoader
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|find (Test test, String packageName, ClassLoader loader)
+block|}
+block|}
+comment|/**      * Gets the osgi classloader if any in the given set      */
+DECL|method|getOsgiClassLoader (Set<ClassLoader> set)
+specifier|private
+specifier|static
+name|ClassLoader
+name|getOsgiClassLoader
+parameter_list|(
+name|Set
+argument_list|<
+name|ClassLoader
+argument_list|>
+name|set
+parameter_list|)
+block|{
+for|for
+control|(
+name|ClassLoader
+name|loader
+range|:
+name|set
+control|)
+block|{
+if|if
+condition|(
+name|isOsgiClassloader
+argument_list|(
+name|loader
+argument_list|)
+condition|)
+block|{
+return|return
+name|loader
+return|;
+block|}
+block|}
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * Is it an osgi classloader      */
+DECL|method|isOsgiClassloader (ClassLoader loader)
+specifier|private
+specifier|static
+name|boolean
+name|isOsgiClassloader
+parameter_list|(
+name|ClassLoader
+name|loader
+parameter_list|)
+block|{
+try|try
+block|{
+name|Method
+name|mth
+init|=
+name|loader
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getMethod
+argument_list|(
+literal|"getBundle"
+argument_list|,
+operator|new
+name|Class
+index|[]
+block|{}
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|mth
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchMethodException
+name|e
+parameter_list|)
+block|{
+comment|// ignore its not an osgi loader
+block|}
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Tries to find the reosurce in the package using the class loader.      *<p/>      * Will handle both plain URL based classloaders and OSGi bundle loaders.      *      * @param test what to find      * @param packageName the package to search in      * @param loader the class loader      * @param osgi true if its a osgi bundle loader, false if regular classloader      */
+DECL|method|find (Test test, String packageName, ClassLoader loader, boolean osgi)
 specifier|protected
 name|void
 name|find
@@ -797,6 +949,9 @@ name|packageName
 parameter_list|,
 name|ClassLoader
 name|loader
+parameter_list|,
+name|boolean
+name|osgi
 parameter_list|)
 block|{
 if|if
@@ -828,36 +983,18 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|" osgi bundle classloader: "
+operator|+
+name|osgi
 argument_list|)
 expr_stmt|;
 block|}
 if|if
 condition|(
-name|loader
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|endsWith
-argument_list|(
-literal|"org.apache.felix.framework.searchpolicy.ContentClassLoader"
-argument_list|)
+name|osgi
 condition|)
 block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"This is not an URL classloader, skipping"
-argument_list|)
-expr_stmt|;
-comment|//this classloader is in OSGI env which is not URLClassloader, we should resort to the
-comment|//BundleDelegatingClassLoader in OSGI, so just return
-return|return;
-block|}
 try|try
 block|{
 name|Method
@@ -885,7 +1022,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// it's osgi bundle class loader, so we need to load implementation in bundles
 if|if
 condition|(
 name|LOG
@@ -926,11 +1062,15 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|trace
+name|warn
 argument_list|(
-literal|"It's not an osgi bundle classloader"
+literal|"It's not an osgi bundle classloader: "
+operator|+
+name|loader
 argument_list|)
 expr_stmt|;
+return|return;
+block|}
 block|}
 name|Enumeration
 argument_list|<
