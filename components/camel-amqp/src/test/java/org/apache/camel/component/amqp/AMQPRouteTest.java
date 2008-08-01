@@ -179,6 +179,12 @@ argument_list|(
 name|expectedBody
 argument_list|)
 expr_stmt|;
+comment|// send the message twice to walk around the AMQP's drop first message issue on Windows box
+name|sendExchange
+argument_list|(
+name|expectedBody
+argument_list|)
+expr_stmt|;
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
@@ -294,6 +300,12 @@ argument_list|(
 literal|123
 argument_list|)
 expr_stmt|;
+name|sendExchange
+argument_list|(
+name|expectedBody
+argument_list|)
+expr_stmt|;
+comment|// send the message twice to walk around the AMQP's drop first message issue on Windows box
 name|sendExchange
 argument_list|(
 name|expectedBody
