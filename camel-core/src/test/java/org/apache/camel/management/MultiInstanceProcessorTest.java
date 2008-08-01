@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A unit test to verify mbean registration of multi-instances of a processor   *  * @version $Revision$  */
+comment|/**  * A unit test to verify mbean registration of multi-instances of a processor  *  * @version $Revision$  */
 end_comment
 
 begin_class
