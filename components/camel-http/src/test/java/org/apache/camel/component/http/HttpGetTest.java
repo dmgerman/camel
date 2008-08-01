@@ -121,7 +121,7 @@ specifier|protected
 name|String
 name|expectedText
 init|=
-literal|"<html"
+literal|"activemq"
 decl_stmt|;
 DECL|method|testHttpGet ()
 specifier|public
