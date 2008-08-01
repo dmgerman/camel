@@ -143,13 +143,13 @@ name|Exception
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -196,7 +196,7 @@ argument_list|()
 condition|)
 block|{
 comment|// if we are stopping then ignore any exception during a poll
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -221,7 +221,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -272,13 +272,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -301,7 +301,7 @@ name|getConfiguration
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -323,13 +323,13 @@ name|IOException
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -435,7 +435,7 @@ name|directory
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -481,7 +481,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(

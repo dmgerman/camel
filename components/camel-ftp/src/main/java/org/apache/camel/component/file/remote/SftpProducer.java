@@ -146,13 +146,13 @@ name|Exception
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -199,7 +199,7 @@ argument_list|()
 condition|)
 block|{
 comment|// if we are stopping then ignore any exception during a poll
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -224,7 +224,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -290,7 +290,7 @@ name|isConnected
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -310,7 +310,7 @@ name|connect
 argument_list|()
 expr_stmt|;
 block|}
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -331,7 +331,7 @@ operator|.
 name|connect
 argument_list|()
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -358,13 +358,13 @@ name|JSchException
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -505,7 +505,7 @@ operator|!
 name|success
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -527,7 +527,7 @@ argument_list|,
 name|fileName
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(

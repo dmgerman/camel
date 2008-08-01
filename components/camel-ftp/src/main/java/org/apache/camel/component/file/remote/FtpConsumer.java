@@ -214,7 +214,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -235,7 +235,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -256,7 +256,7 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore just log a warning
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -309,13 +309,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -338,7 +338,7 @@ name|getConfiguration
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -358,7 +358,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -386,13 +386,13 @@ name|Exception
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -530,7 +530,7 @@ argument_list|()
 condition|)
 block|{
 comment|// if we are stopping then ignore any exception during a poll
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -555,7 +555,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -600,13 +600,13 @@ name|Exception
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -683,7 +683,7 @@ block|}
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -752,13 +752,13 @@ return|return;
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -837,13 +837,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -919,13 +919,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -958,13 +958,13 @@ block|{
 comment|// delete file after consuming
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1002,7 +1002,7 @@ name|deleted
 condition|)
 block|{
 comment|// ignore just log a warning
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1046,13 +1046,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1128,7 +1128,7 @@ name|directory
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1161,7 +1161,7 @@ operator|!
 name|success
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -1202,13 +1202,13 @@ name|IOException
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1264,13 +1264,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1293,7 +1293,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
