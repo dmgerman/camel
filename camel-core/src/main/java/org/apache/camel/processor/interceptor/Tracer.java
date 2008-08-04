@@ -115,19 +115,19 @@ operator|new
 name|TraceFormatter
 argument_list|()
 decl_stmt|;
-DECL|field|isEnabled
+DECL|field|enabled
 specifier|private
 name|boolean
-name|isEnabled
+name|enabled
 init|=
 literal|true
 decl_stmt|;
 comment|/**      * A helper method to return the Tracer instance for a given {@link CamelContext} if one is enabled      *      * @param context the camel context the debugger is connected to      * @return the debugger or null if none can be found      */
-DECL|method|getDebugger (CamelContext context)
+DECL|method|getTracer (CamelContext context)
 specifier|public
 specifier|static
 name|Tracer
-name|getDebugger
+name|getTracer
 parameter_list|(
 name|CamelContext
 name|context
@@ -249,18 +249,18 @@ operator|=
 name|formatter
 expr_stmt|;
 block|}
-DECL|method|setEnabled (boolean enabled)
+DECL|method|setEnabled (boolean flag)
 specifier|public
 name|void
 name|setEnabled
 parameter_list|(
 name|boolean
-name|enabled
+name|flag
 parameter_list|)
 block|{
-name|isEnabled
-operator|=
 name|enabled
+operator|=
+name|flag
 expr_stmt|;
 block|}
 DECL|method|isEnabled ()
@@ -270,7 +270,7 @@ name|isEnabled
 parameter_list|()
 block|{
 return|return
-name|isEnabled
+name|enabled
 return|;
 block|}
 block|}
