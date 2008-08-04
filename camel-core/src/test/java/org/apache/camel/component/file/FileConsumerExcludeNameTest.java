@@ -107,9 +107,9 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Report 1"
+literal|"Reports"
 argument_list|,
-literal|"Report 2"
+literal|"Reports"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -129,7 +129,7 @@ block|{
 name|String
 name|url
 init|=
-literal|"file://target/exclude/"
+literal|"file://target/exclude"
 decl_stmt|;
 name|template
 operator|.
@@ -152,7 +152,7 @@ name|sendBodyAndHeader
 argument_list|(
 name|url
 argument_list|,
-literal|"Report 1"
+literal|"Reports"
 argument_list|,
 name|FileComponent
 operator|.
@@ -182,7 +182,7 @@ name|sendBodyAndHeader
 argument_list|(
 name|url
 argument_list|,
-literal|"Report 2"
+literal|"Reports"
 argument_list|,
 name|FileComponent
 operator|.
