@@ -161,6 +161,13 @@ name|traceExceptions
 init|=
 literal|true
 decl_stmt|;
+DECL|field|enabled
+specifier|private
+name|boolean
+name|enabled
+init|=
+literal|true
+decl_stmt|;
 DECL|method|DebugInterceptor (ProcessorType node, Processor target, List<Exchange> exchanges, List<ExceptionEvent> exceptions)
 specifier|public
 name|DebugInterceptor
@@ -235,6 +242,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isEnabled
+argument_list|()
+condition|)
+block|{
 name|checkForBreakpoint
 argument_list|(
 name|exchange
@@ -245,6 +258,7 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|super
@@ -299,6 +313,30 @@ block|{
 return|return
 name|node
 return|;
+block|}
+DECL|method|isEnabled ()
+specifier|public
+name|boolean
+name|isEnabled
+parameter_list|()
+block|{
+return|return
+name|enabled
+return|;
+block|}
+DECL|method|setEnabled (boolean flag)
+specifier|public
+name|void
+name|setEnabled
+parameter_list|(
+name|boolean
+name|flag
+parameter_list|)
+block|{
+name|enabled
+operator|=
+name|flag
+expr_stmt|;
 block|}
 DECL|method|getExchanges ()
 specifier|public
@@ -460,6 +498,9 @@ parameter_list|)
 block|{
 return|return
 name|isTraceExceptions
+argument_list|()
+operator|&&
+name|isEnabled
 argument_list|()
 return|;
 block|}
