@@ -170,7 +170,7 @@ name|getExchange
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the underlying XMPP message      *       * @return the underlying XMPP message      */
+comment|/**      * Returns the underlying XMPP message      */
 DECL|method|getXmppMessage ()
 specifier|public
 name|Message

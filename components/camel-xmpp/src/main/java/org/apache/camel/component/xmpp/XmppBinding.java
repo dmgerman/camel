@@ -208,7 +208,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Extracts the body from the XMPP message      *      * @param exchange      * @param message      */
+comment|/**      * Extracts the body from the XMPP message      */
 DECL|method|extractBodyFromXmpp (XmppExchange exchange, Message message)
 specifier|public
 name|Object

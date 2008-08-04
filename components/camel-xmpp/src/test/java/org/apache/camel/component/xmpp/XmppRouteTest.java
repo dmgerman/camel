@@ -219,7 +219,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An integration test which requires a Jabber server to be running, by default on localhost.  *<p/>  * You can overload the<b>xmpp.url</b> system property to define the jabber connection URI  * to something like<b>xmpp://camel@localhost/?login=false&room=</b>  *  * @version $Revision$  */
+comment|/**  * An integration test which requires a Jabber server to be running, by default on localhost.  *<p/>  * You can overload the<b>xmpp.url</b> system property to define the jabber connection URI  * to something like<b>xmpp://camel@localhost/?login=false&room=</b>  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -603,7 +603,7 @@ argument_list|()
 condition|)
 block|{
 name|String
-name|uriPrefx
+name|uriPrefix
 init|=
 name|getUriPrefix
 argument_list|()
@@ -612,17 +612,25 @@ specifier|final
 name|String
 name|uri1
 init|=
-name|uriPrefx
+name|uriPrefix
 operator|+
-literal|"a"
+literal|"&resource=camel-test-from&nickname=came-test-from"
 decl_stmt|;
 specifier|final
 name|String
 name|uri2
 init|=
-name|uriPrefx
+name|uriPrefix
 operator|+
-literal|"b"
+literal|"&resource=camel-test-to&nickname=came-test-to"
+decl_stmt|;
+specifier|final
+name|String
+name|uri3
+init|=
+name|uriPrefix
+operator|+
+literal|"&resource=camel-test-from-processor&nickname=came-test-from-processor"
 decl_stmt|;
 name|LOG
 operator|.
@@ -635,6 +643,22 @@ operator|+
 literal|" and "
 operator|+
 name|uri2
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|=
+name|container
+operator|.
+name|getEndpoint
+argument_list|(
+name|uri1
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"No endpoint found!"
+argument_list|,
+name|endpoint
 argument_list|)
 expr_stmt|;
 comment|// lets add some routes
@@ -663,7 +687,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-name|uri2
+name|uri3
 argument_list|)
 operator|.
 name|process
@@ -707,22 +731,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|=
-name|container
-operator|.
-name|getEndpoint
-argument_list|(
-name|uri1
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"No endpoint found!"
-argument_list|,
-name|endpoint
 argument_list|)
 expr_stmt|;
 block|}

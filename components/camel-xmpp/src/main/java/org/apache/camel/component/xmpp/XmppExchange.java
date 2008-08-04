@@ -186,8 +186,6 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|getIn ()
 specifier|public
 name|XmppMessage
