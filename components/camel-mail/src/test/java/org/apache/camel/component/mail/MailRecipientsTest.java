@@ -86,6 +86,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Mailbox
+operator|.
+name|clearAll
+argument_list|()
+expr_stmt|;
 name|sendBody
 argument_list|(
 literal|"direct:a"

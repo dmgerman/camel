@@ -220,6 +220,11 @@ throws|throws
 name|Exception
 block|{
 comment|// connect to mailbox
+name|Mailbox
+operator|.
+name|clearAll
+argument_list|()
+expr_stmt|;
 name|JavaMailSenderImpl
 name|sender
 init|=

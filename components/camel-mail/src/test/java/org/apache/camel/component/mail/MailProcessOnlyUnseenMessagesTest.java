@@ -126,6 +126,18 @@ name|JavaMailSenderImpl
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jvnet
+operator|.
+name|mock_javamail
+operator|.
+name|Mailbox
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for processOnlyUnseenMessages option.  */
 end_comment
@@ -226,6 +238,11 @@ throws|throws
 name|Exception
 block|{
 comment|// connect to mailbox
+name|Mailbox
+operator|.
+name|clearAll
+argument_list|()
+expr_stmt|;
 name|JavaMailSenderImpl
 name|sender
 init|=

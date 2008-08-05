@@ -289,6 +289,13 @@ specifier|private
 name|boolean
 name|dummyTrustManager
 decl_stmt|;
+DECL|field|contentType
+specifier|private
+name|String
+name|contentType
+init|=
+literal|"text/plain"
+decl_stmt|;
 DECL|method|MailConfiguration ()
 specifier|public
 name|MailConfiguration
@@ -1591,6 +1598,32 @@ operator|.
 name|dummyTrustManager
 operator|=
 name|dummyTrustManager
+expr_stmt|;
+block|}
+DECL|method|getContentType ()
+specifier|public
+name|String
+name|getContentType
+parameter_list|()
+block|{
+return|return
+name|contentType
+return|;
+block|}
+DECL|method|setContentType (String contentType)
+specifier|public
+name|void
+name|setContentType
+parameter_list|(
+name|String
+name|contentType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contentType
+operator|=
+name|contentType
 expr_stmt|;
 block|}
 block|}
