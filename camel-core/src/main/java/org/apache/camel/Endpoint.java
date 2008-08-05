@@ -24,20 +24,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategy
-import|;
-end_import
-
 begin_comment
 comment|/**  * An<a href="http://activemq.apache.org/camel/endpoint.html">endpoint</a>  * implements the<a  * href="http://activemq.apache.org/camel/message-endpoint.html">Message  * Endpoint</a> pattern and represents an endpoint that can send and receive  * message exchanges  *  * @see Exchange  * @see Message  * @version $Revision$  */
 end_comment
@@ -146,12 +132,6 @@ parameter_list|(
 name|CamelContext
 name|context
 parameter_list|)
-function_decl|;
-comment|/**      * @return the header propagation strategy      */
-DECL|method|getHeaderFilterStrategy ()
-name|HeaderFilterStrategy
-name|getHeaderFilterStrategy
-parameter_list|()
 function_decl|;
 annotation|@
 name|Deprecated

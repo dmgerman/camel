@@ -90,6 +90,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|HeaderFilterStrategyAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|jms
@@ -111,6 +123,20 @@ operator|.
 name|impl
 operator|.
 name|DefaultComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategy
 import|;
 end_import
 
@@ -326,6 +352,8 @@ name|JmsExchange
 argument_list|>
 implements|implements
 name|ApplicationContextAware
+implements|,
+name|HeaderFilterStrategyAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -377,6 +405,11 @@ DECL|field|attemptedToCreateQueueBrowserStrategy
 specifier|private
 name|boolean
 name|attemptedToCreateQueueBrowserStrategy
+decl_stmt|;
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
 decl_stmt|;
 DECL|method|JmsComponent ()
 specifier|public
@@ -2077,6 +2110,32 @@ name|type
 argument_list|)
 return|;
 block|}
+block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|headerFilterStrategy
+return|;
+block|}
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|strategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|strategy
+expr_stmt|;
 block|}
 block|}
 end_class

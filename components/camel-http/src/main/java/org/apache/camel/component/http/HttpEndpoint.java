@@ -118,6 +118,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|httpclient
@@ -553,6 +567,19 @@ expr_stmt|;
 block|}
 return|return
 name|binding
+return|;
+block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|component
+operator|.
+name|getHeaderFilterStrategy
+argument_list|()
 return|;
 block|}
 DECL|method|setBinding (HttpBinding binding)

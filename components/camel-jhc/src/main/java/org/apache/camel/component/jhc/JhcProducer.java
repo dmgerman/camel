@@ -1182,8 +1182,13 @@ comment|// propagate headers as HTTP headers
 name|HeaderFilterStrategy
 name|strategy
 init|=
+operator|(
+operator|(
+name|JhcEndpoint
+operator|)
 name|getEndpoint
 argument_list|()
+operator|)
 operator|.
 name|getHeaderFilterStrategy
 argument_list|()

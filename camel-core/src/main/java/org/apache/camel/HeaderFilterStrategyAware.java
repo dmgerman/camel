@@ -14,49 +14,42 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategy
+import|;
+end_import
+
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/component.html">component</a> is  * a factory of {@link Endpoint} objects.  *   * @version $Revision$  */
+comment|/**  * An interface to represent an object which can make use of  * injected {@link HeaderFilterStrategy}.  *   * @since 1.5  * @version $Revision$  */
 end_comment
 
 begin_interface
-DECL|interface|Component
+DECL|interface|HeaderFilterStrategyAware
 specifier|public
 interface|interface
-name|Component
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
+name|HeaderFilterStrategyAware
 block|{
-comment|/**      * Returns the context      *       * @return the context of this component      */
-DECL|method|getCamelContext ()
-name|CamelContext
-name|getCamelContext
+DECL|method|getHeaderFilterStrategy ()
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
 parameter_list|()
 function_decl|;
-comment|/**      * The {@link CamelContext} is injected into the component when it is added      * to it      */
-DECL|method|setCamelContext (CamelContext context)
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 name|void
-name|setCamelContext
+name|setHeaderFilterStrategy
 parameter_list|(
-name|CamelContext
-name|context
+name|HeaderFilterStrategy
+name|strategy
 parameter_list|)
-function_decl|;
-comment|/**      * Attempt to resolve an endpoint for the given URI if the component is      * capable of handling the URI      *       * @param uri the URI to create      * @return a newly created endpoint or null if this component cannot create      *         instances of the given uri      */
-DECL|method|createEndpoint (String uri)
-name|Endpoint
-argument_list|<
-name|E
-argument_list|>
-name|createEndpoint
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-throws|throws
-name|Exception
 function_decl|;
 block|}
 end_interface

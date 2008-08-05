@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|HeaderFilterStrategyAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ResolveEndpointFailedException
 import|;
 end_import
@@ -73,6 +85,20 @@ operator|.
 name|impl
 operator|.
 name|DefaultComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategy
 import|;
 end_import
 
@@ -148,6 +174,8 @@ name|DefaultComponent
 argument_list|<
 name|HttpExchange
 argument_list|>
+implements|implements
+name|HeaderFilterStrategyAware
 block|{
 DECL|field|httpClientConfigurer
 specifier|private
@@ -162,6 +190,11 @@ init|=
 operator|new
 name|MultiThreadedHttpConnectionManager
 argument_list|()
+decl_stmt|;
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
 decl_stmt|;
 DECL|method|HttpComponent ()
 specifier|public
@@ -383,6 +416,30 @@ block|{
 return|return
 literal|false
 return|;
+block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|headerFilterStrategy
+return|;
+block|}
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|strategy
+parameter_list|)
+block|{
+name|headerFilterStrategy
+operator|=
+name|strategy
+expr_stmt|;
 block|}
 block|}
 end_class

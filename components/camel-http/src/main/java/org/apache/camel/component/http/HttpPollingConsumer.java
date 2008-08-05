@@ -356,8 +356,7 @@ decl_stmt|;
 name|HeaderFilterStrategy
 name|strategy
 init|=
-name|getEndpoint
-argument_list|()
+name|endpoint
 operator|.
 name|getHeaderFilterStrategy
 argument_list|()

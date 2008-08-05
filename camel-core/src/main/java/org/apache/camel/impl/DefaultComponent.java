@@ -140,20 +140,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -300,15 +286,6 @@ DECL|field|executorService
 specifier|private
 name|ScheduledExecutorService
 name|executorService
-decl_stmt|;
-DECL|field|headerFilterStrategy
-specifier|private
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-init|=
-operator|new
-name|DefaultHeaderFilterStrategy
-argument_list|()
 decl_stmt|;
 DECL|method|DefaultComponent ()
 specifier|public
@@ -705,30 +682,6 @@ operator|.
 name|executorService
 operator|=
 name|executorService
-expr_stmt|;
-block|}
-DECL|method|getHeaderFilterStrategy ()
-specifier|public
-name|HeaderFilterStrategy
-name|getHeaderFilterStrategy
-parameter_list|()
-block|{
-return|return
-name|headerFilterStrategy
-return|;
-block|}
-DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy value)
-specifier|public
-name|void
-name|setHeaderFilterStrategy
-parameter_list|(
-name|HeaderFilterStrategy
-name|value
-parameter_list|)
-block|{
-name|headerFilterStrategy
-operator|=
-name|value
 expr_stmt|;
 block|}
 comment|/**      * A factory method to create a default thread pool and executor      */

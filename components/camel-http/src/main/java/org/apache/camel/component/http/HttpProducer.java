@@ -414,8 +414,13 @@ decl_stmt|;
 name|HeaderFilterStrategy
 name|strategy
 init|=
+operator|(
+operator|(
+name|HttpEndpoint
+operator|)
 name|getEndpoint
 argument_list|()
+operator|)
 operator|.
 name|getHeaderFilterStrategy
 argument_list|()

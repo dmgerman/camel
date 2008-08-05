@@ -429,9 +429,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// add "testheader" to in filter set
+name|JmsComponent
+name|component
+init|=
 operator|(
-operator|(
-name|DefaultHeaderFilterStrategy
+name|JmsComponent
 operator|)
 name|camelContext
 operator|.
@@ -439,6 +441,12 @@ name|getComponent
 argument_list|(
 name|componentName
 argument_list|)
+decl_stmt|;
+operator|(
+operator|(
+name|DefaultHeaderFilterStrategy
+operator|)
+name|component
 operator|.
 name|getHeaderFilterStrategy
 argument_list|()
@@ -457,12 +465,7 @@ operator|(
 operator|(
 name|DefaultHeaderFilterStrategy
 operator|)
-name|camelContext
-operator|.
-name|getComponent
-argument_list|(
-name|componentName
-argument_list|)
+name|component
 operator|.
 name|getHeaderFilterStrategy
 argument_list|()
@@ -482,12 +485,7 @@ operator|(
 operator|(
 name|DefaultHeaderFilterStrategy
 operator|)
-name|camelContext
-operator|.
-name|getComponent
-argument_list|(
-name|componentName
-argument_list|)
+name|component
 operator|.
 name|getHeaderFilterStrategy
 argument_list|()
