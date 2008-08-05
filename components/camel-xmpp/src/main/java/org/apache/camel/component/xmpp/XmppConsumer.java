@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Consumer Consumer} which listens to XMPP packets  *   * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.Consumer Consumer} which listens to XMPP packets  *  * @version $Revision$  */
 end_comment
 
 begin_class

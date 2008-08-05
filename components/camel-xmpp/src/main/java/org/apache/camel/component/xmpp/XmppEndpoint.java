@@ -1011,7 +1011,7 @@ return|return
 name|connection
 return|;
 block|}
-comment|/*      * If there is no "@" symbol in the room, find the chat service JID and return fully      * qualified JID for the room as room@conference.server.domain      */
+comment|/*      * If there is no "@" symbol in the room, find the chat service JID and      * return fully qualified JID for the room as room@conference.server.domain      */
 DECL|method|resolveRoom ()
 specifier|public
 name|String
