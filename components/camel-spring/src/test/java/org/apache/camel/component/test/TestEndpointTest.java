@@ -236,6 +236,8 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|MockEndpoint
 operator|.
 name|assertIsSatisfied
@@ -243,6 +245,15 @@ argument_list|(
 name|camelContext
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+comment|// do nothing
+block|}
 comment|// lets show the endpoints in the test
 name|List
 argument_list|<
@@ -293,6 +304,17 @@ block|{
 name|LOG
 operator|.
 name|debug
+argument_list|(
+literal|"Received: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
 argument_list|(
 literal|"Received: "
 operator|+
