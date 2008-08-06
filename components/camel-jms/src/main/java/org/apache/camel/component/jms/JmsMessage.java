@@ -664,6 +664,27 @@ name|String
 name|createMessageId
 parameter_list|()
 block|{
+if|if
+condition|(
+name|jmsMessage
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"The jmsMessage is not set yet, call the super's createMessageId"
+argument_list|)
+expr_stmt|;
+return|return
+name|super
+operator|.
+name|createMessageId
+argument_list|()
+return|;
+block|}
 try|try
 block|{
 name|String
