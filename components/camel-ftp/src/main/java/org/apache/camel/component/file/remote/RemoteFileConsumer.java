@@ -135,8 +135,6 @@ DECL|field|recursive
 specifier|protected
 name|boolean
 name|recursive
-init|=
-literal|true
 decl_stmt|;
 DECL|field|regexPattern
 specifier|protected
