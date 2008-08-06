@@ -123,9 +123,9 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Report 1"
+literal|"Reports"
 argument_list|,
-literal|"Report 2"
+literal|"Reports"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -203,7 +203,7 @@ name|sendBodyAndHeader
 argument_list|(
 name|ftpUrl
 argument_list|,
-literal|"Report 1"
+literal|"Reports"
 argument_list|,
 name|FileComponent
 operator|.
@@ -233,7 +233,7 @@ name|sendBodyAndHeader
 argument_list|(
 name|ftpUrl
 argument_list|,
-literal|"Report 2"
+literal|"Reports"
 argument_list|,
 name|FileComponent
 operator|.
