@@ -273,7 +273,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://flatpack.sourceforge.net/">Flatpack Endpoint</a>  * for working with fixed width and delimited files  *  * @version $Revision: 1.1 $  */
+comment|/**  * A<a href="http://flatpack.sourceforge.net/">Flatpack Endpoint</a>  * for working with fixed width and delimited files  *  * @version $Revision$  */
 end_comment
 
 begin_class
