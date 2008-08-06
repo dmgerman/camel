@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An error handler which will roll the exception back if there is an error  * rather than using the dead letter channel and retry logic.  *  * A delay is also used after a rollback  *  * @version $Revision: 1.1 $  */
+comment|/**  * An error handler which will roll the exception back if there is an error  * rather than using the dead letter channel and retry logic.  *  * A delay is also used after a rollback  *  * @version $Revision$  */
 end_comment
 
 begin_class
