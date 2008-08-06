@@ -94,6 +94,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlRootElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlTransient
 import|;
 end_import
@@ -309,6 +323,8 @@ comment|/**  * A useful base class for an expression  *  * @version $Revision$  
 end_comment
 
 begin_class
+annotation|@
+name|XmlRootElement
 annotation|@
 name|XmlType
 argument_list|(

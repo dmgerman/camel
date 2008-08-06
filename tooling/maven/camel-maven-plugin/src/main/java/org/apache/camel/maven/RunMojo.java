@@ -558,6 +558,12 @@ specifier|private
 name|boolean
 name|trace
 decl_stmt|;
+comment|/**      * Output all routes to the specified XML file      *      * @parameter expression="${camel.routesOutputFile}"      */
+DECL|field|routesOutputFile
+specifier|private
+name|String
+name|routesOutputFile
+decl_stmt|;
 comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.spring.Main"      * @required      */
 DECL|field|mainClass
 specifier|private
@@ -732,6 +738,28 @@ operator|.
 name|add
 argument_list|(
 literal|"-t"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|routesOutputFile
+operator|!=
+literal|null
+condition|)
+block|{
+name|args
+operator|.
+name|add
+argument_list|(
+literal|"-output"
+argument_list|)
+expr_stmt|;
+name|args
+operator|.
+name|add
+argument_list|(
+name|routesOutputFile
 argument_list|)
 expr_stmt|;
 block|}

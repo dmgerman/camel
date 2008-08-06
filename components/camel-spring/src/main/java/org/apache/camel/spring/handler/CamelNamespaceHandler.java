@@ -592,7 +592,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|binder
-specifier|private
+specifier|protected
 name|Binder
 argument_list|<
 name|Node
