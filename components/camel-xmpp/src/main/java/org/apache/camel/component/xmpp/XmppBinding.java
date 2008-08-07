@@ -159,8 +159,13 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+comment|// BUG?
 if|if
 condition|(
+name|value
+operator|!=
+literal|null
+operator|&&
 name|shouldOutputHeader
 argument_list|(
 name|exchange

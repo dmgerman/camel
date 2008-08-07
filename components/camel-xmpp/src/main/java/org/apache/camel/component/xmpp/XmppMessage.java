@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -77,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a {@link org.apache.camel.Message} for working with XMPP  *   * @version $Revision:520964 $  */
+comment|/**  * Represents a {@link org.apache.camel.Message} for working with XMPP  *  * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -287,21 +297,33 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|Iterator
-name|iter
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|propertyNames
 init|=
 name|xmppMessage
 operator|.
 name|getPropertyNames
 argument_list|()
 decl_stmt|;
-while|while
-condition|(
+for|for
+control|(
+name|Iterator
+name|iter
+init|=
+name|propertyNames
+operator|.
+name|iterator
+argument_list|()
+init|;
 name|iter
 operator|.
 name|hasNext
 argument_list|()
-condition|)
+condition|;
+control|)
 block|{
 name|String
 name|name
