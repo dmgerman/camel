@@ -260,9 +260,11 @@ name|inputFile
 argument_list|,
 name|expectedBody
 argument_list|,
-literal|"cheese"
+name|FileComponent
+operator|.
+name|HEADER_FILE_NAME
 argument_list|,
-literal|123
+literal|"hello.txt"
 argument_list|)
 expr_stmt|;
 name|result
