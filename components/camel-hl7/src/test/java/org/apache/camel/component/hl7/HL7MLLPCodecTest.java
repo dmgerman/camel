@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.mina
+DECL|package|org.apache.camel.component.hl7
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mina
+name|hl7
 package|;
 end_package
 
@@ -188,6 +188,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|JndiRegistry
+name|jndi
+init|=
+name|super
+operator|.
+name|createRegistry
+argument_list|()
+decl_stmt|;
+comment|// START SNIPPET: e1
 name|HL7MLLPCodec
 name|codec
 init|=
@@ -202,14 +211,6 @@ argument_list|(
 literal|"iso-8859-1"
 argument_list|)
 expr_stmt|;
-name|JndiRegistry
-name|jndi
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
 name|jndi
 operator|.
 name|bind
@@ -219,6 +220,7 @@ argument_list|,
 name|codec
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 return|return
 name|jndi
 return|;
@@ -265,6 +267,62 @@ throws|throws
 name|Exception
 block|{
 name|Message
+name|input
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|Message
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"2.4"
+argument_list|,
+name|input
+operator|.
+name|getVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|QRD
+name|qrd
+init|=
+operator|(
+name|QRD
+operator|)
+name|input
+operator|.
+name|get
+argument_list|(
+literal|"QRD"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"0101701234"
+argument_list|,
+name|qrd
+operator|.
+name|getWhoSubjectFilter
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIDNumber
+argument_list|()
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|Message
 name|response
 init|=
 name|createHL7AsMessage
@@ -301,15 +359,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e2
 name|String
 name|line1
 init|=
-literal|"MSH|^~\\&|ARIA|HERLEV|CAPS||200612211200||QRY^A19|MessageID: 1234|P|2.4"
+literal|"MSH|^~\\&|MYSENDER|MYRECEIVER|MYAPPLICATION||200612211200||QRY^A19|1234|P|2.4"
 decl_stmt|;
 name|String
 name|line2
 init|=
-literal|"QRD|200612211200|R|I|GetPatient|||1^RD|1606943605|DEM||"
+literal|"QRD|200612211200|R|I|GetPatient|||1^RD|0101701234|DEM||"
 decl_stmt|;
 name|StringBuffer
 name|in
@@ -357,6 +416,7 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// END SNIPPET: e2
 name|String
 index|[]
 name|lines
@@ -389,6 +449,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+comment|// START SNIPPET: e3
 DECL|method|createHL7AsMessage ()
 specifier|private
 specifier|static
@@ -553,6 +614,7 @@ name|getMessage
 argument_list|()
 return|;
 block|}
+comment|// END SNIPPET: e3
 block|}
 end_class
 
