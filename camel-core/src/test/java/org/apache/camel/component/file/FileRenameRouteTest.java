@@ -47,7 +47,7 @@ argument_list|)
 expr_stmt|;
 name|uri
 operator|=
-literal|"file:target/test-rename-inbox?moveNamePrefix=foo/"
+literal|"file:target/test-rename-inbox?moveNamePrefix=foo/?consumer.recursive=true"
 expr_stmt|;
 name|super
 operator|.

@@ -42,7 +42,7 @@ name|Exception
 block|{
 name|uri
 operator|=
-literal|"file:target/test-noop-inbox?noop=true"
+literal|"file:target/test-noop-inbox?noop=true&consumer.recursive=true"
 expr_stmt|;
 name|deleteDirectory
 argument_list|(

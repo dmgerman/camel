@@ -96,7 +96,7 @@ specifier|protected
 name|String
 name|uri
 init|=
-literal|"file:target/test-inbox2?consumer.generateEmptyExchangeWhenIdle=true"
+literal|"file:target/test-inbox2?consumer.generateEmptyExchangeWhenIdle=true&consumer.recursive=true"
 decl_stmt|;
 DECL|method|testFileRoute ()
 specifier|public

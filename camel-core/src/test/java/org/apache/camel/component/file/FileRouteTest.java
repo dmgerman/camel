@@ -84,7 +84,7 @@ specifier|protected
 name|String
 name|uri
 init|=
-literal|"file:target/test-default-inbox"
+literal|"file:target/test-default-inbox?consumer.recursive=true"
 decl_stmt|;
 DECL|method|testFileRoute ()
 specifier|public

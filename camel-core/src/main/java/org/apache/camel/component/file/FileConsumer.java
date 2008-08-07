@@ -296,8 +296,6 @@ DECL|field|recursive
 specifier|private
 name|boolean
 name|recursive
-init|=
-literal|true
 decl_stmt|;
 DECL|field|regexPattern
 specifier|private
@@ -348,6 +346,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// should be true the first time as its the top directory
 name|int
 name|rc
 init|=
@@ -358,8 +357,7 @@ operator|.
 name|getFile
 argument_list|()
 argument_list|,
-name|isRecursive
-argument_list|()
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// if no files consumes and using generateEmptyExchangeWhenIdle option then process an empty exchange

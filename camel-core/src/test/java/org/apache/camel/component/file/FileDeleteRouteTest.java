@@ -58,7 +58,7 @@ name|Exception
 block|{
 name|uri
 operator|=
-literal|"file:target/test-delete-inbox?consumer.delay=1000&delete=true"
+literal|"file:target/test-delete-inbox?consumer.delay=1000&delete=true&consumer.recursive=true"
 expr_stmt|;
 name|deleteDirectory
 argument_list|(

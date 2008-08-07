@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * HL7 DataFormat (supports v2.x of the HL7 protocol).  *<p/>  * This data format supports two operations:  *<ul>  *<li>marshal = from Message to String (used when returning as response using the HL7 MLLP codec).</li>  *<li>unmarshal = from String to Message (used when recieving streamed data from the HL7 MLLP codec)</li>  *</ul>  *<p/>  * Uses the<a href="http://hl7api.sourceforge.net/index.html">HAPI (HL7 API)</a> for HL7 parsing.  *<p/>  * Uses the default PipeParser from the HAPI API. This DataFormat<b>only</b> supports the EDI based HL7  * messages and not the XML based (their are not commonly used).  *  * @see org.apache.camel.component.mina.HL7MLLPCodec  */
+comment|/**  * HL7 DataFormat (supports v2.x of the HL7 protocol).  *<p/>  * This data format supports two operations:  *<ul>  *<li>marshal = from Message to String (can be used when returning as response using the HL7 MLLP codec)</li>  *<li>unmarshal = from String to Message (can be used when receiving streamed data from the HL7 MLLP codec)</li>  *</ul>  *<p/>  * Uses the<a href="http://hl7api.sourceforge.net/index.html">HAPI (HL7 API)</a> for HL7 parsing.  *<p/>  * Uses the default PipeParser from the HAPI API. This DataFormat<b>only</b> supports the EDI based HL7  * messages and not the XML based (their are not commonly used).  *  * @see org.apache.camel.component.mina.HL7MLLPCodec  */
 end_comment
 
 begin_class
