@@ -79,7 +79,7 @@ specifier|protected
 name|String
 name|port
 init|=
-literal|"20010"
+literal|"2001"
 decl_stmt|;
 DECL|field|ftpUrl
 specifier|protected
@@ -90,7 +90,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/tmp/camel?password=admin"
+literal|"/tmp/camel?password=admin&consumer.recursive=true"
 decl_stmt|;
 DECL|method|testFtpRoute ()
 specifier|public
@@ -131,12 +131,19 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
+comment|// let some time pass to let the consumer etc. properly do its business before closing
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// let some time pass to let the consumer etc. properly do its business before closing
 name|Thread
 operator|.
 name|sleep
