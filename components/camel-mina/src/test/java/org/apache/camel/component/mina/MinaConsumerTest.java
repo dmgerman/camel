@@ -122,7 +122,7 @@ name|sendBody
 argument_list|(
 literal|"mina:tcp://localhost:6200?textline=true"
 argument_list|,
-literal|"Hello World\n"
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisifed
@@ -151,7 +151,7 @@ name|sendBody
 argument_list|(
 literal|"mina:tcp://localhost:6201?textline=true&sync=true"
 argument_list|,
-literal|"World\n"
+literal|"World"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -242,8 +242,6 @@ argument_list|(
 literal|"Bye "
 operator|+
 name|body
-operator|+
-literal|"\n"
 argument_list|)
 expr_stmt|;
 block|}
