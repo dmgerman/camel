@@ -1570,14 +1570,14 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *      * @param receipients is the builder of the expression used in the      *                    {@link org.apache.camel.processor.RecipientList}      *                    to decide the destinations      */
-DECL|method|recipientList (Expression receipients)
+comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *      * @param recipients is the builder of the expression used in the      *                    {@link org.apache.camel.processor.RecipientList}      *                    to decide the destinations      */
+DECL|method|recipientList (Expression recipients)
 specifier|public
 name|Type
 name|recipientList
 parameter_list|(
 name|Expression
-name|receipients
+name|recipients
 parameter_list|)
 block|{
 name|RecipientListType
@@ -1586,7 +1586,7 @@ init|=
 operator|new
 name|RecipientListType
 argument_list|(
-name|receipients
+name|recipients
 argument_list|)
 decl_stmt|;
 name|addOutput

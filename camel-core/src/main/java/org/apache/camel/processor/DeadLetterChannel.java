@@ -568,7 +568,7 @@ operator|.
 name|sync
 return|;
 block|}
-comment|// if the exchange is transacted then let the underlysing system handle the redelivery etc.
+comment|// if the exchange is transacted then let the underlying system handle the redelivery etc.
 comment|// this DeadLetterChannel is only for non transacted exchanges
 if|if
 condition|(
