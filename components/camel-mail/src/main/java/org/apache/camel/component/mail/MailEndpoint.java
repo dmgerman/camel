@@ -170,6 +170,17 @@ name|configuration
 operator|=
 name|configuration
 expr_stmt|;
+name|binding
+operator|=
+operator|new
+name|MailBinding
+argument_list|(
+name|component
+operator|.
+name|getHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|MailEndpoint (String endpointUri, MailConfiguration configuration)
 specifier|public
