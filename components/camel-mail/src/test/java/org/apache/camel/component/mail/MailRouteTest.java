@@ -407,6 +407,8 @@ argument_list|(
 literal|"direct:a"
 argument_list|)
 expr_stmt|;
+comment|// must use fixed to option to send the mail to the given reciever, as we have polled
+comment|// a mail from a mailbox where it already has the 'old' To as header value
 name|from
 argument_list|(
 literal|"direct:a"
@@ -414,9 +416,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp://route-test-result@localhost"
+literal|"smtp://localhost?to=route-test-result@localhost"
 argument_list|,
-literal|"smtp://route-test-copy@localhost"
+literal|"smtp://localhost?to=route-test-copy@localhost"
 argument_list|)
 expr_stmt|;
 name|from

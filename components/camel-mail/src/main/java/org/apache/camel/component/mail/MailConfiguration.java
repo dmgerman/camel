@@ -264,6 +264,11 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|destination
+specifier|private
+name|String
+name|destination
+decl_stmt|;
 DECL|field|fetchSize
 specifier|private
 name|int
@@ -1184,17 +1189,9 @@ name|username
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|recipients
-operator|.
-name|containsKey
-argument_list|(
-name|Message
-operator|.
-name|RecipientType
-operator|.
-name|TO
-argument_list|)
+name|destination
+operator|==
+literal|null
 condition|)
 block|{
 comment|// set default destination to username@host for backwards compatibility
@@ -1224,18 +1221,9 @@ operator|+
 name|host
 expr_stmt|;
 block|}
-name|recipients
-operator|.
-name|put
-argument_list|(
-name|Message
-operator|.
-name|RecipientType
-operator|.
-name|TO
-argument_list|,
+name|destination
+operator|=
 name|address
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1246,18 +1234,8 @@ name|String
 name|getDestination
 parameter_list|()
 block|{
-comment|// for backwards compatibility
 return|return
-name|recipients
-operator|.
-name|get
-argument_list|(
-name|Message
-operator|.
-name|RecipientType
-operator|.
-name|TO
-argument_list|)
+name|destination
 return|;
 block|}
 comment|/**      * Sets the destination (recipient<tt>To</tt> email address).      *      * @deprecated use {@link #setTo(String)}      */
@@ -1270,19 +1248,11 @@ name|String
 name|destination
 parameter_list|)
 block|{
-comment|// for backwards compatibility
-name|recipients
+name|this
 operator|.
-name|put
-argument_list|(
-name|Message
-operator|.
-name|RecipientType
-operator|.
-name|TO
-argument_list|,
 name|destination
-argument_list|)
+operator|=
+name|destination
 expr_stmt|;
 block|}
 DECL|method|getFrom ()
