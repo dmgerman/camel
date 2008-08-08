@@ -330,7 +330,7 @@ expr_stmt|;
 block|}
 DECL|method|createApplicationContext ()
 specifier|protected
-name|ClassPathXmlApplicationContext
+name|AbstractXmlApplicationContext
 name|createApplicationContext
 parameter_list|()
 block|{

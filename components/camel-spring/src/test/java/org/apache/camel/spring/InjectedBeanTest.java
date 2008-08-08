@@ -26,6 +26,20 @@ name|context
 operator|.
 name|support
 operator|.
+name|AbstractXmlApplicationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|support
+operator|.
 name|ClassPathXmlApplicationContext
 import|;
 end_import
@@ -265,7 +279,7 @@ expr_stmt|;
 block|}
 DECL|method|createApplicationContext ()
 specifier|protected
-name|ClassPathXmlApplicationContext
+name|AbstractXmlApplicationContext
 name|createApplicationContext
 parameter_list|()
 block|{

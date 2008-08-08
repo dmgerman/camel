@@ -54,20 +54,6 @@ name|AbstractXmlApplicationContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|support
-operator|.
-name|ClassPathXmlApplicationContext
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -89,7 +75,7 @@ decl_stmt|;
 DECL|method|createApplicationContext ()
 specifier|protected
 specifier|abstract
-name|ClassPathXmlApplicationContext
+name|AbstractXmlApplicationContext
 name|createApplicationContext
 parameter_list|()
 function_decl|;
