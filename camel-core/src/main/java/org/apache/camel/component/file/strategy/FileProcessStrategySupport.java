@@ -179,15 +179,6 @@ name|FileProcessStrategySupport
 implements|implements
 name|FileProcessStrategy
 block|{
-DECL|field|DEFAULT_LOCK_FILE_POSTFIX
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_LOCK_FILE_POSTFIX
-init|=
-literal|".cameLock"
-decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -243,6 +234,8 @@ name|DefaultFileRenamer
 argument_list|(
 literal|null
 argument_list|,
+name|FileEndpoint
+operator|.
 name|DEFAULT_LOCK_FILE_POSTFIX
 argument_list|)
 argument_list|)

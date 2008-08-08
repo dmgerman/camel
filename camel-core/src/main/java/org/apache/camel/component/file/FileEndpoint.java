@@ -128,24 +128,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|strategy
-operator|.
-name|FileProcessStrategySupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|ScheduledPollEndpoint
@@ -258,10 +240,21 @@ DECL|field|DEFAULT_STRATEGYFACTORY_CLASS
 specifier|private
 specifier|static
 specifier|final
+specifier|transient
 name|String
 name|DEFAULT_STRATEGYFACTORY_CLASS
 init|=
 literal|"org.apache.camel.component.file.strategy.FileProcessStrategyFactory"
+decl_stmt|;
+DECL|field|DEFAULT_LOCK_FILE_POSTFIX
+specifier|public
+specifier|static
+specifier|final
+specifier|transient
+name|String
+name|DEFAULT_LOCK_FILE_POSTFIX
+init|=
+literal|".camelLock"
 decl_stmt|;
 DECL|field|file
 specifier|private
@@ -935,7 +928,7 @@ return|return
 name|excludedNamePostfixes
 return|;
 block|}
-comment|/**      * Sets the excluded file name postfixes, such as {@link FileProcessStrategySupport#DEFAULT_LOCK_FILE_POSTFIX}      * to ignore lock files by default.      *      * @deprecated use ExcludedNamePostfix. Will be removed in Camel 2.0.      */
+comment|/**      * Sets the excluded file name postfixes, such as {@link FileEndpoint#DEFAULT_LOCK_FILE_POSTFIX}      * to ignore lock files by default.      *      * @deprecated use ExcludedNamePostfix. Will be removed in Camel 2.0.      */
 DECL|method|setExcludedNamePostfixes (String[] excludedNamePostfixes)
 specifier|public
 name|void

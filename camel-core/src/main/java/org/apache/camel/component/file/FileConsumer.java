@@ -1407,6 +1407,23 @@ return|return
 literal|false
 return|;
 block|}
+comment|// lock files should be skipped
+if|if
+condition|(
+name|name
+operator|.
+name|endsWith
+argument_list|(
+name|FileEndpoint
+operator|.
+name|DEFAULT_LOCK_FILE_POSTFIX
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 if|if
 condition|(
 name|regexPattern
