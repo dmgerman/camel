@@ -567,6 +567,14 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|binder
+specifier|protected
+name|Binder
+argument_list|<
+name|Node
+argument_list|>
+name|binder
+decl_stmt|;
 DECL|field|jaxbContext
 specifier|private
 name|JAXBContext
@@ -590,14 +598,6 @@ argument_list|,
 name|BeanDefinitionParser
 argument_list|>
 argument_list|()
-decl_stmt|;
-DECL|field|binder
-specifier|protected
-name|Binder
-argument_list|<
-name|Node
-argument_list|>
-name|binder
 decl_stmt|;
 DECL|method|init ()
 specifier|public

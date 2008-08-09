@@ -116,13 +116,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|jvnet
 operator|.
-name|mail
+name|mock_javamail
 operator|.
-name|javamail
-operator|.
-name|JavaMailSenderImpl
+name|Mailbox
 import|;
 end_import
 
@@ -130,11 +128,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|jvnet
+name|springframework
 operator|.
-name|mock_javamail
+name|mail
 operator|.
-name|Mailbox
+name|javamail
+operator|.
+name|JavaMailSenderImpl
 import|;
 end_import
 
