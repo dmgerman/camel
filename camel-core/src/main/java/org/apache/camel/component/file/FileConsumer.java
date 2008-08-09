@@ -311,6 +311,11 @@ name|exclusiveReadLock
 init|=
 literal|true
 decl_stmt|;
+DECL|field|alwaysConsume
+specifier|private
+name|boolean
+name|alwaysConsume
+decl_stmt|;
 DECL|method|FileConsumer (final FileEndpoint endpoint, Processor processor)
 specifier|public
 name|FileConsumer
@@ -1099,10 +1104,14 @@ argument_list|(
 name|file
 argument_list|)
 operator|&&
+operator|(
+name|alwaysConsume
+operator|||
 name|isChanged
 argument_list|(
 name|file
 argument_list|)
+operator|)
 condition|)
 block|{
 name|result
@@ -1686,6 +1695,7 @@ return|return
 name|unchangedDelay
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.0      */
 DECL|method|setUnchangedDelay (int unchangedDelay)
 specifier|public
 name|void
@@ -1712,6 +1722,7 @@ return|return
 name|unchangedSize
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.0      */
 DECL|method|setUnchangedSize (boolean unchangedSize)
 specifier|public
 name|void
@@ -1752,6 +1763,32 @@ operator|.
 name|exclusiveReadLock
 operator|=
 name|exclusiveReadLock
+expr_stmt|;
+block|}
+DECL|method|isAlwaysConsume ()
+specifier|public
+name|boolean
+name|isAlwaysConsume
+parameter_list|()
+block|{
+return|return
+name|alwaysConsume
+return|;
+block|}
+DECL|method|setAlwaysConsume (boolean alwaysConsume)
+specifier|public
+name|void
+name|setAlwaysConsume
+parameter_list|(
+name|boolean
+name|alwaysConsume
+parameter_list|)
+block|{
+name|this
+operator|.
+name|alwaysConsume
+operator|=
+name|alwaysConsume
 expr_stmt|;
 block|}
 block|}
