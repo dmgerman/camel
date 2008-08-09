@@ -182,20 +182,6 @@ name|ValidatingProcessor
 implements|implements
 name|Processor
 block|{
-DECL|field|schema
-specifier|private
-name|Schema
-name|schema
-decl_stmt|;
-DECL|field|errorHandler
-specifier|private
-name|ValidatorErrorHandler
-name|errorHandler
-init|=
-operator|new
-name|DefaultValidationErrorHandler
-argument_list|()
-decl_stmt|;
 comment|// for lazy creation of the Schema
 DECL|field|schemaLanguage
 specifier|private
@@ -205,6 +191,11 @@ init|=
 name|XMLConstants
 operator|.
 name|W3C_XML_SCHEMA_NS_URI
+decl_stmt|;
+DECL|field|schema
+specifier|private
+name|Schema
+name|schema
 decl_stmt|;
 DECL|field|schemaSource
 specifier|private
@@ -225,6 +216,15 @@ DECL|field|schemaFile
 specifier|private
 name|File
 name|schemaFile
+decl_stmt|;
+DECL|field|errorHandler
+specifier|private
+name|ValidatorErrorHandler
+name|errorHandler
+init|=
+operator|new
+name|DefaultValidationErrorHandler
+argument_list|()
 decl_stmt|;
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -282,16 +282,23 @@ argument_list|)
 throw|;
 block|}
 comment|// create a new errorHandler and set it on the validator
+comment|// must be a local instance to avoid problems with concurrency (to be thread safe)
+name|ValidatorErrorHandler
+name|handler
+init|=
 name|errorHandler
 operator|.
-name|reset
+name|getClass
 argument_list|()
-expr_stmt|;
+operator|.
+name|newInstance
+argument_list|()
+decl_stmt|;
 name|validator
 operator|.
 name|setErrorHandler
 argument_list|(
-name|errorHandler
+name|handler
 argument_list|)
 expr_stmt|;
 name|DOMResult
@@ -310,7 +317,7 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-name|errorHandler
+name|handler
 operator|.
 name|handleErrors
 argument_list|(
@@ -321,13 +328,6 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-comment|/*          * Fault fault = exchange.createFault(); if (errorHandler.hasErrors()) { //          * set the schema and source document as properties on the fault          * fault.setProperty("org.apache.servicemix.schema", schema);          * fault.setProperty("org.apache.servicemix.xml", source);          *           */
-comment|/*              * check if this error handler supports the capturing of error              * messages.              */
-comment|/*              * if (errorHandler.capturesMessages()) {              *               */
-comment|/*              * In descending order of preference select a format to use. If              * neither DOMSource, StringSource or String are supported throw a              * messaging exception.              */
-comment|/*              * if (errorHandler.supportsMessageFormat(DOMSource.class)) {              * fault.setContent( (DOMSource)              * errorHandler.getMessagesAs(DOMSource.class)); } else if              * (errorHandler.supportsMessageFormat(StringSource.class)) {              * fault.setContent(sourceTransformer.toDOMSource( (StringSource)              * errorHandler.getMessagesAs(StringSource.class))); } else if              * (errorHandler.supportsMessageFormat(String.class)) {              * fault.setContent( sourceTransformer.toDOMSource( new              * StringSource( (String)              * errorHandler.getMessagesAs(String.class)))); } else { throw new              * MessagingException("MessageAwareErrorHandler implementation " +              * errorHandler.getClass().getName() + " does not support a              * compatible error message format."); } } else {              */
-comment|/*              * we can't do much here if the ErrorHandler implementation does not              * support capturing messages              */
-comment|/*              * fault.setContent(new DOMSource(result.getNode(),              * result.getSystemId())); } throw new FaultException("Failed to              * validate against schema: " + schema, exchange, fault); } else { //              * Retrieve the ouput of the validation // as it may have been              * changed by the validator out.setContent(new              * DOMSource(result.getNode(), result.getSystemId())); } }              */
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
