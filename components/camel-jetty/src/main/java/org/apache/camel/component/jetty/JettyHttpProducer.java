@@ -272,6 +272,10 @@ name|ContentExchange
 import|;
 end_import
 
+begin_comment
+comment|/**  * @deprecated use org.apache.camel.component.http.HttpProducer instead. Will be removed in Camel 2.0.  */
+end_comment
+
 begin_class
 DECL|class|JettyHttpProducer
 specifier|public

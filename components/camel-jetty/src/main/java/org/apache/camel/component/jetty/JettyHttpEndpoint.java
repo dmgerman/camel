@@ -142,9 +142,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
 operator|.
-name|EventDrivenPollingConsumer
+name|http
+operator|.
+name|HttpPollingConsumer
 import|;
 end_import
 
@@ -240,7 +242,6 @@ operator|.
 name|createProducer
 argument_list|()
 return|;
-comment|// return new JettyHttpProducer(this);
 block|}
 annotation|@
 name|Override
@@ -283,10 +284,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|EventDrivenPollingConsumer
-argument_list|<
-name|HttpExchange
-argument_list|>
+name|HttpPollingConsumer
 argument_list|(
 name|this
 argument_list|)
