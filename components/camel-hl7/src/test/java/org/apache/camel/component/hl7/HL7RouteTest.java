@@ -802,7 +802,7 @@ specifier|public
 class|class
 name|MyHL7BusinessLogic
 block|{
-comment|// This is a plain POJO that has<b>no</b> imports whatsoever on Apache Camel.
+comment|// This is a plain POJO that has NO imports whatsoever on Apache Camel.
 comment|// its a plain POJO only importing the HAPI library so we can much easier work with the HL7 format.
 DECL|method|handleA19 (Message msg)
 specifier|public
