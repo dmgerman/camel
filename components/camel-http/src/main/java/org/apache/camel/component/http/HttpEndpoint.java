@@ -498,7 +498,7 @@ return|return
 name|clientParams
 return|;
 block|}
-comment|/**      * Provide access to the client parameters used on new {@link HttpClient} instances      * used by producers or consumers of this endpoint.      *      * @param clientParams      */
+comment|/**      * Provide access to the client parameters used on new {@link HttpClient} instances      * used by producers or consumers of this endpoint.      */
 DECL|method|setClientParams (HttpClientParams clientParams)
 specifier|public
 name|void

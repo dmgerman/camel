@@ -172,7 +172,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the underlying Servlet request for inbound HTTP requests      *      * @return the underlying Servlet request for inbound HTTP requests      */
+comment|/**      * Returns the underlying Servlet request for inbound HTTP requests      */
 DECL|method|getRequest ()
 specifier|public
 name|HttpServletRequest
@@ -183,7 +183,7 @@ return|return
 name|request
 return|;
 block|}
-comment|/**      * Returns the underlying Servlet response for inbound HTTP requests      *      * @return the underlying Servlet response for inbound HTTP requests      */
+comment|/**      * Returns the underlying Servlet response for inbound HTTP requests      */
 DECL|method|getResponse ()
 specifier|public
 name|HttpServletResponse
