@@ -75,7 +75,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Unmarshals the given stream into an object.      */
+comment|/**      * Unmarshals the given stream into an object.      *<p/>      *<b>Notice:</b> The result is set as body on the exchange OUT message.      * It is possible to mutate the OUT message provided in the given exchange parameter.      * For instance adding headers to the OUT message will be preserved.      */
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
 name|Object
 name|unmarshal

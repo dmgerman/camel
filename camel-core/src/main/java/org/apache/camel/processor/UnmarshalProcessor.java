@@ -196,9 +196,9 @@ finally|finally
 block|{
 if|if
 condition|(
-literal|null
-operator|!=
 name|stream
+operator|!=
+literal|null
 condition|)
 block|{
 name|stream
