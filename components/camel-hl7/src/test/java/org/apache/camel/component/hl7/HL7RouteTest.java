@@ -796,9 +796,9 @@ block|}
 block|}
 return|;
 block|}
+comment|// START SNIPPET: e2
 DECL|class|MyHL7BusinessLogic
 specifier|public
-specifier|static
 class|class
 name|MyHL7BusinessLogic
 block|{
@@ -853,6 +853,7 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|// END SNIPPET: e2
 DECL|method|createADR19Message ()
 specifier|private
 specifier|static
