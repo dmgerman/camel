@@ -714,7 +714,7 @@ comment|// using choice as the content base router
 operator|.
 name|choice
 argument_list|()
-comment|// where we choose that A19 queries so go to mock:a19
+comment|// where we choose that A19 queries invoke the handleA19 method on our hl7service bean
 operator|.
 name|when
 argument_list|(
@@ -740,7 +740,7 @@ name|to
 argument_list|(
 literal|"mock:a19"
 argument_list|)
-comment|// and A01 should go to mock:a01
+comment|// and A01 should invoke the handleA01 method on our hl7service bean
 operator|.
 name|when
 argument_list|(
@@ -771,7 +771,7 @@ name|to
 argument_list|(
 literal|"mock:a19"
 argument_list|)
-comment|// other types should go to unknown
+comment|// other types should go to mock:unknown
 operator|.
 name|otherwise
 argument_list|()
@@ -802,6 +802,8 @@ specifier|public
 class|class
 name|MyHL7BusinessLogic
 block|{
+comment|// This is a plain POJO that has<b>no</b> imports whatsoever on Apache Camel.
+comment|// its a plain POJO only importing the HAPI library so we can much easier work with the HL7 format.
 DECL|method|handleA19 (Message msg)
 specifier|public
 name|Message
