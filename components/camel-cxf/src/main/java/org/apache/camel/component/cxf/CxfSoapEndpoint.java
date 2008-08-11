@@ -820,6 +820,16 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * TODO Provide description for HttpGetWithQueryParamsTest.  *  * @author<a href="mailto:nsandhu@raleys.com">nsandhu</a>  *  */
+comment|/**  * @version $Revision$   */
 end_comment
 
 begin_class

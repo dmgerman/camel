@@ -485,6 +485,19 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
+parameter_list|()
+block|{
+comment|// true to allow dynamic URI options to be configured and passed to external system for eg. the HttpProducer
+return|return
+literal|true
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 comment|/**      * Provide access to the client parameters used on new {@link HttpClient} instances      * used by producers or consumers of this endpoint.      */

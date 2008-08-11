@@ -903,6 +903,17 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
+parameter_list|()
+block|{
+comment|// default should be false for most components
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

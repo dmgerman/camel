@@ -505,9 +505,16 @@ name|parameters
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if endpoint is strict (not lenient) and we have unknown parameters configured then
 comment|// fail if there are parameters that could not be set, then they are probably miss spelt or not supported at all
 if|if
 condition|(
+operator|!
+name|endpoint
+operator|.
+name|isLenientProperties
+argument_list|()
+operator|&&
 name|parameters
 operator|.
 name|size
