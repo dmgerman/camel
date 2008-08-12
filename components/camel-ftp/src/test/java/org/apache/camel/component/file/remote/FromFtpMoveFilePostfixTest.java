@@ -126,10 +126,10 @@ name|FtpServerTestSupport
 block|{
 DECL|field|port
 specifier|private
-name|String
+name|int
 name|port
 init|=
-literal|"20031"
+literal|20031
 decl_stmt|;
 DECL|field|ftpUrl
 specifier|private
@@ -146,7 +146,7 @@ literal|"&consumer.moveNamePostfix=.old"
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public
-name|String
+name|int
 name|getPort
 parameter_list|()
 block|{

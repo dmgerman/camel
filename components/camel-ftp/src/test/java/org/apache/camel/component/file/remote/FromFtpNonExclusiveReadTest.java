@@ -128,10 +128,10 @@ argument_list|)
 decl_stmt|;
 DECL|field|port
 specifier|private
-name|String
+name|int
 name|port
 init|=
-literal|"20027"
+literal|20027
 decl_stmt|;
 DECL|field|ftpUrl
 specifier|private
@@ -146,7 +146,7 @@ literal|"/slowfile?password=admin&consumer.exclusiveReadLock=false&consumer.dela
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public
-name|String
+name|int
 name|getPort
 parameter_list|()
 block|{

@@ -76,10 +76,10 @@ literal|"Hello there!"
 decl_stmt|;
 DECL|field|port
 specifier|protected
-name|String
+name|int
 name|port
 init|=
-literal|"2001"
+literal|2001
 decl_stmt|;
 DECL|field|ftpUrl
 specifier|protected
@@ -188,7 +188,7 @@ return|;
 block|}
 DECL|method|getPort ()
 specifier|public
-name|String
+name|int
 name|getPort
 parameter_list|()
 block|{

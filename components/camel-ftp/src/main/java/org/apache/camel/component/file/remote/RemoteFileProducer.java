@@ -301,7 +301,7 @@ argument_list|(
 literal|"Starting"
 argument_list|)
 expr_stmt|;
-comment|// do not connect when componet starts, just wait until we process as we will
+comment|// do not connect when component starts, just wait until we process as we will
 comment|// connect at that time if needed
 name|super
 operator|.

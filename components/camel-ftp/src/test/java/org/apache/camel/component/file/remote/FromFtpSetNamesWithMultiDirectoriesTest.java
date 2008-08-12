@@ -140,10 +140,10 @@ name|FtpServerTestSupport
 block|{
 DECL|field|port
 specifier|private
-name|String
+name|int
 name|port
 init|=
-literal|"20016"
+literal|20016
 decl_stmt|;
 comment|// must user "consumer." prefix on the parameters to the file component
 DECL|field|ftpUrl
@@ -310,7 +310,7 @@ expr_stmt|;
 block|}
 DECL|method|getPort ()
 specifier|public
-name|String
+name|int
 name|getPort
 parameter_list|()
 block|{
