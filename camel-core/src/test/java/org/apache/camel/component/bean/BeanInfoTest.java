@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Method
-import|;
-end_import
-
-begin_import
-import|import
 name|junit
 operator|.
 name|framework
@@ -48,31 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|OneWay
+name|*
 import|;
 end_import
 
@@ -115,6 +79,18 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
 import|;
 end_import
 
@@ -276,6 +252,17 @@ argument_list|,
 name|ExchangePattern
 operator|.
 name|RobustInOnly
+argument_list|)
+expr_stmt|;
+name|assertMethodPattern
+argument_list|(
+name|info
+argument_list|,
+literal|"inOutMethod"
+argument_list|,
+name|ExchangePattern
+operator|.
+name|InOut
 argument_list|)
 expr_stmt|;
 block|}
@@ -442,6 +429,17 @@ operator|.
 name|RobustInOnly
 argument_list|)
 expr_stmt|;
+name|assertMethodPattern
+argument_list|(
+name|info
+argument_list|,
+literal|"inOutMethod"
+argument_list|,
+name|ExchangePattern
+operator|.
+name|InOut
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createBeanInfo (Class type)
 specifier|protected
@@ -569,65 +567,84 @@ interface|interface
 name|Foo
 block|{
 DECL|method|inOutMethod ()
+specifier|public
 name|void
 name|inOutMethod
 parameter_list|()
 function_decl|;
 annotation|@
-name|OneWay
+name|Pattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
 DECL|method|inOnlyMethod ()
+specifier|public
 name|void
 name|inOnlyMethod
 parameter_list|()
 function_decl|;
 annotation|@
-name|OneWay
+name|Pattern
 argument_list|(
 name|ExchangePattern
 operator|.
 name|RobustInOnly
 argument_list|)
 DECL|method|robustInOnlyMethod ()
+specifier|public
 name|void
 name|robustInOnlyMethod
 parameter_list|()
 function_decl|;
 block|}
 annotation|@
-name|OneWay
+name|InOnly
 DECL|interface|MyOneWayInterface
 specifier|public
 interface|interface
 name|MyOneWayInterface
 block|{
 DECL|method|inOnlyMethod ()
+specifier|public
 name|void
 name|inOnlyMethod
 parameter_list|()
 function_decl|;
 block|}
 annotation|@
-name|OneWay
+name|InOnly
 DECL|interface|MyOneWayInterfaceWithOverloadedMethod
 specifier|public
 interface|interface
 name|MyOneWayInterfaceWithOverloadedMethod
 block|{
 DECL|method|inOnlyMethod ()
+specifier|public
 name|void
 name|inOnlyMethod
 parameter_list|()
 function_decl|;
 annotation|@
-name|OneWay
+name|Pattern
 argument_list|(
 name|ExchangePattern
 operator|.
 name|RobustInOnly
 argument_list|)
 DECL|method|robustInOnlyMethod ()
+specifier|public
 name|void
 name|robustInOnlyMethod
+parameter_list|()
+function_decl|;
+annotation|@
+name|InOut
+DECL|method|inOutMethod ()
+specifier|public
+name|Object
+name|inOutMethod
 parameter_list|()
 function_decl|;
 block|}
@@ -646,7 +663,7 @@ name|inOnlyMethod
 parameter_list|()
 block|{         }
 annotation|@
-name|OneWay
+name|Pattern
 argument_list|(
 name|ExchangePattern
 operator|.
@@ -694,6 +711,16 @@ name|void
 name|robustInOnlyMethod
 parameter_list|()
 block|{         }
+DECL|method|inOutMethod ()
+specifier|public
+name|Object
+name|inOutMethod
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 block|}
 end_class

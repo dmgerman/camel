@@ -26,12 +26,12 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|OneWay
+name|InOnly
 import|;
 end_import
 
 begin_comment
-comment|/**  * A dummy interface which has a oneway method via the {@link org.apache.camel.OneWay} annotation  */
+comment|/**  * A dummy interface which has a oneway method via the {@link InOnly} annotation  */
 end_comment
 
 begin_interface
@@ -41,7 +41,7 @@ interface|interface
 name|IAsyncService
 block|{
 annotation|@
-name|OneWay
+name|InOnly
 DECL|method|doSomethingAsync (String body)
 name|void
 name|doSomethingAsync

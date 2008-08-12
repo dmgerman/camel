@@ -58,9 +58,23 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|lang
 operator|.
-name|ArrayList
+name|reflect
+operator|.
+name|AnnotatedElement
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Annotation
 import|;
 end_import
 
@@ -86,13 +100,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|Exchange
+name|ArrayList
 import|;
 end_import
 
@@ -104,7 +116,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
+name|Exchange
 import|;
 end_import
 
@@ -128,7 +140,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|OneWay
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Pattern
 import|;
 end_import
 
@@ -160,6 +184,34 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Information about a method to be used for invocation.  *  * @version $Revision$  */
 end_comment
@@ -170,6 +222,23 @@ specifier|public
 class|class
 name|MethodInfo
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|MethodInfo
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|type
 specifier|private
 name|Class
@@ -281,7 +350,7 @@ operator|=
 name|createParametersExpression
 argument_list|()
 expr_stmt|;
-name|OneWay
+name|Pattern
 name|oneway
 init|=
 name|findOneWayAnnotation
@@ -433,7 +502,7 @@ return|return
 name|method
 return|;
 block|}
-comment|/**      * Returns the {@link org.apache.camel.ExchangePattern} that should be used when invoking this method. This value      * defaults to {@link org.apache.camel.ExchangePattern#InOut} unless some {@link OneWay} annotation is used      * to override the message exchange pattern.      *      * @return the exchange pattern to use for invoking this method.      */
+comment|/**      * Returns the {@link org.apache.camel.ExchangePattern} that should be used when invoking this method. This value      * defaults to {@link org.apache.camel.ExchangePattern#InOut} unless some {@link org.apache.camel.Pattern} annotation is used      * to override the message exchange pattern.      *      * @return the exchange pattern to use for invoking this method.      */
 DECL|method|getPattern ()
 specifier|public
 name|ExchangePattern
@@ -869,23 +938,19 @@ block|}
 comment|/**      * Finds the oneway annotation in priority order; look for method level annotations first, then the class level annotations,      * then super class annotations then interface annotations      *      * @param method the method on which to search      * @return the first matching annotation or none if it is not available      */
 DECL|method|findOneWayAnnotation (Method method)
 specifier|protected
-name|OneWay
+name|Pattern
 name|findOneWayAnnotation
 parameter_list|(
 name|Method
 name|method
 parameter_list|)
 block|{
-name|OneWay
+name|Pattern
 name|answer
 init|=
-name|method
-operator|.
-name|getAnnotation
+name|getPatternAnnotation
 argument_list|(
-name|OneWay
-operator|.
-name|class
+name|method
 argument_list|)
 decl_stmt|;
 if|if
@@ -988,6 +1053,168 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Returns the pattern annotation on the given annotated element; either as a direct annotation or      * on an annotation which is also annotated      *      * @param annotatedElement the element to look for the annotation      * @return the first matching annotation or null if none could be found      */
+DECL|method|getPatternAnnotation (AnnotatedElement annotatedElement)
+specifier|protected
+name|Pattern
+name|getPatternAnnotation
+parameter_list|(
+name|AnnotatedElement
+name|annotatedElement
+parameter_list|)
+block|{
+return|return
+name|getPatternAnnotation
+argument_list|(
+name|annotatedElement
+argument_list|,
+literal|2
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns the pattern annotation on the given annotated element; either as a direct annotation or      * on an annotation which is also annotated      *      * @param annotatedElement the element to look for the annotation      * @return the first matching annotation or null if none could be found      */
+DECL|method|getPatternAnnotation (AnnotatedElement annotatedElement, int depth)
+specifier|protected
+name|Pattern
+name|getPatternAnnotation
+parameter_list|(
+name|AnnotatedElement
+name|annotatedElement
+parameter_list|,
+name|int
+name|depth
+parameter_list|)
+block|{
+name|Pattern
+name|answer
+init|=
+name|annotatedElement
+operator|.
+name|getAnnotation
+argument_list|(
+name|Pattern
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|int
+name|nextDepth
+init|=
+name|depth
+operator|-
+literal|1
+decl_stmt|;
+if|if
+condition|(
+name|nextDepth
+operator|>
+literal|0
+condition|)
+block|{
+comment|// lets look at all the annotations to see if any of those are annotated
+name|Annotation
+index|[]
+name|annotations
+init|=
+name|annotatedElement
+operator|.
+name|getAnnotations
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|Annotation
+name|annotation
+range|:
+name|annotations
+control|)
+block|{
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Annotation
+argument_list|>
+name|annotationType
+init|=
+name|annotation
+operator|.
+name|annotationType
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|annotation
+operator|instanceof
+name|Pattern
+operator|||
+name|annotationType
+operator|.
+name|equals
+argument_list|(
+name|annotatedElement
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
+else|else
+block|{
+name|Pattern
+name|another
+init|=
+name|getPatternAnnotation
+argument_list|(
+name|annotationType
+argument_list|,
+name|nextDepth
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|pattern
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+condition|)
+block|{
+name|answer
+operator|=
+name|another
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Duplicate pattern annotation: "
+operator|+
+name|another
+operator|+
+literal|" found on annotation: "
+operator|+
+name|annotation
+operator|+
+literal|" which will be ignored"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+block|}
+block|}
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Adds the current class and all of its base classes (apart from {@link Object} to the given list      * @param type      * @param result      */
 DECL|method|addTypeAndSuperTypes (Class<?> type, List<Class<?>> result)
 specifier|protected
@@ -1050,7 +1277,7 @@ block|}
 comment|/**      * Finds the first annotation on the base methods defined in the list of classes      */
 DECL|method|findOneWayAnnotationOnMethod (List<Class<?>> classes, Method method)
 specifier|protected
-name|OneWay
+name|Pattern
 name|findOneWayAnnotationOnMethod
 parameter_list|(
 name|List
@@ -1097,16 +1324,12 @@ name|getParameterTypes
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|OneWay
+name|Pattern
 name|answer
 init|=
-name|definedMethod
-operator|.
-name|getAnnotation
+name|getPatternAnnotation
 argument_list|(
-name|OneWay
-operator|.
-name|class
+name|definedMethod
 argument_list|)
 decl_stmt|;
 if|if
@@ -1137,7 +1360,7 @@ block|}
 comment|/**      * Finds the first annotation on the given list of classes      */
 DECL|method|findOneWayAnnotation (List<Class<?>> classes)
 specifier|protected
-name|OneWay
+name|Pattern
 name|findOneWayAnnotation
 parameter_list|(
 name|List
@@ -1161,16 +1384,12 @@ range|:
 name|classes
 control|)
 block|{
-name|OneWay
+name|Pattern
 name|answer
 init|=
-name|type
-operator|.
-name|getAnnotation
+name|getPatternAnnotation
 argument_list|(
-name|OneWay
-operator|.
-name|class
+name|type
 argument_list|)
 decl_stmt|;
 if|if
