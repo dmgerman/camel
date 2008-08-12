@@ -179,12 +179,28 @@ argument_list|(
 name|expectedBody
 argument_list|)
 expr_stmt|;
-comment|// send the message twice to walk around the AMQP's drop first message issue on Windows box
+if|if
+condition|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"os.name"
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+literal|"Windows Vista"
+argument_list|)
+condition|)
+block|{
+comment|// send the message twice to walk around the AMQP's drop first message issue on Windows Vista box
 name|sendExchange
 argument_list|(
 name|expectedBody
 argument_list|)
 expr_stmt|;
+block|}
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
