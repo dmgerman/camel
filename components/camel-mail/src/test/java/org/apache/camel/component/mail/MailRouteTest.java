@@ -72,6 +72,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|mail
+operator|.
+name|Address
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -358,10 +368,16 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-name|name
-argument_list|,
+name|boolean
+name|found
+init|=
+literal|false
+decl_stmt|;
+for|for
+control|(
+name|Address
+name|adr
+range|:
 name|message
 operator|.
 name|getRecipients
@@ -370,12 +386,34 @@ name|RecipientType
 operator|.
 name|TO
 argument_list|)
-index|[
-literal|0
-index|]
+control|)
+block|{
+if|if
+condition|(
+name|name
+operator|.
+name|equals
+argument_list|(
+name|adr
 operator|.
 name|toString
 argument_list|()
+argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+literal|true
+expr_stmt|;
+block|}
+block|}
+name|assertTrue
+argument_list|(
+literal|"Should have found the recpient to in the mail: "
+operator|+
+name|name
+argument_list|,
+name|found
 argument_list|)
 expr_stmt|;
 block|}
@@ -409,16 +447,26 @@ argument_list|)
 expr_stmt|;
 comment|// must use fixed to option to send the mail to the given reciever, as we have polled
 comment|// a mail from a mailbox where it already has the 'old' To as header value
+comment|// here we send the mail to 2 recievers. notice we can use a plain string with semi colon
+comment|// to seperate the mail addresses
 name|from
 argument_list|(
 literal|"direct:a"
 argument_list|)
 operator|.
+name|setHeader
+argument_list|(
+literal|"to"
+argument_list|,
+name|constant
+argument_list|(
+literal|"route-test-result@localhost; route-test-copy@localhost"
+argument_list|)
+argument_list|)
+operator|.
 name|to
 argument_list|(
-literal|"smtp://localhost?to=route-test-result@localhost"
-argument_list|,
-literal|"smtp://localhost?to=route-test-copy@localhost"
+literal|"smtp://localhost"
 argument_list|)
 expr_stmt|;
 name|from
