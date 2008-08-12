@@ -72,11 +72,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|builder
 operator|.
-name|http
-operator|.
-name|HttpProducer
+name|RouteBuilder
 import|;
 end_import
 
@@ -106,9 +104,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mock
+name|http
 operator|.
-name|MockEndpoint
+name|HttpProducer
 import|;
 end_import
 
@@ -120,9 +118,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|RouteBuilder
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 

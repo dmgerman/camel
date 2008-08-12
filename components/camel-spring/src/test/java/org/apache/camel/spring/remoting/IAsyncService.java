@@ -30,26 +30,6 @@ name|OneWay
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|rmi
-operator|.
-name|Remote
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|rmi
-operator|.
-name|RemoteException
-import|;
-end_import
-
 begin_comment
 comment|/**  * A dummy interface which has a oneway method via the {@link org.apache.camel.OneWay} annotation  */
 end_comment
