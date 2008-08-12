@@ -95,8 +95,6 @@ block|{
 comment|/**      * Allows the exact exchange pattern type to be specified though the default value of      * {@link org.apache.camel.ExchangePattern#InOnly} should be fine for most uses      */
 DECL|method|value ()
 DECL|field|ExchangePattern.InOnly
-specifier|public
-specifier|abstract
 name|ExchangePattern
 name|value
 parameter_list|()
