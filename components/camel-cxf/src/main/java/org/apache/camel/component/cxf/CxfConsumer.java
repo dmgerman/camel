@@ -387,6 +387,16 @@ operator|.
 name|getCxfEndpointBean
 argument_list|()
 decl_stmt|;
+name|CxfEndpointUtils
+operator|.
+name|checkServiceClass
+argument_list|(
+name|endpointBean
+operator|.
+name|getServiceClass
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|svrBean
 operator|=
 name|CxfEndpointUtils
@@ -426,6 +436,16 @@ block|}
 else|else
 block|{
 comment|// setup the serverFactoryBean with the URI parameters
+name|CxfEndpointUtils
+operator|.
+name|checkServiceClassName
+argument_list|(
+name|endpoint
+operator|.
+name|getServiceClass
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Class
 name|serviceClass
 init|=

@@ -231,6 +231,16 @@ return|return
 literal|"cxf:bean:testEndpoint"
 return|;
 block|}
+DECL|method|getNoServiceClassURI ()
+specifier|protected
+name|String
+name|getNoServiceClassURI
+parameter_list|()
+block|{
+return|return
+literal|"cxf:bean:noServiceClassEndpoint"
+return|;
+block|}
 DECL|method|testGetDataFormat ()
 specifier|public
 name|void
