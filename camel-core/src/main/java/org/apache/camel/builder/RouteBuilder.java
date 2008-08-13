@@ -827,6 +827,26 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|addRoutes (Routes routes)
+specifier|protected
+name|void
+name|addRoutes
+parameter_list|(
+name|Routes
+name|routes
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|addRoutes
+argument_list|(
+name|routes
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

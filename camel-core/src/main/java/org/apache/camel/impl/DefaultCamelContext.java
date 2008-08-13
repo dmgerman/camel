@@ -910,12 +910,11 @@ name|jndiContext
 parameter_list|)
 block|{
 name|this
-argument_list|(
-operator|new
-name|JndiRegistry
+argument_list|()
+expr_stmt|;
+name|setJndiContext
 argument_list|(
 name|jndiContext
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2243,6 +2242,26 @@ block|}
 return|return
 name|registry
 return|;
+block|}
+comment|/**      * Sets the registry to the given JNDI context      *      * @param jndiContext is the JNDI context to use as the registry      *      * @see #setRegistry(org.apache.camel.spi.Registry)      */
+DECL|method|setJndiContext (Context jndiContext)
+specifier|public
+name|void
+name|setJndiContext
+parameter_list|(
+name|Context
+name|jndiContext
+parameter_list|)
+block|{
+name|setRegistry
+argument_list|(
+operator|new
+name|JndiRegistry
+argument_list|(
+name|jndiContext
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|setRegistry (Registry registry)
 specifier|public
