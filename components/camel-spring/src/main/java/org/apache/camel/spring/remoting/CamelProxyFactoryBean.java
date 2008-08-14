@@ -62,11 +62,37 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|bean
 operator|.
 name|ProxyHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|beans
+operator|.
+name|factory
+operator|.
+name|DisposableBean
 import|;
 end_import
 
@@ -99,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link FactoryBean} to create a Proxy to a a Camel Pojo Endpoint.  *   * @author chirino  */
+comment|/**  * A {@link FactoryBean} to create a Proxy to a a Camel Pojo Endpoint.  *  * @author chirino  */
 end_comment
 
 begin_class
@@ -113,6 +139,8 @@ implements|implements
 name|FactoryBean
 implements|,
 name|CamelContextAware
+implements|,
+name|DisposableBean
 block|{
 DECL|field|camelContext
 specifier|private
@@ -128,6 +156,11 @@ DECL|field|serviceProxy
 specifier|private
 name|Object
 name|serviceProxy
+decl_stmt|;
+DECL|field|producer
+specifier|private
+name|Producer
+name|producer
 decl_stmt|;
 annotation|@
 name|Override
@@ -202,6 +235,22 @@ block|}
 block|}
 name|this
 operator|.
+name|producer
+operator|=
+name|endpoint
+operator|.
+name|createProducer
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|producer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
 name|serviceProxy
 operator|=
 name|ProxyHelper
@@ -209,6 +258,8 @@ operator|.
 name|createProxy
 argument_list|(
 name|endpoint
+argument_list|,
+name|producer
 argument_list|,
 name|getServiceInterface
 argument_list|()
@@ -229,6 +280,34 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|destroy ()
+specifier|public
+name|void
+name|destroy
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|this
+operator|.
+name|producer
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|producer
+operator|=
+literal|null
+expr_stmt|;
+name|this
+operator|.
+name|serviceProxy
+operator|=
+literal|null
+expr_stmt|;
 block|}
 DECL|method|getServiceInterface ()
 specifier|public

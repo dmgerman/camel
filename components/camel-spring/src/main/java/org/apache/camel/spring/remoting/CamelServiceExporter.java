@@ -417,6 +417,13 @@ argument_list|,
 name|uri
 argument_list|)
 decl_stmt|;
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"service"
+argument_list|)
+expr_stmt|;
 name|Object
 name|proxy
 init|=
