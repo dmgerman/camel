@@ -24,9 +24,33 @@ name|java
 operator|.
 name|lang
 operator|.
+name|annotation
+operator|.
+name|Annotation
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
 name|reflect
 operator|.
 name|AccessibleObject
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|AnnotatedElement
 import|;
 end_import
 
@@ -58,23 +82,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|lang
+name|util
 operator|.
-name|reflect
-operator|.
-name|AnnotatedElement
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|annotation
-operator|.
-name|Annotation
+name|ArrayList
 import|;
 end_import
 
@@ -100,16 +110,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -128,7 +128,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Expression
+name|ExchangePattern
 import|;
 end_import
 
@@ -140,7 +140,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
+name|Expression
 import|;
 end_import
 

@@ -94,8 +94,6 @@ name|Pattern
 block|{
 comment|/**      * Specifies the exchange pattern to be used for this method      */
 DECL|method|value ()
-specifier|public
-specifier|abstract
 name|ExchangePattern
 name|value
 parameter_list|()

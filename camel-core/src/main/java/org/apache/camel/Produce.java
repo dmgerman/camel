@@ -97,8 +97,6 @@ annotation_defn|@interface
 name|Produce
 block|{
 DECL|method|uri ()
-specifier|public
-specifier|abstract
 name|String
 name|uri
 parameter_list|()
@@ -106,8 +104,6 @@ default|default
 literal|""
 function_decl|;
 DECL|method|ref ()
-specifier|public
-specifier|abstract
 name|String
 name|ref
 parameter_list|()
