@@ -56,6 +56,20 @@ end_import
 
 begin_import
 import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|hl7v2
+operator|.
+name|model
+operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -203,20 +217,6 @@ operator|.
 name|codec
 operator|.
 name|ProtocolEncoderOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|ca
-operator|.
-name|uhn
-operator|.
-name|hl7v2
-operator|.
-name|model
-operator|.
-name|Message
 import|;
 end_import
 

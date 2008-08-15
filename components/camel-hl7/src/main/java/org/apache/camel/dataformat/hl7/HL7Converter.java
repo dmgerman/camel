@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Converter
-import|;
-end_import
-
-begin_import
-import|import
 name|ca
 operator|.
 name|uhn
@@ -84,6 +72,18 @@ name|PipeParser
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Converter
+import|;
+end_import
+
 begin_comment
 comment|/**  * HL7 converters.  */
 end_comment
@@ -93,6 +93,7 @@ annotation|@
 name|Converter
 DECL|class|HL7Converter
 specifier|public
+specifier|final
 class|class
 name|HL7Converter
 block|{
@@ -100,7 +101,9 @@ DECL|method|HL7Converter ()
 specifier|private
 name|HL7Converter
 parameter_list|()
-block|{     }
+block|{
+comment|// Helper class
+block|}
 annotation|@
 name|Converter
 DECL|method|toString (Message message)
