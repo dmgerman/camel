@@ -44,6 +44,16 @@ name|javax
 operator|.
 name|mail
 operator|.
+name|Address
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|mail
+operator|.
 name|Message
 import|;
 end_import
@@ -67,16 +77,6 @@ operator|.
 name|mail
 operator|.
 name|MessagingException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|Address
 import|;
 end_import
 

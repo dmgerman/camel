@@ -284,7 +284,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"activemq:test.b?selector=cheese%3D'y'"
+literal|"activemq:test.b?selector=cheese='y'"
 argument_list|)
 operator|.
 name|to
