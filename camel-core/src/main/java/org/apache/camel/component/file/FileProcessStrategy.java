@@ -55,7 +55,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Releases any file locks and possibly deletes or moves the file      *      * @param endpoint  the endpoint      * @param exchange  the exchange      * @param file      the file      * @throws Exception can be thrown in case of errors      */
+comment|/**      * Releases any file locks and possibly deletes or moves the file after successful processing      *      * @param endpoint  the endpoint      * @param exchange  the exchange      * @param file      the file      * @throws Exception can be thrown in case of errors      */
 DECL|method|commit (FileEndpoint endpoint, FileExchange exchange, File file)
 name|void
 name|commit
@@ -71,6 +71,21 @@ name|file
 parameter_list|)
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * Releases any file locks and possibly deletes or moves the file after unsuccessful processing      *      * @param endpoint  the endpoint      * @param exchange  the exchange      * @param file      the file      */
+DECL|method|rollback (FileEndpoint endpoint, FileExchange exchange, File file)
+name|void
+name|rollback
+parameter_list|(
+name|FileEndpoint
+name|endpoint
+parameter_list|,
+name|FileExchange
+name|exchange
+parameter_list|,
+name|File
+name|file
+parameter_list|)
 function_decl|;
 block|}
 end_interface
