@@ -482,7 +482,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * A helper method for performing an ordered comparsion on the objects      * handling nulls and objects which do not handle sorting gracefully      */
+comment|/**      * A helper method for performing an ordered comparison on the objects      * handling nulls and objects which do not handle sorting gracefully      */
 DECL|method|compare (Object a, Object b)
 specifier|public
 specifier|static
@@ -1442,6 +1442,42 @@ name|defaultValue
 return|;
 block|}
 block|}
+comment|/**      * A helper method to access a boolean system property, catching any security      * exceptions      *      * @param name the name of the system property required      * @param defaultValue the default value to use if the property is not      *                available or a security exception prevents access      * @return the boolean representation of the system property value       *         or the default value if the property is not available or       *         security does not allow its access      */
+DECL|method|getSystemProperty (String name, Boolean defaultValue)
+specifier|public
+specifier|static
+name|boolean
+name|getSystemProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Boolean
+name|defaultValue
+parameter_list|)
+block|{
+name|String
+name|result
+init|=
+name|getSystemProperty
+argument_list|(
+name|name
+argument_list|,
+name|defaultValue
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
+name|result
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns the type name of the given type or null if the type variable is      * null      */
 DECL|method|name (Class type)
 specifier|public
@@ -1493,12 +1529,12 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the canoical type name of the given value      */
-DECL|method|classCanoicalName (Object value)
+comment|/**      * Returns the canonical type name of the given value      */
+DECL|method|classCanonicalName (Object value)
 specifier|public
 specifier|static
 name|String
-name|classCanoicalName
+name|classCanonicalName
 parameter_list|(
 name|Object
 name|value

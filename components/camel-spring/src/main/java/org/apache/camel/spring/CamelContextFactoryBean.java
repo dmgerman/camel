@@ -1485,7 +1485,7 @@ name|ContextRefreshedEvent
 condition|)
 block|{
 comment|// now lets start the CamelContext so that all its possible
-comment|// dependencies are initailized
+comment|// dependencies are initialized
 try|try
 block|{
 name|LOG

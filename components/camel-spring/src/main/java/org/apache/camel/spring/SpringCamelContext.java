@@ -194,6 +194,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -391,6 +405,23 @@ specifier|private
 name|EventEndpoint
 name|eventEndpoint
 decl_stmt|;
+DECL|field|shouldStartContext
+specifier|private
+name|boolean
+name|shouldStartContext
+init|=
+name|ObjectHelper
+operator|.
+name|getSystemProperty
+argument_list|(
+literal|"shouldStartContext"
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+decl_stmt|;
+comment|// start context by default
 DECL|method|SpringCamelContext ()
 specifier|public
 name|SpringCamelContext
@@ -518,9 +549,45 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|maybeStart
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|maybeStart ()
+specifier|private
+name|void
+name|maybeStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|getShouldStartContext
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Starting the CamelContext now that the ApplicationContext has started"
+argument_list|)
+expr_stmt|;
 name|start
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Not starting the CamelContext since shouldStartContext property was true."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|destroy ()
 specifier|public
@@ -572,14 +639,7 @@ comment|// now lets start the CamelContext so that all its possible
 comment|// dependencies are initialized
 try|try
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Starting the CamelContext now that the ApplicationContext has started"
-argument_list|)
-expr_stmt|;
-name|start
+name|maybeStart
 argument_list|()
 expr_stmt|;
 block|}
@@ -741,6 +801,24 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|maybeDoStart
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|maybeDoStart ()
+specifier|protected
+name|void
+name|maybeDoStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|getShouldStartContext
+argument_list|()
+condition|)
+block|{
 name|super
 operator|.
 name|doStart
@@ -758,6 +836,7 @@ operator|=
 name|createEventEndpoint
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
@@ -911,6 +990,32 @@ argument_list|(
 name|getApplicationContext
 argument_list|()
 argument_list|)
+return|;
+block|}
+DECL|method|setShouldStartContext (boolean shouldStartContext)
+specifier|public
+name|void
+name|setShouldStartContext
+parameter_list|(
+name|boolean
+name|shouldStartContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shouldStartContext
+operator|=
+name|shouldStartContext
+expr_stmt|;
+block|}
+DECL|method|getShouldStartContext ()
+specifier|public
+name|boolean
+name|getShouldStartContext
+parameter_list|()
+block|{
+return|return
+name|shouldStartContext
 return|;
 block|}
 block|}
