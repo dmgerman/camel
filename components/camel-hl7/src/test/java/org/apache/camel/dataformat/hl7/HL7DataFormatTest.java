@@ -172,15 +172,6 @@ name|HL7DataFormatTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|hl7
-specifier|private
-name|DataFormat
-name|hl7
-init|=
-operator|new
-name|HL7DataFormat
-argument_list|()
-decl_stmt|;
 DECL|method|testMarshal ()
 specifier|public
 name|void
@@ -545,9 +536,10 @@ literal|"direct:marshal"
 argument_list|)
 operator|.
 name|marshal
-argument_list|(
+argument_list|()
+operator|.
 name|hl7
-argument_list|)
+argument_list|()
 operator|.
 name|to
 argument_list|(
@@ -560,9 +552,10 @@ literal|"direct:unmarshal"
 argument_list|)
 operator|.
 name|unmarshal
-argument_list|(
+argument_list|()
+operator|.
 name|hl7
-argument_list|)
+argument_list|()
 operator|.
 name|to
 argument_list|(

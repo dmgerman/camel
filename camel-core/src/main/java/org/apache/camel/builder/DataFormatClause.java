@@ -90,6 +90,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|HL7DataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|DataFormatType
 import|;
 end_import
@@ -353,6 +369,22 @@ name|dataFormat
 argument_list|(
 operator|new
 name|CsvDataFormat
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the HL7 data format      */
+DECL|method|hl7 ()
+specifier|public
+name|T
+name|hl7
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|HL7DataFormat
 argument_list|()
 argument_list|)
 return|;
