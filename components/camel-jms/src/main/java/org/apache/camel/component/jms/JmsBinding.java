@@ -1490,7 +1490,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Strategy to test if the given header is valid according to the JMS spec to be set as a property      * on the JMS message.      *<p/>      * This default implementation will allow:      *<ul>      *<li>any primitives and their counter Objects (Integer, Double etc.)</li>      *<li>String and any other litterals, Character, CharSequence</li>      *<li>BigDecimal and BigInteger</li>      *<li>java.util.Date</li>      *</ul>      *      * @param headerName   the header name      * @param headerValue  the header value      * @return  the value to use,<tt>null</tt> to ignore this header      */
+comment|/**      * Strategy to test if the given header is valid according to the JMS spec to be set as a property      * on the JMS message.      *<p/>      * This default implementation will allow:      *<ul>      *<li>any primitives and their counter Objects (Integer, Double etc.)</li>      *<li>String and any other litterals, Character, CharSequence</li>      *<li>Boolean</li>      *<li>BigDecimal and BigInteger</li>      *<li>java.util.Date</li>      *</ul>      *      * @param headerName   the header name      * @param headerValue  the header value      * @return  the value to use,<tt>null</tt> to ignore this header      */
 DECL|method|getValidJMSHeaderValue (String headerName, Object headerValue)
 specifier|protected
 name|Object
@@ -1582,6 +1582,21 @@ condition|(
 name|headerValue
 operator|instanceof
 name|CharSequence
+condition|)
+block|{
+return|return
+name|headerValue
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|headerValue
+operator|instanceof
+name|Boolean
 condition|)
 block|{
 return|return
