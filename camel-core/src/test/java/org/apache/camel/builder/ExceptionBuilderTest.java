@@ -495,6 +495,11 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
+name|maximumRedeliveryDelay
+argument_list|(
+literal|30000L
+argument_list|)
+operator|.
 name|backOffMultiplier
 argument_list|(
 literal|1.0

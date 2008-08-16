@@ -253,7 +253,6 @@ argument_list|<
 name|ProcessorType
 argument_list|>
 block|{
-comment|/*     @XmlElementRef     private List<InterceptorType> interceptors = new ArrayList<InterceptorType>(); */
 annotation|@
 name|XmlElement
 argument_list|(
@@ -674,6 +673,27 @@ argument_list|()
 operator|.
 name|useExponentialBackOff
 argument_list|()
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|maximumRedeliveryDelay (long maximumRedeliveryDelay)
+specifier|public
+name|ExceptionType
+name|maximumRedeliveryDelay
+parameter_list|(
+name|long
+name|maximumRedeliveryDelay
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|maximumRedeliveryDelay
+argument_list|(
+name|maximumRedeliveryDelay
+argument_list|)
 expr_stmt|;
 return|return
 name|this

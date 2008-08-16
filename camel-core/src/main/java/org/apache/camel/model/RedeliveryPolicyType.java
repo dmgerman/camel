@@ -126,6 +126,11 @@ specifier|private
 name|Boolean
 name|useCollisionAvoidance
 decl_stmt|;
+DECL|field|maximumRedeliveryDelay
+specifier|private
+name|Long
+name|maximumRedeliveryDelay
+decl_stmt|;
 DECL|method|createRedeliveryPolicy (RedeliveryPolicy parentPolicy)
 specifier|public
 name|RedeliveryPolicy
@@ -234,6 +239,21 @@ name|useCollisionAvoidance
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|maximumRedeliveryDelay
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setMaximumRedeliveryDelay
+argument_list|(
+name|maximumRedeliveryDelay
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -245,7 +265,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"RedeliveryPolicy[maxRedeliveries: "
+literal|"RedeliveryPolicy[maximumRedeliveries: "
 operator|+
 name|maximumRedeliveries
 operator|+
@@ -374,6 +394,24 @@ argument_list|(
 name|Boolean
 operator|.
 name|TRUE
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|maximumRedeliveryDelay (long maximumRedeliveryDelay)
+specifier|public
+name|RedeliveryPolicyType
+name|maximumRedeliveryDelay
+parameter_list|(
+name|long
+name|maximumRedeliveryDelay
+parameter_list|)
+block|{
+name|setMaximumRedeliveryDelay
+argument_list|(
+name|maximumRedeliveryDelay
 argument_list|)
 expr_stmt|;
 return|return
@@ -536,6 +574,32 @@ operator|.
 name|useExponentialBackOff
 operator|=
 name|useExponentialBackOff
+expr_stmt|;
+block|}
+DECL|method|getMaximumRedeliveryDelay ()
+specifier|public
+name|Long
+name|getMaximumRedeliveryDelay
+parameter_list|()
+block|{
+return|return
+name|maximumRedeliveryDelay
+return|;
+block|}
+DECL|method|setMaximumRedeliveryDelay (Long maximumRedeliveryDelay)
+specifier|public
+name|void
+name|setMaximumRedeliveryDelay
+parameter_list|(
+name|Long
+name|maximumRedeliveryDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maximumRedeliveryDelay
+operator|=
+name|maximumRedeliveryDelay
 expr_stmt|;
 block|}
 block|}
