@@ -312,6 +312,13 @@ operator|.
 name|getInstance
 argument_list|()
 decl_stmt|;
+DECL|field|splitRows
+specifier|private
+name|boolean
+name|splitRows
+init|=
+literal|true
+decl_stmt|;
 DECL|method|FixedLengthEndpoint (String uri, Resource resource)
 specifier|public
 name|FixedLengthEndpoint
@@ -614,6 +621,32 @@ operator|.
 name|loadBalancer
 operator|=
 name|loadBalancer
+expr_stmt|;
+block|}
+DECL|method|isSplitRows ()
+specifier|public
+name|boolean
+name|isSplitRows
+parameter_list|()
+block|{
+return|return
+name|splitRows
+return|;
+block|}
+DECL|method|setSplitRows (boolean splitRows)
+specifier|public
+name|void
+name|setSplitRows
+parameter_list|(
+name|boolean
+name|splitRows
+parameter_list|)
+block|{
+name|this
+operator|.
+name|splitRows
+operator|=
+name|splitRows
 expr_stmt|;
 block|}
 block|}
