@@ -210,6 +210,20 @@ name|CastUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|message
+operator|.
+name|MessageContentsList
+import|;
+end_import
+
 begin_class
 DECL|class|CxfProducerRouterTest
 specifier|public
@@ -518,15 +532,14 @@ operator|.
 name|getOut
 argument_list|()
 decl_stmt|;
-comment|// The response message's body is an object array which first element is the return value of the operation,
-comment|// If there are some holder parameters, the holder parameter will be filled in the reset of array.
-name|Object
-index|[]
-name|output
+comment|// The response message's body is an MessageContentsList which first element is the return value of the operation,
+comment|// If there are some holder parameters, the holder parameter will be filled in the reset of List.
+comment|// The result will be extract from the MessageContentsList with the String class type
+name|MessageContentsList
+name|result
 init|=
 operator|(
-name|Object
-index|[]
+name|MessageContentsList
 operator|)
 name|out
 operator|.
@@ -539,10 +552,12 @@ name|info
 argument_list|(
 literal|"Received output text: "
 operator|+
-name|output
-index|[
+name|result
+operator|.
+name|get
+argument_list|(
 literal|0
-index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Map
@@ -607,10 +622,12 @@ literal|"echo "
 operator|+
 name|TEST_MESSAGE
 argument_list|,
-name|output
-index|[
+name|result
+operator|.
+name|get
+argument_list|(
 literal|0
-index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: sending
