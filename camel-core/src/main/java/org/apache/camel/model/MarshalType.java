@@ -156,7 +156,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|HL7DataFormat
+name|DataFormatType
 import|;
 end_import
 
@@ -172,7 +172,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|DataFormatType
+name|HL7DataFormat
 import|;
 end_import
 
