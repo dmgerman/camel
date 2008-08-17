@@ -106,6 +106,24 @@ name|FlatpackComponent
 extends|extends
 name|ResourceBasedComponent
 block|{
+DECL|field|HEADER_ID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_ID
+init|=
+literal|"header"
+decl_stmt|;
+DECL|field|TRAILER_ID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TRAILER_ID
+init|=
+literal|"trailer"
+decl_stmt|;
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|Endpoint
