@@ -514,9 +514,7 @@ name|assertEquals
 argument_list|(
 literal|"Expect to get right fault-code"
 argument_list|,
-name|SoapFault
-operator|.
-name|FAULT_CODE_CLIENT
+literal|"{http://schemas.xmlsoap.org/soap/envelope/}Client"
 argument_list|,
 operator|(
 operator|(
@@ -526,6 +524,9 @@ name|e
 operator|)
 operator|.
 name|getFaultCode
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
