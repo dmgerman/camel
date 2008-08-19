@@ -77,6 +77,30 @@ name|String
 name|expression
 parameter_list|)
 block|{
+name|this
+argument_list|(
+name|language
+argument_list|,
+name|expression
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|IllegalSyntaxException (Language language, String expression, Throwable cause)
+specifier|public
+name|IllegalSyntaxException
+parameter_list|(
+name|Language
+name|language
+parameter_list|,
+name|String
+name|expression
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
 name|super
 argument_list|(
 literal|"Illegal syntax for language: "
@@ -86,6 +110,8 @@ operator|+
 literal|". Expression: "
 operator|+
 name|expression
+argument_list|,
+name|cause
 argument_list|)
 expr_stmt|;
 name|this

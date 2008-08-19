@@ -170,6 +170,7 @@ name|getIn
 argument_list|()
 return|;
 block|}
+comment|/**      * @deprecated doesnt work in OGNL use request instead      */
 DECL|method|getIn ()
 specifier|public
 name|Message
@@ -183,6 +184,7 @@ name|getIn
 argument_list|()
 return|;
 block|}
+comment|/**      * @deprecated doesnt work in OGNL use response instead      */
 DECL|method|getOut ()
 specifier|public
 name|Message

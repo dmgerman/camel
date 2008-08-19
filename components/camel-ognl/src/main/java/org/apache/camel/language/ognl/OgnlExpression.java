@@ -199,6 +199,8 @@ argument_list|(
 name|language
 argument_list|,
 name|expressionString
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
