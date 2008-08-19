@@ -44,20 +44,6 @@ name|FtpServer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|ftpserver
-operator|.
-name|interfaces
-operator|.
-name|FtpServerContext
-import|;
-end_import
-
 begin_comment
 comment|/**  * Base class for unit testing using a FTPServer  */
 end_comment
