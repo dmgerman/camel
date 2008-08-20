@@ -152,8 +152,6 @@ DECL|field|exclusiveReadLock
 specifier|protected
 name|boolean
 name|exclusiveReadLock
-init|=
-literal|true
 decl_stmt|;
 DECL|field|deleteFile
 specifier|protected
