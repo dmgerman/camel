@@ -510,6 +510,7 @@ name|getTextContent
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//In CXF 2.1.2 , the fault code is per spec , the below fault-code is for SOAP 1.1
 name|assertEquals
 argument_list|(
 literal|"Expect to get right fault-code"
