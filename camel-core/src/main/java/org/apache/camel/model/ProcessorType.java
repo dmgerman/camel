@@ -5263,11 +5263,14 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Creates a new instance of some kind of composite processor which defaults      * to using a {@link Pipeline} but derived classes could change the      * behaviour      */
-DECL|method|createCompositeProcessor (List<Processor> list)
+DECL|method|createCompositeProcessor (RouteContext routeContext, List<Processor> list)
 specifier|protected
 name|Processor
 name|createCompositeProcessor
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|List
 argument_list|<
 name|Processor
@@ -5425,6 +5428,8 @@ name|processor
 operator|=
 name|createCompositeProcessor
 argument_list|(
+name|routeContext
+argument_list|,
 name|list
 argument_list|)
 expr_stmt|;
