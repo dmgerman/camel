@@ -256,7 +256,7 @@ name|HeaderChecker
 argument_list|(
 name|Phase
 operator|.
-name|PRE_STREAM
+name|READ
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -286,38 +286,10 @@ argument_list|(
 literal|"org.apache.camel.itest.customerrelations.CustomerServiceV1"
 argument_list|)
 decl_stmt|;
-comment|// add an interceptor to verify headers
-name|JaxWsClientProxy
-operator|.
-name|class
-operator|.
-name|cast
-argument_list|(
-name|Proxy
-operator|.
-name|getInvocationHandler
-argument_list|(
-name|customerService
-argument_list|)
-argument_list|)
-operator|.
-name|getClient
-argument_list|()
-operator|.
-name|getInInterceptors
-argument_list|()
-operator|.
-name|add
-argument_list|(
-operator|new
-name|HeaderChecker
-argument_list|(
-name|Phase
-operator|.
-name|PRE_STREAM
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// CXF 2.1.2 only apply the SOAPAction for the request message (in SoapPreProtocolOutInterceptor)
+comment|// After went through the SOAP 1.1 specification, I got that the SOAPAction is only for the request message
+comment|// So I comment out this HeaderChecker Interceptor setting up code
+comment|/*JaxWsClientProxy.class.cast(Proxy.getInvocationHandler(customerService))                 .getClient().getInInterceptors().add(new HeaderChecker(Phase.READ));*/
 name|Customer
 name|customer
 init|=
