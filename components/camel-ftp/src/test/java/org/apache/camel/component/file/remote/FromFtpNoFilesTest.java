@@ -226,31 +226,6 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|createDirectory (String s)
-specifier|private
-specifier|static
-name|void
-name|createDirectory
-parameter_list|(
-name|String
-name|s
-parameter_list|)
-block|{
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-name|s
-argument_list|)
-decl_stmt|;
-name|file
-operator|.
-name|mkdirs
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 end_class
 

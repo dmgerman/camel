@@ -30,6 +30,22 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|FileExchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * Used for renaming files.  *  * @version $Revision$  */
 end_comment
@@ -40,11 +56,14 @@ specifier|public
 interface|interface
 name|FileRenamer
 block|{
-comment|/**      * Renames the given file      *      * @param file  the original file.      * @return  the renamed file.      */
-DECL|method|renameFile (File file)
+comment|/**      * Renames the given file      *      * @param exchange  the exchange      * @param file      the original file.      * @return the renamed file.      */
+DECL|method|renameFile (FileExchange exchange, File file)
 name|File
 name|renameFile
 parameter_list|(
+name|FileExchange
+name|exchange
+parameter_list|,
 name|File
 name|file
 parameter_list|)

@@ -230,6 +230,8 @@ name|renamer
 operator|.
 name|renameFile
 argument_list|(
+name|exchange
+argument_list|,
 name|file
 argument_list|)
 decl_stmt|;

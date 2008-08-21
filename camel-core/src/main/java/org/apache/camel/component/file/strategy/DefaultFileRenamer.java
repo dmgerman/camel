@@ -30,6 +30,22 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|FileExchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * Camel default file renamer.  *  * @version $Revision$  */
 end_comment
@@ -100,11 +116,14 @@ operator|=
 name|namePostfix
 expr_stmt|;
 block|}
-DECL|method|renameFile (File file)
+DECL|method|renameFile (FileExchange exchange, File file)
 specifier|public
 name|File
 name|renameFile
 parameter_list|(
+name|FileExchange
+name|exchange
+parameter_list|,
 name|File
 name|file
 parameter_list|)

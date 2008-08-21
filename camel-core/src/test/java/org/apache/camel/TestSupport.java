@@ -1521,6 +1521,32 @@ name|delete
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * create the directory      *      * @param file the directory to be created      */
+DECL|method|createDirectory (String file)
+specifier|public
+specifier|static
+name|void
+name|createDirectory
+parameter_list|(
+name|String
+name|file
+parameter_list|)
+block|{
+name|File
+name|dir
+init|=
+operator|new
+name|File
+argument_list|(
+name|file
+argument_list|)
+decl_stmt|;
+name|dir
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

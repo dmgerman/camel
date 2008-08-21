@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/bean-language.html>bean language</a>  * which uses a simple text notation to invoke methods on beans to evaluate predicates or expressions<p/>  *<p/>  * The notation is essentially<code>beanName.methodName</code> which is then invoked using the  * beanName to lookup in the<a href="http://activemq.apache.org/camel/registry.html>registry</a>  * then the method is invoked to evaluate the expression using the  *<a href="http://activemq.apache.org/camel/bean-integration.html>bean integration</a> to bind the  * {@link Exchange} to the method arguments.  *  * @version $Revision$  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/bean-language.html">bean language</a>  * which uses a simple text notation to invoke methods on beans to evaluate predicates or expressions  *<p/>  * The notation is essentially<code>beanName.methodName</code> which is then invoked using the  * beanName to lookup in the<a href="http://activemq.apache.org/camel/registry.html>registry</a>  * then the method is invoked to evaluate the expression using the  *<a href="http://activemq.apache.org/camel/bean-integration.html">bean integration</a> to bind the  * {@link Exchange} to the method arguments.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -108,6 +108,32 @@ name|BeanLanguage
 implements|implements
 name|Language
 block|{
+DECL|method|bean (String expression)
+specifier|public
+specifier|static
+name|Expression
+name|bean
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+name|BeanLanguage
+name|language
+init|=
+operator|new
+name|BeanLanguage
+argument_list|()
+decl_stmt|;
+return|return
+name|language
+operator|.
+name|createExpression
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate

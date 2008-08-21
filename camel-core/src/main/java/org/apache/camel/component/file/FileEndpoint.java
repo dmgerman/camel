@@ -56,7 +56,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -81,6 +91,18 @@ operator|.
 name|camel
 operator|.
 name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Expression
 import|;
 end_import
 
@@ -131,6 +153,22 @@ operator|.
 name|impl
 operator|.
 name|ScheduledPollEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|simple
+operator|.
+name|FileLanguage
 import|;
 end_import
 
@@ -342,6 +380,11 @@ DECL|field|ignoreFileNameHeader
 specifier|private
 name|boolean
 name|ignoreFileNameHeader
+decl_stmt|;
+DECL|field|expression
+specifier|private
+name|Expression
+name|expression
 decl_stmt|;
 DECL|method|FileEndpoint (File file, String endpointUri, FileComponent component)
 specifier|protected
@@ -1106,6 +1149,54 @@ operator|=
 name|excludedNamePostfix
 expr_stmt|;
 block|}
+DECL|method|getExpression ()
+specifier|public
+name|Expression
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
+block|}
+DECL|method|setExpression (Expression expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
+expr_stmt|;
+block|}
+comment|/**      * Sets the expression based on {@link FileLanguage}      */
+DECL|method|setExpression (String fileLanguageExpression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|String
+name|fileLanguageExpression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expression
+operator|=
+name|FileLanguage
+operator|.
+name|file
+argument_list|(
+name|fileLanguageExpression
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * A strategy method to lazily create the file strategy      */
 DECL|method|createFileStrategy ()
 specifier|protected
@@ -1222,7 +1313,7 @@ name|getMethod
 argument_list|(
 literal|"createFileProcessStrategy"
 argument_list|,
-name|Properties
+name|Map
 operator|.
 name|class
 argument_list|)
@@ -1239,7 +1330,7 @@ name|factoryMethod
 argument_list|,
 literal|null
 argument_list|,
-name|getParamsAsProperties
+name|getParamsAsMap
 argument_list|()
 argument_list|)
 return|;
@@ -1266,17 +1357,32 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getParamsAsProperties ()
+DECL|method|getParamsAsMap ()
 specifier|protected
-name|Properties
-name|getParamsAsProperties
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getParamsAsMap
 parameter_list|()
 block|{
-name|Properties
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|params
 init|=
 operator|new
-name|Properties
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 if|if
@@ -1287,7 +1393,7 @@ condition|)
 block|{
 name|params
 operator|.
-name|setProperty
+name|put
 argument_list|(
 literal|"noop"
 argument_list|,
@@ -1308,7 +1414,7 @@ condition|)
 block|{
 name|params
 operator|.
-name|setProperty
+name|put
 argument_list|(
 literal|"delete"
 argument_list|,
@@ -1329,7 +1435,7 @@ condition|)
 block|{
 name|params
 operator|.
-name|setProperty
+name|put
 argument_list|(
 literal|"append"
 argument_list|,
@@ -1350,7 +1456,7 @@ condition|)
 block|{
 name|params
 operator|.
-name|setProperty
+name|put
 argument_list|(
 literal|"lock"
 argument_list|,
@@ -1372,7 +1478,7 @@ condition|)
 block|{
 name|params
 operator|.
-name|setProperty
+name|put
 argument_list|(
 literal|"moveNamePrefix"
 argument_list|,
@@ -1389,11 +1495,28 @@ condition|)
 block|{
 name|params
 operator|.
-name|setProperty
+name|put
 argument_list|(
 literal|"moveNamePostfix"
 argument_list|,
 name|moveNamePostfix
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|expression
+operator|!=
+literal|null
+condition|)
+block|{
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"expression"
+argument_list|,
+name|expression
 argument_list|)
 expr_stmt|;
 block|}

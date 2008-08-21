@@ -101,7 +101,7 @@ name|HEADER_FILE_NAME
 init|=
 literal|"org.apache.camel.file.name"
 decl_stmt|;
-comment|/**      * Header key holding the value: absolute filepath for the actual file produced.      * Value is set automatically by Camel      */
+comment|/**      * Header key holding the value: absolute filepath for the actual file produced (by file producer).      * Value is set automatically by Camel      */
 DECL|field|HEADER_FILE_NAME_PRODUCED
 specifier|public
 specifier|static

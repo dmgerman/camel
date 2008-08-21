@@ -50,6 +50,19 @@ name|Exception
 block|{
 name|assertExpression
 argument_list|(
+literal|"id"
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getMessageId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"body"
 argument_list|,
 literal|"<hello id='m123'>world!</hello>"
