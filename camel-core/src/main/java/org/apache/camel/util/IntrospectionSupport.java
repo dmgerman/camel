@@ -1115,11 +1115,6 @@ name|value
 operator|==
 literal|null
 operator|||
-name|value
-operator|.
-name|getClass
-argument_list|()
-operator|==
 name|setter
 operator|.
 name|getParameterTypes
@@ -1127,6 +1122,14 @@ argument_list|()
 index|[
 literal|0
 index|]
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|value
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
 condition|)
 block|{
 name|setter
