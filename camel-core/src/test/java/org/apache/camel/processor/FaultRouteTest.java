@@ -601,6 +601,14 @@ block|}
 else|else
 block|{
 comment|// test for the throwFault with String
+if|if
+condition|(
+name|errors
+operator|==
+literal|0
+condition|)
+block|{
+comment|// fault *not* handled
 name|assertTrue
 argument_list|(
 literal|"It should be the CamelException"
@@ -635,6 +643,51 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// fault handled, exception should contain the fault
+name|assertNull
+argument_list|(
+literal|"Fault body should be null"
+argument_list|,
+name|fault
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|CamelException
+name|faultex
+init|=
+operator|(
+name|CamelException
+operator|)
+name|exchange
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Exception body should contain the fault"
+argument_list|,
+name|faultex
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Fault message"
+argument_list|,
+literal|"ExceptionMessage"
+argument_list|,
+name|faultex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@

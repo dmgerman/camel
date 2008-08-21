@@ -114,6 +114,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|faultMessage
+operator|.
+name|setBody
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// Reset it since we are handling it.
 if|if
 condition|(
 name|faultBody
