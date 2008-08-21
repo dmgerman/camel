@@ -268,6 +268,36 @@ return|return
 literal|null
 return|;
 block|}
+DECL|method|convertTo (Class<T> toType, Exchange exchange, Object value)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|convertTo
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|toType
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|convertTo
+argument_list|(
+name|toType
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
 DECL|method|convert (Processor value)
 specifier|public
 specifier|static

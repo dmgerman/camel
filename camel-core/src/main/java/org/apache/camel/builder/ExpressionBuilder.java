@@ -1354,6 +1354,8 @@ name|convertTo
 argument_list|(
 name|type
 argument_list|,
+name|exchange
+argument_list|,
 name|value
 argument_list|)
 return|;
@@ -2010,6 +2012,8 @@ argument_list|(
 name|String
 operator|.
 name|class
+argument_list|,
+name|exchange
 argument_list|,
 name|value
 argument_list|)

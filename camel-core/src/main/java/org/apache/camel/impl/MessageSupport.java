@@ -235,6 +235,8 @@ name|convertTo
 argument_list|(
 name|type
 argument_list|,
+name|e
+argument_list|,
 name|body
 argument_list|)
 decl_stmt|;
@@ -335,6 +337,8 @@ operator|.
 name|convertTo
 argument_list|(
 name|type
+argument_list|,
+name|e
 argument_list|,
 name|value
 argument_list|)

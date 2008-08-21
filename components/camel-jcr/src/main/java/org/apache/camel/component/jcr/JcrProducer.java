@@ -226,6 +226,8 @@ operator|.
 name|class
 argument_list|,
 name|exchange
+argument_list|,
+name|exchange
 operator|.
 name|getProperty
 argument_list|(
