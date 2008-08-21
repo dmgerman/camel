@@ -55,14 +55,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * File renamed using {@link Expression} to dynamically compute the file name.  *<p/>  * If most cases the {@link org.apache.camel.language.simple.FileLanguage FileLanguage} is used to  * create the expressions.  */
 end_comment
 
 begin_class
-DECL|class|FileLanguageRenamer
+DECL|class|FileExpressionRenamer
 specifier|public
 class|class
-name|FileLanguageRenamer
+name|FileExpressionRenamer
 implements|implements
 name|FileRenamer
 block|{

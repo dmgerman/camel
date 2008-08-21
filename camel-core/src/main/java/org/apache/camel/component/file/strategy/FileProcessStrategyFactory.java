@@ -221,11 +221,11 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|FileLanguageRenamer
+name|FileExpressionRenamer
 name|renamer
 init|=
 operator|new
-name|FileLanguageRenamer
+name|FileExpressionRenamer
 argument_list|()
 decl_stmt|;
 name|renamer
