@@ -150,6 +150,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -1054,10 +1064,14 @@ operator|.
 name|getClass
 argument_list|()
 decl_stmt|;
+comment|// find candidates of setter methods as there can be overloaded setters
+name|Set
+argument_list|<
 name|Method
-name|setter
+argument_list|>
+name|setters
 init|=
-name|findSetterMethod
+name|findSetterMethods
 argument_list|(
 name|typeConverter
 argument_list|,
@@ -1070,17 +1084,31 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|setter
-operator|==
-literal|null
+name|setters
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 return|return
 literal|false
 return|;
 block|}
-comment|// If the type is null or it matches the needed type, just use the
-comment|// value directly
+comment|// loop and execute the best setter method
+name|Exception
+name|typeConvertionFailed
+init|=
+literal|null
+decl_stmt|;
+for|for
+control|(
+name|Method
+name|setter
+range|:
+name|setters
+control|)
+block|{
+comment|// If the type is null or it matches the needed type, just use the value directly
 if|if
 condition|(
 name|value
@@ -1110,10 +1138,15 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 else|else
 block|{
 comment|// We need to convert it
+try|try
+block|{
 name|Object
 name|convertedValue
 init|=
@@ -1141,10 +1174,89 @@ argument_list|,
 name|convertedValue
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|true
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|typeConvertionFailed
+operator|=
+name|e
+expr_stmt|;
+comment|// ignore as there could be another setter method where we could type convert with success
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Setter "
+operator|+
+name|setter
+operator|+
+literal|" with parameter type "
+operator|+
+name|setter
+operator|.
+name|getParameterTypes
+argument_list|()
+index|[
+literal|0
+index|]
+operator|+
+literal|" could not be used for type conertions of "
+operator|+
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|// we did not find a setter method to use, and if we did try to use a type converter then throw
+comment|// this kind of exception as the caused by will hint this error
+if|if
+condition|(
+name|typeConvertionFailed
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Could not find a suitable setter for property: "
+operator|+
+name|name
+operator|+
+literal|" as there isn't a setter method with same type: "
+operator|+
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" nor type convertion possbile: "
+operator|+
+name|typeConvertionFailed
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1415,11 +1527,14 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|findSetterMethod (TypeConverter typeConverter, Class clazz, String name, Object value)
+DECL|method|findSetterMethods (TypeConverter typeConverter, Class clazz, String name, Object value)
 specifier|private
 specifier|static
+name|Set
+argument_list|<
 name|Method
-name|findSetterMethod
+argument_list|>
+name|findSetterMethods
 parameter_list|(
 name|TypeConverter
 name|typeConverter
@@ -1434,6 +1549,19 @@ name|Object
 name|value
 parameter_list|)
 block|{
+name|Set
+argument_list|<
+name|Method
+argument_list|>
+name|candidates
+init|=
+operator|new
+name|LinkedHashSet
+argument_list|<
+name|Method
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|// Build the method name.
 name|name
 operator|=
@@ -1527,9 +1655,13 @@ name|value
 argument_list|)
 condition|)
 block|{
-return|return
+name|candidates
+operator|.
+name|add
+argument_list|(
 name|method
-return|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -1541,9 +1673,130 @@ name|getSuperclass
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|candidates
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 return|return
-literal|null
+name|candidates
 return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|candidates
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+condition|)
+block|{
+comment|// only one
+return|return
+name|candidates
+return|;
+block|}
+else|else
+block|{
+comment|// find the best match if possible
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Found "
+operator|+
+name|candidates
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" suitable setter methods for setting "
+operator|+
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+comment|// perfer to use the one with the same instance if any exists
+for|for
+control|(
+name|Method
+name|method
+range|:
+name|candidates
+control|)
+block|{
+if|if
+condition|(
+name|method
+operator|.
+name|getParameterTypes
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|isInstance
+argument_list|(
+name|value
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Method "
+operator|+
+name|method
+operator|+
+literal|" is the best candidate as it has parameter with same instance type"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// retain only this method in the answer
+name|candidates
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|candidates
+operator|.
+name|add
+argument_list|(
+name|method
+argument_list|)
+expr_stmt|;
+return|return
+name|candidates
+return|;
+block|}
+block|}
+comment|// fallback to return what we have found as candidates so far
+return|return
+name|candidates
+return|;
+block|}
 block|}
 DECL|method|isSettableType (Class clazz)
 specifier|private
