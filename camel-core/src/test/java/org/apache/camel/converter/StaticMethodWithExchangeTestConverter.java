@@ -59,7 +59,6 @@ annotation|@
 name|Converter
 DECL|class|StaticMethodWithExchangeTestConverter
 specifier|public
-specifier|final
 class|class
 name|StaticMethodWithExchangeTestConverter
 block|{
@@ -67,7 +66,6 @@ annotation|@
 name|Converter
 DECL|method|fromString (String text, Exchange exchange)
 specifier|public
-specifier|static
 name|MyBean
 name|fromString
 parameter_list|(
