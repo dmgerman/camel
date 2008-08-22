@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/simple.html">simple language</a>  * which maps simple property style notations to access headers and bodies.  * Examples of supported expressions are:  *<ul>  *<li>id to access the inbound message Id</li>  *<li>in.header.foo or header.foo to access an inbound header called 'foo'</li>  *<li>in.body or body to access the inbound body</li>  *<li>out.header.foo to access an outbound header called 'foo'</li>  *<li>out.body to access the inbound body</li>  *<li>property.foo to access the exchange property called 'foo'</li>  *<li>sys.foo to access the system property called 'foo'</li>  *</ul>  *  * @version $Revision$  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/simple.html">simple language</a>  * which maps simple property style notations to access headers and bodies.  * Examples of supported expressions are:  *<ul>  *<li>id to access the inbound message Id</li>  *<li>in.body or body to access the inbound body</li>  *<li>out.body to access the inbound body</li>  *<li>in.header.foo or header.foo to access an inbound header called 'foo'</li>  *<li>out.header.foo to access an outbound header called 'foo'</li>  *<li>property.foo to access the exchange property called 'foo'</li>  *<li>sys.foo to access the system property called 'foo'</li>  *</ul>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -362,7 +362,7 @@ block|{
 return|return
 name|ExpressionBuilder
 operator|.
-name|propertyExpression
+name|systemProperty
 argument_list|(
 name|remainder
 argument_list|)
