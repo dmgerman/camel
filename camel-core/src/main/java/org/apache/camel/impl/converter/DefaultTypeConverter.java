@@ -615,27 +615,36 @@ argument_list|)
 return|;
 block|}
 block|}
+name|boolean
+name|camelType
+init|=
+name|type
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"org.apache.camel"
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
+operator|!
+name|camelType
+operator|&&
+name|value
+operator|!=
+literal|null
 condition|)
 block|{
+comment|// only log WARN level for non internal Camel convertions
 name|LOG
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"Could not find a type converter for converting "
 operator|+
-operator|(
-name|value
-operator|==
-literal|null
-condition|?
-literal|"null"
-else|:
 name|value
 operator|.
 name|getClass
@@ -643,7 +652,6 @@ argument_list|()
 operator|.
 name|getCanonicalName
 argument_list|()
-operator|)
 operator|+
 literal|" -> "
 operator|+
