@@ -368,24 +368,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|">>>> invoking method for: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 name|Object
 name|bean
 init|=
@@ -641,7 +623,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Setting bean invocation value on OUT message: "
+literal|"Setting bean invocation result on the OUT message: "
 operator|+
 name|value
 argument_list|)
@@ -675,7 +657,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Setting bean invocation value on IN message: "
+literal|"Setting bean invocation result on the IN message: "
 operator|+
 name|value
 argument_list|)

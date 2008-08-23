@@ -185,6 +185,22 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|asString
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -448,6 +464,39 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|">>>> invoking: "
+operator|+
+name|method
+operator|+
+literal|" on bean: "
+operator|+
+name|pojo
+operator|+
+literal|" with arguments: "
+operator|+
+name|asString
+argument_list|(
+name|arguments
+argument_list|)
+operator|+
+literal|" for exchange: "
+operator|+
+name|messageExchange
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|invoke
 argument_list|(

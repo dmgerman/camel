@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/bean-language.html">bean language</a>  * which uses a simple text notation to invoke methods on beans to evaluate predicates or expressions  *<p/>  * The notation is essentially<code>beanName.methodName</code> which is then invoked using the  * beanName to lookup in the<a href="http://activemq.apache.org/camel/registry.html>registry</a>  * then the method is invoked to evaluate the expression using the  *<a href="http://activemq.apache.org/camel/bean-integration.html">bean integration</a> to bind the  * {@link Exchange} to the method arguments.  *  * @version $Revision$  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/bean-language.html">bean language</a>  * which uses a simple text notation to invoke methods on beans to evaluate predicates or expressions  *<p/>  * The notation is essentially<code>beanName.methodName</code> which is then invoked using the  * beanName to lookup in the<a href="http://activemq.apache.org/camel/registry.html>registry</a>  * then the method is invoked to evaluate the expression using the  *<a href="http://activemq.apache.org/camel/bean-integration.html">bean integration</a> to bind the  * {@link Exchange} to the method arguments.  *<p/>  * As of Camel 1.5 the bean language also supports invoking a provided bean by  * its classname or the bean itself.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -108,6 +108,7 @@ name|BeanLanguage
 implements|implements
 name|Language
 block|{
+comment|/**      * Creates the expression based on the string syntax.      *      * @param expression the string syntax      * @return the expression      */
 DECL|method|bean (String expression)
 specifier|public
 specifier|static
@@ -131,6 +132,71 @@ operator|.
 name|createExpression
 argument_list|(
 name|expression
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates the expression for invoking the bean type.      *      * @param beanType  the bean type to invoke      * @param method optional name of method to invoke for instance to avoid ambiguity      * @return the expression      */
+DECL|method|bean (Class beanType, String method)
+specifier|public
+specifier|static
+name|Expression
+name|bean
+parameter_list|(
+name|Class
+name|beanType
+parameter_list|,
+name|String
+name|method
+parameter_list|)
+block|{
+name|Object
+name|bean
+init|=
+name|ObjectHelper
+operator|.
+name|newInstance
+argument_list|(
+name|beanType
+argument_list|)
+decl_stmt|;
+return|return
+name|bean
+argument_list|(
+name|bean
+argument_list|,
+name|method
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates the expression for invoking the bean type.      *      * @param bean  the bean to invoke      * @param method optional name of method to invoke for instance to avoid ambiguity      * @return the expression      */
+DECL|method|bean (Object bean, String method)
+specifier|public
+specifier|static
+name|Expression
+name|bean
+parameter_list|(
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|method
+parameter_list|)
+block|{
+name|BeanLanguage
+name|language
+init|=
+operator|new
+name|BeanLanguage
+argument_list|()
+decl_stmt|;
+return|return
+name|language
+operator|.
+name|createExpression
+argument_list|(
+name|bean
+argument_list|,
+name|method
 argument_list|)
 return|;
 block|}
@@ -234,6 +300,40 @@ operator|new
 name|BeanExpression
 argument_list|(
 name|beanName
+argument_list|,
+name|method
+argument_list|)
+return|;
+block|}
+DECL|method|createExpression (Object bean, String method)
+specifier|public
+name|Expression
+argument_list|<
+name|Exchange
+argument_list|>
+name|createExpression
+parameter_list|(
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|method
+parameter_list|)
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|bean
+argument_list|,
+literal|"bean"
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|BeanExpression
+argument_list|(
+name|bean
 argument_list|,
 name|method
 argument_list|)
