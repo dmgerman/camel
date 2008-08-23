@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy for notifications  */
+comment|/**  * Strategy for lifecycle notifications.  */
 end_comment
 
 begin_interface
@@ -96,7 +96,7 @@ specifier|public
 interface|interface
 name|LifecycleStrategy
 block|{
-comment|/**      * Notification on starting a {@link CamelContext}.      */
+comment|/**      * Notification on starting a {@link CamelContext}.      *      * @param context the camel context      */
 DECL|method|onContextStart (CamelContext context)
 name|void
 name|onContextStart
@@ -105,7 +105,7 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
-comment|/**      * Notification on adding an {@link Endpoint}.      */
+comment|/**      * Notification on adding an {@link Endpoint}.      *      * @param endpoint the added endpoint      */
 DECL|method|onEndpointAdd (Endpoint<? extends Exchange> endpoint)
 name|void
 name|onEndpointAdd
@@ -119,7 +119,7 @@ argument_list|>
 name|endpoint
 parameter_list|)
 function_decl|;
-comment|/**      * Notification on adding a {@link Service}.      */
+comment|/**      * Notification on adding a {@link Service}.      *      * @param context the camel context      * @param service the added service      */
 DECL|method|onServiceAdd (CamelContext context, Service service)
 name|void
 name|onServiceAdd
@@ -131,7 +131,7 @@ name|Service
 name|service
 parameter_list|)
 function_decl|;
-comment|/**      * Notification on adding {@link Route}(s).      */
+comment|/**      * Notification on adding {@link Route}(s).      *      * @param routes the added routes      */
 DECL|method|onRoutesAdd (Collection<Route> routes)
 name|void
 name|onRoutesAdd
@@ -143,7 +143,7 @@ argument_list|>
 name|routes
 parameter_list|)
 function_decl|;
-comment|/**      * Notification on adding {@link RouteContext}(s).      *      * @param routeContext      */
+comment|/**      * Notification on adding {@link RouteContext}(s).      *      * @param routeContext the added route context      */
 DECL|method|onRouteContextCreate (RouteContext routeContext)
 name|void
 name|onRouteContextCreate

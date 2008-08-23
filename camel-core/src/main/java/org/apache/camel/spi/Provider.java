@@ -29,7 +29,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Returns the newly constructed instance      */
+comment|/**      * Returns the newly constructed instance      *      * @return the newly constructed instance      */
 DECL|method|get ()
 name|T
 name|get

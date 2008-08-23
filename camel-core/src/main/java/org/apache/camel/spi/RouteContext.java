@@ -138,6 +138,7 @@ specifier|public
 interface|interface
 name|RouteContext
 block|{
+comment|/**      * Gets the endpoint      *      * @return the endpoint      */
 DECL|method|getEndpoint ()
 name|Endpoint
 argument_list|<
@@ -148,22 +149,25 @@ argument_list|>
 name|getEndpoint
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the from type      *      * @return the from type      */
 DECL|method|getFrom ()
 name|FromType
 name|getFrom
 parameter_list|()
 function_decl|;
+comment|/**      * Get the route type      *      * @return the route type      */
 DECL|method|getRoute ()
 name|RouteType
 name|getRoute
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the CamelContext      */
+comment|/**      * Gets the camel context      *      * @return the camel context      */
 DECL|method|getCamelContext ()
 name|CamelContext
 name|getCamelContext
 parameter_list|()
 function_decl|;
+comment|/**      * Creates a processor      *      * @param node  the node      * @return the created processor      * @throws Exception can be thrown      */
 DECL|method|createProcessor (ProcessorType node)
 name|Processor
 name|createProcessor
@@ -174,7 +178,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Resolves an endpoint from the URI      */
+comment|/**      * Resolves an endpoint from the URI      *      * @param uri the URI      * @return the resolved endpoint      */
 DECL|method|resolveEndpoint (String uri)
 name|Endpoint
 argument_list|<
@@ -188,7 +192,7 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Resolves an endpoint from either a URI or a named reference      */
+comment|/**      * Resolves an endpoint from either a URI or a named reference      *      * @param uri  the URI or      * @param ref  the named reference      * @return the resolved endpoint      */
 DECL|method|resolveEndpoint (String uri, String ref)
 name|Endpoint
 argument_list|<
@@ -205,7 +209,7 @@ name|String
 name|ref
 parameter_list|)
 function_decl|;
-comment|/**      * lookup an object by name and type      */
+comment|/**      * lookup an object by name and type      *      * @param name  the name to lookup      * @param type  the expected type      * @return the found object      */
 DECL|method|lookup (String name, Class<T> type)
 parameter_list|<
 name|T
@@ -229,6 +233,7 @@ name|void
 name|commit
 parameter_list|()
 function_decl|;
+comment|/**      * Adds an event driven processor      *      * @param processor the processor      */
 DECL|method|addEventDrivenProcessor (Processor processor)
 name|void
 name|addEventDrivenProcessor
@@ -237,6 +242,7 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
+comment|/**      * Intercepts with the given interceptor      *      * @param interceptor the interceptor      */
 DECL|method|intercept (Intercept interceptor)
 name|void
 name|intercept
@@ -245,12 +251,13 @@ name|Intercept
 name|interceptor
 parameter_list|)
 function_decl|;
+comment|/**      * Creates a proceed processor      *      * @return the created proceed processor      */
 DECL|method|createProceedProcessor ()
 name|Processor
 name|createProceedProcessor
 parameter_list|()
 function_decl|;
-comment|/**      * This method retrieves the InterceptStrategy instances this route context.      */
+comment|/**      * This method retrieves the InterceptStrategy instances this route context.      *      * @return the strategy      */
 DECL|method|getInterceptStrategies ()
 name|List
 argument_list|<
@@ -259,7 +266,7 @@ argument_list|>
 name|getInterceptStrategies
 parameter_list|()
 function_decl|;
-comment|/**      * This method sets the InterceptStrategy instances on this route context.      */
+comment|/**      * This method sets the InterceptStrategy instances on this route context.      *      * @param interceptStrategies the strategies      */
 DECL|method|setInterceptStrategies (List<InterceptStrategy> interceptStrategies)
 name|void
 name|setInterceptStrategies
@@ -271,6 +278,7 @@ argument_list|>
 name|interceptStrategies
 parameter_list|)
 function_decl|;
+comment|/**      * Adds a InterceptStrategy to this route context      *      * @param interceptStrategy the strategy      */
 DECL|method|addInterceptStrategy (InterceptStrategy interceptStrategy)
 name|void
 name|addInterceptStrategy
@@ -279,13 +287,13 @@ name|InterceptStrategy
 name|interceptStrategy
 parameter_list|)
 function_decl|;
-comment|/**      * This method retrieves the ErrorHandlerWrappingStrategy.      */
+comment|/**      * This method retrieves the ErrorHandlerWrappingStrategy.      *      * @return the strategy      */
 DECL|method|getErrorHandlerWrappingStrategy ()
 name|ErrorHandlerWrappingStrategy
 name|getErrorHandlerWrappingStrategy
 parameter_list|()
 function_decl|;
-comment|/**      * This method sets the ErrorHandlerWrappingStrategy.      */
+comment|/**      * This method sets the ErrorHandlerWrappingStrategy.      *      * @param strategy the strategy      */
 DECL|method|setErrorHandlerWrappingStrategy (ErrorHandlerWrappingStrategy strategy)
 name|void
 name|setErrorHandlerWrappingStrategy
@@ -294,7 +302,7 @@ name|ErrorHandlerWrappingStrategy
 name|strategy
 parameter_list|)
 function_decl|;
-comment|/**      * If this flag is true, {@link ProcessorType#addRoutes(RouteContext, java.util.Collection)}      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *       */
+comment|/**      * If this flag is true, {@link ProcessorType#addRoutes(RouteContext, java.util.Collection)}      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *      * @param value the flag      */
 DECL|method|setIsRouteAdded (boolean value)
 name|void
 name|setIsRouteAdded
@@ -303,6 +311,7 @@ name|boolean
 name|value
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the isRouteAdded flag      *       * @return the flag      */
 DECL|method|isRouteAdded ()
 name|boolean
 name|isRouteAdded

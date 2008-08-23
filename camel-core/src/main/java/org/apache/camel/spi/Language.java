@@ -62,6 +62,7 @@ specifier|public
 interface|interface
 name|Language
 block|{
+comment|/**      * Creates a predicate based on the given string input      *      * @param expression  the expression      * @return the created predicate      */
 DECL|method|createPredicate (String expression)
 name|Predicate
 argument_list|<
@@ -73,6 +74,7 @@ name|String
 name|expression
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an expression based on the given string input      *      * @param expression  the expression as a string input      * @return the created expression      */
 DECL|method|createExpression (String expression)
 name|Expression
 argument_list|<

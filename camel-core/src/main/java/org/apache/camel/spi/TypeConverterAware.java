@@ -38,6 +38,7 @@ specifier|public
 interface|interface
 name|TypeConverterAware
 block|{
+comment|/**      * Injects the root type converter.      *      * @param parentTypeConverter the root type converter      */
 DECL|method|setTypeConverter (TypeConverter parentTypeConverter)
 name|void
 name|setTypeConverter

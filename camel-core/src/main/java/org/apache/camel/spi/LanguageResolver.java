@@ -38,6 +38,7 @@ specifier|public
 interface|interface
 name|LanguageResolver
 block|{
+comment|/**      * Resolves the given language.      *      * @param name    the name of the langauge      * @param context the camel context      * @return the resolved language      */
 DECL|method|resolveLanguage (String name, CamelContext context)
 name|Language
 name|resolveLanguage

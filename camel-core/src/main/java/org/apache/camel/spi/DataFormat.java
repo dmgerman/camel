@@ -58,7 +58,7 @@ specifier|public
 interface|interface
 name|DataFormat
 block|{
-comment|/**      * Marshals the object to the given Stream.      */
+comment|/**      * Marshals the object to the given Stream.      *      * @param exchange  the current exchange      * @param graph     the object to be marshalled      * @param stream    the output stream to write the marshalled rersult to      * @throws Exception can be thrown      */
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
 name|void
 name|marshal
@@ -75,7 +75,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Unmarshals the given stream into an object.      *<p/>      *<b>Notice:</b> The result is set as body on the exchange OUT message.      * It is possible to mutate the OUT message provided in the given exchange parameter.      * For instance adding headers to the OUT message will be preserved.      */
+comment|/**      * Unmarshals the given stream into an object.      *<p/>      *<b>Notice:</b> The result is set as body on the exchange OUT message.      * It is possible to mutate the OUT message provided in the given exchange parameter.      * For instance adding headers to the OUT message will be preserved.      *      * @param exchange    the current exchange      * @param stream      the input stream with the object to be unmarshalled      * @return            the unmarshalled object      * @throws Exception can be thrown      */
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
 name|Object
 name|unmarshal

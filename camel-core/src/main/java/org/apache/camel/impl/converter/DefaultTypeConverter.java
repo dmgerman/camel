@@ -419,6 +419,7 @@ name|Object
 name|value
 parameter_list|)
 block|{
+comment|// same instance type
 if|if
 condition|(
 name|type
@@ -438,9 +439,11 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|// make sure we have loaded the converters
 name|checkLoaded
 argument_list|()
 expr_stmt|;
+comment|// try to find a suitable type converter
 name|TypeConverter
 name|converter
 init|=
@@ -471,6 +474,7 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|// fallback converters
 for|for
 control|(
 name|TypeConverter
@@ -527,6 +531,7 @@ operator|.
 name|FALSE
 return|;
 block|}
+comment|// primitives
 if|if
 condition|(
 name|type
@@ -566,6 +571,41 @@ name|value
 argument_list|)
 return|;
 block|}
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Could not find a type converter for converting "
+operator|+
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" -> "
+operator|+
+name|type
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" with value: "
+operator|+
+name|value
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 literal|null

@@ -38,6 +38,7 @@ specifier|public
 interface|interface
 name|ExchangeConverter
 block|{
+comment|/**      * Converts the given exchange to the new type      *      * @param type  the new class type      * @param exchange the exchange to converter      * @param<T> the new type      * @return  the converted exchange      */
 DECL|method|convertTo (Class<T> type, Exchange exchange)
 parameter_list|<
 name|T
