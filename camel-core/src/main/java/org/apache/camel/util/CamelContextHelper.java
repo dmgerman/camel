@@ -275,7 +275,7 @@ name|endpoint
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a list of all endpoints of the given type      *      * @param camelContext      * @param type the type of the endpoints requested      * @return a list which may be empty of all the endpoint instances of the      *         given type      */
+comment|/**      * Returns a list of all endpoints of the given type      *      * @param camelContext the camel context      * @param type the type of the endpoints requested      * @return a list which may be empty of all the endpoint instances of the      *         given type      */
 DECL|method|getSingletonEndpoints (CamelContext camelContext, Class<T> type)
 specifier|public
 specifier|static
