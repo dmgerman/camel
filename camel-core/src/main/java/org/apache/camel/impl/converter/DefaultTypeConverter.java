@@ -419,6 +419,49 @@ name|Object
 name|value
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Converting "
+operator|+
+operator|(
+name|value
+operator|==
+literal|null
+condition|?
+literal|"null"
+else|:
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|)
+operator|+
+literal|" -> "
+operator|+
+name|type
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" with value: "
+operator|+
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 comment|// same instance type
 if|if
 condition|(
@@ -586,6 +629,13 @@ name|debug
 argument_list|(
 literal|"Could not find a type converter for converting "
 operator|+
+operator|(
+name|value
+operator|==
+literal|null
+condition|?
+literal|"null"
+else|:
 name|value
 operator|.
 name|getClass
@@ -593,6 +643,7 @@ argument_list|()
 operator|.
 name|getCanonicalName
 argument_list|()
+operator|)
 operator|+
 literal|" -> "
 operator|+
