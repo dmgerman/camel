@@ -510,6 +510,13 @@ name|getOut
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|replyChannel
+operator|==
+literal|null
+condition|)
+block|{
 name|MessageChannel
 name|messageReplyChannel
 init|=
@@ -544,6 +551,19 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|MessageDeliveryException
+argument_list|(
+name|response
+argument_list|,
+literal|"Can't find reply channel from the CamelTargetAdapter or MessageHeaders"
+argument_list|)
+throw|;
+block|}
 block|}
 else|else
 block|{

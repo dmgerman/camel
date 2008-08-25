@@ -343,7 +343,7 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-literal|"channelB"
+literal|"channelD"
 argument_list|)
 decl_stmt|;
 name|PollableChannel
@@ -356,7 +356,7 @@ name|applicationContext
 operator|.
 name|getBean
 argument_list|(
-literal|"channelD"
+literal|"channelC"
 argument_list|)
 decl_stmt|;
 name|Map

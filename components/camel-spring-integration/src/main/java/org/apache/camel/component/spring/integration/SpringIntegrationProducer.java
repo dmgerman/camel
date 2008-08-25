@@ -558,6 +558,8 @@ operator|.
 name|createSpringIntegrationMessage
 argument_list|(
 name|exchange
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 name|outputChannel
