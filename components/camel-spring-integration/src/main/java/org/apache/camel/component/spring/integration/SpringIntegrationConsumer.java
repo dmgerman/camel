@@ -108,6 +108,20 @@ name|integration
 operator|.
 name|channel
 operator|.
+name|AbstractPollableChannel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|integration
+operator|.
+name|channel
+operator|.
 name|ChannelRegistry
 import|;
 end_import
@@ -162,7 +176,7 @@ name|context
 decl_stmt|;
 DECL|field|inputChannel
 specifier|private
-name|MessageChannel
+name|AbstractPollableChannel
 name|inputChannel
 decl_stmt|;
 DECL|field|outputChannel
@@ -289,7 +303,7 @@ block|{
 name|inputChannel
 operator|=
 operator|(
-name|MessageChannel
+name|AbstractPollableChannel
 operator|)
 name|channelRegistry
 operator|.
@@ -337,6 +351,9 @@ condition|)
 block|{
 name|inputChannel
 operator|=
+operator|(
+name|AbstractPollableChannel
+operator|)
 name|endpoint
 operator|.
 name|getMessageChannel
@@ -446,7 +463,7 @@ name|returnAddress
 init|=
 name|siInMessage
 operator|.
-name|getHeader
+name|getHeaders
 argument_list|()
 operator|.
 name|getReturnAddress

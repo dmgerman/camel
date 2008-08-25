@@ -78,7 +78,7 @@ name|integration
 operator|.
 name|channel
 operator|.
-name|MessageChannel
+name|PollableChannel
 import|;
 end_import
 
@@ -112,11 +112,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MessageChannel
+name|PollableChannel
 name|channelA
 init|=
 operator|(
-name|MessageChannel
+name|PollableChannel
 operator|)
 name|applicationContext
 operator|.

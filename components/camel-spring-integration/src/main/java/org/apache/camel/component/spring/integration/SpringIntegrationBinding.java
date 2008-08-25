@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -64,11 +74,6 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createSpringIntegrationMessage (Exchange exchange)
 specifier|public
 specifier|static
@@ -85,6 +90,46 @@ name|createSpringIntegrationMessage
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|)
+block|{
+return|return
+name|createSpringIntegrationMessage
+argument_list|(
+name|exchange
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|createSpringIntegrationMessage (Exchange exchange, Map<String, Object> headers)
+specifier|public
+specifier|static
+name|org
+operator|.
+name|springframework
+operator|.
+name|integration
+operator|.
+name|message
+operator|.
+name|Message
+name|createSpringIntegrationMessage
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
 parameter_list|)
 block|{
 name|org
@@ -111,6 +156,8 @@ name|message
 operator|.
 name|getBody
 argument_list|()
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 return|return

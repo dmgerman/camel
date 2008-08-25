@@ -64,7 +64,7 @@ name|integration
 operator|.
 name|message
 operator|.
-name|MessageHeader
+name|MessageHeaders
 import|;
 end_import
 
@@ -296,10 +296,10 @@ block|{
 return|return
 name|siMessage
 operator|.
-name|getHeader
+name|getHeaders
 argument_list|()
 operator|.
-name|getAttribute
+name|get
 argument_list|(
 name|name
 argument_list|)
@@ -340,10 +340,10 @@ condition|)
 block|{
 name|siMessage
 operator|.
-name|getHeader
+name|getHeaders
 argument_list|()
 operator|.
-name|setAttribute
+name|put
 argument_list|(
 name|name
 argument_list|,
@@ -401,12 +401,12 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|MessageHeader
+name|MessageHeaders
 name|header
 init|=
 name|siMessage
 operator|.
-name|getHeader
+name|getHeaders
 argument_list|()
 decl_stmt|;
 for|for
@@ -416,7 +416,7 @@ name|name
 range|:
 name|header
 operator|.
-name|getAttributeNames
+name|keySet
 argument_list|()
 control|)
 block|{
@@ -428,7 +428,7 @@ name|name
 argument_list|,
 name|header
 operator|.
-name|getAttribute
+name|get
 argument_list|(
 name|name
 argument_list|)

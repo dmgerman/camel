@@ -82,8 +82,6 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractCamelAdapter
-implements|implements
-name|MessageHandler
 block|{
 DECL|field|camelContext
 specifier|private
