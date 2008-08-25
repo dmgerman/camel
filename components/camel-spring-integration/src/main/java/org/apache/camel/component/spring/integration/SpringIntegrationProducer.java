@@ -560,6 +560,13 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+name|outputChannel
+operator|.
+name|send
+argument_list|(
+name|siOutmessage
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|exchange
@@ -571,14 +578,6 @@ name|isInCapable
 argument_list|()
 condition|)
 block|{
-comment|//Set the return channel address
-name|outputChannel
-operator|.
-name|send
-argument_list|(
-name|siOutmessage
-argument_list|)
-expr_stmt|;
 name|org
 operator|.
 name|springframework
@@ -605,16 +604,6 @@ name|exchange
 operator|.
 name|getOut
 argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|outputChannel
-operator|.
-name|send
-argument_list|(
-name|siOutmessage
 argument_list|)
 expr_stmt|;
 block|}
