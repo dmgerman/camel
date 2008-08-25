@@ -285,8 +285,6 @@ extends|extends
 name|AbstractCamelAdapter
 implements|implements
 name|MessageTarget
-implements|,
-name|MessageBusAware
 block|{
 DECL|field|logger
 specifier|private
@@ -316,11 +314,6 @@ DECL|field|replyChannel
 specifier|private
 name|MessageChannel
 name|replyChannel
-decl_stmt|;
-DECL|field|messageBus
-specifier|private
-name|MessageBus
-name|messageBus
 decl_stmt|;
 DECL|method|setReplyChannel (MessageChannel channel)
 specifier|public
@@ -568,20 +561,6 @@ block|}
 return|return
 name|result
 return|;
-block|}
-DECL|method|setMessageBus (MessageBus mBus)
-specifier|public
-name|void
-name|setMessageBus
-parameter_list|(
-name|MessageBus
-name|mBus
-parameter_list|)
-block|{
-name|messageBus
-operator|=
-name|mBus
-expr_stmt|;
 block|}
 block|}
 end_class
