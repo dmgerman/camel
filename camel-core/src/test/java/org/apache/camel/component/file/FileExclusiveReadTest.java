@@ -153,7 +153,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/exclusiveread/slowfile?consumer.delay=500&consumer.exclusiveRead=true"
+literal|"file://target/exclusiveread/slowfile?consumer.delay=500&consumer.exclusiveReadLock=true"
 decl_stmt|;
 annotation|@
 name|Override
