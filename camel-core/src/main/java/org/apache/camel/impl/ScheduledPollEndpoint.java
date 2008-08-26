@@ -94,6 +94,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ResolveEndpointFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|IntrospectionSupport
@@ -246,6 +258,50 @@ argument_list|,
 name|consumerProperties
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|this
+operator|.
+name|isLenientProperties
+argument_list|()
+operator|&&
+name|consumerProperties
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|ResolveEndpointFailedException
+argument_list|(
+name|this
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|,
+literal|"There are "
+operator|+
+name|consumerProperties
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" parameters that couldn't be set on the endpoint consumer."
+operator|+
+literal|" Check the uri if the parameters are spelt correctly and that they are properties of the endpoint."
+operator|+
+literal|" Unknown consumer parameters=["
+operator|+
+name|consumerProperties
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 DECL|method|configureProperties (Map options)
