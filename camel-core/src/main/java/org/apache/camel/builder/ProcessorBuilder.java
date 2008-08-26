@@ -302,6 +302,15 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Calling the setHeader"
+argument_list|)
+expr_stmt|;
 name|Object
 name|value
 init|=

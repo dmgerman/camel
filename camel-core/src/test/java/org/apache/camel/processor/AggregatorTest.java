@@ -36,6 +36,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -324,11 +348,10 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|//TODO fix this test
-DECL|method|xtestAggregatorNotAtStart ()
+DECL|method|testAggregatorNotAtStart ()
 specifier|public
 name|void
-name|xtestAggregatorNotAtStart
+name|testAggregatorNotAtStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -432,6 +455,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|//from("seda:header").setHeader("visited", constant(true)).aggregator(header("cheese")).to("mock:result");
 name|from
 argument_list|(
 literal|"seda:header"
@@ -445,6 +469,16 @@ name|constant
 argument_list|(
 literal|true
 argument_list|)
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"direct:temp"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:temp"
 argument_list|)
 operator|.
 name|aggregator
