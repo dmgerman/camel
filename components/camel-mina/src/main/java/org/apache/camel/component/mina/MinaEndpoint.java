@@ -233,7 +233,13 @@ specifier|final
 name|boolean
 name|transferExchange
 decl_stmt|;
-DECL|method|MinaEndpoint (String endpointUri, MinaComponent component, SocketAddress address, IoAcceptor acceptor, IoAcceptorConfig acceptorConfig, IoConnector connector, IoConnectorConfig connectorConfig, boolean lazySessionCreation, long timeout, boolean transferExchange)
+DECL|field|sync
+specifier|private
+specifier|final
+name|boolean
+name|sync
+decl_stmt|;
+DECL|method|MinaEndpoint (String endpointUri, MinaComponent component, SocketAddress address, IoAcceptor acceptor, IoAcceptorConfig acceptorConfig, IoConnector connector, IoConnectorConfig connectorConfig, boolean lazySessionCreation, long timeout, boolean transferExchange, boolean sync)
 specifier|public
 name|MinaEndpoint
 parameter_list|(
@@ -266,6 +272,9 @@ name|timeout
 parameter_list|,
 name|boolean
 name|transferExchange
+parameter_list|,
+name|boolean
+name|sync
 parameter_list|)
 block|{
 name|super
@@ -331,6 +340,12 @@ operator|.
 name|transferExchange
 operator|=
 name|transferExchange
+expr_stmt|;
+name|this
+operator|.
+name|sync
+operator|=
+name|sync
 expr_stmt|;
 block|}
 annotation|@
@@ -537,6 +552,16 @@ parameter_list|()
 block|{
 return|return
 name|transferExchange
+return|;
+block|}
+DECL|method|isSync ()
+specifier|public
+name|boolean
+name|isSync
+parameter_list|()
+block|{
+return|return
+name|sync
 return|;
 block|}
 block|}

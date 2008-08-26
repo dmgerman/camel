@@ -338,8 +338,6 @@ name|this
 operator|.
 name|lazySessionCreation
 operator|=
-name|this
-operator|.
 name|endpoint
 operator|.
 name|isLazySessionCreation
@@ -349,11 +347,18 @@ name|this
 operator|.
 name|timeout
 operator|=
-name|this
-operator|.
 name|endpoint
 operator|.
 name|getTimeout
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|sync
+operator|=
+name|endpoint
+operator|.
+name|isSync
 argument_list|()
 expr_stmt|;
 block|}
@@ -435,15 +440,6 @@ return|return;
 comment|// exit early since nothing to write
 block|}
 comment|// if sync is true then we should also wait for a response (synchronous mode)
-name|sync
-operator|=
-name|ExchangeHelper
-operator|.
-name|isOutCapable
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|sync
@@ -570,6 +566,17 @@ throw|;
 block|}
 else|else
 block|{
+comment|// set the result on either IN or OUT on the original exchange depending on its pattern
+if|if
+condition|(
+name|ExchangeHelper
+operator|.
+name|isOutCapable
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
 name|MinaPayloadHelper
 operator|.
 name|setOut
@@ -582,6 +589,22 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|MinaPayloadHelper
+operator|.
+name|setIn
+argument_list|(
+name|exchange
+argument_list|,
+name|handler
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}

@@ -144,7 +144,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:8080?encoding=UTF-8"
+literal|"mina:tcp://localhost:8080?encoding=UTF-8&sync=false"
 decl_stmt|;
 name|this
 operator|.
@@ -232,7 +232,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:8080?encoding=UTF-8"
+literal|"mina:tcp://localhost:8080?encoding=UTF-8&sync=false"
 decl_stmt|;
 name|this
 operator|.
@@ -316,7 +316,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:8080?textline=true&encoding=UTF-8"
+literal|"mina:tcp://localhost:8080?textline=true&encoding=UTF-8&sync=false"
 decl_stmt|;
 name|this
 operator|.
@@ -402,7 +402,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:udp://localhost:8080?encoding=UTF-8"
+literal|"mina:udp://localhost:8080?encoding=UTF-8&sync=false"
 decl_stmt|;
 name|this
 operator|.
@@ -490,7 +490,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:udp://localhost:8080?encoding=UTF-8"
+literal|"mina:udp://localhost:8080?encoding=UTF-8&sync=false"
 decl_stmt|;
 name|this
 operator|.
@@ -779,7 +779,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:8080?textline=true&encoding=XXX"
+literal|"mina:tcp://localhost:8080?textline=true&encoding=XXX&sync=false"
 decl_stmt|;
 try|try
 block|{

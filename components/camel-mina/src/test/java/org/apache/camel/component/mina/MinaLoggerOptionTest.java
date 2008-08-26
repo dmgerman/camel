@@ -146,7 +146,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:6321?textline=true&minaLogger=true"
+literal|"mina:tcp://localhost:6321?textline=true&minaLogger=true&sync=false"
 decl_stmt|;
 name|context
 operator|.
@@ -312,7 +312,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:6321?textline=true&minaLogger=false"
+literal|"mina:tcp://localhost:6321?textline=true&minaLogger=false&sync=false"
 decl_stmt|;
 name|context
 operator|.
@@ -478,7 +478,7 @@ specifier|final
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:6321?textline=true"
+literal|"mina:tcp://localhost:6321?textline=true&sync=false"
 decl_stmt|;
 name|context
 operator|.

@@ -42,7 +42,7 @@ name|Exception
 block|{
 name|uri
 operator|=
-literal|"mina:multicast://127.0.0.1:6255"
+literal|"mina:multicast://127.0.0.1:6255?sync=false"
 expr_stmt|;
 name|super
 operator|.
