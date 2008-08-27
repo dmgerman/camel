@@ -4,13 +4,15 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.ldap
+DECL|package|org.apache.camel.component.ldap
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|component
 operator|.
 name|ldap
 package|;
@@ -106,6 +108,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: invoke
 name|Endpoint
 name|endpoint
 init|=
@@ -235,6 +238,7 @@ name|data
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: invoke
 block|}
 annotation|@
 name|Override
