@@ -323,7 +323,7 @@ name|DeadLetterChannel
 operator|.
 name|REDELIVERY_COUNTER
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertMessageHeader
@@ -334,7 +334,7 @@ name|DeadLetterChannel
 operator|.
 name|REDELIVERED
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

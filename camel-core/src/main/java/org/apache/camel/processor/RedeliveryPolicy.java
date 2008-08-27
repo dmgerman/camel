@@ -69,7 +69,7 @@ comment|// Code taken from the ActiveMQ codebase
 end_comment
 
 begin_comment
-comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values is:  *<ul>  *<li>maximumRedeliveries = 6</li>  *<li>initialRedeliveryDelay = 1000L</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *</ul>  *  * @version $Revision$  */
+comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values is:  *<ul>  *<li>maximumRedeliveries = 5</li>  *<li>initialRedeliveryDelay = 1000L</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -111,7 +111,7 @@ specifier|protected
 name|int
 name|maximumRedeliveries
 init|=
-literal|6
+literal|5
 decl_stmt|;
 DECL|field|initialRedeliveryDelay
 specifier|protected
@@ -232,9 +232,10 @@ return|return
 literal|true
 return|;
 block|}
+comment|// redeliver until we hitted the max
 return|return
 name|redeliveryCounter
-operator|<
+operator|<=
 name|getMaximumRedeliveries
 argument_list|()
 return|;

@@ -1798,7 +1798,7 @@ argument_list|()
 operator|.
 name|maximumRedeliveries
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2012,7 +2012,7 @@ argument_list|(
 literal|"INVOKED3"
 argument_list|)
 expr_stmt|;
-comment|// exchange should be processed twice for an uncaught exception and maximumRedeliveries(2)
+comment|// exchange should be processed twice for an uncaught exception and maximumRedeliveries(1)
 name|expected
 operator|.
 name|add
@@ -2066,7 +2066,7 @@ argument_list|()
 operator|.
 name|maximumRedeliveries
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2276,7 +2276,7 @@ argument_list|(
 literal|"INVOKED2"
 argument_list|)
 expr_stmt|;
-comment|// exchange should be processed twice for an uncaught exception and maximumRedeliveries(2)
+comment|// exchange should be processed twice for an uncaught exception and maximumRedeliveries(1)
 name|expected
 operator|.
 name|add
