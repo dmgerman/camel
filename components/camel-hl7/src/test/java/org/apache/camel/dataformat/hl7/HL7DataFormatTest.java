@@ -146,20 +146,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|DataFormat
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test for HL7 DataFormat.  */
 end_comment
