@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Lets use a RouteBuilder to bind instances of routes to the CamelContext  *  * @version $Revision: 1.1 $  */
+comment|/**  * Lets use a RouteBuilder to bind instances of routes to the CamelContext  *  * @version $Revision$  */
 end_comment
 
 begin_class

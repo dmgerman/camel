@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An injector which uses Guice to perform the dependency injection of types  *  * @version $Revision: 1.1 $  */
+comment|/**  * An injector which uses Guice to perform the dependency injection of types  *  * @version $Revision$  */
 end_comment
 
 begin_class

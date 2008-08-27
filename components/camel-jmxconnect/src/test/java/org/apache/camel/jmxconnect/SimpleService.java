@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This is based heavily on the DynamicService example from the mx4j project  *  * @version $Revision: 1.1 $  */
+comment|/**  * This is based heavily on the DynamicService example from the mx4j project  *  * @version $Revision$  */
 end_comment
 
 begin_class

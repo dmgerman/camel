@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Acts as a delegate for the MBeanServerConnection  *  * @version $Revision: 1.1 $  */
+comment|/**  * Acts as a delegate for the MBeanServerConnection  *  * @version $Revision$  */
 end_comment
 
 begin_class

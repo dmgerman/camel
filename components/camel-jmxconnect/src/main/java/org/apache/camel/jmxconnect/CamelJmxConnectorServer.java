@@ -175,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>The client end of a JMX API connector.  An object of this type can  * be used to establish a connection to a connector server.</p>  *<p/>  *<p>A newly-created object of this type is unconnected.  Its {@link#connect}  * method must be called before it can be used.  * However, objects created by {@link  * JMXConnectorFactory#connect(JMXServiceURL, Map)  * JMXConnectorFactory.connect} are already connected.</p>  *  * @version $Revision: 1.1 $  */
+comment|/**  *<p>The client end of a JMX API connector.  An object of this type can  * be used to establish a connection to a connector server.</p>  *<p/>  *<p>A newly-created object of this type is unconnected.  Its {@link#connect}  * method must be called before it can be used.  * However, objects created by {@link  * JMXConnectorFactory#connect(JMXServiceURL, Map)  * JMXConnectorFactory.connect} are already connected.</p>  *  * @version $Revision$  */
 end_comment
 
 begin_class

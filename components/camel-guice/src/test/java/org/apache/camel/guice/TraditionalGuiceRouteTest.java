@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Lets use a custom CamelModule to perform explicit binding of route builders  *  * @version $Revision: 1.1 $  */
+comment|/**  * Lets use a custom CamelModule to perform explicit binding of route builders  *  * @version $Revision$  */
 end_comment
 
 begin_class

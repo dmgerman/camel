@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default Guice module for creating a {@link CamelContext} and registering a list of {@link RouteBuilder} types to register.  *<p/>  * You can drive from this class to overload the {@link #configureRoutes(com.google.inject.multibindings.Multibinder)} method to perform custom binding for  * route builders. Another approach is to create a {@link RouteBuilder} which just initialises all of your individual route builders  *  * @version $Revision: 1.1 $  */
+comment|/**  * A default Guice module for creating a {@link CamelContext} and registering a list of {@link RouteBuilder} types to register.  *<p/>  * You can drive from this class to overload the {@link #configureRoutes(com.google.inject.multibindings.Multibinder)} method to perform custom binding for  * route builders. Another approach is to create a {@link RouteBuilder} which just initialises all of your individual route builders  *  * @version $Revision$  */
 end_comment
 
 begin_class
