@@ -127,7 +127,7 @@ operator|.
 name|createExchange
 argument_list|()
 decl_stmt|;
-comment|// then we set the SQL on the in body
+comment|// then we set the LDAP filter on the in body
 name|exchange
 operator|.
 name|getIn
@@ -267,8 +267,6 @@ literal|"localhost:"
 operator|+
 name|port
 argument_list|,
-name|this
-operator|.
 name|getWiredContext
 argument_list|()
 argument_list|)

@@ -146,6 +146,15 @@ argument_list|<
 name|E
 argument_list|>
 block|{
+DECL|field|SYSTEM_DN
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SYSTEM_DN
+init|=
+literal|"ou=system"
+decl_stmt|;
 DECL|field|OBJECT_SCOPE
 specifier|public
 specifier|static
@@ -182,6 +191,8 @@ DECL|field|base
 specifier|private
 name|String
 name|base
+init|=
+name|SYSTEM_DN
 decl_stmt|;
 DECL|field|scope
 specifier|private
