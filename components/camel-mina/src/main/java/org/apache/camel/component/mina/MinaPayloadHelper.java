@@ -221,7 +221,23 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// normal transfer using the body only
+comment|// normal transfer using the body only and preserve the headers
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeaders
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|getOut
