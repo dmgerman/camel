@@ -157,7 +157,7 @@ name|port
 operator|+
 literal|"/incoming?password=admin&binary=true"
 operator|+
-literal|"&consumer.delay=2000&consumer.recursive=true&consumer.append=false&consumer.setNames=true"
+literal|"&consumer.delay=2000&consumer.recursive=true&consumer.setNames=true"
 decl_stmt|;
 DECL|method|testFtpRoute ()
 specifier|public

@@ -157,7 +157,7 @@ name|port
 operator|+
 literal|"/tmp4/camel?password=admin&binary=true"
 operator|+
-literal|"&consumer.delay=2000&consumer.recursive=false&consumer.append=false"
+literal|"&consumer.delay=2000&consumer.recursive=false"
 decl_stmt|;
 DECL|method|testFtpRoute ()
 specifier|public
