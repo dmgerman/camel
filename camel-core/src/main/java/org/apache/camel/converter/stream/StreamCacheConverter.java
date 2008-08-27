@@ -240,7 +240,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|InputStreamCache
-specifier|private
+specifier|public
 class|class
 name|InputStreamCache
 extends|extends
