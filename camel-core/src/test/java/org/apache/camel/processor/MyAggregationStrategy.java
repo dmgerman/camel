@@ -151,17 +151,6 @@ name|Integer
 name|aggregated
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"calling the isCompleted with aggregated"
-operator|+
-name|aggregated
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|aggregated
