@@ -268,7 +268,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number routes createdÊ"
+literal|"Number routes created"
 operator|+
 name|list
 argument_list|,
@@ -448,7 +448,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number routes createdÊ"
+literal|"Number routes created"
 operator|+
 name|list
 argument_list|,
@@ -752,7 +752,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number routes createdÊ"
+literal|"Number routes created"
 operator|+
 name|list
 argument_list|,
@@ -890,7 +890,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Number routes createdÊ"
+literal|"Number routes created"
 operator|+
 name|list
 argument_list|,

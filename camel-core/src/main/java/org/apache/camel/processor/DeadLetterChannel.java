@@ -513,7 +513,7 @@ condition|(
 literal|true
 condition|)
 block|{
-comment|// We can't keep retrying if the route is being shutdown.
+comment|// we can't keep retrying if the route is being shutdown.
 if|if
 condition|(
 operator|!
@@ -585,7 +585,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Transacted Exchange, this DeadLetterChannel is bypassed: "
+literal|"This is a transacted exchange, bypassing this DeadLetterChannel: "
+operator|+
+name|this
+operator|+
+literal|" for exchange: "
 operator|+
 name|exchange
 argument_list|)
@@ -597,6 +601,7 @@ operator|.
 name|sync
 return|;
 block|}
+comment|// did previous processing caused an exception?
 if|if
 condition|(
 name|exchange
@@ -615,14 +620,16 @@ operator|.
 name|getException
 argument_list|()
 decl_stmt|;
+comment|// set the original caused exception
 name|exchange
 operator|.
-name|setException
+name|setProperty
 argument_list|(
-literal|null
+name|EXCEPTION_CAUSE_PROPERTY
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
-comment|// Reset it since we are handling it.
 name|logger
 operator|.
 name|log
@@ -658,6 +665,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+comment|// find the error handler to use (if any)
 name|ExceptionType
 name|exceptionPolicy
 init|=
@@ -712,6 +720,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// should we redeliver or not?
 if|if
 condition|(
 operator|!
@@ -820,6 +829,7 @@ return|return
 name|sync
 return|;
 block|}
+comment|// should we redeliver
 if|if
 condition|(
 name|data
@@ -829,7 +839,26 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|// Figure out how long we should wait to resend this message.
+comment|// okay we will give it another go so clear the exception so we can try again
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+comment|// wait until we should redeliver
 name|data
 operator|.
 name|redeliveryDelay
@@ -846,25 +875,7 @@ name|redeliveryDelay
 argument_list|)
 expr_stmt|;
 block|}
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|EXCEPTION_CAUSE_PROPERTY
-argument_list|,
-name|exchange
-operator|.
-name|getException
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
+comment|// process the exchange
 name|boolean
 name|sync
 init|=
@@ -1261,13 +1272,6 @@ argument_list|,
 name|Boolean
 operator|.
 name|TRUE
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
 argument_list|)
 expr_stmt|;
 return|return
