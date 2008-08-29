@@ -146,7 +146,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Object
+name|StreamCache
 name|newBody
 init|=
 name|exchange
@@ -168,6 +168,11 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|newBody
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|exchange
 operator|.
 name|getIn

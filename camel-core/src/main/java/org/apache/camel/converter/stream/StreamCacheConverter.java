@@ -50,6 +50,38 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Reader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|StringReader
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|Source
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -155,18 +187,17 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Converter
-DECL|method|convertToStreamCache (StreamSource source)
+DECL|method|convertToStreamCache (Source source)
 specifier|public
 name|StreamCache
 name|convertToStreamCache
 parameter_list|(
-name|StreamSource
+name|Source
 name|source
 parameter_list|)
 throws|throws
 name|TransformerException
 block|{
-comment|//TODO: we can probably build a more generic converter method to support other kinds of Sources as well (e.g. SAXSource, StAXSource, ...)
 return|return
 operator|new
 name|StreamSourceCache
@@ -206,8 +237,34 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Converter
+DECL|method|convertToStreamCache (Reader reader)
+specifier|public
+name|StreamCache
+name|convertToStreamCache
+parameter_list|(
+name|Reader
+name|reader
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+operator|new
+name|ReaderCache
+argument_list|(
+name|IOConverter
+operator|.
+name|toString
+argument_list|(
+name|reader
+argument_list|)
+argument_list|)
+return|;
+block|}
 DECL|class|StreamSourceCache
-specifier|private
+specifier|public
 class|class
 name|StreamSourceCache
 extends|extends
@@ -238,6 +295,14 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|reset ()
+specifier|public
+name|void
+name|reset
+parameter_list|()
+block|{
+comment|// do nothing here
+block|}
 block|}
 DECL|class|InputStreamCache
 specifier|public
@@ -262,6 +327,38 @@ argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+DECL|class|ReaderCache
+specifier|public
+class|class
+name|ReaderCache
+extends|extends
+name|StringReader
+implements|implements
+name|StreamCache
+block|{
+DECL|method|ReaderCache (String s)
+specifier|public
+name|ReaderCache
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|close ()
+specifier|public
+name|void
+name|close
+parameter_list|()
+block|{
+comment|// Do not release the string for caching
 block|}
 block|}
 block|}

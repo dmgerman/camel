@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -43,7 +53,16 @@ DECL|interface|StreamCache
 specifier|public
 interface|interface
 name|StreamCache
-block|{  }
+block|{
+comment|/**      * Resets the StreamCache for a new stream consumption.      */
+DECL|method|reset ()
+name|void
+name|reset
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+block|}
 end_interface
 
 end_unit
