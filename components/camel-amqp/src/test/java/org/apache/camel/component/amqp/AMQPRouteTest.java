@@ -188,13 +188,13 @@ argument_list|(
 literal|"os.name"
 argument_list|)
 operator|.
-name|equals
+name|startsWith
 argument_list|(
-literal|"Windows Vista"
+literal|"Windows"
 argument_list|)
 condition|)
 block|{
-comment|// send the message twice to walk around the AMQP's drop first message issue on Windows Vista box
+comment|// send the message twice to walk around the AMQP's drop first message issue on Windows box
 name|sendExchange
 argument_list|(
 name|expectedBody
