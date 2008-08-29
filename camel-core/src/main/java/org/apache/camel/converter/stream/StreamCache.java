@@ -59,8 +59,6 @@ DECL|method|reset ()
 name|void
 name|reset
 parameter_list|()
-throws|throws
-name|IOException
 function_decl|;
 block|}
 end_interface
