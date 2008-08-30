@@ -3111,7 +3111,7 @@ operator|=
 name|disableReplyTo
 expr_stmt|;
 block|}
-comment|/**      * Set to true if you want to send message using the QoS settings specified      * on the message. Normally the QoS settings used are the one configured on      * this Object.      *      * @param preserveMessageQos      */
+comment|/**      * Set to true if you want to send message using the QoS settings specified      * on the message. Normally the QoS settings used are the one configured on      * this Object.      */
 DECL|method|setPreserveMessageQos (boolean preserveMessageQos)
 specifier|public
 name|void
@@ -3190,7 +3190,7 @@ return|return
 name|requestMapPurgePollTimeMillis
 return|;
 block|}
-comment|/**      * Sets the frequency that the requestMap for InOut exchanges is purged for      * timed out message exchanges      *      * @param requestMapPurgePollTimeMillis      */
+comment|/**      * Sets the frequency that the requestMap for InOut exchanges is purged for      * timed out message exchanges      */
 DECL|method|setRequestMapPurgePollTimeMillis (long requestMapPurgePollTimeMillis)
 specifier|public
 name|void
@@ -3279,7 +3279,7 @@ return|return
 name|metadataJmsOperations
 return|;
 block|}
-comment|/**      * Sets the {@link JmsOperations} used to deduce the {@link JmsProviderMetadata} details which if none      * is customized one is lazily created on demand      *      * @param metadataJmsOperations      */
+comment|/**      * Sets the {@link JmsOperations} used to deduce the {@link JmsProviderMetadata} details which if none      * is customized one is lazily created on demand      */
 DECL|method|setMetadataJmsOperations (JmsOperations metadataJmsOperations)
 specifier|public
 name|void
@@ -3966,7 +3966,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|// REVISIT: We really ought to change the model and let JmsProducer
+comment|// TODO: REVISIT: We really ought to change the model and let JmsProducer
 comment|// and JmsConsumer have their own JmsConfiguration instance
 comment|// This way producer's and consumer's QoS can differ and be
 comment|// independently configured
