@@ -326,11 +326,13 @@ name|out
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertEquals
 argument_list|(
-literal|"no data should be retrieved"
+literal|"should get the exception here"
 argument_list|,
 name|out
+argument_list|,
+literal|"java.lang.IllegalArgumentException: Forced exception"
 argument_list|)
 expr_stmt|;
 block|}
