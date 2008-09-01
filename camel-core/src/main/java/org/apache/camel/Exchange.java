@@ -48,6 +48,12 @@ specifier|public
 interface|interface
 name|Exchange
 block|{
+DECL|field|CHARSET_NAME
+name|String
+name|CHARSET_NAME
+init|=
+literal|"org.apache.camel.Exchange.CharsetName"
+decl_stmt|;
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
 DECL|method|getPattern ()
 name|ExchangePattern
@@ -221,7 +227,7 @@ name|Exchange
 name|copy
 parameter_list|()
 function_decl|;
-comment|/**      * Copies the data into this exchange from the given exchange      *       * @param source is the source from which headers and messages will be copied      */
+comment|/**      * Copies the data into this exchange from the given exchange      *      * @param source is the source from which headers and messages will be copied      */
 DECL|method|copyFrom (Exchange source)
 name|void
 name|copyFrom

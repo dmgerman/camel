@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -477,6 +489,32 @@ argument_list|,
 name|object
 argument_list|)
 decl_stmt|;
+comment|//Set the exchange charset property for converting
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getCharsetName
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+name|endpoint
+operator|.
+name|getCharsetName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|getProcessor
 argument_list|()
 operator|.
@@ -538,29 +576,7 @@ operator|.
 name|isFailed
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|failed
-condition|)
-block|{
-comment|// can not write a response since the exchange is failed and we don't know in what state the
-comment|// in/out messages are in so the session is closed
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Can not write body since the exchange is failed, closing session: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-name|session
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-elseif|else
+comment|/*if (failed) {                     // can not write a response since the exchange is failed and we don't know in what state the                     // in/out messages are in so the session is closed                     LOG.warn("Can not write body since the exchange is failed, closing session: " + exchange);                     session.close();                     if (exchange.getException() != null) {                         throw new CamelException(exchange.getException());                     }                     if (exchange.getFault(false) != null) {                         if (exchange.getFault().getBody() instanceof Throwable) {                             System.out.println("throw the exception here");                             throw new CamelException((Throwable)exchange.getFault().getBody());                         }                     }                  } else*/
 if|if
 condition|(
 name|body

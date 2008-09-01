@@ -68,6 +68,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|converter
 operator|.
 name|IOConverter
@@ -164,7 +176,7 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toString (ByteBuffer buffer)
+DECL|method|toString (ByteBuffer buffer, Exchange exchange)
 specifier|public
 specifier|static
 name|String
@@ -172,9 +184,11 @@ name|toString
 parameter_list|(
 name|ByteBuffer
 name|buffer
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
-comment|// TODO: CAMEL-381, we should have type converters to strings that accepts a Charset parameter to handle encoding
 return|return
 name|IOConverter
 operator|.
@@ -184,6 +198,8 @@ name|toByteArray
 argument_list|(
 name|buffer
 argument_list|)
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}

@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -238,6 +250,11 @@ specifier|private
 specifier|final
 name|boolean
 name|sync
+decl_stmt|;
+DECL|field|charsetName
+specifier|private
+name|String
+name|charsetName
 decl_stmt|;
 DECL|method|MinaEndpoint (String endpointUri, MinaComponent component, SocketAddress address, IoAcceptor acceptor, IoAcceptorConfig acceptorConfig, IoConnector connector, IoConnectorConfig connectorConfig, boolean lazySessionCreation, long timeout, boolean transferExchange, boolean sync)
 specifier|public
@@ -562,6 +579,32 @@ parameter_list|()
 block|{
 return|return
 name|sync
+return|;
+block|}
+DECL|method|setCharsetName (String charset)
+specifier|public
+name|void
+name|setCharsetName
+parameter_list|(
+name|String
+name|charset
+parameter_list|)
+block|{
+name|this
+operator|.
+name|charsetName
+operator|=
+name|charset
+expr_stmt|;
+block|}
+DECL|method|getCharsetName ()
+specifier|public
+name|String
+name|getCharsetName
+parameter_list|()
+block|{
+return|return
+name|charsetName
 return|;
 block|}
 block|}

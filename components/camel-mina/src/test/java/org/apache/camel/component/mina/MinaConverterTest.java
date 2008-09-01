@@ -164,6 +164,8 @@ operator|.
 name|toString
 argument_list|(
 name|bb
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
