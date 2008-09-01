@@ -323,17 +323,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"marshal "
-operator|+
-name|payload
-argument_list|)
-expr_stmt|;
 return|return
 name|payload
 return|;

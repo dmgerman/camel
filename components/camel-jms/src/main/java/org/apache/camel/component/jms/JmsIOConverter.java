@@ -158,6 +158,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|converter
 operator|.
 name|NIOConverter
@@ -165,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some simple payload conversions to I/O<a  * href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  *   * @version $Revision$  */
+comment|/**  * Some simple payload conversions to I/O<a  * href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -181,11 +193,11 @@ DECL|method|JmsIOConverter ()
 specifier|private
 name|JmsIOConverter
 parameter_list|()
-block|{             }
+block|{     }
 comment|/**      * @param message      * @return a ByteBuffer      * @throws Exception      */
 annotation|@
 name|Converter
-DECL|method|toByteBuffer (final Message message)
+DECL|method|toByteBuffer (final Message message, Exchange exchange)
 specifier|public
 specifier|static
 name|ByteBuffer
@@ -194,6 +206,9 @@ parameter_list|(
 specifier|final
 name|Message
 name|message
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|Exception
@@ -225,6 +240,8 @@ operator|.
 name|toByteBuffer
 argument_list|(
 name|text
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}

@@ -568,15 +568,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-name|boolean
-name|failed
-init|=
-name|exchange
-operator|.
-name|isFailed
-argument_list|()
-decl_stmt|;
-comment|/*if (failed) {                     // can not write a response since the exchange is failed and we don't know in what state the                     // in/out messages are in so the session is closed                     LOG.warn("Can not write body since the exchange is failed, closing session: " + exchange);                     session.close();                     if (exchange.getException() != null) {                         throw new CamelException(exchange.getException());                     }                     if (exchange.getFault(false) != null) {                         if (exchange.getFault().getBody() instanceof Throwable) {                             System.out.println("throw the exception here");                             throw new CamelException((Throwable)exchange.getFault().getBody());                         }                     }                  } else*/
+comment|// send message back
 if|if
 condition|(
 name|body
