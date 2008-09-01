@@ -94,6 +94,20 @@ name|DefaultCamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultExchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * To unit test CAMEL-364.  */
 end_comment
@@ -147,26 +161,33 @@ name|body
 init|=
 literal|"Hello World"
 decl_stmt|;
-name|String
-name|out
+name|Object
+name|result
 init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
-name|requestBody
+name|sendBody
 argument_list|(
 name|uri
 argument_list|,
 name|body
 argument_list|)
 decl_stmt|;
-name|assertNull
+comment|// The exception should be passed to the client
+name|assertNotNull
 argument_list|(
-literal|"Should not have sent data back"
+literal|"the result should not be null"
 argument_list|,
-name|out
+name|result
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"result is IllegalArgumentException"
+argument_list|,
+name|result
+argument_list|,
+literal|"java.lang.IllegalArgumentException: Forced exception"
 argument_list|)
 expr_stmt|;
 block|}
