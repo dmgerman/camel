@@ -400,6 +400,18 @@ specifier|private
 name|File
 name|outputDirectory
 decl_stmt|;
+comment|/**      * The classpath based application context uri that spring wants to get.      *      * @parameter expression="${camel.applicationContextUri}"      */
+DECL|field|applicationContextUri
+specifier|protected
+name|String
+name|applicationContextUri
+decl_stmt|;
+comment|/**      * The filesystem based application context uri that spring wants to get.      *      * @parameter expression="${camel.fileApplicationContextUri}"      */
+DECL|field|fileApplicationContextUri
+specifier|protected
+name|String
+name|fileApplicationContextUri
+decl_stmt|;
 comment|/**      * In the case of multiple camel contexts, setting aggregate == true will      * aggregate all into a monolithic context, otherwise they will be processed      * independently.      *      * @parameter      */
 DECL|field|aggregate
 specifier|private
@@ -1286,14 +1298,55 @@ condition|(
 name|runCamel
 condition|)
 block|{
+comment|// default path, but can be overridden by configuration
+if|if
+condition|(
+name|applicationContextUri
+operator|!=
+literal|null
+condition|)
+block|{
 name|getLog
 argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Running Camel embedded to load META-INF/spring/*.xml files"
+literal|"Running Camel embedded to load Spring XML files from classpath: "
+operator|+
+name|applicationContextUri
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|fileApplicationContextUri
+operator|!=
+literal|null
+condition|)
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Running Camel embedded to load Spring XML files from file path: "
+operator|+
+name|fileApplicationContextUri
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Running Camel embedded to load Spring XML files from default path: META-INF/spring/*.xml"
+argument_list|)
+expr_stmt|;
+block|}
 name|List
 name|list
 init|=
@@ -1383,6 +1436,20 @@ name|setPluginContext
 argument_list|(
 name|getPluginContext
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|mojo
+operator|.
+name|setApplicationContextUri
+argument_list|(
+name|applicationContextUri
+argument_list|)
+expr_stmt|;
+name|mojo
+operator|.
+name|setFileApplicationContextUri
+argument_list|(
+name|fileApplicationContextUri
 argument_list|)
 expr_stmt|;
 try|try

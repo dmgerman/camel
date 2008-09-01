@@ -427,6 +427,58 @@ operator|=
 name|dotAggregationEnabled
 expr_stmt|;
 block|}
+DECL|method|getApplicationContextUri ()
+specifier|public
+name|String
+name|getApplicationContextUri
+parameter_list|()
+block|{
+return|return
+name|applicationContextUri
+return|;
+block|}
+DECL|method|setApplicationContextUri (String applicationContextUri)
+specifier|public
+name|void
+name|setApplicationContextUri
+parameter_list|(
+name|String
+name|applicationContextUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|applicationContextUri
+operator|=
+name|applicationContextUri
+expr_stmt|;
+block|}
+DECL|method|getFileApplicationContextUri ()
+specifier|public
+name|String
+name|getFileApplicationContextUri
+parameter_list|()
+block|{
+return|return
+name|fileApplicationContextUri
+return|;
+block|}
+DECL|method|setFileApplicationContextUri (String fileApplicationContextUri)
+specifier|public
+name|void
+name|setFileApplicationContextUri
+parameter_list|(
+name|String
+name|fileApplicationContextUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileApplicationContextUri
+operator|=
+name|fileApplicationContextUri
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 DECL|method|runCamel (ClassLoader newLoader)
