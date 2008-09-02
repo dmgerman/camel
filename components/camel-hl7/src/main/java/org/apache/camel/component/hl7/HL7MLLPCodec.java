@@ -282,32 +282,26 @@ operator|+
 literal|".charsetdecoder"
 decl_stmt|;
 comment|// HL7 MLLP start and end markers
-DECL|field|START_MARKER
+DECL|field|startByte
 specifier|private
-specifier|static
-specifier|final
-name|byte
-name|START_MARKER
+name|char
+name|startByte
 init|=
 literal|0x0b
 decl_stmt|;
 comment|// 11 decimal
-DECL|field|END_MARKER_1
+DECL|field|endByte1
 specifier|private
-specifier|static
-specifier|final
-name|byte
-name|END_MARKER_1
+name|char
+name|endByte1
 init|=
 literal|0x1c
 decl_stmt|;
 comment|// 28 decimal
-DECL|field|END_MARKER_2
+DECL|field|endByte2
 specifier|private
-specifier|static
-specifier|final
-name|byte
-name|END_MARKER_2
+name|char
+name|endByte2
 init|=
 literal|0x0d
 decl_stmt|;
@@ -321,6 +315,13 @@ name|Charset
 operator|.
 name|defaultCharset
 argument_list|()
+decl_stmt|;
+DECL|field|convertLFtoCR
+specifier|private
+name|boolean
+name|convertLFtoCR
+init|=
+literal|true
 decl_stmt|;
 DECL|method|getEncoder ()
 specifier|public
@@ -364,6 +365,22 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Message to encode is null"
 argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|message
+operator|instanceof
+name|Exception
+condition|)
+block|{
+comment|// we cant handle exceptions
+throw|throw
+operator|(
+name|Exception
+operator|)
+name|message
 throw|;
 block|}
 name|CharsetEncoder
@@ -484,6 +501,11 @@ argument_list|)
 throw|;
 block|}
 comment|// replace \n with \r as HL7 uses 0x0d = \r as segment termninators
+if|if
+condition|(
+name|convertLFtoCR
+condition|)
+block|{
 name|body
 operator|=
 name|body
@@ -495,6 +517,7 @@ argument_list|,
 literal|'\r'
 argument_list|)
 expr_stmt|;
+block|}
 comment|// put the data into the byte buffer
 name|ByteBuffer
 name|bb
@@ -520,7 +543,10 @@ name|bb
 operator|.
 name|put
 argument_list|(
-name|START_MARKER
+operator|(
+name|byte
+operator|)
+name|startByte
 argument_list|)
 expr_stmt|;
 name|bb
@@ -536,14 +562,20 @@ name|bb
 operator|.
 name|put
 argument_list|(
-name|END_MARKER_1
+operator|(
+name|byte
+operator|)
+name|endByte1
 argument_list|)
 expr_stmt|;
 name|bb
 operator|.
 name|put
 argument_list|(
-name|END_MARKER_2
+operator|(
+name|byte
+operator|)
+name|endByte2
 argument_list|)
 expr_stmt|;
 comment|// flip the buffer so we can use it to write to the out stream
@@ -667,7 +699,7 @@ if|if
 condition|(
 name|b
 operator|==
-name|START_MARKER
+name|startByte
 condition|)
 block|{
 name|posStart
@@ -682,7 +714,7 @@ if|if
 condition|(
 name|b
 operator|==
-name|END_MARKER_1
+name|endByte1
 condition|)
 block|{
 name|byte
@@ -697,7 +729,7 @@ if|if
 condition|(
 name|next
 operator|==
-name|END_MARKER_2
+name|endByte2
 condition|)
 block|{
 name|posEnd
@@ -719,9 +751,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"The 2nd end marker "
+literal|"The 2nd end byte "
 operator|+
-name|END_MARKER_2
+name|endByte2
 operator|+
 literal|" was not found, but was "
 operator|+
@@ -926,6 +958,110 @@ name|forName
 argument_list|(
 name|charsetName
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isConvertLFtoCR ()
+specifier|public
+name|boolean
+name|isConvertLFtoCR
+parameter_list|()
+block|{
+return|return
+name|convertLFtoCR
+return|;
+block|}
+DECL|method|setConvertLFtoCR (boolean convertLFtoCR)
+specifier|public
+name|void
+name|setConvertLFtoCR
+parameter_list|(
+name|boolean
+name|convertLFtoCR
+parameter_list|)
+block|{
+name|this
+operator|.
+name|convertLFtoCR
+operator|=
+name|convertLFtoCR
+expr_stmt|;
+block|}
+DECL|method|getStartByte ()
+specifier|public
+name|char
+name|getStartByte
+parameter_list|()
+block|{
+return|return
+name|startByte
+return|;
+block|}
+DECL|method|setStartByte (char startByte)
+specifier|public
+name|void
+name|setStartByte
+parameter_list|(
+name|char
+name|startByte
+parameter_list|)
+block|{
+name|this
+operator|.
+name|startByte
+operator|=
+name|startByte
+expr_stmt|;
+block|}
+DECL|method|getEndByte1 ()
+specifier|public
+name|char
+name|getEndByte1
+parameter_list|()
+block|{
+return|return
+name|endByte1
+return|;
+block|}
+DECL|method|setEndByte1 (char endByte1)
+specifier|public
+name|void
+name|setEndByte1
+parameter_list|(
+name|char
+name|endByte1
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endByte1
+operator|=
+name|endByte1
+expr_stmt|;
+block|}
+DECL|method|getEndByte2 ()
+specifier|public
+name|char
+name|getEndByte2
+parameter_list|()
+block|{
+return|return
+name|endByte2
+return|;
+block|}
+DECL|method|setEndByte2 (char endByte2)
+specifier|public
+name|void
+name|setEndByte2
+parameter_list|(
+name|char
+name|endByte2
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endByte2
+operator|=
+name|endByte2
 expr_stmt|;
 block|}
 block|}

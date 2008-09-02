@@ -153,7 +153,7 @@ parameter_list|)
 throws|throws
 name|HL7Exception
 block|{
-comment|// replace \n with \r as HL7 uses 0x0d = \r as segment terminators
+comment|// replace \n with \r as HL7 uses 0x0d = \r as segment terminators and HAPI only parses with \r
 name|body
 operator|=
 name|body
