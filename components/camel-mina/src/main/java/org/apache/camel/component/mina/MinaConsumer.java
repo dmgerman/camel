@@ -578,13 +578,13 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|failed
+operator|&&
 operator|!
 name|endpoint
 operator|.
 name|isTransferExchange
 argument_list|()
-operator|&&
-name|failed
 condition|)
 block|{
 if|if
