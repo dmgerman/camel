@@ -611,7 +611,7 @@ literal|"Object "
 operator|+
 name|object
 operator|+
-literal|" can't be serialized, it will be exclued by the MinaPayloadHolder"
+literal|" can't be serialized, it will be excluded by the MinaPayloadHolder"
 argument_list|)
 expr_stmt|;
 return|return
@@ -731,7 +731,7 @@ operator|.
 name|getKey
 argument_list|()
 operator|+
-literal|" can't be serialized, it will be exclued by the MinaPayloadHolder"
+literal|" can't be serialized, it will be excluded by the MinaPayloadHolder"
 argument_list|)
 expr_stmt|;
 block|}
