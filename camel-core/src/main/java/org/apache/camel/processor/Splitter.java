@@ -333,7 +333,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProcessorExchangePairs ( Exchange exchange)
+DECL|method|createProcessorExchangePairs (Exchange exchange)
 specifier|protected
 name|List
 argument_list|<

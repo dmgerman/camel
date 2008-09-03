@@ -1036,7 +1036,7 @@ parameter_list|)
 block|{
 comment|// No updates needed
 block|}
-DECL|method|createProcessorExchangePairs ( Exchange exchange)
+DECL|method|createProcessorExchangePairs (Exchange exchange)
 specifier|protected
 name|List
 argument_list|<
