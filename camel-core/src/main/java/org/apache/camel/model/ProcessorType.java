@@ -2726,7 +2726,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|pushBlock (Block block)
-specifier|protected
+specifier|public
 name|void
 name|pushBlock
 parameter_list|(
@@ -2743,7 +2743,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|popBlock ()
-specifier|protected
+specifier|public
 name|Block
 name|popBlock
 parameter_list|()
@@ -5338,6 +5338,20 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
+comment|// if the ProceedType create processor is null we keep on going
+if|if
+condition|(
+name|output
+operator|instanceof
+name|ProceedType
+operator|&&
+name|processor
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|processor
 operator|=
 name|output
