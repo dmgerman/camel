@@ -716,7 +716,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Disconnects the URL specified on the endpoint from the specified      * processor.      *      * @throws Exception      */
+comment|/**      * Disconnects the URL specified on the endpoint from the specified      * processor.      */
 annotation|@
 name|Override
 DECL|method|disconnect (HttpConsumer consumer)
@@ -737,13 +737,10 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-comment|// If the connector is not needed anymore.. then stop it.
+comment|// If the connector is not needed anymore then stop it
 name|HttpEndpoint
 name|endpoint
 init|=
-operator|(
-name|HttpEndpoint
-operator|)
 name|consumer
 operator|.
 name|getEndpoint

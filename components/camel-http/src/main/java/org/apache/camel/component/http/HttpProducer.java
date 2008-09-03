@@ -397,20 +397,6 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|HttpBinding
-name|binding
-init|=
-operator|(
-operator|(
-name|HttpEndpoint
-operator|)
-name|getEndpoint
-argument_list|()
-operator|)
-operator|.
-name|getBinding
-argument_list|()
-decl_stmt|;
 name|HeaderFilterStrategy
 name|strategy
 init|=
@@ -946,7 +932,6 @@ return|return
 name|entity
 return|;
 block|}
-comment|/*     protected boolean shouldHeaderBePropagated(String headerName, String headerValue) {         if (headerValue == null) {             return false;         }         if (HTTP_METHOD.equals(headerName)) {             return false;         }         if (headerName.startsWith("org.apache.camel")) {             return false;         }         if (HEADERS_TO_SKIP.contains(headerName.toLowerCase())) {             return false;         }         return true;     }     */
 block|}
 end_class
 

@@ -393,8 +393,7 @@ argument_list|,
 name|lastLine
 argument_list|)
 expr_stmt|;
-comment|// Content-Length from request will truncate the output to just the
-comment|// inputText
+comment|// Content-Length from request will truncate the output to just the inputText
 name|assertEquals
 argument_list|(
 literal|"response matches: "

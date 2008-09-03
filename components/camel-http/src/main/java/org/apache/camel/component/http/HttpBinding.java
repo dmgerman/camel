@@ -188,7 +188,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//private Set<String> ignoredHeaders = DEFAULT_HEADERS_TO_IGNORE;
 DECL|field|useReaderForPayload
 specifier|private
 name|boolean
@@ -218,7 +217,7 @@ operator|=
 name|headerFilterStrategy
 expr_stmt|;
 block|}
-comment|/**      * Writes the exchange to the servlet response      *      * @param response      * @throws IOException      */
+comment|/**      * Writes the exchange to the servlet response      */
 DECL|method|writeResponse (HttpExchange exchange, HttpServletResponse response)
 specifier|public
 name|void
@@ -248,7 +247,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Set the status code in the response.  Default is 200.
+comment|// Set the status code in the response. Default is 200.
 if|if
 condition|(
 name|out
@@ -264,12 +263,8 @@ literal|null
 condition|)
 block|{
 name|int
-name|responseCode
+name|code
 init|=
-operator|(
-operator|(
-name|Integer
-operator|)
 name|out
 operator|.
 name|getHeader
@@ -277,21 +272,21 @@ argument_list|(
 name|HttpProducer
 operator|.
 name|HTTP_RESPONSE_CODE
-argument_list|)
-operator|)
+argument_list|,
+name|Integer
 operator|.
-name|intValue
-argument_list|()
+name|class
+argument_list|)
 decl_stmt|;
 name|response
 operator|.
 name|setStatus
 argument_list|(
-name|responseCode
+name|code
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Write out the headers...
+comment|// Write out the headers
 for|for
 control|(
 name|String
@@ -359,8 +354,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Try to stream the body since that would be the most
-comment|// efficient..
+comment|// Try to stream the body since that would be the most efficient
 name|InputStream
 name|is
 init|=
@@ -494,9 +488,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/*      * Exclude a set of headers from responses and new requests as all headers      * get propagated between exchanges by default      *      * @deprecated please use {@link HeaderPropagationStrategy} instead      *      */
-annotation|@
-name|Deprecated
+comment|/*      * Exclude a set of headers from responses and new requests as all headers      * get propagated between exchanges by default      *      * @deprecated please use {@link HeaderPropagationStrategy} instead      */
 DECL|method|shouldHeaderBePropagated (String headerName, String headerValue)
 specifier|public
 name|boolean
@@ -536,7 +528,7 @@ name|headerValue
 argument_list|)
 return|;
 block|}
-comment|/*      * override the set of headers to ignore for responses and new requests      * @param headersToIgnore should be a set of lower-case strings      *      * @deprecated please use {@link HeaderPropagationStrategy} instead      *      */
+comment|/*      * Override the set of headers to ignore for responses and new requests.      * @param headersToIgnore should be a set of lower-case strings      *      * @deprecated please use {@link HeaderPropagationStrategy} instead      */
 annotation|@
 name|Deprecated
 DECL|method|setIgnoredHeaders (Set<String> headersToIgnore)
@@ -572,7 +564,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @deprecated please use {@link HeaderPropagationStrategy} instead      */
+comment|/**      * @deprecated please use {@link org.apache.camel.spi.HeaderFilterStrategy} instead      */
 annotation|@
 name|Deprecated
 DECL|method|getIgnoredHeaders ()
@@ -620,7 +612,7 @@ return|return
 name|useReaderForPayload
 return|;
 block|}
-comment|/**      * Should the {@link HttpServletRequest#getReader()} be exposed as the payload of input messages in the Camel      * {@link Message#getBody()} or not. If false then the {@link HttpServletRequest#getInputStream()} will be exposed.      *      * @param useReaderForPayload      */
+comment|/**      * Should the {@link HttpServletRequest#getReader()} be exposed as the payload of input messages in the Camel      * {@link Message#getBody()} or not. If false then the {@link HttpServletRequest#getInputStream()} will be exposed.      */
 DECL|method|setUseReaderForPayload (boolean useReaderForPayload)
 specifier|public
 name|void

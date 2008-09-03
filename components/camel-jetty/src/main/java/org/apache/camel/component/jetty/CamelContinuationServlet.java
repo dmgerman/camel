@@ -162,8 +162,6 @@ name|CamelContinuationServlet
 extends|extends
 name|CamelServlet
 block|{
-comment|// private static final String EXCHANGE_ATTRIBUTE =
-comment|// CamelContinuationServlet.class.getName()+".EXCHANGE_ATTRIBUTE";
 annotation|@
 name|Override
 DECL|method|service (HttpServletRequest request, HttpServletResponse response)
@@ -211,14 +209,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// HttpExchange exchange =
-comment|// (HttpExchange)request.getAttribute(EXCHANGE_ATTRIBUTE);
-comment|// if( exchange == null ) {
-comment|// exchange = new HttpExchange(consumer.getEndpoint(), request,
-comment|// response);
-comment|// }
-comment|// Continuation continuation =
-comment|// ContinuationSupport.getContinuation(request, exchange);
 specifier|final
 name|Continuation
 name|continuation
@@ -323,9 +313,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// HC: The getBinding() is interesting because it illustrates the
-comment|// impedance miss-match between
-comment|// HTTP's stream oriented protocol, and Camels more message oriented
-comment|// protocol exchanges.
+comment|// impedance miss-match between HTTP's stream oriented protocol, and
+comment|// Camels more message oriented protocol exchanges.
 comment|// now lets output to the response
 name|consumer
 operator|.
