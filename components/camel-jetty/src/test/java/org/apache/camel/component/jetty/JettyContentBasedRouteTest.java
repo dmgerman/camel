@@ -193,6 +193,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"jetty:"
@@ -224,6 +225,7 @@ argument_list|(
 literal|"mock:other"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
