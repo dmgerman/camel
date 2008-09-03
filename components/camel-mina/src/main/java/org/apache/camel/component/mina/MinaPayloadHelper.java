@@ -69,7 +69,7 @@ name|isTransferExchange
 argument_list|()
 condition|)
 block|{
-comment|// we should transfer the entire exchange over the wire (includes in/out)\
+comment|// we should transfer the entire exchange over the wire (includes in/out)
 return|return
 name|MinaPayloadHolder
 operator|.

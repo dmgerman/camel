@@ -611,7 +611,7 @@ literal|"Object "
 operator|+
 name|object
 operator|+
-literal|" can't be serialized, it will be exculed by the MinaPayloadHold"
+literal|" can't be serialized, it will be exclued by the MinaPayloadHolder"
 argument_list|)
 expr_stmt|;
 return|return
@@ -650,17 +650,6 @@ return|return
 literal|null
 return|;
 block|}
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|keys
-init|=
-name|map
-operator|.
-name|keySet
-argument_list|()
-decl_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -680,25 +669,28 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
+name|Map
+operator|.
+name|Entry
+argument_list|<
 name|String
-name|key
-range|:
-name|keys
-control|)
-block|{
+argument_list|,
 name|Object
-name|object
-init|=
+argument_list|>
+name|entry
+range|:
 name|map
 operator|.
-name|get
-argument_list|(
-name|key
-argument_list|)
-decl_stmt|;
+name|entrySet
+argument_list|()
+control|)
+block|{
 if|if
 condition|(
-name|object
+name|entry
+operator|.
+name|getValue
+argument_list|()
 operator|instanceof
 name|Serializable
 condition|)
@@ -707,9 +699,15 @@ name|result
 operator|.
 name|put
 argument_list|(
-name|key
+name|entry
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
-name|object
+name|entry
+operator|.
+name|getValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -721,13 +719,19 @@ name|warn
 argument_list|(
 literal|"Object "
 operator|+
-name|object
+name|entry
+operator|.
+name|getValue
+argument_list|()
 operator|+
 literal|" of key "
 operator|+
-name|key
+name|entry
+operator|.
+name|getKey
+argument_list|()
 operator|+
-literal|" can't be serialized, it will be exculed by the MinaPayloadHold"
+literal|" can't be serialized, it will be exclued by the MinaPayloadHolder"
 argument_list|)
 expr_stmt|;
 block|}
