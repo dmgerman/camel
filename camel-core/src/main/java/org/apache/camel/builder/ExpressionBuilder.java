@@ -1738,9 +1738,6 @@ block|{
 name|String
 name|charset
 init|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getProperty
@@ -1748,6 +1745,10 @@ argument_list|(
 name|Exchange
 operator|.
 name|CHARSET_NAME
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|Scanner
