@@ -58,9 +58,37 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
@@ -87,10 +115,15 @@ block|{
 comment|// Currently, this test fails because the JavaScript expression in createRouteBuilder
 comment|// below returns false
 comment|// To fix that, we need to figure out how to get the expression to return the right value
+name|MockEndpoint
+name|mock
+init|=
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
+decl_stmt|;
+name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -140,6 +173,31 @@ argument_list|,
 literal|"hello"
 argument_list|,
 name|headers
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should get the message header here"
+argument_list|,
+name|mock
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|,
+literal|"bar"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisifed
@@ -247,6 +305,11 @@ operator|.
 name|javaScript
 argument_list|(
 literal|"request.headers.get('foo') == 'bar'"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:info?showAll=true"
 argument_list|)
 operator|.
 name|to
