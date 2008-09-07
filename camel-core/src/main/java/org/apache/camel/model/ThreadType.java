@@ -164,6 +164,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|ErrorHandlerBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|Pipeline
@@ -647,11 +661,64 @@ name|pipe
 argument_list|)
 return|;
 block|}
-comment|///////////////////////////////////////////////////////////////////
-comment|//
-comment|// Fluent Methods
-comment|//
-comment|///////////////////////////////////////////////////////////////////
+annotation|@
+name|Override
+DECL|method|configureChild (ProcessorType output)
+specifier|protected
+name|void
+name|configureChild
+parameter_list|(
+name|ProcessorType
+name|output
+parameter_list|)
+block|{
+name|super
+operator|.
+name|configureChild
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|isInheritErrorHandler
+argument_list|()
+condition|)
+block|{
+name|output
+operator|.
+name|setErrorHandlerBuilder
+argument_list|(
+name|getErrorHandlerBuilder
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// Fluent methods
+comment|// -----------------------------------------------------------------------
+annotation|@
+name|Override
+DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
+specifier|public
+name|ProcessorType
+name|errorHandler
+parameter_list|(
+name|ErrorHandlerBuilder
+name|errorHandlerBuilder
+parameter_list|)
+block|{
+comment|// do not support setting error handling on thread type as its confusing and will not be used
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Setting errorHandler on ThreadType is not supported."
+operator|+
+literal|" Instead set the errorHandler on the parent."
+argument_list|)
+throw|;
+block|}
 DECL|method|coreSize (int coreSize)
 specifier|public
 name|ThreadType
