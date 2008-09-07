@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ResolveEndpointFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -245,6 +257,40 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|testBadConfiguration ()
+specifier|public
+name|void
+name|testBadConfiguration
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+try|try
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"mina:tcp://localhost:11300?sync=true&codec=XXX"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown a ResolveEndpointFailedException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ResolveEndpointFailedException
+name|e
+parameter_list|)
+block|{
+comment|// ok
+block|}
 block|}
 DECL|method|createRegistry ()
 specifier|protected
