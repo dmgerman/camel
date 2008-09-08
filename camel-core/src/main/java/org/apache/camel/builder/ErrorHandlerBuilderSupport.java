@@ -148,6 +148,25 @@ return|return
 name|exceptions
 return|;
 block|}
+DECL|method|setExceptions (List<ExceptionType> exceptions)
+specifier|public
+name|void
+name|setExceptions
+parameter_list|(
+name|List
+argument_list|<
+name|ExceptionType
+argument_list|>
+name|exceptions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exceptions
+operator|=
+name|exceptions
+expr_stmt|;
+block|}
 block|}
 end_class
 
