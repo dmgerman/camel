@@ -148,10 +148,10 @@ return|return
 name|exceptions
 return|;
 block|}
-DECL|method|setExceptions (List<ExceptionType> exceptions)
+DECL|method|setErrorHandlers (List<ExceptionType> exceptions)
 specifier|public
 name|void
-name|setExceptions
+name|setErrorHandlers
 parameter_list|(
 name|List
 argument_list|<
@@ -163,8 +163,18 @@ block|{
 name|this
 operator|.
 name|exceptions
-operator|=
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
 name|exceptions
+operator|.
+name|addAll
+argument_list|(
+name|exceptions
+argument_list|)
 expr_stmt|;
 block|}
 block|}

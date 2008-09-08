@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -93,6 +103,18 @@ name|addErrorHandlers
 parameter_list|(
 name|ExceptionType
 name|exception
+parameter_list|)
+function_decl|;
+comment|/**      * Adds the error handlers for the given list of exception types      * @param exceptions  the list of exceptions to handle      */
+DECL|method|setErrorHandlers (List<ExceptionType> exceptions)
+name|void
+name|setErrorHandlers
+parameter_list|(
+name|List
+argument_list|<
+name|ExceptionType
+argument_list|>
+name|exceptions
 parameter_list|)
 function_decl|;
 block|}
