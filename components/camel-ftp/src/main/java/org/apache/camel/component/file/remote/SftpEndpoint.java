@@ -230,6 +230,12 @@ argument_list|()
 operator|.
 name|getHost
 argument_list|()
+argument_list|,
+name|getConfiguration
+argument_list|()
+operator|.
+name|getPort
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|session
