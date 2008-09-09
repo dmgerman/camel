@@ -161,6 +161,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -408,9 +422,9 @@ name|Object
 argument_list|>
 name|iter
 init|=
-name|ObjectConverter
+name|ObjectHelper
 operator|.
-name|iterator
+name|createIterator
 argument_list|(
 name|value
 argument_list|)
