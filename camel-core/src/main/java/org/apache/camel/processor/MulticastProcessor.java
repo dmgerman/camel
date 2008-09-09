@@ -188,6 +188,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|converter
+operator|.
+name|CollectionConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ServiceSupport
@@ -731,7 +745,7 @@ name|result
 init|=
 literal|null
 decl_stmt|;
-name|List
+name|Iterable
 argument_list|<
 name|ProcessorExchangePair
 argument_list|>
@@ -748,6 +762,20 @@ condition|(
 name|isParallelProcessing
 condition|)
 block|{
+comment|//TODO: make a dynamic countdown latch to avoid having to convert back to list
+name|List
+argument_list|<
+name|ProcessorExchangePair
+argument_list|>
+name|allPairs
+init|=
+name|CollectionConverter
+operator|.
+name|toList
+argument_list|(
+name|pairs
+argument_list|)
+decl_stmt|;
 name|Exchange
 index|[]
 name|exchanges
@@ -755,7 +783,7 @@ init|=
 operator|new
 name|Exchange
 index|[
-name|pairs
+name|allPairs
 operator|.
 name|size
 argument_list|()
@@ -768,7 +796,7 @@ init|=
 operator|new
 name|CountDownLatch
 argument_list|(
-name|pairs
+name|allPairs
 operator|.
 name|size
 argument_list|()
@@ -814,7 +842,7 @@ index|]
 argument_list|,
 name|i
 argument_list|,
-name|pairs
+name|allPairs
 argument_list|)
 expr_stmt|;
 name|ProcessCall
@@ -1016,7 +1044,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|updateNewExchange (Exchange exchange, int i, List<ProcessorExchangePair> allPairs)
+DECL|method|updateNewExchange (Exchange exchange, int i, Iterable<ProcessorExchangePair> allPairs)
 specifier|protected
 name|void
 name|updateNewExchange
@@ -1027,7 +1055,7 @@ parameter_list|,
 name|int
 name|i
 parameter_list|,
-name|List
+name|Iterable
 argument_list|<
 name|ProcessorExchangePair
 argument_list|>
@@ -1038,7 +1066,7 @@ comment|// No updates needed
 block|}
 DECL|method|createProcessorExchangePairs (Exchange exchange)
 specifier|protected
-name|List
+name|Iterable
 argument_list|<
 name|ProcessorExchangePair
 argument_list|>

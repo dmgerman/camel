@@ -274,6 +274,20 @@ specifier|private
 name|ThreadPoolExecutor
 name|threadPoolExecutor
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|streaming
+specifier|private
+name|Boolean
+name|streaming
+init|=
+literal|false
+decl_stmt|;
 DECL|method|SplitterType ()
 specifier|public
 name|SplitterType
@@ -426,6 +440,8 @@ name|isParallelProcessing
 argument_list|()
 argument_list|,
 name|threadPoolExecutor
+argument_list|,
+name|streaming
 argument_list|)
 return|;
 block|}
@@ -486,6 +502,55 @@ name|parallelProcessing
 operator|=
 name|parallelProcessing
 expr_stmt|;
+block|}
+comment|/**      * The splitter should use streaming -- exchanges are being sent as the data for them becomes available.      * This improves throughput and memory usage, but it has a drawback:       * - the sent exchanges will no longer contain the {@link Splitter#SPLIT_SIZE} header property       *       * @return       */
+DECL|method|getStreaming ()
+specifier|public
+name|boolean
+name|getStreaming
+parameter_list|()
+block|{
+return|return
+name|streaming
+operator|!=
+literal|null
+condition|?
+name|streaming
+else|:
+literal|false
+return|;
+block|}
+DECL|method|setStreaming (boolean streaming)
+specifier|public
+name|void
+name|setStreaming
+parameter_list|(
+name|boolean
+name|streaming
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streaming
+operator|=
+name|streaming
+expr_stmt|;
+block|}
+comment|/**      * Enables streaming.       * Cfr. {@link SplitterType#setStreaming(boolean)} for more information      */
+DECL|method|streaming ()
+specifier|public
+name|SplitterType
+name|streaming
+parameter_list|()
+block|{
+name|setStreaming
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|getThreadPoolExecutor ()
 specifier|public

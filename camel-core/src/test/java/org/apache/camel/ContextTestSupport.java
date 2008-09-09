@@ -1008,11 +1008,24 @@ return|return
 name|language
 return|;
 block|}
-comment|/**      * Asserts that all the expectations of the Mock endpoints are valid      */
+comment|/**      * Asserts that all the expectations of the Mock endpoints are valid      *       * @deprecated use {{@link #assertMockEndpointsSatisfied()} instead      */
 DECL|method|assertMockEndpointsSatisifed ()
 specifier|protected
 name|void
 name|assertMockEndpointsSatisifed
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Asserts that all the expectations of the Mock endpoints are valid      */
+DECL|method|assertMockEndpointsSatisfied ()
+specifier|protected
+name|void
+name|assertMockEndpointsSatisfied
 parameter_list|()
 throws|throws
 name|InterruptedException
