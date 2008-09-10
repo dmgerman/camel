@@ -399,7 +399,7 @@ condition|)
 block|{
 comment|// useTransactionErrorHandler is only used for unit testing to reuse code
 comment|// for doing a 2nd test without this transaction error handler, so ignore
-comment|// this. For spring based transaction, end users is encured to use the
+comment|// this. For spring based transaction, end users are encouraged to use the
 comment|// transaction error handler instead of the default DeadLetterChannel.
 name|errorHandler
 argument_list|(

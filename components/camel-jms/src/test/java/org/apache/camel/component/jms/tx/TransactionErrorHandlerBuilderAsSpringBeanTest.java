@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To demonstrate the TransactionErrorHandlerBuilder configued in Spring XML.  */
+comment|/**  * To demonstrate the TransactionErrorHandlerBuilder configured in Spring XML.  */
 end_comment
 
 begin_class

@@ -493,7 +493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables collision avoidence which adds some randomization to the backoff      * timings to reduce contention probability      */
+comment|/**      * Enables collision avoidance which adds some randomization to the backoff      * timings to reduce contention probability      */
 DECL|method|useCollisionAvoidance ()
 specifier|public
 name|RedeliveryPolicy
@@ -509,7 +509,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables exponential backof using the {@link #getBackOffMultiplier()} to      * increase the time between retries      */
+comment|/**      * Enables exponential backoff using the {@link #getBackOffMultiplier()} to      * increase the time between retries      */
 DECL|method|useExponentialBackOff ()
 specifier|public
 name|RedeliveryPolicy
@@ -547,7 +547,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables collision avoidence and sets the percentage used      */
+comment|/**      * Enables collision avoidance and sets the percentage used      */
 DECL|method|collisionAvoidancePercent (double collisionAvoidancePercent)
 specifier|public
 name|RedeliveryPolicy
@@ -637,7 +637,7 @@ literal|100
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the percentage used for collision avoidence if enabled via      * {@link #setUseCollisionAvoidance(boolean)}      */
+comment|/**      * Sets the percentage used for collision avoidance if enabled via      * {@link #setUseCollisionAvoidance(boolean)}      */
 DECL|method|setCollisionAvoidancePercent (double collisionAvoidancePercent)
 specifier|public
 name|void
@@ -666,7 +666,7 @@ return|return
 name|collisionAvoidanceFactor
 return|;
 block|}
-comment|/**      * Sets the factor used for collision avoidence if enabled via      * {@link #setUseCollisionAvoidance(boolean)}      */
+comment|/**      * Sets the factor used for collision avoidance if enabled via      * {@link #setUseCollisionAvoidance(boolean)}      */
 DECL|method|setCollisionAvoidanceFactor (double collisionAvoidanceFactor)
 specifier|public
 name|void
@@ -775,7 +775,7 @@ return|return
 name|useCollisionAvoidance
 return|;
 block|}
-comment|/**      * Enables/disables collision avoidence which adds some randomization to the      * backoff timings to reduce contention probability      */
+comment|/**      * Enables/disables collision avoidance which adds some randomization to the      * backoff timings to reduce contention probability      */
 DECL|method|setUseCollisionAvoidance (boolean useCollisionAvoidance)
 specifier|public
 name|void
@@ -802,7 +802,7 @@ return|return
 name|useExponentialBackOff
 return|;
 block|}
-comment|/**      * Enables/disables exponential backof using the      * {@link #getBackOffMultiplier()} to increase the time between retries      */
+comment|/**      * Enables/disables exponential backoff using the      * {@link #getBackOffMultiplier()} to increase the time between retries      */
 DECL|method|setUseExponentialBackOff (boolean useExponentialBackOff)
 specifier|public
 name|void

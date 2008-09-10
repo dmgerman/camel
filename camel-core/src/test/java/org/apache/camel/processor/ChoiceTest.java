@@ -141,7 +141,7 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -181,7 +181,7 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -221,7 +221,7 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -317,26 +317,11 @@ name|choice
 argument_list|()
 operator|.
 name|when
-argument_list|(
-name|header
-argument_list|(
-literal|"foo"
-argument_list|)
+argument_list|()
 operator|.
-name|isEqualTo
+name|xpath
 argument_list|(
-literal|"bar"
-argument_list|)
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-literal|"name"
-argument_list|,
-name|constant
-argument_list|(
-literal|"a"
-argument_list|)
+literal|"$foo = 'bar'"
 argument_list|)
 operator|.
 name|to
@@ -345,16 +330,11 @@ literal|"mock:x"
 argument_list|)
 operator|.
 name|when
-argument_list|(
-name|header
-argument_list|(
-literal|"foo"
-argument_list|)
+argument_list|()
 operator|.
-name|isEqualTo
+name|xpath
 argument_list|(
-literal|"cheese"
-argument_list|)
+literal|"$foo = 'cheese'"
 argument_list|)
 operator|.
 name|to
