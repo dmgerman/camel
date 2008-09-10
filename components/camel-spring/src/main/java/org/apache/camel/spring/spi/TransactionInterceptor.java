@@ -100,6 +100,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|DelayPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -262,40 +276,15 @@ specifier|final
 name|TransactionTemplate
 name|transactionTemplate
 decl_stmt|;
-DECL|field|previousRollback
-specifier|private
-name|ThreadLocal
-argument_list|<
-name|RedeliveryData
-argument_list|>
-name|previousRollback
-init|=
-operator|new
-name|ThreadLocal
-argument_list|<
-name|RedeliveryData
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|protected
-name|RedeliveryData
-name|initialValue
-parameter_list|()
-block|{
-return|return
-operator|new
-name|RedeliveryData
-argument_list|()
-return|;
-block|}
-block|}
-decl_stmt|;
 DECL|field|redeliveryPolicy
 specifier|private
 name|RedeliveryPolicy
 name|redeliveryPolicy
+decl_stmt|;
+DECL|field|delayPolicy
+specifier|private
+name|DelayPolicy
+name|delayPolicy
 decl_stmt|;
 DECL|method|TransactionInterceptor (TransactionTemplate transactionTemplate)
 specifier|public
@@ -335,6 +324,7 @@ operator|=
 name|transactionTemplate
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use DelayPolicy. Will be removed in Camel 2.0      */
 DECL|method|TransactionInterceptor (Processor processor, TransactionTemplate transactionTemplate, RedeliveryPolicy redeliveryPolicy)
 specifier|public
 name|TransactionInterceptor
@@ -361,6 +351,40 @@ operator|.
 name|redeliveryPolicy
 operator|=
 name|redeliveryPolicy
+expr_stmt|;
+name|this
+operator|.
+name|delayPolicy
+operator|=
+name|redeliveryPolicy
+expr_stmt|;
+block|}
+DECL|method|TransactionInterceptor (Processor processor, TransactionTemplate transactionTemplate, DelayPolicy delayPolicy)
+specifier|public
+name|TransactionInterceptor
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
+name|TransactionTemplate
+name|transactionTemplate
+parameter_list|,
+name|DelayPolicy
+name|delayPolicy
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|processor
+argument_list|,
+name|transactionTemplate
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|delayPolicy
+operator|=
+name|delayPolicy
 expr_stmt|;
 block|}
 annotation|@
@@ -400,22 +424,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Transaction begin"
-argument_list|)
-expr_stmt|;
-specifier|final
-name|RedeliveryData
-name|redeliveryData
-init|=
-name|previousRollback
-operator|.
-name|get
-argument_list|()
-decl_stmt|;
 name|transactionTemplate
 operator|.
 name|execute
@@ -432,33 +440,6 @@ name|TransactionStatus
 name|status
 parameter_list|)
 block|{
-comment|// TODO: The delay is in some cases never triggered - see CAMEL-663
-if|if
-condition|(
-name|redeliveryPolicy
-operator|!=
-literal|null
-operator|&&
-name|redeliveryData
-operator|.
-name|previousRollback
-condition|)
-block|{
-comment|// lets delay
-name|redeliveryData
-operator|.
-name|redeliveryDelay
-operator|=
-name|redeliveryPolicy
-operator|.
-name|sleep
-argument_list|(
-name|redeliveryData
-operator|.
-name|redeliveryDelay
-argument_list|)
-expr_stmt|;
-block|}
 comment|// wrapper exception to throw if the exchange failed
 comment|// IMPORTANT: Must be a runtime exception to let Spring regard it as to do "rollback"
 name|RuntimeCamelException
@@ -553,13 +534,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Is actual transaction active: "
 operator|+
@@ -568,7 +549,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// okay mark the exchange as transacted, then the DeadLetterChannel or others know
-comment|// its an transacted exchange
+comment|// its a transacted exchange
 if|if
 condition|(
 name|activeTx
@@ -632,7 +613,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|// rehrow exception if the exchange failed
+comment|// rethrow exception if the exchange failed
 if|if
 condition|(
 name|rce
@@ -640,11 +621,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|redeliveryData
-operator|.
-name|previousRollback
-operator|=
-literal|true
+comment|// an exception occured so please sleep before we rethrow the exception
+name|delayBeforeRedelivery
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -660,7 +639,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Transaction rollback"
+literal|"Setting transaction to rollbackOnly due to exception being thrown: "
+operator|+
+name|rce
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -672,26 +656,117 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|redeliveryData
-operator|.
-name|previousRollback
+block|}
+comment|/**      * Sleeps before the transaction is set as rollback and the caused exception is rethrown to let the      * Spring TransactionManager handle the rollback.      */
+DECL|method|delayBeforeRedelivery ()
+specifier|protected
+name|void
+name|delayBeforeRedelivery
+parameter_list|()
+block|{
+name|long
+name|delay
+init|=
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|redeliveryPolicy
+operator|!=
+literal|null
+condition|)
+block|{
+name|delay
 operator|=
-literal|false
-expr_stmt|;
-name|redeliveryData
+name|redeliveryPolicy
 operator|.
-name|redeliveryDelay
-operator|=
-literal|0L
+name|getDelay
+argument_list|()
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|delayPolicy
+operator|!=
+literal|null
+condition|)
+block|{
+name|delay
+operator|=
+name|delayPolicy
+operator|.
+name|getDelay
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|delay
+operator|>
+literal|0
+condition|)
+block|{
+try|try
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Transaction commit"
+literal|"Sleeping for: "
+operator|+
+name|delay
+operator|+
+literal|" millis until attempting redelivery"
 argument_list|)
 expr_stmt|;
 block|}
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+name|delay
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Thread interrupted: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+block|}
+comment|/**      * @deprecated use DelayPolicy. Will be removed in Camel 2.0      */
 DECL|method|getRedeliveryPolicy ()
 specifier|public
 name|RedeliveryPolicy
@@ -702,6 +777,7 @@ return|return
 name|redeliveryPolicy
 return|;
 block|}
+comment|/**      * @deprecated use DelayPolicy. Will be removed in Camel 2.0      */
 DECL|method|setRedeliveryPolicy (RedeliveryPolicy redeliveryPolicy)
 specifier|public
 name|void
@@ -718,20 +794,31 @@ operator|=
 name|redeliveryPolicy
 expr_stmt|;
 block|}
-DECL|class|RedeliveryData
-specifier|protected
-specifier|static
-class|class
-name|RedeliveryData
+DECL|method|getDelayPolicy ()
+specifier|public
+name|DelayPolicy
+name|getDelayPolicy
+parameter_list|()
 block|{
-DECL|field|previousRollback
-name|boolean
-name|previousRollback
-decl_stmt|;
-DECL|field|redeliveryDelay
-name|long
-name|redeliveryDelay
-decl_stmt|;
+return|return
+name|delayPolicy
+return|;
+block|}
+DECL|method|setDelayPolicy (DelayPolicy delayPolicy)
+specifier|public
+name|void
+name|setDelayPolicy
+parameter_list|(
+name|DelayPolicy
+name|delayPolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delayPolicy
+operator|=
+name|delayPolicy
+expr_stmt|;
 block|}
 DECL|method|propagationBehaviorToString (int propagationBehavior)
 specifier|protected

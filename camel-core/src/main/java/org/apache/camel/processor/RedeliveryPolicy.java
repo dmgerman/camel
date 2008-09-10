@@ -69,7 +69,7 @@ comment|// Code taken from the ActiveMQ codebase
 end_comment
 
 begin_comment
-comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values is:  *<ul>  *<li>maximumRedeliveries = 5</li>  *<li>initialRedeliveryDelay = 1000L</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *  * @version $Revision$  */
+comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values is:  *<ul>  *<li>maximumRedeliveries = 5</li>  *<li>delay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -77,10 +77,8 @@ DECL|class|RedeliveryPolicy
 specifier|public
 class|class
 name|RedeliveryPolicy
-implements|implements
-name|Cloneable
-implements|,
-name|Serializable
+extends|extends
+name|DelayPolicy
 block|{
 DECL|field|randomNumberGenerator
 specifier|protected
@@ -112,13 +110,6 @@ name|int
 name|maximumRedeliveries
 init|=
 literal|5
-decl_stmt|;
-DECL|field|initialRedeliveryDelay
-specifier|protected
-name|long
-name|initialRedeliveryDelay
-init|=
-literal|1000L
 decl_stmt|;
 DECL|field|maximumRedeliveryDelay
 specifier|protected
@@ -171,6 +162,30 @@ return|return
 literal|"RedeliveryPolicy[maximumRedeliveries="
 operator|+
 name|maximumRedeliveries
+operator|+
+literal|", initialRedeliveryDelay="
+operator|+
+name|delay
+operator|+
+literal|", maximumRedeliveryDelay="
+operator|+
+name|maximumRedeliveryDelay
+operator|+
+literal|", useExponentialBackOff="
+operator|+
+name|useExponentialBackOff
+operator|+
+literal|", backOffMultiplier="
+operator|+
+name|backOffMultiplier
+operator|+
+literal|", useCollisionAvoidance="
+operator|+
+name|useCollisionAvoidance
+operator|+
+literal|", collisionAvoidanceFactor="
+operator|+
+name|collisionAvoidanceFactor
 operator|+
 literal|"]"
 return|;
@@ -347,7 +362,7 @@ condition|)
 block|{
 name|redeliveryDelay
 operator|=
-name|initialRedeliveryDelay
+name|delay
 expr_stmt|;
 block|}
 elseif|else
@@ -459,7 +474,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the initial redelivery delay in milliseconds on the first redelivery      */
+comment|/**      * Sets the initial redelivery delay in milliseconds on the first redelivery      *      * @deprecated use delay. Will be removed in Camel 2.0.      */
 DECL|method|initialRedeliveryDelay (long initialRedeliveryDelay)
 specifier|public
 name|RedeliveryPolicy
@@ -469,7 +484,7 @@ name|long
 name|initialRedeliveryDelay
 parameter_list|)
 block|{
-name|setInitialRedeliveryDelay
+name|setDelay
 argument_list|(
 name|initialRedeliveryDelay
 argument_list|)
@@ -668,6 +683,7 @@ operator|=
 name|collisionAvoidanceFactor
 expr_stmt|;
 block|}
+comment|/**      * @deprecated  use delay instead. Will be removed in Camel 2.0.      */
 DECL|method|getInitialRedeliveryDelay ()
 specifier|public
 name|long
@@ -675,10 +691,11 @@ name|getInitialRedeliveryDelay
 parameter_list|()
 block|{
 return|return
-name|initialRedeliveryDelay
+name|getDelay
+argument_list|()
 return|;
 block|}
-comment|/**      * Sets the initial redelivery delay in milliseconds on the first redelivery      */
+comment|/**      * Sets the initial redelivery delay in milliseconds on the first redelivery      *      * @deprecated use delay instead. Will be removed in Camel 2.0.      */
 DECL|method|setInitialRedeliveryDelay (long initialRedeliveryDelay)
 specifier|public
 name|void
@@ -688,11 +705,10 @@ name|long
 name|initialRedeliveryDelay
 parameter_list|)
 block|{
-name|this
-operator|.
+name|setDelay
+argument_list|(
 name|initialRedeliveryDelay
-operator|=
-name|initialRedeliveryDelay
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getMaximumRedeliveries ()

@@ -241,8 +241,6 @@ argument_list|(
 name|connectionFactory
 argument_list|)
 decl_stmt|;
-comment|//component.getConfiguration().setCacheLevelName("CACHE_CONNECTION");
-comment|//component.getConfiguration().setCacheLevel(DefaultMessageListenerContainer.CACHE_CONNECTION);
 name|camelContext
 operator|.
 name|addComponent

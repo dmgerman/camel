@@ -68,6 +68,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|DelayPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|RedeliveryPolicy
 import|;
 end_import
@@ -158,6 +172,15 @@ operator|new
 name|RedeliveryPolicy
 argument_list|()
 decl_stmt|;
+DECL|field|delayPolicy
+specifier|private
+name|DelayPolicy
+name|delayPolicy
+init|=
+operator|new
+name|DelayPolicy
+argument_list|()
+decl_stmt|;
 DECL|method|TransactionErrorHandlerBuilder ()
 specifier|public
 name|TransactionErrorHandlerBuilder
@@ -189,6 +212,7 @@ operator|=
 name|transactionTemplate
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use setDelayPolicy. Will be removed in Camel 2.0      */
 DECL|method|getRedeliveryPolicy ()
 specifier|public
 name|RedeliveryPolicy
@@ -199,6 +223,7 @@ return|return
 name|redeliveryPolicy
 return|;
 block|}
+comment|/**      * @deprecated use setDelayPolicy. Will be removed in Camel 2.0      */
 DECL|method|setRedeliveryPolicy (RedeliveryPolicy redeliveryPolicy)
 specifier|public
 name|void
@@ -213,6 +238,32 @@ operator|.
 name|redeliveryPolicy
 operator|=
 name|redeliveryPolicy
+expr_stmt|;
+block|}
+DECL|method|getDelayPolicy ()
+specifier|public
+name|DelayPolicy
+name|getDelayPolicy
+parameter_list|()
+block|{
+return|return
+name|delayPolicy
+return|;
+block|}
+DECL|method|setDelayPolicy (DelayPolicy delayPolicy)
+specifier|public
+name|void
+name|setDelayPolicy
+parameter_list|(
+name|DelayPolicy
+name|delayPolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delayPolicy
+operator|=
+name|delayPolicy
 expr_stmt|;
 block|}
 DECL|method|copy ()
@@ -272,7 +323,7 @@ name|processor
 argument_list|,
 name|transactionTemplate
 argument_list|,
-name|redeliveryPolicy
+name|delayPolicy
 argument_list|)
 return|;
 block|}
@@ -296,6 +347,7 @@ expr_stmt|;
 block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
+comment|/**      * @deprecated will be removed in Camel 2.0      */
 DECL|method|backOffMultiplier (double backOffMultiplier)
 specifier|public
 name|TransactionErrorHandlerBuilder
@@ -317,6 +369,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.0      */
 DECL|method|collisionAvoidancePercent (short collisionAvoidancePercent)
 specifier|public
 name|TransactionErrorHandlerBuilder
@@ -338,6 +391,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated use delay - will be removed in Camel 2.0      */
 DECL|method|initialRedeliveryDelay (long initialRedeliveryDelay)
 specifier|public
 name|TransactionErrorHandlerBuilder
@@ -347,10 +401,10 @@ name|long
 name|initialRedeliveryDelay
 parameter_list|)
 block|{
-name|getRedeliveryPolicy
+name|getDelayPolicy
 argument_list|()
 operator|.
-name|initialRedeliveryDelay
+name|delay
 argument_list|(
 name|initialRedeliveryDelay
 argument_list|)
@@ -359,6 +413,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.0      */
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
 name|TransactionErrorHandlerBuilder
@@ -380,6 +435,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.0      */
 DECL|method|maximumRedeliveryDelay (long maximumRedeliveryDelay)
 specifier|public
 name|TransactionErrorHandlerBuilder
@@ -401,6 +457,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.0      */
 DECL|method|useCollisionAvoidance ()
 specifier|public
 name|TransactionErrorHandlerBuilder
@@ -417,6 +474,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.0      */
 DECL|method|useExponentialBackOff ()
 specifier|public
 name|TransactionErrorHandlerBuilder
@@ -428,6 +486,27 @@ argument_list|()
 operator|.
 name|useExponentialBackOff
 argument_list|()
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|delay (long delay)
+specifier|public
+name|TransactionErrorHandlerBuilder
+name|delay
+parameter_list|(
+name|long
+name|delay
+parameter_list|)
+block|{
+name|getDelayPolicy
+argument_list|()
+operator|.
+name|delay
+argument_list|(
+name|delay
+argument_list|)
 expr_stmt|;
 return|return
 name|this
