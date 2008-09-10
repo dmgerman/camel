@@ -40,21 +40,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlRootElement
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlAttribute
+name|XmlAccessType
 import|;
 end_import
 
@@ -82,7 +68,21 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlAccessType
+name|XmlAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlRootElement
 import|;
 end_import
 
@@ -119,6 +119,26 @@ specifier|private
 name|String
 name|href
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"EndpointLink{href='"
+operator|+
+name|href
+operator|+
+literal|"' uri='"
+operator|+
+name|uri
+operator|+
+literal|"'}"
+return|;
+block|}
 DECL|method|load (Endpoint endpoint)
 specifier|public
 name|void
@@ -210,6 +230,8 @@ parameter_list|)
 block|{
 comment|// TODO how to encode as a href?
 return|return
+literal|"/camel/endpoint/"
+operator|+
 name|uri
 return|;
 block|}

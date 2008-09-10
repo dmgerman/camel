@@ -52,7 +52,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlRootElement
+name|XmlAccessType
 import|;
 end_import
 
@@ -80,7 +80,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlAccessType
+name|XmlElement
 import|;
 end_import
 
@@ -94,7 +94,17 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElement
+name|XmlRootElement
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
 import|;
 end_import
 
@@ -115,16 +125,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
 import|;
 end_import
 
@@ -169,6 +169,20 @@ name|EndpointLink
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Endpoints"
+operator|+
+name|endpoints
+return|;
+block|}
 DECL|method|getEndpoints ()
 specifier|public
 name|List

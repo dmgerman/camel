@@ -82,6 +82,18 @@ name|Produces
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|ws
+operator|.
+name|rs
+operator|.
+name|Path
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -112,6 +124,26 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
+block|}
+annotation|@
+name|GET
+annotation|@
+name|Produces
+argument_list|(
+literal|"text/plain"
+argument_list|)
+DECL|method|getValue ()
+specifier|public
+name|String
+name|getValue
+parameter_list|()
+block|{
+return|return
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+return|;
 block|}
 block|}
 end_class
