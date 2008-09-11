@@ -95,6 +95,7 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: e2
 name|Object
 name|out
 init|=
@@ -114,6 +115,7 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e2
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -133,6 +135,7 @@ operator|new
 name|RouteBuilder
 argument_list|()
 block|{
+comment|// START SNIPPET: e1
 specifier|public
 name|void
 name|configure
@@ -171,6 +174,7 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// END SNIPPET: e1
 block|}
 return|;
 block|}
