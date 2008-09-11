@@ -194,9 +194,9 @@ argument_list|(
 block|{
 literal|"text/html"
 block|,
-literal|"application/json"
-block|,
 literal|"application/xml"
+block|,
+literal|"application/json"
 block|}
 argument_list|)
 DECL|class|CamelContextResource
@@ -252,6 +252,8 @@ return|;
 block|}
 comment|/**      * Returns a list of endpoints available in this context      *      * @return      */
 annotation|@
+name|GET
+annotation|@
 name|Path
 argument_list|(
 literal|"endpoints"
@@ -271,6 +273,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Looks up an individual endpoint      */
+annotation|@
+name|GET
 annotation|@
 name|Path
 argument_list|(
