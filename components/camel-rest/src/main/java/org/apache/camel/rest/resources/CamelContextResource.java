@@ -126,6 +126,18 @@ name|ws
 operator|.
 name|rs
 operator|.
+name|GET
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|ws
+operator|.
+name|rs
+operator|.
 name|Path
 import|;
 end_import
@@ -156,18 +168,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|ws
-operator|.
-name|rs
-operator|.
-name|GET
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -188,6 +188,17 @@ literal|"/"
 argument_list|)
 annotation|@
 name|Singleton
+annotation|@
+name|Produces
+argument_list|(
+block|{
+literal|"text/html"
+block|,
+literal|"application/json"
+block|,
+literal|"application/xml"
+block|}
+argument_list|)
 DECL|class|CamelContextResource
 specifier|public
 class|class
@@ -239,23 +250,11 @@ name|getName
 argument_list|()
 return|;
 block|}
-comment|/*         @GET         @Produces("text/plain")         public String getValue() {             return "Has CamelContext: " + camelContext;         }      */
 comment|/**      * Returns a list of endpoints available in this context      *      * @return      */
-annotation|@
-name|GET
 annotation|@
 name|Path
 argument_list|(
 literal|"endpoints"
-argument_list|)
-annotation|@
-name|Produces
-argument_list|(
-block|{
-literal|"application/json"
-block|,
-literal|"application/xml"
-block|}
 argument_list|)
 DECL|method|getEndpoints ()
 specifier|public
@@ -271,10 +270,11 @@ name|camelContext
 argument_list|)
 return|;
 block|}
+comment|/**      * Looks up an individual endpoint      */
 annotation|@
 name|Path
 argument_list|(
-literal|"endpoint/{id}"
+literal|"endpoints/{id}"
 argument_list|)
 DECL|method|getEndpoint (@athParamR) String id)
 specifier|public
@@ -331,15 +331,6 @@ annotation|@
 name|Path
 argument_list|(
 literal|"routes"
-argument_list|)
-annotation|@
-name|Produces
-argument_list|(
-block|{
-literal|"application/json"
-block|,
-literal|"application/xml"
-block|}
 argument_list|)
 DECL|method|getRouteDefinitions ()
 specifier|public
