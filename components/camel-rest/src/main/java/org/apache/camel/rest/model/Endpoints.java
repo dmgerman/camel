@@ -169,6 +169,28 @@ name|EndpointLink
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|Endpoints ()
+specifier|public
+name|Endpoints
+parameter_list|()
+block|{     }
+DECL|method|Endpoints (CamelContext camelContext)
+specifier|public
+name|Endpoints
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+argument_list|()
+expr_stmt|;
+name|load
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()

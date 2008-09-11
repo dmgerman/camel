@@ -126,18 +126,6 @@ name|ws
 operator|.
 name|rs
 operator|.
-name|GET
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|ws
-operator|.
-name|rs
-operator|.
 name|Path
 import|;
 end_import
@@ -168,6 +156,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|ws
+operator|.
+name|rs
+operator|.
+name|GET
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -177,14 +177,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * The resource for the CamelContext  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
 annotation|@
 name|Path
 argument_list|(
-literal|"camel"
+literal|"/"
 argument_list|)
 annotation|@
 name|Singleton
@@ -226,25 +226,21 @@ return|return
 name|camelContext
 return|;
 block|}
-annotation|@
-name|GET
-annotation|@
-name|Produces
-argument_list|(
-literal|"text/plain"
-argument_list|)
-DECL|method|getValue ()
+DECL|method|getName ()
 specifier|public
 name|String
-name|getValue
+name|getName
 parameter_list|()
 block|{
 return|return
-literal|"Has CamelContext: "
-operator|+
 name|camelContext
+operator|.
+name|getName
+argument_list|()
 return|;
 block|}
+comment|/*         @GET         @Produces("text/plain")         public String getValue() {             return "Has CamelContext: " + camelContext;         }      */
+comment|/**      * Returns a list of endpoints available in this context      *      * @return      */
 annotation|@
 name|GET
 annotation|@
@@ -267,22 +263,12 @@ name|Endpoints
 name|getEndpoints
 parameter_list|()
 block|{
-name|Endpoints
-name|answer
-init|=
+return|return
 operator|new
 name|Endpoints
-argument_list|()
-decl_stmt|;
-name|answer
-operator|.
-name|load
 argument_list|(
 name|camelContext
 argument_list|)
-expr_stmt|;
-return|return
-name|answer
 return|;
 block|}
 annotation|@
@@ -338,6 +324,7 @@ literal|null
 return|;
 block|}
 block|}
+comment|/**      * Returns the routes currently active within this context      *      * @return      */
 annotation|@
 name|GET
 annotation|@

@@ -119,6 +119,28 @@ specifier|private
 name|String
 name|href
 decl_stmt|;
+DECL|method|EndpointLink ()
+specifier|public
+name|EndpointLink
+parameter_list|()
+block|{     }
+DECL|method|EndpointLink (Endpoint endpoint)
+specifier|public
+name|EndpointLink
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+block|{
+name|this
+argument_list|()
+expr_stmt|;
+name|load
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -230,7 +252,7 @@ parameter_list|)
 block|{
 comment|// TODO how to encode as a href?
 return|return
-literal|"/camel/endpoint/"
+literal|"/endpoint/"
 operator|+
 name|uri
 return|;
