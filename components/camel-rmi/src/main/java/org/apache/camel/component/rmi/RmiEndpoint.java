@@ -346,7 +346,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"To create an RMI consumer, the RMI endpoint's remoteInterfaces property must be be configured."
+literal|"To create a RMI consumer, the RMI endpoint's remoteInterfaces property must be be configured."
 argument_list|)
 throw|;
 block|}
@@ -407,6 +407,26 @@ operator|.
 name|getSchemeSpecificPart
 argument_list|()
 expr_stmt|;
+block|}
+comment|// skip leading slash
+if|if
+condition|(
+name|path
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+return|return
+name|path
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|)
+return|;
 block|}
 return|return
 name|path
