@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an endpoint that synchronously invokes an LDAP server when a producer sends a message to it.  *   * @version   */
+comment|/**  * Represents an endpoint that synchronously invokes an LDAP server when a producer sends a message to it.  *  * @version  */
 end_comment
 
 begin_class

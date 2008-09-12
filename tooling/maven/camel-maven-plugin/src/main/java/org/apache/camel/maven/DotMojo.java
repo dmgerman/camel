@@ -382,6 +382,18 @@ specifier|protected
 name|boolean
 name|useDot
 decl_stmt|;
+comment|/**      * The classpath based application context uri that spring wants to get.      *      * @parameter expression="${camel.applicationContextUri}"      */
+DECL|field|applicationContextUri
+specifier|protected
+name|String
+name|applicationContextUri
+decl_stmt|;
+comment|/**      * The filesystem based application context uri that spring wants to get.      *      * @parameter expression="${camel.fileApplicationContextUri}"      */
+DECL|field|fileApplicationContextUri
+specifier|protected
+name|String
+name|fileApplicationContextUri
+decl_stmt|;
 comment|/**      * Reference to Maven 2 Project.      *      * @parameter expression="${project}"      * @required      * @readonly      */
 DECL|field|project
 specifier|private
@@ -399,18 +411,6 @@ DECL|field|outputDirectory
 specifier|private
 name|File
 name|outputDirectory
-decl_stmt|;
-comment|/**      * The classpath based application context uri that spring wants to get.      *      * @parameter expression="${camel.applicationContextUri}"      */
-DECL|field|applicationContextUri
-specifier|protected
-name|String
-name|applicationContextUri
-decl_stmt|;
-comment|/**      * The filesystem based application context uri that spring wants to get.      *      * @parameter expression="${camel.fileApplicationContextUri}"      */
-DECL|field|fileApplicationContextUri
-specifier|protected
-name|String
-name|fileApplicationContextUri
 decl_stmt|;
 comment|/**      * In the case of multiple camel contexts, setting aggregate == true will      * aggregate all into a monolithic context, otherwise they will be processed      * independently.      *      * @parameter      */
 DECL|field|aggregate
