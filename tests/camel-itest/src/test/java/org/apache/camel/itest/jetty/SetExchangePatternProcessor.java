@@ -71,10 +71,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SetExchangeProcessor
+DECL|class|SetExchangePatternProcessor
 specifier|public
 class|class
-name|SetExchangeProcessor
+name|SetExchangePatternProcessor
 implements|implements
 name|Processor
 block|{
