@@ -107,6 +107,8 @@ name|void
 name|testLogException
 parameter_list|()
 block|{
+try|try
+block|{
 name|template
 operator|.
 name|sendBody
@@ -116,6 +118,15 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
 name|assertTrue
 argument_list|(
 literal|"Should have logged it"

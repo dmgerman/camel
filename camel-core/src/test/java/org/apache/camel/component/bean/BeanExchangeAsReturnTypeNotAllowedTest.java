@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -148,6 +160,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|sendBody
@@ -157,6 +171,30 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown IllegalStateException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|IllegalStateException
+argument_list|)
+expr_stmt|;
+comment|// expected
+block|}
 name|dead
 operator|.
 name|assertIsSatisfied

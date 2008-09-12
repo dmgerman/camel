@@ -94,6 +94,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -495,6 +507,8 @@ argument_list|(
 name|errors
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|sendBody
@@ -504,6 +518,15 @@ argument_list|,
 literal|"in"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
 name|MockEndpoint
 operator|.
 name|assertIsSatisfied

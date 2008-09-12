@@ -209,6 +209,9 @@ name|andReturn
 argument_list|(
 literal|"Test"
 argument_list|)
+operator|.
+name|atLeastOnce
+argument_list|()
 expr_stmt|;
 name|EasyMock
 operator|.

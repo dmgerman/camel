@@ -1008,7 +1008,7 @@ return|return
 name|language
 return|;
 block|}
-comment|/**      * Asserts that all the expectations of the Mock endpoints are valid      *       * @deprecated use {{@link #assertMockEndpointsSatisfied()} instead      */
+comment|/**      * Asserts that all the expectations of the Mock endpoints are valid      *       * @deprecated use {{@link #assertMockEndpointsSatisfied()} instead. Will be removed in Camel 2.0.      */
 DECL|method|assertMockEndpointsSatisifed ()
 specifier|protected
 name|void

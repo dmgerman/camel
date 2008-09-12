@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -318,6 +330,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+block|{
 name|template
 operator|.
 name|sendBody
@@ -327,6 +341,38 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+comment|// expeced as we fail
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|IllegalArgumentException
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"We don't have Donkeys, only Camels"
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|int
 name|count
 init|=
@@ -409,12 +455,7 @@ name|required
 argument_list|)
 operator|.
 comment|// notice that the builder has builder methods for chained configuration
-name|maximumRedeliveries
-argument_list|(
-literal|3
-argument_list|)
-operator|.
-name|initialRedeliveryDelay
+name|delay
 argument_list|(
 literal|5
 operator|*

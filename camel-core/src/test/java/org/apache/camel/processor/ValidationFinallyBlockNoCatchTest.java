@@ -137,6 +137,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -150,14 +152,17 @@ argument_list|,
 literal|"bar"
 argument_list|)
 expr_stmt|;
-name|MockEndpoint
-operator|.
-name|assertIsSatisfied
-argument_list|(
-name|validEndpoint
-argument_list|,
-name|allEndpoint
-argument_list|)
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testInvalidMessage ()
@@ -185,6 +190,8 @@ operator|+
 literal|5
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -198,14 +205,17 @@ argument_list|,
 literal|"notMatchedHeaderValue"
 argument_list|)
 expr_stmt|;
-name|MockEndpoint
-operator|.
-name|assertIsSatisfied
-argument_list|(
-name|validEndpoint
-argument_list|,
-name|allEndpoint
-argument_list|)
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

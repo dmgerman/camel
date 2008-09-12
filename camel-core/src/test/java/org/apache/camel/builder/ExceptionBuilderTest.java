@@ -122,6 +122,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|mock
@@ -210,6 +222,8 @@ argument_list|,
 literal|"Damm a NPE"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|sendBody
@@ -219,6 +233,30 @@ argument_list|,
 literal|"Hello NPE"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown a NullPointerException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|NullPointerException
+argument_list|)
+expr_stmt|;
+comment|// expected
+block|}
 name|mock
 operator|.
 name|assertIsSatisfied
@@ -257,6 +295,8 @@ argument_list|,
 literal|"Damm somekind of IO exception"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|sendBody
@@ -266,6 +306,30 @@ argument_list|,
 literal|"Hello IO"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown a IOException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|IOException
+argument_list|)
+expr_stmt|;
+comment|// expected
+block|}
 name|mock
 operator|.
 name|assertIsSatisfied
@@ -304,6 +368,8 @@ argument_list|,
 literal|"Damm just exception"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|sendBody
@@ -313,6 +379,30 @@ argument_list|,
 literal|"Hello Exception"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown a Exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|Exception
+argument_list|)
+expr_stmt|;
+comment|// expected
+block|}
 name|mock
 operator|.
 name|assertIsSatisfied
@@ -351,6 +441,8 @@ argument_list|,
 literal|"Damm my business is not going to well"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|sendBody
@@ -360,6 +452,30 @@ argument_list|,
 literal|"Hello business"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown a MyBusinessException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|MyBusinessException
+argument_list|)
+expr_stmt|;
+comment|// expected
+block|}
 name|mock
 operator|.
 name|assertIsSatisfied
@@ -399,6 +515,8 @@ argument_list|,
 literal|"Damm some security error"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|sendBody
@@ -408,6 +526,30 @@ argument_list|,
 literal|"I am not allowed to do this"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown a GeneralSecurityException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|GeneralSecurityException
+argument_list|)
+expr_stmt|;
+comment|// expected
+block|}
 name|mock
 operator|.
 name|assertIsSatisfied
