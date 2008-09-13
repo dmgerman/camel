@@ -358,7 +358,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Session isn't connected, trying to recreate and connect."
 argument_list|)
@@ -378,7 +378,7 @@ expr_stmt|;
 block|}
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Channel isn't connected, trying to recreate and connect."
 argument_list|)
@@ -417,14 +417,6 @@ parameter_list|()
 throws|throws
 name|JSchException
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -435,7 +427,6 @@ name|remoteServer
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|session

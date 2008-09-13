@@ -133,6 +133,11 @@ specifier|private
 name|FTPClient
 name|client
 decl_stmt|;
+DECL|field|loggedIn
+specifier|private
+name|boolean
+name|loggedIn
+decl_stmt|;
 DECL|method|FtpConsumer (FtpEndpoint endpoint, Processor processor, FTPClient client)
 specifier|public
 name|FtpConsumer
@@ -256,31 +261,33 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore just log a warning
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Exception occured during disconecting from "
+name|String
+name|message
+init|=
+literal|"Could not disconnect from "
 operator|+
 name|remoteServer
 argument_list|()
 operator|+
-literal|". "
+literal|". Reason: "
 operator|+
-name|e
+name|client
 operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getCanonicalName
+name|getReplyString
 argument_list|()
 operator|+
-literal|" message: "
+literal|". Code: "
 operator|+
-name|e
+name|client
 operator|.
-name|getMessage
+name|getReplyCode
 argument_list|()
+decl_stmt|;
+name|log
+operator|.
+name|warn
+argument_list|(
+name|message
 argument_list|)
 expr_stmt|;
 block|}
@@ -305,6 +312,9 @@ name|client
 operator|.
 name|isConnected
 argument_list|()
+operator|||
+operator|!
+name|loggedIn
 condition|)
 block|{
 if|if
@@ -319,13 +329,15 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Not connected, connecting to "
+literal|"Not connected/logged in, connecting to "
 operator|+
 name|remoteServer
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|loggedIn
+operator|=
 name|FtpUtils
 operator|.
 name|connect
@@ -338,17 +350,25 @@ name|getConfiguration
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|loggedIn
+condition|)
+block|{
+return|return;
+block|}
+block|}
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Connected to "
+literal|"Connected and logged in to "
 operator|+
 name|remoteServer
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|disconnect ()
 specifier|protected
@@ -358,6 +378,10 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|loggedIn
+operator|=
+literal|false
+expr_stmt|;
 name|log
 operator|.
 name|debug
@@ -405,13 +429,52 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|connectIfNecessary
 argument_list|()
 expr_stmt|;
-comment|// If the attempt to connect isn't successful, then the thrown
-comment|// exception will signify that we couldn't poll
-try|try
+if|if
+condition|(
+operator|!
+name|loggedIn
+condition|)
 block|{
+name|String
+name|message
+init|=
+literal|"Could not connect/login to "
+operator|+
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+decl_stmt|;
+name|log
+operator|.
+name|warn
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|FtpOperationFailedException
+argument_list|(
+name|client
+operator|.
+name|getReplyCode
+argument_list|()
+argument_list|,
+name|client
+operator|.
+name|getReplyString
+argument_list|()
+argument_list|,
+name|message
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|String
 name|fileName
@@ -520,6 +583,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|loggedIn
+operator|=
+literal|false
+expr_stmt|;
 if|if
 condition|(
 name|isStopping
@@ -1001,11 +1068,9 @@ operator|!
 name|deleted
 condition|)
 block|{
-comment|// ignore just log a warning
-name|log
-operator|.
-name|warn
-argument_list|(
+name|String
+name|message
+init|=
 literal|"Can not delete file: "
 operator|+
 name|ftpFile
@@ -1017,8 +1082,24 @@ literal|" from: "
 operator|+
 name|remoteServer
 argument_list|()
+decl_stmt|;
+throw|throw
+operator|new
+name|FtpOperationFailedException
+argument_list|(
+name|client
+operator|.
+name|getReplyCode
+argument_list|()
+argument_list|,
+name|client
+operator|.
+name|getReplyString
+argument_list|()
+argument_list|,
+name|message
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 elseif|else
@@ -1161,10 +1242,9 @@ operator|!
 name|success
 condition|)
 block|{
-name|log
-operator|.
-name|warn
-argument_list|(
+name|String
+name|message
+init|=
 literal|"Can not move file: "
 operator|+
 name|fromName
@@ -1172,10 +1252,27 @@ operator|+
 literal|" to: "
 operator|+
 name|toName
+decl_stmt|;
+throw|throw
+operator|new
+name|FtpOperationFailedException
+argument_list|(
+name|client
+operator|.
+name|getReplyCode
+argument_list|()
+argument_list|,
+name|client
+operator|.
+name|getReplyString
+argument_list|()
+argument_list|,
+name|message
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
+comment|// all success so lets process it
 name|getProcessor
 argument_list|()
 operator|.

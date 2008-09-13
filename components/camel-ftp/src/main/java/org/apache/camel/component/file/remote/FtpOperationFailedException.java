@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  * @deprecated not used will be removed in Camel 2.0.  */
+comment|/**  * Exception thrown in case of last FTP operation failed.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -73,7 +73,7 @@ literal|"Ftp operation failed: "
 operator|+
 name|reason
 operator|+
-literal|" Code: "
+literal|". Code: "
 operator|+
 name|code
 argument_list|)
@@ -91,7 +91,33 @@ operator|=
 name|reason
 expr_stmt|;
 block|}
-comment|/**      * Return the failure code      */
+DECL|method|FtpOperationFailedException (int code, String reason, String message)
+specifier|public
+name|FtpOperationFailedException
+parameter_list|(
+name|int
+name|code
+parameter_list|,
+name|String
+name|reason
+parameter_list|,
+name|String
+name|message
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|code
+argument_list|,
+name|reason
+operator|+
+literal|" "
+operator|+
+name|message
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Return the FTP failure code      */
 DECL|method|getCode ()
 specifier|public
 name|int
@@ -102,7 +128,7 @@ return|return
 name|code
 return|;
 block|}
-comment|/**      * Return the failure reason      */
+comment|/**      * Return the FTP failure reason      */
 DECL|method|getReason ()
 specifier|public
 name|String

@@ -292,7 +292,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Session isn't connected, trying to recreate and connect."
 argument_list|)
@@ -312,7 +312,7 @@ expr_stmt|;
 block|}
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Channel isn't connected, trying to recreate and connect."
 argument_list|)

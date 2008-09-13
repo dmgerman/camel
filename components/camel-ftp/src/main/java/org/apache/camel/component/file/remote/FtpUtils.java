@@ -110,7 +110,7 @@ block|{     }
 DECL|method|connect (FTPClient client, RemoteFileConfiguration config)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|connect
 parameter_list|(
 name|FTPClient
@@ -146,6 +146,15 @@ operator|.
 name|getUsername
 argument_list|()
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Connecting to "
+operator|+
+name|config
+argument_list|)
+expr_stmt|;
 name|client
 operator|.
 name|connect
@@ -155,6 +164,18 @@ argument_list|,
 name|port
 argument_list|)
 expr_stmt|;
+name|boolean
+name|login
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Attempting to login "
+operator|+
+name|username
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|username
@@ -162,6 +183,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|login
+operator|=
 name|client
 operator|.
 name|login
@@ -177,6 +200,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|login
+operator|=
 name|client
 operator|.
 name|login
@@ -186,6 +211,29 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"User "
+operator|+
+name|username
+operator|+
+literal|" logged in: "
+operator|+
+name|login
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|login
+condition|)
+block|{
+return|return
+literal|false
+return|;
 block|}
 name|client
 operator|.
@@ -205,6 +253,9 @@ operator|.
 name|ASCII_FILE_TYPE
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 DECL|method|disconnect (FTPClient client)
 specifier|public
@@ -296,13 +347,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Trying to build remote directory: "
 operator|+
