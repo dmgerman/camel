@@ -44,16 +44,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Set
 import|;
 end_import
@@ -288,24 +278,6 @@ name|directory
 operator|.
 name|server
 operator|.
-name|ldap
-operator|.
-name|handlers
-operator|.
-name|DefaultUnbindHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|directory
-operator|.
-name|server
-operator|.
 name|unit
 operator|.
 name|AbstractServerTest
@@ -313,7 +285,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $  */
+comment|/**  *   */
 end_comment
 
 begin_class
