@@ -328,6 +328,7 @@ name|getHeaders
 argument_list|()
 expr_stmt|;
 block|}
+comment|// process the exchange
 name|processor
 operator|.
 name|process
@@ -335,17 +336,20 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-specifier|final
+comment|// get the correct jms message to send as reply
 name|JmsMessage
-name|out
+name|body
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
 name|exchange
 operator|.
-name|getOut
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
+name|isFailed
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|exchange
@@ -356,10 +360,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// an exception occured while processing
+comment|// TODO: Camel-585 somekind of flag to determine if we should send the exchange back to the client
+comment|// or do as new wrap as runtime exception to be thrown back to spring so it can do rollback
 name|rce
 operator|=
-operator|new
-name|RuntimeCamelException
+name|wrapRuntimeCamelException
 argument_list|(
 name|exchange
 operator|.
@@ -368,13 +374,51 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|exchange
+operator|.
+name|getFault
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// a fault occured while processing
+name|body
+operator|=
+name|exchange
+operator|.
+name|getFault
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// process OK so get the reply
+name|body
+operator|=
+name|exchange
+operator|.
+name|getOut
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|// send the reply
 if|if
 condition|(
 name|rce
 operator|==
 literal|null
 operator|&&
-name|out
+name|body
 operator|!=
 literal|null
 operator|&&
@@ -390,7 +434,7 @@ name|message
 argument_list|,
 name|exchange
 argument_list|,
-name|out
+name|body
 argument_list|)
 expr_stmt|;
 block|}
@@ -403,8 +447,7 @@ parameter_list|)
 block|{
 name|rce
 operator|=
-operator|new
-name|RuntimeCamelException
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 argument_list|)
@@ -674,6 +717,44 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
+comment|/**      * Wraps the caused exception in a RuntimeCamelException if its not already such an exception      */
+DECL|method|wrapRuntimeCamelException (Throwable e)
+specifier|private
+specifier|static
+name|RuntimeCamelException
+name|wrapRuntimeCamelException
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// TODO: Move to camel-core
+if|if
+condition|(
+name|e
+operator|instanceof
+name|RuntimeCamelException
+condition|)
+block|{
+comment|// dont double wrap if already a RuntimeCamelException
+return|return
+operator|(
+name|RuntimeCamelException
+operator|)
+name|e
+return|;
+block|}
+else|else
+block|{
+return|return
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+return|;
+block|}
+block|}
 DECL|method|sendReply (Destination replyDestination, final Message message, final JmsExchange exchange, final JmsMessage out)
 specifier|protected
 name|void

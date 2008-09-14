@@ -327,7 +327,7 @@ name|getFaultMessage
 parameter_list|()
 block|{
 return|return
-name|getOut
+name|getFault
 argument_list|()
 operator|.
 name|getJmsMessage
