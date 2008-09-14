@@ -206,7 +206,7 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -266,7 +266,7 @@ argument_list|,
 literal|"one=uno&two=dos"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}

@@ -122,7 +122,7 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
