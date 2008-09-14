@@ -190,7 +190,15 @@ name|protocol
 operator|+
 literal|"://"
 operator|+
+operator|(
 name|username
+operator|!=
+literal|null
+condition|?
+name|username
+else|:
+literal|"anonymous"
+operator|)
 operator|+
 literal|"@"
 operator|+

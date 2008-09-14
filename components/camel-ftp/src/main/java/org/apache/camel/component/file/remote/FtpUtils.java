@@ -211,7 +211,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Attempting to login "
+literal|"Attempting to login user: "
 operator|+
 name|username
 argument_list|)
