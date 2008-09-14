@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ValidationException
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|ValidationException
 import|;
 end_import
 
