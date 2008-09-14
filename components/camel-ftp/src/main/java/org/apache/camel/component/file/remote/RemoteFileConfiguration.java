@@ -42,6 +42,22 @@ name|RuntimeCamelException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|net
+operator|.
+name|ftp
+operator|.
+name|FTPClientConfig
+import|;
+end_import
+
 begin_class
 DECL|class|RemoteFileConfiguration
 specifier|public
@@ -91,6 +107,11 @@ name|boolean
 name|directory
 init|=
 literal|true
+decl_stmt|;
+DECL|field|ftpClientConfig
+specifier|private
+name|FTPClientConfig
+name|ftpClientConfig
 decl_stmt|;
 DECL|method|RemoteFileConfiguration ()
 specifier|public
@@ -511,6 +532,32 @@ operator|.
 name|directory
 operator|=
 name|directory
+expr_stmt|;
+block|}
+DECL|method|getFtpClientConfig ()
+specifier|public
+name|FTPClientConfig
+name|getFtpClientConfig
+parameter_list|()
+block|{
+return|return
+name|ftpClientConfig
+return|;
+block|}
+DECL|method|setFtpClientConfig (FTPClientConfig ftpClientConfig)
+specifier|public
+name|void
+name|setFtpClientConfig
+parameter_list|(
+name|FTPClientConfig
+name|ftpClientConfig
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ftpClientConfig
+operator|=
+name|ftpClientConfig
 expr_stmt|;
 block|}
 DECL|method|dump ()
