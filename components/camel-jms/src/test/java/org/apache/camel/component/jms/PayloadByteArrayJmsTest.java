@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|ConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -75,6 +65,16 @@ operator|.
 name|nio
 operator|.
 name|ByteBuffer
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|ConnectionFactory
 import|;
 end_import
 
@@ -129,6 +129,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -143,22 +159,6 @@ operator|.
 name|JmsComponent
 operator|.
 name|jmsComponentClientAcknowledge
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
 import|;
 end_import
 
@@ -259,7 +259,7 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -344,7 +344,7 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -430,7 +430,7 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}

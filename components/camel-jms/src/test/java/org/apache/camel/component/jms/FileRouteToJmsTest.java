@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|ConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -85,24 +95,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsComponent
-operator|.
-name|jmsComponentClientAcknowledge
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -119,12 +111,20 @@ import|;
 end_import
 
 begin_import
-import|import
-name|javax
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
 operator|.
 name|jms
 operator|.
-name|ConnectionFactory
+name|JmsComponent
+operator|.
+name|jmsComponentClientAcknowledge
 import|;
 end_import
 
@@ -227,7 +227,7 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
