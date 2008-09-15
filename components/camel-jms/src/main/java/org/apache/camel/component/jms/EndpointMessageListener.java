@@ -105,6 +105,22 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -161,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JMS {@link MessageListener} which can be used to delegate processing to a  * Camel endpoint.  *  * Note that instance of this object has to be thread safe (reentrant)  *   * @version $Revision$    ;';;;  */
+comment|/**  * A JMS {@link MessageListener} which can be used to delegate processing to a  * Camel endpoint.  *  * Note that instance of this object has to be thread safe (reentrant)  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -362,7 +378,7 @@ condition|)
 block|{
 comment|// an exception occured while processing
 comment|// TODO: Camel-585 somekind of flag to determine if we should send the exchange back to the client
-comment|// or do as new wrap as runtime exception to be thrown back to spring so it can do rollback
+comment|// or do as now where we wrap as runtime exception to be thrown back to spring so it can do rollback
 name|rce
 operator|=
 name|wrapRuntimeCamelException
@@ -717,44 +733,6 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-comment|/**      * Wraps the caused exception in a RuntimeCamelException if its not already such an exception      */
-DECL|method|wrapRuntimeCamelException (Throwable e)
-specifier|private
-specifier|static
-name|RuntimeCamelException
-name|wrapRuntimeCamelException
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-comment|// TODO: Move to camel-core
-if|if
-condition|(
-name|e
-operator|instanceof
-name|RuntimeCamelException
-condition|)
-block|{
-comment|// dont double wrap if already a RuntimeCamelException
-return|return
-operator|(
-name|RuntimeCamelException
-operator|)
-name|e
-return|;
-block|}
-else|else
-block|{
-return|return
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-return|;
-block|}
-block|}
 DECL|method|sendReply (Destination replyDestination, final Message message, final JmsExchange exchange, final JmsMessage out)
 specifier|protected
 name|void

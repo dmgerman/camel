@@ -22,16 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -145,6 +135,22 @@ operator|.
 name|util
 operator|.
 name|UuidGenerator
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
 import|;
 end_import
 
@@ -1173,8 +1179,7 @@ name|exception
 throw|;
 block|}
 throw|throw
-operator|new
-name|RuntimeCamelException
+name|wrapRuntimeCamelException
 argument_list|(
 name|exception
 argument_list|)

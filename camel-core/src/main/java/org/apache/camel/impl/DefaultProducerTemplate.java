@@ -164,12 +164,14 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
@@ -179,6 +181,8 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
 import|;
 end_import
 
@@ -1832,33 +1836,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|result
-operator|.
-name|getException
-argument_list|()
-operator|instanceof
-name|RuntimeCamelException
-condition|)
-block|{
-comment|// already a RuntimeCamelException so throw it as is
 throw|throw
-operator|(
-name|RuntimeCamelException
-operator|)
-name|result
-operator|.
-name|getException
-argument_list|()
-throw|;
-block|}
-else|else
-block|{
-comment|// wrap checked exception in runtime
-throw|throw
-operator|new
-name|RuntimeCamelException
+name|wrapRuntimeCamelException
 argument_list|(
 name|result
 operator|.
@@ -1866,7 +1845,6 @@ name|getException
 argument_list|()
 argument_list|)
 throw|;
-block|}
 block|}
 comment|// result could have a fault message
 if|if

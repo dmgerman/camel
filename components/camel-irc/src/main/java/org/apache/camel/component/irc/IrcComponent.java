@@ -562,7 +562,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-comment|// TODO use checked exceptions?
 throw|throw
 operator|new
 name|RuntimeCamelException
@@ -606,10 +605,14 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|e
+name|LOG
 operator|.
-name|printStackTrace
-argument_list|()
+name|warn
+argument_list|(
+literal|"Error closing connection."
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}

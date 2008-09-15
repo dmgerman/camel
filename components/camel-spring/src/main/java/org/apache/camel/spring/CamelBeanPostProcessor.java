@@ -224,18 +224,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Service
 import|;
 end_import
@@ -451,6 +439,22 @@ operator|.
 name|ObjectHelper
 operator|.
 name|isNullOrBlank
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
 import|;
 end_import
 
@@ -1316,8 +1320,7 @@ name|e
 argument_list|)
 expr_stmt|;
 throw|throw
-operator|new
-name|RuntimeCamelException
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 argument_list|)
@@ -1616,8 +1619,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|RuntimeCamelException
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 argument_list|)
@@ -1660,8 +1662,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|RuntimeCamelException
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 argument_list|)

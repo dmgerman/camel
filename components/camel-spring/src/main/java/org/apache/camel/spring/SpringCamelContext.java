@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|bean
@@ -199,6 +187,22 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
 import|;
 end_import
 
@@ -660,8 +664,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|RuntimeCamelException
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 argument_list|)

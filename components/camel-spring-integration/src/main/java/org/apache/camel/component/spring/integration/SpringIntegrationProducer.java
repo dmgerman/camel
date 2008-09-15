@@ -377,7 +377,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Can't find the right outputChannelName,"
+literal|"Can't find the right outputChannelName, "
 operator|+
 literal|"please check the endpoint uri outputChannel part!"
 argument_list|)

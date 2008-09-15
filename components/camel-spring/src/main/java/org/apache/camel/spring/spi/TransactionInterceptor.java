@@ -109,6 +109,22 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -653,44 +669,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Wraps the caused exception in a RuntimeCamelException if its not already such an exception      */
-DECL|method|wrapRuntimeCamelException (Throwable e)
-specifier|private
-specifier|static
-name|RuntimeCamelException
-name|wrapRuntimeCamelException
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|e
-operator|instanceof
-name|RuntimeCamelException
-condition|)
-block|{
-comment|// dont double wrap if already a RuntimeCamelException
-return|return
-operator|(
-name|RuntimeCamelException
-operator|)
-name|e
-return|;
-block|}
-else|else
-block|{
-comment|// wrap if the exchange threw an exception
-return|return
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-return|;
-block|}
 block|}
 comment|/**      * Sleeps before the transaction is set as rollback and the caused exception is rethrown to let the      * Spring TransactionManager handle the rollback.      */
 DECL|method|delayBeforeRedelivery ()

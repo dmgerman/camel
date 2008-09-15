@@ -279,6 +279,22 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -1749,8 +1765,7 @@ parameter_list|)
 block|{
 comment|// TODO add the fault message handling work
 throw|throw
-operator|new
-name|RuntimeCamelException
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 argument_list|)

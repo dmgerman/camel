@@ -128,23 +128,27 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|impl
+operator|.
+name|converter
+operator|.
+name|AsyncProcessorTypeConverter
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|converter
+name|ObjectHelper
 operator|.
-name|AsyncProcessorTypeConverter
+name|wrapRuntimeCamelException
 import|;
 end_import
 
@@ -382,8 +386,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|RuntimeCamelException
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 argument_list|)
@@ -447,8 +450,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|RuntimeCamelException
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 argument_list|)
@@ -529,8 +531,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|RuntimeCamelException
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 argument_list|)
@@ -678,8 +679,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|RuntimeCamelException
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 argument_list|)

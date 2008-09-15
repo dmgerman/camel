@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Consumer
 import|;
 end_import
@@ -376,8 +364,6 @@ parameter_list|(
 name|String
 name|scope
 parameter_list|)
-throws|throws
-name|CamelException
 block|{
 if|if
 condition|(
@@ -433,7 +419,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|IllegalArgumentException
 argument_list|(
 literal|"Invalid search scope \""
 operator|+

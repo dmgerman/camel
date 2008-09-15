@@ -252,7 +252,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Wait for a given timeout while checking if the latch reached the count of 0        *       * @param timeout the value of the timeout      * @param unit the unit in which the timeout is expressed      * @return<code>trAwue</code> if the latch has reached the count of 0 in the given time      * @throws InterruptedException if the thread gets interrupted while waiting      */
+comment|/**      * Wait for a given timeout while checking if the latch reached the count of 0        *       * @param timeout the value of the timeout      * @param unit the unit in which the timeout is expressed      * @return<code>true</code> if the latch has reached the count of 0 in the given time      * @throws InterruptedException if the thread gets interrupted while waiting      */
 DECL|method|await (long timeout, TimeUnit unit)
 specifier|public
 name|boolean

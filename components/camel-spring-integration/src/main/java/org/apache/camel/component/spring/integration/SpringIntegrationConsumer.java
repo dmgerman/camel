@@ -332,7 +332,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Can't find the right inputChannelName, , please check your configuration."
+literal|"Can't find the right inputChannelName, please check your configuration."
 argument_list|)
 throw|;
 block|}
