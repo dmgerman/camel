@@ -152,6 +152,22 @@ name|Endpoints
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|rest
+operator|.
+name|util
+operator|.
+name|JAXBContextResolver
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -231,7 +247,7 @@ name|DefaultClientConfig
 argument_list|()
 decl_stmt|;
 comment|// use the following jaxb context resolver
-comment|//cc.getProviderClasses().add(JAXBContextResolver.class);
+comment|//cc.getClasses().add(JAXBContextResolver.class);
 name|Client
 name|c
 init|=
@@ -266,7 +282,7 @@ name|wr
 operator|.
 name|path
 argument_list|(
-literal|"camel/endpoints"
+literal|"endpoints"
 argument_list|)
 operator|.
 name|accept
