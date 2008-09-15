@@ -133,7 +133,7 @@ name|XmlAttribute
 argument_list|(
 name|required
 operator|=
-literal|true
+literal|false
 argument_list|)
 DECL|field|contextPath
 specifier|private
