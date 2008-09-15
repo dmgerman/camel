@@ -835,6 +835,19 @@ name|ftpFile
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if using last polltime for timestamp matcing (to be removed in Camel 2.0)
+name|boolean
+name|timestampMatched
+init|=
+literal|true
+decl_stmt|;
+if|if
+condition|(
+name|isTimestamp
+argument_list|()
+condition|)
+block|{
+comment|// TODO do we need to adjust the TZ? can we?
 name|long
 name|ts
 init|=
@@ -846,12 +859,42 @@ operator|.
 name|getTimeInMillis
 argument_list|()
 decl_stmt|;
-comment|// TODO do we need to adjust the TZ? can we?
-if|if
-condition|(
+name|timestampMatched
+operator|=
 name|ts
 operator|>
 name|lastPollTime
+expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"The file is to old + "
+operator|+
+name|ftpFile
+operator|+
+literal|". lastPollTime="
+operator|+
+name|lastPollTime
+operator|+
+literal|"> fileTimestamp="
+operator|+
+name|ts
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|timestampMatched
 operator|&&
 name|isMatched
 argument_list|(

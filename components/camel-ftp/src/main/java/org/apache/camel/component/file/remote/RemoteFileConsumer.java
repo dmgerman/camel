@@ -126,6 +126,7 @@ name|T
 argument_list|>
 name|endpoint
 decl_stmt|;
+comment|// @deprecated lastPollTime to be removed in Camel 2.0
 DECL|field|lastPollTime
 specifier|protected
 name|long
@@ -177,6 +178,11 @@ DECL|field|excludedNamePostfix
 specifier|protected
 name|String
 name|excludedNamePostfix
+decl_stmt|;
+DECL|field|timestamp
+specifier|private
+name|boolean
+name|timestamp
 decl_stmt|;
 DECL|method|RemoteFileConsumer (RemoteFileEndpoint<T> endpoint, Processor processor)
 specifier|public
@@ -707,6 +713,34 @@ operator|.
 name|excludedNamePostfix
 operator|=
 name|excludedNamePostfix
+expr_stmt|;
+block|}
+comment|/**      * @deprecated the timestamp feature will be removed in Camel 2.0      */
+DECL|method|isTimestamp ()
+specifier|public
+name|boolean
+name|isTimestamp
+parameter_list|()
+block|{
+return|return
+name|timestamp
+return|;
+block|}
+comment|/**      * Sets wether polling should use last poll timestamp for filtering only new files.      * @deprecated the timestamp feature will be removed in Camel 2.0      */
+DECL|method|setTimestamp (boolean timestamp)
+specifier|public
+name|void
+name|setTimestamp
+parameter_list|(
+name|boolean
+name|timestamp
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timestamp
+operator|=
+name|timestamp
 expr_stmt|;
 block|}
 block|}
