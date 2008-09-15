@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Convenience class for holding an {@link Exchange} in a thread-safe way  * @author gert  *  */
+comment|/**  * Convenience class for holding an {@link Exchange} in a thread-safe way  */
 end_comment
 
 begin_class

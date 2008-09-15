@@ -924,11 +924,6 @@ name|boolean
 name|doneSynchronously
 parameter_list|)
 block|{
-name|completedExchanges
-operator|.
-name|decrement
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|streaming
@@ -946,6 +941,11 @@ name|subExchange
 argument_list|)
 expr_stmt|;
 block|}
+name|completedExchanges
+operator|.
+name|decrement
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 argument_list|)
