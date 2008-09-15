@@ -40,6 +40,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|Callable
@@ -71,6 +81,36 @@ operator|.
 name|model
 operator|.
 name|RouteType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
+name|DataFormatType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|DataFormat
 import|;
 end_import
 
@@ -457,6 +497,31 @@ parameter_list|(
 name|ErrorHandlerBuilder
 name|errorHandlerBuilder
 parameter_list|)
+function_decl|;
+comment|/**      * Sets the data formats that can be referenced in the routes.      * @param dataFormats the data formats      */
+DECL|method|setDataFormats (Map<String, DataFormatType> dataFormats)
+name|void
+name|setDataFormats
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|DataFormatType
+argument_list|>
+name|dataFormats
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the data formats that can be referenced in the routes.      * @param dataFormats the data formats      */
+DECL|method|getDataFormats ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|DataFormatType
+argument_list|>
+name|getDataFormats
+parameter_list|()
 function_decl|;
 block|}
 end_interface

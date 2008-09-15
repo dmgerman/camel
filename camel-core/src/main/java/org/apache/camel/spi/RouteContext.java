@@ -128,6 +128,22 @@ name|RouteType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
+name|DataFormatType
+import|;
+end_import
+
 begin_comment
 comment|/**  * The context used to activate new routing rules  *  * @version $Revision$  */
 end_comment
@@ -316,6 +332,15 @@ DECL|method|isRouteAdded ()
 name|boolean
 name|isRouteAdded
 parameter_list|()
+function_decl|;
+comment|/**      * Get a DataFormatType by ref name      *      * @param ref  the ref name to lookup      * @return the found object      */
+DECL|method|getDataFormat (String ref)
+name|DataFormatType
+name|getDataFormat
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
 function_decl|;
 block|}
 end_interface
