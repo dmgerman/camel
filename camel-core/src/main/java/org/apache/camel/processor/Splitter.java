@@ -224,12 +224,6 @@ specifier|final
 name|Expression
 name|expression
 decl_stmt|;
-DECL|field|streaming
-specifier|private
-specifier|final
-name|boolean
-name|streaming
-decl_stmt|;
 DECL|method|Splitter (Expression expression, Processor destination, AggregationStrategy aggregationStrategy)
 specifier|public
 name|Splitter
@@ -297,6 +291,8 @@ argument_list|,
 name|parallelProcessing
 argument_list|,
 name|threadPoolExecutor
+argument_list|,
+name|streaming
 argument_list|)
 expr_stmt|;
 name|this
@@ -304,12 +300,6 @@ operator|.
 name|expression
 operator|=
 name|expression
-expr_stmt|;
-name|this
-operator|.
-name|streaming
-operator|=
-name|streaming
 expr_stmt|;
 name|notNull
 argument_list|(
@@ -384,7 +374,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|streaming
+name|isStreaming
+argument_list|()
 condition|)
 block|{
 return|return
