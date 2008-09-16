@@ -272,6 +272,7 @@ name|Long
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// the options below is @deprecated and will be removed in Camel 2.0
 DECL|field|lastPollTime
 specifier|private
 name|long
@@ -292,6 +293,11 @@ specifier|private
 name|boolean
 name|generateEmptyExchangeWhenIdle
 decl_stmt|;
+DECL|field|alwaysConsume
+specifier|private
+name|boolean
+name|alwaysConsume
+decl_stmt|;
 DECL|field|recursive
 specifier|private
 name|boolean
@@ -310,11 +316,6 @@ name|boolean
 name|exclusiveReadLock
 init|=
 literal|true
-decl_stmt|;
-DECL|field|alwaysConsume
-specifier|private
-name|boolean
-name|alwaysConsume
 decl_stmt|;
 DECL|method|FileConsumer (final FileEndpoint endpoint, Processor processor)
 specifier|public
@@ -1235,6 +1236,10 @@ return|;
 block|}
 else|else
 block|{
+comment|// @deprecated will be removed on Camel 2.0
+comment|// the code below is kinda hard to maintain. We should strive to remove
+comment|// this stuff in Camel 2.0 to keep this component simple and no surprises for end-users
+comment|// this stuff is not persistent so restarting Camel will reset the state
 name|boolean
 name|lastModifiedCheck
 init|=
@@ -1743,6 +1748,7 @@ return|return
 name|generateEmptyExchangeWhenIdle
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.0      */
 DECL|method|setGenerateEmptyExchangeWhenIdle (boolean generateEmptyExchangeWhenIdle)
 specifier|public
 name|void
@@ -1849,6 +1855,7 @@ return|return
 name|alwaysConsume
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.0 (not needed when we get rid of last polltimestamp)      */
 DECL|method|setAlwaysConsume (boolean alwaysConsume)
 specifier|public
 name|void
@@ -1863,6 +1870,35 @@ operator|.
 name|alwaysConsume
 operator|=
 name|alwaysConsume
+expr_stmt|;
+block|}
+DECL|method|isTimestamp ()
+specifier|public
+name|boolean
+name|isTimestamp
+parameter_list|()
+block|{
+return|return
+operator|!
+name|alwaysConsume
+return|;
+block|}
+comment|/**      * @deprecated will be removed in Camel 2.0 (not needed when we get rid of last polltimestamp)      */
+DECL|method|setTimestamp (boolean timestamp)
+specifier|public
+name|void
+name|setTimestamp
+parameter_list|(
+name|boolean
+name|timestamp
+parameter_list|)
+block|{
+name|this
+operator|.
+name|alwaysConsume
+operator|=
+operator|!
+name|timestamp
 expr_stmt|;
 block|}
 block|}
