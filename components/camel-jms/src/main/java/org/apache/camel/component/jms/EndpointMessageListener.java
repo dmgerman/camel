@@ -105,22 +105,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -176,8 +160,24 @@ name|MessageCreator
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+import|;
+end_import
+
 begin_comment
-comment|/**  * A JMS {@link MessageListener} which can be used to delegate processing to a  * Camel endpoint.  *  * Note that instance of this object has to be thread safe (reentrant)  *   * @version $Revision$  */
+comment|/**  * A JMS {@link MessageListener} which can be used to delegate processing to a  * Camel endpoint.  *  * Note that instance of this object has to be thread safe (reentrant)  *  * @version $Revision$  */
 end_comment
 
 begin_class
