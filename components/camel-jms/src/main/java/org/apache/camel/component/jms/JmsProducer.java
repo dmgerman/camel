@@ -1155,6 +1155,9 @@ name|requestTimeout
 init|=
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getRequestTimeout
 argument_list|()
 decl_stmt|;

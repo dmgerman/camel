@@ -230,11 +230,6 @@ specifier|private
 name|Requestor
 name|requestor
 decl_stmt|;
-DECL|field|requestTimeout
-specifier|private
-name|long
-name|requestTimeout
-decl_stmt|;
 DECL|method|JmsEndpoint (String uri, JmsComponent component, String destination, boolean pubSubDomain, JmsConfiguration configuration)
 specifier|public
 name|JmsEndpoint
@@ -279,15 +274,6 @@ operator|.
 name|pubSubDomain
 operator|=
 name|pubSubDomain
-expr_stmt|;
-name|this
-operator|.
-name|requestTimeout
-operator|=
-name|configuration
-operator|.
-name|getRequestTimeout
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|JmsEndpoint (String endpointUri, JmsBinding binding, JmsConfiguration configuration, String destination, boolean pubSubDomain)
@@ -338,15 +324,6 @@ operator|.
 name|pubSubDomain
 operator|=
 name|pubSubDomain
-expr_stmt|;
-name|this
-operator|.
-name|requestTimeout
-operator|=
-name|configuration
-operator|.
-name|getRequestTimeout
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|JmsEndpoint (String endpointUri, String destination, boolean pubSubDomain)
@@ -828,6 +805,7 @@ operator|=
 name|requestor
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use configuration.requestTimeout. Will be removed in Camel 2.0      */
 DECL|method|getRequestTimeout ()
 specifier|public
 name|long
@@ -835,10 +813,13 @@ name|getRequestTimeout
 parameter_list|()
 block|{
 return|return
-name|requestTimeout
+name|configuration
+operator|.
+name|getRequestTimeout
+argument_list|()
 return|;
 block|}
-comment|/**      * Sets the timeout in milliseconds which requests should timeout after      *      * @param requestTimeout      */
+comment|/**      * Sets the timeout in milliseconds which requests should timeout after      *      * @deprecated use configuration.requestTimeout. Will be removed in Camel 2.0      */
 DECL|method|setRequestTimeout (long requestTimeout)
 specifier|public
 name|void
@@ -848,11 +829,12 @@ name|long
 name|requestTimeout
 parameter_list|)
 block|{
-name|this
+name|configuration
 operator|.
+name|setRequestTimeout
+argument_list|(
 name|requestTimeout
-operator|=
-name|requestTimeout
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|isPubSubDomain ()

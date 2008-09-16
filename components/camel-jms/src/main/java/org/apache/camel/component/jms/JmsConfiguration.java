@@ -4299,6 +4299,7 @@ return|return
 name|requestTimeout
 return|;
 block|}
+comment|/**      * Sets the timeout in milliseconds which requests should timeout after      */
 DECL|method|setRequestTimeout (long requestTimeout)
 specifier|public
 name|void
