@@ -413,28 +413,11 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"We can't be done in 100 ms"
-argument_list|,
-name|latch
-operator|.
-name|await
-argument_list|(
-literal|100
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// but we can block until we are done
 name|assertLatchDone
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Await the latch and assert the count is 0 when it does return       * @throws InterruptedException      */
+comment|/**      * Await the latch and assert the count is 0 when it does return      * @throws InterruptedException      */
 DECL|method|assertLatchDone ()
 specifier|private
 name|void
