@@ -494,7 +494,8 @@ operator|.
 name|CREDITAGENCY_ADDRESS
 argument_list|)
 argument_list|)
-comment|// Using the thread pool to send out message to the below three different banks parallelly
+comment|// Using the thread pool to send out message to the below three different banks parallelly,
+comment|// the parameter of true is for processing the output processors parallelly
 operator|.
 name|multicast
 argument_list|(
