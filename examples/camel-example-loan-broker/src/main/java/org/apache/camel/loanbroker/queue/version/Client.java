@@ -148,6 +148,10 @@ name|DefaultProducerTemplate
 import|;
 end_import
 
+begin_comment
+comment|//START SNIPPET: client
+end_comment
+
 begin_class
 DECL|class|Client
 specifier|public
@@ -223,7 +227,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// START SNIPPET: sending
 comment|// send out the request message
 for|for
 control|(
@@ -265,8 +268,7 @@ literal|100
 argument_list|)
 expr_stmt|;
 block|}
-comment|// END SNIPPET: sending
-comment|// Start the loan broker
+comment|// Wait a while before stop the context
 name|Thread
 operator|.
 name|sleep
@@ -289,7 +291,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// START SNIPPET: pulling
 name|from
 argument_list|(
 literal|"jms:queue:loanReplyQueue"
@@ -331,10 +332,13 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: pulling
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: client
+end_comment
 
 end_unit
 
