@@ -122,9 +122,6 @@ expr_stmt|;
 name|String
 name|ssn
 init|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -135,6 +132,10 @@ argument_list|(
 name|Constants
 operator|.
 name|PROPERTY_SSN
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|int

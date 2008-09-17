@@ -253,7 +253,7 @@ name|context
 operator|.
 name|addComponent
 argument_list|(
-literal|"test-jms"
+literal|"jms"
 argument_list|,
 name|JmsComponent
 operator|.
@@ -328,18 +328,18 @@ comment|// START SNIPPET: dsl
 comment|// Put the message from loanRequestQueue to the creditRequestQueue
 name|from
 argument_list|(
-literal|"test-jms:queue:loanRequestQueue"
+literal|"jms:queue:loanRequestQueue"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test-jms:queue:creditRequestQueue"
+literal|"jms:queue:creditRequestQueue"
 argument_list|)
 expr_stmt|;
 comment|// Now we can let the CreditAgency process the request, then the message will be put into creditResponseQueue
 name|from
 argument_list|(
-literal|"test-jms:queue:creditRequestQueue"
+literal|"jms:queue:creditRequestQueue"
 argument_list|)
 operator|.
 name|process
@@ -351,13 +351,13 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test-jms:queue:creditResponseQueue"
+literal|"jms:queue:creditResponseQueue"
 argument_list|)
 expr_stmt|;
 comment|// Here we use the multicast pattern to send the message to three different bank queue
 name|from
 argument_list|(
-literal|"test-jms:queue:creditResponseQueue"
+literal|"jms:queue:creditResponseQueue"
 argument_list|)
 operator|.
 name|multicast
@@ -365,17 +365,17 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"test-jms:queue:bank1"
+literal|"jms:queue:bank1"
 argument_list|,
-literal|"test-jms:queue:bank2"
+literal|"jms:queue:bank2"
 argument_list|,
-literal|"test-jms:queue:bank3"
+literal|"jms:queue:bank3"
 argument_list|)
 expr_stmt|;
 comment|// Each bank processor will process the message and put the response message into the bankReplyQueue
 name|from
 argument_list|(
-literal|"test-jms:queue:bank1"
+literal|"jms:queue:bank1"
 argument_list|)
 operator|.
 name|process
@@ -389,12 +389,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test-jms:queue:bankReplyQueue"
+literal|"jms:queue:bankReplyQueue"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"test-jms:queue:bank2"
+literal|"jms:queue:bank2"
 argument_list|)
 operator|.
 name|process
@@ -408,12 +408,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test-jms:queue:bankReplyQueue"
+literal|"jms:queue:bankReplyQueue"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"test-jms:queue:bank3"
+literal|"jms:queue:bank3"
 argument_list|)
 operator|.
 name|process
@@ -427,14 +427,14 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test-jms:queue:bankReplyQueue"
+literal|"jms:queue:bankReplyQueue"
 argument_list|)
 expr_stmt|;
 comment|// Now we aggregating the response message by using the Constants.PROPERTY_SSN header
 comment|// The aggregation will completed when all the three bank responses are received
 name|from
 argument_list|(
-literal|"test-jms:queue:bankReplyQueue"
+literal|"jms:queue:bankReplyQueue"
 argument_list|)
 operator|.
 name|aggregator
@@ -474,7 +474,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test-jms:queue:loanReplyQueue"
+literal|"jms:queue:loanReplyQueue"
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: dsl

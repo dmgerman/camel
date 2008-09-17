@@ -191,7 +191,7 @@ name|context
 operator|.
 name|addComponent
 argument_list|(
-literal|"test-jms"
+literal|"jms"
 argument_list|,
 name|JmsComponent
 operator|.
@@ -244,7 +244,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"test-jms:queue:loanRequestQueue"
+literal|"jms:queue:loanRequestQueue"
 argument_list|,
 literal|"Quote for the lowerst rate of loaning bank"
 argument_list|,
@@ -292,7 +292,7 @@ block|{
 comment|// START SNIPPET: pulling
 name|from
 argument_list|(
-literal|"test-jms:queue:loanReplyQueue"
+literal|"jms:queue:loanReplyQueue"
 argument_list|)
 operator|.
 name|process
