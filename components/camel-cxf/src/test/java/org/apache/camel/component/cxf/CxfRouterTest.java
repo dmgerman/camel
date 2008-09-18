@@ -362,6 +362,12 @@ name|void
 name|configure
 parameter_list|()
 block|{
+name|errorHandler
+argument_list|(
+name|noErrorHandler
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 name|routerEndpointURI
