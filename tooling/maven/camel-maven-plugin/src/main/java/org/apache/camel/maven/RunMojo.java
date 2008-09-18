@@ -2013,6 +2013,16 @@ argument_list|(
 name|classpathURLs
 argument_list|)
 expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Classpath = "
+operator|+
+name|classpathURLs
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|URLClassLoader
@@ -2218,7 +2228,7 @@ name|dependencies
 operator|.
 name|addAll
 argument_list|(
-name|getSystemScopeDependencies
+name|getAllNonTestScopedDependencies
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2321,16 +2331,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getSystemScopeDependencies ()
+DECL|method|getAllNonTestScopedDependencies ()
 specifier|private
 name|Collection
-name|getSystemScopeDependencies
+name|getAllNonTestScopedDependencies
 parameter_list|()
 throws|throws
 name|MojoExecutionException
 block|{
 name|List
-name|systemScopeArtifacts
+name|answer
 init|=
 operator|new
 name|ArrayList
@@ -2365,18 +2375,34 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-comment|// if (artifact.getScope().equals(Artifact.SCOPE_SYSTEM)) {
-name|systemScopeArtifacts
+comment|// do not add test artifacts
+if|if
+condition|(
+operator|!
+name|artifact
+operator|.
+name|getScope
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|Artifact
+operator|.
+name|SCOPE_TEST
+argument_list|)
+condition|)
+block|{
+name|answer
 operator|.
 name|add
 argument_list|(
 name|artifact
 argument_list|)
 expr_stmt|;
-comment|// }
+block|}
 block|}
 return|return
-name|systemScopeArtifacts
+name|answer
 return|;
 block|}
 comment|// generic method to retrieve all the transitive dependencies
@@ -2640,7 +2666,6 @@ name|getArtifactId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 name|ArtifactFilter
 name|newFilter
@@ -2813,7 +2838,7 @@ literal|"pom"
 argument_list|)
 return|;
 block|}
-comment|/**      * Examine the plugin dependencies to find the executable artifact.      *      * @return an artifact which refers to the actual executable tool (not a      *         POM)      * @throws MojoExecutionException      */
+comment|/**      * Examine the plugin dependencies to find the executable artifact.      *      * @return an artifact which refers to the actual executable tool (not a POM)      * @throws MojoExecutionException      */
 DECL|method|findExecutableArtifact ()
 specifier|private
 name|Artifact
@@ -3091,8 +3116,7 @@ operator|.
 name|interrupt
 argument_list|()
 expr_stmt|;
-comment|// good practice if don't
-comment|// throw
+comment|// good practice if don't throw
 name|getLog
 argument_list|()
 operator|.
