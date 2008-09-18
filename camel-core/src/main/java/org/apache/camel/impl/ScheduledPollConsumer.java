@@ -198,6 +198,11 @@ name|?
 argument_list|>
 name|future
 decl_stmt|;
+DECL|field|firstExceptionThrown
+specifier|private
+name|Exception
+name|firstExceptionThrown
+decl_stmt|;
 DECL|method|ScheduledPollConsumer (DefaultEndpoint<E> endpoint, Processor processor)
 specifier|public
 name|ScheduledPollConsumer
@@ -311,7 +316,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: We should not swallow this but handle it better. See CAMEL-501
 name|LOG
 operator|.
 name|warn
@@ -333,6 +337,18 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|firstExceptionThrown
+operator|==
+literal|null
+condition|)
+block|{
+name|firstExceptionThrown
+operator|=
+name|e
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|// Properties
@@ -443,7 +459,7 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * The polling method which is invoked periodically to poll this consumer      *       * @throws Exception can be thrown if an exception occured during polling      */
+comment|/**      * The polling method which is invoked periodically to poll this consumer      *       * @throws Exception can be thrown if an exception occurred during polling      */
 DECL|method|poll ()
 specifier|protected
 specifier|abstract
@@ -463,6 +479,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|firstExceptionThrown
+operator|=
+literal|null
+expr_stmt|;
 name|super
 operator|.
 name|doStart
@@ -545,6 +565,17 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|firstExceptionThrown
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+name|firstExceptionThrown
+throw|;
+block|}
 block|}
 block|}
 end_class
