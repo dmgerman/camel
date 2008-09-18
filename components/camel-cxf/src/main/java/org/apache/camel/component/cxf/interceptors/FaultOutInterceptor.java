@@ -256,14 +256,14 @@ argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
-name|Exception
+name|Throwable
 name|ex
 init|=
 name|message
 operator|.
 name|getContent
 argument_list|(
-name|Exception
+name|Throwable
 operator|.
 name|class
 argument_list|)
@@ -392,7 +392,7 @@ name|message
 operator|.
 name|setContent
 argument_list|(
-name|Exception
+name|Throwable
 operator|.
 name|class
 argument_list|,

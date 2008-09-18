@@ -126,6 +126,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|cxf
@@ -290,7 +302,7 @@ name|void
 name|testCxfBusConfiguration
 parameter_list|()
 throws|throws
-name|InterruptedException
+name|Exception
 block|{
 comment|// get the camelContext from application context
 name|CamelContext
@@ -314,6 +326,8 @@ operator|.
 name|createProducerTemplate
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|Exchange
 name|exchange
 init|=
@@ -385,16 +399,20 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-name|assertTrue
+name|fail
 argument_list|(
-literal|"There should have a timeout exception"
-argument_list|,
-name|exchange
-operator|.
-name|isFailed
-argument_list|()
+literal|"should get the exception here"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|ex
+parameter_list|)
+block|{
+comment|// do nothing here
+block|}
 block|}
 block|}
 end_class

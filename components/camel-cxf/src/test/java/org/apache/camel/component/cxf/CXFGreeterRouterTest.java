@@ -321,6 +321,16 @@ name|fault
 parameter_list|)
 block|{
 comment|// expect the fault here
+name|assertNotNull
+argument_list|(
+literal|"The fault info should not be null"
+argument_list|,
+name|fault
+operator|.
+name|getFaultInfo
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@

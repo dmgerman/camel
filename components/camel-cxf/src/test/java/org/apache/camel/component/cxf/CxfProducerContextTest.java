@@ -148,7 +148,8 @@ name|CxfProducerContextTest
 extends|extends
 name|CxfProducerTest
 block|{
-comment|// *** This class extends CxfProducerTest, so see that class for other tests run by this code
+comment|// *** This class extends CxfProducerTest, so see that class for other tests
+comment|// run by this code
 DECL|field|TEST_KEY
 specifier|private
 specifier|static

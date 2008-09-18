@@ -177,14 +177,14 @@ throws|throws
 name|Fault
 block|{
 comment|// check the fault from the message
-name|Exception
+name|Throwable
 name|ex
 init|=
 name|message
 operator|.
 name|getContent
 argument_list|(
-name|Exception
+name|Throwable
 operator|.
 name|class
 argument_list|)
