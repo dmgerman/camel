@@ -1227,6 +1227,16 @@ block|}
 comment|// osgi bundles should be skipped
 if|if
 condition|(
+name|url
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"bundle:"
+argument_list|)
+operator|||
 name|urlPath
 operator|.
 name|startsWith
