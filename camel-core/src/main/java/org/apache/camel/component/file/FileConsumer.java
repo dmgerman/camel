@@ -1512,6 +1512,19 @@ return|return
 literal|false
 return|;
 block|}
+comment|// directories so far is always regarded as matched (matching on the name is only for files)
+if|if
+condition|(
+name|file
+operator|.
+name|isDirectory
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 if|if
 condition|(
 name|regexPattern
