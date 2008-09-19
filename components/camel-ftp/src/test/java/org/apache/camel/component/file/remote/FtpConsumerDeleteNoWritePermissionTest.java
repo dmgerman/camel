@@ -135,11 +135,22 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|consumer
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FtpOperationFailedException
+name|fofe
+parameter_list|)
+block|{
+comment|// expected, ignore
+block|}
 block|}
 DECL|method|getPort ()
 specifier|public
