@@ -237,7 +237,7 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|assertTrue
@@ -296,7 +296,7 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|assertTrue
@@ -376,7 +376,7 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|assertTrue
@@ -444,7 +444,7 @@ argument_list|,
 literal|"<hello>world!</hello>"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|assertTrue

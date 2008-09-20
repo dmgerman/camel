@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.builder.xml
+DECL|package|org.apache.camel.language.xpath
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|language
 operator|.
-name|xml
+name|xpath
 package|;
 end_package
 
@@ -74,6 +74,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|xml
+operator|.
+name|XPathBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Language
@@ -81,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XPath language.  *  * @version $Revision$  */
+comment|/**  * XPath language.  *  * @version $Revision: 659760 $  */
 end_comment
 
 begin_class

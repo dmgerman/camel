@@ -587,7 +587,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// TODO support exposing CamelContext properties/resources via XPath?
 comment|// If we can't find an answer we must return void.
 comment|// We can't return null then the xpath engine will throw a NullPointerException
 if|if

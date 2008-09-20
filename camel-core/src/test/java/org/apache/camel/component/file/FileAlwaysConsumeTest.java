@@ -178,7 +178,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|Thread
@@ -245,7 +245,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// should consume the file again
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -309,7 +309,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|Thread
@@ -376,7 +376,7 @@ argument_list|(
 literal|2000
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}

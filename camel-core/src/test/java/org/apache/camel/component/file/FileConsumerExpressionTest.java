@@ -204,7 +204,7 @@ argument_list|,
 literal|"report.txt"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// give time for consumer to rename file
@@ -303,7 +303,7 @@ argument_list|,
 literal|"report2.txt"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// give time for consumer to rename file
@@ -402,7 +402,7 @@ argument_list|,
 literal|"report3.txt"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// give time for consumer to rename file
@@ -478,7 +478,7 @@ argument_list|,
 literal|"report4.txt"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// give time for consumer to rename file
@@ -554,7 +554,7 @@ argument_list|,
 literal|"report5.txt"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// give time for consumer to rename file

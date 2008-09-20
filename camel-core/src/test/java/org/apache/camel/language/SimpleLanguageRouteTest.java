@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.language
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|language
 package|;
 end_package
 
@@ -42,95 +42,92 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Unit test routing with simple language.  */
 end_comment
 
 begin_class
-DECL|class|XPathFilterTest
+DECL|class|SimpleLanguageRouteTest
 specifier|public
 class|class
-name|XPathFilterTest
+name|SimpleLanguageRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|matchingBody
-specifier|protected
-name|String
-name|matchingBody
-init|=
-literal|"<person name='James' city='London'/>"
-decl_stmt|;
-DECL|field|notMatchingBody
-specifier|protected
-name|String
-name|notMatchingBody
-init|=
-literal|"<person name='Hiram' city='Tampa'/>"
-decl_stmt|;
-DECL|method|testSendMatchingMessage ()
+DECL|method|testSimpleFilter ()
 specifier|public
 name|void
-name|testSendMatchingMessage
+name|testSimpleFilter
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
+name|mock
+init|=
 name|getMockEndpoint
 argument_list|(
-literal|"mock:result"
+literal|"mock:foo"
 argument_list|)
+decl_stmt|;
+name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-name|matchingBody
+literal|"Hello Foo"
 argument_list|)
 expr_stmt|;
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-name|matchingBody
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|testSendNotMatchingMessage ()
-specifier|public
-name|void
-name|testSendNotMatchingMessage
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
+name|template
 operator|.
-name|expectedMessageCount
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
 name|sendBody
 argument_list|(
-literal|"direct:start"
+literal|"seda:foo"
 argument_list|,
-name|notMatchingBody
+literal|"Hello Bar"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"seda:foo"
+argument_list|,
+literal|"Hello Foo"
+argument_list|,
+literal|"foo"
+argument_list|,
+literal|"yes"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
 name|createRouteBuilder
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 return|return
 operator|new
@@ -141,27 +138,27 @@ specifier|public
 name|void
 name|configure
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-comment|// START SNIPPET: example
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"seda:foo"
 argument_list|)
 operator|.
 name|filter
 argument_list|()
 operator|.
-name|xpath
+name|simple
 argument_list|(
-literal|"/person[@name='James']"
+literal|"in.header.foo"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:result"
+literal|"mock:foo"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: example
 block|}
 block|}
 return|;

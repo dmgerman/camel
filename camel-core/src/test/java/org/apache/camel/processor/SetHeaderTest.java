@@ -145,7 +145,7 @@ argument_list|,
 name|matchingBody
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|List

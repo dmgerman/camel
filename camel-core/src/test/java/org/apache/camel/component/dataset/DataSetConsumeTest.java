@@ -110,7 +110,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
