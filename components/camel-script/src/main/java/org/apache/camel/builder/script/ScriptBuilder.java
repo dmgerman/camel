@@ -641,6 +641,100 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|// Beanshell
+comment|// -------------------------------------------------------------------------
+comment|/**      * Creates a script builder for the BeanShell script contents      *      * @param scriptText the script text to be evaluted      * @return the builder      */
+DECL|method|beanShell (String scriptText)
+specifier|public
+specifier|static
+name|ScriptBuilder
+name|beanShell
+parameter_list|(
+name|String
+name|scriptText
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ScriptBuilder
+argument_list|(
+literal|"beanshell"
+argument_list|,
+name|scriptText
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a script builder for the BeanShell script {@link Resource}      *      * @param scriptResource the resource used to load the script      * @return the builder      */
+DECL|method|beanShell (Resource scriptResource)
+specifier|public
+specifier|static
+name|ScriptBuilder
+name|beanShell
+parameter_list|(
+name|Resource
+name|scriptResource
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ScriptBuilder
+argument_list|(
+literal|"beanshell"
+argument_list|,
+name|scriptResource
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a script builder for the BeanShell script {@link File}      *      * @param scriptFile the file used to load the script      * @return the builder      */
+DECL|method|beanShell (File scriptFile)
+specifier|public
+specifier|static
+name|ScriptBuilder
+name|beanShell
+parameter_list|(
+name|File
+name|scriptFile
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ScriptBuilder
+argument_list|(
+literal|"beanshell"
+argument_list|,
+operator|new
+name|FileSystemResource
+argument_list|(
+name|scriptFile
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a script builder for the BeanShell script {@link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      */
+DECL|method|beanShell (URL scriptURL)
+specifier|public
+specifier|static
+name|ScriptBuilder
+name|beanShell
+parameter_list|(
+name|URL
+name|scriptURL
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ScriptBuilder
+argument_list|(
+literal|"beanshell"
+argument_list|,
+operator|new
+name|UrlResource
+argument_list|(
+name|scriptURL
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|// Groovy
 comment|// -------------------------------------------------------------------------
 comment|/**      * Creates a script builder for the groovy script contents      *      * @param scriptText the script text to be evaluted      * @return the builder      */

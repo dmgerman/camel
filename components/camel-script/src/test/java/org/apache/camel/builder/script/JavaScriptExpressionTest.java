@@ -58,18 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -112,7 +100,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Currently, this test fails because the JavaScript expression in createRouteBuilder
+comment|// TODO Currently, this test fails because the JavaScript expression in createRouteBuilder
 comment|// below returns false
 comment|// To fix that, we need to figure out how to get the expression to return the right value
 name|MockEndpoint
@@ -200,7 +188,7 @@ argument_list|,
 literal|"bar"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -267,7 +255,7 @@ argument_list|,
 name|headers
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}

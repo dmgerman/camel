@@ -45,20 +45,18 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|script
+name|mock
 operator|.
-name|ScriptBuilder
-operator|.
-name|groovy
+name|MockEndpoint
 import|;
 end_import
 
@@ -82,11 +80,48 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//TODO: fix me
-comment|//MockEndpoint mock = getMockEndpoint("mock:result");
-comment|//mock.expectedHeaderReceived("foo", "Hello World");
-comment|//template.sendBodyAndHeader("seda:a", "Hello World", "foo", "London");
-comment|//mock.assertIsSatisfied();
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"seda:a"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+literal|"foo"
+argument_list|,
+literal|"London"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -116,11 +151,11 @@ operator|.
 name|setHeader
 argument_list|(
 literal|"foo"
-argument_list|,
+argument_list|)
+operator|.
 name|groovy
 argument_list|(
 literal|"request.body"
-argument_list|)
 argument_list|)
 operator|.
 name|to

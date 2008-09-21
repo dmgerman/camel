@@ -34,16 +34,6 @@ name|javax
 operator|.
 name|script
 operator|.
-name|ScriptEngineFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|script
-operator|.
 name|ScriptEngineManager
 import|;
 end_import
@@ -78,6 +68,8 @@ index|[]
 name|scriptNames
 init|=
 block|{
+literal|"beanshell"
+block|,
 literal|"groovy"
 block|,
 literal|"js"
