@@ -32,6 +32,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -235,28 +245,6 @@ argument_list|,
 name|file
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Renaming file: "
-operator|+
-name|file
-operator|+
-literal|" to: "
-operator|+
-name|newName
-argument_list|)
-expr_stmt|;
-block|}
 comment|// deleting any existing files before renaming
 if|if
 condition|(
@@ -281,6 +269,28 @@ operator|.
 name|mkdirs
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Renaming file: "
+operator|+
+name|file
+operator|+
+literal|" to: "
+operator|+
+name|newName
+argument_list|)
+expr_stmt|;
+block|}
 name|boolean
 name|renamed
 init|=
@@ -297,19 +307,19 @@ operator|!
 name|renamed
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
+throw|throw
+operator|new
+name|IOException
 argument_list|(
-literal|"Could not rename file from: "
+literal|"Can not rename file from: "
 operator|+
 name|file
 operator|+
-literal|" to "
+literal|" to: "
 operator|+
 name|newName
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 comment|// must commit to release the lock
 name|super

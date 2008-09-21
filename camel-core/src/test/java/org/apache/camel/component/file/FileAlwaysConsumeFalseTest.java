@@ -71,14 +71,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for the alwaysConsume=true option.  */
+comment|/**  * Unit test for the alwaysConsume=false option.  */
 end_comment
 
 begin_class
-DECL|class|FileAlwaysConsumeTest
+DECL|class|FileAlwaysConsumeFalseTest
 specifier|public
 class|class
-name|FileAlwaysConsumeTest
+name|FileAlwaysConsumeFalseTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -142,7 +142,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/alwaysconsume/?consumer.alwaysConsume=true&moveNamePrefix=done/"
+literal|"file://target/alwaysconsume/?consumer.alwaysConsume=false&moveNamePrefix=done/"
 argument_list|)
 operator|.
 name|to
@@ -154,10 +154,10 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|testAlwaysConsume ()
+DECL|method|testNotAlwaysConsume ()
 specifier|public
 name|void
-name|testAlwaysConsume
+name|testNotAlwaysConsume
 parameter_list|()
 throws|throws
 name|Exception
@@ -203,16 +203,9 @@ argument_list|()
 expr_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// move file back
@@ -251,7 +244,14 @@ name|getAbsoluteFile
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// should consume the file again
+comment|// should NOT consume the file again, let 2 secs pass to let the consuemr try to consume it but it should not
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

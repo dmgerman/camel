@@ -32,6 +32,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -189,15 +199,15 @@ operator|!
 name|deleted
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
+throw|throw
+operator|new
+name|IOException
 argument_list|(
-literal|"Could not delete file: "
+literal|"Can not delete file: "
 operator|+
 name|file
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 comment|// must commit to release the lock
 name|super
