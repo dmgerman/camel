@@ -1863,6 +1863,13 @@ name|routes
 operator|=
 name|routes
 expr_stmt|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"overriding existing routes is not supported yet, use addRoutes instead"
+argument_list|)
+throw|;
 block|}
 DECL|method|addRoutes (Collection<Route> routes)
 specifier|public
@@ -1896,12 +1903,15 @@ name|ArrayList
 argument_list|<
 name|Route
 argument_list|>
-argument_list|(
-name|routes
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
-else|else
+if|if
+condition|(
+name|routes
+operator|!=
+literal|null
+condition|)
 block|{
 name|this
 operator|.
@@ -1912,7 +1922,6 @@ argument_list|(
 name|routes
 argument_list|)
 expr_stmt|;
-block|}
 name|lifecycleStrategy
 operator|.
 name|onRoutesAdd
@@ -1931,6 +1940,7 @@ argument_list|(
 name|routes
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|addRoutes (Routes builder)
@@ -1963,6 +1973,14 @@ operator|.
 name|getRouteList
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -1976,6 +1994,7 @@ operator|+
 name|routeList
 argument_list|)
 expr_stmt|;
+block|}
 name|addRoutes
 argument_list|(
 name|routeList

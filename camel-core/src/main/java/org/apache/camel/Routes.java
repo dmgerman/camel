@@ -24,17 +24,23 @@ name|List
 import|;
 end_import
 
+begin_comment
+comment|/**  * Routes defined in the camel context.  */
+end_comment
+
 begin_interface
 DECL|interface|Routes
 specifier|public
 interface|interface
 name|Routes
 block|{
+comment|/**      * Gets the Camel context used.      */
 DECL|method|getContext ()
 name|CamelContext
 name|getContext
 parameter_list|()
 function_decl|;
+comment|/**      * Sets the Camel context to use.      */
 DECL|method|setContext (CamelContext context)
 name|void
 name|setContext
@@ -43,6 +49,7 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the list of routes currently in the camel context.      */
 DECL|method|getRouteList ()
 name|List
 argument_list|<

@@ -22,16 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -271,21 +261,6 @@ name|routeCollection
 init|=
 operator|new
 name|RoutesType
-argument_list|()
-decl_stmt|;
-DECL|field|routes
-specifier|private
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|Route
-argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|RouteBuilder ()
@@ -547,7 +522,7 @@ return|return
 name|context
 return|;
 block|}
-comment|/**      * Returns the routing map from inbound endpoints to processors      */
+comment|/**      * Uses {@link org.apache.camel.CamelContext#getRoutes()} to return the routes in the context.      */
 DECL|method|getRouteList ()
 specifier|public
 name|List
@@ -563,7 +538,7 @@ name|checkInitialized
 argument_list|()
 expr_stmt|;
 return|return
-name|routes
+literal|null
 return|;
 block|}
 annotation|@
@@ -671,23 +646,15 @@ name|configure
 argument_list|()
 expr_stmt|;
 name|populateRoutes
-argument_list|(
-name|routes
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|populateRoutes (List<Route> routes)
+DECL|method|populateRoutes ()
 specifier|protected
 name|void
 name|populateRoutes
-parameter_list|(
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-parameter_list|)
+parameter_list|()
 throws|throws
 name|Exception
 block|{
