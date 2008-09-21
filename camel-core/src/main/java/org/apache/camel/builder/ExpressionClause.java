@@ -568,6 +568,25 @@ return|return
 name|result
 return|;
 block|}
+comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/beanshell.html">BeanShell expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+DECL|method|beanShell (String text)
+specifier|public
+name|T
+name|beanShell
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|language
+argument_list|(
+literal|"beanshell"
+argument_list|,
+name|text
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates the<a href="http://activemq.apache.org/camel/el.html">EL Language from JSP and JSF</a>      * using the<a href="http://activemq.apache.org/camel/juel.html">JUEL library</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|el (String text)
 specifier|public
