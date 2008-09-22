@@ -342,9 +342,6 @@ operator|.
 name|increment
 argument_list|()
 expr_stmt|;
-name|sleep
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -382,12 +379,12 @@ control|)
 block|{
 name|latch
 operator|.
-name|decrement
+name|increment
 argument_list|()
 expr_stmt|;
 name|latch
 operator|.
-name|increment
+name|decrement
 argument_list|()
 expr_stmt|;
 name|sleep
