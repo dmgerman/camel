@@ -461,19 +461,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// let's stop everything in the reverse order
+comment|// no need to stop the worker thread -- it will stop automatically when this service is stopped
+name|engine
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|ServiceHelper
 operator|.
-name|startServices
+name|stopServices
 argument_list|(
 name|consumer
 argument_list|,
 name|processor
 argument_list|)
-expr_stmt|;
-name|engine
-operator|.
-name|stop
-argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Sends the<code>exchange</code> to the next<code>processor</code>.      *       * @param o      *            exchange to send.      */
