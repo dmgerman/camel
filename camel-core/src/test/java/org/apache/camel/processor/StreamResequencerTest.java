@@ -433,6 +433,15 @@ name|Exception
 block|{
 name|System
 operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"This will now fail"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
 name|setProperty
 argument_list|(
 name|JmxSystemPropertyKeys

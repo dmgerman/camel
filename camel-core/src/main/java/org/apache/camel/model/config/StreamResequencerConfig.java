@@ -191,7 +191,7 @@ name|Exchange
 argument_list|>
 name|comparator
 decl_stmt|;
-comment|/**      * Creates a new {@link StreamResequencerConfig} instance using default      * values for<code>capacity</code> (100) and<code>timeout</code>      * (1000L). Elements of the sequence are compared using the      * {@link DefaultExchangeComparator}.      */
+comment|/**      * Creates a new {@link StreamResequencerConfig} instance using default      * values for<code>capacity</code> (1000) and<code>timeout</code>      * (1000L). Elements of the sequence are compared using the      * {@link DefaultExchangeComparator}.      */
 DECL|method|StreamResequencerConfig ()
 specifier|public
 name|StreamResequencerConfig
@@ -199,7 +199,7 @@ parameter_list|()
 block|{
 name|this
 argument_list|(
-literal|100
+literal|1000
 argument_list|,
 literal|1000L
 argument_list|)
@@ -266,7 +266,7 @@ operator|=
 name|comparator
 expr_stmt|;
 block|}
-comment|/**      * Returns a new {@link StreamResequencerConfig} instance using default      * values for<code>capacity</code> (100) and<code>timeout</code>      * (1000L). Elements of the sequence are compared using the      * {@link DefaultExchangeComparator}.      *       * @return a default {@link StreamResequencerConfig}.      */
+comment|/**      * Returns a new {@link StreamResequencerConfig} instance using default      * values for<code>capacity</code> (1000) and<code>timeout</code>      * (1000L). Elements of the sequence are compared using the      * {@link DefaultExchangeComparator}.      *       * @return a default {@link StreamResequencerConfig}.      */
 DECL|method|getDefault ()
 specifier|public
 specifier|static

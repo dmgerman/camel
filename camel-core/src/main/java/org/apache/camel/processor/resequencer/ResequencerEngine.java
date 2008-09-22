@@ -24,50 +24,12 @@ name|java
 operator|.
 name|util
 operator|.
-name|Queue
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Timer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
-comment|/**  * Resequences elements based on a given {@link SequenceElementComparator}.  * This resequencer is designed for resequencing element streams. Resequenced  * elements are added to an output {@link Queue}. The resequencer is configured  * via the<code>timeout</code> and<code>capacity</code> properties.  *   *<ul>  *<li><code>timeout</code>. Defines the timeout (in milliseconds) for a  * given element managed by this resequencer. An out-of-sequence element can  * only be marked as<i>ready-for-delivery</i> if it either times out or if it  * has an immediate predecessor (in that case it is in-sequence). If an  * immediate predecessor of a waiting element arrives the timeout task for the  * waiting element will be cancelled (which marks it as<i>ready-for-delivery</i>).  *<p>  * If the maximum out-of-sequence time between elements within a stream is  * known, the<code>timeout</code> value should be set to this value. In this  * case it is guaranteed that all elements of a stream will be delivered in  * sequence to the output queue. However, large<code>timeout</code> values  * might require a very high resequencer<code>capacity</code> which might be  * in conflict with available memory resources. The lower the  *<code>timeout</code> value is compared to the out-of-sequence time between  * elements within a stream the higher the probability is for out-of-sequence  * elements delivered by this resequencer.</li>  *<li><code>capacity</code>. The capacity of this resequencer.</li>  *</ul>  *   * Whenever a timeout for a certain element occurs or an element has been added  * to this resequencer a delivery attempt is started. If a (sub)sequence of  * elements is<i>ready-for-delivery</i> then they are added to output queue.  *<p>  * The resequencer remembers the last-delivered element. If an element arrives  * which is the immediate successor of the last-delivered element it will be  * delivered immediately and the last-delivered element is adjusted accordingly.  * If the last-delivered element is<code>null</code> i.e. the resequencer was  * newly created the first arriving element will wait<code>timeout</code>  * milliseconds for being delivered to the output queue.  *   * @author Martin Krasser  *   * @version $Revision  */
+comment|/**  * Resequences elements based on a given {@link SequenceElementComparator}.  * This resequencer is designed for resequencing element streams. Stream-based  * resequencing has the advantage that the number of elements to be resequenced  * need not be known in advance. Resequenced elements are delivered via a  * {@link SequenceSender}.  *<p>  * The resequencer's behaviour for a given comparator is controlled by the  *<code>timeout</code> property. This is the timeout (in milliseconds) for a  * given element managed by this resequencer. An out-of-sequence element can  * only be marked as<i>ready-for-delivery</i> if it either times out or if it  * has an immediate predecessor (in that case it is in-sequence). If an  * immediate predecessor of a waiting element arrives the timeout task for the  * waiting element will be cancelled (which marks it as<i>ready-for-delivery</i>).  *<p>  * If the maximum out-of-sequence time difference between elements within a  * stream is known, the<code>timeout</code> value should be set to this  * value. In this case it is guaranteed that all elements of a stream will be  * delivered in sequence via the {@link SequenceSender}. The lower the  *<code>timeout</code> value is compared to the out-of-sequence time  * difference between elements within a stream the higher the probability is for  * out-of-sequence elements delivered by this resequencer. Delivery of elements  * must be explicitly triggered by applications using the {@link #deliver()} or  * {@link #deliverNext()} methods. Only elements that are<i>ready-for-delivery</i>  * are delivered by these methods. The longer an application waits to trigger a  * delivery the more elements may become<i>ready-for-delivery</i>.  *<p>  * The resequencer remembers the last-delivered element. If an element arrives  * which is the immediate successor of the last-delivered element it is  *<i>ready-for-delivery</i> immediately. After delivery the last-delivered  * element is adjusted accordingly. If the last-delivered element is  *<code>null</code> i.e. the resequencer was newly created the first arriving  * element needs<code>timeout</code> milliseconds in any case for becoming  *<i>ready-for-delivery</i>.  *<p>  *<strong>Note:</strong> Instances of this class are not thread-safe.  * Resequencing should be done by calling {@link #insert(Object)} and  * {@link #deliver()} or {@link #deliverNext()} from a single thread.  *   * @author Martin Krasser  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -78,44 +40,8 @@ name|ResequencerEngine
 parameter_list|<
 name|E
 parameter_list|>
-implements|implements
-name|TimeoutHandler
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|ResequencerEngine
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-DECL|field|timeout
-specifier|private
-name|long
-name|timeout
-decl_stmt|;
-DECL|field|capacity
-specifier|private
-name|int
-name|capacity
-decl_stmt|;
-DECL|field|outQueue
-specifier|private
-name|Queue
-argument_list|<
-name|E
-argument_list|>
-name|outQueue
-decl_stmt|;
+comment|/**      * The element that most recently hash been delivered or<code>null</code>      * if no element has been delivered yet.      */
 DECL|field|lastDelivered
 specifier|private
 name|Element
@@ -123,6 +49,12 @@ argument_list|<
 name|E
 argument_list|>
 name|lastDelivered
+decl_stmt|;
+comment|/**      * Minimum amount of time to wait for out-of-sequence elements.      */
+DECL|field|timeout
+specifier|private
+name|long
+name|timeout
 decl_stmt|;
 comment|/**      * A sequence of elements for sorting purposes.      */
 DECL|field|sequence
@@ -142,7 +74,16 @@ specifier|private
 name|Timer
 name|timer
 decl_stmt|;
-comment|/**      * Creates a new resequencer instance with a default timeout of 2000      * milliseconds. The capacity is set to {@link Integer#MAX_VALUE}.      *       * @param comparator a sequence element comparator.      */
+comment|/**      * A strategy for sending sequence elements.       */
+DECL|field|sequenceSender
+specifier|private
+name|SequenceSender
+argument_list|<
+name|E
+argument_list|>
+name|sequenceSender
+decl_stmt|;
+comment|/**      * Creates a new resequencer instance with a default timeout of 2000      * milliseconds.      *       * @param comparator a sequence element comparator.      * @param capacity the capacity of this resequencer.      */
 DECL|method|ResequencerEngine (SequenceElementComparator<E> comparator)
 specifier|public
 name|ResequencerEngine
@@ -155,41 +96,6 @@ name|comparator
 parameter_list|)
 block|{
 name|this
-argument_list|(
-name|comparator
-argument_list|,
-name|Integer
-operator|.
-name|MAX_VALUE
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Creates a new resequencer instance with a default timeout of 2000      * milliseconds.      *       * @param comparator a sequence element comparator.      * @param capacity the capacity of this resequencer.      */
-DECL|method|ResequencerEngine (SequenceElementComparator<E> comparator, int capacity)
-specifier|public
-name|ResequencerEngine
-parameter_list|(
-name|SequenceElementComparator
-argument_list|<
-name|E
-argument_list|>
-name|comparator
-parameter_list|,
-name|int
-name|capacity
-parameter_list|)
-block|{
-name|this
-operator|.
-name|timer
-operator|=
-operator|new
-name|Timer
-argument_list|(
-literal|"Resequencer Timer"
-argument_list|)
-expr_stmt|;
-name|this
 operator|.
 name|sequence
 operator|=
@@ -197,12 +103,6 @@ name|createSequence
 argument_list|(
 name|comparator
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|capacity
-operator|=
-name|capacity
 expr_stmt|;
 name|this
 operator|.
@@ -217,6 +117,21 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+block|{
+name|timer
+operator|=
+operator|new
+name|Timer
+argument_list|(
+literal|"Stream Resequencer Timer"
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Stops this resequencer (i.e. this resequencer's {@link Timer} instance).      */
 DECL|method|stop ()
 specifier|public
@@ -224,47 +139,25 @@ name|void
 name|stop
 parameter_list|()
 block|{
-name|this
-operator|.
 name|timer
 operator|.
 name|cancel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Returns the output queue.      *       * @return the output queue.      */
-DECL|method|getOutQueue ()
+comment|/**      * Returns the number of elements currently maintained by this resequencer.      *       * @return the number of elements currently maintained by this resequencer.      */
+DECL|method|size ()
 specifier|public
-name|Queue
-argument_list|<
-name|E
-argument_list|>
-name|getOutQueue
+name|int
+name|size
 parameter_list|()
 block|{
 return|return
-name|outQueue
-return|;
-block|}
-comment|/**      * Sets the output queue.      *       * @param outQueue output queue.      */
-DECL|method|setOutQueue (Queue<E> outQueue)
-specifier|public
-name|void
-name|setOutQueue
-parameter_list|(
-name|Queue
-argument_list|<
-name|E
-argument_list|>
-name|outQueue
-parameter_list|)
-block|{
-name|this
+name|sequence
 operator|.
-name|outQueue
-operator|=
-name|outQueue
-expr_stmt|;
+name|size
+argument_list|()
+return|;
 block|}
 comment|/**      * Returns this resequencer's timeout value.      *       * @return the timeout in milliseconds.      */
 DECL|method|getTimeout ()
@@ -294,111 +187,38 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
-comment|/**       * Handles a timeout notification by starting a delivery attempt.      *       * @param timout timeout task that caused the notification.      */
-DECL|method|timeout (Timeout timout)
+comment|/**      * Returns the sequence sender.      *       * @return the sequence sender.      */
+DECL|method|getSequenceSender ()
 specifier|public
-specifier|synchronized
-name|void
-name|timeout
-parameter_list|(
-name|Timeout
-name|timout
-parameter_list|)
-block|{
-try|try
-block|{
-while|while
-condition|(
-name|deliver
-argument_list|()
-condition|)
-block|{
-comment|// work done in deliver()
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"error during delivery"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|/**      * Adds an element to this resequencer throwing an exception if the maximum      * capacity is reached.      *       * @param o element to be resequenced.      * @throws IllegalStateException if the element cannot be added at this time      *         due to capacity restrictions.      */
-DECL|method|add (E o)
-specifier|public
-specifier|synchronized
-name|void
-name|add
-parameter_list|(
+name|SequenceSender
+argument_list|<
 name|E
-name|o
-parameter_list|)
+argument_list|>
+name|getSequenceSender
+parameter_list|()
 block|{
-if|if
-condition|(
-name|sequence
-operator|.
-name|size
-argument_list|()
-operator|>=
-name|capacity
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"maximum capacity is reached"
-argument_list|)
-throw|;
+return|return
+name|sequenceSender
+return|;
 block|}
-name|insert
-argument_list|(
-name|o
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Adds an element to this resequencer waiting, if necessary, until capacity      * becomes available.      *       * @param o element to be resequenced.      * @throws InterruptedException if interrupted while waiting.      */
-DECL|method|put (E o)
+comment|/**      * Sets the sequence sender.      *       * @param sequenceSender a sequence element sender.      */
+DECL|method|setSequenceSender (SequenceSender<E> sequenceSender)
 specifier|public
-specifier|synchronized
 name|void
-name|put
+name|setSequenceSender
 parameter_list|(
+name|SequenceSender
+argument_list|<
 name|E
-name|o
+argument_list|>
+name|sequenceSender
 parameter_list|)
-throws|throws
-name|InterruptedException
 block|{
-if|if
-condition|(
-name|sequence
+name|this
 operator|.
-name|size
-argument_list|()
-operator|>=
-name|capacity
-condition|)
-block|{
-name|wait
-argument_list|()
-expr_stmt|;
-block|}
-name|insert
-argument_list|(
-name|o
-argument_list|)
+name|sequenceSender
+operator|=
+name|sequenceSender
 expr_stmt|;
 block|}
 comment|/**      * Returns the last delivered element.      *       * @return the last delivered element or<code>null</code> if no delivery      *         has been made yet.      */
@@ -446,9 +266,9 @@ name|o
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Inserts the given element into this resequencing queue (sequence). If the      * element is not ready for immediate delivery and has no immediate      * presecessor then it is scheduled for timing out. After being timed out it      * is ready for delivery.      *       * @param o an element.      */
+comment|/**      * Inserts the given element into this resequencer. If the element is not      * ready for immediate delivery and has no immediate presecessor then it is      * scheduled for timing out. After being timed out it is ready for delivery.      *       * @param o an element.      */
 DECL|method|insert (E o)
-specifier|private
+specifier|public
 name|void
 name|insert
 parameter_list|(
@@ -536,36 +356,40 @@ comment|// nothing to schedule
 block|}
 else|else
 block|{
-name|Timeout
-name|t
-init|=
-name|defineTimeout
-argument_list|()
-decl_stmt|;
 name|element
 operator|.
 name|schedule
 argument_list|(
-name|t
+name|defineTimeout
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// start delivery
-while|while
-condition|(
-name|deliver
-argument_list|()
-condition|)
-block|{
-comment|// work done in deliver()
 block|}
-block|}
-comment|/**      * Attempts to deliver a single element from the head of the resequencer      * queue (sequence). Only elements which have not been scheduled for timing      * out or which already timed out can be delivered.      *       * @return<code>true</code> if the element has been delivered      *<code>false</code> otherwise.      */
+comment|/**      * Delivers all elements which are currently ready to deliver.      *       * @throws exception thrown by {@link SequenceSender#sendElement(Object)}.      *       * @see #deliverNext();      */
 DECL|method|deliver ()
-specifier|private
-name|boolean
+specifier|public
+name|void
 name|deliver
 parameter_list|()
+throws|throws
+name|Exception
+block|{
+while|while
+condition|(
+name|deliverNext
+argument_list|()
+condition|)
+empty_stmt|;
+block|}
+comment|/**      * Attempts to deliver a single element from the head of the resequencer      * queue (sequence). Only elements which have not been scheduled for timing      * out or which already timed out can be delivered. Elements are deliveref via       * {@link SequenceSender#sendElement(Object)}.      *       * @return<code>true</code> if the element has been delivered      *<code>false</code> otherwise.      *       * @throws exception thrown by {@link SequenceSender#sendElement(Object)}.      *               */
+DECL|method|deliverNext ()
+specifier|public
+name|boolean
+name|deliverNext
+parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -619,14 +443,10 @@ name|lastDelivered
 operator|=
 name|element
 expr_stmt|;
-comment|// notify a waiting thread that capacity is available
-name|notify
-argument_list|()
-expr_stmt|;
-comment|// add element to output queue
-name|outQueue
+comment|// deliver the sequence element
+name|sequenceSender
 operator|.
-name|add
+name|sendElement
 argument_list|(
 name|element
 operator|.
@@ -693,9 +513,7 @@ name|Timeout
 name|defineTimeout
 parameter_list|()
 block|{
-name|Timeout
-name|result
-init|=
+return|return
 operator|new
 name|Timeout
 argument_list|(
@@ -703,16 +521,6 @@ name|timer
 argument_list|,
 name|timeout
 argument_list|)
-decl_stmt|;
-name|result
-operator|.
-name|addTimeoutHandler
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-return|return
-name|result
 return|;
 block|}
 DECL|method|createSequence (SequenceElementComparator<E> comparator)

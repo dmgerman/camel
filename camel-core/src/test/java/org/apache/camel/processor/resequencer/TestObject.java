@@ -18,33 +18,61 @@ name|resequencer
 package|;
 end_package
 
-begin_comment
-comment|/**   * An interface used by the {@link ResequencerEngine#deliver()} and   * {@link ResequencerEngine#deliverNext()} methods to send out re-ordered   * elements.   *    * @author Martin Krasser   *    * @version $Revision$   */
-end_comment
-
-begin_interface
-DECL|interface|SequenceSender
+begin_class
+DECL|class|TestObject
 specifier|public
-interface|interface
-name|SequenceSender
-parameter_list|<
-name|E
-parameter_list|>
+class|class
+name|TestObject
 block|{
-comment|/**      * Sends the given element.      *       * @param o a re-ordered element.      * @throws Exception if delivery fails.      */
-DECL|method|sendElement (E o)
+DECL|field|value
+specifier|private
+name|int
+name|value
+decl_stmt|;
+DECL|method|TestObject (int value)
 specifier|public
-name|void
-name|sendElement
+name|TestObject
 parameter_list|(
-name|E
-name|o
+name|int
+name|value
 parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
+block|{
+name|this
+operator|.
+name|value
+operator|=
+name|value
+expr_stmt|;
 block|}
-end_interface
+DECL|method|getValue ()
+specifier|public
+name|int
+name|getValue
+parameter_list|()
+block|{
+return|return
+name|value
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

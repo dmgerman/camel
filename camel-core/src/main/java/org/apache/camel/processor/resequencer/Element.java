@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A container for objects to be resequenced. This container can be scheduled  * for timing out. Non-scheduled objects or already timed-out objects are ready  * for being released by the {@link ResequencerEngine}.  *   * @author Martin Krasser  *   * @version $Revision  */
+comment|/**  * A container for objects to be resequenced. This container can be scheduled  * for timing out. Non-scheduled objects or already timed-out objects are ready  * for being released by the {@link ResequencerEngine}.  *   * @author Martin Krasser  */
 end_comment
 
 begin_class
@@ -85,7 +85,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Schedules the given timeout task. Before this methods calls the      * {@link Timeout#schedule()} method it adds this element as timeout      * listener.      *       * @param t a timeout task.      */
+comment|/**      * Schedules the given timeout task. Before this methods calls the      * {@link Timeout#schedule()} method it sets this element as timeout      * listener.      *       * @param t a timeout task.      */
 DECL|method|schedule (Timeout t)
 specifier|public
 specifier|synchronized
@@ -106,7 +106,7 @@ name|this
 operator|.
 name|timeout
 operator|.
-name|addTimeoutHandlerFirst
+name|setTimeoutHandler
 argument_list|(
 name|this
 argument_list|)

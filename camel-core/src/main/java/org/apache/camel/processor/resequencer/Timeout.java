@@ -24,26 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|LinkedList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Timer
 import|;
 end_import
@@ -59,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A timer task that notifies handlers about scheduled timeouts.  *   * @see Timer  * @see TimerTask  *   * @author Martin Krasser  *   * @version $Revision  */
+comment|/**  * A timer task that notifies handlers about scheduled timeouts.  *   * @see Timer  * @see TimerTask  *   * @author Martin Krasser  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -70,13 +50,10 @@ name|Timeout
 extends|extends
 name|TimerTask
 block|{
-DECL|field|timeoutHandlers
+DECL|field|timeoutHandler
 specifier|private
-name|List
-argument_list|<
 name|TimeoutHandler
-argument_list|>
-name|timeoutHandlers
+name|timeoutHandler
 decl_stmt|;
 DECL|field|timer
 specifier|private
@@ -88,7 +65,7 @@ specifier|private
 name|long
 name|timeout
 decl_stmt|;
-comment|/**      * Creates a new timeout task using the given {@link Timer} instance a timeout value. The      * task is not scheduled immediately. It will be scheduled by calling this      * task's {@link #schedule()} method.      *       * @param timer      * @param timeout      */
+comment|/**      * Creates a new timeout task using the given {@link Timer} instance and      * timeout value. The task is not scheduled immediately. It will be      * scheduled by calling this task's {@link #schedule()} method.      *       * @param timer      *            a timer      * @param timeout      *            a timeout value.      */
 DECL|method|Timeout (Timer timer, long timeout)
 specifier|public
 name|Timeout
@@ -102,17 +79,6 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|timeoutHandlers
-operator|=
-operator|new
-name|LinkedList
-argument_list|<
-name|TimeoutHandler
-argument_list|>
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
 name|timeout
 operator|=
 name|timeout
@@ -124,71 +90,32 @@ operator|=
 name|timer
 expr_stmt|;
 block|}
-comment|/**      * Returns the list of timeout handlers that have been registered for      * notification.      *       * @return the list of timeout handlers      */
+comment|/**      * Returns the timeout handler that has been registered for notification.      *       * @return the timeout handler.      */
 DECL|method|getTimeoutHandlers ()
 specifier|public
-name|List
-argument_list|<
 name|TimeoutHandler
-argument_list|>
 name|getTimeoutHandlers
 parameter_list|()
 block|{
 return|return
-name|timeoutHandlers
+name|timeoutHandler
 return|;
 block|}
-comment|/**      * Appends a new timeout handler at the end of the timeout handler list.      *       * @param handler a timeout handler.      */
-DECL|method|addTimeoutHandler (TimeoutHandler handler)
+comment|/**      * Sets a timeout handler for receiving timeout notifications.      *       * @param timeoutHandler      *            a timeout handler.      */
+DECL|method|setTimeoutHandler (TimeoutHandler timeoutHandler)
 specifier|public
 name|void
-name|addTimeoutHandler
+name|setTimeoutHandler
 parameter_list|(
 name|TimeoutHandler
-name|handler
+name|timeoutHandler
 parameter_list|)
-block|{
-name|timeoutHandlers
-operator|.
-name|add
-argument_list|(
-name|handler
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * inserts a new timeout handler at the beginning of the timeout handler      * list.      *       * @param handler a timeout handler.      */
-DECL|method|addTimeoutHandlerFirst (TimeoutHandler handler)
-specifier|public
-name|void
-name|addTimeoutHandlerFirst
-parameter_list|(
-name|TimeoutHandler
-name|handler
-parameter_list|)
-block|{
-name|timeoutHandlers
-operator|.
-name|add
-argument_list|(
-literal|0
-argument_list|,
-name|handler
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Removes all timeout handlers from the timeout handler list.       */
-DECL|method|clearTimeoutHandlers ()
-specifier|public
-name|void
-name|clearTimeoutHandlers
-parameter_list|()
 block|{
 name|this
 operator|.
-name|timeoutHandlers
-operator|.
-name|clear
-argument_list|()
+name|timeoutHandler
+operator|=
+name|timeoutHandler
 expr_stmt|;
 block|}
 comment|/**      * Schedules this timeout task.      */
@@ -208,7 +135,7 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Notifies all timeout handlers about the scheduled timeout.      */
+comment|/**      * Notifies the timeout handler about the scheduled timeout.      */
 annotation|@
 name|Override
 DECL|method|run ()
@@ -217,22 +144,13 @@ name|void
 name|run
 parameter_list|()
 block|{
-for|for
-control|(
-name|TimeoutHandler
-name|observer
-range|:
-name|timeoutHandlers
-control|)
-block|{
-name|observer
+name|timeoutHandler
 operator|.
 name|timeout
 argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class
