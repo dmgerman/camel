@@ -573,7 +573,7 @@ name|expected
 argument_list|)
 return|;
 block|}
-comment|/**      * Asserts that the given exchange has an OUT message of the given body value      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException      */
+comment|/**      * Asserts that the given exchange has an OUT message of the given body value      *      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException is thrown if the payload is not the expected class type      */
 DECL|method|assertInMessageBodyEquals (Exchange exchange, Object expected)
 specifier|protected
 name|void
@@ -671,7 +671,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Asserts that the given exchange has an OUT message of the given body value      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException      */
+comment|/**      * Asserts that the given exchange has an OUT message of the given body value      *      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException is thrown if the payload is not the expected class type      */
 DECL|method|assertOutMessageBodyEquals (Exchange exchange, Object expected)
 specifier|protected
 name|void
@@ -1375,7 +1375,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * If a processor is wrapped with a bunch of DelegateProcessor or DelegateAsyncProcessor objects      * this call will drill through them and return the wrapped Processor.      *      * @param processor      * @return      */
+comment|/**      * If a processor is wrapped with a bunch of DelegateProcessor or DelegateAsyncProcessor objects      * this call will drill through them and return the wrapped Processor.      */
 DECL|method|unwrap (Processor processor)
 specifier|protected
 name|Processor
