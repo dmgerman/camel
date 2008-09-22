@@ -54,6 +54,12 @@ name|CHARSET_NAME
 init|=
 literal|"org.apache.camel.Exchange.CharsetName"
 decl_stmt|;
+DECL|field|AGGREGATED_COUNT
+name|String
+name|AGGREGATED_COUNT
+init|=
+literal|"org.apache.camel.Exchange.AggregatedCount"
+decl_stmt|;
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
 DECL|method|getPattern ()
 name|ExchangePattern

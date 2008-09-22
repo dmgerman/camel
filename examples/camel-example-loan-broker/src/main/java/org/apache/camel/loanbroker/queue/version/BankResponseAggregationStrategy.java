@@ -190,18 +190,6 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|old
-operator|==
-literal|null
-condition|)
-block|{
-name|old
-operator|=
-literal|1
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|newRate
 operator|>=
 name|oldRate
@@ -226,18 +214,6 @@ argument_list|(
 literal|"Get the lower rate exchange "
 operator|+
 name|result
-argument_list|)
-expr_stmt|;
-comment|// Set the property for the completeness condition
-name|result
-operator|.
-name|setProperty
-argument_list|(
-literal|"aggregated"
-argument_list|,
-name|old
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 return|return

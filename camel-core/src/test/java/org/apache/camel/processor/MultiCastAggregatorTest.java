@@ -491,7 +491,9 @@ name|completedPredicate
 argument_list|(
 name|header
 argument_list|(
-literal|"aggregated"
+name|Exchange
+operator|.
+name|AGGREGATED_COUNT
 argument_list|)
 operator|.
 name|isEqualTo
