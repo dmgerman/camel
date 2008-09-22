@@ -22,6 +22,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -261,6 +271,21 @@ name|routeCollection
 init|=
 operator|new
 name|RoutesType
+argument_list|()
+decl_stmt|;
+DECL|field|routes
+specifier|private
+name|List
+argument_list|<
+name|Route
+argument_list|>
+name|routes
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Route
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|RouteBuilder ()
@@ -538,7 +563,7 @@ name|checkInitialized
 argument_list|()
 expr_stmt|;
 return|return
-literal|null
+name|routes
 return|;
 block|}
 annotation|@
@@ -646,15 +671,23 @@ name|configure
 argument_list|()
 expr_stmt|;
 name|populateRoutes
-argument_list|()
+argument_list|(
+name|routes
+argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|populateRoutes ()
+DECL|method|populateRoutes (List<Route> routes)
 specifier|protected
 name|void
 name|populateRoutes
-parameter_list|()
+parameter_list|(
+name|List
+argument_list|<
+name|Route
+argument_list|>
+name|routes
+parameter_list|)
 throws|throws
 name|Exception
 block|{
