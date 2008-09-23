@@ -651,7 +651,7 @@ return|return
 name|produceDelay
 return|;
 block|}
-comment|/**      * Allows a delay to be specified which causes producers to pause - to simpulate slow producers      */
+comment|/**      * Allows a delay to be specified which causes producers to pause - to simulate slow producers      */
 DECL|method|setProduceDelay (long produceDelay)
 specifier|public
 name|void
