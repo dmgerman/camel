@@ -38,6 +38,18 @@ name|FilterType
 argument_list|()
 return|;
 block|}
+DECL|method|createLoop ()
+specifier|public
+name|LoopType
+name|createLoop
+parameter_list|()
+block|{
+return|return
+operator|new
+name|LoopType
+argument_list|()
+return|;
+block|}
 DECL|method|createRoute ()
 specifier|public
 name|RouteType
