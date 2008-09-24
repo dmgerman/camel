@@ -4309,37 +4309,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which removes the header on the OUT message      */
-DECL|method|removeOutHeader (String name)
-specifier|public
-name|Type
-name|removeOutHeader
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|RemoveOutHeaderType
-name|answer
-init|=
-operator|new
-name|RemoveOutHeaderType
-argument_list|(
-name|name
-argument_list|)
-decl_stmt|;
-name|addOutput
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-operator|(
-name|Type
-operator|)
-name|this
-return|;
-block|}
 comment|/**      * Adds a processor which removes the header on the FAULT message      */
 DECL|method|removeFaultHeader (String name)
 specifier|public
