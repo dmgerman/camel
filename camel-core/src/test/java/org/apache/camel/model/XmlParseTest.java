@@ -1143,6 +1143,11 @@ literal|"interceptor2"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testParseRouteWithChoiceXml ()
 specifier|public
 name|void
@@ -1609,6 +1614,39 @@ argument_list|(
 literal|"loop.xml"
 argument_list|)
 decl_stmt|;
+name|LoopType
+name|loop
+init|=
+name|assertOneProcessorInstanceOf
+argument_list|(
+name|LoopType
+operator|.
+name|class
+argument_list|,
+name|route
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|loop
+operator|.
+name|getExpression
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"constant"
+argument_list|,
+name|loop
+operator|.
+name|getExpression
+argument_list|()
+operator|.
+name|getLanguage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
@@ -1763,7 +1801,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertTo (String message, ProcessorType processor, String uri)
+DECL|method|assertTo (String message, ProcessorType<?> processor, String uri)
 specifier|protected
 name|void
 name|assertTo
@@ -1772,6 +1810,9 @@ name|String
 name|message
 parameter_list|,
 name|ProcessorType
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|,
 name|String
