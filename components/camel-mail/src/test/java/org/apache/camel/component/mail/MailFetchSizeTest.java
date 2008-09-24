@@ -465,6 +465,8 @@ block|{
 name|from
 argument_list|(
 literal|"pop3://jones@localhost?password=secret&fetchSize=2&consumer.delay=5000"
+operator|+
+literal|"&deleteProcessedMessages=true"
 argument_list|)
 operator|.
 name|to

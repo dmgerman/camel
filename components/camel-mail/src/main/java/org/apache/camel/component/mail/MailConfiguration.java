@@ -228,8 +228,6 @@ DECL|field|deleteProcessedMessages
 specifier|private
 name|boolean
 name|deleteProcessedMessages
-init|=
-literal|true
 decl_stmt|;
 DECL|field|ignoreUriScheme
 specifier|private
@@ -240,6 +238,8 @@ DECL|field|processOnlyUnseenMessages
 specifier|private
 name|boolean
 name|processOnlyUnseenMessages
+init|=
+literal|true
 decl_stmt|;
 DECL|field|recipients
 specifier|private
