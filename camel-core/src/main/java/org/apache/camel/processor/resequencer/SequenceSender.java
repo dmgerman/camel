@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**   * An interface used by the {@link ResequencerEngine#deliver()} and   * {@link ResequencerEngine#deliverNext()} methods to send out re-ordered   * elements.   *    * @author Martin Krasser   *    * @version $Revision$   */
+comment|/**   * An interface used by the {@link ResequencerEngine#deliver()} and   * {@link ResequencerEngine#deliverNext()} methods to send out re-ordered   * elements.   *   * @author Martin Krasser   *   * @version $Revision$   */
 end_comment
 
 begin_interface
@@ -31,9 +31,8 @@ parameter_list|<
 name|E
 parameter_list|>
 block|{
-comment|/**      * Sends the given element.      *       * @param o a re-ordered element.      * @throws Exception if delivery fails.      */
+comment|/**      * Sends the given element.      *      * @param o a re-ordered element.      * @throws Exception if delivery fails.      */
 DECL|method|sendElement (E o)
-specifier|public
 name|void
 name|sendElement
 parameter_list|(

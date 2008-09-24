@@ -36,11 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|builder
 operator|.
-name|interceptor
-operator|.
-name|Tracer
+name|RouteBuilder
 import|;
 end_import
 
@@ -68,9 +66,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|processor
 operator|.
-name|RouteBuilder
+name|interceptor
+operator|.
+name|Tracer
 import|;
 end_import
 

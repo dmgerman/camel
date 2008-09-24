@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Resequences elements based on a given {@link SequenceElementComparator}.  * This resequencer is designed for resequencing element streams. Stream-based  * resequencing has the advantage that the number of elements to be resequenced  * need not be known in advance. Resequenced elements are delivered via a  * {@link SequenceSender}.  *<p>  * The resequencer's behaviour for a given comparator is controlled by the  *<code>timeout</code> property. This is the timeout (in milliseconds) for a  * given element managed by this resequencer. An out-of-sequence element can  * only be marked as<i>ready-for-delivery</i> if it either times out or if it  * has an immediate predecessor (in that case it is in-sequence). If an  * immediate predecessor of a waiting element arrives the timeout task for the  * waiting element will be cancelled (which marks it as<i>ready-for-delivery</i>).  *<p>  * If the maximum out-of-sequence time difference between elements within a  * stream is known, the<code>timeout</code> value should be set to this  * value. In this case it is guaranteed that all elements of a stream will be  * delivered in sequence via the {@link SequenceSender}. The lower the  *<code>timeout</code> value is compared to the out-of-sequence time  * difference between elements within a stream the higher the probability is for  * out-of-sequence elements delivered by this resequencer. Delivery of elements  * must be explicitly triggered by applications using the {@link #deliver()} or  * {@link #deliverNext()} methods. Only elements that are<i>ready-for-delivery</i>  * are delivered by these methods. The longer an application waits to trigger a  * delivery the more elements may become<i>ready-for-delivery</i>.  *<p>  * The resequencer remembers the last-delivered element. If an element arrives  * which is the immediate successor of the last-delivered element it is  *<i>ready-for-delivery</i> immediately. After delivery the last-delivered  * element is adjusted accordingly. If the last-delivered element is  *<code>null</code> i.e. the resequencer was newly created the first arriving  * element needs<code>timeout</code> milliseconds in any case for becoming  *<i>ready-for-delivery</i>.  *<p>  *<strong>Note:</strong> Instances of this class are not thread-safe.  * Resequencing should be done by calling {@link #insert(Object)} and  * {@link #deliver()} or {@link #deliverNext()} from a single thread.  *   * @author Martin Krasser  *   * @version $Revision$  */
+comment|/**  * Resequences elements based on a given {@link SequenceElementComparator}.  * This resequencer is designed for resequencing element streams. Stream-based  * resequencing has the advantage that the number of elements to be resequenced  * need not be known in advance. Resequenced elements are delivered via a  * {@link SequenceSender}.  *<p>  * The resequencer's behaviour for a given comparator is controlled by the  *<code>timeout</code> property. This is the timeout (in milliseconds) for a  * given element managed by this resequencer. An out-of-sequence element can  * only be marked as<i>ready-for-delivery</i> if it either times out or if it  * has an immediate predecessor (in that case it is in-sequence). If an  * immediate predecessor of a waiting element arrives the timeout task for the  * waiting element will be cancelled (which marks it as<i>ready-for-delivery</i>).  *<p>  * If the maximum out-of-sequence time difference between elements within a  * stream is known, the<code>timeout</code> value should be set to this  * value. In this case it is guaranteed that all elements of a stream will be  * delivered in sequence via the {@link SequenceSender}. The lower the  *<code>timeout</code> value is compared to the out-of-sequence time  * difference between elements within a stream the higher the probability is for  * out-of-sequence elements delivered by this resequencer. Delivery of elements  * must be explicitly triggered by applications using the {@link #deliver()} or  * {@link #deliverNext()} methods. Only elements that are<i>ready-for-delivery</i>  * are delivered by these methods. The longer an application waits to trigger a  * delivery the more elements may become<i>ready-for-delivery</i>.  *<p>  * The resequencer remembers the last-delivered element. If an element arrives  * which is the immediate successor of the last-delivered element it is  *<i>ready-for-delivery</i> immediately. After delivery the last-delivered  * element is adjusted accordingly. If the last-delivered element is  *<code>null</code> i.e. the resequencer was newly created the first arriving  * element needs<code>timeout</code> milliseconds in any case for becoming  *<i>ready-for-delivery</i>.  *<p>  *<strong>Note:</strong> Instances of this class are not thread-safe.  * Resequencing should be done by calling {@link #insert(Object)} and  * {@link #deliver()} or {@link #deliverNext()} from a single thread.  *  * @author Martin Krasser  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -74,7 +74,7 @@ specifier|private
 name|Timer
 name|timer
 decl_stmt|;
-comment|/**      * A strategy for sending sequence elements.       */
+comment|/**      * A strategy for sending sequence elements.      */
 DECL|field|sequenceSender
 specifier|private
 name|SequenceSender
@@ -83,7 +83,7 @@ name|E
 argument_list|>
 name|sequenceSender
 decl_stmt|;
-comment|/**      * Creates a new resequencer instance with a default timeout of 2000      * milliseconds.      *       * @param comparator a sequence element comparator.      * @param capacity the capacity of this resequencer.      */
+comment|/**      * Creates a new resequencer instance with a default timeout of 2000      * milliseconds.      *      * @param comparator a sequence element comparator.      * @param capacity the capacity of this resequencer.      */
 DECL|method|ResequencerEngine (SequenceElementComparator<E> comparator)
 specifier|public
 name|ResequencerEngine
@@ -145,7 +145,7 @@ name|cancel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Returns the number of elements currently maintained by this resequencer.      *       * @return the number of elements currently maintained by this resequencer.      */
+comment|/**      * Returns the number of elements currently maintained by this resequencer.      *      * @return the number of elements currently maintained by this resequencer.      */
 DECL|method|size ()
 specifier|public
 name|int
@@ -159,7 +159,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns this resequencer's timeout value.      *       * @return the timeout in milliseconds.      */
+comment|/**      * Returns this resequencer's timeout value.      *      * @return the timeout in milliseconds.      */
 DECL|method|getTimeout ()
 specifier|public
 name|long
@@ -170,7 +170,7 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * Sets this sequencer's timeout value.      *       * @param timeout the timeout in milliseconds.      */
+comment|/**      * Sets this sequencer's timeout value.      *      * @param timeout the timeout in milliseconds.      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -187,7 +187,7 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
-comment|/**      * Returns the sequence sender.      *       * @return the sequence sender.      */
+comment|/**      * Returns the sequence sender.      *      * @return the sequence sender.      */
 DECL|method|getSequenceSender ()
 specifier|public
 name|SequenceSender
@@ -201,7 +201,7 @@ return|return
 name|sequenceSender
 return|;
 block|}
-comment|/**      * Sets the sequence sender.      *       * @param sequenceSender a sequence element sender.      */
+comment|/**      * Sets the sequence sender.      *      * @param sequenceSender a sequence element sender.      */
 DECL|method|setSequenceSender (SequenceSender<E> sequenceSender)
 specifier|public
 name|void
@@ -221,7 +221,7 @@ operator|=
 name|sequenceSender
 expr_stmt|;
 block|}
-comment|/**      * Returns the last delivered element.      *       * @return the last delivered element or<code>null</code> if no delivery      *         has been made yet.      */
+comment|/**      * Returns the last delivered element.      *      * @return the last delivered element or<code>null</code> if no delivery      *         has been made yet.      */
 DECL|method|getLastDelivered ()
 name|E
 name|getLastDelivered
@@ -245,7 +245,7 @@ name|getObject
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the last delivered element. This is for testing purposes only.      *       * @param o an element.      */
+comment|/**      * Sets the last delivered element. This is for testing purposes only.      *      * @param o an element.      */
 DECL|method|setLastDelivered (E o)
 name|void
 name|setLastDelivered
@@ -266,7 +266,7 @@ name|o
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Inserts the given element into this resequencer. If the element is not      * ready for immediate delivery and has no immediate presecessor then it is      * scheduled for timing out. After being timed out it is ready for delivery.      *       * @param o an element.      */
+comment|/**      * Inserts the given element into this resequencer. If the element is not      * ready for immediate delivery and has no immediate presecessor then it is      * scheduled for timing out. After being timed out it is ready for delivery.      *      * @param o an element.      */
 DECL|method|insert (E o)
 specifier|public
 name|void
@@ -366,7 +366,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Delivers all elements which are currently ready to deliver.      *       * @throws exception thrown by {@link SequenceSender#sendElement(Object)}.      *       * @see #deliverNext();      */
+comment|/**      * Delivers all elements which are currently ready to deliver.      *      * @throws exception thrown by {@link SequenceSender#sendElement(Object)}.      *      * @see #deliverNext();      */
 DECL|method|deliver ()
 specifier|public
 name|void
@@ -380,9 +380,11 @@ condition|(
 name|deliverNext
 argument_list|()
 condition|)
-empty_stmt|;
+block|{
+comment|// do nothing here
 block|}
-comment|/**      * Attempts to deliver a single element from the head of the resequencer      * queue (sequence). Only elements which have not been scheduled for timing      * out or which already timed out can be delivered. Elements are deliveref via       * {@link SequenceSender#sendElement(Object)}.      *       * @return<code>true</code> if the element has been delivered      *<code>false</code> otherwise.      *       * @throws exception thrown by {@link SequenceSender#sendElement(Object)}.      *               */
+block|}
+comment|/**      * Attempts to deliver a single element from the head of the resequencer      * queue (sequence). Only elements which have not been scheduled for timing      * out or which already timed out can be delivered. Elements are deliveref via      * {@link SequenceSender#sendElement(Object)}.      *      * @return<code>true</code> if the element has been delivered      *<code>false</code> otherwise.      *      * @throws exception thrown by {@link SequenceSender#sendElement(Object)}.      *      */
 DECL|method|deliverNext ()
 specifier|public
 name|boolean
@@ -459,7 +461,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Returns<code>true</code> if the given element is the immediate      * successor of the last delivered element.      *       * @param element an element.      * @return<code>true</code> if the given element is the immediate      *         successor of the last delivered element.      */
+comment|/**      * Returns<code>true</code> if the given element is the immediate      * successor of the last delivered element.      *      * @param element an element.      * @return<code>true</code> if the given element is the immediate      *         successor of the last delivered element.      */
 DECL|method|successorOfLastDelivered (Element<E> element)
 specifier|private
 name|boolean
@@ -506,7 +508,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Creates a timeout task based on the timeout setting of this resequencer.      *       * @return a new timeout task.      */
+comment|/**      * Creates a timeout task based on the timeout setting of this resequencer.      *      * @return a new timeout task.      */
 DECL|method|defineTimeout ()
 specifier|private
 name|Timeout
