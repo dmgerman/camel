@@ -1162,6 +1162,7 @@ block|{
 comment|// We need to convert it
 try|try
 block|{
+comment|// ignore exceptions as there could be another setter method where we could type convert successfully
 name|Object
 name|convertedValue
 init|=
@@ -1199,7 +1200,10 @@ name|NoTypeConversionAvailableException
 name|e
 parameter_list|)
 block|{
-comment|// ignore we could not find a suitable type converter for this method
+name|typeConvertionFailed
+operator|=
+name|e
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1211,16 +1215,16 @@ name|typeConvertionFailed
 operator|=
 name|e
 expr_stmt|;
-comment|// ignore as there could be another setter method where we could type convert with success
+block|}
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Setter "
+literal|"Setter \""
 operator|+
 name|setter
 operator|+
-literal|" with parameter type "
+literal|"\" with parameter type \""
 operator|+
 name|setter
 operator|.
@@ -1230,12 +1234,11 @@ index|[
 literal|0
 index|]
 operator|+
-literal|" could not be used for type conertions of "
+literal|"\" could not be used for type conertions of "
 operator|+
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// we did not find a setter method to use, and if we did try to use a type converter then throw
