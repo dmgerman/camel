@@ -76,6 +76,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|cxf
@@ -320,7 +332,9 @@ name|getIn
 argument_list|()
 decl_stmt|;
 comment|// Check the body if the POJO parameter list first
-name|Object
+try|try
+block|{
+name|List
 name|body
 init|=
 name|in
@@ -332,13 +346,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|body
-operator|instanceof
-name|List
-condition|)
-block|{
 comment|// just set the operation's parameter
 name|answer
 operator|.
@@ -366,14 +373,21 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+catch|catch
+parameter_list|(
+name|NoTypeConversionAvailableException
+name|ex
+parameter_list|)
 block|{
 comment|// CXF uses StAX which is based on the stream API to parse the XML,
 comment|// so the CXF transport is also based on the stream API.
 comment|// And the interceptors are also based on the stream API,
 comment|// so let's use an InputStream to host the CXF on wire message.
+try|try
+block|{
+name|InputStream
 name|body
-operator|=
+init|=
 name|in
 operator|.
 name|getBody
@@ -382,14 +396,7 @@ name|InputStream
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|body
-operator|instanceof
-name|InputStream
-condition|)
-block|{
+decl_stmt|;
 name|answer
 operator|.
 name|setContent
@@ -401,6 +408,14 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoTypeConversionAvailableException
+name|ex2
+parameter_list|)
+block|{
+comment|// ignore
 block|}
 comment|// TODO do we propagate header the same way in non-POJO mode?
 comment|// CxfHeaderHelper.propagateCamelToCxf(strategy, in.getHeaders(), answer);
@@ -725,18 +740,6 @@ name|Message
 name|cxfMessage
 parameter_list|)
 block|{
-name|InputStream
-name|is
-init|=
-name|camelMessage
-operator|.
-name|getBody
-argument_list|(
-name|InputStream
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|CxfHeaderHelper
 operator|.
 name|propagateCamelToCxf
@@ -751,6 +754,20 @@ argument_list|,
 name|cxfMessage
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|InputStream
+name|is
+init|=
+name|camelMessage
+operator|.
+name|getBody
+argument_list|(
+name|InputStream
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|is
@@ -770,7 +787,12 @@ name|is
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+block|}
+catch|catch
+parameter_list|(
+name|NoTypeConversionAvailableException
+name|ex
+parameter_list|)
 block|{
 name|Object
 name|result
@@ -780,13 +802,6 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|null
-condition|)
-block|{
 if|if
 condition|(
 name|result
@@ -820,7 +835,6 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultMessage
@@ -448,6 +460,8 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|T
 name|answer
 init|=
@@ -468,6 +482,15 @@ block|{
 return|return
 name|answer
 return|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|NoTypeConversionAvailableException
+name|ex
+parameter_list|)
+block|{
+comment|// ignore
 block|}
 block|}
 block|}

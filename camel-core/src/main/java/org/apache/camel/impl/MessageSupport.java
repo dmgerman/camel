@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverter
 import|;
 end_import
@@ -226,9 +238,13 @@ operator|.
 name|getTypeConverter
 argument_list|()
 decl_stmt|;
-name|T
-name|answer
-init|=
+try|try
+block|{
+comment|// lets first try converting the message itself first
+comment|// as for some types like InputStream v Reader its more efficient to do the transformation
+comment|// from the Message itself as its got efficient implementations of them, before trying the
+comment|// payload
+return|return
 name|converter
 operator|.
 name|convertTo
@@ -239,20 +255,17 @@ name|e
 argument_list|,
 name|body
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|answer
-operator|==
-literal|null
-condition|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|NoTypeConversionAvailableException
+name|ex
+parameter_list|)
 block|{
-comment|// lets first try converting the message itself first
-comment|// as for some types like InputStream v Reader its more efficient to do the transformation
-comment|// from the Message itself as its got efficient implementations of them, before trying the
-comment|// payload
-name|answer
-operator|=
+comment|// ignore
+block|}
+return|return
 name|converter
 operator|.
 name|convertTo
@@ -261,10 +274,6 @@ name|type
 argument_list|,
 name|this
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|answer
 return|;
 block|}
 block|}

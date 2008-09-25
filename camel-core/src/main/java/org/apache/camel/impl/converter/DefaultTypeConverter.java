@@ -100,6 +100,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverter
 import|;
 end_import
@@ -466,6 +478,39 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+comment|// lets avoid NullPointerException when converting to boolean for null values
+if|if
+condition|(
+name|boolean
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+return|return
+operator|(
+name|T
+operator|)
+name|Boolean
+operator|.
+name|FALSE
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
 comment|// same instance type
 if|if
 condition|(
@@ -508,7 +553,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
+name|T
+name|rc
+init|=
 name|converter
 operator|.
 name|convertTo
@@ -519,7 +566,18 @@ name|exchange
 argument_list|,
 name|value
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|rc
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|rc
 return|;
+block|}
 block|}
 comment|// fallback converters
 for|for
@@ -555,28 +613,6 @@ return|return
 name|rc
 return|;
 block|}
-block|}
-comment|// lets avoid NullPointerException when converting to boolean for null values
-if|if
-condition|(
-name|boolean
-operator|.
-name|class
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|type
-argument_list|)
-condition|)
-block|{
-return|return
-operator|(
-name|T
-operator|)
-name|Boolean
-operator|.
-name|FALSE
-return|;
 block|}
 comment|// primitives
 if|if
@@ -636,12 +672,9 @@ if|if
 condition|(
 operator|!
 name|camelType
-operator|&&
-name|value
-operator|!=
-literal|null
 condition|)
 block|{
+comment|// TODO: as the next thing is an exception I suspect this warn is useless.  TB removed.
 comment|// only log WARN level for non internal Camel convertions
 name|LOG
 operator|.
@@ -670,9 +703,16 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-literal|null
-return|;
+comment|// Could not find suitable conversion
+throw|throw
+operator|new
+name|NoTypeConversionAvailableException
+argument_list|(
+name|value
+argument_list|,
+name|type
+argument_list|)
+throw|;
 block|}
 DECL|method|addTypeConverter (Class toType, Class fromType, TypeConverter typeConverter)
 specifier|public

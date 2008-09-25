@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -921,7 +933,9 @@ name|Object
 name|bean
 parameter_list|)
 block|{
-comment|//We will use the type convert to build the endpoint first
+comment|// We will use the type convert to build the endpoint first
+try|try
+block|{
 name|Endpoint
 name|endpoint
 init|=
@@ -955,17 +969,15 @@ return|return
 name|endpoint
 return|;
 block|}
-name|Processor
-name|processor
-init|=
-operator|new
-name|BeanProcessor
-argument_list|(
-name|bean
-argument_list|,
-name|this
-argument_list|)
-decl_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoTypeConversionAvailableException
+name|ex
+parameter_list|)
+block|{
+comment|// ignore, handled below
+block|}
 return|return
 operator|new
 name|ProcessorEndpoint
@@ -974,7 +986,13 @@ name|uri
 argument_list|,
 name|this
 argument_list|,
-name|processor
+operator|new
+name|BeanProcessor
+argument_list|(
+name|bean
+argument_list|,
+name|this
+argument_list|)
 argument_list|)
 return|;
 block|}

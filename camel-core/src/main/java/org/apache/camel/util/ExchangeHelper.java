@@ -156,6 +156,18 @@ name|NoSuchPropertyException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Some helper methods for working with {@link Exchange} objects  *  * @version $Revision$  */
 end_comment
@@ -334,8 +346,10 @@ parameter_list|)
 throws|throws
 name|NoSuchPropertyException
 block|{
+try|try
+block|{
 name|T
-name|answer
+name|result
 init|=
 name|exchange
 operator|.
@@ -348,11 +362,24 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|answer
-operator|==
+name|result
+operator|!=
 literal|null
 condition|)
 block|{
+return|return
+name|result
+return|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|NoTypeConversionAvailableException
+name|ex
+parameter_list|)
+block|{
+comment|// will throw NoSuchPropertyException below
+block|}
 throw|throw
 operator|new
 name|NoSuchPropertyException
@@ -364,10 +391,6 @@ argument_list|,
 name|type
 argument_list|)
 throw|;
-block|}
-return|return
-name|answer
-return|;
 block|}
 DECL|method|getMandatoryHeader (Exchange exchange, String propertyName, Class<T> type)
 specifier|public

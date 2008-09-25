@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -146,6 +158,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+try|try
+block|{
 name|StreamCache
 name|newBody
 init|=
@@ -183,6 +197,15 @@ argument_list|(
 name|newBody
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|NoTypeConversionAvailableException
+name|ex
+parameter_list|)
+block|{
+comment|// ignore if in is not of StreamCache type
 block|}
 name|proceed
 argument_list|(
