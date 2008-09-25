@@ -1378,8 +1378,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-try|try
-block|{
 return|return
 name|typeConverter
 operator|.
@@ -1390,30 +1388,6 @@ argument_list|,
 name|value
 argument_list|)
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|NoTypeConversionAvailableException
-name|ex
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Could not convert \""
-operator|+
-name|value
-operator|+
-literal|"\" to "
-operator|+
-name|type
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-throw|;
-block|}
 block|}
 name|PropertyEditor
 name|editor

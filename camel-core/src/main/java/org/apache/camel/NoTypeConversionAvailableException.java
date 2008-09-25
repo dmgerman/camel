@@ -66,11 +66,11 @@ else|:
 literal|null
 operator|)
 operator|+
-literal|" to the required type "
+literal|" to the required type: "
 operator|+
 name|type
 operator|.
-name|getName
+name|getCanonicalName
 argument_list|()
 operator|+
 literal|" with value "
