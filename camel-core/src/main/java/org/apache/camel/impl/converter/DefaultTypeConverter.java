@@ -655,54 +655,6 @@ argument_list|)
 return|;
 block|}
 block|}
-name|boolean
-name|camelType
-init|=
-name|type
-operator|.
-name|getCanonicalName
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"org.apache.camel"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|camelType
-condition|)
-block|{
-comment|// TODO: as the next thing is an exception I suspect this warn is useless.  TB removed.
-comment|// only log WARN level for non internal Camel convertions
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Could not find a type converter for converting "
-operator|+
-name|value
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getCanonicalName
-argument_list|()
-operator|+
-literal|" -> "
-operator|+
-name|type
-operator|.
-name|getCanonicalName
-argument_list|()
-operator|+
-literal|" with value: "
-operator|+
-name|value
-argument_list|)
-expr_stmt|;
-block|}
 comment|// Could not find suitable conversion
 throw|throw
 operator|new

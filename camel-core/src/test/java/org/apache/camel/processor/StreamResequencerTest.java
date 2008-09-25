@@ -358,14 +358,8 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
-name|System
-operator|.
-name|clearProperty
-argument_list|(
-name|JmxSystemPropertyKeys
-operator|.
-name|DISABLED
-argument_list|)
+name|enableJMX
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
@@ -431,25 +425,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"This will now fail"
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|setProperty
-argument_list|(
-name|JmxSystemPropertyKeys
-operator|.
-name|DISABLED
-argument_list|,
-literal|"true"
-argument_list|)
+name|disableJMX
+argument_list|()
 expr_stmt|;
 name|doTestStreamResequencerType
 argument_list|()

@@ -1195,6 +1195,14 @@ return|;
 block|}
 catch|catch
 parameter_list|(
+name|NoTypeConversionAvailableException
+name|e
+parameter_list|)
+block|{
+comment|// ignore we could not find a suitable type converter for this method
+block|}
+catch|catch
+parameter_list|(
 name|IllegalArgumentException
 name|e
 parameter_list|)

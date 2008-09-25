@@ -349,7 +349,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the underlying JMS message      *      * @return the underlying JMS message      */
+comment|/**      * Returns the underlying JMS message      */
 DECL|method|getJmsMessage ()
 specifier|public
 name|Message

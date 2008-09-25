@@ -194,7 +194,6 @@ specifier|private
 name|JmsIOConverter
 parameter_list|()
 block|{     }
-comment|/**      * @param message      * @return a ByteBuffer      * @throws Exception      */
 annotation|@
 name|Converter
 DECL|method|toByteBuffer (final Message message, Exchange exchange)
@@ -369,11 +368,14 @@ parameter_list|)
 block|{
 comment|// we have no other way of knowing the end of the message
 block|}
+finally|finally
+block|{
 name|dataOut
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 name|NIOConverter
 operator|.

@@ -398,44 +398,6 @@ block|{
 comment|// expected
 block|}
 block|}
-DECL|method|testSimple ()
-specifier|public
-name|void
-name|testSimple
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertExpression
-argument_list|(
-literal|"${body}"
-argument_list|,
-literal|"<hello id='m123'>world!</hello>"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-literal|"${in.header.foo}"
-argument_list|,
-literal|"abc"
-argument_list|)
-expr_stmt|;
-comment|// end users might add simple: prefix so we support that too
-name|assertExpression
-argument_list|(
-literal|"${simple:in.header.foo}"
-argument_list|,
-literal|"abc"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-literal|"${simple:body}"
-argument_list|,
-literal|"<hello id='m123'>world!</hello>"
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|testSimpleAndFile ()
 specifier|public
 name|void
