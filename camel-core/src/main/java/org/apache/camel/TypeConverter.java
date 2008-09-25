@@ -14,20 +14,6 @@ name|camel
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|abdera
-operator|.
-name|parser
-operator|.
-name|ParseException
-import|;
-end_import
-
 begin_comment
 comment|/**  * A pluggable strategy to be able to convert objects<a  * href="http://activemq.apache.org/camel/type-converter.html">to different  * types</a> such as to and from String, InputStream/OutputStream,  * Reader/Writer, Document, byte[], ByteBuffer etc  *   * @version $Revision$  */
 end_comment
