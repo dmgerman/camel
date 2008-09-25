@@ -14,6 +14,20 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|abdera
+operator|.
+name|parser
+operator|.
+name|ParseException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A pluggable strategy to be able to convert objects<a  * href="http://activemq.apache.org/camel/type-converter.html">to different  * types</a> such as to and from String, InputStream/OutputStream,  * Reader/Writer, Document, byte[], ByteBuffer etc  *   * @version $Revision$  */
 end_comment
@@ -24,7 +38,7 @@ specifier|public
 interface|interface
 name|TypeConverter
 block|{
-comment|/**      * Converts the value to the specified type      *       * @param type the requested type      * @param value the value to be converted      * @return the converted value or<tt>null</tt> if it can not be converted      */
+comment|/**      * Converts the value to the specified type      *       * @param type the requested type      * @param value the value to be converted      * @return the converted value      * @throws {@link NoTypeConversionAvailableException} if conversion not possible      */
 DECL|method|convertTo (Class<T> type, Object value)
 parameter_list|<
 name|T
@@ -42,7 +56,7 @@ name|Object
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Converts the value to the specified type in the context of an exchange      *<p/>      * Used when conversion requires extra information from the current      * exchange (such as encoding).      *      * @param type the requested type      * @param exchange the current exchange      * @param value the value to be converted      * @return the converted value or<tt>null</tt> if it can not be converted      */
+comment|/**      * Converts the value to the specified type in the context of an exchange      *<p/>      * Used when conversion requires extra information from the current      * exchange (such as encoding).      *      * @param type the requested type      * @param exchange the current exchange      * @param value the value to be converted      * @return the converted value      * @throws {@link NoTypeConversionAvailableException} if conversion not possible      */
 DECL|method|convertTo (Class<T> type, Exchange exchange, Object value)
 parameter_list|<
 name|T
