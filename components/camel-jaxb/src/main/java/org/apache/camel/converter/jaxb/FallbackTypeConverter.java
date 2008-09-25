@@ -166,6 +166,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -758,9 +770,9 @@ argument_list|,
 name|value
 argument_list|)
 decl_stmt|;
-name|T
-name|answer
-init|=
+try|try
+block|{
+return|return
 name|parentTypeConverter
 operator|.
 name|convertTo
@@ -769,13 +781,13 @@ name|type
 argument_list|,
 name|source
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|answer
-operator|==
-literal|null
-condition|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|NoTypeConversionAvailableException
+name|e
+parameter_list|)
 block|{
 comment|// lets try a stream
 name|StringWriter
@@ -836,9 +848,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-return|return
-name|answer
-return|;
 block|}
 comment|// lets try convert to the type from JAXB
 return|return
