@@ -55,6 +55,8 @@ argument_list|(
 literal|"No endpoint could be found for: "
 operator|+
 name|uri
+operator|+
+literal|", please check the class path for the uri relates camel component module."
 argument_list|)
 expr_stmt|;
 name|this

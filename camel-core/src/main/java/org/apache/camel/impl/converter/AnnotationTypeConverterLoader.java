@@ -1031,7 +1031,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"Ignoring converter type: "
 operator|+
