@@ -48,9 +48,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|impl
 operator|.
-name|ObjectConverter
+name|DefaultProducer
 import|;
 end_import
 
@@ -62,9 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|DefaultProducer
+name|ObjectHelper
 import|;
 end_import
 
@@ -181,9 +181,9 @@ comment|// lets handle arrays or collections of objects
 name|Iterator
 name|iter
 init|=
-name|ObjectConverter
+name|ObjectHelper
 operator|.
-name|iterator
+name|createIterator
 argument_list|(
 name|body
 argument_list|)
