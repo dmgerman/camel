@@ -1431,9 +1431,6 @@ literal|0
 condition|)
 block|{
 name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
 name|processorType
 init|=
 name|proxy
