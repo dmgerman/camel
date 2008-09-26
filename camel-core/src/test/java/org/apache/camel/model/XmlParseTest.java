@@ -2128,15 +2128,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertInterceptorRefs (ProcessorType<?> route, String... names)
+DECL|method|assertInterceptorRefs (ProcessorType route, String... names)
 specifier|protected
 name|void
 name|assertInterceptorRefs
 parameter_list|(
 name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
 name|route
 parameter_list|,
 name|String
