@@ -38,7 +38,35 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|simple
+operator|.
+name|FileLanguage
 import|;
 end_import
 
@@ -112,6 +140,11 @@ DECL|field|ftpClientConfig
 specifier|private
 name|FTPClientConfig
 name|ftpClientConfig
+decl_stmt|;
+DECL|field|expression
+specifier|private
+name|Expression
+name|expression
 decl_stmt|;
 DECL|method|RemoteFileConfiguration ()
 specifier|public
@@ -568,59 +601,53 @@ operator|=
 name|ftpClientConfig
 expr_stmt|;
 block|}
-DECL|method|dump ()
+DECL|method|getExpression ()
 specifier|public
-name|String
-name|dump
+name|Expression
+name|getExpression
 parameter_list|()
 block|{
 return|return
-literal|"RemoteFileConfiguration{"
-operator|+
-literal|"protocol='"
-operator|+
-name|protocol
-operator|+
-literal|'\''
-operator|+
-literal|", username='"
-operator|+
-name|username
-operator|+
-literal|'\''
-operator|+
-literal|", host='"
-operator|+
-name|host
-operator|+
-literal|'\''
-operator|+
-literal|", port="
-operator|+
-name|port
-operator|+
-literal|", password='"
-operator|+
-name|password
-operator|+
-literal|'\''
-operator|+
-literal|", file='"
-operator|+
-name|file
-operator|+
-literal|'\''
-operator|+
-literal|", binary="
-operator|+
-name|binary
-operator|+
-literal|", directory="
-operator|+
-name|directory
-operator|+
-literal|'}'
+name|expression
 return|;
+block|}
+DECL|method|setExpression (Expression expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
+expr_stmt|;
+block|}
+comment|/**      * Sets the expression based on {@link org.apache.camel.language.simple.FileLanguage}      */
+DECL|method|setExpression (String fileLanguageExpression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|String
+name|fileLanguageExpression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expression
+operator|=
+name|FileLanguage
+operator|.
+name|file
+argument_list|(
+name|fileLanguageExpression
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

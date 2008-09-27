@@ -2158,7 +2158,7 @@ return|return
 name|dynamicQueryContext
 return|;
 block|}
-comment|/**      * Configures the dynamic context with exchange specific parameters      *      * @param dynamicQueryContext      * @param exchange      * @throws Exception      */
+comment|/**      * Configures the dynamic context with exchange specific parameters      */
 DECL|method|configureQuery (DynamicQueryContext dynamicQueryContext, Exchange exchange)
 specifier|protected
 name|void

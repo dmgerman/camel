@@ -114,7 +114,7 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|RemoteFileExchange (CamelContext context, ExchangePattern pattern, T binding, String host, String fullFileName, ByteArrayOutputStream outputStream)
+DECL|method|RemoteFileExchange (CamelContext context, ExchangePattern pattern, T binding, String host, String fullFileName, String fileName, long fileLength, ByteArrayOutputStream outputStream)
 specifier|public
 name|RemoteFileExchange
 parameter_list|(
@@ -132,6 +132,12 @@ name|host
 parameter_list|,
 name|String
 name|fullFileName
+parameter_list|,
+name|String
+name|fileName
+parameter_list|,
+name|long
+name|fileLength
 parameter_list|,
 name|ByteArrayOutputStream
 name|outputStream
@@ -154,6 +160,10 @@ argument_list|(
 name|host
 argument_list|,
 name|fullFileName
+argument_list|,
+name|fileName
+argument_list|,
+name|fileLength
 argument_list|,
 name|outputStream
 argument_list|)

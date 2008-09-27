@@ -980,6 +980,16 @@ name|createExchange
 argument_list|(
 name|fullFileName
 argument_list|,
+name|ftpFile
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|ftpFile
+operator|.
+name|getSize
+argument_list|()
+argument_list|,
 name|byteArrayOutputStream
 argument_list|)
 decl_stmt|;
@@ -1166,6 +1176,8 @@ init|=
 name|getMoveFileName
 argument_list|(
 name|fromName
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 if|if
