@@ -1490,7 +1490,7 @@ name|setObjectProperty
 argument_list|(
 name|key
 argument_list|,
-name|headerValue
+name|value
 argument_list|)
 expr_stmt|;
 block|}
