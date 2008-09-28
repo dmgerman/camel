@@ -66,6 +66,22 @@ name|DefaultUnitOfWork
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+import|;
+end_import
+
 begin_comment
 comment|/**   * Handles calling the UnitOfWork.done() method when processing of an exchange  * is complete.  */
 end_comment
@@ -119,15 +135,43 @@ condition|)
 block|{
 comment|// If there is no existing UoW, then we should start one and
 comment|// terminate it once processing is completed for the exchange.
+specifier|final
+name|DefaultUnitOfWork
+name|uow
+init|=
+operator|new
+name|DefaultUnitOfWork
+argument_list|()
+decl_stmt|;
 name|exchange
 operator|.
 name|setUnitOfWork
 argument_list|(
-operator|new
-name|DefaultUnitOfWork
-argument_list|()
+name|uow
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|uow
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+comment|// return the process code where we do stop and cleanup
 return|return
 name|processor
 operator|.
@@ -167,6 +211,27 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|uow
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 name|exchange
 operator|.
 name|setUnitOfWork

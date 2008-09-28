@@ -189,7 +189,7 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"processor"
+literal|"process"
 return|;
 block|}
 annotation|@
@@ -201,7 +201,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Processor["
+literal|"process["
 operator|+
 operator|(
 operator|(
@@ -210,7 +210,7 @@ operator|!=
 literal|null
 operator|)
 condition|?
-literal|"ref:  "
+literal|"ref: "
 operator|+
 name|ref
 else|:
@@ -236,7 +236,7 @@ literal|null
 condition|)
 block|{
 return|return
-literal|"ref:  "
+literal|"ref: "
 operator|+
 name|ref
 return|;

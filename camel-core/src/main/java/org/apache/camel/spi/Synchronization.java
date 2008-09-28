@@ -62,7 +62,7 @@ specifier|public
 interface|interface
 name|Synchronization
 block|{
-comment|/**      * Called when the processing of the message exchange is complete      *      * @param exchange the excahnge being processed      */
+comment|/**      * Called when the processing of the message exchange is complete      *      * @param exchange the exchange being processed      */
 DECL|method|onComplete (Exchange exchange)
 name|void
 name|onComplete
@@ -71,7 +71,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Called when the processing of the message exchange has failed for some reason.      * The exception which caused the problem is in {@link Exchange#getException()} and      * there could be a fault message via {@link Exchange#getFault()}      *      * @param exchange the excahnge being processed      */
+comment|/**      * Called when the processing of the message exchange has failed for some reason.      * The exception which caused the problem is in {@link Exchange#getException()} and      * there could be a fault message via {@link Exchange#getFault()}      *      * @param exchange the exchange being processed      */
 DECL|method|onFailure (Exchange exchange)
 name|void
 name|onFailure

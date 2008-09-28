@@ -77,10 +77,12 @@ extends|extends
 name|ContextTestSupport
 block|{
 DECL|field|formatter
+specifier|private
 name|TraceFormatter
 name|formatter
 decl_stmt|;
 DECL|field|tracer
+specifier|private
 name|Tracer
 name|tracer
 decl_stmt|;

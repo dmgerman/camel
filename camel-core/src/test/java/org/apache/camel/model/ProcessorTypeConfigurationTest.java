@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -119,7 +107,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"target not provided on node: Processor[ref:  hello]"
+literal|"target not provided on node: process[ref: hello]"
 argument_list|,
 name|e
 operator|.

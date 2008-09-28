@@ -265,7 +265,7 @@ specifier|private
 name|Description
 name|description
 decl_stmt|;
-comment|/**      * Gets the value of the id property.      *      * @return possible object is      *         {@link String }      */
+comment|/**      * Gets the value of the id property.      */
 DECL|method|getId ()
 specifier|public
 name|String
@@ -276,7 +276,7 @@ return|return
 name|id
 return|;
 block|}
-comment|/**      * Sets the value of the id property.      *      * @param value allowed object is      *              {@link String }      */
+comment|/**      * Sets the value of the id property.      */
 DECL|method|setId (String value)
 specifier|public
 name|void

@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Synchronization
@@ -125,6 +137,8 @@ class|class
 name|DefaultUnitOfWork
 implements|implements
 name|UnitOfWork
+implements|,
+name|Service
 block|{
 DECL|field|DEFAULT_ID_GENERATOR
 specifier|private
@@ -168,6 +182,50 @@ specifier|public
 name|DefaultUnitOfWork
 parameter_list|()
 block|{     }
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// need to clean up when we are stopping to not leak memory
+if|if
+condition|(
+name|synchronizations
+operator|!=
+literal|null
+condition|)
+block|{
+name|synchronizations
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|asyncCallbacks
+operator|!=
+literal|null
+condition|)
+block|{
+name|asyncCallbacks
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|addSynchronization (Synchronization synchronization)
 specifier|public
 specifier|synchronized
@@ -229,6 +287,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * @deprecated will be removed in Camel 2.0      */
 DECL|method|reset ()
 specifier|public
 name|void
