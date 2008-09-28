@@ -87,10 +87,10 @@ comment|/**  * Trying to reproduce CAMEL-927.  */
 end_comment
 
 begin_class
-DECL|class|TwoTimerWithJMSIssue
+DECL|class|TwoTimerWithJMXIssue
 specifier|public
 class|class
-name|TwoTimerWithJMSIssue
+name|TwoTimerWithJMXIssue
 extends|extends
 name|ContextTestSupport
 block|{
