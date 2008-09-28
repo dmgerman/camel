@@ -64,15 +64,11 @@ DECL|field|count
 specifier|private
 name|int
 name|count
-init|=
-literal|0
 decl_stmt|;
 DECL|field|index
 specifier|private
 name|int
 name|index
-init|=
-literal|0
 decl_stmt|;
 DECL|method|LoopTestProcessor ()
 specifier|public

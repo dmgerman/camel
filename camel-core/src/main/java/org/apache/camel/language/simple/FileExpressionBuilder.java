@@ -46,7 +46,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Expression
+name|Exchange
 import|;
 end_import
 
@@ -58,7 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|Expression
 import|;
 end_import
 
@@ -650,7 +650,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|// must call evalute to return the nested langauge evaluate when evaluating
+comment|// must call evaluate to return the nested language evaluate when evaluating
 comment|// stacked expressions
 return|return
 name|ExpressionBuilder
@@ -725,7 +725,7 @@ name|E
 name|exchange
 parameter_list|)
 block|{
-comment|// must call evalute to return the nested langauge evaluate when evaluating
+comment|// must call evaluate to return the nested language evaluate when evaluating
 comment|// stacked expressions
 return|return
 name|SimpleLanguage
