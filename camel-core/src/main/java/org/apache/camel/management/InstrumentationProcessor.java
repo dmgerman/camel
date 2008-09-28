@@ -215,6 +215,25 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
+if|if
+condition|(
+name|processor
+operator|==
+literal|null
+condition|)
+block|{
+comment|// no processor so nothing to process, so return
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
 specifier|final
 name|long
 name|startTime
