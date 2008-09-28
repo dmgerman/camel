@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XPath language.  *  * @version $Revision: 659760 $  */
+comment|/**  * XPath language.  *  * @version $Revision$  */
 end_comment
 
 begin_class
