@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The resource for the CamelContext  *  * @version $Revision: 1.1 $  */
+comment|/**  * The resource for the CamelContext  *  * @version $Revision$  */
 end_comment
 
 begin_class

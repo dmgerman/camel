@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple bootstrap class for starting Jetty in your IDE using the local web  * application.  *  * @version $Revision: 565003 $  */
+comment|/**  * A simple bootstrap class for starting Jetty in your IDE using the local web  * application.  *  * @version $Revision$  */
 end_comment
 
 begin_class
