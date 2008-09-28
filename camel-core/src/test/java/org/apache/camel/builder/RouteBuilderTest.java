@@ -2206,7 +2206,7 @@ argument_list|)
 operator|.
 name|splitter
 argument_list|(
-name|bodyAs
+name|body
 argument_list|(
 name|String
 operator|.

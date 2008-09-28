@@ -213,11 +213,6 @@ name|expression
 init|=
 name|ExpressionBuilder
 operator|.
-expr|<
-name|E
-decl_stmt|,
-name|T
-decl|>
 name|bodyExpression
 argument_list|(
 name|type
@@ -304,11 +299,6 @@ name|expression
 init|=
 name|ExpressionBuilder
 operator|.
-expr|<
-name|E
-decl_stmt|,
-name|T
-decl|>
 name|outBodyExpression
 argument_list|(
 name|type
@@ -395,11 +385,6 @@ name|expression
 init|=
 name|ExpressionBuilder
 operator|.
-expr|<
-name|E
-decl_stmt|,
-name|T
-decl|>
 name|faultBodyExpression
 argument_list|(
 name|type
