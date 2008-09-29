@@ -77,14 +77,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  Unit test for trace formatter configured in spring XML.  */
+comment|/**  *  Unit test for tracer configuration configured in spring XML.  */
 end_comment
 
 begin_class
-DECL|class|TraceFormatterTest
+DECL|class|TracerConfigurationTest
 specifier|public
 class|class
-name|TraceFormatterTest
+name|TracerConfigurationTest
 extends|extends
 name|SpringTestSupport
 block|{
@@ -98,7 +98,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"/org/apache/camel/spring/interceptor/traceFormatterTest.xml"
+literal|"/org/apache/camel/spring/interceptor/tracerConfigurationTest.xml"
 argument_list|)
 return|;
 block|}
