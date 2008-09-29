@@ -3120,10 +3120,28 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Catches an exception type.      *      * @deprecated Please use {@link #onException(Class)} instead. Will be removed in Camel 2.0.      */
 DECL|method|exception (Class exceptionType)
 specifier|public
 name|ExceptionType
 name|exception
+parameter_list|(
+name|Class
+name|exceptionType
+parameter_list|)
+block|{
+return|return
+name|onException
+argument_list|(
+name|exceptionType
+argument_list|)
+return|;
+block|}
+comment|/**      * Catches an exception type.      */
+DECL|method|onException (Class exceptionType)
+specifier|public
+name|ExceptionType
+name|onException
 parameter_list|(
 name|Class
 name|exceptionType

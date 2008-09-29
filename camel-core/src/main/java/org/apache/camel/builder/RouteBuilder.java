@@ -491,6 +491,25 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Adds an exception handler route for the given exception type      */
+DECL|method|onException (Class exceptionType)
+specifier|public
+name|ExceptionType
+name|onException
+parameter_list|(
+name|Class
+name|exceptionType
+parameter_list|)
+block|{
+return|return
+name|routeCollection
+operator|.
+name|exception
+argument_list|(
+name|exceptionType
+argument_list|)
+return|;
+block|}
+comment|/**      * Adds an exception handler route for the given exception type      *      * @deprecated Please use {@link #onException(Class)} instead. Will be removed in Camel 2.0.      */
 DECL|method|exception (Class exceptionType)
 specifier|public
 name|ExceptionType
@@ -501,9 +520,7 @@ name|exceptionType
 parameter_list|)
 block|{
 return|return
-name|routeCollection
-operator|.
-name|exception
+name|onException
 argument_list|(
 name|exceptionType
 argument_list|)
