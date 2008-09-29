@@ -258,7 +258,7 @@ if|if
 condition|(
 name|tracer
 operator|.
-name|getLevel
+name|getLogLevel
 argument_list|()
 operator|!=
 literal|null
@@ -270,7 +270,7 @@ name|setLevel
 argument_list|(
 name|tracer
 operator|.
-name|getLevel
+name|getLogLevel
 argument_list|()
 argument_list|)
 expr_stmt|;

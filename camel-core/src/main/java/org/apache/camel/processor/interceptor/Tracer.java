@@ -160,10 +160,15 @@ name|enabled
 init|=
 literal|true
 decl_stmt|;
-DECL|field|level
+DECL|field|logName
+specifier|private
+name|String
+name|logName
+decl_stmt|;
+DECL|field|logLevel
 specifier|private
 name|LoggingLevel
-name|level
+name|logLevel
 decl_stmt|;
 DECL|field|traceFilter
 specifier|private
@@ -184,11 +189,6 @@ name|boolean
 name|traceExceptions
 init|=
 literal|true
-decl_stmt|;
-DECL|field|logName
-specifier|private
-name|String
-name|logName
 decl_stmt|;
 comment|/**      * A helper method to return the Tracer instance for a given {@link CamelContext} if one is enabled      *      * @param context the camel context the tracer is connected to      * @return the tracer or null if none can be found      */
 DECL|method|getTracer (CamelContext context)
@@ -395,31 +395,31 @@ operator|=
 name|traceFilter
 expr_stmt|;
 block|}
-DECL|method|getLevel ()
+DECL|method|getLogLevel ()
 specifier|public
 name|LoggingLevel
-name|getLevel
+name|getLogLevel
 parameter_list|()
 block|{
 return|return
-name|level
+name|logLevel
 return|;
 block|}
 comment|/**      * Sets the logging level to ouput tracing. Will default use<tt>INFO</tt> level.      */
-DECL|method|setLevel (LoggingLevel level)
+DECL|method|setLogLevel (LoggingLevel logLevel)
 specifier|public
 name|void
-name|setLevel
+name|setLogLevel
 parameter_list|(
 name|LoggingLevel
-name|level
+name|logLevel
 parameter_list|)
 block|{
 name|this
 operator|.
-name|level
+name|logLevel
 operator|=
-name|level
+name|logLevel
 expr_stmt|;
 block|}
 DECL|method|isTraceExceptions ()

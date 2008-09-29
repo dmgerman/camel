@@ -151,7 +151,7 @@ argument_list|()
 decl_stmt|;
 name|tracer
 operator|.
-name|setLevel
+name|setLogLevel
 argument_list|(
 name|LoggingLevel
 operator|.
