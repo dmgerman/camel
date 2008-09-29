@@ -312,16 +312,31 @@ argument_list|,
 name|text
 argument_list|)
 expr_stmt|;
-name|assertEquals
+comment|// order is not guaranteed with a Map (which was passed in before)
+comment|// so we need to check for both combinations
+name|assertTrue
 argument_list|(
-literal|"text body"
+literal|"Text body has wrong value."
 argument_list|,
 literal|"abc,123"
-argument_list|,
+operator|.
+name|equals
+argument_list|(
 name|text
 operator|.
 name|trim
 argument_list|()
+argument_list|)
+operator|||
+literal|"123,abc"
+operator|.
+name|equals
+argument_list|(
+name|text
+operator|.
+name|trim
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
