@@ -280,23 +280,6 @@ operator|.
 name|newInstance
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Could not find Xalan on the classpath so ignoring this test case: "
-operator|+
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|instance
@@ -375,6 +358,23 @@ operator|+
 literal|" result: "
 operator|+
 name|value
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Could not find Xalan on the classpath so ignoring this test case: "
+operator|+
+name|e
 argument_list|)
 expr_stmt|;
 block|}
