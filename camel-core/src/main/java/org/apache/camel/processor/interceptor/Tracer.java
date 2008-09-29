@@ -185,6 +185,11 @@ name|traceExceptions
 init|=
 literal|true
 decl_stmt|;
+DECL|field|logName
+specifier|private
+name|String
+name|logName
+decl_stmt|;
 comment|/**      * A helper method to return the Tracer instance for a given {@link CamelContext} if one is enabled      *      * @param context the camel context the tracer is connected to      * @return the tracer or null if none can be found      */
 DECL|method|getTracer (CamelContext context)
 specifier|public
@@ -442,6 +447,33 @@ operator|.
 name|traceExceptions
 operator|=
 name|traceExceptions
+expr_stmt|;
+block|}
+DECL|method|getLogName ()
+specifier|public
+name|String
+name|getLogName
+parameter_list|()
+block|{
+return|return
+name|logName
+return|;
+block|}
+comment|/**      * Sets the logging name to use.      * Will default use<tt>org.apache.camel.processor.interceptor.TraceInterceptor<tt>.      */
+DECL|method|setLogName (String logName)
+specifier|public
+name|void
+name|setLogName
+parameter_list|(
+name|String
+name|logName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logName
+operator|=
+name|logName
 expr_stmt|;
 block|}
 block|}
