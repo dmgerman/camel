@@ -202,17 +202,7 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|props
-operator|.
-name|put
-argument_list|(
-name|JSONJAXBContext
-operator|.
-name|JSON_NOTATION
-argument_list|,
-literal|"MAPPED"
-argument_list|)
-expr_stmt|;
+comment|//props.put(JSONJAXBContext.JSON_NOTATION, "MAPPED");
 name|props
 operator|.
 name|put

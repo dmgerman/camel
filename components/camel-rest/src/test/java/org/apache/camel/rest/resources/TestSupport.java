@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|sun
@@ -93,6 +83,16 @@ operator|.
 name|config
 operator|.
 name|DefaultClientConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
 import|;
 end_import
 
@@ -198,6 +198,35 @@ operator|.
 name|WEBAPP_CTX
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|resource (String uri)
+specifier|protected
+name|WebResource
+name|resource
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"About to test URI: "
+operator|+
+name|uri
+argument_list|)
+expr_stmt|;
+return|return
+name|resource
+operator|.
+name|path
+argument_list|(
+name|uri
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override

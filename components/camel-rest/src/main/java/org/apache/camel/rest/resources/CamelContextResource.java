@@ -258,10 +258,10 @@ name|Path
 argument_list|(
 literal|"endpoints"
 argument_list|)
-DECL|method|getEndpoints ()
+DECL|method|getEndpoint ()
 specifier|public
 name|Endpoints
-name|getEndpoints
+name|getEndpoint
 parameter_list|()
 block|{
 return|return
@@ -278,7 +278,7 @@ name|GET
 annotation|@
 name|Path
 argument_list|(
-literal|"endpoints/{id}"
+literal|"endpoint/{id}"
 argument_list|)
 DECL|method|getEndpoint (@athParamR) String id)
 specifier|public
