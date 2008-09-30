@@ -195,6 +195,14 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// we exepect the orignal input when moved to the DLC queue
+name|error
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Boom"
+argument_list|)
+expr_stmt|;
 name|result
 operator|.
 name|expectedMessageCount
