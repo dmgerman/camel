@@ -230,10 +230,10 @@ name|uri
 operator|=
 literal|"direct:startMany"
 argument_list|)
-DECL|method|doSomethingHeaderExpression (String payload, @Constant(value = R) int count, @Header(name = R) int number)
+DECL|method|doSomethingManyExpression (String payload, @Constant(value = R) int count, @Header(name = R) int number)
 specifier|public
 name|void
-name|doSomethingHeaderExpression
+name|doSomethingManyExpression
 parameter_list|(
 name|String
 name|payload
