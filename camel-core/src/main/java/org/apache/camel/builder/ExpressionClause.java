@@ -568,7 +568,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/beanshell.html">BeanShell expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/beanshell.html">BeanShell expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      * @deprecated use language(<tt>"beanshell"</tt>, text). Will be removed in Camel 2.0.      */
 DECL|method|beanShell (String text)
 specifier|public
 name|T

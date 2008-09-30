@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For BeanShell expressions and predicates  *  * @version $Revision$  */
+comment|/**  * For BeanShell expressions and predicates  *  * @deprecated use {@link org.apache.camel.model.language.LanguageExpression} will be remaved in Camel 2.0  * @version $Revision$  */
 end_comment
 
 begin_class

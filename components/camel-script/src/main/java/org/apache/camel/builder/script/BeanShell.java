@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation for injection of BeanShell expressions  *  into method parameters, fields or properties  *  * @version $Revision$  */
+comment|/**  * An annotation for injection of BeanShell expressions  *  into method parameters, fields or properties  *  * @deprecated will be removed in Camel 2.0  * @version $Revision$  */
 end_comment
 
 begin_annotation_defn
@@ -116,6 +116,8 @@ name|language
 operator|=
 literal|"beanshell"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|annotation|BeanShell
 specifier|public
 annotation_defn|@interface

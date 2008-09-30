@@ -643,7 +643,7 @@ return|;
 block|}
 comment|// Beanshell
 comment|// -------------------------------------------------------------------------
-comment|/**      * Creates a script builder for the BeanShell script contents      *      * @param scriptText the script text to be evaluted      * @return the builder      */
+comment|/**      * Creates a script builder for the BeanShell script contents      *      * @param scriptText the script text to be evaluted      * @return the builder      * @deprecated will be removed in Camel 2.0      */
 DECL|method|beanShell (String scriptText)
 specifier|public
 specifier|static
@@ -664,7 +664,7 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the BeanShell script {@link Resource}      *      * @param scriptResource the resource used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the BeanShell script {@link Resource}      *      * @param scriptResource the resource used to load the script      * @return the builder      * @deprecated will be removed in Camel 2.0      */
 DECL|method|beanShell (Resource scriptResource)
 specifier|public
 specifier|static
@@ -685,7 +685,7 @@ name|scriptResource
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the BeanShell script {@link File}      *      * @param scriptFile the file used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the BeanShell script {@link File}      *      * @param scriptFile the file used to load the script      * @return the builder      * @deprecated will be removed in Camel 2.0      */
 DECL|method|beanShell (File scriptFile)
 specifier|public
 specifier|static
@@ -710,7 +710,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the BeanShell script {@link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      */
+comment|/**      * Creates a script builder for the BeanShell script {@link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      * @deprecated will be removed in Camel 2.0      */
 DECL|method|beanShell (URL scriptURL)
 specifier|public
 specifier|static
