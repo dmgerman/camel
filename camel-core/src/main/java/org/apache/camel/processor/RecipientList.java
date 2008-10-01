@@ -294,6 +294,29 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+name|sendToRecipientList
+argument_list|(
+name|exchange
+argument_list|,
+name|receipientList
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sends the given exchange to the recipient list      *      * @param exchange      * @param receipientList      * @throws Exception      */
+DECL|method|sendToRecipientList (Exchange exchange, Object receipientList)
+specifier|public
+name|void
+name|sendToRecipientList
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|receipientList
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 name|Iterator
 name|iter
 init|=
