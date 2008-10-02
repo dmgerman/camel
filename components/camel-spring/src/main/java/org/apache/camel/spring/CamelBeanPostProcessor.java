@@ -459,7 +459,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A post processor to perform injection of {@link Endpoint} and  * {@link Producer} instances together with binding methods annotated with  * {@link MessageDriven @MessageDriven} to a Camel consumer.  *  * @version $Revision$  */
+comment|/**  * A bean post processor which implements the<a href="http://activemq.apache.org/camel/bean-integration.html">Bean Integration</a>  * features in Camel such as the<a href="http://activemq.apache.org/camel/bean-injection.html">Bean Injection</a> of objects like  * {@link Endpoint} and  * {@link org.apache.camel.ProducerTemplate} together with support for  *<a href="http://activemq.apache.org/camel/pojo-consuming.html">POJO Consuming</a> via the   * {@link org.apache.camel.Consume} and {@link org.apache.camel.MessageDriven} annotations along with  *<a href="http://activemq.apache.org/camel/pojo-producing.html">POJO Producing</a> via the  * {@link org.apache.camel.Produce} annotation along with other annotations such as  * {@link org.apache.camel.RecipientList} for creating<a href="http://activemq.apache.org/camel/recipientlist-annotation.html">a Recipient List router via annotations</a>.  *<br>  * If you use the&lt;camelContext&gt; element in your<a href="http://activemq.apache.org/camel/spring.html">Spring XML</a>   * then one of these bean post processors is implicity installed and configured for you. So you should never have to  * explicitly create or configure one of these instances.  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -937,7 +937,7 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the currently executing main      *      * @return      */
+comment|/**      * Returns the currently executing main      *      * @return the current running instance      */
 DECL|method|getInstance ()
 specifier|public
 specifier|static
