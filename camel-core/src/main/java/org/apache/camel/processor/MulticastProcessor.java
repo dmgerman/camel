@@ -1078,7 +1078,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Aggregate the {@link Exchange} with the current {@link Result}      * @param result the current result       * @param exchange the exchange to be added to the result      *       * @return the new exchange, consisting of the aggregated information      */
+comment|/**      * Aggregate the {@link Exchange} with the current result      *      * @param result the current result      * @param exchange the exchange to be added to the result      */
 DECL|method|doAggregate (AtomicExchange result, Exchange exchange)
 specifier|protected
 specifier|synchronized
@@ -1377,7 +1377,7 @@ name|processors
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Is the multicast processor working in streaming mode?      *       * In streaming mode:      *<ul>      *<li>we use {@link Iterable} to ensure we can send messages as soon as the data becomes available</li>      *<li>for parallel processing, we start aggregating responses as they get send back to the processor;      * this means the {@link AggregatorStrategy} has to take care of handling out-of-order arrival of exchanges</li>      *</ul>      */
+comment|/**      * Is the multicast processor working in streaming mode?      *       * In streaming mode:      *<ul>      *<li>we use {@link Iterable} to ensure we can send messages as soon as the data becomes available</li>      *<li>for parallel processing, we start aggregating responses as they get send back to the processor;      * this means the {@link org.apache.camel.processor.aggregate.AggregationStrategy} has to take care of handling out-of-order arrival of exchanges</li>      *</ul>      */
 DECL|method|isStreaming ()
 specifier|protected
 name|boolean

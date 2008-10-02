@@ -83,7 +83,7 @@ name|E
 argument_list|>
 name|sequenceSender
 decl_stmt|;
-comment|/**      * Creates a new resequencer instance with a default timeout of 2000      * milliseconds.      *      * @param comparator a sequence element comparator.      * @param capacity the capacity of this resequencer.      */
+comment|/**      * Creates a new resequencer instance with a default timeout of 2000      * milliseconds.      *      * @param comparator a sequence element comparator.      */
 DECL|method|ResequencerEngine (SequenceElementComparator<E> comparator)
 specifier|public
 name|ResequencerEngine
@@ -366,7 +366,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Delivers all elements which are currently ready to deliver.      *      * @throws exception thrown by {@link SequenceSender#sendElement(Object)}.      *      * @see #deliverNext();      */
+comment|/**      * Delivers all elements which are currently ready to deliver.      *      * @throws Exception thrown by {@link SequenceSender#sendElement(Object)}.      *      * @see ResequencerEngine#deliverNext()       */
 DECL|method|deliver ()
 specifier|public
 name|void
@@ -384,7 +384,7 @@ block|{
 comment|// do nothing here
 block|}
 block|}
-comment|/**      * Attempts to deliver a single element from the head of the resequencer      * queue (sequence). Only elements which have not been scheduled for timing      * out or which already timed out can be delivered. Elements are deliveref via      * {@link SequenceSender#sendElement(Object)}.      *      * @return<code>true</code> if the element has been delivered      *<code>false</code> otherwise.      *      * @throws exception thrown by {@link SequenceSender#sendElement(Object)}.      *      */
+comment|/**      * Attempts to deliver a single element from the head of the resequencer      * queue (sequence). Only elements which have not been scheduled for timing      * out or which already timed out can be delivered. Elements are deliveref via      * {@link SequenceSender#sendElement(Object)}.      *      * @return<code>true</code> if the element has been delivered      *<code>false</code> otherwise.      *      * @throws Exception thrown by {@link SequenceSender#sendElement(Object)}.      *      */
 DECL|method|deliverNext ()
 specifier|public
 name|boolean

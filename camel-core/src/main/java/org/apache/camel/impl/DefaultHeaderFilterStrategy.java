@@ -205,7 +205,7 @@ return|return
 name|outFilter
 return|;
 block|}
-comment|/**      * Sets the "out" direction filter set.  The "out" direction is referred to       * copying headers from a Camel message to an external message.      *       * @return a set that contains headers names that should be excluded.      */
+comment|/**      * Sets the "out" direction filter set.  The "out" direction is referred to       * copying headers from a Camel message to an external message.      */
 DECL|method|setOutFilter (Set<String> value)
 specifier|public
 name|void
@@ -309,7 +309,7 @@ return|return
 name|inFilter
 return|;
 block|}
-comment|/**      * Sets the "in" direction filter set.  The "in" direction is referred to       * copying headers from an external message to a Camel message.      *       * @return a set that contains headers names that should be excluded.      */
+comment|/**      * Sets the "in" direction filter set.  The "in" direction is referred to       * copying headers from an external message to a Camel message.      */
 DECL|method|setInFilter (Set<String> value)
 specifier|public
 name|void

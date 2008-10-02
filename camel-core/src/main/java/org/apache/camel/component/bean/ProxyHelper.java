@@ -326,7 +326,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the class loader of the first interface or throws {@link IllegalArgumentException} if there are no interfaces specified      *      * @return      */
+comment|/**      * Returns the class loader of the first interface or throws {@link IllegalArgumentException} if there are no interfaces specified      *      * @return the class loader      */
 DECL|method|getClassLoader (Class... interfaces)
 specifier|protected
 specifier|static

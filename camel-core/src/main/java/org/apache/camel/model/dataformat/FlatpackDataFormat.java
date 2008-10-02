@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Flatpack {@link org.apache.camel.spi.DataFormat}.  *  * @see<a href="http://activemq.apache.org/camel/flatpack.html">Flatpack documentation</a>.  * @version $Revision$  */
+comment|/**  * Represents a<a href="http://activemq.apache.org/camel/flatpack.html">Flatpack</a> {@link org.apache.camel.spi.DataFormat}.  *   * @version $Revision$  */
 end_comment
 
 begin_class

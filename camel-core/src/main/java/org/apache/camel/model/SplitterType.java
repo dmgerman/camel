@@ -503,11 +503,11 @@ operator|=
 name|parallelProcessing
 expr_stmt|;
 block|}
-comment|/**      * The splitter should use streaming -- exchanges are being sent as the data for them becomes available.      * This improves throughput and memory usage, but it has a drawback:       * - the sent exchanges will no longer contain the {@link Splitter#SPLIT_SIZE} header property       *       * @return       */
-DECL|method|getStreaming ()
+comment|/**      * The splitter should use streaming -- exchanges are being sent as the data for them becomes available.      * This improves throughput and memory usage, but it has a drawback:       * - the sent exchanges will no longer contain the {@link Splitter#SPLIT_SIZE} header property       *       * @return whether or not streaming should be used      */
+DECL|method|isStreaming ()
 specifier|public
 name|boolean
-name|getStreaming
+name|isStreaming
 parameter_list|()
 block|{
 return|return
