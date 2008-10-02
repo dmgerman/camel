@@ -229,6 +229,46 @@ name|endpoint
 return|;
 block|}
 block|}
+DECL|method|getEndpointKey (String uri, Endpoint ep)
+specifier|public
+specifier|static
+name|String
+name|getEndpointKey
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Endpoint
+name|ep
+parameter_list|)
+block|{
+return|return
+name|ep
+operator|.
+name|isSingleton
+argument_list|()
+condition|?
+name|uri
+else|:
+operator|(
+literal|"Ox"
+operator|+
+name|Integer
+operator|.
+name|toHexString
+argument_list|(
+name|ep
+operator|.
+name|hashCode
+argument_list|()
+argument_list|)
+operator|+
+literal|":"
+operator|+
+name|uri
+operator|)
+return|;
+block|}
 comment|/**      * Returns the mandatory endpoint for the given URI and type or the      * {@link org.apache.camel.NoSuchEndpointException} is thrown      */
 DECL|method|getMandatoryEndpoint (CamelContext camelContext, String uri, Class<T> type)
 specifier|public

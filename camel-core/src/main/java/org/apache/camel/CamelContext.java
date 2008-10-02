@@ -309,7 +309,7 @@ argument_list|>
 name|getEndpoints
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the collection of all registered endpoints for a uri or an empty collection.      * For a singleton endpoint the collection will contain exactly one element.      *      * @param uri  the URI of the endpoints      * @return  all non-singleton endpoints      */
+comment|/**      * Returns the collection of all registered endpoints for a uri or an empty collection.      * For a singleton endpoint the collection will contain exactly one element.      *      * @param uri  the URI of the endpoints      * @return  collection of endpoints      */
 DECL|method|getEndpoints (String uri)
 name|Collection
 argument_list|<
@@ -330,7 +330,37 @@ argument_list|>
 name|getSingletonEndpoints
 parameter_list|()
 function_decl|;
+comment|/**      * Adds the endpoint to the context using the given URI.      *      * @param uri the URI to be used to resolve this endpoint      * @param endpoint the endpoint to be added to the context      * @return the old endpoint that was previously registered to the context if       * there was already an singleton endpoint for that URI or null      * @throws Exception if the new endpoint could not be started or the old       * singleton endpoint could not be stopped      */
+DECL|method|addEndpoint (String uri, Endpoint endpoint)
+name|Endpoint
+name|addEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Endpoint
+name|endpoint
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Removes all endpoints with the given URI      *      * @param uri the URI to be used to remove      * @return a collection of endpoints removed or null if there are no endpoints for this URI      * @throws Exception if at least one endpoint could not be stopped      */
+DECL|method|removeEndpoints (String uri)
+name|Collection
+argument_list|<
+name|Endpoint
+argument_list|>
+name|removeEndpoints
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Adds the endpoint to the context using the given URI.  The endpoint will be registered as a singleton.      *      * @param uri the URI to be used to resolve this endpoint      * @param endpoint the endpoint to be added to the context      * @return the old endpoint that was previously registered to the context if there was      * already an endpoint for that URI      * @throws Exception if the new endpoint could not be started or the old endpoint could not be stopped      */
+annotation|@
+name|Deprecated
 DECL|method|addSingletonEndpoint (String uri, Endpoint endpoint)
 name|Endpoint
 name|addSingletonEndpoint
@@ -345,6 +375,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Removes the singleton endpoint with the given URI      *      * @param uri the URI to be used to remove      * @return the endpoint that was removed or null if there is no endpoint for this URI      * @throws Exception if endpoint could not be stopped      */
+annotation|@
+name|Deprecated
 DECL|method|removeSingletonEndpoint (String uri)
 name|Endpoint
 name|removeSingletonEndpoint
