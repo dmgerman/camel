@@ -314,6 +314,27 @@ argument_list|>
 name|endpointType
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the collection of all registered endpoints.      *      * @return  all endpoints      */
+DECL|method|getEndpoints ()
+name|Collection
+argument_list|<
+name|Endpoint
+argument_list|>
+name|getEndpoints
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the collection of all registered endpoints for a uri or an empty collection.      * For a singleton endpoint the collection will contain exactly one element.      *      * @param uri  the URI of the endpoints      * @return  all non-singleton endpoints      */
+DECL|method|getEndpoints (String uri)
+name|Collection
+argument_list|<
+name|Endpoint
+argument_list|>
+name|getEndpoints
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the collection of all registered singleton endpoints.      *      * @return  all the singleton endpoints      */
 DECL|method|getSingletonEndpoints ()
 name|Collection
