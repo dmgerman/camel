@@ -836,6 +836,11 @@ specifier|private
 name|boolean
 name|transacted
 decl_stmt|;
+DECL|field|transactedInOut
+specifier|private
+name|boolean
+name|transactedInOut
+decl_stmt|;
 DECL|field|transactionManager
 specifier|private
 name|PlatformTransactionManager
@@ -1704,6 +1709,14 @@ operator|.
 name|setTimeToLive
 argument_list|(
 name|requestTimeout
+argument_list|)
+expr_stmt|;
+name|jmsTemplate
+operator|.
+name|setSessionTransacted
+argument_list|(
+name|isTransactedInOut
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3055,6 +3068,33 @@ operator|.
 name|transacted
 operator|=
 name|consumerTransacted
+expr_stmt|;
+block|}
+comment|/**      * Should InOut operations (request reply) default to using transacted mode?      *      * By default this is false as you need to commit the outgoing request before you can consume the input      *      * @return      */
+DECL|method|isTransactedInOut ()
+specifier|public
+name|boolean
+name|isTransactedInOut
+parameter_list|()
+block|{
+return|return
+name|transactedInOut
+return|;
+block|}
+DECL|method|setTransactedInOut (boolean transactedInOut)
+specifier|public
+name|void
+name|setTransactedInOut
+parameter_list|(
+name|boolean
+name|transactedInOut
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactedInOut
+operator|=
+name|transactedInOut
 expr_stmt|;
 block|}
 DECL|method|isEagerLoadingOfProperties ()
