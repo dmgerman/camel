@@ -156,6 +156,28 @@ name|getEndpointUri
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Singleton"
+argument_list|)
+DECL|method|getSingleton ()
+specifier|public
+name|boolean
+name|getSingleton
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|endpoint
+operator|.
+name|isSingleton
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

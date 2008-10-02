@@ -69,6 +69,15 @@ extends|extends
 name|Exchange
 parameter_list|>
 block|{
+DECL|field|ID_PROPERTY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ID_PROPERTY
+init|=
+literal|"id"
+decl_stmt|;
 DECL|field|PARENT_PROPERTY
 specifier|public
 specifier|static

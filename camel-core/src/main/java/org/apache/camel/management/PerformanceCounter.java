@@ -122,9 +122,6 @@ DECL|field|minProcessingTime
 specifier|private
 name|double
 name|minProcessingTime
-init|=
-operator|-
-literal|1.0
 decl_stmt|;
 DECL|field|maxProcessingTime
 specifier|private
@@ -186,8 +183,7 @@ argument_list|)
 expr_stmt|;
 name|minProcessingTime
 operator|=
-operator|-
-literal|1.0
+literal|0.0
 expr_stmt|;
 name|maxProcessingTime
 operator|=
@@ -457,7 +453,7 @@ expr_stmt|;
 if|if
 condition|(
 name|minProcessingTime
-operator|<
+operator|<=
 literal|0
 operator|||
 name|time
