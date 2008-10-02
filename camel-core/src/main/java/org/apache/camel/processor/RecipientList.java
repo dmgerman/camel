@@ -114,20 +114,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
-operator|.
-name|ObjectConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|ProducerCache
@@ -175,6 +161,20 @@ operator|.
 name|util
 operator|.
 name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -302,7 +302,7 @@ name|receipientList
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends the given exchange to the recipient list      *      * @param exchange      * @param receipientList      * @throws Exception      */
+comment|/**      * Sends the given exchange to the recipient list      */
 DECL|method|sendToRecipientList (Exchange exchange, Object receipientList)
 specifier|public
 name|void
@@ -320,9 +320,9 @@ block|{
 name|Iterator
 name|iter
 init|=
-name|ObjectConverter
+name|ObjectHelper
 operator|.
-name|iterator
+name|createIterator
 argument_list|(
 name|receipientList
 argument_list|)

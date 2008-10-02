@@ -1986,6 +1986,9 @@ argument_list|(
 literal|"seda:a"
 argument_list|)
 operator|.
+name|multicast
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"seda:b"

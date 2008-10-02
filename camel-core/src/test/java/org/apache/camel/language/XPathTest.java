@@ -138,6 +138,36 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testNormalXPathExpression ()
+specifier|public
+name|void
+name|testNormalXPathExpression
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"hello"
+argument_list|,
+literal|"world!"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"hello/text()"
+argument_list|,
+literal|"world!"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"hello/@id"
+argument_list|,
+literal|"m123"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getLanguageName ()
 specifier|protected
 name|String
