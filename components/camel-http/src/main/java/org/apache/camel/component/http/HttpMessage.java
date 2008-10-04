@@ -266,7 +266,20 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|// also populate the http request parameters
+comment|//if the request method is Get, we also populate the http request parameters
+if|if
+condition|(
+name|request
+operator|.
+name|getMethod
+argument_list|()
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+literal|"GET"
+argument_list|)
+condition|)
+block|{
 name|names
 operator|=
 name|request
@@ -312,6 +325,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// store the method and query as well
 name|map

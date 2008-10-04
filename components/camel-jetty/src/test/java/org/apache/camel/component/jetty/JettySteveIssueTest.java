@@ -119,7 +119,7 @@ name|serverUri
 operator|+
 literal|"?x=foo"
 argument_list|,
-literal|"Hello World"
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
