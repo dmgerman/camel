@@ -46,7 +46,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Date
+name|Calendar
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Calendar
+name|Date
 import|;
 end_import
 

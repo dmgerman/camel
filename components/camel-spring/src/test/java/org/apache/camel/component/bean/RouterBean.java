@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RecipientList
+name|MessageDriven
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|MessageDriven
+name|RecipientList
 import|;
 end_import
 

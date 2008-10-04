@@ -1109,19 +1109,13 @@ decl_stmt|;
 try|try
 block|{
 comment|// TODO: this badly needs some refactoring
-comment|// mojo.createClassLoader creates a URLClassLoader with whatever is
-comment|// in
-comment|// ${project.testClasspathElements}, reason why we don't see all
-comment|// converters
-comment|// in the report. First we need a list of classpath elements the
-comment|// user
-comment|// could customize via plugin configuration, and elements of that
-comment|// list
-comment|// be added to the URLClassLoader. This should also be factored out
-comment|// into
+comment|// mojo.createClassLoader creates a URLClassLoader with whatever is in
+comment|// ${project.testClasspathElements}, reason why we don't see all converters
+comment|// in the report. First we need a list of classpath elements the user
+comment|// could customize via plugin configuration, and elements of that list
+comment|// be added to the URLClassLoader. This should also be factored out into
 comment|// a utility class.
-comment|// TODO: there is some interference with the site plugin that needs
-comment|// investigated.
+comment|// TODO: there is some interference with the site plugin that needs investigated.
 name|List
 argument_list|<
 name|?

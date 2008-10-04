@@ -30,6 +30,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|sun
+operator|.
+name|jersey
+operator|.
+name|api
+operator|.
+name|client
+operator|.
+name|WebResource
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -57,22 +73,6 @@ operator|.
 name|model
 operator|.
 name|Endpoints
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|jersey
-operator|.
-name|api
-operator|.
-name|client
-operator|.
-name|WebResource
 import|;
 end_import
 
