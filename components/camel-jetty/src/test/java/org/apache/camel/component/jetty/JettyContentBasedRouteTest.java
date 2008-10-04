@@ -97,13 +97,6 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedHeaderReceived
 argument_list|(
 literal|"one"
@@ -119,10 +112,10 @@ name|serverUri
 operator|+
 literal|"?one=true"
 argument_list|,
-literal|"Hello World"
+literal|null
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -144,13 +137,6 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedHeaderReceived
 argument_list|(
 literal|"two"
@@ -166,10 +152,10 @@ name|serverUri
 operator|+
 literal|"?two=true"
 argument_list|,
-literal|"Bye World"
+literal|null
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
