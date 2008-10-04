@@ -183,7 +183,7 @@ specifier|protected
 name|String
 name|expectedText
 init|=
-literal|"Not Implemented"
+literal|"Method Not Allowed"
 decl_stmt|;
 DECL|method|testHttpPostWithError ()
 specifier|public
@@ -510,17 +510,6 @@ name|assertNotNull
 argument_list|(
 literal|"Should have a body!"
 argument_list|,
-name|body
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"The body is "
-operator|+
 name|body
 argument_list|)
 expr_stmt|;
