@@ -194,6 +194,9 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
+name|multicast
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"mock:tap"
