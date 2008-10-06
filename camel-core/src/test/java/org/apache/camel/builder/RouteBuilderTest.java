@@ -373,22 +373,6 @@ specifier|protected
 name|DelegateProcessor
 name|interceptor2
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|buildSimpleRoute ()
 specifier|protected
 name|List

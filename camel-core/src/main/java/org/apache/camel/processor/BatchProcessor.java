@@ -251,6 +251,11 @@ name|batchSize
 init|=
 name|DEFAULT_BATCH_SIZE
 decl_stmt|;
+DECL|field|outBatchSize
+specifier|private
+name|int
+name|outBatchSize
+decl_stmt|;
 DECL|field|consumer
 specifier|private
 name|PollingConsumer
@@ -417,6 +422,7 @@ return|return
 name|batchSize
 return|;
 block|}
+comment|/**      * Sets the<b>in</b> batch size. This is the number of incomiing exchanges that this batch processor      * will process before its completed. The default value is {@link #DEFAULT_BATCH_SIZE}.      *      * @param batchSize the size      */
 DECL|method|setBatchSize (int batchSize)
 specifier|public
 name|void
@@ -431,6 +437,33 @@ operator|.
 name|batchSize
 operator|=
 name|batchSize
+expr_stmt|;
+block|}
+DECL|method|getOutBatchSize ()
+specifier|public
+name|int
+name|getOutBatchSize
+parameter_list|()
+block|{
+return|return
+name|outBatchSize
+return|;
+block|}
+comment|/**      * Sets the<b>out</b> batch size. If the batch processor holds more exchanges than this out size then      * the completion is triggered. Can for instance be used to ensure that this batch is completed when      * a certain number of exchanges has been collected. By default this feature is<b>not</b> used.      *      * @param outBatchSize the size      */
+DECL|method|setOutBatchSize (int outBatchSize)
+specifier|public
+name|void
+name|setOutBatchSize
+parameter_list|(
+name|int
+name|outBatchSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outBatchSize
+operator|=
+name|outBatchSize
 expr_stmt|;
 block|}
 DECL|method|getBatchTimeout ()
@@ -538,15 +571,24 @@ operator|<
 literal|0L
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"batch timeout expired at batch index:"
+literal|"batch timeout expired at batch index: "
 operator|+
 name|i
 argument_list|)
 expr_stmt|;
+block|}
 break|break;
 block|}
 name|Exchange
@@ -566,6 +608,14 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -574,11 +624,12 @@ literal|"receive with timeout: "
 operator|+
 name|timeout
 operator|+
-literal|" expired at batch index:"
+literal|" expired at batch index: "
 operator|+
 name|i
 argument_list|)
 expr_stmt|;
+block|}
 break|break;
 block|}
 name|collection
@@ -665,6 +716,26 @@ name|int
 name|index
 parameter_list|)
 block|{
+comment|// out batch size is optional and we should only check if its enabled (> 0)
+if|if
+condition|(
+name|outBatchSize
+operator|>
+literal|0
+operator|&&
+name|collection
+operator|.
+name|size
+argument_list|()
+operator|>=
+name|outBatchSize
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|// fallback yo regular batch size check
 return|return
 name|index
 operator|>=

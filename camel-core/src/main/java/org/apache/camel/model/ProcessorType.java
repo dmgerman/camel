@@ -268,32 +268,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|Builder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|DataFormatClause
@@ -516,7 +490,7 @@ name|processor
 operator|.
 name|aggregate
 operator|.
-name|AggregationCollection
+name|AggregationStrategy
 import|;
 end_import
 
@@ -532,7 +506,7 @@ name|processor
 operator|.
 name|aggregate
 operator|.
-name|AggregationStrategy
+name|AggregationCollection
 import|;
 end_import
 
@@ -2322,13 +2296,10 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern using a custom aggregation collection implementation.      *      * @param aggregationCollection the collection used to perform the aggregation      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern using a custom aggregation collection implementation. The aggregation collection must      * be configued with the strategy and correlation expression that this aggregator should use.      * This avoids duplicating this configuration on both the collection and the aggregator itself.      *      * @param aggregationCollection the collection used to perform the aggregation      */
 DECL|method|aggregator (AggregationCollection aggregationCollection)
 specifier|public
-name|ExpressionClause
-argument_list|<
 name|AggregatorType
-argument_list|>
 name|aggregator
 parameter_list|(
 name|AggregationCollection
@@ -2355,12 +2326,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
-operator|.
-name|createAndSetExpression
-argument_list|(
 name|answer
-argument_list|)
 return|;
 block|}
 comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */

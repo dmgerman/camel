@@ -66,7 +66,7 @@ name|ExchangePattern
 name|getPattern
 parameter_list|()
 function_decl|;
-comment|/**      * Allows the {@link ExchangePattern} (MEP) of this exchange to be customized.      *      * This typically won't be required as an exchange can be created with a specific MEP      * by calling {@link Endpoint#createExchange(ExchangePattern)} but it is here just in case      * it is needed.      */
+comment|/**      * Allows the {@link ExchangePattern} (MEP) of this exchange to be customized.      *      * This typically won't be required as an exchange can be created with a specific MEP      * by calling {@link Endpoint#createExchange(ExchangePattern)} but it is here just in case      * it is needed.      *      * @param pattern  the pattern       */
 DECL|method|setPattern (ExchangePattern pattern)
 name|void
 name|setPattern
@@ -155,7 +155,7 @@ name|Message
 name|getOut
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the outbound message; optionally lazily creating one if one has      * not been associated with this exchange      *      * @return the response      */
+comment|/**      * Returns the outbound message; optionally lazily creating one if one has      * not been associated with this exchange      *      * @param lazyCreate<tt>true</tt> will lazy create the out message      * @return the response      */
 DECL|method|getOut (boolean lazyCreate)
 name|Message
 name|getOut
@@ -179,7 +179,7 @@ name|Message
 name|getFault
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the fault message; optionally lazily creating one if one has      * not been associated with this exchange      *      * @param lazyCreate<tt>true</tt> will lazy create the fault message      *      * @return the fault      */
+comment|/**      * Returns the fault message; optionally lazily creating one if one has      * not been associated with this exchange      *      * @param lazyCreate<tt>true</tt> will lazy create the fault message      * @return the fault      */
 DECL|method|getFault (boolean lazyCreate)
 name|Message
 name|getFault
@@ -257,13 +257,13 @@ name|UnitOfWork
 name|unitOfWork
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the exchange id      *      * @return the unique id of the exchange      */
+comment|/**      * Returns the exchange id (unique)      */
 DECL|method|getExchangeId ()
 name|String
 name|getExchangeId
 parameter_list|()
 function_decl|;
-comment|/**      * Set the exchange id      *      * @param id      */
+comment|/**      * Set the exchange id      */
 DECL|method|setExchangeId (String id)
 name|void
 name|setExchangeId

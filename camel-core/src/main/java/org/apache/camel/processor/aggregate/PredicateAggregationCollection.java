@@ -94,7 +94,7 @@ specifier|public
 class|class
 name|PredicateAggregationCollection
 extends|extends
-name|AggregationCollection
+name|DefaultAggregationCollection
 block|{
 DECL|field|aggregationCompletedPredicate
 specifier|private
@@ -171,8 +171,7 @@ name|newExchange
 argument_list|)
 condition|)
 block|{
-comment|// this exchange has now aggregated so lets add it to the collection of things
-comment|// to send
+comment|// this exchange has now aggregated so lets add it to the collection of things to send
 name|super
 operator|.
 name|getMap

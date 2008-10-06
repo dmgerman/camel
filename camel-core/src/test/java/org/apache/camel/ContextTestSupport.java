@@ -280,7 +280,8 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|useRouteBuilder
+name|isUseRouteBuilder
+argument_list|()
 condition|)
 block|{
 name|RouteBuilder
@@ -315,19 +316,6 @@ name|builder
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Using route builder from the created context: "
-operator|+
-name|context
-argument_list|)
-expr_stmt|;
-block|}
 name|startCamelContext
 argument_list|()
 expr_stmt|;
@@ -343,6 +331,19 @@ name|getRoutes
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Using route builder from the created context: "
+operator|+
+name|context
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

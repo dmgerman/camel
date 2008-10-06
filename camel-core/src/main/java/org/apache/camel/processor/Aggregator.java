@@ -76,7 +76,7 @@ name|processor
 operator|.
 name|aggregate
 operator|.
-name|AggregationCollection
+name|DefaultAggregationCollection
 import|;
 end_import
 
@@ -109,6 +109,22 @@ operator|.
 name|aggregate
 operator|.
 name|PredicateAggregationCollection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|AggregationCollection
 import|;
 end_import
 
@@ -153,7 +169,7 @@ argument_list|,
 name|processor
 argument_list|,
 operator|new
-name|AggregationCollection
+name|DefaultAggregationCollection
 argument_list|(
 name|correlationExpression
 argument_list|,
@@ -265,6 +281,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// TODO: (davsclaus) What is the point with this code? I think its wrong
 if|if
 condition|(
 name|getCollection
