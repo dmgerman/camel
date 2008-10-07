@@ -96,6 +96,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|converter
 operator|.
 name|IOConverter
@@ -147,6 +163,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
+name|result
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|deleteDirectory
 argument_list|(
 literal|"target/routetofile"
@@ -162,12 +193,10 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 comment|// pause to let file producer save the file
-name|Thread
+name|result
 operator|.
-name|sleep
-argument_list|(
-literal|1500
-argument_list|)
+name|assertIsSatisfied
+argument_list|()
 expr_stmt|;
 comment|// do file assertions
 name|File
@@ -289,6 +318,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// using mock endpoint here purely for testing. You would normally write this route as
+comment|// from("activemq:queue:hello").to("file://target/routetofile");
 name|from
 argument_list|(
 literal|"activemq:queue:hello"
@@ -297,6 +328,11 @@ operator|.
 name|to
 argument_list|(
 literal|"file://target/routetofile"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
