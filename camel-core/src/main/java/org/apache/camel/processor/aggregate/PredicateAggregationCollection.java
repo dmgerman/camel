@@ -150,7 +150,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|onAggregation (Object correlationKey, Exchange newExchange)
-specifier|protected
+specifier|public
 name|void
 name|onAggregation
 parameter_list|(
