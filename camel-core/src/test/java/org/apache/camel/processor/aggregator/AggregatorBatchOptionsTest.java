@@ -118,11 +118,11 @@ name|header
 argument_list|(
 literal|"id"
 argument_list|)
-comment|// wait for 2 seconds to aggregate
+comment|// wait for 0.5 seconds to aggregate
 operator|.
 name|batchTimeout
 argument_list|(
-literal|2000L
+literal|500L
 argument_list|)
 comment|// batch size in is the limit of number of exchanges recieved, so when we have received 100
 comment|// exchanges then whatever we have in the collection will be sent
@@ -164,7 +164,7 @@ decl_stmt|;
 comment|// we expect 3 messages grouped by the latest message only
 name|result
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|3
 argument_list|)
@@ -358,11 +358,11 @@ name|header
 argument_list|(
 literal|"id"
 argument_list|)
-comment|// wait for 2 seconds to aggregate
+comment|// wait for 0.5 seconds to aggregate
 operator|.
 name|batchTimeout
 argument_list|(
-literal|2000L
+literal|500L
 argument_list|)
 comment|// batch size in is the limit of number of exchanges recieved, so when we have received 100
 comment|// exchanges then whatever we have in the collection will be sent
@@ -397,7 +397,7 @@ decl_stmt|;
 comment|// we expect 3 messages grouped by the latest message only
 name|result
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|2
 argument_list|)
@@ -621,7 +621,7 @@ decl_stmt|;
 comment|// we expect 3 messages grouped by the latest message only
 name|result
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|3
 argument_list|)
