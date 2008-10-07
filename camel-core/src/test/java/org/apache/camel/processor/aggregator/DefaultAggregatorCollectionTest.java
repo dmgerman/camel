@@ -281,11 +281,11 @@ name|header
 argument_list|(
 literal|"id"
 argument_list|)
-comment|// wait for 2 seconds to aggregate
+comment|// wait for 0.5 seconds to aggregate
 operator|.
 name|batchTimeout
 argument_list|(
-literal|2000L
+literal|500L
 argument_list|)
 operator|.
 name|to

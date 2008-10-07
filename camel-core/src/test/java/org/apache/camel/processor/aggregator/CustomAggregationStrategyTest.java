@@ -113,7 +113,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// we expect 4 messages as they have different header id
+comment|// we expect to find the two winners with the highest bid
 name|result
 operator|.
 name|expectedMessageCount
@@ -242,11 +242,11 @@ name|header
 argument_list|(
 literal|"id"
 argument_list|)
-comment|// wait for 2 seconds to aggregate
+comment|// wait for 0.5 seconds to aggregate
 operator|.
 name|batchTimeout
 argument_list|(
-literal|2000L
+literal|500L
 argument_list|)
 operator|.
 name|to

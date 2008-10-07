@@ -1070,7 +1070,7 @@ name|agg
 operator|.
 name|setBatchTimeout
 argument_list|(
-literal|5000L
+literal|1000L
 argument_list|)
 expr_stmt|;
 name|agg

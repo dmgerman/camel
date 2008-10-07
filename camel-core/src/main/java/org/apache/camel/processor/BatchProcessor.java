@@ -640,32 +640,9 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Finished batch size: "
-operator|+
-name|batchSize
-operator|+
-literal|" timeout: "
-operator|+
-name|batchTimeout
-operator|+
-literal|" so sending set: "
-operator|+
-name|collection
-argument_list|)
-expr_stmt|;
-block|}
+comment|// we should NOT log the collection directly as it will invoke a toString() on collection
+comment|// and it will call collection.iterator() where end-users might do stuff that would break
+comment|// calling the iterator a 2nd time as below
 comment|// lets send the batch
 name|Iterator
 argument_list|<
