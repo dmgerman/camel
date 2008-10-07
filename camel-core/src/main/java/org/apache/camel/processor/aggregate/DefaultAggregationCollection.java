@@ -441,9 +441,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * A strategy method allowing derived classes such as {@link PredicateAggregationCollection}      * to check to see if the aggregation has completed      */
 DECL|method|onAggregation (Object correlationKey, Exchange newExchange)
-specifier|protected
+specifier|public
 name|void
 name|onAggregation
 parameter_list|(

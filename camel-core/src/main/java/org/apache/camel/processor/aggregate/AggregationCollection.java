@@ -139,6 +139,18 @@ name|void
 name|clear
 parameter_list|()
 function_decl|;
+comment|/**      * A strategy method allowing derived classes such as {@link PredicateAggregationCollection}      * to check to see if the aggregation has completed      */
+DECL|method|onAggregation (Object correlationKey, Exchange newExchange)
+name|void
+name|onAggregation
+parameter_list|(
+name|Object
+name|correlationKey
+parameter_list|,
+name|Exchange
+name|newExchange
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
