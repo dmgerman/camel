@@ -191,6 +191,13 @@ operator|.
 name|createContext
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|bundleContext
+operator|!=
+literal|null
+condition|)
+block|{
 name|context
 operator|.
 name|setComponentResolver
@@ -202,6 +209,7 @@ name|bundleContext
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|context
 return|;
