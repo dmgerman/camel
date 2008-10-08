@@ -134,6 +134,22 @@ name|headerExpression
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ExpressionBuilder
+operator|.
+name|propertyExpression
+import|;
+end_import
+
 begin_comment
 comment|/**  * A builder of assertions on message exchanges  *  * @version $Revision$  */
 end_comment
@@ -245,6 +261,38 @@ argument_list|>
 name|expression
 init|=
 name|headerExpression
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|PredicateValueBuilder
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a predicate and value builder for property on an exchange      */
+DECL|method|property (String name)
+specifier|public
+name|ValueBuilder
+argument_list|<
+name|Exchange
+argument_list|>
+name|property
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|Expression
+argument_list|<
+name|Exchange
+argument_list|>
+name|expression
+init|=
+name|propertyExpression
 argument_list|(
 name|name
 argument_list|)
@@ -438,6 +486,7 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Public class needed for fluent builders      */
 DECL|class|PredicateValueBuilder
 specifier|public
 class|class

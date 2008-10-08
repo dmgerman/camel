@@ -788,7 +788,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// avoid the NULLPointException
+comment|// avoid the NullPointException
 name|getProperties
 argument_list|()
 operator|.

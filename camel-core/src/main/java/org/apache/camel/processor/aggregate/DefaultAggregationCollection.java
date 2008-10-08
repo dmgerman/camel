@@ -338,6 +338,14 @@ operator|!=
 name|oldExchange
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -351,6 +359,7 @@ operator|+
 name|correlationKey
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|oldExchange
@@ -366,8 +375,9 @@ name|Exchange
 operator|.
 name|AGGREGATED_COUNT
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|1
 argument_list|)
