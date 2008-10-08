@@ -490,7 +490,7 @@ name|processor
 operator|.
 name|aggregate
 operator|.
-name|AggregationStrategy
+name|AggregationCollection
 import|;
 end_import
 
@@ -506,7 +506,7 @@ name|processor
 operator|.
 name|aggregate
 operator|.
-name|AggregationCollection
+name|AggregationStrategy
 import|;
 end_import
 
@@ -3193,7 +3193,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the {@link #DEFAULT_TRACE_CATEGORY} logging category.      *       * @deprecated Please use<a href="http://activemq.apache.org/camel/tracer.html>Tracer Support</a>      * instead. Will be removed in Camel 2.0.      */
+comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the {@link #DEFAULT_TRACE_CATEGORY} logging category.      *      * @deprecated Please use<a href="http://activemq.apache.org/camel/tracer.html>Tracer Support</a>      * instead. Will be removed in Camel 2.0.      */
 DECL|method|trace ()
 specifier|public
 name|Type
@@ -3207,7 +3207,7 @@ name|DEFAULT_TRACE_CATEGORY
 argument_list|)
 return|;
 block|}
-comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the specified logging category.      *      * @param category the logging category trace messages will sent to.      *       * @deprecated Please use<a href="http://activemq.apache.org/camel/tracer.html>Tracer Support</a>      * instead. Will be removed in Camel 2.0.      */
+comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the specified logging category.      *      * @param category the logging category trace messages will sent to.      *      * @deprecated Please use<a href="http://activemq.apache.org/camel/tracer.html>Tracer Support</a>      * instead. Will be removed in Camel 2.0.      */
 DECL|method|trace (String category)
 specifier|public
 name|Type

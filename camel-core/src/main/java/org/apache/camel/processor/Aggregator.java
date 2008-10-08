@@ -76,7 +76,7 @@ name|processor
 operator|.
 name|aggregate
 operator|.
-name|DefaultAggregationCollection
+name|AggregationCollection
 import|;
 end_import
 
@@ -108,7 +108,7 @@ name|processor
 operator|.
 name|aggregate
 operator|.
-name|PredicateAggregationCollection
+name|DefaultAggregationCollection
 import|;
 end_import
 
@@ -124,7 +124,7 @@ name|processor
 operator|.
 name|aggregate
 operator|.
-name|AggregationCollection
+name|PredicateAggregationCollection
 import|;
 end_import
 

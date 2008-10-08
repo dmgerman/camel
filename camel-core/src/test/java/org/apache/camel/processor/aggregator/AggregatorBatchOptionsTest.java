@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.apache.camel.processor.aggregator
 package|package
@@ -124,7 +128,7 @@ name|batchTimeout
 argument_list|(
 literal|500L
 argument_list|)
-comment|// batch size in is the limit of number of exchanges recieved, so when we have received 100
+comment|// batch size in is the limit of number of exchanges received, so when we have received 100
 comment|// exchanges then whatever we have in the collection will be sent
 operator|.
 name|batchSize
@@ -274,45 +278,6 @@ argument_list|,
 literal|"4"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"Message 3b"
-argument_list|,
-literal|"id"
-argument_list|,
-literal|"3"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"Message 3c"
-argument_list|,
-literal|"id"
-argument_list|,
-literal|"3"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"Message 1d"
-argument_list|,
-literal|"id"
-argument_list|,
-literal|"1"
-argument_list|)
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -364,7 +329,7 @@ name|batchTimeout
 argument_list|(
 literal|500L
 argument_list|)
-comment|// batch size in is the limit of number of exchanges recieved, so when we have received 100
+comment|// batch size in is the limit of number of exchanges received, so when we have received 100
 comment|// exchanges then whatever we have in the collection will be sent
 operator|.
 name|batchSize
@@ -479,6 +444,14 @@ argument_list|)
 expr_stmt|;
 comment|// when we sent the next message we have reached the in batch size limit and the current
 comment|// aggregated exchanges will be sent
+comment|// wait a while for aggregating in a slower box
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|300L
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
