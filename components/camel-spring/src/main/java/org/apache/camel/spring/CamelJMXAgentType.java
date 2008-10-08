@@ -124,6 +124,10 @@ DECL|field|disabled
 specifier|private
 name|Boolean
 name|disabled
+init|=
+name|Boolean
+operator|.
+name|FALSE
 decl_stmt|;
 comment|/**      * RMI connector registry port (default 1099)      */
 annotation|@
@@ -202,6 +206,10 @@ DECL|field|createConnector
 specifier|private
 name|Boolean
 name|createConnector
+init|=
+name|Boolean
+operator|.
+name|TRUE
 decl_stmt|;
 comment|/**      * A flag that indicates whether the platform mbean server should be used      */
 annotation|@
@@ -362,6 +370,14 @@ block|{
 name|createConnector
 operator|=
 name|value
+operator|!=
+literal|null
+condition|?
+name|value
+else|:
+name|Boolean
+operator|.
+name|FALSE
 expr_stmt|;
 block|}
 DECL|method|isUsePlatformMBeanServer ()
@@ -386,6 +402,14 @@ block|{
 name|usePlatformMBeanServer
 operator|=
 name|value
+operator|!=
+literal|null
+condition|?
+name|value
+else|:
+name|Boolean
+operator|.
+name|FALSE
 expr_stmt|;
 block|}
 DECL|method|isDisabled ()
@@ -410,6 +434,14 @@ block|{
 name|disabled
 operator|=
 name|value
+operator|!=
+literal|null
+condition|?
+name|value
+else|:
+name|Boolean
+operator|.
+name|FALSE
 expr_stmt|;
 block|}
 block|}
