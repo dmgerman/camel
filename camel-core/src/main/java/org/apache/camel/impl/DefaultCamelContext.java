@@ -2442,6 +2442,16 @@ name|Service
 operator|)
 name|object
 decl_stmt|;
+name|getLifecycleStrategy
+argument_list|()
+operator|.
+name|onServiceAdd
+argument_list|(
+name|this
+argument_list|,
+name|service
+argument_list|)
+expr_stmt|;
 name|service
 operator|.
 name|start

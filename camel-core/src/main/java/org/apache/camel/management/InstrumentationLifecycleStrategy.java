@@ -116,6 +116,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Consumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -716,8 +728,13 @@ condition|(
 name|service
 operator|instanceof
 name|ServiceSupport
+operator|&&
+name|service
+operator|instanceof
+name|Consumer
 condition|)
 block|{
+comment|// TODO: add support for non-consumer services?
 try|try
 block|{
 name|ManagedService

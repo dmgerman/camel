@@ -659,6 +659,8 @@ name|required
 operator|=
 literal|false
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|field|useJmx
 specifier|private
 name|Boolean
@@ -1509,13 +1511,6 @@ name|camelJMXAgent
 operator|.
 name|isDisabled
 argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|camelJMXAgent
-operator|.
-name|isDisabled
-argument_list|()
 operator|)
 condition|)
 block|{
@@ -2171,6 +2166,7 @@ name|booleanValue
 argument_list|()
 return|;
 block|}
+comment|/**      * @deprecated Please the jmxAgent element instead. Will be removed in Camel 2.0.      */
 DECL|method|getUseJmx ()
 specifier|public
 name|Boolean

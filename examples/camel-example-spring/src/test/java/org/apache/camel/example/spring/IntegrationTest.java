@@ -63,7 +63,6 @@ throws|throws
 name|Exception
 block|{
 comment|// let's boot up the Spring application context for 2 seconds to check that it works OK
-comment|// System.setProperty("org.apache.camel.jmx.createRmiConnector", "true");
 name|Main
 operator|.
 name|main
