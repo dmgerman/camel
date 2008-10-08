@@ -245,7 +245,7 @@ specifier|final
 name|String
 name|TYPE_ENDPOINT
 init|=
-literal|"endpoint"
+literal|"endpoints"
 decl_stmt|;
 DECL|field|TYPE_PROCESSOR
 specifier|public
@@ -254,7 +254,7 @@ specifier|final
 name|String
 name|TYPE_PROCESSOR
 init|=
-literal|"processor"
+literal|"processors"
 decl_stmt|;
 DECL|field|TYPE_CONSUMER
 specifier|public
@@ -263,7 +263,7 @@ specifier|final
 name|String
 name|TYPE_CONSUMER
 init|=
-literal|"consumer"
+literal|"consumers"
 decl_stmt|;
 DECL|field|TYPE_ROUTE
 specifier|public
@@ -272,7 +272,7 @@ specifier|final
 name|String
 name|TYPE_ROUTE
 init|=
-literal|"route"
+literal|"routes"
 decl_stmt|;
 DECL|field|domainName
 specifier|protected

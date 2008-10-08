@@ -105,7 +105,7 @@ name|ObjectName
 argument_list|(
 literal|"org.apache.camel"
 operator|+
-literal|":type=route,*"
+literal|":type=routes,*"
 argument_list|)
 argument_list|,
 literal|null
@@ -128,7 +128,7 @@ name|ObjectName
 argument_list|(
 literal|"org.apache.camel"
 operator|+
-literal|":type=processor,*"
+literal|":type=processors,*"
 argument_list|)
 argument_list|,
 literal|null

@@ -235,7 +235,7 @@ name|ObjectName
 argument_list|(
 name|domainName
 operator|+
-literal|":type=endpoint,*"
+literal|":type=endpoints,*"
 argument_list|)
 argument_list|,
 literal|null
@@ -297,7 +297,7 @@ name|ObjectName
 argument_list|(
 name|domainName
 operator|+
-literal|":type=processor,*"
+literal|":type=processors,*"
 argument_list|)
 argument_list|,
 literal|null
@@ -328,7 +328,7 @@ name|ObjectName
 argument_list|(
 name|domainName
 operator|+
-literal|":type=route,*"
+literal|":type=routes,*"
 argument_list|)
 argument_list|,
 literal|null
@@ -397,7 +397,7 @@ name|ObjectName
 argument_list|(
 name|domainName
 operator|+
-literal|":type=route,*"
+literal|":type=routes,*"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -410,7 +410,7 @@ name|ObjectName
 argument_list|(
 name|domainName
 operator|+
-literal|":type=processor,*"
+literal|":type=processors,*"
 argument_list|)
 argument_list|)
 expr_stmt|;
