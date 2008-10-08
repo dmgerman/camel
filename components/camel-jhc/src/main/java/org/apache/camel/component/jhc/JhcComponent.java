@@ -243,9 +243,7 @@ name|params
 operator|=
 operator|new
 name|BasicHttpParams
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 operator|.
 name|setIntParameter
 argument_list|(

@@ -100,6 +100,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -601,22 +613,6 @@ operator|.
 name|protocol
 operator|.
 name|RequestUserAgent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadFactory
 import|;
 end_import
 

@@ -180,14 +180,13 @@ argument_list|)
 expr_stmt|;
 name|params
 operator|=
-operator|new
-name|BasicHttpParams
-argument_list|(
 name|component
 operator|.
 name|getParams
 argument_list|()
-argument_list|)
+operator|.
+name|copy
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
