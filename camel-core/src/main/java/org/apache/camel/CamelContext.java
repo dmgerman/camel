@@ -407,7 +407,9 @@ argument_list|>
 name|getRoutes
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the routes for this context, replacing any current routes      *      * @param routes the new routes to use      */
+comment|/**      * Sets the routes for this context, replacing any current routes      *      * @param routes the new routes to use      * @deprecated is considered for deprecation, use addRoutes instead, could be removed in Camel 2.0      */
+annotation|@
+name|Deprecated
 DECL|method|setRoutes (List<Route> routes)
 name|void
 name|setRoutes
@@ -499,7 +501,7 @@ name|String
 name|language
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new ProducerTemplate      *      * @return the template      */
+comment|/**      * Creates a new ProducerTemplate.      *<p/>      * See this FAQ before use:<a href="http://activemq.apache.org/camel/why-does-camel-use-too-many-threads-with-producertemplate.html">      * Why does Camel use too many threads with ProducerTemplate?</a>      *      * @return the template      */
 DECL|method|createProducerTemplate ()
 parameter_list|<
 name|E
