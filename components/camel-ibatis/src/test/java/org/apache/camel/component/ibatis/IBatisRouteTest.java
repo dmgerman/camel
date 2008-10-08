@@ -284,7 +284,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|//Delaying the query so we will not get the "java.sql.SQLException: Table not found in statement" on the slower box
 name|from
+argument_list|(
+literal|"timer://pollTheDatabase?delay=2000"
+argument_list|)
+operator|.
+name|to
 argument_list|(
 literal|"ibatis:selectAllAccounts"
 argument_list|)
