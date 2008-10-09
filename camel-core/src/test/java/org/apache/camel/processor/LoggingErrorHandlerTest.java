@@ -338,22 +338,7 @@ parameter_list|,
 name|Throwable
 name|t
 parameter_list|)
-block|{
-name|assertNotNull
-argument_list|(
-name|t
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
-name|logged
-operator|=
-literal|true
-expr_stmt|;
-block|}
+block|{         }
 DECL|method|warn (Object message)
 specifier|public
 name|void
@@ -395,7 +380,22 @@ parameter_list|,
 name|Throwable
 name|t
 parameter_list|)
-block|{         }
+block|{
+name|assertNotNull
+argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+name|logged
+operator|=
+literal|true
+expr_stmt|;
+block|}
 DECL|method|fatal (Object message)
 specifier|public
 name|void

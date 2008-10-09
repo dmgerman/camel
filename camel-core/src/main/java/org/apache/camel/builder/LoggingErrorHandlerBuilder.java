@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Uses the {@link Logger} as an error handler  *  * @version $Revision$  */
+comment|/**  * Uses the {@link Logger} as an error handler, will log at<tt>ERROR</tt> level by default.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -145,17 +145,18 @@ name|level
 init|=
 name|LoggingLevel
 operator|.
-name|INFO
+name|ERROR
 decl_stmt|;
 DECL|method|LoggingErrorHandlerBuilder ()
 specifier|public
 name|LoggingErrorHandlerBuilder
 parameter_list|()
 block|{     }
-DECL|method|LoggingErrorHandlerBuilder (Log log)
+DECL|method|LoggingErrorHandlerBuilder (final Log log)
 specifier|public
 name|LoggingErrorHandlerBuilder
 parameter_list|(
+specifier|final
 name|Log
 name|log
 parameter_list|)
@@ -167,13 +168,15 @@ operator|=
 name|log
 expr_stmt|;
 block|}
-DECL|method|LoggingErrorHandlerBuilder (Log log, LoggingLevel level)
+DECL|method|LoggingErrorHandlerBuilder (final Log log, final LoggingLevel level)
 specifier|public
 name|LoggingErrorHandlerBuilder
 parameter_list|(
+specifier|final
 name|Log
 name|log
 parameter_list|,
+specifier|final
 name|LoggingLevel
 name|level
 parameter_list|)
@@ -224,14 +227,16 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
+DECL|method|createErrorHandler (final RouteContext routeContext, final Processor processor)
 specifier|public
 name|Processor
 name|createErrorHandler
 parameter_list|(
+specifier|final
 name|RouteContext
 name|routeContext
 parameter_list|,
+specifier|final
 name|Processor
 name|processor
 parameter_list|)
@@ -268,11 +273,12 @@ return|return
 name|level
 return|;
 block|}
-DECL|method|setLevel (LoggingLevel level)
+DECL|method|setLevel (final LoggingLevel level)
 specifier|public
 name|void
 name|setLevel
 parameter_list|(
+specifier|final
 name|LoggingLevel
 name|level
 parameter_list|)
@@ -294,11 +300,12 @@ return|return
 name|log
 return|;
 block|}
-DECL|method|setLog (Log log)
+DECL|method|setLog (final Log log)
 specifier|public
 name|void
 name|setLog
 parameter_list|(
+specifier|final
 name|Log
 name|log
 parameter_list|)
@@ -309,6 +316,46 @@ name|log
 operator|=
 name|log
 expr_stmt|;
+block|}
+DECL|method|level (final LoggingLevel level)
+specifier|public
+name|LoggingErrorHandlerBuilder
+name|level
+parameter_list|(
+specifier|final
+name|LoggingLevel
+name|level
+parameter_list|)
+block|{
+name|this
+operator|.
+name|level
+operator|=
+name|level
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|log (final Log log)
+specifier|public
+name|LoggingErrorHandlerBuilder
+name|log
+parameter_list|(
+specifier|final
+name|Log
+name|log
+parameter_list|)
+block|{
+name|this
+operator|.
+name|log
+operator|=
+name|log
+expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 block|}
 end_class

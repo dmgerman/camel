@@ -693,7 +693,7 @@ name|int
 name|index
 parameter_list|)
 block|{
-comment|// out batch size is optional and we should only check if its enabled (> 0)
+comment|// out batch size is optional and we should only check it if its enabled (=>0)
 if|if
 condition|(
 name|outBatchSize
@@ -712,7 +712,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|// fallback yo regular batch size check
+comment|// fallback to regular batch size check
 return|return
 name|index
 operator|>=
