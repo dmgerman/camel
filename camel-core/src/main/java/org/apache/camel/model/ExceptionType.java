@@ -401,6 +401,30 @@ operator|+
 literal|"]"
 return|;
 block|}
+comment|/**      * Catches an exception type.      */
+annotation|@
+name|Override
+DECL|method|onException (Class exceptionType)
+specifier|public
+name|ExceptionType
+name|onException
+parameter_list|(
+name|Class
+name|exceptionType
+parameter_list|)
+block|{
+name|getExceptionClasses
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|exceptionType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Allows an exception handler to create a new redelivery policy for this exception type      * @param parentPolicy the current redelivery policy      * @return a newly created redelivery policy, or return the original policy if no customization is required      * for this exception handler.      */
 DECL|method|createRedeliveryPolicy (RedeliveryPolicy parentPolicy)
 specifier|public
