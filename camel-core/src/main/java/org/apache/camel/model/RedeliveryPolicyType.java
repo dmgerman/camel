@@ -173,7 +173,7 @@ condition|)
 block|{
 name|answer
 operator|.
-name|setInitialRedeliveryDelay
+name|setDelay
 argument_list|(
 name|initialRedeliveryDelay
 argument_list|)
