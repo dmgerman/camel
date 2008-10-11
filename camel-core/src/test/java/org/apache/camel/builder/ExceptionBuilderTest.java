@@ -163,6 +163,15 @@ name|MESSAGE_INFO
 init|=
 literal|"messageInfo"
 decl_stmt|;
+DECL|field|RESULT_QUEUE
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|RESULT_QUEUE
+init|=
+literal|"mock:result"
+decl_stmt|;
 DECL|field|ERROR_QUEUE
 specifier|private
 specifier|static
@@ -198,6 +207,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
+name|result
+init|=
+name|getMockEndpoint
+argument_list|(
+name|RESULT_QUEUE
+argument_list|)
+decl_stmt|;
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -257,10 +281,14 @@ argument_list|)
 expr_stmt|;
 comment|// expected
 block|}
-name|mock
+name|MockEndpoint
 operator|.
 name|assertIsSatisfied
-argument_list|()
+argument_list|(
+name|result
+argument_list|,
+name|mock
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testIOException ()
@@ -271,6 +299,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
+name|result
+init|=
+name|getMockEndpoint
+argument_list|(
+name|RESULT_QUEUE
+argument_list|)
+decl_stmt|;
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -330,10 +373,14 @@ argument_list|)
 expr_stmt|;
 comment|// expected
 block|}
-name|mock
+name|MockEndpoint
 operator|.
 name|assertIsSatisfied
-argument_list|()
+argument_list|(
+name|result
+argument_list|,
+name|mock
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testException ()
@@ -344,6 +391,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
+name|result
+init|=
+name|getMockEndpoint
+argument_list|(
+name|RESULT_QUEUE
+argument_list|)
+decl_stmt|;
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -403,10 +465,14 @@ argument_list|)
 expr_stmt|;
 comment|// expected
 block|}
-name|mock
+name|MockEndpoint
 operator|.
 name|assertIsSatisfied
-argument_list|()
+argument_list|(
+name|result
+argument_list|,
+name|mock
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testMyBusinessException ()
@@ -417,6 +483,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
+name|result
+init|=
+name|getMockEndpoint
+argument_list|(
+name|RESULT_QUEUE
+argument_list|)
+decl_stmt|;
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -476,10 +557,14 @@ argument_list|)
 expr_stmt|;
 comment|// expected
 block|}
-name|mock
+name|MockEndpoint
 operator|.
 name|assertIsSatisfied
-argument_list|()
+argument_list|(
+name|result
+argument_list|,
+name|mock
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testSecurityConfiguredWithTwoExceptions ()
@@ -491,6 +576,21 @@ throws|throws
 name|Exception
 block|{
 comment|// test that we also handles a configuration with 2 or more exceptions
+name|MockEndpoint
+name|result
+init|=
+name|getMockEndpoint
+argument_list|(
+name|RESULT_QUEUE
+argument_list|)
+decl_stmt|;
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -550,10 +650,14 @@ argument_list|)
 expr_stmt|;
 comment|// expected
 block|}
-name|mock
+name|MockEndpoint
 operator|.
 name|assertIsSatisfied
-argument_list|()
+argument_list|(
+name|result
+argument_list|,
+name|mock
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testSecurityConfiguredWithExceptionList ()
@@ -565,6 +669,21 @@ throws|throws
 name|Exception
 block|{
 comment|// test that we also handles a configuration with a list of exceptions
+name|MockEndpoint
+name|result
+init|=
+name|getMockEndpoint
+argument_list|(
+name|RESULT_QUEUE
+argument_list|)
+decl_stmt|;
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -624,10 +743,14 @@ argument_list|)
 expr_stmt|;
 comment|// expected
 block|}
-name|mock
+name|MockEndpoint
 operator|.
 name|assertIsSatisfied
-argument_list|()
+argument_list|(
+name|result
+argument_list|,
+name|mock
+argument_list|)
 expr_stmt|;
 block|}
 DECL|class|MyBaseBusinessException

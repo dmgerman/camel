@@ -339,14 +339,37 @@ condition|(
 literal|true
 condition|)
 block|{
+name|boolean
+name|handledException
+init|=
+name|Boolean
+operator|.
+name|TRUE
+operator|.
+name|equals
+argument_list|(
+name|nextExchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|EXCEPTION_HANDLED_PROPERTY
+argument_list|)
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|nextExchange
 operator|.
 name|isFailed
 argument_list|()
+operator|||
+name|handledException
 condition|)
 block|{
+comment|// The Exchange.EXCEPTION_HANDLED_PROPERTY property is only set if satisfactory handling was done
+comment|//  by the error handler.  It's still an exception, the exchange still failed.
 if|if
 condition|(
 name|LOG
@@ -378,6 +401,14 @@ name|getFault
 argument_list|(
 literal|false
 argument_list|)
+operator|+
+operator|(
+name|handledException
+condition|?
+literal|" handled by the error handler"
+else|:
+literal|""
+operator|)
 argument_list|)
 expr_stmt|;
 block|}

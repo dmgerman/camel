@@ -138,6 +138,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -165,6 +177,22 @@ operator|.
 name|builder
 operator|.
 name|ErrorHandlerBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|constant
+operator|.
+name|ConstantLanguage
 import|;
 end_import
 
@@ -330,6 +358,13 @@ DECL|field|errorHandler
 specifier|private
 name|Processor
 name|errorHandler
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|handledPolicy
+specifier|private
+name|Predicate
+name|handledPolicy
 decl_stmt|;
 DECL|method|ExceptionType ()
 specifier|public
@@ -565,6 +600,52 @@ return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
+DECL|method|handled (boolean cond)
+specifier|public
+name|ExceptionType
+name|handled
+parameter_list|(
+name|boolean
+name|cond
+parameter_list|)
+block|{
+name|ConstantLanguage
+name|constant
+init|=
+operator|new
+name|ConstantLanguage
+argument_list|()
+decl_stmt|;
+return|return
+name|handled
+argument_list|(
+name|constant
+operator|.
+name|createPredicate
+argument_list|(
+literal|"true"
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|handled (Predicate cond)
+specifier|public
+name|ExceptionType
+name|handled
+parameter_list|(
+name|Predicate
+name|cond
+parameter_list|)
+block|{
+name|setHandledPolicy
+argument_list|(
+name|cond
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|backOffMultiplier (double backOffMultiplier)
 specifier|public
 name|ExceptionType
@@ -874,6 +955,32 @@ operator|.
 name|redeliveryPolicy
 operator|=
 name|redeliveryPolicy
+expr_stmt|;
+block|}
+DECL|method|getHandledPolicy ()
+specifier|public
+name|Predicate
+name|getHandledPolicy
+parameter_list|()
+block|{
+return|return
+name|handledPolicy
+return|;
+block|}
+DECL|method|setHandledPolicy (Predicate handledPolicy)
+specifier|public
+name|void
+name|setHandledPolicy
+parameter_list|(
+name|Predicate
+name|handledPolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|handledPolicy
+operator|=
+name|handledPolicy
 expr_stmt|;
 block|}
 comment|// Implementation methods
