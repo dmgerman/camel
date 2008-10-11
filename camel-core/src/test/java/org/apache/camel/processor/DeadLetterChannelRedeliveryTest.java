@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verift that redelivery counters is working as expected.  */
+comment|/**  * Unit test to verify that redelivery counters is working as expected.  */
 end_comment
 
 begin_class

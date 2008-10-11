@@ -1087,6 +1087,24 @@ name|exchange
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"This exchange is not handled so its marked as failed: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// exception not handled, put exception back in the exchange
 name|exchange
 operator|.
@@ -1107,6 +1125,24 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"This exchange is handled so its marked as not failed: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 name|exchange
 operator|.
 name|setProperty

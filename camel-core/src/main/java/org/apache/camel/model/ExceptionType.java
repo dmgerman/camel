@@ -138,6 +138,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Predicate
 import|;
 end_import
@@ -177,6 +189,22 @@ operator|.
 name|builder
 operator|.
 name|ErrorHandlerBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|PredicateBuilder
+operator|.
+name|toPredicate
 import|;
 end_import
 
@@ -600,13 +628,13 @@ return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-DECL|method|handled (boolean cond)
+DECL|method|handled (boolean handled)
 specifier|public
 name|ExceptionType
 name|handled
 parameter_list|(
 name|boolean
-name|cond
+name|handled
 parameter_list|)
 block|{
 name|ConstantLanguage
@@ -627,24 +655,45 @@ name|Boolean
 operator|.
 name|toString
 argument_list|(
-name|cond
+name|handled
 argument_list|)
 argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|handled (Predicate cond)
+DECL|method|handled (Predicate handled)
 specifier|public
 name|ExceptionType
 name|handled
 parameter_list|(
 name|Predicate
-name|cond
+name|handled
 parameter_list|)
 block|{
 name|setHandledPolicy
 argument_list|(
-name|cond
+name|handled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|handled (Expression handled)
+specifier|public
+name|ExceptionType
+name|handled
+parameter_list|(
+name|Expression
+name|handled
+parameter_list|)
+block|{
+name|setHandledPolicy
+argument_list|(
+name|toPredicate
+argument_list|(
+name|handled
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

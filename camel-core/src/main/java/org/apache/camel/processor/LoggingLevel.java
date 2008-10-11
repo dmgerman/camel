@@ -32,6 +32,7 @@ DECL|enumConstant|FATAL
 DECL|enumConstant|INFO
 DECL|enumConstant|TRACE
 DECL|enumConstant|WARN
+DECL|enumConstant|OFF
 name|DEBUG
 block|,
 name|ERROR
@@ -43,6 +44,8 @@ block|,
 name|TRACE
 block|,
 name|WARN
+block|,
+name|OFF
 block|}
 end_enum
 

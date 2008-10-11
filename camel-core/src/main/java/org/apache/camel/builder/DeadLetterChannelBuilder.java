@@ -614,7 +614,7 @@ block|}
 comment|/**      * Sets the exception policy to use      */
 DECL|method|exceptionPolicyStrategy (ExceptionPolicyStrategy exceptionPolicyStrategy)
 specifier|public
-name|ErrorHandlerBuilderSupport
+name|DeadLetterChannelBuilder
 name|exceptionPolicyStrategy
 parameter_list|(
 name|ExceptionPolicyStrategy
