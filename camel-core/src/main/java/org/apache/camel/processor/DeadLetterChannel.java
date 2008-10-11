@@ -475,10 +475,6 @@ literal|", "
 operator|+
 name|deadLetter
 operator|+
-literal|", "
-operator|+
-name|redeliveryPolicy
-operator|+
 literal|"]"
 return|;
 block|}

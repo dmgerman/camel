@@ -2546,9 +2546,6 @@ operator|new
 name|RuntimeCamelException
 argument_list|(
 name|e
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -2618,12 +2615,7 @@ block|{
 throw|throw
 operator|new
 name|RuntimeCamelException
-argument_list|(
-name|e
-operator|.
-name|getCause
 argument_list|()
-argument_list|)
 throw|;
 block|}
 catch|catch

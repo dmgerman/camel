@@ -623,7 +623,12 @@ name|constant
 operator|.
 name|createPredicate
 argument_list|(
-literal|"true"
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+name|cond
+argument_list|)
 argument_list|)
 argument_list|)
 return|;
