@@ -208,6 +208,22 @@ return|return
 literal|"file"
 return|;
 block|}
+DECL|method|testConstantExpression ()
+specifier|public
+name|void
+name|testConstantExpression
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"MyBigFile.txt"
+argument_list|,
+literal|"MyBigFile.txt"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testMessageId ()
 specifier|public
 name|void

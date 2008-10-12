@@ -76,6 +76,36 @@ name|ExpressionBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|IllegalSyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|constant
+operator|.
+name|ConstantLanguage
+import|;
+end_import
+
 begin_comment
 comment|/**  * A helper class for working with<a href="http://activemq.apache.org/camel/expression.html">expressions</a> based  * on files.  *<p/>  * This expression expects the headers from the {@link FileLanguage} on the<b>IN</b> message.  *  * @see org.apache.camel.language.simple.FileLanguage  */
 end_comment
@@ -727,6 +757,8 @@ parameter_list|)
 block|{
 comment|// must call evaluate to return the nested language evaluate when evaluating
 comment|// stacked expressions
+try|try
+block|{
 return|return
 name|SimpleLanguage
 operator|.
@@ -740,6 +772,28 @@ argument_list|(
 name|exchange
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalSyntaxException
+name|e
+parameter_list|)
+block|{
+comment|// fallback to constant so end users can enter a fixed filename
+return|return
+name|ConstantLanguage
+operator|.
+name|constant
+argument_list|(
+name|simple
+argument_list|)
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|)
+return|;
+block|}
 block|}
 annotation|@
 name|Override

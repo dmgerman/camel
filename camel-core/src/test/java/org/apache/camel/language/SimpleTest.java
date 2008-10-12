@@ -40,6 +40,38 @@ name|SimpleTest
 extends|extends
 name|LanguageTestSupport
 block|{
+DECL|method|testConstantExpression ()
+specifier|public
+name|void
+name|testConstantExpression
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"Hello World"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an Exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalSyntaxException
+name|e
+parameter_list|)
+block|{
+comment|// constants is not supported
+block|}
+block|}
 DECL|method|testSimpleExpressions ()
 specifier|public
 name|void
