@@ -305,7 +305,7 @@ parameter_list|)
 throws|throws
 name|TransformerException
 block|{
-comment|//no need to do stream caching for a StringSource
+comment|//no need to do stream caching for a BytesSource
 return|return
 literal|null
 return|;
