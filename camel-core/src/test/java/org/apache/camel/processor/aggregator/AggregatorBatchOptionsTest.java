@@ -165,23 +165,11 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// we expect 3 messages grouped by the latest message only
 name|result
 operator|.
-name|expectedMinimumMessageCount
+name|expectedMessageCount
 argument_list|(
-literal|3
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Message 1c"
-argument_list|,
-literal|"Message 2b"
-argument_list|,
-literal|"Message 3a"
+literal|4
 argument_list|)
 expr_stmt|;
 comment|// then we sent all the message at once
@@ -281,6 +269,92 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// first batch
+name|assertEquals
+argument_list|(
+literal|"Message 1c"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Message 2b"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Message 3a"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|2
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// second batch
+name|assertEquals
+argument_list|(
+literal|"Message 4"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|3
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// END SNIPPET: e2
 block|}
 DECL|method|testAggregateBatchSize ()
@@ -329,7 +403,7 @@ name|batchTimeout
 argument_list|(
 literal|500L
 argument_list|)
-comment|// batch size in is the limit of number of exchanges received, so when we have received 100
+comment|// batch size in is the limit of number of exchanges received, so when we have received 5
 comment|// exchanges then whatever we have in the collection will be sent
 operator|.
 name|batchSize
@@ -359,21 +433,11 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// we expect 3 messages grouped by the latest message only
 name|result
 operator|.
-name|expectedMinimumMessageCount
+name|expectedMessageCount
 argument_list|(
-literal|2
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Message 1c"
-argument_list|,
-literal|"Message 2b"
+literal|5
 argument_list|)
 expr_stmt|;
 comment|// then we sent all the message at once
@@ -445,13 +509,6 @@ expr_stmt|;
 comment|// when we sent the next message we have reached the in batch size limit and the current
 comment|// aggregated exchanges will be sent
 comment|// wait a while for aggregating in a slower box
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|300L
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -519,6 +576,113 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
+expr_stmt|;
+comment|// first batch
+name|assertEquals
+argument_list|(
+literal|"Message 1c"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Message 2b"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// second batch
+name|assertEquals
+argument_list|(
+literal|"Message 3c"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|2
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Message 4"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|3
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Message 1d"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|4
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e4
 block|}
@@ -591,23 +755,11 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// we expect 3 messages grouped by the latest message only
 name|result
 operator|.
-name|expectedMinimumMessageCount
+name|expectedMessageCount
 argument_list|(
-literal|3
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Message 1c"
-argument_list|,
-literal|"Message 2b"
-argument_list|,
-literal|"Message 3a"
+literal|6
 argument_list|)
 expr_stmt|;
 comment|// then we sent all the message at once
@@ -696,7 +848,7 @@ argument_list|(
 literal|600L
 argument_list|)
 expr_stmt|;
-comment|// these messages are not aggregated as the timeout should have accoured
+comment|// these messages are not aggregated in the first batch as the timeout should have accoured
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -751,6 +903,134 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
+expr_stmt|;
+comment|// first batch
+name|assertEquals
+argument_list|(
+literal|"Message 1c"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Message 2b"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Message 3a"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|2
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// second batch
+name|assertEquals
+argument_list|(
+literal|"Message 4"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|3
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Message 3c"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|4
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Message 1d"
+argument_list|,
+name|result
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|5
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e6
 block|}
