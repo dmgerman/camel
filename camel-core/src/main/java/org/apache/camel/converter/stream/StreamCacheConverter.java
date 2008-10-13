@@ -76,7 +76,7 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|Source
+name|TransformerException
 import|;
 end_import
 
@@ -88,7 +88,9 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|TransformerException
+name|sax
+operator|.
+name|SAXSource
 import|;
 end_import
 
@@ -144,6 +146,22 @@ name|converter
 operator|.
 name|jaxp
 operator|.
+name|BytesSource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|jaxp
+operator|.
 name|StringSource
 import|;
 end_import
@@ -161,22 +179,6 @@ operator|.
 name|jaxp
 operator|.
 name|XmlConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|Debugger
 import|;
 end_import
 
@@ -248,12 +250,12 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Converter
-DECL|method|convertToStreamCache (Source source)
+DECL|method|convertToStreamCache (StreamSource source)
 specifier|public
 name|StreamCache
 name|convertToStreamCache
 parameter_list|(
-name|Source
+name|StreamSource
 name|source
 parameter_list|)
 throws|throws
@@ -261,7 +263,69 @@ name|TransformerException
 block|{
 return|return
 operator|new
-name|StreamSourceCache
+name|SourceCache
+argument_list|(
+name|converter
+operator|.
+name|toString
+argument_list|(
+name|source
+argument_list|)
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|convertToStreamCache (StringSource source)
+specifier|public
+name|StreamCache
+name|convertToStreamCache
+parameter_list|(
+name|StringSource
+name|source
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
+comment|//no need to do stream caching for a StringSource
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|convertToStreamCache (BytesSource source)
+specifier|public
+name|StreamCache
+name|convertToStreamCache
+parameter_list|(
+name|BytesSource
+name|source
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
+comment|//no need to do stream caching for a StringSource
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|convertToStreamCache (SAXSource source)
+specifier|public
+name|StreamCache
+name|convertToStreamCache
+parameter_list|(
+name|SAXSource
+name|source
+parameter_list|)
+throws|throws
+name|TransformerException
+block|{
+return|return
+operator|new
+name|SourceCache
 argument_list|(
 name|converter
 operator|.
@@ -324,10 +388,11 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|class|StreamSourceCache
+comment|/*      * {@link StreamCache} implementation for {@link Source}s      */
+DECL|class|SourceCache
 specifier|private
 class|class
-name|StreamSourceCache
+name|SourceCache
 extends|extends
 name|StringSource
 implements|implements
@@ -342,9 +407,9 @@ name|serialVersionUID
 init|=
 literal|4147248494104812945L
 decl_stmt|;
-DECL|method|StreamSourceCache (String text)
+DECL|method|SourceCache (String text)
 specifier|public
-name|StreamSourceCache
+name|SourceCache
 parameter_list|(
 name|String
 name|text
