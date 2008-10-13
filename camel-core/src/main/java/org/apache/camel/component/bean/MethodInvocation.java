@@ -68,7 +68,7 @@ name|Object
 name|proceed
 parameter_list|()
 throws|throws
-name|Throwable
+name|Exception
 function_decl|;
 DECL|method|getThis ()
 name|Object

@@ -530,7 +530,7 @@ name|Object
 name|proceed
 parameter_list|()
 throws|throws
-name|Throwable
+name|Exception
 block|{
 if|if
 condition|(

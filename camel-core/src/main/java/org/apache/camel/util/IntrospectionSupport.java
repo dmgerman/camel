@@ -1290,12 +1290,13 @@ name|InvocationTargetException
 name|e
 parameter_list|)
 block|{
+comment|// lets unwrap the exception
 name|Throwable
 name|throwable
 init|=
 name|e
 operator|.
-name|getTargetException
+name|getCause
 argument_list|()
 decl_stmt|;
 if|if
