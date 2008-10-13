@@ -1062,20 +1062,7 @@ name|void
 name|showOptions
 parameter_list|()
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Apache Camel Runner takes the following options"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|showOptionsHeader
 argument_list|()
 expr_stmt|;
 for|for
@@ -1092,29 +1079,37 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"  "
-operator|+
 name|option
 operator|.
-name|getAbbreviation
-argument_list|()
-operator|+
-literal|" or "
-operator|+
-name|option
-operator|.
-name|getFullName
-argument_list|()
-operator|+
-literal|" = "
-operator|+
-name|option
-operator|.
-name|getDescription
+name|getInformation
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Displays the header message for the command line options      */
+DECL|method|showOptionsHeader ()
+specifier|public
+name|void
+name|showOptionsHeader
+parameter_list|()
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Apache Camel Runner takes the following options"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Parses the command line arguments      */
 DECL|method|parseArguments (String[] arguments)
@@ -1398,6 +1393,29 @@ return|return
 name|fullName
 return|;
 block|}
+DECL|method|getInformation ()
+specifier|public
+name|String
+name|getInformation
+parameter_list|()
+block|{
+return|return
+literal|"  "
+operator|+
+name|getAbbreviation
+argument_list|()
+operator|+
+literal|" or "
+operator|+
+name|getFullName
+argument_list|()
+operator|+
+literal|" = "
+operator|+
+name|getDescription
+argument_list|()
+return|;
+block|}
 DECL|method|doProcess (String arg, LinkedList<String> remainingArgs)
 specifier|protected
 specifier|abstract
@@ -1520,6 +1538,33 @@ name|remainingArgs
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getInformation ()
+specifier|public
+name|String
+name|getInformation
+parameter_list|()
+block|{
+return|return
+literal|"  "
+operator|+
+name|getAbbreviation
+argument_list|()
+operator|+
+literal|" or "
+operator|+
+name|getFullName
+argument_list|()
+operator|+
+literal|"<"
+operator|+
+name|parameterName
+operator|+
+literal|"> = "
+operator|+
+name|getDescription
+argument_list|()
+return|;
 block|}
 DECL|method|doProcess (String arg, String parameter, LinkedList<String> remainingArgs)
 specifier|protected
