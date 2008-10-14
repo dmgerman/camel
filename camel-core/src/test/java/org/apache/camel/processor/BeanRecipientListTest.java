@@ -363,11 +363,9 @@ name|String
 name|body
 parameter_list|)
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Called "
 operator|+
