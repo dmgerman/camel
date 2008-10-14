@@ -300,6 +300,8 @@ name|redelivery
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// using the onException and handled(true) works
+comment|//onException(Exception.class).maximumRedeliveries(redelivery).handled(true).to("mock:handled");
 name|from
 argument_list|(
 literal|"seda:errorTest"
