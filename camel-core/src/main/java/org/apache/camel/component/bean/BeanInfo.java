@@ -903,7 +903,7 @@ name|method
 argument_list|)
 decl_stmt|;
 comment|// skip methods that override existing methods we already have in our methodMap
-comment|// TODO: davsclaus this breaks camel-spring test (CAMEL-983)
+comment|// TODO: CAMEL-983
 comment|/*if (overridesExistingMethod(methodInfo)) {             if (LOG.isTraceEnabled()) {                 LOG.trace("This method is already overriden in a subclass, so its skipped: " + method);             }             return null;         }*/
 if|if
 condition|(
@@ -932,15 +932,6 @@ operator|.
 name|put
 argument_list|(
 name|opName
-argument_list|,
-name|methodInfo
-argument_list|)
-expr_stmt|;
-name|methodMap
-operator|.
-name|put
-argument_list|(
-name|method
 argument_list|,
 name|methodInfo
 argument_list|)
@@ -983,6 +974,16 @@ name|methodInfo
 argument_list|)
 expr_stmt|;
 block|}
+comment|// must add to method map last otherwise we break stuff
+name|methodMap
+operator|.
+name|put
+argument_list|(
+name|method
+argument_list|,
+name|methodInfo
+argument_list|)
+expr_stmt|;
 return|return
 name|methodInfo
 return|;
