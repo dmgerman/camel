@@ -903,36 +903,8 @@ name|method
 argument_list|)
 decl_stmt|;
 comment|// skip methods that override existing methods we already have in our methodMap
-if|if
-condition|(
-name|overridesExistingMethod
-argument_list|(
-name|methodInfo
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"This method is already overriden in a subclass, so its skipped: "
-operator|+
-name|method
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-literal|null
-return|;
-block|}
+comment|// TODO: davsclaus this breaks camel-spring test (CAMEL-983)
+comment|/*if (overridesExistingMethod(methodInfo)) {             if (LOG.isTraceEnabled()) {                 LOG.trace("This method is already overriden in a subclass, so its skipped: " + method);             }             return null;         }*/
 if|if
 condition|(
 name|LOG
