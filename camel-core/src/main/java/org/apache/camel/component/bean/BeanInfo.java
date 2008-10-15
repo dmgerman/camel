@@ -902,9 +902,46 @@ argument_list|,
 name|method
 argument_list|)
 decl_stmt|;
-comment|// skip methods that override existing methods we already have in our methodMap
-comment|// TODO: CAMEL-983
-comment|/*if (overridesExistingMethod(methodInfo)) {             if (LOG.isTraceEnabled()) {                 LOG.trace("This method is already overriden in a subclass, so its skipped: " + method);             }             return null;         }*/
+comment|// methods already registered should be prefered to use instead of super classes of existing methods
+comment|// we want to us the method from the sub class over super classes, so if we have already registered
+comment|// the method then use it (we are traversing upwards: sub (child) -> super (farther) )
+name|MethodInfo
+name|existingMethodInfo
+init|=
+name|overridesExistingMethod
+argument_list|(
+name|methodInfo
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|existingMethodInfo
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"This method is already overriden in a subclass, so the method from the sub class is prefered: "
+operator|+
+name|existingMethodInfo
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|existingMethodInfo
+return|;
+block|}
 if|if
 condition|(
 name|LOG
@@ -988,9 +1025,10 @@ return|return
 name|methodInfo
 return|;
 block|}
+comment|/**      * Does the given method info override an existing method registered before (from a subclass)      *      * @param methodInfo  the method to test      * @return the already registered method to use, null if not overriding any      */
 DECL|method|overridesExistingMethod (MethodInfo methodInfo)
 specifier|private
-name|boolean
+name|MethodInfo
 name|overridesExistingMethod
 parameter_list|(
 name|MethodInfo
@@ -1127,11 +1165,11 @@ block|}
 block|}
 comment|// sanme name, same parameters, then its overrides an existing class
 return|return
-literal|true
+name|info
 return|;
 block|}
 return|return
-literal|false
+literal|null
 return|;
 block|}
 comment|/**      * Returns the {@link MethodInfo} for the given method if it exists or null      * if there is no metadata available for the given method      */
