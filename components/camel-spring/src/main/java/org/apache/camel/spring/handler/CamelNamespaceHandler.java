@@ -408,6 +408,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|view
+operator|.
+name|ModelFileGenerator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -599,6 +613,23 @@ name|BeanDefinitionParser
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|createModelFileGenerator ()
+specifier|public
+name|ModelFileGenerator
+name|createModelFileGenerator
+parameter_list|()
+throws|throws
+name|JAXBException
+block|{
+return|return
+operator|new
+name|ModelFileGenerator
+argument_list|(
+name|getJaxbContext
+argument_list|()
+argument_list|)
+return|;
+block|}
 DECL|method|init ()
 specifier|public
 name|void
@@ -1001,7 +1032,7 @@ throw|;
 block|}
 block|}
 DECL|method|getJaxbContext ()
-specifier|protected
+specifier|public
 name|JAXBContext
 name|getJaxbContext
 parameter_list|()

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.handler
+DECL|package|org.apache.camel.view
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
-name|handler
+name|view
 package|;
 end_package
 
@@ -107,6 +105,30 @@ operator|.
 name|bind
 operator|.
 name|JAXBException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|JAXBContext
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|Binder
 import|;
 end_import
 
@@ -337,8 +359,6 @@ DECL|class|ModelFileGenerator
 specifier|public
 class|class
 name|ModelFileGenerator
-extends|extends
-name|CamelNamespaceHandler
 block|{
 DECL|field|DEFAULT_ROOT_ELEMENT_NAME
 specifier|private
@@ -349,6 +369,35 @@ name|DEFAULT_ROOT_ELEMENT_NAME
 init|=
 literal|"routes"
 decl_stmt|;
+DECL|field|jaxbContext
+specifier|private
+specifier|final
+name|JAXBContext
+name|jaxbContext
+decl_stmt|;
+DECL|field|binder
+specifier|private
+name|Binder
+argument_list|<
+name|Node
+argument_list|>
+name|binder
+decl_stmt|;
+DECL|method|ModelFileGenerator (JAXBContext jaxbContext)
+specifier|public
+name|ModelFileGenerator
+parameter_list|(
+name|JAXBContext
+name|jaxbContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jaxbContext
+operator|=
+name|jaxbContext
+expr_stmt|;
+block|}
 comment|/**      * Write the specified 'routeTypes' to 'fileName' as XML using JAXB.      */
 DECL|method|marshalRoutesUsingJaxb (String fileName, List<RouteType> routeTypes)
 specifier|public
@@ -619,14 +668,21 @@ parameter_list|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|binder
+operator|==
+literal|null
+condition|)
+block|{
 name|binder
 operator|=
-name|getJaxbContext
-argument_list|()
+name|jaxbContext
 operator|.
 name|createBinder
 argument_list|()
 expr_stmt|;
+block|}
 name|binder
 operator|.
 name|marshal

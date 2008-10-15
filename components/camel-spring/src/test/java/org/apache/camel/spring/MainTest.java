@@ -44,6 +44,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -195,7 +207,7 @@ argument_list|()
 expr_stmt|;
 name|List
 argument_list|<
-name|SpringCamelContext
+name|CamelContext
 argument_list|>
 name|contextList
 init|=
@@ -221,7 +233,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|SpringCamelContext
+name|CamelContext
 name|camelContext
 init|=
 name|contextList
