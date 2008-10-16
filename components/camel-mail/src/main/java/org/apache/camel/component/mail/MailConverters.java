@@ -125,9 +125,17 @@ annotation|@
 name|Converter
 DECL|class|MailConverters
 specifier|public
+specifier|final
 class|class
 name|MailConverters
 block|{
+DECL|method|MailConverters ()
+specifier|private
+name|MailConverters
+parameter_list|()
+block|{
+comment|//Utility Class
+block|}
 comment|/**      * Converts the given JavaMail message to a String body.      * Can return null.      */
 annotation|@
 name|Converter

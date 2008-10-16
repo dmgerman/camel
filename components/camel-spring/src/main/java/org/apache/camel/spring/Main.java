@@ -22,6 +22,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|LinkedList
 import|;
 end_import
@@ -48,11 +58,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|javax
 operator|.
-name|util
+name|xml
 operator|.
-name|HashMap
+name|bind
+operator|.
+name|JAXBException
 import|;
 end_import
 
@@ -104,9 +116,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|view
+name|util
 operator|.
-name|ModelFileGenerator
+name|MainSupport
 import|;
 end_import
 
@@ -118,9 +130,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|view
 operator|.
-name|MainSupport
+name|ModelFileGenerator
 import|;
 end_import
 
@@ -175,18 +187,6 @@ operator|.
 name|support
 operator|.
 name|FileSystemXmlApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|JAXBException
 import|;
 end_import
 
