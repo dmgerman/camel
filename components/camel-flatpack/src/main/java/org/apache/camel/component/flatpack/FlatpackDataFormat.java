@@ -558,6 +558,8 @@ argument_list|(
 name|stream
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|Parser
 name|parser
 init|=
@@ -583,6 +585,15 @@ argument_list|(
 name|dataSet
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|reader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------

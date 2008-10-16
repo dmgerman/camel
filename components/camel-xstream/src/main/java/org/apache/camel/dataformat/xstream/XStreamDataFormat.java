@@ -255,6 +255,8 @@ argument_list|,
 name|stream
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|getXStream
 argument_list|()
 operator|.
@@ -265,6 +267,15 @@ argument_list|,
 name|writer
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|writer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
 specifier|public
@@ -290,6 +301,8 @@ argument_list|,
 name|stream
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 return|return
 name|getXStream
 argument_list|()
@@ -299,6 +312,15 @@ argument_list|(
 name|reader
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|reader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|getXStream ()
 specifier|public

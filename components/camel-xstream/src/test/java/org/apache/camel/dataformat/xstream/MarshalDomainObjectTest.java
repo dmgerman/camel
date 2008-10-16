@@ -65,10 +65,10 @@ comment|/**  * Marhsal tests with domain objects.  */
 end_comment
 
 begin_class
-DECL|class|MarshalDomainObject
+DECL|class|MarshalDomainObjectTest
 specifier|public
 class|class
-name|MarshalDomainObject
+name|MarshalDomainObjectTest
 extends|extends
 name|ContextTestSupport
 block|{

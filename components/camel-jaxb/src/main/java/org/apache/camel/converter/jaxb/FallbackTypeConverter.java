@@ -810,7 +810,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Unmarshals      *      * @param unmarshaller  the unmarshaller      * @param value  the stream to unarmashal (will close it after use, also if exception is thrown)      * @return  the value      * @throws JAXBException is thrown if an exception occur while unmarshalling      */
+comment|/**      * Unmarshals the given value with the unmarshaller      *      * @param unmarshaller  the unmarshaller      * @param value  the stream to unmarshal (will close it after use, also if exception is thrown)      * @return  the value      * @throws JAXBException is thrown if an exception occur while unmarshalling      */
 DECL|method|unmarshal (Unmarshaller unmarshaller, Object value)
 specifier|protected
 name|Object
