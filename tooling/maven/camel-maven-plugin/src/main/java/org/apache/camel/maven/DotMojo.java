@@ -376,6 +376,12 @@ specifier|protected
 name|boolean
 name|runCamel
 decl_stmt|;
+comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.spring.Main"      * @required      */
+DECL|field|mainClass
+specifier|private
+name|String
+name|mainClass
+decl_stmt|;
 comment|/**      * Should we try run the DOT executable on the generated .DOT file to      * generate images      *      * @parameter expression="true"      */
 DECL|field|useDot
 specifier|protected
@@ -1384,6 +1390,13 @@ operator|.
 name|setDotEnabled
 argument_list|(
 literal|true
+argument_list|)
+expr_stmt|;
+name|mojo
+operator|.
+name|setMainClass
+argument_list|(
+name|mainClass
 argument_list|)
 expr_stmt|;
 if|if

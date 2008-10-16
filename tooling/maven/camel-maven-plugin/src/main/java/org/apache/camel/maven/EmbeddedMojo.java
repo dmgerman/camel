@@ -192,6 +192,12 @@ specifier|private
 name|List
 name|classpathElements
 decl_stmt|;
+comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.spring.Main"      * @required      */
+DECL|field|mainClass
+specifier|private
+name|String
+name|mainClass
+decl_stmt|;
 comment|/**      * This method will run the mojo      */
 DECL|method|execute ()
 specifier|public
@@ -479,6 +485,32 @@ operator|=
 name|fileApplicationContextUri
 expr_stmt|;
 block|}
+DECL|method|getMainClass ()
+specifier|public
+name|String
+name|getMainClass
+parameter_list|()
+block|{
+return|return
+name|mainClass
+return|;
+block|}
+DECL|method|setMainClass (String mainClass)
+specifier|public
+name|void
+name|setMainClass
+parameter_list|(
+name|String
+name|mainClass
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mainClass
+operator|=
+name|mainClass
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 DECL|method|runCamel (ClassLoader newLoader)
@@ -518,7 +550,7 @@ name|newLoader
 operator|.
 name|loadClass
 argument_list|(
-literal|"org.apache.camel.spring.Main"
+name|mainClass
 argument_list|)
 decl_stmt|;
 name|Method
