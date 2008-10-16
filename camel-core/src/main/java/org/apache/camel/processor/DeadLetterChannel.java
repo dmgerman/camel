@@ -320,7 +320,11 @@ name|sync
 init|=
 literal|true
 decl_stmt|;
-comment|// default behaviour which can be overloaded on a per exception basis
+DECL|field|handledPredicate
+name|Predicate
+name|handledPredicate
+decl_stmt|;
+comment|// default behavior which can be overloaded on a per exception basis
 DECL|field|currentRedeliveryPolicy
 name|RedeliveryPolicy
 name|currentRedeliveryPolicy
@@ -332,12 +336,6 @@ name|Processor
 name|failureProcessor
 init|=
 name|deadLetter
-decl_stmt|;
-DECL|field|handledPredicate
-name|Predicate
-name|handledPredicate
-init|=
-literal|null
 decl_stmt|;
 block|}
 DECL|method|DeadLetterChannel (Processor output, Processor deadLetter)

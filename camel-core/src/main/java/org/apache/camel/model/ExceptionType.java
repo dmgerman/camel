@@ -193,22 +193,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|PredicateBuilder
-operator|.
-name|toPredicate
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -277,6 +261,22 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|PredicateBuilder
+operator|.
+name|toPredicate
 import|;
 end_import
 

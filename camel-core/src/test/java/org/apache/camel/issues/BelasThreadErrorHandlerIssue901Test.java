@@ -60,11 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|builder
 operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|RouteBuilder
 import|;
 end_import
 
@@ -76,9 +74,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|RouteBuilder
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
@@ -145,33 +145,35 @@ name|String
 name|msg1
 init|=
 literal|"Message Intended For Processor #1"
-decl_stmt|,
+decl_stmt|;
 DECL|field|msg2
+specifier|private
+name|String
 name|msg2
 init|=
 literal|"Message Intended For Processor #2"
-decl_stmt|,
+decl_stmt|;
 DECL|field|msg3
+specifier|private
+name|String
 name|msg3
 init|=
 literal|"Message Intended For Processor #3"
 decl_stmt|;
 DECL|field|callCounter1
-DECL|field|callCounter2
-DECL|field|callCounter3
 specifier|private
 name|int
 name|callCounter1
-init|=
-literal|0
-decl_stmt|,
+decl_stmt|;
+DECL|field|callCounter2
+specifier|private
+name|int
 name|callCounter2
-init|=
-literal|0
-decl_stmt|,
+decl_stmt|;
+DECL|field|callCounter3
+specifier|private
+name|int
 name|callCounter3
-init|=
-literal|0
 decl_stmt|;
 DECL|field|redelivery
 specifier|private
