@@ -98,6 +98,10 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// lets disable the use of JNDI
+name|noResourceInjection
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 DECL|method|testGuice ()

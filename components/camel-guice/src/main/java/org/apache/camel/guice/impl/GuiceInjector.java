@@ -92,6 +92,8 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
+comment|// TODO if not bound we could create an instance and inject it?
+comment|//injector.injectMembers(instance);
 return|return
 name|injector
 operator|.

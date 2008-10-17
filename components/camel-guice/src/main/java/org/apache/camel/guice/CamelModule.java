@@ -30,6 +30,34 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|inject
+operator|.
+name|jsr250
+operator|.
+name|Jsr250
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|inject
+operator|.
+name|jsr250
+operator|.
+name|Jsr250Module
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -62,7 +90,7 @@ specifier|public
 class|class
 name|CamelModule
 extends|extends
-name|AbstractModule
+name|Jsr250Module
 block|{
 DECL|method|configure ()
 specifier|protected
@@ -70,6 +98,11 @@ name|void
 name|configure
 parameter_list|()
 block|{
+name|super
+operator|.
+name|configure
+argument_list|()
+expr_stmt|;
 name|bind
 argument_list|(
 name|CamelContext

@@ -134,6 +134,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// lets disable resource injection to avoid JNDI being used
 name|Injector
 name|injector
 init|=
@@ -143,6 +144,9 @@ name|createInjector
 argument_list|(
 operator|new
 name|CamelModuleWithMatchingRoutes
+argument_list|()
+operator|.
+name|noResourceInjection
 argument_list|()
 argument_list|)
 decl_stmt|;
