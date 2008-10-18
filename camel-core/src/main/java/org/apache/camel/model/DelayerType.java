@@ -254,7 +254,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Delayer[ "
+literal|"Delayer["
 operator|+
 name|getExpression
 argument_list|()

@@ -457,7 +457,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Aggregator[ "
+literal|"Aggregator["
 operator|+
 name|getExpression
 argument_list|()

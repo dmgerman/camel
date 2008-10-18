@@ -231,7 +231,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"SetOutHeader[ "
+literal|"SetOutHeader["
 operator|+
 name|getHeaderName
 argument_list|()

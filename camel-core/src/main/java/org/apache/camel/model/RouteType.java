@@ -485,7 +485,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Route[ "
+literal|"Route["
 operator|+
 name|inputs
 operator|+

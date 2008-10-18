@@ -230,6 +230,44 @@ return|return
 literal|"throwFault"
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+if|if
+condition|(
+name|faultRef
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|"ThrowFault[ref: "
+operator|+
+name|faultRef
+operator|+
+literal|"]"
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|"ThrowFault["
+operator|+
+name|fault
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+return|;
+block|}
+block|}
 DECL|method|setFault (Throwable fault)
 specifier|public
 name|void

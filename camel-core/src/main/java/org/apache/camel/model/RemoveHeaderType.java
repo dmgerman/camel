@@ -176,7 +176,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"RemoveHeader[ "
+literal|"RemoveHeader["
 operator|+
 name|getHeaderName
 argument_list|()

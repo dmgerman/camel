@@ -253,12 +253,12 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"RoutingSlip[ headerName="
+literal|"RoutingSlip[headerName="
 operator|+
 name|getHeaderName
 argument_list|()
 operator|+
-literal|" uriDelimiter="
+literal|", uriDelimiter="
 operator|+
 name|getUriDelimiter
 argument_list|()

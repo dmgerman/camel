@@ -164,7 +164,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Transform[ "
+literal|"Transform["
 operator|+
 name|getExpression
 argument_list|()

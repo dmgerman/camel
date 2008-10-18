@@ -184,7 +184,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Filter[ "
+literal|"Filter["
 operator|+
 name|getExpression
 argument_list|()

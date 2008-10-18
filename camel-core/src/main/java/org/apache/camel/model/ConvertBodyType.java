@@ -257,7 +257,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"convertBodyTo[ "
+literal|"convertBodyTo["
 operator|+
 name|getType
 argument_list|()
@@ -413,7 +413,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"can't load the class with the class name "
+literal|"Can't load the class with the class name: "
 operator|+
 name|getType
 argument_list|()

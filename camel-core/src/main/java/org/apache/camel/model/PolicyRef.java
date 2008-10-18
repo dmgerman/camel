@@ -405,7 +405,7 @@ block|}
 else|else
 block|{
 return|return
-literal|"ref:  "
+literal|"ref: "
 operator|+
 name|ref
 return|;

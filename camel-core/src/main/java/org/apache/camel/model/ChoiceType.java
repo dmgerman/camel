@@ -346,7 +346,7 @@ literal|null
 condition|)
 block|{
 return|return
-literal|"Choice[ "
+literal|"Choice["
 operator|+
 name|getWhenClauses
 argument_list|()
@@ -362,7 +362,7 @@ block|}
 else|else
 block|{
 return|return
-literal|"Choice[ "
+literal|"Choice["
 operator|+
 name|getWhenClauses
 argument_list|()

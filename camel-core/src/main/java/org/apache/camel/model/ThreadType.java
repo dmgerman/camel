@@ -456,8 +456,7 @@ block|{
 return|return
 literal|"Thread["
 operator|+
-name|getLabel
-argument_list|()
+name|name
 operator|+
 literal|"]"
 return|;
@@ -472,20 +471,6 @@ parameter_list|()
 block|{
 return|return
 literal|"thread"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getLabel ()
-specifier|public
-name|String
-name|getLabel
-parameter_list|()
-block|{
-return|return
-literal|"coreSize="
-operator|+
-name|coreSize
 return|;
 block|}
 annotation|@

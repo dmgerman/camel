@@ -272,7 +272,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"SetHeader[ "
+literal|"SetHeader["
 operator|+
 name|getHeaderName
 argument_list|()

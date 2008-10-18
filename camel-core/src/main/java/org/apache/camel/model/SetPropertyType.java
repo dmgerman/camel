@@ -272,7 +272,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"SetProperty[ "
+literal|"SetProperty["
 operator|+
 name|getPropertyName
 argument_list|()

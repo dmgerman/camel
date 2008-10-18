@@ -501,7 +501,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Resequencer[ "
+literal|"Resequencer["
 operator|+
 name|getExpressions
 argument_list|()

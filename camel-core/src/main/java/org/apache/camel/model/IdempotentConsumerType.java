@@ -233,7 +233,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"IdempotentConsumer[ "
+literal|"IdempotentConsumer["
 operator|+
 name|getExpression
 argument_list|()

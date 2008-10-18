@@ -451,7 +451,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Exception[ "
+literal|"Exception["
 operator|+
 name|getExceptionClasses
 argument_list|()

@@ -152,7 +152,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"When[ "
+literal|"When["
 operator|+
 name|getExpression
 argument_list|()

@@ -176,7 +176,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"RemoveProperty[ "
+literal|"RemoveProperty["
 operator|+
 name|getPropertyName
 argument_list|()

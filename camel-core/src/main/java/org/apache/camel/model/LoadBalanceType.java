@@ -995,9 +995,6 @@ name|String
 name|toString
 parameter_list|()
 block|{
-name|String
-name|result
-decl_stmt|;
 if|if
 condition|(
 name|loadBalancerType
@@ -1005,38 +1002,34 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|result
-operator|=
+return|return
 literal|"LoadBalanceType["
 operator|+
 name|loadBalancerType
 operator|+
 literal|", "
-expr_stmt|;
-block|}
-else|else
-block|{
-name|result
-operator|=
-literal|"LoadBalanceType["
-operator|+
-name|ref
-operator|+
-literal|", "
-expr_stmt|;
-block|}
-name|result
-operator|=
-name|result
 operator|+
 name|getOutputs
 argument_list|()
 operator|+
 literal|"]"
-expr_stmt|;
-return|return
-name|result
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|"LoadBalanceType[ref: "
+operator|+
+name|ref
+operator|+
+literal|", "
+operator|+
+name|getOutputs
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 block|}
 end_class

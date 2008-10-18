@@ -226,7 +226,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Loop[ "
+literal|"Loop["
 operator|+
 name|getExpression
 argument_list|()

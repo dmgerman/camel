@@ -221,7 +221,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Try[ "
+literal|"Try["
 operator|+
 name|getOutputs
 argument_list|()
