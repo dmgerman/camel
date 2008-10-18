@@ -308,6 +308,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|applicationContext
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"ApplicationContext is null"
+argument_list|)
+throw|;
+block|}
 return|return
 operator|new
 name|DefaultProducer
