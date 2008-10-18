@@ -638,7 +638,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Publishing event: "
+literal|"Publishing spring-event: "
 operator|+
 name|event
 argument_list|)
@@ -721,7 +721,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No eventEndpoint enabled for event: "
+literal|"No spring-event endpoint enabled for: "
 operator|+
 name|event
 argument_list|)
@@ -767,7 +767,7 @@ condition|)
 block|{
 name|addComponent
 argument_list|(
-literal|"event"
+literal|"spring-event"
 argument_list|,
 operator|new
 name|EventComponent
@@ -910,7 +910,7 @@ name|endpoint
 init|=
 name|getEndpoint
 argument_list|(
-literal|"event:default"
+literal|"spring-event:default"
 argument_list|,
 name|EventEndpoint
 operator|.

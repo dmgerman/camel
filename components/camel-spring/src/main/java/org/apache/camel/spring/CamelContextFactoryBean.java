@@ -1847,7 +1847,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Publishing event: "
+literal|"Publishing spring-event: "
 operator|+
 name|event
 argument_list|)
