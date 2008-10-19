@@ -129,13 +129,6 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedHeaderReceived
 argument_list|(
 literal|"one"
@@ -160,7 +153,7 @@ name|HttpMethods
 operator|.
 name|HTTP_METHOD
 argument_list|,
-literal|"POST"
+literal|"GET"
 argument_list|)
 expr_stmt|;
 name|template
@@ -171,7 +164,7 @@ name|serverUri
 operator|+
 literal|"?one=einz&two=twei"
 argument_list|,
-literal|"Hello World"
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -194,13 +187,6 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
 name|mock
 operator|.
 name|expectedHeaderReceived
@@ -227,7 +213,7 @@ name|HttpMethods
 operator|.
 name|HTTP_METHOD
 argument_list|,
-literal|"POST"
+literal|"GET"
 argument_list|)
 expr_stmt|;
 name|template
@@ -236,13 +222,60 @@ name|sendBodyAndHeader
 argument_list|(
 name|serverUri
 argument_list|,
-literal|"Hello World"
+literal|null
 argument_list|,
 name|HttpProducer
 operator|.
 name|QUERY
 argument_list|,
 literal|"one=uno&two=dos"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testHttpPost ()
+specifier|public
+name|void
+name|testHttpPost
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+name|HttpMethods
+operator|.
+name|HTTP_METHOD
+argument_list|,
+literal|"POST"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+name|serverUri
+argument_list|,
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

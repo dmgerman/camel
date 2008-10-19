@@ -98,6 +98,29 @@ name|String
 name|location
 parameter_list|)
 block|{
+name|super
+argument_list|(
+literal|"HTTP operation failed with statusCode: "
+operator|+
+name|statusCode
+operator|+
+literal|", status: "
+operator|+
+name|statusLine
+operator|+
+operator|(
+name|location
+operator|!=
+literal|null
+condition|?
+literal|", redirectLocation: "
+operator|+
+name|location
+else|:
+literal|""
+operator|)
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|statusCode
@@ -110,6 +133,8 @@ name|statusLine
 operator|=
 name|statusLine
 expr_stmt|;
+name|this
+operator|.
 name|redirectLocation
 operator|=
 name|location
