@@ -72,16 +72,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test to verify the algorithm for selecting either GET or POST.  */
 end_comment
@@ -127,12 +117,6 @@ operator|.
 name|createEndpoint
 argument_list|(
 literal|"http://www.google.com"
-argument_list|,
-literal|""
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_MAP
 argument_list|)
 decl_stmt|;
 name|MyHttpProducer
@@ -237,12 +221,6 @@ operator|.
 name|createEndpoint
 argument_list|(
 literal|"http://www.google.com"
-argument_list|,
-literal|""
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_MAP
 argument_list|)
 decl_stmt|;
 name|MyHttpProducer
@@ -347,12 +325,6 @@ operator|.
 name|createEndpoint
 argument_list|(
 literal|"http://www.google.com"
-argument_list|,
-literal|""
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_MAP
 argument_list|)
 decl_stmt|;
 name|MyHttpProducer
@@ -469,12 +441,6 @@ operator|.
 name|createEndpoint
 argument_list|(
 literal|"http://www.google.com"
-argument_list|,
-literal|""
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_MAP
 argument_list|)
 decl_stmt|;
 name|MyHttpProducer
@@ -591,12 +557,6 @@ operator|.
 name|createEndpoint
 argument_list|(
 literal|"http://www.google.com?q=Camel"
-argument_list|,
-literal|""
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_MAP
 argument_list|)
 decl_stmt|;
 name|MyHttpProducer
@@ -701,12 +661,6 @@ operator|.
 name|createEndpoint
 argument_list|(
 literal|"http://www.google.com"
-argument_list|,
-literal|""
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_MAP
 argument_list|)
 decl_stmt|;
 name|MyHttpProducer
@@ -825,12 +779,6 @@ operator|.
 name|createEndpoint
 argument_list|(
 literal|"http://www.google.com?q=Donkey"
-argument_list|,
-literal|""
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_MAP
 argument_list|)
 decl_stmt|;
 name|MyHttpProducer

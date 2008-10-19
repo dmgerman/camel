@@ -403,6 +403,54 @@ literal|4
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testContextShouldBeSet ()
+specifier|public
+name|void
+name|testContextShouldBeSet
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MyComponent
+name|my
+init|=
+operator|new
+name|MyComponent
+argument_list|(
+literal|null
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|my
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown a IllegalArgumentException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"camelContext must be specified"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 end_class
 

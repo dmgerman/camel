@@ -793,7 +793,18 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+literal|"camelContext"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|doStop ()
 specifier|protected
 name|void
