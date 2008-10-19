@@ -66,6 +66,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Routes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -293,14 +305,14 @@ name|applicationContext
 return|;
 block|}
 comment|/**      * Appends all the {@link RouteBuilder} instances that can be found on the classpath      */
-DECL|method|appendBuilders (List<RouteBuilder> list)
+DECL|method|appendBuilders (List<Routes> list)
 specifier|public
 name|void
 name|appendBuilders
 parameter_list|(
 name|List
 argument_list|<
-name|RouteBuilder
+name|Routes
 argument_list|>
 name|list
 parameter_list|)
@@ -313,7 +325,7 @@ name|resolver
 operator|.
 name|findImplementations
 argument_list|(
-name|RouteBuilder
+name|Routes
 operator|.
 name|class
 argument_list|,
@@ -357,7 +369,7 @@ name|aClass
 argument_list|)
 condition|)
 block|{
-name|RouteBuilder
+name|Routes
 name|builder
 init|=
 name|instantiateBuilder
@@ -489,7 +501,7 @@ return|;
 block|}
 DECL|method|instantiateBuilder (Class type)
 specifier|protected
-name|RouteBuilder
+name|Routes
 name|instantiateBuilder
 parameter_list|(
 name|Class
@@ -502,7 +514,7 @@ name|InstantiationException
 block|{
 return|return
 operator|(
-name|RouteBuilder
+name|Routes
 operator|)
 name|camelContext
 operator|.
