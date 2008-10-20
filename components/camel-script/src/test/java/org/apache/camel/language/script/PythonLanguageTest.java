@@ -50,11 +50,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// the properties are stored in a set so ordering is not known
 name|assertExpression
 argument_list|(
 literal|"exchange.in.headers"
 argument_list|,
 literal|"{foo=abc, bar=123}"
+argument_list|,
+literal|"{bar=123, foo=abc}"
 argument_list|)
 expr_stmt|;
 name|assertExpression
