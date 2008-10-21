@@ -358,7 +358,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
 block|{
 name|LOG
 operator|.
