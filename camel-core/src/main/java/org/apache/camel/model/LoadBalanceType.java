@@ -757,7 +757,6 @@ return|return
 name|loadBalancer
 return|;
 block|}
-comment|// when this method will be called
 annotation|@
 name|Override
 DECL|method|createProcessor (RouteContext routeContext)
@@ -795,12 +794,9 @@ argument_list|()
 control|)
 block|{
 comment|// The outputs should be the SendProcessor
-name|SendProcessor
+name|Processor
 name|processor
 init|=
-operator|(
-name|SendProcessor
-operator|)
 name|processorType
 operator|.
 name|createProcessor
@@ -808,10 +804,24 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
+name|processor
+operator|=
+name|processorType
+operator|.
+name|wrapProcessorInInterceptors
+argument_list|(
+name|routeContext
+argument_list|,
+name|processor
+argument_list|)
+expr_stmt|;
 name|loadBalancer
 operator|.
 name|addProcessor
 argument_list|(
+operator|(
+name|SendProcessor
+operator|)
 name|processor
 argument_list|)
 expr_stmt|;
