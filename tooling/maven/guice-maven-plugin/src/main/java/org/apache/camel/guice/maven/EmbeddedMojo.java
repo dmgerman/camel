@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Runs a CamelContext using any Spring XML configuration files found in  *<code>META-INF/spring/*.xml</code> and<code>camel-*.xml</code>  * and starting up the context; then generating  * the DOT file before closing the context down.  *  * @goal embedded  * @requiresDependencyResolution runtime  * @execute phase="test-compile"  */
+comment|/**  * Runs a Camel using the  *<code>jndi.properties</code> file on the classpath to  * way to<a href="http://activemq.apache.org/camel/guice.html">bootstrap via Guice</a>  *  * @goal embedded  * @requiresDependencyResolution runtime  * @execute phase="test-compile"  */
 end_comment
 
 begin_class
@@ -176,25 +176,13 @@ specifier|protected
 name|boolean
 name|dotAggregationEnabled
 decl_stmt|;
-comment|/**      * The classpath based application context uri that spring wants to get.      *      * @parameter expression="${camel.applicationContextUri}"      */
-DECL|field|applicationContextUri
-specifier|protected
-name|String
-name|applicationContextUri
-decl_stmt|;
-comment|/**      * The filesystem based application context uri that spring wants to get.      *      * @parameter expression="${camel.fileApplicationContextUri}"      */
-DECL|field|fileApplicationContextUri
-specifier|protected
-name|String
-name|fileApplicationContextUri
-decl_stmt|;
 comment|/**      * Project classpath.      *      * @parameter expression="${project.testClasspathElements}"      * @required      * @readonly      */
 DECL|field|classpathElements
 specifier|private
 name|List
 name|classpathElements
 decl_stmt|;
-comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.spring.Main"      * @required      */
+comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.guice.Main"      * @required      */
 DECL|field|mainClass
 specifier|private
 name|String
@@ -435,58 +423,6 @@ operator|=
 name|dotAggregationEnabled
 expr_stmt|;
 block|}
-DECL|method|getApplicationContextUri ()
-specifier|public
-name|String
-name|getApplicationContextUri
-parameter_list|()
-block|{
-return|return
-name|applicationContextUri
-return|;
-block|}
-DECL|method|setApplicationContextUri (String applicationContextUri)
-specifier|public
-name|void
-name|setApplicationContextUri
-parameter_list|(
-name|String
-name|applicationContextUri
-parameter_list|)
-block|{
-name|this
-operator|.
-name|applicationContextUri
-operator|=
-name|applicationContextUri
-expr_stmt|;
-block|}
-DECL|method|getFileApplicationContextUri ()
-specifier|public
-name|String
-name|getFileApplicationContextUri
-parameter_list|()
-block|{
-return|return
-name|fileApplicationContextUri
-return|;
-block|}
-DECL|method|setFileApplicationContextUri (String fileApplicationContextUri)
-specifier|public
-name|void
-name|setFileApplicationContextUri
-parameter_list|(
-name|String
-name|fileApplicationContextUri
-parameter_list|)
-block|{
-name|this
-operator|.
-name|fileApplicationContextUri
-operator|=
-name|fileApplicationContextUri
-expr_stmt|;
-block|}
 DECL|method|getMainClass ()
 specifier|public
 name|String
@@ -701,51 +637,6 @@ literal|"true"
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|applicationContextUri
-operator|!=
-literal|null
-condition|)
-block|{
-name|args
-operator|.
-name|add
-argument_list|(
-literal|"-applicationContext"
-argument_list|)
-expr_stmt|;
-name|args
-operator|.
-name|add
-argument_list|(
-name|applicationContextUri
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|fileApplicationContextUri
-operator|!=
-literal|null
-condition|)
-block|{
-name|args
-operator|.
-name|add
-argument_list|(
-literal|"-fileApplicationContext"
-argument_list|)
-expr_stmt|;
-name|args
-operator|.
-name|add
-argument_list|(
-name|fileApplicationContextUri
-argument_list|)
-expr_stmt|;
-block|}
 name|args
 operator|.
 name|add
@@ -762,10 +653,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|String
-index|[]
-operator|)
 name|args
 operator|.
 name|toArray
