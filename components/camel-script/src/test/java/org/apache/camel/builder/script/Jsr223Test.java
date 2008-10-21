@@ -116,7 +116,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"We should get the scrpte engine for "
+literal|"We should get the script engine for "
 operator|+
 name|scriptName
 argument_list|,
