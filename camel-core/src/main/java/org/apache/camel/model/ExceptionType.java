@@ -376,7 +376,7 @@ literal|false
 argument_list|)
 DECL|field|handled
 specifier|private
-name|Boolean
+name|HandledPredicate
 name|handled
 decl_stmt|;
 annotation|@
@@ -595,6 +595,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|setHandledFromExpressionType
+argument_list|(
+name|routeContext
+argument_list|)
+expr_stmt|;
 comment|// lets attach a processor to an error handler
 name|errorHandler
 operator|=
@@ -1049,28 +1054,73 @@ name|Predicate
 name|getHandledPolicy
 parameter_list|()
 block|{
+return|return
+name|handledPolicy
+return|;
+block|}
+DECL|method|setHandled (HandledPredicate handled)
+specifier|public
+name|void
+name|setHandled
+parameter_list|(
+name|HandledPredicate
+name|handled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|handled
+operator|=
+name|handled
+expr_stmt|;
+block|}
+DECL|method|getHandled ()
+specifier|public
+name|HandledPredicate
+name|getHandled
+parameter_list|()
+block|{
+return|return
+name|handled
+return|;
+block|}
+DECL|method|setHandledFromExpressionType (RouteContext routeContext)
+specifier|private
+name|void
+name|setHandledFromExpressionType
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|)
+block|{
 if|if
 condition|(
-name|handled
+name|getHandled
+argument_list|()
 operator|!=
 literal|null
 operator|&&
 name|handledPolicy
 operator|==
 literal|null
+operator|&&
+name|routeContext
+operator|!=
+literal|null
 condition|)
 block|{
-comment|// will set the handled policy using fluent builder with the boolean value from handled that
-comment|// is from the spring DSL where we currently only support setting either true|false as policy
 name|handled
 argument_list|(
-name|handled
+name|getHandled
+argument_list|()
+operator|.
+name|createPredicate
+argument_list|(
+name|routeContext
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|handledPolicy
-return|;
 block|}
 DECL|method|setHandledPolicy (Predicate handledPolicy)
 specifier|public
