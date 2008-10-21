@@ -113,6 +113,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|InterceptorRef
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -497,9 +511,13 @@ condition|(
 name|node
 operator|instanceof
 name|MulticastType
+operator|||
+name|node
+operator|instanceof
+name|InterceptorRef
 condition|)
 block|{
-comment|// no need for a multicast node
+comment|// no need for a multicast or interceptor node
 name|List
 argument_list|<
 name|ProcessorType
