@@ -986,7 +986,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the      * registry      *      * @param jndiContext      */
+comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the      * registry      */
 DECL|method|DefaultCamelContext (Context jndiContext)
 specifier|public
 name|DefaultCamelContext

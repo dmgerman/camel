@@ -340,6 +340,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Consumer is not running, so returning null"
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
