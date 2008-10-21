@@ -226,6 +226,25 @@ specifier|private
 name|StaxConverter
 name|staxConverter
 decl_stmt|;
+DECL|method|XStreamDataFormat ()
+specifier|public
+name|XStreamDataFormat
+parameter_list|()
+block|{     }
+DECL|method|XStreamDataFormat (XStream xstream)
+specifier|public
+name|XStreamDataFormat
+parameter_list|(
+name|XStream
+name|xstream
+parameter_list|)
+block|{
+name|setXStream
+argument_list|(
+name|xstream
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|marshal (Exchange exchange, Object body, OutputStream stream)
 specifier|public
 name|void
