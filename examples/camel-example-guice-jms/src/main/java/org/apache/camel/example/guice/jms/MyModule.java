@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Configures the CamelContext, RouteBuilder, Component and Endpoint instances using  * Guice  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -120,29 +120,12 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Configuring JMS module!!!"
-argument_list|)
-expr_stmt|;
 name|super
 operator|.
 name|configure
 argument_list|()
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Adding my module!"
-argument_list|)
-expr_stmt|;
+comment|// lets add in any RouteBuilder instances we want to use
 name|bind
 argument_list|(
 name|MyRouteBuilder
@@ -151,6 +134,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Lets configure the JMS component, parameterizing some properties from the      * jndi.properties file      */
 annotation|@
 name|Provides
 annotation|@
