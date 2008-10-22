@@ -877,7 +877,7 @@ name|expression
 return|;
 block|}
 comment|/**      * Evaluates the @EndpointInject annotation using the given context      */
-DECL|method|getEndpointInjection (CamelContext camelContext, String uri, String name, String injectionPointName)
+DECL|method|getEndpointInjection (CamelContext camelContext, String uri, String name, String injectionPointName, boolean mandatory)
 specifier|public
 specifier|static
 name|Endpoint
@@ -894,6 +894,9 @@ name|name
 parameter_list|,
 name|String
 name|injectionPointName
+parameter_list|,
+name|boolean
+name|mandatory
 parameter_list|)
 block|{
 name|Endpoint
@@ -934,6 +937,11 @@ operator|=
 name|injectionPointName
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|mandatory
+condition|)
+block|{
 name|endpoint
 operator|=
 name|mandatoryLookup
@@ -947,6 +955,23 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|endpoint
+operator|=
+name|lookup
+argument_list|(
+name|camelContext
+argument_list|,
+name|name
+argument_list|,
+name|Endpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|endpoint

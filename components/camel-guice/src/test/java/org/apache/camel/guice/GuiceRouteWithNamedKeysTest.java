@@ -182,16 +182,6 @@ name|MyModule
 extends|extends
 name|CamelModuleWithMatchingRoutes
 block|{
-DECL|method|MyModule ()
-specifier|public
-name|MyModule
-parameter_list|()
-block|{
-comment|// lets disable the use of JNDI
-name|noResourceInjection
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Provides
 annotation|@

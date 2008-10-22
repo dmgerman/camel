@@ -75,6 +75,38 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|isNotNullAndNonEmpty
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|isNullOrBlank
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -133,10 +165,10 @@ comment|/**  * A helper class for Camel based injector or post processing hooks 
 end_comment
 
 begin_class
-DECL|class|CamelPostProcessorSupport
+DECL|class|CamelPostProcessorHelper
 specifier|public
 class|class
-name|CamelPostProcessorSupport
+name|CamelPostProcessorHelper
 implements|implements
 name|CamelContextAware
 block|{
@@ -152,7 +184,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|CamelPostProcessorSupport
+name|CamelPostProcessorHelper
 operator|.
 name|class
 argument_list|)
@@ -164,9 +196,14 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
-DECL|method|CamelPostProcessorSupport (CamelContext camelContext)
+DECL|method|CamelPostProcessorHelper ()
 specifier|public
-name|CamelPostProcessorSupport
+name|CamelPostProcessorHelper
+parameter_list|()
+block|{     }
+DECL|method|CamelPostProcessorHelper (CamelContext camelContext)
+specifier|public
+name|CamelPostProcessorHelper
 parameter_list|(
 name|CamelContext
 name|camelContext
@@ -174,9 +211,10 @@ parameter_list|)
 block|{
 name|this
 operator|.
+name|setCamelContext
+argument_list|(
 name|camelContext
-operator|=
-name|camelContext
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getCamelContext ()
@@ -347,6 +385,8 @@ argument_list|,
 name|endpointName
 argument_list|,
 name|injectionPointName
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -438,6 +478,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|CamelContext
+name|camelContext
+init|=
+name|getCamelContext
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|camelContext
@@ -512,7 +558,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|getEndpointInjection (String uri, String name, String injectionPointName)
+DECL|method|getEndpointInjection (String uri, String name, String injectionPointName, boolean mandatory)
 specifier|protected
 name|Endpoint
 name|getEndpointInjection
@@ -525,6 +571,9 @@ name|name
 parameter_list|,
 name|String
 name|injectionPointName
+parameter_list|,
+name|boolean
+name|mandatory
 parameter_list|)
 block|{
 return|return
@@ -532,13 +581,16 @@ name|CamelContextHelper
 operator|.
 name|getEndpointInjection
 argument_list|(
-name|camelContext
+name|getCamelContext
+argument_list|()
 argument_list|,
 name|uri
 argument_list|,
 name|name
 argument_list|,
 name|injectionPointName
+argument_list|,
+name|mandatory
 argument_list|)
 return|;
 block|}
@@ -564,6 +616,19 @@ name|String
 name|injectionPointName
 parameter_list|)
 block|{
+if|if
+condition|(
+name|type
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|ProducerTemplate
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+comment|// endpoint is optional for this injection point
 name|Endpoint
 name|endpoint
 init|=
@@ -574,6 +639,35 @@ argument_list|,
 name|endpointRef
 argument_list|,
 name|injectionPointName
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|DefaultProducerTemplate
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|endpoint
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+name|Endpoint
+name|endpoint
+init|=
+name|getEndpointInjection
+argument_list|(
+name|endpointUri
+argument_list|,
+name|endpointRef
+argument_list|,
+name|injectionPointName
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -613,30 +707,6 @@ block|{
 return|return
 name|createInjectionProducer
 argument_list|(
-name|endpoint
-argument_list|)
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|type
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|DefaultProducerTemplate
-operator|.
-name|class
-argument_list|)
-condition|)
-block|{
-return|return
-operator|new
-name|DefaultProducerTemplate
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
 name|endpoint
 argument_list|)
 return|;
@@ -725,6 +795,7 @@ block|}
 return|return
 literal|null
 return|;
+block|}
 block|}
 DECL|method|createProxyInstantiationRuntimeException (Class<?> type, Endpoint endpoint, Exception e)
 specifier|protected

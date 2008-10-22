@@ -116,39 +116,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|bean
-operator|.
-name|ProxyHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
-name|DefaultProducerTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|CamelPostProcessorSupport
+name|CamelPostProcessorHelper
 import|;
 end_import
 
@@ -274,22 +244,6 @@ name|ApplicationContextAware
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
-import|;
-end_import
-
 begin_comment
 comment|/**  * A bean post processor which implements the<a href="http://activemq.apache.org/camel/bean-integration.html">Bean Integration</a>  * features in Camel such as the<a href="http://activemq.apache.org/camel/bean-injection.html">Bean Injection</a> of objects like  * {@link Endpoint} and  * {@link org.apache.camel.ProducerTemplate} together with support for  *<a href="http://activemq.apache.org/camel/pojo-consuming.html">POJO Consuming</a> via the   * {@link org.apache.camel.Consume} and {@link org.apache.camel.MessageDriven} annotations along with  *<a href="http://activemq.apache.org/camel/pojo-producing.html">POJO Producing</a> via the  * {@link org.apache.camel.Produce} annotation along with other annotations such as  * {@link org.apache.camel.RecipientList} for creating<a href="http://activemq.apache.org/camel/recipientlist-annotation.html">a Recipient List router via annotations</a>.  *<p>  * If you use the&lt;camelContext&gt; element in your<a href="http://activemq.apache.org/camel/spring.html">Spring XML</a>   * then one of these bean post processors is implicity installed and configured for you. So you should never have to  * explicitly create or configure one of these instances.  *  * @version $Revision$  */
 end_comment
@@ -353,7 +307,7 @@ annotation|@
 name|XmlTransient
 DECL|field|postProcessor
 specifier|private
-name|CamelPostProcessorSupport
+name|CamelPostProcessorHelper
 name|postProcessor
 decl_stmt|;
 DECL|method|CamelBeanPostProcessor ()
@@ -498,7 +452,7 @@ expr_stmt|;
 name|postProcessor
 operator|=
 operator|new
-name|CamelPostProcessorSupport
+name|CamelPostProcessorHelper
 argument_list|(
 name|camelContext
 argument_list|)
@@ -1028,7 +982,7 @@ expr_stmt|;
 block|}
 DECL|method|getPostProcessor ()
 specifier|public
-name|CamelPostProcessorSupport
+name|CamelPostProcessorHelper
 name|getPostProcessor
 parameter_list|()
 block|{

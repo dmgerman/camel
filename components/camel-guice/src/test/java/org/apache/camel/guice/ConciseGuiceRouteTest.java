@@ -113,9 +113,6 @@ name|MyHardcodeRoute
 operator|.
 name|class
 argument_list|)
-operator|.
-name|noResourceInjection
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|GuiceTest

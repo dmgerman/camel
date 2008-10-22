@@ -128,7 +128,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointInject
+name|CamelContext
 import|;
 end_import
 
@@ -140,7 +140,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Produce
 import|;
 end_import
 
@@ -173,21 +173,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Injects values into the {@link EndpointInject} injection point  *  * @version $Revision: 1.1 $  */
+comment|/**  * Injects values into the {@link Produce} injection point  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
 annotation|@
 name|InjectionAnnotation
 argument_list|(
-name|EndpointInject
+name|Produce
 operator|.
 name|class
 argument_list|)
-DECL|class|EndpointInjector
+DECL|class|ProduceInjector
 specifier|public
 class|class
-name|EndpointInjector
+name|ProduceInjector
 extends|extends
 name|CamelPostProcessorHelper
 implements|implements
@@ -195,9 +195,9 @@ name|AnnotationProviderFactory
 block|{
 annotation|@
 name|Inject
-DECL|method|EndpointInjector (CamelContext camelContext)
+DECL|method|ProduceInjector (CamelContext camelContext)
 specifier|public
-name|EndpointInjector
+name|ProduceInjector
 parameter_list|(
 name|CamelContext
 name|camelContext
@@ -220,14 +220,14 @@ name|member
 parameter_list|)
 block|{
 specifier|final
-name|EndpointInject
+name|Produce
 name|inject
 init|=
 name|member
 operator|.
 name|getAnnotation
 argument_list|(
-name|EndpointInject
+name|Produce
 operator|.
 name|class
 argument_list|)
@@ -238,7 +238,7 @@ name|nonNull
 argument_list|(
 name|inject
 argument_list|,
-literal|"@EndpointInject is not present!"
+literal|"@Produce is not present!"
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -258,7 +258,7 @@ name|endpointRef
 init|=
 name|inject
 operator|.
-name|name
+name|ref
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -360,7 +360,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"Only a single method parameter value supported for @EndpointInject on "
+literal|"Only a single method parameter value supported for @Produce on "
 operator|+
 name|method
 argument_list|)

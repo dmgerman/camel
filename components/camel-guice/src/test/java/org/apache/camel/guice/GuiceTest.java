@@ -239,9 +239,6 @@ argument_list|(
 operator|new
 name|CamelModuleWithMatchingRoutes
 argument_list|()
-operator|.
-name|noResourceInjection
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|Cheese
