@@ -376,7 +376,7 @@ literal|false
 argument_list|)
 DECL|field|handled
 specifier|private
-name|HandledPredicate
+name|ExpressionSubElementType
 name|handled
 decl_stmt|;
 annotation|@
@@ -1058,12 +1058,12 @@ return|return
 name|handledPolicy
 return|;
 block|}
-DECL|method|setHandled (HandledPredicate handled)
+DECL|method|setHandled (ExpressionSubElementType handled)
 specifier|public
 name|void
 name|setHandled
 parameter_list|(
-name|HandledPredicate
+name|ExpressionSubElementType
 name|handled
 parameter_list|)
 block|{
@@ -1076,7 +1076,7 @@ expr_stmt|;
 block|}
 DECL|method|getHandled ()
 specifier|public
-name|HandledPredicate
+name|ExpressionSubElementType
 name|getHandled
 parameter_list|()
 block|{

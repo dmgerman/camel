@@ -94,6 +94,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Predicate
 import|;
 end_import
@@ -129,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;completedPredicate/&gt; element  *  * @version $Revision$  */
+comment|/**  * Represents an expression sub element  */
 end_comment
 
 begin_class
@@ -138,7 +150,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"completedPredicate"
+literal|"expression"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -147,17 +159,24 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|CompletedPredicate
+DECL|class|ExpressionSubElementType
 specifier|public
 class|class
-name|CompletedPredicate
+name|ExpressionSubElementType
 block|{
 annotation|@
 name|XmlElementRef
-DECL|field|completePredicate
+DECL|field|expressionType
 specifier|private
 name|ExpressionType
-name|completePredicate
+name|expressionType
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|expression
+specifier|private
+name|Expression
+name|expression
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -166,14 +185,29 @@ specifier|private
 name|Predicate
 name|predicate
 decl_stmt|;
-DECL|method|CompletedPredicate ()
+DECL|method|ExpressionSubElementType ()
 specifier|public
-name|CompletedPredicate
+name|ExpressionSubElementType
 parameter_list|()
 block|{     }
-DECL|method|CompletedPredicate (Predicate predicate)
+DECL|method|ExpressionSubElementType (Expression expression)
 specifier|public
-name|CompletedPredicate
+name|ExpressionSubElementType
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
+expr_stmt|;
+block|}
+DECL|method|ExpressionSubElementType (Predicate predicate)
+specifier|public
+name|ExpressionSubElementType
 parameter_list|(
 name|Predicate
 name|predicate
@@ -186,41 +220,57 @@ operator|=
 name|predicate
 expr_stmt|;
 block|}
-DECL|method|getCompletePredicate ()
+DECL|method|getExpressionType ()
 specifier|public
 name|ExpressionType
-name|getCompletePredicate
+name|getExpressionType
 parameter_list|()
 block|{
 return|return
-name|completePredicate
+name|expressionType
 return|;
 block|}
-DECL|method|setCompletePredicate (ExpressionType completePredicate)
+DECL|method|setExpressionType (ExpressionType expressionType)
 specifier|public
 name|void
-name|setCompletePredicate
+name|setExpressionType
 parameter_list|(
 name|ExpressionType
-name|completePredicate
+name|expressionType
 parameter_list|)
 block|{
 name|this
 operator|.
-name|completePredicate
+name|expressionType
 operator|=
-name|completePredicate
+name|expressionType
 expr_stmt|;
 block|}
-DECL|method|getPredicate ()
+DECL|method|getExpression ()
 specifier|public
-name|Predicate
-name|getPredicate
+name|Expression
+name|getExpression
 parameter_list|()
 block|{
 return|return
-name|predicate
+name|expression
 return|;
+block|}
+DECL|method|setExpression (Expression expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
+expr_stmt|;
 block|}
 DECL|method|setPredicate (Predicate predicate)
 specifier|public
@@ -238,6 +288,56 @@ operator|=
 name|predicate
 expr_stmt|;
 block|}
+DECL|method|getPredicate ()
+specifier|public
+name|Predicate
+name|getPredicate
+parameter_list|()
+block|{
+return|return
+name|predicate
+return|;
+block|}
+DECL|method|createExpression (RouteContext routeContext)
+specifier|public
+name|Expression
+name|createExpression
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|)
+block|{
+name|ExpressionType
+name|expressionType
+init|=
+name|getExpressionType
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|expressionType
+operator|!=
+literal|null
+operator|&&
+name|expression
+operator|==
+literal|null
+condition|)
+block|{
+name|expression
+operator|=
+name|expressionType
+operator|.
+name|createExpression
+argument_list|(
+name|routeContext
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|expression
+return|;
+block|}
 DECL|method|createPredicate (RouteContext routeContext)
 specifier|public
 name|Predicate
@@ -248,34 +348,37 @@ name|routeContext
 parameter_list|)
 block|{
 name|ExpressionType
-name|predicateType
+name|expressionType
 init|=
-name|getCompletePredicate
+name|getExpressionType
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|predicateType
+name|expressionType
 operator|!=
 literal|null
 operator|&&
-name|predicate
+name|getPredicate
+argument_list|()
 operator|==
 literal|null
 condition|)
 block|{
-name|predicate
-operator|=
-name|predicateType
+name|setPredicate
+argument_list|(
+name|expressionType
 operator|.
 name|createPredicate
 argument_list|(
 name|routeContext
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|predicate
+name|getPredicate
+argument_list|()
 return|;
 block|}
 block|}

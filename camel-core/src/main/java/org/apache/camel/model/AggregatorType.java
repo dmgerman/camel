@@ -389,7 +389,7 @@ literal|false
 argument_list|)
 DECL|field|completedPredicate
 specifier|private
-name|CompletedPredicate
+name|ExpressionSubElementType
 name|completedPredicate
 decl_stmt|;
 DECL|method|AggregatorType ()
@@ -775,14 +775,16 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|completedPredicate
+name|getCompletedPredicate
+argument_list|()
 operator|!=
 literal|null
 condition|)
 block|{
 name|predicate
 operator|=
-name|completedPredicate
+name|getCompletedPredicate
+argument_list|()
 operator|.
 name|createPredicate
 argument_list|(
@@ -1096,22 +1098,12 @@ operator|=
 name|strategyRef
 expr_stmt|;
 block|}
-DECL|method|getCompletePredicate ()
-specifier|public
-name|CompletedPredicate
-name|getCompletePredicate
-parameter_list|()
-block|{
-return|return
-name|completedPredicate
-return|;
-block|}
-DECL|method|setCompletePredicate (CompletedPredicate completedPredicate)
+DECL|method|setCompletedPredicate (ExpressionSubElementType completedPredicate)
 specifier|public
 name|void
-name|setCompletePredicate
+name|setCompletedPredicate
 parameter_list|(
-name|CompletedPredicate
+name|ExpressionSubElementType
 name|completedPredicate
 parameter_list|)
 block|{
@@ -1121,6 +1113,16 @@ name|completedPredicate
 operator|=
 name|completedPredicate
 expr_stmt|;
+block|}
+DECL|method|getCompletedPredicate ()
+specifier|public
+name|ExpressionSubElementType
+name|getCompletedPredicate
+parameter_list|()
+block|{
+return|return
+name|completedPredicate
+return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
@@ -1260,12 +1262,16 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|completedPredicate
-operator|=
-operator|new
-name|CompletedPredicate
+name|setCompletedPredicate
 argument_list|(
+operator|new
+name|ExpressionSubElementType
+argument_list|(
+operator|(
+name|Expression
+operator|)
 name|clause
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1285,12 +1291,13 @@ block|{
 name|checkNoCompletedPredicate
 argument_list|()
 expr_stmt|;
-name|completedPredicate
-operator|=
+name|setCompletedPredicate
+argument_list|(
 operator|new
-name|CompletedPredicate
+name|ExpressionSubElementType
 argument_list|(
 name|predicate
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1305,7 +1312,8 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|completedPredicate
+name|getCompletedPredicate
+argument_list|()
 operator|!=
 literal|null
 condition|)
