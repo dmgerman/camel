@@ -1322,7 +1322,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"There already is a completedPredicate defined for this aggregator: "
+literal|"There is already a completedPredicate defined for this aggregator: "
 operator|+
 name|this
 argument_list|)
