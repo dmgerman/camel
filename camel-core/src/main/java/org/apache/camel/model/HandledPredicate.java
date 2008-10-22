@@ -250,7 +250,7 @@ block|{
 name|ExpressionType
 name|predicateType
 init|=
-name|getCompletePredicate
+name|getHandledPredicate
 argument_list|()
 decl_stmt|;
 if|if
