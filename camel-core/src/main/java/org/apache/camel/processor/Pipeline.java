@@ -340,22 +340,11 @@ literal|true
 condition|)
 block|{
 name|boolean
-name|handledException
+name|exceptionHandled
 init|=
-name|Boolean
-operator|.
-name|TRUE
-operator|.
-name|equals
+name|hasExceptionBeenHandled
 argument_list|(
 name|nextExchange
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|EXCEPTION_HANDLED_PROPERTY
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -365,7 +354,7 @@ operator|.
 name|isFailed
 argument_list|()
 operator|||
-name|handledException
+name|exceptionHandled
 condition|)
 block|{
 comment|// The Exchange.EXCEPTION_HANDLED_PROPERTY property is only set if satisfactory handling was done
@@ -403,7 +392,7 @@ literal|false
 argument_list|)
 operator|+
 operator|(
-name|handledException
+name|exceptionHandled
 condition|?
 literal|" handled by the error handler"
 else|:
@@ -491,6 +480,34 @@ block|}
 block|}
 comment|// If we get here then the pipeline was processed entirely
 comment|// synchronously.
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+comment|// logging nextExchange as it contains the exchange that might have altered the payload and since
+comment|// we are logging the completion if will be confusing if we log the original instead
+comment|// we could also consider logging the original and the nextExchange then we have *before* and *after* snapshots
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processing compelete for exchangeId: "
+operator|+
+name|original
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|">>> "
+operator|+
+name|nextExchange
+argument_list|)
+expr_stmt|;
+block|}
 name|ExchangeHelper
 operator|.
 name|copyResults
@@ -539,6 +556,32 @@ name|AsyncProcessor
 name|processor
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+comment|// this does the actual processing so log at trace level
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processing exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|">>> "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|processor
 operator|.
@@ -558,8 +601,7 @@ name|boolean
 name|sync
 parameter_list|)
 block|{
-comment|// We only have to handle async completion of
-comment|// the pipeline..
+comment|// We only have to handle async completion of the pipeline..
 if|if
 condition|(
 name|sync
@@ -594,14 +636,26 @@ name|next
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|boolean
+name|exceptionHandled
+init|=
+name|hasExceptionBeenHandled
+argument_list|(
+name|nextExchange
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|nextExchange
 operator|.
 name|isFailed
 argument_list|()
+operator|||
+name|exceptionHandled
 condition|)
 block|{
+comment|// The Exchange.EXCEPTION_HANDLED_PROPERTY property is only set if satisfactory handling was done
+comment|//  by the error handler.  It's still an exception, the exchange still failed.
 if|if
 condition|(
 name|LOG
@@ -633,6 +687,14 @@ name|getFault
 argument_list|(
 literal|false
 argument_list|)
+operator|+
+operator|(
+name|exceptionHandled
+condition|?
+literal|" handled by the error handler"
+else|:
+literal|""
+operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -692,7 +754,35 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Strategy method to create the next exchange from the previous exchange.      *      * @param producer         the producer used to send to the endpoint      * @param previousExchange the previous exchange      * @return a new exchange      */
+DECL|method|hasExceptionBeenHandled (Exchange nextExchange)
+specifier|private
+specifier|static
+name|boolean
+name|hasExceptionBeenHandled
+parameter_list|(
+name|Exchange
+name|nextExchange
+parameter_list|)
+block|{
+return|return
+name|Boolean
+operator|.
+name|TRUE
+operator|.
+name|equals
+argument_list|(
+name|nextExchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|EXCEPTION_HANDLED_PROPERTY
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Strategy method to create the next exchange from the previous exchange.      *<p/>      * Remember to copy the original exchange id otherwise correlation of ids in the log is a problem      *      * @param producer         the producer used to send to the endpoint      * @param previousExchange the previous exchange      * @return a new exchange      */
 DECL|method|createNextExchange (Processor producer, Exchange previousExchange)
 specifier|protected
 name|Exchange
@@ -713,6 +803,21 @@ operator|.
 name|newInstance
 argument_list|()
 decl_stmt|;
+comment|// we must use the same id as this is a snapshot strategy where Camel copies a snapshot
+comment|// before processing the next step in the pipeline, so we have a snapshot of the exchange
+comment|// just before. This snapshot is used if Camel should do redeliveries (re try) using
+comment|// DeadLetterChannel. That is why it's important the id is the same, as it is the *same*
+comment|// exchange being routed.
+name|answer
+operator|.
+name|setExchangeId
+argument_list|(
+name|previousExchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|answer
 operator|.
 name|getProperties

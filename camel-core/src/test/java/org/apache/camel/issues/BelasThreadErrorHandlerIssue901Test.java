@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -215,22 +227,6 @@ argument_list|(
 literal|"mock:handled"
 argument_list|)
 decl_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"seda:errorTest"
-argument_list|,
-name|msg1
-argument_list|)
-expr_stmt|;
-name|handled
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|handled
 operator|.
 name|expectedBodiesReceived
@@ -238,8 +234,40 @@ argument_list|(
 name|msg3
 argument_list|)
 expr_stmt|;
-comment|// TODO: Enable this when looking into this issue
-comment|//Thread.sleep(3000);
+try|try
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:errorTest"
+argument_list|,
+name|msg1
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown a MyBelaException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|MyBelaException
+argument_list|)
+expr_stmt|;
+block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -288,7 +316,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//getContext().addInterceptStrategy(new Tracer());
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -302,16 +329,15 @@ name|redelivery
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// using the onException and handled(true) works
-comment|//onException(Exception.class).maximumRedeliveries(redelivery).handled(true).to("mock:handled");
 name|from
 argument_list|(
-literal|"seda:errorTest"
+literal|"direct:errorTest"
 argument_list|)
-comment|// TODO: When using thread there is a multi threading / concurreny issue in Camel
-comment|// hard to debug as it tend only to surface when unit test is running really fast
-comment|// (no break points)
-comment|//.thread(5).maxSize(5)
+operator|.
+name|thread
+argument_list|(
+literal|5
+argument_list|)
 comment|// Processor #1
 operator|.
 name|process
@@ -428,7 +454,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|//Thread.sleep(100);
 name|callCounter3
 operator|++
 expr_stmt|;
@@ -449,7 +474,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|Exception
+name|MyBelaException
 argument_list|(
 literal|"Forced exception by unit test"
 argument_list|)
@@ -461,6 +486,29 @@ expr_stmt|;
 block|}
 block|}
 return|;
+block|}
+DECL|class|MyBelaException
+specifier|public
+specifier|static
+class|class
+name|MyBelaException
+extends|extends
+name|Exception
+block|{
+DECL|method|MyBelaException (String message)
+specifier|public
+name|MyBelaException
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

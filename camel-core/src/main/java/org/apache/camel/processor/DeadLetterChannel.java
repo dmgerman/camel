@@ -931,6 +931,8 @@ name|sync
 operator|=
 literal|false
 expr_stmt|;
+comment|// only process if the exchange hasn't failed
+comment|// and it has not been handled by the error processor
 if|if
 condition|(
 name|exchange
@@ -939,6 +941,12 @@ name|getException
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|isFailureHandled
+argument_list|(
+name|exchange
+argument_list|)
 condition|)
 block|{
 name|process
