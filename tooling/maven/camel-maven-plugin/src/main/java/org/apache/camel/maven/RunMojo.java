@@ -774,7 +774,7 @@ name|args
 operator|.
 name|add
 argument_list|(
-literal|"-a"
+literal|"-ac"
 argument_list|)
 expr_stmt|;
 name|args
