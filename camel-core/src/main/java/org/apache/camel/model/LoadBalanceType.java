@@ -793,7 +793,6 @@ name|getOutputs
 argument_list|()
 control|)
 block|{
-comment|// The outputs should be the SendProcessor
 name|Processor
 name|processor
 init|=
@@ -819,9 +818,6 @@ name|loadBalancer
 operator|.
 name|addProcessor
 argument_list|(
-operator|(
-name|SendProcessor
-operator|)
 name|processor
 argument_list|)
 expr_stmt|;
