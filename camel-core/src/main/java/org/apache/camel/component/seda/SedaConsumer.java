@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|BlockingQueue
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -248,8 +260,23 @@ name|void
 name|run
 parameter_list|()
 block|{
+name|BlockingQueue
+argument_list|<
+name|Exchange
+argument_list|>
+name|queue
+init|=
+name|endpoint
+operator|.
+name|getQueue
+argument_list|()
+decl_stmt|;
 while|while
 condition|(
+name|queue
+operator|!=
+literal|null
+operator|&&
 name|isRunAllowed
 argument_list|()
 condition|)
@@ -262,10 +289,7 @@ try|try
 block|{
 name|exchange
 operator|=
-name|endpoint
-operator|.
-name|getQueue
-argument_list|()
+name|queue
 operator|.
 name|poll
 argument_list|(
@@ -310,7 +334,10 @@ condition|(
 name|exchange
 operator|!=
 literal|null
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|isRunAllowed
 argument_list|()
 condition|)
@@ -334,7 +361,7 @@ parameter_list|(
 name|boolean
 name|sync
 parameter_list|)
-block|{                         }
+block|{                             }
 block|}
 argument_list|)
 expr_stmt|;
@@ -358,13 +385,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-elseif|else
-if|if
-condition|(
-name|exchange
-operator|!=
-literal|null
-condition|)
+else|else
 block|{
 name|LOG
 operator|.
@@ -377,10 +398,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|endpoint
-operator|.
-name|getQueue
-argument_list|()
+name|queue
 operator|.
 name|put
 argument_list|(
@@ -413,6 +431,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
