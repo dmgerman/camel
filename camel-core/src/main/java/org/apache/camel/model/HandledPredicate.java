@@ -186,10 +186,10 @@ operator|=
 name|predicate
 expr_stmt|;
 block|}
-DECL|method|getCompletePredicate ()
+DECL|method|getHandledPredicate ()
 specifier|public
 name|ExpressionType
-name|getCompletePredicate
+name|getHandledPredicate
 parameter_list|()
 block|{
 return|return
