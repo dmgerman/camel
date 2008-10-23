@@ -506,6 +506,20 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|checkServiceClassAnnotations (Class<?> sc)
+specifier|protected
+name|void
+name|checkServiceClassAnnotations
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|sc
+parameter_list|)
+block|{
+comment|// do nothing here
+block|}
 comment|// do not handle any payload information here
 DECL|method|initializeSoapInterceptors ()
 specifier|private
