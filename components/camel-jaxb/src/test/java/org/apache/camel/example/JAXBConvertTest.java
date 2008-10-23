@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|UnmarshalException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -45,6 +33,18 @@ operator|.
 name|io
 operator|.
 name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|UnmarshalException
 import|;
 end_import
 

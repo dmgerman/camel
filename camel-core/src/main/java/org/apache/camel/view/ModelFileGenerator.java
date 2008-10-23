@@ -104,7 +104,7 @@ name|xml
 operator|.
 name|bind
 operator|.
-name|JAXBException
+name|Binder
 import|;
 end_import
 
@@ -128,7 +128,7 @@ name|xml
 operator|.
 name|bind
 operator|.
-name|Binder
+name|JAXBException
 import|;
 end_import
 

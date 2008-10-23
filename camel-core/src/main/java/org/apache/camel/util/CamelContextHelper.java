@@ -160,22 +160,6 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|notNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
 name|isNotNullAndNonEmpty
 import|;
 end_import
@@ -197,16 +181,18 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|beans
+name|camel
 operator|.
-name|factory
+name|util
 operator|.
-name|NoSuchBeanDefinitionException
+name|ObjectHelper
+operator|.
+name|notNull
 import|;
 end_import
 

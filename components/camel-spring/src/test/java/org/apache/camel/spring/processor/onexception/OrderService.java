@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -56,16 +66,6 @@ name|OutHeaders
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  * Order service as a plain POJO class  */
 end_comment
@@ -76,7 +76,7 @@ specifier|public
 class|class
 name|OrderService
 block|{
-comment|/**          * This method handle our order input and return the order          *          * @param in      the in headers          * @param payload the in payload          * @param out     the out headers          * @return the out payload          * @throws OrderFailedException is thrown if the order can not be processed          */
+comment|/**      * This method handle our order input and return the order      *       * @param in the in headers      * @param payload the in payload      * @param out the out headers      * @return the out payload      * @throws OrderFailedException is thrown if the order can not be processed      */
 DECL|method|handleOrder (@eaders Map in, @Body String payload, @OutHeaders Map out)
 specifier|public
 name|Object
@@ -148,7 +148,7 @@ literal|"Order OK"
 return|;
 block|}
 block|}
-comment|/**          * This method creates the response to the caller if the order could not be processed          * @param in      the in headers          * @param payload the in payload          * @param out     the out headers          * @return the out payload          */
+comment|/**      * This method creates the response to the caller if the order could not be      * processed      *       * @param in the in headers      * @param payload the in payload      * @param out the out headers      * @return the out payload      */
 DECL|method|orderFailed (@eaders Map in, @Body String payload, @OutHeaders Map out)
 specifier|public
 name|Object

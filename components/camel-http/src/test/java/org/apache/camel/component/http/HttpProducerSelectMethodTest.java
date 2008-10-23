@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -27,24 +37,6 @@ operator|.
 name|camel
 operator|.
 name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|HttpMethods
-operator|.
-name|*
 import|;
 end_import
 
@@ -63,12 +55,56 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|camel
+operator|.
+name|component
+operator|.
+name|http
+operator|.
+name|HttpMethods
+operator|.
+name|GET
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|http
+operator|.
+name|HttpMethods
+operator|.
+name|HTTP_METHOD
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|http
+operator|.
+name|HttpMethods
+operator|.
+name|POST
 import|;
 end_import
 

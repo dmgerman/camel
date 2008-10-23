@@ -24,7 +24,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStream
+name|IOException
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|InputStream
 import|;
 end_import
 
@@ -312,7 +312,7 @@ name|commons
 operator|.
 name|logging
 operator|.
-name|LogFactory
+name|Log
 import|;
 end_import
 
@@ -326,7 +326,7 @@ name|commons
 operator|.
 name|logging
 operator|.
-name|Log
+name|LogFactory
 import|;
 end_import
 
@@ -368,23 +368,6 @@ argument_list|<
 name|HttpExchange
 argument_list|>
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|HttpProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|HTTP_RESPONSE_CODE
 specifier|public
 specifier|static
@@ -435,6 +418,23 @@ operator|.
 name|toLowerCase
 argument_list|()
 argument_list|)
+argument_list|)
+decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|HttpProducer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|field|httpClient

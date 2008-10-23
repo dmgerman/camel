@@ -18,13 +18,31 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|inject
+name|Hashtable
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
 operator|.
-name|Guice
+name|naming
+operator|.
+name|InitialContext
+import|;
+end_import
+
+begin_import
+import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
 import|;
 end_import
 
@@ -49,16 +67,6 @@ operator|.
 name|inject
 operator|.
 name|Provides
-import|;
-end_import
-
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
 import|;
 end_import
 
@@ -136,9 +144,7 @@ name|org
 operator|.
 name|guiceyfruit
 operator|.
-name|jndi
-operator|.
-name|JndiBind
+name|Injectors
 import|;
 end_import
 
@@ -160,7 +166,9 @@ name|org
 operator|.
 name|guiceyfruit
 operator|.
-name|Injectors
+name|jndi
+operator|.
+name|JndiBind
 import|;
 end_import
 
@@ -185,26 +193,6 @@ operator|.
 name|Matchers
 operator|.
 name|is
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|InitialContext
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Hashtable
 import|;
 end_import
 

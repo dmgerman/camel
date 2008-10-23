@@ -24,7 +24,9 @@ name|google
 operator|.
 name|inject
 operator|.
-name|AbstractModule
+name|jsr250
+operator|.
+name|Jsr250Module
 import|;
 end_import
 
@@ -39,34 +41,6 @@ operator|.
 name|matcher
 operator|.
 name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|inject
-operator|.
-name|jsr250
-operator|.
-name|Jsr250
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|inject
-operator|.
-name|jsr250
-operator|.
-name|Jsr250Module
 import|;
 end_import
 
@@ -90,7 +64,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Routes
+name|Consume
 import|;
 end_import
 
@@ -114,7 +88,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consume
+name|Routes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|guice
+operator|.
+name|impl
+operator|.
+name|ConsumerInjection
 import|;
 end_import
 
@@ -147,22 +137,6 @@ operator|.
 name|impl
 operator|.
 name|ProduceInjector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|guice
-operator|.
-name|impl
-operator|.
-name|ConsumerInjection
 import|;
 end_import
 

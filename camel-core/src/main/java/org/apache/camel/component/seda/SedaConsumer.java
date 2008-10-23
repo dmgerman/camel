@@ -26,7 +26,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|TimeUnit
+name|BlockingQueue
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|BlockingQueue
+name|TimeUnit
 import|;
 end_import
 
