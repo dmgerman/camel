@@ -339,6 +339,11 @@ name|Annotation
 argument_list|>
 name|annotation
 decl_stmt|;
+DECL|field|checkMetaAnnotations
+specifier|private
+name|boolean
+name|checkMetaAnnotations
+decl_stmt|;
 comment|/**          * Constructs an AnnotatedWith test for the specified annotation type.          */
 DECL|method|AnnotatedWith (Class<? extends Annotation> annotation)
 specifier|public
@@ -354,10 +359,41 @@ name|annotation
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|annotation
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**          * Constructs an AnnotatedWith test for the specified annotation type.          */
+DECL|method|AnnotatedWith (Class<? extends Annotation> annotation, boolean checkMetaAnnotations)
+specifier|public
+name|AnnotatedWith
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Annotation
+argument_list|>
+name|annotation
+parameter_list|,
+name|boolean
+name|checkMetaAnnotations
+parameter_list|)
+block|{
+name|this
 operator|.
 name|annotation
 operator|=
 name|annotation
+expr_stmt|;
+name|this
+operator|.
+name|checkMetaAnnotations
+operator|=
+name|checkMetaAnnotations
 expr_stmt|;
 block|}
 comment|/**          * Returns true if the type is annotated with the class provided to the          * constructor.          */
@@ -434,7 +470,11 @@ return|return
 literal|true
 return|;
 block|}
-comment|// check for meta annotations
+if|if
+condition|(
+name|checkMetaAnnotations
+condition|)
+block|{
 for|for
 control|(
 name|Annotation
@@ -482,6 +522,7 @@ block|{
 return|return
 literal|true
 return|;
+block|}
 block|}
 block|}
 block|}
