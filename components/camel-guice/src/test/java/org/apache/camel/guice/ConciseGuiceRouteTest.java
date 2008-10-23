@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|google
@@ -51,26 +41,12 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|junit
 operator|.
-name|hamcrest
+name|framework
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
+name|TestCase
 import|;
 end_import
 

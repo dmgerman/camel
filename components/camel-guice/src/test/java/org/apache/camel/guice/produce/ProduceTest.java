@@ -64,7 +64,7 @@ name|testing
 operator|.
 name|junit3
 operator|.
-name|GuiceyFruitTestCase
+name|GuiceyTestCase
 import|;
 end_import
 
@@ -78,7 +78,7 @@ specifier|public
 class|class
 name|ProduceTest
 extends|extends
-name|GuiceyFruitTestCase
+name|GuiceyTestCase
 block|{
 annotation|@
 name|Produce
@@ -123,11 +123,11 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
-DECL|class|Configuration
+DECL|class|TestModule
 specifier|public
 specifier|static
 class|class
-name|Configuration
+name|TestModule
 extends|extends
 name|CamelModuleWithMatchingRoutes
 block|{

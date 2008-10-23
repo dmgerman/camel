@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|google
@@ -78,6 +68,16 @@ end_import
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -100,7 +100,7 @@ name|GuiceTest
 extends|extends
 name|TestCase
 block|{
-comment|/**      * Asserts that the CamelContext is available in the given Injector, that its been started, then close the injector      * @param injector      * @throws CloseFailedException      */
+comment|/**      * Asserts that the CamelContext is available in the given Injector, that its been started, then close the injector      *      * @param injector      * @throws CloseFailedException      */
 DECL|method|assertCamelContextRunningThenCloseInjector (Injector injector)
 specifier|public
 specifier|static
