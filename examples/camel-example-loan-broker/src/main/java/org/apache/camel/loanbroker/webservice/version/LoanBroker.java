@@ -494,15 +494,19 @@ operator|.
 name|CREDITAGENCY_ADDRESS
 argument_list|)
 argument_list|)
-comment|// Using the thread pool to send out message to the below three different banks parallelly,
-comment|// the parameter of true is for processing the output processors parallelly
+comment|// Using the thread pool to send out message to the below three different banks parallelly
 operator|.
 name|multicast
 argument_list|(
 operator|new
 name|BankResponseAggregationStrategy
 argument_list|()
-argument_list|,
+argument_list|)
+comment|// Camel will create a thread pool with the size of the send to endpoints
+comment|// for sending the message parallelly
+operator|.
+name|setParallelProcessing
+argument_list|(
 literal|true
 argument_list|)
 operator|.
