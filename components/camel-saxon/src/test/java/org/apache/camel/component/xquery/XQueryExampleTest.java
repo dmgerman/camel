@@ -67,43 +67,36 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|XQueryWithExplicitTypeTest
+DECL|class|XQueryExampleTest
 specifier|public
 class|class
-name|XQueryWithExplicitTypeTest
+name|XQueryExampleTest
 extends|extends
 name|SpringTestSupport
 block|{
-DECL|field|raleighEndpoint
-specifier|protected
-name|MockEndpoint
-name|raleighEndpoint
-decl_stmt|;
-DECL|field|tampaEndpoint
-specifier|protected
-name|MockEndpoint
-name|tampaEndpoint
-decl_stmt|;
-DECL|method|testFunctions ()
+DECL|method|testExample ()
 specifier|public
 name|void
-name|testFunctions
+name|testExample
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|raleighEndpoint
-operator|.
-name|expectedMessageCount
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
 argument_list|(
-literal|1
+literal|"mock:result"
 argument_list|)
-expr_stmt|;
-name|tampaEndpoint
+decl_stmt|;
+name|mock
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|0
+literal|"<employee id=\"James\"><name><firstName>James</firstName>"
+operator|+
+literal|"<lastName>Strachan</lastName></name><location><city>London</city></location></employee>"
 argument_list|)
 expr_stmt|;
 name|template
@@ -112,41 +105,13 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"<person name='Hadrian' city='Raleigh'/>"
+literal|"<person user='James'><firstName>James</firstName>"
+operator|+
+literal|"<lastName>Strachan</lastName><city>London</city></person>"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|raleighEndpoint
-operator|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:foo.Raleigh"
-argument_list|)
-expr_stmt|;
-name|tampaEndpoint
-operator|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:foo.Tampa"
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createApplicationContext ()
@@ -159,7 +124,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/component/xquery/xqueryWithExplicitTypeContext.xml"
+literal|"org/apache/camel/component/xquery/xqueryExampleTest.xml"
 argument_list|)
 return|;
 block|}

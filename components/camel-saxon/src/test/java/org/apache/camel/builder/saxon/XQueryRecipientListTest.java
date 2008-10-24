@@ -113,7 +113,7 @@ argument_list|,
 literal|"<person name='James' city='London'/>"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -148,7 +148,7 @@ argument_list|,
 literal|"<person name='Hiram' city='Tampa'/>"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}

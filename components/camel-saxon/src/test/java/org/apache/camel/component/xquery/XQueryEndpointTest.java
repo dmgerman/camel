@@ -128,7 +128,7 @@ argument_list|,
 literal|"<mail><subject>Hey</subject><body>Hello world!</body></mail>"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|List
