@@ -4472,6 +4472,32 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Converts the IN message body to the specified class type      */
+DECL|method|convertBodyTo (String typeString)
+specifier|public
+name|Type
+name|convertBodyTo
+parameter_list|(
+name|String
+name|typeString
+parameter_list|)
+block|{
+name|addOutput
+argument_list|(
+operator|new
+name|ConvertBodyType
+argument_list|(
+name|typeString
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
 comment|/**      * Converts the OUT message body to the specified type      *      * @deprecated Please use {@link #convertBodyTo(Class)} instead. Will be removed in Camel 2.0.      */
 annotation|@
 name|Deprecated

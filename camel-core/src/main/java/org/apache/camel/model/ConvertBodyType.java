@@ -247,6 +247,14 @@ argument_list|(
 name|typeClass
 argument_list|)
 expr_stmt|;
+name|setType
+argument_list|(
+name|typeClass
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
