@@ -68,6 +68,18 @@ name|xml
 operator|.
 name|ws
 operator|.
+name|BindingProvider
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|ws
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -81,6 +93,18 @@ operator|.
 name|ws
 operator|.
 name|Holder
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|ws
+operator|.
+name|WebServiceException
 import|;
 end_import
 
@@ -572,6 +596,56 @@ name|fault
 parameter_list|)
 block|{
 comment|// We expect to get fault here
+block|}
+name|personId
+operator|.
+name|value
+operator|=
+literal|"Invoking getPerson with invalid length string, expecting exception...xxxxxxxxx"
+expr_stmt|;
+try|try
+block|{
+name|client
+operator|.
+name|getPerson
+argument_list|(
+name|personId
+argument_list|,
+name|ssn
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"We expect to get the WebSerivceException here"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|WebServiceException
+name|ex
+parameter_list|)
+block|{
+comment|// Caught expected WebServiceException here
+name|assertTrue
+argument_list|(
+literal|"Should get the xml vaildate error!"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|indexOf
+argument_list|(
+literal|"MyStringType"
+argument_list|)
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@
