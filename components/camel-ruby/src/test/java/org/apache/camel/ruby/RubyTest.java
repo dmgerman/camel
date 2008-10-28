@@ -223,27 +223,9 @@ argument_list|)
 expr_stmt|;
 comment|// TODO make a better way to load ruby based route definitions!
 comment|// now lets run the script
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"JA1"
-argument_list|)
-expr_stmt|;
 name|runScript
 argument_list|(
 name|scriptName
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"JA2"
 argument_list|)
 expr_stmt|;
 name|List
