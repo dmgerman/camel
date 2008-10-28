@@ -177,7 +177,7 @@ name|LocateRegistry
 operator|.
 name|createRegistry
 argument_list|(
-literal|9876
+literal|37541
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: register
@@ -233,7 +233,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"rmi://localhost:9876/bye"
+literal|"rmi://localhost:37541/bye"
 argument_list|)
 expr_stmt|;
 comment|// When exposing an RMI endpoint, the interfaces it exposes must
@@ -246,7 +246,7 @@ name|RmiEndpoint
 operator|)
 name|endpoint
 argument_list|(
-literal|"rmi://localhost:9876/bye"
+literal|"rmi://localhost:37541/bye"
 argument_list|)
 decl_stmt|;
 name|bye
