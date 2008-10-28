@@ -91,32 +91,6 @@ literal|"org/apache/camel/spring/processor/faultRoute.xml"
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|testWithThrowFaultMessageUnhandled ()
-specifier|public
-name|void
-name|testWithThrowFaultMessageUnhandled
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// Route cannot be configured due to lack of support for errorHandler
-comment|// in the xml dsl (CAMEL-122)
-block|}
-annotation|@
-name|Override
-DECL|method|testWithHandleFaultMessage ()
-specifier|public
-name|void
-name|testWithHandleFaultMessage
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// Route cannot be configured due to lack of support for errorHandler
-comment|// in the xml dsl (CAMEL-122)
-block|}
 block|}
 end_class
 
