@@ -171,6 +171,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelContextHelper
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -270,6 +284,41 @@ name|E
 argument_list|>
 name|defaultEndpoint
 decl_stmt|;
+DECL|method|newInstance (CamelContext camelContext, String defaultEndpointUri)
+specifier|public
+specifier|static
+name|DefaultProducerTemplate
+name|newInstance
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|String
+name|defaultEndpointUri
+parameter_list|)
+block|{
+name|Endpoint
+name|endpoint
+init|=
+name|CamelContextHelper
+operator|.
+name|getMandatoryEndpoint
+argument_list|(
+name|camelContext
+argument_list|,
+name|defaultEndpointUri
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|DefaultProducerTemplate
+argument_list|(
+name|camelContext
+argument_list|,
+name|endpoint
+argument_list|)
+return|;
+block|}
 DECL|method|DefaultProducerTemplate (CamelContext context)
 specifier|public
 name|DefaultProducerTemplate
