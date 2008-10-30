@@ -941,7 +941,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to a list of endpoints using the      * {@link org.apache.camel.processor.MulticastProcessor} pattern      */
+comment|/**      * Sends the exchange to a list of endpoints      */
 DECL|method|to (String... uris)
 specifier|public
 name|Type
@@ -977,7 +977,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to a list of endpoints using the      * {@link org.apache.camel.processor.MulticastProcessor} pattern      */
+comment|/**      * Sends the exchange to a list of endpoints      */
 DECL|method|to (Endpoint... endpoints)
 specifier|public
 name|Type
@@ -1013,7 +1013,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to a list of endpoint using the      * {@link org.apache.camel.processor.MulticastProcessor} pattern      */
+comment|/**      * Sends the exchange to a list of endpoint      */
 DECL|method|to (Collection<Endpoint> endpoints)
 specifier|public
 name|Type
