@@ -612,7 +612,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// empty since exchanges come from endpoint's polling consumer
+name|engine
+operator|.
+name|insert
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
