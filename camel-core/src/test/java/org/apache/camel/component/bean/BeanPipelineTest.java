@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test of bean can propogate headers in a pipleline  */
+comment|/**  * Unit test of bean can propagate headers in a pipeline  */
 end_comment
 
 begin_class

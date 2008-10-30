@@ -83,7 +83,7 @@ comment|// Code taken from the ActiveMQ codebase
 end_comment
 
 begin_comment
-comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values is:  *<ul>  *<li>maximumRedeliveries = 5</li>  *<li>delay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *  * @version $Revision$  */
+comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 5</li>  *<li>delay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.ERROR</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -923,6 +923,7 @@ return|return
 name|randomNumberGenerator
 return|;
 block|}
+comment|/**      * Sets the logging level to use for log messages when retries have been exhausted.      */
 DECL|method|setRetriesExhaustedLogLevel (LoggingLevel retriesExhaustedLogLevel)
 specifier|public
 name|void
@@ -949,6 +950,7 @@ return|return
 name|retriesExhaustedLogLevel
 return|;
 block|}
+comment|/**      * Sets the logging level to use for log messages when retries are attempted.      */
 DECL|method|setRetryAttemptedLogLevel (LoggingLevel retryAttemptedLogLevel)
 specifier|public
 name|void
