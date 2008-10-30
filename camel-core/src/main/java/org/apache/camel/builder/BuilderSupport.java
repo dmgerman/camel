@@ -90,7 +90,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|model
 operator|.
 name|LoggingLevel
 import|;

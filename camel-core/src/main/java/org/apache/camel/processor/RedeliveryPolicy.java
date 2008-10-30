@@ -42,6 +42,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -145,6 +159,24 @@ specifier|protected
 name|boolean
 name|useCollisionAvoidance
 decl_stmt|;
+DECL|field|retriesExhaustedLogLevel
+specifier|protected
+name|LoggingLevel
+name|retriesExhaustedLogLevel
+init|=
+name|LoggingLevel
+operator|.
+name|ERROR
+decl_stmt|;
+DECL|field|retryAttemptedLogLevel
+specifier|protected
+name|LoggingLevel
+name|retryAttemptedLogLevel
+init|=
+name|LoggingLevel
+operator|.
+name|ERROR
+decl_stmt|;
 DECL|method|RedeliveryPolicy ()
 specifier|public
 name|RedeliveryPolicy
@@ -170,6 +202,14 @@ operator|+
 literal|", maximumRedeliveryDelay="
 operator|+
 name|maximumRedeliveryDelay
+operator|+
+literal|", retriesExhaustedLogLevel="
+operator|+
+name|retriesExhaustedLogLevel
+operator|+
+literal|", retryAttemptedLogLevel="
+operator|+
+name|retryAttemptedLogLevel
 operator|+
 literal|", useExponentialBackOff="
 operator|+
@@ -247,7 +287,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|// redeliver until we hitted the max
+comment|// redeliver until we hit the max
 return|return
 name|redeliveryCounter
 operator|<=
@@ -588,6 +628,44 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the logging level to use for log messages when retries have been exhausted.      */
+DECL|method|retriesExhaustedLogLevel (LoggingLevel retriesExhaustedLogLevel)
+specifier|public
+name|RedeliveryPolicy
+name|retriesExhaustedLogLevel
+parameter_list|(
+name|LoggingLevel
+name|retriesExhaustedLogLevel
+parameter_list|)
+block|{
+name|setRetriesExhaustedLogLevel
+argument_list|(
+name|retriesExhaustedLogLevel
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the logging level to use for log messages when retries are attempted.      */
+DECL|method|retryAttemptedLogLevel (LoggingLevel retryAttemptedLogLevel)
+specifier|public
+name|RedeliveryPolicy
+name|retryAttemptedLogLevel
+parameter_list|(
+name|LoggingLevel
+name|retryAttemptedLogLevel
+parameter_list|)
+block|{
+name|setRetryAttemptedLogLevel
+argument_list|(
+name|retryAttemptedLogLevel
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getBackOffMultiplier ()
@@ -843,6 +921,58 @@ expr_stmt|;
 block|}
 return|return
 name|randomNumberGenerator
+return|;
+block|}
+DECL|method|setRetriesExhaustedLogLevel (LoggingLevel retriesExhaustedLogLevel)
+specifier|public
+name|void
+name|setRetriesExhaustedLogLevel
+parameter_list|(
+name|LoggingLevel
+name|retriesExhaustedLogLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|retriesExhaustedLogLevel
+operator|=
+name|retriesExhaustedLogLevel
+expr_stmt|;
+block|}
+DECL|method|getRetriesExhaustedLogLevel ()
+specifier|public
+name|LoggingLevel
+name|getRetriesExhaustedLogLevel
+parameter_list|()
+block|{
+return|return
+name|retriesExhaustedLogLevel
+return|;
+block|}
+DECL|method|setRetryAttemptedLogLevel (LoggingLevel retryAttemptedLogLevel)
+specifier|public
+name|void
+name|setRetryAttemptedLogLevel
+parameter_list|(
+name|LoggingLevel
+name|retryAttemptedLogLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|retryAttemptedLogLevel
+operator|=
+name|retryAttemptedLogLevel
+expr_stmt|;
+block|}
+DECL|method|getRetryAttemptedLogLevel ()
+specifier|public
+name|LoggingLevel
+name|getRetryAttemptedLogLevel
+parameter_list|()
+block|{
+return|return
+name|retryAttemptedLogLevel
 return|;
 block|}
 block|}

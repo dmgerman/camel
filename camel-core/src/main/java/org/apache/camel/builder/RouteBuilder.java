@@ -503,7 +503,7 @@ block|{
 return|return
 name|routeCollection
 operator|.
-name|exception
+name|onException
 argument_list|(
 name|exceptionType
 argument_list|)

@@ -102,9 +102,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|model
 operator|.
-name|Logger
+name|LoggingLevel
 import|;
 end_import
 
@@ -118,7 +118,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|LoggingLevel
+name|Logger
 import|;
 end_import
 

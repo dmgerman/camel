@@ -106,6 +106,20 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|LoggingLevel
+import|;
+end_import
+
 begin_class
 DECL|class|FaultRetryRouteTest
 specifier|public

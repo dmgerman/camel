@@ -844,10 +844,10 @@ name|predicate
 argument_list|)
 return|;
 block|}
-DECL|method|exception (Class exceptionType)
+DECL|method|onException (Class exceptionType)
 specifier|public
 name|ExceptionType
-name|exception
+name|onException
 parameter_list|(
 name|Class
 name|exceptionType

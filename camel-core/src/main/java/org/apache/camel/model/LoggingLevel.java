@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.model
 package|package
 name|org
 operator|.
@@ -12,15 +12,31 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|model
 package|;
 end_package
 
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlEnum
+import|;
+end_import
+
 begin_comment
-comment|/**  * Used to configure the logging levels  *  * @version $Revision$  */
+comment|/**  * Used to configure the logging levels  *  * @version $Revision: 703680 $  */
 end_comment
 
 begin_enum
+annotation|@
+name|XmlEnum
 DECL|enum|LoggingLevel
 specifier|public
 enum|enum
