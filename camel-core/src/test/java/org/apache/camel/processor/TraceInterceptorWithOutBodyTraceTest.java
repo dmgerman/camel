@@ -179,7 +179,7 @@ argument_list|(
 name|tracer
 argument_list|)
 expr_stmt|;
-comment|// START SNIPPET: tracingOutExchanges
+comment|// END SNIPPET: tracingOutExchanges
 name|from
 argument_list|(
 literal|"direct:start"
