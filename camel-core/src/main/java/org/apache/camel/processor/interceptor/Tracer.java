@@ -190,6 +190,13 @@ name|traceExceptions
 init|=
 literal|true
 decl_stmt|;
+DECL|field|traceOutExchanges
+specifier|private
+name|boolean
+name|traceOutExchanges
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * A helper method to return the Tracer instance for a given {@link CamelContext} if one is enabled      *      * @param context the camel context the tracer is connected to      * @return the tracer or null if none can be found      */
 DECL|method|getTracer (CamelContext context)
 specifier|public
@@ -351,7 +358,7 @@ return|return
 name|traceInterceptors
 return|;
 block|}
-comment|/**      * Sets wether interceptors should be traced or not      */
+comment|/**      * Sets whether interceptors should be traced or not      */
 DECL|method|setTraceInterceptors (boolean traceInterceptors)
 specifier|public
 name|void
@@ -405,7 +412,7 @@ return|return
 name|logLevel
 return|;
 block|}
-comment|/**      * Sets the logging level to ouput tracing. Will default use<tt>INFO</tt> level.      */
+comment|/**      * Sets the logging level to output tracing. Will use<tt>INFO</tt> level by default.      */
 DECL|method|setLogLevel (LoggingLevel logLevel)
 specifier|public
 name|void
@@ -432,7 +439,7 @@ return|return
 name|traceExceptions
 return|;
 block|}
-comment|/**      * Sets wether thrown exceptions should be traced      */
+comment|/**      * Sets whether thrown exceptions should be traced      */
 DECL|method|setTraceExceptions (boolean traceExceptions)
 specifier|public
 name|void
@@ -475,6 +482,33 @@ name|logName
 operator|=
 name|logName
 expr_stmt|;
+block|}
+comment|/**      * Sets whether exchanges coming out of processors should be traced      */
+DECL|method|setTraceOutExchanges (boolean traceOutExchanges)
+specifier|public
+name|void
+name|setTraceOutExchanges
+parameter_list|(
+name|boolean
+name|traceOutExchanges
+parameter_list|)
+block|{
+name|this
+operator|.
+name|traceOutExchanges
+operator|=
+name|traceOutExchanges
+expr_stmt|;
+block|}
+DECL|method|isTraceOutExchanges ()
+specifier|public
+name|boolean
+name|isTraceOutExchanges
+parameter_list|()
+block|{
+return|return
+name|traceOutExchanges
+return|;
 block|}
 block|}
 end_class
