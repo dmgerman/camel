@@ -181,9 +181,6 @@ class|class
 name|JuelExpression
 extends|extends
 name|ExpressionSupport
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|expression
 specifier|private

@@ -282,7 +282,7 @@ name|correlationKeyIsPrimary
 init|=
 literal|true
 decl_stmt|;
-DECL|method|JpaBamProcessorSupport (TransactionTemplate transactionTemplate, JpaTemplate template, Expression<Exchange> correlationKeyExpression, ActivityRules activityRules, Class<T> entitytype)
+DECL|method|JpaBamProcessorSupport (TransactionTemplate transactionTemplate, JpaTemplate template, Expression correlationKeyExpression, ActivityRules activityRules, Class<T> entitytype)
 specifier|public
 name|JpaBamProcessorSupport
 parameter_list|(
@@ -293,9 +293,6 @@ name|JpaTemplate
 name|template
 parameter_list|,
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationKeyExpression
 parameter_list|,
 name|ActivityRules
@@ -330,7 +327,7 @@ operator|=
 name|template
 expr_stmt|;
 block|}
-DECL|method|JpaBamProcessorSupport (TransactionTemplate transactionTemplate, JpaTemplate template, Expression<Exchange> correlationKeyExpression, ActivityRules activityRules)
+DECL|method|JpaBamProcessorSupport (TransactionTemplate transactionTemplate, JpaTemplate template, Expression correlationKeyExpression, ActivityRules activityRules)
 specifier|public
 name|JpaBamProcessorSupport
 parameter_list|(
@@ -341,9 +338,6 @@ name|JpaTemplate
 name|template
 parameter_list|,
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationKeyExpression
 parameter_list|,
 name|ActivityRules

@@ -23,28 +23,25 @@ DECL|interface|Predicate
 specifier|public
 interface|interface
 name|Predicate
-parameter_list|<
-name|E
-parameter_list|>
 block|{
 comment|/**      * Evaluates the predicate on the message exchange and returns true if this      * exchange matches the predicate      *       * @param exchange the message exchange      * @return true if the predicate matches      */
-DECL|method|matches (E exchange)
+DECL|method|matches (Exchange exchange)
 name|boolean
 name|matches
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
 comment|/**      * Allows this predicate to be used nicely in testing to generate a nicely      * formatted exception and message if this predicate does not match for the      * given exchange.      *       * @param text the description to use in the exception message      * @param exchange the exchange to evaluate the expression on      * @throws AssertionError if the predicate does not match      */
-DECL|method|assertMatches (String text, E exchange)
+DECL|method|assertMatches (String text, Exchange exchange)
 name|void
 name|assertMatches
 parameter_list|(
 name|String
 name|text
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws

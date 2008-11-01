@@ -135,9 +135,6 @@ class|class
 name|JXPathExpression
 extends|extends
 name|ExpressionSupport
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|expression
 specifier|private

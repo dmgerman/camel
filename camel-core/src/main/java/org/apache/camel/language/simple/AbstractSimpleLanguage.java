@@ -132,9 +132,6 @@ block|{
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|createPredicate
 parameter_list|(
 name|String
@@ -156,9 +153,6 @@ block|}
 DECL|method|createExpression (String expression)
 specifier|public
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|createExpression
 parameter_list|(
 name|String
@@ -194,9 +188,6 @@ block|}
 DECL|method|createComplexExpression (String expression)
 specifier|protected
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|createComplexExpression
 parameter_list|(
 name|String
@@ -411,15 +402,7 @@ comment|/**      * Creates the simple expression based on the extracted content 
 DECL|method|createSimpleExpression (String expression)
 specifier|protected
 specifier|abstract
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|createSimpleExpression
 parameter_list|(
 name|String

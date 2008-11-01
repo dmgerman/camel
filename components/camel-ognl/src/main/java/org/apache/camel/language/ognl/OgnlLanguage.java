@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Expression
 import|;
 end_import
@@ -83,9 +71,6 @@ block|{
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|createPredicate
 parameter_list|(
 name|String
@@ -109,9 +94,6 @@ block|}
 DECL|method|createExpression (String expression)
 specifier|public
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|createExpression
 parameter_list|(
 name|String

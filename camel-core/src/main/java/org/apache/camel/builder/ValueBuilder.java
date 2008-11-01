@@ -61,33 +61,19 @@ DECL|class|ValueBuilder
 specifier|public
 class|class
 name|ValueBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|expression
 specifier|private
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 decl_stmt|;
-DECL|method|ValueBuilder (Expression<E> expression)
+DECL|method|ValueBuilder (Expression expression)
 specifier|public
 name|ValueBuilder
 parameter_list|(
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -98,12 +84,12 @@ operator|=
 name|expression
 expr_stmt|;
 block|}
-DECL|method|evaluate (E exchange)
+DECL|method|evaluate (Exchange exchange)
 specifier|public
 name|Object
 name|evaluate
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -119,9 +105,6 @@ block|}
 DECL|method|getExpression ()
 specifier|public
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|getExpression
 parameter_list|()
 block|{
@@ -149,9 +132,6 @@ comment|// ---------------------------------------------------------------------
 DECL|method|isNotEqualTo (Object value)
 specifier|public
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|isNotEqualTo
 parameter_list|(
 name|Object
@@ -159,9 +139,6 @@ name|value
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|right
 init|=
 name|asExpression
@@ -186,9 +163,6 @@ block|}
 DECL|method|isEqualTo (Object value)
 specifier|public
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|isEqualTo
 parameter_list|(
 name|Object
@@ -196,9 +170,6 @@ name|value
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|right
 init|=
 name|asExpression
@@ -223,9 +194,6 @@ block|}
 DECL|method|isLessThan (Object value)
 specifier|public
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|isLessThan
 parameter_list|(
 name|Object
@@ -233,9 +201,6 @@ name|value
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|right
 init|=
 name|asExpression
@@ -260,9 +225,6 @@ block|}
 DECL|method|isLessThanOrEqualTo (Object value)
 specifier|public
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|isLessThanOrEqualTo
 parameter_list|(
 name|Object
@@ -270,9 +232,6 @@ name|value
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|right
 init|=
 name|asExpression
@@ -297,9 +256,6 @@ block|}
 DECL|method|isGreaterThan (Object value)
 specifier|public
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|isGreaterThan
 parameter_list|(
 name|Object
@@ -307,9 +263,6 @@ name|value
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|right
 init|=
 name|asExpression
@@ -334,9 +287,6 @@ block|}
 DECL|method|isGreaterThanOrEqualTo (Object value)
 specifier|public
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|isGreaterThanOrEqualTo
 parameter_list|(
 name|Object
@@ -344,9 +294,6 @@ name|value
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|right
 init|=
 name|asExpression
@@ -371,9 +318,6 @@ block|}
 DECL|method|isInstanceOf (Class type)
 specifier|public
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|isInstanceOf
 parameter_list|(
 name|Class
@@ -397,9 +341,6 @@ block|}
 DECL|method|matchesRegex (String regex)
 specifier|public
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|matchesRegex
 parameter_list|(
 name|String
@@ -423,9 +364,6 @@ block|}
 DECL|method|isNull ()
 specifier|public
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|isNull
 parameter_list|()
 block|{
@@ -444,9 +382,6 @@ block|}
 DECL|method|isNotNull ()
 specifier|public
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|isNotNull
 parameter_list|()
 block|{
@@ -466,9 +401,6 @@ comment|/**      * Create a predicate that the left hand expression contains the
 DECL|method|contains (Object value)
 specifier|public
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|contains
 parameter_list|(
 name|Object
@@ -476,9 +408,6 @@ name|value
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|right
 init|=
 name|asExpression
@@ -504,9 +433,6 @@ comment|/**      * Creates a predicate which is true if this expression matches 
 DECL|method|regex (String regex)
 specifier|public
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|regex
 parameter_list|(
 name|String
@@ -532,9 +458,6 @@ comment|// ---------------------------------------------------------------------
 DECL|method|tokenize ()
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|tokenize
 parameter_list|()
 block|{
@@ -548,9 +471,6 @@ block|}
 DECL|method|tokenize (String token)
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|tokenize
 parameter_list|(
 name|String
@@ -558,9 +478,6 @@ name|token
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|newExp
 init|=
 name|ExpressionBuilder
@@ -575,9 +492,6 @@ decl_stmt|;
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|newExp
 argument_list|)
@@ -587,9 +501,6 @@ comment|/**      * Tokenizes the string conversion of this expression using the 
 DECL|method|regexTokenize (String regex)
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|regexTokenize
 parameter_list|(
 name|String
@@ -597,9 +508,6 @@ name|regex
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|newExp
 init|=
 name|ExpressionBuilder
@@ -614,9 +522,6 @@ decl_stmt|;
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|newExp
 argument_list|)
@@ -626,9 +531,6 @@ comment|/**      * Replaces all occurrencies of the regular expression with the 
 DECL|method|regexReplaceAll (String regex, String replacement)
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|regexReplaceAll
 parameter_list|(
 name|String
@@ -639,9 +541,6 @@ name|replacement
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|newExp
 init|=
 name|ExpressionBuilder
@@ -658,37 +557,25 @@ decl_stmt|;
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|newExp
 argument_list|)
 return|;
 block|}
 comment|/**      * Replaces all occurrencies of the regular expression with the given      * replacement      */
-DECL|method|regexReplaceAll (String regex, Expression<E> replacement)
+DECL|method|regexReplaceAll (String regex, Expression replacement)
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|regexReplaceAll
 parameter_list|(
 name|String
 name|regex
 parameter_list|,
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|replacement
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|newExp
 init|=
 name|ExpressionBuilder
@@ -705,31 +592,25 @@ decl_stmt|;
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|newExp
 argument_list|)
 return|;
 block|}
 comment|/**      * Converts the current value to the given type using the registered type      * converters      *       * @param type the type to convert the value to      * @return the current builder      */
-DECL|method|convertTo (Class type)
+DECL|method|convertTo (Class<?> type)
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|convertTo
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|newExp
 init|=
 name|ExpressionBuilder
@@ -744,9 +625,6 @@ decl_stmt|;
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|newExp
 argument_list|)
@@ -756,9 +634,6 @@ comment|/**      * Converts the current value a String using the registered type
 DECL|method|convertToString ()
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|convertToString
 parameter_list|()
 block|{
@@ -775,9 +650,6 @@ comment|/**      * Appends the string evaluation of this expression with the giv
 DECL|method|append (Object value)
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|append
 parameter_list|(
 name|Object
@@ -787,9 +659,6 @@ block|{
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|ExpressionBuilder
 operator|.
@@ -808,18 +677,12 @@ block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * A stategy method to allow derived classes to deal with the newly created      * predicate in different ways      */
-DECL|method|onNewPredicate (Predicate<E> predicate)
+DECL|method|onNewPredicate (Predicate predicate)
 specifier|protected
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|onNewPredicate
 parameter_list|(
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|predicate
 parameter_list|)
 block|{
@@ -830,9 +693,6 @@ block|}
 DECL|method|asExpression (Object value)
 specifier|protected
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|asExpression
 parameter_list|(
 name|Object
@@ -849,9 +709,6 @@ block|{
 return|return
 operator|(
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 operator|)
 name|value
 return|;

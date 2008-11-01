@@ -24,18 +24,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Predicate
 import|;
 end_import
@@ -49,18 +37,10 @@ DECL|interface|PredicateFactory
 specifier|public
 interface|interface
 name|PredicateFactory
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 block|{
 comment|/**      * Creates a predicate object      *      * @return the newly created expression object      */
 DECL|method|createPredicate ()
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 name|createPredicate
 parameter_list|()
 function_decl|;

@@ -560,14 +560,8 @@ class|class
 name|XQueryBuilder
 implements|implements
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 implements|,
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 implements|,
 name|NamespaceAware
 implements|,

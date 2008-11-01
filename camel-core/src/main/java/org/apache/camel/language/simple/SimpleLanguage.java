@@ -125,9 +125,6 @@ block|}
 DECL|method|createSimpleExpression (String expression)
 specifier|protected
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|createSimpleExpression
 parameter_list|(
 name|String

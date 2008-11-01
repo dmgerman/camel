@@ -375,9 +375,6 @@ decl_stmt|;
 DECL|field|correlation
 specifier|private
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlation
 decl_stmt|;
 DECL|field|strategy
@@ -388,9 +385,6 @@ decl_stmt|;
 DECL|method|getCorrelationExpression ()
 specifier|public
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|getCorrelationExpression
 parameter_list|()
 block|{
@@ -398,15 +392,12 @@ return|return
 name|correlation
 return|;
 block|}
-DECL|method|setCorrelationExpression (Expression<Exchange> correlationExpression)
+DECL|method|setCorrelationExpression (Expression correlationExpression)
 specifier|public
 name|void
 name|setCorrelationExpression
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationExpression
 parameter_list|)
 block|{

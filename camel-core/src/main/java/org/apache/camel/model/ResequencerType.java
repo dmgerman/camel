@@ -778,15 +778,12 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|comparator (ExpressionResultComparator<Exchange> comparator)
+DECL|method|comparator (ExpressionResultComparator comparator)
 specifier|public
 name|ResequencerType
 name|comparator
 parameter_list|(
 name|ExpressionResultComparator
-argument_list|<
-name|Exchange
-argument_list|>
 name|comparator
 parameter_list|)
 block|{

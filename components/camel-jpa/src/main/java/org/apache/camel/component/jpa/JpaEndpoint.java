@@ -249,9 +249,6 @@ decl_stmt|;
 DECL|field|producerExpression
 specifier|private
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|producerExpression
 decl_stmt|;
 DECL|field|maximumResults
@@ -519,9 +516,6 @@ block|}
 DECL|method|getProducerExpression ()
 specifier|public
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|getProducerExpression
 parameter_list|()
 block|{
@@ -542,15 +536,12 @@ return|return
 name|producerExpression
 return|;
 block|}
-DECL|method|setProducerExpression (Expression<Exchange> producerExpression)
+DECL|method|setProducerExpression (Expression producerExpression)
 specifier|public
 name|void
 name|setProducerExpression
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|producerExpression
 parameter_list|)
 block|{
@@ -897,9 +888,6 @@ block|}
 DECL|method|createProducerExpression ()
 specifier|protected
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|createProducerExpression
 parameter_list|()
 block|{
@@ -932,9 +920,6 @@ block|{
 return|return
 operator|new
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|public

@@ -187,15 +187,12 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setExpression (Expression<?> expr)
+DECL|method|setExpression (Expression expr)
 specifier|public
 name|void
 name|setExpression
 parameter_list|(
 name|Expression
-argument_list|<
-name|?
-argument_list|>
 name|expr
 parameter_list|)
 block|{

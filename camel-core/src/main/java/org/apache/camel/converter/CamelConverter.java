@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some useful converters for Camel APIs such as to convert a {@link Predicate} or {@link Expression}  * to a {@link Processor}  *  * @version $Revision:$  */
+comment|/**  * Some useful converters for Camel APIs such as to convert a {@link Predicate} or {@link Expression}  * to a {@link Processor}  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -102,16 +102,13 @@ name|CamelConverter
 block|{
 annotation|@
 name|Converter
-DECL|method|toProcessor (final Predicate<Exchange> predicate)
+DECL|method|toProcessor (final Predicate predicate)
 specifier|public
 name|Processor
 name|toProcessor
 parameter_list|(
 specifier|final
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 parameter_list|)
 block|{
@@ -171,16 +168,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toProcessor (final Expression<Exchange> expresion)
+DECL|method|toProcessor (final Expression expresion)
 specifier|public
 name|Processor
 name|toProcessor
 parameter_list|(
 specifier|final
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expresion
 parameter_list|)
 block|{

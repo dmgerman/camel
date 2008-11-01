@@ -116,14 +116,11 @@ name|Exchange
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|PredicateAggregationCollection (Expression<Exchange> correlationExpression, AggregationStrategy aggregationStrategy, Predicate aggregationCompletedPredicate)
+DECL|method|PredicateAggregationCollection (Expression correlationExpression, AggregationStrategy aggregationStrategy, Predicate aggregationCompletedPredicate)
 specifier|public
 name|PredicateAggregationCollection
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationExpression
 parameter_list|,
 name|AggregationStrategy

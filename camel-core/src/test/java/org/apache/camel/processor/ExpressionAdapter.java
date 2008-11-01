@@ -66,9 +66,6 @@ class|class
 name|ExpressionAdapter
 extends|extends
 name|ExpressionSupport
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|method|evaluate (Exchange exchange)
 specifier|public

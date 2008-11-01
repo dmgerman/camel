@@ -281,9 +281,6 @@ class|class
 name|MyPredicate
 implements|implements
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|body
 specifier|public

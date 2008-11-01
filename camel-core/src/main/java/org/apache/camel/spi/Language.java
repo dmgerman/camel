@@ -24,18 +24,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Expression
 import|;
 end_import
@@ -65,9 +53,6 @@ block|{
 comment|/**      * Creates a predicate based on the given string input      *      * @param expression  the expression      * @return the created predicate      */
 DECL|method|createPredicate (String expression)
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|createPredicate
 parameter_list|(
 name|String
@@ -77,9 +62,6 @@ function_decl|;
 comment|/**      * Creates an expression based on the given string input      *      * @param expression  the expression as a string input      * @return the created expression      */
 DECL|method|createExpression (String expression)
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|createExpression
 parameter_list|(
 name|String

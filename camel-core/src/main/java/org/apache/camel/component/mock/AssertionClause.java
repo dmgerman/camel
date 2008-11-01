@@ -168,9 +168,6 @@ specifier|private
 name|List
 argument_list|<
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 name|predicates
 init|=
@@ -178,24 +175,18 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * Adds the given predicate to this assertion clause      */
-DECL|method|predicate (Predicate<Exchange> predicate)
+DECL|method|predicate (Predicate predicate)
 specifier|public
 name|AssertionClause
 name|predicate
 parameter_list|(
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 parameter_list|)
 block|{
@@ -245,9 +236,6 @@ comment|/**      * Returns a predicate and value builder for headers on an excha
 DECL|method|header (String name)
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|header
 parameter_list|(
 name|String
@@ -255,9 +243,6 @@ name|name
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 init|=
 name|headerExpression
@@ -277,9 +262,6 @@ comment|/**      * Returns a predicate and value builder for property on an exch
 DECL|method|property (String name)
 specifier|public
 name|ValueBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 name|property
 parameter_list|(
 name|String
@@ -287,9 +269,6 @@ name|name
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 init|=
 name|propertyExpression
@@ -313,9 +292,6 @@ name|body
 parameter_list|()
 block|{
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 init|=
 name|bodyExpression
@@ -346,9 +322,6 @@ name|type
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 init|=
 name|bodyExpression
@@ -372,9 +345,6 @@ name|outBody
 parameter_list|()
 block|{
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 init|=
 name|bodyExpression
@@ -405,9 +375,6 @@ name|type
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 init|=
 name|bodyExpression
@@ -442,9 +409,6 @@ block|{
 for|for
 control|(
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 range|:
 name|predicates
@@ -466,15 +430,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|addPredicate (Predicate<Exchange> predicate)
+DECL|method|addPredicate (Predicate predicate)
 specifier|protected
 name|void
 name|addPredicate
 parameter_list|(
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 parameter_list|)
 block|{
@@ -493,18 +454,12 @@ class|class
 name|PredicateValueBuilder
 extends|extends
 name|ValueBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
-DECL|method|PredicateValueBuilder (Expression<Exchange> expression)
+DECL|method|PredicateValueBuilder (Expression expression)
 specifier|public
 name|PredicateValueBuilder
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -514,18 +469,12 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onNewPredicate (Predicate<Exchange> predicate)
+DECL|method|onNewPredicate (Predicate predicate)
 specifier|protected
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|onNewPredicate
 parameter_list|(
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 parameter_list|)
 block|{

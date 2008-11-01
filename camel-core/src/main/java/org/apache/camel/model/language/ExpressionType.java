@@ -345,14 +345,8 @@ class|class
 name|ExpressionType
 implements|implements
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 implements|,
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
@@ -768,9 +762,6 @@ block|}
 DECL|method|createPredicate (RouteContext routeContext)
 specifier|public
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|createPredicate
 parameter_list|(
 name|RouteContext

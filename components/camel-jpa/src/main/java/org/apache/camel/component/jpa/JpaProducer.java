@@ -145,12 +145,9 @@ DECL|field|expression
 specifier|private
 specifier|final
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 decl_stmt|;
-DECL|method|JpaProducer (JpaEndpoint endpoint, Expression<Exchange> expression)
+DECL|method|JpaProducer (JpaEndpoint endpoint, Expression expression)
 specifier|public
 name|JpaProducer
 parameter_list|(
@@ -158,9 +155,6 @@ name|JpaEndpoint
 name|endpoint
 parameter_list|,
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{

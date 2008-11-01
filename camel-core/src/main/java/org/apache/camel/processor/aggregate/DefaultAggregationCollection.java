@@ -157,9 +157,6 @@ decl_stmt|;
 DECL|field|correlationExpression
 specifier|private
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationExpression
 decl_stmt|;
 DECL|field|aggregationStrategy
@@ -191,14 +188,11 @@ specifier|public
 name|DefaultAggregationCollection
 parameter_list|()
 block|{     }
-DECL|method|DefaultAggregationCollection (Expression<Exchange> correlationExpression, AggregationStrategy aggregationStrategy)
+DECL|method|DefaultAggregationCollection (Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|DefaultAggregationCollection
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationExpression
 parameter_list|,
 name|AggregationStrategy
@@ -466,9 +460,6 @@ block|{     }
 DECL|method|getCorrelationExpression ()
 specifier|public
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|getCorrelationExpression
 parameter_list|()
 block|{
@@ -476,15 +467,12 @@ return|return
 name|correlationExpression
 return|;
 block|}
-DECL|method|setCorrelationExpression (Expression<Exchange> correlationExpression)
+DECL|method|setCorrelationExpression (Expression correlationExpression)
 specifier|public
 name|void
 name|setCorrelationExpression
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationExpression
 parameter_list|)
 block|{

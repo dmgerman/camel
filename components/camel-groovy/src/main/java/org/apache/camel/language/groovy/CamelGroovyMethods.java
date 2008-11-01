@@ -178,9 +178,6 @@ block|{
 return|return
 operator|new
 name|ExpressionSupport
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 block|{
 specifier|protected

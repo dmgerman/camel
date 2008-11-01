@@ -173,9 +173,6 @@ decl_stmt|;
 DECL|field|traceFilter
 specifier|private
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|traceFilter
 decl_stmt|;
 DECL|field|traceInterceptors

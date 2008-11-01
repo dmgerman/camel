@@ -181,9 +181,6 @@ name|filters
 control|)
 block|{
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 init|=
 name|filterProcessor

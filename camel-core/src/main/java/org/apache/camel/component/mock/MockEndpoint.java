@@ -1684,16 +1684,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds an expectation that messages received should have ascending values      * of the given expression such as a user generated counter value      *      * @param expression      */
-DECL|method|expectsAscending (final Expression<Exchange> expression)
+DECL|method|expectsAscending (final Expression expression)
 specifier|public
 name|void
 name|expectsAscending
 parameter_list|(
 specifier|final
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -1719,16 +1716,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds an expectation that messages received should have descending values      * of the given expression such as a user generated counter value      *      * @param expression      */
-DECL|method|expectsDescending (final Expression<Exchange> expression)
+DECL|method|expectsDescending (final Expression expression)
 specifier|public
 name|void
 name|expectsDescending
 parameter_list|(
 specifier|final
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -1754,16 +1748,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds an expectation that no duplicate messages should be received using      * the expression to determine the message ID      *      * @param expression the expression used to create a unique message ID for      *                message comparison (which could just be the message      *                payload if the payload can be tested for uniqueness using      *                {@link Object#equals(Object)} and      *                {@link Object#hashCode()}      */
-DECL|method|expectsNoDuplicates (final Expression<Exchange> expression)
+DECL|method|expectsNoDuplicates (final Expression expression)
 specifier|public
 name|void
 name|expectsNoDuplicates
 parameter_list|(
 specifier|final
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -1789,15 +1780,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Asserts that the messages have ascending values of the given expression      */
-DECL|method|assertMessagesAscending (Expression<Exchange> expression)
+DECL|method|assertMessagesAscending (Expression expression)
 specifier|public
 name|void
 name|assertMessagesAscending
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -1810,15 +1798,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Asserts that the messages have descending values of the given expression      */
-DECL|method|assertMessagesDescending (Expression<Exchange> expression)
+DECL|method|assertMessagesDescending (Expression expression)
 specifier|public
 name|void
 name|assertMessagesDescending
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -1830,15 +1815,12 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertMessagesSorted (Expression<Exchange> expression, boolean ascending)
+DECL|method|assertMessagesSorted (Expression expression, boolean ascending)
 specifier|protected
 name|void
 name|assertMessagesSorted
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|,
 name|boolean
@@ -2045,15 +2027,12 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|assertNoDuplicates (Expression<Exchange> expression)
+DECL|method|assertNoDuplicates (Expression expression)
 specifier|public
 name|void
 name|assertNoDuplicates
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{

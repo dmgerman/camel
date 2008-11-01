@@ -61,15 +61,7 @@ comment|/**      * Returns a constant expression      */
 DECL|method|constant (Object value)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|constant
 parameter_list|(
 name|Object
@@ -77,9 +69,6 @@ name|value
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 init|=
 name|ExpressionBuilder
@@ -92,9 +81,6 @@ decl_stmt|;
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|expression
 argument_list|)
@@ -104,15 +90,7 @@ comment|/**      * Returns a predicate and value builder for headers on an excha
 DECL|method|header (String name)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|header
 parameter_list|(
 name|String
@@ -120,9 +98,6 @@ name|name
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 init|=
 name|ExpressionBuilder
@@ -135,9 +110,6 @@ decl_stmt|;
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|expression
 argument_list|)
@@ -147,22 +119,11 @@ comment|/**      * Returns a predicate and value builder for the inbound body on
 DECL|method|body ()
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|body
 parameter_list|()
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 init|=
 name|ExpressionBuilder
@@ -173,9 +134,6 @@ decl_stmt|;
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|expression
 argument_list|)
@@ -193,9 +151,6 @@ parameter_list|,
 name|T
 parameter_list|>
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|bodyAs
 parameter_list|(
 name|Class
@@ -206,9 +161,6 @@ name|type
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 init|=
 name|ExpressionBuilder
@@ -221,9 +173,6 @@ decl_stmt|;
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|expression
 argument_list|)
@@ -233,22 +182,11 @@ comment|/**      * Returns a predicate and value builder for the outbound body o
 DECL|method|outBody ()
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|outBody
 parameter_list|()
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 init|=
 name|ExpressionBuilder
@@ -259,9 +197,6 @@ decl_stmt|;
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|expression
 argument_list|)
@@ -279,9 +214,6 @@ parameter_list|,
 name|T
 parameter_list|>
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|outBodyAs
 parameter_list|(
 name|Class
@@ -292,9 +224,6 @@ name|type
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 init|=
 name|ExpressionBuilder
@@ -307,9 +236,6 @@ decl_stmt|;
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|expression
 argument_list|)
@@ -319,22 +245,11 @@ comment|/**      * Returns a predicate and value builder for the fault body on a
 DECL|method|faultBody ()
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|faultBody
 parameter_list|()
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 init|=
 name|ExpressionBuilder
@@ -345,9 +260,6 @@ decl_stmt|;
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|expression
 argument_list|)
@@ -365,9 +277,6 @@ parameter_list|,
 name|T
 parameter_list|>
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|faultBodyAs
 parameter_list|(
 name|Class
@@ -378,9 +287,6 @@ name|type
 parameter_list|)
 block|{
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 init|=
 name|ExpressionBuilder
@@ -393,9 +299,6 @@ decl_stmt|;
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|expression
 argument_list|)
@@ -405,15 +308,7 @@ comment|/**      * Returns an expression for the given system property      */
 DECL|method|systemProperty (final String name)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|systemProperty
 parameter_list|(
 specifier|final
@@ -434,15 +329,7 @@ comment|/**      * Returns an expression for the given system property      */
 DECL|method|systemProperty (final String name, final String defaultValue)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 name|systemProperty
 parameter_list|(
 specifier|final
@@ -457,15 +344,9 @@ block|{
 return|return
 operator|new
 name|ValueBuilder
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|ExpressionBuilder
 operator|.
-expr|<
-name|E
-operator|>
 name|systemProperty
 argument_list|(
 name|name

@@ -220,9 +220,6 @@ decl_stmt|;
 DECL|field|correlationKeyExpression
 specifier|private
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationKeyExpression
 decl_stmt|;
 DECL|field|transactionTemplate
@@ -244,7 +241,7 @@ name|retrySleep
 init|=
 literal|1000L
 decl_stmt|;
-DECL|method|BamProcessorSupport (TransactionTemplate transactionTemplate, Expression<Exchange> correlationKeyExpression)
+DECL|method|BamProcessorSupport (TransactionTemplate transactionTemplate, Expression correlationKeyExpression)
 specifier|protected
 name|BamProcessorSupport
 parameter_list|(
@@ -252,9 +249,6 @@ name|TransactionTemplate
 name|transactionTemplate
 parameter_list|,
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationKeyExpression
 parameter_list|)
 block|{
@@ -358,7 +352,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|BamProcessorSupport (TransactionTemplate transactionTemplate, Expression<Exchange> correlationKeyExpression, Class<T> entitytype)
+DECL|method|BamProcessorSupport (TransactionTemplate transactionTemplate, Expression correlationKeyExpression, Class<T> entitytype)
 specifier|protected
 name|BamProcessorSupport
 parameter_list|(
@@ -366,9 +360,6 @@ name|TransactionTemplate
 name|transactionTemplate
 parameter_list|,
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationKeyExpression
 parameter_list|,
 name|Class
@@ -603,9 +594,6 @@ comment|// ---------------------------------------------------------------------
 DECL|method|getCorrelationKeyExpression ()
 specifier|public
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|getCorrelationKeyExpression
 parameter_list|()
 block|{
@@ -662,6 +650,9 @@ DECL|method|getKeyType ()
 specifier|protected
 specifier|abstract
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getKeyType
 parameter_list|()
 function_decl|;
@@ -687,6 +678,9 @@ name|exchange
 argument_list|)
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|keyType
 init|=
 name|getKeyType

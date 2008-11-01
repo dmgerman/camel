@@ -296,9 +296,6 @@ name|Override
 DECL|method|createPredicate (RouteContext routeContext)
 specifier|public
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|createPredicate
 parameter_list|(
 name|RouteContext
@@ -308,9 +305,6 @@ block|{
 return|return
 operator|new
 name|BeanExpression
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|(
 name|beanName
 argument_list|()

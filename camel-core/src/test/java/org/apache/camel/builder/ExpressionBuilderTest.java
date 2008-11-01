@@ -270,9 +270,6 @@ throws|throws
 name|Exception
 block|{
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 init|=
 name|regexTokenize
@@ -318,9 +315,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 init|=
 name|contains
@@ -389,9 +383,6 @@ throws|throws
 name|Exception
 block|{
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 init|=
 name|regexReplaceAll
@@ -451,9 +442,6 @@ throws|throws
 name|Exception
 block|{
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 init|=
 name|tokenizeExpression
@@ -499,9 +487,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 init|=
 name|contains

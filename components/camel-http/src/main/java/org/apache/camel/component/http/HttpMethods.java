@@ -205,9 +205,6 @@ enum|enum
 name|HttpMethods
 implements|implements
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|enumConstant|GET
 DECL|enumConstant|POST

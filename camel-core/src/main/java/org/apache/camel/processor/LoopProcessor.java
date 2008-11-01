@@ -155,19 +155,13 @@ decl_stmt|;
 DECL|field|expression
 specifier|private
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 decl_stmt|;
-DECL|method|LoopProcessor (Expression<Exchange> expression, Processor processor)
+DECL|method|LoopProcessor (Expression expression, Processor processor)
 specifier|public
 name|LoopProcessor
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|,
 name|Processor
@@ -341,9 +335,6 @@ block|}
 DECL|method|getExpression ()
 specifier|public
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|getExpression
 parameter_list|()
 block|{

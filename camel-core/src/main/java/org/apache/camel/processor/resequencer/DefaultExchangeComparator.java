@@ -63,24 +63,15 @@ class|class
 name|DefaultExchangeComparator
 implements|implements
 name|ExpressionResultComparator
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|expression
 specifier|private
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 decl_stmt|;
 DECL|method|getExpression ()
 specifier|public
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|getExpression
 parameter_list|()
 block|{
@@ -88,15 +79,12 @@ return|return
 name|expression
 return|;
 block|}
-DECL|method|setExpression (Expression<Exchange> expression)
+DECL|method|setExpression (Expression expression)
 specifier|public
 name|void
 name|setExpression
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{

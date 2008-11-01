@@ -158,9 +158,6 @@ decl_stmt|;
 DECL|field|messageIdExpression
 specifier|private
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|messageIdExpression
 decl_stmt|;
 DECL|field|nextProcessor
@@ -173,14 +170,11 @@ specifier|private
 name|MessageIdRepository
 name|messageIdRepository
 decl_stmt|;
-DECL|method|IdempotentConsumer (Expression<Exchange> messageIdExpression, MessageIdRepository messageIdRepository, Processor nextProcessor)
+DECL|method|IdempotentConsumer (Expression messageIdExpression, MessageIdRepository messageIdRepository, Processor nextProcessor)
 specifier|public
 name|IdempotentConsumer
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|messageIdExpression
 parameter_list|,
 name|MessageIdRepository
@@ -308,9 +302,6 @@ comment|// ---------------------------------------------------------------------
 DECL|method|getMessageIdExpression ()
 specifier|public
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|getMessageIdExpression
 parameter_list|()
 block|{

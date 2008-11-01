@@ -190,7 +190,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|JpaBamProcessor (TransactionTemplate transactionTemplate, JpaTemplate template, Expression<Exchange> correlationKeyExpression, ActivityRules activityRules)
+DECL|method|JpaBamProcessor (TransactionTemplate transactionTemplate, JpaTemplate template, Expression correlationKeyExpression, ActivityRules activityRules)
 specifier|public
 name|JpaBamProcessor
 parameter_list|(
@@ -201,9 +201,6 @@ name|JpaTemplate
 name|template
 parameter_list|,
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationKeyExpression
 parameter_list|,
 name|ActivityRules
@@ -222,7 +219,7 @@ name|activityRules
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|JpaBamProcessor (TransactionTemplate transactionTemplate, JpaTemplate template, Expression<Exchange> correlationKeyExpression, ActivityRules activityRules, Class<ProcessInstance> entitytype)
+DECL|method|JpaBamProcessor (TransactionTemplate transactionTemplate, JpaTemplate template, Expression correlationKeyExpression, ActivityRules activityRules, Class<ProcessInstance> entitytype)
 specifier|public
 name|JpaBamProcessor
 parameter_list|(
@@ -233,9 +230,6 @@ name|JpaTemplate
 name|template
 parameter_list|,
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationKeyExpression
 parameter_list|,
 name|ActivityRules

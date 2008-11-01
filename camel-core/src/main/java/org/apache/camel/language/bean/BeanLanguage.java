@@ -203,9 +203,6 @@ block|}
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|createPredicate
 parameter_list|(
 name|String
@@ -227,9 +224,6 @@ block|}
 DECL|method|createExpression (String expression)
 specifier|public
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|createExpression
 parameter_list|(
 name|String
@@ -308,9 +302,6 @@ block|}
 DECL|method|createExpression (Object bean, String method)
 specifier|public
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|createExpression
 parameter_list|(
 name|Object

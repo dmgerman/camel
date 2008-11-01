@@ -23,18 +23,13 @@ DECL|interface|Expression
 specifier|public
 interface|interface
 name|Expression
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 block|{
 comment|/**      * Returns the value of the expression on the given exchange      *      * @param exchange the message exchange on which to evaluate the expression      * @return the value of the expression      */
-DECL|method|evaluate (E exchange)
+DECL|method|evaluate (Exchange exchange)
 name|Object
 name|evaluate
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;

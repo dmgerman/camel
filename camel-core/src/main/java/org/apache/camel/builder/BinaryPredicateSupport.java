@@ -78,49 +78,29 @@ specifier|public
 specifier|abstract
 class|class
 name|BinaryPredicateSupport
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|left
 specifier|private
 specifier|final
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|left
 decl_stmt|;
 DECL|field|right
 specifier|private
 specifier|final
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|right
 decl_stmt|;
-DECL|method|BinaryPredicateSupport (Expression<E> left, Expression<E> right)
+DECL|method|BinaryPredicateSupport (Expression left, Expression right)
 specifier|protected
 name|BinaryPredicateSupport
 parameter_list|(
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|left
 parameter_list|,
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|right
 parameter_list|)
 block|{
@@ -172,12 +152,12 @@ operator|+
 name|right
 return|;
 block|}
-DECL|method|matches (E exchange)
+DECL|method|matches (Exchange exchange)
 specifier|public
 name|boolean
 name|matches
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -212,7 +192,7 @@ name|rightValue
 argument_list|)
 return|;
 block|}
-DECL|method|assertMatches (String text, E exchange)
+DECL|method|assertMatches (String text, Exchange exchange)
 specifier|public
 name|void
 name|assertMatches
@@ -220,7 +200,7 @@ parameter_list|(
 name|String
 name|text
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -275,13 +255,13 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|matches (E exchange, Object leftValue, Object rightValue)
+DECL|method|matches (Exchange exchange, Object leftValue, Object rightValue)
 specifier|protected
 specifier|abstract
 name|boolean
 name|matches
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|Object
@@ -298,12 +278,12 @@ name|String
 name|getOperationText
 parameter_list|()
 function_decl|;
-DECL|method|assertionFailureMessage (E exchange, Object leftValue, Object rightValue)
+DECL|method|assertionFailureMessage (Exchange exchange, Object leftValue, Object rightValue)
 specifier|protected
 name|String
 name|assertionFailureMessage
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|Object

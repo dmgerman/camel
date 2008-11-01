@@ -81,9 +81,6 @@ block|{
 DECL|field|timeExpression
 specifier|private
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|timeExpression
 decl_stmt|;
 DECL|field|delay
@@ -91,7 +88,7 @@ specifier|private
 name|long
 name|delay
 decl_stmt|;
-DECL|method|Delayer (Processor processor, Expression<Exchange> timeExpression, long delay)
+DECL|method|Delayer (Processor processor, Expression timeExpression, long delay)
 specifier|public
 name|Delayer
 parameter_list|(
@@ -99,9 +96,6 @@ name|Processor
 name|processor
 parameter_list|,
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|timeExpression
 parameter_list|,
 name|long

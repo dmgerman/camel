@@ -109,9 +109,6 @@ block|{
 DECL|field|correlationExpression
 specifier|private
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationExpression
 decl_stmt|;
 DECL|field|loadBalancer
@@ -162,14 +159,11 @@ name|RoundRobinLoadBalancer
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|StickyLoadBalancer (Expression<Exchange> correlationExpression)
+DECL|method|StickyLoadBalancer (Expression correlationExpression)
 specifier|public
 name|StickyLoadBalancer
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationExpression
 parameter_list|)
 block|{
@@ -183,14 +177,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|StickyLoadBalancer (Expression<Exchange> correlationExpression, QueueLoadBalancer loadBalancer)
+DECL|method|StickyLoadBalancer (Expression correlationExpression, QueueLoadBalancer loadBalancer)
 specifier|public
 name|StickyLoadBalancer
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationExpression
 parameter_list|,
 name|QueueLoadBalancer
@@ -210,15 +201,12 @@ operator|=
 name|loadBalancer
 expr_stmt|;
 block|}
-DECL|method|setCorrelationExpression (Expression<Exchange> correlationExpression)
+DECL|method|setCorrelationExpression (Expression correlationExpression)
 specifier|public
 name|void
 name|setCorrelationExpression
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationExpression
 parameter_list|)
 block|{

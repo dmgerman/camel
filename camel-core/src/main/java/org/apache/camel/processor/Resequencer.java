@@ -144,7 +144,7 @@ name|Resequencer
 extends|extends
 name|BatchProcessor
 block|{
-DECL|method|Resequencer (Endpoint endpoint, Processor processor, Expression<Exchange> expression)
+DECL|method|Resequencer (Endpoint endpoint, Processor processor, Expression expression)
 specifier|public
 name|Resequencer
 parameter_list|(
@@ -155,9 +155,6 @@ name|Processor
 name|processor
 parameter_list|,
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -250,7 +247,7 @@ return|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-DECL|method|createSet (Expression<Exchange> expression)
+DECL|method|createSet (Expression expression)
 specifier|protected
 specifier|static
 name|Set
@@ -260,9 +257,6 @@ argument_list|>
 name|createSet
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -271,9 +265,6 @@ name|createSet
 argument_list|(
 operator|new
 name|ExpressionComparator
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|(
 name|expression
 argument_list|)

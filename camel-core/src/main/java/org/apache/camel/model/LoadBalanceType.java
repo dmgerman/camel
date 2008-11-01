@@ -889,15 +889,12 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|sticky (Expression<Exchange> correlationExpression)
+DECL|method|sticky (Expression correlationExpression)
 specifier|public
 name|LoadBalanceType
 name|sticky
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationExpression
 parameter_list|)
 block|{

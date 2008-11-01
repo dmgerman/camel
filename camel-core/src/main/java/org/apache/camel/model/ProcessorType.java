@@ -2123,15 +2123,12 @@ name|clause
 return|;
 block|}
 comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/resequencer.html">Resequencer</a>      * pattern where an expression is evaluated to be able to compare the      * message exchanges to reorder them. e.g. you may wish to sort by some      * header      *      * @param expression the expression on which to compare messages in order      * @return the builder      */
-DECL|method|resequencer (Expression<Exchange> expression)
+DECL|method|resequencer (Expression expression)
 specifier|public
 name|ResequencerType
 name|resequencer
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{
@@ -2491,15 +2488,12 @@ name|answer
 return|;
 block|}
 comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *      * @param processAtExpression an expression to calculate the time at which      *                            the messages should be processed      * @return the builder      */
-DECL|method|delayer (Expression<Exchange> processAtExpression)
+DECL|method|delayer (Expression processAtExpression)
 specifier|public
 name|DelayerType
 name|delayer
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|processAtExpression
 parameter_list|)
 block|{
@@ -2513,15 +2507,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *      * @param processAtExpression an expression to calculate the time at which      *                            the messages should be processed      * @param delay               the delay in milliseconds which is added to the      *                            processAtExpression to determine the time the message      *                            should be processed      * @return the builder      */
-DECL|method|delayer (Expression<Exchange> processAtExpression, long delay)
+DECL|method|delayer (Expression processAtExpression, long delay)
 specifier|public
 name|DelayerType
 name|delayer
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|processAtExpression
 parameter_list|,
 name|long
@@ -2657,15 +2648,12 @@ name|loop
 argument_list|)
 return|;
 block|}
-DECL|method|loop (Expression<?> expression)
+DECL|method|loop (Expression expression)
 specifier|public
 name|LoopType
 name|loop
 parameter_list|(
 name|Expression
-argument_list|<
-name|?
-argument_list|>
 name|expression
 parameter_list|)
 block|{

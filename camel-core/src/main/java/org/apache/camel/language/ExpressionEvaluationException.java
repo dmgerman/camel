@@ -64,13 +64,19 @@ name|ExpressionEvaluationException
 extends|extends
 name|RuntimeCamelException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|2939802714638174540L
+decl_stmt|;
 DECL|field|expression
 specifier|private
 specifier|final
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 decl_stmt|;
 DECL|field|exchange
@@ -79,14 +85,11 @@ specifier|final
 name|Exchange
 name|exchange
 decl_stmt|;
-DECL|method|ExpressionEvaluationException (Expression<Exchange> expression, Exchange exchange, Throwable cause)
+DECL|method|ExpressionEvaluationException (Expression expression, Exchange exchange, Throwable cause)
 specifier|public
 name|ExpressionEvaluationException
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|,
 name|Exchange
@@ -117,9 +120,6 @@ block|}
 DECL|method|getExpression ()
 specifier|public
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|getExpression
 parameter_list|()
 block|{

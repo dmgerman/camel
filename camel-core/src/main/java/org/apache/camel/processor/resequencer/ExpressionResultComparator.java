@@ -61,15 +61,10 @@ DECL|interface|ExpressionResultComparator
 specifier|public
 interface|interface
 name|ExpressionResultComparator
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|SequenceElementComparator
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 block|{
 comment|/**      * Sets the list expressions used for comparing {@link Exchange}s.      *       * @param expressions a list of {@link Expression} objects.      */

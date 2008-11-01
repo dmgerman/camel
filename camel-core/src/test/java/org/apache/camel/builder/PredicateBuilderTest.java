@@ -292,15 +292,12 @@ literal|10
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertMatches (Predicate<Exchange> predicate)
+DECL|method|assertMatches (Predicate predicate)
 specifier|protected
 name|void
 name|assertMatches
 parameter_list|(
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 parameter_list|)
 block|{
@@ -312,15 +309,12 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertDoesNotMatch (Predicate<Exchange> predicate)
+DECL|method|assertDoesNotMatch (Predicate predicate)
 specifier|protected
 name|void
 name|assertDoesNotMatch
 parameter_list|(
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 parameter_list|)
 block|{

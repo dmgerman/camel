@@ -878,9 +878,6 @@ name|languageName
 argument_list|)
 decl_stmt|;
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 init|=
 name|language
@@ -941,9 +938,6 @@ name|languageName
 argument_list|)
 decl_stmt|;
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 init|=
 name|language

@@ -172,16 +172,10 @@ name|DataSetSupport
 argument_list|()
 block|{
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 init|=
 operator|new
 name|XPathBuilder
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|(
 literal|"/message/@index"
 argument_list|)
@@ -216,9 +210,6 @@ name|Exception
 block|{
 comment|// lets compare the XPath result
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 init|=
 name|PredicateBuilder

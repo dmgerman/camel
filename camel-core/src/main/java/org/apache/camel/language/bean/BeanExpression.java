@@ -129,16 +129,8 @@ DECL|class|BeanExpression
 specifier|public
 class|class
 name|BeanExpression
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ExpressionSupport
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|beanName
 specifier|private
@@ -231,12 +223,12 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|assertionFailureMessage (E exchange)
+DECL|method|assertionFailureMessage (Exchange exchange)
 specifier|protected
 name|String
 name|assertionFailureMessage
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -250,12 +242,12 @@ operator|+
 name|method
 return|;
 block|}
-DECL|method|evaluate (E exchange)
+DECL|method|evaluate (Exchange exchange)
 specifier|public
 name|Object
 name|evaluate
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

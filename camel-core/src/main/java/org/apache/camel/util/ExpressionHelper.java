@@ -58,24 +58,16 @@ name|ExpressionHelper
 parameter_list|()
 block|{     }
 comment|/**      * Evaluates the given expression on the exchange as a String value      *      * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @return the result of the evaluation as a string.      */
-DECL|method|evaluateAsString (Expression<E> expression, E exchange)
+DECL|method|evaluateAsString (Expression expression, Exchange exchange)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|String
 name|evaluateAsString
 parameter_list|(
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -93,26 +85,19 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Evaluates the given expression on the exchange, converting the result to      * the given type      *      * @param expression the expression to evaluate      * @param exchange the exchange to use to evaluate the expression      * @param resultType the type of the result that is required      * @return the result of the evaluation as the specified type.      */
-DECL|method|evaluateAsType (Expression<E> expression, E exchange, Class<T> resultType)
+DECL|method|evaluateAsType (Expression expression, Exchange exchange, Class<T> resultType)
 specifier|public
 specifier|static
 parameter_list|<
 name|T
-parameter_list|,
-name|E
-extends|extends
-name|Exchange
 parameter_list|>
 name|T
 name|evaluateAsType
 parameter_list|(
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 name|expression
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|Class

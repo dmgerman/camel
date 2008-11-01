@@ -259,21 +259,10 @@ DECL|class|ScriptBuilder
 specifier|public
 class|class
 name|ScriptBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 implements|,
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 implements|,
 name|Processor
 block|{
@@ -393,12 +382,12 @@ name|getScriptDescription
 argument_list|()
 return|;
 block|}
-DECL|method|evaluate (E exchange)
+DECL|method|evaluate (Exchange exchange)
 specifier|public
 name|Object
 name|evaluate
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -409,12 +398,12 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|matches (E exchange)
+DECL|method|matches (Exchange exchange)
 specifier|public
 name|boolean
 name|matches
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -435,7 +424,7 @@ name|scriptValue
 argument_list|)
 return|;
 block|}
-DECL|method|assertMatches (String text, E exchange)
+DECL|method|assertMatches (String text, Exchange exchange)
 specifier|public
 name|void
 name|assertMatches
@@ -443,7 +432,7 @@ parameter_list|(
 name|String
 name|text
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -1459,12 +1448,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|matches (E exchange, Object scriptValue)
+DECL|method|matches (Exchange exchange, Object scriptValue)
 specifier|protected
 name|boolean
 name|matches
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|Object

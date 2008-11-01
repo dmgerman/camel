@@ -76,28 +76,17 @@ specifier|public
 specifier|abstract
 class|class
 name|ExpressionSupport
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 implements|,
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 block|{
-DECL|method|matches (E exchange)
+DECL|method|matches (Exchange exchange)
 specifier|public
 name|boolean
 name|matches
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -118,7 +107,7 @@ name|value
 argument_list|)
 return|;
 block|}
-DECL|method|assertMatches (String text, E exchange)
+DECL|method|assertMatches (String text, Exchange exchange)
 specifier|public
 name|void
 name|assertMatches
@@ -126,7 +115,7 @@ parameter_list|(
 name|String
 name|text
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -159,13 +148,13 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|assertionFailureMessage (E exchange)
+DECL|method|assertionFailureMessage (Exchange exchange)
 specifier|protected
 specifier|abstract
 name|String
 name|assertionFailureMessage
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;

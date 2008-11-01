@@ -212,9 +212,6 @@ DECL|field|expression
 specifier|private
 specifier|final
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 decl_stmt|;
 DECL|field|producerCache
@@ -232,14 +229,11 @@ name|Exchange
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|RecipientList (Expression<Exchange> expression)
+DECL|method|RecipientList (Expression expression)
 specifier|public
 name|RecipientList
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|expression
 parameter_list|)
 block|{

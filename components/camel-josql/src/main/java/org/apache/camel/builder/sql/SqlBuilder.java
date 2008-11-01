@@ -181,21 +181,10 @@ DECL|class|SqlBuilder
 specifier|public
 class|class
 name|SqlBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 implements|,
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|query
 specifier|private
@@ -236,12 +225,12 @@ operator|=
 name|query
 expr_stmt|;
 block|}
-DECL|method|evaluate (E exchange)
+DECL|method|evaluate (Exchange exchange)
 specifier|public
 name|Object
 name|evaluate
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -252,12 +241,12 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|matches (E exchange)
+DECL|method|matches (Exchange exchange)
 specifier|public
 name|boolean
 name|matches
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -278,7 +267,7 @@ name|list
 argument_list|)
 return|;
 block|}
-DECL|method|assertMatches (String text, E exchange)
+DECL|method|assertMatches (String text, Exchange exchange)
 specifier|public
 name|void
 name|assertMatches
@@ -286,7 +275,7 @@ parameter_list|(
 name|String
 name|text
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -334,15 +323,7 @@ comment|/**      * Creates a new builder for the given SQL query string      *  
 DECL|method|sql (String sql)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|SqlBuilder
-argument_list|<
-name|E
-argument_list|>
 name|sql
 parameter_list|(
 name|String
@@ -377,9 +358,6 @@ comment|/**      * Adds the variable value to be used by the SQL query      */
 DECL|method|variable (String name, Object value)
 specifier|public
 name|SqlBuilder
-argument_list|<
-name|E
-argument_list|>
 name|variable
 parameter_list|(
 name|String
@@ -443,12 +421,12 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
-DECL|method|matches (E exchange, List list)
+DECL|method|matches (Exchange exchange, List list)
 specifier|protected
 name|boolean
 name|matches
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|List
@@ -464,12 +442,12 @@ name|list
 argument_list|)
 return|;
 block|}
-DECL|method|evaluateQuery (E exchange)
+DECL|method|evaluateQuery (Exchange exchange)
 specifier|protected
 name|List
 name|evaluateQuery
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -547,12 +525,12 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|configureQuery (E exchange)
+DECL|method|configureQuery (Exchange exchange)
 specifier|protected
 name|void
 name|configureQuery
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{

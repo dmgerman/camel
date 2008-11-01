@@ -80,21 +80,15 @@ block|{
 comment|/**      * Gets the correlation expression      */
 DECL|method|getCorrelationExpression ()
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|getCorrelationExpression
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the correlation expression to be used      */
-DECL|method|setCorrelationExpression (Expression<Exchange> correlationExpression)
+DECL|method|setCorrelationExpression (Expression correlationExpression)
 name|void
 name|setCorrelationExpression
 parameter_list|(
 name|Expression
-argument_list|<
-name|Exchange
-argument_list|>
 name|correlationExpression
 parameter_list|)
 function_decl|;

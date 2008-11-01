@@ -67,19 +67,13 @@ block|{
 DECL|field|predicate
 specifier|private
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 decl_stmt|;
-DECL|method|FilterProcessor (Predicate<Exchange> predicate, Processor processor)
+DECL|method|FilterProcessor (Predicate predicate, Processor processor)
 specifier|public
 name|FilterProcessor
 parameter_list|(
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|predicate
 parameter_list|,
 name|Processor
@@ -152,9 +146,6 @@ block|}
 DECL|method|getPredicate ()
 specifier|public
 name|Predicate
-argument_list|<
-name|Exchange
-argument_list|>
 name|getPredicate
 parameter_list|()
 block|{

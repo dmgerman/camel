@@ -415,21 +415,10 @@ DECL|class|XPathBuilder
 specifier|public
 class|class
 name|XPathBuilder
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|Expression
-argument_list|<
-name|E
-argument_list|>
 implements|,
 name|Predicate
-argument_list|<
-name|E
-argument_list|>
 implements|,
 name|NamespaceAware
 block|{
@@ -447,6 +436,9 @@ decl_stmt|;
 DECL|field|documentType
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|documentType
 init|=
 name|Document
@@ -460,6 +452,9 @@ comment|// lets assume XPath expressions result in nodesets.
 DECL|field|resultType
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 decl_stmt|;
 DECL|field|resultQName
@@ -502,7 +497,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|exchange
 specifier|private
-name|E
+name|Exchange
 name|exchange
 decl_stmt|;
 DECL|field|bodyFunction
@@ -572,12 +567,12 @@ operator|+
 name|text
 return|;
 block|}
-DECL|method|matches (E exchange)
+DECL|method|matches (Exchange exchange)
 specifier|public
 name|boolean
 name|matches
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -600,7 +595,7 @@ name|booleanResult
 argument_list|)
 return|;
 block|}
-DECL|method|assertMatches (String text, E exchange)
+DECL|method|assertMatches (String text, Exchange exchange)
 specifier|public
 name|void
 name|assertMatches
@@ -608,7 +603,7 @@ parameter_list|(
 name|String
 name|text
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -654,12 +649,12 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|evaluate (E exchange)
+DECL|method|evaluate (Exchange exchange)
 specifier|public
 name|Object
 name|evaluate
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -703,9 +698,6 @@ comment|/**      * Sets the expression result type to boolean      *      * @ret
 DECL|method|booleanResult ()
 specifier|public
 name|XPathBuilder
-argument_list|<
-name|E
-argument_list|>
 name|booleanResult
 parameter_list|()
 block|{
@@ -723,9 +715,6 @@ comment|/**      * Sets the expression result type to boolean      *      * @ret
 DECL|method|nodeResult ()
 specifier|public
 name|XPathBuilder
-argument_list|<
-name|E
-argument_list|>
 name|nodeResult
 parameter_list|()
 block|{
@@ -743,9 +732,6 @@ comment|/**      * Sets the expression result type to boolean      *      * @ret
 DECL|method|nodeSetResult ()
 specifier|public
 name|XPathBuilder
-argument_list|<
-name|E
-argument_list|>
 name|nodeSetResult
 parameter_list|()
 block|{
@@ -763,9 +749,6 @@ comment|/**      * Sets the expression result type to boolean      *      * @ret
 DECL|method|numberResult ()
 specifier|public
 name|XPathBuilder
-argument_list|<
-name|E
-argument_list|>
 name|numberResult
 parameter_list|()
 block|{
@@ -783,9 +766,6 @@ comment|/**      * Sets the expression result type to boolean      *      * @ret
 DECL|method|stringResult ()
 specifier|public
 name|XPathBuilder
-argument_list|<
-name|E
-argument_list|>
 name|stringResult
 parameter_list|()
 block|{
@@ -800,15 +780,15 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the expression result type to boolean      *      * @return the current builder      */
-DECL|method|resultType (Class resultType)
+DECL|method|resultType (Class<?> resultType)
 specifier|public
 name|XPathBuilder
-argument_list|<
-name|E
-argument_list|>
 name|resultType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 parameter_list|)
 block|{
@@ -825,9 +805,6 @@ comment|/**      * Sets the object model URI to use      *      * @return the cu
 DECL|method|objectModel (String uri)
 specifier|public
 name|XPathBuilder
-argument_list|<
-name|E
-argument_list|>
 name|objectModel
 parameter_list|(
 name|String
@@ -848,9 +825,6 @@ comment|/**      * Sets the {@link XPathFunctionResolver} instance to use on the
 DECL|method|functionResolver (XPathFunctionResolver functionResolver)
 specifier|public
 name|XPathBuilder
-argument_list|<
-name|E
-argument_list|>
 name|functionResolver
 parameter_list|(
 name|XPathFunctionResolver
@@ -871,9 +845,6 @@ comment|/**      * Registers the namespace prefix and URI with the builder so th
 DECL|method|namespace (String prefix, String uri)
 specifier|public
 name|XPathBuilder
-argument_list|<
-name|E
-argument_list|>
 name|namespace
 parameter_list|(
 name|String
@@ -901,9 +872,6 @@ comment|/**      * Registers namespaces with the builder so that the registered 
 DECL|method|namespaces (Namespaces namespaces)
 specifier|public
 name|XPathBuilder
-argument_list|<
-name|E
-argument_list|>
 name|namespaces
 parameter_list|(
 name|Namespaces
@@ -925,9 +893,6 @@ comment|/**      * Registers a variable (in the global namespace) which can be r
 DECL|method|variable (String name, Object value)
 specifier|public
 name|XPathBuilder
-argument_list|<
-name|E
-argument_list|>
 name|variable
 parameter_list|(
 name|String
@@ -1698,13 +1663,13 @@ block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * Evaluates the expression as the given result type      */
-DECL|method|evaluateAs (E exchange, QName resultQName)
+DECL|method|evaluateAs (Exchange exchange, QName resultQName)
 specifier|protected
 specifier|synchronized
 name|Object
 name|evaluateAs
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|QName
@@ -2296,12 +2261,12 @@ block|}
 return|;
 block|}
 comment|/**      * Strategy method to extract the document from the exchange      */
-DECL|method|getDocument (E exchange)
+DECL|method|getDocument (Exchange exchange)
 specifier|protected
 name|Object
 name|getDocument
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
