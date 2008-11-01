@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,26 @@ operator|.
 name|jms
 package|;
 end_package
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|MessageListener
+import|;
+end_import
 
 begin_import
 import|import
@@ -136,26 +156,6 @@ name|wrapRuntimeCamelException
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|MessageListener
-import|;
-end_import
-
 begin_comment
 comment|/**  * A JMS {@link MessageListener} which converts an incoming JMS message into a Camel message {@link Exchange} then  * processing it by Camel; either using a custom {@link Processor} or if you use one of the static<code>newInstance()</code>  * methods such as {@link #newInstance(org.apache.camel.CamelContext, String)} or  * {@link #newInstance(org.apache.camel.CamelContext, org.apache.camel.ProducerTemplate)}  * you can send the message exchange into a Camel endpoint for processing.  *  * @version $Revision: 1.1 $  */
 end_comment
@@ -200,6 +200,39 @@ name|ExchangePattern
 operator|.
 name|InOnly
 decl_stmt|;
+DECL|method|CamelMessageListener (CamelContext camelContext, Processor processor)
+specifier|public
+name|CamelMessageListener
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+name|this
+operator|.
+name|processor
+operator|=
+name|processor
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|processor
+argument_list|,
+literal|"processor"
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Creates a new CamelMessageListener which will invoke a Camel endpoint      *      * @param camelContext the context to use      * @param endpointUri  the endpoint to invoke with the JMS message {@link Exchange}      * @return a newly created JMS MessageListener      */
 DECL|method|newInstance (CamelContext camelContext, String endpointUri)
 specifier|public
@@ -262,39 +295,6 @@ name|producerTemplate
 argument_list|)
 argument_list|)
 return|;
-block|}
-DECL|method|CamelMessageListener (CamelContext camelContext, Processor processor)
-specifier|public
-name|CamelMessageListener
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|,
-name|Processor
-name|processor
-parameter_list|)
-block|{
-name|this
-operator|.
-name|camelContext
-operator|=
-name|camelContext
-expr_stmt|;
-name|this
-operator|.
-name|processor
-operator|=
-name|processor
-expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|processor
-argument_list|,
-literal|"processor"
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Processes the incoming JMS message      */
 DECL|method|onMessage (Message message)

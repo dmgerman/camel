@@ -166,7 +166,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|CamelContextHelper
 import|;
 end_import
 
@@ -180,7 +180,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|CamelContextHelper
+name|ObjectHelper
 import|;
 end_import
 
@@ -284,41 +284,6 @@ name|E
 argument_list|>
 name|defaultEndpoint
 decl_stmt|;
-DECL|method|newInstance (CamelContext camelContext, String defaultEndpointUri)
-specifier|public
-specifier|static
-name|DefaultProducerTemplate
-name|newInstance
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|,
-name|String
-name|defaultEndpointUri
-parameter_list|)
-block|{
-name|Endpoint
-name|endpoint
-init|=
-name|CamelContextHelper
-operator|.
-name|getMandatoryEndpoint
-argument_list|(
-name|camelContext
-argument_list|,
-name|defaultEndpointUri
-argument_list|)
-decl_stmt|;
-return|return
-operator|new
-name|DefaultProducerTemplate
-argument_list|(
-name|camelContext
-argument_list|,
-name|endpoint
-argument_list|)
-return|;
-block|}
 DECL|method|DefaultProducerTemplate (CamelContext context)
 specifier|public
 name|DefaultProducerTemplate
@@ -356,6 +321,41 @@ name|defaultEndpoint
 operator|=
 name|defaultEndpoint
 expr_stmt|;
+block|}
+DECL|method|newInstance (CamelContext camelContext, String defaultEndpointUri)
+specifier|public
+specifier|static
+name|DefaultProducerTemplate
+name|newInstance
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|String
+name|defaultEndpointUri
+parameter_list|)
+block|{
+name|Endpoint
+name|endpoint
+init|=
+name|CamelContextHelper
+operator|.
+name|getMandatoryEndpoint
+argument_list|(
+name|camelContext
+argument_list|,
+name|defaultEndpointUri
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|DefaultProducerTemplate
+argument_list|(
+name|camelContext
+argument_list|,
+name|endpoint
+argument_list|)
+return|;
 block|}
 DECL|method|send (String endpointUri, E exchange)
 specifier|public

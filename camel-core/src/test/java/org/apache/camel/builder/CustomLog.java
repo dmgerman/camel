@@ -40,14 +40,10 @@ block|{
 DECL|field|loggedTrace
 name|boolean
 name|loggedTrace
-init|=
-literal|false
 decl_stmt|;
 DECL|field|loggedFatal
 name|boolean
 name|loggedFatal
-init|=
-literal|false
 decl_stmt|;
 DECL|method|isDebugEnabled ()
 specifier|public

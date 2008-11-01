@@ -166,15 +166,11 @@ DECL|field|showOutBody
 specifier|private
 name|boolean
 name|showOutBody
-init|=
-literal|false
 decl_stmt|;
 DECL|field|showOutBodyType
 specifier|private
 name|boolean
 name|showOutBodyType
-init|=
-literal|false
 decl_stmt|;
 DECL|field|showException
 specifier|private

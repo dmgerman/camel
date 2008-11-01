@@ -191,8 +191,6 @@ DECL|field|traceOutExchanges
 specifier|private
 name|boolean
 name|traceOutExchanges
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * A helper method to return the Tracer instance for a given {@link CamelContext} if one is enabled      *      * @param context the camel context the tracer is connected to      * @return the tracer or null if none can be found      */
 DECL|method|getTracer (CamelContext context)
