@@ -146,6 +146,11 @@ specifier|private
 name|Expression
 name|expression
 decl_stmt|;
+DECL|field|passiveMode
+specifier|private
+name|boolean
+name|passiveMode
+decl_stmt|;
 DECL|method|RemoteFileConfiguration ()
 specifier|public
 name|RemoteFileConfiguration
@@ -647,6 +652,33 @@ name|file
 argument_list|(
 name|fileLanguageExpression
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isPassiveMode ()
+specifier|public
+name|boolean
+name|isPassiveMode
+parameter_list|()
+block|{
+return|return
+name|passiveMode
+return|;
+block|}
+comment|/**      * Sets passive mode connections.      *<br/>      * Default is active mode connections.      */
+DECL|method|setPassiveMode (boolean passiveMode)
+specifier|public
+name|void
+name|setPassiveMode
+parameter_list|(
+name|boolean
+name|passiveMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|passiveMode
+operator|=
+name|passiveMode
 expr_stmt|;
 block|}
 block|}

@@ -197,6 +197,28 @@ argument_list|,
 name|port
 argument_list|)
 expr_stmt|;
+comment|// must enter passive mode directly after connect
+if|if
+condition|(
+name|config
+operator|.
+name|isPassiveMode
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Using passive mode connections"
+argument_list|)
+expr_stmt|;
+name|client
+operator|.
+name|enterLocalPassiveMode
+argument_list|()
+expr_stmt|;
+block|}
 name|boolean
 name|login
 decl_stmt|;
