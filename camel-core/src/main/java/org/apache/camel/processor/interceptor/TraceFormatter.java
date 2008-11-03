@@ -998,13 +998,13 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"%1$-25s"
+literal|"%1$-25.25s"
 argument_list|,
 name|message
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the exchange id and node, ordered based on whether this was a trace of      * an exchange coming out of or into a processing step. For example,       *       * transform(body) -> ID-mojo/39713-1225468755256/2-0      *       * Or      *       * ID-mojo/39713-1225468755256/2-0 -> transform(body)      *       */
+comment|/**      * Returns the exchange id and node, ordered based on whether this was a trace of      * an exchange coming out of or into a processing step. For example,       *<br/><tt>transform(body) -> ID-mojo/39713-1225468755256/2-0</tt>      *<br/>or      *<br/><tt>ID-mojo/39713-1225468755256/2-0 -> transform(body)</tt>      */
 DECL|method|getExchangeAndNode (TraceInterceptor interceptor, Exchange exchange)
 specifier|protected
 name|String
@@ -1088,6 +1088,9 @@ operator|+
 literal|" -> "
 operator|+
 name|id
+operator|.
+name|trim
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -1102,6 +1105,9 @@ operator|+
 literal|" -> "
 operator|+
 name|node
+operator|.
+name|trim
+argument_list|()
 expr_stmt|;
 block|}
 comment|// we want to ensure text coming after this is aligned for readability
@@ -1110,7 +1116,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"%1$-60s"
+literal|"%1$-65.65s"
 argument_list|,
 name|result
 argument_list|)
