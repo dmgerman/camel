@@ -243,7 +243,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"StreamCachingInterceptor"
+literal|"StreamCachingInterceptor("
+operator|+
+name|processor
+operator|+
+literal|")"
 return|;
 block|}
 comment|/**      * Remove the {@link StreamCachingInterceptor} type of interceptor from the given list of interceptors      *      * @param interceptors the list of interceptors      */

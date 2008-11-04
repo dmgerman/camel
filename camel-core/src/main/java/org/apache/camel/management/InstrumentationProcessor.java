@@ -164,6 +164,22 @@ specifier|public
 name|InstrumentationProcessor
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Instrumentation("
+operator|+
+name|processor
+operator|+
+literal|")"
+return|;
+block|}
 DECL|method|setCounter (PerformanceCounter counter)
 specifier|public
 name|void

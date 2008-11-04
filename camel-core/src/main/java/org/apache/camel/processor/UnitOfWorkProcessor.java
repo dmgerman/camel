@@ -109,6 +109,22 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"UnitOfWrok("
+operator|+
+name|processor
+operator|+
+literal|")"
+return|;
+block|}
 DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean

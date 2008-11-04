@@ -156,7 +156,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Delegate("
+literal|"DelegateAsync("
 operator|+
 name|processor
 operator|+
