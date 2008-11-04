@@ -600,7 +600,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Not starting the CamelContext since shouldStartContext property was true."
+literal|"Not starting the CamelContext since shouldStartContext property was false."
 argument_list|)
 expr_stmt|;
 block|}
