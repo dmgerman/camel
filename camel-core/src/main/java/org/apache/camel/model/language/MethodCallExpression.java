@@ -150,7 +150,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"methodCall"
+literal|"method"
 argument_list|)
 annotation|@
 name|XmlAccessorType
