@@ -556,10 +556,10 @@ name|e
 parameter_list|)
 block|{
 comment|//TODO need to find a way to deal with this exception
-comment|//Now I just throw it out
 throw|throw
-operator|new
-name|RuntimeCamelException
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 argument_list|)
