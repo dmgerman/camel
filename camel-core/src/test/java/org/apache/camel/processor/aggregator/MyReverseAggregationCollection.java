@@ -124,6 +124,10 @@ name|AggregationStrategy
 import|;
 end_import
 
+begin_comment
+comment|//START SNIPPET: e1
+end_comment
+
 begin_class
 DECL|class|MyReverseAggregationCollection
 class|class
@@ -300,6 +304,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: e1
+end_comment
 
 end_unit
 
