@@ -248,7 +248,7 @@ argument_list|,
 name|body2
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -347,11 +347,6 @@ comment|// as the default due to the spring bug means we keep creating& closing 
 name|from
 argument_list|(
 literal|"activemq:queue:foo.bar?cacheLevelName=CACHE_CONSUMER"
-argument_list|)
-operator|.
-name|trace
-argument_list|(
-literal|"DEBUG"
 argument_list|)
 operator|.
 name|process

@@ -30,12 +30,9 @@ name|ConsumerType
 block|{
 DECL|enumConstant|Simple
 DECL|enumConstant|Default
-DECL|enumConstant|ServerSessionPool
 name|Simple
 block|,
 name|Default
-block|,
-name|ServerSessionPool
 block|}
 end_enum
 

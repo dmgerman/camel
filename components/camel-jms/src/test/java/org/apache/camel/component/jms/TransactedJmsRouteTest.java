@@ -592,9 +592,6 @@ argument_list|(
 literal|"activemq:queue:mock.a"
 argument_list|)
 operator|.
-name|trace
-argument_list|()
-operator|.
 name|to
 argument_list|(
 literal|"mock:a"
@@ -604,9 +601,6 @@ name|from
 argument_list|(
 literal|"activemq:queue:mock.b"
 argument_list|)
-operator|.
-name|trace
-argument_list|()
 operator|.
 name|to
 argument_list|(
@@ -618,9 +612,6 @@ argument_list|(
 literal|"activemq:queue:mock.c"
 argument_list|)
 operator|.
-name|trace
-argument_list|()
-operator|.
 name|to
 argument_list|(
 literal|"mock:c"
@@ -630,9 +621,6 @@ name|from
 argument_list|(
 literal|"activemq:queue:mock.d"
 argument_list|)
-operator|.
-name|trace
-argument_list|()
 operator|.
 name|to
 argument_list|(

@@ -123,7 +123,7 @@ literal|"bar"
 argument_list|)
 expr_stmt|;
 comment|// lets wait for the method to be invoked
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// now lets test that the bean is correct
