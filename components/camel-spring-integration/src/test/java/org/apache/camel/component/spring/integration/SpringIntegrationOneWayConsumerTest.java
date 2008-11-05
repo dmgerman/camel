@@ -72,23 +72,9 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|channel
+name|core
 operator|.
 name|MessageChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|integration
-operator|.
-name|message
-operator|.
-name|Message
 import|;
 end_import
 

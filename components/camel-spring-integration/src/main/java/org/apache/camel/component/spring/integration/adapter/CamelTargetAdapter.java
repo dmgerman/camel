@@ -42,18 +42,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -168,9 +156,9 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|bus
+name|core
 operator|.
-name|MessageBus
+name|Message
 import|;
 end_import
 
@@ -182,21 +170,7 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|bus
-operator|.
-name|MessageBusAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|integration
-operator|.
-name|channel
+name|core
 operator|.
 name|MessageChannel
 import|;
@@ -210,9 +184,9 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|message
+name|core
 operator|.
-name|Message
+name|MessageHeaders
 import|;
 end_import
 
@@ -240,7 +214,7 @@ name|integration
 operator|.
 name|message
 operator|.
-name|MessageHeaders
+name|MessageHandler
 import|;
 end_import
 
@@ -258,20 +232,6 @@ name|MessageRejectedException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|integration
-operator|.
-name|message
-operator|.
-name|MessageTarget
-import|;
-end_import
-
 begin_comment
 comment|/**  * CamelTargeAdapter will redirect the Spring Integration message to the Camel context.  * When we inject the camel context into it, we need also specify the Camel endpoint url  * we will route the Spring Integration message to the Camel context  * @author Willem Jiang  *  * @version $Revision$  */
 end_comment
@@ -284,7 +244,7 @@ name|CamelTargetAdapter
 extends|extends
 name|AbstractCamelAdapter
 implements|implements
-name|MessageTarget
+name|MessageHandler
 block|{
 DECL|field|logger
 specifier|private
@@ -532,7 +492,7 @@ name|get
 argument_list|(
 name|MessageHeaders
 operator|.
-name|RETURN_ADDRESS
+name|REPLY_CHANNEL
 argument_list|)
 decl_stmt|;
 if|if
@@ -581,6 +541,24 @@ block|}
 return|return
 name|result
 return|;
+block|}
+DECL|method|handleMessage (Message<?> message)
+specifier|public
+name|void
+name|handleMessage
+parameter_list|(
+name|Message
+argument_list|<
+name|?
+argument_list|>
+name|message
+parameter_list|)
+block|{
+name|send
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

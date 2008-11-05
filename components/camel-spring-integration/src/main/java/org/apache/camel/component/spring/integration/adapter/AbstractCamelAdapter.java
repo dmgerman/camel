@@ -58,20 +58,6 @@ name|Endpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|integration
-operator|.
-name|handler
-operator|.
-name|MessageHandler
-import|;
-end_import
-
 begin_comment
 comment|/**  * The Abstract class for the Spring Integration Camel Adapter  *  * @author Willem Jiang  *  * @version $Revision$  */
 end_comment

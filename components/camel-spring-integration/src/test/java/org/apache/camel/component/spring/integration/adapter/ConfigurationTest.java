@@ -60,20 +60,6 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|integration
-operator|.
-name|endpoint
-operator|.
-name|MessagingBridge
-import|;
-end_import
-
 begin_class
 DECL|class|ConfigurationTest
 specifier|public

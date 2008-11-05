@@ -83,7 +83,7 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|message
+name|core
 operator|.
 name|Message
 name|createSpringIntegrationMessage
@@ -115,7 +115,7 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|message
+name|core
 operator|.
 name|Message
 name|createSpringIntegrationMessage
@@ -178,7 +178,7 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|message
+name|core
 operator|.
 name|Message
 name|storeToSpringIntegrationMessage
@@ -209,7 +209,7 @@ return|return
 name|siMessage
 return|;
 block|}
-DECL|method|storeToCamelMessage (org.springframework.integration.message.Message siMessage, org.apache.camel.Message cMessage)
+DECL|method|storeToCamelMessage (org.springframework.integration.core.Message siMessage, org.apache.camel.Message cMessage)
 specifier|public
 specifier|static
 name|void
@@ -221,7 +221,7 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|message
+name|core
 operator|.
 name|Message
 name|siMessage
@@ -246,7 +246,16 @@ name|getPayload
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//TODO copy the message header
+name|cMessage
+operator|.
+name|setHeaders
+argument_list|(
+name|siMessage
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

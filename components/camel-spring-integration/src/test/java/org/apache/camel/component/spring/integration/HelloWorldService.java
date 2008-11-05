@@ -35,6 +35,11 @@ specifier|private
 name|int
 name|count
 decl_stmt|;
+DECL|field|greetName
+specifier|private
+name|String
+name|greetName
+decl_stmt|;
 DECL|method|sayHello (String name)
 specifier|public
 name|String
@@ -51,6 +56,30 @@ return|return
 literal|"Hello "
 operator|+
 name|name
+return|;
+block|}
+DECL|method|greet (String name)
+specifier|public
+name|void
+name|greet
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|greetName
+operator|=
+name|name
+expr_stmt|;
+block|}
+DECL|method|getGreetName ()
+specifier|public
+name|String
+name|getGreetName
+parameter_list|()
+block|{
+return|return
+name|greetName
 return|;
 block|}
 DECL|method|getCount ()

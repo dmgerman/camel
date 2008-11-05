@@ -24,16 +24,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -100,9 +90,23 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|channel
+name|core
 operator|.
 name|MessageChannel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|integration
+operator|.
+name|core
+operator|.
+name|MessageHeaders
 import|;
 end_import
 
@@ -117,20 +121,6 @@ operator|.
 name|message
 operator|.
 name|GenericMessage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|integration
-operator|.
-name|message
-operator|.
-name|MessageHeaders
 import|;
 end_import
 
@@ -219,7 +209,7 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|message
+name|core
 operator|.
 name|Message
 name|toSpringMessage
@@ -258,7 +248,7 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|message
+name|core
 operator|.
 name|Message
 name|message
@@ -308,7 +298,7 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toCamelMessage (final org.springframework.integration.message.Message springMessage)
+DECL|method|toCamelMessage (final org.springframework.integration.core.Message springMessage)
 specifier|public
 specifier|static
 name|org
@@ -327,7 +317,7 @@ name|springframework
 operator|.
 name|integration
 operator|.
-name|message
+name|core
 operator|.
 name|Message
 name|springMessage
