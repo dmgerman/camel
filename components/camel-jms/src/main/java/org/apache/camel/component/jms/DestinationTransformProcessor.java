@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A processor which is capable of transforming the  *  * @version $Revision$  */
+comment|/**  * A processor which is capable of transforming the  *  * @deprecated not used. Will be removed in Camel 2.0  * @version $Revision$  */
 end_comment
 
 begin_class
