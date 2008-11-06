@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -62,6 +72,11 @@ name|CxfEndpointBean
 extends|extends
 name|AbstractWSDLBasedEndpointFactory
 block|{
+DECL|field|handlers
+specifier|private
+name|List
+name|handlers
+decl_stmt|;
 DECL|method|CxfEndpointBean ()
 specifier|public
 name|CxfEndpointBean
@@ -73,6 +88,32 @@ operator|new
 name|ReflectionServiceFactoryBean
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHandlers ()
+specifier|public
+name|List
+name|getHandlers
+parameter_list|()
+block|{
+return|return
+name|handlers
+return|;
+block|}
+DECL|method|setHandlers (List handlers)
+specifier|public
+name|void
+name|setHandlers
+parameter_list|(
+name|List
+name|handlers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|handlers
+operator|=
+name|handlers
 expr_stmt|;
 block|}
 block|}

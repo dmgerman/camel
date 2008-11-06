@@ -368,6 +368,13 @@ name|equals
 argument_list|(
 name|name
 argument_list|)
+operator|||
+literal|"handlers"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
 condition|)
 block|{
 name|java
