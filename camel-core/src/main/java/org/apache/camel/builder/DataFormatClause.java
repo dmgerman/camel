@@ -138,6 +138,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|JsonDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|SerializationDataFormat
 import|;
 end_import
@@ -515,6 +531,22 @@ name|dataFormat
 argument_list|(
 operator|new
 name|XStreamDataFormat
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the JSON data format      */
+DECL|method|json ()
+specifier|public
+name|T
+name|json
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|JsonDataFormat
 argument_list|()
 argument_list|)
 return|;
