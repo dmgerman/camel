@@ -190,7 +190,7 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 decl_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// and the response is also just plain String

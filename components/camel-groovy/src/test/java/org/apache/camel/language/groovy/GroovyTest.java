@@ -144,7 +144,7 @@ argument_list|,
 literal|"bar"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|log
@@ -196,7 +196,7 @@ argument_list|,
 literal|"123"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|log

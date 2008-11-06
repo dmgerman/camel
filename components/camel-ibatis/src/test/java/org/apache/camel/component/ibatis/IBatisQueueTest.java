@@ -208,7 +208,7 @@ argument_list|,
 name|account
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// now lets poll that the account has been inserted

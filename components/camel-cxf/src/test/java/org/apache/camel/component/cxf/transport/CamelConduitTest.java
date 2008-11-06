@@ -692,7 +692,7 @@ argument_list|,
 literal|"HelloWorld"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// verify the endpoint get the response
@@ -759,7 +759,7 @@ literal|"HelloWorld"
 argument_list|)
 expr_stmt|;
 comment|// verify the endpoint get the response
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|verifyReceivedMessage

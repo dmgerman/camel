@@ -181,7 +181,7 @@ name|headers
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -221,7 +221,7 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e2
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}

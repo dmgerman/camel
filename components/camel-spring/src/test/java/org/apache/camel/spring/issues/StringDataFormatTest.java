@@ -148,7 +148,7 @@ argument_list|,
 name|body
 argument_list|)
 decl_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|String
@@ -218,7 +218,7 @@ argument_list|,
 name|body
 argument_list|)
 decl_stmt|;
-name|assertMockEndpointsSatisifed
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|assertEquals
