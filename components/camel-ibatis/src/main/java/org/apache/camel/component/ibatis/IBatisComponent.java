@@ -42,6 +42,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|InputStreamReader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -85,6 +95,20 @@ operator|.
 name|camel
 operator|.
 name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|ResourceBasedComponent
 import|;
 end_import
 
@@ -159,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://activemq.apache.org/camel/ibatis.html>iBatis Component</a>  * for performing SQL operations using an XML mapping file to abstract away the SQL  *  * @version $Revision$  */
+comment|/**  * An<a href="http://activemq.apache.org/camel/ibatis.html>iBatis Component</a>  * for performing SQL operations using an XML mapping file to abstract away the SQL  *  * @version $Revision$  *   *<pre>  * Ibatis Component used to read/write to a database.  *  *<u>Requires one of the following:</u>  *  * 1. A Sql Map config file either on the root of  * the classpath or explicitly set.  *  *<b>OR</b>  *  * 2. A SqlMapClient explicityly set.  *  * Using Ibatis as a source of data (&lt;from&gt;) you can use this component  * to treat a database table as a logical queue.  * Details are available in the {@link IBatisPollingConsumer}  *  * Using Ibatis as a destination for data (&lt;to&gt;) you can use this  * component to run an insert statement either on a single message or if the  * delivered content contains a collection of messages it can iterate through  * the collection and run the insert on each element.  * Details are available in the {@link IBatisProducer}  *</pre>  *  * @see IBatisProducer  * @see IBatisPollingConsumer  */
 end_comment
 
 begin_class
@@ -168,17 +192,8 @@ specifier|public
 class|class
 name|IBatisComponent
 extends|extends
-name|DefaultComponent
+name|ResourceBasedComponent
 block|{
-DECL|field|DEFAULT_CONFIG_URI
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_CONFIG_URI
-init|=
-literal|"SqlMapConfig.xml"
-decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -196,15 +211,33 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|DEFAULT_CONFIG_URI
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_CONFIG_URI
+init|=
+literal|"classpath:SqlMapConfig.xml"
+decl_stmt|;
 DECL|field|sqlMapClient
 specifier|private
 name|SqlMapClient
 name|sqlMapClient
 decl_stmt|;
-DECL|field|sqlMapResource
+DECL|field|sqlMapConfig
 specifier|private
-name|Resource
-name|sqlMapResource
+name|String
+name|sqlMapConfig
+init|=
+name|DEFAULT_CONFIG_URI
+decl_stmt|;
+DECL|field|useTransactions
+specifier|private
+name|boolean
+name|useTransactions
+init|=
+literal|true
 decl_stmt|;
 DECL|method|IBatisComponent ()
 specifier|public
@@ -228,6 +261,7 @@ expr_stmt|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
+comment|/**      * Returns the configured SqlMapClient.      *      * @return com.ibatis.sqlmap.client.SqlMapClient      * @throws IOException If configured with a SqlMapConfig and there      * is a problem reading the resource.      */
 DECL|method|getSqlMapClient ()
 specifier|public
 name|SqlMapClient
@@ -253,6 +287,7 @@ return|return
 name|sqlMapClient
 return|;
 block|}
+comment|/**      * Sets the SqlMapClient      * @param sqlMapClient The client      */
 DECL|method|setSqlMapClient (SqlMapClient sqlMapClient)
 specifier|public
 name|void
@@ -269,62 +304,23 @@ operator|=
 name|sqlMapClient
 expr_stmt|;
 block|}
-DECL|method|getSqlMapResource ()
+comment|/**      * The Spring uri of the SqlMapConfig      * @return java.lang.String      */
+DECL|method|getSqlMapConfig ()
 specifier|public
-name|Resource
-name|getSqlMapResource
+name|String
+name|getSqlMapConfig
 parameter_list|()
 block|{
-if|if
-condition|(
-name|sqlMapResource
-operator|==
-literal|null
-condition|)
-block|{
-name|sqlMapResource
-operator|=
-operator|new
-name|ClassPathResource
-argument_list|(
-name|DEFAULT_CONFIG_URI
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Defaulting to use the iBatis configuration from: "
-operator|+
-name|sqlMapResource
-argument_list|)
-expr_stmt|;
-block|}
 return|return
-name|sqlMapResource
+name|sqlMapConfig
 return|;
 block|}
-DECL|method|setSqlMapResource (Resource sqlMapResource)
-specifier|public
-name|void
-name|setSqlMapResource
-parameter_list|(
-name|Resource
-name|sqlMapResource
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sqlMapResource
-operator|=
-name|sqlMapResource
-expr_stmt|;
-block|}
-comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+comment|/**      * Creates an IbatisEndpoint for use by an IbatisConsumer or IbatisProducer.      */
+annotation|@
+name|Override
+DECL|method|createEndpoint (String uri, String remaining, Map params)
 specifier|protected
-name|Endpoint
+name|IBatisEndpoint
 name|createEndpoint
 parameter_list|(
 name|String
@@ -334,7 +330,7 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
-name|parameters
+name|params
 parameter_list|)
 throws|throws
 name|Exception
@@ -348,22 +344,31 @@ argument_list|,
 name|this
 argument_list|,
 name|remaining
+argument_list|,
+name|params
 argument_list|)
 return|;
 block|}
 DECL|method|createSqlMapClient ()
-specifier|protected
+specifier|private
 name|SqlMapClient
 name|createSqlMapClient
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|InputStream
-name|in
+name|Resource
+name|resource
 init|=
-name|getSqlMapResource
-argument_list|()
+name|resolveMandatoryResource
+argument_list|(
+name|sqlMapConfig
+argument_list|)
+decl_stmt|;
+name|InputStream
+name|is
+init|=
+name|resource
 operator|.
 name|getInputStream
 argument_list|()
@@ -373,9 +378,39 @@ name|SqlMapClientBuilder
 operator|.
 name|buildSqlMapClient
 argument_list|(
-name|in
+operator|new
+name|InputStreamReader
+argument_list|(
+name|is
+argument_list|)
 argument_list|)
 return|;
+block|}
+DECL|method|isUseTransactions ()
+specifier|public
+name|boolean
+name|isUseTransactions
+parameter_list|()
+block|{
+return|return
+name|useTransactions
+return|;
+block|}
+DECL|method|setUseTransactions (boolean useTransactions)
+specifier|public
+name|void
+name|setUseTransactions
+parameter_list|(
+name|boolean
+name|useTransactions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useTransactions
+operator|=
+name|useTransactions
+expr_stmt|;
 block|}
 block|}
 end_class

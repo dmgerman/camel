@@ -365,7 +365,7 @@ decl_stmt|;
 return|return
 name|endpoint
 operator|.
-name|getSqlClient
+name|getSqlMapClient
 argument_list|()
 operator|.
 name|getDataSource
