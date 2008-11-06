@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/data-format.html">data format</a>  * ({@link DataFormat}) using XmlBeans to marshal to and from XML  *  * @version $Revision$  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/data-format.html">data format</a>  * ({@link DataFormat}) using XStream and Jettison to marshal to and from JSON  *  * @version $Revision$  */
 end_comment
 
 begin_class
