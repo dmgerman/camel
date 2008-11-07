@@ -650,7 +650,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|initialRedeliveryDelay
+name|delay
 argument_list|(
 literal|1000L
 argument_list|)

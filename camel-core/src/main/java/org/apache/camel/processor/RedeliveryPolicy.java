@@ -195,7 +195,7 @@ literal|"RedeliveryPolicy[maximumRedeliveries="
 operator|+
 name|maximumRedeliveries
 operator|+
-literal|", initialRedeliveryDelay="
+literal|", delay="
 operator|+
 name|delay
 operator|+
@@ -514,25 +514,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the initial redelivery delay in milliseconds on the first redelivery      *      * @deprecated use delay. Will be removed in Camel 2.0.      */
-DECL|method|initialRedeliveryDelay (long initialRedeliveryDelay)
-specifier|public
-name|RedeliveryPolicy
-name|initialRedeliveryDelay
-parameter_list|(
-name|long
-name|initialRedeliveryDelay
-parameter_list|)
-block|{
-name|setDelay
-argument_list|(
-name|initialRedeliveryDelay
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Enables collision avoidance which adds some randomization to the backoff      * timings to reduce contention probability      */
 DECL|method|useCollisionAvoidance ()
 specifier|public
@@ -759,34 +740,6 @@ operator|.
 name|collisionAvoidanceFactor
 operator|=
 name|collisionAvoidanceFactor
-expr_stmt|;
-block|}
-comment|/**      * @deprecated  use delay instead. Will be removed in Camel 2.0.      */
-DECL|method|getInitialRedeliveryDelay ()
-specifier|public
-name|long
-name|getInitialRedeliveryDelay
-parameter_list|()
-block|{
-return|return
-name|getDelay
-argument_list|()
-return|;
-block|}
-comment|/**      * Sets the initial redelivery delay in milliseconds on the first redelivery      *      * @deprecated use delay instead. Will be removed in Camel 2.0.      */
-DECL|method|setInitialRedeliveryDelay (long initialRedeliveryDelay)
-specifier|public
-name|void
-name|setInitialRedeliveryDelay
-parameter_list|(
-name|long
-name|initialRedeliveryDelay
-parameter_list|)
-block|{
-name|setDelay
-argument_list|(
-name|initialRedeliveryDelay
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getMaximumRedeliveries ()

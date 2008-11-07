@@ -28,6 +28,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -37,14 +51,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * @version $Revision: 640438 $  */
 end_comment
 
 begin_class
-DECL|class|ObjectConverterTest
+DECL|class|ObjectHelperTest
 specifier|public
 class|class
-name|ObjectConverterTest
+name|ObjectHelperTest
 extends|extends
 name|TestCase
 block|{
@@ -69,9 +83,9 @@ decl_stmt|;
 name|Iterator
 name|iter
 init|=
-name|ObjectConverter
+name|ObjectHelper
 operator|.
-name|iterator
+name|createIterator
 argument_list|(
 name|data
 argument_list|)

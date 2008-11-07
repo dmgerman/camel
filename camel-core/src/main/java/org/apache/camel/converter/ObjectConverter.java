@@ -112,35 +112,6 @@ argument_list|()
 operator|)
 return|;
 block|}
-comment|/**      * Creates an iterator over the value      *      * @deprecated use {@link org.apache.camel.util.ObjectHelper#createIterator(Object)}. Will be removed in Camel 2.0.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
-name|Converter
-annotation|@
-name|Deprecated
-DECL|method|iterator (Object value)
-specifier|public
-specifier|static
-name|Iterator
-name|iterator
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-block|{
-return|return
-name|ObjectHelper
-operator|.
-name|createIterator
-argument_list|(
-name|value
-argument_list|)
-return|;
-block|}
 comment|/**      * Converts the given value to a boolean, handling strings or Boolean      * objects; otherwise returning false if the value could not be converted to      * a boolean      */
 annotation|@
 name|Converter

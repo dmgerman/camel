@@ -409,21 +409,21 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|initialRedeliveryDelay (long initialRedeliveryDelay)
+DECL|method|delay (long delay)
 specifier|public
 name|DeadLetterChannelBuilder
-name|initialRedeliveryDelay
+name|delay
 parameter_list|(
 name|long
-name|initialRedeliveryDelay
+name|delay
 parameter_list|)
 block|{
 name|getRedeliveryPolicy
 argument_list|()
 operator|.
-name|initialRedeliveryDelay
+name|delay
 argument_list|(
-name|initialRedeliveryDelay
+name|delay
 argument_list|)
 expr_stmt|;
 return|return

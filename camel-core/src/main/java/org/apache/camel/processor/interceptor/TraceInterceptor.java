@@ -296,35 +296,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @deprecated will be removed in Camel 2.0      */
-DECL|method|TraceInterceptor (ProcessorType node, Processor target, TraceFormatter formatter)
-specifier|public
-name|TraceInterceptor
-parameter_list|(
-name|ProcessorType
-name|node
-parameter_list|,
-name|Processor
-name|target
-parameter_list|,
-name|TraceFormatter
-name|formatter
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|node
-argument_list|,
-name|target
-argument_list|,
-name|formatter
-argument_list|,
-operator|new
-name|Tracer
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|TraceInterceptor (ProcessorType node, Processor target, Tracer tracer)
 specifier|public
 name|TraceInterceptor
