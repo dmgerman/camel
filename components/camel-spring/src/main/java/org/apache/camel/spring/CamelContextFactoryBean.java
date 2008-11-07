@@ -671,24 +671,6 @@ name|required
 operator|=
 literal|false
 argument_list|)
-annotation|@
-name|Deprecated
-DECL|field|useJmx
-specifier|private
-name|Boolean
-name|useJmx
-init|=
-name|Boolean
-operator|.
-name|TRUE
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|autowireRouteBuilders
 specifier|private
 name|Boolean
@@ -1526,11 +1508,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|isJmxEnabled
-argument_list|()
-operator|||
-operator|(
 name|camelJMXAgent
 operator|!=
 literal|null
@@ -1539,7 +1516,6 @@ name|camelJMXAgent
 operator|.
 name|isDisabled
 argument_list|()
-operator|)
 condition|)
 block|{
 name|LOG
@@ -2179,48 +2155,6 @@ block|{
 return|return
 name|beanPostProcessor
 return|;
-block|}
-comment|/**      * This method merely retrieves the value of the "useJmx" attribute and does      * not consider the "disabled" flag in jmxAgent element.  The useJmx      * attribute will be removed in 2.0.  Please the jmxAgent element instead.      *      * @deprecated Please the jmxAgent element instead. Will be removed in Camel 2.0.      */
-DECL|method|isJmxEnabled ()
-specifier|public
-name|boolean
-name|isJmxEnabled
-parameter_list|()
-block|{
-return|return
-name|useJmx
-operator|.
-name|booleanValue
-argument_list|()
-return|;
-block|}
-comment|/**      * @deprecated Please the jmxAgent element instead. Will be removed in Camel 2.0.      */
-DECL|method|getUseJmx ()
-specifier|public
-name|Boolean
-name|getUseJmx
-parameter_list|()
-block|{
-return|return
-name|useJmx
-return|;
-block|}
-comment|/**      * @deprecated Please the jmxAgent element instead. Will be removed in Camel 2.0.      */
-DECL|method|setUseJmx (Boolean useJmx)
-specifier|public
-name|void
-name|setUseJmx
-parameter_list|(
-name|Boolean
-name|useJmx
-parameter_list|)
-block|{
-name|this
-operator|.
-name|useJmx
-operator|=
-name|useJmx
-expr_stmt|;
 block|}
 DECL|method|setCamelJMXAgent (CamelJMXAgentType agent)
 specifier|public

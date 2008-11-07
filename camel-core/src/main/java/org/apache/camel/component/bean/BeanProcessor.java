@@ -857,24 +857,6 @@ operator|=
 name|method
 expr_stmt|;
 block|}
-comment|/**      * Kept around for backwards compatibility, please use {@link #setMethod(String)}      * in future instead.      *      * @deprecated use {@link #setMethod(String)}. Will be removed in Camel 2.0.      */
-annotation|@
-name|Deprecated
-DECL|method|setMethodName (String method)
-specifier|public
-name|void
-name|setMethodName
-parameter_list|(
-name|String
-name|method
-parameter_list|)
-block|{
-name|setMethod
-argument_list|(
-name|method
-argument_list|)
-expr_stmt|;
-block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 DECL|method|doStart ()

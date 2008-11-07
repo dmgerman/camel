@@ -287,13 +287,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @deprecated will be removed in Camel 2.0      */
-DECL|method|reset ()
-specifier|public
-name|void
-name|reset
-parameter_list|()
-block|{     }
 DECL|method|done (Exchange exchange)
 specifier|public
 name|void

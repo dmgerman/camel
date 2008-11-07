@@ -567,23 +567,6 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds an exception handler route for the given exception type      *      * @deprecated Please use {@link #onException(Class)} instead. Will be removed in Camel 2.0.      */
-DECL|method|exception (Class exceptionType)
-specifier|public
-name|ExceptionType
-name|exception
-parameter_list|(
-name|Class
-name|exceptionType
-parameter_list|)
-block|{
-return|return
-name|onException
-argument_list|(
-name|exceptionType
-argument_list|)
-return|;
-block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getContext ()

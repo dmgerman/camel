@@ -340,7 +340,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|exception
+name|onException
 argument_list|(
 name|ValidationException
 operator|.

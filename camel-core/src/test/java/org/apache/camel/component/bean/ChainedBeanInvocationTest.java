@@ -207,7 +207,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"bean:myBean?methodName=a"
+literal|"bean:myBean?method=a"
 argument_list|)
 operator|.
 name|bean
@@ -231,7 +231,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"bean:myBean?methodName=a"
+literal|"bean:myBean?method=a"
 argument_list|)
 operator|.
 name|to

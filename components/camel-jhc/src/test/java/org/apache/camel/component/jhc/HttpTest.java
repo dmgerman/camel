@@ -583,7 +583,7 @@ argument_list|(
 literal|"jhc:http://localhost:8192/test1"
 argument_list|)
 operator|.
-name|setOutBody
+name|transform
 argument_list|(
 name|constant
 argument_list|(
@@ -611,7 +611,7 @@ argument_list|(
 literal|"jhc:http://localhost:8192/test2"
 argument_list|)
 operator|.
-name|setOutBody
+name|transform
 argument_list|(
 name|constant
 argument_list|(

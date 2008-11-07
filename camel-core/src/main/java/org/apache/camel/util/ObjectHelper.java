@@ -231,7 +231,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A number of useful helper methods for working with Objects  *  * @version $Revision$  */
+comment|/**  * A number of useful helper methods for working with Objects  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -264,31 +264,6 @@ specifier|private
 name|ObjectHelper
 parameter_list|()
 block|{     }
-comment|/**      * @deprecated use the equal method instead. Will be removed in Camel 2.0.      *      * @see #equal(Object, Object)      */
-annotation|@
-name|Deprecated
-DECL|method|equals (Object a, Object b)
-specifier|public
-specifier|static
-name|boolean
-name|equals
-parameter_list|(
-name|Object
-name|a
-parameter_list|,
-name|Object
-name|b
-parameter_list|)
-block|{
-return|return
-name|equal
-argument_list|(
-name|a
-argument_list|,
-name|b
-argument_list|)
-return|;
-block|}
 comment|/**      * A helper method for comparing objects for equality while handling nulls      */
 DECL|method|equal (Object a, Object b)
 specifier|public
@@ -361,7 +336,7 @@ name|b
 argument_list|)
 return|;
 block|}
-comment|/**      * A helper method for comparing byte arrays for equality while handling nulls      */
+comment|/**      * A helper method for comparing byte arrays for equality while handling      * nulls      */
 DECL|method|equalByteArray (byte[] a, byte[] b)
 specifier|public
 specifier|static
@@ -840,7 +815,7 @@ return|return
 name|rc
 return|;
 block|}
-comment|/**      * Removes any starting characters on the given text which match the given      * character      *      * @param text the string      * @param ch the initial characters to remove      * @return either the original string or the new substring      */
+comment|/**      * Removes any starting characters on the given text which match the given      * character      *       * @param text the string      * @param ch the initial characters to remove      * @return either the original string or the new substring      */
 DECL|method|removeStartingCharacters (String text, char ch)
 specifier|public
 specifier|static
@@ -1291,7 +1266,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Returns the predicate matching boolean on a {@link List} result set where      * if the first element is a boolean its value is used otherwise this method      * returns true if the collection is not empty      *      * @return<tt>true</tt> if the first element is a boolean and its value is true or      *          if the list is non empty      */
+comment|/**      * Returns the predicate matching boolean on a {@link List} result set where      * if the first element is a boolean its value is used otherwise this method      * returns true if the collection is not empty      *       * @return<tt>true</tt> if the first element is a boolean and its value      *         is true or if the list is non empty      */
 DECL|method|matches (List list)
 specifier|public
 specifier|static
@@ -1407,7 +1382,7 @@ operator|<=
 literal|0
 return|;
 block|}
-comment|/**      * A helper method to access a system property, catching any security      * exceptions      *      * @param name the name of the system property required      * @param defaultValue the default value to use if the property is not      *                available or a security exception prevents access      * @return the system property value or the default value if the property is      *         not available or security does not allow its access      */
+comment|/**      * A helper method to access a system property, catching any security      * exceptions      *       * @param name the name of the system property required      * @param defaultValue the default value to use if the property is not      *                available or a security exception prevents access      * @return the system property value or the default value if the property is      *         not available or security does not allow its access      */
 DECL|method|getSystemProperty (String name, String defaultValue)
 specifier|public
 specifier|static
@@ -1469,7 +1444,7 @@ name|defaultValue
 return|;
 block|}
 block|}
-comment|/**      * A helper method to access a boolean system property, catching any security      * exceptions      *      * @param name the name of the system property required      * @param defaultValue the default value to use if the property is not      *                available or a security exception prevents access      * @return the boolean representation of the system property value       *         or the default value if the property is not available or       *         security does not allow its access      */
+comment|/**      * A helper method to access a boolean system property, catching any      * security exceptions      *       * @param name the name of the system property required      * @param defaultValue the default value to use if the property is not      *                available or a security exception prevents access      * @return the boolean representation of the system property value or the      *         default value if the property is not available or security does      *         not allow its access      */
 DECL|method|getSystemProperty (String name, Boolean defaultValue)
 specifier|public
 specifier|static
@@ -1591,7 +1566,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Attempts to load the given class name using the thread context class      * loader or the class loader used to load this class      *      * @param name the name of the class to load      * @return the class or null if it could not be loaded      */
+comment|/**      * Attempts to load the given class name using the thread context class      * loader or the class loader used to load this class      *       * @param name the name of the class to load      * @return the class or null if it could not be loaded      */
 DECL|method|loadClass (String name)
 specifier|public
 specifier|static
@@ -1619,7 +1594,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Attempts to load the given class name using the thread context class      * loader or the given class loader      *      * @param name the name of the class to load      * @param loader the class loader to use after the thread context class      *                loader      * @return the class or null if it could not be loaded      */
+comment|/**      * Attempts to load the given class name using the thread context class      * loader or the given class loader      *       * @param name the name of the class to load      * @param loader the class loader to use after the thread context class      *                loader      * @return the class or null if it could not be loaded      */
 DECL|method|loadClass (String name, ClassLoader loader)
 specifier|public
 specifier|static
@@ -1708,7 +1683,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Attempts to load the given resource as a stream using the thread context class      * loader or the class loader used to load this class      *      * @param name the name of the resource to load      * @return the stream or null if it could not be loaded      */
+comment|/**      * Attempts to load the given resource as a stream using the thread context      * class loader or the class loader used to load this class      *       * @param name the name of the resource to load      * @return the stream or null if it could not be loaded      */
 DECL|method|loadResourceAsStream (String name)
 specifier|public
 specifier|static
@@ -1778,7 +1753,7 @@ return|return
 name|in
 return|;
 block|}
-comment|/**      * A helper method to invoke a method via reflection and wrap any exceptions      * as {@link RuntimeCamelException} instances      *      * @param method the method to invoke      * @param instance the object instance (or null for static methods)      * @param parameters the parameters to the method      * @return the result of the method invocation      */
+comment|/**      * A helper method to invoke a method via reflection and wrap any exceptions      * as {@link RuntimeCamelException} instances      *       * @param method the method to invoke      * @param instance the object instance (or null for static methods)      * @param parameters the parameters to the method      * @return the result of the method invocation      */
 DECL|method|invokeMethod (Method method, Object instance, Object... parameters)
 specifier|public
 specifier|static
@@ -1841,7 +1816,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns a list of methods which are annotated with the given annotation      *      * @param type the type to reflect on      * @param annotationType the annotation type      * @return a list of the methods found      */
+comment|/**      * Returns a list of methods which are annotated with the given annotation      *       * @param type the type to reflect on      * @param annotationType the annotation type      * @return a list of the methods found      */
 DECL|method|findMethodsWithAnnotation (Class<?> type, Class<? extends Annotation> annotationType)
 specifier|public
 specifier|static
@@ -1877,7 +1852,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a list of methods which are annotated with the given annotation      *      * @param type the type to reflect on      * @param annotationType the annotation type      * @param checkMetaAnnotations check for meta annotations      * @return a list of the methods found      */
+comment|/**      * Returns a list of methods which are annotated with the given annotation      *       * @param type the type to reflect on      * @param annotationType the annotation type      * @param checkMetaAnnotations check for meta annotations      * @return a list of the methods found      */
 DECL|method|findMethodsWithAnnotation (Class<?> type, Class<? extends Annotation> annotationType, boolean checkMetaAnnotations)
 specifier|public
 specifier|static
@@ -1977,7 +1952,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Checks if a Class or Method are annotated with the given annotation      *      * @param elem the Class or Method to reflect on      * @param annotationType the annotation type      * @param checkMetaAnnotations check for meta annotations      * @return true if annotations is present      */
+comment|/**      * Checks if a Class or Method are annotated with the given annotation      *       * @param elem the Class or Method to reflect on      * @param annotationType the annotation type      * @param checkMetaAnnotations check for meta annotations      * @return true if annotations is present      */
 DECL|method|hasAnnotation (AnnotatedElement elem, Class<? extends Annotation> annotationType, boolean checkMetaAnnotations)
 specifier|public
 specifier|static
@@ -2073,7 +2048,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Turns the given object arrays into a meaningful string      *      * @param objects an array of objects or null      * @return a meaningful string      */
+comment|/**      * Turns the given object arrays into a meaningful string      *       * @param objects an array of objects or null      * @return a meaningful string      */
 DECL|method|asString (Object[] objects)
 specifier|public
 specifier|static
@@ -2337,7 +2312,7 @@ operator|.
 name|class
 expr_stmt|;
 comment|// TODO: Why is boolean disabled
-comment|/*             } else if (type == boolean.class) {                 rc = Boolean.class; */
+comment|/*                  * } else if (type == boolean.class) { rc = Boolean.class;                  */
 block|}
 block|}
 return|return
@@ -2362,7 +2337,7 @@ name|name
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the Java Bean property name of the given method, if it is a setter      */
+comment|/**      * Returns the Java Bean property name of the given method, if it is a      * setter      */
 DECL|method|getPropertyName (Method method)
 specifier|public
 specifier|static
@@ -2426,7 +2401,7 @@ return|return
 name|propertyName
 return|;
 block|}
-comment|/**      * Returns true if the given collection of annotations matches the given type      */
+comment|/**      * Returns true if the given collection of annotations matches the given      * type      */
 DECL|method|hasAnnotation (Annotation[] annotations, Class<?> type)
 specifier|public
 specifier|static
@@ -2471,7 +2446,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Closes the given resource if it is available, logging any closing exceptions to the given log      *      * @param closeable the object to close      * @param name the name of the resource      * @param log the log to use when reporting closure warnings      */
+comment|/**      * Closes the given resource if it is available, logging any closing      * exceptions to the given log      *       * @param closeable the object to close      * @param name the name of the resource      * @param log the log to use when reporting closure warnings      */
 DECL|method|close (Closeable closeable, String name, Log log)
 specifier|public
 specifier|static
@@ -2535,7 +2510,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Converts the given value to the required type or throw a meaningful exception      */
+comment|/**      * Converts the given value to the required type or throw a meaningful      * exception      */
 DECL|method|cast (Class<T> toType, Object value)
 specifier|public
 specifier|static
@@ -2656,7 +2631,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * A helper method to create a new instance of a type using the default constructor arguments.      */
+comment|/**      * A helper method to create a new instance of a type using the default      * constructor arguments.      */
 DECL|method|newInstance (Class<T> type)
 specifier|public
 specifier|static
@@ -2711,7 +2686,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * A helper method to create a new instance of a type using the default constructor arguments.      */
+comment|/**      * A helper method to create a new instance of a type using the default      * constructor arguments.      */
 DECL|method|newInstance (Class<?> actualType, Class<T> expectedType)
 specifier|public
 specifier|static
@@ -2981,7 +2956,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Wraps the caused exception in a {@link RuntimeCamelException} if its not already such an exception.      *      * @param e  the caused exception      * @return  the wrapper exception      */
+comment|/**      * Wraps the caused exception in a {@link RuntimeCamelException} if its not      * already such an exception.      *       * @param e the caused exception      * @return the wrapper exception      */
 DECL|method|wrapRuntimeCamelException (Throwable e)
 specifier|public
 specifier|static

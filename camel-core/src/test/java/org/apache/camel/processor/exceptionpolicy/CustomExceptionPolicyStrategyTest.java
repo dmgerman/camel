@@ -307,7 +307,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|exception
+name|onException
 argument_list|(
 name|MyPolicyException
 operator|.
@@ -334,7 +334,7 @@ argument_list|(
 name|ERROR_QUEUE
 argument_list|)
 expr_stmt|;
-name|exception
+name|onException
 argument_list|(
 name|CamelException
 operator|.

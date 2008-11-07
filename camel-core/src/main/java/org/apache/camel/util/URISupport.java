@@ -1764,28 +1764,6 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * @deprecated this method will be removed in Camel 2.0.      */
-annotation|@
-name|Deprecated
-DECL|method|indexOfParenthesisMatch (String str)
-specifier|public
-name|int
-name|indexOfParenthesisMatch
-parameter_list|(
-name|String
-name|str
-parameter_list|)
-block|{
-name|int
-name|result
-init|=
-operator|-
-literal|1
-decl_stmt|;
-return|return
-name|result
-return|;
-block|}
 block|}
 end_class
 

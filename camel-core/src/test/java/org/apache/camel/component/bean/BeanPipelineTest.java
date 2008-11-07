@@ -224,7 +224,7 @@ name|pipeline
 argument_list|(
 literal|"bean:foo"
 argument_list|,
-literal|"bean:bar?methodName=usingExchange"
+literal|"bean:bar?method=usingExchange"
 argument_list|,
 literal|"bean:baz"
 argument_list|)

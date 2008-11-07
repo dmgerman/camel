@@ -94,7 +94,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"bean:myBean?methodName=sayHello"
+literal|"bean:myBean?method=sayHello"
 argument_list|,
 name|body
 argument_list|)
@@ -124,7 +124,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"bean:myBean?methodName=sayGoodbye"
+literal|"bean:myBean?method=sayGoodbye"
 argument_list|,
 name|body
 argument_list|)

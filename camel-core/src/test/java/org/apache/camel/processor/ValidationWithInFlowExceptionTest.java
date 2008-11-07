@@ -70,7 +70,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|exception
+name|onException
 argument_list|(
 name|ValidationException
 operator|.
@@ -87,7 +87,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|exception
+name|onException
 argument_list|(
 name|ValidationException
 operator|.

@@ -3388,23 +3388,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Catches an exception type.      *      * @deprecated Please use {@link #onException(Class)} instead. Will be removed in Camel 2.0.      */
-DECL|method|exception (Class exceptionType)
-specifier|public
-name|ExceptionType
-name|exception
-parameter_list|(
-name|Class
-name|exceptionType
-parameter_list|)
-block|{
-return|return
-name|onException
-argument_list|(
-name|exceptionType
-argument_list|)
-return|;
-block|}
 comment|/**      * Catches an exception type.      */
 DECL|method|onException (Class exceptionType)
 specifier|public
@@ -3493,77 +3476,6 @@ operator|(
 name|Type
 operator|)
 name|this
-return|;
-block|}
-comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the {@link #DEFAULT_TRACE_CATEGORY} logging category.      *      * @deprecated Please use<a href="http://activemq.apache.org/camel/tracer.html>Tracer Support</a>      * instead. Will be removed in Camel 2.0.      */
-DECL|method|trace ()
-specifier|public
-name|Type
-name|trace
-parameter_list|()
-block|{
-return|return
-name|trace
-argument_list|(
-name|DEFAULT_TRACE_CATEGORY
-argument_list|)
-return|;
-block|}
-comment|/**      * Trace logs the exchange before it goes to the next processing step using      * the specified logging category.      *      * @param category the logging category trace messages will sent to.      *      * @deprecated Please use<a href="http://activemq.apache.org/camel/tracer.html>Tracer Support</a>      * instead. Will be removed in Camel 2.0.      */
-DECL|method|trace (String category)
-specifier|public
-name|Type
-name|trace
-parameter_list|(
-name|String
-name|category
-parameter_list|)
-block|{
-specifier|final
-name|Log
-name|log
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|category
-argument_list|)
-decl_stmt|;
-return|return
-name|intercept
-argument_list|(
-operator|new
-name|DelegateProcessor
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-name|processNext
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-argument_list|)
 return|;
 block|}
 DECL|method|policies ()
@@ -4066,45 +3978,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the OUT message      *      * @deprecated Please use {@link #transform(Expression)} instead. Will be removed in Camel 2.0.      */
-annotation|@
-name|Deprecated
-DECL|method|setOutBody (Expression expression)
-specifier|public
-name|Type
-name|setOutBody
-parameter_list|(
-name|Expression
-name|expression
-parameter_list|)
-block|{
-return|return
-name|transform
-argument_list|(
-name|expression
-argument_list|)
-return|;
-block|}
-comment|/**      * Adds a processor which sets the body on the OUT message      *      * @deprecated Please use {@link #transform()} instead. Will be removed in Camel 2.0.      */
-annotation|@
-name|Deprecated
-DECL|method|setOutBody ()
-specifier|public
-name|ExpressionClause
-argument_list|<
-name|ProcessorType
-argument_list|<
-name|Type
-argument_list|>
-argument_list|>
-name|setOutBody
-parameter_list|()
-block|{
-return|return
-name|transform
-argument_list|()
-return|;
-block|}
 comment|/**      * Adds a processor which sets the body on the OUT message      */
 DECL|method|transform (Expression expression)
 specifier|public
@@ -4295,42 +4168,6 @@ argument_list|(
 name|name
 argument_list|,
 name|expression
-argument_list|)
-decl_stmt|;
-name|addOutput
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-operator|(
-name|Type
-operator|)
-name|this
-return|;
-block|}
-comment|/**      * Adds a processor which sets the header on the IN message to the given value      * @deprecated Please use {@link #setHeader(String, Expression)} instead. Will be removed in Camel 2.0.      */
-DECL|method|setHeader (String name, String value)
-specifier|public
-name|Type
-name|setHeader
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|String
-name|value
-parameter_list|)
-block|{
-name|SetHeaderType
-name|answer
-init|=
-operator|new
-name|SetHeaderType
-argument_list|(
-name|name
-argument_list|,
-name|value
 argument_list|)
 decl_stmt|;
 name|addOutput
@@ -4698,52 +4535,6 @@ operator|(
 name|Type
 operator|)
 name|this
-return|;
-block|}
-comment|/**      * Converts the OUT message body to the specified type      *      * @deprecated Please use {@link #convertBodyTo(Class)} instead. Will be removed in Camel 2.0.      */
-annotation|@
-name|Deprecated
-DECL|method|convertOutBodyTo (Class type)
-specifier|public
-name|Type
-name|convertOutBodyTo
-parameter_list|(
-name|Class
-name|type
-parameter_list|)
-block|{
-return|return
-name|process
-argument_list|(
-operator|new
-name|ConvertBodyProcessor
-argument_list|(
-name|type
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Converts the FAULT message body to the specified type      *      * @deprecated Please use {@link #convertBodyTo(Class)} instead. Will be removed in Camel 2.0.      */
-annotation|@
-name|Deprecated
-DECL|method|convertFaultBodyTo (Class type)
-specifier|public
-name|Type
-name|convertFaultBodyTo
-parameter_list|(
-name|Class
-name|type
-parameter_list|)
-block|{
-return|return
-name|process
-argument_list|(
-operator|new
-name|ConvertBodyProcessor
-argument_list|(
-name|type
-argument_list|)
-argument_list|)
 return|;
 block|}
 comment|// DataFormat support

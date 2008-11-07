@@ -942,24 +942,6 @@ return|return
 name|excludedNamePrefixes
 return|;
 block|}
-comment|/**      * Sets the excluded file name prefixes, such as<tt>"."</tt> for hidden files which      * are excluded by default      *      * @deprecated use ExcludedNamePrefix. Will be removed in Camel 2.0.      */
-DECL|method|setExcludedNamePrefixes (String[] excludedNamePrefixes)
-specifier|public
-name|void
-name|setExcludedNamePrefixes
-parameter_list|(
-name|String
-index|[]
-name|excludedNamePrefixes
-parameter_list|)
-block|{
-name|this
-operator|.
-name|excludedNamePrefixes
-operator|=
-name|excludedNamePrefixes
-expr_stmt|;
-block|}
 DECL|method|getExcludedNamePostfixes ()
 specifier|public
 name|String
@@ -970,24 +952,6 @@ block|{
 return|return
 name|excludedNamePostfixes
 return|;
-block|}
-comment|/**      * Sets the excluded file name postfixes, such as {@link FileEndpoint#DEFAULT_LOCK_FILE_POSTFIX}      * to ignore lock files by default.      *      * @deprecated use ExcludedNamePostfix. Will be removed in Camel 2.0.      */
-DECL|method|setExcludedNamePostfixes (String[] excludedNamePostfixes)
-specifier|public
-name|void
-name|setExcludedNamePostfixes
-parameter_list|(
-name|String
-index|[]
-name|excludedNamePostfixes
-parameter_list|)
-block|{
-name|this
-operator|.
-name|excludedNamePostfixes
-operator|=
-name|excludedNamePostfixes
-expr_stmt|;
 block|}
 DECL|method|isNoop ()
 specifier|public

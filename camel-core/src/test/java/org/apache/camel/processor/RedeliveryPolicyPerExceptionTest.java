@@ -445,7 +445,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|exception
+name|onException
 argument_list|(
 name|IllegalArgumentException
 operator|.
@@ -462,7 +462,7 @@ argument_list|(
 literal|"mock:a"
 argument_list|)
 expr_stmt|;
-name|exception
+name|onException
 argument_list|(
 name|NullPointerException
 operator|.

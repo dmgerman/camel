@@ -403,7 +403,7 @@ argument_list|(
 literal|"Using long exception handler"
 argument_list|)
 expr_stmt|;
-name|exception
+name|onException
 argument_list|(
 name|IllegalArgumentException
 operator|.
@@ -443,7 +443,7 @@ argument_list|(
 literal|"Using exception handler"
 argument_list|)
 expr_stmt|;
-name|exception
+name|onException
 argument_list|(
 name|IllegalArgumentException
 operator|.

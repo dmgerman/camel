@@ -247,7 +247,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|exception
+name|onException
 argument_list|(
 name|AssertionFailedError
 operator|.
