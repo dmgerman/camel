@@ -2482,12 +2482,10 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
+name|answer
 operator|.
 name|createAndSetExpression
-argument_list|(
-name|answer
-argument_list|)
+argument_list|()
 return|;
 block|}
 comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      *      * @param aggregationStrategy the strategy used for the aggregation      */
@@ -2543,15 +2541,13 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|ExpressionClause
+name|answer
 operator|.
 name|createAndSetExpression
-argument_list|(
-name|answer
-argument_list|)
+argument_list|()
 return|;
 block|}
-comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern using a custom aggregation collection implementation. The aggregation collection must      * be configued with the strategy and correlation expression that this aggregator should use.      * This avoids duplicating this configuration on both the collection and the aggregator itself.      *      * @param aggregationCollection the collection used to perform the aggregation      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern using a custom aggregation collection implementation. The aggregation collection must      * be configured with the strategy and correlation expression that this aggregator should use.      * This avoids duplicating this configuration on both the collection and the aggregator itself.      *      * @param aggregationCollection the collection used to perform the aggregation      */
 DECL|method|aggregator (AggregationCollection aggregationCollection)
 specifier|public
 name|AggregatorType
