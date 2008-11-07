@@ -259,7 +259,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:in"
+literal|"seda:in?size=10000"
 argument_list|,
 literal|""
 operator|+
@@ -310,7 +310,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// to force any exceptions coming forward imeddiately
+comment|// to force any exceptions coming forward immediately
 name|errorHandler
 argument_list|(
 name|noErrorHandler
@@ -319,7 +319,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:in"
+literal|"seda:in?size=10000"
 argument_list|)
 operator|.
 name|thread
