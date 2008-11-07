@@ -203,13 +203,7 @@ name|boolean
 name|doneSynchronously
 parameter_list|)
 block|{
-name|callback
-operator|.
-name|done
-argument_list|(
-name|doneSynchronously
-argument_list|)
-expr_stmt|;
+comment|// Take the fault message out before we keep on going
 name|Message
 name|faultMessage
 init|=
@@ -297,6 +291,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+name|doneSynchronously
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
