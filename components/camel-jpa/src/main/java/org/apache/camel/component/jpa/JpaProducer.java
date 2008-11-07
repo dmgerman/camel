@@ -80,9 +80,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|util
 operator|.
-name|ObjectConverter
+name|ObjectHelper
 import|;
 end_import
 
@@ -233,9 +233,9 @@ block|{
 name|Iterator
 name|iter
 init|=
-name|ObjectConverter
+name|ObjectHelper
 operator|.
-name|iterator
+name|createIterator
 argument_list|(
 name|values
 argument_list|)
