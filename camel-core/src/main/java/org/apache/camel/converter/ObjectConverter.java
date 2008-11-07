@@ -203,6 +203,33 @@ operator|.
 name|FALSE
 return|;
 block|}
+comment|/**      * Creates an iterator over the value      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
+name|Converter
+DECL|method|iterator (Object value)
+specifier|public
+specifier|static
+name|Iterator
+name|iterator
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|ObjectHelper
+operator|.
+name|createIterator
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns the converted value, or null if the value is null      */
 annotation|@
 name|Converter

@@ -391,28 +391,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @deprecated use delay - will be removed in Camel 2.0      */
-DECL|method|initialRedeliveryDelay (long initialRedeliveryDelay)
-specifier|public
-name|TransactionErrorHandlerBuilder
-name|initialRedeliveryDelay
-parameter_list|(
-name|long
-name|initialRedeliveryDelay
-parameter_list|)
-block|{
-name|getDelayPolicy
-argument_list|()
-operator|.
-name|delay
-argument_list|(
-name|initialRedeliveryDelay
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * @deprecated will be removed in Camel 2.0      */
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
