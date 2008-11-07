@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * @deprecated will be removed in Camel 2.0.  * @version $Revision$  */
 end_comment
 
 begin_class

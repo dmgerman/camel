@@ -891,7 +891,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring message with no correlationID! "
+literal|"Ignoring message with no correlationID: "
 operator|+
 name|message
 argument_list|)

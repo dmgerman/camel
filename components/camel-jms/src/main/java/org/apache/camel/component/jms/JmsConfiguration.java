@@ -1919,8 +1919,7 @@ block|}
 else|else
 block|{
 comment|// This is here for completeness, but the template should not get
-comment|// used
-comment|// for receiving messages.
+comment|// used for receiving messages.
 if|if
 condition|(
 name|acknowledgementMode
@@ -2088,7 +2087,7 @@ return|return
 name|templateConnectionFactory
 return|;
 block|}
-comment|/**      * Sets the connection factory to be used for sending messages via the      * {@link JmsTemplate} via {@link #createInOnlyTemplate(JmsEndpoint,boolean, String)}      *      * @param templateConnectionFactory the connection factory for sending      *                messages      */
+comment|/**      * Sets the connection factory to be used for sending messages via the      * {@link JmsTemplate} via {@link #createInOnlyTemplate(JmsEndpoint,boolean, String)}      *      * @param templateConnectionFactory the connection factory for sending messages      */
 DECL|method|setTemplateConnectionFactory (ConnectionFactory templateConnectionFactory)
 specifier|public
 name|void
@@ -2991,7 +2990,7 @@ operator|=
 name|consumerTransacted
 expr_stmt|;
 block|}
-comment|/**      * Should InOut operations (request reply) default to using transacted mode?      *      * By default this is false as you need to commit the outgoing request before you can consume the input      *      * @return      */
+comment|/**      * Should InOut operations (request reply) default to using transacted mode?      *      * By default this is false as you need to commit the outgoing request before you can consume the input      */
 DECL|method|isTransactedInOut ()
 specifier|public
 name|boolean

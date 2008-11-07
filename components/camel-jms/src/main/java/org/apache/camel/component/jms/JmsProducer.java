@@ -388,6 +388,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|affinity
+specifier|private
 name|RequestorAffinity
 name|affinity
 decl_stmt|;
@@ -1523,7 +1524,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Preserved for backwards compatibility.      *      * @deprecated      * @see #getInOnlyTemplate()      */
+comment|/**      * Preserved for backwards compatibility.      *      * @deprecated will be removed in Camel 2.0      * @see #getInOnlyTemplate()      */
 DECL|method|getTemplate ()
 specifier|public
 name|JmsOperations

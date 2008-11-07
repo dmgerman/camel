@@ -70,20 +70,6 @@ name|JmsTemplate
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jms
-operator|.
-name|core
-operator|.
-name|JmsTemplate102
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -263,30 +249,6 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|template
-operator|instanceof
-name|JmsTemplate102
-condition|)
-block|{
-name|JmsTemplate102
-name|jmsTemplate102
-init|=
-operator|(
-name|JmsTemplate102
-operator|)
-name|template
-decl_stmt|;
-name|jmsTemplate102
-operator|.
-name|setReceiveTimeout
-argument_list|(
-name|timeout
-argument_list|)
-expr_stmt|;
-block|}
 else|else
 block|{
 throw|throw
@@ -296,6 +258,12 @@ argument_list|(
 literal|"Cannot set the receiveTimeout property on unknown JmsOperations type: "
 operator|+
 name|template
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 throw|;
 block|}

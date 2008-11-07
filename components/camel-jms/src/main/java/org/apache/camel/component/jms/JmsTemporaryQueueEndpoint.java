@@ -58,34 +58,6 @@ name|TemporaryQueue
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jms
-operator|.
-name|core
-operator|.
-name|JmsOperations
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jms
-operator|.
-name|core
-operator|.
-name|SessionCallback
-import|;
-end_import
-
 begin_comment
 comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  * for working with a {@link TemporaryQueue}  *  * @version $Revision$  */
 end_comment

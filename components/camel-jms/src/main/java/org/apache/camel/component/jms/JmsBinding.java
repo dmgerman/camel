@@ -62,26 +62,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|math
-operator|.
-name|BigDecimal
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|math
-operator|.
-name|BigInteger
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|nio
 operator|.
 name|ByteBuffer
@@ -943,6 +923,18 @@ operator|.
 name|MAX_VALUE
 condition|)
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Length of BytesMessage is too long: "
+operator|+
+name|message
+operator|.
+name|getBodyLength
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1500,7 +1492,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Strategy to test if the given header is valid according to the JMS spec to be set as a property      * on the JMS message.      *<p/>      * This default implementation will allow:      *<ul>      *<li>any primitives and their counter Objects (Integer, Double etc.)</li>      *<li>String and any other litterals, Character, CharSequence</li>      *<li>Boolean</li>      *<li>BigDecimal and BigInteger</li>      *<li>java.util.Date</li>      *</ul>      *      * @param headerName   the header name      * @param headerValue  the header value      * @return  the value to use,<tt>null</tt> to ignore this header      */
+comment|/**      * Strategy to test if the given header is valid according to the JMS spec to be set as a property      * on the JMS message.      *<p/>      * This default implementation will allow:      *<ul>      *<li>any primitives and their counter Objects (Integer, Double etc.)</li>      *<li>String and any other litterals, Character, CharSequence</li>      *<li>Boolean</li>      *<li>Number</li>      *<li>java.util.Date</li>      *</ul>      *      * @param headerName   the header name      * @param headerValue  the header value      * @return  the value to use,<tt>null</tt> to ignore this header      */
 DECL|method|getValidJMSHeaderValue (String headerName, Object headerValue)
 specifier|protected
 name|Object
@@ -1558,25 +1550,6 @@ condition|(
 name|headerValue
 operator|instanceof
 name|Character
-condition|)
-block|{
-return|return
-name|headerValue
-operator|.
-name|toString
-argument_list|()
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|headerValue
-operator|instanceof
-name|BigDecimal
-operator|||
-name|headerValue
-operator|instanceof
-name|BigInteger
 condition|)
 block|{
 return|return
