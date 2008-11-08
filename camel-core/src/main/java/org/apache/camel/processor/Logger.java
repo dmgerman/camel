@@ -438,6 +438,10 @@ argument_list|)
 expr_stmt|;
 block|}
 break|break;
+case|case
+name|OFF
+case|:
+break|break;
 default|default:
 name|log
 operator|.
@@ -810,6 +814,10 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+break|break;
+case|case
+name|OFF
+case|:
 break|break;
 default|default:
 name|log

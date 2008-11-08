@@ -226,12 +226,7 @@ name|remaining
 argument_list|,
 name|level
 argument_list|,
-name|ObjectConverter
-operator|.
-name|toInteger
-argument_list|(
 name|groupSize
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
