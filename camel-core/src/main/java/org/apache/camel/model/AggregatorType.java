@@ -1012,11 +1012,13 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|IllegalArgumentException
 argument_list|(
-literal|"You need to specify an expression or aggregation collection "
+literal|"You need to specify an expression or "
 operator|+
-literal|"for the aggregator."
+literal|"aggregation collection for this aggregator: "
+operator|+
+name|this
 argument_list|)
 throw|;
 block|}
