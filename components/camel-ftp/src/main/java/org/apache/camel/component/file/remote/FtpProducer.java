@@ -203,6 +203,9 @@ throw|;
 block|}
 name|process
 argument_list|(
+operator|(
+name|RemoteFileExchange
+operator|)
 name|endpoint
 operator|.
 name|createExchange

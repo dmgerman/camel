@@ -459,6 +459,9 @@ decl_stmt|;
 name|BeanExchange
 name|exchange
 init|=
+operator|(
+name|BeanExchange
+operator|)
 name|getEndpoint
 argument_list|()
 operator|.

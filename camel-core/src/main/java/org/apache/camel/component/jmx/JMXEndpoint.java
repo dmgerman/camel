@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ExchangePattern
 import|;
 end_import
@@ -507,7 +519,7 @@ return|;
 block|}
 DECL|method|createExchange ()
 specifier|public
-name|JMXExchange
+name|Exchange
 name|createExchange
 parameter_list|()
 block|{
@@ -527,7 +539,7 @@ return|;
 block|}
 DECL|method|createExchange (ExchangePattern pattern)
 specifier|public
-name|JMXExchange
+name|Exchange
 name|createExchange
 parameter_list|(
 name|ExchangePattern

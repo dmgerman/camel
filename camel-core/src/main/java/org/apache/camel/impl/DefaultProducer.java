@@ -152,6 +152,9 @@ name|createExchange
 parameter_list|()
 block|{
 return|return
+operator|(
+name|E
+operator|)
 name|endpoint
 operator|.
 name|createExchange
@@ -168,6 +171,9 @@ name|pattern
 parameter_list|)
 block|{
 return|return
+operator|(
+name|E
+operator|)
 name|endpoint
 operator|.
 name|createExchange
@@ -186,6 +192,9 @@ name|exchange
 parameter_list|)
 block|{
 return|return
+operator|(
+name|E
+operator|)
 name|endpoint
 operator|.
 name|createExchange

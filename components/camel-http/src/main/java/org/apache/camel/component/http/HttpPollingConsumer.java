@@ -267,6 +267,9 @@ block|{
 name|HttpExchange
 name|exchange
 init|=
+operator|(
+name|HttpExchange
+operator|)
 name|endpoint
 operator|.
 name|createExchange

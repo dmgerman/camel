@@ -617,7 +617,7 @@ return|;
 block|}
 DECL|method|createExchange (Exchange exchange)
 specifier|public
-name|E
+name|Exchange
 name|createExchange
 parameter_list|(
 name|Exchange
@@ -663,6 +663,9 @@ block|}
 name|E
 name|answer
 init|=
+operator|(
+name|E
+operator|)
 name|createExchange
 argument_list|()
 decl_stmt|;
@@ -762,7 +765,7 @@ return|;
 block|}
 DECL|method|createExchange ()
 specifier|public
-name|E
+name|Exchange
 name|createExchange
 parameter_list|()
 block|{
@@ -776,7 +779,7 @@ return|;
 block|}
 DECL|method|createExchange (ExchangePattern pattern)
 specifier|public
-name|E
+name|Exchange
 name|createExchange
 parameter_list|(
 name|ExchangePattern

@@ -1100,6 +1100,9 @@ block|{
 name|CxfExchange
 name|cxfExchange
 init|=
+operator|(
+name|CxfExchange
+operator|)
 name|endpoint
 operator|.
 name|createExchange

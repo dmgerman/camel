@@ -230,6 +230,9 @@ comment|// lets create a new exchange
 name|E
 name|newExchange
 init|=
+operator|(
+name|E
+operator|)
 name|getEndpoint
 argument_list|()
 operator|.

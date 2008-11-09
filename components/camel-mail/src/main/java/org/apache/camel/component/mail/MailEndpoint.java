@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ExchangePattern
 import|;
 end_import
@@ -388,7 +400,7 @@ annotation|@
 name|Override
 DECL|method|createExchange (ExchangePattern pattern)
 specifier|public
-name|MailExchange
+name|Exchange
 name|createExchange
 parameter_list|(
 name|ExchangePattern

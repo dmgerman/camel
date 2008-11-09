@@ -301,6 +301,9 @@ block|{
 name|FileExchange
 name|fileExchange
 init|=
+operator|(
+name|FileExchange
+operator|)
 name|endpoint
 operator|.
 name|createExchange

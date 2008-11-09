@@ -521,6 +521,9 @@ block|{
 name|SpringIntegrationExchange
 name|exchange
 init|=
+operator|(
+name|SpringIntegrationExchange
+operator|)
 name|getEndpoint
 argument_list|()
 operator|.

@@ -221,7 +221,7 @@ literal|null
 return|;
 block|}
 specifier|public
-name|MyExchange
+name|Exchange
 name|createExchange
 parameter_list|(
 name|ExchangePattern
@@ -313,6 +313,9 @@ name|exchange
 argument_list|)
 expr_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|endpoint
@@ -334,6 +337,9 @@ expr_stmt|;
 name|MyExchange
 name|actual
 init|=
+operator|(
+name|MyExchange
+operator|)
 name|endpoint
 operator|.
 name|createExchange
@@ -368,6 +374,9 @@ argument_list|)
 decl_stmt|;
 name|actual
 operator|=
+operator|(
+name|MyExchange
+operator|)
 name|endpoint
 operator|.
 name|createExchange

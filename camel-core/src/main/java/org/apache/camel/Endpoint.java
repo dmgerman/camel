@@ -53,13 +53,13 @@ parameter_list|()
 function_decl|;
 comment|/**      * Create a new exchange for communicating with this endpoint      */
 DECL|method|createExchange ()
-name|E
+name|Exchange
 name|createExchange
 parameter_list|()
 function_decl|;
 comment|/**      * Create a new exchange for communicating with this endpoint      * with the specified {@link ExchangePattern} such as whether its going      * to be an {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut} exchange      *      * @param pattern the message exchange pattern for the exchange      */
 DECL|method|createExchange (ExchangePattern pattern)
-name|E
+name|Exchange
 name|createExchange
 parameter_list|(
 name|ExchangePattern
@@ -68,7 +68,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Creates a new exchange for communicating with this exchange using the      * given exchange to pre-populate the values of the headers and messages      */
 DECL|method|createExchange (Exchange exchange)
-name|E
+name|Exchange
 name|createExchange
 parameter_list|(
 name|Exchange
