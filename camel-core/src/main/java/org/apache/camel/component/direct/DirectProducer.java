@@ -219,11 +219,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No getConsumers() available on "
+literal|"No consumers available on "
 operator|+
 name|this
 operator|+
-literal|" for "
+literal|" to process "
 operator|+
 name|exchange
 argument_list|)
@@ -292,11 +292,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No getConsumers() available on "
+literal|"No consumers available on "
 operator|+
 name|this
 operator|+
-literal|" for "
+literal|" to process "
 operator|+
 name|exchange
 argument_list|)
