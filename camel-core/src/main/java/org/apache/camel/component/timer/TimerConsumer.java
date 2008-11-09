@@ -539,9 +539,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|getExceptionHandler
-argument_list|()
-operator|.
 name|handleException
 argument_list|(
 name|e

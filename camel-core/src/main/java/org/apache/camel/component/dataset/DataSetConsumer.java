@@ -366,9 +366,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
+name|handleException
 argument_list|(
 name|e
 argument_list|)

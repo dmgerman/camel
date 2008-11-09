@@ -224,37 +224,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|ExpressionClause
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|DefaultNamespaceContext
 import|;
 end_import
 
@@ -1750,6 +1722,7 @@ operator|=
 name|outputs
 expr_stmt|;
 block|}
+comment|/**      * @deprecated not used. Will be removed in Camel 2.0.      */
 DECL|method|createFilterProcessor (RouteContext routeContext)
 specifier|protected
 name|FilterProcessor
