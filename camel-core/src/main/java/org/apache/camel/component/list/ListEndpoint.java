@@ -140,6 +140,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -225,6 +237,8 @@ name|BrowsableEndpoint
 argument_list|<
 name|Exchange
 argument_list|>
+implements|,
+name|Service
 block|{
 DECL|field|exchanges
 specifier|private
@@ -243,6 +257,7 @@ operator|new
 name|TopicLoadBalancer
 argument_list|()
 decl_stmt|;
+comment|// TODO: firing of property changes not implemented
 DECL|field|propertyChangeSupport
 specifier|private
 name|PropertyChangeSupport
@@ -272,9 +287,6 @@ argument_list|,
 name|camelContext
 argument_list|)
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|ListEndpoint (String uri, Component component)
 specifier|public
@@ -294,9 +306,6 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|ListEndpoint (String endpointUri)
 specifier|public
@@ -310,9 +319,6 @@ name|super
 argument_list|(
 name|endpointUri
 argument_list|)
-expr_stmt|;
-name|reset
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()
@@ -448,18 +454,6 @@ name|loadBalancer
 argument_list|)
 return|;
 block|}
-DECL|method|reset ()
-specifier|public
-name|void
-name|reset
-parameter_list|()
-block|{
-name|exchanges
-operator|=
-name|createExchangeList
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|createExchangeList ()
 specifier|protected
 name|List
@@ -478,7 +472,7 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-comment|/**      * Invoked on a message exchange being sent by a producer      */
+comment|/**      * Invoked on a message exchange being sent by a producer      *      * @param exchange the exchange      * @throws Exception is thrown if failed to process the exchange      */
 DECL|method|onExchange (Exchange exchange)
 specifier|protected
 name|void
@@ -505,6 +499,46 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchanges
+operator|=
+name|createExchangeList
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|exchanges
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchanges
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|exchanges
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

@@ -242,6 +242,10 @@ operator|.
 name|cancel
 argument_list|()
 expr_stmt|;
+name|task
+operator|=
+literal|null
+expr_stmt|;
 block|}
 DECL|method|configureTask (TimerTask task, Timer timer)
 specifier|protected
@@ -495,6 +499,29 @@ argument_list|,
 name|now
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Timer "
+operator|+
+name|endpoint
+operator|.
+name|getTimerName
+argument_list|()
+operator|+
+literal|" is firing"
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|getProcessor
@@ -512,14 +539,11 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|getExceptionHandler
+argument_list|()
 operator|.
-name|error
+name|handleException
 argument_list|(
-literal|"Caught: "
-operator|+
-name|e
-argument_list|,
 name|e
 argument_list|)
 expr_stmt|;

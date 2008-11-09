@@ -159,6 +159,7 @@ init|=
 literal|"file:target/test-async-inbox?delete=true&consumer.delay=10000&consumer.recursive=true"
 decl_stmt|;
 DECL|field|receivedLatch
+specifier|private
 name|CountDownLatch
 name|receivedLatch
 init|=
@@ -169,6 +170,7 @@ literal|1
 argument_list|)
 decl_stmt|;
 DECL|field|processingLatch
+specifier|private
 name|CountDownLatch
 name|processingLatch
 init|=
@@ -179,6 +181,7 @@ literal|1
 argument_list|)
 decl_stmt|;
 DECL|field|file
+specifier|private
 name|AtomicReference
 argument_list|<
 name|File
@@ -316,26 +319,21 @@ decl_stmt|;
 comment|// The file consumer support async processing of the exchange,
 comment|// so the file should not get deleted until the exchange
 comment|// finishes being asynchronously processed.
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"File should exist"
 argument_list|,
 name|file
 operator|.
+name|getAbsoluteFile
+argument_list|()
+operator|.
 name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Release the async processing thread so that the exchange completes
-comment|// and the file
-comment|// gets deleted.
+comment|// and the file gets deleted.
 name|processingLatch
 operator|.
 name|countDown
@@ -345,7 +343,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|500
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -353,6 +351,9 @@ argument_list|(
 literal|"File should not exist"
 argument_list|,
 name|file
+operator|.
+name|getAbsoluteFile
+argument_list|()
 operator|.
 name|exists
 argument_list|()
