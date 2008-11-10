@@ -219,9 +219,6 @@ class|class
 name|Jt400DataQueueConsumer
 extends|extends
 name|PollingConsumerSupport
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|endpoint
 specifier|private

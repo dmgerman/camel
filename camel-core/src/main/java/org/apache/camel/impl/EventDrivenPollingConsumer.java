@@ -177,16 +177,8 @@ DECL|class|EventDrivenPollingConsumer
 specifier|public
 class|class
 name|EventDrivenPollingConsumer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|PollingConsumerSupport
-argument_list|<
-name|E
-argument_list|>
 implements|implements
 name|Processor
 block|{
@@ -211,7 +203,7 @@ DECL|field|queue
 specifier|private
 name|BlockingQueue
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|queue
 decl_stmt|;
@@ -235,14 +227,11 @@ specifier|private
 name|Consumer
 name|consumer
 decl_stmt|;
-DECL|method|EventDrivenPollingConsumer (Endpoint<E> endpoint)
+DECL|method|EventDrivenPollingConsumer (Endpoint endpoint)
 specifier|public
 name|EventDrivenPollingConsumer
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{
@@ -253,7 +242,7 @@ argument_list|,
 operator|new
 name|ArrayBlockingQueue
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 argument_list|(
 literal|1000
@@ -261,19 +250,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|EventDrivenPollingConsumer (Endpoint<E> endpoint, BlockingQueue<E> queue)
+DECL|method|EventDrivenPollingConsumer (Endpoint endpoint, BlockingQueue<Exchange> queue)
 specifier|public
 name|EventDrivenPollingConsumer
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|BlockingQueue
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|queue
 parameter_list|)
@@ -403,9 +389,6 @@ name|queue
 operator|.
 name|offer
 argument_list|(
-operator|(
-name|E
-operator|)
 name|exchange
 argument_list|)
 expr_stmt|;

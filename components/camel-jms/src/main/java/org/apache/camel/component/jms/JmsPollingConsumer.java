@@ -93,9 +93,6 @@ class|class
 name|JmsPollingConsumer
 extends|extends
 name|PollingConsumerSupport
-argument_list|<
-name|JmsExchange
-argument_list|>
 block|{
 DECL|field|template
 specifier|private

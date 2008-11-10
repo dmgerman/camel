@@ -203,9 +203,6 @@ class|class
 name|HttpPollingConsumer
 extends|extends
 name|PollingConsumerSupport
-argument_list|<
-name|HttpExchange
-argument_list|>
 block|{
 DECL|field|endpoint
 specifier|private

@@ -76,11 +76,6 @@ specifier|public
 specifier|abstract
 class|class
 name|PollingConsumerSupport
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -90,9 +85,6 @@ DECL|field|endpoint
 specifier|private
 specifier|final
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 decl_stmt|;
 DECL|field|exceptionHandler
@@ -100,14 +92,11 @@ specifier|private
 name|ExceptionHandler
 name|exceptionHandler
 decl_stmt|;
-DECL|method|PollingConsumerSupport (Endpoint<E> endpoint)
+DECL|method|PollingConsumerSupport (Endpoint endpoint)
 specifier|public
 name|PollingConsumerSupport
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{
@@ -135,9 +124,6 @@ block|}
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|getEndpoint
 parameter_list|()
 block|{
