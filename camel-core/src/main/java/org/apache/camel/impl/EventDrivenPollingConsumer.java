@@ -295,7 +295,7 @@ expr_stmt|;
 block|}
 DECL|method|receiveNoWait ()
 specifier|public
-name|E
+name|Exchange
 name|receiveNoWait
 parameter_list|()
 block|{
@@ -308,7 +308,7 @@ return|;
 block|}
 DECL|method|receive ()
 specifier|public
-name|E
+name|Exchange
 name|receive
 parameter_list|()
 block|{
@@ -353,7 +353,7 @@ return|;
 block|}
 DECL|method|receive (long timeout)
 specifier|public
-name|E
+name|Exchange
 name|receive
 parameter_list|(
 name|long

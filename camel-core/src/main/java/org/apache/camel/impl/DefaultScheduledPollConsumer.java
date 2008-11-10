@@ -193,6 +193,9 @@ block|{
 name|E
 name|exchange
 init|=
+operator|(
+name|E
+operator|)
 name|pollingConsumer
 operator|.
 name|receiveNoWait

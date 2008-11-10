@@ -147,14 +147,11 @@ return|;
 block|}
 DECL|method|createExchange ()
 specifier|public
-name|E
+name|Exchange
 name|createExchange
 parameter_list|()
 block|{
 return|return
-operator|(
-name|E
-operator|)
 name|endpoint
 operator|.
 name|createExchange
@@ -163,7 +160,7 @@ return|;
 block|}
 DECL|method|createExchange (ExchangePattern pattern)
 specifier|public
-name|E
+name|Exchange
 name|createExchange
 parameter_list|(
 name|ExchangePattern
@@ -171,9 +168,6 @@ name|pattern
 parameter_list|)
 block|{
 return|return
-operator|(
-name|E
-operator|)
 name|endpoint
 operator|.
 name|createExchange
@@ -182,19 +176,16 @@ name|pattern
 argument_list|)
 return|;
 block|}
-DECL|method|createExchange (E exchange)
+DECL|method|createExchange (Exchange exchange)
 specifier|public
-name|E
+name|Exchange
 name|createExchange
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
 return|return
-operator|(
-name|E
-operator|)
 name|endpoint
 operator|.
 name|createExchange

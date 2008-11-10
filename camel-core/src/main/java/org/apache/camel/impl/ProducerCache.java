@@ -425,6 +425,9 @@ decl_stmt|;
 name|E
 name|exchange
 init|=
+operator|(
+name|E
+operator|)
 name|producer
 operator|.
 name|createExchange
@@ -492,6 +495,9 @@ decl_stmt|;
 name|E
 name|exchange
 init|=
+operator|(
+name|E
+operator|)
 name|producer
 operator|.
 name|createExchange
@@ -652,6 +658,9 @@ decl_stmt|;
 name|E
 name|exchange
 init|=
+operator|(
+name|E
+operator|)
 name|producer
 operator|.
 name|createExchange

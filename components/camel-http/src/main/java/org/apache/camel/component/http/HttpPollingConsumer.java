@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Message
 import|;
 end_import
@@ -235,7 +247,7 @@ expr_stmt|;
 block|}
 DECL|method|receive ()
 specifier|public
-name|HttpExchange
+name|Exchange
 name|receive
 parameter_list|()
 block|{
@@ -246,7 +258,7 @@ return|;
 block|}
 DECL|method|receive (long timeout)
 specifier|public
-name|HttpExchange
+name|Exchange
 name|receive
 parameter_list|(
 name|long
@@ -260,7 +272,7 @@ return|;
 block|}
 DECL|method|receiveNoWait ()
 specifier|public
-name|HttpExchange
+name|Exchange
 name|receiveNoWait
 parameter_list|()
 block|{

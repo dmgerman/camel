@@ -171,6 +171,9 @@ decl_stmt|;
 name|HttpExchange
 name|exchange
 init|=
+operator|(
+name|HttpExchange
+operator|)
 name|producer
 operator|.
 name|createExchange
@@ -275,6 +278,9 @@ decl_stmt|;
 name|HttpExchange
 name|exchange
 init|=
+operator|(
+name|HttpExchange
+operator|)
 name|producer
 operator|.
 name|createExchange
@@ -379,6 +385,9 @@ decl_stmt|;
 name|HttpExchange
 name|exchange
 init|=
+operator|(
+name|HttpExchange
+operator|)
 name|producer
 operator|.
 name|createExchange
@@ -495,6 +504,9 @@ decl_stmt|;
 name|HttpExchange
 name|exchange
 init|=
+operator|(
+name|HttpExchange
+operator|)
 name|producer
 operator|.
 name|createExchange
@@ -611,6 +623,9 @@ decl_stmt|;
 name|HttpExchange
 name|exchange
 init|=
+operator|(
+name|HttpExchange
+operator|)
 name|producer
 operator|.
 name|createExchange
@@ -715,6 +730,9 @@ decl_stmt|;
 name|HttpExchange
 name|exchange
 init|=
+operator|(
+name|HttpExchange
+operator|)
 name|producer
 operator|.
 name|createExchange
@@ -833,6 +851,9 @@ decl_stmt|;
 name|HttpExchange
 name|exchange
 init|=
+operator|(
+name|HttpExchange
+operator|)
 name|producer
 operator|.
 name|createExchange
