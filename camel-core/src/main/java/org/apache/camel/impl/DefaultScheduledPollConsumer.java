@@ -109,29 +109,21 @@ DECL|class|DefaultScheduledPollConsumer
 specifier|public
 class|class
 name|DefaultScheduledPollConsumer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ScheduledPollConsumer
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|pollingConsumer
 specifier|private
 name|PollingConsumer
 name|pollingConsumer
 decl_stmt|;
-DECL|method|DefaultScheduledPollConsumer (DefaultEndpoint<E> defaultEndpoint, Processor processor)
+DECL|method|DefaultScheduledPollConsumer (DefaultEndpoint<Exchange> defaultEndpoint, Processor processor)
 specifier|public
 name|DefaultScheduledPollConsumer
 parameter_list|(
 name|DefaultEndpoint
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|defaultEndpoint
 parameter_list|,
@@ -147,13 +139,13 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DefaultScheduledPollConsumer (Endpoint<E> endpoint, Processor processor, ScheduledExecutorService executor)
+DECL|method|DefaultScheduledPollConsumer (Endpoint<Exchange> endpoint, Processor processor, ScheduledExecutorService executor)
 specifier|public
 name|DefaultScheduledPollConsumer
 parameter_list|(
 name|Endpoint
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|endpoint
 parameter_list|,
@@ -187,12 +179,9 @@ condition|(
 literal|true
 condition|)
 block|{
-name|E
+name|Exchange
 name|exchange
 init|=
-operator|(
-name|E
-operator|)
 name|pollingConsumer
 operator|.
 name|receiveNoWait
@@ -227,12 +216,9 @@ literal|null
 condition|)
 block|{
 comment|// lets create a new exchange
-name|E
+name|Exchange
 name|newExchange
 init|=
-operator|(
-name|E
-operator|)
 name|getEndpoint
 argument_list|()
 operator|.

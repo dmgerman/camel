@@ -183,6 +183,12 @@ init|=
 operator|new
 name|DefaultScheduledPollConsumer
 argument_list|(
+operator|(
+name|DefaultEndpoint
+argument_list|<
+name|Exchange
+argument_list|>
+operator|)
 name|this
 argument_list|,
 name|processor

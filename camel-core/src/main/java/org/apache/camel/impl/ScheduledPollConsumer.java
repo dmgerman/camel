@@ -126,11 +126,6 @@ specifier|public
 specifier|abstract
 class|class
 name|ScheduledPollConsumer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|DefaultConsumer
 implements|implements
@@ -200,13 +195,13 @@ specifier|private
 name|Exception
 name|firstExceptionThrown
 decl_stmt|;
-DECL|method|ScheduledPollConsumer (DefaultEndpoint<E> endpoint, Processor processor)
+DECL|method|ScheduledPollConsumer (DefaultEndpoint<Exchange> endpoint, Processor processor)
 specifier|public
 name|ScheduledPollConsumer
 parameter_list|(
 name|DefaultEndpoint
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|endpoint
 parameter_list|,
@@ -227,13 +222,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ScheduledPollConsumer (Endpoint<E> endpoint, Processor processor, ScheduledExecutorService executor)
+DECL|method|ScheduledPollConsumer (Endpoint<Exchange> endpoint, Processor processor, ScheduledExecutorService executor)
 specifier|public
 name|ScheduledPollConsumer
 parameter_list|(
 name|Endpoint
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|endpoint
 parameter_list|,

@@ -141,9 +141,6 @@ class|class
 name|IBatisPollingConsumer
 extends|extends
 name|ScheduledPollConsumer
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|logger
 specifier|private

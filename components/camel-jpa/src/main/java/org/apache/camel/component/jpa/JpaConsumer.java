@@ -185,9 +185,6 @@ class|class
 name|JpaConsumer
 extends|extends
 name|ScheduledPollConsumer
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
