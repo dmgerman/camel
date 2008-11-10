@@ -79,9 +79,6 @@ class|class
 name|JcrComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|DefaultExchange
-argument_list|>
 block|{
 comment|/**      * Property key for specifying the name of a node in the repository       */
 DECL|field|NODE_NAME

@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Consumer
 import|;
 end_import
@@ -269,7 +281,7 @@ annotation|@
 name|Override
 DECL|method|getComponent ()
 specifier|public
-name|JettyHttpComponent
+name|Component
 name|getComponent
 parameter_list|()
 block|{

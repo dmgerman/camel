@@ -77,9 +77,6 @@ class|class
 name|StreamComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 comment|// TODO: remove file and url support in this component. Will be removed in Camel 2.0
 comment|// (Should use other components for such needs.)

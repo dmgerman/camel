@@ -127,9 +127,6 @@ class|class
 name|MailComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|MailExchange
-argument_list|>
 implements|implements
 name|HeaderFilterStrategyAware
 block|{

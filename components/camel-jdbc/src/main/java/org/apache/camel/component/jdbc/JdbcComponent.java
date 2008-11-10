@@ -91,9 +91,6 @@ class|class
 name|JdbcComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|DefaultExchange
-argument_list|>
 block|{
 DECL|method|JdbcComponent ()
 specifier|public

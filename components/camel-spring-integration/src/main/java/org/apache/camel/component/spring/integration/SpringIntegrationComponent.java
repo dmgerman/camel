@@ -55,9 +55,6 @@ class|class
 name|SpringIntegrationComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|SpringIntegrationExchange
-argument_list|>
 block|{
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected

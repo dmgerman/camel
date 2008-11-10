@@ -127,9 +127,6 @@ class|class
 name|XmppComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|XmppExchange
-argument_list|>
 implements|implements
 name|HeaderFilterStrategyAware
 block|{

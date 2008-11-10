@@ -23,11 +23,6 @@ DECL|interface|Component
 specifier|public
 interface|interface
 name|Component
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 block|{
 comment|/**      * Returns the context      *       * @return the context of this component      */
 DECL|method|getCamelContext ()
@@ -47,9 +42,6 @@ function_decl|;
 comment|/**      * Attempt to resolve an endpoint for the given URI if the component is      * capable of handling the URI      *       * @param uri the URI to create      * @return a newly created endpoint or null if this component cannot create      *         instances of the given uri      */
 DECL|method|createEndpoint (String uri)
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|createEndpoint
 parameter_list|(
 name|String

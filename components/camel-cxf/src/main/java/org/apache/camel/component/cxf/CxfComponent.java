@@ -103,9 +103,6 @@ class|class
 name|CxfComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|CxfExchange
-argument_list|>
 implements|implements
 name|HeaderFilterStrategyAware
 block|{

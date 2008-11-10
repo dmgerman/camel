@@ -103,9 +103,6 @@ class|class
 name|MockComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 annotation|@
 name|Override

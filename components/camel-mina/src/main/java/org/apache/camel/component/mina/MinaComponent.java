@@ -603,9 +603,6 @@ class|class
 name|MinaComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|MinaExchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

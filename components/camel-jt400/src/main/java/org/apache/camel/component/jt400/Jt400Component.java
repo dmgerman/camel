@@ -101,9 +101,6 @@ class|class
 name|Jt400Component
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|DATA_QUEUE
 specifier|private

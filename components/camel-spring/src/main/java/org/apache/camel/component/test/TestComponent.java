@@ -139,9 +139,6 @@ class|class
 name|TestComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|method|createEndpoint (String uri)
 specifier|public

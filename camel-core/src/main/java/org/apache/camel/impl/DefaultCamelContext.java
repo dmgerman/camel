@@ -1979,9 +1979,6 @@ literal|0
 index|]
 decl_stmt|;
 name|Component
-argument_list|<
-name|?
-argument_list|>
 name|component
 init|=
 name|getComponent

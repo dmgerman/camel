@@ -268,18 +268,10 @@ specifier|public
 specifier|abstract
 class|class
 name|DefaultComponent
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|Component
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
@@ -338,9 +330,6 @@ block|}
 DECL|method|createEndpoint (String uri)
 specifier|public
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|createEndpoint
 parameter_list|(
 name|String
@@ -480,9 +469,6 @@ argument_list|)
 expr_stmt|;
 block|}
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 init|=
 name|createEndpoint
@@ -832,9 +818,6 @@ DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 specifier|abstract
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|createEndpoint
 parameter_list|(
 name|String

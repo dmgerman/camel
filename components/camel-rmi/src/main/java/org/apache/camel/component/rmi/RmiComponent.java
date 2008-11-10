@@ -93,9 +93,6 @@ class|class
 name|RmiComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|BeanExchange
-argument_list|>
 block|{
 DECL|method|RmiComponent ()
 specifier|public

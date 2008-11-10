@@ -94,9 +94,6 @@ name|Exchange
 parameter_list|>
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|method|LdapComponent ()
 specifier|public

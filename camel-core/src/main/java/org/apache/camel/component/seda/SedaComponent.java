@@ -101,9 +101,6 @@ class|class
 name|SedaComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|method|createQueue (String uri, Map parameters)
 specifier|public

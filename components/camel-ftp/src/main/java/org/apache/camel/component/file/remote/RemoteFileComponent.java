@@ -101,9 +101,6 @@ class|class
 name|RemoteFileComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|RemoteFileExchange
-argument_list|>
 block|{
 DECL|field|configuration
 specifier|private

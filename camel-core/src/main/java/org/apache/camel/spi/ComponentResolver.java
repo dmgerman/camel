@@ -40,18 +40,6 @@ name|Component
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a resolver of components from a URI to be able to auto-load them using some  * discovery mechanism like {@link org.apache.camel.impl.DefaultComponentResolver}  *  * @version $Revision$  */
 end_comment
@@ -61,18 +49,10 @@ DECL|interface|ComponentResolver
 specifier|public
 interface|interface
 name|ComponentResolver
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 block|{
 comment|/**      * Attempts to resolve the component for the given URI      *      * @param name the component name to resolve      * @param context the context to load the component if it can be resolved      * @return the component which is added to the context or null if it can not be resolved      * @throws Exception is thrown if the the component could not be loaded      */
 DECL|method|resolveComponent (String name, CamelContext context)
 name|Component
-argument_list|<
-name|E
-argument_list|>
 name|resolveComponent
 parameter_list|(
 name|String

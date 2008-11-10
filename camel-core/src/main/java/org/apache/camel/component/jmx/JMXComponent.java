@@ -87,9 +87,6 @@ class|class
 name|JMXComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|JMXExchange
-argument_list|>
 block|{
 DECL|field|mbeanServer
 specifier|private

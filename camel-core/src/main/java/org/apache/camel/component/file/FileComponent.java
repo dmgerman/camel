@@ -87,9 +87,6 @@ class|class
 name|FileComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|FileExchange
-argument_list|>
 block|{
 comment|/**      * Header key holding the value: the fixed filename to use for producing files.      */
 DECL|field|HEADER_FILE_NAME

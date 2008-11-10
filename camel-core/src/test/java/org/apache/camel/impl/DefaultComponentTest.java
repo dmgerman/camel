@@ -91,9 +91,6 @@ class|class
 name|MyComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|DefaultExchange
-argument_list|>
 block|{
 DECL|method|MyComponent (CamelContext context)
 specifier|private

@@ -331,9 +331,6 @@ class|class
 name|JmsComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|JmsExchange
-argument_list|>
 implements|implements
 name|ApplicationContextAware
 implements|,

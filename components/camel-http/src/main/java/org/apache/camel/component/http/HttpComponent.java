@@ -171,9 +171,6 @@ class|class
 name|HttpComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|HttpExchange
-argument_list|>
 implements|implements
 name|HeaderFilterStrategyAware
 block|{

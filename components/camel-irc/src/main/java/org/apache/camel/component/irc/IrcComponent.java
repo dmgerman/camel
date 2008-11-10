@@ -139,9 +139,6 @@ class|class
 name|IrcComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|IrcExchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

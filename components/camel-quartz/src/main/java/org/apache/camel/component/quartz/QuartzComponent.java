@@ -189,9 +189,6 @@ class|class
 name|QuartzComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|QuartzExchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

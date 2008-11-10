@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -77,9 +65,6 @@ class|class
 name|RefComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected

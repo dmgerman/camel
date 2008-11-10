@@ -91,9 +91,6 @@ class|class
 name|DataSetComponent
 extends|extends
 name|DefaultComponent
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 annotation|@
 name|Override
