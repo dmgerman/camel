@@ -499,9 +499,6 @@ block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
-argument_list|<
-name|FileExchange
-argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
@@ -511,9 +508,6 @@ throws|throws
 name|Exception
 block|{
 name|Consumer
-argument_list|<
-name|FileExchange
-argument_list|>
 name|result
 init|=
 operator|new

@@ -220,9 +220,6 @@ name|getEndpoint
 argument_list|()
 decl_stmt|;
 name|Consumer
-argument_list|<
-name|E
-argument_list|>
 name|consumer
 init|=
 name|endpoint

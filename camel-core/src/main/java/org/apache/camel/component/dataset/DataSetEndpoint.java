@@ -392,9 +392,6 @@ name|Override
 DECL|method|createPollingConsumer ()
 specifier|public
 name|PollingConsumer
-argument_list|<
-name|Exchange
-argument_list|>
 name|createPollingConsumer
 parameter_list|()
 throws|throws
@@ -416,9 +413,6 @@ name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
-argument_list|<
-name|Exchange
-argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor

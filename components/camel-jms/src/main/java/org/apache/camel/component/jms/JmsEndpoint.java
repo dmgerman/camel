@@ -543,9 +543,6 @@ name|Override
 DECL|method|createPollingConsumer ()
 specifier|public
 name|PollingConsumer
-argument_list|<
-name|JmsExchange
-argument_list|>
 name|createPollingConsumer
 parameter_list|()
 throws|throws

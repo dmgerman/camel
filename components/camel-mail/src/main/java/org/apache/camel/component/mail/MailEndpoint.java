@@ -289,9 +289,6 @@ block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
-argument_list|<
-name|MailExchange
-argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
@@ -349,9 +346,6 @@ comment|/**      * Creates a consumer using the given processor and sender      
 DECL|method|createConsumer (Processor processor, JavaMailSenderImpl sender)
 specifier|public
 name|Consumer
-argument_list|<
-name|MailExchange
-argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor

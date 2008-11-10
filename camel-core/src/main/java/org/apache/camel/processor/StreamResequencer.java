@@ -205,11 +205,6 @@ decl_stmt|;
 DECL|field|consumer
 specifier|private
 name|PollingConsumer
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|consumer
 decl_stmt|;
 DECL|field|endpoint

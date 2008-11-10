@@ -545,9 +545,6 @@ block|}
 DECL|method|createPollingConsumer ()
 specifier|public
 name|PollingConsumer
-argument_list|<
-name|E
-argument_list|>
 name|createPollingConsumer
 parameter_list|()
 throws|throws

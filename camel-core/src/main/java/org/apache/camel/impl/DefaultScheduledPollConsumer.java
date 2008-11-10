@@ -123,9 +123,6 @@ block|{
 DECL|field|pollingConsumer
 specifier|private
 name|PollingConsumer
-argument_list|<
-name|E
-argument_list|>
 name|pollingConsumer
 decl_stmt|;
 DECL|method|DefaultScheduledPollConsumer (DefaultEndpoint<E> defaultEndpoint, Processor processor)

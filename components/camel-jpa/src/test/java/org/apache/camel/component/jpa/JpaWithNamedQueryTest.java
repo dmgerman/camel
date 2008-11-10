@@ -318,9 +318,6 @@ decl_stmt|;
 DECL|field|consumer
 specifier|protected
 name|Consumer
-argument_list|<
-name|Exchange
-argument_list|>
 name|consumer
 decl_stmt|;
 DECL|field|receivedExchange

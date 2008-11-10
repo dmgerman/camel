@@ -23,11 +23,6 @@ DECL|interface|Consumer
 specifier|public
 interface|interface
 name|Consumer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|Service
 block|{ }

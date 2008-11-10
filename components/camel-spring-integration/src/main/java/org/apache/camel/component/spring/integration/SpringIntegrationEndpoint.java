@@ -315,9 +315,6 @@ block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
-argument_list|<
-name|SpringIntegrationExchange
-argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor

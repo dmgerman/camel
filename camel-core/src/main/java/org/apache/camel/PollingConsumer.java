@@ -23,16 +23,8 @@ DECL|interface|PollingConsumer
 specifier|public
 interface|interface
 name|PollingConsumer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|Consumer
-argument_list|<
-name|E
-argument_list|>
 block|{
 comment|/**      * Waits until a message is available and then returns it. Warning that this      * method could block indefinitely if no messages are available.      *<p/>      * Will return<tt>null</tt> if the consumer is not started      *       * @return the message exchange received.      */
 DECL|method|receive ()

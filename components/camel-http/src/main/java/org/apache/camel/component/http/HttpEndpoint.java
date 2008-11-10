@@ -351,9 +351,6 @@ name|Override
 DECL|method|createPollingConsumer ()
 specifier|public
 name|PollingConsumer
-argument_list|<
-name|HttpExchange
-argument_list|>
 name|createPollingConsumer
 parameter_list|()
 throws|throws

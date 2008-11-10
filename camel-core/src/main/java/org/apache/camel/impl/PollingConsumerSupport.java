@@ -85,9 +85,6 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|PollingConsumer
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|endpoint
 specifier|private

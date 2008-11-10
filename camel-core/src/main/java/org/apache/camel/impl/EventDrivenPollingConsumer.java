@@ -233,9 +233,6 @@ decl_stmt|;
 DECL|field|consumer
 specifier|private
 name|Consumer
-argument_list|<
-name|E
-argument_list|>
 name|consumer
 decl_stmt|;
 DECL|method|EventDrivenPollingConsumer (Endpoint<E> endpoint)

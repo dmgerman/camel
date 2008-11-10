@@ -221,15 +221,12 @@ operator|=
 name|consumerProperties
 expr_stmt|;
 block|}
-DECL|method|configureConsumer (Consumer<E> consumer)
+DECL|method|configureConsumer (Consumer consumer)
 specifier|protected
 name|void
 name|configureConsumer
 parameter_list|(
 name|Consumer
-argument_list|<
-name|E
-argument_list|>
 name|consumer
 parameter_list|)
 throws|throws

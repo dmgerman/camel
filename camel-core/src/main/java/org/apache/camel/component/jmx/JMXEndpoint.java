@@ -304,9 +304,6 @@ block|}
 DECL|method|createConsumer (Processor proc)
 specifier|public
 name|Consumer
-argument_list|<
-name|JMXExchange
-argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor

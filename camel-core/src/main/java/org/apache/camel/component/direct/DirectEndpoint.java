@@ -204,6 +204,9 @@ block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
+argument_list|<
+name|E
+argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws
@@ -223,9 +226,6 @@ block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
-argument_list|<
-name|E
-argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor

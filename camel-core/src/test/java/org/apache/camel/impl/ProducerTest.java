@@ -205,9 +205,6 @@ argument_list|)
 block|{
 specifier|public
 name|Consumer
-argument_list|<
-name|MyExchange
-argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
