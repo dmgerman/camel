@@ -131,9 +131,6 @@ name|RemoteFileExchange
 parameter_list|>
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|T
-argument_list|>
 block|{
 DECL|field|log
 specifier|protected

@@ -125,9 +125,6 @@ class|class
 name|JpaProducer
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|template
 specifier|private

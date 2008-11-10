@@ -332,9 +332,6 @@ expr_stmt|;
 return|return
 operator|new
 name|DefaultProducer
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|(
 name|this
 argument_list|)

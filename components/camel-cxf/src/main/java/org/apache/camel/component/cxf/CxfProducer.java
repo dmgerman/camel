@@ -473,9 +473,6 @@ class|class
 name|CxfProducer
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|CxfExchange
-argument_list|>
 block|{
 DECL|field|endpoint
 specifier|private

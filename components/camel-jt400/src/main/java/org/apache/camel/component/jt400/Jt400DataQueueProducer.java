@@ -113,9 +113,6 @@ class|class
 name|Jt400DataQueueProducer
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|endpoint
 specifier|private

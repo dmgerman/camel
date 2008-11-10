@@ -123,9 +123,6 @@ class|class
 name|MailProducer
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|MailExchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

@@ -127,9 +127,6 @@ class|class
 name|IBatisProducer
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|statement
 specifier|private

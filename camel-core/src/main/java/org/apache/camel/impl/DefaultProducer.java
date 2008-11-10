@@ -74,11 +74,6 @@ specifier|public
 specifier|abstract
 class|class
 name|DefaultProducer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -87,19 +82,13 @@ block|{
 DECL|field|endpoint
 specifier|private
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 decl_stmt|;
-DECL|method|DefaultProducer (Endpoint<E> endpoint)
+DECL|method|DefaultProducer (Endpoint endpoint)
 specifier|public
 name|DefaultProducer
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{

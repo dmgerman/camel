@@ -102,20 +102,6 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
 name|DefaultProducer
 import|;
 end_import
@@ -127,9 +113,6 @@ class|class
 name|JcrProducer
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|DefaultExchange
-argument_list|>
 block|{
 DECL|method|JcrProducer (JcrEndpoint jcrEndpoint)
 specifier|public

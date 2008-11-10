@@ -293,9 +293,6 @@ class|class
 name|SpringIntegrationProducer
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|SpringIntegrationExchange
-argument_list|>
 implements|implements
 name|AsyncProcessor
 block|{

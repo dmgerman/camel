@@ -217,9 +217,6 @@ class|class
 name|StreamProducer
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

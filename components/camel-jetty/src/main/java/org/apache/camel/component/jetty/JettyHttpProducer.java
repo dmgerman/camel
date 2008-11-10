@@ -283,12 +283,7 @@ class|class
 name|JettyHttpProducer
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|HttpExchange
-argument_list|>
 implements|implements
-name|Producer
-implements|,
 name|AsyncProcessor
 block|{
 DECL|class|CamelContentExchange

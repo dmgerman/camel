@@ -119,9 +119,6 @@ class|class
 name|IrcProducer
 extends|extends
 name|DefaultProducer
-argument_list|<
-name|IrcExchange
-argument_list|>
 block|{
 DECL|field|COMMANDS
 specifier|public
