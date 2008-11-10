@@ -160,20 +160,6 @@ name|NormalizerTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|result
-specifier|protected
-name|MockEndpoint
-name|result
-decl_stmt|;
-DECL|field|myNormalizer
-specifier|protected
-name|MyNormalizer
-name|myNormalizer
-init|=
-operator|new
-name|MyNormalizer
-argument_list|()
-decl_stmt|;
 DECL|method|testSendToFirstWhen ()
 specifier|public
 name|void
@@ -202,19 +188,32 @@ name|customerBody
 init|=
 literal|"<customer name=\"James\"/>"
 decl_stmt|;
-comment|// expect only one person named Jon
+name|MockEndpoint
+name|result
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
 name|result
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|4
 argument_list|)
 expr_stmt|;
 name|result
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"<person name=\"Jon\"/>"
+argument_list|,
+literal|"<person name=\"Hadrian\"/>"
+argument_list|,
+literal|"<person name=\"Claus\"/>"
+argument_list|,
+literal|"<person name=\"James\"/>"
 argument_list|)
 expr_stmt|;
 name|template
@@ -259,29 +258,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|result
-operator|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|createJndiContext ()
 specifier|protected
 name|Context
@@ -303,7 +279,9 @@ name|bind
 argument_list|(
 literal|"normalizer"
 argument_list|,
-name|myNormalizer
+operator|new
+name|MyNormalizer
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -327,7 +305,7 @@ name|configure
 parameter_list|()
 block|{
 comment|// START SNIPPET: example
-comment|// before we can filter, we need to normalize the incoming messages
+comment|// we need to normalize two types of incoming messages
 name|from
 argument_list|(
 literal|"direct:start"
@@ -351,7 +329,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:queue"
+literal|"mock:result"
 argument_list|)
 operator|.
 name|when
@@ -365,25 +343,6 @@ operator|.
 name|to
 argument_list|(
 literal|"bean:normalizer?method=customerToPerson"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"seda:queue"
-argument_list|)
-expr_stmt|;
-comment|// filter the normalized messages
-name|from
-argument_list|(
-literal|"seda:queue"
-argument_list|)
-operator|.
-name|filter
-argument_list|()
-operator|.
-name|xpath
-argument_list|(
-literal|"/person[@name='Jon']"
 argument_list|)
 operator|.
 name|to
