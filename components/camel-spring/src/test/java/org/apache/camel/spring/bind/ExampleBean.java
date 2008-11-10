@@ -19,7 +19,11 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An example POJO with no annotations or interfaces to test out the POJO  * Camel binding  *  * @version $Revision$  */
+comment|/**  * An example Bean with no annotations or interfaces to test out the Bean  * Camel binding  *  * @version $Revision$  */
+end_comment
+
+begin_comment
+comment|// START SNIPPET: e1
 end_comment
 
 begin_class
@@ -47,6 +51,10 @@ return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: e1
+end_comment
 
 end_unit
 

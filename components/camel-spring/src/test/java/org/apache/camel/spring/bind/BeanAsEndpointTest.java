@@ -159,7 +159,6 @@ name|int
 name|getExpectedRouteCount
 parameter_list|()
 block|{
-comment|// TODO why zero?
 return|return
 literal|0
 return|;
