@@ -257,9 +257,6 @@ class|class
 name|CxfConsumer
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|CxfExchange
-argument_list|>
 block|{
 DECL|field|endpoint
 specifier|private

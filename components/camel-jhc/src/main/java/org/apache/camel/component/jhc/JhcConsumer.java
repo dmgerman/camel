@@ -311,9 +311,6 @@ class|class
 name|JhcConsumer
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|JhcExchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

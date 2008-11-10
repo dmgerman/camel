@@ -234,9 +234,6 @@ block|{
 for|for
 control|(
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 name|consumer
 range|:
 name|endpoint
@@ -311,9 +308,6 @@ literal|1
 condition|)
 block|{
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 name|consumer
 init|=
 name|endpoint
@@ -364,9 +358,6 @@ block|{
 for|for
 control|(
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 name|consumer
 range|:
 name|endpoint

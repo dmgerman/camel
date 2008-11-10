@@ -109,9 +109,6 @@ class|class
 name|DataSetConsumer
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

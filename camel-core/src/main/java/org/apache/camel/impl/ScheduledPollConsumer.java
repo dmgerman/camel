@@ -133,9 +133,6 @@ name|Exchange
 parameter_list|>
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 implements|implements
 name|Runnable
 block|{

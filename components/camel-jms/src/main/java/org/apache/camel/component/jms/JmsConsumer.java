@@ -81,9 +81,6 @@ class|class
 name|JmsConsumer
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|JmsExchange
-argument_list|>
 block|{
 DECL|field|listenerContainer
 specifier|private

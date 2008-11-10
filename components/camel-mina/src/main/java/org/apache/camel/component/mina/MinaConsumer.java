@@ -187,9 +187,6 @@ class|class
 name|MinaConsumer
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|MinaExchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

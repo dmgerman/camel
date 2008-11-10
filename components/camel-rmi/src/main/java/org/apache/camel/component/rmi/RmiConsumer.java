@@ -169,9 +169,6 @@ class|class
 name|RmiConsumer
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|BeanExchange
-argument_list|>
 implements|implements
 name|InvocationHandler
 block|{

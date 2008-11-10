@@ -55,9 +55,6 @@ class|class
 name|HttpConsumer
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|HttpExchange
-argument_list|>
 block|{
 DECL|field|endpoint
 specifier|private

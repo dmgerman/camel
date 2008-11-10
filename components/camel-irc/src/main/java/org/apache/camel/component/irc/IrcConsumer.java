@@ -135,9 +135,6 @@ class|class
 name|IrcConsumer
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|IrcExchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

@@ -233,9 +233,6 @@ class|class
 name|StreamConsumer
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

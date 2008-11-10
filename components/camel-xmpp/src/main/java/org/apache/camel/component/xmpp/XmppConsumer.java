@@ -187,9 +187,6 @@ class|class
 name|XmppConsumer
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|XmppExchange
-argument_list|>
 implements|implements
 name|PacketListener
 implements|,

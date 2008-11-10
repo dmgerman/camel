@@ -79,9 +79,6 @@ class|class
 name|LoadBalancerConsumer
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|loadBalancer
 specifier|private

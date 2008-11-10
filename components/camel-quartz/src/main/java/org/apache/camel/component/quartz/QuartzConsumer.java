@@ -55,9 +55,6 @@ class|class
 name|QuartzConsumer
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|QuartzExchange
-argument_list|>
 block|{
 DECL|method|QuartzConsumer (QuartzEndpoint endpoint, Processor processor)
 specifier|public

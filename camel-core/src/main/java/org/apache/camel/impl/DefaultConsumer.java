@@ -129,11 +129,6 @@ DECL|class|DefaultConsumer
 specifier|public
 class|class
 name|DefaultConsumer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -142,9 +137,6 @@ block|{
 DECL|field|endpoint
 specifier|private
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 decl_stmt|;
 DECL|field|processor
@@ -162,14 +154,11 @@ specifier|private
 name|ExceptionHandler
 name|exceptionHandler
 decl_stmt|;
-DECL|method|DefaultConsumer (Endpoint<E> endpoint, Processor processor)
+DECL|method|DefaultConsumer (Endpoint endpoint, Processor processor)
 specifier|public
 name|DefaultConsumer
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
@@ -206,9 +195,6 @@ block|}
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|getEndpoint
 parameter_list|()
 block|{

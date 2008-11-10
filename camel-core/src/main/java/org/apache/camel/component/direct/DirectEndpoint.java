@@ -149,9 +149,6 @@ specifier|final
 name|CopyOnWriteArrayList
 argument_list|<
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|consumers
 init|=
@@ -159,9 +156,6 @@ operator|new
 name|CopyOnWriteArrayList
 argument_list|<
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -237,9 +231,6 @@ block|{
 return|return
 operator|new
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -359,9 +350,6 @@ specifier|public
 name|List
 argument_list|<
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|getConsumers
 parameter_list|()

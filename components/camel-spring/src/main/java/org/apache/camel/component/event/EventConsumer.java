@@ -67,9 +67,6 @@ class|class
 name|EventConsumer
 extends|extends
 name|DefaultConsumer
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|endpoint
 specifier|private
