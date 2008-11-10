@@ -130,22 +130,6 @@ name|component
 operator|.
 name|http
 operator|.
-name|HttpExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|http
-operator|.
 name|HttpPollingConsumer
 import|;
 end_import
@@ -228,9 +212,6 @@ name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
-argument_list|<
-name|HttpExchange
-argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws

@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -279,7 +291,7 @@ block|}
 comment|/**      * @deprecated will be removed in Camel 2.0.      */
 DECL|method|getEndpoint ()
 specifier|public
-name|FileEndpoint
+name|Endpoint
 name|getEndpoint
 parameter_list|()
 block|{

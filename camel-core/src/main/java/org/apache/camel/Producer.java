@@ -23,11 +23,6 @@ DECL|interface|Producer
 specifier|public
 interface|interface
 name|Producer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|Processor
 extends|,
@@ -35,9 +30,6 @@ name|Service
 block|{
 DECL|method|getEndpoint ()
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|getEndpoint
 parameter_list|()
 function_decl|;

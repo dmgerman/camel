@@ -263,9 +263,6 @@ literal|123
 argument_list|)
 expr_stmt|;
 name|Producer
-argument_list|<
-name|Exchange
-argument_list|>
 name|producer
 init|=
 name|endpoint

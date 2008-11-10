@@ -362,11 +362,6 @@ name|DefaultProducer
 argument_list|<
 name|HttpExchange
 argument_list|>
-implements|implements
-name|Producer
-argument_list|<
-name|HttpExchange
-argument_list|>
 block|{
 DECL|field|HTTP_URI
 specifier|public

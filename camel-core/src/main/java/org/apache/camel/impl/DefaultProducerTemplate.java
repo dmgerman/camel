@@ -1370,9 +1370,6 @@ comment|// ---------------------------------------------------------------------
 DECL|method|getProducer (Endpoint<E> endpoint)
 specifier|public
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|getProducer
 parameter_list|(
 name|Endpoint

@@ -238,9 +238,6 @@ block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
-argument_list|<
-name|MailExchange
-argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws
@@ -265,9 +262,6 @@ comment|/**      * Creates a producer using the given sender      */
 DECL|method|createProducer (JavaMailSender sender)
 specifier|public
 name|Producer
-argument_list|<
-name|MailExchange
-argument_list|>
 name|createProducer
 parameter_list|(
 name|JavaMailSender

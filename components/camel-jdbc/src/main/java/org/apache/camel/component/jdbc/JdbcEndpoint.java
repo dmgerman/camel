@@ -254,9 +254,6 @@ block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
-argument_list|<
-name|DefaultExchange
-argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws

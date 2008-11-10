@@ -377,19 +377,9 @@ operator|=
 name|sync
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-block|{
-literal|"unchecked"
-block|}
-argument_list|)
 DECL|method|createProducer ()
 specifier|public
 name|Producer
-argument_list|<
-name|MinaExchange
-argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws

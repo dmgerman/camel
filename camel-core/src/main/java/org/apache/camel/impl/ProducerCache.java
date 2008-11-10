@@ -235,9 +235,6 @@ argument_list|<
 name|String
 argument_list|,
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|producers
 init|=
@@ -247,9 +244,6 @@ argument_list|<
 name|String
 argument_list|,
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -257,9 +251,6 @@ DECL|method|getProducer (Endpoint<E> endpoint)
 specifier|public
 specifier|synchronized
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|getProducer
 parameter_list|(
 name|Endpoint
@@ -278,9 +269,6 @@ name|getEndpointUri
 argument_list|()
 decl_stmt|;
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 name|producers
@@ -361,9 +349,6 @@ block|{
 try|try
 block|{
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 init|=
 name|getProducer
@@ -412,9 +397,6 @@ block|{
 try|try
 block|{
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 init|=
 name|getProducer
@@ -482,9 +464,6 @@ block|{
 try|try
 block|{
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 init|=
 name|getProducer
@@ -645,9 +624,6 @@ block|{
 try|try
 block|{
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 init|=
 name|getProducer
@@ -695,7 +671,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|sendExchange (Endpoint<E> endpoint, Producer<E> producer, Processor processor, E exchange)
+DECL|method|sendExchange (Endpoint<E> endpoint, Producer producer, Processor processor, E exchange)
 specifier|protected
 name|E
 name|sendExchange
@@ -707,9 +683,6 @@ argument_list|>
 name|endpoint
 parameter_list|,
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 parameter_list|,
 name|Processor
@@ -763,7 +736,7 @@ return|return
 name|exchange
 return|;
 block|}
-DECL|method|sendExchange (Endpoint<E> endpoint, Producer<E> producer, Processor processor, E exchange, AsyncCallback callback)
+DECL|method|sendExchange (Endpoint<E> endpoint, Producer producer, Processor processor, E exchange, AsyncCallback callback)
 specifier|protected
 name|boolean
 name|sendExchange
@@ -775,9 +748,6 @@ argument_list|>
 name|endpoint
 parameter_list|,
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|producer
 parameter_list|,
 name|Processor

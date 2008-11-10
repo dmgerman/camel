@@ -330,9 +330,6 @@ block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
-argument_list|<
-name|HttpExchange
-argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws

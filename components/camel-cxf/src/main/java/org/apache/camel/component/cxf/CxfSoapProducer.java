@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -602,12 +614,6 @@ expr_stmt|;
 block|}
 DECL|method|getEndpoint ()
 specifier|public
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 name|getEndpoint
 parameter_list|()

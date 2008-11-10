@@ -772,9 +772,6 @@ block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
-argument_list|<
-name|QuartzExchange
-argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws

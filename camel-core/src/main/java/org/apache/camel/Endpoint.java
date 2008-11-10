@@ -84,9 +84,6 @@ function_decl|;
 comment|/**      * Creates a new producer which is used send messages into the endpoint      *      * @return a newly created producer      */
 DECL|method|createProducer ()
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws

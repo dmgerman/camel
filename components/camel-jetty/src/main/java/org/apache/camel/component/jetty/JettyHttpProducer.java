@@ -288,9 +288,6 @@ name|HttpExchange
 argument_list|>
 implements|implements
 name|Producer
-argument_list|<
-name|HttpExchange
-argument_list|>
 implements|,
 name|AsyncProcessor
 block|{

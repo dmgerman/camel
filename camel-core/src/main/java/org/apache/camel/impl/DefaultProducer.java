@@ -83,9 +83,6 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|Producer
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|endpoint
 specifier|private
@@ -135,9 +132,6 @@ block|}
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|getEndpoint
 parameter_list|()
 block|{

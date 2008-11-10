@@ -472,28 +472,17 @@ block|{     }
 DECL|method|createProducer ()
 specifier|public
 name|Producer
-argument_list|<
-name|FileExchange
-argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Producer
-argument_list|<
-name|FileExchange
-argument_list|>
-name|result
-init|=
+return|return
 operator|new
 name|FileProducer
 argument_list|(
 name|this
 argument_list|)
-decl_stmt|;
-return|return
-name|result
 return|;
 block|}
 DECL|method|createConsumer (Processor processor)

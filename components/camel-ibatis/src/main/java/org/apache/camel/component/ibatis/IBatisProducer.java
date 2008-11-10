@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -160,7 +172,7 @@ annotation|@
 name|Override
 DECL|method|getEndpoint ()
 specifier|public
-name|IBatisEndpoint
+name|Endpoint
 name|getEndpoint
 parameter_list|()
 block|{

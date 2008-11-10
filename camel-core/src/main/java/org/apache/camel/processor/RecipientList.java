@@ -364,9 +364,6 @@ name|recipient
 argument_list|)
 decl_stmt|;
 name|Producer
-argument_list|<
-name|Exchange
-argument_list|>
 name|producer
 init|=
 name|producerCache

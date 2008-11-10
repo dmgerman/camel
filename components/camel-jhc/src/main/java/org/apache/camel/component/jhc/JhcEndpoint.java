@@ -377,9 +377,6 @@ block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
-argument_list|<
-name|JhcExchange
-argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws

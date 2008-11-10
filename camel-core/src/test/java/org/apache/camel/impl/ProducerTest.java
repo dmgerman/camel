@@ -238,9 +238,6 @@ return|;
 block|}
 specifier|public
 name|Producer
-argument_list|<
-name|MyExchange
-argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws

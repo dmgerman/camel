@@ -361,9 +361,6 @@ block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
-argument_list|<
-name|XmppExchange
-argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws
@@ -411,9 +408,6 @@ block|}
 DECL|method|createGroupChatProducer ()
 specifier|public
 name|Producer
-argument_list|<
-name|XmppExchange
-argument_list|>
 name|createGroupChatProducer
 parameter_list|()
 throws|throws
@@ -430,9 +424,6 @@ block|}
 DECL|method|createPrivateChatProducer (String participant)
 specifier|public
 name|Producer
-argument_list|<
-name|XmppExchange
-argument_list|>
 name|createPrivateChatProducer
 parameter_list|(
 name|String
