@@ -295,16 +295,10 @@ decl_stmt|;
 DECL|field|client
 specifier|protected
 name|ProducerCache
-argument_list|<
-name|XmppExchange
-argument_list|>
 name|client
 init|=
 operator|new
 name|ProducerCache
-argument_list|<
-name|XmppExchange
-argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|main (String[] args)

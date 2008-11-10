@@ -503,15 +503,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Creates a new ProducerTemplate.      *<p/>      * See this FAQ before use:<a href="http://activemq.apache.org/camel/why-does-camel-use-too-many-threads-with-producertemplate.html">      * Why does Camel use too many threads with ProducerTemplate?</a>      *      * @return the template      */
 DECL|method|createProducerTemplate ()
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|ProducerTemplate
-argument_list|<
-name|E
-argument_list|>
 name|createProducerTemplate
 parameter_list|()
 function_decl|;

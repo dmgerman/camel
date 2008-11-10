@@ -312,9 +312,6 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|ProducerTemplate
-argument_list|<
-name|Exchange
-argument_list|>
 name|template
 init|=
 name|context

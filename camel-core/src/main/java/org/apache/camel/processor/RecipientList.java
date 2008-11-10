@@ -217,16 +217,10 @@ decl_stmt|;
 DECL|field|producerCache
 specifier|private
 name|ProducerCache
-argument_list|<
-name|Exchange
-argument_list|>
 name|producerCache
 init|=
 operator|new
 name|ProducerCache
-argument_list|<
-name|Exchange
-argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|RecipientList (Expression expression)

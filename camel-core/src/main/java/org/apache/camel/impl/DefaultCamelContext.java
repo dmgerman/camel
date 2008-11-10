@@ -2988,24 +2988,13 @@ expr_stmt|;
 block|}
 DECL|method|createProducerTemplate ()
 specifier|public
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|ProducerTemplate
-argument_list|<
-name|E
-argument_list|>
 name|createProducerTemplate
 parameter_list|()
 block|{
 return|return
 operator|new
 name|DefaultProducerTemplate
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|)

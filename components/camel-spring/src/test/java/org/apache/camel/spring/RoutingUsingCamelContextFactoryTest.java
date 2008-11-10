@@ -219,9 +219,6 @@ argument_list|)
 expr_stmt|;
 comment|// now lets send a message
 name|ProducerTemplate
-argument_list|<
-name|Exchange
-argument_list|>
 name|template
 init|=
 name|context

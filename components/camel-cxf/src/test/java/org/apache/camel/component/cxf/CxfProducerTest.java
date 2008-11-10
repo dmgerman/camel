@@ -363,9 +363,6 @@ decl_stmt|;
 DECL|field|template
 specifier|protected
 name|ProducerTemplate
-argument_list|<
-name|CxfExchange
-argument_list|>
 name|template
 init|=
 name|camelContext

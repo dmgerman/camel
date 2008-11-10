@@ -203,11 +203,6 @@ DECL|class|ProducerCache
 specifier|public
 class|class
 name|ProducerCache
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ServiceSupport
 block|{
@@ -247,16 +242,13 @@ name|Producer
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|getProducer (Endpoint<E> endpoint)
+DECL|method|getProducer (Endpoint endpoint)
 specifier|public
 specifier|synchronized
 name|Producer
 name|getProducer
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{
@@ -331,18 +323,15 @@ name|answer
 return|;
 block|}
 comment|/**      * Sends the exchange to the given endpoint      *      * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      */
-DECL|method|send (Endpoint<E> endpoint, E exchange)
+DECL|method|send (Endpoint endpoint, Exchange exchange)
 specifier|public
 name|void
 name|send
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -379,15 +368,12 @@ throw|;
 block|}
 block|}
 comment|/**      * Sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
-DECL|method|send (Endpoint<E> endpoint, Processor processor)
+DECL|method|send (Endpoint endpoint, Processor processor)
 specifier|public
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
@@ -404,12 +390,9 @@ argument_list|(
 name|endpoint
 argument_list|)
 decl_stmt|;
-name|E
+name|Exchange
 name|exchange
 init|=
-operator|(
-name|E
-operator|)
 name|producer
 operator|.
 name|createExchange
@@ -443,15 +426,12 @@ throw|;
 block|}
 block|}
 comment|/**      * Sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange.  The callback      * will be called when the exchange is completed.      *      * @param endpoint the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      */
-DECL|method|send (Endpoint<E> endpoint, Processor processor, AsyncCallback callback)
+DECL|method|send (Endpoint endpoint, Processor processor, AsyncCallback callback)
 specifier|public
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
@@ -471,12 +451,9 @@ argument_list|(
 name|endpoint
 argument_list|)
 decl_stmt|;
-name|E
+name|Exchange
 name|exchange
 init|=
-operator|(
-name|E
-operator|)
 name|producer
 operator|.
 name|createExchange
@@ -603,15 +580,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Sends an exchange to an endpoint using a supplied      * {@link Processor} to populate the exchange      *      * @param endpoint the endpoint to send the exchange to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor the transformer used to populate the new exchange      */
-DECL|method|send (Endpoint<E> endpoint, ExchangePattern pattern, Processor processor)
+DECL|method|send (Endpoint endpoint, ExchangePattern pattern, Processor processor)
 specifier|public
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|ExchangePattern
@@ -631,12 +605,9 @@ argument_list|(
 name|endpoint
 argument_list|)
 decl_stmt|;
-name|E
+name|Exchange
 name|exchange
 init|=
-operator|(
-name|E
-operator|)
 name|producer
 operator|.
 name|createExchange
@@ -671,15 +642,12 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|sendExchange (Endpoint<E> endpoint, Producer producer, Processor processor, E exchange)
+DECL|method|sendExchange (Endpoint endpoint, Producer producer, Processor processor, Exchange exchange)
 specifier|protected
-name|E
+name|Exchange
 name|sendExchange
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Producer
@@ -688,7 +656,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
@@ -736,15 +704,12 @@ return|return
 name|exchange
 return|;
 block|}
-DECL|method|sendExchange (Endpoint<E> endpoint, Producer producer, Processor processor, E exchange, AsyncCallback callback)
+DECL|method|sendExchange (Endpoint endpoint, Producer producer, Processor processor, Exchange exchange, AsyncCallback callback)
 specifier|protected
 name|boolean
 name|sendExchange
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Producer
@@ -753,7 +718,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|AsyncCallback

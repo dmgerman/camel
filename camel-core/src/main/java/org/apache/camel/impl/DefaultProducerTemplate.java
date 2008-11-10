@@ -209,18 +209,10 @@ DECL|class|DefaultProducerTemplate
 specifier|public
 class|class
 name|DefaultProducerTemplate
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ServiceSupport
 implements|implements
 name|ProducerTemplate
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|context
 specifier|private
@@ -231,16 +223,10 @@ DECL|field|producerCache
 specifier|private
 specifier|final
 name|ProducerCache
-argument_list|<
-name|E
-argument_list|>
 name|producerCache
 init|=
 operator|new
 name|ProducerCache
-argument_list|<
-name|E
-argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|useEndpointCache
@@ -258,9 +244,6 @@ argument_list|<
 name|String
 argument_list|,
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|endpointCache
 init|=
@@ -270,18 +253,12 @@ argument_list|<
 name|String
 argument_list|,
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|defaultEndpoint
 specifier|private
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|defaultEndpoint
 decl_stmt|;
 DECL|method|DefaultProducerTemplate (CamelContext context)
@@ -357,15 +334,15 @@ name|endpoint
 argument_list|)
 return|;
 block|}
-DECL|method|send (String endpointUri, E exchange)
+DECL|method|send (String endpointUri, Exchange exchange)
 specifier|public
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -388,7 +365,7 @@ return|;
 block|}
 DECL|method|send (String endpointUri, Processor processor)
 specifier|public
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|String
@@ -417,7 +394,7 @@ return|;
 block|}
 DECL|method|send (String endpointUri, Processor processor, AsyncCallback callback)
 specifier|public
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|String
@@ -451,7 +428,7 @@ return|;
 block|}
 DECL|method|send (String endpointUri, ExchangePattern pattern, Processor processor)
 specifier|public
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|String
@@ -483,22 +460,19 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|send (Endpoint<E> endpoint, E exchange)
+DECL|method|send (Endpoint endpoint, Exchange exchange)
 specifier|public
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|E
+name|Exchange
 name|convertedExchange
 init|=
 name|exchange
@@ -516,15 +490,12 @@ return|return
 name|convertedExchange
 return|;
 block|}
-DECL|method|send (Endpoint<E> endpoint, Processor processor)
+DECL|method|send (Endpoint endpoint, Processor processor)
 specifier|public
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
@@ -542,15 +513,12 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|send (Endpoint<E> endpoint, Processor processor, AsyncCallback callback)
+DECL|method|send (Endpoint endpoint, Processor processor, AsyncCallback callback)
 specifier|public
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
@@ -573,15 +541,12 @@ name|callback
 argument_list|)
 return|;
 block|}
-DECL|method|send (Endpoint<E> endpoint, ExchangePattern pattern, Processor processor)
+DECL|method|send (Endpoint endpoint, ExchangePattern pattern, Processor processor)
 specifier|public
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|ExchangePattern
@@ -604,15 +569,12 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|sendBody (Endpoint<E> endpoint, ExchangePattern pattern, Object body)
+DECL|method|sendBody (Endpoint endpoint, ExchangePattern pattern, Object body)
 specifier|public
 name|Object
 name|sendBody
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|ExchangePattern
@@ -622,7 +584,7 @@ name|Object
 name|body
 parameter_list|)
 block|{
-name|E
+name|Exchange
 name|result
 init|=
 name|send
@@ -646,22 +608,19 @@ name|pattern
 argument_list|)
 return|;
 block|}
-DECL|method|sendBody (Endpoint<E> endpoint, Object body)
+DECL|method|sendBody (Endpoint endpoint, Object body)
 specifier|public
 name|Object
 name|sendBody
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Object
 name|body
 parameter_list|)
 block|{
-name|E
+name|Exchange
 name|result
 init|=
 name|send
@@ -802,7 +761,7 @@ name|Object
 name|headerValue
 parameter_list|)
 block|{
-name|E
+name|Exchange
 name|result
 init|=
 name|send
@@ -850,7 +809,7 @@ name|Object
 name|headerValue
 parameter_list|)
 block|{
-name|E
+name|Exchange
 name|result
 init|=
 name|send
@@ -902,7 +861,7 @@ name|Object
 name|headerValue
 parameter_list|)
 block|{
-name|E
+name|Exchange
 name|result
 init|=
 name|send
@@ -988,7 +947,7 @@ argument_list|>
 name|headers
 parameter_list|)
 block|{
-name|E
+name|Exchange
 name|result
 init|=
 name|send
@@ -1069,15 +1028,12 @@ return|;
 block|}
 comment|// Methods using an InOut ExchangePattern
 comment|// -----------------------------------------------------------------------
-DECL|method|request (Endpoint<E> endpoint, Processor processor)
+DECL|method|request (Endpoint endpoint, Processor processor)
 specifier|public
-name|E
+name|Exchange
 name|request
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
@@ -1097,15 +1053,12 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|requestBody (Endpoint<E> endpoint, Object body)
+DECL|method|requestBody (Endpoint endpoint, Object body)
 specifier|public
 name|Object
 name|requestBody
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Object
@@ -1125,15 +1078,12 @@ name|body
 argument_list|)
 return|;
 block|}
-DECL|method|requestBodyAndHeader (Endpoint<E> endpoint, Object body, String header, Object headerValue)
+DECL|method|requestBodyAndHeader (Endpoint endpoint, Object body, String header, Object headerValue)
 specifier|public
 name|Object
 name|requestBodyAndHeader
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Object
@@ -1165,7 +1115,7 @@ return|;
 block|}
 DECL|method|request (String endpoint, Processor processor)
 specifier|public
-name|E
+name|Exchange
 name|request
 parameter_list|(
 name|String
@@ -1269,12 +1219,12 @@ name|body
 argument_list|)
 return|;
 block|}
-DECL|method|send (E exchange)
+DECL|method|send (Exchange exchange)
 specifier|public
-name|E
+name|Exchange
 name|send
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 block|{
@@ -1290,7 +1240,7 @@ return|;
 block|}
 DECL|method|send (Processor processor)
 specifier|public
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|Processor
@@ -1367,15 +1317,12 @@ return|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
-DECL|method|getProducer (Endpoint<E> endpoint)
+DECL|method|getProducer (Endpoint endpoint)
 specifier|public
 name|Producer
 name|getProducer
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{
@@ -1401,9 +1348,6 @@ block|}
 DECL|method|getDefaultEndpoint ()
 specifier|public
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|getDefaultEndpoint
 parameter_list|()
 block|{
@@ -1411,15 +1355,12 @@ return|return
 name|defaultEndpoint
 return|;
 block|}
-DECL|method|setDefaultEndpoint (Endpoint<E> defaultEndpoint)
+DECL|method|setDefaultEndpoint (Endpoint defaultEndpoint)
 specifier|public
 name|void
 name|setDefaultEndpoint
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|defaultEndpoint
 parameter_list|)
 block|{
@@ -1766,16 +1707,10 @@ block|}
 DECL|method|getMandatoryDefaultEndpoint ()
 specifier|protected
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|getMandatoryDefaultEndpoint
 parameter_list|()
 block|{
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|answer
 init|=
 name|getDefaultEndpoint
@@ -1828,12 +1763,12 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Extracts the body from the given result.      *      * @param result   the result      * @return  the result, can be<tt>null</tt>.      */
-DECL|method|extractResultBody (E result)
+DECL|method|extractResultBody (Exchange result)
 specifier|protected
 name|Object
 name|extractResultBody
 parameter_list|(
-name|E
+name|Exchange
 name|result
 parameter_list|)
 block|{
@@ -1847,12 +1782,12 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Extracts the body from the given result.      *<p/>      * If the exchange pattern is provided it will try to honor it and retrive the body      * from either IN or OUT according to the pattern.      *      * @param result   the result      * @param pattern  exchange pattern if given, can be<tt>null</tt>      * @return  the result, can be<tt>null</tt>.      */
-DECL|method|extractResultBody (E result, ExchangePattern pattern)
+DECL|method|extractResultBody (Exchange result, ExchangePattern pattern)
 specifier|protected
 name|Object
 name|extractResultBody
 parameter_list|(
-name|E
+name|Exchange
 name|result
 parameter_list|,
 name|ExchangePattern
@@ -1975,12 +1910,12 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|hasFaultMessage (E result)
+DECL|method|hasFaultMessage (Exchange result)
 specifier|protected
 name|boolean
 name|hasFaultMessage
 parameter_list|(
-name|E
+name|Exchange
 name|result
 parameter_list|)
 block|{

@@ -283,9 +283,6 @@ name|resultEndpoint
 argument_list|)
 expr_stmt|;
 name|ProducerTemplate
-argument_list|<
-name|Exchange
-argument_list|>
 name|template
 init|=
 name|camelContext

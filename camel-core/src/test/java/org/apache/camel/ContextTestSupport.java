@@ -181,9 +181,6 @@ decl_stmt|;
 DECL|field|template
 specifier|protected
 name|ProducerTemplate
-argument_list|<
-name|Exchange
-argument_list|>
 name|template
 decl_stmt|;
 DECL|field|useRouteBuilder

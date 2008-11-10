@@ -33,26 +33,21 @@ DECL|interface|ProducerTemplate
 specifier|public
 interface|interface
 name|ProducerTemplate
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|Service
 block|{
 comment|/**      * Sends the exchange to the default endpoint      *      * @param exchange the exchange to send      * @return the returned exchange      */
-DECL|method|send (E exchange)
-name|E
+DECL|method|send (Exchange exchange)
+name|Exchange
 name|send
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
 comment|/**      * Sends an exchange to the default endpoint using a supplied      *      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      */
 DECL|method|send (Processor processor)
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|Processor
@@ -103,20 +98,20 @@ function_decl|;
 comment|// Allow sending to arbitrary endpoints
 comment|// -----------------------------------------------------------------------
 comment|/**      * Sends the exchange to the given endpoint      *      * @param endpointUri the endpoint URI to send the exchange to      * @param exchange    the exchange to send      * @return the returned exchange      */
-DECL|method|send (String endpointUri, E exchange)
-name|E
+DECL|method|send (String endpointUri, Exchange exchange)
+name|Exchange
 name|send
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
 comment|/**      * Sends an exchange to an endpoint using a supplied processor      *      * @param endpointUri the endpoint URI to send the exchange to      * @param processor   the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      */
 DECL|method|send (String endpointUri, Processor processor)
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|String
@@ -128,7 +123,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Sends an exchange to an endpoint using a supplied processor      *      * @param endpointUri the endpoint URI to send the exchange to      * @param pattern     the message {@link ExchangePattern} such as      *                    {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor   the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      */
 DECL|method|send (String endpointUri, ExchangePattern pattern, Processor processor)
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|String
@@ -143,7 +138,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Sends an exchange to an endpoint using a supplied processor      *      * @param endpointUri the endpoint URI to send the exchange to      * @param processor   the transformer used to populate the new exchange      * {@link Processor} to populate the exchange.      * @param callback    the callback will be called when the exchange is completed.      * @return the returned exchange      */
 DECL|method|send (String endpointUri, Processor processor, AsyncCallback callback)
-name|E
+name|Exchange
 name|send
 parameter_list|(
 name|String
@@ -157,29 +152,23 @@ name|callback
 parameter_list|)
 function_decl|;
 comment|/**      * Sends the exchange to the given endpoint      *      * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      * @return the returned exchange      */
-DECL|method|send (Endpoint<E> endpoint, E exchange)
-name|E
+DECL|method|send (Endpoint endpoint, Exchange exchange)
+name|Exchange
 name|send
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
-name|E
+name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
 comment|/**      * Sends an exchange to an endpoint using a supplied processor      *      * @param endpoint  the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      */
-DECL|method|send (Endpoint<E> endpoint, Processor processor)
-name|E
+DECL|method|send (Endpoint endpoint, Processor processor)
+name|Exchange
 name|send
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
@@ -187,14 +176,11 @@ name|processor
 parameter_list|)
 function_decl|;
 comment|/**      * Sends an exchange to an endpoint using a supplied processor      *      * @param endpoint  the endpoint to send the exchange to      * @param pattern   the message {@link ExchangePattern} such as      *                  {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      */
-DECL|method|send (Endpoint<E> endpoint, ExchangePattern pattern, Processor processor)
-name|E
+DECL|method|send (Endpoint endpoint, ExchangePattern pattern, Processor processor)
+name|Exchange
 name|send
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|ExchangePattern
@@ -205,14 +191,11 @@ name|processor
 parameter_list|)
 function_decl|;
 comment|/**      * Sends an exchange to an endpoint using a supplied processor      *      * @param endpoint  the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange.      * @param callback  the callback will be called when the exchange is completed.      * @return the returned exchange      */
-DECL|method|send (Endpoint<E> endpoint, Processor processor, AsyncCallback callback)
-name|E
+DECL|method|send (Endpoint endpoint, Processor processor, AsyncCallback callback)
+name|Exchange
 name|send
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
@@ -223,14 +206,11 @@ name|callback
 parameter_list|)
 function_decl|;
 comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint   the endpoint to send the exchange to      * @param body       the payload      * @return the result (see class javadoc)      */
-DECL|method|sendBody (Endpoint<E> endpoint, Object body)
+DECL|method|sendBody (Endpoint endpoint, Object body)
 name|Object
 name|sendBody
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Object
@@ -250,14 +230,11 @@ name|body
 parameter_list|)
 function_decl|;
 comment|/**      * Send the body to an endpoint with the given {@link ExchangePattern}      * returning any result output body      *      * @param endpoint      the endpoint to send the exchange to      * @param body          the payload      * @param pattern       the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @return the result (see class javadoc)      */
-DECL|method|sendBody (Endpoint<E> endpoint, ExchangePattern pattern, Object body)
+DECL|method|sendBody (Endpoint endpoint, ExchangePattern pattern, Object body)
 name|Object
 name|sendBody
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|ExchangePattern
@@ -403,14 +380,11 @@ function_decl|;
 comment|// Methods using an InOut ExchangePattern
 comment|// -----------------------------------------------------------------------
 comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint  the Endpoint to send to      * @param processor the processor which will populate the exchange before sending      * @return the result (see class javadoc)      */
-DECL|method|request (Endpoint<E> endpoint, Processor processor)
-name|E
+DECL|method|request (Endpoint endpoint, Processor processor)
+name|Exchange
 name|request
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
@@ -418,14 +392,11 @@ name|processor
 parameter_list|)
 function_decl|;
 comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint the Endpoint to send to      * @param body     the payload      * @return the result (see class javadoc)      */
-DECL|method|requestBody (Endpoint<E> endpoint, Object body)
+DECL|method|requestBody (Endpoint endpoint, Object body)
 name|Object
 name|requestBody
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Object
@@ -433,14 +404,11 @@ name|body
 parameter_list|)
 function_decl|;
 comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint    the Endpoint to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @return the result (see class javadoc)      */
-DECL|method|requestBodyAndHeader (Endpoint<E> endpoint, Object body, String header, Object headerValue)
+DECL|method|requestBodyAndHeader (Endpoint endpoint, Object body, String header, Object headerValue)
 name|Object
 name|requestBodyAndHeader
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Object
@@ -455,7 +423,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send to      * @param processor the processor which will populate the exchange before sending      * @return the result (see class javadoc)      */
 DECL|method|request (String endpointUri, Processor processor)
-name|E
+name|Exchange
 name|request
 parameter_list|(
 name|String

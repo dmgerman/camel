@@ -487,9 +487,6 @@ decl_stmt|;
 DECL|field|camelTemplate
 specifier|private
 name|ProducerTemplate
-argument_list|<
-name|Exchange
-argument_list|>
 name|camelTemplate
 decl_stmt|;
 DECL|field|distinationEndpoint
@@ -802,9 +799,6 @@ block|}
 DECL|method|getCamelTemplate ()
 specifier|public
 name|ProducerTemplate
-argument_list|<
-name|Exchange
-argument_list|>
 name|getCamelTemplate
 parameter_list|()
 block|{
@@ -840,15 +834,12 @@ return|return
 name|camelTemplate
 return|;
 block|}
-DECL|method|setCamelTemplate (ProducerTemplate<Exchange> template)
+DECL|method|setCamelTemplate (ProducerTemplate template)
 specifier|public
 name|void
 name|setCamelTemplate
 parameter_list|(
 name|ProducerTemplate
-argument_list|<
-name|Exchange
-argument_list|>
 name|template
 parameter_list|)
 block|{

@@ -265,9 +265,6 @@ decl_stmt|;
 DECL|field|camelTemplate
 specifier|private
 name|ProducerTemplate
-argument_list|<
-name|Exchange
-argument_list|>
 name|camelTemplate
 decl_stmt|;
 DECL|field|replyChannel
@@ -302,9 +299,6 @@ block|}
 DECL|method|getCamelTemplate ()
 specifier|public
 name|ProducerTemplate
-argument_list|<
-name|Exchange
-argument_list|>
 name|getCamelTemplate
 parameter_list|()
 block|{
