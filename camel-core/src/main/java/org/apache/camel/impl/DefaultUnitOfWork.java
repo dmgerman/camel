@@ -172,11 +172,6 @@ name|AsyncCallback
 argument_list|>
 name|asyncCallbacks
 decl_stmt|;
-DECL|field|latch
-specifier|private
-name|CountDownLatch
-name|latch
-decl_stmt|;
 DECL|method|DefaultUnitOfWork ()
 specifier|public
 name|DefaultUnitOfWork

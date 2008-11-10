@@ -543,16 +543,10 @@ name|exchange
 parameter_list|)
 block|{
 return|return
-operator|(
-name|tracer
-operator|==
-literal|null
-operator|||
 name|tracer
 operator|.
 name|isEnabled
 argument_list|()
-operator|)
 operator|&&
 operator|(
 name|tracer

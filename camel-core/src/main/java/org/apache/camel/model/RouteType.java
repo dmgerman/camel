@@ -518,13 +518,6 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|context
-operator|instanceof
-name|CamelContext
-condition|)
-block|{
 name|ErrorHandlerBuilder
 name|handler
 init|=
@@ -545,7 +538,6 @@ argument_list|(
 name|handler
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 for|for
 control|(
