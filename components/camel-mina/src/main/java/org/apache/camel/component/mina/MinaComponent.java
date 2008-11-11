@@ -702,9 +702,6 @@ name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|Endpoint
-argument_list|<
-name|MinaExchange
-argument_list|>
 name|createEndpoint
 parameter_list|(
 name|String

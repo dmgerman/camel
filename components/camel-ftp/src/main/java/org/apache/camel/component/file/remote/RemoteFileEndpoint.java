@@ -107,9 +107,6 @@ name|RemoteFileExchange
 parameter_list|>
 extends|extends
 name|ScheduledPollEndpoint
-argument_list|<
-name|T
-argument_list|>
 block|{
 DECL|field|binding
 specifier|private

@@ -125,16 +125,8 @@ DECL|class|DirectEndpoint
 specifier|public
 class|class
 name|DirectEndpoint
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|allowMultipleConsumers
 specifier|private
@@ -159,7 +151,7 @@ name|DefaultConsumer
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|DirectEndpoint (String uri, DirectComponent<E> component)
+DECL|method|DirectEndpoint (String uri, DirectComponent component)
 specifier|public
 name|DirectEndpoint
 parameter_list|(
@@ -167,9 +159,6 @@ name|String
 name|uri
 parameter_list|,
 name|DirectComponent
-argument_list|<
-name|E
-argument_list|>
 name|component
 parameter_list|)
 block|{
@@ -206,9 +195,6 @@ block|{
 return|return
 operator|new
 name|DirectProducer
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|)

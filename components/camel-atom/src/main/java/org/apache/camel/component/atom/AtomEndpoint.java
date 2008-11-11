@@ -143,9 +143,6 @@ class|class
 name|AtomEndpoint
 extends|extends
 name|DefaultPollingEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 comment|/**      * Header key for the {@link org.apache.abdera.model.Feed} object is stored on the in message on the exchange.      */
 DECL|field|HEADER_ATOM_FEED

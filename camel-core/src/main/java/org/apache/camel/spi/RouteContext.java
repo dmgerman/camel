@@ -157,11 +157,6 @@ block|{
 comment|/**      * Gets the endpoint      *      * @return the endpoint      */
 DECL|method|getEndpoint ()
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|getEndpoint
 parameter_list|()
 function_decl|;
@@ -197,11 +192,6 @@ function_decl|;
 comment|/**      * Resolves an endpoint from the URI      *      * @param uri the URI      * @return the resolved endpoint      */
 DECL|method|resolveEndpoint (String uri)
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|resolveEndpoint
 parameter_list|(
 name|String
@@ -211,11 +201,6 @@ function_decl|;
 comment|/**      * Resolves an endpoint from either a URI or a named reference      *      * @param uri  the URI or      * @param ref  the named reference      * @return the resolved endpoint      */
 DECL|method|resolveEndpoint (String uri, String ref)
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|resolveEndpoint
 parameter_list|(
 name|String

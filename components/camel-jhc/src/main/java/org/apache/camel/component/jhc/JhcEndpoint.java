@@ -143,9 +143,6 @@ class|class
 name|JhcEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|JhcExchange
-argument_list|>
 block|{
 DECL|field|params
 specifier|private

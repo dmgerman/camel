@@ -159,9 +159,6 @@ class|class
 name|SpringIntegrationEndpoint
 extends|extends
 name|ScheduledPollEndpoint
-argument_list|<
-name|SpringIntegrationExchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

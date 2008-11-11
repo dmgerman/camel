@@ -287,9 +287,6 @@ decl_stmt|;
 DECL|field|endpoint
 specifier|protected
 name|Endpoint
-argument_list|<
-name|XmppExchange
-argument_list|>
 name|endpoint
 decl_stmt|;
 DECL|field|client

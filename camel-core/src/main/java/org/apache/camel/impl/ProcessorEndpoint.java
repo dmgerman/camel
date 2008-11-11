@@ -99,9 +99,6 @@ class|class
 name|ProcessorEndpoint
 extends|extends
 name|DefaultPollingEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|processor
 specifier|private

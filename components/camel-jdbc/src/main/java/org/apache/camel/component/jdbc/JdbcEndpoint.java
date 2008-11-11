@@ -100,20 +100,6 @@ name|DefaultEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision:520964 $  */
 end_comment
@@ -125,9 +111,6 @@ class|class
 name|JdbcEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|DefaultExchange
-argument_list|>
 block|{
 DECL|field|uri
 specifier|private

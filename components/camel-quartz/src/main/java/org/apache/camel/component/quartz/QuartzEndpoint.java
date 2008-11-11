@@ -265,9 +265,6 @@ class|class
 name|QuartzEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|QuartzExchange
-argument_list|>
 block|{
 DECL|field|ENDPOINT_KEY
 specifier|public

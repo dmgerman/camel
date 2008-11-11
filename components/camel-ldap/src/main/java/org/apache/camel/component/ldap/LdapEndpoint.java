@@ -123,16 +123,8 @@ DECL|class|LdapEndpoint
 specifier|public
 class|class
 name|LdapEndpoint
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|SYSTEM_DN
 specifier|public

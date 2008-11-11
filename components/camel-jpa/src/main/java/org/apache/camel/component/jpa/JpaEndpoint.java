@@ -211,9 +211,6 @@ class|class
 name|JpaEndpoint
 extends|extends
 name|ScheduledPollEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|entityManagerFactory
 specifier|private

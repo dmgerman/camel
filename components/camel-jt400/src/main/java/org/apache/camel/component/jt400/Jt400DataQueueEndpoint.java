@@ -149,9 +149,6 @@ class|class
 name|Jt400DataQueueEndpoint
 extends|extends
 name|DefaultPollingEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 comment|/**      * Enumeration of supported data formats      */
 DECL|enum|Format

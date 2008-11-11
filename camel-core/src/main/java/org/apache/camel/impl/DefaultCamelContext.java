@@ -1916,9 +1916,6 @@ name|uri
 parameter_list|)
 block|{
 name|Endpoint
-argument_list|<
-name|?
-argument_list|>
 name|answer
 decl_stmt|;
 synchronized|synchronized

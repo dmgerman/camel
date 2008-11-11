@@ -250,9 +250,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|DefaultEndpoint
-operator|)
 name|endpoint
 argument_list|,
 name|processor

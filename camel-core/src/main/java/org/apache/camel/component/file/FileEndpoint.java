@@ -265,9 +265,6 @@ class|class
 name|FileEndpoint
 extends|extends
 name|ScheduledPollEndpoint
-argument_list|<
-name|FileExchange
-argument_list|>
 block|{
 DECL|field|DEFAULT_LOCK_FILE_POSTFIX
 specifier|public

@@ -443,9 +443,6 @@ name|routes
 control|)
 block|{
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|key
 init|=
 name|route

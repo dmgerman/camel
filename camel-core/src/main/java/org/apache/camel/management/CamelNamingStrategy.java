@@ -428,11 +428,6 @@ throws|throws
 name|MalformedObjectNameException
 block|{
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|ep
 init|=
 name|mbean
@@ -703,11 +698,6 @@ name|getRoute
 argument_list|()
 decl_stmt|;
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|ep
 init|=
 name|route
@@ -850,11 +840,6 @@ throws|throws
 name|MalformedObjectNameException
 block|{
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|ep
 init|=
 name|routeContext
@@ -1098,17 +1083,12 @@ name|VALUE_UNKNOWN
 operator|)
 return|;
 block|}
-DECL|method|getEndpointId (Endpoint<? extends Exchange> ep)
+DECL|method|getEndpointId (Endpoint ep)
 specifier|protected
 name|String
 name|getEndpointId
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|ep
 parameter_list|)
 block|{

@@ -195,14 +195,11 @@ specifier|private
 name|Exception
 name|firstExceptionThrown
 decl_stmt|;
-DECL|method|ScheduledPollConsumer (DefaultEndpoint<Exchange> endpoint, Processor processor)
+DECL|method|ScheduledPollConsumer (DefaultEndpoint endpoint, Processor processor)
 specifier|public
 name|ScheduledPollConsumer
 parameter_list|(
 name|DefaultEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
@@ -222,14 +219,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ScheduledPollConsumer (Endpoint<Exchange> endpoint, Processor processor, ScheduledExecutorService executor)
+DECL|method|ScheduledPollConsumer (Endpoint endpoint, Processor processor, ScheduledExecutorService executor)
 specifier|public
 name|ScheduledPollConsumer
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor

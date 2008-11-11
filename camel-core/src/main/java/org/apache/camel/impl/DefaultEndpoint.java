@@ -182,16 +182,8 @@ specifier|public
 specifier|abstract
 class|class
 name|DefaultEndpoint
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 implements|implements
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 implements|,
 name|CamelContextAware
 block|{
@@ -559,14 +551,14 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Converts the given exchange to the specified exchange type      */
-DECL|method|convertTo (Class<E> type, Exchange exchange)
+DECL|method|convertTo (Class<Exchange> type, Exchange exchange)
 specifier|public
-name|E
+name|Exchange
 name|convertTo
 parameter_list|(
 name|Class
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|type
 parameter_list|,
@@ -620,7 +612,7 @@ parameter_list|)
 block|{
 name|Class
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|exchangeType
 init|=
@@ -654,12 +646,9 @@ argument_list|)
 return|;
 block|}
 block|}
-name|E
+name|Exchange
 name|answer
 init|=
-operator|(
-name|E
-operator|)
 name|createExchange
 argument_list|()
 decl_stmt|;
@@ -679,7 +668,7 @@ DECL|method|getExchangeType ()
 specifier|public
 name|Class
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 name|getExchangeType
 parameter_list|()
@@ -745,7 +734,7 @@ return|return
 operator|(
 name|Class
 argument_list|<
-name|E
+name|Exchange
 argument_list|>
 operator|)
 name|argumentType
@@ -781,9 +770,6 @@ name|pattern
 parameter_list|)
 block|{
 return|return
-operator|(
-name|E
-operator|)
 operator|new
 name|DefaultExchange
 argument_list|(

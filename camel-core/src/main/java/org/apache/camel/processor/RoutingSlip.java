@@ -372,9 +372,6 @@ name|recipients
 control|)
 block|{
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|endpoint
 init|=
 name|resolveEndpoint
@@ -439,9 +436,6 @@ block|}
 DECL|method|resolveEndpoint (Exchange exchange, Object recipient)
 specifier|protected
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|resolveEndpoint
 parameter_list|(
 name|Exchange

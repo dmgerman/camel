@@ -123,9 +123,6 @@ block|{
 DECL|field|startEndpoint
 specifier|protected
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|startEndpoint
 decl_stmt|;
 DECL|field|deadEndpoint

@@ -195,9 +195,6 @@ class|class
 name|MinaEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|MinaExchange
-argument_list|>
 block|{
 DECL|field|DEFAULT_TIMEOUT
 specifier|private

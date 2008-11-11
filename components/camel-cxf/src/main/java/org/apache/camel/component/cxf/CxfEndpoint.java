@@ -191,9 +191,6 @@ class|class
 name|CxfEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|CxfExchange
-argument_list|>
 block|{
 DECL|field|component
 specifier|private

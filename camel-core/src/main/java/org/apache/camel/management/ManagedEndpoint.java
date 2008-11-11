@@ -32,18 +32,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|jmx
@@ -92,23 +80,13 @@ block|{
 DECL|field|endpoint
 specifier|private
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|endpoint
 decl_stmt|;
-DECL|method|ManagedEndpoint (Endpoint<? extends Exchange> endpoint)
+DECL|method|ManagedEndpoint (Endpoint endpoint)
 specifier|public
 name|ManagedEndpoint
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{
@@ -122,11 +100,6 @@ block|}
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|getEndpoint
 parameter_list|()
 block|{

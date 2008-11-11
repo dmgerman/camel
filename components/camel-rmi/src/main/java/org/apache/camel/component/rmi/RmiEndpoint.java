@@ -205,9 +205,6 @@ class|class
 name|RmiEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|BeanExchange
-argument_list|>
 block|{
 DECL|field|remoteInterfaces
 specifier|private

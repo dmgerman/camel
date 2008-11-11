@@ -173,9 +173,6 @@ class|class
 name|JMXEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|JMXExchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

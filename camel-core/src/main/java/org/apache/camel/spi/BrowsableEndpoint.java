@@ -59,16 +59,8 @@ DECL|interface|BrowsableEndpoint
 specifier|public
 interface|interface
 name|BrowsableEndpoint
-parameter_list|<
-name|T
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|Endpoint
-argument_list|<
-name|T
-argument_list|>
 block|{
 comment|/**      * Return the exchanges available on this endpoint      *      * @return the exchanges on this endpoint      */
 DECL|method|getExchanges ()

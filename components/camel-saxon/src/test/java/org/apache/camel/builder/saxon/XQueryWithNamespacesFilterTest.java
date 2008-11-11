@@ -50,18 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -100,24 +88,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|xquery
-operator|.
-name|XQueryBuilder
-operator|.
-name|xquery
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -133,9 +103,6 @@ block|{
 DECL|field|startEndpoint
 specifier|protected
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|startEndpoint
 decl_stmt|;
 DECL|field|resultEndpoint

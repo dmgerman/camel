@@ -283,9 +283,6 @@ class|class
 name|FixedLengthEndpoint
 extends|extends
 name|DefaultPollingEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|resource
 specifier|private

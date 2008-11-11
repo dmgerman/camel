@@ -173,14 +173,8 @@ class|class
 name|SedaEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 implements|implements
 name|BrowsableEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|queue
 specifier|private

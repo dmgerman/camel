@@ -466,15 +466,12 @@ name|value
 argument_list|)
 return|;
 block|}
-DECL|method|assertEndpointUri (Endpoint<Exchange> endpoint, String uri)
+DECL|method|assertEndpointUri (Endpoint endpoint, String uri)
 specifier|protected
 name|void
 name|assertEndpointUri
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|endpoint
 parameter_list|,
 name|String

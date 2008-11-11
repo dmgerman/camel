@@ -78,18 +78,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Route
 import|;
 end_import
@@ -185,17 +173,12 @@ parameter_list|)
 block|{
 comment|// do nothing
 block|}
-DECL|method|onEndpointAdd (Endpoint<? extends Exchange> endpoint)
+DECL|method|onEndpointAdd (Endpoint endpoint)
 specifier|public
 name|void
 name|onEndpointAdd
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{

@@ -381,11 +381,6 @@ decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|endpoint
 decl_stmt|;
 DECL|field|eventDrivenProcessors
@@ -510,11 +505,6 @@ block|}
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|getEndpoint
 parameter_list|()
 block|{
@@ -608,11 +598,6 @@ block|}
 DECL|method|resolveEndpoint (String uri)
 specifier|public
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|resolveEndpoint
 parameter_list|(
 name|String
@@ -631,11 +616,6 @@ block|}
 DECL|method|resolveEndpoint (String uri, String ref)
 specifier|public
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|resolveEndpoint
 parameter_list|(
 name|String
@@ -646,11 +626,6 @@ name|ref
 parameter_list|)
 block|{
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|endpoint
 init|=
 literal|null

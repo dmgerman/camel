@@ -82,18 +82,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -184,9 +172,6 @@ name|Override
 DECL|method|createEndpoint (String uri, String path, Map options)
 specifier|protected
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|createEndpoint
 parameter_list|(
 name|String

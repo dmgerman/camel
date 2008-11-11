@@ -210,11 +210,6 @@ decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|endpoint
 decl_stmt|;
 DECL|field|processor
@@ -233,16 +228,11 @@ name|int
 name|capacity
 decl_stmt|;
 comment|/**      * Creates a new {@link StreamResequencer} instance.      *       * @param endpoint      *            endpoint to poll exchanges from.      * @param processor      *            next processor that processes re-ordered exchanges.      * @param comparator      *            a sequence element comparator for exchanges.      */
-DECL|method|StreamResequencer (Endpoint<? extends Exchange> endpoint, Processor processor, SequenceElementComparator<Exchange> comparator)
+DECL|method|StreamResequencer (Endpoint endpoint, Processor processor, SequenceElementComparator<Exchange> comparator)
 specifier|public
 name|StreamResequencer
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor

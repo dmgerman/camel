@@ -33,11 +33,6 @@ DECL|interface|Endpoint
 specifier|public
 interface|interface
 name|Endpoint
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 block|{
 comment|/**      * Returns if the endpoint should be a CamelContext singleton. If the      * endpoint is a Singleton, then a single Endpoint instance will be shared      * by all routes with the same URI. Because the endpoint is shared, it      * should be treated as an immutable.      */
 DECL|method|isSingleton ()

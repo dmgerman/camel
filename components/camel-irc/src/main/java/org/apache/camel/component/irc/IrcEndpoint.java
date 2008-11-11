@@ -107,9 +107,6 @@ class|class
 name|IrcEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|IrcExchange
-argument_list|>
 block|{
 DECL|field|binding
 specifier|private

@@ -98,16 +98,8 @@ specifier|public
 specifier|abstract
 class|class
 name|DefaultPollingEndpoint
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|ScheduledPollEndpoint
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|method|DefaultPollingEndpoint ()
 specifier|protected
@@ -183,12 +175,6 @@ init|=
 operator|new
 name|DefaultScheduledPollConsumer
 argument_list|(
-operator|(
-name|DefaultEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
-operator|)
 name|this
 argument_list|,
 name|processor

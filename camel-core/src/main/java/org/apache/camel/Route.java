@@ -121,9 +121,6 @@ decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 decl_stmt|;
 DECL|field|services
@@ -141,14 +138,11 @@ name|Service
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|Route (Endpoint<E> endpoint)
+DECL|method|Route (Endpoint endpoint)
 specifier|public
 name|Route
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{
@@ -159,14 +153,11 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
-DECL|method|Route (Endpoint<E> endpoint, Service... services)
+DECL|method|Route (Endpoint endpoint, Service... services)
 specifier|public
 name|Route
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Service
@@ -209,9 +200,6 @@ block|}
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|getEndpoint
 parameter_list|()
 block|{
@@ -219,15 +207,12 @@ return|return
 name|endpoint
 return|;
 block|}
-DECL|method|setEndpoint (Endpoint<E> endpoint)
+DECL|method|setEndpoint (Endpoint endpoint)
 specifier|public
 name|void
 name|setEndpoint
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{

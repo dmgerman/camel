@@ -355,6 +355,7 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// read the response data
 name|InputStream
 name|answer
 init|=
@@ -377,7 +378,6 @@ argument_list|,
 name|expectedText
 argument_list|)
 expr_stmt|;
-comment|// read the response data
 name|String
 name|lastLine
 init|=

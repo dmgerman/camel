@@ -474,11 +474,6 @@ name|void
 name|onEndpointAdd
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{

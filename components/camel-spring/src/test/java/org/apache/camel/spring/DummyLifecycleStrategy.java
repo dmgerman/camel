@@ -135,23 +135,18 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
-comment|// TODO Auto-generated method stub
+comment|// Do nothing
 block|}
-DECL|method|onEndpointAdd (Endpoint<? extends Exchange> endpoint)
+DECL|method|onEndpointAdd (Endpoint endpoint)
 specifier|public
 name|void
 name|onEndpointAdd
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{
-comment|// TODO Auto-generated method stub
+comment|// Do nothing
 block|}
 DECL|method|onRouteContextCreate (RouteContext routeContext)
 specifier|public
@@ -162,7 +157,7 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
-comment|// TODO Auto-generated method stub
+comment|// Do nothing
 block|}
 DECL|method|onRoutesAdd (Collection<Route> routes)
 specifier|public
@@ -176,7 +171,7 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
-comment|// TODO Auto-generated method stub
+comment|// Do nothing
 block|}
 DECL|method|onServiceAdd (CamelContext context, Service service)
 specifier|public
@@ -190,7 +185,7 @@ name|Service
 name|service
 parameter_list|)
 block|{
-comment|// TODO Auto-generated method stub
+comment|// Do nothing
 block|}
 DECL|method|onContextStart (CamelContext arg0)
 specifier|public
@@ -201,7 +196,7 @@ name|CamelContext
 name|arg0
 parameter_list|)
 block|{
-comment|// TODO Auto-generated method stub
+comment|// Do nothing
 block|}
 block|}
 end_class

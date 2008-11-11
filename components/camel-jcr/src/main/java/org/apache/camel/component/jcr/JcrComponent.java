@@ -54,20 +54,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
 begin_comment
 comment|/**  * A component for integrating with JSR-170 (JCR) compliant content repositories  */
 end_comment
@@ -100,9 +86,6 @@ argument_list|)
 DECL|method|createEndpoint (String uri, String remaining, Map properties)
 specifier|protected
 name|Endpoint
-argument_list|<
-name|DefaultExchange
-argument_list|>
 name|createEndpoint
 parameter_list|(
 name|String

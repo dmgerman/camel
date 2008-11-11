@@ -1425,9 +1425,6 @@ parameter_list|<
 name|T
 extends|extends
 name|Endpoint
-argument_list|<
-name|?
-argument_list|>
 parameter_list|>
 name|T
 name|getResolvedEndpoint
@@ -1443,9 +1440,6 @@ name|expectedClass
 parameter_list|)
 block|{
 name|Endpoint
-argument_list|<
-name|?
-argument_list|>
 name|e
 init|=
 literal|null

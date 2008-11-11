@@ -230,9 +230,6 @@ argument_list|()
 expr_stmt|;
 comment|// now lets fire in a message
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|endpoint
 init|=
 name|container

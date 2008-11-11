@@ -106,16 +106,11 @@ name|context
 parameter_list|)
 function_decl|;
 comment|/**      * Notification on adding an {@link Endpoint}.      *      * @param endpoint the added endpoint      */
-DECL|method|onEndpointAdd (Endpoint<? extends Exchange> endpoint)
+DECL|method|onEndpointAdd (Endpoint endpoint)
 name|void
 name|onEndpointAdd
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|endpoint
 parameter_list|)
 function_decl|;

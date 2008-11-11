@@ -130,20 +130,6 @@ name|DefaultEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
 begin_comment
 comment|/**  * A JCR endpoint  */
 end_comment
@@ -155,9 +141,6 @@ class|class
 name|JcrEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|DefaultExchange
-argument_list|>
 block|{
 DECL|field|credentials
 specifier|private

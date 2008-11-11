@@ -211,9 +211,6 @@ throws|throws
 name|Exception
 block|{
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 init|=
 name|getEndpoint

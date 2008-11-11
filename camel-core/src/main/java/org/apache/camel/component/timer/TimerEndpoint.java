@@ -123,9 +123,6 @@ class|class
 name|TimerEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|timerName
 specifier|private

@@ -141,9 +141,6 @@ class|class
 name|MailEndpoint
 extends|extends
 name|ScheduledPollEndpoint
-argument_list|<
-name|MailExchange
-argument_list|>
 block|{
 DECL|field|binding
 specifier|private

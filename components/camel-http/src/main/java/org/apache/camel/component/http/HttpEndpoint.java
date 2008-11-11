@@ -193,9 +193,6 @@ class|class
 name|HttpEndpoint
 extends|extends
 name|DefaultPollingEndpoint
-argument_list|<
-name|HttpExchange
-argument_list|>
 block|{
 DECL|field|binding
 specifier|private
@@ -343,8 +340,6 @@ name|this
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|createPollingConsumer ()
 specifier|public
 name|PollingConsumer
@@ -491,8 +486,6 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|isLenientProperties ()
 specifier|public
 name|boolean

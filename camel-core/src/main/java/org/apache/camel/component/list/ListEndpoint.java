@@ -229,14 +229,8 @@ class|class
 name|ListEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 implements|implements
 name|BrowsableEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 implements|,
 name|Service
 block|{

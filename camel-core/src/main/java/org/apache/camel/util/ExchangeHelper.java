@@ -246,21 +246,13 @@ block|{
 literal|"unchecked"
 block|}
 argument_list|)
-DECL|method|resolveEndpoint (E exchange, Object value)
+DECL|method|resolveEndpoint (Exchange exchange, Object value)
 specifier|public
 specifier|static
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|resolveEndpoint
 parameter_list|(
-name|E
+name|Exchange
 name|exchange
 parameter_list|,
 name|Object
@@ -270,9 +262,6 @@ throws|throws
 name|NoSuchEndpointException
 block|{
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 decl_stmt|;
 if|if
@@ -286,9 +275,6 @@ name|endpoint
 operator|=
 operator|(
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 operator|)
 name|value
 expr_stmt|;

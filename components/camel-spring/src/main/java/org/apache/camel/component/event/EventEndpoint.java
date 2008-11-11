@@ -215,9 +215,6 @@ class|class
 name|EventEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 implements|implements
 name|ApplicationContextAware
 block|{

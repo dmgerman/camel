@@ -44,34 +44,6 @@ name|DefaultProducer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * AtomProducer is currently not implemented  *  * @version $Revision$  */
 end_comment
@@ -84,29 +56,6 @@ name|AtomProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|AtomProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-DECL|field|endpoint
-specifier|private
-specifier|final
-name|AtomEndpoint
-name|endpoint
-decl_stmt|;
 DECL|method|AtomProducer (AtomEndpoint endpoint)
 specifier|public
 name|AtomProducer
@@ -119,12 +68,6 @@ name|super
 argument_list|(
 name|endpoint
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)

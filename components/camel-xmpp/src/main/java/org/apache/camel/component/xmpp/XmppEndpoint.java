@@ -229,9 +229,6 @@ class|class
 name|XmppEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|XmppExchange
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

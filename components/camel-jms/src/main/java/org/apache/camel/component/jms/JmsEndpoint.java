@@ -207,9 +207,6 @@ class|class
 name|JmsEndpoint
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|JmsExchange
-argument_list|>
 block|{
 DECL|field|pubSubDomain
 specifier|private

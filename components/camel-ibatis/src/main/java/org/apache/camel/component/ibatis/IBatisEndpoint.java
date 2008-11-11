@@ -235,9 +235,6 @@ class|class
 name|IBatisEndpoint
 extends|extends
 name|DefaultPollingEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 block|{
 DECL|field|logger
 specifier|private

@@ -60,18 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -87,11 +75,6 @@ DECL|class|LdapComponent
 specifier|public
 class|class
 name|LdapComponent
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|DefaultComponent
 block|{
@@ -117,9 +100,6 @@ block|}
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|createEndpoint
 parameter_list|(
 name|String
@@ -135,16 +115,10 @@ throws|throws
 name|Exception
 block|{
 name|Endpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 init|=
 operator|new
 name|LdapEndpoint
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|uri
 argument_list|,

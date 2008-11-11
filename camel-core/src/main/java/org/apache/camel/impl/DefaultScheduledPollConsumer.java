@@ -117,14 +117,11 @@ specifier|private
 name|PollingConsumer
 name|pollingConsumer
 decl_stmt|;
-DECL|method|DefaultScheduledPollConsumer (DefaultEndpoint<Exchange> defaultEndpoint, Processor processor)
+DECL|method|DefaultScheduledPollConsumer (DefaultEndpoint defaultEndpoint, Processor processor)
 specifier|public
 name|DefaultScheduledPollConsumer
 parameter_list|(
 name|DefaultEndpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|defaultEndpoint
 parameter_list|,
 name|Processor
@@ -139,14 +136,11 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DefaultScheduledPollConsumer (Endpoint<Exchange> endpoint, Processor processor, ScheduledExecutorService executor)
+DECL|method|DefaultScheduledPollConsumer (Endpoint endpoint, Processor processor, ScheduledExecutorService executor)
 specifier|public
 name|DefaultScheduledPollConsumer
 parameter_list|(
 name|Endpoint
-argument_list|<
-name|Exchange
-argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor

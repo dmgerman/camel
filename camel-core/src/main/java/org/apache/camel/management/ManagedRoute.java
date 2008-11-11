@@ -210,11 +210,6 @@ name|getEndpointUri
 parameter_list|()
 block|{
 name|Endpoint
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|ep
 init|=
 name|route
