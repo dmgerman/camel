@@ -45,7 +45,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Sends an exchange to the default endpoint using a supplied      *      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      */
+comment|/**      * Sends an exchange to the default endpoint using a supplied processor      *      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange      * @return the returned exchange      */
 DECL|method|send (Processor processor)
 name|Exchange
 name|send
@@ -377,15 +377,73 @@ argument_list|>
 name|headers
 parameter_list|)
 function_decl|;
+comment|/**      * Sends the body to an endpoint with the specified headers and header      * values      *      * @param endpointUri the endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      */
+DECL|method|sendBodyAndHeaders (String endpointUri, ExchangePattern pattern, Object body, Map<String, Object> headers)
+name|Object
+name|sendBodyAndHeaders
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|ExchangePattern
+name|pattern
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with the specified headers and header      * values      *      * @param endpoint the endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      */
+DECL|method|sendBodyAndHeaders (Endpoint endpoint, ExchangePattern pattern, Object body, Map<String, Object> headers)
+name|Object
+name|sendBodyAndHeaders
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|ExchangePattern
+name|pattern
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|)
+function_decl|;
 comment|// Methods using an InOut ExchangePattern
 comment|// -----------------------------------------------------------------------
-comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint  the Endpoint to send to      * @param processor the processor which will populate the exchange before sending      * @return the result (see class javadoc)      */
+comment|/**      * Sends an exchange to an endpoint using a supplied processor      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint  the Endpoint to send to      * @param processor the processor which will populate the exchange before sending      * @return the result (see class javadoc)      */
 DECL|method|request (Endpoint endpoint, Processor processor)
 name|Exchange
 name|request
 parameter_list|(
 name|Endpoint
 name|endpoint
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an exchange to an endpoint using a supplied processor      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send to      * @param processor the processor which will populate the exchange before sending      * @return the result (see class javadoc)      */
+DECL|method|request (String endpointUri, Processor processor)
+name|Exchange
+name|request
+parameter_list|(
+name|String
+name|endpointUri
 parameter_list|,
 name|Processor
 name|processor
@@ -398,6 +456,18 @@ name|requestBody
 parameter_list|(
 name|Endpoint
 name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+function_decl|;
+comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @return the result (see class javadoc)      */
+DECL|method|requestBody (String endpointUri, Object body)
+name|Object
+name|requestBody
+parameter_list|(
+name|String
+name|endpointUri
 parameter_list|,
 name|Object
 name|body
@@ -421,30 +491,6 @@ name|Object
 name|headerValue
 parameter_list|)
 function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send to      * @param processor the processor which will populate the exchange before sending      * @return the result (see class javadoc)      */
-DECL|method|request (String endpointUri, Processor processor)
-name|Exchange
-name|request
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|Processor
-name|processor
-parameter_list|)
-function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @return the result (see class javadoc)      */
-DECL|method|requestBody (String endpointUri, Object body)
-name|Object
-name|requestBody
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|Object
-name|body
-parameter_list|)
-function_decl|;
 comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @return the result (see class javadoc)      */
 DECL|method|requestBodyAndHeader (String endpointUri, Object body, String header, Object headerValue)
 name|Object
@@ -461,6 +507,46 @@ name|header
 parameter_list|,
 name|Object
 name|headerValue
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with the specified headers and header      * values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      */
+DECL|method|requestBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers)
+name|Object
+name|requestBodyAndHeaders
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with the specified headers and header      * values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      */
+DECL|method|requestBodyAndHeaders (Endpoint endpoint, Object body, Map<String, Object> headers)
+name|Object
+name|requestBodyAndHeaders
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
 parameter_list|)
 function_decl|;
 block|}
