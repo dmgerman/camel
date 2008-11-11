@@ -123,9 +123,17 @@ end_comment
 begin_class
 DECL|class|URISupport
 specifier|public
+specifier|final
 class|class
 name|URISupport
 block|{
+DECL|method|URISupport ()
+specifier|private
+name|URISupport
+parameter_list|()
+block|{
+comment|// Helper class
+block|}
 comment|/**      * Holder to get parts of the URI.      */
 DECL|class|CompositeData
 specifier|public

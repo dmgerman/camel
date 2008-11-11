@@ -19,24 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|HttpMethods
-operator|.
-name|HTTP_METHOD
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -333,6 +315,24 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|http
+operator|.
+name|HttpMethods
+operator|.
+name|HTTP_METHOD
 import|;
 end_import
 
