@@ -195,7 +195,7 @@ name|MailConfiguration
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Static builder method      */
+comment|/**      * Static builder method      *      * @deprecated will be removed in Camel 2.0      */
 DECL|method|mailComponent ()
 specifier|public
 specifier|static
@@ -209,7 +209,7 @@ name|MailComponent
 argument_list|()
 return|;
 block|}
-comment|/**      * Static builder method      */
+comment|/**      * Static builder method      *      * @deprecated will be removed in Camel 2.0      */
 DECL|method|mailComponent (MailConfiguration configuration)
 specifier|public
 specifier|static
