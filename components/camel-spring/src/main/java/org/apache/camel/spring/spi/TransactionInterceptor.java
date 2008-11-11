@@ -340,41 +340,6 @@ operator|=
 name|transactionTemplate
 expr_stmt|;
 block|}
-comment|/**      * @deprecated use DelayPolicy. Will be removed in Camel 2.0      */
-DECL|method|TransactionInterceptor (Processor processor, TransactionTemplate transactionTemplate, RedeliveryPolicy redeliveryPolicy)
-specifier|public
-name|TransactionInterceptor
-parameter_list|(
-name|Processor
-name|processor
-parameter_list|,
-name|TransactionTemplate
-name|transactionTemplate
-parameter_list|,
-name|RedeliveryPolicy
-name|redeliveryPolicy
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|processor
-argument_list|,
-name|transactionTemplate
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|redeliveryPolicy
-operator|=
-name|redeliveryPolicy
-expr_stmt|;
-name|this
-operator|.
-name|delayPolicy
-operator|=
-name|redeliveryPolicy
-expr_stmt|;
-block|}
 DECL|method|TransactionInterceptor (Processor processor, TransactionTemplate transactionTemplate, DelayPolicy delayPolicy)
 specifier|public
 name|TransactionInterceptor
@@ -778,34 +743,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-comment|/**      * @deprecated use DelayPolicy. Will be removed in Camel 2.0      */
-DECL|method|getRedeliveryPolicy ()
-specifier|public
-name|RedeliveryPolicy
-name|getRedeliveryPolicy
-parameter_list|()
-block|{
-return|return
-name|redeliveryPolicy
-return|;
-block|}
-comment|/**      * @deprecated use DelayPolicy. Will be removed in Camel 2.0      */
-DECL|method|setRedeliveryPolicy (RedeliveryPolicy redeliveryPolicy)
-specifier|public
-name|void
-name|setRedeliveryPolicy
-parameter_list|(
-name|RedeliveryPolicy
-name|redeliveryPolicy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|redeliveryPolicy
-operator|=
-name|redeliveryPolicy
-expr_stmt|;
 block|}
 DECL|method|getDelayPolicy ()
 specifier|public

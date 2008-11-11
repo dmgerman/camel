@@ -381,20 +381,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @deprecated Use {@link #finallyBlock()} instead, as the name      * is better. Current name sugests that it handles exception,      * while it mimics java finally keyword. Will be removed in Camel 2.0.      */
-annotation|@
-name|Deprecated
-DECL|method|handleAll ()
-specifier|public
-name|TryType
-name|handleAll
-parameter_list|()
-block|{
-return|return
-name|finallyBlock
-argument_list|()
-return|;
-block|}
 DECL|method|finallyBlock ()
 specifier|public
 name|TryType

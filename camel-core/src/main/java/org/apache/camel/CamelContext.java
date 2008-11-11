@@ -358,35 +358,6 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Adds the endpoint to the context using the given URI.  The endpoint will be registered as a singleton.      *      * @param uri the URI to be used to resolve this endpoint      * @param endpoint the endpoint to be added to the context      * @return the old endpoint that was previously registered to the context if there was      * already an endpoint for that URI      * @throws Exception if the new endpoint could not be started or the old endpoint could not be stopped      */
-annotation|@
-name|Deprecated
-DECL|method|addSingletonEndpoint (String uri, Endpoint endpoint)
-name|Endpoint
-name|addSingletonEndpoint
-parameter_list|(
-name|String
-name|uri
-parameter_list|,
-name|Endpoint
-name|endpoint
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Removes the singleton endpoint with the given URI      *      * @param uri the URI to be used to remove      * @return the endpoint that was removed or null if there is no endpoint for this URI      * @throws Exception if endpoint could not be stopped      */
-annotation|@
-name|Deprecated
-DECL|method|removeSingletonEndpoint (String uri)
-name|Endpoint
-name|removeSingletonEndpoint
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 comment|// Route Management Methods
 comment|//-----------------------------------------------------------------------
 comment|/**      * Returns a list of the current route definitions      *      * @return list of the current route definitions      */
@@ -406,20 +377,6 @@ name|Route
 argument_list|>
 name|getRoutes
 parameter_list|()
-function_decl|;
-comment|/**      * Sets the routes for this context, replacing any current routes      *      * @param routes the new routes to use      * @deprecated is considered for deprecation, use addRoutes instead, could be removed in Camel 2.0      */
-annotation|@
-name|Deprecated
-DECL|method|setRoutes (List<Route> routes)
-name|void
-name|setRoutes
-parameter_list|(
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-parameter_list|)
 function_decl|;
 comment|/**      * Adds a collection of routes to this context      *      * @param routes the routes to add      * @throws Exception if the routes could not be created for whatever reason      */
 DECL|method|addRoutes (Collection<Route> routes)

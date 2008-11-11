@@ -1722,44 +1722,6 @@ operator|=
 name|outputs
 expr_stmt|;
 block|}
-comment|/**      * @deprecated not used. Will be removed in Camel 2.0.      */
-DECL|method|createFilterProcessor (RouteContext routeContext)
-specifier|protected
-name|FilterProcessor
-name|createFilterProcessor
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|Processor
-name|childProcessor
-init|=
-name|routeContext
-operator|.
-name|createProcessor
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
-return|return
-operator|new
-name|FilterProcessor
-argument_list|(
-name|getExpression
-argument_list|()
-operator|.
-name|createPredicate
-argument_list|(
-name|routeContext
-argument_list|)
-argument_list|,
-name|childProcessor
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|configureChild (ProcessorType output)
