@@ -50,16 +50,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -99,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Holder object for sending an exchange over the wire using the MINA ObjectSerializationCodecFactory codec.  * This is configured using the<tt>transferExchange=true</tt> option for the TCP protocol.  *<p/>  * As opposed to normal usage of camel-mina where only the body part of the exchange is transfered, this holder  * object serializes the following fields over the wire:  *<ul>  *<li>in body</li>  *<li>out body</li>  *<li>in headers</li>  *<li>out headers</li>  *<li>fault body</li>  *<li>fault headers</li>  *<li>exchange properties</li>  *<li>exception</li>  *</ul>  *  * @version $Revision$  */
+comment|/**  * Holder object for sending an exchange over the wire using the MINA ObjectSerializationCodecFactory codec.  * This is configured using the<tt>transferExchange=true</tt> option for the TCP protocol.  *<p/>  * As opposed to normal usage of camel-mina where only the body part of the exchange is transfered, this holder  * object serializes the following fields over the wire:  *<ul>  *<li>in body</li>  *<li>out body</li>  *<li>in headers</li>  *<li>out headers</li>  *<li>fault body</li>  *<li>fault headers</li>  *<li>exchange properties</li>  *<li>exception</li>  *</ul>  * Any object that is not serializable will be skipped and Camel will log this at WARN level.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -256,6 +246,8 @@ name|inBody
 operator|=
 name|checkSerializableObject
 argument_list|(
+literal|"in body"
+argument_list|,
 name|exchange
 operator|.
 name|getIn
@@ -263,6 +255,26 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|payload
+operator|.
+name|inHeaders
+operator|.
+name|putAll
+argument_list|(
+name|checkMapSerializableObjects
+argument_list|(
+literal|"in headers"
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -283,6 +295,8 @@ name|outBody
 operator|=
 name|checkSerializableObject
 argument_list|(
+literal|"out body"
+argument_list|,
 name|exchange
 operator|.
 name|getOut
@@ -290,25 +304,6 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-name|payload
-operator|.
-name|inHeaders
-operator|.
-name|putAll
-argument_list|(
-name|checkMapSerializableObjects
-argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeaders
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|payload
@@ -319,6 +314,8 @@ name|putAll
 argument_list|(
 name|checkMapSerializableObjects
 argument_list|(
+literal|"out headers"
+argument_list|,
 name|exchange
 operator|.
 name|getOut
@@ -329,30 +326,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|payload
-operator|.
-name|properties
-operator|.
-name|putAll
-argument_list|(
-name|checkMapSerializableObjects
-argument_list|(
-name|exchange
-operator|.
-name|getProperties
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|payload
-operator|.
-name|exception
-operator|=
-name|exchange
-operator|.
-name|getException
-argument_list|()
-expr_stmt|;
+block|}
 if|if
 condition|(
 name|exchange
@@ -369,6 +343,10 @@ name|payload
 operator|.
 name|faultBody
 operator|=
+name|checkSerializableObject
+argument_list|(
+literal|"fault body"
+argument_list|,
 name|exchange
 operator|.
 name|getFault
@@ -376,6 +354,7 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|payload
 operator|.
@@ -385,6 +364,8 @@ name|putAll
 argument_list|(
 name|checkMapSerializableObjects
 argument_list|(
+literal|"fault headers"
+argument_list|,
 name|exchange
 operator|.
 name|getFault
@@ -396,6 +377,32 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|payload
+operator|.
+name|properties
+operator|.
+name|putAll
+argument_list|(
+name|checkMapSerializableObjects
+argument_list|(
+literal|"exchange properties"
+argument_list|,
+name|exchange
+operator|.
+name|getProperties
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|payload
+operator|.
+name|exception
+operator|=
+name|exchange
+operator|.
+name|getException
+argument_list|()
+expr_stmt|;
 return|return
 name|payload
 return|;
@@ -428,18 +435,6 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-name|payload
-operator|.
-name|outBody
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
 name|getIn
 argument_list|()
 operator|.
@@ -448,6 +443,27 @@ argument_list|(
 name|payload
 operator|.
 name|inHeaders
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|payload
+operator|.
+name|outBody
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|payload
+operator|.
+name|outBody
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -462,6 +478,7 @@ operator|.
 name|outHeaders
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|payload
@@ -565,7 +582,7 @@ literal|", faultBody="
 operator|+
 name|faultBody
 operator|+
-literal|" , faultHeaders="
+literal|", faultHeaders="
 operator|+
 name|faultHeaders
 operator|+
@@ -580,12 +597,15 @@ operator|+
 literal|'}'
 return|;
 block|}
-DECL|method|checkSerializableObject (Object object)
+DECL|method|checkSerializableObject (String type, Object object)
 specifier|private
 specifier|static
 name|Object
 name|checkSerializableObject
 parameter_list|(
+name|String
+name|type
+parameter_list|,
 name|Object
 name|object
 parameter_list|)
@@ -607,11 +627,13 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Object "
+name|type
+operator|+
+literal|" containig object "
 operator|+
 name|object
 operator|+
-literal|" can't be serialized, it will be excluded by the MinaPayloadHolder"
+literal|" can not be serialized, it will be excluded by the MinaPayloadHolder"
 argument_list|)
 expr_stmt|;
 return|return
@@ -619,7 +641,7 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|checkMapSerializableObjects (Map<String, Object> map)
+DECL|method|checkMapSerializableObjects (String type, Map<String, Object> map)
 specifier|private
 specifier|static
 name|Map
@@ -630,6 +652,9 @@ name|Object
 argument_list|>
 name|checkMapSerializableObjects
 parameter_list|(
+name|String
+name|type
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -717,7 +742,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Object "
+name|type
+operator|+
+literal|" containing object "
 operator|+
 name|entry
 operator|.
@@ -731,7 +758,7 @@ operator|.
 name|getKey
 argument_list|()
 operator|+
-literal|" can't be serialized, it will be excluded by the MinaPayloadHolder"
+literal|" can not be serialized, it will be excluded by the MinaPayloadHolder"
 argument_list|)
 expr_stmt|;
 block|}
