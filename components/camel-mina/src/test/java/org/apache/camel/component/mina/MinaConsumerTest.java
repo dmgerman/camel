@@ -124,7 +124,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"mina:tcp://localhost:6200?textline=true"
+literal|"mina:tcp://localhost:6200?textline=true&sync=false"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -151,7 +151,7 @@ name|String
 operator|)
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"mina:tcp://localhost:6201?textline=true&sync=true"
 argument_list|,
@@ -190,7 +190,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"mina:tcp://localhost:6200?textline=true"
+literal|"mina:tcp://localhost:6200?textline=true&sync=false"
 argument_list|)
 operator|.
 name|to
