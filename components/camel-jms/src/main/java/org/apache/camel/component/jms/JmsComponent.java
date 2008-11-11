@@ -2096,9 +2096,10 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// exclude the the saturation of username and password are all empty
 throw|throw
 operator|new
-name|CamelException
+name|IllegalArgumentException
 argument_list|(
 literal|"The JmsComponent's username or password is null"
 argument_list|)
