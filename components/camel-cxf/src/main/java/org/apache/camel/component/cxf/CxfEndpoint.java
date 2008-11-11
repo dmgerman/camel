@@ -492,6 +492,47 @@ name|inMessage
 argument_list|)
 return|;
 block|}
+comment|/* Override the defaultEndpoint exchange create method */
+DECL|method|createExchange (Exchange exchange)
+specifier|public
+name|Exchange
+name|createExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+if|if
+condition|(
+name|exchange
+operator|instanceof
+name|CxfExchange
+condition|)
+block|{
+return|return
+name|exchange
+return|;
+block|}
+else|else
+block|{
+name|Exchange
+name|answer
+init|=
+name|createExchange
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|copyFrom
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+block|}
 DECL|method|getDataFormat ()
 specifier|public
 name|String
