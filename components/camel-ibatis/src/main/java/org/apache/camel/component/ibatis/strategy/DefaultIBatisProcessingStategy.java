@@ -42,6 +42,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|ibatis
+operator|.
+name|sqlmap
+operator|.
+name|client
+operator|.
+name|SqlMapClient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -81,20 +95,6 @@ operator|.
 name|ibatis
 operator|.
 name|IBatisPollingConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|ibatis
-operator|.
-name|sqlmap
-operator|.
-name|client
-operator|.
-name|SqlMapClient
 import|;
 end_import
 

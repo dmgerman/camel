@@ -236,13 +236,13 @@ name|IBatisEndpoint
 extends|extends
 name|DefaultPollingEndpoint
 block|{
-DECL|field|logger
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Log
-name|logger
+name|LOG
 init|=
 name|LogFactory
 operator|.
@@ -593,7 +593,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|logger
+name|LOG
 operator|.
 name|error
 argument_list|(
