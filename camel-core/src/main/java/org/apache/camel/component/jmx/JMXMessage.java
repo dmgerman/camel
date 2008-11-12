@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultMessage
@@ -103,14 +115,11 @@ annotation|@
 name|Override
 DECL|method|getExchange ()
 specifier|public
-name|JMXExchange
+name|Exchange
 name|getExchange
 parameter_list|()
 block|{
 return|return
-operator|(
-name|JMXExchange
-operator|)
 name|super
 operator|.
 name|getExchange
