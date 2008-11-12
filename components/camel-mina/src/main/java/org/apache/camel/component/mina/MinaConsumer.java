@@ -474,7 +474,7 @@ name|object
 argument_list|)
 expr_stmt|;
 block|}
-name|MinaExchange
+name|Exchange
 name|exchange
 init|=
 name|endpoint
