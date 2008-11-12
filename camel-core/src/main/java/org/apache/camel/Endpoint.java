@@ -121,24 +121,7 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
-annotation|@
-name|Deprecated
-DECL|method|getContext ()
-name|CamelContext
-name|getContext
-parameter_list|()
-function_decl|;
-annotation|@
-name|Deprecated
-DECL|method|setContext (CamelContext context)
-name|void
-name|setContext
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-function_decl|;
-comment|/**      * Should all properties be known or does the endpoint allow unknown options?      *<p/>      *<tt>lenient = false</tt> means that the endpoint should validate that all      * given options is known and configured properly.      *<tt>lenient = true</tt> means that the endpoint allows additional unknown options to      * be passed to it but does not throw a ResolveEndpointFailedException when creating      * the endpoint.      *<p/>      * This options is used by a few components for instance the HTTP based that can have      * dynamic URI options appended that is targeted for an external system.      *<p/>      * Most endpoints is configued to be<b>not</b> lenient.      */
+comment|/**      * Should all properties be known or does the endpoint allow unknown options?      *<p/>      *<tt>lenient = false</tt> means that the endpoint should validate that all      * given options is known and configured properly.      *<tt>lenient = true</tt> means that the endpoint allows additional unknown options to      * be passed to it but does not throw a ResolveEndpointFailedException when creating      * the endpoint.      *<p/>      * This options is used by a few components for instance the HTTP based that can have      * dynamic URI options appended that is targeted for an external system.      *<p/>      * Most endpoints is configured to be<b>not</b> lenient.      */
 DECL|method|isLenientProperties ()
 name|boolean
 name|isLenientProperties

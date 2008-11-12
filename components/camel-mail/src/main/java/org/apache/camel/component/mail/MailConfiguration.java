@@ -264,11 +264,6 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|destination
-specifier|private
-name|String
-name|destination
-decl_stmt|;
 DECL|field|fetchSize
 specifier|private
 name|int
@@ -1189,9 +1184,13 @@ name|username
 expr_stmt|;
 if|if
 condition|(
-name|destination
+name|getRecipients
+argument_list|()
+operator|.
+name|size
+argument_list|()
 operator|==
-literal|null
+literal|0
 condition|)
 block|{
 comment|// set default destination to username@host for backwards compatibility
@@ -1221,39 +1220,12 @@ operator|+
 name|host
 expr_stmt|;
 block|}
-name|destination
-operator|=
+name|setTo
+argument_list|(
 name|address
+argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|/**      * Gets the destination (recipient<tt>To</tt> email address).      *      * @deprecated use {@link #getRecipients()}      */
-DECL|method|getDestination ()
-specifier|public
-name|String
-name|getDestination
-parameter_list|()
-block|{
-return|return
-name|destination
-return|;
-block|}
-comment|/**      * Sets the destination (recipient<tt>To</tt> email address).      *      * @deprecated use {@link #setTo(String)}      */
-DECL|method|setDestination (String destination)
-specifier|public
-name|void
-name|setDestination
-parameter_list|(
-name|String
-name|destination
-parameter_list|)
-block|{
-name|this
-operator|.
-name|destination
-operator|=
-name|destination
-expr_stmt|;
 block|}
 DECL|method|getFrom ()
 specifier|public

@@ -195,39 +195,6 @@ name|MailConfiguration
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Static builder method      *      * @deprecated will be removed in Camel 2.0      */
-DECL|method|mailComponent ()
-specifier|public
-specifier|static
-name|MailComponent
-name|mailComponent
-parameter_list|()
-block|{
-return|return
-operator|new
-name|MailComponent
-argument_list|()
-return|;
-block|}
-comment|/**      * Static builder method      *      * @deprecated will be removed in Camel 2.0      */
-DECL|method|mailComponent (MailConfiguration configuration)
-specifier|public
-specifier|static
-name|MailComponent
-name|mailComponent
-parameter_list|(
-name|MailConfiguration
-name|configuration
-parameter_list|)
-block|{
-return|return
-operator|new
-name|MailComponent
-argument_list|(
-name|configuration
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
