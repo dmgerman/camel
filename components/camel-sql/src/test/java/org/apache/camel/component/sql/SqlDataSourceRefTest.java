@@ -217,7 +217,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// END SNIPPET: e3
+comment|// START SNIPPET: e3
 name|MockEndpoint
 name|mock
 init|=
