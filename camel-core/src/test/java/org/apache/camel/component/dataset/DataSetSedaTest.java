@@ -90,7 +90,7 @@ init|=
 operator|new
 name|SimpleDataSet
 argument_list|(
-literal|500
+literal|200
 argument_list|)
 decl_stmt|;
 DECL|method|test ()
@@ -186,12 +186,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:queue:test"
+literal|"seda:queue:test?size=100"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:queue:test"
+literal|"seda:queue:test?size=100"
 argument_list|)
 operator|.
 name|to
