@@ -61,7 +61,7 @@ name|ExchangePattern
 name|pattern
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new exchange for communicating with this exchange using the      * given exchange to pre-populate the values of the headers and messages      */
+comment|/**      * Creates a new exchange for communicating with this exchange using the      * given exchange to pre-populate the values of the headers and messages      *      * @param exchange given exchange to use for pre-polulate      */
 DECL|method|createExchange (Exchange exchange)
 name|Exchange
 name|createExchange
@@ -76,7 +76,7 @@ name|CamelContext
 name|getCamelContext
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a new producer which is used send messages into the endpoint      *      * @return a newly created producer      */
+comment|/**      * Creates a new producer which is used send messages into the endpoint      *      * @return a newly created producer      * @throws Exception can be thrown      */
 DECL|method|createProducer ()
 name|Producer
 name|createProducer
@@ -84,7 +84,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Creates a new<a      * href="http://activemq.apache.org/camel/event-driven-consumer.html">Event      * Driven Consumer</a> which consumes messages from the endpoint using the      * given processor      *      * @return a newly created consumer      */
+comment|/**      * Creates a new<a      * href="http://activemq.apache.org/camel/event-driven-consumer.html">Event      * Driven Consumer</a> which consumes messages from the endpoint using the      * given processor      *      * @param processor  the given processor      * @return a newly created consumer      * @throws Exception can be thrown      */
 DECL|method|createConsumer (Processor processor)
 name|Consumer
 name|createConsumer
@@ -103,6 +103,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Configure properties on this endpoint.      *       * @param options  the options (properties)      */
 DECL|method|configureProperties (Map options)
 name|void
 name|configureProperties
@@ -111,6 +112,7 @@ name|Map
 name|options
 parameter_list|)
 function_decl|;
+comment|/**      * Sets the camel context.      *      * @param context the camel context      */
 DECL|method|setCamelContext (CamelContext context)
 name|void
 name|setCamelContext
@@ -136,7 +138,7 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
-comment|/**      * Should all properties be known or does the endpoint allow unknown options?      *<p/>      *<tt>Lenient = false</tt> means that the endpoint should validate that all      * given options is known and configured properly      *<tt>lenient = true</tt> means that the endpoint allows additional unknown options to      * be passed to it but does not throw a ResolveEndpointFailedException when creating      * the endpoint.      *<p/>      * This options is used by a few components for instance the HTTP based that can have      * dynamic URI options appended that is targeted for an external system.      *<p/>      * Most endpoints is configued to be<b>not</b> lenient.      */
+comment|/**      * Should all properties be known or does the endpoint allow unknown options?      *<p/>      *<tt>lenient = false</tt> means that the endpoint should validate that all      * given options is known and configured properly.      *<tt>lenient = true</tt> means that the endpoint allows additional unknown options to      * be passed to it but does not throw a ResolveEndpointFailedException when creating      * the endpoint.      *<p/>      * This options is used by a few components for instance the HTTP based that can have      * dynamic URI options appended that is targeted for an external system.      *<p/>      * Most endpoints is configued to be<b>not</b> lenient.      */
 DECL|method|isLenientProperties ()
 name|boolean
 name|isLenientProperties
