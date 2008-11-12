@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SQL Endpoint. Endpoint URI should contain valid SQL statement, but instead of  * question marks (that are parameter placeholders), sharp signs should be used.  * This is because in camel question mark has other meaning.  *  * @author romkal  */
+comment|/**  * SQL Endpoint. Endpoint URI should contain valid SQL statement, but instead of  * question marks (that are parameter placeholders), sharp signs should be used.  * This is because in camel question mark has other meaning.  */
 end_comment
 
 begin_class
@@ -254,7 +254,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"Not yet implemented"
+literal|"Not implemented"
 argument_list|)
 throw|;
 block|}
