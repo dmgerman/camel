@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultMessage
@@ -80,11 +92,11 @@ specifier|final
 name|JobExecutionContext
 name|jobExecutionContext
 decl_stmt|;
-DECL|method|QuartzMessage (QuartzExchange exchange, JobExecutionContext jobExecutionContext)
+DECL|method|QuartzMessage (Exchange exchange, JobExecutionContext jobExecutionContext)
 specifier|public
 name|QuartzMessage
 parameter_list|(
-name|QuartzExchange
+name|Exchange
 name|exchange
 parameter_list|,
 name|JobExecutionContext
