@@ -172,11 +172,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|bean
-operator|.
-name|BeanExchange
+name|DefaultEndpoint
 import|;
 end_import
 
@@ -190,7 +188,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultEndpoint
+name|DefaultExchange
 import|;
 end_import
 
@@ -314,7 +312,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|BeanExchange
+name|DefaultExchange
 argument_list|(
 name|getCamelContext
 argument_list|()

@@ -108,7 +108,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Exchange
 import|;
 end_import
 
@@ -120,11 +120,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|bean
-operator|.
-name|BeanExchange
+name|Processor
 import|;
 end_import
 
@@ -453,12 +449,9 @@ argument_list|,
 name|args
 argument_list|)
 decl_stmt|;
-name|BeanExchange
+name|Exchange
 name|exchange
 init|=
-operator|(
-name|BeanExchange
-operator|)
 name|getEndpoint
 argument_list|()
 operator|.
@@ -467,7 +460,10 @@ argument_list|()
 decl_stmt|;
 name|exchange
 operator|.
-name|setInvocation
+name|getIn
+argument_list|()
+operator|.
+name|setBody
 argument_list|(
 name|invocation
 argument_list|)
