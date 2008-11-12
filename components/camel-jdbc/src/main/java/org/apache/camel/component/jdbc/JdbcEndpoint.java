@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -137,7 +127,7 @@ name|DataSource
 name|dataSource
 decl_stmt|;
 DECL|method|JdbcEndpoint (String endpointUri, Component component, DataSource dataSource)
-specifier|protected
+specifier|public
 name|JdbcEndpoint
 parameter_list|(
 name|String
@@ -149,8 +139,6 @@ parameter_list|,
 name|DataSource
 name|dataSource
 parameter_list|)
-throws|throws
-name|URISyntaxException
 block|{
 name|super
 argument_list|(
