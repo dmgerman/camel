@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|CxfRawMessageRouterTest
 extends|extends
-name|CxfRouterTest
+name|CxfSimpleRouterTest
 block|{
 DECL|field|routerEndpointURI
 specifier|private

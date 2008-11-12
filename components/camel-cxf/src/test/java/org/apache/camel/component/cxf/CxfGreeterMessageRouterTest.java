@@ -118,25 +118,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-name|SpringCamelContext
-operator|.
-name|springCamelContext
-argument_list|(
-name|applicationContext
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|ClassPathXmlApplicationContext
