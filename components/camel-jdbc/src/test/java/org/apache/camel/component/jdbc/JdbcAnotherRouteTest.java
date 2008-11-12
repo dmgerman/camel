@@ -157,11 +157,6 @@ specifier|private
 name|DataSource
 name|ds
 decl_stmt|;
-DECL|field|jdbc
-specifier|private
-name|JdbcTemplate
-name|jdbc
-decl_stmt|;
 DECL|method|testTimerInvoked ()
 specifier|public
 name|void

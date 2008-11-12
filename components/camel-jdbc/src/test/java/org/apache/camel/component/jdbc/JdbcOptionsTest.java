@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|sql
@@ -68,19 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
+name|ResolveEndpointFailedException
 import|;
 end_import
 
@@ -95,6 +63,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
@@ -140,15 +124,31 @@ name|DriverManagerDataSource
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version $Revision$  */
-end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
 
 begin_class
-DECL|class|JdbcRouteTest
+DECL|class|JdbcOptionsTest
 specifier|public
 class|class
-name|JdbcRouteTest
+name|JdbcOptionsTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -185,86 +185,57 @@ specifier|private
 name|DataSource
 name|ds
 decl_stmt|;
-DECL|method|testJdbcRoutes ()
+DECL|method|testReadSize ()
 specifier|public
 name|void
-name|testJdbcRoutes
+name|testReadSize
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// START SNIPPET: invoke
-comment|// first we create our exchange using the endpoint
-name|Endpoint
-name|endpoint
+name|MockEndpoint
+name|mock
 init|=
-name|context
-operator|.
-name|getEndpoint
+name|getMockEndpoint
 argument_list|(
-literal|"direct:hello"
+literal|"mock:result"
 argument_list|)
 decl_stmt|;
-name|Exchange
-name|exchange
-init|=
-name|endpoint
+name|mock
 operator|.
-name|createExchange
-argument_list|()
-decl_stmt|;
-comment|// then we set the SQL on the in body
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
+name|expectedMessageCount
 argument_list|(
-literal|"select * from customer order by ID"
+literal|1
 argument_list|)
 expr_stmt|;
-comment|// now we send the exchange to the endpoint, and receives the response from Camel
-name|Exchange
-name|out
-init|=
 name|template
 operator|.
-name|send
+name|sendBody
 argument_list|(
-name|endpoint
+literal|"direct:start"
 argument_list|,
-name|exchange
-argument_list|)
-decl_stmt|;
-comment|// assertions of the response
-name|assertNotNull
-argument_list|(
-name|out
+literal|"select * from customer"
 argument_list|)
 expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|out
+name|mock
 operator|.
-name|getOut
+name|assertIsSatisfied
 argument_list|()
-argument_list|)
 expr_stmt|;
-name|ArrayList
-argument_list|<
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|>
-name|data
+name|List
+name|list
 init|=
-name|out
+name|mock
 operator|.
-name|getOut
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIn
 argument_list|()
 operator|.
 name|getBody
@@ -274,104 +245,62 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"out body could not be converted to an ArrayList - was: "
-operator|+
-name|out
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
-argument_list|,
-name|data
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|1
 argument_list|,
-name|data
+name|list
 operator|.
 name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|row
-init|=
-name|data
+block|}
+DECL|method|testNoDataSourceInRegistry ()
+specifier|public
+name|void
+name|testNoDataSourceInRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+try|try
+block|{
+name|template
 operator|.
-name|get
+name|sendBody
 argument_list|(
-literal|0
+literal|"jdbc:xxx"
+argument_list|,
+literal|"Hello World"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown a ResolveEndpointFailedException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ResolveEndpointFailedException
+name|e
+parameter_list|)
+block|{
 name|assertEquals
 argument_list|(
-literal|"cust1"
+literal|"DataSource xxx not found in registry"
 argument_list|,
-name|row
+name|e
 operator|.
-name|get
-argument_list|(
-literal|"ID"
-argument_list|)
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"jstrachan"
-argument_list|,
-name|row
-operator|.
-name|get
-argument_list|(
-literal|"NAME"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|row
-operator|=
-name|data
-operator|.
-name|get
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"cust2"
-argument_list|,
-name|row
-operator|.
-name|get
-argument_list|(
-literal|"ID"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"nsandhu"
-argument_list|,
-name|row
-operator|.
-name|get
-argument_list|(
-literal|"NAME"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// END SNIPPET: invoke
+block|}
 block|}
 DECL|method|createRegistry ()
 specifier|protected
@@ -381,7 +310,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// START SNIPPET: register
 name|JndiRegistry
 name|reg
 init|=
@@ -402,7 +330,6 @@ expr_stmt|;
 return|return
 name|reg
 return|;
-comment|// END SNIPPET: register
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -417,8 +344,6 @@ operator|new
 name|RouteBuilder
 argument_list|()
 block|{
-comment|// START SNIPPET: route
-comment|// lets add simple route
 specifier|public
 name|void
 name|configure
@@ -428,16 +353,20 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"direct:hello"
+literal|"direct:start"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jdbc:testdb?readSize=100"
+literal|"jdbc:testdb?readSize=1"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// END SNIPPET: route
 block|}
 return|;
 block|}
@@ -482,7 +411,6 @@ argument_list|(
 name|ds
 argument_list|)
 decl_stmt|;
-comment|// START SNIPPET: setup
 name|jdbc
 operator|.
 name|execute
@@ -504,7 +432,6 @@ argument_list|(
 literal|"insert into customer values('cust2','nsandhu')"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: setup
 name|super
 operator|.
 name|setUp

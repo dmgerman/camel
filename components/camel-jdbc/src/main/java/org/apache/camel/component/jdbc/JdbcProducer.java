@@ -205,28 +205,25 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|source
+DECL|field|dataSource
 specifier|private
 name|DataSource
-name|source
+name|dataSource
 decl_stmt|;
-comment|/** The maximum size for reading a result set<code>readSize</code> */
 DECL|field|readSize
 specifier|private
 name|int
 name|readSize
-init|=
-literal|2000
 decl_stmt|;
-DECL|method|JdbcProducer (JdbcEndpoint endpoint, String remaining, int readSize)
+DECL|method|JdbcProducer (JdbcEndpoint endpoint, DataSource dataSource, int readSize)
 specifier|public
 name|JdbcProducer
 parameter_list|(
 name|JdbcEndpoint
 name|endpoint
 parameter_list|,
-name|String
-name|remaining
+name|DataSource
+name|dataSource
 parameter_list|,
 name|int
 name|readSize
@@ -241,31 +238,18 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|readSize
+name|dataSource
 operator|=
-name|readSize
+name|dataSource
 expr_stmt|;
-name|source
+name|this
+operator|.
+name|readSize
 operator|=
-operator|(
-name|DataSource
-operator|)
-name|getEndpoint
-argument_list|()
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
-argument_list|(
-name|remaining
-argument_list|)
+name|readSize
 expr_stmt|;
 block|}
-comment|/**      * Execute sql of exchange and set results on output      *      * @see org.apache.camel.Processor#process(org.apache.camel.Exchange)      */
+comment|/**      * Execute sql of exchange and set results on output      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -311,7 +295,7 @@ try|try
 block|{
 name|conn
 operator|=
-name|source
+name|dataSource
 operator|.
 name|getConnection
 argument_list|()
@@ -323,6 +307,24 @@ operator|.
 name|createStatement
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Executing JDBC statement: "
+operator|+
+name|sql
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|stmt
@@ -436,36 +438,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|getReadSize ()
-specifier|public
-name|int
-name|getReadSize
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|readSize
-return|;
-block|}
-DECL|method|setReadSize (int readSize)
-specifier|public
-name|void
-name|setReadSize
-parameter_list|(
-name|int
-name|readSize
-parameter_list|)
-block|{
-name|this
-operator|.
-name|readSize
-operator|=
-name|readSize
-expr_stmt|;
-block|}
+comment|/**      * Sets the result from the ResultSet to the Exchange as its OUT body.      */
 DECL|method|setResultSet (Exchange exchange, ResultSet rs)
-specifier|public
+specifier|protected
 name|void
 name|setResultSet
 parameter_list|(
@@ -567,9 +542,15 @@ operator|.
 name|next
 argument_list|()
 operator|&&
+operator|(
+name|readSize
+operator|==
+literal|0
+operator|||
 name|rowNumber
 operator|<
 name|readSize
+operator|)
 condition|)
 block|{
 name|HashMap
