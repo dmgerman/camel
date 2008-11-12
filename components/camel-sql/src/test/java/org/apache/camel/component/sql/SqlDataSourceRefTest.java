@@ -217,6 +217,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// END SNIPPET: e3
 name|MockEndpoint
 name|mock
 init|=
@@ -232,6 +233,10 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// send the query to direct that will route it to the sql where we will execute the query
+comment|// and bind the parameters with the data from the body. The body only contains one value
+comment|// in this case (GPL) but if we should use multi values then the body will be iterated
+comment|// so we could supply a List<String> instead containing each binding value.
 name|template
 operator|.
 name|sendBody
@@ -246,6 +251,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// the result is a List
 name|List
 name|received
 init|=
@@ -272,6 +278,7 @@ name|getBody
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// and each row in the list is a Map
 name|Map
 name|row
 init|=
@@ -289,6 +296,7 @@ literal|0
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// and we should be able the get the project from the map that should be Linux
 name|assertEquals
 argument_list|(
 literal|"Linux"
@@ -301,6 +309,7 @@ literal|"PROJECT"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e3
 block|}
 DECL|method|setUp ()
 specifier|protected
@@ -331,6 +340,8 @@ name|createDataSource
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: e2
+comment|// this is the database we create with some initial data for our unit test
 name|jdbcTemplate
 operator|.
 name|execute
@@ -361,6 +372,7 @@ argument_list|(
 literal|"insert into projects values (3, 'Linux', 'GPL')"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e2
 block|}
 DECL|method|tearDown ()
 specifier|protected
