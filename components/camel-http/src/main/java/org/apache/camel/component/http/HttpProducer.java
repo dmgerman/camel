@@ -801,9 +801,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|exception
+operator|!=
+literal|null
+condition|)
+block|{
 throw|throw
 name|exception
 throw|;
+block|}
 block|}
 block|}
 finally|finally

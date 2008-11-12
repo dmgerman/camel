@@ -1069,9 +1069,6 @@ argument_list|,
 name|callback
 argument_list|)
 expr_stmt|;
-name|SessionRequest
-name|req
-init|=
 name|ioReactor
 operator|.
 name|connect
@@ -1086,7 +1083,7 @@ operator|new
 name|MySessionRequestCallback
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -1100,15 +1097,13 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|String
-name|uri
-init|=
+comment|// force creation of uri
 name|getEndpoint
 argument_list|()
 operator|.
 name|getEndpointUri
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|HttpEntity
 name|entity
 init|=

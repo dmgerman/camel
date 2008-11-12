@@ -1050,11 +1050,11 @@ throw|;
 block|}
 block|}
 comment|//TODO check the CxfEndpoint information integration
-DECL|method|checkEndpiontIntegration (CxfEndpoint endpoint, Bus bus)
+DECL|method|checkEndpointIntegration (CxfEndpoint endpoint, Bus bus)
 specifier|public
 specifier|static
 name|void
-name|checkEndpiontIntegration
+name|checkEndpointIntegration
 parameter_list|(
 name|CxfEndpoint
 name|endpoint
