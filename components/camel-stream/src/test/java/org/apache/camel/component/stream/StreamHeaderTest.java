@@ -210,14 +210,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|char
-name|c
-init|=
-operator|(
-name|char
-operator|)
-name|b
-decl_stmt|;
 name|sb
 operator|.
 name|append
