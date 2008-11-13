@@ -264,6 +264,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|converter
 operator|.
 name|jaxp
@@ -1492,7 +1504,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Strategy to test if the given header is valid according to the JMS spec to be set as a property      * on the JMS message.      *<p/>      * This default implementation will allow:      *<ul>      *<li>any primitives and their counter Objects (Integer, Double etc.)</li>      *<li>String and any other litterals, Character, CharSequence</li>      *<li>Boolean</li>      *<li>Number</li>      *<li>java.util.Date</li>      *</ul>      *      * @param headerName   the header name      * @param headerValue  the header value      * @return  the value to use,<tt>null</tt> to ignore this header      */
+comment|/**      * Strategy to test if the given header is valid according to the JMS spec to be set as a property      * on the JMS message.      *<p/>      * This default implementation will allow:      *<ul>      *<li>any primitives and their counter Objects (Integer, Double etc.)</li>      *<li>String and any other literals, Character, CharSequence</li>      *<li>Boolean</li>      *<li>Number</li>      *<li>java.util.Date</li>      *</ul>      *      * @param headerName   the header name      * @param headerValue  the header value      * @return  the value to use,<tt>null</tt> to ignore this header      */
 DECL|method|getValidJMSHeaderValue (String headerName, Object headerValue)
 specifier|protected
 name|Object
@@ -2038,83 +2050,6 @@ block|}
 return|return
 name|answer
 return|;
-block|}
-comment|/**      * @deprecated Please use {@link DefaultHeaderFilterStrategy#getOutFilter()}      */
-DECL|method|getIgnoreJmsHeaders ()
-specifier|public
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|getIgnoreJmsHeaders
-parameter_list|()
-block|{
-if|if
-condition|(
-name|headerFilterStrategy
-operator|instanceof
-name|DefaultHeaderFilterStrategy
-condition|)
-block|{
-return|return
-operator|(
-operator|(
-name|DefaultHeaderFilterStrategy
-operator|)
-name|headerFilterStrategy
-operator|)
-operator|.
-name|getOutFilter
-argument_list|()
-return|;
-block|}
-else|else
-block|{
-comment|// Shouldn't get here unless a strategy that isn't an extension of
-comment|// DefaultHeaderPropagationStrategy has been injected.
-return|return
-literal|null
-return|;
-block|}
-block|}
-comment|/**      * @deprecated Please use {@link DefaultHeaderFilterStrategy#setOutFilter()}      */
-DECL|method|setIgnoreJmsHeaders (Set<String> ignoreJmsHeaders)
-specifier|public
-name|void
-name|setIgnoreJmsHeaders
-parameter_list|(
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|ignoreJmsHeaders
-parameter_list|)
-block|{
-if|if
-condition|(
-name|headerFilterStrategy
-operator|instanceof
-name|DefaultHeaderFilterStrategy
-condition|)
-block|{
-operator|(
-operator|(
-name|DefaultHeaderFilterStrategy
-operator|)
-name|headerFilterStrategy
-operator|)
-operator|.
-name|setOutFilter
-argument_list|(
-name|ignoreJmsHeaders
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// Shouldn't get here unless a strategy that isn't an extension of
-comment|// DefaultHeaderPropagationStrategy has been injected.
-block|}
 block|}
 comment|/**      * Strategy to allow filtering of headers which are put on the JMS message      *<p/>      *<b>Note</b>: Currently only supports sending java identifiers as keys      */
 DECL|method|shouldOutputHeader (org.apache.camel.Message camelMessage, String headerName, Object headerValue)

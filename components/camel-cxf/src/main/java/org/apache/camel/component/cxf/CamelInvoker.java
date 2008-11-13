@@ -711,6 +711,10 @@ name|CxfBinding
 operator|.
 name|copyMessage
 argument_list|(
+operator|new
+name|CxfHeaderFilterStrategy
+argument_list|()
+argument_list|,
 name|camelMessage
 argument_list|,
 name|outMessage

@@ -477,46 +477,6 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/*      * Exclude a set of headers from responses and new requests as all headers      * get propagated between exchanges by default      *      * @deprecated please use {@link HeaderPropagationStrategy} instead      */
-DECL|method|shouldHeaderBePropagated (String headerName, String headerValue)
-specifier|public
-name|boolean
-name|shouldHeaderBePropagated
-parameter_list|(
-name|String
-name|headerName
-parameter_list|,
-name|String
-name|headerValue
-parameter_list|)
-block|{
-if|if
-condition|(
-name|headerValue
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-return|return
-name|headerFilterStrategy
-operator|!=
-literal|null
-operator|&&
-operator|!
-name|headerFilterStrategy
-operator|.
-name|applyFilterToCamelHeaders
-argument_list|(
-name|headerName
-argument_list|,
-name|headerValue
-argument_list|)
-return|;
-block|}
 DECL|method|isUseReaderForPayload ()
 specifier|public
 name|boolean

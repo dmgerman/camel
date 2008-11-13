@@ -66,7 +66,7 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"getIn().body"
+literal|"getRequest().body"
 argument_list|,
 literal|"<hello id='m123'>world!</hello>"
 argument_list|)
@@ -80,14 +80,14 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"getIn().headers['foo']"
+literal|"getRequest().headers['foo']"
 argument_list|,
 literal|"abc"
 argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"getIn().headers.foo"
+literal|"getRequest().headers.foo"
 argument_list|,
 literal|"abc"
 argument_list|)

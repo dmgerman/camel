@@ -170,34 +170,6 @@ name|getIn
 argument_list|()
 return|;
 block|}
-comment|/**      * @deprecated doesnt work in OGNL use request instead      */
-DECL|method|getIn ()
-specifier|public
-name|Message
-name|getIn
-parameter_list|()
-block|{
-return|return
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-return|;
-block|}
-comment|/**      * @deprecated doesnt work in OGNL use response instead      */
-DECL|method|getOut ()
-specifier|public
-name|Message
-name|getOut
-parameter_list|()
-block|{
-return|return
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-return|;
-block|}
 DECL|method|getResponse ()
 specifier|public
 name|Message

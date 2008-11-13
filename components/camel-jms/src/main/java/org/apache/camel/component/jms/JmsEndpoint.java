@@ -650,6 +650,8 @@ name|pubSubDomain
 argument_list|,
 name|destination
 argument_list|,
+name|configuration
+operator|.
 name|getRequestTimeout
 argument_list|()
 argument_list|)
@@ -809,38 +811,6 @@ operator|.
 name|requestor
 operator|=
 name|requestor
-expr_stmt|;
-block|}
-comment|/**      * @deprecated use configuration.requestTimeout. Will be removed in Camel 2.0      */
-DECL|method|getRequestTimeout ()
-specifier|public
-name|long
-name|getRequestTimeout
-parameter_list|()
-block|{
-return|return
-name|configuration
-operator|.
-name|getRequestTimeout
-argument_list|()
-return|;
-block|}
-comment|/**      * Sets the timeout in milliseconds which requests should timeout after      *      * @deprecated use configuration.requestTimeout. Will be removed in Camel 2.0      */
-DECL|method|setRequestTimeout (long requestTimeout)
-specifier|public
-name|void
-name|setRequestTimeout
-parameter_list|(
-name|long
-name|requestTimeout
-parameter_list|)
-block|{
-name|configuration
-operator|.
-name|setRequestTimeout
-argument_list|(
-name|requestTimeout
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|isPubSubDomain ()

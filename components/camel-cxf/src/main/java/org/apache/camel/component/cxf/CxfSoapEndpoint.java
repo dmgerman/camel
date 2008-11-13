@@ -780,36 +780,6 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
-DECL|method|getContext ()
-specifier|public
-name|CamelContext
-name|getContext
-parameter_list|()
-block|{
-return|return
-name|getCamelContext
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|setContext (CamelContext context)
-specifier|public
-name|void
-name|setContext
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|setCamelContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy

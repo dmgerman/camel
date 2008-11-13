@@ -320,30 +320,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * @deprecated please use {@link #createCxfMessage(HeaderFilterStrategy, CxfExchange)} instead      */
-DECL|method|createCxfMessage (CxfExchange exchange)
-specifier|public
-specifier|static
-name|Message
-name|createCxfMessage
-parameter_list|(
-name|CxfExchange
-name|exchange
-parameter_list|)
-block|{
-return|return
-name|CxfBinding
-operator|.
-name|createCxfMessage
-argument_list|(
-operator|new
-name|CxfHeaderFilterStrategy
-argument_list|()
-argument_list|,
-name|exchange
-argument_list|)
-return|;
-block|}
 DECL|method|createCxfMessage (HeaderFilterStrategy strategy, CxfExchange exchange)
 specifier|public
 specifier|static
@@ -565,34 +541,6 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * @deprecated please use {@link #storeCxfResponse(HeaderFilterStrategy, CxfExchange, Message)} instead.      */
-DECL|method|storeCxfResponse (CxfExchange exchange, Message response)
-specifier|public
-specifier|static
-name|void
-name|storeCxfResponse
-parameter_list|(
-name|CxfExchange
-name|exchange
-parameter_list|,
-name|Message
-name|response
-parameter_list|)
-block|{
-name|CxfBinding
-operator|.
-name|storeCxfResponse
-argument_list|(
-operator|new
-name|CxfHeaderFilterStrategy
-argument_list|()
-argument_list|,
-name|exchange
-argument_list|,
-name|response
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|storeCxfResponse (HeaderFilterStrategy strategy, CxfExchange exchange, Message response)
 specifier|public
 specifier|static
@@ -708,48 +656,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-comment|/**      * @deprecated Please use {@link #copyMessage(HeaderFilterStrategy, org.apache.camel.Message, Message)} instead.      */
-DECL|method|copyMessage (org.apache.camel.Message camelMessage, org.apache.cxf.message.Message cxfMessage)
-specifier|public
-specifier|static
-name|void
-name|copyMessage
-parameter_list|(
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
-name|camelMessage
-parameter_list|,
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|message
-operator|.
-name|Message
-name|cxfMessage
-parameter_list|)
-block|{
-name|CxfBinding
-operator|.
-name|copyMessage
-argument_list|(
-operator|new
-name|CxfHeaderFilterStrategy
-argument_list|()
-argument_list|,
-name|camelMessage
-argument_list|,
-name|cxfMessage
-argument_list|)
-expr_stmt|;
 block|}
 comment|// Copy the Camel message to CXF message
 DECL|method|copyMessage (HeaderFilterStrategy strategy, org.apache.camel.Message camelMessage, org.apache.cxf.message.Message cxfMessage)
