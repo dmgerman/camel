@@ -141,7 +141,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// use data source set by setter
+comment|// perfer to use datasource set by setter
 name|dataSource
 operator|=
 name|ds
@@ -149,16 +149,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// lookup in registry instead
 name|dataSource
 operator|=
-name|getCamelContext
-argument_list|()
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
+name|mandatoryLookup
 argument_list|(
 name|remaining
 argument_list|,
@@ -167,25 +160,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|dataSource
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"DataSource "
-operator|+
-name|remaining
-operator|+
-literal|" not found in registry"
-argument_list|)
-throw|;
-block|}
 block|}
 name|JdbcEndpoint
 name|jdbc

@@ -289,7 +289,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"DataSource xxx not found in registry"
+literal|"registry entry called xxx of type javax.sql.DataSource must be specified"
 argument_list|,
 name|e
 operator|.

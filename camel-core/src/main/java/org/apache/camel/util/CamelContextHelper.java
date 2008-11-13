@@ -78,18 +78,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Expression
 import|;
 end_import
@@ -716,7 +704,7 @@ name|beanType
 argument_list|)
 return|;
 block|}
-comment|/**      * Look up the given named bean in the {@link Registry} on the      * {@link CamelContext} or throws      */
+comment|/**      * Look up the given named bean in the {@link Registry} on the      * {@link CamelContext} or throws IllegalArgumentException if not found.      */
 DECL|method|mandatoryLookup (CamelContext context, String name)
 specifier|public
 specifier|static
@@ -753,7 +741,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Look up the given named bean of the given type in the {@link Registry} on the      * {@link CamelContext}      */
+comment|/**      * Look up the given named bean of the given type in the {@link Registry} on the      * {@link CamelContext} or throws IllegalArgumentException if not found.      */
 DECL|method|mandatoryLookup (CamelContext context, String name, Class<T> beanType)
 specifier|public
 specifier|static

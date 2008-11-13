@@ -1028,7 +1028,7 @@ name|beanType
 argument_list|)
 return|;
 block|}
-comment|/**      * Look up the given named bean in the {@link Registry} on the      * {@link CamelContext} or throws      */
+comment|/**      * Look up the given named bean in the {@link Registry} on the      * {@link CamelContext} or throws exception if not found.      */
 DECL|method|mandatoryLookup (String name)
 specifier|public
 name|Object
@@ -1050,7 +1050,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Look up the given named bean of the given type in the {@link Registry} on the      * {@link CamelContext}      */
+comment|/**      * Look up the given named bean of the given type in the {@link Registry} on the      * {@link CamelContext} or throws exception if not found.      */
 DECL|method|mandatoryLookup (String name, Class<T> beanType)
 specifier|public
 parameter_list|<

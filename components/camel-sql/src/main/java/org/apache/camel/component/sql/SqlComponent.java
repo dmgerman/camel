@@ -154,13 +154,7 @@ condition|)
 block|{
 name|dataSource
 operator|=
-name|getCamelContext
-argument_list|()
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
+name|mandatoryLookup
 argument_list|(
 name|dataSourceRef
 argument_list|,
@@ -169,25 +163,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|dataSource
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"DataSource "
-operator|+
-name|dataSourceRef
-operator|+
-literal|" not found in registry"
-argument_list|)
-throw|;
-block|}
 block|}
 return|return
 operator|new

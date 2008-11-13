@@ -716,24 +716,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Creating MinaEndpoint from uri: "
-operator|+
-name|uri
-argument_list|)
-expr_stmt|;
-block|}
 name|setProperties
 argument_list|(
 name|this
@@ -1975,13 +1957,7 @@ condition|)
 block|{
 name|codecFactory
 operator|=
-name|getCamelContext
-argument_list|()
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
+name|mandatoryLookup
 argument_list|(
 name|codec
 argument_list|,
@@ -1990,25 +1966,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|codecFactory
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Codec "
-operator|+
-name|codec
-operator|+
-literal|" not found in registry."
-argument_list|)
-throw|;
-block|}
 if|if
 condition|(
 name|LOG

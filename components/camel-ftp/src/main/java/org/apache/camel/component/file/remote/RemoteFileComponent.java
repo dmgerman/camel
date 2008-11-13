@@ -381,15 +381,7 @@ block|{
 name|FTPClientConfig
 name|ftpClientConfig
 init|=
-name|this
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
+name|mandatoryLookup
 argument_list|(
 name|ref
 argument_list|,
@@ -398,25 +390,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|ftpClientConfig
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"FTPClientConfig "
-operator|+
-name|ref
-operator|+
-literal|" not found in registry."
-argument_list|)
-throw|;
-block|}
 name|endpoint
 operator|.
 name|getConfiguration
