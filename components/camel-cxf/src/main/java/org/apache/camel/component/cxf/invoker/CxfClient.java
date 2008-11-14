@@ -555,16 +555,6 @@ name|ExchangeImpl
 argument_list|()
 decl_stmt|;
 comment|// put the message Observer to call the CxfClient onMessage()
-name|setExchangeProperties
-argument_list|(
-name|exchange
-argument_list|,
-name|getEndpoint
-argument_list|()
-argument_list|,
-name|bi
-argument_list|)
-expr_stmt|;
 name|exchange
 operator|.
 name|put
@@ -661,6 +651,15 @@ name|ep
 argument_list|)
 expr_stmt|;
 block|}
+name|setExchangeProperties
+argument_list|(
+name|exchange
+argument_list|,
+name|ep
+argument_list|,
+name|bi
+argument_list|)
+expr_stmt|;
 name|PhaseInterceptorChain
 name|chain
 init|=
