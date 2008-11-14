@@ -499,6 +499,13 @@ argument_list|,
 name|time
 argument_list|)
 decl_stmt|;
+name|long
+name|duration
+init|=
+name|time
+operator|-
+name|groupStartTime
+decl_stmt|;
 name|groupStartTime
 operator|=
 name|time
@@ -514,9 +521,7 @@ operator|+
 literal|" messages so far. Last group took: "
 operator|+
 operator|(
-name|time
-operator|-
-name|groupStartTime
+name|duration
 operator|)
 operator|+
 literal|" millis which is: "
