@@ -78,9 +78,13 @@ name|script
 operator|.
 name|ScriptBuilder
 operator|.
-name|beanShell
+name|script
 import|;
 end_import
+
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 
 begin_comment
 comment|/**  * Unit test for a BeanSheel script  */
@@ -258,8 +262,10 @@ argument_list|()
 operator|.
 name|when
 argument_list|(
-name|beanShell
+name|script
 argument_list|(
+literal|"beanshell"
+argument_list|,
 literal|"request.headers['foo'] = 'bar'"
 argument_list|)
 argument_list|)

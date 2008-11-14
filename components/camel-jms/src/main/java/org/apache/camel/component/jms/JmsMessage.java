@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultMessage
@@ -524,7 +536,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|MessagePropertyAccessException
+name|RuntimeCamelException
 argument_list|(
 name|name
 argument_list|,

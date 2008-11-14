@@ -280,23 +280,6 @@ return|return
 name|file
 return|;
 block|}
-comment|/**      * @deprecated use camel-file component. Will be removed in Camel 2.0      */
-DECL|method|setFile (String file)
-specifier|public
-name|void
-name|setFile
-parameter_list|(
-name|String
-name|file
-parameter_list|)
-block|{
-name|this
-operator|.
-name|file
-operator|=
-name|file
-expr_stmt|;
-block|}
 DECL|method|getUrl ()
 specifier|public
 name|String
@@ -306,23 +289,6 @@ block|{
 return|return
 name|url
 return|;
-block|}
-comment|/**      * @deprecated use camel-jetty or camel-http component. Will be removed in Camel 2.0      */
-DECL|method|setUrl (String url)
-specifier|public
-name|void
-name|setUrl
-parameter_list|(
-name|String
-name|url
-parameter_list|)
-block|{
-name|this
-operator|.
-name|url
-operator|=
-name|url
-expr_stmt|;
 block|}
 DECL|method|getDelay ()
 specifier|public

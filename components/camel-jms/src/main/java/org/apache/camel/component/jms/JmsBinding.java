@@ -585,7 +585,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeJmsException
+name|RuntimeCamelException
 argument_list|(
 literal|"Failed to extract body due to: "
 operator|+
@@ -785,7 +785,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|MessageJMSPropertyAccessException
+name|RuntimeCamelException
 argument_list|(
 name|e
 argument_list|)
@@ -812,7 +812,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|MessagePropertyNamesAccessException
+name|RuntimeCamelException
 argument_list|(
 name|e
 argument_list|)
@@ -897,7 +897,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|MessagePropertyAccessException
+name|RuntimeCamelException
 argument_list|(
 name|name
 argument_list|,
