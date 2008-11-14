@@ -743,25 +743,6 @@ argument_list|,
 name|partList
 argument_list|)
 expr_stmt|;
-name|Element
-name|header
-init|=
-name|getHeader
-argument_list|(
-name|message
-argument_list|)
-decl_stmt|;
-name|message
-operator|.
-name|put
-argument_list|(
-name|Element
-operator|.
-name|class
-argument_list|,
-name|header
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * This method is called to convert a incoming message format e.g Stax Stream      * to a DOM Tree. Default Implementation converts Stax Stream to a DOM      */
 DECL|method|createDOMMessage (T message)
@@ -911,17 +892,6 @@ name|rootElement
 parameter_list|,
 name|BindingMessageInfo
 name|boi
-parameter_list|)
-function_decl|;
-comment|/**      * This method is called when the routing message interceptor has intercepted a inbound      * message as a DOM Content.  It retreives the header parts as DOM Element      * and returns a Element.      */
-DECL|method|getHeader (T inMessage)
-specifier|protected
-specifier|abstract
-name|Element
-name|getHeader
-parameter_list|(
-name|T
-name|inMessage
 parameter_list|)
 function_decl|;
 block|}

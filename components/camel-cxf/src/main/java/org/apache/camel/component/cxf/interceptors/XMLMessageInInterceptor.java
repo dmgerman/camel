@@ -955,19 +955,6 @@ return|return
 name|partList
 return|;
 block|}
-DECL|method|getHeader (XMLMessage inMessage)
-specifier|protected
-name|Element
-name|getHeader
-parameter_list|(
-name|XMLMessage
-name|inMessage
-parameter_list|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 end_class
 

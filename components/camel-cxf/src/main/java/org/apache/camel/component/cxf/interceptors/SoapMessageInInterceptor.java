@@ -50,10 +50,6 @@ name|List
 import|;
 end_import
 
-begin_comment
-comment|//import java.util.ResourceBundle;
-end_comment
-
 begin_import
 import|import
 name|java
@@ -132,6 +128,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|pizza
+operator|.
+name|types
+operator|.
+name|CallerIDHeaderType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|cxf
 operator|.
 name|binding
@@ -175,10 +187,6 @@ operator|.
 name|LogUtils
 import|;
 end_import
-
-begin_comment
-comment|//import org.apache.cxf.common.i18n.BundleUtils;
-end_comment
 
 begin_import
 import|import
@@ -728,26 +736,6 @@ expr_stmt|;
 return|return
 name|partList
 return|;
-block|}
-DECL|method|getHeader (SoapMessage inMessage)
-specifier|protected
-name|Element
-name|getHeader
-parameter_list|(
-name|SoapMessage
-name|inMessage
-parameter_list|)
-block|{
-comment|// need to find out the soap header information
-name|Element
-name|element
-init|=
-literal|null
-decl_stmt|;
-return|return
-name|element
-return|;
-comment|// return inMessage.getHeaders(Element.class);
 block|}
 block|}
 end_class
