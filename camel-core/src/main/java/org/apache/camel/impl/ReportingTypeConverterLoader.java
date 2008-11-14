@@ -88,11 +88,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|converter
-operator|.
-name|AnnotationTypeConverterLoader
+name|TypeConverterRegistry
 import|;
 end_import
 
@@ -108,7 +106,7 @@ name|impl
 operator|.
 name|converter
 operator|.
-name|TypeConverterRegistry
+name|AnnotationTypeConverterLoader
 import|;
 end_import
 

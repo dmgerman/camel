@@ -152,6 +152,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|TypeConverterRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|FactoryFinder
@@ -909,13 +923,11 @@ condition|)
 block|{
 name|converter
 operator|=
-name|findTypeConverter
+name|lookup
 argument_list|(
 name|toType
 argument_list|,
 name|fromType
-argument_list|,
-name|value
 argument_list|)
 expr_stmt|;
 if|if
@@ -941,22 +953,22 @@ return|return
 name|converter
 return|;
 block|}
-comment|/**      * Tries to auto-discover any available type converters      */
-DECL|method|findTypeConverter (Class toType, Class fromType, Object value)
-specifier|protected
+DECL|method|lookup (Class toType, Class fromType)
+specifier|public
 name|TypeConverter
-name|findTypeConverter
+name|lookup
 parameter_list|(
 name|Class
 name|toType
 parameter_list|,
 name|Class
 name|fromType
-parameter_list|,
-name|Object
-name|value
 parameter_list|)
 block|{
+comment|// make sure we have loaded the converters
+name|checkLoaded
+argument_list|()
+expr_stmt|;
 comment|// lets try the super classes of the from type
 if|if
 condition|(
@@ -1009,13 +1021,11 @@ condition|)
 block|{
 name|converter
 operator|=
-name|findTypeConverter
+name|lookup
 argument_list|(
 name|toType
 argument_list|,
 name|fromSuperClass
-argument_list|,
-name|value
 argument_list|)
 expr_stmt|;
 block|}
@@ -1123,13 +1133,11 @@ condition|)
 block|{
 name|converter
 operator|=
-name|findTypeConverter
+name|lookup
 argument_list|(
 name|toType
 argument_list|,
 name|fromSuperClass
-argument_list|,
-name|value
 argument_list|)
 expr_stmt|;
 block|}

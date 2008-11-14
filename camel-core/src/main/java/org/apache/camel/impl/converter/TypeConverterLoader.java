@@ -18,6 +18,20 @@ name|converter
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|TypeConverterRegistry
+import|;
+end_import
+
 begin_comment
 comment|/**  * A pluggable strategy to load type converters into a registry from some kind of mechanism  *  * @version $Revision$  */
 end_comment

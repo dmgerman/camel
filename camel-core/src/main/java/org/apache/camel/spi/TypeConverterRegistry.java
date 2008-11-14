@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl.converter
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|converter
+name|spi
 package|;
 end_package
 
@@ -54,7 +52,7 @@ specifier|public
 interface|interface
 name|TypeConverterRegistry
 block|{
-comment|/**      * Allows a new type converter to be registered      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @param typeConverter the type converter to use      */
+comment|/**      * Registers a new type converter      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @param typeConverter the type converter to use      */
 DECL|method|addTypeConverter (Class toType, Class fromType, TypeConverter typeConverter)
 name|void
 name|addTypeConverter
@@ -69,6 +67,28 @@ name|TypeConverter
 name|typeConverter
 parameter_list|)
 function_decl|;
+comment|/**      * Performs a lookup for a given type converter.      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @return the type converter or null if not found.      */
+DECL|method|lookup (Class toType, Class fromType)
+name|TypeConverter
+name|lookup
+parameter_list|(
+name|Class
+name|toType
+parameter_list|,
+name|Class
+name|fromType
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the injector to be used for creating new instances during type convertions.      */
+DECL|method|setInjector (Injector injector)
+name|void
+name|setInjector
+parameter_list|(
+name|Injector
+name|injector
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the injector      */
 DECL|method|getInjector ()
 name|Injector
 name|getInjector

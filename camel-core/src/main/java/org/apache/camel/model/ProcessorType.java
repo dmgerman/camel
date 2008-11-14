@@ -2803,7 +2803,7 @@ name|delay
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/delayer.html">Delayer</a> pattern      * where an expression is used to calculate the time which the message will      * be dispatched on      *      * @return the builder      */
+comment|/**      * Creates the<a      * href="http://activemq.apache.org/camel/throttler.html">Throtler</a> pattern      * for throttling messages to ensure that a specific endpoint does not get overloaded,      * or we don't exceed an agreed SLA with some external service?      *<p/>      * Will default use a time period of 1 second, so setting the maximumRequestCount to eg 10      * will default ensure at most 10 messages per second.       *      * @param maximumRequestCount the maximum messages       * @return the builder      */
 DECL|method|throttler (long maximumRequestCount)
 specifier|public
 name|ThrottlerType

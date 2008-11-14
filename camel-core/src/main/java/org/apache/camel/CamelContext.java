@@ -184,6 +184,20 @@ name|Registry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|TypeConverterRegistry
+import|;
+end_import
+
 begin_comment
 comment|/**  * Interface used to represent the context used to configure routes and the  * policies to use during message exchanges between endpoints.  *  * @version $Revision$  */
 end_comment
@@ -429,6 +443,12 @@ comment|/**      * Returns the type converter used to coerce types from one type
 DECL|method|getTypeConverter ()
 name|TypeConverter
 name|getTypeConverter
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the type converter registry where type converters can be added or looked up      *      * @return the type converter registry      */
+DECL|method|getTypeConverterRegistry ()
+name|TypeConverterRegistry
+name|getTypeConverterRegistry
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the registry used to lookup components by name and type such as the Spring ApplicationContext,      * JNDI or the OSGi Service Registry      *      * @return the registry      */
