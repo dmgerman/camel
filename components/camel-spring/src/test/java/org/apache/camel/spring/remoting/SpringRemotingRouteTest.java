@@ -138,10 +138,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|testPojoRoutes ()
+DECL|method|testBeanRoutes ()
 specifier|public
 name|void
-name|testPojoRoutes
+name|testBeanRoutes
 parameter_list|()
 throws|throws
 name|Exception
