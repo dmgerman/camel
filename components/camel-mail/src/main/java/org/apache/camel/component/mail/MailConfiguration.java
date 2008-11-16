@@ -172,6 +172,11 @@ specifier|private
 name|Properties
 name|javaMailProperties
 decl_stmt|;
+DECL|field|additionalJavaMailProperties
+specifier|private
+name|Properties
+name|additionalJavaMailProperties
+decl_stmt|;
 DECL|field|protocol
 specifier|private
 name|String
@@ -470,6 +475,25 @@ name|createJavaMailProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// add additional properties if provided
+if|if
+condition|(
+name|additionalJavaMailProperties
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|getJavaMailProperties
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|additionalJavaMailProperties
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1037,6 +1061,7 @@ return|return
 name|javaMailProperties
 return|;
 block|}
+comment|/**      * Sets the java mail options. Will clear any default properties and only use the properties      * provided for this method.      */
 DECL|method|setJavaMailProperties (Properties javaMailProperties)
 specifier|public
 name|void
@@ -1051,6 +1076,47 @@ operator|.
 name|javaMailProperties
 operator|=
 name|javaMailProperties
+expr_stmt|;
+block|}
+DECL|method|getAdditionalJavaMailProperties ()
+specifier|public
+name|Properties
+name|getAdditionalJavaMailProperties
+parameter_list|()
+block|{
+if|if
+condition|(
+name|additionalJavaMailProperties
+operator|==
+literal|null
+condition|)
+block|{
+name|additionalJavaMailProperties
+operator|=
+operator|new
+name|Properties
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|additionalJavaMailProperties
+return|;
+block|}
+comment|/**      * Sets additional java mail properties, that will append/override any default properties      * that is set based on all the other options. This is useful if you need to add some      * special options but want to keep the others as is.      */
+DECL|method|setAdditionalJavaMailProperties (Properties additionalJavaMailProperties)
+specifier|public
+name|void
+name|setAdditionalJavaMailProperties
+parameter_list|(
+name|Properties
+name|additionalJavaMailProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|additionalJavaMailProperties
+operator|=
+name|additionalJavaMailProperties
 expr_stmt|;
 block|}
 DECL|method|getPassword ()
