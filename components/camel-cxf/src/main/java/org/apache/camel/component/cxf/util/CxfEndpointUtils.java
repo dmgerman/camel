@@ -260,7 +260,7 @@ name|cxf
 operator|.
 name|frontend
 operator|.
-name|ClientFactoryBean
+name|ClientProxyFactoryBean
 import|;
 end_import
 
@@ -288,7 +288,7 @@ name|cxf
 operator|.
 name|jaxws
 operator|.
-name|JaxWsClientFactoryBean
+name|JaxWsProxyFactoryBean
 import|;
 end_import
 
@@ -963,7 +963,7 @@ block|}
 DECL|method|getClientFactoryBean (Class<?> cls)
 specifier|public
 specifier|static
-name|ClientFactoryBean
+name|ClientProxyFactoryBean
 name|getClientFactoryBean
 parameter_list|(
 name|Class
@@ -975,7 +975,7 @@ parameter_list|)
 throws|throws
 name|CamelException
 block|{
-name|ClientFactoryBean
+name|ClientProxyFactoryBean
 name|clientFactory
 init|=
 literal|null
@@ -992,7 +992,7 @@ block|{
 name|clientFactory
 operator|=
 operator|new
-name|ClientFactoryBean
+name|ClientProxyFactoryBean
 argument_list|()
 expr_stmt|;
 name|clientFactory
@@ -1022,11 +1022,11 @@ operator|=
 name|isJSR181SEnabled
 condition|?
 operator|new
-name|JaxWsClientFactoryBean
+name|JaxWsProxyFactoryBean
 argument_list|()
 else|:
 operator|new
-name|ClientFactoryBean
+name|ClientProxyFactoryBean
 argument_list|()
 expr_stmt|;
 block|}

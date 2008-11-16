@@ -105,6 +105,21 @@ specifier|private
 name|int
 name|messageCount
 decl_stmt|;
+DECL|field|getHeadersCount
+specifier|private
+name|int
+name|getHeadersCount
+decl_stmt|;
+DECL|method|getGetHeadersCount ()
+specifier|public
+name|int
+name|getGetHeadersCount
+parameter_list|()
+block|{
+return|return
+name|getHeadersCount
+return|;
+block|}
 DECL|method|getHeaders ()
 specifier|public
 name|Set
@@ -114,6 +129,9 @@ argument_list|>
 name|getHeaders
 parameter_list|()
 block|{
+name|getHeadersCount
+operator|++
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -170,6 +188,10 @@ operator|=
 literal|0
 expr_stmt|;
 name|messageCount
+operator|=
+literal|0
+expr_stmt|;
+name|getHeadersCount
 operator|=
 literal|0
 expr_stmt|;

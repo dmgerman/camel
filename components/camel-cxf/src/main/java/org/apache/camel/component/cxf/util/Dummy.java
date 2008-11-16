@@ -24,13 +24,13 @@ begin_comment
 comment|// Dummy class for setting service class
 end_comment
 
-begin_class
-DECL|class|Dummy
+begin_interface
+DECL|interface|Dummy
 specifier|public
-class|class
+interface|interface
 name|Dummy
 block|{  }
-end_class
+end_interface
 
 end_unit
 
