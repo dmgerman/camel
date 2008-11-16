@@ -265,7 +265,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"pojo:bye"
+literal|"bean:bye"
 argument_list|)
 expr_stmt|;
 block|}
