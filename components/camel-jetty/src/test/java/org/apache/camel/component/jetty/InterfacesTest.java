@@ -50,16 +50,6 @@ name|java
 operator|.
 name|net
 operator|.
-name|SocketException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
 name|URL
 import|;
 end_import
@@ -148,6 +138,10 @@ argument_list|()
 decl_stmt|;
 while|while
 condition|(
+name|remoteInterfaceAddress
+operator|==
+literal|null
+operator|&&
 name|interfaces
 operator|.
 name|hasMoreElements
@@ -196,6 +190,7 @@ operator|.
 name|isLoopbackAddress
 argument_list|()
 operator|||
+operator|!
 name|nextAddress
 operator|.
 name|isReachable
@@ -204,7 +199,7 @@ literal|2000
 argument_list|)
 condition|)
 block|{
-break|break;
+continue|continue;
 block|}
 name|remoteInterfaceAddress
 operator|=
