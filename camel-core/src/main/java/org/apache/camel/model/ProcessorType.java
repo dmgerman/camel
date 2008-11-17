@@ -889,7 +889,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sends the exchange to the given endpoint URI      */
+comment|/**      * Sends the exchange to the given endpoint      */
 DECL|method|to (String uri)
 specifier|public
 name|Type
@@ -1013,7 +1013,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to a list of endpoint      */
+comment|/**      * Sends the exchange to a list of endpoints      */
 DECL|method|to (Collection<Endpoint> endpoints)
 specifier|public
 name|Type
@@ -1347,7 +1347,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer}      * to avoid duplicate messages      *      * @return the builder used to create the expression      */
+comment|/**      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdRepository the repository to use for duplicate chedck      * @return the builder used to create the expression      */
 DECL|method|idempotentConsumer (MessageIdRepository messageIdRepository)
 specifier|public
 name|ExpressionClause
@@ -1388,7 +1388,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a predicate expression which only if it is true then the      * exchange is forwarded to the destination      *      * @return the clause used to create the filter expression      */
+comment|/**      * Creates a predicate expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @return the clause used to create the filter expression      */
 DECL|method|filter ()
 specifier|public
 name|ExpressionClause
@@ -1419,7 +1419,7 @@ name|filter
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a predicate which is applied and only if it is true then the      * exchange is forwarded to the destination      *      * @return the builder for a predicate      */
+comment|/**      * Creates a predicate which is applied and only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @param predicate  predicate to use      * @return the builder       */
 DECL|method|filter (Predicate predicate)
 specifier|public
 name|FilterType
@@ -1447,6 +1447,7 @@ return|return
 name|filter
 return|;
 block|}
+comment|/**      * Creates a predicate expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @param expression  the predicate expression to use      * @return the builder      */
 DECL|method|filter (ExpressionType expression)
 specifier|public
 name|FilterType
@@ -1481,6 +1482,7 @@ return|return
 name|filter
 return|;
 block|}
+comment|/**      * Creates a predicate language expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @param language     language for expression      * @param expression   the expression      * @return the builder      */
 DECL|method|filter (String language, String expression)
 specifier|public
 name|FilterType
@@ -1506,6 +1508,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a loadbalance      *      * @return  the builder      */
 DECL|method|loadBalance ()
 specifier|public
 name|LoadBalanceType
@@ -2862,6 +2865,7 @@ name|loop
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a loop which must evaluate to an integer that determines      * how many times the exchange should be sent down the rest of the route.      *      * @param expression the loop expression      * @return the builder      */
 DECL|method|loop (Expression expression)
 specifier|public
 name|LoopType
@@ -2896,6 +2900,7 @@ return|return
 name|loop
 return|;
 block|}
+comment|/**      * Creates a loop which must evaluate to an integer that determines      * how many times the exchange should be sent down the rest of the route.      *      * @param count  the number of times      * @return the builder      */
 DECL|method|loop (int count)
 specifier|public
 name|LoopType
@@ -3044,7 +3049,6 @@ name|interceptor
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//lastInterceptor = interceptor;
 return|return
 operator|(
 name|Type
