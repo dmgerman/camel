@@ -208,18 +208,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Expression
 import|;
 end_import
@@ -433,20 +421,6 @@ operator|.
 name|language
 operator|.
 name|LanguageExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|ConvertBodyProcessor
 import|;
 end_import
 
@@ -889,7 +863,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sends the exchange to the given endpoint      */
+comment|/**      * Sends the exchange to the given endpoint      *      * @param uri  the endpoint to send to      * @return the builder      */
 DECL|method|to (String uri)
 specifier|public
 name|Type
@@ -915,7 +889,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to the given endpoint      */
+comment|/**      * Sends the exchange to the given endpoint      *      * @param endpoint  the endpoint to send to      * @return the builder      */
 DECL|method|to (Endpoint endpoint)
 specifier|public
 name|Type
@@ -941,7 +915,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to a list of endpoints      */
+comment|/**      * Sends the exchange to a list of endpoints      *      * @param uris  list of endpoints to send to      * @return the builder      */
 DECL|method|to (String... uris)
 specifier|public
 name|Type
@@ -977,7 +951,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to a list of endpoints      */
+comment|/**      * Sends the exchange to a list of endpoints      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
 DECL|method|to (Endpoint... endpoints)
 specifier|public
 name|Type
@@ -1013,7 +987,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sends the exchange to a list of endpoints      */
+comment|/**      * Sends the exchange to a list of endpoints      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
 DECL|method|to (Collection<Endpoint> endpoints)
 specifier|public
 name|Type
@@ -1051,7 +1025,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      */
+comment|/**      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      *      * @return the builder      */
 DECL|method|multicast ()
 specifier|public
 name|MulticastType
@@ -1074,7 +1048,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the multicast type      */
+comment|/**      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      *      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the builder      */
 DECL|method|multicast (AggregationStrategy aggregationStrategy, boolean parallelProcessing)
 specifier|public
 name|MulticastType
@@ -1117,7 +1091,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the multicast type      */
+comment|/**      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      *      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the builder      */
 DECL|method|multicast (AggregationStrategy aggregationStrategy)
 specifier|public
 name|MulticastType
@@ -1150,7 +1124,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      */
+comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @param uris  list of endpoints      * @return the builder      */
 DECL|method|pipeline (String... uris)
 specifier|public
 name|Type
@@ -1161,7 +1135,6 @@ modifier|...
 name|uris
 parameter_list|)
 block|{
-comment|// TODO pipeline v mulicast
 return|return
 name|to
 argument_list|(
@@ -1169,7 +1142,7 @@ name|uris
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      */
+comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @param endpoints  list of endpoints      * @return the builder      */
 DECL|method|pipeline (Endpoint... endpoints)
 specifier|public
 name|Type
@@ -1180,7 +1153,6 @@ modifier|...
 name|endpoints
 parameter_list|)
 block|{
-comment|// TODO pipeline v mulicast
 return|return
 name|to
 argument_list|(
@@ -1188,7 +1160,7 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      */
+comment|/**      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @param endpoints  list of endpoints      * @return the builder      */
 DECL|method|pipeline (Collection<Endpoint> endpoints)
 specifier|public
 name|Type
@@ -1201,7 +1173,6 @@ argument_list|>
 name|endpoints
 parameter_list|)
 block|{
-comment|// TODO pipeline v mulicast
 return|return
 name|to
 argument_list|(
@@ -1209,7 +1180,7 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      * Ends the current block      */
+comment|/**      * Ends the current block      *      * @return the builder      */
 DECL|method|end ()
 specifier|public
 name|ProcessorType
@@ -1314,7 +1285,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer}      * to avoid duplicate messages      */
+comment|/**      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdExpression  expression to test of duplicate messages      * @param messageIdRepository  the repository to use for duplicate chedck      * @return the builder      */
 DECL|method|idempotentConsumer (Expression messageIdExpression, MessageIdRepository messageIdRepository)
 specifier|public
 name|IdempotentConsumerType
@@ -1577,7 +1548,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *      * @param recipients is the builder of the expression used in the      *                    {@link org.apache.camel.processor.RecipientList}      *                    to decide the destinations      */
+comment|/**      * Creates a dynamic<a      * href="http://activemq.apache.org/camel/recipient-list.html">Recipient      * List</a> pattern.      *      * @param recipients is the builder of the expression used in the      *                    {@link org.apache.camel.processor.RecipientList}      *                    to decide the destinations      * @return the builder      */
 DECL|method|recipientList (Expression recipients)
 specifier|public
 name|Type
@@ -1668,7 +1639,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Creates a<a      * href="http://activemq.apache.org/camel/routing-slip.html">Routing      * Slip</a> pattern.      *      * @param header is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      * class will look in for the list of URIs to route the message to.      * @param uriDelimiter is the delimiter that will be used to split up      * the list of URIs in the routing slip.      */
+comment|/**      * Creates a<a      * href="http://activemq.apache.org/camel/routing-slip.html">Routing      * Slip</a> pattern.      *      * @param header is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      * class will look in for the list of URIs to route the message to.      * @param uriDelimiter is the delimiter that will be used to split up      * the list of URIs in the routing slip.      * @return the buiider      */
 DECL|method|routingSlip (String header, String uriDelimiter)
 specifier|public
 name|Type
@@ -1704,7 +1675,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Creates a<a      * href="http://activemq.apache.org/camel/routing-slip.html">Routing      * Slip</a> pattern.      *      * @param header is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      * class will look in for the list of URIs to route the message to. The list of URIs      * will be split based on the default delimiter      * {@link RoutingSlipType#DEFAULT_DELIMITER}.      */
+comment|/**      * Creates a<a      * href="http://activemq.apache.org/camel/routing-slip.html">Routing      * Slip</a> pattern.      *      * @param header is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      * class will look in for the list of URIs to route the message to. The list of URIs      * will be split based on the default delimiter      * {@link RoutingSlipType#DEFAULT_DELIMITER}.      * @return the builder      */
 DECL|method|routingSlip (String header)
 specifier|public
 name|Type
@@ -1735,7 +1706,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Creates a<a      * href="http://activemq.apache.org/camel/routing-slip.html">Routing      * Slip</a> pattern with the default header {@link RoutingSlipType#ROUTING_SLIP_HEADER}.      * The list of URIs in the header will be split based on the default delimiter      * {@link RoutingSlipType#DEFAULT_DELIMITER}.      */
+comment|/**      * Creates a<a      * href="http://activemq.apache.org/camel/routing-slip.html">Routing      * Slip</a> pattern with the default header {@link RoutingSlipType#ROUTING_SLIP_HEADER}.      * The list of URIs in the header will be split based on the default delimiter      * {@link RoutingSlipType#DEFAULT_DELIMITER}.      * @return the builder      */
 DECL|method|routingSlip ()
 specifier|public
 name|Type
@@ -2442,7 +2413,7 @@ name|list
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      *      * @return the builder      */
 DECL|method|aggregator ()
 specifier|public
 name|ExpressionClause
@@ -2491,7 +2462,7 @@ name|createAndSetExpression
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      *      * @param aggregationStrategy the strategy used for the aggregation      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      *      * @param aggregationStrategy the strategy used for the aggregation      * @return the builder      */
 DECL|method|aggregator (AggregationStrategy aggregationStrategy)
 specifier|public
 name|ExpressionClause
@@ -2550,7 +2521,7 @@ name|createAndSetExpression
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern using a custom aggregation collection implementation. The aggregation collection must      * be configured with the strategy and correlation expression that this aggregator should use.      * This avoids duplicating this configuration on both the collection and the aggregator itself.      *      * @param aggregationCollection the collection used to perform the aggregation      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern using a custom aggregation collection implementation. The aggregation collection must      * be configured with the strategy and correlation expression that this aggregator should use.      * This avoids duplicating this configuration on both the collection and the aggregator itself.      *      * @param aggregationCollection the collection used to perform the aggregation      * @return the builder      */
 DECL|method|aggregator (AggregationCollection aggregationCollection)
 specifier|public
 name|AggregatorType
@@ -2603,7 +2574,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      * @return the builder      */
 DECL|method|aggregator (Expression correlationExpression)
 specifier|public
 name|AggregatorType
@@ -2651,7 +2622,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      */
+comment|/**      * Creates an<a      * href="http://activemq.apache.org/camel/aggregator.html">Aggregator</a>      * pattern where a batch of messages are processed (up to a maximum amount      * or until some timeout is reached) and messages for the same correlation      * key are combined together using some kind of {@link AggregationStrategy}      * (by default the latest message is used) to compress many message exchanges      * into a smaller number of exchanges.      *<p/>      * A good example of this is stock market data; you may be receiving 30,000      * messages/second and you may want to throttle it right down so that multiple      * messages for the same stock are combined (or just the latest message is used      * and older prices are discarded). Another idea is to combine line item messages      * together into a single invoice message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      * @param aggregationStrategy the strategy used for the aggregation      * @return the builder      */
 DECL|method|aggregator (Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|AggregatorType
@@ -3458,7 +3429,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Apply an interceptor route if the predicate is true.      *      * @param predicate the predicate to test      * @return  a choice      */
+comment|/**      * Apply an interceptor route if the predicate is true.      *      * @param predicate the predicate to test      * @return  the choice builder to configure      */
 DECL|method|intercept (Predicate predicate)
 specifier|public
 name|ChoiceType
@@ -3468,7 +3439,6 @@ name|Predicate
 name|predicate
 parameter_list|)
 block|{
-comment|// TODO: Maybe not correct name? Not used/unit tested
 name|InterceptType
 name|answer
 init|=
@@ -4594,7 +4564,6 @@ name|DataFormatType
 name|dataFormatType
 parameter_list|)
 block|{
-comment|// TODO: why is the parameter a xxType object? Isn't this wrong?
 name|addOutput
 argument_list|(
 operator|new
@@ -4701,7 +4670,6 @@ name|DataFormatType
 name|dataFormatType
 parameter_list|)
 block|{
-comment|// TODO: why is the parameter a xxType object? Isn't this wrong?
 name|addOutput
 argument_list|(
 operator|new
@@ -5075,7 +5043,7 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * A strategy method which allows derived classes to wrap the child      * processor in some kind of interceptor      *      * @param routeContext      * @param target       the processor which can be wrapped      * @return the original processor or a new wrapped interceptor      */
+comment|/**      * A strategy method which allows derived classes to wrap the child      * processor in some kind of interceptor      *      * @param routeContext the route context      * @param target       the processor which can be wrapped      * @return the original processor or a new wrapped interceptor      */
 DECL|method|wrapProcessorInInterceptors (RouteContext routeContext, Processor target)
 specifier|protected
 name|Processor

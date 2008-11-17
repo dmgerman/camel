@@ -328,7 +328,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Called on initialization to to build the required destinationBuilders      */
+comment|/**      *<b>Called on initialization to build the routes using the fluent builder syntax.</b>      *<p/>      * This is a central method for RouteBuilder implementations to implement      * the routes using the Java fluent builder syntax.      *      * @throws Exception can be thrown during configuration      */
 DECL|method|configure ()
 specifier|public
 specifier|abstract
@@ -338,7 +338,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Creates a new route from the given URI input      */
+comment|/**      * Creates a new route from the given URI input      *      * @param uri  the from uri      * @return the builder      */
 DECL|method|from (String uri)
 specifier|public
 name|RouteType
@@ -367,7 +367,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a new route from the given endpoint      */
+comment|/**      * Creates a new route from the given endpoint      *      * @param endpoint  the from endpoint      * @return the builder      */
 DECL|method|from (Endpoint endpoint)
 specifier|public
 name|RouteType
@@ -436,7 +436,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds the given interceptor to this route      */
+comment|/**      * Adds the given interceptor to this route      *      * @param interceptor  the interceptor      * @return the builder      */
 DECL|method|intercept (DelegateProcessor interceptor)
 specifier|public
 name|RouteBuilder
@@ -457,7 +457,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a route for an interceptor; use the {@link ProcessorType#proceed()} method      * to continue processing the underlying route being intercepted.      */
+comment|/**      * Adds a route for an interceptor; use the {@link ProcessorType#proceed()} method      * to continue processing the underlying route being intercepted.      * @return the builder      */
 DECL|method|intercept ()
 specifier|public
 name|InterceptType
@@ -471,7 +471,7 @@ name|intercept
 argument_list|()
 return|;
 block|}
-comment|/**      * Applies a route for an interceptor if the given predicate is true      * otherwise the interceptor route is not applied      */
+comment|/**      * Applies a route for an interceptor if the given predicate is true      * otherwise the interceptor route is not applied      *      * @param predicate  the predicate      * @return the builder      */
 DECL|method|intercept (Predicate predicate)
 specifier|public
 name|ChoiceType
@@ -490,7 +490,7 @@ name|predicate
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds an exception handler route for the given exception type      */
+comment|/**      * Adds an exception handler route for the given exception type      *      * @param exceptionType  the exception type      * @return the builder      */
 DECL|method|onException (Class exceptionType)
 specifier|public
 name|ExceptionType
@@ -509,7 +509,7 @@ name|exceptionType
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds an exception handler route for the given exception types      */
+comment|/**      * Adds an exception handler route for the given exception types      *      * @param exceptions  list of exceptions types      * @return the builder      */
 DECL|method|onException (Class... exceptions)
 specifier|public
 name|ExceptionType
