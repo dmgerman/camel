@@ -2944,6 +2944,7 @@ return|return
 name|loop
 return|;
 block|}
+comment|/**      * Creates a fault message based on the given throwable.      *      * @param fault   the fault      * @return the builder      */
 DECL|method|throwFault (Throwable fault)
 specifier|public
 name|Type
@@ -2979,6 +2980,7 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Creates a fault message based on the given message.      *      * @param message  the fault message      * @return the builder      */
 DECL|method|throwFault (String message)
 specifier|public
 name|Type
@@ -2999,7 +3001,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      */
+comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      *      * @param ref  a reference in the registry to lookup the interceptor that must be of type {@link DelegateProcessor}      * @return the builder      */
 DECL|method|interceptor (String ref)
 specifier|public
 name|Type
@@ -3030,7 +3032,39 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      */
+comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      *      * @param refs  a list of reference in the registry to lookup the interceptor that must      *              be of type {@link DelegateProcessor}      * @return the builder      */
+DECL|method|interceptors (String... refs)
+specifier|public
+name|Type
+name|interceptors
+parameter_list|(
+name|String
+modifier|...
+name|refs
+parameter_list|)
+block|{
+for|for
+control|(
+name|String
+name|ref
+range|:
+name|refs
+control|)
+block|{
+name|interceptor
+argument_list|(
+name|ref
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      *      * @param interceptor  the interceptor      * @return the builder      */
 DECL|method|intercept (DelegateProcessor interceptor)
 specifier|public
 name|Type
@@ -3056,7 +3090,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      */
+comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      *      * @return the intercept builder to configure      */
 DECL|method|intercept ()
 specifier|public
 name|InterceptType
@@ -3079,7 +3113,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      */
+comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      *      * @param  interceptor  the interceptor      */
 DECL|method|intercept (InterceptorType interceptor)
 specifier|public
 name|void
@@ -3100,7 +3134,7 @@ name|interceptor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an interceptor around the whole of this nodes processing      *      * @param interceptor      */
+comment|/**      * Adds an interceptor around the whole of this nodes processing      *      * @param interceptor  the interceptor      */
 DECL|method|addInterceptor (InterceptorType interceptor)
 specifier|public
 name|void
@@ -3118,7 +3152,7 @@ name|interceptor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an interceptor around the whole of this nodes processing      *      * @param interceptor      */
+comment|/**      * Adds an interceptor around the whole of this nodes processing      *      * @param interceptor  the interceptor      */
 DECL|method|addInterceptor (DelegateProcessor interceptor)
 specifier|public
 name|void
@@ -3138,6 +3172,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Pushes the given block on the stack as current block      * @param block  the block      */
 DECL|method|pushBlock (Block block)
 specifier|public
 name|void
@@ -3155,6 +3190,7 @@ name|block
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Pops the block off the stack as current block      * @return the block      */
 DECL|method|popBlock ()
 specifier|public
 name|Block
@@ -3175,6 +3211,7 @@ name|removeLast
 argument_list|()
 return|;
 block|}
+comment|/**      * Procceeds the given intercepted route.      *<p/>      * Proceed is used in conjunction with intercept where calling proceed will route the message through the      * original route path from the point of interception. This can be used to implement the      *<a href="http://www.enterpriseintegrationpatterns.com/Detour.html">detour</a> pattern.      *      * @return the builder      * @see ProcessorType#proceed()      */
 DECL|method|proceed ()
 specifier|public
 name|Type
@@ -3297,6 +3334,7 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Stops the given intercepted route.      *<p/>      * As opposed to {@link #proceed()} calling stop will stop the message route and<b>not</b> continue      * from the interepted origin.      *      * @return the builder      * @see #proceed()      */
 DECL|method|stop ()
 specifier|public
 name|Type
@@ -3392,7 +3430,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Catches an exception type.      */
+comment|/**      * Catches an exception type.      *      * @param exceptionType  the exception to catch      * @return the exception builder to configure      */
 DECL|method|onException (Class exceptionType)
 specifier|public
 name|ExceptionType
@@ -3420,7 +3458,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Apply an interceptor route if the predicate is true      */
+comment|/**      * Apply an interceptor route if the predicate is true.      *      * @param predicate the predicate to test      * @return  a choice      */
 DECL|method|intercept (Predicate predicate)
 specifier|public
 name|ChoiceType
@@ -3430,6 +3468,7 @@ name|Predicate
 name|predicate
 parameter_list|)
 block|{
+comment|// TODO: Maybe not correct name? Not used/unit tested
 name|InterceptType
 name|answer
 init|=
@@ -3449,37 +3488,6 @@ name|when
 argument_list|(
 name|predicate
 argument_list|)
-return|;
-block|}
-DECL|method|interceptors (String... refs)
-specifier|public
-name|Type
-name|interceptors
-parameter_list|(
-name|String
-modifier|...
-name|refs
-parameter_list|)
-block|{
-for|for
-control|(
-name|String
-name|ref
-range|:
-name|refs
-control|)
-block|{
-name|interceptor
-argument_list|(
-name|ref
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-operator|(
-name|Type
-operator|)
-name|this
 return|;
 block|}
 DECL|method|policies ()
@@ -3598,7 +3606,7 @@ return|;
 block|}
 comment|// Transformers
 comment|// -------------------------------------------------------------------------
-comment|/**      * Adds the custom processor to this destination which could be a final      * destination, or could be a transformation in a pipeline      */
+comment|/**      * Adds the custom processor to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param processor  the custom processor      * @return the builder      */
 DECL|method|process (Processor processor)
 specifier|public
 name|Type
@@ -3629,7 +3637,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds the custom processor reference to this destination which could be a final      * destination, or could be a transformation in a pipeline      */
+comment|/**      * Adds the custom processor reference to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param ref   reference to a processor to lookup in the registry      * @return the builder      */
 DECL|method|processRef (String ref)
 specifier|public
 name|Type
@@ -3665,7 +3673,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a bean which is invoked which could be a final destination, or could      * be a transformation in a pipeline      */
+comment|/**      * Adds a bean which is invoked which could be a final destination, or could      * be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @return the builder      */
 DECL|method|bean (Object bean)
 specifier|public
 name|Type
@@ -3701,7 +3709,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a bean and method which is invoked which could be a final      * destination, or could be a transformation in a pipeline      */
+comment|/**      * Adds a bean and method which is invoked which could be a final      * destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
 DECL|method|bean (Object bean, String method)
 specifier|public
 name|Type
@@ -3747,7 +3755,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a bean by type which is invoked which could be a final destination, or could      * be a transformation in a pipeline      */
+comment|/**      * Adds a bean by type which is invoked which could be a final destination, or could      * be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @return the builder      */
 DECL|method|bean (Class beanType)
 specifier|public
 name|Type
@@ -3783,7 +3791,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a bean type and method which is invoked which could be a final      * destination, or could be a transformation in a pipeline      */
+comment|/**      * Adds a bean type and method which is invoked which could be a final      * destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
 DECL|method|bean (Class beanType, String method)
 specifier|public
 name|Type
@@ -3829,7 +3837,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a bean which is invoked which could be a final destination, or could      * be a transformation in a pipeline      */
+comment|/**      * Adds a bean which is invoked which could be a final destination, or could      * be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @return the builder      */
 DECL|method|beanRef (String ref)
 specifier|public
 name|Type
@@ -3860,7 +3868,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a bean and method which is invoked which could be a final      * destination, or could be a transformation in a pipeline      */
+comment|/**      * Adds a bean and method which is invoked which could be a final      * destination, or could be a transformation in a pipeline      *       * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
 DECL|method|beanRef (String ref, String method)
 specifier|public
 name|Type
@@ -3896,7 +3904,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the IN message      */
+comment|/**      * Adds a processor which sets the body on the IN message      *      * @return a expression builder clause to set the body      */
 DECL|method|setBody ()
 specifier|public
 name|ExpressionClause
@@ -3951,7 +3959,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the IN message      */
+comment|/**      * Adds a processor which sets the body on the IN message      *      * @param expression   the expression used to set the body      * @return the builder      */
 DECL|method|setBody (Expression expression)
 specifier|public
 name|Type
@@ -3982,7 +3990,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the OUT message      */
+comment|/**      * Adds a processor which sets the body on the OUT message      *      * @param expression   the expression used to set the body      * @return the builder      */
 DECL|method|transform (Expression expression)
 specifier|public
 name|Type
@@ -4013,7 +4021,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the OUT message      */
+comment|/**      * Adds a processor which sets the body on the OUT message      *      * @return a expression builder clause to set the body      */
 DECL|method|transform ()
 specifier|public
 name|ExpressionClause
@@ -4068,7 +4076,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the FAULT message      */
+comment|/**      * Adds a processor which sets the body on the FAULT message      *      * @param expression   the expression used to set the body      * @return the builder      */
 DECL|method|setFaultBody (Expression expression)
 specifier|public
 name|Type
@@ -4090,7 +4098,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds a processor which sets the header on the IN message      */
+comment|/**      * Adds a processor which sets the header on the IN message      *      * @param name  the header name      * @return a expression builder clause to set the header      */
 DECL|method|setHeader (String name)
 specifier|public
 name|ExpressionClause
@@ -4150,7 +4158,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Adds a processor which sets the header on the IN message      */
+comment|/**      * Adds a processor which sets the header on the IN message      *      * @param name  the header name      * @param expression  the expression used to set the header      * @return the builder      */
 DECL|method|setHeader (String name, Expression expression)
 specifier|public
 name|Type
@@ -4186,7 +4194,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which sets the header on the OUT message      */
+comment|/**      * Adds a processor which sets the header on the OUT message      *      * @param name  the header name      * @return a expression builder clause to set the header      */
 DECL|method|setOutHeader (String name)
 specifier|public
 name|ExpressionClause
@@ -4246,7 +4254,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Adds a processor which sets the header on the OUT message      */
+comment|/**      * Adds a processor which sets the header on the OUT message      *      * @param name  the header name      * @param expression  the expression used to set the header      * @return the builder      */
 DECL|method|setOutHeader (String name, Expression expression)
 specifier|public
 name|Type
@@ -4282,7 +4290,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which sets the header on the FAULT message      */
+comment|/**      * Adds a processor which sets the header on the FAULT message      *      * @param name  the header name      * @param expression  the expression used to set the header      * @return the builder      */
 DECL|method|setFaultHeader (String name, Expression expression)
 specifier|public
 name|Type
@@ -4309,7 +4317,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds a processor which sets the exchange property      */
+comment|/**      * Adds a processor which sets the exchange property      *      * @param name  the property name      * @param expression  the expression used to set the property      * @return the builder      */
 DECL|method|setProperty (String name, Expression expression)
 specifier|public
 name|Type
@@ -4345,7 +4353,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which sets the exchange property      */
+comment|/**      * Adds a processor which sets the exchange property      *      * @param name  the property name      * @return a expression builder clause to set the property      */
 DECL|method|setProperty (String name)
 specifier|public
 name|ExpressionClause
@@ -4405,7 +4413,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Adds a processor which removes the header on the IN message      */
+comment|/**      * Adds a processor which removes the header on the IN message      *      * @param name  the header name      * @return the builder      */
 DECL|method|removeHeader (String name)
 specifier|public
 name|Type
@@ -4436,7 +4444,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which removes the header on the FAULT message      */
+comment|/**      * Adds a processor which removes the header on the FAULT message      *      * @param name  the header name      * @return the builder      */
 DECL|method|removeFaultHeader (String name)
 specifier|public
 name|Type
@@ -4458,7 +4466,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds a processor which removes the exchange property      */
+comment|/**      * Adds a processor which removes the exchange property      *      * @param name  the property name      * @return the builder      */
 DECL|method|removeProperty (String name)
 specifier|public
 name|Type
@@ -4489,7 +4497,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Converts the IN message body to the specified type      */
+comment|/**      * Converts the IN message body to the specified type      *      * @param type the type to convert to      * @return the builder      */
 DECL|method|convertBodyTo (Class type)
 specifier|public
 name|Type
@@ -4515,7 +4523,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Converts the IN message body to the specified class type      */
+comment|/**      * Converts the IN message body to the specified class type      *      * @param typeString the type to convert to as a fully qualified classname      * @return the builder      */
 DECL|method|convertBodyTo (String typeString)
 specifier|public
 name|Type
@@ -4576,7 +4584,7 @@ name|Unmarshal
 argument_list|)
 return|;
 block|}
-comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @return this object      */
+comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
 DECL|method|unmarshal (DataFormatType dataFormatType)
 specifier|public
 name|Type
@@ -4586,6 +4594,7 @@ name|DataFormatType
 name|dataFormatType
 parameter_list|)
 block|{
+comment|// TODO: why is the parameter a xxType object? Isn't this wrong?
 name|addOutput
 argument_list|(
 operator|new
@@ -4602,7 +4611,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @return this object      */
+comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormat  the dataformat      * @return the builder      */
 DECL|method|unmarshal (DataFormat dataFormat)
 specifier|public
 name|Type
@@ -4623,7 +4632,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @return this object      */
+comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @param dataTypeRef  reference to a {@link DataFormat} to lookup in the registry      * @return the builder      */
 DECL|method|unmarshal (String dataTypeRef)
 specifier|public
 name|Type
@@ -4682,7 +4691,7 @@ name|Marshal
 argument_list|)
 return|;
 block|}
-comment|/**      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @return this object      */
+comment|/**      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
 DECL|method|marshal (DataFormatType dataFormatType)
 specifier|public
 name|Type
@@ -4692,6 +4701,7 @@ name|DataFormatType
 name|dataFormatType
 parameter_list|)
 block|{
+comment|// TODO: why is the parameter a xxType object? Isn't this wrong?
 name|addOutput
 argument_list|(
 operator|new
@@ -4708,7 +4718,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @return this object      */
+comment|/**      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormat  the dataformat      * @return the builder      */
 DECL|method|marshal (DataFormat dataFormat)
 specifier|public
 name|Type
@@ -4729,7 +4739,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Marshals the in body the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @return this object      */
+comment|/**      * Marshals the in body the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @param dataTypeRef  reference to a {@link DataFormat} to lookup in the registry      * @return the builder      */
 DECL|method|marshal (String dataTypeRef)
 specifier|public
 name|Type
