@@ -727,7 +727,7 @@ name|from
 argument_list|(
 literal|"jetty:http://["
 operator|+
-name|remoteInterfaceAddress
+name|remoteInterfaceAddressV6
 operator|+
 literal|"]:5568/testRoute"
 argument_list|)
