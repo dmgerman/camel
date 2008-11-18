@@ -216,6 +216,26 @@ return|return
 name|messageCount
 return|;
 block|}
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"faultCount="
+operator|+
+name|faultCount
+operator|+
+literal|", messageCount="
+operator|+
+name|messageCount
+operator|+
+literal|", getHeadersCount="
+operator|+
+name|getHeadersCount
+return|;
+block|}
 block|}
 end_class
 
