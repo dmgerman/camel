@@ -378,9 +378,16 @@ name|isNotNullAndNonEmpty
 argument_list|(
 name|expr
 operator|.
-name|getLanguage
+name|getExpression
 argument_list|()
 argument_list|)
+operator|||
+name|expr
+operator|.
+name|getExpressionValue
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
