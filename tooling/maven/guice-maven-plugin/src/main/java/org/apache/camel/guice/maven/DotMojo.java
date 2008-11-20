@@ -378,17 +378,17 @@ specifier|protected
 name|boolean
 name|runCamel
 decl_stmt|;
-comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.guice.Main"      * @required      */
-DECL|field|mainClass
-specifier|private
-name|String
-name|mainClass
-decl_stmt|;
 comment|/**      * Should we try run the DOT executable on the generated .DOT file to      * generate images      *      * @parameter expression="true"      */
 DECL|field|useDot
 specifier|protected
 name|boolean
 name|useDot
+decl_stmt|;
+comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.guice.Main"      * @required      */
+DECL|field|mainClass
+specifier|private
+name|String
+name|mainClass
 decl_stmt|;
 comment|/**      * Reference to Maven 2 Project.      *      * @parameter expression="${project}"      * @required      * @readonly      */
 DECL|field|project
