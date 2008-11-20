@@ -670,6 +670,13 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|template
+operator|.
+name|setTransactedInOut
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
 name|jmsComponent
 argument_list|(
