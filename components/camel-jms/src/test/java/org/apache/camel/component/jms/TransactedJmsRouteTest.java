@@ -765,6 +765,7 @@ operator|.
 name|AUTO_ACKNOWLEDGE
 argument_list|)
 expr_stmt|;
+comment|// since the endpoint of activemq:queue:e is not managed by the TransactionManager, let's create a new transaction
 name|from
 argument_list|(
 name|endpoint
@@ -772,7 +773,7 @@ argument_list|)
 operator|.
 name|policy
 argument_list|(
-name|requried
+name|requirenew
 argument_list|)
 operator|.
 name|policy
