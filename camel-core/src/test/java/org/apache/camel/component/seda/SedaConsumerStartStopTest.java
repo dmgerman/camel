@@ -324,7 +324,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|900
 argument_list|)
 expr_stmt|;
 name|consumer

@@ -520,9 +520,7 @@ name|receivedCount
 operator|+
 literal|" messages so far. Last group took: "
 operator|+
-operator|(
 name|duration
-operator|)
 operator|+
 literal|" millis which is: "
 operator|+

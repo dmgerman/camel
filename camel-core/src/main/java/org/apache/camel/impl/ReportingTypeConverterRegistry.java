@@ -58,7 +58,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|TypeConverterRegistry
+name|Injector
 import|;
 end_import
 
@@ -72,7 +72,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Injector
+name|TypeConverterRegistry
 import|;
 end_import
 
