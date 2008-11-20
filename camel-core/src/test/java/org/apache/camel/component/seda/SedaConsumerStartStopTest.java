@@ -181,9 +181,12 @@ name|i
 operator|++
 control|)
 block|{
+comment|// TODO when this delay is removed, the seda endpoint has
+comment|// ordering issues
 try|try
 block|{
 comment|// do some random sleep to simulate spread in user activity
+comment|// range is 5-15
 name|Thread
 operator|.
 name|sleep
@@ -196,6 +199,8 @@ name|nextInt
 argument_list|(
 literal|10
 argument_list|)
+operator|+
+literal|5
 argument_list|)
 expr_stmt|;
 block|}
