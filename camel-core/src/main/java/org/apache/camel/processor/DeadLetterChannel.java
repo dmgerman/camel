@@ -682,6 +682,11 @@ name|exceptionPolicy
 operator|.
 name|createRedeliveryPolicy
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|data
 operator|.
 name|currentRedeliveryPolicy

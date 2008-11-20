@@ -186,6 +186,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|ErrorHandlerBuilder
@@ -504,12 +516,15 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Allows an exception handler to create a new redelivery policy for this exception type      * @param parentPolicy the current redelivery policy      * @return a newly created redelivery policy, or return the original policy if no customization is required      * for this exception handler.      */
-DECL|method|createRedeliveryPolicy (RedeliveryPolicy parentPolicy)
+comment|/**      * Allows an exception handler to create a new redelivery policy for this exception type      * @param context the camel context      * @param parentPolicy the current redelivery policy      * @return a newly created redelivery policy, or return the original policy if no customization is required      * for this exception handler.      */
+DECL|method|createRedeliveryPolicy (CamelContext context, RedeliveryPolicy parentPolicy)
 specifier|public
 name|RedeliveryPolicy
 name|createRedeliveryPolicy
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|RedeliveryPolicy
 name|parentPolicy
 parameter_list|)
@@ -526,6 +541,8 @@ name|redeliveryPolicy
 operator|.
 name|createRedeliveryPolicy
 argument_list|(
+name|context
+argument_list|,
 name|parentPolicy
 argument_list|)
 return|;

@@ -80,9 +80,35 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|RedeliveryPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelContextHelper
 import|;
 end_import
 
@@ -110,6 +136,14 @@ specifier|public
 class|class
 name|RedeliveryPolicyType
 block|{
+annotation|@
+name|XmlAttribute
+argument_list|()
+DECL|field|ref
+specifier|private
+name|String
+name|ref
+decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|maximumRedeliveries
@@ -173,15 +207,41 @@ specifier|private
 name|LoggingLevel
 name|retryAttemptedLogLevel
 decl_stmt|;
-DECL|method|createRedeliveryPolicy (RedeliveryPolicy parentPolicy)
+DECL|method|createRedeliveryPolicy (CamelContext context, RedeliveryPolicy parentPolicy)
 specifier|public
 name|RedeliveryPolicy
 name|createRedeliveryPolicy
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|RedeliveryPolicy
 name|parentPolicy
 parameter_list|)
 block|{
+if|if
+condition|(
+name|ref
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// lookup in registry if ref provided
+return|return
+name|CamelContextHelper
+operator|.
+name|mandatoryLookup
+argument_list|(
+name|context
+argument_list|,
+name|ref
+argument_list|,
+name|RedeliveryPolicy
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 name|RedeliveryPolicy
 name|answer
 init|=
@@ -526,6 +586,24 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|ref (String ref)
+specifier|public
+name|RedeliveryPolicyType
+name|ref
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|setRef
+argument_list|(
+name|ref
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getBackOffMultiplier ()
@@ -711,7 +789,7 @@ name|maximumRedeliveryDelay
 expr_stmt|;
 block|}
 DECL|method|setRetriesExhaustedLogLevel (LoggingLevel retriesExhaustedLogLevel)
-specifier|private
+specifier|public
 name|void
 name|setRetriesExhaustedLogLevel
 parameter_list|(
@@ -727,7 +805,7 @@ name|retriesExhaustedLogLevel
 expr_stmt|;
 block|}
 DECL|method|getRetriesExhaustedLogLevel ()
-specifier|private
+specifier|public
 name|LoggingLevel
 name|getRetriesExhaustedLogLevel
 parameter_list|()
@@ -737,7 +815,7 @@ name|retriesExhaustedLogLevel
 return|;
 block|}
 DECL|method|setRetryAttemptedLogLevel (LoggingLevel retryAttemptedLogLevel)
-specifier|private
+specifier|public
 name|void
 name|setRetryAttemptedLogLevel
 parameter_list|(
@@ -753,7 +831,7 @@ name|retryAttemptedLogLevel
 expr_stmt|;
 block|}
 DECL|method|getRetryAttemptedLogLevel ()
-specifier|private
+specifier|public
 name|LoggingLevel
 name|getRetryAttemptedLogLevel
 parameter_list|()
@@ -761,6 +839,32 @@ block|{
 return|return
 name|retryAttemptedLogLevel
 return|;
+block|}
+DECL|method|getRef ()
+specifier|public
+name|String
+name|getRef
+parameter_list|()
+block|{
+return|return
+name|ref
+return|;
+block|}
+DECL|method|setRef (String ref)
+specifier|public
+name|void
+name|setRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ref
+operator|=
+name|ref
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -101,21 +101,6 @@ literal|"20"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"no 'took: 0' :"
-operator|+
-name|message
-argument_list|,
-operator|!
-name|message
-operator|.
-name|contains
-argument_list|(
-literal|"took: 0"
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class
