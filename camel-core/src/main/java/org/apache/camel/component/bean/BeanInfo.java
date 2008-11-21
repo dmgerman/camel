@@ -170,6 +170,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Expression
 import|;
 end_import
@@ -914,7 +926,7 @@ argument_list|,
 name|method
 argument_list|)
 decl_stmt|;
-comment|// methods already registered should be prefered to use instead of super classes of existing methods
+comment|// methods already registered should be preferred to use instead of super classes of existing methods
 comment|// we want to us the method from the sub class over super classes, so if we have already registered
 comment|// the method then use it (we are traversing upwards: sub (child) -> super (farther) )
 name|MethodInfo
@@ -1175,7 +1187,7 @@ block|{
 continue|continue;
 block|}
 block|}
-comment|// sanme name, same parameters, then its overrides an existing class
+comment|// same name, same parameters, then its overrides an existing class
 return|return
 name|info
 return|;
@@ -1685,7 +1697,7 @@ range|:
 name|operationList
 control|)
 block|{
-comment|// TODO: AOP proxies have additioan methods - consider having a static
+comment|// TODO: AOP proxies have additional methods - consider having a static
 comment|// method exclude list to skip all known AOP proxy methods
 comment|// TODO: This class could use some TRACE logging
 comment|// test for MEP pattern matching
@@ -1710,7 +1722,7 @@ name|isReturnTypeVoid
 argument_list|()
 condition|)
 block|{
-comment|// skip this method as the MEP is Out so the method must return someting
+comment|// skip this method as the MEP is Out so the method must return something
 continue|continue;
 block|}
 comment|// try to match the arguments
@@ -1993,7 +2005,7 @@ name|possibles
 argument_list|)
 throw|;
 block|}
-comment|/**      * Creates an expression for the given parameter type if the parameter can      * be mapped automatically or null if the parameter cannot be mapped due to      * unsufficient annotations or not fitting with the default type      * conventions.      */
+comment|/**      * Creates an expression for the given parameter type if the parameter can      * be mapped automatically or null if the parameter cannot be mapped due to      * insufficient annotations or not fitting with the default type      * conventions.      */
 DECL|method|createParameterUnmarshalExpression (Class clazz, Method method, Class parameterType, Annotation[] parameterAnnotation)
 specifier|protected
 name|Expression
@@ -2266,6 +2278,21 @@ return|return
 name|ExpressionBuilder
 operator|.
 name|outHeadersExpression
+argument_list|()
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|annotation
+operator|instanceof
+name|ExchangeException
+condition|)
+block|{
+return|return
+name|ExpressionBuilder
+operator|.
+name|exchangeExceptionExpression
 argument_list|()
 return|;
 block|}
