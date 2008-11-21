@@ -2308,6 +2308,32 @@ operator|=
 name|errorHandlerRef
 expr_stmt|;
 block|}
+DECL|method|getShouldStartContext ()
+specifier|public
+name|Boolean
+name|getShouldStartContext
+parameter_list|()
+block|{
+return|return
+name|shouldStartContext
+return|;
+block|}
+DECL|method|setShouldStartContext (Boolean shouldStartContext)
+specifier|public
+name|void
+name|setShouldStartContext
+parameter_list|(
+name|Boolean
+name|shouldStartContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shouldStartContext
+operator|=
+name|shouldStartContext
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * Create the context      */
