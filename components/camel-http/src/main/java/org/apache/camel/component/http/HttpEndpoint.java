@@ -570,7 +570,7 @@ block|{
 name|binding
 operator|=
 operator|new
-name|HttpBinding
+name|DefaultHttpBinding
 argument_list|(
 name|getHeaderFilterStrategy
 argument_list|()

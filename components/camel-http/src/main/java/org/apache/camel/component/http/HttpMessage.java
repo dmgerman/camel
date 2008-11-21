@@ -125,12 +125,23 @@ name|request
 operator|=
 name|request
 expr_stmt|;
-comment|// lets force a parse of the body and headers
-name|getBody
+comment|// use binding to read the request allowing end users to use their
+comment|// implementation of the binding
+name|getExchange
 argument_list|()
-expr_stmt|;
-name|getHeaders
+operator|.
+name|getEndpoint
 argument_list|()
+operator|.
+name|getBinding
+argument_list|()
+operator|.
+name|readRequest
+argument_list|(
+name|request
+argument_list|,
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -83,6 +93,11 @@ specifier|private
 specifier|final
 name|StatusLine
 name|statusLine
+decl_stmt|;
+DECL|field|responseBody
+specifier|private
+name|InputStream
+name|responseBody
 decl_stmt|;
 DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, String location)
 specifier|public
@@ -221,6 +236,32 @@ block|{
 return|return
 name|statusCode
 return|;
+block|}
+DECL|method|getResponseBody ()
+specifier|public
+name|InputStream
+name|getResponseBody
+parameter_list|()
+block|{
+return|return
+name|responseBody
+return|;
+block|}
+DECL|method|setResponseBody (InputStream responseBody)
+specifier|public
+name|void
+name|setResponseBody
+parameter_list|(
+name|InputStream
+name|responseBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|responseBody
+operator|=
+name|responseBody
+expr_stmt|;
 block|}
 block|}
 end_class

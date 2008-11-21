@@ -50,36 +50,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -699,12 +669,12 @@ decl_stmt|;
 if|if
 condition|(
 name|responseCode
-operator|<
-literal|400
-operator|&&
-name|responseCode
 operator|>=
 literal|300
+operator|&&
+name|responseCode
+operator|<
+literal|400
 condition|)
 block|{
 name|String
@@ -750,9 +720,27 @@ name|redirectLocation
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// no redirect location
+name|exception
+operator|=
+operator|new
+name|HttpOperationFailedException
+argument_list|(
+name|responseCode
+argument_list|,
+name|method
+operator|.
+name|getStatusLine
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
+comment|// internal server error (error code 500)
 name|exception
 operator|=
 operator|new
@@ -774,6 +762,17 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// set also the response body as well
+name|exception
+operator|.
+name|setResponseBody
+argument_list|(
+name|extractResponseBody
+argument_list|(
+name|method
+argument_list|)
+argument_list|)
+expr_stmt|;
 throw|throw
 name|exception
 throw|;
@@ -788,32 +787,6 @@ name|releaseConnection
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-DECL|method|getHttpClient ()
-specifier|public
-name|HttpClient
-name|getHttpClient
-parameter_list|()
-block|{
-return|return
-name|httpClient
-return|;
-block|}
-DECL|method|setHttpClient (HttpClient httpClient)
-specifier|public
-name|void
-name|setHttpClient
-parameter_list|(
-name|HttpClient
-name|httpClient
-parameter_list|)
-block|{
-name|this
-operator|.
-name|httpClient
-operator|=
-name|httpClient
-expr_stmt|;
 block|}
 comment|/**      * Strategy when executing the method (calling the remote server).      *      * @param method    the method to execute      * @return the response code      * @throws IOException can be thrown      */
 DECL|method|executeMethod (HttpMethod method)
@@ -836,6 +809,7 @@ name|method
 argument_list|)
 return|;
 block|}
+comment|/**      * Extracts the response from the method as a InputStream.      *      * @param method  the method that was executed      * @return  the response as a stream      * @throws IOException can be thrown      */
 DECL|method|extractResponseBody (HttpMethod method)
 specifier|protected
 specifier|static
@@ -873,6 +847,18 @@ operator|.
 name|getResponseBodyAsStream
 argument_list|()
 expr_stmt|;
+comment|// in case of no response stream
+if|if
+condition|(
+name|is
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|IOUtils
 operator|.
 name|copy
@@ -920,6 +906,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Creates the HttpMethod to use to call the remote server, either its GET or POST.      *      * @param exchange  the exchange      * @return the created method as either GET or POST      */
 DECL|method|createMethod (Exchange exchange)
 specifier|protected
 name|HttpMethod
@@ -1138,6 +1125,7 @@ return|return
 name|method
 return|;
 block|}
+comment|/**      * Creates a holder object for the data to send to the remote server.      *      * @param exchange  the exchange with the IN message with data to send      * @return the data holder      */
 DECL|method|createRequestEntity (Exchange exchange)
 specifier|protected
 name|RequestEntity
@@ -1274,6 +1262,32 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+DECL|method|getHttpClient ()
+specifier|public
+name|HttpClient
+name|getHttpClient
+parameter_list|()
+block|{
+return|return
+name|httpClient
+return|;
+block|}
+DECL|method|setHttpClient (HttpClient httpClient)
+specifier|public
+name|void
+name|setHttpClient
+parameter_list|(
+name|HttpClient
+name|httpClient
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpClient
+operator|=
+name|httpClient
+expr_stmt|;
 block|}
 block|}
 end_class
