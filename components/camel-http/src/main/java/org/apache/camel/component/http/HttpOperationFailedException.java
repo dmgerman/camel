@@ -96,10 +96,11 @@ name|statusLine
 decl_stmt|;
 DECL|field|responseBody
 specifier|private
+specifier|final
 name|InputStream
 name|responseBody
 decl_stmt|;
-DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, String location)
+DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, String location, InputStream responseBody)
 specifier|public
 name|HttpOperationFailedException
 parameter_list|(
@@ -111,6 +112,9 @@ name|statusLine
 parameter_list|,
 name|String
 name|location
+parameter_list|,
+name|InputStream
+name|responseBody
 parameter_list|)
 block|{
 name|super
@@ -154,8 +158,14 @@ name|redirectLocation
 operator|=
 name|location
 expr_stmt|;
+name|this
+operator|.
+name|responseBody
+operator|=
+name|responseBody
+expr_stmt|;
 block|}
-DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine)
+DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, InputStream responseBody)
 specifier|public
 name|HttpOperationFailedException
 parameter_list|(
@@ -164,6 +174,9 @@ name|statusCode
 parameter_list|,
 name|StatusLine
 name|statusLine
+parameter_list|,
+name|InputStream
+name|responseBody
 parameter_list|)
 block|{
 name|this
@@ -173,6 +186,8 @@ argument_list|,
 name|statusLine
 argument_list|,
 literal|null
+argument_list|,
+name|responseBody
 argument_list|)
 expr_stmt|;
 block|}
@@ -246,22 +261,6 @@ block|{
 return|return
 name|responseBody
 return|;
-block|}
-DECL|method|setResponseBody (InputStream responseBody)
-specifier|public
-name|void
-name|setResponseBody
-parameter_list|(
-name|InputStream
-name|responseBody
-parameter_list|)
-block|{
-name|this
-operator|.
-name|responseBody
-operator|=
-name|responseBody
-expr_stmt|;
 block|}
 block|}
 end_class

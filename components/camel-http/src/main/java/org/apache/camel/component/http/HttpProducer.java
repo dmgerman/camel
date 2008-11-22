@@ -666,6 +666,14 @@ name|exception
 init|=
 literal|null
 decl_stmt|;
+name|InputStream
+name|is
+init|=
+name|extractResponseBody
+argument_list|(
+name|method
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|responseCode
@@ -717,6 +725,8 @@ name|getStatusLine
 argument_list|()
 argument_list|,
 name|redirectLocation
+argument_list|,
+name|is
 argument_list|)
 expr_stmt|;
 block|}
@@ -734,6 +744,8 @@ name|method
 operator|.
 name|getStatusLine
 argument_list|()
+argument_list|,
+name|is
 argument_list|)
 expr_stmt|;
 block|}
@@ -752,6 +764,8 @@ name|method
 operator|.
 name|getStatusLine
 argument_list|()
+argument_list|,
+name|is
 argument_list|)
 expr_stmt|;
 block|}
@@ -762,17 +776,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// set also the response body as well
-name|exception
-operator|.
-name|setResponseBody
-argument_list|(
-name|extractResponseBody
-argument_list|(
-name|method
-argument_list|)
-argument_list|)
-expr_stmt|;
 throw|throw
 name|exception
 throw|;
