@@ -68,6 +68,18 @@ name|xml
 operator|.
 name|bind
 operator|.
+name|JAXBElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
 name|JAXBException
 import|;
 end_import
@@ -162,6 +174,13 @@ DECL|field|prettyPrint
 specifier|private
 name|boolean
 name|prettyPrint
+init|=
+literal|true
+decl_stmt|;
+DECL|field|ignoreJAXBElement
+specifier|private
+name|boolean
+name|ignoreJAXBElement
 init|=
 literal|true
 decl_stmt|;
@@ -274,7 +293,9 @@ name|ClassNotFoundException
 block|{
 try|try
 block|{
-return|return
+name|Object
+name|answer
+init|=
 name|getUnmarshaller
 argument_list|()
 operator|.
@@ -282,6 +303,32 @@ name|unmarshal
 argument_list|(
 name|stream
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|instanceof
+name|JAXBElement
+operator|&&
+name|isIgnoreJAXBElement
+argument_list|()
+condition|)
+block|{
+name|answer
+operator|=
+operator|(
+operator|(
+name|JAXBElement
+operator|)
+name|answer
+operator|)
+operator|.
+name|getValue
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|answer
 return|;
 block|}
 catch|catch
@@ -302,6 +349,30 @@ block|}
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+DECL|method|isIgnoreJAXBElement ()
+specifier|public
+name|boolean
+name|isIgnoreJAXBElement
+parameter_list|()
+block|{
+return|return
+name|ignoreJAXBElement
+return|;
+block|}
+DECL|method|setIgnoreJAXBElement (boolean flag)
+specifier|public
+name|void
+name|setIgnoreJAXBElement
+parameter_list|(
+name|boolean
+name|flag
+parameter_list|)
+block|{
+name|ignoreJAXBElement
+operator|=
+name|flag
+expr_stmt|;
+block|}
 DECL|method|getContext ()
 specifier|public
 name|JAXBContext
