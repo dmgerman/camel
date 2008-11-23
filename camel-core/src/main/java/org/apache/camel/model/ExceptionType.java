@@ -362,16 +362,16 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"when"
+literal|"onWhen"
 argument_list|,
 name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|when
+DECL|field|onWhen
 specifier|private
 name|WhenType
-name|when
+name|onWhen
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -515,13 +515,13 @@ name|getExceptionClasses
 argument_list|()
 operator|+
 operator|(
-name|when
+name|onWhen
 operator|!=
 literal|null
 condition|?
 literal|" "
 operator|+
-name|when
+name|onWhen
 else|:
 literal|""
 operator|)
@@ -780,16 +780,16 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|when (Predicate predicate)
+DECL|method|onWhen (Predicate predicate)
 specifier|public
 name|ExceptionType
-name|when
+name|onWhen
 parameter_list|(
 name|Predicate
 name|predicate
 parameter_list|)
 block|{
-name|setWhen
+name|setOnWhen
 argument_list|(
 operator|new
 name|WhenType
@@ -802,16 +802,16 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|when ()
+DECL|method|onWhen ()
 specifier|public
 name|ExpressionClause
 argument_list|<
 name|ExceptionType
 argument_list|>
-name|when
+name|onWhen
 parameter_list|()
 block|{
-name|when
+name|onWhen
 operator|=
 operator|new
 name|WhenType
@@ -832,7 +832,7 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|when
+name|onWhen
 operator|.
 name|setExpression
 argument_list|(
@@ -1286,30 +1286,30 @@ operator|=
 name|handledPolicy
 expr_stmt|;
 block|}
-DECL|method|getWhen ()
+DECL|method|getOnWhen ()
 specifier|public
 name|WhenType
-name|getWhen
+name|getOnWhen
 parameter_list|()
 block|{
 return|return
-name|when
+name|onWhen
 return|;
 block|}
-DECL|method|setWhen (WhenType when)
+DECL|method|setOnWhen (WhenType onWhen)
 specifier|public
 name|void
-name|setWhen
+name|setOnWhen
 parameter_list|(
 name|WhenType
-name|when
+name|onWhen
 parameter_list|)
 block|{
 name|this
 operator|.
-name|when
+name|onWhen
 operator|=
-name|when
+name|onWhen
 expr_stmt|;
 block|}
 comment|// Implementation methods

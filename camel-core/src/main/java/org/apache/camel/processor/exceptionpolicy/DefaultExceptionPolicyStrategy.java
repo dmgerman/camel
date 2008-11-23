@@ -428,14 +428,14 @@ if|if
 condition|(
 name|type
 operator|.
-name|getWhen
+name|getOnWhen
 argument_list|()
 operator|==
 literal|null
 operator|||
 name|type
 operator|.
-name|getWhen
+name|getOnWhen
 argument_list|()
 operator|.
 name|getExpression
@@ -452,7 +452,7 @@ block|}
 return|return
 name|type
 operator|.
-name|getWhen
+name|getOnWhen
 argument_list|()
 operator|.
 name|getExpression

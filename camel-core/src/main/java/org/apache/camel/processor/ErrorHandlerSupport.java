@@ -239,7 +239,7 @@ name|clazz
 argument_list|,
 name|exceptionType
 operator|.
-name|getWhen
+name|getOnWhen
 argument_list|()
 argument_list|)
 decl_stmt|;

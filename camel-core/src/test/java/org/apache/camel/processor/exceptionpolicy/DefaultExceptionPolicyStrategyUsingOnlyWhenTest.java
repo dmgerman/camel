@@ -285,7 +285,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|when
+name|onWhen
 argument_list|(
 name|header
 argument_list|(
