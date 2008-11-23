@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default strategy used in Camel to resolve the {@link org.apache.camel.model.ExceptionType} that should  * handle the thrown exception.  *<p/>  * This strategy applies the following rules:  *<ul>  *<li>The exception type must be configured with an Exception that is an instance of the thrown exception</li>  *<li>If the exception type has exactly the thrown exception then its selected</li>  *<li>Otherwise the type that has an exception that is super of the thrown exception is selected  *       (recurring up the exception hierarchy)  *</ul>  */
+comment|/**  * The default strategy used in Camel to resolve the {@link org.apache.camel.model.ExceptionType} that should  * handle the thrown exception.  *<p/>  *<b>Selection strategy:</b>  *<br/>This strategy applies the following rules:  *<ul>  *<li>The exception type must be configured with an Exception that is an instance of the thrown exception, this  *  is tested using the {@link #filter(org.apache.camel.model.ExceptionType, Class, Throwable)} method.</li>  *<li>If the exception type has exactly the thrown exception then its selected as its an exact match</li>  *<li>Otherwise the type that has an exception that is the closests super of the thrown exception is selected  *       (recurring up the exception hierarchy)</li>  *</ul>  *<p/>  *<b>Fine grained matching:</b>  *<br/> If the {@link ExceptionType} has a when defined with an expression the type is also matches against  * the current exchange using the {@link #matchesWhen(org.apache.camel.model.ExceptionType, org.apache.camel.Exchange)}  * method. This can be used to for more fine grained matching, so you can e.g. define multiple sets of  * exception types with the same exception class(es) but have a predicate attached to select which to select at runtime.  */
 end_comment
 
 begin_class
@@ -121,14 +121,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|getExceptionPolicy (Map<Class, ExceptionType> exceptionPolicices, Exchange exchange, Throwable exception)
+DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, ExceptionType> exceptionPolicices, Exchange exchange, Throwable exception)
 specifier|public
 name|ExceptionType
 name|getExceptionPolicy
 parameter_list|(
 name|Map
 argument_list|<
-name|Class
+name|ExceptionPolicyKey
 argument_list|,
 name|ExceptionType
 argument_list|>
@@ -198,7 +198,7 @@ name|Map
 operator|.
 name|Entry
 argument_list|<
-name|Class
+name|ExceptionPolicyKey
 argument_list|,
 name|ExceptionType
 argument_list|>
@@ -216,7 +216,7 @@ name|Map
 operator|.
 name|Entry
 argument_list|<
-name|Class
+name|ExceptionPolicyKey
 argument_list|,
 name|ExceptionType
 argument_list|>
@@ -232,6 +232,9 @@ name|entry
 operator|.
 name|getKey
 argument_list|()
+operator|.
+name|getExceptionClass
+argument_list|()
 decl_stmt|;
 name|ExceptionType
 name|type
@@ -241,18 +244,51 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-comment|// must be instance of check to ensure that the clazz is one type of the thrown exception
 if|if
 condition|(
-name|clazz
-operator|.
-name|isInstance
+name|filter
 argument_list|(
+name|type
+argument_list|,
+name|clazz
+argument_list|,
 name|exception
 argument_list|)
 condition|)
 block|{
-comment|// exact match
+comment|// must match
+if|if
+condition|(
+operator|!
+name|matchesWhen
+argument_list|(
+name|type
+argument_list|,
+name|exchange
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"The type did not match when: "
+operator|+
+name|type
+argument_list|)
+expr_stmt|;
+block|}
+continue|continue;
+block|}
+comment|// exact match then break
 if|if
 condition|(
 name|clazz
@@ -347,6 +383,85 @@ block|}
 block|}
 return|return
 name|candidate
+return|;
+block|}
+comment|/**      * Strategy to filter the given type exception class with the thrown exception      *      * @param type  the exception type      * @param exceptionClass  the current exception class for testing      * @param exception  the thrown exception      * @return<tt>true</tt> if the to current exception class is a candidate,<tt>false</tt> to skip it.       */
+DECL|method|filter (ExceptionType type, Class exceptionClass, Throwable exception)
+specifier|protected
+name|boolean
+name|filter
+parameter_list|(
+name|ExceptionType
+name|type
+parameter_list|,
+name|Class
+name|exceptionClass
+parameter_list|,
+name|Throwable
+name|exception
+parameter_list|)
+block|{
+comment|// must be instance of check to ensure that the exceptionClass is one type of the thrown exception
+return|return
+name|exceptionClass
+operator|.
+name|isInstance
+argument_list|(
+name|exception
+argument_list|)
+return|;
+block|}
+comment|/**      * Strategy method for matching the exception type with the current exchange.      *<p/>      * This default implementation will match as:      *<ul>      *<li>Always true if no when predicate on the exception type      *<li>Otherwise the when predicate is matches against the current exchange      *</ul>      *      * @param type  the exception type      * @param exchange  the current {@link Exchange}      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise.      */
+DECL|method|matchesWhen (ExceptionType type, Exchange exchange)
+specifier|protected
+name|boolean
+name|matchesWhen
+parameter_list|(
+name|ExceptionType
+name|type
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+if|if
+condition|(
+name|type
+operator|.
+name|getWhen
+argument_list|()
+operator|==
+literal|null
+operator|||
+name|type
+operator|.
+name|getWhen
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// if no predicate then it's always a match
+return|return
+literal|true
+return|;
+block|}
+return|return
+name|type
+operator|.
+name|getWhen
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
 return|;
 block|}
 DECL|method|getInheritanceLevel (Class clazz)

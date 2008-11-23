@@ -20,40 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelExchangeException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -118,41 +84,18 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ExceptionType
-import|;
-end_import
-
 begin_comment
-comment|/**  * Unit test with a user plugged in exception policy to use instead of default.  */
+comment|/**  * Unit test for the when expression on the exception type.  */
 end_comment
 
 begin_class
-DECL|class|CustomExceptionPolicyStrategyTest
+DECL|class|DefaultExceptionPolicyStrategyUsingWhenTest
 specifier|public
 class|class
-name|CustomExceptionPolicyStrategyTest
+name|DefaultExceptionPolicyStrategyUsingWhenTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|MESSAGE_INFO
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|MESSAGE_INFO
-init|=
-literal|"messageInfo"
-decl_stmt|;
 DECL|field|ERROR_QUEUE
 specifier|private
 specifier|static
@@ -162,67 +105,42 @@ name|ERROR_QUEUE
 init|=
 literal|"mock:error"
 decl_stmt|;
-DECL|class|MyPolicyException
+DECL|field|ERROR_USER_QUEUE
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ERROR_USER_QUEUE
+init|=
+literal|"mock:usererror"
+decl_stmt|;
+DECL|class|MyUserException
 specifier|public
 specifier|static
 class|class
-name|MyPolicyException
+name|MyUserException
 extends|extends
 name|Exception
-block|{     }
-comment|// START SNIPPET e2
-DECL|class|MyPolicy
-specifier|public
-specifier|static
-class|class
-name|MyPolicy
-implements|implements
-name|ExceptionPolicyStrategy
 block|{
-DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, ExceptionType> exceptionPolicices, Exchange exchange, Throwable exception)
+DECL|method|MyUserException (String message)
 specifier|public
-name|ExceptionType
-name|getExceptionPolicy
+name|MyUserException
 parameter_list|(
-name|Map
-argument_list|<
-name|ExceptionPolicyKey
-argument_list|,
-name|ExceptionType
-argument_list|>
-name|exceptionPolicices
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|,
-name|Throwable
-name|exception
+name|String
+name|message
 parameter_list|)
 block|{
-comment|// This is just an example that always forces the exception type configured
-comment|// with MyPolicyException to win.
-return|return
-name|exceptionPolicices
-operator|.
-name|get
+name|super
 argument_list|(
-name|ExceptionPolicyKey
-operator|.
-name|newInstance
-argument_list|(
-name|MyPolicyException
-operator|.
-name|class
+name|message
 argument_list|)
-argument_list|)
-return|;
+expr_stmt|;
 block|}
 block|}
-comment|// END SNIPPET e2
-DECL|method|testCustomPolicy ()
+DECL|method|testNoWhen ()
 specifier|public
 name|void
-name|testCustomPolicy
+name|testNoWhen
 parameter_list|()
 throws|throws
 name|Exception
@@ -242,15 +160,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|expectedHeaderReceived
-argument_list|(
-name|MESSAGE_INFO
-argument_list|,
-literal|"Damm my policy exception"
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|template
@@ -262,6 +171,11 @@ argument_list|,
 literal|"Hello Camel"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an Exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -271,9 +185,63 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testWithWhen ()
+specifier|public
+name|void
+name|testWithWhen
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+name|ERROR_USER_QUEUE
+argument_list|)
+decl_stmt|;
 name|mock
 operator|.
-name|assertIsSatisfied
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:a"
+argument_list|,
+literal|"Hello Camel"
+argument_list|,
+literal|"user"
+argument_list|,
+literal|"admin"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an Exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -298,25 +266,24 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// configure the error handler to use my policy instead of the default from Camel
-name|errorHandler
-argument_list|(
-name|deadLetterChannel
-argument_list|()
-operator|.
-name|exceptionPolicyStrategy
-argument_list|(
-operator|new
-name|MyPolicy
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// here we define our onException to catch MyUserException when
+comment|// there is a header[user] on the exchange that is not null
 name|onException
 argument_list|(
-name|MyPolicyException
+name|MyUserException
 operator|.
 name|class
+argument_list|)
+operator|.
+name|when
+argument_list|(
+name|header
+argument_list|(
+literal|"user"
+argument_list|)
+operator|.
+name|isNotNull
+argument_list|()
 argument_list|)
 operator|.
 name|maximumRedeliveries
@@ -324,41 +291,26 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|setHeader
-argument_list|(
-name|MESSAGE_INFO
-argument_list|,
-name|constant
-argument_list|(
-literal|"Damm my policy exception"
-argument_list|)
-argument_list|)
-operator|.
 name|to
 argument_list|(
-name|ERROR_QUEUE
+name|ERROR_USER_QUEUE
 argument_list|)
 expr_stmt|;
+comment|// here we define onException to catch MyUserException as a kind
+comment|// of fallback when the above did not match.
+comment|// Noitce: The order how we have defined these onException is
+comment|// important as Camel will resolve in the same order as they
+comment|// have been defined
 name|onException
 argument_list|(
-name|CamelException
+name|MyUserException
 operator|.
 name|class
 argument_list|)
 operator|.
 name|maximumRedeliveries
 argument_list|(
-literal|3
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-name|MESSAGE_INFO
-argument_list|,
-name|constant
-argument_list|(
-literal|"Damm a Camel exception"
-argument_list|)
+literal|2
 argument_list|)
 operator|.
 name|to
@@ -415,11 +367,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CamelExchangeException
+name|MyUserException
 argument_list|(
 literal|"Forced for testing"
-argument_list|,
-name|exchange
 argument_list|)
 throw|;
 block|}
