@@ -152,18 +152,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Expression
 import|;
 end_import
@@ -828,6 +816,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * Sets the load balancer to use      *      * @param loadBalancer  the load balancer      * @return the builder      */
 DECL|method|setLoadBalancer (LoadBalancer loadBalancer)
 specifier|public
 name|LoadBalanceType
@@ -849,6 +838,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Uses round robin load balancer      *      * @return the builder      */
 DECL|method|roundRobin ()
 specifier|public
 name|LoadBalanceType
@@ -869,6 +859,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Uses random load balancer      * @return the builder      */
 DECL|method|random ()
 specifier|public
 name|LoadBalanceType
@@ -889,6 +880,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Uses sticky load balancer      *      * @param correlationExpression  the expression for correlation      * @return  the builder      */
 DECL|method|sticky (Expression correlationExpression)
 specifier|public
 name|LoadBalanceType
@@ -914,6 +906,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Uses topic load balancer      *       * @return the builder      */
 DECL|method|topic ()
 specifier|public
 name|LoadBalanceType

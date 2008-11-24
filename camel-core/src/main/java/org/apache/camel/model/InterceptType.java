@@ -22,26 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -113,18 +93,6 @@ operator|.
 name|annotation
 operator|.
 name|XmlTransient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Intercept
 import|;
 end_import
 
@@ -344,7 +312,7 @@ return|return
 name|interceptor
 return|;
 block|}
-comment|/**      * Applies this interceptor only if the given predicate is true      */
+comment|/**      * Applies this interceptor only if the given predicate is true      *      * @param predicate  the predicate      * @return the builder      */
 DECL|method|when (Predicate predicate)
 specifier|public
 name|ChoiceType

@@ -562,7 +562,7 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * Creates a new route      */
+comment|/**      * Creates a new route      *      * @return the builder      */
 DECL|method|route ()
 specifier|public
 name|RouteType
@@ -582,7 +582,7 @@ name|route
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new route from the given URI input      */
+comment|/**      * Creates a new route from the given URI input      *      * @param uri  the from uri      * @return the builder      */
 DECL|method|from (String uri)
 specifier|public
 name|RouteType
@@ -612,7 +612,7 @@ name|route
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new route from the given endpoint      */
+comment|/**      * Creates a new route from the given endpoint      *      * @param endpoint  the from endpoint      * @return the builder      */
 DECL|method|from (Endpoint endpoint)
 specifier|public
 name|RouteType
@@ -642,6 +642,7 @@ name|route
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a new route using the given route      *      * @param route the route      * @return the builder      */
 DECL|method|route (RouteType route)
 specifier|public
 name|RouteType
@@ -761,6 +762,7 @@ return|return
 name|route
 return|;
 block|}
+comment|/**      * Adds an interceptor      *      * @param interceptor  the interceptor      * @return the builder      */
 DECL|method|intercept (DelegateProcessor interceptor)
 specifier|public
 name|RoutesType
@@ -786,6 +788,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Creates and adds an interceptor      *      * @return the interceptor builder to configure      */
 DECL|method|intercept ()
 specifier|public
 name|InterceptType
@@ -811,6 +814,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Creates and adds an interceptor that is attached with a predicate      *      * @param predicate  the predicate      * @return the builder      */
 DECL|method|intercept (Predicate predicate)
 specifier|public
 name|ChoiceType
@@ -844,6 +848,7 @@ name|predicate
 argument_list|)
 return|;
 block|}
+comment|/**      * Adds an on exception      *       * @param exceptionType  the exception      * @return the builder      */
 DECL|method|onException (Class exceptionType)
 specifier|public
 name|ExceptionType

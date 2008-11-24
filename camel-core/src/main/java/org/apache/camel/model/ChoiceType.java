@@ -442,7 +442,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No otherwise clause was specified for a choice block -- any unmatched exchanges will be dropped"
+literal|"No otherwise clause was specified for a choice block, any unmatched exchanges will be dropped"
 argument_list|)
 expr_stmt|;
 block|}
@@ -458,6 +458,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * Sets the predicate for the when node      *      * @param predicate  the predicate      * @return the builder      */
 DECL|method|when (Predicate predicate)
 specifier|public
 name|ChoiceType
@@ -483,6 +484,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Creates an expression for the when node      *      * @return expression to be used as builder to configure the when node      */
 DECL|method|when ()
 specifier|public
 name|ExpressionClause
@@ -533,6 +535,7 @@ return|return
 name|clause
 return|;
 block|}
+comment|/**      * Sets the otherwise node      *       * @return the builder      */
 DECL|method|otherwise ()
 specifier|public
 name|ChoiceType

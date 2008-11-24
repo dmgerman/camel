@@ -332,7 +332,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the time period during which the maximum request count is valid for      */
+comment|/**      * Sets the time period during which the maximum request count is valid for      *      * @param timePeriodMillis  period in millis      * @return the builder      */
 DECL|method|timePeriodMillis (long timePeriodMillis)
 specifier|public
 name|ThrottlerType

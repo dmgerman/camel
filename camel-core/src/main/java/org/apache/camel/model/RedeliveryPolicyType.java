@@ -406,6 +406,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
+comment|/**      * Sets the back off multiplier      *      * @param backOffMultiplier  the back off multiplier      * @return the builder      */
 DECL|method|backOffMultiplier (double backOffMultiplier)
 specifier|public
 name|RedeliveryPolicyType
@@ -424,6 +425,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the collision avoidance percentage      *      * @param collisionAvoidancePercent  the percentage      * @return the builder      */
 DECL|method|collisionAvoidancePercent (double collisionAvoidancePercent)
 specifier|public
 name|RedeliveryPolicyType
@@ -444,6 +446,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the collision avoidance factor      *      * @param collisionAvoidanceFactor  the factor      * @return the builder      */
 DECL|method|collisionAvoidanceFactor (double collisionAvoidanceFactor)
 specifier|public
 name|RedeliveryPolicyType
@@ -462,6 +465,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the fixed delay between redeliveries      *      * @param delay  delay in millis      * @return the builder      */
 DECL|method|delay (long delay)
 specifier|public
 name|RedeliveryPolicyType
@@ -480,6 +484,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the logging level to use when retries has exhausted      *      * @param retriesExhaustedLogLevel  the logging level      * @return the builder      */
 DECL|method|retriesExhaustedLogLevel (LoggingLevel retriesExhaustedLogLevel)
 specifier|public
 name|RedeliveryPolicyType
@@ -498,6 +503,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the logging level to use for logging retry attempts      *      * @param retryAttemptedLogLevel  the logging level      * @return the builder      */
 DECL|method|retryAttemptedLogLevel (LoggingLevel retryAttemptedLogLevel)
 specifier|public
 name|RedeliveryPolicyType
@@ -516,6 +522,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the maximum redeliveries      *<ul>      *<li>5 = default value</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries  the value      * @return the builder      */
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
 name|RedeliveryPolicyType
@@ -534,6 +541,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Turn on collision avoidance.      *      * @return the builder      */
 DECL|method|useCollisionAvoidance ()
 specifier|public
 name|RedeliveryPolicyType
@@ -551,6 +559,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Turn on exponential backk off      *      * @return the builder      */
 DECL|method|useExponentialBackOff ()
 specifier|public
 name|RedeliveryPolicyType
@@ -568,6 +577,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the maximum delay between redelivery      *      * @param maximumRedeliveryDelay  the delay in millis      * @return the builder      */
 DECL|method|maximumRedeliveryDelay (long maximumRedeliveryDelay)
 specifier|public
 name|RedeliveryPolicyType
@@ -586,6 +596,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Use redelivery policy looked up in the registry      *      * @param ref  reference to the redelivery policy to lookup and use      * @return the builder      */
 DECL|method|ref (String ref)
 specifier|public
 name|RedeliveryPolicyType

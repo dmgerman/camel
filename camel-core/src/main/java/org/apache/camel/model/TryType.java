@@ -343,6 +343,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * Handles the given exception      *      * @param exceptionType  the exception      * @return the try builder      */
 DECL|method|handle (Class<?> exceptionType)
 specifier|public
 name|TryType
@@ -381,6 +382,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The finally block for a given handle      *      * @return  the try builder      */
 DECL|method|finallyBlock ()
 specifier|public
 name|TryType

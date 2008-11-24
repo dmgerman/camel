@@ -708,6 +708,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
+comment|/**      * Sets wether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      */
 DECL|method|handled (boolean handled)
 specifier|public
 name|ExceptionType
@@ -741,6 +742,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Sets wether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      */
 DECL|method|handled (Predicate handled)
 specifier|public
 name|ExceptionType
@@ -759,6 +761,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets wether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      */
 DECL|method|handled (Expression handled)
 specifier|public
 name|ExceptionType
@@ -780,6 +783,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets an additional predicate that should be true before the onException is triggered.      *<p/>      * To be used for fine grained controlling wether a thrown exception should be intercepted      * by this exception type or not.      *      * @param predicate  predicate that determines true or false      * @return the builder      */
 DECL|method|onWhen (Predicate predicate)
 specifier|public
 name|ExceptionType
@@ -802,6 +806,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Creates an expression to configure an additional predicate that should be true before the      * onException is triggered.      *<p/>      * To be used for fine grained controlling wether a thrown exception should be intercepted      * by this exception type or not.      *      * @return the expression clause to configure      */
 DECL|method|onWhen ()
 specifier|public
 name|ExpressionClause
@@ -843,6 +848,7 @@ return|return
 name|clause
 return|;
 block|}
+comment|/**      * Sets the back off multiplier      *      * @param backOffMultiplier  the back off multiplier      * @return the builder      */
 DECL|method|backOffMultiplier (double backOffMultiplier)
 specifier|public
 name|ExceptionType
@@ -864,6 +870,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the collision avoidance factor      *      * @param collisionAvoidanceFactor  the factor      * @return the builder      */
 DECL|method|collisionAvoidanceFactor (double collisionAvoidanceFactor)
 specifier|public
 name|ExceptionType
@@ -885,6 +892,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the collision avoidance percentage      *      * @param collisionAvoidancePercent  the percentage      * @return the builder      */
 DECL|method|collisionAvoidancePercent (short collisionAvoidancePercent)
 specifier|public
 name|ExceptionType
@@ -906,6 +914,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the fixed delay between redeliveries      *      * @param delay  delay in millis      * @return the builder      */
 DECL|method|delay (long delay)
 specifier|public
 name|ExceptionType
@@ -927,6 +936,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the logging level to use when retries has exhausted      *      * @param retriesExhaustedLogLevel  the logging level      * @return the builder      */
 DECL|method|retriesExhaustedLogLevel (LoggingLevel retriesExhaustedLogLevel)
 specifier|public
 name|ExceptionType
@@ -948,6 +958,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the logging level to use for logging retry attempts      *      * @param retryAttemptedLogLevel  the logging level      * @return the builder      */
 DECL|method|retryAttemptedLogLevel (LoggingLevel retryAttemptedLogLevel)
 specifier|public
 name|ExceptionType
@@ -969,6 +980,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the maximum redeliveries      *<ul>      *<li>5 = default value</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries  the value      * @return the builder      */
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
 name|ExceptionType
@@ -990,6 +1002,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Turn on collision avoidance.      *      * @return the builder      */
 DECL|method|useCollisionAvoidance ()
 specifier|public
 name|ExceptionType
@@ -1006,6 +1019,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Turn on exponential backk off      *      * @return the builder      */
 DECL|method|useExponentialBackOff ()
 specifier|public
 name|ExceptionType
@@ -1022,6 +1036,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the maximum delay between redelivery      *      * @param maximumRedeliveryDelay  the delay in millis      * @return the builder      */
 DECL|method|maximumRedeliveryDelay (long maximumRedeliveryDelay)
 specifier|public
 name|ExceptionType

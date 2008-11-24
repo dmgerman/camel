@@ -527,7 +527,7 @@ operator|=
 name|streaming
 expr_stmt|;
 block|}
-comment|/**      * Enables streaming.       * Cfr. {@link SplitterType#setStreaming(boolean)} for more information      */
+comment|/**      * Enables streaming.       * See {@link SplitterType#setStreaming(boolean)} for more information      *      * @return the builder      */
 DECL|method|streaming ()
 specifier|public
 name|SplitterType

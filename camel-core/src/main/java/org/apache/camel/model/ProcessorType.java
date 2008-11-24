@@ -3460,6 +3460,7 @@ name|predicate
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a policy.      *<p/>      * Policy can be used for transactional policies.      *      * @return the policy builder to configure      */
 DECL|method|policies ()
 specifier|public
 name|PolicyRef
@@ -3482,6 +3483,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Apply a {@link Policy}.      *<p/>      * Policy can be used for transactional policies.      *      * @param policy  the policy to apply      * @return the policy builder to configure      */
 DECL|method|policy (Policy policy)
 specifier|public
 name|PolicyRef

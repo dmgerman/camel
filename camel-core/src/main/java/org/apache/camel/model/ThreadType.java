@@ -704,6 +704,7 @@ literal|" Instead set the errorHandler on the parent."
 argument_list|)
 throw|;
 block|}
+comment|/**      * Sets the core size      *      * @param coreSize the core size      * @return the builder      */
 DECL|method|coreSize (int coreSize)
 specifier|public
 name|ThreadType
@@ -722,6 +723,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the deamon option      *      * @param daemon  deamon option      * @return the builder      */
 DECL|method|daemon (boolean daemon)
 specifier|public
 name|ThreadType
@@ -740,6 +742,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the keep alive time      *      * @param keepAliveTime keep alive time in millis      * @return the builder      */
 DECL|method|keepAliveTime (long keepAliveTime)
 specifier|public
 name|ThreadType
@@ -758,6 +761,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the max pool size      *      * @param maxSize  the max pool size      * @return the builder      */
 DECL|method|maxSize (int maxSize)
 specifier|public
 name|ThreadType
@@ -776,6 +780,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the thread pool name      *      * @param name  the name      * @return the builder      */
 DECL|method|name (String name)
 specifier|public
 name|ThreadType
@@ -794,6 +799,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the thread pool priority      *      * @param priority  the priority      * @return the builder      */
 DECL|method|priority (int priority)
 specifier|public
 name|ThreadType
@@ -812,6 +818,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the thread pool stack size      *      * @param stackSize  the stack size      * @return the builder      */
 DECL|method|stackSize (long stackSize)
 specifier|public
 name|ThreadType
@@ -830,6 +837,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the task queue      *       * @param taskQueue  the task queue      * @return the builder      */
 DECL|method|taskQueue (BlockingQueue<Runnable> taskQueue)
 specifier|public
 name|ThreadType
@@ -851,6 +859,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the thread group      *      * @param threadGroup  the thread group      * @return the builder      */
 DECL|method|threadGroup (ThreadGroup threadGroup)
 specifier|public
 name|ThreadType
@@ -869,6 +878,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the execute to use      *      * @param executor  the executor      * @return the builder      */
 DECL|method|executor (ThreadPoolExecutor executor)
 specifier|public
 name|ThreadType

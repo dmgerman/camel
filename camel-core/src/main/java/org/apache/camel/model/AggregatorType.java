@@ -270,20 +270,6 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|FilterProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
 name|aggregate
 operator|.
 name|AggregationCollection
@@ -1407,6 +1393,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
+comment|/**      * Sets the in batch size for number of exchanges recieved      *      * @param batchSize  the batch size      * @return builder      */
 DECL|method|batchSize (int batchSize)
 specifier|public
 name|AggregatorType
@@ -1425,6 +1412,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the out batch size for number of exchanges sent      *      * @param batchSize  the batch size      * @return builder      */
 DECL|method|outBatchSize (int batchSize)
 specifier|public
 name|AggregatorType
@@ -1443,6 +1431,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the batch timeout      *      * @param batchTimeout  the timeout in millis      * @return the builder      */
 DECL|method|batchTimeout (long batchTimeout)
 specifier|public
 name|AggregatorType
@@ -1461,6 +1450,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the aggregate collection to use      *      * @param aggregationCollection  the aggregate collection to use      * @return the builder      */
 DECL|method|aggregationCollection (AggregationCollection aggregationCollection)
 specifier|public
 name|AggregatorType
@@ -1479,6 +1469,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the aggegate strategy to use      *      * @param aggregationStrategy  the aggreage startegy to use      * @return the builder      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|AggregatorType
@@ -1497,6 +1488,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the aggegate strategy to use      *      * @param strategyRef  reference to the strategy to lookup in the registry      * @return the builder      */
 DECL|method|strategyRef (String strategyRef)
 specifier|public
 name|AggregatorType
@@ -1559,7 +1551,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Sets the predicate used to determine if the aggregation is completed      */
+comment|/**      * Sets the predicate used to determine if the aggregation is completed      *      * @param predicate  the predicate      */
 DECL|method|completedPredicate (Predicate predicate)
 specifier|public
 name|AggregatorType

@@ -32,16 +32,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -386,7 +376,7 @@ return|return
 literal|"resequencer"
 return|;
 block|}
-comment|/**      * Configures the stream-based resequencing algorithm using the default      * configuration.      *      * @return<code>this</code> instance.      */
+comment|/**      * Configures the stream-based resequencing algorithm using the default      * configuration.      *      * @return the builder      */
 DECL|method|stream ()
 specifier|public
 name|ResequencerType
@@ -403,7 +393,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Configures the batch-based resequencing algorithm using the default      * configuration.      *      * @return<code>this</code> instance.      */
+comment|/**      * Configures the batch-based resequencing algorithm using the default      * configuration.      *      * @return the builder      */
 DECL|method|batch ()
 specifier|public
 name|ResequencerType
@@ -420,7 +410,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Configures the stream-based resequencing algorithm using the given      * {@link StreamResequencerConfig}.      *      * @return<code>this</code> instance.      */
+comment|/**      * Configures the stream-based resequencing algorithm using the given      * {@link StreamResequencerConfig}.      *      * @param config  the config      * @return the builder      */
 DECL|method|stream (StreamResequencerConfig config)
 specifier|public
 name|ResequencerType
@@ -446,7 +436,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures the batch-based resequencing algorithm using the given      * {@link BatchResequencerConfig}.      *      * @return<code>this</code> instance.      */
+comment|/**      * Configures the batch-based resequencing algorithm using the given      * {@link BatchResequencerConfig}.      *      * @param config  the config      * @return the builder      */
 DECL|method|batch (BatchResequencerConfig config)
 specifier|public
 name|ResequencerType
@@ -472,6 +462,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the expression to use for reordering      *      * @param expression  the expression      * @return the builder      */
 DECL|method|expression (ExpressionType expression)
 specifier|public
 name|ResequencerType
@@ -486,6 +477,153 @@ operator|.
 name|add
 argument_list|(
 name|expression
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the timeout      * @param timeout  timeout in millis      * @return the builder      */
+DECL|method|timeout (long timeout)
+specifier|public
+name|ResequencerType
+name|timeout
+parameter_list|(
+name|long
+name|timeout
+parameter_list|)
+block|{
+if|if
+condition|(
+name|batchConfig
+operator|!=
+literal|null
+condition|)
+block|{
+name|batchConfig
+operator|.
+name|setBatchTimeout
+argument_list|(
+name|timeout
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|streamConfig
+operator|.
+name|setTimeout
+argument_list|(
+name|timeout
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the in batch size for number of exchanges received      * @param batchSize  the batch size      * @return the builder      */
+DECL|method|size (int batchSize)
+specifier|public
+name|ResequencerType
+name|size
+parameter_list|(
+name|int
+name|batchSize
+parameter_list|)
+block|{
+if|if
+condition|(
+name|batchConfig
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"size() only supported for batch resequencer"
+argument_list|)
+throw|;
+block|}
+name|batchConfig
+operator|.
+name|setBatchSize
+argument_list|(
+name|batchSize
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the capacity for the stream resequencer      *      * @param capacity  the capacity      * @return the builder      */
+DECL|method|capacity (int capacity)
+specifier|public
+name|ResequencerType
+name|capacity
+parameter_list|(
+name|int
+name|capacity
+parameter_list|)
+block|{
+if|if
+condition|(
+name|streamConfig
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"capacity() only supported for stream resequencer"
+argument_list|)
+throw|;
+block|}
+name|streamConfig
+operator|.
+name|setCapacity
+argument_list|(
+name|capacity
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the comparator to use for stream resequencer      *      * @param comparator  the comparator      * @return the builder      */
+DECL|method|comparator (ExpressionResultComparator comparator)
+specifier|public
+name|ResequencerType
+name|comparator
+parameter_list|(
+name|ExpressionResultComparator
+name|comparator
+parameter_list|)
+block|{
+if|if
+condition|(
+name|streamConfig
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"comparator() only supported for stream resequencer"
+argument_list|)
+throw|;
+block|}
+name|streamConfig
+operator|.
+name|setComparator
+argument_list|(
+name|comparator
 argument_list|)
 expr_stmt|;
 return|return
@@ -669,149 +807,6 @@ argument_list|(
 name|streamConfig
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|timeout (long timeout)
-specifier|public
-name|ResequencerType
-name|timeout
-parameter_list|(
-name|long
-name|timeout
-parameter_list|)
-block|{
-if|if
-condition|(
-name|batchConfig
-operator|!=
-literal|null
-condition|)
-block|{
-name|batchConfig
-operator|.
-name|setBatchTimeout
-argument_list|(
-name|timeout
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|streamConfig
-operator|.
-name|setTimeout
-argument_list|(
-name|timeout
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|this
-return|;
-block|}
-DECL|method|size (int batchSize)
-specifier|public
-name|ResequencerType
-name|size
-parameter_list|(
-name|int
-name|batchSize
-parameter_list|)
-block|{
-if|if
-condition|(
-name|batchConfig
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"size() only supported for batch resequencer"
-argument_list|)
-throw|;
-block|}
-name|batchConfig
-operator|.
-name|setBatchSize
-argument_list|(
-name|batchSize
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-DECL|method|capacity (int capacity)
-specifier|public
-name|ResequencerType
-name|capacity
-parameter_list|(
-name|int
-name|capacity
-parameter_list|)
-block|{
-if|if
-condition|(
-name|streamConfig
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"capacity() only supported for stream resequencer"
-argument_list|)
-throw|;
-block|}
-name|streamConfig
-operator|.
-name|setCapacity
-argument_list|(
-name|capacity
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-DECL|method|comparator (ExpressionResultComparator comparator)
-specifier|public
-name|ResequencerType
-name|comparator
-parameter_list|(
-name|ExpressionResultComparator
-name|comparator
-parameter_list|)
-block|{
-if|if
-condition|(
-name|streamConfig
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"comparator() only supported for stream resequencer"
-argument_list|)
-throw|;
-block|}
-name|streamConfig
-operator|.
-name|setComparator
-argument_list|(
-name|comparator
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 annotation|@
 name|Override
@@ -1020,6 +1015,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// TODO: No used should it be removed?
 specifier|final
 name|Resequencer
 name|resequencer
@@ -1085,6 +1081,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// TODO: No used should it be removed?
 specifier|final
 name|StreamResequencer
 name|resequencer

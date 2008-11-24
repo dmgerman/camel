@@ -228,20 +228,6 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
 name|DefaultRouteContext
 import|;
 end_import
@@ -601,7 +587,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -----------------------------------------------------------------------
-comment|/**      * Creates an input to the route      */
+comment|/**      * Creates an input to the route      *      * @param uri  the from uri      * @return the builder      */
 DECL|method|from (String uri)
 specifier|public
 name|RouteType
@@ -627,7 +613,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Creates an input to the route      */
+comment|/**      * Creates an input to the route      *      * @param endpoint  the from endpoint      * @return the builder      */
 DECL|method|from (Endpoint endpoint)
 specifier|public
 name|RouteType
@@ -653,7 +639,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the group name for this route      */
+comment|/**      * Set the group name for this route      *      * @param name  the group name      * @return the builder      */
 DECL|method|group (String name)
 specifier|public
 name|RouteType
@@ -666,6 +652,42 @@ block|{
 name|setGroup
 argument_list|(
 name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Disable stream caching for this route      *      * @return the builder      */
+DECL|method|noStreamCaching ()
+specifier|public
+name|RouteType
+name|noStreamCaching
+parameter_list|()
+block|{
+name|StreamCachingInterceptor
+operator|.
+name|noStreamCaching
+argument_list|(
+name|interceptors
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Enable stream caching for this route      *      * @return the builder      */
+DECL|method|streamCaching ()
+specifier|public
+name|RouteType
+name|streamCaching
+parameter_list|()
+block|{
+name|addInterceptor
+argument_list|(
+operator|new
+name|StreamCachingInterceptor
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -1075,42 +1097,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*         List<InterceptorType> list = output.getInterceptors();         if (list == null) {             LOG.warn("No interceptor collection: " + output);         } else {             list.addAll(getInterceptors());         } */
-block|}
-comment|/**      * Disable stream caching for this Route.      */
-DECL|method|noStreamCaching ()
-specifier|public
-name|RouteType
-name|noStreamCaching
-parameter_list|()
-block|{
-name|StreamCachingInterceptor
-operator|.
-name|noStreamCaching
-argument_list|(
-name|interceptors
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Enable stream caching for this Route.      */
-DECL|method|streamCaching ()
-specifier|public
-name|RouteType
-name|streamCaching
-parameter_list|()
-block|{
-name|addInterceptor
-argument_list|(
-operator|new
-name|StreamCachingInterceptor
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 annotation|@
 name|Override
