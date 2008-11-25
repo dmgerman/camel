@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Message
 import|;
 end_import
@@ -85,6 +73,18 @@ operator|.
 name|camel
 operator|.
 name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ProducerTemplate
 import|;
 end_import
 
@@ -495,6 +495,7 @@ argument_list|(
 name|current
 argument_list|)
 decl_stmt|;
+comment|// TODO: Why not use indexOf and substr to find first delimiter, to skip first elemeent
 name|message
 operator|.
 name|setHeader
