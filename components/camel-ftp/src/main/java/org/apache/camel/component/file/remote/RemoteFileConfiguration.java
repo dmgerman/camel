@@ -151,6 +151,11 @@ specifier|private
 name|boolean
 name|passiveMode
 decl_stmt|;
+DECL|field|knownHosts
+specifier|private
+name|String
+name|knownHosts
+decl_stmt|;
 DECL|method|RemoteFileConfiguration ()
 specifier|public
 name|RemoteFileConfiguration
@@ -386,6 +391,32 @@ operator|.
 name|file
 operator|=
 name|file
+expr_stmt|;
+block|}
+DECL|method|getKnownHosts ()
+specifier|public
+name|String
+name|getKnownHosts
+parameter_list|()
+block|{
+return|return
+name|knownHosts
+return|;
+block|}
+DECL|method|setKnownHosts (String knownHosts)
+specifier|public
+name|void
+name|setKnownHosts
+parameter_list|(
+name|String
+name|knownHosts
+parameter_list|)
+block|{
+name|this
+operator|.
+name|knownHosts
+operator|=
+name|knownHosts
 expr_stmt|;
 block|}
 DECL|method|getHost ()
