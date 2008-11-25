@@ -259,7 +259,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A Strategy Method to allow derived implementations to decide the current      * system time or some other default exchange property      *       * @param exchange      */
+comment|/**      * A Strategy Method to allow derived implementations to decide the current      * system time or some other default exchange property      */
 DECL|method|defaultProcessTime (Exchange exchange)
 specifier|protected
 name|long

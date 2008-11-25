@@ -534,7 +534,6 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**      * Catches an exception type.      */
 annotation|@
 name|Override
 DECL|method|onException (Class exceptionType)

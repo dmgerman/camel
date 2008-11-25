@@ -426,6 +426,7 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Gets the node id, creating one if not already set.      */
 DECL|method|idOrCreate ()
 specifier|public
 name|String
@@ -453,7 +454,7 @@ return|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * A helper method to create a new ID for this node      */
+comment|/**      * A helper method to create a new id for this node      */
 DECL|method|createId ()
 specifier|protected
 name|String

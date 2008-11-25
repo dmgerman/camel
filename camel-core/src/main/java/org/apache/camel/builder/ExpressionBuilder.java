@@ -2647,7 +2647,7 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|beanExpression (final String bean)
+DECL|method|beanExpression (final String expression)
 specifier|public
 specifier|static
 name|Expression
@@ -2655,7 +2655,7 @@ name|beanExpression
 parameter_list|(
 specifier|final
 name|String
-name|bean
+name|expression
 parameter_list|)
 block|{
 return|return
@@ -2678,7 +2678,7 @@ name|BeanLanguage
 operator|.
 name|bean
 argument_list|(
-name|bean
+name|expression
 argument_list|)
 operator|.
 name|evaluate
@@ -2697,12 +2697,49 @@ block|{
 return|return
 literal|"bean("
 operator|+
-name|bean
+name|expression
 operator|+
 literal|")"
 return|;
 block|}
 block|}
+return|;
+block|}
+DECL|method|beanExpression (final String beanRef, final String methodName)
+specifier|public
+specifier|static
+name|Expression
+name|beanExpression
+parameter_list|(
+specifier|final
+name|String
+name|beanRef
+parameter_list|,
+specifier|final
+name|String
+name|methodName
+parameter_list|)
+block|{
+name|String
+name|expression
+init|=
+name|methodName
+operator|!=
+literal|null
+condition|?
+name|beanRef
+operator|+
+literal|"."
+operator|+
+name|methodName
+else|:
+name|beanRef
+decl_stmt|;
+return|return
+name|beanExpression
+argument_list|(
+name|expression
+argument_list|)
 return|;
 block|}
 block|}

@@ -444,7 +444,52 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves the given URI to an endpoint      *      * @throws NoSuchEndpointException if the endpoint URI could not be resolved      */
+comment|/**      * Returns a<a href="http://activemq.apache.org/camel/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @return the builder      */
+DECL|method|bean (String beanRef)
+specifier|public
+name|ValueBuilder
+name|bean
+parameter_list|(
+name|String
+name|beanRef
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|bean
+argument_list|(
+name|beanRef
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a<a href="http://activemq.apache.org/camel/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
+DECL|method|bean (String beanRef, String method)
+specifier|public
+name|ValueBuilder
+name|bean
+parameter_list|(
+name|String
+name|beanRef
+parameter_list|,
+name|String
+name|method
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|bean
+argument_list|(
+name|beanRef
+argument_list|,
+name|method
+argument_list|)
+return|;
+block|}
+comment|/**      * Resolves the given URI to an endpoint      *      * @param uri  the uri to resolve      * @throws NoSuchEndpointException if the endpoint URI could not be resolved      * @return the endpoint      */
 DECL|method|endpoint (String uri)
 specifier|public
 name|Endpoint
@@ -495,7 +540,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Resolves the given URI to an endpoint of the specified type      *      * @throws NoSuchEndpointException if the endpoint URI could not be resolved      */
+comment|/**      * Resolves the given URI to an endpoint of the specified type      *      * @param uri  the uri to resolve      * @param type the excepted type of the endpoint      * @throws NoSuchEndpointException if the endpoint URI could not be resolved      * @return the endpoint      */
 DECL|method|endpoint (String uri, Class<T> type)
 specifier|public
 parameter_list|<
@@ -559,7 +604,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Resolves the list of URIs into a list of {@link Endpoint} instances      *      * @throws NoSuchEndpointException if an endpoint URI could not be resolved      */
+comment|/**      * Resolves the list of URIs into a list of {@link Endpoint} instances      *      * @param uris  list of endpoints to resolve      * @throws NoSuchEndpointException if an endpoint URI could not be resolved      * @return list of endpoints      */
 DECL|method|endpoints (String... uris)
 specifier|public
 name|List
@@ -611,7 +656,7 @@ return|return
 name|endpoints
 return|;
 block|}
-comment|/**      * Helper method to create a list of {@link Endpoint} instances      */
+comment|/**      * Helper method to create a list of {@link Endpoint} instances      *      * @param endpoints  endpoints      * @return list of the given endpoints      */
 DECL|method|endpoints (Endpoint... endpoints)
 specifier|public
 name|List
@@ -654,7 +699,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a disabled error handler for removing the default error handler      */
+comment|/**      * Creates a disabled<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a>      * for removing the default error handler      *      * @return the builder      */
 DECL|method|noErrorHandler ()
 specifier|public
 name|NoErrorHandlerBuilder
@@ -667,7 +712,7 @@ name|NoErrorHandlerBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates an error handler which just logs errors      */
+comment|/**      * Creates an<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
 DECL|method|loggingErrorHandler ()
 specifier|public
 name|LoggingErrorHandlerBuilder
@@ -680,7 +725,7 @@ name|LoggingErrorHandlerBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates an error handler which just logs errors      */
+comment|/**      * Creates an<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
 DECL|method|loggingErrorHandler (String log)
 specifier|public
 name|LoggingErrorHandlerBuilder
@@ -702,7 +747,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an error handler which just logs errors      */
+comment|/**      * Creates an<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
 DECL|method|loggingErrorHandler (Log log)
 specifier|public
 name|LoggingErrorHandlerBuilder
@@ -720,7 +765,7 @@ name|log
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an error handler which just logs errors      */
+comment|/**      * Creates an<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
 DECL|method|loggingErrorHandler (Log log, LoggingLevel level)
 specifier|public
 name|LoggingErrorHandlerBuilder
@@ -743,6 +788,7 @@ name|level
 argument_list|)
 return|;
 block|}
+comment|/**      *<a href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intented destination.      *      * @return the builder      */
 DECL|method|deadLetterChannel ()
 specifier|public
 name|DeadLetterChannelBuilder
@@ -755,6 +801,7 @@ name|DeadLetterChannelBuilder
 argument_list|()
 return|;
 block|}
+comment|/**      *<a href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intented destination.      *      * @param deadLetterUri  uri to the dead letter endpoint storing dead messages      * @return the builder      */
 DECL|method|deadLetterChannel (String deadLetterUri)
 specifier|public
 name|DeadLetterChannelBuilder
@@ -774,6 +821,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      *<a href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intented destination.      *      * @param deadLetterEndpoint  dead letter endpoint storing dead messages      * @return the builder      */
 DECL|method|deadLetterChannel (Endpoint deadLetterEndpoint)
 specifier|public
 name|DeadLetterChannelBuilder

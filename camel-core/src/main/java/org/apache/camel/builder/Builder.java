@@ -57,6 +57,69 @@ specifier|private
 name|Builder
 parameter_list|()
 block|{     }
+comment|/**      * Returns a<a href="http://activemq.apache.org/camel/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @return the builder      */
+DECL|method|bean (String beanRef)
+specifier|public
+specifier|static
+name|ValueBuilder
+name|bean
+parameter_list|(
+name|String
+name|beanRef
+parameter_list|)
+block|{
+name|Expression
+name|expression
+init|=
+name|ExpressionBuilder
+operator|.
+name|beanExpression
+argument_list|(
+name|beanRef
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a<a href="http://activemq.apache.org/camel/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
+DECL|method|bean (String beanRef, String method)
+specifier|public
+specifier|static
+name|ValueBuilder
+name|bean
+parameter_list|(
+name|String
+name|beanRef
+parameter_list|,
+name|String
+name|method
+parameter_list|)
+block|{
+name|Expression
+name|expression
+init|=
+name|ExpressionBuilder
+operator|.
+name|beanExpression
+argument_list|(
+name|beanRef
+argument_list|,
+name|method
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a constant expression      */
 DECL|method|constant (Object value)
 specifier|public

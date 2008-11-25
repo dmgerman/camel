@@ -108,7 +108,7 @@ name|BeanLanguage
 implements|implements
 name|Language
 block|{
-comment|/**      * Creates the expression based on the string syntax.      *      * @param expression the string syntax      * @return the expression      */
+comment|/**      * Creates the expression based on the string syntax.      *      * @param expression the string syntax<tt>beanRef.methodName</tt> where methodName can be omitted      * @return the expression      */
 DECL|method|bean (String expression)
 specifier|public
 specifier|static

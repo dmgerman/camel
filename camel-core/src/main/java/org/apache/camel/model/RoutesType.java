@@ -848,14 +848,14 @@ name|predicate
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds an on exception      *       * @param exceptionType  the exception      * @return the builder      */
-DECL|method|onException (Class exceptionType)
+comment|/**      * Adds an on exception      *       * @param exception  the exception      * @return the builder      */
+DECL|method|onException (Class exception)
 specifier|public
 name|ExceptionType
 name|onException
 parameter_list|(
 name|Class
-name|exceptionType
+name|exception
 parameter_list|)
 block|{
 name|ExceptionType
@@ -864,7 +864,7 @@ init|=
 operator|new
 name|ExceptionType
 argument_list|(
-name|exceptionType
+name|exception
 argument_list|)
 decl_stmt|;
 name|getExceptions

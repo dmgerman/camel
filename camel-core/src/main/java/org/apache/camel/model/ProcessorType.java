@@ -628,15 +628,6 @@ argument_list|>
 implements|implements
 name|Block
 block|{
-DECL|field|DEFAULT_TRACE_CATEGORY
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_TRACE_CATEGORY
-init|=
-literal|"org.apache.camel.TRACE"
-decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -3578,7 +3569,7 @@ return|;
 block|}
 comment|// Transformers
 comment|// -------------------------------------------------------------------------
-comment|/**      * Adds the custom processor to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param processor  the custom processor      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param processor  the custom {@link Processor}      * @return the builder      */
 DECL|method|process (Processor processor)
 specifier|public
 name|Type
@@ -3609,7 +3600,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds the custom processor reference to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param ref   reference to a processor to lookup in the registry      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor reference to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param ref   reference to a {@link Processor} to lookup in the registry      * @return the builder      */
 DECL|method|processRef (String ref)
 specifier|public
 name|Type
@@ -3645,7 +3636,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a<a href="http://activemq.apache.org/camel/bean-language.html">bean</a>      * which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @return the builder      */
 DECL|method|bean (Object bean)
 specifier|public
 name|Type
@@ -3681,7 +3672,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a<a href="http://activemq.apache.org/camel/bean-language.html">bean</a>      * which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
 DECL|method|bean (Object bean, String method)
 specifier|public
 name|Type
@@ -3727,7 +3718,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a<a href="http://activemq.apache.org/camel/bean-language.html">bean</a>      * which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @return the builder      */
 DECL|method|bean (Class beanType)
 specifier|public
 name|Type
@@ -3763,7 +3754,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a<a href="http://activemq.apache.org/camel/bean-language.html">bean</a>      * which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
 DECL|method|bean (Class beanType, String method)
 specifier|public
 name|Type
@@ -3809,7 +3800,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a<a href="http://activemq.apache.org/camel/bean-language.html">bean</a>      * which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @return the builder      */
 DECL|method|beanRef (String ref)
 specifier|public
 name|Type
@@ -3840,7 +3831,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a<a href="http://activemq.apache.org/camel/bean-language.html">bean</a>      * which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
 DECL|method|beanRef (String ref, String method)
 specifier|public
 name|Type
@@ -3876,7 +3867,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the IN message      *      * @return a expression builder clause to set the body      */
+comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the IN message      *      * @return a expression builder clause to set the body      */
 DECL|method|setBody ()
 specifier|public
 name|ExpressionClause
@@ -3931,7 +3922,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the IN message      *      * @param expression   the expression used to set the body      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the IN message      *      * @param expression   the expression used to set the body      * @return the builder      */
 DECL|method|setBody (Expression expression)
 specifier|public
 name|Type
@@ -3962,7 +3953,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the OUT message      *      * @param expression   the expression used to set the body      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the OUT message      *      * @param expression   the expression used to set the body      * @return the builder      */
 DECL|method|transform (Expression expression)
 specifier|public
 name|Type
@@ -3993,7 +3984,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the OUT message      *      * @return a expression builder clause to set the body      */
+comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the OUT message      *      * @return a expression builder clause to set the body      */
 DECL|method|transform ()
 specifier|public
 name|ExpressionClause
@@ -4523,7 +4514,7 @@ return|;
 block|}
 comment|// DataFormat support
 comment|// -------------------------------------------------------------------------
-comment|/**      * Unmarshals the in body using a {@link DataFormat} expression to define      * the format of the input message and the output will be set on the out message body.      *      * @return the expression to create the {@link DataFormat}      */
+comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Unmarshals the in body using a {@link DataFormat} expression to define      * the format of the input message and the output will be set on the out message body.      *      * @return the expression to create the {@link DataFormat}      */
 DECL|method|unmarshal ()
 specifier|public
 name|DataFormatClause
@@ -4556,7 +4547,7 @@ name|Unmarshal
 argument_list|)
 return|;
 block|}
-comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
 DECL|method|unmarshal (DataFormatType dataFormatType)
 specifier|public
 name|Type
@@ -4582,7 +4573,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormat  the dataformat      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormat  the dataformat      * @return the builder      */
 DECL|method|unmarshal (DataFormat dataFormat)
 specifier|public
 name|Type
@@ -4603,7 +4594,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Unmarshals the in body using the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @param dataTypeRef  reference to a {@link DataFormat} to lookup in the registry      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Unmarshals the in body using the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @param dataTypeRef  reference to a {@link DataFormat} to lookup in the registry      * @return the builder      */
 DECL|method|unmarshal (String dataTypeRef)
 specifier|public
 name|Type
@@ -4629,7 +4620,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Marshals the in body using a {@link DataFormat} expression to define      * the format of the output which will be added to the out body.      *      * @return the expression to create the {@link DataFormat}      */
+comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Marshals the in body using a {@link DataFormat} expression to define      * the format of the output which will be added to the out body.      *      * @return the expression to create the {@link DataFormat}      */
 DECL|method|marshal ()
 specifier|public
 name|DataFormatClause
@@ -4662,7 +4653,7 @@ name|Marshal
 argument_list|)
 return|;
 block|}
-comment|/**      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
 DECL|method|marshal (DataFormatType dataFormatType)
 specifier|public
 name|Type
@@ -4688,7 +4679,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormat  the dataformat      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormat  the dataformat      * @return the builder      */
 DECL|method|marshal (DataFormat dataFormat)
 specifier|public
 name|Type
@@ -4709,7 +4700,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Marshals the in body the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @param dataTypeRef  reference to a {@link DataFormat} to lookup in the registry      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Marshals the in body the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @param dataTypeRef  reference to a {@link DataFormat} to lookup in the registry      * @return the builder      */
 DECL|method|marshal (String dataTypeRef)
 specifier|public
 name|Type
@@ -5515,7 +5506,6 @@ argument_list|>
 name|list
 parameter_list|)
 block|{
-comment|// return new MulticastProcessor(list);
 return|return
 operator|new
 name|Pipeline

@@ -396,7 +396,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Installs the given error handler builder      *      * @param errorHandlerBuilder the error handler to be used by default for      *                all child routes      * @return the current builder with the error handler configured      */
+comment|/**      * Installs the given<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a> builder      *      * @param errorHandlerBuilder  the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|RouteBuilder
@@ -415,21 +415,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures whether or not the error handler is inherited by every      * processing node (or just the top most one)      *      * @param value the flag as to whether error handlers should be inherited or not      * @return the current builder      */
-DECL|method|inheritErrorHandler (boolean value)
+comment|/**      * Configures whether or not the<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a>      * is inherited by every processing node (or just the top most one)      *      * @param inherit  whether error handlers should be inherited or not      * @return the current builder      */
+DECL|method|inheritErrorHandler (boolean inherit)
 specifier|public
 name|RouteBuilder
 name|inheritErrorHandler
 parameter_list|(
 name|boolean
-name|value
+name|inherit
 parameter_list|)
 block|{
 name|routeCollection
 operator|.
 name|setInheritErrorHandlerFlag
 argument_list|(
-name|value
+name|inherit
 argument_list|)
 expr_stmt|;
 return|return
@@ -490,14 +490,14 @@ name|predicate
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds an exception handler route for the given exception type      *      * @param exceptionType  the exception type      * @return the builder      */
-DECL|method|onException (Class exceptionType)
+comment|/**      *<a href="http://activemq.apache.org/camel/exception-clause.html">Exception clause</a>      * for cathing certain exceptions and handling them.      *      * @param exception exception to catch      * @return the builder      */
+DECL|method|onException (Class exception)
 specifier|public
 name|ExceptionType
 name|onException
 parameter_list|(
 name|Class
-name|exceptionType
+name|exception
 parameter_list|)
 block|{
 return|return
@@ -505,11 +505,11 @@ name|routeCollection
 operator|.
 name|onException
 argument_list|(
-name|exceptionType
+name|exception
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds an exception handler route for the given exception types      *      * @param exceptions  list of exceptions types      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/exception-clause.html">Exception clause</a>      * for cathing certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the builder      */
 DECL|method|onException (Class... exceptions)
 specifier|public
 name|ExceptionType
@@ -885,6 +885,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Adds a collection of routes to this context      *      * @throws Exception if the routes could not be created for whatever reason      */
 DECL|method|addRoutes (Routes routes)
 specifier|protected
 name|void
