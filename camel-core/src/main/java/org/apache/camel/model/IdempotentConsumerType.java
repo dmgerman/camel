@@ -359,8 +359,9 @@ name|childProcessor
 argument_list|)
 return|;
 block|}
+comment|/**      * Strategy method to resolve the {@link org.apache.camel.processor.idempotent.MessageIdRepository} to use      *      * @param routeContext  route context      * @return the repository      */
 DECL|method|resolveMessageIdRepository (RouteContext routeContext)
-specifier|public
+specifier|protected
 name|MessageIdRepository
 name|resolveMessageIdRepository
 parameter_list|(

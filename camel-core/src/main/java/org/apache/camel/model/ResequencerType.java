@@ -1015,7 +1015,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO: No used should it be removed?
+comment|// TODO: Not used should it be removed?
 specifier|final
 name|Resequencer
 name|resequencer
@@ -1081,7 +1081,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO: No used should it be removed?
+comment|// TODO: Not used should it be removed?
 specifier|final
 name|StreamResequencer
 name|resequencer

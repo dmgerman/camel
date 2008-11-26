@@ -1365,6 +1365,32 @@ operator|=
 name|strategyRef
 expr_stmt|;
 block|}
+DECL|method|getCollectionRef ()
+specifier|public
+name|String
+name|getCollectionRef
+parameter_list|()
+block|{
+return|return
+name|collectionRef
+return|;
+block|}
+DECL|method|setCollectionRef (String collectionRef)
+specifier|public
+name|void
+name|setCollectionRef
+parameter_list|(
+name|String
+name|collectionRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|collectionRef
+operator|=
+name|collectionRef
+expr_stmt|;
+block|}
 DECL|method|setCompletedPredicate (ExpressionSubElementType completedPredicate)
 specifier|public
 name|void
@@ -1482,6 +1508,25 @@ block|{
 name|setAggregationStrategy
 argument_list|(
 name|aggregationStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the aggegate collection to use      *      * @param collectionRef  reference to the aggregate collection to lookup in the registry      * @return the builder      */
+DECL|method|collectionRef (String collectionRef)
+specifier|public
+name|AggregatorType
+name|collectionRef
+parameter_list|(
+name|String
+name|collectionRef
+parameter_list|)
+block|{
+name|setCollectionRef
+argument_list|(
+name|collectionRef
 argument_list|)
 expr_stmt|;
 return|return

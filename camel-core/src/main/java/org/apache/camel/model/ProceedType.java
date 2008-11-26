@@ -125,7 +125,6 @@ return|return
 literal|"proceed"
 return|;
 block|}
-comment|// TODO we should be just returning the outputs!
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor
@@ -137,7 +136,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|//return routeContext.createProceedProcessor();
 return|return
 name|createOutputsProcessor
 argument_list|(
