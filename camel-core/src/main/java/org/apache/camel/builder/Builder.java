@@ -419,6 +419,30 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a predicate and value builder for the exception message on an exchange      */
+DECL|method|exceptionMessage ()
+specifier|public
+specifier|static
+name|ValueBuilder
+name|exceptionMessage
+parameter_list|()
+block|{
+name|Expression
+name|expression
+init|=
+name|ExpressionBuilder
+operator|.
+name|exchangeExceptionMessageExpression
+argument_list|()
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

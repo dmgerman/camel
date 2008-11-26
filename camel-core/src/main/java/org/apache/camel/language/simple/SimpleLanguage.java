@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/simple.html">simple language</a>  * which maps simple property style notations to access headers and bodies.  * Examples of supported expressions are:  *<ul>  *<li>id to access the inbound message Id</li>  *<li>in.body or body to access the inbound body</li>  *<li>out.body to access the inbound body</li>  *<li>in.header.foo or header.foo to access an inbound header called 'foo'</li>  *<li>out.header.foo to access an outbound header called 'foo'</li>  *<li>property.foo to access the exchange property called 'foo'</li>  *<li>sys.foo to access the system property called 'foo'</li>  *<li>date:&lt;command&gt;:&lt;pattern&gt; for date formatting using the {@link java.text.SimpleDateFormat} patterns.  *     Supported commands are:<tt>now</tt> for current timestamp,  *<tt>in.header.xxx</tt> or<tt>header.xxx</tt> to use the Date object in the in header.  *<tt>out.header.xxx</tt> to use the Date object in the out header.  *</li>  *<li>bean:&lt;bean expression&gt; to invoke a bean using the  * {@link org.apache.camel.language.bean.BeanLanguage BeanLanguage}</li>  *</ul>  *  * @version $Revision$  */
+comment|/**  * A<a href="http://activemq.apache.org/camel/simple.html">simple language</a>  * which maps simple property style notations to access headers and bodies.  * Examples of supported expressions are:  *<ul>  *<li>id to access the inbound message id</li>  *<li>in.body or body to access the inbound body</li>  *<li>out.body to access the inbound body</li>  *<li>in.header.foo or header.foo to access an inbound header called 'foo'</li>  *<li>out.header.foo to access an outbound header called 'foo'</li>  *<li>property.foo to access the exchange property called 'foo'</li>  *<li>sys.foo to access the system property called 'foo'</li>  *<li>exception.messsage to access the exception message</li>  *<li>date:&lt;command&gt;:&lt;pattern&gt; for date formatting using the {@link java.text.SimpleDateFormat} patterns.  *     Supported commands are:<tt>now</tt> for current timestamp,  *<tt>in.header.xxx</tt> or<tt>header.xxx</tt> to use the Date object in the in header.  *<tt>out.header.xxx</tt> to use the Date object in the out header.  *</li>  *<li>bean:&lt;bean expression&gt; to invoke a bean using the  * {@link org.apache.camel.language.bean.BeanLanguage BeanLanguage}</li>  *</ul>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -189,6 +189,26 @@ return|return
 name|ExpressionBuilder
 operator|.
 name|messageIdExpression
+argument_list|()
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|equal
+argument_list|(
+name|expression
+argument_list|,
+literal|"exception.message"
+argument_list|)
+condition|)
+block|{
+return|return
+name|ExpressionBuilder
+operator|.
+name|exchangeExceptionMessageExpression
 argument_list|()
 return|;
 block|}

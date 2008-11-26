@@ -248,6 +248,40 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testExceptionMessage ()
+specifier|public
+name|void
+name|testExceptionMessage
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Just testing"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"exception.message"
+argument_list|,
+literal|"Just testing"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"Hello ${exception.message} World"
+argument_list|,
+literal|"Hello Just testing World"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getLanguageName ()
 specifier|protected
 name|String

@@ -489,6 +489,20 @@ name|method
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a exception expression value builder      */
+DECL|method|exceptionMessage ()
+specifier|public
+name|ValueBuilder
+name|exceptionMessage
+parameter_list|()
+block|{
+return|return
+name|Builder
+operator|.
+name|exceptionMessage
+argument_list|()
+return|;
+block|}
 comment|/**      * Resolves the given URI to an endpoint      *      * @param uri  the uri to resolve      * @throws NoSuchEndpointException if the endpoint URI could not be resolved      * @return the endpoint      */
 DECL|method|endpoint (String uri)
 specifier|public

@@ -440,7 +440,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the outbound message headers      *      * @see Message#getHeaders()      * @return an expression object which will return the inbound headers      */
+comment|/**      * Returns an expression for the outbound message headers      *      * @see Message#getHeaders()      * @return an expression object which will return the headers      */
 DECL|method|outHeadersExpression ()
 specifier|public
 specifier|static
@@ -555,6 +555,85 @@ block|}
 block|}
 return|;
 block|}
+comment|/**      * Returns an expression for an exception message set on the exchange      *      * @see<tt>Exchange.getException().getMessage()</tt>      * @return an expression object which will return the exception message set on the exchange      */
+DECL|method|exchangeExceptionMessageExpression ()
+specifier|public
+specifier|static
+name|Expression
+name|exchangeExceptionMessageExpression
+parameter_list|()
+block|{
+return|return
+operator|new
+name|Expression
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|Throwable
+name|exception
+init|=
+name|exchange
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|exception
+operator|==
+literal|null
+condition|)
+block|{
+name|exception
+operator|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|DeadLetterChannel
+operator|.
+name|EXCEPTION_CAUSE_PROPERTY
+argument_list|,
+name|Throwable
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|exception
+operator|!=
+literal|null
+condition|?
+name|exception
+operator|.
+name|getMessage
+argument_list|()
+else|:
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"exchangeExceptionMessage"
+return|;
+block|}
+block|}
+return|;
+block|}
 comment|/**      * Returns an expression for the property value with the given name      *      * @see Exchange#getProperty(String)      * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      */
 DECL|method|propertyExpression (final String propertyName)
 specifier|public
@@ -649,7 +728,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for a system property value with the given name      *      * @param propertyName the name of the system property the expression will      *                return      * @return an expression object which will return the system property value      */
+comment|/**      * Returns an expression for a system property value with the given name      *      * @param propertyName the name of the system property the expression will return      * @return an expression object which will return the system property value      */
 DECL|method|systemPropertyExpression (final String propertyName)
 specifier|public
 specifier|static
@@ -670,7 +749,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an expression for a system property value with the given name      *      * @param propertyName the name of the system property the expression will      *                return      * @return an expression object which will return the system property value      */
+comment|/**      * Returns an expression for a system property value with the given name      *      * @param propertyName the name of the system property the expression will return      * @return an expression object which will return the system property value      */
 DECL|method|systemPropertyExpression (final String propertyName, final String defaultValue)
 specifier|public
 specifier|static
@@ -1259,7 +1338,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression which converts the given expression to the given      * type      */
+comment|/**      * Returns an expression which converts the given expression to the given type      */
 DECL|method|convertTo (final Expression expression, final Class type)
 specifier|public
 specifier|static
@@ -1887,7 +1966,7 @@ block|}
 return|;
 block|}
 comment|/**      * Transforms the expression into a String then performs the regex      * replaceAll to transform the String and return the result      */
-DECL|method|regexReplaceAll (final Expression expression, String regex, final Expression replacementExpression)
+DECL|method|regexReplaceAll (final Expression expression, final String regex, final Expression replacementExpression)
 specifier|public
 specifier|static
 name|Expression
@@ -1897,6 +1976,7 @@ specifier|final
 name|Expression
 name|expression
 parameter_list|,
+specifier|final
 name|String
 name|regex
 parameter_list|,
