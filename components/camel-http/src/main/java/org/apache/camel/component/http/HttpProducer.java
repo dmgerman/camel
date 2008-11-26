@@ -666,6 +666,15 @@ name|exception
 init|=
 literal|null
 decl_stmt|;
+name|Header
+index|[]
+name|headers
+init|=
+name|method
+operator|.
+name|getResponseHeaders
+argument_list|()
+decl_stmt|;
 name|InputStream
 name|is
 init|=
@@ -726,6 +735,8 @@ argument_list|()
 argument_list|,
 name|redirectLocation
 argument_list|,
+name|headers
+argument_list|,
 name|is
 argument_list|)
 expr_stmt|;
@@ -744,6 +755,8 @@ name|method
 operator|.
 name|getStatusLine
 argument_list|()
+argument_list|,
+name|headers
 argument_list|,
 name|is
 argument_list|)
@@ -764,6 +777,8 @@ name|method
 operator|.
 name|getStatusLine
 argument_list|()
+argument_list|,
+name|headers
 argument_list|,
 name|is
 argument_list|)

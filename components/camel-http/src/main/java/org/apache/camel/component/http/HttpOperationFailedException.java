@@ -64,6 +64,20 @@ name|commons
 operator|.
 name|httpclient
 operator|.
+name|Header
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|httpclient
+operator|.
 name|StatusLine
 import|;
 end_import
@@ -94,13 +108,20 @@ specifier|final
 name|StatusLine
 name|statusLine
 decl_stmt|;
+DECL|field|headers
+specifier|private
+specifier|final
+name|Header
+index|[]
+name|headers
+decl_stmt|;
 DECL|field|responseBody
 specifier|private
 specifier|final
 name|InputStream
 name|responseBody
 decl_stmt|;
-DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, String location, InputStream responseBody)
+DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, String location, Header[] headers, InputStream responseBody)
 specifier|public
 name|HttpOperationFailedException
 parameter_list|(
@@ -112,6 +133,10 @@ name|statusLine
 parameter_list|,
 name|String
 name|location
+parameter_list|,
+name|Header
+index|[]
+name|headers
 parameter_list|,
 name|InputStream
 name|responseBody
@@ -160,12 +185,18 @@ name|location
 expr_stmt|;
 name|this
 operator|.
+name|headers
+operator|=
+name|headers
+expr_stmt|;
+name|this
+operator|.
 name|responseBody
 operator|=
 name|responseBody
 expr_stmt|;
 block|}
-DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, InputStream responseBody)
+DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, Header[] headers, InputStream responseBody)
 specifier|public
 name|HttpOperationFailedException
 parameter_list|(
@@ -174,6 +205,10 @@ name|statusCode
 parameter_list|,
 name|StatusLine
 name|statusLine
+parameter_list|,
+name|Header
+index|[]
+name|headers
 parameter_list|,
 name|InputStream
 name|responseBody
@@ -186,6 +221,8 @@ argument_list|,
 name|statusLine
 argument_list|,
 literal|null
+argument_list|,
+name|headers
 argument_list|,
 name|responseBody
 argument_list|)
@@ -250,6 +287,17 @@ parameter_list|()
 block|{
 return|return
 name|statusCode
+return|;
+block|}
+DECL|method|getHeaders ()
+specifier|public
+name|Header
+index|[]
+name|getHeaders
+parameter_list|()
+block|{
+return|return
+name|headers
 return|;
 block|}
 DECL|method|getResponseBody ()
