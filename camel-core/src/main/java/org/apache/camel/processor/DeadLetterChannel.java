@@ -347,6 +347,10 @@ DECL|field|handledPredicate
 name|Predicate
 name|handledPredicate
 decl_stmt|;
+DECL|field|retryUntilPredicate
+name|Predicate
+name|retryUntilPredicate
+decl_stmt|;
 comment|// default behavior which can be overloaded on a per exception basis
 DECL|field|currentRedeliveryPolicy
 name|RedeliveryPolicy
@@ -499,6 +503,27 @@ operator|+
 literal|"]"
 return|;
 block|}
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|AsyncProcessorHelper
+operator|.
+name|process
+argument_list|(
+name|this
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|process (Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
@@ -525,8 +550,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Processes the exchange using decorated with this dead letter channel.      */
 DECL|method|process (final Exchange exchange, final AsyncCallback callback, final RedeliveryData data)
-specifier|public
+specifier|protected
 name|boolean
 name|process
 parameter_list|(
@@ -710,6 +736,15 @@ operator|.
 name|getHandledPolicy
 argument_list|()
 expr_stmt|;
+name|data
+operator|.
+name|retryUntilPredicate
+operator|=
+name|exceptionPolicy
+operator|.
+name|getRetryUntilPolicy
+argument_list|()
+expr_stmt|;
 name|Processor
 name|processor
 init|=
@@ -735,6 +770,10 @@ block|}
 block|}
 name|logFailedDelivery
 argument_list|(
+literal|true
+argument_list|,
+name|exchange
+argument_list|,
 literal|"Failed delivery for exchangeId: "
 operator|+
 name|exchange
@@ -769,20 +808,21 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|// should we redeliver or not?
+comment|// compute if we should redeliver or not
+name|boolean
+name|shouldRedeliver
+init|=
+name|shouldRedeliver
+argument_list|(
+name|exchange
+argument_list|,
+name|data
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|!
-name|data
-operator|.
-name|currentRedeliveryPolicy
-operator|.
 name|shouldRedeliver
-argument_list|(
-name|data
-operator|.
-name|redeliveryCounter
-argument_list|)
 condition|)
 block|{
 comment|// we did not success with the redelivery so now we let the failure processor handle it
@@ -857,6 +897,10 @@ comment|// The line below shouldn't be needed, it is invoked by the AsyncCallbac
 comment|//restoreExceptionOnExchange(exchange, data.handledPredicate);
 name|logFailedDelivery
 argument_list|(
+literal|false
+argument_list|,
+name|exchange
+argument_list|,
 literal|"Failed delivery for exchangeId: "
 operator|+
 name|exchange
@@ -879,7 +923,7 @@ return|return
 name|sync
 return|;
 block|}
-comment|// should we redeliver
+comment|// if we are redelivering then sleep before trying again
 if|if
 condition|(
 name|data
@@ -1044,94 +1088,8 @@ block|}
 comment|// error occurred so loop back around.....
 block|}
 block|}
-DECL|method|logFailedDelivery (String message, RedeliveryData data, Throwable e)
-specifier|private
-name|void
-name|logFailedDelivery
-parameter_list|(
-name|String
-name|message
-parameter_list|,
-name|RedeliveryData
-name|data
-parameter_list|,
-name|Throwable
-name|e
-parameter_list|)
-block|{
-name|LoggingLevel
-name|newLogLevel
-init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|data
-operator|.
-name|currentRedeliveryPolicy
-operator|.
-name|shouldRedeliver
-argument_list|(
-name|data
-operator|.
-name|redeliveryCounter
-argument_list|)
-condition|)
-block|{
-name|newLogLevel
-operator|=
-name|data
-operator|.
-name|currentRedeliveryPolicy
-operator|.
-name|getRetryAttemptedLogLevel
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-name|newLogLevel
-operator|=
-name|data
-operator|.
-name|currentRedeliveryPolicy
-operator|.
-name|getRetriesExhaustedLogLevel
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|e
-operator|!=
-literal|null
-condition|)
-block|{
-name|logger
-operator|.
-name|log
-argument_list|(
-name|message
-argument_list|,
-name|e
-argument_list|,
-name|newLogLevel
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|log
-argument_list|(
-name|message
-argument_list|,
-name|newLogLevel
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|// Properties
+comment|// -------------------------------------------------------------------------
 DECL|method|isFailureHandled (Exchange exchange)
 specifier|public
 specifier|static
@@ -1210,6 +1168,84 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns the output processor      */
+DECL|method|getOutput ()
+specifier|public
+name|Processor
+name|getOutput
+parameter_list|()
+block|{
+return|return
+name|output
+return|;
+block|}
+comment|/**      * Returns the dead letter that message exchanges will be sent to if the      * redelivery attempts fail      */
+DECL|method|getDeadLetter ()
+specifier|public
+name|Processor
+name|getDeadLetter
+parameter_list|()
+block|{
+return|return
+name|deadLetter
+return|;
+block|}
+DECL|method|getRedeliveryPolicy ()
+specifier|public
+name|RedeliveryPolicy
+name|getRedeliveryPolicy
+parameter_list|()
+block|{
+return|return
+name|redeliveryPolicy
+return|;
+block|}
+comment|/**      * Sets the redelivery policy      */
+DECL|method|setRedeliveryPolicy (RedeliveryPolicy redeliveryPolicy)
+specifier|public
+name|void
+name|setRedeliveryPolicy
+parameter_list|(
+name|RedeliveryPolicy
+name|redeliveryPolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|redeliveryPolicy
+operator|=
+name|redeliveryPolicy
+expr_stmt|;
+block|}
+DECL|method|getLogger ()
+specifier|public
+name|Logger
+name|getLogger
+parameter_list|()
+block|{
+return|return
+name|logger
+return|;
+block|}
+comment|/**      * Sets the logger strategy; which {@link Log} to use and which      * {@link LoggingLevel} to use      */
+DECL|method|setLogger (Logger logger)
+specifier|public
+name|void
+name|setLogger
+parameter_list|(
+name|Logger
+name|logger
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logger
+operator|=
+name|logger
+expr_stmt|;
+block|}
+comment|// Implementation methods
+comment|// -------------------------------------------------------------------------
 DECL|method|restoreExceptionOnExchange (Exchange exchange, Predicate handledPredicate)
 specifier|protected
 specifier|static
@@ -1309,107 +1345,120 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|process (Exchange exchange)
-specifier|public
+DECL|method|logFailedDelivery (boolean shouldRedeliver, Exchange exchange, String message, RedeliveryData data, Throwable e)
+specifier|private
 name|void
-name|process
+name|logFailedDelivery
 parameter_list|(
+name|boolean
+name|shouldRedeliver
+parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|String
+name|message
+parameter_list|,
+name|RedeliveryData
+name|data
+parameter_list|,
+name|Throwable
+name|e
 parameter_list|)
-throws|throws
-name|Exception
 block|{
-name|AsyncProcessorHelper
+name|LoggingLevel
+name|newLogLevel
+decl_stmt|;
+if|if
+condition|(
+name|shouldRedeliver
+condition|)
+block|{
+name|newLogLevel
+operator|=
+name|data
 operator|.
-name|process
+name|currentRedeliveryPolicy
+operator|.
+name|getRetryAttemptedLogLevel
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|newLogLevel
+operator|=
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|getRetriesExhaustedLogLevel
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|e
+operator|!=
+literal|null
+condition|)
+block|{
+name|logger
+operator|.
+name|log
 argument_list|(
-name|this
+name|message
 argument_list|,
-name|exchange
+name|e
+argument_list|,
+name|newLogLevel
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Properties
-comment|// -------------------------------------------------------------------------
-comment|/**      * Returns the output processor      */
-DECL|method|getOutput ()
-specifier|public
-name|Processor
-name|getOutput
-parameter_list|()
+else|else
 block|{
-return|return
-name|output
-return|;
-block|}
-comment|/**      * Returns the dead letter that message exchanges will be sent to if the      * redelivery attempts fail      */
-DECL|method|getDeadLetter ()
-specifier|public
-name|Processor
-name|getDeadLetter
-parameter_list|()
-block|{
-return|return
-name|deadLetter
-return|;
-block|}
-DECL|method|getRedeliveryPolicy ()
-specifier|public
-name|RedeliveryPolicy
-name|getRedeliveryPolicy
-parameter_list|()
-block|{
-return|return
-name|redeliveryPolicy
-return|;
-block|}
-comment|/**      * Sets the redelivery policy      */
-DECL|method|setRedeliveryPolicy (RedeliveryPolicy redeliveryPolicy)
-specifier|public
-name|void
-name|setRedeliveryPolicy
-parameter_list|(
-name|RedeliveryPolicy
-name|redeliveryPolicy
-parameter_list|)
-block|{
-name|this
+name|logger
 operator|.
-name|redeliveryPolicy
-operator|=
-name|redeliveryPolicy
+name|log
+argument_list|(
+name|message
+argument_list|,
+name|newLogLevel
+argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getLogger ()
-specifier|public
-name|Logger
-name|getLogger
-parameter_list|()
-block|{
-return|return
-name|logger
-return|;
 block|}
-comment|/**      * Sets the logger strategy; which {@link Log} to use and which      * {@link LoggingLevel} to use      */
-DECL|method|setLogger (Logger logger)
-specifier|public
-name|void
-name|setLogger
+DECL|method|shouldRedeliver (Exchange exchange, RedeliveryData data)
+specifier|private
+name|boolean
+name|shouldRedeliver
 parameter_list|(
-name|Logger
-name|logger
+name|Exchange
+name|exchange
+parameter_list|,
+name|RedeliveryData
+name|data
 parameter_list|)
 block|{
-name|this
+return|return
+name|data
 operator|.
-name|logger
-operator|=
-name|logger
-expr_stmt|;
+name|currentRedeliveryPolicy
+operator|.
+name|shouldRedeliver
+argument_list|(
+name|exchange
+argument_list|,
+name|data
+operator|.
+name|redeliveryCounter
+argument_list|,
+name|data
+operator|.
+name|retryUntilPredicate
+argument_list|)
+return|;
 block|}
-comment|// Implementation methods
-comment|// -------------------------------------------------------------------------
 comment|/**      * Increments the redelivery counter and adds the redelivered flag if the      * message has been redelivered      */
 DECL|method|incrementRedeliveryCounter (Exchange exchange, Throwable e)
 specifier|protected

@@ -20,19 +20,33 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|Serializable
+name|Random
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Random
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Predicate
 import|;
 end_import
 
@@ -265,16 +279,39 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns true if the policy decides that the message exchange should be      * redelivered      */
-DECL|method|shouldRedeliver (int redeliveryCounter)
+comment|/**      * Returns true if the policy decides that the message exchange should be      * redelivered.      *      * @param exchange  the current exchange      * @param redeliveryCounter  the current retry counter      * @param retryUntil  an optional predicate to determine if we should redeliver or not      * @return true to redeliver, false to stop      */
+DECL|method|shouldRedeliver (Exchange exchange, int redeliveryCounter, Predicate retryUntil)
 specifier|public
 name|boolean
 name|shouldRedeliver
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
 name|int
 name|redeliveryCounter
+parameter_list|,
+name|Predicate
+name|retryUntil
 parameter_list|)
 block|{
+comment|// predicate is always used if provided
+if|if
+condition|(
+name|retryUntil
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|retryUntil
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+return|;
+block|}
 if|if
 condition|(
 name|getMaximumRedeliveries
@@ -283,6 +320,7 @@ operator|<
 literal|0
 condition|)
 block|{
+comment|// retry forever if negative value
 return|return
 literal|true
 return|;
