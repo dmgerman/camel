@@ -354,18 +354,6 @@ specifier|private
 name|String
 name|moveNamePostfix
 decl_stmt|;
-DECL|field|excludedNamePrefixes
-specifier|private
-name|String
-index|[]
-name|excludedNamePrefixes
-decl_stmt|;
-DECL|field|excludedNamePostfixes
-specifier|private
-name|String
-index|[]
-name|excludedNamePostfixes
-decl_stmt|;
 DECL|field|excludedNamePrefix
 specifier|private
 name|String
@@ -394,6 +382,11 @@ DECL|field|expression
 specifier|private
 name|Expression
 name|expression
+decl_stmt|;
+DECL|field|tempPrefix
+specifier|private
+name|String
+name|tempPrefix
 decl_stmt|;
 DECL|method|FileEndpoint (File file, String endpointUri, FileComponent component)
 specifier|protected
@@ -923,28 +916,6 @@ operator|=
 name|moveNamePrefix
 expr_stmt|;
 block|}
-DECL|method|getExcludedNamePrefixes ()
-specifier|public
-name|String
-index|[]
-name|getExcludedNamePrefixes
-parameter_list|()
-block|{
-return|return
-name|excludedNamePrefixes
-return|;
-block|}
-DECL|method|getExcludedNamePostfixes ()
-specifier|public
-name|String
-index|[]
-name|getExcludedNamePostfixes
-parameter_list|()
-block|{
-return|return
-name|excludedNamePostfixes
-return|;
-block|}
 DECL|method|isNoop ()
 specifier|public
 name|boolean
@@ -1151,6 +1122,33 @@ name|file
 argument_list|(
 name|fileLanguageExpression
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getTempPrefix ()
+specifier|public
+name|String
+name|getTempPrefix
+parameter_list|()
+block|{
+return|return
+name|tempPrefix
+return|;
+block|}
+comment|/**      * Enables and uses temporary prefix when writing files, after write it will be renamed to the correct name.      */
+DECL|method|setTempPrefix (String tempPrefix)
+specifier|public
+name|void
+name|setTempPrefix
+parameter_list|(
+name|String
+name|tempPrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tempPrefix
+operator|=
+name|tempPrefix
 expr_stmt|;
 block|}
 comment|/**      * A strategy method to lazily create the file strategy      */
