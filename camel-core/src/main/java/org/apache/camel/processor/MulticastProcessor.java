@@ -472,9 +472,9 @@ name|processors
 argument_list|,
 name|aggregationStrategy
 argument_list|,
-literal|false
+name|parallelProcessing
 argument_list|,
-literal|null
+name|executor
 argument_list|,
 literal|false
 argument_list|)
