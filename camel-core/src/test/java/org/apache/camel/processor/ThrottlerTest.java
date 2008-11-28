@@ -170,7 +170,7 @@ argument_list|(
 literal|"seda:a"
 argument_list|)
 operator|.
-name|throttler
+name|throttle
 argument_list|(
 literal|3
 argument_list|)

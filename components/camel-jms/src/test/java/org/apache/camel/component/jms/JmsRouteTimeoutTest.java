@@ -275,7 +275,7 @@ argument_list|(
 literal|"activemq:queue:slow"
 argument_list|)
 operator|.
-name|delayer
+name|delay
 argument_list|(
 literal|3000
 argument_list|)

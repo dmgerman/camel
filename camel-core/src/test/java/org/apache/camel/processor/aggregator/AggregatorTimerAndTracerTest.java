@@ -170,7 +170,7 @@ argument_list|(
 literal|"a b c"
 argument_list|)
 operator|.
-name|splitter
+name|split
 argument_list|(
 name|body
 argument_list|()
@@ -191,7 +191,7 @@ argument_list|(
 literal|"seda:splitted"
 argument_list|)
 operator|.
-name|aggregator
+name|aggregate
 argument_list|(
 name|header
 argument_list|(

@@ -409,7 +409,7 @@ literal|"bar"
 argument_list|)
 argument_list|)
 operator|.
-name|splitter
+name|split
 argument_list|(
 name|XPathBuilder
 operator|.
@@ -419,7 +419,7 @@ literal|"/invoice/lineItems"
 argument_list|)
 argument_list|)
 operator|.
-name|throttler
+name|throttle
 argument_list|(
 literal|3
 argument_list|)

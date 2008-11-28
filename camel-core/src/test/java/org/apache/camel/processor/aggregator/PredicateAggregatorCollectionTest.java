@@ -365,7 +365,7 @@ literal|"direct:start"
 argument_list|)
 comment|// we use the collection based aggregator we already have configured
 operator|.
-name|aggregator
+name|aggregate
 argument_list|(
 name|ag
 argument_list|)

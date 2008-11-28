@@ -320,7 +320,7 @@ literal|"direct:start"
 argument_list|)
 comment|// use our own collection for aggregation
 operator|.
-name|aggregator
+name|aggregate
 argument_list|(
 operator|new
 name|MyReverseAggregationCollection

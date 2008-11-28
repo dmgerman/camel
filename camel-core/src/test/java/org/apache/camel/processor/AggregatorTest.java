@@ -445,7 +445,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|aggregator
+name|aggregate
 argument_list|(
 name|header
 argument_list|(
@@ -487,7 +487,7 @@ argument_list|(
 literal|"direct:temp"
 argument_list|)
 operator|.
-name|aggregator
+name|aggregate
 argument_list|(
 name|header
 argument_list|(
@@ -500,14 +500,14 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// in this sample we aggreagte using our own startegy with a completion predicate
+comment|// in this sample we aggregate using our own startegy with a completion predicate
 comment|// stating that the aggregated header is equal to 5.
 name|from
 argument_list|(
 literal|"direct:predicate"
 argument_list|)
 operator|.
-name|aggregator
+name|aggregate
 argument_list|(
 name|header
 argument_list|(

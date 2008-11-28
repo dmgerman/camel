@@ -824,7 +824,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|delay
+name|setDelay
 argument_list|(
 literal|5000L
 argument_list|)
@@ -869,7 +869,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|delay
+name|setDelay
 argument_list|(
 literal|1000L
 argument_list|)
@@ -901,7 +901,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|delay
+name|setDelay
 argument_list|(
 literal|1000L
 argument_list|)

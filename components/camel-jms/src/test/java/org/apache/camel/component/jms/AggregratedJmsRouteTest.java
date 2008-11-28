@@ -476,7 +476,7 @@ argument_list|(
 literal|"jms:queue:test.b"
 argument_list|)
 operator|.
-name|aggregator
+name|aggregate
 argument_list|(
 name|header
 argument_list|(
@@ -615,7 +615,7 @@ argument_list|(
 literal|"jms:queue:reply"
 argument_list|)
 operator|.
-name|aggregator
+name|aggregate
 argument_list|(
 name|header
 argument_list|(

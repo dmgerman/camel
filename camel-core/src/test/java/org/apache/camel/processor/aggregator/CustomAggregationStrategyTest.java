@@ -235,7 +235,7 @@ literal|"direct:start"
 argument_list|)
 comment|// aggregated by header id and use our own strategy how to aggregate
 operator|.
-name|aggregator
+name|aggregate
 argument_list|(
 operator|new
 name|MyAggregationStrategy

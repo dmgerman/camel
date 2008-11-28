@@ -475,7 +475,7 @@ argument_list|(
 literal|"direct:aggregator"
 argument_list|)
 operator|.
-name|aggregator
+name|aggregate
 argument_list|(
 name|header
 argument_list|(

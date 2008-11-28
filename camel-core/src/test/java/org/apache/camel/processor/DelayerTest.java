@@ -197,7 +197,7 @@ argument_list|(
 literal|"seda:a"
 argument_list|)
 operator|.
-name|delayer
+name|delay
 argument_list|(
 name|header
 argument_list|(
@@ -219,7 +219,7 @@ argument_list|(
 literal|"seda:b"
 argument_list|)
 operator|.
-name|delayer
+name|delay
 argument_list|(
 literal|3000
 argument_list|)

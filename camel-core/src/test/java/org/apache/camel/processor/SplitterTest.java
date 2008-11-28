@@ -1075,7 +1075,7 @@ argument_list|(
 literal|"direct:seqential"
 argument_list|)
 operator|.
-name|splitter
+name|split
 argument_list|(
 name|body
 argument_list|()
@@ -1100,7 +1100,7 @@ argument_list|(
 literal|"direct:parallel"
 argument_list|)
 operator|.
-name|splitter
+name|split
 argument_list|(
 name|body
 argument_list|()
@@ -1127,7 +1127,7 @@ argument_list|(
 literal|"direct:streaming"
 argument_list|)
 operator|.
-name|splitter
+name|split
 argument_list|(
 name|body
 argument_list|()
@@ -1151,7 +1151,7 @@ argument_list|(
 literal|"direct:parallel-streaming"
 argument_list|)
 operator|.
-name|splitter
+name|split
 argument_list|(
 name|body
 argument_list|()

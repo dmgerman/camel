@@ -924,7 +924,7 @@ literal|"direct:start"
 argument_list|)
 comment|// Separate people
 operator|.
-name|splitter
+name|split
 argument_list|(
 name|bodyAs
 argument_list|(
@@ -1022,7 +1022,7 @@ argument_list|(
 literal|"direct:joinSurnames"
 argument_list|)
 operator|.
-name|aggregator
+name|aggregate
 argument_list|(
 name|header
 argument_list|(
@@ -1056,7 +1056,7 @@ argument_list|(
 literal|"direct:joinBrothers"
 argument_list|)
 operator|.
-name|aggregator
+name|aggregate
 argument_list|(
 name|header
 argument_list|(

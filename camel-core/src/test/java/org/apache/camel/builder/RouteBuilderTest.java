@@ -2228,7 +2228,7 @@ argument_list|(
 literal|"seda:a"
 argument_list|)
 operator|.
-name|splitter
+name|split
 argument_list|(
 name|body
 argument_list|(

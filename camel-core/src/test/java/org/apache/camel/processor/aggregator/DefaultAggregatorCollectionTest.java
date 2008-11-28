@@ -366,7 +366,7 @@ comment|// aggregated by header id
 comment|// as we have not configured more on the aggregator it will default to aggregate the
 comment|// latest exchange only
 operator|.
-name|aggregator
+name|aggregate
 argument_list|()
 operator|.
 name|header

@@ -1724,10 +1724,10 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @param expression  the expression on which to split the message      * @return the builder      */
-DECL|method|splitter (Expression expression)
+DECL|method|split (Expression expression)
 specifier|public
 name|SplitterType
-name|splitter
+name|split
 parameter_list|(
 name|Expression
 name|expression
@@ -1752,13 +1752,13 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @return the expression clause builder for the expression on which to split      */
-DECL|method|splitter ()
+DECL|method|split ()
 specifier|public
 name|ExpressionClause
 argument_list|<
 name|SplitterType
 argument_list|>
-name|splitter
+name|split
 parameter_list|()
 block|{
 name|SplitterType
@@ -1783,10 +1783,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression  the expression on which to split      * @param aggregationStrategy  the strategy used to aggregate responses for every part      * @return the builder      */
-DECL|method|splitter (Expression expression, AggregationStrategy aggregationStrategy)
+DECL|method|split (Expression expression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|SplitterType
-name|splitter
+name|split
 parameter_list|(
 name|Expression
 name|expression
@@ -1821,13 +1821,13 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param aggregationStrategy  the strategy used to aggregate responses for every part      * @return the expression clause for the expression on which to split      */
-DECL|method|splitter (AggregationStrategy aggregationStrategy)
+DECL|method|split (AggregationStrategy aggregationStrategy)
 specifier|public
 name|ExpressionClause
 argument_list|<
 name|SplitterType
 argument_list|>
-name|splitter
+name|split
 parameter_list|(
 name|AggregationStrategy
 name|aggregationStrategy
@@ -1862,10 +1862,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the builder      */
-DECL|method|splitter (Expression expression, boolean parallelProcessing)
+DECL|method|split (Expression expression, boolean parallelProcessing)
 specifier|public
 name|SplitterType
-name|splitter
+name|split
 parameter_list|(
 name|Expression
 name|expression
@@ -1900,10 +1900,10 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param threadPoolExecutor override the default {@link ThreadPoolExecutor}       * @return the builder      */
-DECL|method|splitter (Expression expression, boolean parallelProcessing, ThreadPoolExecutor threadPoolExecutor)
+DECL|method|split (Expression expression, boolean parallelProcessing, ThreadPoolExecutor threadPoolExecutor)
 specifier|public
 name|SplitterType
-name|splitter
+name|split
 parameter_list|(
 name|Expression
 name|expression
@@ -1948,13 +1948,13 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the expression clause for the expression on which to split      */
-DECL|method|splitter (boolean parallelProcessing)
+DECL|method|split (boolean parallelProcessing)
 specifier|public
 name|ExpressionClause
 argument_list|<
 name|SplitterType
 argument_list|>
-name|splitter
+name|split
 parameter_list|(
 name|boolean
 name|parallelProcessing
@@ -1989,13 +1989,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      /**       *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>       * Creates a splitter allowing you split a message into a number of pieces and process them individually.       *<p>       * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param threadPoolExecutor override the default {@link ThreadPoolExecutor}       * @return the expression clause for the expression on which to split      */
-DECL|method|splitter (boolean parallelProcessing, ThreadPoolExecutor threadPoolExecutor)
+DECL|method|split (boolean parallelProcessing, ThreadPoolExecutor threadPoolExecutor)
 specifier|public
 name|ExpressionClause
 argument_list|<
 name|SplitterType
 argument_list|>
-name|splitter
+name|split
 parameter_list|(
 name|boolean
 name|parallelProcessing
@@ -2040,10 +2040,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the builder      */
-DECL|method|splitter (Expression expression, AggregationStrategy aggregationStrategy, boolean parallelProcessing)
+DECL|method|split (Expression expression, AggregationStrategy aggregationStrategy, boolean parallelProcessing)
 specifier|public
 name|SplitterType
-name|splitter
+name|split
 parameter_list|(
 name|Expression
 name|expression
@@ -2088,10 +2088,10 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param threadPoolExecutor override the default {@link ThreadPoolExecutor}       * @return the builder      */
-DECL|method|splitter (Expression expression, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ThreadPoolExecutor threadPoolExecutor)
+DECL|method|split (Expression expression, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ThreadPoolExecutor threadPoolExecutor)
 specifier|public
 name|SplitterType
-name|splitter
+name|split
 parameter_list|(
 name|Expression
 name|expression
@@ -2146,13 +2146,13 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the expression clause for the expression on which to split      */
-DECL|method|splitter (AggregationStrategy aggregationStrategy, boolean parallelProcessing)
+DECL|method|split (AggregationStrategy aggregationStrategy, boolean parallelProcessing)
 specifier|public
 name|ExpressionClause
 argument_list|<
 name|SplitterType
 argument_list|>
-name|splitter
+name|split
 parameter_list|(
 name|AggregationStrategy
 name|aggregationStrategy
@@ -2197,13 +2197,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param threadPoolExecutor override the default {@link ThreadPoolExecutor}       * @return the expression clause for the expression on which to split      */
-DECL|method|splitter (AggregationStrategy aggregationStrategy, boolean parallelProcessing, ThreadPoolExecutor threadPoolExecutor)
+DECL|method|split (AggregationStrategy aggregationStrategy, boolean parallelProcessing, ThreadPoolExecutor threadPoolExecutor)
 specifier|public
 name|ExpressionClause
 argument_list|<
 name|SplitterType
 argument_list|>
-name|splitter
+name|split
 parameter_list|(
 name|AggregationStrategy
 name|aggregationStrategy
@@ -2257,14 +2257,14 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer EIP:</a>      * Creates a splitter allowing you to reorganise messages based on some comparator.      *      * @return the expression clause for the expressions on which to compare messages in order      */
-DECL|method|resequencer ()
+comment|/**      *<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer EIP:</a>      * Creates a resequencer allowing you to reorganize messages based on some comparator.      *      * @return the expression clause for the expressions on which to compare messages in order      */
+DECL|method|resequence ()
 specifier|public
 name|ExpressionClause
 argument_list|<
 name|ResequencerType
 argument_list|>
-name|resequencer
+name|resequence
 parameter_list|()
 block|{
 name|ResequencerType
@@ -2305,18 +2305,18 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer EIP:</a>      * Creates a splitter allowing you to reorganise messages based on some comparator.      *      * @param expression the expression on which to compare messages in order      * @return the builder      */
-DECL|method|resequencer (Expression expression)
+comment|/**      *<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer EIP:</a>      * Creates a resequencer allowing you to reorganize messages based on some comparator.      *      * @param expression the expression on which to compare messages in order      * @return the builder      */
+DECL|method|resequence (Expression expression)
 specifier|public
 name|ResequencerType
-name|resequencer
+name|resequence
 parameter_list|(
 name|Expression
 name|expression
 parameter_list|)
 block|{
 return|return
-name|resequencer
+name|resequence
 argument_list|(
 name|Collections
 operator|.
@@ -2330,11 +2330,11 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer EIP:</a>      * Creates a splitter allowing you to reorganise messages based on some comparator.      *      * @param expressions the list of expressions on which to compare messages in order      * @return the builder      */
-DECL|method|resequencer (List<Expression> expressions)
+comment|/**      *<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer EIP:</a>      * Creates a resequencer allowing you to reorganize messages based on some comparator.      *      * @param expressions the list of expressions on which to compare messages in order      * @return the builder      */
+DECL|method|resequence (List<Expression> expressions)
 specifier|public
 name|ResequencerType
-name|resequencer
+name|resequence
 parameter_list|(
 name|List
 argument_list|<
@@ -2398,20 +2398,20 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-name|resequencer
+name|resequence
 argument_list|(
 name|list
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @return the expression clause to be used as builder to configure the coorelation expression      */
-DECL|method|aggregator ()
+comment|/**      *<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @return the expression clause to be used as builder to configure the correlation expression      */
+DECL|method|aggregate ()
 specifier|public
 name|ExpressionClause
 argument_list|<
 name|AggregatorType
 argument_list|>
-name|aggregator
+name|aggregate
 parameter_list|()
 block|{
 if|if
@@ -2453,14 +2453,14 @@ name|createAndSetExpression
 argument_list|()
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param aggregationStrategy the strategy used for the aggregation      * @return the expression clause to be used as builder to configure the coorelation expression      */
-DECL|method|aggregator (AggregationStrategy aggregationStrategy)
+comment|/**      *<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param aggregationStrategy the strategy used for the aggregation      * @return the expression clause to be used as builder to configure the correlation expression      */
+DECL|method|aggregate (AggregationStrategy aggregationStrategy)
 specifier|public
 name|ExpressionClause
 argument_list|<
 name|AggregatorType
 argument_list|>
-name|aggregator
+name|aggregate
 parameter_list|(
 name|AggregationStrategy
 name|aggregationStrategy
@@ -2513,10 +2513,10 @@ argument_list|()
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param aggregationCollection the collection used to perform the aggregation      * @return the builder      */
-DECL|method|aggregator (AggregationCollection aggregationCollection)
+DECL|method|aggregate (AggregationCollection aggregationCollection)
 specifier|public
 name|AggregatorType
-name|aggregator
+name|aggregate
 parameter_list|(
 name|AggregationCollection
 name|aggregationCollection
@@ -2566,10 +2566,10 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      * @return the builder      */
-DECL|method|aggregator (Expression correlationExpression)
+DECL|method|aggregate (Expression correlationExpression)
 specifier|public
 name|AggregatorType
-name|aggregator
+name|aggregate
 parameter_list|(
 name|Expression
 name|correlationExpression
@@ -2614,10 +2614,10 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      * @param aggregationStrategy the strategy used for the aggregation      * @return the builder      */
-DECL|method|aggregator (Expression correlationExpression, AggregationStrategy aggregationStrategy)
+DECL|method|aggregate (Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|AggregatorType
-name|aggregator
+name|aggregate
 parameter_list|(
 name|Expression
 name|correlationExpression
@@ -2667,17 +2667,17 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param processAtExpression  an expression to calculate the time at which the messages should be processed,      *                             should be convertable to long as time in millis      * @return the builder      */
-DECL|method|delayer (Expression processAtExpression)
+DECL|method|delay (Expression processAtExpression)
 specifier|public
 name|DelayerType
-name|delayer
+name|delay
 parameter_list|(
 name|Expression
 name|processAtExpression
 parameter_list|)
 block|{
 return|return
-name|delayer
+name|delay
 argument_list|(
 name|processAtExpression
 argument_list|,
@@ -2686,10 +2686,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param processAtExpression  an expression to calculate the time at which the messages should be processed,      *                             should be convertable to long as time in millis      * @param delay                the delay in milliseconds which is added to the processAtExpression      * @return the builder      */
-DECL|method|delayer (Expression processAtExpression, long delay)
+DECL|method|delay (Expression processAtExpression, long delay)
 specifier|public
 name|DelayerType
-name|delayer
+name|delay
 parameter_list|(
 name|Expression
 name|processAtExpression
@@ -2719,13 +2719,13 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @return the expression clause to create the expression      */
-DECL|method|delayer ()
+DECL|method|delay ()
 specifier|public
 name|ExpressionClause
 argument_list|<
 name|DelayerType
 argument_list|>
-name|delayer
+name|delay
 parameter_list|()
 block|{
 name|DelayerType
@@ -2750,17 +2750,17 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param delay  the default delay in millis      * @return the builder      */
-DECL|method|delayer (long delay)
+DECL|method|delay (long delay)
 specifier|public
 name|DelayerType
-name|delayer
+name|delay
 parameter_list|(
 name|long
 name|delay
 parameter_list|)
 block|{
 return|return
-name|delayer
+name|delay
 argument_list|(
 literal|null
 argument_list|,
@@ -2769,10 +2769,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/throttler.html">Throttler EIP:</a>      * Creates a throttler allowing you to ensure that a specific endpoint does not get overloaded,      * or that we don't exceed an agreed SLA with some external service.      *<p/>      * Will default use a time period of 1 second, so setting the maximumRequestCount to eg 10      * will default ensure at most 10 messages per second.       *      * @param maximumRequestCount  the maximum messages       * @return the builder      */
-DECL|method|throttler (long maximumRequestCount)
+DECL|method|throttle (long maximumRequestCount)
 specifier|public
 name|ThrottlerType
-name|throttler
+name|throttle
 parameter_list|(
 name|long
 name|maximumRequestCount

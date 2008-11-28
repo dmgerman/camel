@@ -355,7 +355,7 @@ argument_list|(
 literal|"jms:queue:bankReplyQueue"
 argument_list|)
 operator|.
-name|aggregator
+name|aggregate
 argument_list|(
 name|header
 argument_list|(

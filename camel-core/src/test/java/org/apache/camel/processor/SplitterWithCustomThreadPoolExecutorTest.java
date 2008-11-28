@@ -351,7 +351,7 @@ argument_list|(
 literal|"direct:parallel-custom-pool"
 argument_list|)
 operator|.
-name|splitter
+name|split
 argument_list|(
 name|body
 argument_list|()

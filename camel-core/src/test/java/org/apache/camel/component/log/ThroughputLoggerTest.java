@@ -169,7 +169,7 @@ argument_list|(
 literal|"log:hello?groupSize=2"
 argument_list|)
 operator|.
-name|delayer
+name|delay
 argument_list|(
 literal|100
 argument_list|)

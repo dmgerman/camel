@@ -480,7 +480,7 @@ argument_list|(
 literal|"direct:custom"
 argument_list|)
 operator|.
-name|splitter
+name|split
 argument_list|(
 name|catFightCats
 argument_list|)
@@ -495,7 +495,7 @@ argument_list|(
 literal|"direct:xpath"
 argument_list|)
 operator|.
-name|splitter
+name|split
 argument_list|(
 name|xpath
 argument_list|(

@@ -983,10 +983,10 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the fixed delay between redeliveries      *      * @param delay  delay in millis      * @return the builder      */
-DECL|method|delay (long delay)
+DECL|method|setDelay (long delay)
 specifier|public
 name|ExceptionType
-name|delay
+name|setDelay
 parameter_list|(
 name|long
 name|delay
