@@ -358,9 +358,9 @@ specifier|private
 name|Bus
 name|bus
 decl_stmt|;
-comment|// START SNIPPET: FaultDefine
 static|static
 block|{
+comment|// START SNIPPET: FaultDefine
 name|SOAP_FAULT
 operator|=
 operator|new
@@ -406,8 +406,8 @@ argument_list|(
 name|tn
 argument_list|)
 expr_stmt|;
-block|}
 comment|// END SNIPPET: FaultDefine
+block|}
 annotation|@
 name|Override
 DECL|method|setUp ()
