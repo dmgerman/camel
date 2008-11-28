@@ -676,7 +676,7 @@ return|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * A stategy method to allow derived classes to deal with the newly created      * predicate in different ways      */
+comment|/**      * A strategy method to allow derived classes to deal with the newly created      * predicate in different ways      */
 DECL|method|onNewPredicate (Predicate predicate)
 specifier|protected
 name|Predicate

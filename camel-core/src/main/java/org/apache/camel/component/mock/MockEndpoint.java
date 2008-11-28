@@ -1153,9 +1153,9 @@ name|receivedCounter
 operator|+
 literal|", expected at least "
 operator|+
-name|expectedCount
+name|expectedMinimumCount
 argument_list|,
-name|expectedCount
+name|expectedMinimumCount
 operator|<=
 name|receivedCounter
 argument_list|)
