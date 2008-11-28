@@ -92,6 +92,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: MessageStreamFault
 name|from
 argument_list|(
 name|routerEndpointURI
@@ -121,6 +122,7 @@ operator|.
 name|getOut
 argument_list|()
 decl_stmt|;
+comment|// Set the message body with the
 name|out
 operator|.
 name|setBody
@@ -136,7 +138,7 @@ literal|"SoapFaultMessage.xml"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// set the response code here
+comment|// Set the response code here
 name|out
 operator|.
 name|setHeader
@@ -164,6 +166,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: MessageStreamFault
 block|}
 block|}
 return|;

@@ -358,6 +358,7 @@ specifier|private
 name|Bus
 name|bus
 decl_stmt|;
+comment|// START SNIPPET: FaultDefine
 static|static
 block|{
 name|SOAP_FAULT
@@ -406,6 +407,7 @@ name|tn
 argument_list|)
 expr_stmt|;
 block|}
+comment|// END SNIPPET: FaultDefine
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -477,6 +479,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: ThrowFault
 name|from
 argument_list|(
 name|routerEndpointURI
@@ -487,6 +490,7 @@ argument_list|(
 name|SOAP_FAULT
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: ThrowFault
 block|}
 block|}
 return|;
