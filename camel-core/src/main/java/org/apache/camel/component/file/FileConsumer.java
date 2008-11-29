@@ -88,7 +88,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Collections
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|List
 import|;
 end_import
 

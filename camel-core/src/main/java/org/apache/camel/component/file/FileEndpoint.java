@@ -34,7 +34,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|FileFilter
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileFilter
+name|IOException
 import|;
 end_import
 
@@ -66,6 +66,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Comparator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -77,16 +87,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Comparator
 import|;
 end_import
 
