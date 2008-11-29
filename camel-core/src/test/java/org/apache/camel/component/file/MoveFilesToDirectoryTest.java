@@ -178,7 +178,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|5000
+literal|2000
 argument_list|)
 expr_stmt|;
 comment|// lets delete the output directory
@@ -192,7 +192,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|5000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|File
@@ -283,7 +283,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|5000
+literal|3000
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

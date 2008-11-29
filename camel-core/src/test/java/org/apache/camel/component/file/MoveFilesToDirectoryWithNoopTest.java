@@ -44,7 +44,7 @@ operator|.
 name|getOutputEndpointUri
 argument_list|()
 operator|+
-literal|"?noop=true"
+literal|"?noop=true&idempotent=true"
 return|;
 block|}
 block|}

@@ -71,14 +71,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for the alwaysConsume=false option.  */
+comment|/**  * Unit test for the idempotent=true option.  */
 end_comment
 
 begin_class
-DECL|class|FileAlwaysConsumeFalseTest
+DECL|class|FileConsumerIdempotentTest
 specifier|public
 class|class
-name|FileAlwaysConsumeFalseTest
+name|FileConsumerIdempotentTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -99,14 +99,14 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/alwaysconsume"
+literal|"target/idempotent"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/alwaysconsume/"
+literal|"file://target/idempotent/"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -142,7 +142,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/alwaysconsume/?consumer.alwaysConsume=false&moveNamePrefix=done/"
+literal|"file://target/idempotent/?idempotent=true&moveNamePrefix=done/"
 argument_list|)
 operator|.
 name|to
@@ -154,10 +154,10 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|testNotAlwaysConsume ()
+DECL|method|testIdempotent ()
 specifier|public
 name|void
-name|testNotAlwaysConsume
+name|testIdempotent
 parameter_list|()
 throws|throws
 name|Exception
@@ -215,7 +215,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/alwaysconsume/done/report.txt"
+literal|"target/idempotent/done/report.txt"
 argument_list|)
 decl_stmt|;
 name|File
@@ -224,7 +224,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/alwaysconsume/report.txt"
+literal|"target/idempotent/report.txt"
 argument_list|)
 decl_stmt|;
 name|file
@@ -244,7 +244,7 @@ name|getAbsoluteFile
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// should NOT consume the file again, let 2 secs pass to let the consuemr try to consume it but it should not
+comment|// should NOT consume the file again, let 2 secs pass to let the consumer try to consume it but it should not
 name|Thread
 operator|.
 name|sleep

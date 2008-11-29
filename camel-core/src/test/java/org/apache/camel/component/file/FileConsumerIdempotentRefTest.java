@@ -70,18 +70,87 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|JndiRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|idempotent
+operator|.
+name|MessageIdRepository
+import|;
+end_import
+
 begin_comment
-comment|/**  * Unit test for the alwaysConsume=true option.  */
+comment|/**  * Unit test for the idempotentRepositoryRef option.  */
 end_comment
 
 begin_class
-DECL|class|FileAlwaysConsumeTest
+DECL|class|FileConsumerIdempotentRefTest
 specifier|public
 class|class
-name|FileAlwaysConsumeTest
+name|FileConsumerIdempotentRefTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|invoked
+specifier|private
+specifier|static
+name|boolean
+name|invoked
+decl_stmt|;
+annotation|@
+name|Override
+DECL|method|createRegistry ()
+specifier|protected
+name|JndiRegistry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JndiRegistry
+name|jndi
+init|=
+name|super
+operator|.
+name|createRegistry
+argument_list|()
+decl_stmt|;
+name|jndi
+operator|.
+name|bind
+argument_list|(
+literal|"myRepo"
+argument_list|,
+operator|new
+name|MyIdempotentRepository
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|jndi
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -99,14 +168,14 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/alwaysconsume"
+literal|"target/idempotent"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/alwaysconsume/"
+literal|"file://target/idempotent/"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -142,7 +211,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/alwaysconsume/?consumer.alwaysConsume=true&moveNamePrefix=done/"
+literal|"file://target/idempotent/?idempotent=true&idempotentRepositoryRef=myRepo&moveNamePrefix=done/"
 argument_list|)
 operator|.
 name|to
@@ -154,10 +223,10 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|testAlwaysConsume ()
+DECL|method|testIdempotentRef ()
 specifier|public
 name|void
-name|testAlwaysConsume
+name|testIdempotentRef
 parameter_list|()
 throws|throws
 name|Exception
@@ -203,16 +272,9 @@ argument_list|()
 expr_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// move file back
@@ -222,7 +284,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/alwaysconsume/done/report.txt"
+literal|"target/idempotent/done/report.txt"
 argument_list|)
 decl_stmt|;
 name|File
@@ -231,7 +293,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/alwaysconsume/report.txt"
+literal|"target/idempotent/report.txt"
 argument_list|)
 decl_stmt|;
 name|file
@@ -251,10 +313,62 @@ name|getAbsoluteFile
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// should consume the file again
+comment|// should NOT consume the file again, let 2 secs pass to let the consumer try to consume it but it should not
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"MyIdempotentRepository should have been invoked"
+argument_list|,
+name|invoked
+argument_list|)
+expr_stmt|;
+block|}
+DECL|class|MyIdempotentRepository
+specifier|public
+class|class
+name|MyIdempotentRepository
+implements|implements
+name|MessageIdRepository
+block|{
+DECL|method|contains (String messageId)
+specifier|public
+name|boolean
+name|contains
+parameter_list|(
+name|String
+name|messageId
+parameter_list|)
+block|{
+comment|// will return false 1st time, and true 2nd time
+name|boolean
+name|result
+init|=
+name|invoked
+decl_stmt|;
+name|invoked
+operator|=
+literal|true
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"report.txt"
+argument_list|,
+name|messageId
+argument_list|)
+expr_stmt|;
+return|return
+name|result
+return|;
+block|}
 block|}
 block|}
 end_class
