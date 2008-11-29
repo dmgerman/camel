@@ -1379,7 +1379,7 @@ expr_stmt|;
 block|}
 comment|/**      * Is the multicast processor working in streaming mode?      *       * In streaming mode:      *<ul>      *<li>we use {@link Iterable} to ensure we can send messages as soon as the data becomes available</li>      *<li>for parallel processing, we start aggregating responses as they get send back to the processor;      * this means the {@link org.apache.camel.processor.aggregate.AggregationStrategy} has to take care of handling out-of-order arrival of exchanges</li>      *</ul>      */
 DECL|method|isStreaming ()
-specifier|protected
+specifier|public
 name|boolean
 name|isStreaming
 parameter_list|()
@@ -1410,6 +1410,26 @@ parameter_list|()
 block|{
 return|return
 name|aggregationStrategy
+return|;
+block|}
+DECL|method|getExecutor ()
+specifier|public
+name|ThreadPoolExecutor
+name|getExecutor
+parameter_list|()
+block|{
+return|return
+name|executor
+return|;
+block|}
+DECL|method|isParallelProcessing ()
+specifier|public
+name|boolean
+name|isParallelProcessing
+parameter_list|()
+block|{
+return|return
+name|isParallelProcessing
 return|;
 block|}
 block|}
