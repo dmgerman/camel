@@ -161,6 +161,16 @@ specifier|private
 name|String
 name|tempPrefix
 decl_stmt|;
+DECL|field|privateKeyFile
+specifier|private
+name|String
+name|privateKeyFile
+decl_stmt|;
+DECL|field|privateKeyFilePassphrase
+specifier|private
+name|String
+name|privateKeyFilePassphrase
+decl_stmt|;
 DECL|method|RemoteFileConfiguration ()
 specifier|public
 name|RemoteFileConfiguration
@@ -742,6 +752,58 @@ operator|.
 name|tempPrefix
 operator|=
 name|tempPrefix
+expr_stmt|;
+block|}
+DECL|method|getPrivateKeyFile ()
+specifier|public
+name|String
+name|getPrivateKeyFile
+parameter_list|()
+block|{
+return|return
+name|privateKeyFile
+return|;
+block|}
+DECL|method|setPrivateKeyFile (String privateKeyFile)
+specifier|public
+name|void
+name|setPrivateKeyFile
+parameter_list|(
+name|String
+name|privateKeyFile
+parameter_list|)
+block|{
+name|this
+operator|.
+name|privateKeyFile
+operator|=
+name|privateKeyFile
+expr_stmt|;
+block|}
+DECL|method|getPrivateKeyFilePassphrase ()
+specifier|public
+name|String
+name|getPrivateKeyFilePassphrase
+parameter_list|()
+block|{
+return|return
+name|privateKeyFilePassphrase
+return|;
+block|}
+DECL|method|setPrivateKeyFilePassphrase (String privateKeyFilePassphrase)
+specifier|public
+name|void
+name|setPrivateKeyFilePassphrase
+parameter_list|(
+name|String
+name|privateKeyFilePassphrase
+parameter_list|)
+block|{
+name|this
+operator|.
+name|privateKeyFilePassphrase
+operator|=
+name|privateKeyFilePassphrase
 expr_stmt|;
 block|}
 block|}
