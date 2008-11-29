@@ -156,6 +156,11 @@ specifier|private
 name|String
 name|knownHosts
 decl_stmt|;
+DECL|field|tempPrefix
+specifier|private
+name|String
+name|tempPrefix
+decl_stmt|;
 DECL|method|RemoteFileConfiguration ()
 specifier|public
 name|RemoteFileConfiguration
@@ -710,6 +715,33 @@ operator|.
 name|passiveMode
 operator|=
 name|passiveMode
+expr_stmt|;
+block|}
+DECL|method|getTempPrefix ()
+specifier|public
+name|String
+name|getTempPrefix
+parameter_list|()
+block|{
+return|return
+name|tempPrefix
+return|;
+block|}
+comment|/**      * Enables and uses temporary prefix when writing files, after write it will be renamed to the correct name.      */
+DECL|method|setTempPrefix (String tempPrefix)
+specifier|public
+name|void
+name|setTempPrefix
+parameter_list|(
+name|String
+name|tempPrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tempPrefix
+operator|=
+name|tempPrefix
 expr_stmt|;
 block|}
 block|}

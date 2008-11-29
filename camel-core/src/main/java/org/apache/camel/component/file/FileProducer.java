@@ -346,7 +346,7 @@ condition|(
 name|writeAsTempAndRename
 condition|)
 block|{
-comment|// compute temporary name reusing the camel renamer
+comment|// compute temporary name with the temp prefix
 name|tempTarget
 operator|=
 operator|new
