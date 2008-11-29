@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileFilter
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -60,15 +80,29 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|JndiRegistry
+import|;
+end_import
+
 begin_comment
-comment|/**  * Unit test that file consumer will skip any files starting with a dot  */
+comment|/**  * Unit test for  the file filter option  */
 end_comment
 
 begin_class
-DECL|class|FileConsumerSkipDotFilesTest
+DECL|class|FileConsumerFileFilterTest
 specifier|public
 class|class
-name|FileConsumerSkipDotFilesTest
+name|FileConsumerFileFilterTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -77,8 +111,41 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/dotfiles/"
+literal|"file://target/filefilter/?fileFilterRef=myFilter"
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|createRegistry ()
+specifier|protected
+name|JndiRegistry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JndiRegistry
+name|jndi
+init|=
+name|super
+operator|.
+name|createRegistry
+argument_list|()
+decl_stmt|;
+name|jndi
+operator|.
+name|bind
+argument_list|(
+literal|"myFilter"
+argument_list|,
+operator|new
+name|MyFileFilter
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|jndi
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -96,14 +163,14 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/dotfiles"
+literal|"target/filefilter"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSkipDotFiles ()
+DECL|method|testFilterFiles ()
 specifier|public
 name|void
-name|testSkipDotFiles
+name|testFilterFiles
 parameter_list|()
 throws|throws
 name|Exception
@@ -127,15 +194,15 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/dotfiles/"
+literal|"file:target/filefilter/"
 argument_list|,
-literal|"This is a dot file"
+literal|"This is a file to be filtered"
 argument_list|,
 name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
-literal|".skipme"
+literal|"skipme.txt"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -151,10 +218,10 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testSkipDotFilesWithARegularFile ()
+DECL|method|testFilterFilesWithARegularFile ()
 specifier|public
 name|void
-name|testSkipDotFilesWithARegularFile
+name|testFilterFilesWithARegularFile
 parameter_list|()
 throws|throws
 name|Exception
@@ -185,22 +252,22 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/dotfiles/"
+literal|"file:target/filefilter/"
 argument_list|,
-literal|"This is a dot file"
+literal|"This is a file to be filtered"
 argument_list|,
 name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
-literal|".skipme"
+literal|"skipme.txt"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/dotfiles/"
+literal|"file:target/filefilter/"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -250,6 +317,36 @@ expr_stmt|;
 block|}
 block|}
 return|;
+block|}
+DECL|class|MyFileFilter
+specifier|public
+class|class
+name|MyFileFilter
+implements|implements
+name|FileFilter
+block|{
+DECL|method|accept (File pathname)
+specifier|public
+name|boolean
+name|accept
+parameter_list|(
+name|File
+name|pathname
+parameter_list|)
+block|{
+return|return
+operator|!
+name|pathname
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"skip"
+argument_list|)
+return|;
+block|}
 block|}
 block|}
 end_class

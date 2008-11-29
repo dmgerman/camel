@@ -94,6 +94,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -288,7 +298,7 @@ name|File
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|filesToPoll
+name|scanFilesToPoll
 argument_list|(
 name|endpoint
 operator|.
@@ -300,7 +310,30 @@ argument_list|,
 name|files
 argument_list|)
 expr_stmt|;
-comment|// TODO allow reordering of files CAMEL-1112
+comment|// resort files if provided
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getSorter
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|files
+argument_list|,
+name|endpoint
+operator|.
+name|getSorter
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// consume files one by one
 name|int
 name|total
@@ -350,10 +383,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Scans the given file or directory for files to process.      *      * @param fileOrDirectory  current file or directory when doing recursion      * @param processDir  recursive      * @param fileList  current list of files gathered      */
-DECL|method|filesToPoll (File fileOrDirectory, boolean processDir, List<File> fileList)
+DECL|method|scanFilesToPoll (File fileOrDirectory, boolean processDir, List<File> fileList)
 specifier|protected
 name|void
-name|filesToPoll
+name|scanFilesToPoll
 parameter_list|(
 name|File
 name|fileOrDirectory
@@ -444,7 +477,7 @@ name|files
 control|)
 block|{
 comment|// recursive add the files
-name|filesToPoll
+name|scanFilesToPoll
 argument_list|(
 name|file
 argument_list|,
@@ -1031,10 +1064,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Strategy for validating if the given file should be included or not      * @param file  the file      * @return true to include the file, false to skip it      */
-DECL|method|isValidFile (File file)
+DECL|method|validateFile (File file)
 specifier|protected
 name|boolean
-name|isValidFile
+name|validateFile
 parameter_list|(
 name|File
 name|file
@@ -1068,17 +1101,17 @@ literal|false
 return|;
 block|}
 return|return
-name|isMatched
+name|matchFile
 argument_list|(
 name|file
 argument_list|)
 return|;
 block|}
 comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return false for certain files:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      *      * @param file  the file      * @return true if the file is matche, false if not      */
-DECL|method|isMatched (File file)
+DECL|method|matchFile (File file)
 specifier|protected
 name|boolean
-name|isMatched
+name|matchFile
 parameter_list|(
 name|File
 name|file
@@ -1136,6 +1169,35 @@ block|{
 return|return
 literal|true
 return|;
+block|}
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getFilter
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|endpoint
+operator|.
+name|getFilter
+argument_list|()
+operator|.
+name|accept
+argument_list|(
+name|file
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 if|if
 condition|(
@@ -1244,7 +1306,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|isValidFile
+name|validateFile
 argument_list|(
 name|file
 argument_list|)
