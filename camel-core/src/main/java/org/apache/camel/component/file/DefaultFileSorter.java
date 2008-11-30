@@ -418,12 +418,14 @@ name|expression
 argument_list|,
 name|reverse
 argument_list|,
+literal|false
+argument_list|,
 literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a new sory by file language expression      *      * @param expression  the file language expression      * @param reverse  true to reverse order      * @param nested  nested comparator for sub group sorting, can be null      * @return the comparator      */
-DECL|method|sortByFileLanguage (final String expression, final boolean reverse, final Comparator<FileExchange> nested)
+comment|/**      * Returns a new sory by file language expression      *      * @param expression  the file language expression      * @param reverse  true to reverse order      * @param ignoreCase  ignore case if comparing strings      * @return the comparator      */
+DECL|method|sortByFileLanguage (final String expression, final boolean reverse, final boolean ignoreCase)
 specifier|public
 specifier|static
 name|Comparator
@@ -439,6 +441,46 @@ parameter_list|,
 specifier|final
 name|boolean
 name|reverse
+parameter_list|,
+specifier|final
+name|boolean
+name|ignoreCase
+parameter_list|)
+block|{
+return|return
+name|sortByFileLanguage
+argument_list|(
+name|expression
+argument_list|,
+name|reverse
+argument_list|,
+name|ignoreCase
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a new sory by file language expression      *      * @param expression  the file language expression      * @param reverse  true to reverse order      * @param ignoreCase  ignore case if comparing strings      * @param nested  nested comparator for sub group sorting, can be null      * @return the comparator      */
+DECL|method|sortByFileLanguage (final String expression, final boolean reverse, final boolean ignoreCase, final Comparator<FileExchange> nested)
+specifier|public
+specifier|static
+name|Comparator
+argument_list|<
+name|FileExchange
+argument_list|>
+name|sortByFileLanguage
+parameter_list|(
+specifier|final
+name|String
+name|expression
+parameter_list|,
+specifier|final
+name|boolean
+name|reverse
+parameter_list|,
+specifier|final
+name|boolean
+name|ignoreCase
 parameter_list|,
 specifier|final
 name|Comparator
@@ -508,6 +550,8 @@ argument_list|(
 name|result1
 argument_list|,
 name|result2
+argument_list|,
+name|ignoreCase
 argument_list|)
 decl_stmt|;
 comment|// if equal then sub sort by nested comparator
