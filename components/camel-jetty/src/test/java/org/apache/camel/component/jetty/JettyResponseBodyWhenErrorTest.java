@@ -210,7 +210,7 @@ name|assertNotNull
 argument_list|(
 name|cause
 operator|.
-name|getHeaders
+name|getResponseHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -220,7 +220,7 @@ literal|"Should have http header with content type set"
 argument_list|,
 name|cause
 operator|.
-name|getHeaders
+name|getResponseHeaders
 argument_list|()
 index|[
 literal|0

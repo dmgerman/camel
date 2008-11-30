@@ -108,12 +108,12 @@ specifier|final
 name|StatusLine
 name|statusLine
 decl_stmt|;
-DECL|field|headers
+DECL|field|responseHeaders
 specifier|private
 specifier|final
 name|Header
 index|[]
-name|headers
+name|responseHeaders
 decl_stmt|;
 DECL|field|responseBody
 specifier|private
@@ -121,7 +121,7 @@ specifier|final
 name|InputStream
 name|responseBody
 decl_stmt|;
-DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, String location, Header[] headers, InputStream responseBody)
+DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, String location, Header[] responseHeaders, InputStream responseBody)
 specifier|public
 name|HttpOperationFailedException
 parameter_list|(
@@ -136,7 +136,7 @@ name|location
 parameter_list|,
 name|Header
 index|[]
-name|headers
+name|responseHeaders
 parameter_list|,
 name|InputStream
 name|responseBody
@@ -185,9 +185,9 @@ name|location
 expr_stmt|;
 name|this
 operator|.
-name|headers
+name|responseHeaders
 operator|=
-name|headers
+name|responseHeaders
 expr_stmt|;
 name|this
 operator|.
@@ -196,7 +196,7 @@ operator|=
 name|responseBody
 expr_stmt|;
 block|}
-DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, Header[] headers, InputStream responseBody)
+DECL|method|HttpOperationFailedException (int statusCode, StatusLine statusLine, Header[] responseHeaders, InputStream responseBody)
 specifier|public
 name|HttpOperationFailedException
 parameter_list|(
@@ -208,7 +208,7 @@ name|statusLine
 parameter_list|,
 name|Header
 index|[]
-name|headers
+name|responseHeaders
 parameter_list|,
 name|InputStream
 name|responseBody
@@ -222,7 +222,7 @@ name|statusLine
 argument_list|,
 literal|null
 argument_list|,
-name|headers
+name|responseHeaders
 argument_list|,
 name|responseBody
 argument_list|)
@@ -289,15 +289,15 @@ return|return
 name|statusCode
 return|;
 block|}
-DECL|method|getHeaders ()
+DECL|method|getResponseHeaders ()
 specifier|public
 name|Header
 index|[]
-name|getHeaders
+name|getResponseHeaders
 parameter_list|()
 block|{
 return|return
-name|headers
+name|responseHeaders
 return|;
 block|}
 DECL|method|getResponseBody ()
