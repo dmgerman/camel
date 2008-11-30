@@ -96,8 +96,8 @@ specifier|private
 name|DefaultFileSorter
 parameter_list|()
 block|{     }
-comment|/**      * Returns a new sory by name      */
-DECL|method|sortByName ()
+comment|/**      * Returns a new sort by name      */
+DECL|method|sortByName (final boolean reverse)
 specifier|public
 specifier|static
 name|Comparator
@@ -105,7 +105,11 @@ argument_list|<
 name|File
 argument_list|>
 name|sortByName
-parameter_list|()
+parameter_list|(
+specifier|final
+name|boolean
+name|reverse
+parameter_list|)
 block|{
 return|return
 operator|new
@@ -126,7 +130,9 @@ name|File
 name|o2
 parameter_list|)
 block|{
-return|return
+name|int
+name|answer
+init|=
 name|o1
 operator|.
 name|getName
@@ -139,13 +145,23 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
+decl_stmt|;
+return|return
+name|reverse
+condition|?
+operator|-
+literal|1
+operator|*
+name|answer
+else|:
+name|answer
 return|;
 block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns a new sory by path name      */
-DECL|method|sortByPathName ()
+comment|/**      * Returns a new sort by path name      */
+DECL|method|sortByPathName (final boolean reverse)
 specifier|public
 specifier|static
 name|Comparator
@@ -153,7 +169,11 @@ argument_list|<
 name|File
 argument_list|>
 name|sortByPathName
-parameter_list|()
+parameter_list|(
+specifier|final
+name|boolean
+name|reverse
+parameter_list|)
 block|{
 return|return
 operator|new
@@ -174,7 +194,9 @@ name|File
 name|o2
 parameter_list|)
 block|{
-return|return
+name|int
+name|answer
+init|=
 name|o1
 operator|.
 name|getPath
@@ -187,13 +209,23 @@ operator|.
 name|getPath
 argument_list|()
 argument_list|)
+decl_stmt|;
+return|return
+name|reverse
+condition|?
+operator|-
+literal|1
+operator|*
+name|answer
+else|:
+name|answer
 return|;
 block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns a new sory by last modified (newest first)      */
-DECL|method|sortByLastModified ()
+comment|/**      * Returns a new sort by last modified (newest first)      */
+DECL|method|sortByLastModified (final boolean reverse)
 specifier|public
 specifier|static
 name|Comparator
@@ -201,7 +233,11 @@ argument_list|<
 name|File
 argument_list|>
 name|sortByLastModified
-parameter_list|()
+parameter_list|(
+specifier|final
+name|boolean
+name|reverse
+parameter_list|)
 block|{
 return|return
 operator|new
@@ -246,7 +282,9 @@ return|return
 literal|0
 return|;
 block|}
-return|return
+name|int
+name|answer
+init|=
 name|delta
 operator|>
 literal|0
@@ -255,13 +293,23 @@ literal|1
 else|:
 operator|-
 literal|1
+decl_stmt|;
+return|return
+name|reverse
+condition|?
+operator|-
+literal|1
+operator|*
+name|answer
+else|:
+name|answer
 return|;
 block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns a new sory by file size (smallest first)      */
-DECL|method|sortBySize ()
+comment|/**      * Returns a new sort by file size (smallest first)      */
+DECL|method|sortBySize (final boolean reverse)
 specifier|public
 specifier|static
 name|Comparator
@@ -269,7 +317,11 @@ argument_list|<
 name|File
 argument_list|>
 name|sortBySize
-parameter_list|()
+parameter_list|(
+specifier|final
+name|boolean
+name|reverse
+parameter_list|)
 block|{
 return|return
 operator|new
@@ -314,7 +366,9 @@ return|return
 literal|0
 return|;
 block|}
-return|return
+name|int
+name|answer
+init|=
 name|delta
 operator|>
 literal|0
@@ -323,11 +377,22 @@ literal|1
 else|:
 operator|-
 literal|1
+decl_stmt|;
+return|return
+name|reverse
+condition|?
+operator|-
+literal|1
+operator|*
+name|answer
+else|:
+name|answer
 return|;
 block|}
 block|}
 return|;
 block|}
+comment|/**      * Returns a new sory by file language expression      *      * @param expression  the file language expression      * @param reverse  true to reverse order      * @return the comparator      */
 DECL|method|sortByFileLanguage (final String expression, final boolean reverse)
 specifier|public
 specifier|static
@@ -357,6 +422,7 @@ literal|null
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a new sory by file language expression      *      * @param expression  the file language expression      * @param reverse  true to reverse order      * @param nested  nested comparator for sub group sorting, can be null      * @return the comparator      */
 DECL|method|sortByFileLanguage (final String expression, final boolean reverse, final Comparator<FileExchange> nested)
 specifier|public
 specifier|static

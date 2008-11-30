@@ -318,6 +318,7 @@ block|}
 block|}
 return|;
 block|}
+comment|// START SNIPPET: e1
 DECL|class|MyFileFilter
 specifier|public
 class|class
@@ -334,6 +335,7 @@ name|File
 name|pathname
 parameter_list|)
 block|{
+comment|// we dont accept any files starting with skip in the name
 return|return
 operator|!
 name|pathname
@@ -348,6 +350,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|// END SNIPPET: e1
 block|}
 end_class
 
