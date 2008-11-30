@@ -77,7 +77,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filesorter/?noop=true"
+literal|"file://target/filesorter/"
 decl_stmt|;
 annotation|@
 name|Override
@@ -99,11 +99,23 @@ argument_list|(
 literal|"target/filesorter"
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|prepareFolder (String folder)
+specifier|private
+name|void
+name|prepareFolder
+parameter_list|(
+name|String
+name|folder
+parameter_list|)
+block|{
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
 literal|"file:target/filesorter/"
+operator|+
+name|folder
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
@@ -119,6 +131,8 @@ operator|.
 name|sendBodyAndHeader
 argument_list|(
 literal|"file:target/filesorter/"
+operator|+
+name|folder
 argument_list|,
 literal|"Hello London"
 argument_list|,
@@ -134,6 +148,8 @@ operator|.
 name|sendBodyAndHeader
 argument_list|(
 literal|"file:target/filesorter/"
+operator|+
+name|folder
 argument_list|,
 literal|"Hello Copenhagen"
 argument_list|,
@@ -153,6 +169,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|prepareFolder
+argument_list|(
+literal|"a"
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -170,6 +191,23 @@ argument_list|,
 literal|"Hello London"
 argument_list|,
 literal|"Hello Copenhagen"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testSortFilesReverse ()
+specifier|public
+name|void
+name|testSortFilesReverse
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|prepareFolder
+argument_list|(
+literal|"b"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -219,7 +257,7 @@ name|from
 argument_list|(
 name|fileUrl
 operator|+
-literal|"&sortBy=file:name.ext"
+literal|"a/?sortBy=file:name.ext"
 argument_list|)
 operator|.
 name|to
@@ -231,7 +269,7 @@ name|from
 argument_list|(
 name|fileUrl
 operator|+
-literal|"&sortBy=reverse:file:name.ext"
+literal|"b/?sortBy=reverse:file:name.ext"
 argument_list|)
 operator|.
 name|to
