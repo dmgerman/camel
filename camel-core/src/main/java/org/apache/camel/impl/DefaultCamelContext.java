@@ -3115,6 +3115,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Apache Camel "
+operator|+
+name|getVersion
+argument_list|()
+operator|+
+literal|" (CamelContext:"
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|") is starting"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|getTrace
@@ -3257,6 +3274,23 @@ expr_stmt|;
 name|startRoutes
 argument_list|(
 name|routes
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Apache Camel "
+operator|+
+name|getVersion
+argument_list|()
+operator|+
+literal|" (CamelContext:"
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|") started"
 argument_list|)
 expr_stmt|;
 block|}
