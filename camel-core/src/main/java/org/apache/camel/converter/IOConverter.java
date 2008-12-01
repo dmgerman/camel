@@ -689,6 +689,27 @@ return|;
 block|}
 annotation|@
 name|Converter
+DECL|method|toInputStream (String text)
+specifier|public
+specifier|static
+name|InputStream
+name|toInputStream
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|toInputStream
+argument_list|(
+name|text
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
 DECL|method|toInputStream (String text, Exchange exchange)
 specifier|public
 specifier|static
