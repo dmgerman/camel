@@ -160,6 +160,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|converter
 operator|.
 name|IOConverter
@@ -369,7 +381,7 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toXmlObject (String value)
+DECL|method|toXmlObject (String value, Exchange exchange)
 specifier|public
 specifier|static
 name|XmlObject
@@ -377,6 +389,9 @@ name|toXmlObject
 parameter_list|(
 name|String
 name|value
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|IOException
@@ -391,6 +406,8 @@ operator|.
 name|toInputStream
 argument_list|(
 name|value
+argument_list|,
+name|exchange
 argument_list|)
 argument_list|)
 return|;
