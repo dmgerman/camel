@@ -132,11 +132,6 @@ DECL|class|DirectProducer
 specifier|public
 class|class
 name|DirectProducer
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|DefaultProducer
 implements|implements
@@ -162,19 +157,13 @@ decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|DirectEndpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 decl_stmt|;
-DECL|method|DirectProducer (DirectEndpoint<E> endpoint)
+DECL|method|DirectProducer (DirectEndpoint endpoint)
 specifier|public
 name|DirectProducer
 parameter_list|(
 name|DirectEndpoint
-argument_list|<
-name|E
-argument_list|>
 name|endpoint
 parameter_list|)
 block|{
@@ -231,9 +220,6 @@ block|{
 for|for
 control|(
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 name|consumer
 range|:
 name|endpoint
@@ -314,9 +300,6 @@ block|{
 for|for
 control|(
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 name|consumer
 range|:
 name|endpoint
@@ -357,9 +340,6 @@ block|{
 for|for
 control|(
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 name|consumer
 range|:
 name|endpoint

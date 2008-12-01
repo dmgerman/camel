@@ -150,16 +150,8 @@ DECL|class|DirectEndpoint
 specifier|public
 class|class
 name|DirectEndpoint
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|DefaultEndpoint
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
@@ -183,9 +175,6 @@ specifier|final
 name|CopyOnWriteArrayList
 argument_list|<
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|consumers
 init|=
@@ -193,9 +182,6 @@ operator|new
 name|CopyOnWriteArrayList
 argument_list|<
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -205,7 +191,7 @@ name|allowMultipleConsumers
 init|=
 literal|true
 decl_stmt|;
-DECL|method|DirectEndpoint (String uri, DirectComponent<E> component)
+DECL|method|DirectEndpoint (String uri, DirectComponent component)
 specifier|public
 name|DirectEndpoint
 parameter_list|(
@@ -213,9 +199,6 @@ name|String
 name|uri
 parameter_list|,
 name|DirectComponent
-argument_list|<
-name|E
-argument_list|>
 name|component
 parameter_list|)
 block|{
@@ -238,9 +221,6 @@ block|{
 return|return
 operator|new
 name|DirectProducer
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|)
@@ -249,9 +229,6 @@ block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
-argument_list|<
-name|E
-argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
@@ -263,9 +240,6 @@ block|{
 return|return
 operator|new
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -385,9 +359,6 @@ specifier|public
 name|List
 argument_list|<
 name|DefaultConsumer
-argument_list|<
-name|E
-argument_list|>
 argument_list|>
 name|getConsumers
 parameter_list|()
