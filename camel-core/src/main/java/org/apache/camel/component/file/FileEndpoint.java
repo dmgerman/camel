@@ -588,6 +588,30 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
+comment|// if noop=true then idempotent should also be configured
+if|if
+condition|(
+name|isNoop
+argument_list|()
+operator|&&
+operator|!
+name|isIdempotent
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Endpoint is configured with noop=true so forcing endpoint to be idempotent as well"
+argument_list|)
+expr_stmt|;
+name|setIdempotent
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 comment|// if idempotent and no repository set then create a default one
 if|if
 condition|(
