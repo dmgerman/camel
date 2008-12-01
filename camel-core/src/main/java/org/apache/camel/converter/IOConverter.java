@@ -689,7 +689,7 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toInputStream (String text)
+DECL|method|toInputStream (String text, Exchange exchange)
 specifier|public
 specifier|static
 name|InputStream
@@ -697,8 +697,75 @@ name|toInputStream
 parameter_list|(
 name|String
 name|text
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
+name|String
+name|charsetName
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|charsetName
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+return|return
+name|toInputStream
+argument_list|(
+name|text
+operator|.
+name|getBytes
+argument_list|(
+name|charsetName
+argument_list|)
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsupportedEncodingException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Can't convert the String into the bytes with the charset "
+operator|+
+name|charsetName
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 return|return
 name|toInputStream
 argument_list|(
@@ -711,7 +778,7 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toInputStream (BufferedReader buffer)
+DECL|method|toInputStream (BufferedReader buffer, Exchange exchange)
 specifier|public
 specifier|static
 name|InputStream
@@ -719,6 +786,9 @@ name|toInputStream
 parameter_list|(
 name|BufferedReader
 name|buffer
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|IOException
@@ -730,6 +800,8 @@ name|toString
 argument_list|(
 name|buffer
 argument_list|)
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}
@@ -1421,8 +1493,8 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-DECL|method|copy (InputStream stream, ByteArrayOutputStream bos)
-specifier|protected
+DECL|method|copy (InputStream stream, OutputStream os)
+specifier|public
 specifier|static
 name|void
 name|copy
@@ -1430,8 +1502,8 @@ parameter_list|(
 name|InputStream
 name|stream
 parameter_list|,
-name|ByteArrayOutputStream
-name|bos
+name|OutputStream
+name|os
 parameter_list|)
 throws|throws
 name|IOException
@@ -1464,7 +1536,7 @@ operator|-
 literal|1
 condition|)
 block|{
-name|bos
+name|os
 operator|.
 name|write
 argument_list|(
@@ -1485,7 +1557,7 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-name|bos
+name|os
 operator|.
 name|flush
 argument_list|()
