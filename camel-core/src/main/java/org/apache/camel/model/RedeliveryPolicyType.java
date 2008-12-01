@@ -153,10 +153,10 @@ name|maximumRedeliveries
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|delay
+DECL|field|redeliveryDelay
 specifier|private
 name|Long
-name|delay
+name|redeliveryDelay
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -268,7 +268,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|delay
+name|redeliveryDelay
 operator|!=
 literal|null
 condition|)
@@ -277,7 +277,7 @@ name|answer
 operator|.
 name|setDelay
 argument_list|(
-name|delay
+name|redeliveryDelay
 argument_list|)
 expr_stmt|;
 block|}
@@ -466,16 +466,16 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the fixed delay between redeliveries      *      * @param delay  delay in millis      * @return the builder      */
-DECL|method|delay (long delay)
+DECL|method|redeliveryDelay (long delay)
 specifier|public
 name|RedeliveryPolicyType
-name|delay
+name|redeliveryDelay
 parameter_list|(
 name|long
 name|delay
 parameter_list|)
 block|{
-name|setDelay
+name|setRedeliveryDelay
 argument_list|(
 name|delay
 argument_list|)
@@ -669,20 +669,20 @@ operator|=
 name|collisionAvoidanceFactor
 expr_stmt|;
 block|}
-DECL|method|getDelay ()
+DECL|method|getRedeliveryDelay ()
 specifier|public
 name|Long
-name|getDelay
+name|getRedeliveryDelay
 parameter_list|()
 block|{
 return|return
-name|delay
+name|redeliveryDelay
 return|;
 block|}
-DECL|method|setDelay (Long delay)
+DECL|method|setRedeliveryDelay (Long delay)
 specifier|public
 name|void
-name|setDelay
+name|setRedeliveryDelay
 parameter_list|(
 name|Long
 name|delay
@@ -690,7 +690,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|delay
+name|redeliveryDelay
 operator|=
 name|delay
 expr_stmt|;

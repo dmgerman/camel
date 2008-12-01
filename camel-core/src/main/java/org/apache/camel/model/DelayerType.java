@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;delayer/&gt; element  *  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;delay/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -164,7 +164,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"delayer"
+literal|"delay"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -182,10 +182,10 @@ name|ExpressionNode
 block|{
 annotation|@
 name|XmlElement
-DECL|field|delay
+DECL|field|delayTime
 specifier|private
 name|Long
-name|delay
+name|delayTime
 init|=
 literal|0L
 decl_stmt|;
@@ -240,7 +240,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|delay
+name|delayTime
 operator|=
 name|delay
 expr_stmt|;
@@ -279,20 +279,20 @@ return|return
 literal|"delayer"
 return|;
 block|}
-DECL|method|getDelay ()
+DECL|method|getDelayTime ()
 specifier|public
 name|Long
-name|getDelay
+name|getDelayTime
 parameter_list|()
 block|{
 return|return
-name|delay
+name|delayTime
 return|;
 block|}
-DECL|method|setDelay (Long delay)
+DECL|method|setDelayTime (Long delay)
 specifier|public
 name|void
-name|setDelay
+name|setDelayTime
 parameter_list|(
 name|Long
 name|delay
@@ -300,7 +300,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|delay
+name|delayTime
 operator|=
 name|delay
 expr_stmt|;
@@ -344,7 +344,7 @@ name|childProcessor
 argument_list|,
 name|processAtExpression
 argument_list|,
-name|delay
+name|delayTime
 argument_list|)
 return|;
 block|}

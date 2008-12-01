@@ -247,7 +247,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;resequencer/&gt; element  *  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;resequence/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -256,7 +256,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"resequencer"
+literal|"resequence"
 argument_list|)
 DECL|class|ResequencerType
 specifier|public

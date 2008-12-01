@@ -323,7 +323,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;aggregator/&gt; element  *  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;aggregate/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -332,7 +332,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"aggregator"
+literal|"aggregate"
 argument_list|)
 annotation|@
 name|XmlAccessorType

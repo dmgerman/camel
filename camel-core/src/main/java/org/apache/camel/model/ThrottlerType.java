@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;throttler/&gt; element  *  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;throttle/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -156,7 +156,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"throttler"
+literal|"throttle"
 argument_list|)
 annotation|@
 name|XmlAccessorType

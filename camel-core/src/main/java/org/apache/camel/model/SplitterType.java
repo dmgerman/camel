@@ -223,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;splitter/&gt; element  *  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;split/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -232,7 +232,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"splitter"
+literal|"split"
 argument_list|)
 annotation|@
 name|XmlAccessorType

@@ -995,7 +995,7 @@ block|{
 name|getOrCreateRedeliveryPolicy
 argument_list|()
 operator|.
-name|delay
+name|redeliveryDelay
 argument_list|(
 name|delay
 argument_list|)
