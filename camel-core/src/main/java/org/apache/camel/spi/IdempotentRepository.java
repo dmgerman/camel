@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.idempotent
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
@@ -12,29 +12,39 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|idempotent
+name|spi
 package|;
 end_package
 
 begin_comment
-comment|/**  * Access to a repository of Message IDs to implement the  *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *  * @version $Revision$  */
+comment|/**  * Access to a repository of Message IDs to implement the  *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *<p/>  * The<tt>add</tt> and<tt>contains</tt> methods is operating according to the {@link java.util.Set} contract.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
-DECL|interface|MessageIdRepository
+DECL|interface|IdempotentRepository
 specifier|public
 interface|interface
-name|MessageIdRepository
+name|IdempotentRepository
+parameter_list|<
+name|E
+parameter_list|>
 block|{
-comment|/**      * Returns true if this messageId has been processed before      * otherwise this messageId is added to the repository and false is returned.      *      * @param messageId the String ID of the message      * @return true if the message has been processed succesfully before otherwise false      */
-DECL|method|contains (String messageId)
+comment|/**      * Adds the key to the repository.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if this repository did<b>not</b> already contain the specified element      */
+DECL|method|add (E key)
+name|boolean
+name|add
+parameter_list|(
+name|E
+name|key
+parameter_list|)
+function_decl|;
+comment|/**      * Returns<tt>true</tt> if this repository contains the specified element.      *      * @param key the key of the message      * @return<tt>true</tt> if this repository contains the specified element      */
+DECL|method|contains (E key)
 name|boolean
 name|contains
 parameter_list|(
-name|String
-name|messageId
+name|E
+name|key
 parameter_list|)
 function_decl|;
 block|}

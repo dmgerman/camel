@@ -92,11 +92,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|idempotent
-operator|.
-name|MessageIdRepository
+name|IdempotentRepository
 import|;
 end_import
 
@@ -337,18 +335,21 @@ specifier|public
 class|class
 name|MyIdempotentRepository
 implements|implements
-name|MessageIdRepository
+name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 block|{
-DECL|method|contains (String messageId)
+DECL|method|add (String messageId)
 specifier|public
 name|boolean
-name|contains
+name|add
 parameter_list|(
 name|String
 name|messageId
 parameter_list|)
 block|{
-comment|// will return false 1st time, and true 2nd time
+comment|// will return true 1st time, and false 2nd time
 name|boolean
 name|result
 init|=
@@ -366,7 +367,21 @@ name|messageId
 argument_list|)
 expr_stmt|;
 return|return
+operator|!
 name|result
+return|;
+block|}
+DECL|method|contains (String key)
+specifier|public
+name|boolean
+name|contains
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+return|return
+literal|false
 return|;
 block|}
 block|}

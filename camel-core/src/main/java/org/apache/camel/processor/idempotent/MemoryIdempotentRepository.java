@@ -24,17 +24,33 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Map
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Map
+name|camel
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|IdempotentRepository
 import|;
 end_import
 
@@ -53,28 +69,41 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A memory based implementation of {@link MessageIdRepository}. Care should be  * taken to use a suitable underlying {@link Map} to avoid this class being a  * memory leak  *   * @version $Revision$  */
+comment|/**  * A memory based implementation of {@link org.apache.camel.spi.IdempotentRepository}.   *<p/>  * Care should be taken to use a suitable underlying {@link Map} to avoid this class being a  * memory leak.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|MemoryMessageIdRepository
+DECL|class|MemoryIdempotentRepository
 specifier|public
 class|class
-name|MemoryMessageIdRepository
+name|MemoryIdempotentRepository
 implements|implements
-name|MessageIdRepository
+name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 block|{
 DECL|field|cache
 specifier|private
 specifier|final
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|cache
 decl_stmt|;
-DECL|method|MemoryMessageIdRepository (Map set)
+DECL|method|MemoryIdempotentRepository (Map<String, Object> set)
 specifier|public
-name|MemoryMessageIdRepository
+name|MemoryIdempotentRepository
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|set
 parameter_list|)
 block|{
@@ -85,68 +114,76 @@ operator|=
 name|set
 expr_stmt|;
 block|}
-comment|/**      * Creates a new MemoryMessageIdRepository with a memory based repository.      *<b>Warning</b> this method should only really be used for testing as it      * will involve keeping all message IDs in RAM.      */
-DECL|method|memoryMessageIdRepository ()
+comment|/**      * Creates a new memory based repository using a {@link LRUCache}      * with a default of 1000 entries in the cache.      */
+DECL|method|memoryIdempotentRepository ()
 specifier|public
 specifier|static
-name|MessageIdRepository
-name|memoryMessageIdRepository
+name|IdempotentRepository
+name|memoryIdempotentRepository
 parameter_list|()
 block|{
 return|return
-name|memoryMessageIdRepository
+name|memoryIdempotentRepository
 argument_list|(
-operator|new
-name|HashMap
-argument_list|()
+literal|1000
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new MemoryMessageIdRepository with a memory based repository.      *<b>Warning</b> this method should only really be used for testing as it      * will involve keeping all message IDs in RAM.      */
-DECL|method|memoryMessageIdRepository (int cacheSize)
+comment|/**      * Creates a new memory based repository using a {@link LRUCache}.      *      * @param cacheSize  the cache size      */
+DECL|method|memoryIdempotentRepository (int cacheSize)
 specifier|public
 specifier|static
-name|MessageIdRepository
-name|memoryMessageIdRepository
+name|IdempotentRepository
+name|memoryIdempotentRepository
 parameter_list|(
 name|int
 name|cacheSize
 parameter_list|)
 block|{
 return|return
-name|memoryMessageIdRepository
+name|memoryIdempotentRepository
 argument_list|(
 operator|new
 name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|(
 name|cacheSize
 argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new MemoryMessageIdRepository using the given {@link Map} to      * use to store the processed Message ID objects. Warning be careful of the      * implementation of Map you use as if you are not careful it could be a      * memory leak.      */
-DECL|method|memoryMessageIdRepository (Map cache)
+comment|/**      * Creates a new memory based repository using the given {@link Map} to      * use to store the processed message ids.      *<p/>      * Care should be taken to use a suitable underlying {@link Map} to avoid this class being a      * memory leak.       */
+DECL|method|memoryIdempotentRepository (Map<String, Object> cache)
 specifier|public
 specifier|static
-name|MessageIdRepository
-name|memoryMessageIdRepository
+name|IdempotentRepository
+name|memoryIdempotentRepository
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|cache
 parameter_list|)
 block|{
 return|return
 operator|new
-name|MemoryMessageIdRepository
+name|MemoryIdempotentRepository
 argument_list|(
 name|cache
 argument_list|)
 return|;
 block|}
-DECL|method|contains (String messageId)
+DECL|method|add (String messageId)
 specifier|public
 name|boolean
-name|contains
+name|add
 parameter_list|(
 name|String
 name|messageId
@@ -168,7 +205,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|true
+literal|false
 return|;
 block|}
 else|else
@@ -183,9 +220,33 @@ name|messageId
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+literal|true
 return|;
 block|}
+block|}
+block|}
+DECL|method|contains (String key)
+specifier|public
+name|boolean
+name|contains
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+synchronized|synchronized
+init|(
+name|cache
+init|)
+block|{
+return|return
+name|cache
+operator|.
+name|containsKey
+argument_list|(
+name|key
+argument_list|)
+return|;
 block|}
 block|}
 block|}

@@ -76,6 +76,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|IdempotentRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExpressionHelper
@@ -165,20 +179,20 @@ specifier|private
 name|Processor
 name|nextProcessor
 decl_stmt|;
-DECL|field|messageIdRepository
+DECL|field|idempotentRepository
 specifier|private
-name|MessageIdRepository
-name|messageIdRepository
+name|IdempotentRepository
+name|idempotentRepository
 decl_stmt|;
-DECL|method|IdempotentConsumer (Expression messageIdExpression, MessageIdRepository messageIdRepository, Processor nextProcessor)
+DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository idempotentRepository, Processor nextProcessor)
 specifier|public
 name|IdempotentConsumer
 parameter_list|(
 name|Expression
 name|messageIdExpression
 parameter_list|,
-name|MessageIdRepository
-name|messageIdRepository
+name|IdempotentRepository
+name|idempotentRepository
 parameter_list|,
 name|Processor
 name|nextProcessor
@@ -192,9 +206,9 @@ name|messageIdExpression
 expr_stmt|;
 name|this
 operator|.
-name|messageIdRepository
+name|idempotentRepository
 operator|=
-name|messageIdRepository
+name|idempotentRepository
 expr_stmt|;
 name|this
 operator|.
@@ -218,7 +232,7 @@ name|messageIdExpression
 operator|+
 literal|", repository="
 operator|+
-name|messageIdRepository
+name|idempotentRepository
 operator|+
 literal|", processor="
 operator|+
@@ -269,10 +283,9 @@ throw|;
 block|}
 if|if
 condition|(
-operator|!
-name|messageIdRepository
+name|idempotentRepository
 operator|.
-name|contains
+name|add
 argument_list|(
 name|messageId
 argument_list|)
@@ -309,14 +322,14 @@ return|return
 name|messageIdExpression
 return|;
 block|}
-DECL|method|getMessageIdRepository ()
+DECL|method|getIdempotentRepository ()
 specifier|public
-name|MessageIdRepository
-name|getMessageIdRepository
+name|IdempotentRepository
+name|getIdempotentRepository
 parameter_list|()
 block|{
 return|return
-name|messageIdRepository
+name|idempotentRepository
 return|;
 block|}
 DECL|method|getNextProcessor ()

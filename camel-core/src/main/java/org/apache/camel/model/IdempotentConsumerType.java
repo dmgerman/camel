@@ -134,11 +134,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|idempotent
-operator|.
-name|MessageIdRepository
+name|IdempotentRepository
 import|;
 end_import
 
@@ -191,25 +189,25 @@ name|messageIdRepositoryRef
 decl_stmt|;
 annotation|@
 name|XmlTransient
-DECL|field|messageIdRepository
+DECL|field|idempotentRepository
 specifier|private
-name|MessageIdRepository
-name|messageIdRepository
+name|IdempotentRepository
+name|idempotentRepository
 decl_stmt|;
 DECL|method|IdempotentConsumerType ()
 specifier|public
 name|IdempotentConsumerType
 parameter_list|()
 block|{     }
-DECL|method|IdempotentConsumerType (Expression messageIdExpression, MessageIdRepository messageIdRepository)
+DECL|method|IdempotentConsumerType (Expression messageIdExpression, IdempotentRepository idempotentRepository)
 specifier|public
 name|IdempotentConsumerType
 parameter_list|(
 name|Expression
 name|messageIdExpression
 parameter_list|,
-name|MessageIdRepository
-name|messageIdRepository
+name|IdempotentRepository
+name|idempotentRepository
 parameter_list|)
 block|{
 name|super
@@ -219,9 +217,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|messageIdRepository
+name|idempotentRepository
 operator|=
-name|messageIdRepository
+name|idempotentRepository
 expr_stmt|;
 block|}
 annotation|@
@@ -286,28 +284,28 @@ expr_stmt|;
 block|}
 DECL|method|getMessageIdRepository ()
 specifier|public
-name|MessageIdRepository
+name|IdempotentRepository
 name|getMessageIdRepository
 parameter_list|()
 block|{
 return|return
-name|messageIdRepository
+name|idempotentRepository
 return|;
 block|}
-DECL|method|setMessageIdRepository (MessageIdRepository messageIdRepository)
+DECL|method|setMessageIdRepository (IdempotentRepository idempotentRepository)
 specifier|public
 name|void
 name|setMessageIdRepository
 parameter_list|(
-name|MessageIdRepository
-name|messageIdRepository
+name|IdempotentRepository
+name|idempotentRepository
 parameter_list|)
 block|{
 name|this
 operator|.
-name|messageIdRepository
+name|idempotentRepository
 operator|=
-name|messageIdRepository
+name|idempotentRepository
 expr_stmt|;
 block|}
 annotation|@
@@ -333,8 +331,8 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|MessageIdRepository
-name|messageIdRepository
+name|IdempotentRepository
+name|idempotentRepository
 init|=
 name|resolveMessageIdRepository
 argument_list|(
@@ -353,16 +351,16 @@ argument_list|(
 name|routeContext
 argument_list|)
 argument_list|,
-name|messageIdRepository
+name|idempotentRepository
 argument_list|,
 name|childProcessor
 argument_list|)
 return|;
 block|}
-comment|/**      * Strategy method to resolve the {@link org.apache.camel.processor.idempotent.MessageIdRepository} to use      *      * @param routeContext  route context      * @return the repository      */
+comment|/**      * Strategy method to resolve the {@link org.apache.camel.spi.IdempotentRepository} to use      *      * @param routeContext  route context      * @return the repository      */
 DECL|method|resolveMessageIdRepository (RouteContext routeContext)
 specifier|protected
-name|MessageIdRepository
+name|IdempotentRepository
 name|resolveMessageIdRepository
 parameter_list|(
 name|RouteContext
@@ -371,12 +369,12 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|messageIdRepository
+name|idempotentRepository
 operator|==
 literal|null
 condition|)
 block|{
-name|messageIdRepository
+name|idempotentRepository
 operator|=
 name|routeContext
 operator|.
@@ -384,14 +382,14 @@ name|lookup
 argument_list|(
 name|messageIdRepositoryRef
 argument_list|,
-name|MessageIdRepository
+name|IdempotentRepository
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|messageIdRepository
+name|idempotentRepository
 return|;
 block|}
 block|}

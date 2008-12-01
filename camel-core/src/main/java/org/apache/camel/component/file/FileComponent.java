@@ -114,11 +114,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|idempotent
-operator|.
-name|MessageIdRepository
+name|IdempotentRepository
 import|;
 end_import
 
@@ -268,14 +266,14 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|MessageIdRepository
+name|IdempotentRepository
 name|repository
 init|=
 name|mandatoryLookup
 argument_list|(
 name|ref
 argument_list|,
-name|MessageIdRepository
+name|IdempotentRepository
 operator|.
 name|class
 argument_list|)

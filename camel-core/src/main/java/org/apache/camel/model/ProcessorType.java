@@ -492,22 +492,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|idempotent
-operator|.
-name|MessageIdRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|DataFormat
@@ -525,6 +509,20 @@ operator|.
 name|spi
 operator|.
 name|ErrorHandlerWrappingStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|IdempotentRepository
 import|;
 end_import
 
@@ -1276,8 +1274,8 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdExpression  expression to test of duplicate messages      * @param messageIdRepository  the repository to use for duplicate chedck      * @return the builder      */
-DECL|method|idempotentConsumer (Expression messageIdExpression, MessageIdRepository messageIdRepository)
+comment|/**      *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdExpression  expression to test of duplicate messages      * @param idempotentRepository  the repository to use for duplicate chedck      * @return the builder      */
+DECL|method|idempotentConsumer (Expression messageIdExpression, IdempotentRepository idempotentRepository)
 specifier|public
 name|IdempotentConsumerType
 name|idempotentConsumer
@@ -1285,8 +1283,8 @@ parameter_list|(
 name|Expression
 name|messageIdExpression
 parameter_list|,
-name|MessageIdRepository
-name|messageIdRepository
+name|IdempotentRepository
+name|idempotentRepository
 parameter_list|)
 block|{
 name|IdempotentConsumerType
@@ -1297,7 +1295,7 @@ name|IdempotentConsumerType
 argument_list|(
 name|messageIdExpression
 argument_list|,
-name|messageIdRepository
+name|idempotentRepository
 argument_list|)
 decl_stmt|;
 name|addOutput
@@ -1309,8 +1307,8 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdRepository the repository to use for duplicate chedck      * @return the builder used to create the expression      */
-DECL|method|idempotentConsumer (MessageIdRepository messageIdRepository)
+comment|/**      *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param idempotentRepository the repository to use for duplicate chedck      * @return the builder used to create the expression      */
+DECL|method|idempotentConsumer (IdempotentRepository idempotentRepository)
 specifier|public
 name|ExpressionClause
 argument_list|<
@@ -1318,8 +1316,8 @@ name|IdempotentConsumerType
 argument_list|>
 name|idempotentConsumer
 parameter_list|(
-name|MessageIdRepository
-name|messageIdRepository
+name|IdempotentRepository
+name|idempotentRepository
 parameter_list|)
 block|{
 name|IdempotentConsumerType
@@ -1333,7 +1331,7 @@ name|answer
 operator|.
 name|setMessageIdRepository
 argument_list|(
-name|messageIdRepository
+name|idempotentRepository
 argument_list|)
 expr_stmt|;
 name|addOutput

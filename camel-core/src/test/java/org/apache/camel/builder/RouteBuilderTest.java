@@ -304,25 +304,7 @@ name|processor
 operator|.
 name|idempotent
 operator|.
-name|MemoryMessageIdRepository
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|idempotent
-operator|.
-name|MemoryMessageIdRepository
-operator|.
-name|memoryMessageIdRepository
+name|MemoryIdempotentRepository
 import|;
 end_import
 
@@ -2416,7 +2398,9 @@ argument_list|(
 literal|"myMessageId"
 argument_list|)
 argument_list|,
-name|memoryMessageIdRepository
+name|MemoryIdempotentRepository
+operator|.
+name|memoryIdempotentRepository
 argument_list|(
 literal|200
 argument_list|)
@@ -2574,13 +2558,13 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|MemoryMessageIdRepository
+name|MemoryIdempotentRepository
 operator|.
 name|class
 argument_list|,
 name|idempotentConsumer
 operator|.
-name|getMessageIdRepository
+name|getIdempotentRepository
 argument_list|()
 argument_list|)
 expr_stmt|;

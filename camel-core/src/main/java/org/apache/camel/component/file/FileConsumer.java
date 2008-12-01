@@ -1129,7 +1129,6 @@ name|File
 name|file
 parameter_list|)
 block|{
-comment|// NOTE: contains will add if we had a miss
 if|if
 condition|(
 name|endpoint
@@ -1137,12 +1136,13 @@ operator|.
 name|isIdempotent
 argument_list|()
 operator|&&
+operator|!
 name|endpoint
 operator|.
 name|getIdempotentRepository
 argument_list|()
 operator|.
-name|contains
+name|add
 argument_list|(
 name|file
 operator|.

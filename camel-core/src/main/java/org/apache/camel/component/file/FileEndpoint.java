@@ -216,7 +216,7 @@ name|processor
 operator|.
 name|idempotent
 operator|.
-name|MemoryMessageIdRepository
+name|MemoryIdempotentRepository
 import|;
 end_import
 
@@ -228,11 +228,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|idempotent
-operator|.
-name|MessageIdRepository
+name|IdempotentRepository
 import|;
 end_import
 
@@ -457,7 +455,7 @@ name|idempotent
 decl_stmt|;
 DECL|field|idempotentRepository
 specifier|private
-name|MessageIdRepository
+name|IdempotentRepository
 name|idempotentRepository
 decl_stmt|;
 DECL|field|filter
@@ -612,9 +610,9 @@ argument_list|)
 expr_stmt|;
 name|idempotentRepository
 operator|=
-name|MemoryMessageIdRepository
+name|MemoryIdempotentRepository
 operator|.
-name|memoryMessageIdRepository
+name|memoryIdempotentRepository
 argument_list|(
 name|DEFAULT_IDEMPOTENT_CACHE_SIZE
 argument_list|)
@@ -1302,7 +1300,7 @@ expr_stmt|;
 block|}
 DECL|method|getIdempotentRepository ()
 specifier|public
-name|MessageIdRepository
+name|IdempotentRepository
 name|getIdempotentRepository
 parameter_list|()
 block|{
@@ -1310,12 +1308,12 @@ return|return
 name|idempotentRepository
 return|;
 block|}
-DECL|method|setIdempotentRepository (MessageIdRepository idempotentRepository)
+DECL|method|setIdempotentRepository (IdempotentRepository idempotentRepository)
 specifier|public
 name|void
 name|setIdempotentRepository
 parameter_list|(
-name|MessageIdRepository
+name|IdempotentRepository
 name|idempotentRepository
 parameter_list|)
 block|{
