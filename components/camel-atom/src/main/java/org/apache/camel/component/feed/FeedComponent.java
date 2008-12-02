@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.atom
+DECL|package|org.apache.camel.component.feed
 package|package
 name|org
 operator|.
@@ -14,9 +14,19 @@ name|camel
 operator|.
 name|component
 operator|.
-name|atom
+name|feed
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
 
 begin_import
 import|import
@@ -26,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Endpoint
 import|;
 end_import
 
@@ -40,65 +50,41 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ScheduledPollConsumer
+name|DefaultComponent
 import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for consuming Atom feeds.  */
+comment|/**  * A base class for feed (atom, RSS) components.  */
 end_comment
 
 begin_class
-DECL|class|AtomConsumerSupport
+DECL|class|FeedComponent
 specifier|public
 specifier|abstract
 class|class
-name|AtomConsumerSupport
+name|FeedComponent
 extends|extends
-name|ScheduledPollConsumer
+name|DefaultComponent
 block|{
-DECL|field|DEFAULT_CONSUMER_DELAY
-specifier|public
-specifier|static
-specifier|final
-name|long
-name|DEFAULT_CONSUMER_DELAY
-init|=
-literal|60
-operator|*
-literal|1000L
-decl_stmt|;
-DECL|field|endpoint
+DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
-specifier|final
-name|AtomEndpoint
-name|endpoint
-decl_stmt|;
-DECL|method|AtomConsumerSupport (AtomEndpoint endpoint, Processor processor)
-specifier|public
-name|AtomConsumerSupport
+specifier|abstract
+name|FeedEndpoint
+name|createEndpoint
 parameter_list|(
-name|AtomEndpoint
-name|endpoint
+name|String
+name|uri
 parameter_list|,
-name|Processor
-name|processor
+name|String
+name|remaining
+parameter_list|,
+name|Map
+name|parameters
 parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpoint
-argument_list|,
-name|processor
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
-block|}
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_class
 

@@ -70,6 +70,22 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|feed
+operator|.
+name|FeedConsumer
+import|;
+end_import
+
 begin_comment
 comment|/**  * Consumer to poll atom feeds and return the full feed.  *  * @version $Revision$  */
 end_comment
@@ -80,7 +96,7 @@ specifier|public
 class|class
 name|AtomPollingConsumer
 extends|extends
-name|AtomConsumerSupport
+name|FeedConsumer
 block|{
 DECL|method|AtomPollingConsumer (AtomEndpoint endpoint, Processor processor)
 specifier|public
@@ -121,7 +137,7 @@ name|parseDocument
 argument_list|(
 name|endpoint
 operator|.
-name|getAtomUri
+name|getFeedUri
 argument_list|()
 argument_list|)
 decl_stmt|;

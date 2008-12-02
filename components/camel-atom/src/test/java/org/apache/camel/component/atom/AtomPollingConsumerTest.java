@@ -309,10 +309,10 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// this is a bit weird syntax that normally is not used using the atomUri parameter
+comment|// this is a bit weird syntax that normally is not used using the feedUri parameter
 name|from
 argument_list|(
-literal|"atom:?atomUri=file:src/test/data/feed.atom&splitEntries=false"
+literal|"atom:?feedUri=file:src/test/data/feed.atom&splitEntries=false"
 argument_list|)
 operator|.
 name|to

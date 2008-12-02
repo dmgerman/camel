@@ -259,6 +259,9 @@ name|entryFilter
 operator|.
 name|isValidEntry
 argument_list|(
+operator|(
+name|AtomEndpoint
+operator|)
 name|endpoint
 argument_list|,
 name|document
@@ -330,7 +333,7 @@ name|parseDocument
 argument_list|(
 name|endpoint
 operator|.
-name|getAtomUri
+name|getFeedUri
 argument_list|()
 argument_list|)
 expr_stmt|;
