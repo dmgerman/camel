@@ -180,6 +180,20 @@ name|AbstractJUnit38SpringContextTests
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|annotation
+operator|.
+name|DirtiesContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
@@ -229,6 +243,8 @@ specifier|protected
 name|ProducerTemplate
 name|template
 decl_stmt|;
+annotation|@
+name|DirtiesContext
 DECL|method|testSendMatchingMessage ()
 specifier|public
 name|void
@@ -266,6 +282,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|DirtiesContext
 DECL|method|testSendNotMatchingMessage ()
 specifier|public
 name|void
