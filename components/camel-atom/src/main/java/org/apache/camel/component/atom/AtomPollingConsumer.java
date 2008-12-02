@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -43,18 +53,6 @@ operator|.
 name|model
 operator|.
 name|Feed
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
 import|;
 end_import
 
@@ -82,7 +80,7 @@ name|component
 operator|.
 name|feed
 operator|.
-name|FeedConsumer
+name|FeedPollingConsumer
 import|;
 end_import
 
@@ -96,7 +94,7 @@ specifier|public
 class|class
 name|AtomPollingConsumer
 extends|extends
-name|FeedConsumer
+name|FeedPollingConsumer
 block|{
 DECL|method|AtomPollingConsumer (AtomEndpoint endpoint, Processor processor)
 specifier|public
@@ -117,13 +115,15 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|poll ()
+annotation|@
+name|Override
+DECL|method|createFeed ()
 specifier|protected
-name|void
-name|poll
+name|Object
+name|createFeed
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|Document
 argument_list|<
@@ -141,32 +141,12 @@ name|getFeedUri
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Feed
-name|feed
-init|=
+return|return
 name|document
 operator|.
 name|getRoot
 argument_list|()
-decl_stmt|;
-name|Exchange
-name|exchange
-init|=
-name|endpoint
-operator|.
-name|createExchange
-argument_list|(
-name|feed
-argument_list|)
-decl_stmt|;
-name|getProcessor
-argument_list|()
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 end_class

@@ -132,7 +132,7 @@ name|component
 operator|.
 name|feed
 operator|.
-name|FeedConsumer
+name|FeedEndpoint
 import|;
 end_import
 
@@ -148,7 +148,7 @@ name|component
 operator|.
 name|feed
 operator|.
-name|FeedEndpoint
+name|FeedPollingConsumer
 import|;
 end_import
 
@@ -344,7 +344,7 @@ annotation|@
 name|Override
 DECL|method|createEntryPollingConsumer (FeedEndpoint feedEndpoint, Processor processor, boolean filter, Date lastUpdate)
 specifier|protected
-name|FeedConsumer
+name|FeedPollingConsumer
 name|createEntryPollingConsumer
 parameter_list|(
 name|FeedEndpoint
@@ -378,7 +378,7 @@ annotation|@
 name|Override
 DECL|method|createPollingConsumer (FeedEndpoint feedEndpoint, Processor processor)
 specifier|protected
-name|FeedConsumer
+name|FeedPollingConsumer
 name|createPollingConsumer
 parameter_list|(
 name|FeedEndpoint

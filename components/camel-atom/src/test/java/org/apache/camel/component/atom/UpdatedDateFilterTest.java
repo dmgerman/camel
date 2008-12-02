@@ -110,6 +110,22 @@ name|Feed
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|feed
+operator|.
+name|EntryFilter
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for UpdatedDateFilter  */
 end_comment

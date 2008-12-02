@@ -18,89 +18,33 @@ name|feed
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|ScheduledPollConsumer
-import|;
-end_import
-
 begin_comment
-comment|/**  * Base class for consuming feeds.  */
+comment|/**  * Filter used by the {@link org.apache.camel.component.feed.FeedEntryPollingConsumer} to filter entries  * from the feed.  *  * @version $Revision: 656106 $  */
 end_comment
 
-begin_class
-DECL|class|FeedConsumer
+begin_interface
+DECL|interface|EntryFilter
 specifier|public
-specifier|abstract
-class|class
-name|FeedConsumer
-extends|extends
-name|ScheduledPollConsumer
+interface|interface
+name|EntryFilter
 block|{
-DECL|field|DEFAULT_CONSUMER_DELAY
-specifier|public
-specifier|static
-specifier|final
-name|long
-name|DEFAULT_CONSUMER_DELAY
-init|=
-literal|60
-operator|*
-literal|1000L
-decl_stmt|;
-DECL|field|endpoint
-specifier|protected
-specifier|final
-name|FeedEndpoint
-name|endpoint
-decl_stmt|;
-DECL|method|FeedConsumer (FeedEndpoint endpoint, Processor processor)
-specifier|public
-name|FeedConsumer
+comment|/**      * Tests to be used as filtering the feed for only entries of interest, such as only new entries, etc.      *      * @param endpoint  the endpoint      * @param feed      the feed      * @param entry     the given entry to filter      * @return<tt>true</tt> to include the entry,<ff>false</tt> to skip it      */
+DECL|method|isValidEntry (FeedEndpoint endpoint, Object feed, Object entry)
+name|boolean
+name|isValidEntry
 parameter_list|(
 name|FeedEndpoint
 name|endpoint
 parameter_list|,
-name|Processor
-name|processor
+name|Object
+name|feed
+parameter_list|,
+name|Object
+name|entry
 parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpoint
-argument_list|,
-name|processor
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

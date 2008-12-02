@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.rss
+DECL|package|org.apache.camel.component.feed
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|rss
+name|feed
 package|;
 end_package
 
@@ -25,22 +25,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|syndication
-operator|.
-name|feed
-operator|.
-name|synd
-operator|.
-name|SyndFeed
 import|;
 end_import
 
@@ -76,31 +60,47 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|feed
-operator|.
-name|FeedPollingConsumer
+name|ScheduledPollConsumer
 import|;
 end_import
 
 begin_comment
-comment|/**  * Consumer to poll RSS feeds and return the full feed.  */
+comment|/**  * Base class for consuming feeds.  */
 end_comment
 
 begin_class
-DECL|class|RssPollingConsumer
+DECL|class|FeedPollingConsumer
 specifier|public
+specifier|abstract
 class|class
-name|RssPollingConsumer
-extends|extends
 name|FeedPollingConsumer
+extends|extends
+name|ScheduledPollConsumer
 block|{
-DECL|method|RssPollingConsumer (RssEndpoint endpoint, Processor processor)
+DECL|field|DEFAULT_CONSUMER_DELAY
 specifier|public
-name|RssPollingConsumer
+specifier|static
+specifier|final
+name|long
+name|DEFAULT_CONSUMER_DELAY
+init|=
+literal|60
+operator|*
+literal|1000L
+decl_stmt|;
+DECL|field|endpoint
+specifier|protected
+specifier|final
+name|FeedEndpoint
+name|endpoint
+decl_stmt|;
+DECL|method|FeedPollingConsumer (FeedEndpoint endpoint, Processor processor)
+specifier|public
+name|FeedPollingConsumer
 parameter_list|(
-name|RssEndpoint
+name|FeedEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
@@ -114,29 +114,50 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
 block|}
-annotation|@
-name|Override
+DECL|method|poll ()
+specifier|protected
+name|void
+name|poll
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Exchange
+name|exchange
+init|=
+name|endpoint
+operator|.
+name|createExchange
+argument_list|(
+name|createFeed
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|getProcessor
+argument_list|()
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createFeed ()
 specifier|protected
+specifier|abstract
 name|Object
 name|createFeed
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-return|return
-name|RssUtils
-operator|.
-name|createFeed
-argument_list|(
-name|endpoint
-operator|.
-name|getFeedUri
-argument_list|()
-argument_list|)
-return|;
-block|}
+function_decl|;
 block|}
 end_class
 

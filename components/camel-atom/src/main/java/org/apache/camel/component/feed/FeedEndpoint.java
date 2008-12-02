@@ -34,34 +34,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|abdera
-operator|.
-name|model
-operator|.
-name|Entry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|abdera
-operator|.
-name|model
-operator|.
-name|Feed
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|camel
 operator|.
 name|Consumer
@@ -289,7 +261,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|FeedConsumer
+name|FeedPollingConsumer
 name|answer
 decl_stmt|;
 if|if
@@ -330,7 +302,7 @@ name|answer
 operator|.
 name|setDelay
 argument_list|(
-name|FeedConsumer
+name|FeedPollingConsumer
 operator|.
 name|DEFAULT_CONSUMER_DELAY
 argument_list|)
@@ -347,7 +319,7 @@ block|}
 DECL|method|createPollingConsumer (FeedEndpoint feedEndpoint, Processor processor)
 specifier|protected
 specifier|abstract
-name|FeedConsumer
+name|FeedPollingConsumer
 name|createPollingConsumer
 parameter_list|(
 name|FeedEndpoint
@@ -360,7 +332,7 @@ function_decl|;
 DECL|method|createEntryPollingConsumer (FeedEndpoint feedEndpoint, Processor processor, boolean filter, Date lastUpdate)
 specifier|protected
 specifier|abstract
-name|FeedConsumer
+name|FeedPollingConsumer
 name|createEntryPollingConsumer
 parameter_list|(
 name|FeedEndpoint
