@@ -537,11 +537,17 @@ argument_list|,
 name|fileList
 argument_list|)
 expr_stmt|;
+comment|// must test matching for directories as well as we want to skip directories starting with a dot etc.
 block|}
 elseif|else
 if|if
 condition|(
 name|processDir
+operator|&&
+name|matchFile
+argument_list|(
+name|fileOrDirectory
+argument_list|)
 condition|)
 block|{
 comment|// directory that can be recursive
@@ -580,7 +586,7 @@ range|:
 name|files
 control|)
 block|{
-comment|// recursive add the files
+comment|// recursive scan and add the files
 name|scanFilesToPoll
 argument_list|(
 name|file
@@ -1131,6 +1137,20 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
+name|matchFile
+argument_list|(
+name|file
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 name|endpoint
 operator|.
 name|isIdempotent
@@ -1156,14 +1176,12 @@ return|return
 literal|false
 return|;
 block|}
+comment|// file matched
 return|return
-name|matchFile
-argument_list|(
-name|file
-argument_list|)
+literal|true
 return|;
 block|}
-comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return false for certain files:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      *      * @param file  the file      * @return true if the file is matche, false if not      */
+comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file  the file      * @return true if the file is matche, false if not      */
 DECL|method|matchFile (File file)
 specifier|protected
 name|boolean
