@@ -1144,6 +1144,24 @@ name|file
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"File did not match. Will skip this file: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 literal|false
 return|;
@@ -1171,6 +1189,24 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"FileConsumer is idempotent and the file has been consumed before. Will skip this file: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+block|}
 comment|// skip as we have already processed it
 return|return
 literal|false
