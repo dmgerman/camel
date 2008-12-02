@@ -799,6 +799,32 @@ return|;
 block|}
 annotation|@
 name|Converter
+DECL|method|toInputStream (BufferedReader buffer)
+specifier|public
+specifier|static
+name|InputStream
+name|toInputStream
+parameter_list|(
+name|BufferedReader
+name|buffer
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|toInputStream
+argument_list|(
+name|toString
+argument_list|(
+name|buffer
+argument_list|)
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
 DECL|method|toInputStream (BufferedReader buffer, Exchange exchange)
 specifier|public
 specifier|static
