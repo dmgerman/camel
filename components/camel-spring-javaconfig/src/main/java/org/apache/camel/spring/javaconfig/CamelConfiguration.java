@@ -188,6 +188,9 @@ block|{
 name|SpringCamelContext
 name|context
 init|=
+operator|(
+name|SpringCamelContext
+operator|)
 name|getCamelContext
 argument_list|()
 decl_stmt|;
