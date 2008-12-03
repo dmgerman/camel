@@ -250,7 +250,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"http://localhost:9000/myservice"
+literal|"http://localhost:9600/myservice"
 argument_list|)
 operator|.
 name|to
@@ -260,7 +260,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9000/myservice"
+literal|"jetty:http://localhost:9600/myservice"
 argument_list|)
 operator|.
 name|transform
