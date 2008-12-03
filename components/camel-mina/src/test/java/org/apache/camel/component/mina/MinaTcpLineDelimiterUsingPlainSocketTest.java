@@ -123,10 +123,10 @@ comment|/**  * To test camel-mina component using a TCP client that communicates
 end_comment
 
 begin_class
-DECL|class|MinaTcpWithInOutUsingPlainSocketTest
+DECL|class|MinaTcpLineDelimiterUsingPlainSocketTest
 specifier|public
 class|class
-name|MinaTcpWithInOutUsingPlainSocketTest
+name|MinaTcpLineDelimiterUsingPlainSocketTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -137,9 +137,10 @@ specifier|final
 name|int
 name|PORT
 init|=
-literal|6333
+literal|6334
 decl_stmt|;
 comment|// use parameter sync=true to force InOut pattern of the MinaExchange
+comment|// use MAC textline delimiter
 DECL|field|uri
 specifier|protected
 name|String
@@ -149,7 +150,7 @@ literal|"mina:tcp://localhost:"
 operator|+
 name|PORT
 operator|+
-literal|"?textline=true&sync=true"
+literal|"?textline=true&textlineDelimiter=MAC&sync=true"
 decl_stmt|;
 DECL|method|testSendAndReceiveOnce ()
 specifier|public
@@ -397,7 +398,7 @@ operator|.
 name|getOutputStream
 argument_list|()
 expr_stmt|;
-comment|// must append newline at the end to flag end of textline to Camel-Mina
+comment|// must append MAC newline at the end to flag end of textline to Camel-Mina
 name|os
 operator|.
 name|write
@@ -405,7 +406,7 @@ argument_list|(
 operator|(
 name|input
 operator|+
-literal|"\n"
+literal|"\r"
 operator|)
 operator|.
 name|getBytes
@@ -505,14 +506,14 @@ if|if
 condition|(
 name|ch
 operator|==
-literal|'\n'
+literal|'\r'
 operator|||
 name|ch
 operator|==
 literal|0
 condition|)
 block|{
-comment|// newline denotes end of text (added in the end in the processor below)
+comment|// use MAC delimiter denotes end of text (added in the end in the processor below)
 break|break;
 block|}
 else|else

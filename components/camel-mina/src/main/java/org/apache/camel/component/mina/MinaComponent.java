@@ -396,7 +396,7 @@ name|codec
 operator|.
 name|textline
 operator|.
-name|TextLineCodecFactory
+name|LineDelimiter
 import|;
 end_import
 
@@ -641,6 +641,11 @@ DECL|field|textline
 specifier|private
 name|boolean
 name|textline
+decl_stmt|;
+DECL|field|textlineDelimiter
+specifier|private
+name|TextLineDelimiter
+name|textlineDelimiter
 decl_stmt|;
 DECL|field|codec
 specifier|private
@@ -1214,12 +1219,20 @@ argument_list|,
 name|encoding
 argument_list|)
 decl_stmt|;
+name|LineDelimiter
+name|delimiter
+init|=
+name|getLineDelimiterParameter
+argument_list|()
+decl_stmt|;
 name|codecFactory
 operator|=
 operator|new
 name|TextLineCodecFactory
 argument_list|(
 name|charset
+argument_list|,
+name|delimiter
 argument_list|)
 expr_stmt|;
 if|if
@@ -1242,7 +1255,17 @@ name|codecFactory
 operator|+
 literal|" using encoding: "
 operator|+
-name|encoding
+name|charset
+operator|+
+literal|" and line delimiter: "
+operator|+
+name|textlineDelimiter
+operator|+
+literal|"("
+operator|+
+name|delimiter
+operator|+
+literal|")"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1839,7 +1862,7 @@ name|codecFactory
 operator|+
 literal|" using encoding: "
 operator|+
-name|encoding
+name|charset
 argument_list|)
 expr_stmt|;
 block|}
@@ -2020,6 +2043,74 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getLineDelimiterParameter ()
+specifier|private
+name|LineDelimiter
+name|getLineDelimiterParameter
+parameter_list|()
+block|{
+if|if
+condition|(
+name|textlineDelimiter
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|LineDelimiter
+operator|.
+name|AUTO
+return|;
+block|}
+switch|switch
+condition|(
+name|textlineDelimiter
+condition|)
+block|{
+case|case
+name|AUTO
+case|:
+return|return
+name|LineDelimiter
+operator|.
+name|AUTO
+return|;
+case|case
+name|UNIX
+case|:
+return|return
+name|LineDelimiter
+operator|.
+name|UNIX
+return|;
+case|case
+name|WINDOWS
+case|:
+return|return
+name|LineDelimiter
+operator|.
+name|WINDOWS
+return|;
+case|case
+name|MAC
+case|:
+return|return
+name|LineDelimiter
+operator|.
+name|MAC
+return|;
+default|default:
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unknown textline delimiter: "
+operator|+
+name|textlineDelimiter
+argument_list|)
+throw|;
+block|}
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|isSync ()
@@ -2072,6 +2163,32 @@ operator|.
 name|textline
 operator|=
 name|textline
+expr_stmt|;
+block|}
+DECL|method|getTextlineDelimiter ()
+specifier|public
+name|TextLineDelimiter
+name|getTextlineDelimiter
+parameter_list|()
+block|{
+return|return
+name|textlineDelimiter
+return|;
+block|}
+DECL|method|setTextlineDelimiter (TextLineDelimiter textlineDelimiter)
+specifier|public
+name|void
+name|setTextlineDelimiter
+parameter_list|(
+name|TextLineDelimiter
+name|textlineDelimiter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|textlineDelimiter
+operator|=
+name|textlineDelimiter
 expr_stmt|;
 block|}
 DECL|method|getCodec ()
