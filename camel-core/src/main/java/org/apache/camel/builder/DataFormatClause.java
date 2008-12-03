@@ -178,6 +178,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|RssDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|SerializationDataFormat
 import|;
 end_import
@@ -479,6 +495,22 @@ name|JaxbDataFormat
 argument_list|(
 name|prettyPrint
 argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the RSS data format      */
+DECL|method|rss ()
+specifier|public
+name|T
+name|rss
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|RssDataFormat
+argument_list|()
 argument_list|)
 return|;
 block|}
