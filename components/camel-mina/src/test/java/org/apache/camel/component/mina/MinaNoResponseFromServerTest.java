@@ -38,7 +38,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ResolveEndpointFailedException
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -195,14 +207,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test with custom codec.  */
+comment|/**  * Unit test to test what happens if remote server closes session but doesn't reply  */
 end_comment
 
 begin_class
-DECL|class|MinaCustomCodecTest
+DECL|class|MinaNoResponseFromServerTest
 specifier|public
 class|class
-name|MinaCustomCodecTest
+name|MinaNoResponseFromServerTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -213,10 +225,10 @@ name|uri
 init|=
 literal|"mina:tcp://localhost:11300?sync=true&codec=myCodec"
 decl_stmt|;
-DECL|method|testMyCodec ()
+DECL|method|testNoResponse ()
 specifier|public
 name|void
-name|testMyCodec
+name|testNoResponse
 parameter_list|()
 throws|throws
 name|Exception
@@ -233,16 +245,11 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|requestBody
@@ -252,45 +259,52 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|testBadConfiguration ()
-specifier|public
-name|void
-name|testBadConfiguration
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-try|try
-block|{
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"mina:tcp://localhost:11300?sync=true&codec=XXX"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should have thrown a ResolveEndpointFailedException"
+literal|"Should throw a CamelExchangeException"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ResolveEndpointFailedException
+name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{
-comment|// ok
+name|assertIsInstanceOf
+argument_list|(
+name|CamelExchangeException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"No response received from remote server"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|createRegistry ()
 specifier|protected
@@ -401,50 +415,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ByteBuffer
-name|bb
-init|=
-name|ByteBuffer
+comment|// close session instead of returning a reply
+name|ioSession
 operator|.
-name|allocate
-argument_list|(
-literal|32
-argument_list|)
-operator|.
-name|setAutoExpand
-argument_list|(
-literal|true
-argument_list|)
-decl_stmt|;
-name|String
-name|s
-init|=
-operator|(
-name|String
-operator|)
-name|message
-decl_stmt|;
-name|bb
-operator|.
-name|put
-argument_list|(
-name|s
-operator|.
-name|getBytes
+name|close
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|bb
-operator|.
-name|flip
-argument_list|()
-expr_stmt|;
-name|out
-operator|.
-name|write
-argument_list|(
-name|bb
-argument_list|)
 expr_stmt|;
 block|}
 specifier|public
@@ -491,17 +466,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|in
+comment|// close session instead of returning a reply
+name|ioSession
 operator|.
-name|acquire
+name|close
 argument_list|()
-expr_stmt|;
-name|out
-operator|.
-name|write
-argument_list|(
-name|in
-argument_list|)
 expr_stmt|;
 block|}
 specifier|public

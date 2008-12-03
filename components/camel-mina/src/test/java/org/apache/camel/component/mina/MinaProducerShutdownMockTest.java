@@ -187,7 +187,7 @@ specifier|final
 name|String
 name|URI
 init|=
-literal|"mina:tcp://localhost:6321?textline=true"
+literal|"mina:tcp://localhost:6321?textline=true&sync=false"
 decl_stmt|;
 DECL|method|testProducerShutdownTestingWithMock ()
 specifier|public

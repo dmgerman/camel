@@ -42,7 +42,7 @@ name|Exception
 block|{
 name|uri
 operator|=
-literal|"mina:tcp://localhost:6124?textline=true&textlineDelimiter=UNIX"
+literal|"mina:tcp://localhost:6124?sync=false&textline=true&textlineDelimiter=UNIX"
 expr_stmt|;
 name|super
 operator|.
