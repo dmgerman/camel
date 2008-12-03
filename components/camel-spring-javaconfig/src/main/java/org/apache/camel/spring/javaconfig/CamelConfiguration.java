@@ -215,16 +215,12 @@ name|answer
 operator|.
 name|setCamelContext
 argument_list|(
-operator|(
-name|SpringCamelContext
-operator|)
 name|camelContext
 argument_list|)
 expr_stmt|;
 return|return
 name|answer
 return|;
-comment|/*         {             @Override             public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {                 try {                     SpringCamelContext context = (SpringCamelContext) getCamelContext();                     if (context == null) {                         // we have not yet injected the context so lets set it                         setCamelContext(camelContext());                     }                     return super.postProcessAfterInitialization(bean, beanName);                 } catch (BeansException e) {                     throw e;                 } catch (Exception e) {                     throw new BeanInitializationException(e.getMessage(), e);                 }             }         }; */
 block|}
 comment|/**      * Returns the CamelContext      */
 annotation|@
@@ -274,7 +270,6 @@ name|camelContext
 return|;
 block|}
 comment|/**      * Returns the list of routes to use in this configuration      */
-comment|//@Bean
 DECL|method|routes ()
 specifier|public
 specifier|abstract

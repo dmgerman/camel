@@ -103,7 +103,8 @@ name|SingleRouteCamelConfiguration
 extends|extends
 name|CamelConfiguration
 block|{
-comment|//@Bean
+annotation|@
+name|Bean
 DECL|method|routes ()
 specifier|public
 name|List
@@ -124,7 +125,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates the single {@link RouteBuilder} to use in this confguration      * @return      */
-comment|//@Bean
 DECL|method|route ()
 specifier|public
 specifier|abstract
