@@ -84,7 +84,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|TimeUnit
+name|ThreadPoolExecutor
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ThreadPoolExecutor
+name|TimeUnit
 import|;
 end_import
 
