@@ -172,10 +172,13 @@ block|{
 name|ThreadPoolExecutor
 name|threadPoolExecutor
 init|=
+operator|(
+name|ThreadPoolExecutor
+operator|)
 name|getSplitter
 argument_list|()
 operator|.
-name|getThreadPoolExecutor
+name|getExecutor
 argument_list|()
 decl_stmt|;
 comment|// this should be sufficient as core pool size is the only thing I changed from the default

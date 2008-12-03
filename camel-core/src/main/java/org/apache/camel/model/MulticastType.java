@@ -34,7 +34,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ThreadPoolExecutor
+name|Executor
 import|;
 end_import
 
@@ -270,10 +270,10 @@ name|aggregationStrategy
 decl_stmt|;
 annotation|@
 name|XmlTransient
-DECL|field|threadPoolExecutor
+DECL|field|executor
 specifier|private
-name|ThreadPoolExecutor
-name|threadPoolExecutor
+name|Executor
+name|executor
 decl_stmt|;
 annotation|@
 name|Override
@@ -385,7 +385,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|threadPoolExecutor
+name|executor
 operator|=
 name|routeContext
 operator|.
@@ -393,7 +393,7 @@ name|lookup
 argument_list|(
 name|threadPoolRef
 argument_list|,
-name|ThreadPoolExecutor
+name|Executor
 operator|.
 name|class
 argument_list|)
@@ -410,7 +410,7 @@ argument_list|,
 name|isParallelProcessing
 argument_list|()
 argument_list|,
-name|threadPoolExecutor
+name|executor
 argument_list|)
 return|;
 block|}
@@ -478,28 +478,28 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getThreadPoolExecutor ()
+DECL|method|getExecutor ()
 specifier|public
-name|ThreadPoolExecutor
-name|getThreadPoolExecutor
+name|Executor
+name|getExecutor
 parameter_list|()
 block|{
 return|return
-name|threadPoolExecutor
+name|executor
 return|;
 block|}
-DECL|method|setThreadPoolExecutor (ThreadPoolExecutor executor)
+DECL|method|setThreadPoolExecutor (Executor executor)
 specifier|public
 name|MulticastType
 name|setThreadPoolExecutor
 parameter_list|(
-name|ThreadPoolExecutor
+name|Executor
 name|executor
 parameter_list|)
 block|{
 name|this
 operator|.
-name|threadPoolExecutor
+name|executor
 operator|=
 name|executor
 expr_stmt|;

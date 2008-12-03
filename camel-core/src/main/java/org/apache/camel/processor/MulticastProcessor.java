@@ -76,6 +76,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|Executor
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|RejectedExecutionException
 import|;
 end_import
@@ -380,7 +392,7 @@ name|isParallelProcessing
 decl_stmt|;
 DECL|field|executor
 specifier|private
-name|ThreadPoolExecutor
+name|Executor
 name|executor
 decl_stmt|;
 DECL|field|streaming
@@ -446,7 +458,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MulticastProcessor (Collection<Processor> processors, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ThreadPoolExecutor executor)
+DECL|method|MulticastProcessor (Collection<Processor> processors, AggregationStrategy aggregationStrategy, boolean parallelProcessing, Executor executor)
 specifier|public
 name|MulticastProcessor
 parameter_list|(
@@ -462,7 +474,7 @@ parameter_list|,
 name|boolean
 name|parallelProcessing
 parameter_list|,
-name|ThreadPoolExecutor
+name|Executor
 name|executor
 parameter_list|)
 block|{
@@ -480,7 +492,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MulticastProcessor (Collection<Processor> processors, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ThreadPoolExecutor executor, boolean streaming)
+DECL|method|MulticastProcessor (Collection<Processor> processors, AggregationStrategy aggregationStrategy, boolean parallelProcessing, Executor executor, boolean streaming)
 specifier|public
 name|MulticastProcessor
 parameter_list|(
@@ -496,7 +508,7 @@ parameter_list|,
 name|boolean
 name|parallelProcessing
 parameter_list|,
-name|ThreadPoolExecutor
+name|Executor
 name|executor
 parameter_list|,
 name|boolean
@@ -1268,14 +1280,28 @@ condition|(
 name|executor
 operator|!=
 literal|null
+operator|&&
+name|executor
+operator|instanceof
+name|ThreadPoolExecutor
 condition|)
 block|{
+operator|(
+operator|(
+name|ThreadPoolExecutor
+operator|)
 name|executor
+operator|)
 operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+operator|(
+operator|(
+name|ThreadPoolExecutor
+operator|)
 name|executor
+operator|)
 operator|.
 name|awaitTermination
 argument_list|(
@@ -1315,9 +1341,18 @@ condition|(
 name|executor
 operator|!=
 literal|null
+operator|&&
+name|executor
+operator|instanceof
+name|ThreadPoolExecutor
 condition|)
 block|{
+operator|(
+operator|(
+name|ThreadPoolExecutor
+operator|)
 name|executor
+operator|)
 operator|.
 name|setRejectedExecutionHandler
 argument_list|(
@@ -1414,7 +1449,7 @@ return|;
 block|}
 DECL|method|getExecutor ()
 specifier|public
-name|ThreadPoolExecutor
+name|Executor
 name|getExecutor
 parameter_list|()
 block|{

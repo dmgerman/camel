@@ -48,6 +48,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|Executor
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|RejectedExecutionException
 import|;
 end_import
@@ -72,7 +84,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ThreadPoolExecutor
+name|TimeUnit
 import|;
 end_import
 
@@ -84,7 +96,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|TimeUnit
+name|ThreadPoolExecutor
 import|;
 end_import
 
@@ -180,7 +192,7 @@ name|Service
 block|{
 DECL|field|executor
 specifier|private
-name|ThreadPoolExecutor
+name|Executor
 name|executor
 decl_stmt|;
 DECL|field|stackSize
@@ -501,12 +513,29 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|executor
+operator|instanceof
+name|ThreadPoolExecutor
+condition|)
+block|{
+operator|(
+operator|(
+name|ThreadPoolExecutor
+operator|)
+name|executor
+operator|)
 operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+operator|(
+operator|(
+name|ThreadPoolExecutor
+operator|)
 name|executor
+operator|)
 operator|.
 name|awaitTermination
 argument_list|(
@@ -517,6 +546,7 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getStackSize ()
 specifier|public
@@ -779,7 +809,7 @@ expr_stmt|;
 block|}
 DECL|method|getExecutor ()
 specifier|public
-name|ThreadPoolExecutor
+name|Executor
 name|getExecutor
 parameter_list|()
 block|{
@@ -897,12 +927,12 @@ return|return
 name|executor
 return|;
 block|}
-DECL|method|setExecutor (ThreadPoolExecutor executor)
+DECL|method|setExecutor (Executor executor)
 specifier|public
 name|void
 name|setExecutor
 parameter_list|(
-name|ThreadPoolExecutor
+name|Executor
 name|executor
 parameter_list|)
 block|{

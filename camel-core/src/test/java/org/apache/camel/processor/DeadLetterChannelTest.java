@@ -498,6 +498,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|// START SNIPPET: AsyncProcessor
 specifier|public
 name|boolean
 name|process
@@ -603,6 +604,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|// END SNIPPET: AsyncProcessor
 block|}
 decl_stmt|;
 return|return

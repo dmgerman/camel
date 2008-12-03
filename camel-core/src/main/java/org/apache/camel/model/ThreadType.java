@@ -56,7 +56,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ThreadPoolExecutor
+name|Executor
 import|;
 end_import
 
@@ -383,7 +383,7 @@ annotation|@
 name|XmlTransient
 DECL|field|executor
 specifier|private
-name|ThreadPoolExecutor
+name|Executor
 name|executor
 decl_stmt|;
 DECL|method|ThreadType ()
@@ -412,11 +412,11 @@ operator|=
 name|coreSize
 expr_stmt|;
 block|}
-DECL|method|ThreadType (ThreadPoolExecutor executor)
+DECL|method|ThreadType (Executor executor)
 specifier|public
 name|ThreadType
 parameter_list|(
-name|ThreadPoolExecutor
+name|Executor
 name|executor
 parameter_list|)
 block|{
@@ -879,12 +879,12 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the execute to use      *      * @param executor  the executor      * @return the builder      */
-DECL|method|executor (ThreadPoolExecutor executor)
+DECL|method|executor (Executor executor)
 specifier|public
 name|ThreadType
 name|executor
 parameter_list|(
-name|ThreadPoolExecutor
+name|Executor
 name|executor
 parameter_list|)
 block|{
@@ -1051,7 +1051,7 @@ expr_stmt|;
 block|}
 DECL|method|getExecutor ()
 specifier|public
-name|ThreadPoolExecutor
+name|Executor
 name|getExecutor
 parameter_list|()
 block|{
@@ -1059,12 +1059,12 @@ return|return
 name|executor
 return|;
 block|}
-DECL|method|setExecutor (ThreadPoolExecutor executor)
+DECL|method|setExecutor (Executor executor)
 specifier|public
 name|void
 name|setExecutor
 parameter_list|(
-name|ThreadPoolExecutor
+name|Executor
 name|executor
 parameter_list|)
 block|{

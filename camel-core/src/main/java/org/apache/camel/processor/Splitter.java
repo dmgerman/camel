@@ -74,7 +74,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ThreadPoolExecutor
+name|Executor
 import|;
 end_import
 
@@ -254,7 +254,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Splitter (Expression expression, Processor destination, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ThreadPoolExecutor threadPoolExecutor, boolean streaming)
+DECL|method|Splitter (Expression expression, Processor destination, AggregationStrategy aggregationStrategy, boolean parallelProcessing, Executor executor, boolean streaming)
 specifier|public
 name|Splitter
 parameter_list|(
@@ -270,8 +270,8 @@ parameter_list|,
 name|boolean
 name|parallelProcessing
 parameter_list|,
-name|ThreadPoolExecutor
-name|threadPoolExecutor
+name|Executor
+name|executor
 parameter_list|,
 name|boolean
 name|streaming
@@ -290,7 +290,7 @@ name|aggregationStrategy
 argument_list|,
 name|parallelProcessing
 argument_list|,
-name|threadPoolExecutor
+name|executor
 argument_list|,
 name|streaming
 argument_list|)

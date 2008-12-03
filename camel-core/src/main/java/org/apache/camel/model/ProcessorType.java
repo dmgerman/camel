@@ -104,7 +104,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ThreadPoolExecutor
+name|Executor
 import|;
 end_import
 
@@ -1244,7 +1244,7 @@ name|answer
 return|;
 block|}
 comment|/**      * Causes subsequent processors to be called asynchronously      *      * @param executor the executor that will be used to process      *                 messages in subsequent processors.      * @return a ThreadType builder that can be used to further configure the      *         the thread pool.      */
-DECL|method|thread (ThreadPoolExecutor executor)
+DECL|method|thread (Executor executor)
 specifier|public
 name|ProcessorType
 argument_list|<
@@ -1252,7 +1252,7 @@ name|Type
 argument_list|>
 name|thread
 parameter_list|(
-name|ThreadPoolExecutor
+name|Executor
 name|executor
 parameter_list|)
 block|{
@@ -1897,8 +1897,8 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param threadPoolExecutor override the default {@link ThreadPoolExecutor}       * @return the builder      */
-DECL|method|split (Expression expression, boolean parallelProcessing, ThreadPoolExecutor threadPoolExecutor)
+comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param executor override the default {@link Executor}      * @return the builder      */
+DECL|method|split (Expression expression, boolean parallelProcessing, Executor executor)
 specifier|public
 name|SplitterType
 name|split
@@ -1909,8 +1909,8 @@ parameter_list|,
 name|boolean
 name|parallelProcessing
 parameter_list|,
-name|ThreadPoolExecutor
-name|threadPoolExecutor
+name|Executor
+name|executor
 parameter_list|)
 block|{
 name|SplitterType
@@ -1936,9 +1936,9 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|.
-name|setThreadPoolExecutor
+name|setExecutor
 argument_list|(
-name|threadPoolExecutor
+name|executor
 argument_list|)
 expr_stmt|;
 return|return
@@ -1986,8 +1986,8 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      /**       *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>       * Creates a splitter allowing you split a message into a number of pieces and process them individually.       *<p>       * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param threadPoolExecutor override the default {@link ThreadPoolExecutor}       * @return the expression clause for the expression on which to split      */
-DECL|method|split (boolean parallelProcessing, ThreadPoolExecutor threadPoolExecutor)
+comment|/**      /**       *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>       * Creates a splitter allowing you split a message into a number of pieces and process them individually.       *<p>       * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param executor override the default {@link Executor}      * @return the expression clause for the expression on which to split      */
+DECL|method|split (boolean parallelProcessing, Executor executor)
 specifier|public
 name|ExpressionClause
 argument_list|<
@@ -1998,8 +1998,8 @@ parameter_list|(
 name|boolean
 name|parallelProcessing
 parameter_list|,
-name|ThreadPoolExecutor
-name|threadPoolExecutor
+name|Executor
+name|executor
 parameter_list|)
 block|{
 name|SplitterType
@@ -2023,9 +2023,9 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|.
-name|setThreadPoolExecutor
+name|setExecutor
 argument_list|(
-name|threadPoolExecutor
+name|executor
 argument_list|)
 expr_stmt|;
 return|return
@@ -2085,8 +2085,8 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param threadPoolExecutor override the default {@link ThreadPoolExecutor}       * @return the builder      */
-DECL|method|split (Expression expression, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ThreadPoolExecutor threadPoolExecutor)
+comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param executor override the default {@link Executor}      * @return the builder      */
+DECL|method|split (Expression expression, AggregationStrategy aggregationStrategy, boolean parallelProcessing, Executor executor)
 specifier|public
 name|SplitterType
 name|split
@@ -2100,8 +2100,8 @@ parameter_list|,
 name|boolean
 name|parallelProcessing
 parameter_list|,
-name|ThreadPoolExecutor
-name|threadPoolExecutor
+name|Executor
+name|executor
 parameter_list|)
 block|{
 name|SplitterType
@@ -2134,9 +2134,9 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|.
-name|setThreadPoolExecutor
+name|setExecutor
 argument_list|(
-name|threadPoolExecutor
+name|executor
 argument_list|)
 expr_stmt|;
 return|return
@@ -2194,8 +2194,8 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param threadPoolExecutor override the default {@link ThreadPoolExecutor}       * @return the expression clause for the expression on which to split      */
-DECL|method|split (AggregationStrategy aggregationStrategy, boolean parallelProcessing, ThreadPoolExecutor threadPoolExecutor)
+comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param executor override the default {@link Executor}      * @return the expression clause for the expression on which to split      */
+DECL|method|split (AggregationStrategy aggregationStrategy, boolean parallelProcessing, Executor executor)
 specifier|public
 name|ExpressionClause
 argument_list|<
@@ -2209,8 +2209,8 @@ parameter_list|,
 name|boolean
 name|parallelProcessing
 parameter_list|,
-name|ThreadPoolExecutor
-name|threadPoolExecutor
+name|Executor
+name|executor
 parameter_list|)
 block|{
 name|SplitterType
@@ -2241,9 +2241,9 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|.
-name|setThreadPoolExecutor
+name|setExecutor
 argument_list|(
-name|threadPoolExecutor
+name|executor
 argument_list|)
 expr_stmt|;
 return|return
