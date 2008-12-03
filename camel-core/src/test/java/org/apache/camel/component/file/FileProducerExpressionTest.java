@@ -183,13 +183,6 @@ argument_list|,
 literal|"${bean:myguidgenerator}.bak"
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
 name|assertFileExists
 argument_list|(
 literal|"target/filelanguage/123.bak"
@@ -211,13 +204,6 @@ argument_list|(
 literal|"file://target/filelanguage?expression=${bean:myguidgenerator}.bak"
 argument_list|,
 literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
 argument_list|)
 expr_stmt|;
 name|assertFileExists
@@ -247,13 +233,6 @@ operator|.
 name|HEADER_FILE_NAME
 argument_list|,
 literal|"myfile-${date:now:yyyyMMdd}.txt"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
 argument_list|)
 expr_stmt|;
 name|String
@@ -297,13 +276,6 @@ argument_list|(
 literal|"file://target/filelanguage?expression=myfile-${date:now:yyyyMMdd}.txt"
 argument_list|,
 literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
 argument_list|)
 expr_stmt|;
 name|String
@@ -356,13 +328,6 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
 name|String
 name|date
 init|=
@@ -408,13 +373,6 @@ argument_list|,
 literal|"foo"
 argument_list|,
 literal|"abc"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
 argument_list|)
 expr_stmt|;
 name|assertFileExists
@@ -471,13 +429,6 @@ argument_list|,
 literal|"birthday"
 argument_list|,
 name|date
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
 argument_list|)
 expr_stmt|;
 name|assertFileExists

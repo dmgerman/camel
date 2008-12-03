@@ -86,6 +86,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|JndiRegistry
@@ -113,6 +129,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -122,13 +153,8 @@ argument_list|,
 literal|"This is a great report"
 argument_list|)
 expr_stmt|;
-comment|// give time for the file to be written before assertions
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 comment|// assert the file exists
 name|File
@@ -225,6 +251,8 @@ operator|.
 name|to
 argument_list|(
 literal|"file://target/test-reports"
+argument_list|,
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}

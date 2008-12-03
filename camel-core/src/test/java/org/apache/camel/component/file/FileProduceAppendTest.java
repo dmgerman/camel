@@ -62,6 +62,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|converter
 operator|.
 name|IOConverter
@@ -88,6 +104,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -97,13 +128,8 @@ argument_list|,
 literal|" World"
 argument_list|)
 expr_stmt|;
-comment|// give time to write to file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 name|String
 name|body
@@ -138,6 +164,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 comment|// create a file with some content we want to append to the existing file
 name|File
 name|in
@@ -160,13 +201,8 @@ argument_list|,
 name|in
 argument_list|)
 expr_stmt|;
-comment|// give time to write to file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 name|String
 name|body
@@ -243,14 +279,6 @@ argument_list|,
 literal|"world.txt"
 argument_list|)
 expr_stmt|;
-comment|// give time to write files
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -290,6 +318,8 @@ operator|.
 name|to
 argument_list|(
 literal|"file://target/test-file-append?append=true"
+argument_list|,
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}

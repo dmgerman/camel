@@ -305,8 +305,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|consumer
-operator|=
 name|createFileConsumer
 argument_list|(
 literal|"file://target/foo/bar?consumer.recursiv=true"

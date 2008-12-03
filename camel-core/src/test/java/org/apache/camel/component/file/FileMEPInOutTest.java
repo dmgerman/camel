@@ -142,13 +142,8 @@ argument_list|,
 literal|"FileMEPInOutTest.txt"
 argument_list|)
 expr_stmt|;
-comment|// give Camel time to create the file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 name|File
 name|file
@@ -177,11 +172,6 @@ argument_list|(
 name|file
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()

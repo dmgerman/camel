@@ -243,13 +243,6 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|250
-argument_list|)
-expr_stmt|;
 name|File
 name|file
 init|=
