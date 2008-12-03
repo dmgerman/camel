@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.list
+DECL|package|org.apache.camel.component.browse
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|list
+name|browse
 package|;
 end_package
 
@@ -223,10 +223,10 @@ comment|/**  * An endpoint which maintains a {@link List} of {@link Exchange} in
 end_comment
 
 begin_class
-DECL|class|ListEndpoint
+DECL|class|BrowseEndpoint
 specifier|public
 class|class
-name|ListEndpoint
+name|BrowseEndpoint
 extends|extends
 name|DefaultEndpoint
 implements|implements
@@ -263,9 +263,9 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-DECL|method|ListEndpoint (String uri, CamelContext camelContext)
+DECL|method|BrowseEndpoint (String uri, CamelContext camelContext)
 specifier|public
-name|ListEndpoint
+name|BrowseEndpoint
 parameter_list|(
 name|String
 name|uri
@@ -282,9 +282,9 @@ name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ListEndpoint (String uri, Component component)
+DECL|method|BrowseEndpoint (String uri, Component component)
 specifier|public
-name|ListEndpoint
+name|BrowseEndpoint
 parameter_list|(
 name|String
 name|uri
@@ -301,9 +301,9 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ListEndpoint (String endpointUri)
+DECL|method|BrowseEndpoint (String endpointUri)
 specifier|public
-name|ListEndpoint
+name|BrowseEndpoint
 parameter_list|(
 name|String
 name|endpointUri

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.list
+DECL|package|org.apache.camel.component.browse
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|list
+name|browse
 package|;
 end_package
 
@@ -127,10 +127,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ListTest
+DECL|class|BrowseTest
 specifier|public
 class|class
-name|ListTest
+name|BrowseTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -146,7 +146,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|ListTest
+name|BrowseTest
 operator|.
 name|class
 argument_list|)
@@ -177,7 +177,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"list:foo"
+literal|"browse:foo"
 argument_list|,
 name|body1
 argument_list|)
@@ -186,7 +186,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"list:foo"
+literal|"browse:foo"
 argument_list|,
 name|body2
 argument_list|)
@@ -323,12 +323,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"list:foo"
+literal|"browse:foo"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"list:bar"
+literal|"browse:bar"
 argument_list|)
 expr_stmt|;
 block|}

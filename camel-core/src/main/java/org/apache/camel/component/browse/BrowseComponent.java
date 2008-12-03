@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.list
+DECL|package|org.apache.camel.component.browse
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|list
+name|browse
 package|;
 end_package
 
@@ -55,14 +55,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://activemq.apache.org/camel/list.html">List</a> component.  *  * @version $Revision$  */
+comment|/**  * The<a href="http://activemq.apache.org/camel/browse.html">browse</a> component.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ListComponent
+DECL|class|BrowseComponent
 specifier|public
 class|class
-name|ListComponent
+name|BrowseComponent
 extends|extends
 name|DefaultComponent
 block|{
@@ -85,7 +85,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|ListEndpoint
+name|BrowseEndpoint
 argument_list|(
 name|uri
 argument_list|,
