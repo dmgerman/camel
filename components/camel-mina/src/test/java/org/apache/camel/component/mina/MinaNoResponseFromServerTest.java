@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|CamelExchangeException
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExchangeException
+name|ContextTestSupport
 import|;
 end_import
 

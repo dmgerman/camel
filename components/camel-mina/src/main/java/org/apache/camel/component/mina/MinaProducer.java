@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
+name|CamelExchangeException
 import|;
 end_import
 
@@ -97,18 +97,6 @@ operator|.
 name|camel
 operator|.
 name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelExchangeException
 import|;
 end_import
 
@@ -601,9 +589,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|CamelExchangeException
 argument_list|(
 literal|"Response Handler had an exception"
+argument_list|,
+name|exchange
 argument_list|,
 name|handler
 operator|.
