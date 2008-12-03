@@ -99,7 +99,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: 630568 $  */
+comment|/**  * Tests filtering using Camel Test   * @version $Revision: 630568 $  */
+end_comment
+
+begin_comment
+comment|// START SNIPPET: example
 end_comment
 
 begin_class
@@ -203,6 +207,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -248,6 +254,10 @@ return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: example
+end_comment
 
 end_unit
 

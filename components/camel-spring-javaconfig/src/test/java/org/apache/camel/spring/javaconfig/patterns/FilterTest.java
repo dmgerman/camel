@@ -195,7 +195,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * Tests filtering using Spring Test and Java Config  *   * @version $Revision: 1.1 $  */
+end_comment
+
+begin_comment
+comment|// START SNIPPET: example
 end_comment
 
 begin_class
@@ -374,6 +378,10 @@ block|}
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: example
+end_comment
 
 end_unit
 

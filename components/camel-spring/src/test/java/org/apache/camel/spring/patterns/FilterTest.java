@@ -115,7 +115,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test case using Spring Test with XML Config  *  * @version $Revision: 630568 $  */
+comment|/**  * Tests filtering using Spring Test and XML Config   *  * @version $Revision: 630568 $  */
+end_comment
+
+begin_comment
+comment|// START SNIPPET: example
 end_comment
 
 begin_class
@@ -227,6 +231,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: example
+end_comment
 
 end_unit
 
