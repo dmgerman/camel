@@ -199,6 +199,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: ex
 comment|// only entries with Camel in the title will get through the filter
 name|from
 argument_list|(
@@ -224,6 +225,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: ex
 block|}
 block|}
 return|;
