@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|ArrayList
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
+name|Collections
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|Map
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|Set
 import|;
 end_import
 
@@ -188,8 +188,7 @@ name|Throwable
 argument_list|>
 name|it
 init|=
-operator|new
-name|ExceptionIterator
+name|createExceptionIterator
 argument_list|(
 name|exception
 argument_list|)
@@ -205,7 +204,7 @@ block|{
 name|ExceptionType
 name|type
 init|=
-name|doGetExceptionPolicy
+name|findMatchedExceptionPolicy
 argument_list|(
 name|exceptionPolicices
 argument_list|,
@@ -234,10 +233,10 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|doGetExceptionPolicy (Map<ExceptionPolicyKey, ExceptionType> exceptionPolicices, Exchange exchange, Throwable exception)
+DECL|method|findMatchedExceptionPolicy (Map<ExceptionPolicyKey, ExceptionType> exceptionPolicices, Exchange exchange, Throwable exception)
 specifier|private
 name|ExceptionType
-name|doGetExceptionPolicy
+name|findMatchedExceptionPolicy
 parameter_list|(
 name|Map
 argument_list|<
@@ -577,6 +576,27 @@ name|exchange
 argument_list|)
 return|;
 block|}
+comment|/**      * Strategy method creating the iterator to walk the exception in the order Camel should use      * for find the {@link ExceptionType} should be used.      *<p/>      * The default iterator will walk from the bottom upwards      * (the last caused by going upwards to the exception)      *      * @param exception  the exception      * @return the iterator      */
+DECL|method|createExceptionIterator (Throwable exception)
+specifier|protected
+name|Iterator
+argument_list|<
+name|Throwable
+argument_list|>
+name|createExceptionIterator
+parameter_list|(
+name|Throwable
+name|exception
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ExceptionIterator
+argument_list|(
+name|exception
+argument_list|)
+return|;
+block|}
 DECL|method|getInheritanceLevel (Class clazz)
 specifier|private
 specifier|static
@@ -620,9 +640,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Iterator that walks the exception hieracy in the order we should match.      *<p/>      * Will default walk from bottom upwards to the root exception      */
 DECL|class|ExceptionIterator
-specifier|protected
+specifier|private
 class|class
 name|ExceptionIterator
 implements|implements
