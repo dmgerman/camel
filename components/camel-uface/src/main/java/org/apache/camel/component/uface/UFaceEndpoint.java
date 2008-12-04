@@ -50,9 +50,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|list
+name|browse
 operator|.
-name|ListEndpoint
+name|BrowseEndpoint
 import|;
 end_import
 
@@ -114,7 +114,7 @@ specifier|public
 class|class
 name|UFaceEndpoint
 extends|extends
-name|ListEndpoint
+name|BrowseEndpoint
 block|{
 DECL|method|UFaceEndpoint (String uri, UFaceComponent component)
 specifier|public
