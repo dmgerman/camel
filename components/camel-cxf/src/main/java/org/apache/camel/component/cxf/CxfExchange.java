@@ -282,7 +282,8 @@ name|exchange
 operator|=
 name|exchange
 operator|.
-name|exchange
+name|getExchange
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|CxfExchange (CamelContext context, ExchangePattern pattern, Message inMessage)
