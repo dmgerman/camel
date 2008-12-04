@@ -141,6 +141,13 @@ name|filter
 init|=
 literal|true
 decl_stmt|;
+DECL|field|feedHeader
+specifier|private
+name|boolean
+name|feedHeader
+init|=
+literal|true
+decl_stmt|;
 DECL|method|FeedEndpoint (String endpointUri, FeedComponent component, String feedUri)
 specifier|public
 name|FeedEndpoint
@@ -366,6 +373,12 @@ init|=
 name|createExchange
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|isFeedHeader
+argument_list|()
+condition|)
+block|{
 name|exchange
 operator|.
 name|getIn
@@ -378,6 +391,7 @@ argument_list|,
 name|feed
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|exchange
 return|;
@@ -515,6 +529,33 @@ name|filter
 operator|=
 name|filter
 expr_stmt|;
+block|}
+comment|/**      * Sets whether to add the feed object as a header      */
+DECL|method|setFeedHeader (boolean feedHeader)
+specifier|public
+name|void
+name|setFeedHeader
+parameter_list|(
+name|boolean
+name|feedHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|feedHeader
+operator|=
+name|feedHeader
+expr_stmt|;
+block|}
+DECL|method|isFeedHeader ()
+specifier|public
+name|boolean
+name|isFeedHeader
+parameter_list|()
+block|{
+return|return
+name|feedHeader
+return|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
