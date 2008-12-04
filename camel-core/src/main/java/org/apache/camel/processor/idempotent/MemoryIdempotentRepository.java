@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|IdempotentRepository
@@ -85,7 +73,6 @@ argument_list|>
 block|{
 DECL|field|cache
 specifier|private
-specifier|final
 name|Map
 argument_list|<
 name|String
@@ -156,7 +143,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new memory based repository using the given {@link Map} to      * use to store the processed message ids.      *<p/>      * Care should be taken to use a suitable underlying {@link Map} to avoid this class being a      * memory leak.       */
+comment|/**      * Creates a new memory based repository using the given {@link Map} to      * use to store the processed message ids.      *<p/>      * Care should be taken to use a suitable underlying {@link Map} to avoid this class being a      * memory leak.      *      * @param cache  the cache      */
 DECL|method|memoryIdempotentRepository (Map<String, Object> cache)
 specifier|public
 specifier|static
@@ -248,6 +235,42 @@ name|key
 argument_list|)
 return|;
 block|}
+block|}
+DECL|method|getCache ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getCache
+parameter_list|()
+block|{
+return|return
+name|cache
+return|;
+block|}
+DECL|method|setCache (Map<String, Object> cache)
+specifier|public
+name|void
+name|setCache
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|cache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cache
+operator|=
+name|cache
+expr_stmt|;
 block|}
 block|}
 end_class
