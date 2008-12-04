@@ -81,6 +81,27 @@ name|Object
 argument_list|>
 name|cache
 decl_stmt|;
+DECL|method|MemoryIdempotentRepository ()
+specifier|public
+name|MemoryIdempotentRepository
+parameter_list|()
+block|{
+name|this
+operator|.
+name|cache
+operator|=
+operator|new
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|MemoryIdempotentRepository (Map<String, Object> set)
 specifier|public
 name|MemoryIdempotentRepository
@@ -110,10 +131,9 @@ name|memoryIdempotentRepository
 parameter_list|()
 block|{
 return|return
-name|memoryIdempotentRepository
-argument_list|(
-literal|1000
-argument_list|)
+operator|new
+name|MemoryIdempotentRepository
+argument_list|()
 return|;
 block|}
 comment|/**      * Creates a new memory based repository using a {@link LRUCache}.      *      * @param cacheSize  the cache size      */

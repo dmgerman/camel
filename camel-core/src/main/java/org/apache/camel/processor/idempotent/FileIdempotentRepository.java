@@ -70,6 +70,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -189,30 +203,59 @@ name|Object
 argument_list|>
 name|cache
 decl_stmt|;
-DECL|field|store
+DECL|field|fileStore
 specifier|private
 name|File
-name|store
+name|fileStore
 decl_stmt|;
-DECL|field|maxStoreSize
+DECL|field|maxFileStoreSize
 specifier|private
 name|long
-name|maxStoreSize
+name|maxFileStoreSize
 init|=
 literal|1024
 operator|*
 literal|1000L
 decl_stmt|;
 comment|// 1mb store file
-DECL|method|FileIdempotentRepository (final File store, final Map<String, Object> set)
+DECL|field|init
+specifier|private
+name|AtomicBoolean
+name|init
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
+decl_stmt|;
+DECL|method|FileIdempotentRepository ()
+specifier|public
+name|FileIdempotentRepository
+parameter_list|()
+block|{
+comment|// default use a 1st level cache
+name|this
+operator|.
+name|cache
+operator|=
+operator|new
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|FileIdempotentRepository (File fileStore, Map<String, Object> set)
 specifier|public
 name|FileIdempotentRepository
 parameter_list|(
-specifier|final
 name|File
-name|store
+name|fileStore
 parameter_list|,
-specifier|final
 name|Map
 argument_list|<
 name|String
@@ -224,9 +267,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|store
+name|fileStore
 operator|=
-name|store
+name|fileStore
 expr_stmt|;
 name|this
 operator|.
@@ -234,39 +277,36 @@ name|cache
 operator|=
 name|set
 expr_stmt|;
-name|loadStore
-argument_list|()
-expr_stmt|;
 block|}
-comment|/**      * Creates a new file based repository using a {@link org.apache.camel.util.LRUCache}      * as 1st level cache with a default of 1000 entries in the cache.      *      * @param store  the file store      */
-DECL|method|fileIdempotentRepository (File store)
+comment|/**      * Creates a new file based repository using a {@link org.apache.camel.util.LRUCache}      * as 1st level cache with a default of 1000 entries in the cache.      *      * @param fileStore  the file store      */
+DECL|method|fileIdempotentRepository (File fileStore)
 specifier|public
 specifier|static
 name|IdempotentRepository
 name|fileIdempotentRepository
 parameter_list|(
 name|File
-name|store
+name|fileStore
 parameter_list|)
 block|{
 return|return
 name|fileIdempotentRepository
 argument_list|(
-name|store
+name|fileStore
 argument_list|,
 literal|1000
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new file based repository using a {@link org.apache.camel.util.LRUCache}      * as 1st level cache.      *      * @param store  the file store      * @param cacheSize  the cache size      */
-DECL|method|fileIdempotentRepository (File store, int cacheSize)
+comment|/**      * Creates a new file based repository using a {@link org.apache.camel.util.LRUCache}      * as 1st level cache.      *      * @param fileStore  the file store      * @param cacheSize  the cache size      */
+DECL|method|fileIdempotentRepository (File fileStore, int cacheSize)
 specifier|public
 specifier|static
 name|IdempotentRepository
 name|fileIdempotentRepository
 parameter_list|(
 name|File
-name|store
+name|fileStore
 parameter_list|,
 name|int
 name|cacheSize
@@ -275,7 +315,7 @@ block|{
 return|return
 name|fileIdempotentRepository
 argument_list|(
-name|store
+name|fileStore
 argument_list|,
 operator|new
 name|LRUCache
@@ -288,6 +328,54 @@ argument_list|(
 name|cacheSize
 argument_list|)
 argument_list|)
+return|;
+block|}
+comment|/**      * Creates a new file based repository using a {@link org.apache.camel.util.LRUCache}      * as 1st level cache.      *      * @param fileStore  the file store      * @param cacheSize  the cache size      * @param maxFileStoreSize  the max size in bytes for the filestore file       */
+DECL|method|fileIdempotentRepository (File fileStore, int cacheSize, long maxFileStoreSize)
+specifier|public
+specifier|static
+name|IdempotentRepository
+name|fileIdempotentRepository
+parameter_list|(
+name|File
+name|fileStore
+parameter_list|,
+name|int
+name|cacheSize
+parameter_list|,
+name|long
+name|maxFileStoreSize
+parameter_list|)
+block|{
+name|FileIdempotentRepository
+name|repository
+init|=
+operator|new
+name|FileIdempotentRepository
+argument_list|(
+name|fileStore
+argument_list|,
+operator|new
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
+name|cacheSize
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|repository
+operator|.
+name|setMaxFileStoreSize
+argument_list|(
+name|maxFileStoreSize
+argument_list|)
+expr_stmt|;
+return|return
+name|repository
 return|;
 block|}
 comment|/**      * Creates a new file based repository using the given {@link java.util.Map}      * as 1st level cache.      *<p/>      * Care should be taken to use a suitable underlying {@link java.util.Map} to avoid this class being a      * memory leak.      *      * @param store  the file store      * @param cache  the cache to use as 1st level cache      */
@@ -333,6 +421,23 @@ init|(
 name|cache
 init|)
 block|{
+comment|// init store if not loaded before
+if|if
+condition|(
+name|init
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+name|loadStore
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|cache
@@ -360,12 +465,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|store
+name|fileStore
 operator|.
 name|length
 argument_list|()
 operator|<
-name|maxStoreSize
+name|maxFileStoreSize
 condition|)
 block|{
 comment|// just append to store
@@ -402,6 +507,23 @@ init|(
 name|cache
 init|)
 block|{
+comment|// init store if not loaded before
+if|if
+condition|(
+name|init
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+name|loadStore
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|cache
 operator|.
@@ -412,30 +534,30 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|getStore ()
+DECL|method|getFileStore ()
 specifier|public
 name|File
-name|getStore
+name|getFileStore
 parameter_list|()
 block|{
 return|return
-name|store
+name|fileStore
 return|;
 block|}
-DECL|method|setStore (File store)
+DECL|method|setFileStore (File fileStore)
 specifier|public
 name|void
-name|setStore
+name|setFileStore
 parameter_list|(
 name|File
-name|store
+name|fileStore
 parameter_list|)
 block|{
 name|this
 operator|.
-name|store
+name|fileStore
 operator|=
-name|store
+name|fileStore
 expr_stmt|;
 block|}
 DECL|method|getCache ()
@@ -474,31 +596,68 @@ operator|=
 name|cache
 expr_stmt|;
 block|}
-DECL|method|getMaxStoreSize ()
+DECL|method|getMaxFileStoreSize ()
 specifier|public
 name|long
-name|getMaxStoreSize
+name|getMaxFileStoreSize
 parameter_list|()
 block|{
 return|return
-name|maxStoreSize
+name|maxFileStoreSize
 return|;
 block|}
 comment|/**      * Sets the maximum filesize for the file store in bytes.      *<p/>      * The default is 1mb.      */
-DECL|method|setMaxStoreSize (long maxStoreSize)
+DECL|method|setMaxFileStoreSize (long maxFileStoreSize)
 specifier|public
 name|void
-name|setMaxStoreSize
+name|setMaxFileStoreSize
 parameter_list|(
 name|long
-name|maxStoreSize
+name|maxFileStoreSize
 parameter_list|)
 block|{
 name|this
 operator|.
-name|maxStoreSize
+name|maxFileStoreSize
 operator|=
-name|maxStoreSize
+name|maxFileStoreSize
+expr_stmt|;
+block|}
+comment|/**      * Sets the cache size      */
+DECL|method|setCacheSize (int size)
+specifier|public
+name|void
+name|setCacheSize
+parameter_list|(
+name|int
+name|size
+parameter_list|)
+block|{
+if|if
+condition|(
+name|cache
+operator|!=
+literal|null
+condition|)
+block|{
+name|cache
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+name|cache
+operator|=
+operator|new
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
+name|size
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Appends the given message id to the file store      *      * @param messageId  the message id      */
@@ -530,7 +689,7 @@ name|messageId
 operator|+
 literal|" to idempotent filestore: "
 operator|+
-name|store
+name|fileStore
 argument_list|)
 expr_stmt|;
 block|}
@@ -541,12 +700,29 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+comment|// create store if missing
+if|if
+condition|(
+operator|!
+name|fileStore
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|fileStore
+operator|.
+name|createNewFile
+argument_list|()
+expr_stmt|;
+block|}
+comment|// append to store
 name|fos
 operator|=
 operator|new
 name|FileOutputStream
 argument_list|(
-name|store
+name|fileStore
 argument_list|,
 literal|true
 argument_list|)
@@ -623,7 +799,7 @@ name|debug
 argument_list|(
 literal|"Trunking idempotent filestore: "
 operator|+
-name|store
+name|fileStore
 argument_list|)
 expr_stmt|;
 block|}
@@ -639,7 +815,7 @@ operator|=
 operator|new
 name|FileOutputStream
 argument_list|(
-name|store
+name|fileStore
 argument_list|)
 expr_stmt|;
 for|for
@@ -726,14 +902,14 @@ name|trace
 argument_list|(
 literal|"Loading to 1st level cache from idempotent filestore: "
 operator|+
-name|store
+name|fileStore
 argument_list|)
 expr_stmt|;
 block|}
 if|if
 condition|(
 operator|!
-name|store
+name|fileStore
 operator|.
 name|exists
 argument_list|()
@@ -758,7 +934,7 @@ operator|=
 operator|new
 name|Scanner
 argument_list|(
-name|store
+name|fileStore
 argument_list|)
 expr_stmt|;
 name|scanner
@@ -847,7 +1023,7 @@ argument_list|()
 operator|+
 literal|" to the 1st level cache from idempotent filestore: "
 operator|+
-name|store
+name|fileStore
 argument_list|)
 expr_stmt|;
 block|}
