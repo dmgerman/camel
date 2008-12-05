@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Producer to send messages using Cometd and Bayeux protocol.  *   * @version $Revision: 712626 $  */
+comment|/**  * A Producer to send messages using Cometd and Bayeux protocol.  *   * @version $Revision$  */
 end_comment
 
 begin_class

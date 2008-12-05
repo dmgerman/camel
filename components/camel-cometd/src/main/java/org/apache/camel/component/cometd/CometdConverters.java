@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Cometd specific converters.  *  * @version $Revision: 705131 $  */
+comment|/**  * Cometd specific converters.  *  * @version $Revision$  */
 end_comment
 
 begin_class
