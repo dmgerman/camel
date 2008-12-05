@@ -634,7 +634,7 @@ parameter_list|)
 block|{
 specifier|final
 name|File
-name|file
+name|target
 init|=
 name|exchange
 operator|.
@@ -655,7 +655,7 @@ name|trace
 argument_list|(
 literal|"Processing file: "
 operator|+
-name|file
+name|target
 argument_list|)
 expr_stmt|;
 block|}
@@ -678,7 +678,7 @@ condition|)
 block|{
 name|acquireExclusiveReadLock
 argument_list|(
-name|file
+name|target
 argument_list|)
 expr_stmt|;
 block|}
@@ -696,7 +696,7 @@ name|debug
 argument_list|(
 literal|"About to process file: "
 operator|+
-name|file
+name|target
 operator|+
 literal|" using exchange: "
 operator|+
@@ -714,7 +714,7 @@ name|endpoint
 argument_list|,
 name|exchange
 argument_list|,
-name|file
+name|target
 argument_list|)
 condition|)
 block|{
@@ -739,6 +739,16 @@ name|boolean
 name|sync
 parameter_list|)
 block|{
+comment|// must use file from exchange as it can be updated due the preMoveNamePrefix/preMoveNamePostfix options
+specifier|final
+name|File
+name|file
+init|=
+name|exchange
+operator|.
+name|getFile
+argument_list|()
+decl_stmt|;
 name|boolean
 name|failed
 init|=
@@ -870,7 +880,7 @@ name|endpoint
 operator|+
 literal|" can not process file: "
 operator|+
-name|file
+name|target
 argument_list|)
 expr_stmt|;
 block|}

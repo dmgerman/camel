@@ -58,6 +58,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -80,58 +104,18 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|IOConverter
-import|;
-end_import
-
 begin_comment
-comment|/**  * Unit test for the FileRenameStrategy  */
+comment|/**  * Unit test for the FileRenameStrategy using preMoveExpression options  */
 end_comment
 
 begin_class
-DECL|class|FileProducerRenameStrategyTest
+DECL|class|FileConsumerBeginExpressionRenameStrategyTest
 specifier|public
 class|class
-name|FileProducerRenameStrategyTest
+name|FileConsumerBeginExpressionRenameStrategyTest
 extends|extends
 name|ContextTestSupport
 block|{
-annotation|@
-name|Override
-DECL|method|tearDown ()
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
-name|deleteDirectory
-argument_list|(
-literal|"target/done"
-argument_list|)
-expr_stmt|;
-name|deleteDirectory
-argument_list|(
-literal|"target/reports"
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|testRenameSuccess ()
 specifier|public
 name|void
@@ -142,7 +126,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/done"
+literal|"target/inprogress"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
@@ -158,6 +142,13 @@ argument_list|(
 literal|"mock:report"
 argument_list|)
 decl_stmt|;
+name|mock
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|mock
 operator|.
 name|expectedBodiesReceived
@@ -180,12 +171,6 @@ argument_list|,
 literal|"paris.txt"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-comment|// sleep to let the file consumer do its renaming
 name|Thread
 operator|.
 name|sleep
@@ -193,29 +178,10 @@ argument_list|(
 literal|100
 argument_list|)
 expr_stmt|;
-comment|// content of file should be Hello Paris
-name|String
-name|content
-init|=
-name|IOConverter
+name|mock
 operator|.
-name|toString
-argument_list|(
-operator|new
-name|File
-argument_list|(
-literal|"./target/done/paris.txt"
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"The file should have been renamed"
-argument_list|,
-literal|"Hello Paris"
-argument_list|,
-name|content
-argument_list|)
+name|assertIsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testRenameFileExists ()
@@ -228,7 +194,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/done"
+literal|"target/inprogress"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
@@ -236,14 +202,14 @@ argument_list|(
 literal|"target/reports"
 argument_list|)
 expr_stmt|;
-comment|// create a file in done to let there be a duplicate file
+comment|// create a file in inprogress to let there be a duplicate file
 name|File
 name|file
 init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done"
+literal|"target/inprogress"
 argument_list|)
 decl_stmt|;
 name|file
@@ -257,7 +223,7 @@ init|=
 operator|new
 name|FileWriter
 argument_list|(
-literal|"./target/done/london.txt"
+literal|"./target/inprogress/london.bak"
 argument_list|)
 decl_stmt|;
 name|fw
@@ -307,12 +273,6 @@ argument_list|,
 literal|"london.txt"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-comment|// sleep to let the file consumer do its renaming
 name|Thread
 operator|.
 name|sleep
@@ -320,29 +280,10 @@ argument_list|(
 literal|100
 argument_list|)
 expr_stmt|;
-comment|// content of file should be Hello London
-name|String
-name|content
-init|=
-name|IOConverter
+name|mock
 operator|.
-name|toString
-argument_list|(
-operator|new
-name|File
-argument_list|(
-literal|"./target/done/london.txt"
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"The file should have been renamed replacing any existing files"
-argument_list|,
-literal|"Hello London"
-argument_list|,
-name|content
-argument_list|)
+name|assertIsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
@@ -367,7 +308,53 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/reports?moveNamePrefix=../done/&consumer.delay=5000"
+literal|"file://target/reports?preMoveExpression=../inprogress/${file:name.noext}.bak&consumer.delay=5000"
+argument_list|)
+operator|.
+name|process
+argument_list|(
+operator|new
+name|Processor
+argument_list|()
+block|{
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|FileExchange
+name|fe
+init|=
+operator|(
+name|FileExchange
+operator|)
+name|exchange
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"The file should have been move to inprogress"
+argument_list|,
+literal|"inprogress"
+argument_list|,
+name|fe
+operator|.
+name|getFile
+argument_list|()
+operator|.
+name|getParentFile
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 operator|.
 name|to
