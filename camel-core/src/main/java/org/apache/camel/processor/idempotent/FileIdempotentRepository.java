@@ -283,6 +283,9 @@ DECL|method|fileIdempotentRepository (File fileStore)
 specifier|public
 specifier|static
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|fileIdempotentRepository
 parameter_list|(
 name|File
@@ -303,6 +306,9 @@ DECL|method|fileIdempotentRepository (File fileStore, int cacheSize)
 specifier|public
 specifier|static
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|fileIdempotentRepository
 parameter_list|(
 name|File
@@ -335,6 +341,9 @@ DECL|method|fileIdempotentRepository (File fileStore, int cacheSize, long maxFil
 specifier|public
 specifier|static
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|fileIdempotentRepository
 parameter_list|(
 name|File
@@ -383,6 +392,9 @@ DECL|method|fileIdempotentRepository (File store, Map<String, Object> cache)
 specifier|public
 specifier|static
 name|IdempotentRepository
+argument_list|<
+name|String
+argument_list|>
 name|fileIdempotentRepository
 parameter_list|(
 name|File
@@ -789,13 +801,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Trunking idempotent filestore: "
 operator|+
