@@ -1253,6 +1253,48 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Validates that the assertions fail on this endpoint       * @param timeoutForEmptyEndpoints the timeout in milliseconds that we      *        should wait for the test to be true      */
+DECL|method|assertIsNotSatisfied (long timeoutForEmptyEndpoints)
+specifier|public
+name|void
+name|assertIsNotSatisfied
+parameter_list|(
+name|long
+name|timeoutForEmptyEndpoints
+parameter_list|)
+throws|throws
+name|InterruptedException
+block|{
+try|try
+block|{
+name|assertIsSatisfied
+argument_list|(
+name|timeoutForEmptyEndpoints
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected assertion failure!"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|AssertionError
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Caught expected failure: "
+operator|+
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|/**      * Specifies the expected number of message exchanges that should be      * received by this endpoint      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
 DECL|method|expectedMessageCount (int expectedCount)
 specifier|public

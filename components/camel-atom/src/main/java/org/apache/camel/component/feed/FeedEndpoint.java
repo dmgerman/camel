@@ -148,6 +148,13 @@ name|feedHeader
 init|=
 literal|true
 decl_stmt|;
+DECL|field|sortEntries
+specifier|private
+name|boolean
+name|sortEntries
+init|=
+literal|false
+decl_stmt|;
 DECL|method|FeedEndpoint (String endpointUri, FeedComponent component, String feedUri)
 specifier|public
 name|FeedEndpoint
@@ -555,6 +562,33 @@ parameter_list|()
 block|{
 return|return
 name|feedHeader
+return|;
+block|}
+comment|/**      * Sets whether to sort entries by published date. Only works when splitEntries = true.      */
+DECL|method|setSortEntries (boolean sortEntries)
+specifier|public
+name|void
+name|setSortEntries
+parameter_list|(
+name|boolean
+name|sortEntries
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sortEntries
+operator|=
+name|sortEntries
+expr_stmt|;
+block|}
+DECL|method|isSortEntries ()
+specifier|public
+name|boolean
+name|isSortEntries
+parameter_list|()
+block|{
+return|return
+name|sortEntries
 return|;
 block|}
 comment|// Implementation methods

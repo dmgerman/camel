@@ -1419,7 +1419,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * Sets the in batch size for number of exchanges recieved      *      * @param batchSize  the batch size      * @return builder      */
+comment|/**      * Sets the in batch size for number of exchanges received      *      * @param batchSize  the batch size      * @return builder      */
 DECL|method|batchSize (int batchSize)
 specifier|public
 name|AggregatorType

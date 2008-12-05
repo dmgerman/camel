@@ -131,7 +131,7 @@ name|int
 name|size
 parameter_list|()
 function_decl|;
-comment|/**      * Clears this colleciton      */
+comment|/**      * Clears this collection      */
 DECL|method|clear ()
 name|void
 name|clear
