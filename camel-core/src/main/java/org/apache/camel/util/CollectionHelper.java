@@ -97,7 +97,7 @@ specifier|private
 name|CollectionHelper
 parameter_list|()
 block|{     }
-comment|/**      * Returns the size of the collection if it can be determined to be a collection      */
+comment|/**      * Returns the size of the collection if it can be determined to be a collection      *      * @param value the collection      * @return the size, or<tt>null</tt> if not a collection      */
 DECL|method|size (Object value)
 specifier|public
 specifier|static
@@ -322,6 +322,72 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Filters the given list to skip instanceof filter objects.      *       * @param list  the list      * @param filters  objects to skip      * @return a new list without the filtered objects      */
+DECL|method|filterList (List list, Object... filters)
+specifier|public
+specifier|static
+name|List
+name|filterList
+parameter_list|(
+name|List
+name|list
+parameter_list|,
+name|Object
+modifier|...
+name|filters
+parameter_list|)
+block|{
+name|List
+name|answer
+init|=
+operator|new
+name|ArrayList
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|Object
+name|o
+range|:
+name|list
+control|)
+block|{
+for|for
+control|(
+name|Object
+name|filter
+range|:
+name|filters
+control|)
+block|{
+if|if
+condition|(
+operator|!
+name|o
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|isInstance
+argument_list|(
+name|filter
+argument_list|)
+condition|)
+block|{
+name|answer
+operator|.
+name|add
+argument_list|(
+name|o
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+return|return
+name|answer
+return|;
 block|}
 block|}
 end_class
