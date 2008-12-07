@@ -758,6 +758,38 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|notEmpty (String value, String name)
+specifier|public
+specifier|static
+name|void
+name|notEmpty
+parameter_list|(
+name|String
+name|value
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+block|{
+if|if
+condition|(
+name|isNullOrBlank
+argument_list|(
+name|value
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|name
+operator|+
+literal|" must be specified and not empty"
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|method|splitOnCharacter (String value, String needle, int count)
 specifier|public
 specifier|static
