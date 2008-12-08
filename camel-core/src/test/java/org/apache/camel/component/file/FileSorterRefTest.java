@@ -111,7 +111,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filesorter/?sorterRef=mySorter"
+literal|"file://target/filesorter/?sorter=#mySorter"
 decl_stmt|;
 annotation|@
 name|Override

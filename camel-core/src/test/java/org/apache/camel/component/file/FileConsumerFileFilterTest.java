@@ -111,7 +111,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filefilter/?fileFilterRef=myFilter"
+literal|"file://target/filefilter/?filter=#myFilter"
 decl_stmt|;
 annotation|@
 name|Override

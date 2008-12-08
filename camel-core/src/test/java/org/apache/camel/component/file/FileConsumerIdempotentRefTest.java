@@ -209,7 +209,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/idempotent/?idempotent=true&idempotentRepositoryRef=myRepo&moveNamePrefix=done/"
+literal|"file://target/idempotent/?idempotent=true&idempotentRepository=#myRepo&moveNamePrefix=done/"
 argument_list|)
 operator|.
 name|to

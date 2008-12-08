@@ -277,7 +277,6 @@ expr_stmt|;
 block|}
 DECL|method|poll ()
 specifier|protected
-specifier|synchronized
 name|void
 name|poll
 parameter_list|()
@@ -315,7 +314,7 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|getFileSorter
+name|getSorter
 argument_list|()
 operator|!=
 literal|null
@@ -329,7 +328,7 @@ name|files
 argument_list|,
 name|endpoint
 operator|.
-name|getFileSorter
+name|getSorter
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -397,7 +396,7 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|getExchangeSorter
+name|getSortBy
 argument_list|()
 operator|!=
 literal|null
@@ -411,7 +410,7 @@ name|exchanges
 argument_list|,
 name|endpoint
 operator|.
-name|getExchangeSorter
+name|getSortBy
 argument_list|()
 argument_list|)
 expr_stmt|;

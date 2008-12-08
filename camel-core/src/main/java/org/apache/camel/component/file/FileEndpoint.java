@@ -478,21 +478,21 @@ specifier|private
 name|FileFilter
 name|filter
 decl_stmt|;
-DECL|field|fileSorter
+DECL|field|sorter
 specifier|private
 name|Comparator
 argument_list|<
 name|File
 argument_list|>
-name|fileSorter
+name|sorter
 decl_stmt|;
-DECL|field|exchangeSorter
+DECL|field|sortBy
 specifier|private
 name|Comparator
 argument_list|<
 name|FileExchange
 argument_list|>
-name|exchangeSorter
+name|sortBy
 decl_stmt|;
 DECL|method|FileEndpoint (File file, String endpointUri, FileComponent component)
 specifier|protected
@@ -1522,80 +1522,80 @@ operator|=
 name|filter
 expr_stmt|;
 block|}
-DECL|method|getFileSorter ()
+DECL|method|getSorter ()
 specifier|public
 name|Comparator
 argument_list|<
 name|File
 argument_list|>
-name|getFileSorter
+name|getSorter
 parameter_list|()
 block|{
 return|return
-name|fileSorter
+name|sorter
 return|;
 block|}
-DECL|method|setFileSorter (Comparator<File> fileSorter)
+DECL|method|setSorter (Comparator<File> sorter)
 specifier|public
 name|void
-name|setFileSorter
+name|setSorter
 parameter_list|(
 name|Comparator
 argument_list|<
 name|File
 argument_list|>
-name|fileSorter
+name|sorter
 parameter_list|)
 block|{
 name|this
 operator|.
-name|fileSorter
+name|sorter
 operator|=
-name|fileSorter
+name|sorter
 expr_stmt|;
 block|}
-DECL|method|getExchangeSorter ()
+DECL|method|getSortBy ()
 specifier|public
 name|Comparator
 argument_list|<
 name|FileExchange
 argument_list|>
-name|getExchangeSorter
+name|getSortBy
 parameter_list|()
 block|{
 return|return
-name|exchangeSorter
+name|sortBy
 return|;
 block|}
-DECL|method|setExchangeSorter (Comparator<FileExchange> exchangeSorter)
+DECL|method|setSortBy (Comparator<FileExchange> sortBy)
 specifier|public
 name|void
-name|setExchangeSorter
+name|setSortBy
 parameter_list|(
 name|Comparator
 argument_list|<
 name|FileExchange
 argument_list|>
-name|exchangeSorter
+name|sortBy
 parameter_list|)
 block|{
 name|this
 operator|.
-name|exchangeSorter
+name|sortBy
 operator|=
-name|exchangeSorter
+name|sortBy
 expr_stmt|;
 block|}
-DECL|method|setExchangeSorter (String expression)
+DECL|method|setSortBy (String expression)
 specifier|public
 name|void
-name|setExchangeSorter
+name|setSortBy
 parameter_list|(
 name|String
 name|expression
 parameter_list|)
 block|{
-name|setExchangeSorter
+name|setSortBy
 argument_list|(
 name|expression
 argument_list|,
@@ -1603,10 +1603,10 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setExchangeSorter (String expression, boolean reverse)
+DECL|method|setSortBy (String expression, boolean reverse)
 specifier|public
 name|void
-name|setExchangeSorter
+name|setSortBy
 parameter_list|(
 name|String
 name|expression
@@ -1615,7 +1615,7 @@ name|boolean
 name|reverse
 parameter_list|)
 block|{
-name|setExchangeSorter
+name|setSortBy
 argument_list|(
 name|DefaultFileSorter
 operator|.
