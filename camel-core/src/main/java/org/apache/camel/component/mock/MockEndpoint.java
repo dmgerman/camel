@@ -554,6 +554,17 @@ name|init
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|MockEndpoint ()
+specifier|public
+name|MockEndpoint
+parameter_list|()
+block|{
+name|this
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * A helper method to resolve the mock endpoint of the given URI on the given context      *      * @param context the camel context to try resolve the mock endpoint from      * @param uri the uri of the endpoint to resolve      * @return the endpoint      */
 DECL|method|resolve (CamelContext context, String uri)
 specifier|public

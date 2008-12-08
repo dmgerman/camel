@@ -840,6 +840,30 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Sets the endpointUri if it has not been specified yet via some kind of dependency injection mechanism.      * This allows dependency injection frameworks such as Spring or Guice to set the default endpoint URI in cases      * where it has not been explicitly configured using the name/context in which an Endpoint is created.      */
+DECL|method|setEndpointUriIfNotSpecified (String value)
+specifier|public
+name|void
+name|setEndpointUriIfNotSpecified
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+name|endpointUri
+operator|==
+literal|null
+condition|)
+block|{
+name|setEndpointUri
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|setEndpointUri (String endpointUri)
 specifier|protected
 name|void
