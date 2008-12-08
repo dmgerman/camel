@@ -385,7 +385,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/idempotent/?idempotent=true&idempotentRepositoryRef=jpaStore&moveNamePrefix=done/"
+literal|"file://target/idempotent/?idempotent=true&idempotentRepository=#jpaStore&moveNamePrefix=done/"
 argument_list|)
 operator|.
 name|to
