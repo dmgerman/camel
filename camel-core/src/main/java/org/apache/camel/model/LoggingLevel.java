@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to configure the logging levels  *  * @version $Revision: 703680 $  */
+comment|/**  * Used to configure the logging levels  *  * @version $Revision$  */
 end_comment
 
 begin_enum

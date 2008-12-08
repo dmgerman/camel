@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A proxy creation failed trying to create a proxy of a given type and on an given endpoint  *  * @version $Revision: 1.1 $  */
+comment|/**  * A proxy creation failed trying to create a proxy of a given type and on an given endpoint  *  * @version $Revision$  */
 end_comment
 
 begin_class

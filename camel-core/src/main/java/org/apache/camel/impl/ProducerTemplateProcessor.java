@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple processor which just sends the message exchange to the default endpoint of the {@link ProducerTemplate}  *  * @version $Revision: 1.1 $  */
+comment|/**  * A simple processor which just sends the message exchange to the default endpoint of the {@link ProducerTemplate}  *  * @version $Revision$  */
 end_comment
 
 begin_class
