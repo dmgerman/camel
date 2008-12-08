@@ -366,7 +366,7 @@ block|}
 name|String
 name|queue
 init|=
-name|getDestination
+name|getDestinationName
 argument_list|()
 decl_stmt|;
 name|JmsOperations
