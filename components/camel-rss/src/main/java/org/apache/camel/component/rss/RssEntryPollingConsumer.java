@@ -233,7 +233,7 @@ argument_list|(
 name|list
 argument_list|,
 operator|new
-name|PublishedDateComparator
+name|RssDateComparator
 argument_list|()
 argument_list|)
 expr_stmt|;
