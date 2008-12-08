@@ -62,6 +62,9 @@ name|value
 operator|.
 name|getClass
 argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
 else|:
 literal|null
 operator|)

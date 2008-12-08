@@ -260,7 +260,7 @@ specifier|private
 name|IntrospectionSupport
 parameter_list|()
 block|{     }
-DECL|method|getProperties (Object target, Map props, String optionPrefix)
+DECL|method|getProperties (Object target, Map properties, String optionPrefix)
 specifier|public
 specifier|static
 name|boolean
@@ -270,47 +270,35 @@ name|Object
 name|target
 parameter_list|,
 name|Map
-name|props
+name|properties
 parameter_list|,
 name|String
 name|optionPrefix
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|target
+argument_list|,
+literal|"target"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|properties
+argument_list|,
+literal|"properties"
+argument_list|)
+expr_stmt|;
 name|boolean
 name|rc
 init|=
 literal|false
 decl_stmt|;
-if|if
-condition|(
-name|target
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"target was null."
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|props
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"props was null."
-argument_list|)
-throw|;
-block|}
 if|if
 condition|(
 name|optionPrefix
@@ -459,7 +447,7 @@ argument_list|(
 literal|4
 argument_list|)
 expr_stmt|;
-name|props
+name|properties
 operator|.
 name|put
 argument_list|(
@@ -489,7 +477,7 @@ return|return
 name|rc
 return|;
 block|}
-DECL|method|getProperty (Object target, String prop)
+DECL|method|getProperty (Object target, String property)
 specifier|public
 specifier|static
 name|Object
@@ -499,7 +487,7 @@ name|Object
 name|target
 parameter_list|,
 name|String
-name|prop
+name|property
 parameter_list|)
 throws|throws
 name|SecurityException
@@ -512,39 +500,27 @@ name|IllegalAccessException
 throws|,
 name|InvocationTargetException
 block|{
-if|if
-condition|(
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
 name|target
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"target was null."
+argument_list|,
+literal|"target"
 argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|prop
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"prop was null."
+name|property
+argument_list|,
+literal|"property"
 argument_list|)
-throw|;
-block|}
-name|prop
+expr_stmt|;
+name|property
 operator|=
-name|prop
+name|property
 operator|.
 name|substring
 argument_list|(
@@ -556,7 +532,7 @@ operator|.
 name|toUpperCase
 argument_list|()
 operator|+
-name|prop
+name|property
 operator|.
 name|substring
 argument_list|(
@@ -578,7 +554,7 @@ name|getPropertyGetter
 argument_list|(
 name|clazz
 argument_list|,
-name|prop
+name|property
 argument_list|)
 decl_stmt|;
 return|return
@@ -626,7 +602,7 @@ return|return
 name|method
 return|;
 block|}
-DECL|method|setProperties (Object target, Map props, String optionPrefix)
+DECL|method|setProperties (Object target, Map properties, String optionPrefix)
 specifier|public
 specifier|static
 name|boolean
@@ -636,7 +612,7 @@ name|Object
 name|target
 parameter_list|,
 name|Map
-name|props
+name|properties
 parameter_list|,
 name|String
 name|optionPrefix
@@ -644,47 +620,35 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|target
+argument_list|,
+literal|"target"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|properties
+argument_list|,
+literal|"properties"
+argument_list|)
+expr_stmt|;
 name|boolean
 name|rc
 init|=
 literal|false
 decl_stmt|;
-if|if
-condition|(
-name|target
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"target was null."
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|props
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"props was null."
-argument_list|)
-throw|;
-block|}
 for|for
 control|(
 name|Iterator
 name|iter
 init|=
-name|props
+name|properties
 operator|.
 name|keySet
 argument_list|()
@@ -723,7 +687,7 @@ block|{
 name|Object
 name|value
 init|=
-name|props
+name|properties
 operator|.
 name|get
 argument_list|(
@@ -770,41 +734,35 @@ return|return
 name|rc
 return|;
 block|}
-DECL|method|extractProperties (Map props, String optionPrefix)
+DECL|method|extractProperties (Map properties, String optionPrefix)
 specifier|public
 specifier|static
 name|Map
 name|extractProperties
 parameter_list|(
 name|Map
-name|props
+name|properties
 parameter_list|,
 name|String
 name|optionPrefix
 parameter_list|)
 block|{
-if|if
-condition|(
-name|props
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"props was null."
+name|properties
+argument_list|,
+literal|"properties"
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
 name|HashMap
 name|rc
 init|=
 operator|new
 name|HashMap
 argument_list|(
-name|props
+name|properties
 operator|.
 name|size
 argument_list|()
@@ -815,7 +773,7 @@ control|(
 name|Iterator
 name|iter
 init|=
-name|props
+name|properties
 operator|.
 name|keySet
 argument_list|()
@@ -854,7 +812,7 @@ block|{
 name|Object
 name|value
 init|=
-name|props
+name|properties
 operator|.
 name|get
 argument_list|(
@@ -893,7 +851,7 @@ return|return
 name|rc
 return|;
 block|}
-DECL|method|setProperties (TypeConverter typeConverter, Object target, Map props)
+DECL|method|setProperties (TypeConverter typeConverter, Object target, Map properties)
 specifier|public
 specifier|static
 name|boolean
@@ -906,52 +864,40 @@ name|Object
 name|target
 parameter_list|,
 name|Map
-name|props
+name|properties
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|target
+argument_list|,
+literal|"target"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|properties
+argument_list|,
+literal|"properties"
+argument_list|)
+expr_stmt|;
 name|boolean
 name|rc
 init|=
 literal|false
 decl_stmt|;
-if|if
-condition|(
-name|target
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"target was null."
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|props
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"props was null."
-argument_list|)
-throw|;
-block|}
 for|for
 control|(
 name|Iterator
 name|iter
 init|=
-name|props
+name|properties
 operator|.
 name|entrySet
 argument_list|()
@@ -1234,7 +1180,7 @@ index|[
 literal|0
 index|]
 operator|+
-literal|"\" could not be used for type conertions of "
+literal|"\" could not be used for type conversions of "
 operator|+
 name|value
 argument_list|)
@@ -1268,7 +1214,7 @@ operator|.
 name|getCanonicalName
 argument_list|()
 operator|+
-literal|" nor type convertion possbile: "
+literal|" nor type conversion possible: "
 operator|+
 name|typeConvertionFailed
 operator|.
@@ -2049,11 +1995,6 @@ name|Object
 name|value
 parameter_list|)
 block|{
-comment|// if (value instanceof ActiveMQDestination) {
-comment|// ActiveMQDestination destination = (ActiveMQDestination) value;
-comment|// buffer.append(destination.getQualifiedName());
-comment|// }
-comment|// else {
 name|buffer
 operator|.
 name|append
@@ -2061,7 +2002,6 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
-comment|// }
 block|}
 DECL|method|simpleName (Class clazz)
 specifier|public
@@ -2285,15 +2225,14 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+throw|throw
+name|ObjectHelper
 operator|.
-name|debug
+name|wrapRuntimeCamelException
 argument_list|(
-literal|"Error adding fields"
-argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 block|}
