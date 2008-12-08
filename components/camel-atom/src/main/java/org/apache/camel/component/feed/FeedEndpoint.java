@@ -152,8 +152,6 @@ DECL|field|sortEntries
 specifier|private
 name|boolean
 name|sortEntries
-init|=
-literal|false
 decl_stmt|;
 DECL|method|FeedEndpoint (String endpointUri, FeedComponent component, String feedUri)
 specifier|public

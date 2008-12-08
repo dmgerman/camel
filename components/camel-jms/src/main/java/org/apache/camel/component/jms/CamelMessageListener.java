@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JMS {@link MessageListener} which converts an incoming JMS message into a Camel message {@link Exchange} then  * processing it by Camel; either using a custom {@link Processor} or if you use one of the static<code>newInstance()</code>  * methods such as {@link #newInstance(org.apache.camel.CamelContext, String)} or  * {@link #newInstance(org.apache.camel.CamelContext, org.apache.camel.ProducerTemplate)}  * you can send the message exchange into a Camel endpoint for processing.  *  * @version $Revision: 1.1 $  */
+comment|/**  * A JMS {@link MessageListener} which converts an incoming JMS message into a Camel message {@link Exchange} then  * processing it by Camel; either using a custom {@link Processor} or if you use one of the static<code>newInstance()</code>  * methods such as {@link #newInstance(org.apache.camel.CamelContext, String)} or  * {@link #newInstance(org.apache.camel.CamelContext, org.apache.camel.ProducerTemplate)}  * you can send the message exchange into a Camel endpoint for processing.  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests filtering using Spring Test and XML Config   *  * @version $Revision: 630568 $  */
+comment|/**  * Tests filtering using Spring Test and XML Config   *  * @version $Revision$  */
 end_comment
 
 begin_comment
