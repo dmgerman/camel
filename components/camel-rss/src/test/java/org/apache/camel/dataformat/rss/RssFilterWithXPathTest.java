@@ -77,8 +77,7 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: ex
-comment|// only entries with Camel in the title will get through the
-comment|// filter
+comment|// only entries with Camel in the title will get through the filter
 name|from
 argument_list|(
 literal|"rss:file:src/test/data/rss20.xml?splitEntries=true&consumer.delay=100"

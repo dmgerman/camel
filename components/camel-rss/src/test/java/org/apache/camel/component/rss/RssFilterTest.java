@@ -231,8 +231,7 @@ name|Exception
 block|{
 comment|// See RssFilterWithXPathTest for an example of how to do this with XPath
 comment|// START SNIPPET: ex1
-comment|// only entries with Camel in the title will get through the
-comment|// filter
+comment|// only entries with Camel in the title will get through the filter
 name|from
 argument_list|(
 literal|"rss:file:src/test/data/rss20.xml?splitEntries=true&consumer.delay=100"
