@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;topic/&gt; element  */
+comment|/**  * Represents an XML&lt;topic/&gt; element  * @deprecated  */
 end_comment
 
 begin_class

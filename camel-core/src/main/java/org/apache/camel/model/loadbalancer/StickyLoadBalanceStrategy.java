@@ -167,7 +167,7 @@ literal|"loadBalancer"
 argument_list|,
 name|type
 operator|=
-name|ExpressionType
+name|LoadBalancerType
 operator|.
 name|class
 argument_list|)
