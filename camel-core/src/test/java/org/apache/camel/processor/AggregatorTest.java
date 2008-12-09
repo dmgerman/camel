@@ -36,30 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -436,8 +412,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// disabled due CAMEL-393
-comment|//from("seda:header").setHeader("visited", constant(true)).aggregator(header("cheese")).to("mock:result");
 comment|// START SNIPPET: ex
 comment|// in this route we aggregate all from direct:state based on the header id cheese
 name|from
@@ -458,9 +432,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// because of a bug in Camel (CAMEL-393) we can not have other types between from and aggregator
-comment|// so we must do it as here with two routes. In the fist line we set the header visited to true
-comment|// and link it to the 2nd route by sending it to direct:temp...
+comment|// CAMEL-393 now fixed
 name|from
 argument_list|(
 literal|"seda:header"
@@ -474,17 +446,6 @@ name|constant
 argument_list|(
 literal|true
 argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"direct:temp"
-argument_list|)
-expr_stmt|;
-comment|// and here we consume from direct:temp to continue from above and aggregate
-name|from
-argument_list|(
-literal|"direct:temp"
 argument_list|)
 operator|.
 name|aggregate

@@ -24,18 +24,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Expression
 import|;
 end_import
@@ -145,13 +133,10 @@ specifier|private
 name|Predicate
 name|aggregationCompletedPredicate
 decl_stmt|;
-DECL|method|Aggregator (Endpoint endpoint, Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy)
+DECL|method|Aggregator (Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|Aggregator
 parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
@@ -164,8 +149,6 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|endpoint
-argument_list|,
 name|processor
 argument_list|,
 operator|new
@@ -178,13 +161,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Aggregator (Endpoint endpoint, Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy, Predicate aggregationCompletedPredicate)
+DECL|method|Aggregator (Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy, Predicate aggregationCompletedPredicate)
 specifier|public
 name|Aggregator
 parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
@@ -200,8 +180,6 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|endpoint
-argument_list|,
 name|processor
 argument_list|,
 operator|new
@@ -222,13 +200,10 @@ operator|=
 name|aggregationCompletedPredicate
 expr_stmt|;
 block|}
-DECL|method|Aggregator (Endpoint endpoint, Processor processor, AggregationCollection collection)
+DECL|method|Aggregator (Processor processor, AggregationCollection collection)
 specifier|public
 name|Aggregator
 parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
@@ -238,8 +213,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|endpoint
-argument_list|,
 name|processor
 argument_list|,
 name|collection
@@ -281,7 +254,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO: (davsclaus) What is the point with this code? I think its wrong
+comment|// TODO: (davsclaus) CAMEL-1159 What is the point with this code? I think its wrong
 if|if
 condition|(
 name|getCollection

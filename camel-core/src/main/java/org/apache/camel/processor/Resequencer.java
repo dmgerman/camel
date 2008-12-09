@@ -64,18 +64,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -144,13 +132,10 @@ name|Resequencer
 extends|extends
 name|BatchProcessor
 block|{
-DECL|method|Resequencer (Endpoint endpoint, Processor processor, Expression expression)
+DECL|method|Resequencer (Processor processor, Expression expression)
 specifier|public
 name|Resequencer
 parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
@@ -160,8 +145,6 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|endpoint
-argument_list|,
 name|processor
 argument_list|,
 name|createSet
@@ -171,13 +154,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Resequencer (Endpoint endpoint, Processor processor, List<Expression> expressions)
+DECL|method|Resequencer (Processor processor, List<Expression> expressions)
 specifier|public
 name|Resequencer
 parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
@@ -190,8 +170,6 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|endpoint
-argument_list|,
 name|processor
 argument_list|,
 name|createSet
@@ -201,13 +179,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Resequencer (Endpoint endpoint, Processor processor, Set<Exchange> collection)
+DECL|method|Resequencer (Processor processor, Set<Exchange> collection)
 specifier|public
 name|Resequencer
 parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
@@ -220,8 +195,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|endpoint
-argument_list|,
 name|processor
 argument_list|,
 name|collection
