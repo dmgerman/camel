@@ -845,12 +845,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|useIntrospectionOnEndpoint
-argument_list|()
-condition|)
-block|{
 comment|// set reference properties first as they use # syntax that fools the regular properties setter
 name|setReferenceProperties
 argument_list|(
@@ -874,7 +868,6 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Sets the reference properties on the given bean      *<p/>      * This is convention over configuration, setting all reference parameters (identifier with a value starting with #)      * by looking it up in registry and setting it on the bean if possible.      */
 DECL|method|setReferenceProperties (Object bean, Map parameters)
