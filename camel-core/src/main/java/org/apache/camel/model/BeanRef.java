@@ -466,6 +466,8 @@ argument_list|(
 name|beanType
 argument_list|,
 literal|"bean, ref or beanType"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|bean

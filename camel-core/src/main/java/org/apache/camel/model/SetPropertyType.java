@@ -154,6 +154,20 @@ name|RouteContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents an XML&lt;setProperty/&gt; element  */
 end_comment
@@ -182,6 +196,11 @@ name|ExpressionNode
 block|{
 annotation|@
 name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|propertyName
 specifier|private
 name|String
@@ -310,6 +329,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|getPropertyName
+argument_list|()
+argument_list|,
+literal|"propertyName"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 name|Expression
 name|expr
 init|=

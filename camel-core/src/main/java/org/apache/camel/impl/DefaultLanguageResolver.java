@@ -181,7 +181,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid URI, no Language registered for scheme : "
+literal|"Invalid URI, no Language registered for scheme: "
 operator|+
 name|name
 argument_list|,
@@ -295,7 +295,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid URI, no Language registered for scheme : "
+literal|"Invalid URI, no Language registered for scheme: "
 operator|+
 name|name
 argument_list|,

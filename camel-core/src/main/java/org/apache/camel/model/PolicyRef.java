@@ -126,6 +126,20 @@ name|RouteContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents an XML&lt;policy/&gt; element  *  * @version $Revision$  */
 end_comment
@@ -239,7 +253,7 @@ literal|null
 condition|)
 block|{
 return|return
-literal|"ref:  "
+literal|"ref: "
 operator|+
 name|ref
 return|;
@@ -321,23 +335,17 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|policy
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"No policy configured: "
-operator|+
+name|policy
+argument_list|,
+literal|"policy"
+argument_list|,
 name|this
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
 return|return
 name|policy
 operator|.

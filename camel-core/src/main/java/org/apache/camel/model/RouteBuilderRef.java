@@ -243,6 +243,8 @@ argument_list|(
 name|camelContext
 argument_list|,
 literal|"camelContext"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|ObjectHelper
@@ -252,6 +254,8 @@ argument_list|(
 name|ref
 argument_list|,
 literal|"ref"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|RouteBuilder

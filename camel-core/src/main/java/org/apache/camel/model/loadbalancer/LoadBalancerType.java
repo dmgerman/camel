@@ -543,6 +543,8 @@ argument_list|(
 name|loadBalancer
 argument_list|,
 literal|"loadBalancer"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|loadBalancer
@@ -569,6 +571,8 @@ argument_list|(
 name|loadBalancer
 argument_list|,
 literal|"loadBalancer"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 return|return
@@ -594,6 +598,8 @@ argument_list|(
 name|loadBalancer
 argument_list|,
 literal|"loadBalancer"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|loadBalancer
@@ -622,6 +628,8 @@ argument_list|(
 name|loadBalancer
 argument_list|,
 literal|"loadBalancer"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|loadBalancer

@@ -570,7 +570,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No CamelContext has been injected!"
+literal|"CamelContext has not been injected!"
 argument_list|)
 throw|;
 block|}

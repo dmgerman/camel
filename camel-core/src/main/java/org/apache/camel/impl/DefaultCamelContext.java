@@ -1082,21 +1082,15 @@ name|Component
 name|component
 parameter_list|)
 block|{
-if|if
-condition|(
-name|component
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"Component cannot be null"
+name|component
+argument_list|,
+literal|"component"
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
 synchronized|synchronized
 init|(
 name|components
@@ -1209,8 +1203,7 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-comment|// If the component is looked up after the context
-comment|// is started,
+comment|// If the component is looked up after the context is started,
 comment|// lets start it up.
 name|startServices
 argument_list|(

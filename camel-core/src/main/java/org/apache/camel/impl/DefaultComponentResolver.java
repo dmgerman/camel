@@ -288,7 +288,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid URI, no Component registered for scheme : "
+literal|"Invalid URI, no Component registered for scheme: "
 operator|+
 name|name
 argument_list|,
@@ -319,7 +319,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" via "
+literal|" via: "
 operator|+
 name|COMPONENT_FACTORY
 operator|.

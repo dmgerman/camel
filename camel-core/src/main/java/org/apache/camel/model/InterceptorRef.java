@@ -126,6 +126,22 @@ name|RouteContext
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|notNull
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for interceptor types.  *  * @version $Revision$  */
 end_comment
@@ -305,24 +321,18 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|interceptor
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|notNull
 argument_list|(
-literal|"No DelegateProcessor bean available for reference: "
+name|interceptor
+argument_list|,
+literal|"registry entry called "
 operator|+
 name|getRef
 argument_list|()
+argument_list|,
+name|this
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
 return|return
 name|interceptor
 return|;
@@ -367,7 +377,7 @@ literal|null
 condition|)
 block|{
 return|return
-literal|"ref:  "
+literal|"ref: "
 operator|+
 name|ref
 return|;
@@ -394,7 +404,7 @@ literal|""
 return|;
 block|}
 block|}
-comment|/**      * Get the underlying {@link DelegateProcessor} implementation      *       * @return the {@link DelegateProcessor}      */
+comment|/**      * Get the underlying {@link DelegateProcessor} implementation      */
 annotation|@
 name|XmlTransient
 DECL|method|getInterceptor ()

@@ -897,11 +897,8 @@ return|return
 name|this
 return|;
 block|}
-comment|///////////////////////////////////////////////////////////////////
-comment|//
 comment|// Property Accessors
-comment|//
-comment|///////////////////////////////////////////////////////////////////
+comment|// -----------------------------------------------------------------------
 DECL|method|setCoreSize (int coreSize)
 specifier|public
 name|void

@@ -869,7 +869,7 @@ name|parameters
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the reference properties on the given bean      *<p/>      * This is convention over configuration, setting all reference parameters (identifier with a value starting with #)      * by looking it up in registry and setting it on the bean if possible.      */
+comment|/**      * Sets the reference properties on the given bean      *<p/>      * This is convention over configuration, setting all reference parameters (using {@link #isReferenceParameter(String)}      * by looking it up in registry and setting it on the bean if possible.      */
 DECL|method|setReferenceProperties (Object bean, Map parameters)
 specifier|protected
 name|void
@@ -1048,7 +1048,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Is the given parameter a reference parameter      */
+comment|/**      * Is the given parameter a reference parameter (starting with a # char)      */
 DECL|method|isReferenceParameter (String parameter)
 specifier|protected
 name|boolean

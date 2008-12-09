@@ -284,7 +284,7 @@ literal|"Cannot determine the expression of the annotation: "
 operator|+
 name|annotation
 operator|+
-literal|" as it does not have an value() method"
+literal|" as it does not have a value() method"
 argument_list|)
 throw|;
 block|}

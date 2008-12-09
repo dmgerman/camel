@@ -132,6 +132,20 @@ name|RouteContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents an XML&lt;routingSlip/&gt; element  */
 end_comment
@@ -291,6 +305,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|getHeaderName
+argument_list|()
+argument_list|,
+literal|"headerName"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|RoutingSlip

@@ -72,7 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|Processor
 import|;
 end_import
 
@@ -84,7 +84,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -246,21 +248,15 @@ name|executor
 operator|=
 name|executor
 expr_stmt|;
-if|if
-condition|(
-name|executor
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"A non null ScheduledExecutorService must be provided."
+name|executor
+argument_list|,
+literal|"executor"
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
 block|}
 comment|/**      * Invoked whenever we should be polled      */
 DECL|method|run ()

@@ -374,22 +374,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
+name|notNull
+argument_list|(
 name|getTemplate
 argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"No template configured!"
+argument_list|,
+literal|"template"
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
 name|Transformer
 name|transformer
 init|=
@@ -867,7 +859,7 @@ name|TransformerConfigurationException
 argument_list|(
 literal|"Error creating XSLT template. "
 operator|+
-literal|"This is most likely be caused by an XML parse error. "
+literal|"This is most likely be caused by a XML parse error. "
 operator|+
 literal|"Please verify your XSLT file configured."
 argument_list|)

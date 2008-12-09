@@ -1412,7 +1412,7 @@ literal|".convertTo("
 operator|+
 name|type
 operator|.
-name|getName
+name|getCanonicalName
 argument_list|()
 operator|+
 literal|".class)"

@@ -249,6 +249,8 @@ name|exclusiveReadLock
 init|=
 literal|true
 decl_stmt|;
+comment|// TODO: move option to endpoint to get rid of consumer. prefix
+comment|// TODO: remove idempotent again, we should just use the idempotent DSL we already have
 DECL|method|FileConsumer (final FileEndpoint endpoint, Processor processor)
 specifier|public
 name|FileConsumer

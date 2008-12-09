@@ -95,7 +95,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should have thrown RuntimeCamelException"
+literal|"Should have thrown IllegalArgumentException"
 argument_list|)
 expr_stmt|;
 block|}
@@ -107,7 +107,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"target not provided on node: process[ref: hello]"
+literal|"registry entry called hello must be specified on: process[ref: hello]"
 argument_list|,
 name|e
 operator|.

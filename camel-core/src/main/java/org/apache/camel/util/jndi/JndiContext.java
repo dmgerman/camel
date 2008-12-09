@@ -267,7 +267,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default JNDI context  *  * @version $Revision$ $Date$  */
+comment|/**  * A default JNDI context  *  * @version $Revision$  */
 end_comment
 
 begin_class
