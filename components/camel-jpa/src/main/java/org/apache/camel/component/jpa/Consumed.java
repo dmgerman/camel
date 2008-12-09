@@ -66,6 +66,18 @@ name|Target
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Documented
+import|;
+end_import
+
 begin_comment
 comment|/**  * An annotation to mark a method to be invoked when an entity bean has been succesfully processed  * by a Camel consumer, so that it can be updated in some way to remove it from the query set.  *<p/>  * For example a method may be marked to set an active flag to false or to update some status value to the next step in a workflow  *  * @version $Revision$  */
 end_comment
@@ -78,6 +90,8 @@ name|RetentionPolicy
 operator|.
 name|RUNTIME
 argument_list|)
+annotation|@
+name|Documented
 annotation|@
 name|Target
 argument_list|(

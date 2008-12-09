@@ -68,6 +68,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Documented
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -106,6 +118,8 @@ name|RetentionPolicy
 operator|.
 name|RUNTIME
 argument_list|)
+annotation|@
+name|Documented
 annotation|@
 name|Target
 argument_list|(

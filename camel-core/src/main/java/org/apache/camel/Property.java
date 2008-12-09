@@ -62,6 +62,18 @@ name|Target
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Documented
+import|;
+end_import
+
 begin_comment
 comment|/**  * Marks a parameter as being an injection point of a property of an {@link Exchange}  *  * @see Exchange#getProperty(String)    * @version $Revision$  */
 end_comment
@@ -74,6 +86,8 @@ name|RetentionPolicy
 operator|.
 name|RUNTIME
 argument_list|)
+annotation|@
+name|Documented
 annotation|@
 name|Target
 argument_list|(

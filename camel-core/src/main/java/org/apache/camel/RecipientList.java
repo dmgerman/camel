@@ -62,6 +62,18 @@ name|Target
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Documented
+import|;
+end_import
+
 begin_comment
 comment|/**  * Indicates that this method is to be used as a   *<a href="http://activemq.apache.org/camel/recipient-list.html">Dynamic Recipient List</a> routing the incoming message  * to one or more endpoints.  *  * When a message {@link org.apache.camel.Exchange} is received from an {@link org.apache.camel.Endpoint} then the  *<a href="http://activemq.apache.org/camel/bean-integration.html">Bean Integration</a>  * mechanism is used to map the incoming {@link org.apache.camel.Message} to the method parameters.  *  * The return value of the method is then converted to either a {@link java.util.Collection} or array of objects where each  * element is converted to an {@link Endpoint} or a {@link String}, or if it is not a collection/array then it is converted  * to an {@link Endpoint} or {@link String}.  *  * Then for each endpoint or URI the message is forwarded a separate copy.  *  * @version $Revision$  */
 end_comment
@@ -74,6 +86,8 @@ name|RetentionPolicy
 operator|.
 name|RUNTIME
 argument_list|)
+annotation|@
+name|Documented
 annotation|@
 name|Target
 argument_list|(

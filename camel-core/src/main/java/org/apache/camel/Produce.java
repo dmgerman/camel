@@ -62,6 +62,18 @@ name|Target
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Documented
+import|;
+end_import
+
 begin_comment
 comment|/**  * Marks a field or property as being a producer to an {@link org.apache.camel.Endpoint} either via its  *<a href="http://activemq.apache.org/camel/uris.html">URI</a> or via the name of the endpoint reference  * which is then resolved in a registry such as the Spring Application Context.  *  * Methods invoked on the producer object are then converted to a message {@link org.apache.camel.Exchange} via the  *<a href="http://activemq.apache.org/camel/bean-integration.html">Bean Integration</a>  * mechanism.  *  * @see InOnly  *  * @version $Revision$  */
 end_comment
@@ -74,6 +86,8 @@ name|RetentionPolicy
 operator|.
 name|RUNTIME
 argument_list|)
+annotation|@
+name|Documented
 annotation|@
 name|Target
 argument_list|(

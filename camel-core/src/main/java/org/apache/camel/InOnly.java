@@ -62,6 +62,18 @@ name|Target
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Documented
+import|;
+end_import
+
 begin_comment
 comment|/**  * Marks methods as being {@link ExchangePattern#InOnly}  * for one way asynchronous invocation when using  *<a href="http://activemq.apache.org/camel/bean-integration.html">Bean Integration</a> or  *<a href="http://activemq.apache.org/camel/spring-remoting.html">Spring Remoting</a>  * to overload the default value which is {@link ExchangePattern#InOut} for request/reply if no annotations are used.  *  * This annotation can be added to individual methods or added to a class or interface to act as a default for all methods  * within the class or interface.  *  * See the<a href="using-exchange-pattern-annotations.html">using exchange pattern annotations</a>  * for more details on how the overloading rules work.  *  * @see org.apache.camel.ExchangePattern  * @see org.apache.camel.Exchange#getPattern()  * @see InOut  *  * @version $Revision$  */
 end_comment
@@ -74,6 +86,8 @@ name|RetentionPolicy
 operator|.
 name|RUNTIME
 argument_list|)
+annotation|@
+name|Documented
 annotation|@
 name|Target
 argument_list|(

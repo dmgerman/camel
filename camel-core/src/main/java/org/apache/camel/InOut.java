@@ -62,6 +62,18 @@ name|Target
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Documented
+import|;
+end_import
+
 begin_comment
 comment|/**  * Marks a method as being {@link ExchangePattern#InOut} when a class or interface has been annotated with  * {@link InOnly} when using  *<a href="http://activemq.apache.org/camel/bean-integration.html">Bean Integration</a> or  *<a href="http://activemq.apache.org/camel/spring-remoting.html">Spring Remoting</a>.  *  * This annotation is only intended to be used on methods which the class or interface has been annotated with  * a default exchange pattern annotation such as {@link InOnly} or {@link Pattern}  *  * See the<a href="using-exchange-pattern-annotations.html">using exchange pattern annotations</a>  * for more details on how the overloading rules work.  *  * @see org.apache.camel.ExchangePattern  * @see org.apache.camel.Exchange#getPattern()  * @see InOut  *  * @version $Revision$  */
 end_comment
@@ -74,6 +86,8 @@ name|RetentionPolicy
 operator|.
 name|RUNTIME
 argument_list|)
+annotation|@
+name|Documented
 annotation|@
 name|Target
 argument_list|(
