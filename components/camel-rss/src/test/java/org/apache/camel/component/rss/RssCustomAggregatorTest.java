@@ -557,6 +557,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: ex
 name|from
 argument_list|(
 literal|"rss:file:src/test/data/rss20.xml?sortEntries=true&consumer.delay=50"
@@ -599,6 +600,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: ex
 block|}
 block|}
 return|;
