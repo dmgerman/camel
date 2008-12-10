@@ -132,7 +132,7 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 import|;
 end_import
 
@@ -281,7 +281,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|privateKeyFile
 argument_list|)
@@ -307,7 +307,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|privateKeyFilePassphrase
 argument_list|)
@@ -345,7 +345,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|knownHostsFile
 argument_list|)

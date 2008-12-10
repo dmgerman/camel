@@ -479,7 +479,7 @@ name|writeAsTempAndRename
 init|=
 name|ObjectHelper
 operator|.
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|endpoint
 operator|.
