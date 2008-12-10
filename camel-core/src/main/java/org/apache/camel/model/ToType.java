@@ -213,13 +213,9 @@ argument_list|<
 name|ToType
 argument_list|>
 block|{
+comment|//@XmlAttribute(required = false)
 annotation|@
-name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
+name|XmlTransient
 DECL|field|pattern
 specifier|private
 name|ExchangePattern
