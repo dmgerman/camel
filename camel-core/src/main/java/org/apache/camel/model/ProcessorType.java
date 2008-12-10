@@ -4663,7 +4663,7 @@ block|{
 name|addOutput
 argument_list|(
 operator|new
-name|ExchangePatternType
+name|SetExchangePatternType
 argument_list|(
 name|exchangePattern
 argument_list|)

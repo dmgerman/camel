@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;SetExchangePattern/&gt; element  *  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;setExchangePattern/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -195,35 +195,24 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|ExchangePatternType
+DECL|class|SetExchangePatternType
 specifier|public
 class|class
-name|ExchangePatternType
+name|SetExchangePatternType
 extends|extends
 name|OutputType
 block|{
 annotation|@
 name|XmlAttribute
 argument_list|(
-name|name
-operator|=
-literal|"pattern"
-argument_list|,
 name|required
 operator|=
 literal|true
 argument_list|)
 DECL|field|pattern
 specifier|private
-name|String
-name|pattern
-decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|exchangePattern
-specifier|private
 name|ExchangePattern
-name|exchangePattern
+name|pattern
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -232,37 +221,16 @@ specifier|private
 name|ExchangePatternProcessor
 name|processor
 decl_stmt|;
-DECL|method|ExchangePatternType ()
+DECL|method|SetExchangePatternType ()
 specifier|public
-name|ExchangePatternType
+name|SetExchangePatternType
 parameter_list|()
 block|{     }
-DECL|method|ExchangePatternType (ExchangePattern ep)
+DECL|method|SetExchangePatternType (ExchangePattern pattern)
 specifier|public
-name|ExchangePatternType
+name|SetExchangePatternType
 parameter_list|(
 name|ExchangePattern
-name|ep
-parameter_list|)
-block|{
-name|exchangePattern
-operator|=
-name|ep
-expr_stmt|;
-name|pattern
-operator|=
-name|exchangePattern
-operator|.
-name|toString
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|setPattern (String pattern)
-specifier|public
-name|void
-name|setPattern
-parameter_list|(
-name|String
 name|pattern
 parameter_list|)
 block|{
@@ -272,19 +240,10 @@ name|pattern
 operator|=
 name|pattern
 expr_stmt|;
-name|exchangePattern
-operator|=
-name|ExchangePattern
-operator|.
-name|asEnum
-argument_list|(
-name|pattern
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|getPattern ()
 specifier|public
-name|String
+name|ExchangePattern
 name|getPattern
 parameter_list|()
 block|{
@@ -292,49 +251,21 @@ return|return
 name|pattern
 return|;
 block|}
-DECL|method|getExchangePattern ()
+DECL|method|setPattern (ExchangePattern pattern)
 specifier|public
+name|void
+name|setPattern
+parameter_list|(
 name|ExchangePattern
-name|getExchangePattern
-parameter_list|()
-block|{
-if|if
-condition|(
-name|exchangePattern
-operator|==
-literal|null
-condition|)
-block|{
-if|if
-condition|(
 name|pattern
-operator|!=
-literal|null
-condition|)
+parameter_list|)
 block|{
-name|exchangePattern
-operator|=
-name|ExchangePattern
+name|this
 operator|.
-name|asEnum
-argument_list|(
 name|pattern
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|exchangePattern
 operator|=
-name|ExchangePattern
-operator|.
-name|InOnly
+name|pattern
 expr_stmt|;
-block|}
-block|}
-return|return
-name|exchangePattern
-return|;
 block|}
 annotation|@
 name|Override
@@ -359,9 +290,9 @@ block|{
 return|return
 literal|"setExchangePattern["
 operator|+
-literal|"exchangePattern: "
+literal|"pattern: "
 operator|+
-name|exchangePattern
+name|pattern
 operator|+
 literal|"]"
 return|;
@@ -375,9 +306,9 @@ name|getLabel
 parameter_list|()
 block|{
 return|return
-literal|"exchangePattern: "
+literal|"setExchangePattern: "
 operator|+
-name|exchangePattern
+name|pattern
 return|;
 block|}
 annotation|@
@@ -403,7 +334,7 @@ operator|=
 operator|new
 name|ExchangePatternProcessor
 argument_list|(
-name|getExchangePattern
+name|getPattern
 argument_list|()
 argument_list|)
 expr_stmt|;
