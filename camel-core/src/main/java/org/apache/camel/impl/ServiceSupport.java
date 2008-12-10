@@ -497,7 +497,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|version
 argument_list|)

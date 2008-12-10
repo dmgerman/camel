@@ -1343,7 +1343,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|contextId
 argument_list|)
@@ -1604,7 +1604,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|id
 argument_list|)
@@ -1689,7 +1689,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|id
 argument_list|)

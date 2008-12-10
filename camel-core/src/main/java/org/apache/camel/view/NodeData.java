@@ -230,7 +230,7 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 import|;
 end_import
 
@@ -246,7 +246,7 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|isNullOrBlank
+name|isEmpty
 import|;
 end_import
 
@@ -833,7 +833,7 @@ block|}
 comment|// lets auto-default as many values as we can
 if|if
 condition|(
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|this
 operator|.
@@ -934,7 +934,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|this
 operator|.
@@ -960,7 +960,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|this
 operator|.
@@ -990,7 +990,7 @@ block|}
 block|}
 if|if
 condition|(
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|this
 operator|.
@@ -1000,7 +1000,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|this
 operator|.
@@ -1011,7 +1011,7 @@ block|{
 name|String
 name|description
 init|=
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|this
 operator|.
@@ -1053,14 +1053,14 @@ block|}
 block|}
 if|if
 condition|(
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|this
 operator|.
 name|url
 argument_list|)
 operator|&&
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|this
 operator|.

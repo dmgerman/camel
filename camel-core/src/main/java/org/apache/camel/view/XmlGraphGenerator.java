@@ -124,7 +124,7 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|isNullOrBlank
+name|isEmpty
 import|;
 end_import
 
@@ -705,7 +705,7 @@ name|edgeLabel
 decl_stmt|;
 if|if
 condition|(
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|association
 argument_list|)
@@ -861,7 +861,7 @@ name|label
 decl_stmt|;
 if|if
 condition|(
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|name
 argument_list|)
@@ -900,7 +900,7 @@ name|image
 decl_stmt|;
 if|if
 condition|(
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|nodeType
 argument_list|)
@@ -914,7 +914,7 @@ name|shape
 expr_stmt|;
 if|if
 condition|(
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|nodeType
 argument_list|)

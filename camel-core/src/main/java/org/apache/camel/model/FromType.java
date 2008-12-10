@@ -106,18 +106,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|RouteContext
@@ -398,7 +386,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|uri
 argument_list|)

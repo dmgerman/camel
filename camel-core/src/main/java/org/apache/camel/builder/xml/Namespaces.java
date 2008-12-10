@@ -281,7 +281,7 @@ block|{
 return|return
 name|ObjectHelper
 operator|.
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|namespaceURI
 argument_list|)

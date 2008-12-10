@@ -122,7 +122,7 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 import|;
 end_import
 
@@ -253,7 +253,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|sortBy
 argument_list|)
@@ -405,7 +405,7 @@ name|reminder
 expr_stmt|;
 name|ObjectHelper
 operator|.
-name|notEmpty
+name|notNull
 argument_list|(
 name|reminder
 argument_list|,

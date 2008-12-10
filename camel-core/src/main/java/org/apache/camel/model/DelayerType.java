@@ -374,7 +374,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|expr
 operator|.

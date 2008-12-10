@@ -1564,7 +1564,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|className
 argument_list|)

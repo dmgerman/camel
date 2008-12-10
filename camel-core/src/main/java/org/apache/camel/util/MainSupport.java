@@ -1649,7 +1649,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|getRoutesOutputFile
 argument_list|()
@@ -1720,7 +1720,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|outputDir
 argument_list|)

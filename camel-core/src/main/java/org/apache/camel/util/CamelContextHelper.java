@@ -148,7 +148,7 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 import|;
 end_import
 
@@ -164,7 +164,7 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|isNullOrBlank
+name|isEmpty
 import|;
 end_import
 
@@ -954,7 +954,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|uri
 argument_list|)
@@ -974,7 +974,7 @@ else|else
 block|{
 if|if
 condition|(
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|name
 argument_list|)

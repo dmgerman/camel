@@ -727,6 +727,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt> or an empty string.      *      * @param value  the value to test      * @param name   the key that resolved the value      */
 DECL|method|notNull (Object value, String name)
 specifier|public
 specifier|static
@@ -742,9 +743,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|isEmpty
+argument_list|(
 name|value
-operator|==
-literal|null
+argument_list|)
 condition|)
 block|{
 throw|throw
@@ -758,6 +760,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt> or an empty string.      *      * @param value  the value to test      * @param on     additional description to indicate where this problem occured (appended as toString())      * @param name   the key that resolved the value      */
 DECL|method|notNull (Object value, String name, Object on)
 specifier|public
 specifier|static
@@ -792,9 +795,10 @@ block|}
 elseif|else
 if|if
 condition|(
+name|isEmpty
+argument_list|(
 name|value
-operator|==
-literal|null
+argument_list|)
 condition|)
 block|{
 throw|throw
@@ -810,36 +814,80 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|notEmpty (String value, String name)
+comment|/**      * Tests whether the value is<tt>null</tt> or an empty string.      *      * @param value  the value, if its a String it will be tested for text length as well      * @return true if empty      */
+DECL|method|isEmpty (Object value)
 specifier|public
 specifier|static
-name|void
-name|notEmpty
+name|boolean
+name|isEmpty
 parameter_list|(
-name|String
+name|Object
 name|value
-parameter_list|,
-name|String
-name|name
+parameter_list|)
+block|{
+return|return
+operator|!
+name|isNotEmpty
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
+comment|/**      * Tests whether the value is<b>not</b><tt>null</tt> or an empty string.      *      * @param value  the value, if its a String it will be tested for text length as well      * @return true if<b>not</b> empty      */
+DECL|method|isNotEmpty (Object value)
+specifier|public
+specifier|static
+name|boolean
+name|isNotEmpty
+parameter_list|(
+name|Object
+name|value
 parameter_list|)
 block|{
 if|if
 condition|(
-name|isNullOrBlank
-argument_list|(
 name|value
-argument_list|)
+operator|==
+literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-name|name
-operator|+
-literal|" must be specified and not empty"
-argument_list|)
-throw|;
+return|return
+literal|false
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|value
+operator|instanceof
+name|String
+condition|)
+block|{
+name|String
+name|text
+init|=
+operator|(
+name|String
+operator|)
+name|value
+decl_stmt|;
+return|return
+name|text
+operator|.
+name|trim
+argument_list|()
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|true
+return|;
 block|}
 block|}
 DECL|method|splitOnCharacter (String value, String needle, int count)
@@ -1470,58 +1518,6 @@ block|}
 block|}
 return|return
 literal|false
-return|;
-block|}
-DECL|method|isNotNullAndNonEmpty (String text)
-specifier|public
-specifier|static
-name|boolean
-name|isNotNullAndNonEmpty
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|text
-operator|!=
-literal|null
-operator|&&
-name|text
-operator|.
-name|trim
-argument_list|()
-operator|.
-name|length
-argument_list|()
-operator|>
-literal|0
-return|;
-block|}
-DECL|method|isNullOrBlank (String text)
-specifier|public
-specifier|static
-name|boolean
-name|isNullOrBlank
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|text
-operator|==
-literal|null
-operator|||
-name|text
-operator|.
-name|trim
-argument_list|()
-operator|.
-name|length
-argument_list|()
-operator|<=
-literal|0
 return|;
 block|}
 comment|/**      * A helper method to access a system property, catching any security      * exceptions      *       * @param name the name of the system property required      * @param defaultValue the default value to use if the property is not      *                available or a security exception prevents access      * @return the system property value or the default value if the property is      *         not available or security does not allow its access      */

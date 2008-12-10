@@ -166,7 +166,7 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 import|;
 end_import
 
@@ -664,7 +664,7 @@ name|edgeLabel
 decl_stmt|;
 if|if
 condition|(
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|label
 argument_list|)

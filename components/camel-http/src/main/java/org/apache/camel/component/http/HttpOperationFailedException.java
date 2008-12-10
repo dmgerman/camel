@@ -253,7 +253,7 @@ block|{
 return|return
 name|ObjectHelper
 operator|.
-name|isNotNullAndNonEmpty
+name|isNotEmpty
 argument_list|(
 name|redirectLocation
 argument_list|)

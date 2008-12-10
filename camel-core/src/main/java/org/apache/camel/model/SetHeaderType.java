@@ -331,7 +331,7 @@ name|Exception
 block|{
 name|ObjectHelper
 operator|.
-name|notEmpty
+name|notNull
 argument_list|(
 name|headerName
 argument_list|,
