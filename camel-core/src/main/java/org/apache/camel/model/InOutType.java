@@ -18,21 +18,25 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Collections
+name|camel
+operator|.
+name|Endpoint
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|camel
+operator|.
+name|ExchangePattern
 import|;
 end_import
 
@@ -92,100 +96,8 @@ name|XmlRootElement
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlTransient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|SendProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
-comment|/**  * Represents an XML&lt;to/&gt; element  *  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;inOut/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -194,7 +106,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"to"
+literal|"inOut"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -203,14 +115,14 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|ToType
+DECL|class|InOutType
 specifier|public
 class|class
-name|ToType
+name|InOutType
 extends|extends
 name|SendType
 argument_list|<
-name|ToType
+name|InOutType
 argument_list|>
 block|{
 annotation|@
@@ -237,26 +149,14 @@ specifier|private
 name|String
 name|ref
 decl_stmt|;
-annotation|@
-name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
-DECL|field|pattern
-specifier|private
-name|ExchangePattern
-name|pattern
-decl_stmt|;
-DECL|method|ToType ()
+DECL|method|InOutType ()
 specifier|public
-name|ToType
+name|InOutType
 parameter_list|()
 block|{     }
-DECL|method|ToType (String uri)
+DECL|method|InOutType (String uri)
 specifier|public
-name|ToType
+name|InOutType
 parameter_list|(
 name|String
 name|uri
@@ -268,9 +168,9 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ToType (Endpoint endpoint)
+DECL|method|InOutType (Endpoint endpoint)
 specifier|public
-name|ToType
+name|InOutType
 parameter_list|(
 name|Endpoint
 name|endpoint
@@ -291,7 +191,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"To["
+literal|"InOut["
 operator|+
 name|getLabel
 argument_list|()
@@ -308,7 +208,7 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"to"
+literal|"inOut"
 return|;
 block|}
 annotation|@
@@ -320,25 +220,10 @@ name|getPattern
 parameter_list|()
 block|{
 return|return
-name|pattern
-return|;
-block|}
-comment|/**      * Sets the optional {@link ExchangePattern} used to invoke this endpoint      */
-DECL|method|setPattern (ExchangePattern pattern)
-specifier|public
-name|void
-name|setPattern
-parameter_list|(
 name|ExchangePattern
-name|pattern
-parameter_list|)
-block|{
-name|this
 operator|.
-name|pattern
-operator|=
-name|pattern
-expr_stmt|;
+name|InOut
+return|;
 block|}
 annotation|@
 name|Override
