@@ -264,29 +264,24 @@ specifier|static
 class|class
 name|FilterBean
 block|{
-DECL|method|titleContainsCamel (@ody Object body)
+DECL|method|titleContainsCamel (@ody SyndFeed feed)
 specifier|public
 name|boolean
 name|titleContainsCamel
 parameter_list|(
 annotation|@
 name|Body
-name|Object
-name|body
+name|SyndFeed
+name|feed
 parameter_list|)
 block|{
 name|SyndEntry
 name|firstEntry
 init|=
-call|(
-name|SyndEntry
-call|)
-argument_list|(
 operator|(
-name|SyndFeed
+name|SyndEntry
 operator|)
-name|body
-argument_list|)
+name|feed
 operator|.
 name|getEntries
 argument_list|()
