@@ -282,7 +282,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|inputChannelName
 argument_list|)
@@ -301,7 +301,7 @@ condition|(
 operator|!
 name|ObjectHelper
 operator|.
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|inputChannelName
 argument_list|)
@@ -605,7 +605,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|endpoint
 operator|.

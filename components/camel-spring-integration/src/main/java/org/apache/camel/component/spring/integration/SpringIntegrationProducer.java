@@ -408,7 +408,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|outputChannelName
 argument_list|)
@@ -426,7 +426,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|outputChannelName
 argument_list|)
@@ -508,7 +508,7 @@ if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNullOrBlank
+name|isEmpty
 argument_list|(
 name|endpoint
 operator|.
