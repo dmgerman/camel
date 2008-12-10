@@ -216,6 +216,30 @@ name|Type
 argument_list|>
 block|{
 annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|uri
+specifier|private
+name|String
+name|uri
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|ref
+specifier|private
+name|String
+name|ref
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|endpoint
 specifier|private
@@ -290,16 +314,6 @@ return|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
-DECL|method|getUri ()
-specifier|public
-name|String
-name|getUri
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
 DECL|method|getRef ()
 specifier|public
 name|String
@@ -307,8 +321,50 @@ name|getRef
 parameter_list|()
 block|{
 return|return
-literal|null
+name|ref
 return|;
+block|}
+DECL|method|setRef (String ref)
+specifier|public
+name|void
+name|setRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ref
+operator|=
+name|ref
+expr_stmt|;
+block|}
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
+block|}
+DECL|method|setUri (String uri)
+specifier|public
+name|void
+name|setUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
+expr_stmt|;
 block|}
 DECL|method|getEndpoint ()
 specifier|public
