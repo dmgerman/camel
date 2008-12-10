@@ -417,6 +417,18 @@ specifier|private
 name|String
 name|head
 decl_stmt|;
+comment|/**      * Regex to search for in the html file. This will be replaced with the value of the       * replaceValue parameter.      *      * @parameter      */
+DECL|field|replaceToken
+specifier|private
+name|String
+name|replaceToken
+decl_stmt|;
+comment|/**      * String that the replaceToken will be replaced with.      *      * @parameter      */
+DECL|field|replaceValue
+specifier|private
+name|String
+name|replaceValue
+decl_stmt|;
 comment|/**      * The first div with who's class matches the contentDivClass will be      * assumed to be the content section of the HTML and is what will be used as      * the content in the PDF.      *      * @parameter default-value="wiki-content"      */
 DECL|field|contentDivClass
 specifier|private
@@ -995,6 +1007,29 @@ argument_list|(
 literal|"</head>"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|replaceToken
+operator|!=
+literal|null
+operator|&&
+name|replaceValue
+operator|!=
+literal|null
+condition|)
+block|{
+name|content
+operator|=
+name|content
+operator|.
+name|replaceAll
+argument_list|(
+name|replaceToken
+argument_list|,
+name|replaceValue
+argument_list|)
+expr_stmt|;
+block|}
 name|out
 operator|.
 name|println
