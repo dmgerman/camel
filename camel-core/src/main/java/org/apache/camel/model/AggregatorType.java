@@ -302,7 +302,7 @@ name|AggregatorType
 extends|extends
 name|ProcessorType
 argument_list|<
-name|ProcessorType
+name|AggregatorType
 argument_list|>
 block|{
 annotation|@

@@ -208,6 +208,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Expression
 import|;
 end_import
@@ -4636,6 +4648,64 @@ operator|(
 name|Type
 operator|)
 name|this
+return|;
+block|}
+comment|/**      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">ExchangePattern:</a>      * set the ExchangePattern {@link ExchangePattern} into the exchange      *      * @param exchangePattern  instance of {@link ExchangePattern}       * @return the builder      */
+DECL|method|setExchangePattern (ExchangePattern exchangePattern)
+specifier|public
+name|Type
+name|setExchangePattern
+parameter_list|(
+name|ExchangePattern
+name|exchangePattern
+parameter_list|)
+block|{
+name|addOutput
+argument_list|(
+operator|new
+name|ExchangePatternType
+argument_list|(
+name|exchangePattern
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
+comment|/**      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">ExchangePattern:</a>      * set the exchange's ExchangePattern {@link ExchangePattern} to be InOnly      *      *       * @return the builder      */
+DECL|method|inOnly ()
+specifier|public
+name|Type
+name|inOnly
+parameter_list|()
+block|{
+return|return
+name|setExchangePattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
+return|;
+block|}
+comment|/**      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">ExchangePattern:</a>      * set the exchange's ExchangePattern {@link ExchangePattern} to be InOut      *      *       * @return the builder      */
+DECL|method|inOut ()
+specifier|public
+name|Type
+name|inOut
+parameter_list|()
+block|{
+return|return
+name|setExchangePattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOut
+argument_list|)
 return|;
 block|}
 comment|// Properties

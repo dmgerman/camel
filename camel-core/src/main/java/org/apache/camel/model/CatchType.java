@@ -200,7 +200,7 @@ name|CatchType
 extends|extends
 name|ProcessorType
 argument_list|<
-name|ProcessorType
+name|CatchType
 argument_list|>
 block|{
 annotation|@
