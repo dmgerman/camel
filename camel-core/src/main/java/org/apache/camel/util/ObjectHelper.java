@@ -727,7 +727,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt> or an empty string.      *      * @param value  the value to test      * @param name   the key that resolved the value      */
+comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt>      *      * @param value  the value to test      * @param name   the key that resolved the value      * @throws IllegalArgumentException is thrown if assertion fails      */
 DECL|method|notNull (Object value, String name)
 specifier|public
 specifier|static
@@ -735,6 +735,91 @@ name|void
 name|notNull
 parameter_list|(
 name|Object
+name|value
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+block|{
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|name
+operator|+
+literal|" must be specified"
+argument_list|)
+throw|;
+block|}
+block|}
+comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt>      *      * @param value  the value to test      * @param on     additional description to indicate where this problem occured (appended as toString())      * @param name   the key that resolved the value      * @throws IllegalArgumentException is thrown if assertion fails      */
+DECL|method|notNull (Object value, String name, Object on)
+specifier|public
+specifier|static
+name|void
+name|notNull
+parameter_list|(
+name|Object
+name|value
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|Object
+name|on
+parameter_list|)
+block|{
+if|if
+condition|(
+name|on
+operator|==
+literal|null
+condition|)
+block|{
+name|notNull
+argument_list|(
+name|value
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|name
+operator|+
+literal|" must be specified on: "
+operator|+
+name|on
+argument_list|)
+throw|;
+block|}
+block|}
+comment|/**      * Asserts whether the string is<b>not</b> empty.      *      * @param value  the string to test      * @param name   the key that resolved the value      * @throws IllegalArgumentException is thrown if assertion fails      */
+DECL|method|notEmpty (String value, String name)
+specifier|public
+specifier|static
+name|void
+name|notEmpty
+parameter_list|(
+name|String
 name|value
 parameter_list|,
 name|String
@@ -755,19 +840,19 @@ name|IllegalArgumentException
 argument_list|(
 name|name
 operator|+
-literal|" must be specified"
+literal|" must be specified and not empty"
 argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt> or an empty string.      *      * @param value  the value to test      * @param on     additional description to indicate where this problem occured (appended as toString())      * @param name   the key that resolved the value      */
-DECL|method|notNull (Object value, String name, Object on)
+comment|/**      * Asserts whether the string is<b>not</b> empty.      *      * @param value  the string to test      * @param on     additional description to indicate where this problem occured (appended as toString())      * @param name   the key that resolved the value      * @throws IllegalArgumentException is thrown if assertion fails      */
+DECL|method|notEmpty (String value, String name, Object on)
 specifier|public
 specifier|static
 name|void
-name|notNull
+name|notEmpty
 parameter_list|(
-name|Object
+name|String
 name|value
 parameter_list|,
 name|String
@@ -807,7 +892,7 @@ name|IllegalArgumentException
 argument_list|(
 name|name
 operator|+
-literal|" must be specified on: "
+literal|" must be specified and not empty on: "
 operator|+
 name|on
 argument_list|)

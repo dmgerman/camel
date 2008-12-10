@@ -324,7 +324,6 @@ argument_list|,
 name|file
 argument_list|)
 decl_stmt|;
-comment|// deleting any existing files before renaming
 name|File
 name|to
 init|=

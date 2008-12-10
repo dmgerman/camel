@@ -405,11 +405,13 @@ name|reminder
 expr_stmt|;
 name|ObjectHelper
 operator|.
-name|notNull
+name|notEmpty
 argument_list|(
 name|reminder
 argument_list|,
 literal|"sortBy expression"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 comment|// recursive add nested sorters
