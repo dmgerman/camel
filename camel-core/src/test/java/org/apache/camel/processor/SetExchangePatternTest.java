@@ -78,17 +78,17 @@ name|SetExchangePatternTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testInvokeWithInOut ()
+DECL|method|testInOut ()
 specifier|public
 name|void
-name|testInvokeWithInOut
+name|testInOut
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|assertMessageReceivedWithPattern
 argument_list|(
-literal|"direct:invokeWithInOut"
+literal|"direct:testInOut"
 argument_list|,
 name|ExchangePattern
 operator|.
@@ -96,17 +96,17 @@ name|InOut
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testInvokeWithInOnly ()
+DECL|method|testInOnly ()
 specifier|public
 name|void
-name|testInvokeWithInOnly
+name|testInOnly
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|assertMessageReceivedWithPattern
 argument_list|(
-literal|"direct:invokeWithInOnly"
+literal|"direct:testInOnly"
 argument_list|,
 name|ExchangePattern
 operator|.
@@ -114,17 +114,35 @@ name|InOnly
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSetInOut ()
+DECL|method|testSetToInOnlyThenTo ()
 specifier|public
 name|void
-name|testSetInOut
+name|testSetToInOnlyThenTo
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|assertMessageReceivedWithPattern
 argument_list|(
-literal|"direct:inOnly"
+literal|"direct:testSetToInOnlyThenTo"
+argument_list|,
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testSetToInOutThenTo ()
+specifier|public
+name|void
+name|testSetToInOutThenTo
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertMessageReceivedWithPattern
+argument_list|(
+literal|"direct:testSetToInOutThenTo"
 argument_list|,
 name|ExchangePattern
 operator|.
@@ -132,17 +150,17 @@ name|InOut
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSetInOutAsToParam ()
+DECL|method|testToWithInOnlyParam ()
 specifier|public
 name|void
-name|testSetInOutAsToParam
+name|testToWithInOnlyParam
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|assertMessageReceivedWithPattern
 argument_list|(
-literal|"direct:inOnlyAsToParam"
+literal|"direct:testToWithInOnlyParam"
 argument_list|,
 name|ExchangePattern
 operator|.
@@ -150,35 +168,35 @@ name|InOnly
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSetInOnly ()
+DECL|method|testToWithInOutParam ()
 specifier|public
 name|void
-name|testSetInOnly
+name|testToWithInOutParam
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|assertMessageReceivedWithPattern
 argument_list|(
-literal|"direct:inOut"
+literal|"direct:testToWithInOutParam"
 argument_list|,
 name|ExchangePattern
 operator|.
-name|InOnly
+name|InOut
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSetRobustInOnly ()
+DECL|method|testToWithRobustInOnlyParam ()
 specifier|public
 name|void
-name|testSetRobustInOnly
+name|testToWithRobustInOnlyParam
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|assertMessageReceivedWithPattern
 argument_list|(
-literal|"direct:inOut1"
+literal|"direct:testToWithRobustInOnlyParam"
 argument_list|,
 name|ExchangePattern
 operator|.
@@ -186,17 +204,17 @@ name|RobustInOnly
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSetInOnly2 ()
+DECL|method|testSetExchangePatternInOnly ()
 specifier|public
 name|void
-name|testSetInOnly2
+name|testSetExchangePatternInOnly
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|assertMessageReceivedWithPattern
 argument_list|(
-literal|"direct:inOut2"
+literal|"direct:testSetExchangePatternInOnly"
 argument_list|,
 name|ExchangePattern
 operator|.
@@ -339,7 +357,7 @@ comment|// START SNIPPET: example
 comment|// Send to an endpoint using InOut
 name|from
 argument_list|(
-literal|"direct:invokeWithInOut"
+literal|"direct:testInOut"
 argument_list|)
 operator|.
 name|inOut
@@ -350,7 +368,7 @@ expr_stmt|;
 comment|// Send to an endpoint using InOut
 name|from
 argument_list|(
-literal|"direct:invokeWithInOnly"
+literal|"direct:testInOnly"
 argument_list|)
 operator|.
 name|inOnly
@@ -361,7 +379,20 @@ expr_stmt|;
 comment|// Set the exchange pattern to InOut, then send it from direct:inOnly to mock:result endpoint
 name|from
 argument_list|(
-literal|"direct:inOnly"
+literal|"direct:testSetToInOnlyThenTo"
+argument_list|)
+operator|.
+name|inOnly
+argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:testSetToInOutThenTo"
 argument_list|)
 operator|.
 name|inOut
@@ -372,10 +403,10 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// Or we can pass the pattern as a parameter
+comment|// Or we can pass the pattern as a parameter to the to() method
 name|from
 argument_list|(
-literal|"direct:inOnlyAsToParam"
+literal|"direct:testToWithInOnlyParam"
 argument_list|)
 operator|.
 name|to
@@ -387,28 +418,23 @@ argument_list|,
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// Set the exchange pattern to InOut, then send it from direct:inOut to mock:result endpoint
 name|from
 argument_list|(
-literal|"direct:inOut"
-argument_list|)
-operator|.
-name|setExchangePattern
-argument_list|(
-name|ExchangePattern
-operator|.
-name|InOnly
+literal|"direct:testToWithInOutParam"
 argument_list|)
 operator|.
 name|to
 argument_list|(
+name|ExchangePattern
+operator|.
+name|InOut
+argument_list|,
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// Send the exchange from direct:inOut1 to mock:result with setting the exchange pattern to be RobustInOnly
 name|from
 argument_list|(
-literal|"direct:inOut1"
+literal|"direct:testToWithRobustInOnlyParam"
 argument_list|)
 operator|.
 name|to
@@ -420,13 +446,20 @@ argument_list|,
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// Send the exchange from direct:inOut2 to mock:result with setting the exchange pattern to be InOnly
+comment|// Set the exchange pattern to InOut, then send it on
 name|from
 argument_list|(
-literal|"direct:inOut2"
+literal|"direct:testSetExchangePatternInOnly"
 argument_list|)
 operator|.
-name|inOnly
+name|setExchangePattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
+operator|.
+name|to
 argument_list|(
 literal|"mock:result"
 argument_list|)
