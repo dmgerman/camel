@@ -40,7 +40,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|ExchangePatternTest
+name|SetExchangePatternTest
 import|;
 end_import
 
@@ -63,12 +63,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|SpringExchangePatternTest
+DECL|class|SpringSetExchangePatternTest
 specifier|public
 class|class
-name|SpringExchangePatternTest
+name|SpringSetExchangePatternTest
 extends|extends
-name|ExchangePatternTest
+name|SetExchangePatternTest
 block|{
 DECL|method|createCamelContext ()
 specifier|protected
@@ -83,7 +83,7 @@ name|createSpringCamelContext
 argument_list|(
 name|this
 argument_list|,
-literal|"org/apache/camel/spring/processor/exchangePattern.xml"
+literal|"org/apache/camel/spring/processor/setExchangePattern.xml"
 argument_list|)
 return|;
 block|}
