@@ -94,6 +94,18 @@ parameter_list|)
 block|{
 comment|// We assume a value is present only if its value not null for String and 'true' for boolean
 name|boolean
+name|isNoop
+init|=
+name|params
+operator|.
+name|get
+argument_list|(
+literal|"noop"
+argument_list|)
+operator|!=
+literal|null
+decl_stmt|;
+name|boolean
 name|isDelete
 init|=
 name|params
@@ -219,12 +231,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|params
-operator|.
-name|containsKey
-argument_list|(
-literal|"noop"
-argument_list|)
+name|isNoop
 condition|)
 block|{
 return|return
