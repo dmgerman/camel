@@ -482,11 +482,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:result"
-argument_list|,
 name|ExchangePattern
 operator|.
 name|RobustInOnly
+argument_list|,
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 comment|//Send the exchange from direct:inOut2 to mock:result with setting the exchange pattern to be InOnly
