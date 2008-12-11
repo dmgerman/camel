@@ -441,6 +441,8 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: example
+comment|//Set the exchange pattern to InOut, then send it from direct:inOnly to mock:result endpoint
 name|from
 argument_list|(
 literal|"direct:inOnly"
@@ -454,6 +456,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|//Set the exchange pattern to InOut, then send it from direct:inOut to mock:result endpoint
 name|from
 argument_list|(
 literal|"direct:inOut"
@@ -471,6 +474,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|//Send the exchange from direct:inOut1 to mock:result with setting the exchange pattern to be RobustInOnly
 name|from
 argument_list|(
 literal|"direct:inOut1"
@@ -485,6 +489,7 @@ operator|.
 name|RobustInOnly
 argument_list|)
 expr_stmt|;
+comment|//Send the exchange from direct:inOut2 to mock:result with setting the exchange pattern to be InOnly
 name|from
 argument_list|(
 literal|"direct:inOut2"
@@ -495,6 +500,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: example
 block|}
 block|}
 return|;
