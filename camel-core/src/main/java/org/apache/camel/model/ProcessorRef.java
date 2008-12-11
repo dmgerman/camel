@@ -106,9 +106,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spi
 operator|.
-name|ObjectHelper
+name|RouteContext
 import|;
 end_import
 
@@ -120,9 +120,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|util
 operator|.
-name|RouteContext
+name|ObjectHelper
 import|;
 end_import
 

@@ -396,9 +396,6 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()

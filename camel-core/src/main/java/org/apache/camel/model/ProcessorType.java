@@ -702,11 +702,6 @@ decl_stmt|;
 DECL|field|parent
 specifier|private
 name|ProcessorType
-argument_list|<
-name|?
-extends|extends
-name|ProcessorType
-argument_list|>
 name|parent
 decl_stmt|;
 DECL|field|interceptors
@@ -736,9 +731,6 @@ specifier|abstract
 name|List
 argument_list|<
 name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -782,9 +774,6 @@ block|{
 name|Collection
 argument_list|<
 name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -5482,7 +5471,7 @@ name|list
 argument_list|)
 return|;
 block|}
-DECL|method|createOutputsProcessor (RouteContext routeContext, Collection<ProcessorType<?>> outputs)
+DECL|method|createOutputsProcessor (RouteContext routeContext, Collection<ProcessorType> outputs)
 specifier|protected
 name|Processor
 name|createOutputsProcessor
@@ -5493,9 +5482,6 @@ parameter_list|,
 name|Collection
 argument_list|<
 name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)

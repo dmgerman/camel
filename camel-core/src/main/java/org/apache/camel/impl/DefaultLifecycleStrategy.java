@@ -252,9 +252,6 @@ comment|// configure the outputs
 name|List
 argument_list|<
 name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -262,9 +259,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|(
 name|routeType
@@ -283,9 +277,6 @@ comment|// add the output configure the outputs with the routeType
 for|for
 control|(
 name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
 name|processorType
 range|:
 name|outputs

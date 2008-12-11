@@ -263,7 +263,7 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|firstSplitterType (List<ProcessorType<?>> outputs)
+DECL|method|firstSplitterType (List<ProcessorType> outputs)
 specifier|protected
 name|SplitterType
 name|firstSplitterType
@@ -271,9 +271,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorType
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)

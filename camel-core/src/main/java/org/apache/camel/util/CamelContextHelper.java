@@ -148,7 +148,7 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|isNotEmpty
+name|isEmpty
 import|;
 end_import
 
@@ -164,7 +164,7 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|isEmpty
+name|isNotEmpty
 import|;
 end_import
 

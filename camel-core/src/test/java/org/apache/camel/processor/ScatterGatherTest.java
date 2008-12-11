@@ -405,8 +405,6 @@ block|{
 DECL|field|quoteResult
 name|int
 name|quoteResult
-init|=
-literal|0
 decl_stmt|;
 DECL|method|MyVendor (int quoteResult)
 specifier|public
