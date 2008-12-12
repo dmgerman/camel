@@ -32,6 +32,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -619,7 +631,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Return TidyMarkup  HTML DataFormat (an XML Document) either       *  as {@link org.w3c.dom.Node}      */
+comment|/**      * Return TidyMarkup in the default format       *  as {@link org.w3c.dom.Node}      */
 DECL|method|tidyMarkup ()
 specifier|public
 name|T
@@ -632,7 +644,7 @@ argument_list|(
 operator|new
 name|TidyMarkupDataFormat
 argument_list|(
-name|String
+name|Node
 operator|.
 name|class
 argument_list|)

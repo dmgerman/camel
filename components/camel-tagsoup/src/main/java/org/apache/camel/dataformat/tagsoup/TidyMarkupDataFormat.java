@@ -222,6 +222,48 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|ccil
 operator|.
 name|cowan
@@ -286,6 +328,24 @@ name|TidyMarkupDataFormat
 implements|implements
 name|DataFormat
 block|{
+comment|/*      * Our Logger      */
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|TidyMarkupDataFormat
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|NO
 specifier|private
 specifier|static
@@ -359,7 +419,7 @@ name|Object
 argument_list|>
 name|parserPropeties
 decl_stmt|;
-comment|/**      * Unsupported operation      */
+comment|/**      * Unsupported operation. We cannot create ugly HTML.      */
 DECL|method|marshal (Exchange exchange, Object object, OutputStream outputStream)
 specifier|public
 name|void
@@ -383,11 +443,11 @@ name|CamelException
 argument_list|(
 literal|"Marshalling from Well Formed HTML to ugly HTML is not supported."
 operator|+
-literal|" Only use<unmarshal><wellFormedHtml/><unmarshal>"
+literal|" Only unmarshal is supported"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Unmarshal the data      */
+comment|/**      * Unmarshal the data      *       * @throws Exception      */
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
 specifier|public
 name|Object
@@ -402,26 +462,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
 name|dataObjectType
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|String
-operator|.
-name|class
+argument_list|,
+literal|"dataObjectType"
+argument_list|,
+name|this
 argument_list|)
-condition|)
-block|{
-return|return
-name|asStringTidyMarkup
-argument_list|(
-name|inputStream
-argument_list|)
-return|;
-block|}
-elseif|else
+expr_stmt|;
 if|if
 condition|(
 name|dataObjectType
@@ -441,11 +492,31 @@ name|inputStream
 argument_list|)
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|dataObjectType
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+return|return
+name|asStringTidyMarkup
+argument_list|(
+name|inputStream
+argument_list|)
+return|;
+block|}
 else|else
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|IllegalArgumentException
 argument_list|(
 literal|"The return type ["
 operator|+
@@ -459,7 +530,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Return the tidy markup as a string      *       * @param inputStream      * @return String of XML      * @throws CamelException      * @throws Exception      */
+comment|/**      * Return the tidy markup as a string      *       * @param inputStream      * @return String of XML      * @throws CamelException      */
 DECL|method|asStringTidyMarkup (InputStream inputStream)
 specifier|private
 name|String
@@ -524,7 +595,7 @@ throw|throw
 operator|new
 name|CamelException
 argument_list|(
-literal|"Failed to turn the HTML into tidy Markup"
+literal|"Failed to convert the HTML to tidy Markup"
 argument_list|,
 name|e
 argument_list|)
@@ -546,18 +617,17 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|CamelException
+name|LOG
+operator|.
+name|warn
 argument_list|(
 literal|"Failed to close the inputStream"
-argument_list|,
-name|e
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * Return the HTML Markup as an {@link org.w3c.dom.Node}      *       * @param inputStream      *            The input Stream to convert      * @return org.w3c.dom.Node The HTML Markup as a DOM Node      * @throws CamelException      */
 DECL|method|asNodeTidyMarkup (InputStream inputStream)
 specifier|private
 name|Node
@@ -648,7 +718,9 @@ throw|throw
 operator|new
 name|CamelException
 argument_list|(
-literal|"Failed to convert the HTML to tidy Markup (returning as a DOM Node)"
+literal|"Failed to convert the HTML to tidy Markup"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -812,9 +884,9 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|IllegalArgumentException
 argument_list|(
-literal|"Problem setting the parser feature"
+literal|"Problem configuring the parser"
 argument_list|,
 name|e
 argument_list|)

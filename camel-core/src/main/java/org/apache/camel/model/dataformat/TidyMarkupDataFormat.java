@@ -175,7 +175,9 @@ block|{
 name|this
 argument_list|()
 expr_stmt|;
-assert|assert
+if|if
+condition|(
+operator|!
 name|dataObjectType
 operator|.
 name|isAssignableFrom
@@ -184,7 +186,8 @@ name|String
 operator|.
 name|class
 argument_list|)
-operator|||
+operator|&&
+operator|!
 name|dataObjectType
 operator|.
 name|isAssignableFrom
@@ -193,9 +196,16 @@ name|Node
 operator|.
 name|class
 argument_list|)
-operator|:
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 literal|"TidyMarkupDataFormat only supports returning a String or a org.w3c.dom.Node object"
-assert|;
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|setDataObjectType
