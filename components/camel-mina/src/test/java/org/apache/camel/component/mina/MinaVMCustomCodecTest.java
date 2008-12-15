@@ -211,14 +211,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test with custom codec.  */
+comment|/**  * Unit test with custom codec using the VM protocol.  */
 end_comment
 
 begin_class
-DECL|class|MinaCustomCodecTest
+DECL|class|MinaVMCustomCodecTest
 specifier|public
 class|class
-name|MinaCustomCodecTest
+name|MinaVMCustomCodecTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -227,7 +227,7 @@ specifier|private
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:11300?sync=true&codec=myCodec"
+literal|"mina:vm://localhost:11301?sync=true&codec=myCodec"
 decl_stmt|;
 DECL|method|testMyCodec ()
 specifier|public
@@ -298,7 +298,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"mina:tcp://localhost:11300?sync=true&codec=XXX"
+literal|"mina:vm://localhost:11300?sync=true&codec=XXX"
 argument_list|,
 literal|"Hello World"
 argument_list|)

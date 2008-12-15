@@ -150,12 +150,10 @@ name|MinaTransferExchangeOptionTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|URI
-specifier|private
-specifier|static
-specifier|final
+DECL|field|uri
+specifier|protected
 name|String
-name|URI
+name|uri
 init|=
 literal|"mina:tcp://localhost:6321?sync=true&encoding=UTF-8&transferExchange=true"
 decl_stmt|;
@@ -225,7 +223,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-name|URI
+name|uri
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -477,7 +475,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-name|URI
+name|uri
 argument_list|)
 operator|.
 name|process
