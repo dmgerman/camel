@@ -223,11 +223,18 @@ extends|extends
 name|ContextTestSupport
 block|{
 DECL|field|uri
-specifier|private
+specifier|protected
 name|String
 name|uri
 init|=
 literal|"mina:tcp://localhost:11300?sync=true&codec=myCodec"
+decl_stmt|;
+DECL|field|badUri
+specifier|protected
+name|String
+name|badUri
+init|=
+literal|"mina:tcp://localhost:11300?sync=true&codec=XXX"
 decl_stmt|;
 DECL|method|testMyCodec ()
 specifier|public
@@ -298,7 +305,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"mina:tcp://localhost:11300?sync=true&codec=XXX"
+name|badUri
 argument_list|,
 literal|"Hello World"
 argument_list|)
