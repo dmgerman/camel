@@ -388,20 +388,46 @@ return|return
 name|processor
 return|;
 block|}
-comment|/**      * A strategy method to decide if the batch is completed the resulting exchanges should be sent      */
-DECL|method|isBatchCompleted (int num)
+comment|/**      * A strategy method to decide if the "in" batch is completed.  That is, whether the resulting       * exchanges in the in queue should be drained to the "out" collection.      */
+DECL|method|isInBatchCompleted (int num)
 specifier|protected
 name|boolean
-name|isBatchCompleted
+name|isInBatchCompleted
 parameter_list|(
 name|int
 name|num
 parameter_list|)
 block|{
-comment|// out batch size is optional and we should only check it if its enabled (=>0)
+return|return
+name|num
+operator|>=
+name|batchSize
+return|;
+block|}
+comment|/**      * A strategy method to decide if the "out" batch is completed. That is, whether the resulting       * exchange in the out collection should be sent.      */
+DECL|method|isOutBatchCompleted ()
+specifier|protected
+name|boolean
+name|isOutBatchCompleted
+parameter_list|()
+block|{
 if|if
 condition|(
 name|outBatchSize
+operator|==
+literal|0
+condition|)
+block|{
+comment|// out batch is disabled, so go ahead and send.
+return|return
+literal|true
+return|;
+block|}
+return|return
+name|collection
+operator|.
+name|size
+argument_list|()
 operator|>
 literal|0
 operator|&&
@@ -411,17 +437,6 @@ name|size
 argument_list|()
 operator|>=
 name|outBatchSize
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-comment|// fallback to regular batch size check
-return|return
-name|num
-operator|>=
-name|batchSize
 return|;
 block|}
 comment|/**      * Strategy Method to process an exchange in the batch. This method allows      * derived classes to perform custom processing before or after an      * individual exchange is processed      */
@@ -590,6 +605,15 @@ argument_list|(
 name|batchTimeout
 argument_list|)
 expr_stmt|;
+name|queue
+operator|.
+name|drainTo
+argument_list|(
+name|collection
+argument_list|,
+name|batchSize
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -603,6 +627,36 @@ name|cancelRequested
 condition|)
 block|{
 return|return;
+block|}
+while|while
+condition|(
+name|isInBatchCompleted
+argument_list|(
+name|queue
+operator|.
+name|size
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|queue
+operator|.
+name|drainTo
+argument_list|(
+name|collection
+argument_list|,
+name|batchSize
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|isOutBatchCompleted
+argument_list|()
+condition|)
+block|{
+continue|continue;
 block|}
 block|}
 try|try
@@ -642,16 +696,6 @@ name|interrupt
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|sendBatch ()
-specifier|public
-name|void
-name|sendBatch
-parameter_list|()
-block|{
-name|interrupt
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|enqueueExchange (Exchange exchange)
 specifier|public
 name|void
@@ -668,21 +712,9 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|isBatchCompleted
-argument_list|(
-name|queue
-operator|.
-name|size
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|sendBatch
+name|interrupt
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 DECL|method|sendExchanges ()
 specifier|private
@@ -692,15 +724,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|queue
-operator|.
-name|drainTo
-argument_list|(
-name|collection
-argument_list|,
-name|batchSize
-argument_list|)
-expr_stmt|;
 name|Iterator
 argument_list|<
 name|Exchange
