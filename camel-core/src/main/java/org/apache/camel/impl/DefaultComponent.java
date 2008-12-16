@@ -830,7 +830,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Sets the bean properties on the given bean      */
+comment|/**      * Sets the bean properties on the given bean      *      * @param bean  the bean      * @param parameters  properties to set      */
 DECL|method|setProperties (Object bean, Map parameters)
 specifier|protected
 name|void
@@ -1017,32 +1017,6 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Property: "
-operator|+
-name|name
-operator|+
-literal|" not found on bean: "
-operator|+
-name|bean
-operator|+
-literal|" of type: "
-operator|+
-name|bean
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-throw|;
 block|}
 block|}
 block|}

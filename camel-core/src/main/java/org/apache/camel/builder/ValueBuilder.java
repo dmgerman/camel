@@ -338,6 +338,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated use {@link #regex(String)}      */
 DECL|method|matchesRegex (String regex)
 specifier|public
 name|Predicate
