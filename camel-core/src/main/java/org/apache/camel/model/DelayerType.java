@@ -267,6 +267,26 @@ operator|+
 literal|"]"
 return|;
 block|}
+comment|// Fluent API
+comment|// -------------------------------------------------------------------------
+DECL|method|delayTime (Long delay)
+specifier|public
+name|DelayerType
+name|delayTime
+parameter_list|(
+name|Long
+name|delay
+parameter_list|)
+block|{
+name|setDelayTime
+argument_list|(
+name|delay
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|getShortName ()

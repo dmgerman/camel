@@ -324,6 +324,65 @@ name|routeContext
 argument_list|)
 return|;
 block|}
+comment|// Fluent API
+comment|// -------------------------------------------------------------------------
+comment|/**      * Set the multicasting aggregationStrategy      * @param aggregationStrategy       *      * @return the builder      */
+DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
+specifier|public
+name|MulticastType
+name|aggregationStrategy
+parameter_list|(
+name|AggregationStrategy
+name|aggregationStrategy
+parameter_list|)
+block|{
+name|setAggregationStrategy
+argument_list|(
+name|aggregationStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Set the multicasting action's thread model      * @param parallelProcessing       * if it is true the Splitter will use a thread pool to do the multicasting work;       * if it is false the Splitter only do the multicasting work in the calling thread.      *      * @return the builder      */
+DECL|method|parallelProcessing (boolean parallelProcessing)
+specifier|public
+name|MulticastType
+name|parallelProcessing
+parameter_list|(
+name|boolean
+name|parallelProcessing
+parameter_list|)
+block|{
+name|setParallelProcessing
+argument_list|(
+name|parallelProcessing
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Setting the executor for executing the multicasting action.       * @param executor       *      * @return the builder      */
+DECL|method|executor (Executor executor)
+specifier|public
+name|MulticastType
+name|executor
+parameter_list|(
+name|Executor
+name|executor
+parameter_list|)
+block|{
+name|setExecutor
+argument_list|(
+name|executor
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|createCompositeProcessor (RouteContext routeContext, List<Processor> list)
 specifier|protected
 name|Processor
@@ -461,7 +520,7 @@ return|;
 block|}
 DECL|method|setParallelProcessing (boolean parallelProcessing)
 specifier|public
-name|MulticastType
+name|void
 name|setParallelProcessing
 parameter_list|(
 name|boolean
@@ -474,9 +533,6 @@ name|parallelProcessing
 operator|=
 name|parallelProcessing
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 DECL|method|getExecutor ()
 specifier|public
@@ -488,10 +544,10 @@ return|return
 name|executor
 return|;
 block|}
-DECL|method|setThreadPoolExecutor (Executor executor)
+DECL|method|setExecutor (Executor executor)
 specifier|public
-name|MulticastType
-name|setThreadPoolExecutor
+name|void
+name|setExecutor
 parameter_list|(
 name|Executor
 name|executor
@@ -503,9 +559,6 @@ name|executor
 operator|=
 name|executor
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 annotation|@
 name|Override

@@ -241,6 +241,24 @@ operator|=
 name|pattern
 expr_stmt|;
 block|}
+DECL|method|pattern (ExchangePattern pattern)
+specifier|public
+name|SetExchangePatternType
+name|pattern
+parameter_list|(
+name|ExchangePattern
+name|pattern
+parameter_list|)
+block|{
+name|setPattern
+argument_list|(
+name|pattern
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|getPattern ()
 specifier|public
 name|ExchangePattern

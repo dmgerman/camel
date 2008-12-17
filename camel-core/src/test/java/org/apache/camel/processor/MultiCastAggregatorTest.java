@@ -377,7 +377,7 @@ argument_list|,
 literal|true
 argument_list|)
 operator|.
-name|setThreadPoolExecutor
+name|executor
 argument_list|(
 name|tpExecutor
 argument_list|)

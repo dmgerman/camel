@@ -360,9 +360,15 @@ name|tokenize
 argument_list|(
 literal|","
 argument_list|)
-argument_list|,
+argument_list|)
+operator|.
+name|parallelProcessing
+argument_list|(
 literal|true
-argument_list|,
+argument_list|)
+operator|.
+name|executor
+argument_list|(
 name|customThreadPoolExecutor
 argument_list|)
 operator|.

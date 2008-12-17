@@ -336,11 +336,29 @@ name|long
 name|timePeriodMillis
 parameter_list|)
 block|{
+name|setTimePeriodMillis
+argument_list|(
+name|timePeriodMillis
+argument_list|)
+expr_stmt|;
+return|return
 name|this
-operator|.
-name|timePeriodMillis
-operator|=
-name|timePeriodMillis
+return|;
+block|}
+comment|/**      * Sets the time period during which the maximum request count per period      *      * @param maximumRequestsPerPeriod  the maximum request count number per time period      * @return the builder      */
+DECL|method|maximumRequestsPerPeriod (Long maximumRequestsPerPeriod)
+specifier|public
+name|ThrottlerType
+name|maximumRequestsPerPeriod
+parameter_list|(
+name|Long
+name|maximumRequestsPerPeriod
+parameter_list|)
+block|{
+name|setMaximumRequestsPerPeriod
+argument_list|(
+name|maximumRequestsPerPeriod
+argument_list|)
 expr_stmt|;
 return|return
 name|this

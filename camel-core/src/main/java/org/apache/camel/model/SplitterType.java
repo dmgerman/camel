@@ -448,6 +448,81 @@ name|streaming
 argument_list|)
 return|;
 block|}
+comment|// Fluent API
+comment|// -------------------------------------------------------------------------
+comment|/**      * Set the spliter's aggregationStrategy      * @param aggregationStrategy       *      * @return the builder      */
+DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
+specifier|public
+name|SplitterType
+name|aggregationStrategy
+parameter_list|(
+name|AggregationStrategy
+name|aggregationStrategy
+parameter_list|)
+block|{
+name|setAggregationStrategy
+argument_list|(
+name|aggregationStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Set the splitting action's thread model      * @param parallelProcessing       * if it is true the Splitter will use a thread pool to do the splitting work;       * if it is false the Splitter only do the splitting work in the calling thread.      *      * @return the builder      */
+DECL|method|parallelProcessing (boolean parallelProcessing)
+specifier|public
+name|SplitterType
+name|parallelProcessing
+parameter_list|(
+name|boolean
+name|parallelProcessing
+parameter_list|)
+block|{
+name|setParallelProcessing
+argument_list|(
+name|parallelProcessing
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Enables streaming.       * See {@link SplitterType#setStreaming(boolean)} for more information      *      * @return the builder      */
+DECL|method|streaming ()
+specifier|public
+name|SplitterType
+name|streaming
+parameter_list|()
+block|{
+name|setStreaming
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Setting the executor for executing the splitting action.       * @param executor       *      * @return the builder      */
+DECL|method|executor (Executor executor)
+specifier|public
+name|SplitterType
+name|executor
+parameter_list|(
+name|Executor
+name|executor
+parameter_list|)
+block|{
+name|setExecutor
+argument_list|(
+name|executor
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|getAggregationStrategy ()
 specifier|public
 name|AggregationStrategy
@@ -538,22 +613,6 @@ name|streaming
 operator|=
 name|streaming
 expr_stmt|;
-block|}
-comment|/**      * Enables streaming.       * See {@link SplitterType#setStreaming(boolean)} for more information      *      * @return the builder      */
-DECL|method|streaming ()
-specifier|public
-name|SplitterType
-name|streaming
-parameter_list|()
-block|{
-name|setStreaming
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 DECL|method|createThreadPoolExecutor (RouteContext routeContext)
 specifier|private
