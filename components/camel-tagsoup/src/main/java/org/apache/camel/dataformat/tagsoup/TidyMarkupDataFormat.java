@@ -532,7 +532,7 @@ block|}
 block|}
 comment|/**      * Return the tidy markup as a string      *       * @param inputStream      * @return String of XML      * @throws CamelException      */
 DECL|method|asStringTidyMarkup (InputStream inputStream)
-specifier|private
+specifier|public
 name|String
 name|asStringTidyMarkup
 parameter_list|(
@@ -629,7 +629,7 @@ block|}
 block|}
 comment|/**      * Return the HTML Markup as an {@link org.w3c.dom.Node}      *       * @param inputStream      *            The input Stream to convert      * @return org.w3c.dom.Node The HTML Markup as a DOM Node      * @throws CamelException      */
 DECL|method|asNodeTidyMarkup (InputStream inputStream)
-specifier|private
+specifier|public
 name|Node
 name|asNodeTidyMarkup
 parameter_list|(
