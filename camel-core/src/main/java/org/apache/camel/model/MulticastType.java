@@ -576,12 +576,20 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// No need to wrap me in interceptors as they are all applied directly to my children
+comment|//CAMEL-1193 now we need to wrap the multicast processor with the interceptors
+comment|//Current we wrap the StreamCachingInterceptor by default
 return|return
+name|super
+operator|.
+name|wrapProcessorInInterceptors
+argument_list|(
+name|routeContext
+argument_list|,
 operator|new
 name|StreamCachingInterceptor
 argument_list|(
 name|target
+argument_list|)
 argument_list|)
 return|;
 block|}
