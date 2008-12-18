@@ -272,7 +272,7 @@ argument_list|(
 literal|"jms:queue:creditResponseQueue"
 argument_list|)
 expr_stmt|;
-comment|// Here we use the multicast pattern to send the message to three different bank queue
+comment|// Here we use the multicast pattern to send the message to three different bank queues
 name|from
 argument_list|(
 literal|"jms:queue:creditResponseQueue"
@@ -348,8 +348,8 @@ argument_list|(
 literal|"jms:queue:bankReplyQueue"
 argument_list|)
 expr_stmt|;
-comment|// Now we aggregating the response message by using the Constants.PROPERTY_SSN header
-comment|// The aggregation will completed when all the three bank responses are received
+comment|// Now we aggregate the response message by using the Constants.PROPERTY_SSN header.
+comment|// The aggregation will be complete when all the three bank responses are received
 name|from
 argument_list|(
 literal|"jms:queue:bankReplyQueue"
@@ -424,7 +424,7 @@ argument_list|(
 literal|true
 argument_list|)
 argument_list|)
-comment|// Send out the request the below three different banks parallelly
+comment|// Send out the request to three different banks in parallel
 operator|.
 name|setParallelProcessing
 argument_list|(

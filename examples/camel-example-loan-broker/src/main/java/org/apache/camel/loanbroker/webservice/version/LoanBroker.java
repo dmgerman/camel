@@ -459,7 +459,7 @@ operator|new
 name|BankResponseAggregationStrategy
 argument_list|()
 argument_list|)
-comment|// Send out the request the below three different banks sequentially
+comment|// Send out the request to three different banks sequentially
 operator|.
 name|to
 argument_list|(
@@ -476,7 +476,7 @@ operator|.
 name|BANK3_URI
 argument_list|)
 expr_stmt|;
-comment|// Router 2 to call the bank endpoints parallelly
+comment|// Router 2 to call the bank endpoints in parallel
 name|from
 argument_list|(
 name|Constants
@@ -494,7 +494,7 @@ operator|.
 name|CREDITAGENCY_ADDRESS
 argument_list|)
 argument_list|)
-comment|// Using the thread pool to send out message to the below three different banks parallelly
+comment|// Using the thread pool to send out messages to three different banks in parallel
 operator|.
 name|multicast
 argument_list|(
@@ -503,7 +503,7 @@ name|BankResponseAggregationStrategy
 argument_list|()
 argument_list|)
 comment|// Camel will create a thread pool with the size of the send to endpoints
-comment|// for sending the message parallelly
+comment|// for sending the message in parallel
 operator|.
 name|setParallelProcessing
 argument_list|(
