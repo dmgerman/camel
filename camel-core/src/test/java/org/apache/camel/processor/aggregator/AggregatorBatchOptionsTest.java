@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -504,6 +516,17 @@ argument_list|,
 literal|"id"
 argument_list|,
 literal|"1"
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|await
+argument_list|(
+literal|500L
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 comment|// when we sent the next message we have reached the in batch size limit and the current
