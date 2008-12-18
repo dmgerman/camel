@@ -426,7 +426,7 @@ argument_list|)
 argument_list|)
 comment|// Send out the request the below three different banks parallelly
 operator|.
-name|parallelProcessing
+name|setParallelProcessing
 argument_list|(
 literal|true
 argument_list|)
