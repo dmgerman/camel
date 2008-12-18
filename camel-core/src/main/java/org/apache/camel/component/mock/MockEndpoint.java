@@ -469,6 +469,11 @@ specifier|private
 name|long
 name|resultWaitTime
 decl_stmt|;
+DECL|field|resultMinimumWaitTime
+specifier|private
+name|long
+name|resultMinimumWaitTime
+decl_stmt|;
 DECL|field|expectedMinimumCount
 specifier|private
 name|int
@@ -1061,26 +1066,10 @@ expr_stmt|;
 if|if
 condition|(
 name|expectedCount
-operator|>=
-literal|0
-condition|)
-block|{
-if|if
-condition|(
-name|expectedCount
-operator|!=
-name|getReceivedCounter
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
-name|expectedCount
 operator|==
 literal|0
 condition|)
 block|{
-comment|// lets wait a little bit just in case
 if|if
 condition|(
 name|timeoutForEmptyEndpoints
@@ -1107,13 +1096,36 @@ name|timeoutForEmptyEndpoints
 argument_list|)
 expr_stmt|;
 block|}
+name|assertEquals
+argument_list|(
+literal|"Received message count"
+argument_list|,
+name|expectedCount
+argument_list|,
+name|getReceivedCounter
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|expectedCount
+operator|>
+literal|0
+condition|)
+block|{
+if|if
+condition|(
+name|expectedCount
+operator|!=
+name|getReceivedCounter
+argument_list|()
+condition|)
 block|{
 name|waitForCompleteLatch
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 name|assertEquals
 argument_list|(
@@ -2469,6 +2481,23 @@ operator|=
 name|resultWaitTime
 expr_stmt|;
 block|}
+comment|/**      * Sets the minimum expected amount of time (in millis) the {@link #assertIsSatisfied()} will      * wait on a latch until it is satisfied      */
+DECL|method|setMinimumResultWaitTime (long resultMinimumWaitTime)
+specifier|public
+name|void
+name|setMinimumResultWaitTime
+parameter_list|(
+name|long
+name|resultMinimumWaitTime
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resultMinimumWaitTime
+operator|=
+name|resultMinimumWaitTime
+expr_stmt|;
+block|}
 comment|/**      * Specifies the expected number of message exchanges that should be      * received by this endpoint      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
 DECL|method|setExpectedMessageCount (int expectedCount)
 specifier|public
@@ -2637,11 +2666,15 @@ literal|null
 expr_stmt|;
 name|sleepForEmptyTest
 operator|=
-literal|1000L
+literal|0
 expr_stmt|;
 name|resultWaitTime
 operator|=
 literal|20000L
+expr_stmt|;
+name|resultMinimumWaitTime
+operator|=
+literal|0L
 expr_stmt|;
 name|expectedMinimumCount
 operator|=
@@ -2930,6 +2963,14 @@ operator|+
 literal|" millis"
 argument_list|)
 expr_stmt|;
+name|long
+name|start
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
 name|latch
 operator|.
 name|await
@@ -2941,6 +2982,52 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 expr_stmt|;
+name|long
+name|delta
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|-
+name|start
+decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Took "
+operator|+
+name|delta
+operator|+
+literal|" millis to complete latch"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|resultMinimumWaitTime
+operator|>
+literal|0
+operator|&&
+name|delta
+operator|<
+name|resultMinimumWaitTime
+condition|)
+block|{
+name|fail
+argument_list|(
+literal|"Expected minimum "
+operator|+
+name|resultWaitTime
+operator|+
+literal|" millis waiting on the result, but was faster with "
+operator|+
+name|delta
+operator|+
+literal|" millis."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|assertEquals (String message, Object expectedValue, Object actualValue)
 specifier|protected
