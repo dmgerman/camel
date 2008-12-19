@@ -50,6 +50,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|ExpressionClause
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|language
@@ -102,11 +116,6 @@ DECL|class|WhenType
 specifier|public
 class|class
 name|WhenType
-parameter_list|<
-name|Type
-extends|extends
-name|ProcessorType
-parameter_list|>
 extends|extends
 name|ExpressionNode
 block|{
@@ -194,6 +203,27 @@ return|return
 name|createFilterProcessor
 argument_list|(
 name|routeContext
+argument_list|)
+return|;
+block|}
+comment|// Fluent API
+comment|//-------------------------------------------------------------------------
+comment|/**      * Set the expression that WhenType will use      * @return the builder      */
+DECL|method|expression ()
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|WhenType
+argument_list|>
+name|expression
+parameter_list|()
+block|{
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|this
 argument_list|)
 return|;
 block|}

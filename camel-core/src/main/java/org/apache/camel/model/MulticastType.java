@@ -345,7 +345,23 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the multicasting action's thread model      * @param parallelProcessing       * if it is true the Splitter will use a thread pool to do the multicasting work;       * if it is false the Splitter only do the multicasting work in the calling thread.      *      * @return the builder      */
+comment|/**      * use a thread pool to do the multicasting work      *           * @return the builder      */
+DECL|method|parallelProcessing ()
+specifier|public
+name|MulticastType
+name|parallelProcessing
+parameter_list|()
+block|{
+name|setParallelProcessing
+argument_list|(
+name|parallelProcessing
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Set the multicasting action's thread model      * @param parallelProcessing       * if it is true the MulticastType will use a thread pool to do the multicasting work;       * if it is false the MulticastType only do the multicasting work in the calling thread.      *      * @return the builder      */
 DECL|method|parallelProcessing (boolean parallelProcessing)
 specifier|public
 name|MulticastType

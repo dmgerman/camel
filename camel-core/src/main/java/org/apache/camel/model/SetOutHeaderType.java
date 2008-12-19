@@ -106,6 +106,20 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|ExpressionClause
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|ProcessorBuilder
 import|;
 end_import
@@ -347,6 +361,27 @@ parameter_list|()
 block|{
 return|return
 name|headerName
+return|;
+block|}
+comment|// Fluent API
+comment|//-------------------------------------------------------------------------
+comment|/**      * Set the expression that SetOutHeaderType will use      * @return the builder      */
+DECL|method|expression ()
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|SetOutHeaderType
+argument_list|>
+name|expression
+parameter_list|()
+block|{
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|this
+argument_list|)
 return|;
 block|}
 block|}

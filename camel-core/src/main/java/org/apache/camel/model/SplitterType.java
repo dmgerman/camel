@@ -166,6 +166,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|ExpressionClause
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|language
@@ -450,6 +464,25 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * Set the expression that the Splitter will use      * @return the builder      */
+DECL|method|expression ()
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|SplitterType
+argument_list|>
+name|expression
+parameter_list|()
+block|{
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
 comment|/**      * Set the spliter's aggregationStrategy      * @param aggregationStrategy       *      * @return the builder      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
@@ -463,6 +496,22 @@ block|{
 name|setAggregationStrategy
 argument_list|(
 name|aggregationStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Doing the splitting work parallelly      *      * @return the builder      */
+DECL|method|parallelProcessing ()
+specifier|public
+name|SplitterType
+name|parallelProcessing
+parameter_list|()
+block|{
+name|setParallelProcessing
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 return|return

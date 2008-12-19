@@ -90,6 +90,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|ExpressionClause
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|TransformProcessor
@@ -225,6 +239,27 @@ argument_list|(
 name|expr
 argument_list|,
 name|childProcessor
+argument_list|)
+return|;
+block|}
+comment|// Fluent API
+comment|//-------------------------------------------------------------------------
+comment|/**      * Set the expression that TransformType will use      * @return the builder      */
+DECL|method|expression ()
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|TransformType
+argument_list|>
+name|expression
+parameter_list|()
+block|{
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|this
 argument_list|)
 return|;
 block|}
