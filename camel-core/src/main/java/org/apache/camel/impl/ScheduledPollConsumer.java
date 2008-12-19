@@ -288,9 +288,16 @@ expr_stmt|;
 block|}
 try|try
 block|{
+if|if
+condition|(
+name|isRunAllowed
+argument_list|()
+condition|)
+block|{
 name|poll
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

@@ -3018,7 +3018,7 @@ name|fail
 argument_list|(
 literal|"Expected minimum "
 operator|+
-name|resultWaitTime
+name|resultMinimumWaitTime
 operator|+
 literal|" millis waiting on the result, but was faster with "
 operator|+
