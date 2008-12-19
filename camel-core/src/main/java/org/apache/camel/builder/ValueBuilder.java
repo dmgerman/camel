@@ -338,30 +338,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated use {@link #regex(String)}      */
-DECL|method|matchesRegex (String regex)
-specifier|public
-name|Predicate
-name|matchesRegex
-parameter_list|(
-name|String
-name|regex
-parameter_list|)
-block|{
-return|return
-name|onNewPredicate
-argument_list|(
-name|PredicateBuilder
-operator|.
-name|regex
-argument_list|(
-name|expression
-argument_list|,
-name|regex
-argument_list|)
-argument_list|)
-return|;
-block|}
 DECL|method|isNull ()
 specifier|public
 name|Predicate
@@ -394,6 +370,27 @@ operator|.
 name|isNotNull
 argument_list|(
 name|expression
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|not (Predicate predicate)
+specifier|public
+name|Predicate
+name|not
+parameter_list|(
+name|Predicate
+name|predicate
+parameter_list|)
+block|{
+return|return
+name|onNewPredicate
+argument_list|(
+name|PredicateBuilder
+operator|.
+name|not
+argument_list|(
+name|predicate
 argument_list|)
 argument_list|)
 return|;

@@ -108,6 +108,22 @@ name|constant
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|PredicateBuilder
+operator|.
+name|not
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -192,6 +208,25 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertMatches
+argument_list|(
+name|not
+argument_list|(
+name|header
+argument_list|(
+literal|"name"
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+name|constant
+argument_list|(
+literal|"Claus"
+argument_list|)
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testFailingPredicates ()
 specifier|public
@@ -229,6 +264,25 @@ argument_list|(
 name|constant
 argument_list|(
 literal|100
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertDoesNotMatch
+argument_list|(
+name|not
+argument_list|(
+name|header
+argument_list|(
+literal|"size"
+argument_list|)
+operator|.
+name|isLessThan
+argument_list|(
+name|constant
+argument_list|(
+literal|100
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

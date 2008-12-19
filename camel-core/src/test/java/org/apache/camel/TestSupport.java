@@ -931,7 +931,7 @@ name|predicate
 operator|.
 name|assertMatches
 argument_list|(
-literal|"Predicate should match"
+literal|"Predicate should match: "
 argument_list|,
 name|exchange
 argument_list|)
@@ -988,7 +988,7 @@ name|predicate
 operator|.
 name|assertMatches
 argument_list|(
-literal|"Predicate failed"
+literal|"Predicate failed: "
 argument_list|,
 name|exchange
 argument_list|)
