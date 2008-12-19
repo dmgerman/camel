@@ -326,7 +326,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Set the multicasting aggregationStrategy      * @param aggregationStrategy       *      * @return the builder      */
+comment|/**      * Set the multicasting aggregationStrategy      *      * @return the builder      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|MulticastType
@@ -354,14 +354,14 @@ parameter_list|()
 block|{
 name|setParallelProcessing
 argument_list|(
-name|parallelProcessing
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the multicasting action's thread model      * @param parallelProcessing       * if it is true the MulticastType will use a thread pool to do the multicasting work;       * if it is false the MulticastType only do the multicasting work in the calling thread.      *      * @return the builder      */
+comment|/**      * Set the multicasting action's thread model      *      * @param parallelProcessing<tt>true</tt> to use a thread pool, if<tt>false</tt> then work is done in the      * calling thread.      *      * @return the builder      */
 DECL|method|parallelProcessing (boolean parallelProcessing)
 specifier|public
 name|MulticastType
@@ -380,7 +380,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor for executing the multicasting action.       * @param executor       *      * @return the builder      */
+comment|/**      * Setting the executor for executing the multicasting action.       *      * @return the builder      */
 DECL|method|executor (Executor executor)
 specifier|public
 name|MulticastType

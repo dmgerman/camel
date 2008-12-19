@@ -2224,34 +2224,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @param expression  the expression on which to split the message      * @return the builder      */
-DECL|method|split (Expression expression)
-specifier|public
-name|SplitterType
-name|split
-parameter_list|(
-name|Expression
-name|expression
-parameter_list|)
-block|{
-name|SplitterType
-name|answer
-init|=
-operator|new
-name|SplitterType
-argument_list|(
-name|expression
-argument_list|)
-decl_stmt|;
-name|addOutput
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-name|answer
-return|;
-block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @return the expression clause builder for the expression on which to split      */
 DECL|method|split ()
 specifier|public
@@ -2283,7 +2255,35 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression  the expression on which to split      * @param aggregationStrategy  the strategy used to aggregate responses for every part      * @return the builder      * @deprecated will be removed in Camel 2.0      */
+comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @param expression  the expression on which to split the message      * @return the builder      */
+DECL|method|split (Expression expression)
+specifier|public
+name|SplitterType
+name|split
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|SplitterType
+name|answer
+init|=
+operator|new
+name|SplitterType
+argument_list|(
+name|expression
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression  the expression on which to split      * @param aggregationStrategy  the strategy used to aggregate responses for every part      * @return the builder      */
 DECL|method|split (Expression expression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|SplitterType
@@ -2646,7 +2646,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the expression clause for the expression on which to split      */
+comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the expression clause for the expression on which to split      * @deprecated will be removed in Camel 2.0      */
 DECL|method|split (AggregationStrategy aggregationStrategy, boolean parallelProcessing)
 specifier|public
 name|ExpressionClause

@@ -464,7 +464,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Set the expression that the Splitter will use      * @return the builder      */
+comment|/**      * Set the expression that the splitter will use      *      * @return the builder      */
 DECL|method|expression ()
 specifier|public
 name|ExpressionClause
@@ -483,7 +483,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the spliter's aggregationStrategy      * @param aggregationStrategy       *      * @return the builder      */
+comment|/**      * Set the aggregationStrategy      *      * @return the builder      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|SplitterType
@@ -502,7 +502,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Doing the splitting work parallelly      *      * @return the builder      */
+comment|/**      * Doing the splitting work in parallel      *      * @return the builder      */
 DECL|method|parallelProcessing ()
 specifier|public
 name|SplitterType
@@ -518,7 +518,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the splitting action's thread model      * @param parallelProcessing       * if it is true the Splitter will use a thread pool to do the splitting work;       * if it is false the Splitter only do the splitting work in the calling thread.      *      * @return the builder      */
+comment|/**      * Set the splitting action's thread model      *      * @param parallelProcessing<tt>true</tt> to use a thread pool, if<tt>false</tt> then work is done in the      * calling thread.      *      * @return the builder      */
 DECL|method|parallelProcessing (boolean parallelProcessing)
 specifier|public
 name|SplitterType
@@ -553,7 +553,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor for executing the splitting action.       * @param executor       *      * @return the builder      */
+comment|/**      * Setting the executor for executing the splitting action.       *      * @return the builder      */
 DECL|method|executor (Executor executor)
 specifier|public
 name|SplitterType
