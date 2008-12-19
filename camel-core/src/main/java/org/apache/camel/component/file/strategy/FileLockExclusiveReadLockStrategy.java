@@ -82,6 +82,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -174,8 +186,6 @@ parameter_list|(
 name|File
 name|file
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -195,10 +205,16 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
-comment|// try to acquire rw lock on the file before we can consume it
 name|FileChannel
 name|channel
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+comment|// try to acquire rw lock on the file before we can consume it
+name|channel
+operator|=
 operator|new
 name|RandomAccessFile
 argument_list|(
@@ -209,7 +225,7 @@ argument_list|)
 operator|.
 name|getChannel
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|long
 name|start
 init|=
@@ -223,8 +239,6 @@ name|exclusive
 init|=
 literal|false
 decl_stmt|;
-try|try
-block|{
 while|while
 condition|(
 operator|!
@@ -335,6 +349,85 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|sleep
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// must handle IOException as some apps on Windows etc. will still somehow hold a lock to a file
+comment|// such as AntiVirus or MS Office that has special locks for it's supported files
+if|if
+condition|(
+name|timeout
+operator|==
+literal|0
+condition|)
+block|{
+comment|// if not using timeout, then we cant retry, so rethrow
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Can not acquire read lock. Will try again."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+name|sleep
+argument_list|()
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// must close channel
+name|ObjectHelper
+operator|.
+name|close
+argument_list|(
+name|channel
+argument_list|,
+literal|"while acquiring exclusive read lock for file: "
+operator|+
+name|file
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+literal|true
+return|;
+block|}
+DECL|method|sleep ()
+specifier|private
+name|void
+name|sleep
+parameter_list|()
+block|{
 name|LOG
 operator|.
 name|trace
@@ -360,29 +453,6 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
-block|}
-block|}
-block|}
-finally|finally
-block|{
-comment|// must close channel
-name|ObjectHelper
-operator|.
-name|close
-argument_list|(
-name|channel
-argument_list|,
-literal|"while acquiring exclusive read lock for file: "
-operator|+
-name|file
-argument_list|,
-name|LOG
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-literal|true
-return|;
 block|}
 DECL|method|getTimeout ()
 specifier|public

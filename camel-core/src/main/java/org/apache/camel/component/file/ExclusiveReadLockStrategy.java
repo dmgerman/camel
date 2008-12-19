@@ -28,16 +28,6 @@ name|File
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Strategy for acquiring exclusive read locks for files to be consumed.  * After granting the read lock it is realeased, we just want to make sure that when we start  * consuming the file its not currently in progress of being written by third party.  *<p/>  * Camel supports out of the box the following strategies:  *<ul>  *<li>FileLockExclusiveReadLockStrategy using {@link java.nio.channels.FileLock}</li>  *<li>FileRenameExclusiveReadLockStrategy waiting until its possible to rename the file. Can be used on file  *   systems where the FileLock isn't supported.</li>  *</ul>  */
 end_comment
@@ -48,7 +38,7 @@ specifier|public
 interface|interface
 name|ExclusiveReadLockStrategy
 block|{
-comment|/**      * Acquires exclusive read lock to the file.      *      * @param file the file      * @return true if read lock was acquired      * @throws IOException can be thrown      */
+comment|/**      * Acquires exclusive read lock to the file.      *      * @param file the file      * @return<tt>true</tt> if read lock was acquired.      *                       If<tt>false</tt> Camel will skip the file and try it on the next poll      */
 DECL|method|acquireExclusiveReadLock (File file)
 name|boolean
 name|acquireExclusiveReadLock
@@ -56,8 +46,6 @@ parameter_list|(
 name|File
 name|file
 parameter_list|)
-throws|throws
-name|IOException
 function_decl|;
 block|}
 end_interface

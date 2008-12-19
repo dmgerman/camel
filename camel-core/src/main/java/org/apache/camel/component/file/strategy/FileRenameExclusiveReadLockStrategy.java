@@ -32,11 +32,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|camel
+operator|.
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -126,8 +128,6 @@ parameter_list|(
 name|File
 name|file
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -279,6 +279,21 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|sleep
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+return|return
+literal|true
+return|;
+block|}
+DECL|method|sleep ()
+specifier|private
+name|void
+name|sleep
+parameter_list|()
+block|{
 name|LOG
 operator|.
 name|trace
@@ -304,11 +319,6 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
-block|}
-block|}
-return|return
-literal|true
-return|;
 block|}
 DECL|method|getTimeout ()
 specifier|public
