@@ -411,6 +411,84 @@ operator|=
 name|beanType
 expr_stmt|;
 block|}
+comment|// Fluent API
+comment|//-------------------------------------------------------------------------
+comment|/**      * Sets the ref String on camel bean      *      * @param ref  the bean's id in the registry      * @return the builder      */
+DECL|method|ref (String ref)
+specifier|public
+name|BeanRef
+name|ref
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|setRef
+argument_list|(
+name|ref
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the calling method name of camel bean      *      * @param method  the bean's method name which wants camel to call      * @return the builder      */
+DECL|method|method (String method)
+specifier|public
+name|BeanRef
+name|method
+parameter_list|(
+name|String
+name|method
+parameter_list|)
+block|{
+name|setMethod
+argument_list|(
+name|method
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the bean's instance that camel to call      *      * @param bean the instance of the bean      * @return the builder      */
+DECL|method|bean (Object bean)
+specifier|public
+name|BeanRef
+name|bean
+parameter_list|(
+name|Object
+name|bean
+parameter_list|)
+block|{
+name|setBean
+argument_list|(
+name|bean
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the Class of the bean that camel will instantiation it for calling      *      * @param beanType the Class of the bean      * @return the builder      */
+DECL|method|beanType (Class beanType)
+specifier|public
+name|BeanRef
+name|beanType
+parameter_list|(
+name|Class
+name|beanType
+parameter_list|)
+block|{
+name|setBean
+argument_list|(
+name|beanType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createProcessor (RouteContext routeContext)

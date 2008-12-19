@@ -346,6 +346,8 @@ return|return
 literal|"resequencer"
 return|;
 block|}
+comment|// Fluent API
+comment|// -------------------------------------------------------------------------
 comment|/**      * Configures the stream-based resequencing algorithm using the default      * configuration.      *      * @return the builder      */
 DECL|method|stream ()
 specifier|public

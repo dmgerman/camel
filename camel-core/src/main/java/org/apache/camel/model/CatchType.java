@@ -461,6 +461,60 @@ operator|=
 name|exceptionClasses
 expr_stmt|;
 block|}
+comment|// Fluent API
+comment|//-------------------------------------------------------------------------
+comment|/**      * Sets the exceptionClasses of the CatchType      *      * @param exceptionClasses  a list of the exception classes      * @return the builder      */
+DECL|method|exceptionClasses (List<Class> exceptionClasses)
+specifier|public
+name|CatchType
+name|exceptionClasses
+parameter_list|(
+name|List
+argument_list|<
+name|Class
+argument_list|>
+name|exceptionClasses
+parameter_list|)
+block|{
+name|setExceptionClasses
+argument_list|(
+name|exceptionClasses
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the exception class that the CatchType want to catch      *      * @param exception  the exception of class      * @return the builder      */
+DECL|method|exceptionClasses (Class exception)
+specifier|public
+name|CatchType
+name|exceptionClasses
+parameter_list|(
+name|Class
+name|exception
+parameter_list|)
+block|{
+name|List
+argument_list|<
+name|Class
+argument_list|>
+name|list
+init|=
+name|getExceptionClasses
+argument_list|()
+decl_stmt|;
+name|list
+operator|.
+name|add
+argument_list|(
+name|exception
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|getExceptions ()
 specifier|public
 name|List

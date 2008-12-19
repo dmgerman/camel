@@ -1287,7 +1287,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the aggegate strategy to use      *      * @param aggregationStrategy  the aggreage startegy to use      * @return the builder      */
+comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy  the aggregate strategy to use      * @return the builder      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|AggregatorType
@@ -1306,7 +1306,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the aggegate collection to use      *      * @param collectionRef  reference to the aggregate collection to lookup in the registry      * @return the builder      */
+comment|/**      * Sets the aggregate collection to use      *      * @param collectionRef  reference to the aggregate collection to lookup in the registry      * @return the builder      */
 DECL|method|collectionRef (String collectionRef)
 specifier|public
 name|AggregatorType
@@ -1325,7 +1325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the aggegate strategy to use      *      * @param strategyRef  reference to the strategy to lookup in the registry      * @return the builder      */
+comment|/**      * Sets the aggregate strategy to use      *      * @param strategyRef  reference to the strategy to lookup in the registry      * @return the builder      */
 DECL|method|strategyRef (String strategyRef)
 specifier|public
 name|AggregatorType

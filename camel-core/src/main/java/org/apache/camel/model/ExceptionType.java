@@ -729,7 +729,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets wether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      */
 DECL|method|handled (boolean handled)
 specifier|public
 name|ExceptionType
@@ -763,7 +763,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets wether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      */
 DECL|method|handled (Predicate handled)
 specifier|public
 name|ExceptionType
@@ -782,7 +782,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets wether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      */
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      */
 DECL|method|handled (Expression handled)
 specifier|public
 name|ExceptionType
@@ -804,7 +804,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets an additional predicate that should be true before the onException is triggered.      *<p/>      * To be used for fine grained controlling wether a thrown exception should be intercepted      * by this exception type or not.      *      * @param predicate  predicate that determines true or false      * @return the builder      */
+comment|/**      * Sets an additional predicate that should be true before the onException is triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should be intercepted      * by this exception type or not.      *      * @param predicate  predicate that determines true or false      * @return the builder      */
 DECL|method|onWhen (Predicate predicate)
 specifier|public
 name|ExceptionType
@@ -827,7 +827,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Creates an expression to configure an additional predicate that should be true before the      * onException is triggered.      *<p/>      * To be used for fine grained controlling wether a thrown exception should be intercepted      * by this exception type or not.      *      * @return the expression clause to configure      */
+comment|/**      * Creates an expression to configure an additional predicate that should be true before the      * onException is triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should be intercepted      * by this exception type or not.      *      * @return the expression clause to configure      */
 DECL|method|onWhen ()
 specifier|public
 name|ExpressionClause

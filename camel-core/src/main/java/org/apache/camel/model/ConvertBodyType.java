@@ -435,6 +435,46 @@ return|return
 name|typeClass
 return|;
 block|}
+comment|// Fluent API
+comment|//-------------------------------------------------------------------------
+comment|/**      * Sets the type class that you want ConvertBodyType to covert      *      * @param typeClass  the type class that you want to covert body instance to      * @return the builder      */
+DECL|method|typeClass (Class typeClass)
+specifier|public
+name|ConvertBodyType
+name|typeClass
+parameter_list|(
+name|Class
+name|typeClass
+parameter_list|)
+block|{
+name|setTypeClass
+argument_list|(
+name|typeClass
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the type class name that you want to covert body instance to      *      * @param type  the type class name      * @return the builder      */
+DECL|method|type (String type)
+specifier|public
+name|ConvertBodyType
+name|type
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+name|setType
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

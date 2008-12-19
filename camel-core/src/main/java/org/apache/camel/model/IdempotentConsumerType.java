@@ -256,6 +256,46 @@ return|return
 literal|"idempotentConsumer"
 return|;
 block|}
+comment|// Fluent API
+comment|//-------------------------------------------------------------------------
+comment|/**      * Sets the reference name of the message id repository      *      * @param messageIdRepositoryRef  the reference name of message id repository      * @return builder      */
+DECL|method|messageIdRepositoryRef (String messageIdRepositoryRef)
+specifier|public
+name|IdempotentConsumerType
+name|messageIdRepositoryRef
+parameter_list|(
+name|String
+name|messageIdRepositoryRef
+parameter_list|)
+block|{
+name|setMessageIdRepositoryRef
+argument_list|(
+name|messageIdRepositoryRef
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the the message id repository for the IdempotentConsumerType      *      * @param idempotentRepository  the repository instance of idempotent      * @return builder      */
+DECL|method|messageIdRepository (IdempotentRepository idempotentRepository)
+specifier|public
+name|IdempotentConsumerType
+name|messageIdRepository
+parameter_list|(
+name|IdempotentRepository
+name|idempotentRepository
+parameter_list|)
+block|{
+name|setMessageIdRepository
+argument_list|(
+name|idempotentRepository
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|getMessageIdRepositoryRef ()
 specifier|public
 name|String
