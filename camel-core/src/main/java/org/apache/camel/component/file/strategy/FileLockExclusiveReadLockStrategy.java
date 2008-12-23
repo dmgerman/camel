@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Acquires exclusive read lock to the given file. Will wait until the lock is granted.  * After granting the read lock it is realeased, we just want to make sure that when we start  * consuming the file its not currently in progress of being written by third party.  */
+comment|/**  * Acquires exclusive read lock to the given file. Will wait until the lock is granted.  * After granting the read lock it is released, we just want to make sure that when we start  * consuming the file its not currently in progress of being written by third party.  */
 end_comment
 
 begin_class
@@ -293,6 +293,12 @@ comment|// get the lock using either try lock or not depending on if we are usin
 name|FileLock
 name|lock
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|lock
+operator|=
 name|timeout
 operator|>
 literal|0
@@ -306,7 +312,17 @@ name|channel
 operator|.
 name|lock
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|ex
+parameter_list|)
+block|{
+comment|// Also catch the OverlappingFileLockException here
+comment|// Do nothing here
+block|}
 if|if
 condition|(
 name|lock
