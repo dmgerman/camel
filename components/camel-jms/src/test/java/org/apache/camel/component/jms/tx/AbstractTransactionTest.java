@@ -293,7 +293,7 @@ argument_list|()
 operator|.
 name|getCount
 argument_list|()
-operator|<=
+operator|==
 literal|2
 argument_list|)
 expr_stmt|;
