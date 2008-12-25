@@ -1120,7 +1120,7 @@ throw|throw
 operator|new
 name|CamelException
 argument_list|(
-literal|"Can not find Multi User Chat service"
+literal|"Cannot find Multi User Chat service"
 argument_list|)
 throw|;
 block|}

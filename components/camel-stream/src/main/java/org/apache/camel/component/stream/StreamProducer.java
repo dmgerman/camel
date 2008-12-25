@@ -831,7 +831,7 @@ name|CamelExchangeException
 argument_list|(
 literal|"The body is neither a String or byte array. "
 operator|+
-literal|"Can not write body to output stream"
+literal|"Cannot write body to output stream"
 argument_list|,
 name|exchange
 argument_list|)

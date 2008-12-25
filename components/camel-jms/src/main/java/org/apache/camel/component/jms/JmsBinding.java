@@ -1477,7 +1477,7 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-comment|// okay the value is not a primitive or string so we can not sent it over the wire
+comment|// okay the value is not a primitive or string so we cannot sent it over the wire
 name|LOG
 operator|.
 name|debug
@@ -1780,7 +1780,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Can not populate MapMessage will fall back to ObjectMessage, cause by: "
+literal|"Cannot populate MapMessage will fall back to ObjectMessage, cause by: "
 operator|+
 name|e
 operator|.

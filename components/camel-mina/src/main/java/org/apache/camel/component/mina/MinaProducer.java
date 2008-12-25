@@ -741,7 +741,7 @@ name|SocketConnector
 condition|)
 block|{
 comment|// Change the worker timeout to 0 second to make the I/O thread quit soon when there's no connection to manage.
-comment|// Default worker timeout is 60 sec and therefore the client using MinaProducer can not terminate the JVM
+comment|// Default worker timeout is 60 sec and therefore the client using MinaProducer cannot terminate the JVM
 comment|// asap but must wait for the timeout to happend, so to speed this up we set the timeout to 0.
 if|if
 condition|(

@@ -312,7 +312,7 @@ operator|.
 name|getProtocol
 argument_list|()
 operator|+
-literal|" can not be used for a MailConsumer. Please use another protocol such as pop3 or imap."
+literal|" cannot be used for a MailConsumer. Please use another protocol such as pop3 or imap."
 argument_list|)
 throw|;
 block|}

@@ -115,7 +115,7 @@ argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should have thrown NoSuchProviderException as stmp protocol can not be used for consuming mails"
+literal|"Should have thrown NoSuchProviderException as stmp protocol cannot be used for consuming mails"
 argument_list|)
 expr_stmt|;
 block|}
@@ -165,7 +165,7 @@ argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should have thrown NoSuchProviderException as stmp protocol can not be used for consuming mails"
+literal|"Should have thrown NoSuchProviderException as stmp protocol cannot be used for consuming mails"
 argument_list|)
 expr_stmt|;
 block|}

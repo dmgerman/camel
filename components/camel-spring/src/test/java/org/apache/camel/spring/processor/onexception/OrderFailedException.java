@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Exception thrown if the order can not be processed  */
+comment|/**  * Exception thrown if the order cannot be processed  */
 end_comment
 
 begin_class

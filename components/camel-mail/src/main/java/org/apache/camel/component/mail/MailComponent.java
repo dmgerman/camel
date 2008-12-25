@@ -325,7 +325,7 @@ name|Map
 name|parameters
 parameter_list|)
 block|{
-comment|// we can not remove while iterating, as we will get a modification exception
+comment|// we cannot remove while iterating, as we will get a modification exception
 name|Set
 name|toRemove
 init|=

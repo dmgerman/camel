@@ -629,7 +629,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Can not write body since its null, closing session: "
+literal|"Cannot write body since its null, closing session: "
 operator|+
 name|exchange
 argument_list|)
