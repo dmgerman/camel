@@ -481,7 +481,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Can not create directory: "
+literal|"Cannot create directory: "
 operator|+
 name|parent
 argument_list|)
@@ -530,7 +530,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Can not rename file from: "
+literal|"Cannot rename file from: "
 operator|+
 name|from
 operator|+

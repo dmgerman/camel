@@ -647,7 +647,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"You cannot set delet and a moveNamePrefix, moveNamePostfix or expression option"
+literal|"You cannot set delete=true and a moveNamePrefix, moveNamePostfix or expression option"
 argument_list|)
 throw|;
 block|}

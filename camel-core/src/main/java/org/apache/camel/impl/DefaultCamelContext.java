@@ -3131,7 +3131,7 @@ name|getTrace
 argument_list|()
 condition|)
 block|{
-comment|// only add a new tracer if not already configued
+comment|// only add a new tracer if not already configured
 if|if
 condition|(
 name|Tracer
@@ -3199,7 +3199,7 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|// only add a new delayer if not already configued
+comment|// only add a new delayer if not already configured
 if|if
 condition|(
 name|Delayer
@@ -3354,6 +3354,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Apache Camel "
+operator|+
+name|getVersion
+argument_list|()
+operator|+
+literal|" (CamelContext:"
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|") is stopping"
+argument_list|)
+expr_stmt|;
 name|stopServices
 argument_list|(
 name|servicesToClose
@@ -3384,6 +3401,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Apache Camel "
+operator|+
+name|getVersion
+argument_list|()
+operator|+
+literal|" (CamelContext:"
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|") stopped"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|startRoutes (Collection<Route> routeList)
 specifier|protected

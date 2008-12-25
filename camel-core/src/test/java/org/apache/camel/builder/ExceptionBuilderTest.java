@@ -1063,7 +1063,7 @@ throw|throw
 operator|new
 name|ConnectException
 argument_list|(
-literal|"Forced for testing - can not connect to remote server"
+literal|"Forced for testing - cannot connect to remote server"
 argument_list|)
 throw|;
 block|}

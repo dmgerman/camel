@@ -167,7 +167,7 @@ throw|throw
 operator|new
 name|MyFunctionalException
 argument_list|(
-literal|"Sorry you can not do this"
+literal|"Sorry you cannot do this"
 argument_list|)
 throw|;
 block|}
@@ -283,7 +283,7 @@ throw|throw
 operator|new
 name|MyFunctionalException
 argument_list|(
-literal|"Sorry you can not do this again to me"
+literal|"Sorry you cannot do this again to me"
 argument_list|)
 throw|;
 block|}
@@ -308,7 +308,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Sorry you can not do this again to me"
+literal|"Sorry you cannot do this again to me"
 argument_list|,
 name|out
 argument_list|)
@@ -373,7 +373,7 @@ argument_list|()
 operator|.
 name|simple
 argument_list|(
-literal|"Error reported: ${exception.message} - can not process this message."
+literal|"Error reported: ${exception.message} - cannot process this message."
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e3
@@ -427,7 +427,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Error reported: Out of order - can not process this message."
+literal|"Error reported: Out of order - cannot process this message."
 argument_list|,
 name|out
 argument_list|)

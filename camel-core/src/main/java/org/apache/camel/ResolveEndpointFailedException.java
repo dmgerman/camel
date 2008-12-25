@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A runtime exception thrown if an {@link Endpoint} can not be resolved via URI  *   * @version $Revision$  */
+comment|/**  * A runtime exception thrown if an {@link Endpoint} cannot be resolved via URI  *   * @version $Revision$  */
 end_comment
 
 begin_class

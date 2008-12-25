@@ -418,7 +418,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Can not rename file from: "
+literal|"Cannot rename file from: "
 operator|+
 name|tempTarget
 operator|+

@@ -203,7 +203,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Can not delete file: "
+literal|"Cannot delete file: "
 operator|+
 name|file
 argument_list|)

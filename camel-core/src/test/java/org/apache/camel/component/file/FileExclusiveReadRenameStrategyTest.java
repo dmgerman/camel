@@ -610,7 +610,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Creating a slow fil ..."
+literal|"Creating a slow file ..."
 argument_list|)
 expr_stmt|;
 name|File

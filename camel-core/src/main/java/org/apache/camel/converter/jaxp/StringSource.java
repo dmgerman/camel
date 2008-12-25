@@ -172,7 +172,7 @@ throw|throw
 operator|new
 name|NullPointerException
 argument_list|(
-literal|"text can not be null"
+literal|"text cannot be null"
 argument_list|)
 throw|;
 block|}

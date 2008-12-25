@@ -148,7 +148,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// the trick is to try to rename the file, if we can rename then we have exclusive read
-comment|// since its a remote file we can not use java.nio to get a RW lock
+comment|// since its a remote file we cannot use java.nio to get a RW lock
 name|String
 name|originalName
 init|=

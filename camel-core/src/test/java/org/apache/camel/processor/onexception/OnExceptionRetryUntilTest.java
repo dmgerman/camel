@@ -278,7 +278,7 @@ throw|throw
 operator|new
 name|MyFunctionalException
 argument_list|(
-literal|"Sorry you can not do this"
+literal|"Sorry you cannot do this"
 argument_list|)
 throw|;
 block|}

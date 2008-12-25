@@ -1048,7 +1048,7 @@ name|SPLIT_COUNTER
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//this header can not be set when streaming is used
+comment|//this header cannot be set when streaming is used
 name|assertNull
 argument_list|(
 name|exchange

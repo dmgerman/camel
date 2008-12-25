@@ -824,7 +824,7 @@ name|warn
 argument_list|(
 name|endpoint
 operator|+
-literal|" can not process file: "
+literal|" cannot process file: "
 operator|+
 name|target
 argument_list|)

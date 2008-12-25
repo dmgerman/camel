@@ -365,7 +365,7 @@ specifier|static
 class|class
 name|OrderService
 block|{
-comment|/**          * This method handle our order input and return the order          *          * @param in      the in headers          * @param payload the in payload          * @param out     the out headers          * @return the out payload          * @throws OrderFailedException is thrown if the order can not be processed          */
+comment|/**          * This method handle our order input and return the order          *          * @param in      the in headers          * @param payload the in payload          * @param out     the out headers          * @return the out payload          * @throws OrderFailedException is thrown if the order cannot be processed          */
 DECL|method|handleOrder (@eaders Map in, @Body String payload, @OutHeaders Map out)
 specifier|public
 name|Object
@@ -417,7 +417,7 @@ throw|throw
 operator|new
 name|OrderFailedException
 argument_list|(
-literal|"Can not order: kaboom"
+literal|"Cannot order: kaboom"
 argument_list|)
 throw|;
 block|}
@@ -489,7 +489,7 @@ block|}
 block|}
 comment|// END SNIPPET: e2
 comment|// START SNIPPET: e3
-comment|/**      * Exception thrown if the order can not be processed      */
+comment|/**      * Exception thrown if the order cannot be processed      */
 DECL|class|OrderFailedException
 specifier|public
 specifier|static

@@ -407,7 +407,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Can not acquire read lock. Will try again."
+literal|"Cannot acquire read lock. Will try again."
 argument_list|,
 name|e
 argument_list|)
