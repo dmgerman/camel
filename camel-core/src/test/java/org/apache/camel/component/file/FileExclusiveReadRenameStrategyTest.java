@@ -172,6 +172,25 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|ON_WINDOWS
+specifier|private
+specifier|static
+specifier|final
+name|boolean
+name|ON_WINDOWS
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"os.name"
+argument_list|)
+operator|.
+name|startsWith
+argument_list|(
+literal|"Windows"
+argument_list|)
+decl_stmt|;
 DECL|field|fileUrl
 specifier|private
 name|String
@@ -199,6 +218,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// can only be tested on Windows
+if|if
+condition|(
+operator|!
+name|ON_WINDOWS
+condition|)
+block|{
+return|return;
+block|}
 name|deleteDirectory
 argument_list|(
 literal|"./target/exclusiveread"
@@ -246,15 +274,23 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|//TODO fix the test failure in no windows box
-DECL|method|xtestPollFileWhileSlowFileIsBeingWritten ()
+DECL|method|testPollFileWhileSlowFileIsBeingWritten ()
 specifier|public
 name|void
-name|xtestPollFileWhileSlowFileIsBeingWritten
+name|testPollFileWhileSlowFileIsBeingWritten
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// can only be tested on Windows
+if|if
+condition|(
+operator|!
+name|ON_WINDOWS
+condition|)
+block|{
+return|return;
+block|}
 name|deleteDirectory
 argument_list|(
 literal|"./target/exclusiveread"
@@ -366,6 +402,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// can only be tested on Windows
+if|if
+condition|(
+operator|!
+name|ON_WINDOWS
+condition|)
+block|{
+return|return;
+block|}
 name|deleteDirectory
 argument_list|(
 literal|"./target/exclusiveread"
@@ -471,15 +516,23 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|//TODO fix the test failure in no windows box
-DECL|method|xtestPollFileWhileSlowFileIsBeingWrittenWithTimeoutAndNoop ()
+DECL|method|testPollFileWhileSlowFileIsBeingWrittenWithTimeoutAndNoop ()
 specifier|public
 name|void
-name|xtestPollFileWhileSlowFileIsBeingWrittenWithTimeoutAndNoop
+name|testPollFileWhileSlowFileIsBeingWrittenWithTimeoutAndNoop
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// can only be tested on Windows
+if|if
+condition|(
+operator|!
+name|ON_WINDOWS
+condition|)
+block|{
+return|return;
+block|}
 name|deleteDirectory
 argument_list|(
 literal|"./target/exclusiveread"
