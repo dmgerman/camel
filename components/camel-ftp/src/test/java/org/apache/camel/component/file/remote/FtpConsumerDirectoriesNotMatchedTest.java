@@ -96,7 +96,7 @@ name|port
 operator|+
 literal|"/dirnotmatched/?password=admin"
 operator|+
-literal|"&consumer.recursive=true&consumer.regexPattern=.*txt$"
+literal|"&recursive=true&regexPattern=.*txt$"
 decl_stmt|;
 DECL|method|testSkipDirectories ()
 specifier|public

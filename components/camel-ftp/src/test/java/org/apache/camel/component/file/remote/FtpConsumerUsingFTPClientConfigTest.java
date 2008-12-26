@@ -124,7 +124,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/clientconfig?password=admin&ftpClientConfig=myConfig"
+literal|"/clientconfig?password=admin&ftpClientConfig=#myConfig"
 decl_stmt|;
 annotation|@
 name|Override

@@ -130,11 +130,11 @@ argument_list|(
 name|ftpUrl
 argument_list|)
 decl_stmt|;
-name|FtpProducer
+name|RemoteFileProducer
 name|producer
 init|=
 operator|(
-name|FtpProducer
+name|RemoteFileProducer
 operator|)
 name|endpoint
 operator|.
@@ -182,11 +182,11 @@ argument_list|(
 name|ftpUrl
 argument_list|)
 decl_stmt|;
-name|FtpProducer
+name|RemoteFileProducer
 name|producer
 init|=
 operator|(
-name|FtpProducer
+name|RemoteFileProducer
 operator|)
 name|endpoint
 operator|.

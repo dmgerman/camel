@@ -90,7 +90,7 @@ name|port
 operator|+
 literal|"/deletenoperm?password=foo"
 operator|+
-literal|"&consumer.deleteFile=true"
+literal|"&delete=true&consumer.delay=5000"
 decl_stmt|;
 DECL|method|testExludePreAndPostfixes ()
 specifier|public
@@ -128,15 +128,23 @@ argument_list|(
 literal|3000
 argument_list|)
 decl_stmt|;
-name|assertNull
+name|assertNotNull
 argument_list|(
-literal|"Should not get the file"
+literal|"Should get the file"
 argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
 try|try
 block|{
+comment|// give consumer time to try to delete the file
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|consumer
 operator|.
 name|stop
@@ -145,7 +153,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|FtpOperationFailedException
+name|RemoteFileOperationFailedException
 name|fofe
 parameter_list|)
 block|{

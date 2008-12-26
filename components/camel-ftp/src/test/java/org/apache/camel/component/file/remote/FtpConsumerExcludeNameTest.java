@@ -96,7 +96,7 @@ name|port
 operator|+
 literal|"/excludename?password=admin"
 operator|+
-literal|"&consumer.excludedNamePrefix=secret&consumer.excludedNamePostfix=xml"
+literal|"&excludedNamePrefix=secret&excludedNamePostfix=xml"
 decl_stmt|;
 DECL|method|testExludePreAndPostfixes ()
 specifier|public

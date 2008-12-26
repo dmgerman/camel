@@ -78,7 +78,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/tmp2/camel?password=admin"
+literal|"/tmp2/camel?password=admin&consumer.initialDelay=5000"
 decl_stmt|;
 DECL|method|testFromFileToFtp ()
 specifier|public
@@ -89,32 +89,22 @@ throws|throws
 name|Exception
 block|{
 name|MockEndpoint
-name|resultEndpoint
+name|mock
 init|=
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-name|resultEndpoint
+name|mock
 operator|.
-name|expectedMinimumMessageCount
+name|expectedMessageCount
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
-name|resultEndpoint
-operator|.
-name|assertIsSatisfied
+name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-comment|// let some time pass to let the consumer etc. properly do its business before closing
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getPort ()
@@ -149,7 +139,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:src/main/data?noop=true"
+literal|"file:src/main/data?noop=true&consumer.delay=5000"
 argument_list|)
 operator|.
 name|to

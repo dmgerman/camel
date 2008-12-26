@@ -156,9 +156,8 @@ name|port
 operator|+
 literal|"/incoming/?password=admin&directory=true"
 operator|+
-literal|"&binary=true&consumer.useFixedDelay=false&consumer.setNames=true&consumer.recursive=false"
+literal|"&binary=true&consumer.useFixedDelay=false&setNames=true&recursive=false&consumer.delay=5000"
 decl_stmt|;
-comment|// must user "consumer." prefix on the parameters to the file component
 DECL|method|testFtpRoute ()
 specifier|public
 name|void
@@ -233,7 +232,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 expr_stmt|;
 comment|// assert the file
@@ -299,14 +298,6 @@ operator|>
 literal|10000
 argument_list|)
 expr_stmt|;
-comment|// let some time pass to let the consumer etc. properly do its business before closing
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|getPort ()
 specifier|public
@@ -356,7 +347,7 @@ name|port
 operator|+
 literal|"/incoming/?password=admin&binary=true"
 operator|+
-literal|"&consumer.delay=2000&consumer.recursive=false&consumer.append=false"
+literal|"&consumer.delay=2000&recursive=false"
 decl_stmt|;
 name|Endpoint
 name|endpoint

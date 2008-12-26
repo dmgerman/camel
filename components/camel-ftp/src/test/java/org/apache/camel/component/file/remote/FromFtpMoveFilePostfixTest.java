@@ -142,7 +142,7 @@ name|port
 operator|+
 literal|"/movefile?password=admin&binary=false"
 operator|+
-literal|"&consumer.moveNamePostfix=.old"
+literal|"&moveNamePostfix=.old&consumer.delay=5000"
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public
@@ -318,7 +318,15 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// assert the file is deleted
+comment|// give some time to move the file after we recieved it on mock
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
+comment|// assert the file is moved
 name|File
 name|file
 init|=

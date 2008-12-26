@@ -142,7 +142,7 @@ name|port
 operator|+
 literal|"/movefile?password=admin&binary=false"
 operator|+
-literal|"&consumer.moveNamePrefix=done/sub2/&consumer.moveNamePostfix=.old"
+literal|"&moveNamePrefix=done/sub2/&moveNamePostfix=.old&consumer.delay=5000"
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public
@@ -317,6 +317,14 @@ name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|()
+expr_stmt|;
+comment|// give time to allow ftp consumer to move file after its processed
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
 expr_stmt|;
 comment|// assert the file is deleted
 name|File

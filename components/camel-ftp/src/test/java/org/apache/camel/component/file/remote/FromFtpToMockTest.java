@@ -90,7 +90,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/tmp/camel?password=admin&consumer.recursive=true"
+literal|"/tmp/camel?password=admin&recursive=true"
 decl_stmt|;
 DECL|method|testFtpRoute ()
 specifier|public
@@ -115,9 +115,6 @@ argument_list|(
 name|expectedBody
 argument_list|)
 expr_stmt|;
-comment|// TODO when we support multiple marshallers for messages
-comment|// we can support passing headers over files using serialized/XML files
-comment|//resultEndpoint.message(0).header("cheese").isEqualTo(123);
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -131,25 +128,10 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-comment|// let some time pass to let the consumer etc. properly do its business before closing
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
 argument_list|()
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()

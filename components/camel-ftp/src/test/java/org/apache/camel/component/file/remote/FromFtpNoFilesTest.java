@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -60,34 +50,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test to verify polling a server with no files to poll.  */
 end_comment
@@ -100,22 +62,6 @@ name|FromFtpNoFilesTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|FromFtpExclusiveReadTest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|port
 specifier|private
 name|int
@@ -132,7 +78,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/slowfile?password=admin&binary=false&consumer.exclusiveReadLock=true&consumer.delay=500"
+literal|"/slowfile?password=admin&binary=false&readLock=rename&consumer.delay=500"
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public

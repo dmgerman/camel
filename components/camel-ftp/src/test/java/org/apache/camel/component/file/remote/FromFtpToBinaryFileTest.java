@@ -157,7 +157,7 @@ name|port
 operator|+
 literal|"/tmp4/camel?password=admin&binary=true"
 operator|+
-literal|"&consumer.delay=2000&consumer.recursive=false"
+literal|"&consumer.delay=5000&recursive=false"
 decl_stmt|;
 DECL|method|testFtpRoute ()
 specifier|public
@@ -233,6 +233,8 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
+literal|2
+operator|*
 literal|1000
 argument_list|)
 expr_stmt|;
@@ -301,6 +303,11 @@ name|super
 operator|.
 name|setUp
 argument_list|()
+expr_stmt|;
+name|deleteDirectory
+argument_list|(
+literal|"./res/home"
+argument_list|)
 expr_stmt|;
 name|prepareFtpServer
 argument_list|()
@@ -412,7 +419,7 @@ block|{
 name|String
 name|fileUrl
 init|=
-literal|"file:target/ftptest/?noop=true"
+literal|"file:target/ftptest/?noop=true&append=false"
 decl_stmt|;
 name|from
 argument_list|(

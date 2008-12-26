@@ -22,42 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Consumer
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -77,6 +41,18 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|PollingConsumer
 import|;
 end_import
 
@@ -429,39 +405,30 @@ argument_list|(
 name|url
 argument_list|)
 decl_stmt|;
-comment|// use this latch to wait for completion of the consumer
-specifier|final
-name|CountDownLatch
-name|latch
-init|=
-operator|new
-name|CountDownLatch
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
-comment|// create a consumer and process the result using the processor
-name|Consumer
+comment|// create a polling consumer where we can poll the myfile from the ftp server
+name|PollingConsumer
 name|consumer
 init|=
 name|ftp
 operator|.
-name|createConsumer
-argument_list|(
-operator|new
-name|Processor
+name|createPollingConsumer
 argument_list|()
-block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
+decl_stmt|;
+comment|// must start the consumer before we can receive
+name|consumer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+comment|// poll the file from the ftp server
 name|Exchange
 name|result
-parameter_list|)
-throws|throws
-name|Exception
-block|{
+init|=
+name|consumer
+operator|.
+name|receive
+argument_list|()
+decl_stmt|;
 comment|// the result is the response from the FTP consumer (the downloaded file)
 comment|// replace the outher exchange with the content from the downloaded file
 name|exchange
@@ -478,34 +445,6 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// signal we are complete
-name|latch
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-argument_list|)
-decl_stmt|;
-comment|// start the consumer
-name|consumer
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-comment|// wait for the completion or timeout after 30 seconds
-name|latch
-operator|.
-name|await
-argument_list|(
-literal|30
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
 argument_list|)
 expr_stmt|;
 comment|// stop the consumer

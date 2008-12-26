@@ -150,13 +150,6 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMinimumMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Hello World from FTPServer"

@@ -94,7 +94,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/regexp?password=admin&consumer.regexPattern=report.*"
+literal|"/regexp?password=admin&regexPattern=report.*"
 decl_stmt|;
 DECL|method|testFtpRegexPattern ()
 specifier|public

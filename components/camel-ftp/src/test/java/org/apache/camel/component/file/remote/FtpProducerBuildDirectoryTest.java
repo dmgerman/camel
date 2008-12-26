@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that Camel can build remote directory on FTP server if missing (full or part of).  */
+comment|/**  * Unit test to verify that Camel can builde remote directory on FTP server if missing (full or part of).  */
 end_comment
 
 begin_class

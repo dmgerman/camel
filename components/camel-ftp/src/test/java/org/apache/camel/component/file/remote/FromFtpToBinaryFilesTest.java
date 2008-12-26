@@ -157,7 +157,7 @@ name|port
 operator|+
 literal|"/incoming?password=admin&binary=true"
 operator|+
-literal|"&consumer.delay=2000&consumer.recursive=true"
+literal|"&consumer.delay=2000&recursive=true"
 decl_stmt|;
 DECL|method|testFtpRoute ()
 specifier|public
@@ -233,7 +233,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 expr_stmt|;
 comment|// assert the file
@@ -243,12 +243,12 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/ftptest/a/logo1.jpeg"
+literal|"target/ftptest/logo.jpeg"
 argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The binary file should exists"
+literal|" The binary file should exists"
 argument_list|,
 name|file
 operator|.
@@ -274,12 +274,12 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"target/ftptest/logo.jpeg"
+literal|"target/ftptest/a/logo1.jpeg"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|" The binary file should exists"
+literal|"The binary file should exists"
 argument_list|,
 name|file
 operator|.
@@ -297,14 +297,6 @@ name|length
 argument_list|()
 operator|>
 literal|10000
-argument_list|)
-expr_stmt|;
-comment|// let some time pass to let the consumer etc. properly do its business before closing
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
 argument_list|)
 expr_stmt|;
 block|}
@@ -356,7 +348,7 @@ name|port
 operator|+
 literal|"/incoming?password=admin&binary=true"
 operator|+
-literal|"&consumer.delay=2000&consumer.recursive=false&consumer.append=false"
+literal|"&consumer.delay=2000&recursive=false"
 decl_stmt|;
 name|Endpoint
 name|endpoint
@@ -438,7 +430,7 @@ name|port
 operator|+
 literal|"/incoming/a?password=admin&binary=true"
 operator|+
-literal|"&consumer.delay=2000&consumer.recursive=false&consumer.append=false"
+literal|"&consumer.delay=2000&recursive=false"
 expr_stmt|;
 name|endpoint
 operator|=

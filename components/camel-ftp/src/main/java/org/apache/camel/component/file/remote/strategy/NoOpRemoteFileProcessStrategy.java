@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.remote
+DECL|package|org.apache.camel.component.file.remote.strategy
 package|package
 name|org
 operator|.
@@ -17,42 +17,19 @@ operator|.
 name|file
 operator|.
 name|remote
+operator|.
+name|strategy
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|OutputStream
-import|;
-end_import
-
 begin_class
-DECL|class|RemoteFileBinding
+DECL|class|NoOpRemoteFileProcessStrategy
 specifier|public
 class|class
-name|RemoteFileBinding
-block|{
-DECL|method|extractBodyFromOutputStream (RemoteFileExchange exchange, OutputStream outputStream)
-specifier|public
-name|Object
-name|extractBodyFromOutputStream
-parameter_list|(
-name|RemoteFileExchange
-name|exchange
-parameter_list|,
-name|OutputStream
-name|outputStream
-parameter_list|)
-block|{
-return|return
-name|outputStream
-return|;
-block|}
-block|}
+name|NoOpRemoteFileProcessStrategy
+extends|extends
+name|RemoteFileProcessStrategySupport
+block|{  }
 end_class
 
 end_unit

@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to test consumer.deleteFile option.  */
+comment|/**  * Unit test to test delete option.  */
 end_comment
 
 begin_class
@@ -140,7 +140,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/deletefile?password=admin&binary=false&consumer.deleteFile=true"
+literal|"/deletefile?password=admin&binary=false&delete=true"
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public
@@ -310,6 +310,13 @@ name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|()
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
 expr_stmt|;
 comment|// assert the file is deleted
 name|File

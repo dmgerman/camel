@@ -140,9 +140,9 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/movefile?password=admin&binary=false"
+literal|"/movefile?password=admin&binary=false&consumer.delay=5000"
 operator|+
-literal|"&consumer.moveNamePrefix=done/"
+literal|"&moveNamePrefix=done/"
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public
@@ -317,6 +317,14 @@ name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|()
+expr_stmt|;
+comment|// give ftp time to move the file
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
 expr_stmt|;
 comment|// assert the file is deleted
 name|File

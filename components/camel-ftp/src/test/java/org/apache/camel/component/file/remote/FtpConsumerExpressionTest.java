@@ -138,7 +138,7 @@ literal|"ftp://admin@localhost:"
 operator|+
 name|port
 operator|+
-literal|"/filelanguage?password=admin"
+literal|"/filelanguage?password=admin&consumer.delay=5000"
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public
