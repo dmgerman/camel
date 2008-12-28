@@ -232,18 +232,49 @@ name|File
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|scanFilesToPoll
+name|boolean
+name|isDirectory
+init|=
+name|endpoint
+operator|.
+name|getFile
+argument_list|()
+operator|.
+name|isDirectory
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|isDirectory
+condition|)
+block|{
+name|pollDirectory
 argument_list|(
 name|endpoint
 operator|.
 name|getFile
 argument_list|()
 argument_list|,
-literal|true
+name|isRecursive
+argument_list|()
 argument_list|,
 name|files
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|pollFile
+argument_list|(
+name|endpoint
+operator|.
+name|getFile
+argument_list|()
+argument_list|,
+name|files
+argument_list|)
+expr_stmt|;
+block|}
 comment|// sort files using file comparator if provided
 if|if
 condition|(
@@ -444,11 +475,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Scans the given file or directory for files to process.      *      * @param fileOrDirectory  current file or directory when doing recursion      * @param processDir  recursive      * @param fileList  current list of files gathered      */
-DECL|method|scanFilesToPoll (File fileOrDirectory, boolean processDir, List<File> fileList)
+comment|/**      * Polls the given directory for files to process      *      * @param fileOrDirectory current directory or file      * @param processDir      recursive      * @param fileList        current list of files gathered      */
+DECL|method|pollDirectory (File fileOrDirectory, boolean processDir, List<File> fileList)
 specifier|protected
 name|void
-name|scanFilesToPoll
+name|pollDirectory
 parameter_list|(
 name|File
 name|fileOrDirectory
@@ -476,39 +507,8 @@ name|exists
 argument_list|()
 condition|)
 block|{
-comment|// not a file so skip it
 return|return;
 block|}
-if|if
-condition|(
-operator|!
-name|fileOrDirectory
-operator|.
-name|isDirectory
-argument_list|()
-condition|)
-block|{
-name|addFile
-argument_list|(
-name|fileOrDirectory
-argument_list|,
-name|fileList
-argument_list|)
-expr_stmt|;
-comment|// must test matching for directories as well as we want to skip directories starting with a dot etc.
-block|}
-elseif|else
-if|if
-condition|(
-name|processDir
-operator|&&
-name|matchFile
-argument_list|(
-name|fileOrDirectory
-argument_list|)
-condition|)
-block|{
-comment|// directory that can be recursive
 if|if
 condition|(
 name|LOG
@@ -521,9 +521,12 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Polling directory "
+literal|"Polling directory: "
 operator|+
 name|fileOrDirectory
+operator|.
+name|getPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -544,8 +547,26 @@ range|:
 name|files
 control|)
 block|{
-comment|// recursive scan and add the files
-name|scanFilesToPoll
+if|if
+condition|(
+name|processDir
+operator|&&
+name|file
+operator|.
+name|isDirectory
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|isValidFile
+argument_list|(
+name|file
+argument_list|)
+condition|)
+block|{
+comment|// recursive scan and add the sub files and folders
+name|pollDirectory
 argument_list|(
 name|file
 argument_list|,
@@ -557,29 +578,97 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
-block|{
+elseif|else
 if|if
 condition|(
-name|LOG
+name|file
 operator|.
-name|isTraceEnabled
+name|isFile
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|isValidFile
+argument_list|(
+name|file
+argument_list|)
+condition|)
+block|{
+comment|// matched file so add
+name|fileList
+operator|.
+name|add
+argument_list|(
+name|file
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
-literal|"Skipping directory "
+literal|"Ignoring unsupported file type "
 operator|+
-name|fileOrDirectory
+name|file
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Processes the given file      *      * @param exchange  the file exchange      */
+comment|/**      * Polls the given file      *      * @param file     the file      * @param fileList current list of files gathered      */
+DECL|method|pollFile (File file, List<File> fileList)
+specifier|protected
+name|void
+name|pollFile
+parameter_list|(
+name|File
+name|file
+parameter_list|,
+name|List
+argument_list|<
+name|File
+argument_list|>
+name|fileList
+parameter_list|)
+block|{
+if|if
+condition|(
+name|file
+operator|==
+literal|null
+operator|||
+operator|!
+name|file
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
+if|if
+condition|(
+name|isValidFile
+argument_list|(
+name|file
+argument_list|)
+condition|)
+block|{
+comment|// matched file so add
+name|fileList
+operator|.
+name|add
+argument_list|(
+name|file
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Processes the given file      *      * @param exchange the file exchange      */
 DECL|method|processExchange (final FileExchange exchange)
 specifier|protected
 name|void
@@ -844,7 +933,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy when the file was processed and a commit should be executed.      *      * @param processStrategy   the strategy to perform the commit      * @param exchange          the exchange      * @param file              the file processed      * @param failureHandled    is<tt>false</tt> if the exchange was processed succesfully,<tt>true</tt> if      * an exception occured during processing but it was handled by the failure processor (usually the      * DeadLetterChannel).      */
+comment|/**      * Strategy when the file was processed and a commit should be executed.      *      * @param processStrategy the strategy to perform the commit      * @param exchange        the exchange      * @param file            the file processed      * @param failureHandled  is<tt>false</tt> if the exchange was processed succesfully,<tt>true</tt> if      *                        an exception occured during processing but it was handled by the failure processor (usually the      *                        DeadLetterChannel).      */
 DECL|method|processStrategyCommit (FileProcessStrategy processStrategy, FileExchange exchange, File file, boolean failureHandled)
 specifier|protected
 name|void
@@ -955,7 +1044,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy when the file was not processed and a rollback should be executed.      *      * @param processStrategy   the strategy to perform the commit      * @param exchange          the exchange      * @param file              the file processed      */
+comment|/**      * Strategy when the file was not processed and a rollback should be executed.      *      * @param processStrategy the strategy to perform the commit      * @param exchange        the exchange      * @param file            the file processed      */
 DECL|method|processStrategyRollback (FileProcessStrategy processStrategy, FileExchange exchange, File file)
 specifier|protected
 name|void
@@ -1005,11 +1094,11 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Strategy for validating if the given file should be included or not      * @param file  the file      * @return true to include the file, false to skip it      */
-DECL|method|validateFile (File file)
+comment|/**      * Strategy for validating if the given file should be included or not      *      * @param file the file      * @return true to include the file, false to skip it      */
+DECL|method|isValidFile (File file)
 specifier|protected
 name|boolean
-name|validateFile
+name|isValidFile
 parameter_list|(
 name|File
 name|file
@@ -1018,7 +1107,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|matchFile
+name|isMatched
 argument_list|(
 name|file
 argument_list|)
@@ -1087,11 +1176,11 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file  the file      * @return true if the file is matche, false if not      */
-DECL|method|matchFile (File file)
+comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file the file      * @return true if the file is matched, false if not      */
+DECL|method|isMatched (File file)
 specifier|protected
 name|boolean
-name|matchFile
+name|isMatched
 parameter_list|(
 name|File
 name|file
@@ -1268,38 +1357,6 @@ block|}
 return|return
 literal|true
 return|;
-block|}
-DECL|method|addFile (File file, List<File> fileList)
-specifier|private
-name|void
-name|addFile
-parameter_list|(
-name|File
-name|file
-parameter_list|,
-name|List
-argument_list|<
-name|File
-argument_list|>
-name|fileList
-parameter_list|)
-block|{
-if|if
-condition|(
-name|validateFile
-argument_list|(
-name|file
-argument_list|)
-condition|)
-block|{
-name|fileList
-operator|.
-name|add
-argument_list|(
-name|file
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|isRecursive ()
 specifier|public

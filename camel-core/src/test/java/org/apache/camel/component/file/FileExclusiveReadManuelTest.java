@@ -119,11 +119,13 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
+comment|// this is used for manual testing where you can copy/lock files etc. while this test runs
+comment|//mock.setSleepForEmptyTest(10 * 1000L);
 name|mock
 operator|.
 name|setSleepForEmptyTest
 argument_list|(
-literal|10000
+literal|100
 argument_list|)
 expr_stmt|;
 name|mock

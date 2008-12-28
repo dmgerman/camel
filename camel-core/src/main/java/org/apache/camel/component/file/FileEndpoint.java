@@ -948,8 +948,6 @@ name|isAutoCreate
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|autoCreate
 return|;
 block|}
@@ -987,6 +985,14 @@ operator|=
 name|createFileStrategy
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -996,6 +1002,7 @@ operator|+
 name|fileProcessStrategy
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|fileProcessStrategy

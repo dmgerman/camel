@@ -40,18 +40,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|channels
-operator|.
-name|FileLock
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -259,13 +247,6 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedMessageCount
 argument_list|(
 literal|1
@@ -353,7 +334,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Creating a slow fil with no locks..."
+literal|"Creating a slow file with no locks..."
 argument_list|)
 expr_stmt|;
 name|File

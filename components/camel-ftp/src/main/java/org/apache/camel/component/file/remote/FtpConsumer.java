@@ -208,7 +208,10 @@ name|file
 operator|.
 name|isDirectory
 argument_list|()
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|isValidFile
 argument_list|(
 name|remote
@@ -243,6 +246,7 @@ name|fileList
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 elseif|else
 if|if
 condition|(
@@ -250,7 +254,10 @@ name|file
 operator|.
 name|isFile
 argument_list|()
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|isValidFile
 argument_list|(
 name|remote
@@ -268,13 +275,14 @@ name|remote
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 else|else
 block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring unsupported file type "
+literal|"Ignoring unsupported remote file type: "
 operator|+
 name|file
 argument_list|)
@@ -373,6 +381,17 @@ argument_list|,
 name|file
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|isValidFile
+argument_list|(
+name|remoteFile
+argument_list|,
+literal|false
+argument_list|)
+condition|)
+block|{
+comment|// matched file so add
 name|fileList
 operator|.
 name|add
@@ -380,6 +399,7 @@ argument_list|(
 name|remoteFile
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|asRemoteFile (String directory, FTPFile file)
