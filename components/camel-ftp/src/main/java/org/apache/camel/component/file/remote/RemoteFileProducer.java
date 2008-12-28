@@ -200,17 +200,17 @@ specifier|private
 name|RemoteFileEndpoint
 name|endpoint
 decl_stmt|;
-DECL|field|ftp
+DECL|field|operations
 specifier|private
 name|RemoteFileOperations
-name|ftp
+name|operations
 decl_stmt|;
 DECL|field|loggedIn
 specifier|private
 name|boolean
 name|loggedIn
 decl_stmt|;
-DECL|method|RemoteFileProducer (RemoteFileEndpoint endpoint, RemoteFileOperations ftp)
+DECL|method|RemoteFileProducer (RemoteFileEndpoint endpoint, RemoteFileOperations operations)
 specifier|protected
 name|RemoteFileProducer
 parameter_list|(
@@ -218,7 +218,7 @@ name|RemoteFileEndpoint
 name|endpoint
 parameter_list|,
 name|RemoteFileOperations
-name|ftp
+name|operations
 parameter_list|)
 block|{
 name|super
@@ -234,9 +234,9 @@ name|endpoint
 expr_stmt|;
 name|this
 operator|.
-name|ftp
+name|operations
 operator|=
-name|ftp
+name|operations
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -425,7 +425,7 @@ block|}
 name|boolean
 name|renamed
 init|=
-name|ftp
+name|operations
 operator|.
 name|renameFile
 argument_list|(
@@ -592,7 +592,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|ftp
+name|operations
 operator|.
 name|buildDirectory
 argument_list|(
@@ -644,7 +644,7 @@ block|}
 name|boolean
 name|success
 init|=
-name|ftp
+name|operations
 operator|.
 name|storeFile
 argument_list|(
@@ -1117,7 +1117,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|ftp
+name|operations
 operator|.
 name|isConnected
 argument_list|()
@@ -1147,7 +1147,7 @@ expr_stmt|;
 block|}
 name|loggedIn
 operator|=
-name|ftp
+name|operations
 operator|.
 name|connect
 argument_list|(
@@ -1208,7 +1208,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|ftp
+name|operations
 operator|.
 name|disconnect
 argument_list|()

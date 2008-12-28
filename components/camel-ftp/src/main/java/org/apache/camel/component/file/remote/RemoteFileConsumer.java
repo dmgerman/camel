@@ -981,25 +981,49 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy when the file was processed and a commit should be executed.      *      * @param remoteFileProcessStrategy the strategy to perform the commit      * @param exchange                  the exchange      * @param remoteFile                the file processed      * @param failureHandled            is<tt>false</tt> if the exchange was processed succesfully,<tt>true</tt> if      *                                  an exception occured during processing but it was handled by the failure processor (usually the      *                                  DeadLetterChannel).      */
-DECL|method|processStrategyCommit (RemoteFileProcessStrategy remoteFileProcessStrategy, RemoteFileExchange exchange, RemoteFile remoteFile, boolean failureHandled)
+comment|/**      * Strategy when the file was processed and a commit should be executed.      *      * @param processStrategy  the strategy to perform the commit      * @param exchange         the exchange      * @param file             the file processed      * @param failureHandled   is<tt>false</tt> if the exchange was processed succesfully,<tt>true</tt> if      *                         an exception occured during processing but it was handled by the failure processor (usually the      *                         DeadLetterChannel).      */
+DECL|method|processStrategyCommit (RemoteFileProcessStrategy processStrategy, RemoteFileExchange exchange, RemoteFile file, boolean failureHandled)
 specifier|protected
 name|void
 name|processStrategyCommit
 parameter_list|(
 name|RemoteFileProcessStrategy
-name|remoteFileProcessStrategy
+name|processStrategy
 parameter_list|,
 name|RemoteFileExchange
 name|exchange
 parameter_list|,
 name|RemoteFile
-name|remoteFile
+name|file
 parameter_list|,
 name|boolean
 name|failureHandled
 parameter_list|)
 block|{
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isIdempotent
+argument_list|()
+condition|)
+block|{
+comment|// only add to idempotent repository if we could process the file
+comment|// use file.getAbsoluteFileName as key for the idempotent repository to support files with same name but in different folders
+name|endpoint
+operator|.
+name|getIdempotentRepository
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|file
+operator|.
+name|getAbsolutelFileName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 if|if
@@ -1016,11 +1040,11 @@ name|debug
 argument_list|(
 literal|"Committing remote file strategy: "
 operator|+
-name|remoteFileProcessStrategy
+name|processStrategy
 operator|+
 literal|" for file: "
 operator|+
-name|remoteFile
+name|file
 operator|+
 operator|(
 name|failureHandled
@@ -1032,7 +1056,7 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
-name|remoteFileProcessStrategy
+name|processStrategy
 operator|.
 name|commit
 argument_list|(
@@ -1042,7 +1066,7 @@ name|endpoint
 argument_list|,
 name|exchange
 argument_list|,
-name|remoteFile
+name|file
 argument_list|)
 expr_stmt|;
 block|}
@@ -1058,7 +1082,7 @@ name|warn
 argument_list|(
 literal|"Error committing remote file strategy: "
 operator|+
-name|remoteFileProcessStrategy
+name|processStrategy
 argument_list|,
 name|e
 argument_list|)
@@ -1070,20 +1094,20 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy when the file was not processed and a rollback should be executed.      *      * @param remoteFileProcessStrategy the strategy to perform the commit      * @param exchange                  the exchange      * @param remoteFile                the file processed      */
-DECL|method|processStrategyRollback (RemoteFileProcessStrategy remoteFileProcessStrategy, RemoteFileExchange exchange, RemoteFile remoteFile)
+comment|/**      * Strategy when the file was not processed and a rollback should be executed.      *      * @param processStrategy  the strategy to perform the commit      * @param exchange         the exchange      * @param file             the file processed      */
+DECL|method|processStrategyRollback (RemoteFileProcessStrategy processStrategy, RemoteFileExchange exchange, RemoteFile file)
 specifier|protected
 name|void
 name|processStrategyRollback
 parameter_list|(
 name|RemoteFileProcessStrategy
-name|remoteFileProcessStrategy
+name|processStrategy
 parameter_list|,
 name|RemoteFileExchange
 name|exchange
 parameter_list|,
 name|RemoteFile
-name|remoteFile
+name|file
 parameter_list|)
 block|{
 if|if
@@ -1100,15 +1124,15 @@ name|debug
 argument_list|(
 literal|"Rolling back remote file strategy: "
 operator|+
-name|remoteFileProcessStrategy
+name|processStrategy
 operator|+
 literal|" for file: "
 operator|+
-name|remoteFile
+name|file
 argument_list|)
 expr_stmt|;
 block|}
-name|remoteFileProcessStrategy
+name|processStrategy
 operator|.
 name|rollback
 argument_list|(
@@ -1118,7 +1142,7 @@ name|endpoint
 argument_list|,
 name|exchange
 argument_list|,
-name|remoteFile
+name|file
 argument_list|)
 expr_stmt|;
 block|}
@@ -1164,6 +1188,42 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+literal|false
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isIdempotent
+argument_list|()
+operator|&&
+name|endpoint
+operator|.
+name|getIdempotentRepository
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|file
+operator|.
+name|getAbsolutelFileName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// use file.getAbsoluteFileName as key for the idempotent repository to support files with same name but in different folders
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"RemoteFileConsumer is idempotent and the file has been consumed before. Will skip this remote file: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;

@@ -66,7 +66,7 @@ name|SftpConsumer
 extends|extends
 name|RemoteFileConsumer
 block|{
-DECL|method|SftpConsumer (RemoteFileEndpoint endpoint, Processor processor, RemoteFileOperations remoteFileOperations)
+DECL|method|SftpConsumer (RemoteFileEndpoint endpoint, Processor processor, RemoteFileOperations operations)
 specifier|public
 name|SftpConsumer
 parameter_list|(
@@ -77,7 +77,7 @@ name|Processor
 name|processor
 parameter_list|,
 name|RemoteFileOperations
-name|remoteFileOperations
+name|operations
 parameter_list|)
 block|{
 name|super
@@ -86,7 +86,7 @@ name|endpoint
 argument_list|,
 name|processor
 argument_list|,
-name|remoteFileOperations
+name|operations
 argument_list|)
 expr_stmt|;
 block|}
