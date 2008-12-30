@@ -745,7 +745,6 @@ operator|.
 name|name
 argument_list|)
 expr_stmt|;
-break|break;
 block|}
 block|}
 block|}
