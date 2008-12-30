@@ -189,7 +189,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/fileonly/report.txt?consumer.recursive=false&delete=true"
+literal|"file://target/fileonly/report.txt?recursive=false&delete=true"
 argument_list|)
 operator|.
 name|to

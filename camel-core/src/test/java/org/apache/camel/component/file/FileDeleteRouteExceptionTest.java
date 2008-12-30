@@ -134,7 +134,7 @@ literal|"target/test-delete-inbox"
 expr_stmt|;
 name|params
 operator|=
-literal|"?consumer.delay=1000&delete=true&consumer.recursive=true"
+literal|"?consumer.delay=1000&delete=true&recursive=true"
 expr_stmt|;
 name|super
 operator|.

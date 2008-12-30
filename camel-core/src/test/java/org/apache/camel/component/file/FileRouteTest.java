@@ -127,7 +127,7 @@ specifier|protected
 name|String
 name|params
 init|=
-literal|"?consumer.recursive=true"
+literal|"?recursive=true"
 decl_stmt|;
 DECL|field|uri
 specifier|protected

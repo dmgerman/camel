@@ -191,7 +191,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/singledirectoryonly/?consumer.recursive=false&delete=true"
+literal|"file://target/singledirectoryonly/?recursive=false&delete=true"
 argument_list|)
 operator|.
 name|to

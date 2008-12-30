@@ -46,7 +46,7 @@ literal|"target/test-rename-inbox"
 expr_stmt|;
 name|params
 operator|=
-literal|"?moveNamePrefix=foo/?consumer.recursive=true"
+literal|"?moveNamePrefix=foo/?recursive=true"
 expr_stmt|;
 name|super
 operator|.

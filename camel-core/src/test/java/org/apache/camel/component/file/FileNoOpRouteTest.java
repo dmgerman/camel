@@ -46,7 +46,7 @@ literal|"target/test-noop-inbox"
 expr_stmt|;
 name|params
 operator|=
-literal|"?noop=true&consumer.recursive=true"
+literal|"?noop=true&recursive=true"
 expr_stmt|;
 name|super
 operator|.
