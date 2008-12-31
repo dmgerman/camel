@@ -207,6 +207,16 @@ specifier|private
 name|RestletBinding
 name|restletBinding
 decl_stmt|;
+DECL|field|realm
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|realm
+decl_stmt|;
 DECL|method|RestletEndpoint (RestletComponent component, String remaining, Map<String, String> parameters, RestletBinding restletBinding)
 specifier|public
 name|RestletEndpoint
@@ -515,6 +525,44 @@ parameter_list|()
 block|{
 return|return
 name|restletMethod
+return|;
+block|}
+comment|/**      * @param realm      */
+DECL|method|setRealm (Map<String, String> realm)
+specifier|public
+name|void
+name|setRealm
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|realm
+parameter_list|)
+block|{
+name|this
+operator|.
+name|realm
+operator|=
+name|realm
+expr_stmt|;
+block|}
+comment|/**      * @return the realm      */
+DECL|method|getRealm ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getRealm
+parameter_list|()
+block|{
+return|return
+name|realm
 return|;
 block|}
 block|}
