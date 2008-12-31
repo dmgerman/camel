@@ -125,6 +125,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: e1
 comment|// send a message from fromuser@gmail.com to touser@gmail.com
 name|from
 argument_list|(
@@ -141,6 +142,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
