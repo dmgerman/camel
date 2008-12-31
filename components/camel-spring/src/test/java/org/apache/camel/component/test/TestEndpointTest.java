@@ -211,7 +211,7 @@ name|EndpointInject
 argument_list|(
 name|uri
 operator|=
-literal|"test:file://src/test/data?noop=true&idempotent=true&consumer.recursive=true&consumer.initialDelay=2000"
+literal|"test:file://src/test/data?noop=true&idempotent=true&recursive=true&consumer.initialDelay=2000"
 argument_list|)
 DECL|field|endpoint
 specifier|protected
