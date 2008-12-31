@@ -156,6 +156,20 @@ specifier|final
 name|ScheduledExecutorService
 name|executor
 decl_stmt|;
+DECL|field|future
+specifier|private
+name|ScheduledFuture
+argument_list|<
+name|?
+argument_list|>
+name|future
+decl_stmt|;
+DECL|field|firstExceptionThrown
+specifier|private
+name|Exception
+name|firstExceptionThrown
+decl_stmt|;
+comment|// if adding more options then align with ScheduledPollEndpoint#configureScheduledPollConsumerProperties
 DECL|field|initialDelay
 specifier|private
 name|long
@@ -183,19 +197,6 @@ DECL|field|useFixedDelay
 specifier|private
 name|boolean
 name|useFixedDelay
-decl_stmt|;
-DECL|field|future
-specifier|private
-name|ScheduledFuture
-argument_list|<
-name|?
-argument_list|>
-name|future
-decl_stmt|;
-DECL|field|firstExceptionThrown
-specifier|private
-name|Exception
-name|firstExceptionThrown
 decl_stmt|;
 DECL|method|ScheduledPollConsumer (DefaultEndpoint endpoint, Processor processor)
 specifier|public
