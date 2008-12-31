@@ -1154,15 +1154,24 @@ argument_list|)
 condition|)
 block|{
 comment|// use file.getPath as key for the idempotent repository to support files with same name but in different folders
+if|if
+condition|(
 name|LOG
 operator|.
-name|warn
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
 literal|"FileConsumer is idempotent and the file has been consumed before. Will skip this file: "
 operator|+
 name|file
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|false
 return|;
