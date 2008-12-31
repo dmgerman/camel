@@ -102,7 +102,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"xmpp://camel-user@localhost:123/test-user@localhost?password=secret"
+literal|"xmpp://camel-user@localhost:123/test-user@localhost?password=secret&serviceName=someCoolChat"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -171,6 +171,16 @@ argument_list|,
 name|xmppEndpoint
 operator|.
 name|getPassword
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"someCoolChat"
+argument_list|,
+name|xmppEndpoint
+operator|.
+name|getServiceName
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -311,6 +311,11 @@ specifier|private
 name|String
 name|nickname
 decl_stmt|;
+DECL|field|serviceName
+specifier|private
+name|String
+name|serviceName
+decl_stmt|;
 DECL|method|XmppEndpoint (String uri, XmppComponent component)
 specifier|public
 name|XmppEndpoint
@@ -821,6 +826,32 @@ operator|=
 name|nickname
 expr_stmt|;
 block|}
+DECL|method|setServiceName (String serviceName)
+specifier|public
+name|void
+name|setServiceName
+parameter_list|(
+name|String
+name|serviceName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serviceName
+operator|=
+name|serviceName
+expr_stmt|;
+block|}
+DECL|method|getServiceName ()
+specifier|public
+name|String
+name|getServiceName
+parameter_list|()
+block|{
+return|return
+name|serviceName
+return|;
+block|}
 DECL|method|getConnection ()
 specifier|public
 name|XMPPConnection
@@ -882,6 +913,14 @@ operator|>
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|getServiceName
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 name|connection
 operator|=
 operator|new
@@ -896,6 +935,27 @@ name|port
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|connection
+operator|=
+operator|new
+name|XMPPConnection
+argument_list|(
+operator|new
+name|ConnectionConfiguration
+argument_list|(
+name|host
+argument_list|,
+name|port
+argument_list|,
+name|getServiceName
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
