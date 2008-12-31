@@ -136,6 +136,18 @@ name|Response
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|restlet
+operator|.
+name|data
+operator|.
+name|Status
+import|;
+end_import
+
 begin_class
 DECL|class|RestRouteBuilderTest
 specifier|public
@@ -430,8 +442,20 @@ literal|"http://localhost:8080/orders/99991/6"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// expect null as no Restlet consumer to handle POST method
-name|assertNull
+comment|// expect error status as no Restlet consumer to handle POST method
+name|assertEquals
+argument_list|(
+name|Status
+operator|.
+name|CLIENT_ERROR_NOT_FOUND
+argument_list|,
+name|response
+operator|.
+name|getStatus
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNotNull
 argument_list|(
 name|response
 operator|.

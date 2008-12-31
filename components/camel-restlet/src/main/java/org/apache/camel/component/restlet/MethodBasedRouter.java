@@ -128,6 +128,18 @@ name|Response
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|restlet
+operator|.
+name|data
+operator|.
+name|Status
+import|;
+end_import
+
 begin_comment
 comment|/**  * A simple router that routes requests to target Restlets based on method.   *   * @version $Revision$  */
 end_comment
@@ -296,6 +308,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|response
+operator|.
+name|setStatus
+argument_list|(
+name|Status
+operator|.
+name|CLIENT_ERROR_NOT_FOUND
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|addRoute (Method method, Restlet target)
