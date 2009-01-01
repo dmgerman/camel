@@ -36,7 +36,7 @@ specifier|final
 name|String
 name|LOGIN
 init|=
-literal|"camel.restlet.auth.login"
+literal|"org.apache.camel.restlet.auth.login"
 decl_stmt|;
 DECL|field|PASSWORD
 specifier|public
@@ -45,7 +45,7 @@ specifier|final
 name|String
 name|PASSWORD
 init|=
-literal|"camel.restlet.auth.password"
+literal|"org.apache.camel.restlet.auth.password"
 decl_stmt|;
 DECL|method|RestletConstants ()
 specifier|private

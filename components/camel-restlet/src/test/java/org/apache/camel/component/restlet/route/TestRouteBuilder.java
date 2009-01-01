@@ -58,22 +58,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|restlet
-operator|.
-name|RestletConstants
-import|;
-end_import
-
 begin_comment
 comment|/**  * Route builder for RestletRouteBuilderAuthTest  *   * @version $Revision$  */
 end_comment
@@ -86,15 +70,6 @@ name|TestRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
-DECL|field|ID
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|ID
-init|=
-literal|"89531"
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|configure ()
@@ -105,97 +80,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Note: restletMethod and restletRealmRef are stripped
-comment|// from the query before a request is sent as they are
-comment|// only processed by Camel.
-name|from
-argument_list|(
-literal|"direct:start-auth"
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-literal|"id"
-argument_list|,
-name|constant
-argument_list|(
-name|ID
-argument_list|)
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-name|RestletConstants
-operator|.
-name|LOGIN
-argument_list|,
-name|constant
-argument_list|(
-literal|"admin"
-argument_list|)
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-name|RestletConstants
-operator|.
-name|PASSWORD
-argument_list|,
-name|constant
-argument_list|(
-literal|"foo"
-argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"restlet:http://localhost:8080/securedOrders?restletMethod=post"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"direct:start-bad-auth"
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-literal|"id"
-argument_list|,
-name|constant
-argument_list|(
-name|ID
-argument_list|)
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-name|RestletConstants
-operator|.
-name|LOGIN
-argument_list|,
-name|constant
-argument_list|(
-literal|"admizzzn"
-argument_list|)
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-name|RestletConstants
-operator|.
-name|PASSWORD
-argument_list|,
-name|constant
-argument_list|(
-literal|"fozzzo"
-argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"restlet:http://localhost:8080/securedOrders?restletMethod=post"
-argument_list|)
-expr_stmt|;
+comment|// START SNIPPET: consumer_route
 name|from
 argument_list|(
 literal|"restlet:http://localhost:8080/securedOrders?restletMethod=post&restletRealmRef=realm"
@@ -251,6 +136,22 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: consumer_route
+comment|// START SNIPPET: producer_route
+comment|// Note: restletMethod and restletRealmRef are stripped
+comment|// from the query before a request is sent as they are
+comment|// only processed by Camel.
+name|from
+argument_list|(
+literal|"direct:start-auth"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"restlet:http://localhost:8080/securedOrders?restletMethod=post"
+argument_list|)
+expr_stmt|;
+comment|// END SNIPPET: producer_route
 block|}
 block|}
 end_class

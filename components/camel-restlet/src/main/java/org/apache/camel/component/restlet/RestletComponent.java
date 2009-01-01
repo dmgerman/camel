@@ -1026,6 +1026,7 @@ block|}
 block|}
 DECL|method|buildKey (RestletEndpoint endpoint)
 specifier|private
+specifier|static
 name|String
 name|buildKey
 parameter_list|(
