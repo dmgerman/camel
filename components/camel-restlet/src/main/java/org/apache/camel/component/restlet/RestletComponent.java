@@ -755,7 +755,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"attached methodRouter uriPattern: "
+literal|"Attached methodRouter uriPattern: "
 operator|+
 name|endpoint
 operator|.
