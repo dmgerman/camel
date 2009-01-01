@@ -51,12 +51,6 @@ parameter_list|()
 block|{
 comment|// No IN filters and copy all headers from Restlet to Camel
 comment|// OUT filters (from Camel headers to Restlet headers)
-comment|// filter headers start with the org.restlet.
-name|setOutFilterPattern
-argument_list|(
-literal|"(org\\.restlet)[\\.|a-z|A-z|0-9]*"
-argument_list|)
-expr_stmt|;
 comment|// filter headers used internally by this component
 name|getOutFilter
 argument_list|()
