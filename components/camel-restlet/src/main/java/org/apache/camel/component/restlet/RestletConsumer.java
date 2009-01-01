@@ -62,9 +62,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultConsumer
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -76,9 +74,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|impl
 operator|.
-name|ObjectHelper
+name|DefaultConsumer
 import|;
 end_import
 
@@ -295,17 +293,9 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
 throw|throw
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
+operator|new
+name|RuntimeCamelException
 argument_list|(
 name|e
 argument_list|)
@@ -346,10 +336,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|stop ()
+DECL|method|doStop ()
 specifier|public
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception
@@ -369,7 +359,7 @@ argument_list|)
 expr_stmt|;
 name|super
 operator|.
-name|stop
+name|doStop
 argument_list|()
 expr_stmt|;
 block|}

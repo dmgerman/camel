@@ -74,7 +74,7 @@ specifier|public
 interface|interface
 name|RestletBinding
 block|{
-comment|/**      * Populate Restlet request from Camel message      *        * @param exchange      * @param response      */
+comment|/**      * Populate Restlet request from Camel message      *        * @param exchange message to be copied from       * @param response to be populated      */
 DECL|method|populateRestletResponseFromExchange (Exchange exchange, Response response)
 name|void
 name|populateRestletResponseFromExchange
@@ -86,7 +86,7 @@ name|Response
 name|response
 parameter_list|)
 function_decl|;
-comment|/**      * Populate Camel message from Restlet request      *       * @param request      * @param exchange      * @throws Exception       */
+comment|/**      * Populate Camel message from Restlet request      *       * @param request message to be copied from      * @param exchange to be populated      * @throws Exception       */
 DECL|method|populateExchangeFromRestletRequest (Request request, Exchange exchange)
 name|void
 name|populateExchangeFromRestletRequest
@@ -100,7 +100,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Populate Restlet Request from Camel message      *       * @param request      * @param exchange      */
+comment|/**      * Populate Restlet Request from Camel message      *       * @param request to be populated      * @param exchange message to be copied from      */
 DECL|method|populateRestletRequestFromExchange (Request request, Exchange exchange)
 name|void
 name|populateRestletRequestFromExchange
@@ -112,7 +112,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Populate Camel message from Restlet response      *       * @param exchange      * @param response      * @throws IOException       */
+comment|/**      * Populate Camel message from Restlet response      *       * @param exchange to be populated      * @param response message to be copied from      * @throws IOException       */
 DECL|method|populateExchangeFromRestletResponse (Exchange exchange, Response response)
 name|void
 name|populateExchangeFromRestletResponse
