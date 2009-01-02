@@ -1215,15 +1215,24 @@ argument_list|)
 condition|)
 block|{
 comment|// use file.getAbsoluteFileName as key for the idempotent repository to support files with same name but in different folders
+if|if
+condition|(
 name|log
 operator|.
-name|warn
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
 argument_list|(
 literal|"RemoteFileConsumer is idempotent and the file has been consumed before. Will skip this remote file: "
 operator|+
 name|file
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|false
 return|;
