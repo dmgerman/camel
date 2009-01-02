@@ -94,16 +94,13 @@ name|ftp
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|pollDirectory (String fileName, boolean processDir, List<RemoteFile> fileList)
+DECL|method|pollDirectory (String fileName, List<RemoteFile> fileList)
 specifier|protected
 name|void
 name|pollDirectory
 parameter_list|(
 name|String
 name|fileName
-parameter_list|,
-name|boolean
-name|processDir
 parameter_list|,
 name|List
 argument_list|<
@@ -202,8 +199,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|processDir
-operator|&&
 name|file
 operator|.
 name|isDirectory
@@ -212,6 +207,11 @@ condition|)
 block|{
 if|if
 condition|(
+name|endpoint
+operator|.
+name|isRecursive
+argument_list|()
+operator|&&
 name|isValidFile
 argument_list|(
 name|remote
@@ -236,11 +236,6 @@ decl_stmt|;
 name|pollDirectory
 argument_list|(
 name|directory
-argument_list|,
-name|endpoint
-operator|.
-name|isRecursive
-argument_list|()
 argument_list|,
 name|fileList
 argument_list|)

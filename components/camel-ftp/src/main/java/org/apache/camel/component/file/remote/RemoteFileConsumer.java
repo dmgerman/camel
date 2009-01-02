@@ -366,11 +366,6 @@ name|pollDirectory
 argument_list|(
 name|name
 argument_list|,
-name|endpoint
-operator|.
-name|isRecursive
-argument_list|()
-argument_list|,
 name|files
 argument_list|)
 expr_stmt|;
@@ -585,8 +580,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Polls the given directory for files to process      *      * @param fileName    current directory or file      * @param processDir  recursive      * @param fileList    current list of files gathered      */
-DECL|method|pollDirectory (String fileName, boolean processDir, List<RemoteFile> fileList)
+comment|/**      * Polls the given directory for files to process      *      * @param fileName    current directory or file      * @param fileList    current list of files gathered      */
+DECL|method|pollDirectory (String fileName, List<RemoteFile> fileList)
 specifier|protected
 specifier|abstract
 name|void
@@ -594,9 +589,6 @@ name|pollDirectory
 parameter_list|(
 name|String
 name|fileName
-parameter_list|,
-name|boolean
-name|processDir
 parameter_list|,
 name|List
 argument_list|<
