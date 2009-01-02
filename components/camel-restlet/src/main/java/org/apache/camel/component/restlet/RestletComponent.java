@@ -767,7 +767,7 @@ block|}
 block|}
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Attached restlet uriPattern: "
 operator|+
@@ -830,7 +830,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Detached restlet uriPattern: "
 operator|+
