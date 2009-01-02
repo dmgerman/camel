@@ -314,10 +314,6 @@ DECL|field|resolver
 specifier|private
 name|ResolverUtil
 name|resolver
-init|=
-operator|new
-name|ResolverUtil
-argument_list|()
 decl_stmt|;
 DECL|field|visitedClasses
 specifier|private
@@ -372,6 +368,30 @@ name|META_INF_SERVICES
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|resolver
+operator|=
+operator|new
+name|ResolverUtil
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|AnnotationTypeConverterLoader (ResolverUtil resolverUtil)
+specifier|public
+name|AnnotationTypeConverterLoader
+parameter_list|(
+name|ResolverUtil
+name|resolverUtil
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resolver
+operator|=
+name|resolverUtil
+expr_stmt|;
 block|}
 DECL|method|load (TypeConverterRegistry registry)
 specifier|public
