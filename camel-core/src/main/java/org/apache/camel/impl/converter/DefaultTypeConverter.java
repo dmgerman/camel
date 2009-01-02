@@ -394,6 +394,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getTypeConverterLoaders ()
+specifier|public
+name|List
+argument_list|<
+name|TypeConverterLoader
+argument_list|>
+name|getTypeConverterLoaders
+parameter_list|()
+block|{
+return|return
+name|typeConverterLoaders
+return|;
+block|}
 DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
