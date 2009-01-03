@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.apache.camel.processor.onexception
 package|package
@@ -13,6 +17,16 @@ operator|.
 name|onexception
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
 
 begin_import
 import|import
@@ -152,7 +166,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// START SNIPPET: e1
 comment|// global error handler
 name|errorHandler
 argument_list|(
@@ -260,14 +273,13 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:start3"
 argument_list|)
 comment|// route specific error handler that is different than the global error handler
-comment|// here we do not redeliver and transform the body to a simple text message with
-comment|// the exception message using the SimpleLanguage
-comment|// we MUST use .end() to indicate that this sub block is ended
+comment|// here we do not redeliver and send errors to mock:error3 instead of the global endpoint
 operator|.
 name|errorHandler
 argument_list|(
@@ -281,11 +293,11 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
-comment|// route specific on exception for all exception to mark them as handled
+comment|// route specific on exception to mark MyFunctionalException as being handled
 operator|.
 name|onException
 argument_list|(
-name|Exception
+name|MyFunctionalException
 operator|.
 name|class
 argument_list|)
@@ -293,6 +305,22 @@ operator|.
 name|handled
 argument_list|(
 literal|true
+argument_list|)
+operator|.
+name|end
+argument_list|()
+comment|// however we want the IO exceptions to redeliver at most 3 times
+operator|.
+name|onException
+argument_list|(
+name|IOException
+operator|.
+name|class
+argument_list|)
+operator|.
+name|maximumRedeliveries
+argument_list|(
+literal|3
 argument_list|)
 operator|.
 name|end
