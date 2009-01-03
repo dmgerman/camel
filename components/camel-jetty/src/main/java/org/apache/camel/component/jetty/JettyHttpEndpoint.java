@@ -110,6 +110,22 @@ name|component
 operator|.
 name|http
 operator|.
+name|HttpClientConfigurer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|http
+operator|.
 name|HttpConsumer
 import|;
 end_import
@@ -160,6 +176,22 @@ name|HttpConnectionManager
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|httpclient
+operator|.
+name|params
+operator|.
+name|HttpClientParams
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -182,7 +214,7 @@ specifier|private
 name|boolean
 name|sessionSupport
 decl_stmt|;
-DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL, HttpConnectionManager httpConnectionManager)
+DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL, HttpClientParams clientParams, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|public
 name|JettyHttpEndpoint
 parameter_list|(
@@ -195,8 +227,14 @@ parameter_list|,
 name|URI
 name|httpURL
 parameter_list|,
+name|HttpClientParams
+name|clientParams
+parameter_list|,
 name|HttpConnectionManager
 name|httpConnectionManager
+parameter_list|,
+name|HttpClientConfigurer
+name|clientConfigurer
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -209,7 +247,11 @@ name|component
 argument_list|,
 name|httpURL
 argument_list|,
+name|clientParams
+argument_list|,
 name|httpConnectionManager
+argument_list|,
+name|clientConfigurer
 argument_list|)
 expr_stmt|;
 name|this

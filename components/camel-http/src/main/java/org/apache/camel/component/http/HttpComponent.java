@@ -265,44 +265,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
-annotation|@
-name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+comment|/**       * Setting http binding and http client configurer according to the parameters      * Also setting the BasicAuthenticationHttpClientConfigurer if the username       * and password option are not null.      *       * @param parameters the map of parameters       *       */
+DECL|method|configureParameters (Map parameters)
 specifier|protected
-name|Endpoint
-name|createEndpoint
+name|void
+name|configureParameters
 parameter_list|(
-name|String
-name|uri
-parameter_list|,
-name|String
-name|remaining
-parameter_list|,
 name|Map
 name|parameters
 parameter_list|)
-throws|throws
-name|Exception
 block|{
-comment|// http client can be configured from URI options
-name|HttpClientParams
-name|params
-init|=
-operator|new
-name|HttpClientParams
-argument_list|()
-decl_stmt|;
-name|IntrospectionSupport
-operator|.
-name|setProperties
-argument_list|(
-name|params
-argument_list|,
-name|parameters
-argument_list|,
-literal|"httpClient."
-argument_list|)
-expr_stmt|;
 comment|// lookup http binding in registry if provided
 name|String
 name|ref
@@ -431,6 +403,50 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+specifier|protected
+name|Endpoint
+name|createEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Map
+name|parameters
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// http client can be configured from URI options
+name|HttpClientParams
+name|params
+init|=
+operator|new
+name|HttpClientParams
+argument_list|()
+decl_stmt|;
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+name|params
+argument_list|,
+name|parameters
+argument_list|,
+literal|"httpClient."
+argument_list|)
+expr_stmt|;
+name|configureParameters
+argument_list|(
+name|parameters
+argument_list|)
+expr_stmt|;
 comment|// restructure uri to be based on the parameters left as we dont want to include the Camel internal options
 name|URI
 name|httpUri
