@@ -440,6 +440,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
 comment|// default should errors go to mock:error
 name|errorHandler
 argument_list|(
@@ -449,7 +450,6 @@ literal|"mock:error"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// START SNIPPET: e1
 comment|// if a MyTechnicalException is thrown we will not try to redeliver and we mark it as handled
 comment|// so the caller does not get a failure
 comment|// since we have no to then the exchange will continue to be routed to the normal error handler
@@ -516,13 +516,16 @@ name|to
 argument_list|(
 literal|"bean:myServiceBean"
 argument_list|)
-comment|// END SNIPPET: e1
+operator|.
+name|end
+argument_list|()
 operator|.
 name|to
 argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;

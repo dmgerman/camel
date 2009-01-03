@@ -826,7 +826,7 @@ argument_list|)
 operator|.
 name|redeliveryDelay
 argument_list|(
-literal|5000L
+literal|1000L
 argument_list|)
 operator|.
 name|maximumRedeliveries
@@ -836,7 +836,9 @@ argument_list|)
 operator|.
 name|maximumRedeliveryDelay
 argument_list|(
-literal|30000L
+literal|30
+operator|*
+literal|1000L
 argument_list|)
 operator|.
 name|backOffMultiplier
@@ -931,10 +933,7 @@ argument_list|(
 name|GeneralSecurityException
 operator|.
 name|class
-argument_list|)
-operator|.
-name|onException
-argument_list|(
+argument_list|,
 name|KeyException
 operator|.
 name|class

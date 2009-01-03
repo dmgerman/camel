@@ -285,7 +285,38 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|/*                 // we do special error handling for when OrderFailedException is thrown                 onException(OrderFailedException.class)                     // we mark the exchange as handled so the caller doesn't receive the                     // OrderFailedException but whatever we want to return instead                     .handled(true)                     // this bean handles the error handling where we can customize the error                     // response using java code                     .bean(OrderService.class, "orderFailed")                     // and since this is an unit test we use mocks for testing                     .to("mock:error");*/
+comment|// we do special error handling for when OrderFailedException is thrown
+name|onException
+argument_list|(
+name|OrderFailedException
+operator|.
+name|class
+argument_list|)
+comment|// we mark the exchange as handled so the caller doesn't receive the
+comment|// OrderFailedException but whatever we want to return instead
+operator|.
+name|handled
+argument_list|(
+literal|true
+argument_list|)
+comment|// this bean handles the error handling where we can customize the error
+comment|// response using java code
+operator|.
+name|bean
+argument_list|(
+name|OrderService
+operator|.
+name|class
+argument_list|,
+literal|"orderFailed"
+argument_list|)
+comment|// and since this is an unit test we use mocks for testing
+operator|.
+name|to
+argument_list|(
+literal|"mock:error"
+argument_list|)
+expr_stmt|;
 comment|// this is just the generic error handler where we set the destination
 comment|// and the number of redeliveries we want to try
 name|errorHandler
@@ -306,35 +337,6 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-operator|.
-name|onException
-argument_list|(
-name|OrderFailedException
-operator|.
-name|class
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|bean
-argument_list|(
-name|OrderService
-operator|.
-name|class
-argument_list|,
-literal|"orderFailed"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:error"
-argument_list|)
-operator|.
-name|end
-argument_list|()
 comment|// this bean is our order service
 operator|.
 name|bean
