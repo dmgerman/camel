@@ -3939,6 +3939,9 @@ argument_list|(
 name|errorHandlerBuilder
 argument_list|)
 expr_stmt|;
+comment|// TODO: davsclaus. I think we need to set the parent so you can use .end() blocks for
+comment|// nested error handler with a complex routing
+comment|//setParent(this);
 return|return
 operator|(
 name|Type

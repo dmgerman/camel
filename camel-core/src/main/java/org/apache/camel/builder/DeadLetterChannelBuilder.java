@@ -881,6 +881,30 @@ operator|=
 name|exceptionPolicyStrategy
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"DeadLetterChannelBuilder("
+operator|+
+operator|(
+name|deadLetterFactory
+operator|!=
+literal|null
+condition|?
+name|deadLetterFactory
+else|:
+name|defaultDeadLetterEndpoint
+operator|)
+operator|+
+literal|")"
+return|;
+block|}
 block|}
 end_class
 

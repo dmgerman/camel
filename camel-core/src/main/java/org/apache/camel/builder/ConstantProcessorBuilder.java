@@ -28,6 +28,20 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A builder wrapping a {@link Processor}.  *  * @version $Revision$  */
 end_comment
@@ -53,6 +67,15 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|processor
+argument_list|,
+literal|"processor"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|processor
@@ -68,6 +91,21 @@ parameter_list|()
 block|{
 return|return
 name|processor
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 block|}
