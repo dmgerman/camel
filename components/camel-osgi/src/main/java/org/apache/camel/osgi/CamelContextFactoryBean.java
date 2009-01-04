@@ -265,6 +265,15 @@ name|OsgiComponentResolver
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|setLanguageResolver
+argument_list|(
+operator|new
+name|OsgiLanguageResolver
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|addOsgiAnnotationTypeConverterLoader
 argument_list|(
 name|context
