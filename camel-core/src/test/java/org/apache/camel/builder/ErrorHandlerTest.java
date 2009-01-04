@@ -140,20 +140,6 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DelegateAsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
 name|FilterProcessor
 import|;
 end_import
@@ -233,14 +219,16 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// use logging error handler
 name|errorHandler
 argument_list|(
 name|loggingErrorHandler
 argument_list|(
-literal|"FOO.BAR"
+literal|"com.mycompany.foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// here is our regular route
 name|from
 argument_list|(
 literal|"seda:a"
@@ -401,26 +389,28 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// this route is using a nested logging error handler
 name|from
 argument_list|(
 literal|"seda:a"
 argument_list|)
+comment|// here we configure the logging error handler
 operator|.
 name|errorHandler
 argument_list|(
 name|loggingErrorHandler
 argument_list|(
-literal|"FOO.BAR"
+literal|"com.mycompany.foo"
 argument_list|)
 argument_list|)
+comment|// and we continue with the routing here
 operator|.
 name|to
 argument_list|(
 literal|"seda:b"
 argument_list|)
 expr_stmt|;
-comment|// this route will use the default error handler,
-comment|// DeadLetterChannel
+comment|// this route will use the default error handler (DeadLetterChannel)
 name|from
 argument_list|(
 literal|"seda:b"
@@ -717,6 +707,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// using dead letter channel with a seda queue for errors
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -725,6 +716,7 @@ literal|"seda:errors"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// here is our route
 name|from
 argument_list|(
 literal|"seda:a"
@@ -847,6 +839,8 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// configures dead letter channel to use seda queue for errors and use at most 2 redelveries
+comment|// and exponential backoff
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -863,6 +857,7 @@ name|useExponentialBackOff
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// here is our route
 name|from
 argument_list|(
 literal|"seda:a"
