@@ -504,6 +504,48 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|retriesExhaustedLogLevel (LoggingLevel retriesExhaustedLogLevel)
+specifier|public
+name|DeadLetterChannelBuilder
+name|retriesExhaustedLogLevel
+parameter_list|(
+name|LoggingLevel
+name|retriesExhaustedLogLevel
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setRetriesExhaustedLogLevel
+argument_list|(
+name|retriesExhaustedLogLevel
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|retryAttemptedLogLevel (LoggingLevel retryAttemptedLogLevel)
+specifier|public
+name|DeadLetterChannelBuilder
+name|retryAttemptedLogLevel
+parameter_list|(
+name|LoggingLevel
+name|retryAttemptedLogLevel
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setRetryAttemptedLogLevel
+argument_list|(
+name|retryAttemptedLogLevel
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the logger used for caught exceptions      */
 DECL|method|logger (Logger logger)
 specifier|public
