@@ -490,7 +490,7 @@ name|predicate
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/exception-clause.html">Exception clause</a>      * for cathing certain exceptions and handling them.      *      * @param exception exception to catch      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exception exception to catch      * @return the builder      */
 DECL|method|onException (Class exception)
 specifier|public
 name|ExceptionType
@@ -509,7 +509,7 @@ name|exception
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/exception-clause.html">Exception clause</a>      * for cathing certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the builder      */
+comment|/**      *<a href="http://activemq.apache.org/camel/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the builder      */
 DECL|method|onException (Class... exceptions)
 specifier|public
 name|ExceptionType

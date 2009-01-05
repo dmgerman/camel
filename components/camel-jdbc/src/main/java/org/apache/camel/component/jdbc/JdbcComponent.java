@@ -141,7 +141,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// perfer to use datasource set by setter
+comment|// prefer to use datasource set by setter
 name|dataSource
 operator|=
 name|ds
