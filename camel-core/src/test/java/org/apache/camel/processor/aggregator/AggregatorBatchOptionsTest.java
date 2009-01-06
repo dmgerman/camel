@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -179,7 +167,7 @@ argument_list|)
 decl_stmt|;
 name|result
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|4
 argument_list|)
@@ -447,7 +435,7 @@ argument_list|)
 decl_stmt|;
 name|result
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|5
 argument_list|)
@@ -518,20 +506,8 @@ argument_list|,
 literal|"1"
 argument_list|)
 expr_stmt|;
-name|result
-operator|.
-name|await
-argument_list|(
-literal|500L
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
-expr_stmt|;
 comment|// when we sent the next message we have reached the in batch size limit and the current
 comment|// aggregated exchanges will be sent
-comment|// wait a while for aggregating in a slower box
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -780,7 +756,7 @@ argument_list|)
 decl_stmt|;
 name|result
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|6
 argument_list|)
