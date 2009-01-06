@@ -122,6 +122,20 @@ name|StreamSource
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A helper class which provides a JAXP {@link javax.xml.transform.Source Source} from a String which can  * be read as many times as required.  *  * @version $Revision$  */
 end_comment
@@ -161,21 +175,15 @@ name|String
 name|text
 parameter_list|)
 block|{
-if|if
-condition|(
-name|text
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|NullPointerException
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"text cannot be null"
+name|text
+argument_list|,
+literal|"text"
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
 name|this
 operator|.
 name|text

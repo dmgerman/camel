@@ -72,6 +72,20 @@ name|StreamSource
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A helper class which provides a JAXP {@link javax.xml.transform.Source Source} from a byte[]  * which can be read as many times as required.  *  * @version $Revision$  */
 end_comment
@@ -99,6 +113,15 @@ index|[]
 name|data
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|data
+argument_list|,
+literal|"data"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|data
@@ -118,6 +141,15 @@ name|String
 name|systemId
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|data
+argument_list|,
+literal|"data"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|data

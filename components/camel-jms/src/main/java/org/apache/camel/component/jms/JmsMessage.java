@@ -282,7 +282,6 @@ name|Message
 name|that
 parameter_list|)
 block|{
-comment|// for performance lets not copy the messageID if we are a JMS message
 name|boolean
 name|copyMessageId
 init|=
@@ -320,6 +319,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// for performance lets not copy the messageID if we are a JMS message
 name|copyMessageId
 operator|=
 literal|false
@@ -328,7 +328,6 @@ block|}
 block|}
 if|if
 condition|(
-operator|!
 name|copyMessageId
 condition|)
 block|{
