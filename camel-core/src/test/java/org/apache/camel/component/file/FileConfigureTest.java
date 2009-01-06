@@ -326,6 +326,28 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|tearDown ()
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+comment|// one of the above tests created a /target folder in the root we want to get rid of when testing
+name|deleteDirectory
+argument_list|(
+literal|"/target"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createFileConsumer (String endpointUri)
 specifier|private
 name|FileConsumer
