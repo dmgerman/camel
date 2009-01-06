@@ -231,7 +231,6 @@ argument_list|)
 decl_stmt|;
 DECL|method|getComponent (String name)
 specifier|protected
-specifier|synchronized
 name|Class
 name|getComponent
 parameter_list|(

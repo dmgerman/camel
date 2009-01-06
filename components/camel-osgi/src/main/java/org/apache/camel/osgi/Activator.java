@@ -544,13 +544,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|addComponentEntry (Enumeration e, Map<String, ComponentEntry> entries)
+DECL|method|addComponentEntry (String entryPath, Bundle bundle, Map<String, ComponentEntry> entries)
 specifier|protected
+specifier|synchronized
 name|void
 name|addComponentEntry
 parameter_list|(
-name|Enumeration
-name|e
+name|String
+name|entryPath
+parameter_list|,
+name|Bundle
+name|bundle
 parameter_list|,
 name|Map
 argument_list|<
@@ -561,6 +565,16 @@ argument_list|>
 name|entries
 parameter_list|)
 block|{
+name|Enumeration
+name|e
+init|=
+name|bundle
+operator|.
+name|getEntryPaths
+argument_list|(
+name|entryPath
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|e
@@ -665,7 +679,6 @@ block|}
 block|}
 DECL|method|mayBeAddComponentAndLanguageFor (Bundle bundle)
 specifier|protected
-specifier|synchronized
 name|void
 name|mayBeAddComponentAndLanguageFor
 parameter_list|(
@@ -675,24 +688,18 @@ parameter_list|)
 block|{
 name|addComponentEntry
 argument_list|(
-name|bundle
-operator|.
-name|getEntryPaths
-argument_list|(
 name|META_INF_COMPONENT
-argument_list|)
+argument_list|,
+name|bundle
 argument_list|,
 name|COMPONENTS
 argument_list|)
 expr_stmt|;
 name|addComponentEntry
 argument_list|(
-name|bundle
-operator|.
-name|getEntryPaths
-argument_list|(
 name|META_INF_LANGUAGE
-argument_list|)
+argument_list|,
+name|bundle
 argument_list|,
 name|LANGUAGES
 argument_list|)
@@ -822,7 +829,6 @@ block|}
 block|}
 DECL|method|mayBeRemoveComponentAndLanguageFor (Bundle bundle)
 specifier|protected
-specifier|synchronized
 name|void
 name|mayBeRemoveComponentAndLanguageFor
 parameter_list|(
@@ -1581,6 +1587,7 @@ block|}
 DECL|method|getClassFromEntries (String name, Map<String, ComponentEntry> entries)
 specifier|protected
 specifier|static
+specifier|synchronized
 name|Class
 name|getClassFromEntries
 parameter_list|(
@@ -1642,6 +1649,28 @@ operator|.
 name|path
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"The entry "
+operator|+
+name|name
+operator|+
+literal|"'s url is"
+operator|+
+name|url
+argument_list|)
+expr_stmt|;
+block|}
 comment|// lets load the file
 name|Properties
 name|properties
