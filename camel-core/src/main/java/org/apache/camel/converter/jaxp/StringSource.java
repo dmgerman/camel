@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class which provides a JAXP {@link javax.xml.transform.Source Source} from a String which can  * be read as many times as required.  *  * @version $Revision$  */
+comment|/**  * A helper class which provides a JAXP {@link javax.xml.transform.Source Source} from a String which can  * be read as many times as required. Encoding is default UTF-8.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -205,6 +205,15 @@ block|{
 name|this
 argument_list|(
 name|text
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|systemId
+argument_list|,
+literal|"systemId"
 argument_list|)
 expr_stmt|;
 name|setSystemId
