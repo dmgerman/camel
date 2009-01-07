@@ -663,6 +663,25 @@ name|text
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/mvel.html">MVEL      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+DECL|method|mvel (String text)
+specifier|public
+name|T
+name|mvel
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|language
+argument_list|(
+literal|"mvel"
+argument_list|,
+name|text
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/php.html">PHP      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|php (String text)
 specifier|public
