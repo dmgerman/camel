@@ -129,13 +129,23 @@ name|String
 name|path
 decl_stmt|;
 DECL|field|classMap
-specifier|private
+specifier|protected
 specifier|final
 name|ConcurrentHashMap
+argument_list|<
+name|String
+argument_list|,
+name|Class
+argument_list|>
 name|classMap
 init|=
 operator|new
 name|ConcurrentHashMap
+argument_list|<
+name|String
+argument_list|,
+name|Class
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|FactoryFinder ()
@@ -281,6 +291,9 @@ throws|,
 name|ClassNotFoundException
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|findClass
@@ -366,6 +379,9 @@ throws|,
 name|ClassNotFoundException
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|findClass

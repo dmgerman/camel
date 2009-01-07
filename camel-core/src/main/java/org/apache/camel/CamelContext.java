@@ -198,6 +198,20 @@ name|TypeConverterRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FactoryFinder
+import|;
+end_import
+
 begin_comment
 comment|/**  * Interface used to represent the context used to configure routes and the  * policies to use during message exchanges between endpoints.  *  * @version $Revision$  */
 end_comment
@@ -532,6 +546,21 @@ name|DataFormatType
 argument_list|>
 name|getDataFormats
 parameter_list|()
+function_decl|;
+comment|/**      * Create a FactoryFinder which will be used for the loading the factory class from META-INF      * @return the factory finder      */
+DECL|method|createFactoryFinder ()
+name|FactoryFinder
+name|createFactoryFinder
+parameter_list|()
+function_decl|;
+comment|/**      * Create a FactoryFinder which will be used for the loading the factory class from META-INF      * @param path the META-INF path      * @return the factory finder      */
+DECL|method|createFactoryFinder (String path)
+name|FactoryFinder
+name|createFactoryFinder
+parameter_list|(
+name|String
+name|path
+parameter_list|)
 function_decl|;
 block|}
 end_interface

@@ -1621,8 +1621,10 @@ block|{
 name|FactoryFinder
 name|finder
 init|=
-operator|new
-name|FactoryFinder
+name|getCamelContext
+argument_list|()
+operator|.
+name|createFactoryFinder
 argument_list|(
 literal|"META-INF/services/org/apache/camel/component/"
 argument_list|)
