@@ -122,12 +122,6 @@ specifier|public
 class|class
 name|FactoryFinder
 block|{
-DECL|field|path
-specifier|private
-specifier|final
-name|String
-name|path
-decl_stmt|;
 DECL|field|classMap
 specifier|protected
 specifier|final
@@ -147,6 +141,12 @@ argument_list|,
 name|Class
 argument_list|>
 argument_list|()
+decl_stmt|;
+DECL|field|path
+specifier|private
+specifier|final
+name|String
+name|path
 decl_stmt|;
 DECL|method|FactoryFinder ()
 specifier|public
