@@ -240,12 +240,13 @@ operator|=
 literal|"direct:sequential"
 expr_stmt|;
 block|}
+comment|// use InOut
 name|Exchange
 name|exchange
 init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 name|url
 argument_list|,

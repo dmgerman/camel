@@ -294,7 +294,7 @@ name|results
 init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"direct:a"
 argument_list|,
@@ -373,7 +373,7 @@ name|exchange
 init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"direct:b"
 argument_list|,
@@ -446,7 +446,7 @@ name|exchange
 init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"direct:c"
 argument_list|,
@@ -534,7 +534,7 @@ name|exchange
 init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"direct:b"
 argument_list|,
@@ -669,8 +669,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|// todo set the endpoint name we were received from
-comment|//exchange.setProperty(exchange.get);
 name|number
 operator|=
 name|number

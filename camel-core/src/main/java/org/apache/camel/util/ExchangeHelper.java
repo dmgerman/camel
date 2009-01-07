@@ -859,6 +859,18 @@ comment|// no results so lets copy the last input
 comment|// as the final processor on a pipeline might not
 comment|// have created any OUT; such as a mock:endpoint
 comment|// so lets assume the last IN is the OUT
+if|if
+condition|(
+name|result
+operator|.
+name|getPattern
+argument_list|()
+operator|.
+name|isOutCapable
+argument_list|()
+condition|)
+block|{
+comment|// only set OUT if its OUT capable
 name|result
 operator|.
 name|getOut
@@ -874,6 +886,24 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// if not replace IN instead to keep the MEP
+name|result
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|copyFrom
+argument_list|(
+name|source
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|result
 operator|.

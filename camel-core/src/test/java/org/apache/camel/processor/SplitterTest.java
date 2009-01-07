@@ -193,6 +193,7 @@ argument_list|,
 literal|"Rob"
 argument_list|)
 expr_stmt|;
+comment|// InOnly
 name|template
 operator|.
 name|send
@@ -346,7 +347,7 @@ name|result
 init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"direct:seqential"
 argument_list|,
@@ -443,7 +444,7 @@ name|result
 init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"direct:seqential"
 argument_list|,
@@ -519,6 +520,7 @@ argument_list|(
 literal|4
 argument_list|)
 expr_stmt|;
+comment|// InOnly
 name|template
 operator|.
 name|send
@@ -727,7 +729,7 @@ name|result
 init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"direct:parallel"
 argument_list|,
@@ -854,7 +856,7 @@ name|result
 init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"direct:parallel-streaming"
 argument_list|,
@@ -970,12 +972,9 @@ argument_list|,
 literal|"bar"
 argument_list|)
 expr_stmt|;
-name|Exchange
-name|result
-init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"direct:streaming"
 argument_list|,
@@ -1018,7 +1017,7 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -1127,7 +1126,7 @@ name|result
 init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"direct:exception"
 argument_list|,
