@@ -269,7 +269,7 @@ specifier|final
 name|String
 name|META_INF_TYPE_CONVERTER
 init|=
-literal|"/META-INF/services/org/apache/camel/TypeConverter"
+literal|"META-INF/services/org/apache/camel/TypeConverter"
 decl_stmt|;
 DECL|field|META_INF_COMPONENT
 specifier|public
@@ -278,7 +278,7 @@ specifier|final
 name|String
 name|META_INF_COMPONENT
 init|=
-literal|"/META-INF/services/org/apache/camel/component/"
+literal|"META-INF/services/org/apache/camel/component/"
 decl_stmt|;
 DECL|field|META_INF_LANGUAGE
 specifier|public
@@ -287,7 +287,7 @@ specifier|final
 name|String
 name|META_INF_LANGUAGE
 init|=
-literal|"/META-INF/services/org/apache/camel/language/"
+literal|"META-INF/services/org/apache/camel/language/"
 decl_stmt|;
 DECL|field|LOG
 specifier|private
@@ -333,7 +333,7 @@ specifier|static
 specifier|final
 name|Map
 argument_list|<
-name|Bundle
+name|URL
 argument_list|,
 name|TypeConverterEntry
 argument_list|>
@@ -342,7 +342,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|Bundle
+name|URL
 argument_list|,
 name|TypeConverterEntry
 argument_list|>
@@ -810,7 +810,7 @@ name|TYPE_CONVERTERS
 operator|.
 name|put
 argument_list|(
-name|bundle
+name|resource
 argument_list|,
 name|entry
 argument_list|)
@@ -1018,7 +1018,9 @@ name|COMPONENTS
 operator|.
 name|remove
 argument_list|(
-name|bundle
+name|entry
+operator|.
+name|resource
 argument_list|)
 expr_stmt|;
 block|}

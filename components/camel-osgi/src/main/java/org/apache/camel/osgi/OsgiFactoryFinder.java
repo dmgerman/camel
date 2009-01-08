@@ -388,13 +388,13 @@ return|return
 name|clazz
 return|;
 block|}
-DECL|method|getResource (String path)
+DECL|method|getResource (String name)
 specifier|public
 name|BundleEntry
 name|getResource
 parameter_list|(
 name|String
-name|path
+name|name
 parameter_list|)
 block|{
 name|URL
@@ -435,7 +435,10 @@ name|bundle
 operator|.
 name|getEntry
 argument_list|(
-name|path
+name|getPath
+argument_list|()
+operator|+
+name|name
 argument_list|)
 expr_stmt|;
 if|if
