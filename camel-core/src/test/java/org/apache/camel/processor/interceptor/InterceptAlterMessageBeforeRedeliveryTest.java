@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.onexception
+DECL|package|org.apache.camel.processor.interceptor
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|onexception
+name|interceptor
 package|;
 end_package
 
@@ -51,6 +51,22 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|onexception
+operator|.
+name|MyTechnicalException
 import|;
 end_import
 
@@ -246,7 +262,7 @@ argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e1
 comment|// we configure an interceptor that is triggered when the redelivery flag
-comment|// has been set on an exchange
+comment|// has been set TRUE on an exchange
 name|intercept
 argument_list|()
 operator|.
@@ -257,8 +273,12 @@ argument_list|(
 literal|"org.apache.camel.Redelivered"
 argument_list|)
 operator|.
-name|isNotNull
-argument_list|()
+name|isEqualTo
+argument_list|(
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
 argument_list|)
 operator|.
 name|process
