@@ -72,6 +72,25 @@ name|AggregatorBatchOptionsTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|disableJMX
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|isUseRouteBuilder ()
 specifier|public
 name|boolean
