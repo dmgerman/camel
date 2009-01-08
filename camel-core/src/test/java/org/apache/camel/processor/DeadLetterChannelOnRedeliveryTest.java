@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.interceptor
+DECL|package|org.apache.camel.processor
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|camel
 operator|.
 name|processor
-operator|.
-name|interceptor
 package|;
 end_package
 
@@ -105,10 +103,10 @@ comment|/**  * Unit test for testing possibility to modify exchange before redel
 end_comment
 
 begin_class
-DECL|class|InterceptAlterMessageBeforeRedeliveryTest
+DECL|class|DeadLetterChannelOnRedeliveryTest
 specifier|public
 class|class
-name|InterceptAlterMessageBeforeRedeliveryTest
+name|DeadLetterChannelOnRedeliveryTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -117,10 +115,10 @@ specifier|static
 name|int
 name|counter
 decl_stmt|;
-DECL|method|testInterceptAlterMessageBeforeRedelivery ()
+DECL|method|testOnExceptionAlterMessageBeforeRedelivery ()
 specifier|public
 name|void
-name|testInterceptAlterMessageBeforeRedelivery
+name|testOnExceptionAlterMessageBeforeRedelivery
 parameter_list|()
 throws|throws
 name|Exception
@@ -153,10 +151,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testInterceptAlterMessageWithHeadersBeforeRedelivery ()
+DECL|method|testOnExceptionAlterMessageWithHeadersBeforeRedelivery ()
 specifier|public
 name|void
-name|testInterceptAlterMessageWithHeadersBeforeRedelivery
+name|testOnExceptionAlterMessageWithHeadersBeforeRedelivery
 parameter_list|()
 throws|throws
 name|Exception
@@ -246,7 +244,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// to execute unit test much faster we dont use delay between redeliveries
+comment|// START SNIPPET: e1
+comment|// we configure our Dead Letter Channel to invoke
+comment|// MyRedeliveryProcessor before a redelivery is
+comment|// attempted. This allows us to alter the message before
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -254,31 +255,24 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 operator|.
+name|onRedelivery
+argument_list|(
+operator|new
+name|MyRedeliverPrcessor
+argument_list|()
+argument_list|)
+comment|// setting delay to zero is just to make unit teting faster
+operator|.
 name|delay
 argument_list|(
 literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// START SNIPPET: e1
-comment|// we configure an interceptor that is triggered when the redelivery flag
-comment|// has been set TRUE on an exchange
-name|intercept
-argument_list|()
-operator|.
-name|when
+comment|// END SNIPPET: e1
+name|from
 argument_list|(
-name|header
-argument_list|(
-literal|"org.apache.camel.Redelivered"
-argument_list|)
-operator|.
-name|isEqualTo
-argument_list|(
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
+literal|"direct:start"
 argument_list|)
 operator|.
 name|process
@@ -287,6 +281,57 @@ operator|new
 name|Processor
 argument_list|()
 block|{
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// force some error so Camel will do redelivery
+if|if
+condition|(
+operator|++
+name|counter
+operator|<=
+literal|3
+condition|)
+block|{
+throw|throw
+operator|new
+name|MyTechnicalException
+argument_list|(
+literal|"Forced by unit test"
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|;
+block|}
+comment|// START SNIPPET: e2
+comment|// This is our processor that is executed before every redelivery attempt
+comment|// here we can do what we want in the java code, such as altering the message
+DECL|class|MyRedeliverPrcessor
+specifier|public
+class|class
+name|MyRedeliverPrcessor
+implements|implements
+name|Processor
+block|{
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
@@ -346,60 +391,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-argument_list|)
-expr_stmt|;
-comment|// END SNIPPET: e1
-name|from
-argument_list|(
-literal|"direct:start"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|Processor
-argument_list|()
-block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// force some error so Camel will do redelivery
-if|if
-condition|(
-operator|++
-name|counter
-operator|<=
-literal|3
-condition|)
-block|{
-throw|throw
-operator|new
-name|MyTechnicalException
-argument_list|(
-literal|"Forced by unit test"
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|;
-block|}
+comment|// END SNIPPET: e2
 block|}
 end_class
 

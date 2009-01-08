@@ -203,6 +203,11 @@ operator|new
 name|RedeliveryPolicy
 argument_list|()
 decl_stmt|;
+DECL|field|onRedelivery
+specifier|private
+name|Processor
+name|onRedelivery
+decl_stmt|;
 DECL|field|exceptionPolicyStrategy
 specifier|private
 name|ExceptionPolicyStrategy
@@ -345,6 +350,8 @@ argument_list|(
 name|processor
 argument_list|,
 name|deadLetter
+argument_list|,
+name|onRedelivery
 argument_list|,
 name|getRedeliveryPolicy
 argument_list|()
@@ -672,6 +679,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a processor that should be processed<b>before</b> a redelivey attempt.      *<p/>      * Can be used to change the {@link org.apache.camel.Exchange}<b>before</b> its being redelivered.      */
+DECL|method|onRedelivery (Processor processor)
+specifier|public
+name|DeadLetterChannelBuilder
+name|onRedelivery
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|setOnRedelivery
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getRedeliveryPolicy ()
@@ -921,6 +947,32 @@ operator|.
 name|exceptionPolicyStrategy
 operator|=
 name|exceptionPolicyStrategy
+expr_stmt|;
+block|}
+DECL|method|getOnRedelivery ()
+specifier|public
+name|Processor
+name|getOnRedelivery
+parameter_list|()
+block|{
+return|return
+name|onRedelivery
+return|;
+block|}
+DECL|method|setOnRedelivery (Processor onRedelivery)
+specifier|public
+name|void
+name|setOnRedelivery
+parameter_list|(
+name|Processor
+name|onRedelivery
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onRedelivery
+operator|=
+name|onRedelivery
 expr_stmt|;
 block|}
 annotation|@
