@@ -82,22 +82,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|onexception
-operator|.
-name|MyTechnicalException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test for testing possibility to modify exchange before redelivering  */
 end_comment
@@ -302,7 +286,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|MyTechnicalException
+name|IllegalArgumentException
 argument_list|(
 literal|"Forced by unit test"
 argument_list|)
