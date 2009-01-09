@@ -626,6 +626,8 @@ return|return
 literal|true
 return|;
 block|}
+comment|// To make the CxfEndpointBean clear without touching any Spring relates class
+comment|// , we implements the ApplicationContextAware here
 DECL|class|CxfSpringEndpointBean
 specifier|public
 specifier|static
