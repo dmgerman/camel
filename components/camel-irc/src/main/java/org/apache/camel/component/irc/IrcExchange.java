@@ -69,12 +69,12 @@ specifier|private
 name|IrcBinding
 name|binding
 decl_stmt|;
-DECL|method|IrcExchange (CamelContext context, ExchangePattern pattern, IrcBinding binding)
+DECL|method|IrcExchange (IrcEndpoint endpoint, ExchangePattern pattern, IrcBinding binding)
 specifier|public
 name|IrcExchange
 parameter_list|(
-name|CamelContext
-name|context
+name|IrcEndpoint
+name|endpoint
 parameter_list|,
 name|ExchangePattern
 name|pattern
@@ -85,7 +85,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|context
+name|endpoint
 argument_list|,
 name|pattern
 argument_list|)
@@ -97,12 +97,12 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|IrcExchange (CamelContext context, ExchangePattern pattern, IrcBinding binding, IrcMessage inMessage)
+DECL|method|IrcExchange (IrcEndpoint endpoint, ExchangePattern pattern, IrcBinding binding, IrcMessage inMessage)
 specifier|public
 name|IrcExchange
 parameter_list|(
-name|CamelContext
-name|context
+name|IrcEndpoint
+name|endpoint
 parameter_list|,
 name|ExchangePattern
 name|pattern
@@ -116,7 +116,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|context
+name|endpoint
 argument_list|,
 name|pattern
 argument_list|,

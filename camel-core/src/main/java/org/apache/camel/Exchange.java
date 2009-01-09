@@ -248,6 +248,21 @@ name|Exchange
 name|source
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the endpoint which originated this message exchange if a consumer on an endpoint created the message exchange      * otherwise this property will be null      */
+DECL|method|getFromEndpoint ()
+name|Endpoint
+name|getFromEndpoint
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the endpoint which originated this message exchange. This method      * should typically only be called by {@link org.apache.camel.Endpoint} implementations      *      * @param fromEndpoint the endpoint which is originating this message exchange      */
+DECL|method|setFromEndpoint (Endpoint fromEndpoint)
+name|void
+name|setFromEndpoint
+parameter_list|(
+name|Endpoint
+name|fromEndpoint
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the unit of work that this exchange belongs to; which may map to      * zero, one or more physical transactions      */
 DECL|method|getUnitOfWork ()
 name|UnitOfWork

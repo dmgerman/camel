@@ -99,12 +99,12 @@ specifier|private
 name|XmppBinding
 name|binding
 decl_stmt|;
-DECL|method|XmppExchange (CamelContext context, ExchangePattern pattern, XmppBinding binding)
+DECL|method|XmppExchange (XmppEndpoint endpoint, ExchangePattern pattern, XmppBinding binding)
 specifier|public
 name|XmppExchange
 parameter_list|(
-name|CamelContext
-name|context
+name|XmppEndpoint
+name|endpoint
 parameter_list|,
 name|ExchangePattern
 name|pattern
@@ -115,7 +115,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|context
+name|endpoint
 argument_list|,
 name|pattern
 argument_list|)
@@ -127,12 +127,12 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|XmppExchange (CamelContext context, ExchangePattern pattern, XmppBinding binding, Message message)
+DECL|method|XmppExchange (XmppEndpoint endpoint, ExchangePattern pattern, XmppBinding binding, Message message)
 specifier|public
 name|XmppExchange
 parameter_list|(
-name|CamelContext
-name|context
+name|XmppEndpoint
+name|endpoint
 parameter_list|,
 name|ExchangePattern
 name|pattern
@@ -146,7 +146,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|context
+name|endpoint
 argument_list|,
 name|pattern
 argument_list|,

@@ -244,12 +244,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|CxfExchange (CamelContext context, ExchangePattern pattern)
+DECL|method|CxfExchange (CxfEndpoint endpoint, ExchangePattern pattern)
 specifier|public
 name|CxfExchange
 parameter_list|(
-name|CamelContext
-name|context
+name|CxfEndpoint
+name|endpoint
 parameter_list|,
 name|ExchangePattern
 name|pattern
@@ -257,7 +257,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|context
+name|endpoint
 argument_list|,
 name|pattern
 argument_list|)
@@ -286,12 +286,12 @@ name|getExchange
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|CxfExchange (CamelContext context, ExchangePattern pattern, Message inMessage)
+DECL|method|CxfExchange (CxfEndpoint endpoint, ExchangePattern pattern, Message inMessage)
 specifier|public
 name|CxfExchange
 parameter_list|(
-name|CamelContext
-name|context
+name|CxfEndpoint
+name|endpoint
 parameter_list|,
 name|ExchangePattern
 name|pattern
@@ -302,7 +302,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|context
+name|endpoint
 argument_list|,
 name|pattern
 argument_list|)

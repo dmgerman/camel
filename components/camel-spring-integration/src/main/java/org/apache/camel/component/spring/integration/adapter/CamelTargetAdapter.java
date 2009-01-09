@@ -393,8 +393,7 @@ init|=
 operator|new
 name|SpringIntegrationExchange
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|this
 argument_list|,
 name|pattern
 argument_list|)

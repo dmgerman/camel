@@ -299,28 +299,6 @@ return|return
 literal|false
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|createExchange (ExchangePattern pattern)
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|(
-name|ExchangePattern
-name|pattern
-parameter_list|)
-block|{
-return|return
-operator|new
-name|DefaultExchange
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|pattern
-argument_list|)
-return|;
-block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer

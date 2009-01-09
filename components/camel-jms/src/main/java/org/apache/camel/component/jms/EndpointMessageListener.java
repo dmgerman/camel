@@ -515,9 +515,6 @@ operator|new
 name|JmsExchange
 argument_list|(
 name|endpoint
-operator|.
-name|getCamelContext
-argument_list|()
 argument_list|,
 name|endpoint
 operator|.

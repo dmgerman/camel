@@ -485,8 +485,7 @@ return|return
 operator|new
 name|RemoteFileExchange
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|this
 argument_list|,
 name|getExchangePattern
 argument_list|()
@@ -508,8 +507,7 @@ return|return
 operator|new
 name|RemoteFileExchange
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|this
 argument_list|,
 name|getExchangePattern
 argument_list|()

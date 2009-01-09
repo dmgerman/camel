@@ -83,12 +83,12 @@ specifier|private
 name|RemoteFile
 name|remoteFile
 decl_stmt|;
-DECL|method|RemoteFileExchange (CamelContext context, ExchangePattern pattern, RemoteFile remoteFile)
+DECL|method|RemoteFileExchange (RemoteFileEndpoint endpoint, ExchangePattern pattern, RemoteFile remoteFile)
 specifier|public
 name|RemoteFileExchange
 parameter_list|(
-name|CamelContext
-name|context
+name|RemoteFileEndpoint
+name|endpoint
 parameter_list|,
 name|ExchangePattern
 name|pattern
@@ -99,7 +99,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|context
+name|endpoint
 argument_list|,
 name|pattern
 argument_list|)

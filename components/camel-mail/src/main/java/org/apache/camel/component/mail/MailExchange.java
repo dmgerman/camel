@@ -95,12 +95,12 @@ specifier|private
 name|MailBinding
 name|binding
 decl_stmt|;
-DECL|method|MailExchange (CamelContext context, ExchangePattern pattern, MailBinding binding)
+DECL|method|MailExchange (MailEndpoint endpoint, ExchangePattern pattern, MailBinding binding)
 specifier|public
 name|MailExchange
 parameter_list|(
-name|CamelContext
-name|context
+name|MailEndpoint
+name|endpoint
 parameter_list|,
 name|ExchangePattern
 name|pattern
@@ -111,7 +111,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|context
+name|endpoint
 argument_list|,
 name|pattern
 argument_list|)
@@ -123,12 +123,12 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|MailExchange (CamelContext context, ExchangePattern pattern, MailBinding binding, Message message)
+DECL|method|MailExchange (MailEndpoint endpoint, ExchangePattern pattern, MailBinding binding, Message message)
 specifier|public
 name|MailExchange
 parameter_list|(
-name|CamelContext
-name|context
+name|MailEndpoint
+name|endpoint
 parameter_list|,
 name|ExchangePattern
 name|pattern
@@ -142,7 +142,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|context
+name|endpoint
 argument_list|,
 name|pattern
 argument_list|,

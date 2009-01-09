@@ -480,8 +480,7 @@ return|return
 operator|new
 name|XmppExchange
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|this
 argument_list|,
 name|pattern
 argument_list|,
@@ -503,8 +502,7 @@ return|return
 operator|new
 name|XmppExchange
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|this
 argument_list|,
 name|getExchangePattern
 argument_list|()

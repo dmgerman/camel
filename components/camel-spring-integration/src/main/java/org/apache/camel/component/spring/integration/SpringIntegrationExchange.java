@@ -28,18 +28,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -76,6 +64,26 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|spring
+operator|.
+name|integration
+operator|.
+name|adapter
+operator|.
+name|CamelTargetAdapter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultExchange
@@ -83,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link Exchange} for working with Spring Integration endpoints which exposes the underlying  * Spring messages via {@link #getInMessage()} and {@link #getOutMessage()}  *  * @version $Revision$  */
+comment|/**  * An {@link Exchange} for working with Spring Integration endpoints which exposes the underlying  * Spring messages via {@link #getIn()} and {@link #getOut()}  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -94,26 +102,26 @@ name|SpringIntegrationExchange
 extends|extends
 name|DefaultExchange
 block|{
-DECL|method|SpringIntegrationExchange (CamelContext context)
+DECL|method|SpringIntegrationExchange (SpringIntegrationEndpoint endpoint)
 specifier|public
 name|SpringIntegrationExchange
 parameter_list|(
-name|CamelContext
-name|context
+name|SpringIntegrationEndpoint
+name|endpoint
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|context
+name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SpringIntegrationExchange (CamelContext context, ExchangePattern pattern)
+DECL|method|SpringIntegrationExchange (SpringIntegrationEndpoint endpoint, ExchangePattern pattern)
 specifier|public
 name|SpringIntegrationExchange
 parameter_list|(
-name|CamelContext
-name|context
+name|SpringIntegrationEndpoint
+name|endpoint
 parameter_list|,
 name|ExchangePattern
 name|pattern
@@ -121,11 +129,49 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|context
+name|endpoint
 argument_list|,
 name|pattern
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|SpringIntegrationExchange (CamelTargetAdapter adapter, ExchangePattern pattern)
+specifier|public
+name|SpringIntegrationExchange
+parameter_list|(
+name|CamelTargetAdapter
+name|adapter
+parameter_list|,
+name|ExchangePattern
+name|pattern
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|adapter
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|pattern
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getFromSpringIntegrationEndpoint ()
+specifier|public
+name|SpringIntegrationEndpoint
+name|getFromSpringIntegrationEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|SpringIntegrationEndpoint
+operator|)
+name|super
+operator|.
+name|getFromEndpoint
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override
@@ -139,9 +185,7 @@ return|return
 operator|new
 name|SpringIntegrationExchange
 argument_list|(
-name|this
-operator|.
-name|getContext
+name|getFromSpringIntegrationEndpoint
 argument_list|()
 argument_list|)
 return|;

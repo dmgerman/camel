@@ -733,28 +733,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|createExchange (ExchangePattern pattern)
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|(
-name|ExchangePattern
-name|pattern
-parameter_list|)
-block|{
-return|return
-operator|new
-name|DefaultExchange
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|pattern
-argument_list|)
-return|;
-block|}
 DECL|method|createExchange (JobExecutionContext jobExecutionContext)
 specifier|public
 name|Exchange
@@ -767,15 +745,8 @@ block|{
 name|Exchange
 name|exchange
 init|=
-operator|new
-name|DefaultExchange
-argument_list|(
-name|getCamelContext
+name|createExchange
 argument_list|()
-argument_list|,
-name|getExchangePattern
-argument_list|()
-argument_list|)
 decl_stmt|;
 name|exchange
 operator|.

@@ -511,15 +511,8 @@ block|{
 name|Exchange
 name|exchange
 init|=
-operator|new
-name|DefaultExchange
-argument_list|(
-name|getCamelContext
+name|createExchange
 argument_list|()
-argument_list|,
-name|getExchangePattern
-argument_list|()
-argument_list|)
 decl_stmt|;
 name|exchange
 operator|.
@@ -534,40 +527,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|exchange
-return|;
-block|}
-DECL|method|createExchange ()
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|()
-block|{
-return|return
-name|createExchange
-argument_list|(
-name|getExchangePattern
-argument_list|()
-argument_list|)
-return|;
-block|}
-DECL|method|createExchange (ExchangePattern pattern)
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|(
-name|ExchangePattern
-name|pattern
-parameter_list|)
-block|{
-return|return
-operator|new
-name|DefaultExchange
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|pattern
-argument_list|)
 return|;
 block|}
 DECL|method|getAttributeName ()

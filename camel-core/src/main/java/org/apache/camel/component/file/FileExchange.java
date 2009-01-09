@@ -115,12 +115,12 @@ specifier|private
 name|File
 name|file
 decl_stmt|;
-DECL|method|FileExchange (CamelContext camelContext, ExchangePattern pattern, File file)
+DECL|method|FileExchange (FileEndpoint endpoint, ExchangePattern pattern, File file)
 specifier|public
 name|FileExchange
 parameter_list|(
-name|CamelContext
-name|camelContext
+name|FileEndpoint
+name|endpoint
 parameter_list|,
 name|ExchangePattern
 name|pattern
@@ -131,7 +131,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|camelContext
+name|endpoint
 argument_list|,
 name|pattern
 argument_list|)

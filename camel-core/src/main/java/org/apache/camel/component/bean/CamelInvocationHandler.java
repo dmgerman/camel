@@ -247,9 +247,6 @@ operator|new
 name|DefaultExchange
 argument_list|(
 name|endpoint
-operator|.
-name|getCamelContext
-argument_list|()
 argument_list|,
 name|pattern
 argument_list|)
