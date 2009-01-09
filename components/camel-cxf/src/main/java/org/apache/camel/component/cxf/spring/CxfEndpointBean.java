@@ -82,11 +82,25 @@ specifier|public
 name|CxfEndpointBean
 parameter_list|()
 block|{
-name|setServiceFactory
+name|this
 argument_list|(
 operator|new
 name|ReflectionServiceFactoryBean
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|CxfEndpointBean (ReflectionServiceFactoryBean factory)
+specifier|public
+name|CxfEndpointBean
+parameter_list|(
+name|ReflectionServiceFactoryBean
+name|factory
+parameter_list|)
+block|{
+name|setServiceFactory
+argument_list|(
+name|factory
 argument_list|)
 expr_stmt|;
 block|}
