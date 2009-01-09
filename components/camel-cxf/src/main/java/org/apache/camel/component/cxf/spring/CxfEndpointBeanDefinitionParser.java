@@ -260,7 +260,7 @@ name|arg0
 parameter_list|)
 block|{
 return|return
-name|CxfEndpointBean
+name|CxfSpringEndpointBean
 operator|.
 name|class
 return|;
