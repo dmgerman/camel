@@ -525,6 +525,14 @@ argument_list|,
 literal|"1"
 argument_list|)
 expr_stmt|;
+comment|// need a little sleep between batches
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
 comment|// when we sent the next message we have reached the in batch size limit and the current
 comment|// aggregated exchanges will be sent
 name|template
