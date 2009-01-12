@@ -842,7 +842,7 @@ name|retval
 return|;
 block|}
 DECL|method|waitResponse (Exchange exchange)
-specifier|private
+specifier|protected
 name|void
 name|waitResponse
 parameter_list|(
