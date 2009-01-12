@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|Endpoint
 import|;
 end_import
 
@@ -150,7 +150,7 @@ name|TraceFormatter
 name|formatter
 init|=
 operator|new
-name|TraceFormatter
+name|DefaultTraceFormatter
 argument_list|()
 decl_stmt|;
 DECL|field|enabled
@@ -191,6 +191,11 @@ DECL|field|traceOutExchanges
 specifier|private
 name|boolean
 name|traceOutExchanges
+decl_stmt|;
+DECL|field|destination
+specifier|private
+name|Endpoint
+name|destination
 decl_stmt|;
 comment|/**      * A helper method to return the Tracer instance for a given {@link CamelContext} if one is enabled      *      * @param context the camel context the tracer is connected to      * @return the tracer or null if none can be found      */
 DECL|method|getTracer (CamelContext context)
@@ -504,6 +509,33 @@ block|{
 return|return
 name|traceOutExchanges
 return|;
+block|}
+DECL|method|getDestination ()
+specifier|public
+name|Endpoint
+name|getDestination
+parameter_list|()
+block|{
+return|return
+name|destination
+return|;
+block|}
+comment|/**      * Sets an optional destination to send the traced Exchange wrapped in a {@link TraceEvent}.      *<p/>      * Can be used to store tracing as files, in a database or whatever. The routing of the Exchange      * will happen synchronously and the original route will first continue when this destination routing      * has been compledted.      */
+DECL|method|setDestination (Endpoint destination)
+specifier|public
+name|void
+name|setDestination
+parameter_list|(
+name|Endpoint
+name|destination
+parameter_list|)
+block|{
+name|this
+operator|.
+name|destination
+operator|=
+name|destination
+expr_stmt|;
 block|}
 block|}
 end_class

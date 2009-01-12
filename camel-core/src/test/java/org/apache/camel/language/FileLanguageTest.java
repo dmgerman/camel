@@ -130,7 +130,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|FileExchange
+name|FileEndpoint
 import|;
 end_import
 
@@ -146,7 +146,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|FileEndpoint
+name|FileExchange
 import|;
 end_import
 

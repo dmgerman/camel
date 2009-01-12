@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -107,18 +119,6 @@ operator|.
 name|camel
 operator|.
 name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
 import|;
 end_import
 
@@ -287,11 +287,11 @@ operator|=
 name|pattern
 expr_stmt|;
 block|}
-DECL|method|DefaultExchange (DefaultExchange parent)
+DECL|method|DefaultExchange (Exchange parent)
 specifier|public
 name|DefaultExchange
 parameter_list|(
-name|DefaultExchange
+name|Exchange
 name|parent
 parameter_list|)
 block|{
@@ -315,6 +315,15 @@ operator|=
 name|parent
 operator|.
 name|getUnitOfWork
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|fromEndpoint
+operator|=
+name|parent
+operator|.
+name|getFromEndpoint
 argument_list|()
 expr_stmt|;
 block|}
@@ -631,6 +640,7 @@ name|Message
 name|message
 parameter_list|)
 block|{
+comment|// TODO: This method is not used
 if|if
 condition|(
 name|message
