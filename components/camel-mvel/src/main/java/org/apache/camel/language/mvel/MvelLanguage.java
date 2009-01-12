@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://mvel.codehaus.org/">MVEL</a> {@link Language} plugin  *   * @version $Revision: 709613 $  */
+comment|/**  * An<a href="http://mvel.codehaus.org/">MVEL</a> {@link Language} plugin  *   * @version $Revision$  */
 end_comment
 
 begin_class
