@@ -437,7 +437,7 @@ if|if
 condition|(
 name|exchange
 operator|instanceof
-name|TraceEvent
+name|TraceEventExchange
 operator|||
 name|exchange
 operator|.
@@ -648,17 +648,20 @@ block|{
 comment|// should we send a trace event to an optional destination?
 if|if
 condition|(
-name|traceEventProducer
+name|tracer
+operator|.
+name|getDestinationUri
+argument_list|()
 operator|!=
 literal|null
 condition|)
 block|{
 comment|// create event and add it as a property on the original exchange
-name|TraceEvent
+name|TraceEventExchange
 name|event
 init|=
 operator|new
-name|TraceEvent
+name|TraceEventExchange
 argument_list|(
 name|exchange
 argument_list|)
@@ -725,10 +728,13 @@ operator|.
 name|TRUE
 argument_list|)
 expr_stmt|;
-comment|// process the trace route
 try|try
 block|{
-name|traceEventProducer
+comment|// process the trace route
+name|getTraceEventProducer
+argument_list|(
+name|exchange
+argument_list|)
 operator|.
 name|process
 argument_list|(
@@ -747,7 +753,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error processing TraceEvent (original Exchange will be continued): "
+literal|"Error processing TraceEventExchange (original Exchange will be continued): "
 operator|+
 name|event
 argument_list|,
@@ -903,6 +909,56 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|getTraceEventProducer (Exchange exchange)
+specifier|private
+specifier|synchronized
+name|Producer
+name|getTraceEventProducer
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|traceEventProducer
+operator|==
+literal|null
+condition|)
+block|{
+comment|// create producer when we have access the the camel context (we dont in doStart)
+name|traceEventProducer
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|(
+name|tracer
+operator|.
+name|getDestinationUri
+argument_list|()
+argument_list|)
+operator|.
+name|createProducer
+argument_list|()
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|traceEventProducer
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|traceEventProducer
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -918,35 +974,10 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-comment|// in case of destination then create a producer to send the TraceEvent to
-if|if
-condition|(
-name|tracer
-operator|.
-name|getDestination
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 name|traceEventProducer
 operator|=
-name|tracer
-operator|.
-name|getDestination
-argument_list|()
-operator|.
-name|createProducer
-argument_list|()
+literal|null
 expr_stmt|;
-name|ServiceHelper
-operator|.
-name|startService
-argument_list|(
-name|traceEventProducer
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override

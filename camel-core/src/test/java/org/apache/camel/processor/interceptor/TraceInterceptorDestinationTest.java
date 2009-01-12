@@ -183,6 +183,8 @@ argument_list|(
 literal|"Bye World"
 argument_list|,
 literal|"Foo World"
+argument_list|,
+literal|"Foo World"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -197,7 +199,7 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|6
+literal|8
 argument_list|)
 expr_stmt|;
 comment|// should be in our CSV format (defined in bottom of this class)
@@ -291,6 +293,36 @@ argument_list|(
 literal|"^direct:foo;.*;.*;Foo World"
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|6
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|regex
+argument_list|(
+literal|"^direct:foo;.*;.*;Hello Beijing"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|7
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|regex
+argument_list|(
+literal|"^direct:foo;.*;.*;Foo World"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -311,6 +343,16 @@ argument_list|(
 literal|"direct:foo"
 argument_list|,
 literal|"Hello Copenhagen"
+argument_list|)
+expr_stmt|;
+comment|// to test sending to same endpoint twice
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:foo"
+argument_list|,
+literal|"Hello Beijing"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -391,6 +433,30 @@ literal|5
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello Beijing"
+argument_list|,
+name|tracedBodies
+operator|.
+name|get
+argument_list|(
+literal|6
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Foo World"
+argument_list|,
+name|tracedBodies
+operator|.
+name|get
+argument_list|(
+literal|7
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// assert headers as well
 name|assertEquals
 argument_list|(
@@ -452,6 +518,18 @@ literal|4
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"{to=Foo}"
+argument_list|,
+name|tracedHeaders
+operator|.
+name|get
+argument_list|(
+literal|5
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -486,14 +564,9 @@ argument_list|()
 decl_stmt|;
 name|tracer
 operator|.
-name|setDestination
-argument_list|(
-name|context
-operator|.
-name|getEndpoint
+name|setDestinationUri
 argument_list|(
 literal|"direct:traced"
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// we disable regular trace logging in the log file. You can omit this and
@@ -686,11 +759,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|TraceEvent
+name|TraceEventExchange
 name|event
 init|=
 operator|(
-name|TraceEvent
+name|TraceEventExchange
 operator|)
 name|exchange
 decl_stmt|;

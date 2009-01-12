@@ -308,14 +308,9 @@ comment|// END SNIPPET: e1
 comment|// this is only for unit testing to use mock for assertion
 name|tracer
 operator|.
-name|setDestination
-argument_list|(
-name|context
-operator|.
-name|getEndpoint
+name|setDestinationUri
 argument_list|(
 literal|"direct:traced"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|from

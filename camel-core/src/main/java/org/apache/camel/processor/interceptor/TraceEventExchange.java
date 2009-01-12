@@ -71,10 +71,10 @@ comment|/**  * Represents a trace of an {@link org.apache.camel.Exchange}, inter
 end_comment
 
 begin_class
-DECL|class|TraceEvent
+DECL|class|TraceEventExchange
 specifier|public
 class|class
-name|TraceEvent
+name|TraceEventExchange
 extends|extends
 name|DefaultExchange
 block|{
@@ -82,11 +82,6 @@ DECL|field|nodeId
 specifier|private
 name|String
 name|nodeId
-decl_stmt|;
-DECL|field|exchangeId
-specifier|private
-name|String
-name|exchangeId
 decl_stmt|;
 DECL|field|timestamp
 specifier|private
@@ -98,9 +93,9 @@ specifier|private
 name|Exchange
 name|tracedExchange
 decl_stmt|;
-DECL|method|TraceEvent (Exchange parent)
+DECL|method|TraceEventExchange (Exchange parent)
 specifier|public
-name|TraceEvent
+name|TraceEventExchange
 parameter_list|(
 name|Exchange
 name|parent
@@ -120,22 +115,15 @@ name|Exchange
 name|newInstance
 parameter_list|()
 block|{
-name|TraceEvent
+name|TraceEventExchange
 name|answer
 init|=
 operator|new
-name|TraceEvent
+name|TraceEventExchange
 argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|answer
-operator|.
-name|setExchangeId
-argument_list|(
-name|exchangeId
-argument_list|)
-expr_stmt|;
 name|answer
 operator|.
 name|setNodeId
@@ -264,7 +252,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"TraceEvent["
+literal|"TraceEventExchange["
 operator|+
 name|tracedExchange
 operator|.

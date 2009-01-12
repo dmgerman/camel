@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Predicate
 import|;
 end_import
@@ -192,10 +180,10 @@ specifier|private
 name|boolean
 name|traceOutExchanges
 decl_stmt|;
-DECL|field|destination
+DECL|field|destinationUri
 specifier|private
-name|Endpoint
-name|destination
+name|String
+name|destinationUri
 decl_stmt|;
 comment|/**      * A helper method to return the Tracer instance for a given {@link CamelContext} if one is enabled      *      * @param context the camel context the tracer is connected to      * @return the tracer or null if none can be found      */
 DECL|method|getTracer (CamelContext context)
@@ -510,31 +498,31 @@ return|return
 name|traceOutExchanges
 return|;
 block|}
-DECL|method|getDestination ()
+DECL|method|getDestinationUri ()
 specifier|public
-name|Endpoint
-name|getDestination
+name|String
+name|getDestinationUri
 parameter_list|()
 block|{
 return|return
-name|destination
+name|destinationUri
 return|;
 block|}
-comment|/**      * Sets an optional destination to send the traced Exchange wrapped in a {@link TraceEvent}.      *<p/>      * Can be used to store tracing as files, in a database or whatever. The routing of the Exchange      * will happen synchronously and the original route will first continue when this destination routing      * has been compledted.      */
-DECL|method|setDestination (Endpoint destination)
+comment|/**      * Sets an optional destination to send the traced Exchange wrapped in a {@link TraceEventExchange}.      *<p/>      * Can be used to store tracing as files, in a database or whatever. The routing of the Exchange      * will happen synchronously and the original route will first continue when this destination routing      * has been compledted.      */
+DECL|method|setDestinationUri (String destinationUri)
 specifier|public
 name|void
-name|setDestination
+name|setDestinationUri
 parameter_list|(
-name|Endpoint
-name|destination
+name|String
+name|destinationUri
 parameter_list|)
 block|{
 name|this
 operator|.
-name|destination
+name|destinationUri
 operator|=
-name|destination
+name|destinationUri
 expr_stmt|;
 block|}
 block|}
