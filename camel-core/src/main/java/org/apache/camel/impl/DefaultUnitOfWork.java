@@ -481,6 +481,11 @@ condition|(
 name|routeList
 operator|==
 literal|null
+operator|||
+name|routeList
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 return|return
