@@ -74,6 +74,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|TraceableUnitOfWork
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|MessageHelper
@@ -98,10 +112,15 @@ specifier|private
 name|String
 name|fromEndpointUri
 decl_stmt|;
-DECL|field|node
+DECL|field|previousNode
 specifier|private
 name|String
-name|node
+name|previousNode
+decl_stmt|;
+DECL|field|toNode
+specifier|private
+name|String
+name|toNode
 decl_stmt|;
 DECL|field|exchangeId
 specifier|private
@@ -153,14 +172,14 @@ specifier|private
 name|String
 name|exception
 decl_stmt|;
-comment|/**      * Creates a {@link TraceEventMessage} based on the given node it was traced while processing      * the current {@link Exchange}      *      * @param node  the node where this trace is intercepted      * @param exchange the current {@link Exchange}      */
-DECL|method|TraceEventMessage (final ProcessorType node, final Exchange exchange)
+comment|/**      * Creates a {@link TraceEventMessage} based on the given node it was traced while processing      * the current {@link Exchange}      *      * @param toNode the node where this trace is intercepted      * @param exchange the current {@link Exchange}      */
+DECL|method|TraceEventMessage (final ProcessorType toNode, final Exchange exchange)
 specifier|public
 name|TraceEventMessage
 parameter_list|(
 specifier|final
 name|ProcessorType
-name|node
+name|toNode
 parameter_list|,
 specifier|final
 name|Exchange
@@ -210,11 +229,20 @@ literal|null
 expr_stmt|;
 name|this
 operator|.
-name|node
+name|previousNode
+operator|=
+name|extractPreviousNode
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|toNode
 operator|=
 name|extractNode
 argument_list|(
-name|node
+name|toNode
 argument_list|)
 expr_stmt|;
 name|this
@@ -415,8 +443,64 @@ literal|1
 argument_list|)
 return|;
 block|}
+DECL|method|extractPreviousNode (Exchange exchange)
+specifier|private
+name|String
+name|extractPreviousNode
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|instanceof
+name|TraceableUnitOfWork
+condition|)
+block|{
+name|TraceableUnitOfWork
+name|tuow
+init|=
+operator|(
+name|TraceableUnitOfWork
+operator|)
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+decl_stmt|;
+name|ProcessorType
+name|last
+init|=
+name|tuow
+operator|.
+name|getLastInterceptedNode
+argument_list|()
+decl_stmt|;
+return|return
+name|last
+operator|!=
+literal|null
+condition|?
+name|extractNode
+argument_list|(
+name|last
+argument_list|)
+else|:
+literal|null
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
 comment|// Properties
 comment|//---------------------------------------------------------------
+comment|/**      * Uri of the endpoint that started the {@link Exchange} currently being traced.      */
 DECL|method|getFromEndpointUri ()
 specifier|public
 name|String
@@ -427,14 +511,26 @@ return|return
 name|fromEndpointUri
 return|;
 block|}
-DECL|method|getNode ()
+comment|/**      * Gets the previous node.      *<p/>      * Will return<tt>null</tt> if this is the first node, then you can use the from endpoint uri      * instread to indicate the start      */
+DECL|method|getPreviousNode ()
 specifier|public
 name|String
-name|getNode
+name|getPreviousNode
 parameter_list|()
 block|{
 return|return
-name|node
+name|previousNode
+return|;
+block|}
+comment|/**      * Gets the current node that just have been intercepted and processed      *<p/>      * Is never null.      */
+DECL|method|getToNode ()
+specifier|public
+name|String
+name|getToNode
+parameter_list|()
+block|{
+return|return
+name|toNode
 return|;
 block|}
 DECL|method|getExchangeId ()
@@ -447,6 +543,7 @@ return|return
 name|exchangeId
 return|;
 block|}
+comment|/**      * Gets the exchange id without the leading hostname      */
 DECL|method|getShortExchangeId ()
 specifier|public
 name|String
@@ -550,9 +647,9 @@ literal|"TraceEventMessage["
 operator|+
 name|exchangeId
 operator|+
-literal|"] for node: "
+literal|"] to node: "
 operator|+
-name|node
+name|toNode
 return|;
 block|}
 block|}

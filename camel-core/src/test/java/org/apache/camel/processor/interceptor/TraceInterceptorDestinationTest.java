@@ -885,7 +885,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// we want to store it as a CSV with fromEndpoint;node;exchangeId;body
+comment|// we want to store it as a CSV with from;to;exchangeId;body
 name|String
 name|s
 init|=
@@ -898,7 +898,7 @@ literal|";"
 operator|+
 name|msg
 operator|.
-name|getNode
+name|getToNode
 argument_list|()
 operator|+
 literal|";"

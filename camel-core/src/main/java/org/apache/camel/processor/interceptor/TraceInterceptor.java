@@ -142,6 +142,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|TraceableUnitOfWork
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ServiceHelper
@@ -463,12 +477,9 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// okay this is a regular exchange being routed we might need to log and trace
-try|try
-block|{
-comment|// before
-if|if
-condition|(
+name|boolean
+name|shouldLog
+init|=
 name|shouldLogNode
 argument_list|(
 name|node
@@ -478,6 +489,14 @@ name|shouldLogExchange
 argument_list|(
 name|exchange
 argument_list|)
+decl_stmt|;
+comment|// okay this is a regular exchange being routed we might need to log and trace
+try|try
+block|{
+comment|// before
+if|if
+condition|(
+name|shouldLog
 condition|)
 block|{
 name|logExchange
@@ -490,6 +509,36 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// if traceable then register this as the previous node, now it has been logged
+if|if
+condition|(
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|instanceof
+name|TraceableUnitOfWork
+condition|)
+block|{
+name|TraceableUnitOfWork
+name|tuow
+init|=
+operator|(
+name|TraceableUnitOfWork
+operator|)
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+decl_stmt|;
+name|tuow
+operator|.
+name|addInterceptedNode
+argument_list|(
+name|node
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// process the exchange
 name|super
@@ -502,20 +551,12 @@ expr_stmt|;
 comment|// after (trace out)
 if|if
 condition|(
+name|shouldLog
+operator|&&
 name|tracer
 operator|.
 name|isTraceOutExchanges
 argument_list|()
-operator|&&
-name|shouldLogNode
-argument_list|(
-name|node
-argument_list|)
-operator|&&
-name|shouldLogExchange
-argument_list|(
-name|exchange
-argument_list|)
 condition|)
 block|{
 name|logExchange

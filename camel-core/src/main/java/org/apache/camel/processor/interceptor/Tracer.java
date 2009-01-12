@@ -282,6 +282,8 @@ name|processorType
 argument_list|,
 name|target
 argument_list|,
+name|formatter
+argument_list|,
 name|this
 argument_list|)
 return|;
@@ -294,6 +296,30 @@ parameter_list|()
 block|{
 return|return
 name|formatter
+return|;
+block|}
+DECL|method|getDefaultTraceFormatter ()
+specifier|public
+name|DefaultTraceFormatter
+name|getDefaultTraceFormatter
+parameter_list|()
+block|{
+if|if
+condition|(
+name|formatter
+operator|instanceof
+name|DefaultTraceFormatter
+condition|)
+block|{
+return|return
+operator|(
+name|DefaultTraceFormatter
+operator|)
+name|formatter
+return|;
+block|}
+return|return
+literal|null
 return|;
 block|}
 DECL|method|setFormatter (TraceFormatter formatter)
