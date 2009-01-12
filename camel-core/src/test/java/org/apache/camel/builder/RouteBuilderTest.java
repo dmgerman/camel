@@ -1966,7 +1966,6 @@ operator|+
 name|processor
 argument_list|)
 expr_stmt|;
-comment|/*              * TODO FilterProcessor filterProcessor =              * assertIsInstanceOf(FilterProcessor.class, processor);              *              * SendProcessor sendProcessor =              * assertIsInstanceOf(SendProcessor.class,              * filterProcessor.getProcessor()); assertEquals("Endpoint URI",              * "seda:b", sendProcessor.getDestinationUri().getEndpointUri());              */
 block|}
 block|}
 DECL|method|buildStaticRecipientList ()
