@@ -252,19 +252,10 @@ name|fileList
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we cannot use file.getAttrs().isLink on Windows, so we dont invoke the method
+comment|// just assuming its a file we should poll
 block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|file
-operator|.
-name|getAttrs
-argument_list|()
-operator|.
-name|isLink
-argument_list|()
-condition|)
+else|else
 block|{
 if|if
 condition|(
@@ -285,18 +276,6 @@ name|remote
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Ignoring unsupported remote file type: "
-operator|+
-name|file
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
