@@ -452,6 +452,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ResolverUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -1098,6 +1112,29 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|getContextClassLoaderOnStart ()
+specifier|public
+name|ClassLoader
+name|getContextClassLoaderOnStart
+parameter_list|()
+block|{
+return|return
+name|contextClassLoaderOnStart
+return|;
+block|}
+DECL|method|getAdditionalBuilders ()
+specifier|public
+name|List
+argument_list|<
+name|Routes
+argument_list|>
+name|getAdditionalBuilders
+parameter_list|()
+block|{
+return|return
+name|additionalBuilders
+return|;
+block|}
 DECL|method|afterPropertiesSet ()
 specifier|public
 name|void
@@ -1719,7 +1756,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|findRouteBuiders
+name|findRouteBuilders
 argument_list|()
 expr_stmt|;
 name|installRoutes
@@ -2646,10 +2683,10 @@ block|}
 block|}
 block|}
 comment|/**      * Strategy method to try find {@link RouteBuilder} instances on the      * classpath      */
-DECL|method|findRouteBuiders ()
+DECL|method|findRouteBuilders ()
 specifier|protected
 name|void
-name|findRouteBuiders
+name|findRouteBuilders
 parameter_list|()
 throws|throws
 name|Exception
@@ -2658,11 +2695,13 @@ name|InstantiationException
 block|{
 if|if
 condition|(
-name|packages
+name|getPackages
+argument_list|()
 operator|!=
 literal|null
 operator|&&
-name|packages
+name|getPackages
+argument_list|()
 operator|.
 name|length
 operator|>
@@ -2678,11 +2717,16 @@ argument_list|(
 name|getContext
 argument_list|()
 argument_list|,
-name|packages
+name|getPackages
+argument_list|()
 argument_list|,
-name|contextClassLoaderOnStart
+name|getContextClassLoaderOnStart
+argument_list|()
 argument_list|,
 name|getBeanPostProcessor
+argument_list|()
+argument_list|,
+name|createResolverUtil
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2690,10 +2734,24 @@ name|finder
 operator|.
 name|appendBuilders
 argument_list|(
-name|additionalBuilders
+name|getAdditionalBuilders
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * The factory method for create the ResolverUtil      * @return a new instance of ResolverUtil      */
+DECL|method|createResolverUtil ()
+specifier|protected
+name|ResolverUtil
+name|createResolverUtil
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ResolverUtil
+argument_list|()
+return|;
 block|}
 DECL|method|setDataFormats (DataFormatsType dataFormats)
 specifier|public

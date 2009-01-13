@@ -204,11 +204,11 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Here should contains org.apache.camel.osgi.coverter"
+literal|"Here should contains org.apache.camel.osgi.test"
 argument_list|,
 name|containsPackageName
 argument_list|(
-literal|"org.apache.camel.osgi.coverter"
+literal|"org.apache.camel.osgi.test"
 argument_list|,
 name|packages
 argument_list|)

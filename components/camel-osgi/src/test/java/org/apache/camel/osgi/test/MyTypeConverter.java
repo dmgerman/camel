@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.osgi.converter
+DECL|package|org.apache.camel.osgi.test
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|osgi
 operator|.
-name|converter
+name|test
 package|;
 end_package
 
@@ -55,6 +55,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Converter
 DECL|class|MyTypeConverter
 specifier|public
 specifier|final
@@ -83,11 +85,43 @@ block|{
 name|Boolean
 name|answer
 init|=
-name|toBoolean
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|value
+operator|instanceof
+name|String
+condition|)
+block|{
+name|answer
+operator|=
+name|Boolean
+operator|.
+name|valueOf
 argument_list|(
+operator|(
+name|String
+operator|)
 name|value
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|value
+operator|instanceof
+name|Boolean
+condition|)
+block|{
+name|answer
+operator|=
+operator|(
+name|Boolean
+operator|)
+name|value
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|answer
@@ -104,28 +138,6 @@ return|;
 block|}
 return|return
 literal|false
-return|;
-block|}
-comment|/**      * Converts the given value to a Boolean, handling strings or Boolean      * objects; otherwise returning null if the value cannot be converted to a      * boolean      */
-annotation|@
-name|Converter
-DECL|method|toBoolean (Object value)
-specifier|public
-specifier|static
-name|Boolean
-name|toBoolean
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-block|{
-return|return
-name|ObjectHelper
-operator|.
-name|toBoolean
-argument_list|(
-name|value
-argument_list|)
 return|;
 block|}
 block|}

@@ -194,26 +194,22 @@ name|String
 index|[]
 name|packages
 decl_stmt|;
-DECL|field|applicationContext
-specifier|private
-name|ApplicationContext
-name|applicationContext
-decl_stmt|;
 DECL|field|resolver
 specifier|private
 name|ResolverUtil
 name|resolver
-init|=
-operator|new
-name|ResolverUtil
-argument_list|()
+decl_stmt|;
+DECL|field|applicationContext
+specifier|private
+name|ApplicationContext
+name|applicationContext
 decl_stmt|;
 DECL|field|beanPostProcessor
 specifier|private
 name|BeanPostProcessor
 name|beanPostProcessor
 decl_stmt|;
-DECL|method|RouteBuilderFinder (SpringCamelContext camelContext, String[] packages, ClassLoader classLoader, BeanPostProcessor postProcessor)
+DECL|method|RouteBuilderFinder (SpringCamelContext camelContext, String[] packages, ClassLoader classLoader, BeanPostProcessor postProcessor, ResolverUtil resolverUtil)
 specifier|public
 name|RouteBuilderFinder
 parameter_list|(
@@ -229,6 +225,9 @@ name|classLoader
 parameter_list|,
 name|BeanPostProcessor
 name|postProcessor
+parameter_list|,
+name|ResolverUtil
+name|resolverUtil
 parameter_list|)
 block|{
 name|this
@@ -257,6 +256,12 @@ operator|.
 name|beanPostProcessor
 operator|=
 name|postProcessor
+expr_stmt|;
+name|this
+operator|.
+name|resolver
+operator|=
+name|resolverUtil
 expr_stmt|;
 comment|// lets add all the available class loaders just in case of weirdness
 comment|// we could make this more strict once we've worked out all the gremlins
