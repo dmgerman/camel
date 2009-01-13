@@ -102,6 +102,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|mail
@@ -121,6 +133,8 @@ DECL|class|MailConfiguration
 specifier|public
 class|class
 name|MailConfiguration
+implements|implements
+name|Cloneable
 block|{
 DECL|field|DEFAULT_FOLDER_NAME
 specifier|public
@@ -288,6 +302,38 @@ specifier|public
 name|MailConfiguration
 parameter_list|()
 block|{     }
+comment|/**      * Returns a copy of this configuration      */
+DECL|method|copy ()
+specifier|public
+name|MailConfiguration
+name|copy
+parameter_list|()
+block|{
+try|try
+block|{
+return|return
+operator|(
+name|MailConfiguration
+operator|)
+name|clone
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|CloneNotSupportedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|method|configure (URI uri)
 specifier|public
 name|void
@@ -379,7 +425,7 @@ decl_stmt|;
 if|if
 condition|(
 name|port
-operator|>=
+operator|>
 literal|0
 condition|)
 block|{
@@ -389,9 +435,21 @@ name|port
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|port
+operator|<=
+literal|0
+operator|&&
+name|this
+operator|.
+name|port
+operator|<=
+literal|0
+condition|)
 block|{
-comment|// resolve default port if no port number was provided
+comment|// resolve default port if no port number was provided, and not already configured with a port number
 name|setPort
 argument_list|(
 name|MailUtils

@@ -179,6 +179,8 @@ name|configuration
 operator|=
 name|configuration
 expr_stmt|;
+name|this
+operator|.
 name|binding
 operator|=
 operator|new

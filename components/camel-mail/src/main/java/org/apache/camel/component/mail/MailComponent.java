@@ -136,6 +136,20 @@ name|HeaderFilterStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Component for JavaMail.  *  * @version $Revision:520964 $  */
 end_comment
@@ -264,13 +278,25 @@ literal|"nntp protocol is not supported"
 argument_list|)
 throw|;
 block|}
+comment|// must use copy as each endpoint can have different options
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|configuration
+argument_list|,
+literal|"configuration"
+argument_list|)
+expr_stmt|;
 name|MailConfiguration
 name|config
 init|=
-operator|new
-name|MailConfiguration
+name|configuration
+operator|.
+name|copy
 argument_list|()
 decl_stmt|;
+comment|// only configure if we have a url with a known protocol
 name|config
 operator|.
 name|configure
@@ -285,7 +311,6 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-comment|// lets make sure we copy the configuration as each endpoint can customize its own version
 name|MailEndpoint
 name|endpoint
 init|=
@@ -309,6 +334,49 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// sanity check that we know the mail server
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|config
+operator|.
+name|getHost
+argument_list|()
+argument_list|,
+literal|"host"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|config
+operator|.
+name|getProtocol
+argument_list|()
+argument_list|,
+literal|"protocol"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|config
+operator|.
+name|getPort
+argument_list|()
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"port mut be specified"
+argument_list|)
+throw|;
+block|}
 return|return
 name|endpoint
 return|;
