@@ -54,6 +54,20 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * SFTP consumer  */
 end_comment
@@ -114,6 +128,7 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// fix filename
 if|if
 condition|(
 name|fileName
@@ -139,6 +154,21 @@ argument_list|()
 operator|-
 literal|1
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|fileName
+argument_list|)
+condition|)
+block|{
+name|fileName
+operator|=
+literal|"."
 expr_stmt|;
 block|}
 if|if
@@ -499,9 +529,20 @@ expr_stmt|;
 name|String
 name|absoluteFileName
 init|=
+operator|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|directory
+argument_list|)
+condition|?
 name|directory
 operator|+
 literal|"/"
+else|:
+literal|""
+operator|)
 operator|+
 name|file
 operator|.
