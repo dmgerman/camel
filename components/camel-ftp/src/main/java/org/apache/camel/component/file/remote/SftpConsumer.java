@@ -241,12 +241,21 @@ argument_list|)
 condition|)
 block|{
 comment|// recursive scan and add the sub files and folders
-name|pollDirectory
-argument_list|(
+name|String
+name|directory
+init|=
+name|fileName
+operator|+
+literal|"/"
+operator|+
 name|file
 operator|.
 name|getFilename
 argument_list|()
+decl_stmt|;
+name|pollDirectory
+argument_list|(
+name|directory
 argument_list|,
 name|fileList
 argument_list|)
