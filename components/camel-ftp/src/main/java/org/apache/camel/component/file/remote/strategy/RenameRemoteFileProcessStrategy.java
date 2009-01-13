@@ -415,6 +415,12 @@ comment|// deleting any existing files before renaming
 name|boolean
 name|deleted
 init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
+name|deleted
+operator|=
 name|operations
 operator|.
 name|deleteFile
@@ -424,7 +430,16 @@ operator|.
 name|getAbsolutelFileName
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RemoteFileOperationFailedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore the file does not exists
+block|}
 if|if
 condition|(
 operator|!
