@@ -574,11 +574,13 @@ block|{
 return|return
 literal|"TraceEventMessage["
 operator|+
-name|exchangeId
+name|getExchangeId
+argument_list|()
 operator|+
 literal|"] on node: "
 operator|+
-name|toNode
+name|getToNode
+argument_list|()
 return|;
 block|}
 block|}
