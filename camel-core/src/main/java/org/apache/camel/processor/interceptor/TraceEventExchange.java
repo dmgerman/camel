@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a trace of an {@link org.apache.camel.Exchange}, intercepted at the given node  * that occured during routing.  *<p/>  * The IN body contains {@link TraceEventMessage} with trace details of the original IN message.  */
+comment|/**  * Represents a trace of an {@link org.apache.camel.Exchange}, intercepted at the given node  * that occured during routing.  *<p/>  * The IN body contains {@link DefaultTraceEventMessage} with trace details of the original IN message.  */
 end_comment
 
 begin_class
@@ -259,7 +259,7 @@ operator|.
 name|getExchangeId
 argument_list|()
 operator|+
-literal|"] on node: "
+literal|"] on node id: "
 operator|+
 name|nodeId
 return|;

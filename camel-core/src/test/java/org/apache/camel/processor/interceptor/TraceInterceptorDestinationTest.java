@@ -813,7 +813,7 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|(
-name|TraceEventMessage
+name|DefaultTraceEventMessage
 operator|.
 name|class
 argument_list|)
@@ -880,7 +880,7 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|(
-name|TraceEventMessage
+name|DefaultTraceEventMessage
 operator|.
 name|class
 argument_list|)

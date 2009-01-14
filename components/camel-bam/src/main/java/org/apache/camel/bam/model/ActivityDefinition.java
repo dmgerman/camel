@@ -110,7 +110,7 @@ name|Table
 argument_list|(
 name|name
 operator|=
-literal|"ACTIVITYDEFINITION"
+literal|"CAMEL_ACTIVITYDEFINITION"
 argument_list|,
 name|uniqueConstraints
 operator|=

@@ -760,7 +760,7 @@ name|HashMap
 name|rc
 init|=
 operator|new
-name|HashMap
+name|LinkedHashMap
 argument_list|(
 name|properties
 operator|.
@@ -1162,6 +1162,14 @@ operator|=
 name|e
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -1185,6 +1193,7 @@ operator|+
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// we did not find a setter method to use, and if we did try to use a type converter then throw

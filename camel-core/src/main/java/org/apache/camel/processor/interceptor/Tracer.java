@@ -185,6 +185,11 @@ specifier|private
 name|String
 name|destinationUri
 decl_stmt|;
+DECL|field|useJpa
+specifier|private
+name|boolean
+name|useJpa
+decl_stmt|;
 comment|/**      * A helper method to return the Tracer instance for a given {@link CamelContext} if one is enabled      *      * @param context the camel context the tracer is connected to      * @return the tracer or null if none can be found      */
 DECL|method|getTracer (CamelContext context)
 specifier|public
@@ -549,6 +554,33 @@ operator|.
 name|destinationUri
 operator|=
 name|destinationUri
+expr_stmt|;
+block|}
+DECL|method|isUseJpa ()
+specifier|public
+name|boolean
+name|isUseJpa
+parameter_list|()
+block|{
+return|return
+name|useJpa
+return|;
+block|}
+comment|/**      * Sets whether we should use a JpaTraceEventMessage instead of      * an ordinary {@link org.apache.camel.processor.interceptor.DefaultTraceEventMessage}      *<p/>      * Use this to allow persistence of trace events into a database using JPA.      * This requires camel-jpa in the classpath.      */
+DECL|method|setUseJpa (boolean useJpa)
+specifier|public
+name|void
+name|setUseJpa
+parameter_list|(
+name|boolean
+name|useJpa
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useJpa
+operator|=
+name|useJpa
 expr_stmt|;
 block|}
 block|}

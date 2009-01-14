@@ -140,6 +140,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|Table
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -189,6 +199,13 @@ end_comment
 begin_class
 annotation|@
 name|Entity
+annotation|@
+name|Table
+argument_list|(
+name|name
+operator|=
+literal|"CAMEL_PROCESSINSTANCE"
+argument_list|)
 DECL|class|ProcessInstance
 specifier|public
 class|class

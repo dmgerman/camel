@@ -146,7 +146,7 @@ name|Table
 argument_list|(
 name|name
 operator|=
-literal|"PROCESSDEFINITION"
+literal|"CAMEL_PROCESSDEFINITION"
 argument_list|,
 name|uniqueConstraints
 operator|=

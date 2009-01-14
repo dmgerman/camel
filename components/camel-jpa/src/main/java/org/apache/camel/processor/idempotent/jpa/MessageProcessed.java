@@ -82,7 +82,7 @@ name|Table
 argument_list|(
 name|name
 operator|=
-literal|"MESSAGEPROCESSED"
+literal|"CAMEL_MESSAGEPROCESSED"
 argument_list|,
 name|uniqueConstraints
 operator|=
