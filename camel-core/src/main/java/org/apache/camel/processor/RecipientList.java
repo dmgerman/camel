@@ -405,6 +405,27 @@ name|Object
 name|recipient
 parameter_list|)
 block|{
+comment|// trim strings as end users might have added spaces between separators
+if|if
+condition|(
+name|recipient
+operator|instanceof
+name|String
+condition|)
+block|{
+name|recipient
+operator|=
+operator|(
+operator|(
+name|String
+operator|)
+name|recipient
+operator|)
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|ExchangeHelper
 operator|.

@@ -156,7 +156,7 @@ DECL|method|ZipDataFormat ()
 specifier|public
 name|ZipDataFormat
 parameter_list|()
-block|{              }
+block|{     }
 DECL|method|ZipDataFormat (int compressionLevel)
 specifier|public
 name|ZipDataFormat
