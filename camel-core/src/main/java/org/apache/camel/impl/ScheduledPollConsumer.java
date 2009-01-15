@@ -266,6 +266,14 @@ name|void
 name|run
 parameter_list|()
 block|{
+try|try
+block|{
+if|if
+condition|(
+name|isRunAllowed
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|LOG
@@ -287,14 +295,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
-if|if
-condition|(
-name|isRunAllowed
-argument_list|()
-condition|)
-block|{
 name|poll
 argument_list|()
 expr_stmt|;
@@ -310,7 +310,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"An exception occured while polling: "
+literal|"An exception occurred while polling: "
 operator|+
 name|this
 operator|.
@@ -339,6 +339,27 @@ operator|=
 name|e
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Finished polling: "
+operator|+
+name|this
+operator|.
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// Properties

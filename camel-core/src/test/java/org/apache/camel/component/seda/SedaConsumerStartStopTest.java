@@ -181,8 +181,7 @@ name|i
 operator|++
 control|)
 block|{
-comment|// TODO when this delay is removed, the seda endpoint has
-comment|// ordering issues
+comment|// when this delay is removed, the seda endpoint has ordering issues
 try|try
 block|{
 comment|// do some random sleep to simulate spread in user activity

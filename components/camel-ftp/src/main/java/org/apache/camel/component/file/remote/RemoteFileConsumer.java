@@ -1424,27 +1424,6 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Starting"
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -1453,15 +1432,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|log
+name|super
 operator|.
-name|info
-argument_list|(
-literal|"Stopping"
-argument_list|)
+name|doStop
+argument_list|()
 expr_stmt|;
 comment|// disconnect when stopping
 try|try
+block|{
+if|if
+condition|(
+name|operations
+operator|.
+name|isConnected
+argument_list|()
+condition|)
 block|{
 name|loggedIn
 operator|=
@@ -1483,6 +1468,7 @@ name|disconnect
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 catch|catch
 parameter_list|(
 name|RemoteFileOperationFailedException
@@ -1501,11 +1487,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|connectIfNecessary ()
 specifier|protected
