@@ -170,6 +170,16 @@ specifier|private
 name|String
 name|encoding
 decl_stmt|;
+DECL|field|promptMessage
+specifier|private
+name|String
+name|promptMessage
+decl_stmt|;
+DECL|field|promptDelay
+specifier|private
+name|long
+name|promptDelay
+decl_stmt|;
 DECL|method|StreamEndpoint (String endpointUri, Component component)
 specifier|public
 name|StreamEndpoint
@@ -340,6 +350,58 @@ operator|.
 name|encoding
 operator|=
 name|encoding
+expr_stmt|;
+block|}
+DECL|method|getPromptMessage ()
+specifier|public
+name|String
+name|getPromptMessage
+parameter_list|()
+block|{
+return|return
+name|promptMessage
+return|;
+block|}
+DECL|method|setPromptMessage (String promptMessage)
+specifier|public
+name|void
+name|setPromptMessage
+parameter_list|(
+name|String
+name|promptMessage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|promptMessage
+operator|=
+name|promptMessage
+expr_stmt|;
+block|}
+DECL|method|getPromptDelay ()
+specifier|public
+name|long
+name|getPromptDelay
+parameter_list|()
+block|{
+return|return
+name|promptDelay
+return|;
+block|}
+DECL|method|setPromptDelay (long promptDelay)
+specifier|public
+name|void
+name|setPromptDelay
+parameter_list|(
+name|long
+name|promptDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|promptDelay
+operator|=
+name|promptDelay
 expr_stmt|;
 block|}
 comment|// Implementations
