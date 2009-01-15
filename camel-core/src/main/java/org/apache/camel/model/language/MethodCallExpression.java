@@ -336,6 +336,35 @@ name|getExpression
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"bean{"
+operator|+
+name|beanName
+argument_list|()
+operator|+
+operator|(
+name|method
+operator|!=
+literal|null
+condition|?
+literal|", method="
+operator|+
+name|method
+else|:
+literal|""
+operator|)
+operator|+
+literal|"}"
+return|;
+block|}
 block|}
 end_class
 
