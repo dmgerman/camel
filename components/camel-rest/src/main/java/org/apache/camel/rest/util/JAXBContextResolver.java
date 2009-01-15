@@ -154,6 +154,22 @@ name|Endpoints
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|rest
+operator|.
+name|model
+operator|.
+name|Camel
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -258,6 +274,10 @@ operator|.
 name|class
 block|,
 name|RouteType
+operator|.
+name|class
+block|,
+name|Camel
 operator|.
 name|class
 block|,

@@ -20,27 +20,17 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|com
+name|camel
 operator|.
-name|sun
+name|rest
 operator|.
-name|jersey
+name|model
 operator|.
-name|api
-operator|.
-name|client
-operator|.
-name|WebResource
+name|Camel
 import|;
 end_import
 
@@ -76,6 +66,16 @@ name|Endpoints
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -88,6 +88,59 @@ name|EndpointsTest
 extends|extends
 name|TestSupport
 block|{
+DECL|method|testCamelAsXml ()
+specifier|public
+name|void
+name|testCamelAsXml
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Camel
+name|camel
+init|=
+name|resource
+argument_list|(
+literal|"/"
+argument_list|)
+operator|.
+name|accept
+argument_list|(
+literal|"application/xml"
+argument_list|)
+operator|.
+name|get
+argument_list|(
+name|Camel
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertValidCamel
+argument_list|(
+name|camel
+argument_list|)
+expr_stmt|;
+name|camel
+operator|=
+name|resource
+argument_list|(
+literal|"/.xml"
+argument_list|)
+operator|.
+name|get
+argument_list|(
+name|Camel
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|assertValidCamel
+argument_list|(
+name|camel
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testEndpointsAsXml ()
 specifier|public
 name|void
@@ -142,6 +195,34 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO test as JSON
+DECL|method|assertValidCamel (Camel camel)
+specifier|protected
+name|void
+name|assertValidCamel
+parameter_list|(
+name|Camel
+name|camel
+parameter_list|)
+block|{
+name|assertNotNull
+argument_list|(
+literal|"Should have found camel"
+argument_list|,
+name|camel
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Found: "
+operator|+
+name|camel
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|assertValidEndpoints (Endpoints endpoints)
 specifier|protected
 name|void
