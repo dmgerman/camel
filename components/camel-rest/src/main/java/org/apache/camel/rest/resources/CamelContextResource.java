@@ -305,7 +305,6 @@ name|getName
 argument_list|()
 return|;
 block|}
-comment|/*     @Produces({MediaType.TEXT_HTML, MediaType.APPLICATION_XHTML_XML,             MediaType.WILDCARD, //MediaType.MEDIA_TYPE_WILDCARD,             MediaType.APPLICATION_OCTET_STREAM, MediaType.TEXT_PLAIN}) */
 annotation|@
 name|GET
 annotation|@
@@ -365,7 +364,6 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/*     @GET     @Produces({MediaType.TEXT_HTML})     public Viewable getIndexView() {         return new Viewable("index", this);     }      @GET     @Path("endpoints")     @Produces({MediaType.TEXT_HTML})     public Viewable getEndpointsView() {         return new Viewable("endpoints", this);     } */
 annotation|@
 name|GET
 annotation|@

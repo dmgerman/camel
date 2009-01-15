@@ -257,9 +257,6 @@ argument_list|(
 name|server
 argument_list|)
 expr_stmt|;
-comment|// lets find the class loader of JSTL
-comment|/*         Class<?> stlVersion = Class.forName("org.apache.taglibs.standard.Version");         System.out.println("Found STL Version: " + stlVersion);         ClassLoader classLoader = stlVersion.getClassLoader();         context.setClassLoader(classLoader); */
-comment|//Thread.currentThread().setContextClassLoader(classLoader);
 name|server
 operator|.
 name|setHandlers
