@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default JPA based {@link TraceEventMessage}.  */
+comment|/**  * Default {@link TraceEventMessage}.  */
 end_comment
 
 begin_class

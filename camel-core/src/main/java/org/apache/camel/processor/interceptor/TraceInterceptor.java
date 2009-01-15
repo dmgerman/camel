@@ -92,6 +92,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|InterceptorRef
@@ -753,6 +765,13 @@ if|if
 condition|(
 name|tracer
 operator|.
+name|getDestination
+argument_list|()
+operator|!=
+literal|null
+operator|||
+name|tracer
+operator|.
 name|getDestinationUri
 argument_list|()
 operator|!=
@@ -814,7 +833,7 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-comment|// should we use ordinay or jpa objects
+comment|// should we use ordinary or jpa objects
 if|if
 condition|(
 name|tracer
@@ -871,7 +890,7 @@ literal|"Cannot find class: "
 operator|+
 name|JPA_TRACE_EVENT_MESSAGE
 operator|+
-literal|". Make sure camel-jpa.jar is on the classpath."
+literal|". Make sure camel-jpa.jar is in the classpath."
 argument_list|)
 throw|;
 block|}
@@ -1169,8 +1188,21 @@ literal|null
 condition|)
 block|{
 comment|// create producer when we have access the the camel context (we dont in doStart)
-name|traceEventProducer
-operator|=
+name|Endpoint
+name|endpoint
+init|=
+name|tracer
+operator|.
+name|getDestination
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|tracer
+operator|.
+name|getDestination
+argument_list|()
+else|:
 name|exchange
 operator|.
 name|getContext
@@ -1183,6 +1215,10 @@ operator|.
 name|getDestinationUri
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|traceEventProducer
+operator|=
+name|endpoint
 operator|.
 name|createProducer
 argument_list|()

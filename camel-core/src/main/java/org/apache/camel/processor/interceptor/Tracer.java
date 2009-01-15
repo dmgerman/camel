@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -184,6 +196,11 @@ DECL|field|destinationUri
 specifier|private
 name|String
 name|destinationUri
+decl_stmt|;
+DECL|field|destination
+specifier|private
+name|Endpoint
+name|destination
 decl_stmt|;
 DECL|field|useJpa
 specifier|private
@@ -554,6 +571,33 @@ operator|.
 name|destinationUri
 operator|=
 name|destinationUri
+expr_stmt|;
+block|}
+DECL|method|getDestination ()
+specifier|public
+name|Endpoint
+name|getDestination
+parameter_list|()
+block|{
+return|return
+name|destination
+return|;
+block|}
+comment|/**      * See {@link #setDestinationUri(String)}      */
+DECL|method|setDestination (Endpoint destination)
+specifier|public
+name|void
+name|setDestination
+parameter_list|(
+name|Endpoint
+name|destination
+parameter_list|)
+block|{
+name|this
+operator|.
+name|destination
+operator|=
+name|destination
 expr_stmt|;
 block|}
 DECL|method|isUseJpa ()
