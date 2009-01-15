@@ -248,6 +248,28 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"evaluated expression: "
+operator|+
+name|correlationExpression
+operator|+
+literal|" as CorrelationKey: "
+operator|+
+name|correlationKey
+argument_list|)
+expr_stmt|;
+block|}
 name|Exchange
 name|oldExchange
 init|=
