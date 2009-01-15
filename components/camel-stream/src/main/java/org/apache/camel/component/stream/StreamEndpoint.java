@@ -180,6 +180,13 @@ specifier|private
 name|long
 name|promptDelay
 decl_stmt|;
+DECL|field|initialPromptDelay
+specifier|private
+name|long
+name|initialPromptDelay
+init|=
+literal|2000
+decl_stmt|;
 DECL|method|StreamEndpoint (String endpointUri, Component component)
 specifier|public
 name|StreamEndpoint
@@ -402,6 +409,32 @@ operator|.
 name|promptDelay
 operator|=
 name|promptDelay
+expr_stmt|;
+block|}
+DECL|method|getInitialPromptDelay ()
+specifier|public
+name|long
+name|getInitialPromptDelay
+parameter_list|()
+block|{
+return|return
+name|initialPromptDelay
+return|;
+block|}
+DECL|method|setInitialPromptDelay (long initialPromptDelay)
+specifier|public
+name|void
+name|setInitialPromptDelay
+parameter_list|(
+name|long
+name|initialPromptDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|initialPromptDelay
+operator|=
+name|initialPromptDelay
 expr_stmt|;
 block|}
 comment|// Implementations
