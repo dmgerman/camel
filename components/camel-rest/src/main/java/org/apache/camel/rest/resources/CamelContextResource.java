@@ -26,6 +26,22 @@ name|sun
 operator|.
 name|jersey
 operator|.
+name|api
+operator|.
+name|view
+operator|.
+name|Viewable
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|sun
+operator|.
+name|jersey
+operator|.
 name|spi
 operator|.
 name|inject
@@ -47,22 +63,6 @@ operator|.
 name|resource
 operator|.
 name|Singleton
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|jersey
-operator|.
-name|api
-operator|.
-name|view
-operator|.
-name|Viewable
 import|;
 end_import
 
@@ -239,10 +239,6 @@ import|;
 end_import
 
 begin_comment
-comment|//import static org.apache.camel.rest.resources.Constants.*;
-end_comment
-
-begin_comment
 comment|/**  * The resource for the CamelContext  *  * @version $Revision$  */
 end_comment
 
@@ -258,6 +254,8 @@ DECL|class|CamelContextResource
 specifier|public
 class|class
 name|CamelContextResource
+extends|extends
+name|ViewableResource
 block|{
 DECL|field|camelContext
 specifier|private
@@ -305,12 +303,16 @@ name|getName
 argument_list|()
 return|;
 block|}
+comment|// HTML representations
+comment|//-------------------------------------------------------------------------
+comment|// Its a shame there's not an easier way to bind the explicit views...
+comment|//-------------------------------------------------------------------------
 annotation|@
 name|GET
 annotation|@
 name|Path
 argument_list|(
-literal|"{view}"
+literal|"endpoints"
 argument_list|)
 annotation|@
 name|Produces
@@ -321,49 +323,80 @@ operator|.
 name|TEXT_HTML
 block|}
 argument_list|)
-DECL|method|get (@athParamR) String view)
+DECL|method|endpoints ()
 specifier|public
 name|Viewable
-name|get
-parameter_list|(
-annotation|@
-name|PathParam
-argument_list|(
-literal|"view"
-argument_list|)
-name|String
-name|view
-parameter_list|)
+name|endpoints
+parameter_list|()
 block|{
-if|if
-condition|(
-name|view
-operator|==
-literal|null
-operator|||
-name|view
-operator|.
-name|length
-argument_list|()
-operator|==
-literal|0
-condition|)
-block|{
-name|view
-operator|=
-literal|"index"
-expr_stmt|;
-block|}
 return|return
-operator|new
-name|Viewable
-argument_list|(
 name|view
-argument_list|,
-name|this
+argument_list|(
+literal|"endpoints"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|GET
+annotation|@
+name|Path
+argument_list|(
+literal|"foo"
+argument_list|)
+annotation|@
+name|Produces
+argument_list|(
+block|{
+name|MediaType
+operator|.
+name|TEXT_HTML
+block|}
+argument_list|)
+DECL|method|foo ()
+specifier|public
+name|Viewable
+name|foo
+parameter_list|()
+block|{
+return|return
+name|view
+argument_list|(
+literal|"foo"
+argument_list|)
+return|;
+block|}
+comment|/*     @GET     @Path("{view}")     @Produces({MediaType.TEXT_HTML})     public Viewable genericView(@PathParam("view") String view) {         return view(view);     }  */
+annotation|@
+name|GET
+annotation|@
+name|Path
+argument_list|(
+literal|"routes"
+argument_list|)
+annotation|@
+name|Produces
+argument_list|(
+block|{
+name|MediaType
+operator|.
+name|TEXT_HTML
+block|}
+argument_list|)
+DECL|method|routesView ()
+specifier|public
+name|Viewable
+name|routesView
+parameter_list|()
+block|{
+return|return
+name|view
+argument_list|(
+literal|"routes"
+argument_list|)
+return|;
+block|}
+comment|// XML / JSON representations
+comment|//-------------------------------------------------------------------------
 annotation|@
 name|GET
 annotation|@
@@ -448,8 +481,6 @@ block|}
 comment|/*     @GET     @Path("endpoints")     @Produces({"text/html"})     public List<EndpointLink> getEndpoints() {         return getEndpointsDTO().getEndpoints();     } */
 comment|/**      * Looks up an individual endpoint      */
 annotation|@
-name|GET
-annotation|@
 name|Path
 argument_list|(
 literal|"endpoint/{id}"
@@ -510,6 +541,15 @@ name|Path
 argument_list|(
 literal|"routes"
 argument_list|)
+annotation|@
+name|Produces
+argument_list|(
+block|{
+literal|"application/xml"
+block|,
+literal|"application/json"
+block|}
+argument_list|)
 DECL|method|getRouteDefinitions ()
 specifier|public
 name|RoutesType
@@ -551,6 +591,25 @@ expr_stmt|;
 block|}
 return|return
 name|answer
+return|;
+block|}
+comment|// Properties
+comment|//-------------------------------------------------------------------------
+DECL|method|getRoutes ()
+specifier|public
+name|List
+argument_list|<
+name|RouteType
+argument_list|>
+name|getRoutes
+parameter_list|()
+block|{
+return|return
+name|getRouteDefinitions
+argument_list|()
+operator|.
+name|getRoutes
+argument_list|()
 return|;
 block|}
 block|}
