@@ -54,7 +54,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElement
+name|XmlAttribute
 import|;
 end_import
 
@@ -195,7 +195,7 @@ extends|extends
 name|ExpressionNode
 block|{
 annotation|@
-name|XmlElement
+name|XmlAttribute
 DECL|field|delayTime
 specifier|private
 name|Long
@@ -236,7 +236,7 @@ name|processAtExpression
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DelayerType (Expression processAtExpression, long delay)
+DECL|method|DelayerType (Expression processAtExpression, long delayTime)
 specifier|public
 name|DelayerType
 parameter_list|(
@@ -244,7 +244,7 @@ name|Expression
 name|processAtExpression
 parameter_list|,
 name|long
-name|delay
+name|delayTime
 parameter_list|)
 block|{
 name|super
@@ -256,7 +256,7 @@ name|this
 operator|.
 name|delayTime
 operator|=
-name|delay
+name|delayTime
 expr_stmt|;
 block|}
 annotation|@
@@ -268,10 +268,14 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Delayer["
+literal|"Delayer[on: "
 operator|+
 name|getExpression
 argument_list|()
+operator|+
+literal|" delay: "
+operator|+
+name|delayTime
 operator|+
 literal|" -> "
 operator|+
@@ -283,6 +287,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * Sets the delay time in millis to delay      * @param delay delay time in millis      * @return the builder      */
 DECL|method|delayTime (Long delay)
 specifier|public
 name|DelayerType
@@ -342,20 +347,20 @@ return|return
 name|delayTime
 return|;
 block|}
-DECL|method|setDelayTime (Long delay)
+DECL|method|setDelayTime (Long delayTime)
 specifier|public
 name|void
 name|setDelayTime
 parameter_list|(
 name|Long
-name|delay
+name|delayTime
 parameter_list|)
 block|{
 name|this
 operator|.
 name|delayTime
 operator|=
-name|delay
+name|delayTime
 expr_stmt|;
 block|}
 annotation|@
