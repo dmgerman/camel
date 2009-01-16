@@ -25,6 +25,7 @@ end_comment
 begin_class
 DECL|class|Main
 specifier|public
+specifier|final
 class|class
 name|Main
 block|{

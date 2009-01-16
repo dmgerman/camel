@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.apache.camel.example.tracer
 package|package
@@ -13,26 +17,6 @@ operator|.
 name|tracer
 package|;
 end_package
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Comparator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
 
 begin_import
 import|import
@@ -56,17 +40,21 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
+name|Comparator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|processor
+name|util
 operator|.
-name|aggregate
-operator|.
-name|AggregationStrategy
+name|List
 import|;
 end_import
 
@@ -82,8 +70,24 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|AggregationStrategy
+import|;
+end_import
+
 begin_comment
-comment|/**  *  */
+comment|/**  * Our aggregator where we aggregate all the quotes and find the  * the best quotes based on the one that has the most cool words  * from our cools words list  */
 end_comment
 
 begin_class
@@ -129,6 +133,7 @@ range|:
 name|coolWords
 control|)
 block|{
+comment|// use lower case to be incase sensitive
 name|this
 operator|.
 name|coolWords
@@ -142,6 +147,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// reverse order so indexOf returning -1 will be the last instead
 name|Collections
 operator|.
 name|reverse
@@ -164,6 +170,10 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
+comment|// here we aggregate
+comment|// oldExchange is the current "winner"
+comment|// newExchange is the new candidate
+comment|// we get the quotes of the two exchanges
 name|String
 name|oldQute
 init|=
@@ -194,6 +204,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// now we compare the two and get a result indicate the best one
 name|int
 name|result
 init|=
@@ -208,6 +219,7 @@ argument_list|,
 name|newQute
 argument_list|)
 decl_stmt|;
+comment|// we return the winner
 return|return
 name|result
 operator|>
@@ -248,6 +260,8 @@ name|String
 name|o2
 parameter_list|)
 block|{
+comment|// here we compare the two quotes and picks the one that
+comment|// is in the top of the cool words list
 name|int
 name|index1
 init|=
