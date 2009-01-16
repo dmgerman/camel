@@ -84,7 +84,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"languageExpression"
+literal|"language"
 argument_list|)
 annotation|@
 name|XmlAccessorType
