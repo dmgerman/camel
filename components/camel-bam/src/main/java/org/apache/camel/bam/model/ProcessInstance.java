@@ -114,6 +114,16 @@ name|javax
 operator|.
 name|persistence
 operator|.
+name|Table
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
 name|Temporal
 import|;
 end_import
@@ -135,16 +145,6 @@ operator|.
 name|persistence
 operator|.
 name|Transient
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|persistence
-operator|.
-name|Table
 import|;
 end_import
 
