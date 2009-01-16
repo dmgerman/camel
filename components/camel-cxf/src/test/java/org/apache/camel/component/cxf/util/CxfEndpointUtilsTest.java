@@ -146,6 +146,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|cxf
+operator|.
+name|HelloServiceImpl
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -399,12 +415,9 @@ try|try
 block|{
 name|CxfEndpointUtils
 operator|.
-name|checkServiceClassName
+name|getServiceClass
 argument_list|(
 name|endpoint
-operator|.
-name|getServiceClass
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|fail
@@ -415,20 +428,20 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|CamelException
+name|ClassNotFoundException
 name|exception
 parameter_list|)
 block|{
 name|assertNotNull
 argument_list|(
-literal|"Should get a CamelException here"
+literal|"Should get a ClassNotFoundExceptionException here"
 argument_list|,
 name|exception
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"serviceClass is required for CXF endpoint configuration"
+literal|"Can't find serviceClass from uri, please check the cxf endpoint configuration"
 argument_list|,
 name|exception
 operator|.
@@ -465,20 +478,20 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|CamelException
+name|ClassNotFoundException
 name|exception
 parameter_list|)
 block|{
 name|assertNotNull
 argument_list|(
-literal|"Should get a CamelException here"
+literal|"Should get a ClassNotFoundException here"
 argument_list|,
 name|exception
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"serviceClass is required for CXF endpoint configuration"
+literal|"Can't find serviceClass from uri, please check the cxf endpoint configuration"
 argument_list|,
 name|exception
 operator|.
@@ -519,20 +532,20 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|CamelException
+name|ClassNotFoundException
 name|exception
 parameter_list|)
 block|{
 name|assertNotNull
 argument_list|(
-literal|"Should get a CamelException here"
+literal|"Should get a ClassNotFoundException here"
 argument_list|,
 name|exception
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"serviceClass is required for CXF endpoint configuration"
+literal|"Can't find serviceClass from uri, please check the cxf endpoint configuration"
 argument_list|,
 name|exception
 operator|.

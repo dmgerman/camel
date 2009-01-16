@@ -234,6 +234,11 @@ specifier|private
 name|String
 name|beanId
 decl_stmt|;
+DECL|field|serviceClassInstance
+specifier|private
+name|String
+name|serviceClassInstance
+decl_stmt|;
 DECL|field|isWrapped
 specifier|private
 name|boolean
@@ -644,6 +649,30 @@ block|{
 name|serviceClass
 operator|=
 name|className
+expr_stmt|;
+block|}
+DECL|method|getServiceClassInstance ()
+specifier|public
+name|String
+name|getServiceClassInstance
+parameter_list|()
+block|{
+return|return
+name|serviceClassInstance
+return|;
+block|}
+DECL|method|setServiceClassInstance (String classInstance)
+specifier|public
+name|void
+name|setServiceClassInstance
+parameter_list|(
+name|String
+name|classInstance
+parameter_list|)
+block|{
+name|serviceClassInstance
+operator|=
+name|classInstance
 expr_stmt|;
 block|}
 DECL|method|setPortName (String port)
