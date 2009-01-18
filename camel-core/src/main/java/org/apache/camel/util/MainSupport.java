@@ -1008,7 +1008,7 @@ return|return
 name|duration
 return|;
 block|}
-comment|/**      * Sets the duration to run the application for in milliseconds until it      * should be terminated. Defaults to -1. Any value<= 0 will run forever.      *      * @param duration      */
+comment|/**      * Sets the duration to run the application for in milliseconds until it      * should be terminated. Defaults to -1. Any value<= 0 will run forever.      */
 DECL|method|setDuration (long duration)
 specifier|public
 name|void
@@ -1218,6 +1218,31 @@ return|return
 literal|null
 return|;
 block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Apache Camel "
+operator|+
+name|getVersion
+argument_list|()
+operator|+
+literal|" stopping"
+argument_list|)
+expr_stmt|;
+comment|// call completed to properly stop as we count down the waiting latch
+name|completed
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -1314,14 +1339,13 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|Thread
 operator|.
-name|debug
-argument_list|(
-literal|"Caught: "
-operator|+
-name|e
-argument_list|)
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
 expr_stmt|;
 block|}
 block|}

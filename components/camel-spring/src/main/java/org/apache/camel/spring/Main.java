@@ -528,7 +528,6 @@ name|void
 name|enableTrace
 parameter_list|()
 block|{
-comment|// TODO
 name|super
 operator|.
 name|enableTrace
@@ -731,6 +730,18 @@ name|createDefaultApplicationContext
 argument_list|()
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Starting Spring ApplicationContext: "
+operator|+
+name|applicationContext
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|applicationContext
 operator|.
 name|start
@@ -739,6 +750,45 @@ expr_stmt|;
 name|postProcessContext
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|applicationContext
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Stopping Spring ApplicationContext: "
+operator|+
+name|applicationContext
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|applicationContext
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|findOrCreateCamelTemplate ()
 specifier|protected
@@ -923,35 +973,6 @@ argument_list|(
 name|args
 argument_list|)
 return|;
-block|}
-block|}
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Apache Camel terminating"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|applicationContext
-operator|!=
-literal|null
-condition|)
-block|{
-name|applicationContext
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 DECL|method|getCamelContextMap ()
