@@ -112,20 +112,6 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
 name|ScheduledPollConsumer
 import|;
 end_import
@@ -543,6 +529,8 @@ block|}
 finally|finally
 block|{
 comment|// need to ensure we release resources
+try|try
+block|{
 if|if
 condition|(
 name|folder
@@ -556,6 +544,29 @@ operator|.
 name|close
 argument_list|(
 literal|true
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|MessagingException
+name|e
+parameter_list|)
+block|{
+comment|// some mail servers will lock the folder so we ignore in this case (CAMEL-1263)
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Could not close mailbox folder: "
+operator|+
+name|folder
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
