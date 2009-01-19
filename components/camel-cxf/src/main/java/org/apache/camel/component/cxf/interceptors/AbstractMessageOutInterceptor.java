@@ -30,14 +30,6 @@ name|List
 import|;
 end_import
 
-begin_comment
-comment|//import java.util.ResourceBundle;
-end_comment
-
-begin_comment
-comment|//import java.util.logging.Level;
-end_comment
-
 begin_import
 import|import
 name|java
@@ -97,10 +89,6 @@ operator|.
 name|Node
 import|;
 end_import
-
-begin_comment
-comment|//import org.apache.cxf.common.i18n.BundleUtils;
-end_comment
 
 begin_import
 import|import

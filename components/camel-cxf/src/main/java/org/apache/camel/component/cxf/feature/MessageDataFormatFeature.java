@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This feature just setting up the CXF endpoint interceptor for handling the  * Message in Message data format  */
+comment|/**  *<p>   * MessageDataFormatFeature sets up the CXF endpoint interceptor for handling the  * Message in Message data format.  Only the interceptors of these phases are   *<b>preserved</b>:  *</p>  *<p>  * In phases: {Phase.RECEIVE , Phase.INVOKE, Phase.POST_INVOKE}  *</p>  *<p>  * Out phases: {Phase.PREPARE_SEND, Phase.WRITE, Phase.SEND, Phase.PREPARE_SEND_ENDING}  *</p>  */
 end_comment
 
 begin_class
@@ -166,8 +166,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// interceptor filiter
-comment|// filiter the unused phase interceptor
+comment|// filter the unused in phase interceptor
 DECL|field|REMAINING_IN_PHASES
 specifier|private
 specifier|static
@@ -183,9 +182,14 @@ name|RECEIVE
 block|,
 name|Phase
 operator|.
+name|INVOKE
+block|,
+name|Phase
+operator|.
 name|POST_INVOKE
 block|}
 decl_stmt|;
+comment|// filter the unused in phase interceptor
 DECL|field|REMAINING_OUT_PHASES
 specifier|private
 specifier|static
@@ -348,7 +352,7 @@ name|Bus
 name|bus
 parameter_list|)
 block|{
-comment|// currently we do not filiter the bus
+comment|// currently we do not filter the bus
 comment|// remove the interceptors
 name|removeInterceptorWhichIsOutThePhases
 argument_list|(
@@ -454,11 +458,6 @@ argument_list|(
 operator|new
 name|FaultOutInterceptor
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|resetServiceInvokerInterceptor
-argument_list|(
-name|server
 argument_list|)
 expr_stmt|;
 name|server

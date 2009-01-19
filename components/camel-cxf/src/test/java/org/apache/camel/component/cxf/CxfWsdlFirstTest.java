@@ -677,7 +677,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|8
+literal|2
 argument_list|,
 name|fromHandler
 operator|.
@@ -687,7 +687,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|11
+literal|4
 argument_list|,
 name|fromHandler
 operator|.

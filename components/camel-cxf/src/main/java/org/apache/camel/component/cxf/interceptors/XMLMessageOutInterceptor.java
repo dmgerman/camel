@@ -56,16 +56,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ResourceBundle
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|logging
 operator|.
 name|Level
@@ -158,22 +148,6 @@ name|cxf
 operator|.
 name|common
 operator|.
-name|i18n
-operator|.
-name|BundleUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|common
-operator|.
 name|logging
 operator|.
 name|LogUtils
@@ -251,10 +225,6 @@ operator|.
 name|BindingMessageInfo
 import|;
 end_import
-
-begin_comment
-comment|//import org.apache.cxf.service.model.BindingOperationInfo;
-end_comment
 
 begin_import
 import|import

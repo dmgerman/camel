@@ -32,8 +32,36 @@ name|DefaultHeaderFilterStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|endpoint
+operator|.
+name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|message
+operator|.
+name|Message
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * The default CXF header filter strategy.  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -77,6 +105,50 @@ argument_list|(
 name|CxfConstants
 operator|.
 name|OPERATION_NAMESPACE
+argument_list|)
+expr_stmt|;
+comment|// Request and response context Maps will be passed to CXF Client APIs
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|Client
+operator|.
+name|REQUEST_CONTEXT
+argument_list|)
+expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|Client
+operator|.
+name|RESPONSE_CONTEXT
+argument_list|)
+expr_stmt|;
+comment|// protocol headers are stored as a Map.  DefaultCxfBinding
+comment|// read the Map and send each entry to the filter.  Therefore,
+comment|// we need to filter the header of this name.
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|Message
+operator|.
+name|PROTOCOL_HEADERS
+argument_list|)
+expr_stmt|;
+name|getInFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|Message
+operator|.
+name|PROTOCOL_HEADERS
 argument_list|)
 expr_stmt|;
 block|}

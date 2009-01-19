@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf.invoker
+DECL|package|org.apache.camel.component.cxf
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|cxf
-operator|.
-name|invoker
 package|;
 end_package
 
@@ -42,92 +40,83 @@ name|Element
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|binding
-operator|.
-name|soap
-operator|.
-name|SoapHeader
-import|;
-end_import
+begin_comment
+comment|/**  * CxfMessage body type when {@link DataFormat#PAYLOAD} is used.  *   * @version $Revision$  */
+end_comment
 
 begin_class
-DECL|class|PayloadMessage
+DECL|class|CxfPayload
 specifier|public
 class|class
-name|PayloadMessage
+name|CxfPayload
+parameter_list|<
+name|T
+parameter_list|>
 block|{
-DECL|field|payload
+DECL|field|body
 specifier|private
 name|List
 argument_list|<
 name|Element
 argument_list|>
-name|payload
+name|body
 decl_stmt|;
 DECL|field|headers
 specifier|private
 name|List
 argument_list|<
-name|SoapHeader
+name|T
 argument_list|>
 name|headers
 decl_stmt|;
-DECL|method|PayloadMessage (List<Element> payload, List<SoapHeader> headers)
+DECL|method|CxfPayload (List<T> headers, List<Element> body)
 specifier|public
-name|PayloadMessage
+name|CxfPayload
 parameter_list|(
+name|List
+argument_list|<
+name|T
+argument_list|>
+name|headers
+parameter_list|,
 name|List
 argument_list|<
 name|Element
 argument_list|>
-name|payload
-parameter_list|,
-name|List
-argument_list|<
-name|SoapHeader
-argument_list|>
-name|headers
+name|body
 parameter_list|)
 block|{
 name|this
 operator|.
-name|payload
+name|headers
 operator|=
-name|payload
+name|headers
 expr_stmt|;
 name|this
 operator|.
-name|headers
+name|body
 operator|=
-name|headers
+name|body
 expr_stmt|;
 block|}
-DECL|method|getPayload ()
+DECL|method|getBody ()
 specifier|public
 name|List
 argument_list|<
 name|Element
 argument_list|>
-name|getPayload
+name|getBody
 parameter_list|()
 block|{
 return|return
-name|payload
+name|body
 return|;
 block|}
 DECL|method|getHeaders ()
 specifier|public
 name|List
 argument_list|<
-name|SoapHeader
+name|T
 argument_list|>
 name|getHeaders
 parameter_list|()
@@ -153,9 +142,11 @@ name|buf
 operator|.
 name|append
 argument_list|(
-literal|"payload: "
-operator|+
-name|payload
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|buf
@@ -165,6 +156,15 @@ argument_list|(
 literal|" headers: "
 operator|+
 name|headers
+argument_list|)
+expr_stmt|;
+name|buf
+operator|.
+name|append
+argument_list|(
+literal|"body: "
+operator|+
+name|body
 argument_list|)
 expr_stmt|;
 return|return

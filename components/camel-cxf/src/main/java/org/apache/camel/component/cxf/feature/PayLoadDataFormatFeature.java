@@ -539,12 +539,6 @@ argument_list|,
 name|REMOVING_OUT_PHASES
 argument_list|)
 expr_stmt|;
-comment|// set the invoker interceptor
-name|resetServiceInvokerInterceptor
-argument_list|(
-name|server
-argument_list|)
-expr_stmt|;
 name|addDataHandlingInterceptors
 argument_list|(
 name|server

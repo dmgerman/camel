@@ -26,29 +26,11 @@ name|java
 operator|.
 name|util
 operator|.
-name|ResourceBundle
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|logging
 operator|.
 name|Logger
 import|;
 end_import
-
-begin_comment
-comment|//import java.util.logging.Level;
-end_comment
-
-begin_comment
-comment|//import java.util.logging.Logger;
-end_comment
 
 begin_import
 import|import
@@ -63,22 +45,6 @@ operator|.
 name|soap
 operator|.
 name|SoapMessage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|common
-operator|.
-name|i18n
-operator|.
-name|BundleUtils
 import|;
 end_import
 
@@ -253,33 +219,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|isRequestor (Message message)
-specifier|public
-name|boolean
-name|isRequestor
-parameter_list|(
-name|Message
-name|message
-parameter_list|)
-block|{
-return|return
-name|Boolean
-operator|.
-name|TRUE
-operator|.
-name|equals
-argument_list|(
-name|message
-operator|.
-name|get
-argument_list|(
-name|Message
-operator|.
-name|REQUESTOR_ROLE
-argument_list|)
-argument_list|)
-return|;
 block|}
 annotation|@
 name|SuppressWarnings

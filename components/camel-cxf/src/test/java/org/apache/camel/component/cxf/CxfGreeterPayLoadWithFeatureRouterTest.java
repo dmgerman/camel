@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Greeter Payload mode test that is configured with CXF features.  */
+comment|/**  * A unit test for testing a CXF client invoking a CXF server via route   * in PAYLOAD mode and with CXF features specified in the Spring config.  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -82,9 +82,14 @@ name|TestCxfFeature
 operator|.
 name|class
 argument_list|,
+operator|(
+operator|(
+name|CxfSpringEndpoint
+operator|)
 name|endpoint
+operator|)
 operator|.
-name|getCxfEndpointBean
+name|getBean
 argument_list|()
 operator|.
 name|getFeatures
@@ -104,9 +109,6 @@ argument_list|(
 name|DataFormat
 operator|.
 name|PAYLOAD
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|endpoint
 operator|.

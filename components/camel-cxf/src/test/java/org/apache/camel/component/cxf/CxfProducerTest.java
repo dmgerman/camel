@@ -248,20 +248,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|cxf
-operator|.
-name|interceptor
-operator|.
-name|Fault
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|hello_world_soap_http
 operator|.
 name|GreeterImpl
@@ -512,7 +498,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CxfExchange
+name|Exchange
 name|exchange
 init|=
 name|sendSimpleMessage
@@ -658,7 +644,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CxfExchange
+name|Exchange
 name|exchange
 init|=
 name|sendJaxWsMessage
@@ -802,7 +788,7 @@ return|;
 block|}
 DECL|method|sendSimpleMessage ()
 specifier|protected
-name|CxfExchange
+name|Exchange
 name|sendSimpleMessage
 parameter_list|()
 block|{
@@ -816,19 +802,16 @@ return|;
 block|}
 DECL|method|sendSimpleMessage (String endpointUri)
 specifier|private
-name|CxfExchange
+name|Exchange
 name|sendSimpleMessage
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|)
 block|{
-name|CxfExchange
+name|Exchange
 name|exchange
 init|=
-operator|(
-name|CxfExchange
-operator|)
 name|template
 operator|.
 name|send
@@ -903,16 +886,13 @@ return|;
 block|}
 DECL|method|sendJaxWsMessage ()
 specifier|protected
-name|CxfExchange
+name|Exchange
 name|sendJaxWsMessage
 parameter_list|()
 block|{
-name|CxfExchange
+name|Exchange
 name|exchange
 init|=
-operator|(
-name|CxfExchange
-operator|)
 name|template
 operator|.
 name|send

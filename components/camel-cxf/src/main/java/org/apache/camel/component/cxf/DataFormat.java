@@ -39,44 +39,6 @@ block|,
 comment|/**      * POJOs (Plain old Java objects) are the Java parameters to the method      * it is invoking on the target server.  The "serviceClass" property      * must be included in the endpoint.  Streaming is not available for this      * data format.      */
 DECL|enumConstant|POJO
 name|POJO
-block|,
-comment|/**      * For UNKNOWN cases.      */
-DECL|enumConstant|UNKNOWN
-name|UNKNOWN
-block|;
-DECL|method|asEnum (String value)
-specifier|public
-specifier|static
-name|DataFormat
-name|asEnum
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-block|{
-try|try
-block|{
-return|return
-name|valueOf
-argument_list|(
-name|value
-operator|.
-name|toUpperCase
-argument_list|()
-argument_list|)
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-return|return
-name|UNKNOWN
-return|;
-block|}
-block|}
 block|}
 end_enum
 
