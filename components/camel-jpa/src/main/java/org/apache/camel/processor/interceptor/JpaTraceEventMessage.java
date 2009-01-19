@@ -99,15 +99,15 @@ specifier|protected
 name|Date
 name|timestamp
 decl_stmt|;
-DECL|field|previousNode
-specifier|protected
-name|String
-name|previousNode
-decl_stmt|;
 DECL|field|fromEndpointUri
 specifier|protected
 name|String
 name|fromEndpointUri
+decl_stmt|;
+DECL|field|previousNode
+specifier|protected
+name|String
+name|previousNode
 decl_stmt|;
 DECL|field|toNode
 specifier|protected
@@ -148,6 +148,11 @@ DECL|field|bodyType
 specifier|protected
 name|String
 name|bodyType
+decl_stmt|;
+DECL|field|outHeaders
+specifier|protected
+name|String
+name|outHeaders
 decl_stmt|;
 DECL|field|outBody
 specifier|protected
@@ -535,6 +540,32 @@ operator|.
 name|outBodyType
 operator|=
 name|outBodyType
+expr_stmt|;
+block|}
+DECL|method|getOutHeaders ()
+specifier|public
+name|String
+name|getOutHeaders
+parameter_list|()
+block|{
+return|return
+name|outHeaders
+return|;
+block|}
+DECL|method|setOutHeaders (String outHeaders)
+specifier|public
+name|void
+name|setOutHeaders
+parameter_list|(
+name|String
+name|outHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outHeaders
+operator|=
+name|outHeaders
 expr_stmt|;
 block|}
 DECL|method|getCausedByException ()

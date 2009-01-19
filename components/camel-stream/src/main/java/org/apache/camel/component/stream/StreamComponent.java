@@ -66,8 +66,6 @@ name|StreamComponent
 extends|extends
 name|DefaultComponent
 block|{
-comment|// TODO: remove file and url support in this component. Will be removed in Camel 2.0
-comment|// (Should use other components for such needs.)
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)

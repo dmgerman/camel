@@ -179,6 +179,11 @@ name|showBodyType
 init|=
 literal|true
 decl_stmt|;
+DECL|field|showOutHeaders
+specifier|private
+name|boolean
+name|showOutHeaders
+decl_stmt|;
 DECL|field|showOutBody
 specifier|private
 name|boolean
@@ -379,6 +384,31 @@ name|extractBodyAsString
 argument_list|(
 name|in
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|showOutHeaders
+operator|&&
+name|out
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", OutHeaders:"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|out
+operator|.
+name|getHeaders
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -651,6 +681,32 @@ operator|.
 name|showHeaders
 operator|=
 name|showHeaders
+expr_stmt|;
+block|}
+DECL|method|isShowOutHeaders ()
+specifier|public
+name|boolean
+name|isShowOutHeaders
+parameter_list|()
+block|{
+return|return
+name|showOutHeaders
+return|;
+block|}
+DECL|method|setShowOutHeaders (boolean showOutHeaders)
+specifier|public
+name|void
+name|setShowOutHeaders
+parameter_list|(
+name|boolean
+name|showOutHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|showOutHeaders
+operator|=
+name|showOutHeaders
 expr_stmt|;
 block|}
 DECL|method|isShowProperties ()
