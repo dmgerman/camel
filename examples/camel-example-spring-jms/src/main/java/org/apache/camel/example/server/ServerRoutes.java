@@ -78,7 +78,18 @@ comment|//from("jms:queue:numbers").to("bean:multiplier");
 comment|// beanRef is using explicity bean bindings to lookup the multiplier bean and invoke the multiply method
 comment|//from("jms:queue:numbers").beanRef("multiplier", "multiply");
 comment|// the same as above but expressed as a URI configuration
-comment|//from("jms:queue:numbers").to("bean:multiplier?methodName=multiply");
+comment|//from("activemq:queue:numbers").to("bean:multiplier?methodName=multiply");
+comment|// the STOP command
+name|from
+argument_list|(
+literal|"jms:queue:stop"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"shutdown"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
