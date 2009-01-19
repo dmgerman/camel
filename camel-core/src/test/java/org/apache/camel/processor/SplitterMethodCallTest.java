@@ -144,8 +144,6 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|createRegistry ()
 specifier|protected
 name|JndiRegistry
@@ -223,9 +221,17 @@ comment|// START SNIPPET: e2
 DECL|class|SplitWordsBean
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|SplitWordsBean
 block|{
+DECL|method|SplitWordsBean ()
+specifier|private
+name|SplitWordsBean
+parameter_list|()
+block|{
+comment|// Helper Class
+block|}
 DECL|method|splitWords (String body)
 specifier|public
 specifier|static
