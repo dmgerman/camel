@@ -236,6 +236,11 @@ name|loaderCache
 init|=
 literal|true
 decl_stmt|;
+DECL|field|encoding
+specifier|private
+name|String
+name|encoding
+decl_stmt|;
 DECL|method|VelocityEndpoint (String uri, VelocityComponent component, String resourceUri, Map parameters)
 specifier|public
 name|VelocityEndpoint
@@ -422,6 +427,32 @@ operator|=
 name|loaderCache
 expr_stmt|;
 block|}
+DECL|method|setEncoding (String encoding)
+specifier|public
+name|void
+name|setEncoding
+parameter_list|(
+name|String
+name|encoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encoding
+operator|=
+name|encoding
+expr_stmt|;
+block|}
+DECL|method|getEncoding ()
+specifier|public
+name|String
+name|getEncoding
+parameter_list|()
+block|{
+return|return
+name|encoding
+return|;
+block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -450,6 +481,19 @@ comment|// getResourceAsInputStream also considers the content cache
 name|Reader
 name|reader
 init|=
+name|encoding
+operator|!=
+literal|null
+condition|?
+operator|new
+name|InputStreamReader
+argument_list|(
+name|getResourceAsInputStream
+argument_list|()
+argument_list|,
+name|encoding
+argument_list|)
+else|:
 operator|new
 name|InputStreamReader
 argument_list|(
