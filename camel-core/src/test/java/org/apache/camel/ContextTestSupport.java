@@ -352,8 +352,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
 name|log
 operator|.
 name|debug
@@ -372,27 +370,6 @@ expr_stmt|;
 name|stopCamelContext
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"tearDown ignored exception while stopping: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// ignore exceptions while stopping to avoid unit test failing totally
-block|}
 block|}
 DECL|method|stopCamelContext ()
 specifier|protected
