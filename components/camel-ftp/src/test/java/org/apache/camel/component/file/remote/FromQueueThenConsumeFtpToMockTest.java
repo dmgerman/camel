@@ -138,49 +138,40 @@ name|FromQueueThenConsumeFtpToMockTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|field|port
-specifier|private
-name|int
-name|port
-init|=
-literal|20034
-decl_stmt|;
-DECL|field|storeUrl
-specifier|private
-name|String
-name|storeUrl
-init|=
-literal|"ftp://admin@localhost:"
-operator|+
-name|port
-operator|+
-literal|"/getme?password=admin&binary=false"
-decl_stmt|;
 comment|// START SNIPPET: e1
 comment|// we use directory=false to indicate we only want to consume a single file
 comment|// we use delay=5000 to use 5 sec delay between pools to avoid polling a second time before we stop the consumer
 comment|// this is because we only want to run a single poll and get the file
 comment|// file=getme/ is the path to the folder where the file is
-DECL|field|getUrl
+DECL|method|getFtpUrl ()
 specifier|private
 name|String
-name|getUrl
-init|=
-literal|"ftp://admin@localhost:"
-operator|+
-name|port
-operator|+
-literal|"?password=admin&binary=false&directory=false&consumer.delay=5000&file=getme/"
-decl_stmt|;
-comment|// END SNIPPET: e1
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
+name|getFtpUrl
 parameter_list|()
 block|{
 return|return
-name|port
+literal|"ftp://admin@localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"?password=admin&binary=false&directory=false&consumer.delay=5000&file=getme/"
+return|;
+block|}
+comment|// END SNIPPET: e1
+DECL|method|getStoreUrl ()
+specifier|private
+name|String
+name|getStoreUrl
+parameter_list|()
+block|{
+return|return
+literal|"ftp://admin@localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/getme?password=admin&binary=false"
 return|;
 block|}
 annotation|@
@@ -224,7 +215,8 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-name|storeUrl
+name|getStoreUrl
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -390,7 +382,8 @@ comment|// construct the total url for the ftp consumer
 name|String
 name|url
 init|=
-name|getUrl
+name|getFtpUrl
+argument_list|()
 operator|+
 name|filename
 decl_stmt|;

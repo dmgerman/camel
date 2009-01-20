@@ -112,32 +112,19 @@ specifier|static
 name|boolean
 name|invoked
 decl_stmt|;
-DECL|field|port
-specifier|private
-name|int
-name|port
-init|=
-literal|20078
-decl_stmt|;
-DECL|field|ftpUrl
+DECL|method|getFtpUrl ()
 specifier|private
 name|String
-name|ftpUrl
-init|=
-literal|"ftp://admin@localhost:"
-operator|+
-name|port
-operator|+
-literal|"/idempotent?password=admin&binary=false&idempotent=true&idempotentRepository=#myRepo&delete=true"
-decl_stmt|;
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
+name|getFtpUrl
 parameter_list|()
 block|{
 return|return
-name|port
+literal|"ftp://admin@localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/idempotent?password=admin&binary=false&idempotent=true&idempotentRepository=#myRepo&delete=true"
 return|;
 block|}
 annotation|@
@@ -197,7 +184,8 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|)
 operator|.
 name|to
@@ -244,7 +232,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -283,7 +272,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 literal|"Hello World"
 argument_list|,

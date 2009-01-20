@@ -72,32 +72,19 @@ name|FtpProducerBuildDirectoryTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|field|port
-specifier|private
-name|int
-name|port
-init|=
-literal|20089
-decl_stmt|;
-DECL|field|ftpUrl
+DECL|method|getFtpUrl ()
 specifier|private
 name|String
-name|ftpUrl
-init|=
-literal|"ftp://admin@localhost:"
-operator|+
-name|port
-operator|+
-literal|"/upload/user/claus?binary=false&password=admin"
-decl_stmt|;
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
+name|getFtpUrl
 parameter_list|()
 block|{
 return|return
-name|port
+literal|"ftp://admin@localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/upload/user/claus?binary=false&password=admin"
 return|;
 block|}
 DECL|method|testProduceAndBuildFullRemotFolderTest ()
@@ -117,7 +104,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 literal|"Hello World"
 argument_list|,

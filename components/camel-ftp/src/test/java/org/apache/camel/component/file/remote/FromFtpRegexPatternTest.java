@@ -78,24 +78,21 @@ name|FromFtpRegexPatternTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|field|port
-specifier|private
-name|int
-name|port
-init|=
-literal|20097
-decl_stmt|;
-DECL|field|ftpUrl
+DECL|method|getFtpUrl ()
 specifier|private
 name|String
-name|ftpUrl
-init|=
+name|getFtpUrl
+parameter_list|()
+block|{
+return|return
 literal|"ftp://admin@localhost:"
 operator|+
-name|port
+name|getPort
+argument_list|()
 operator|+
 literal|"/regexp?password=admin&regexPattern=report.*"
-decl_stmt|;
+return|;
+block|}
 DECL|method|testFtpRegexPattern ()
 specifier|public
 name|void
@@ -134,16 +131,6 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
-parameter_list|()
-block|{
-return|return
-name|port
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -178,7 +165,8 @@ name|ftpUrl
 init|=
 literal|"ftp://admin@localhost:"
 operator|+
-name|port
+name|getPort
+argument_list|()
 operator|+
 literal|"/regexp/?password=admin"
 decl_stmt|;
@@ -186,7 +174,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -201,7 +190,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 literal|"Reports"
 argument_list|,
@@ -216,7 +206,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -231,7 +222,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 literal|"Reports"
 argument_list|,
@@ -265,7 +257,8 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|)
 operator|.
 name|to

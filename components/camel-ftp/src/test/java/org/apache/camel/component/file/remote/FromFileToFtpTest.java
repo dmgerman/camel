@@ -62,24 +62,21 @@ name|FromFileToFtpTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|field|port
-specifier|private
-name|int
-name|port
-init|=
-literal|20011
-decl_stmt|;
-DECL|field|ftpUrl
+DECL|method|getFtpUrl ()
 specifier|private
 name|String
-name|ftpUrl
-init|=
+name|getFtpUrl
+parameter_list|()
+block|{
+return|return
 literal|"ftp://admin@localhost:"
 operator|+
-name|port
+name|getPort
+argument_list|()
 operator|+
 literal|"/tmp2/camel?password=admin&consumer.initialDelay=5000"
-decl_stmt|;
+return|;
+block|}
 DECL|method|testFromFileToFtp ()
 specifier|public
 name|void
@@ -106,16 +103,6 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
-parameter_list|()
-block|{
-return|return
-name|port
-return|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -144,12 +131,14 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|)
 operator|.
 name|to

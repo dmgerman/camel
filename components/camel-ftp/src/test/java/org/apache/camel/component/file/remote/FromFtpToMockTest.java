@@ -74,24 +74,21 @@ name|expectedBody
 init|=
 literal|"Hello there!"
 decl_stmt|;
-DECL|field|port
-specifier|protected
-name|int
-name|port
-init|=
-literal|2001
-decl_stmt|;
-DECL|field|ftpUrl
-specifier|protected
+DECL|method|getFtpUrl ()
+specifier|private
 name|String
-name|ftpUrl
-init|=
+name|getFtpUrl
+parameter_list|()
+block|{
+return|return
 literal|"ftp://admin@localhost:"
 operator|+
-name|port
+name|getPort
+argument_list|()
 operator|+
 literal|"/tmp/camel?password=admin&recursive=true"
-decl_stmt|;
+return|;
+block|}
 DECL|method|testFtpRoute ()
 specifier|public
 name|void
@@ -119,7 +116,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -156,7 +154,8 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|)
 operator|.
 name|to
@@ -166,16 +165,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|;
-block|}
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
-parameter_list|()
-block|{
-return|return
-name|port
 return|;
 block|}
 block|}

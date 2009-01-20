@@ -102,24 +102,21 @@ name|FromFtpRemoteFileSorterTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|field|port
-specifier|private
-name|int
-name|port
-init|=
-literal|20095
-decl_stmt|;
-DECL|field|ftpUrl
+DECL|method|getFtpUrl ()
 specifier|private
 name|String
-name|ftpUrl
-init|=
+name|getFtpUrl
+parameter_list|()
+block|{
+return|return
 literal|"ftp://admin@localhost:"
 operator|+
-name|port
+name|getPort
+argument_list|()
 operator|+
 literal|"/sorter?password=admin&sorter=#mySorter"
-decl_stmt|;
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRegistry ()
@@ -193,16 +190,6 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
-parameter_list|()
-block|{
-return|return
-name|port
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -237,7 +224,8 @@ name|ftpUrl
 init|=
 literal|"ftp://admin@localhost:"
 operator|+
-name|port
+name|getPort
+argument_list|()
 operator|+
 literal|"/sorter/?password=admin"
 decl_stmt|;
@@ -245,7 +233,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
@@ -260,7 +249,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 literal|"Hello London"
 argument_list|,
@@ -275,7 +265,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 literal|"Hello Copenhagen"
 argument_list|,
@@ -309,7 +300,8 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|)
 operator|.
 name|to

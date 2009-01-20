@@ -138,27 +138,43 @@ name|FromFtpSetNamesWithMultiDirectoriesTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|field|port
-specifier|private
-name|int
-name|port
-init|=
-literal|20016
-decl_stmt|;
 comment|// must user "consumer." prefix on the parameters to the file component
-DECL|field|ftpUrl
+DECL|method|getFtpUrl ()
 specifier|private
 name|String
-name|ftpUrl
-init|=
+name|getFtpUrl
+parameter_list|()
+block|{
+return|return
 literal|"ftp://admin@localhost:"
 operator|+
-name|port
+name|getPort
+argument_list|()
 operator|+
 literal|"/incoming?password=admin&binary=true"
 operator|+
 literal|"&consumer.delay=2000&recursive=true&setNames=true"
-decl_stmt|;
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|prepareFtpServer
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|testFtpRoute ()
 specifier|public
 name|void
@@ -308,35 +324,6 @@ literal|1000
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
-parameter_list|()
-block|{
-return|return
-name|port
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|prepareFtpServer
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|prepareFtpServer ()
 specifier|private
 name|void
@@ -352,7 +339,8 @@ name|ftpUrl
 init|=
 literal|"ftp://admin@localhost:"
 operator|+
-name|port
+name|getPort
+argument_list|()
 operator|+
 literal|"/incoming/data1/?password=admin&binary=true"
 decl_stmt|;
@@ -432,7 +420,8 @@ name|ftpUrl
 operator|=
 literal|"ftp://admin@localhost:"
 operator|+
-name|port
+name|getPort
+argument_list|()
 operator|+
 literal|"/incoming/data2/?password=admin&binary=true"
 expr_stmt|;
@@ -533,7 +522,8 @@ literal|"file:target/ftpsetnamestest/?noop=true"
 decl_stmt|;
 name|from
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|)
 operator|.
 name|to

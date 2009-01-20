@@ -114,24 +114,21 @@ name|FromFtpToAsciiFileNoBodyConversionTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|field|port
-specifier|private
-name|int
-name|port
-init|=
-literal|20012
-decl_stmt|;
-DECL|field|ftpUrl
+DECL|method|getFtpUrl ()
 specifier|private
 name|String
-name|ftpUrl
-init|=
+name|getFtpUrl
+parameter_list|()
+block|{
+return|return
 literal|"ftp://admin@localhost:"
 operator|+
-name|port
+name|getPort
+argument_list|()
 operator|+
 literal|"/tmp5/camel?password=admin&binary=false"
-decl_stmt|;
+return|;
+block|}
 DECL|method|testFromFtpToAsciiFileNoBodyConversion ()
 specifier|public
 name|void
@@ -171,16 +168,6 @@ literal|1000
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
-parameter_list|()
-block|{
-return|return
-name|port
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -217,7 +204,8 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -305,7 +293,8 @@ literal|"file:target/ftptest/?append=false&noop=true"
 decl_stmt|;
 name|from
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|)
 operator|.
 name|to

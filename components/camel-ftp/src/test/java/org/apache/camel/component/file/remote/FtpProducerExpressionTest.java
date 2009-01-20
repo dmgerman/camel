@@ -112,32 +112,19 @@ name|FtpProducerExpressionTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|field|port
-specifier|private
-name|int
-name|port
-init|=
-literal|20062
-decl_stmt|;
-DECL|field|ftpUrl
+DECL|method|getFtpUrl ()
 specifier|private
 name|String
-name|ftpUrl
-init|=
-literal|"ftp://admin@localhost:"
-operator|+
-name|port
-operator|+
-literal|"/filelanguage?password=admin"
-decl_stmt|;
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
+name|getFtpUrl
 parameter_list|()
 block|{
 return|return
-name|port
+literal|"ftp://admin@localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/filelanguage?password=admin"
 return|;
 block|}
 annotation|@
@@ -211,7 +198,8 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 operator|+
 literal|"&expression=${bean:myguidgenerator}.bak"
 argument_list|,
@@ -243,7 +231,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -279,7 +268,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -335,7 +325,8 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 operator|+
 literal|"&expression=myfile-${date:now:yyyyMMdd}.txt"
 argument_list|,
@@ -392,7 +383,8 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 operator|+
 literal|"&expression="
 operator|+
@@ -446,7 +438,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 operator|+
 literal|"&expression=myfile-${in.header.foo}.txt"
 argument_list|,
@@ -511,7 +504,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 operator|+
 literal|"&expression=mybirthday-${date:in.header.birthday:yyyyMMdd}.txt"
 argument_list|,

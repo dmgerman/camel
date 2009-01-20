@@ -62,32 +62,19 @@ name|FromFtpNoFilesTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|field|port
-specifier|private
-name|int
-name|port
-init|=
-literal|20020
-decl_stmt|;
-DECL|field|ftpUrl
+DECL|method|getFtpUrl ()
 specifier|private
 name|String
-name|ftpUrl
-init|=
-literal|"ftp://admin@localhost:"
-operator|+
-name|port
-operator|+
-literal|"/slowfile?password=admin&binary=false&readLock=rename&consumer.delay=2000"
-decl_stmt|;
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
+name|getFtpUrl
 parameter_list|()
 block|{
 return|return
-name|port
+literal|"ftp://admin@localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/slowfile?password=admin&binary=false&readLock=rename&consumer.delay=2000"
 return|;
 block|}
 DECL|method|testPoolIn3SecondsButNoFiles ()
@@ -160,7 +147,8 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|)
 operator|.
 name|to

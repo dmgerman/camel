@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for ftpClientConfig option.   */
+comment|/**  * Unit test for ftpClientConfig option.  */
 end_comment
 
 begin_class
@@ -108,24 +108,40 @@ name|FtpConsumerUsingFTPClientConfigTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|field|port
-specifier|private
-name|int
-name|port
-init|=
-literal|20066
-decl_stmt|;
-DECL|field|ftpUrl
+DECL|method|getFtpUrl ()
 specifier|private
 name|String
-name|ftpUrl
-init|=
+name|getFtpUrl
+parameter_list|()
+block|{
+return|return
 literal|"ftp://admin@localhost:"
 operator|+
-name|port
+name|getPort
+argument_list|()
 operator|+
 literal|"/clientconfig?password=admin&ftpClientConfig=#myConfig"
-decl_stmt|;
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|prepareFtpServer
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRegistry ()
@@ -220,35 +236,6 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
-parameter_list|()
-block|{
-return|return
-name|port
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|prepareFtpServer
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|prepareFtpServer ()
 specifier|private
 name|void
@@ -263,7 +250,8 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -297,7 +285,8 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|)
 operator|.
 name|to

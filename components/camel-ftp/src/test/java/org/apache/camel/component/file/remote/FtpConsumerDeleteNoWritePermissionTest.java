@@ -72,30 +72,46 @@ name|FtpConsumerDeleteNoWritePermissionTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|field|port
-specifier|private
-name|int
-name|port
-init|=
-literal|20087
-decl_stmt|;
-DECL|field|ftpUrl
+DECL|method|getFtpUrl ()
 specifier|private
 name|String
-name|ftpUrl
-init|=
+name|getFtpUrl
+parameter_list|()
+block|{
+return|return
 literal|"ftp://dummy@localhost:"
 operator|+
-name|port
+name|getPort
+argument_list|()
 operator|+
 literal|"/deletenoperm?password=foo"
 operator|+
 literal|"&delete=true&consumer.delay=5000"
-decl_stmt|;
-DECL|method|testExludePreAndPostfixes ()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|prepareFtpServer
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testConsumerDeleteNoWritePermission ()
 specifier|public
 name|void
-name|testExludePreAndPostfixes
+name|testConsumerDeleteNoWritePermission
 parameter_list|()
 throws|throws
 name|Exception
@@ -107,7 +123,8 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-name|ftpUrl
+name|getFtpUrl
+argument_list|()
 argument_list|)
 operator|.
 name|createPollingConsumer
@@ -160,35 +177,6 @@ block|{
 comment|// expected, ignore
 block|}
 block|}
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
-parameter_list|()
-block|{
-return|return
-name|port
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|prepareFtpServer
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|prepareFtpServer ()
 specifier|private
 name|void
@@ -204,7 +192,8 @@ name|ftpUrl
 init|=
 literal|"ftp://admin@localhost:"
 operator|+
-name|port
+name|getPort
+argument_list|()
 operator|+
 literal|"/deletenoperm/?password=admin"
 decl_stmt|;

@@ -185,7 +185,8 @@ name|host
 operator|+
 literal|":"
 operator|+
-name|port
+name|getPort
+argument_list|()
 return|;
 block|}
 DECL|method|configure (URI uri)
