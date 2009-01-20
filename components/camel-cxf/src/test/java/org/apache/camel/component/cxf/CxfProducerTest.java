@@ -180,6 +180,18 @@ name|apache
 operator|.
 name|cxf
 operator|.
+name|BusFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
 name|bus
 operator|.
 name|CXFBusFactory
@@ -489,6 +501,13 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+name|BusFactory
+operator|.
+name|setDefaultBus
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testInvokingSimpleServerWithParams ()
 specifier|public

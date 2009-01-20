@@ -1019,7 +1019,7 @@ block|{
 return|return
 name|BusFactory
 operator|.
-name|getThreadDefaultBus
+name|getDefaultBus
 argument_list|()
 return|;
 block|}
@@ -1732,7 +1732,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using ThreadDefaultBus "
+literal|"Using DefaultBus "
 operator|+
 name|bus
 argument_list|)
@@ -1754,7 +1754,7 @@ condition|)
 block|{
 name|BusFactory
 operator|.
-name|setThreadDefaultBus
+name|setDefaultBus
 argument_list|(
 name|bus
 argument_list|)

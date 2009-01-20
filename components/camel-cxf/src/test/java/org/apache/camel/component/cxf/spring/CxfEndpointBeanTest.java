@@ -130,6 +130,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|BusFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -187,6 +199,13 @@ name|ctx
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|BusFactory
+operator|.
+name|setDefaultBus
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testCxfEndpointBeanDefinitionParser ()

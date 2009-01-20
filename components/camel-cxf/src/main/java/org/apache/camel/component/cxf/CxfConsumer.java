@@ -504,6 +504,16 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|getServer ()
+specifier|public
+name|Server
+name|getServer
+parameter_list|()
+block|{
+return|return
+name|server
+return|;
+block|}
 block|}
 end_class
 

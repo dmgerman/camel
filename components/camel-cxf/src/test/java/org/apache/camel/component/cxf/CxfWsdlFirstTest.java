@@ -238,6 +238,18 @@ name|apache
 operator|.
 name|cxf
 operator|.
+name|BusFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
 name|endpoint
 operator|.
 name|ServerImpl
@@ -403,6 +415,13 @@ name|super
 operator|.
 name|tearDown
 argument_list|()
+expr_stmt|;
+name|BusFactory
+operator|.
+name|setDefaultBus
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()

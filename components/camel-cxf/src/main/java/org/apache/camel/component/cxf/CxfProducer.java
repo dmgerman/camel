@@ -1145,6 +1145,16 @@ return|return
 name|answer
 return|;
 block|}
+DECL|method|getClient ()
+specifier|public
+name|Client
+name|getClient
+parameter_list|()
+block|{
+return|return
+name|client
+return|;
+block|}
 block|}
 end_class
 
