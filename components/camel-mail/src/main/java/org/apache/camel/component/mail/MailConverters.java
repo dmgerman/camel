@@ -343,6 +343,8 @@ operator|.
 name|toInputStream
 argument_list|(
 name|s
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -388,6 +390,8 @@ operator|.
 name|toInputStream
 argument_list|(
 name|s
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
