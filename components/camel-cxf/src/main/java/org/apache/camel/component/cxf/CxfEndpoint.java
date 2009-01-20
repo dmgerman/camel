@@ -1403,6 +1403,20 @@ return|return
 name|serviceClass
 return|;
 block|}
+DECL|method|setServiceClass (String className)
+specifier|public
+name|void
+name|setServiceClass
+parameter_list|(
+name|String
+name|className
+parameter_list|)
+block|{
+name|serviceClass
+operator|=
+name|className
+expr_stmt|;
+block|}
 DECL|method|setServiceClass (Object instance)
 specifier|public
 name|void
@@ -1411,23 +1425,6 @@ parameter_list|(
 name|Object
 name|instance
 parameter_list|)
-block|{
-if|if
-condition|(
-name|instance
-operator|instanceof
-name|String
-condition|)
-block|{
-name|serviceClass
-operator|=
-operator|(
-name|String
-operator|)
-name|instance
-expr_stmt|;
-block|}
-else|else
 block|{
 name|serviceClass
 operator|=
@@ -1440,21 +1437,6 @@ argument_list|)
 operator|.
 name|getName
 argument_list|()
-expr_stmt|;
-block|}
-block|}
-DECL|method|setPortName (String port)
-specifier|public
-name|void
-name|setPortName
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|portName
-operator|=
-name|port
 expr_stmt|;
 block|}
 DECL|method|setServiceName (String service)
@@ -1471,6 +1453,16 @@ operator|=
 name|service
 expr_stmt|;
 block|}
+DECL|method|getServiceName ()
+specifier|public
+name|String
+name|getServiceName
+parameter_list|()
+block|{
+return|return
+name|serviceName
+return|;
+block|}
 DECL|method|getPortName ()
 specifier|public
 name|String
@@ -1481,15 +1473,19 @@ return|return
 name|portName
 return|;
 block|}
-DECL|method|getServiceName ()
+DECL|method|setPortName (String port)
 specifier|public
+name|void
+name|setPortName
+parameter_list|(
 name|String
-name|getServiceName
-parameter_list|()
+name|port
+parameter_list|)
 block|{
-return|return
-name|serviceName
-return|;
+name|portName
+operator|=
+name|port
+expr_stmt|;
 block|}
 DECL|method|isInOut ()
 specifier|public
