@@ -1131,6 +1131,27 @@ operator|=
 name|formatter
 expr_stmt|;
 block|}
+DECL|method|setLogName (String logName)
+specifier|public
+name|void
+name|setLogName
+parameter_list|(
+name|String
+name|logName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|log
+operator|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|logName
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
