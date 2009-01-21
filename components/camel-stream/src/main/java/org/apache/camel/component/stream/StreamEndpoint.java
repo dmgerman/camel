@@ -145,15 +145,20 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|uri
+DECL|field|fileName
 specifier|private
 name|String
-name|uri
+name|fileName
 decl_stmt|;
-DECL|field|file
+DECL|field|scanStream
 specifier|private
-name|String
-name|file
+name|boolean
+name|scanStream
+decl_stmt|;
+DECL|field|scanStreamDelay
+specifier|private
+name|long
+name|scanStreamDelay
 decl_stmt|;
 DECL|field|url
 specifier|private
@@ -207,12 +212,6 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|uri
-operator|=
-name|endpointUri
-expr_stmt|;
 block|}
 DECL|method|StreamEndpoint (String endpointUri)
 specifier|public
@@ -226,12 +225,6 @@ name|super
 argument_list|(
 name|endpointUri
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|uri
-operator|=
-name|endpointUri
 expr_stmt|;
 block|}
 DECL|method|createConsumer (Processor processor)
@@ -253,7 +246,8 @@ name|this
 argument_list|,
 name|processor
 argument_list|,
-name|uri
+name|getEndpointUri
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -271,7 +265,8 @@ name|StreamProducer
 argument_list|(
 name|this
 argument_list|,
-name|uri
+name|getEndpointUri
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -287,15 +282,31 @@ return|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
-DECL|method|getFile ()
+DECL|method|getFileName ()
 specifier|public
 name|String
-name|getFile
+name|getFileName
 parameter_list|()
 block|{
 return|return
-name|file
+name|fileName
 return|;
+block|}
+DECL|method|setFileName (String fileName)
+specifier|public
+name|void
+name|setFileName
+parameter_list|(
+name|String
+name|fileName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileName
+operator|=
+name|fileName
+expr_stmt|;
 block|}
 DECL|method|getUrl ()
 specifier|public
@@ -306,6 +317,22 @@ block|{
 return|return
 name|url
 return|;
+block|}
+DECL|method|setUrl (String url)
+specifier|public
+name|void
+name|setUrl
+parameter_list|(
+name|String
+name|url
+parameter_list|)
+block|{
+name|this
+operator|.
+name|url
+operator|=
+name|url
+expr_stmt|;
 block|}
 DECL|method|getDelay ()
 specifier|public
@@ -435,6 +462,58 @@ operator|.
 name|initialPromptDelay
 operator|=
 name|initialPromptDelay
+expr_stmt|;
+block|}
+DECL|method|isScanStream ()
+specifier|public
+name|boolean
+name|isScanStream
+parameter_list|()
+block|{
+return|return
+name|scanStream
+return|;
+block|}
+DECL|method|setScanStream (boolean scanStream)
+specifier|public
+name|void
+name|setScanStream
+parameter_list|(
+name|boolean
+name|scanStream
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scanStream
+operator|=
+name|scanStream
+expr_stmt|;
+block|}
+DECL|method|getScanStreamDelay ()
+specifier|public
+name|long
+name|getScanStreamDelay
+parameter_list|()
+block|{
+return|return
+name|scanStreamDelay
+return|;
+block|}
+DECL|method|setScanStreamDelay (long scanStreamDelay)
+specifier|public
+name|void
+name|setScanStreamDelay
+parameter_list|(
+name|long
+name|scanStreamDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scanStreamDelay
+operator|=
+name|scanStreamDelay
 expr_stmt|;
 block|}
 comment|// Implementations
