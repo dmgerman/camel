@@ -166,6 +166,39 @@ name|this
 argument_list|)
 return|;
 block|}
+comment|// TODO remove redunant non-DRY code ASAP
+comment|//
+comment|// The following redundant methods are here
+comment|// until there is a way to specify a higher priority for HTML views
+comment|//
+comment|// for more details see these issues
+comment|//
+comment|// https://jsr311.dev.java.net/issues/show_bug.cgi?id=65
+comment|// https://jsr311.dev.java.net/issues/show_bug.cgi?id=46
+annotation|@
+name|GET
+annotation|@
+name|Produces
+argument_list|(
+block|{
+name|MediaType
+operator|.
+name|TEXT_HTML
+block|}
+argument_list|)
+DECL|method|index ()
+specifier|public
+name|Viewable
+name|index
+parameter_list|()
+block|{
+return|return
+name|view
+argument_list|(
+literal|"index"
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
