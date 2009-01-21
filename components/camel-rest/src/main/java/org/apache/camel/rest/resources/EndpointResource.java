@@ -56,7 +56,7 @@ specifier|public
 class|class
 name|EndpointResource
 extends|extends
-name|ViewableResource
+name|ResourceSupport
 block|{
 DECL|field|endpoint
 specifier|private

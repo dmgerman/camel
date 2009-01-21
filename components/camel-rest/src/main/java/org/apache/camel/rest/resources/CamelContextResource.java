@@ -255,7 +255,7 @@ specifier|public
 class|class
 name|CamelContextResource
 extends|extends
-name|ViewableResource
+name|ResourceSupport
 block|{
 DECL|field|camelContext
 specifier|private
@@ -303,10 +303,15 @@ name|getName
 argument_list|()
 return|;
 block|}
-comment|// HTML representations
-comment|//-------------------------------------------------------------------------
-comment|// Its a shame there's not an easier way to bind the explicit views...
-comment|//-------------------------------------------------------------------------
+comment|// TODO remove redunant non-DRY code ASAP
+comment|//
+comment|// The following redundant methods are here
+comment|// until there is a way to specify a higher priority for HTML views
+comment|//
+comment|// for more details see these issues
+comment|//
+comment|// https://jsr311.dev.java.net/issues/show_bug.cgi?id=65
+comment|// https://jsr311.dev.java.net/issues/show_bug.cgi?id=46
 annotation|@
 name|GET
 annotation|@
@@ -336,36 +341,6 @@ literal|"endpoints"
 argument_list|)
 return|;
 block|}
-annotation|@
-name|GET
-annotation|@
-name|Path
-argument_list|(
-literal|"foo"
-argument_list|)
-annotation|@
-name|Produces
-argument_list|(
-block|{
-name|MediaType
-operator|.
-name|TEXT_HTML
-block|}
-argument_list|)
-DECL|method|foo ()
-specifier|public
-name|Viewable
-name|foo
-parameter_list|()
-block|{
-return|return
-name|view
-argument_list|(
-literal|"foo"
-argument_list|)
-return|;
-block|}
-comment|/*     @GET     @Path("{view}")     @Produces({MediaType.TEXT_HTML})     public Viewable genericView(@PathParam("view") String view) {         return view(view);     }  */
 annotation|@
 name|GET
 annotation|@
@@ -478,7 +453,6 @@ name|getEndpoints
 argument_list|()
 return|;
 block|}
-comment|/*     @GET     @Path("endpoints")     @Produces({"text/html"})     public List<EndpointLink> getEndpoints() {         return getEndpointsDTO().getEndpoints();     } */
 comment|/**      * Looks up an individual endpoint      */
 annotation|@
 name|Path
