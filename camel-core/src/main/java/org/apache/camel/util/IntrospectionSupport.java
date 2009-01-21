@@ -1536,6 +1536,13 @@ operator|.
 name|class
 condition|)
 block|{
+comment|// Since Object.class.isInstance all the objects,
+comment|// Here we just make sure it will be add to the bottom of the set.
+name|Method
+name|objectSetMethod
+init|=
+literal|null
+decl_stmt|;
 name|Method
 index|[]
 name|methods
@@ -1591,6 +1598,24 @@ index|]
 decl_stmt|;
 if|if
 condition|(
+name|paramType
+operator|.
+name|equals
+argument_list|(
+name|Object
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+name|objectSetMethod
+operator|=
+name|method
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 name|typeConverter
 operator|!=
 literal|null
@@ -1617,6 +1642,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+if|if
+condition|(
+name|objectSetMethod
+operator|!=
+literal|null
+condition|)
+block|{
+name|candidates
+operator|.
+name|add
+argument_list|(
+name|objectSetMethod
+argument_list|)
+expr_stmt|;
 block|}
 name|clazz
 operator|=
@@ -1682,7 +1722,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|// perfer to use the one with the same instance if any exists
+comment|// prefer to use the one with the same instance if any exists
 for|for
 control|(
 name|Method
