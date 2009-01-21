@@ -963,9 +963,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|RoutingSlipType
-operator|.
-name|ROUTING_SLIP_HEADER
+literal|"destinations"
 argument_list|,
 name|node
 operator|.

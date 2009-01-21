@@ -84,18 +84,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|ProducerCache
@@ -140,12 +128,12 @@ name|camel
 operator|.
 name|util
 operator|.
-name|CollectionStringBuffer
+name|ExchangeHelper
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
@@ -154,7 +142,9 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ExchangeHelper
+name|ObjectHelper
+operator|.
+name|notNull
 import|;
 end_import
 
@@ -183,22 +173,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|notNull
 import|;
 end_import
 

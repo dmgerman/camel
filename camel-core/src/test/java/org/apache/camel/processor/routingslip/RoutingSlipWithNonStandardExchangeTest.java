@@ -130,7 +130,7 @@ specifier|final
 name|String
 name|ROUTING_SLIP_HEADER
 init|=
-literal|"routingSlipHeader"
+literal|"myDestinations"
 decl_stmt|;
 DECL|method|testRoutingSlipPreservesDifferentExchange ()
 specifier|public
@@ -287,7 +287,9 @@ literal|"direct:a"
 argument_list|)
 operator|.
 name|routingSlip
-argument_list|()
+argument_list|(
+literal|"myDestinations"
+argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1
 block|}

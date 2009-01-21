@@ -146,7 +146,7 @@ specifier|final
 name|String
 name|ROUTING_SLIP_HEADER
 init|=
-literal|"routingSlipHeader"
+literal|"destinations"
 decl_stmt|;
 DECL|field|myBean
 specifier|protected
@@ -600,7 +600,9 @@ name|tryBlock
 argument_list|()
 operator|.
 name|routingSlip
-argument_list|()
+argument_list|(
+name|ROUTING_SLIP_HEADER
+argument_list|)
 operator|.
 name|to
 argument_list|(

@@ -2198,32 +2198,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p>      * The header will use the default header {@link RoutingSlipType#DEFAULT_DELIMITER}      * The list of URIs will be split based on the default delimiter {@link RoutingSlipType#DEFAULT_DELIMITER}      *      * @return the builder      * @deprecated will be removed in Camel 2.0      */
-DECL|method|routingSlip ()
-specifier|public
-name|Type
-name|routingSlip
-parameter_list|()
-block|{
-name|RoutingSlipType
-name|answer
-init|=
-operator|new
-name|RoutingSlipType
-argument_list|()
-decl_stmt|;
-name|addOutput
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-operator|(
-name|Type
-operator|)
-name|this
-return|;
-block|}
 comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @return the expression clause builder for the expression on which to split      */
 DECL|method|split ()
 specifier|public

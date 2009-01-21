@@ -84,7 +84,7 @@ specifier|final
 name|String
 name|ROUTING_SLIP_HEADER
 init|=
-literal|"routingSlipHeader"
+literal|"myHeader"
 decl_stmt|;
 DECL|method|testUpdatingOfRoutingSlipAllDefaults ()
 specifier|public
@@ -500,7 +500,9 @@ literal|"direct:a"
 argument_list|)
 operator|.
 name|routingSlip
-argument_list|()
+argument_list|(
+literal|"myHeader"
+argument_list|)
 operator|.
 name|to
 argument_list|(
