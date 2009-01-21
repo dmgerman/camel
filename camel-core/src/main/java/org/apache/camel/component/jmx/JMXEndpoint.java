@@ -92,18 +92,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -142,9 +130,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|DefaultExchange
+name|ObjectHelper
 import|;
 end_import
 
@@ -210,11 +198,6 @@ specifier|private
 name|String
 name|name
 decl_stmt|;
-DECL|field|ourName
-specifier|private
-name|ObjectName
-name|ourName
-decl_stmt|;
 DECL|field|observedObjectName
 specifier|private
 name|String
@@ -256,8 +239,13 @@ operator|new
 name|CounterMonitor
 argument_list|()
 decl_stmt|;
+DECL|method|JMXEndpoint ()
+specifier|public
+name|JMXEndpoint
+parameter_list|()
+block|{     }
 DECL|method|JMXEndpoint (String endpointUri, JMXComponent component)
-specifier|protected
+specifier|public
 name|JMXEndpoint
 parameter_list|(
 name|String
@@ -320,6 +308,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|mbeanServer
+argument_list|,
+literal|"mbeanServer"
+argument_list|)
+expr_stmt|;
 name|ObjectName
 name|observedName
 init|=
@@ -379,14 +376,15 @@ argument_list|,
 name|proc
 argument_list|)
 decl_stmt|;
+name|ObjectName
 name|ourName
-operator|=
+init|=
 operator|new
 name|ObjectName
 argument_list|(
 name|name
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|counterMonitor
 operator|.
 name|setNotify

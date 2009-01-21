@@ -302,6 +302,22 @@ return|return
 name|processor
 return|;
 block|}
+DECL|method|setProcessor (Processor processor)
+specifier|public
+name|void
+name|setProcessor
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|processor
+operator|=
+name|processor
+expr_stmt|;
+block|}
 DECL|method|createProcessor ()
 specifier|protected
 name|Processor

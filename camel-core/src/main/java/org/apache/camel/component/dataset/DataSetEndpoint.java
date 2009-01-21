@@ -273,6 +273,11 @@ specifier|private
 name|long
 name|preloadSize
 decl_stmt|;
+DECL|method|DataSetEndpoint ()
+specifier|public
+name|DataSetEndpoint
+parameter_list|()
+block|{     }
 DECL|method|DataSetEndpoint (String endpointUri, Component component, DataSet dataSet)
 specifier|public
 name|DataSetEndpoint

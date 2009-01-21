@@ -413,8 +413,6 @@ DECL|field|regexPattern
 specifier|private
 name|String
 name|regexPattern
-init|=
-literal|""
 decl_stmt|;
 DECL|field|moveNamePrefix
 specifier|private

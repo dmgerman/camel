@@ -62,6 +62,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|LinkedBlockingQueue
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -148,20 +160,6 @@ name|BrowsableEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * An implementation of the<a  * href="http://activemq.apache.org/camel/queue.html">Queue components</a> for  * asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  *  * @version $Revision$  */
 end_comment
@@ -184,6 +182,18 @@ name|Exchange
 argument_list|>
 name|queue
 decl_stmt|;
+DECL|field|size
+specifier|private
+name|int
+name|size
+init|=
+literal|1000
+decl_stmt|;
+DECL|method|SedaEndpoint ()
+specifier|public
+name|SedaEndpoint
+parameter_list|()
+block|{     }
 DECL|method|SedaEndpoint (String endpointUri, Component component, BlockingQueue<Exchange> queue)
 specifier|public
 name|SedaEndpoint
@@ -265,15 +275,6 @@ argument_list|(
 name|endpointUri
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|queue
-argument_list|,
-literal|"queue"
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|queue
@@ -323,6 +324,7 @@ return|;
 block|}
 DECL|method|getQueue ()
 specifier|public
+specifier|synchronized
 name|BlockingQueue
 argument_list|<
 name|Exchange
@@ -330,9 +332,73 @@ argument_list|>
 name|getQueue
 parameter_list|()
 block|{
+if|if
+condition|(
+name|queue
+operator|==
+literal|null
+condition|)
+block|{
+name|queue
+operator|=
+operator|new
+name|LinkedBlockingQueue
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|(
+name|size
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|queue
 return|;
+block|}
+DECL|method|setQueue (BlockingQueue<Exchange> queue)
+specifier|public
+name|void
+name|setQueue
+parameter_list|(
+name|BlockingQueue
+argument_list|<
+name|Exchange
+argument_list|>
+name|queue
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queue
+operator|=
+name|queue
+expr_stmt|;
+block|}
+DECL|method|getSize ()
+specifier|public
+name|int
+name|getSize
+parameter_list|()
+block|{
+return|return
+name|size
+return|;
+block|}
+DECL|method|setSize (int size)
+specifier|public
+name|void
+name|setSize
+parameter_list|(
+name|int
+name|size
+parameter_list|)
+block|{
+name|this
+operator|.
+name|size
+operator|=
+name|size
+expr_stmt|;
 block|}
 DECL|method|isSingleton ()
 specifier|public

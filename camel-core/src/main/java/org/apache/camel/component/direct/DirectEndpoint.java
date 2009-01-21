@@ -151,6 +151,11 @@ name|DefaultConsumer
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|DirectEndpoint ()
+specifier|public
+name|DirectEndpoint
+parameter_list|()
+block|{     }
 DECL|method|DirectEndpoint (String uri, DirectComponent component)
 specifier|public
 name|DirectEndpoint
