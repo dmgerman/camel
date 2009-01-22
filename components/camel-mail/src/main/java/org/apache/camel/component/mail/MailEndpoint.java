@@ -106,6 +106,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultHeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|mail
@@ -152,6 +166,20 @@ specifier|private
 name|MailConfiguration
 name|configuration
 decl_stmt|;
+DECL|method|MailEndpoint ()
+specifier|public
+name|MailEndpoint
+parameter_list|()
+block|{
+name|this
+operator|.
+name|binding
+operator|=
+operator|new
+name|MailBinding
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|MailEndpoint (String uri, MailComponent component, MailConfiguration configuration)
 specifier|public
 name|MailEndpoint
@@ -475,16 +503,6 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 DECL|method|getConfiguration ()
 specifier|public
 name|MailConfiguration
@@ -493,6 +511,32 @@ parameter_list|()
 block|{
 return|return
 name|configuration
+return|;
+block|}
+DECL|method|setConfiguration (MailConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|MailConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|false
 return|;
 block|}
 block|}
