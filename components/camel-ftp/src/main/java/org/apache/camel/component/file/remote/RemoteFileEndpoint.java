@@ -438,6 +438,11 @@ specifier|private
 name|long
 name|readLockTimeout
 decl_stmt|;
+DECL|method|RemoteFileEndpoint ()
+specifier|public
+name|RemoteFileEndpoint
+parameter_list|()
+block|{     }
 DECL|method|RemoteFileEndpoint (String uri, RemoteFileComponent component, RemoteFileOperations operations, RemoteFileConfiguration configuration)
 specifier|public
 name|RemoteFileEndpoint
@@ -545,6 +550,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|configuration
+argument_list|,
+literal|"remoteFileConfiguration"
+argument_list|)
+expr_stmt|;
 name|String
 name|protocol
 init|=
@@ -563,6 +577,18 @@ argument_list|,
 literal|"protocol"
 argument_list|)
 expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|configuration
+operator|.
+name|getHost
+argument_list|()
+argument_list|,
+literal|"host"
+argument_list|)
+expr_stmt|;
 name|RemoteFileConsumer
 name|consumer
 decl_stmt|;
@@ -576,6 +602,22 @@ name|protocol
 argument_list|)
 condition|)
 block|{
+comment|// create operations for this protocol if not already set
+comment|// for instance if using spring bean configured endpoints instead of URI parameters
+if|if
+condition|(
+name|operations
+operator|==
+literal|null
+condition|)
+block|{
+name|operations
+operator|=
+operator|new
+name|FtpRemoteFileOperations
+argument_list|()
+expr_stmt|;
+block|}
 name|consumer
 operator|=
 operator|new
@@ -600,6 +642,20 @@ name|protocol
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|operations
+operator|==
+literal|null
+condition|)
+block|{
+name|operations
+operator|=
+operator|new
+name|SftpRemoteFileOperations
+argument_list|()
+expr_stmt|;
+block|}
 name|consumer
 operator|=
 operator|new
@@ -822,6 +878,22 @@ operator|.
 name|processStrategy
 operator|=
 name|remoteFileProcessStrategy
+expr_stmt|;
+block|}
+DECL|method|setRemoteFileOperations (RemoteFileOperations operations)
+specifier|public
+name|void
+name|setRemoteFileOperations
+parameter_list|(
+name|RemoteFileOperations
+name|operations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operations
+operator|=
+name|operations
 expr_stmt|;
 block|}
 DECL|method|isNoop ()
@@ -1606,6 +1678,16 @@ name|RemoteFileProcessStrategy
 name|createRemoteFileStrategy
 parameter_list|()
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+literal|"camelContext"
+argument_list|)
+expr_stmt|;
 name|Class
 argument_list|<
 name|?
