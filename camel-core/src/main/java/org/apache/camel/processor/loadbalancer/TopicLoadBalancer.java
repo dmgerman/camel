@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link LoadBalancer} implementations which sends to all destinations  * (rather like JMS Topics).   *  It is deprecated in Camel 2.0, you can move to use multicast,   *  if you want to send the message to all destinations.  *   * @version $Revision$  * @deprecated  */
+comment|/**  * A {@link LoadBalancer} implementations which sends to all destinations  * (rather like JMS Topics).    *   * @version $Revision$  *   */
 end_comment
 
 begin_class

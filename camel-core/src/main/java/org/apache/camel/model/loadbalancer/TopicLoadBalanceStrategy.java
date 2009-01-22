@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;topic/&gt; element  * @deprecated  *  It is deprecated in Camel 2.0, you can move to use multicast,   *  if you want to send the message to all destinations.  */
+comment|/**  * Represents an XML&lt;topic/&gt; element  *   */
 end_comment
 
 begin_class
