@@ -523,6 +523,16 @@ operator|=
 name|resourceLoader
 expr_stmt|;
 block|}
+DECL|method|getResourceUri ()
+specifier|public
+name|String
+name|getResourceUri
+parameter_list|()
+block|{
+return|return
+name|resourceUri
+return|;
+block|}
 block|}
 end_class
 
