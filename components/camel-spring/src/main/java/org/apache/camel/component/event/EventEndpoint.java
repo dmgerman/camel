@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -114,7 +104,25 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|MulticastProcessor
+name|loadbalancer
+operator|.
+name|LoadBalancer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|loadbalancer
+operator|.
+name|TopicLoadBalancer
 import|;
 end_import
 
@@ -129,22 +137,6 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
 import|;
 end_import
 
@@ -196,6 +188,22 @@ name|ApplicationEvent
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+import|;
+end_import
+
 begin_comment
 comment|/**  * An<a href="http://activemq.apache.org/camel/event.html">Event Endpoint</a>  * for working with Spring ApplicationEvents  *  * @version $Revision$  */
 end_comment
@@ -210,10 +218,10 @@ name|DefaultEndpoint
 implements|implements
 name|ApplicationContextAware
 block|{
-DECL|field|processor
+DECL|field|loadBalancer
 specifier|private
-name|MulticastProcessor
-name|processor
+name|LoadBalancer
+name|loadBalancer
 decl_stmt|;
 DECL|field|applicationContext
 specifier|private
@@ -403,7 +411,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|getMulticastProcessor
+name|getLoadBalancer
 argument_list|()
 operator|.
 name|process
@@ -426,37 +434,44 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getMulticastProcessor ()
-specifier|protected
-specifier|synchronized
-name|MulticastProcessor
-name|getMulticastProcessor
+DECL|method|getLoadBalancer ()
+specifier|public
+name|LoadBalancer
+name|getLoadBalancer
 parameter_list|()
 block|{
 if|if
 condition|(
-name|processor
+name|loadBalancer
 operator|==
 literal|null
 condition|)
 block|{
-name|processor
+name|loadBalancer
 operator|=
-operator|new
-name|MulticastProcessor
-argument_list|(
-operator|new
-name|ArrayList
-argument_list|<
-name|Processor
-argument_list|>
+name|createLoadBalancer
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|processor
+name|loadBalancer
 return|;
+block|}
+DECL|method|setLoadBalancer (LoadBalancer loadBalancer)
+specifier|public
+name|void
+name|setLoadBalancer
+parameter_list|(
+name|LoadBalancer
+name|loadBalancer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loadBalancer
+operator|=
+name|loadBalancer
+expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
@@ -470,13 +485,10 @@ name|EventConsumer
 name|consumer
 parameter_list|)
 block|{
-name|getMulticastProcessor
+name|getLoadBalancer
 argument_list|()
 operator|.
-name|getProcessors
-argument_list|()
-operator|.
-name|add
+name|addProcessor
 argument_list|(
 name|consumer
 operator|.
@@ -495,13 +507,10 @@ name|EventConsumer
 name|consumer
 parameter_list|)
 block|{
-name|getMulticastProcessor
+name|getLoadBalancer
 argument_list|()
 operator|.
-name|getProcessors
-argument_list|()
-operator|.
-name|remove
+name|removeProcessor
 argument_list|(
 name|consumer
 operator|.
@@ -509,6 +518,18 @@ name|getProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|createLoadBalancer ()
+specifier|protected
+name|LoadBalancer
+name|createLoadBalancer
+parameter_list|()
+block|{
+return|return
+operator|new
+name|TopicLoadBalancer
+argument_list|()
+return|;
 block|}
 DECL|method|toApplicationEvent (Exchange exchange)
 specifier|protected
