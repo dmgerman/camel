@@ -248,15 +248,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|CAMEL_REQUEST
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|CAMEL_REQUEST
-init|=
-literal|"camel.request"
-decl_stmt|;
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
@@ -366,7 +357,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// extract our header and body
 name|Form
 name|form
 init|=
@@ -407,17 +397,15 @@ name|entrySet
 argument_list|()
 control|)
 block|{
+comment|// extract body added to the form as the key which has null value
 if|if
 condition|(
-name|CAMEL_REQUEST
-operator|.
-name|equals
-argument_list|(
 name|entry
 operator|.
-name|getKey
+name|getValue
 argument_list|()
-argument_list|)
+operator|==
+literal|null
 condition|)
 block|{
 name|exchange
@@ -429,7 +417,7 @@ name|setBody
 argument_list|(
 name|entry
 operator|.
-name|getValue
+name|getKey
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -569,13 +557,14 @@ operator|new
 name|Form
 argument_list|()
 decl_stmt|;
+comment|// add the body as the key in the form with null value
 name|form
 operator|.
 name|add
 argument_list|(
-name|CAMEL_REQUEST
-argument_list|,
 name|body
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 if|if

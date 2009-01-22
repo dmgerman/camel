@@ -149,10 +149,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|RestRouteBuilderTest
+DECL|class|RestletRouteBuilderTest
 specifier|public
 class|class
-name|RestRouteBuilderTest
+name|RestletRouteBuilderTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -165,6 +165,8 @@ name|ID
 init|=
 literal|"89531"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -240,7 +242,11 @@ name|getIn
 argument_list|()
 operator|.
 name|getBody
-argument_list|()
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
 operator|+
 literal|"] as an order id = "
 operator|+
