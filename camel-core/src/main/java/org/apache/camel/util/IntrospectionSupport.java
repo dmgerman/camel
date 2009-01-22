@@ -1537,7 +1537,7 @@ name|class
 condition|)
 block|{
 comment|// Since Object.class.isInstance all the objects,
-comment|// Here we just make sure it will be add to the bottom of the set.
+comment|// here we just make sure it will be add to the bottom of the set.
 name|Method
 name|objectSetMethod
 init|=
