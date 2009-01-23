@@ -68,7 +68,7 @@ specifier|public
 class|class
 name|FileLanguage
 extends|extends
-name|AbstractSimpleLanguage
+name|SimpleLanguageSupport
 block|{
 DECL|method|file (String expression)
 specifier|public

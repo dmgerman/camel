@@ -46,18 +46,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Expression
 import|;
 end_import
@@ -121,11 +109,11 @@ comment|/**  * Abstract base class for Simple languages.  */
 end_comment
 
 begin_class
-DECL|class|AbstractSimpleLanguage
+DECL|class|SimpleLanguageSupport
 specifier|public
 specifier|abstract
 class|class
-name|AbstractSimpleLanguage
+name|SimpleLanguageSupport
 implements|implements
 name|Language
 block|{
