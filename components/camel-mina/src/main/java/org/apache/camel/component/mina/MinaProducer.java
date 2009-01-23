@@ -333,6 +333,9 @@ name|lazySessionCreation
 operator|=
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|isLazySessionCreation
 argument_list|()
 expr_stmt|;
@@ -342,6 +345,9 @@ name|timeout
 operator|=
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getTimeout
 argument_list|()
 expr_stmt|;
@@ -350,6 +356,9 @@ operator|.
 name|sync
 operator|=
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|isSync
 argument_list|()
@@ -406,6 +415,9 @@ if|if
 condition|(
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getCharsetName
 argument_list|()
 operator|!=
@@ -421,6 +433,9 @@ operator|.
 name|CHARSET_NAME
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getCharsetName
 argument_list|()

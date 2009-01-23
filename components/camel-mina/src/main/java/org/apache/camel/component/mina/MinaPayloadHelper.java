@@ -65,6 +65,9 @@ if|if
 condition|(
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|isTransferExchange
 argument_list|()
 condition|)
@@ -109,6 +112,9 @@ block|{
 if|if
 condition|(
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|isTransferExchange
 argument_list|()

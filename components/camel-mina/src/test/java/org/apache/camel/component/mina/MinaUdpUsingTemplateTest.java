@@ -177,7 +177,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"mina:udp://127.0.0.1:4445"
+literal|"mina:udp://127.0.0.1:4445?sync=false"
 argument_list|,
 literal|"Hello Message: "
 operator|+

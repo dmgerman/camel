@@ -277,6 +277,9 @@ name|sync
 operator|=
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|isSync
 argument_list|()
 expr_stmt|;
@@ -491,6 +494,9 @@ if|if
 condition|(
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getCharsetName
 argument_list|()
 operator|!=
@@ -506,6 +512,9 @@ operator|.
 name|CHARSET_NAME
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getCharsetName
 argument_list|()
@@ -579,6 +588,9 @@ name|failed
 operator|&&
 operator|!
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|isTransferExchange
 argument_list|()
