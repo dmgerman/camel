@@ -317,12 +317,10 @@ parameter_list|)
 block|{
 comment|// ignored - assumed no parameters have to be used
 block|}
-if|if
-condition|(
-name|argNumber
-operator|-
-literal|1
-operator|!=
+comment|// number of parameters must match
+name|int
+name|expected
+init|=
 name|ps
 operator|.
 name|getParameterMetaData
@@ -330,13 +328,31 @@ argument_list|()
 operator|.
 name|getParameterCount
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|argNumber
+operator|-
+literal|1
+operator|!=
+name|expected
 condition|)
 block|{
 throw|throw
 operator|new
 name|SQLException
 argument_list|(
-literal|"To less parameters set"
+literal|"Number of parameters mismatch. Expected: "
+operator|+
+name|expected
+operator|+
+literal|", was:"
+operator|+
+operator|(
+name|argNumber
+operator|-
+literal|1
+operator|)
 argument_list|)
 throw|;
 block|}
@@ -396,6 +412,23 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
+comment|// preserve headers
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeaders
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -415,6 +448,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// data is set on exchange so return null
 return|return
 literal|null
 return|;
