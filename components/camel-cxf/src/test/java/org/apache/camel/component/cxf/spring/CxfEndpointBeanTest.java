@@ -161,7 +161,7 @@ extends|extends
 name|TestCase
 block|{
 DECL|field|ctx
-specifier|private
+specifier|protected
 name|ClassPathXmlApplicationContext
 name|ctx
 decl_stmt|;
