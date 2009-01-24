@@ -74,6 +74,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelException
 import|;
 end_import
@@ -605,15 +617,15 @@ specifier|private
 name|boolean
 name|isSetDefaultBus
 decl_stmt|;
-DECL|method|CxfEndpoint (CxfComponent cxfComponent, String remaining)
+DECL|method|CxfEndpoint (String remaining, CxfComponent cxfComponent)
 specifier|public
 name|CxfEndpoint
 parameter_list|(
-name|CxfComponent
-name|cxfComponent
-parameter_list|,
 name|String
 name|remaining
+parameter_list|,
+name|CxfComponent
+name|cxfComponent
 parameter_list|)
 block|{
 name|super
@@ -621,6 +633,25 @@ argument_list|(
 name|remaining
 argument_list|,
 name|cxfComponent
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|CxfEndpoint (String remaining, CamelContext context)
+specifier|public
+name|CxfEndpoint
+parameter_list|(
+name|String
+name|remaining
+parameter_list|,
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|remaining
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}

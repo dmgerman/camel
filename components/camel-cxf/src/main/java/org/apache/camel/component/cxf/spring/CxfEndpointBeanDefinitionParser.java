@@ -638,6 +638,11 @@ name|CxfEndpointBean
 implements|implements
 name|ApplicationContextAware
 block|{
+DECL|field|applicationContext
+specifier|private
+name|ApplicationContext
+name|applicationContext
+decl_stmt|;
 DECL|method|CxfSpringEndpointBean ()
 specifier|public
 name|CxfSpringEndpointBean
@@ -672,6 +677,10 @@ parameter_list|)
 throws|throws
 name|BeansException
 block|{
+name|applicationContext
+operator|=
+name|ctx
+expr_stmt|;
 if|if
 condition|(
 name|getBus
@@ -704,6 +713,16 @@ argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getApplicationContext ()
+specifier|public
+name|ApplicationContext
+name|getApplicationContext
+parameter_list|()
+block|{
+return|return
+name|applicationContext
+return|;
 block|}
 block|}
 block|}
