@@ -22,29 +22,21 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|OutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -93,47 +85,56 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Retrieves the remote file (download)      *      * @param name name of the file      * @param out  stream to write the content of the file into      * @return true if file has been retrieved, false if not      * @throws GenericFileOperationFailedException      *          can be thrown      */
-DECL|method|retrieveFile (String name, OutputStream out)
+comment|/**      * Retrieves the remote file (download)      *      * @param name name of the file      * @param exchange  stream to write the content of the file into      * @return true if file has been retrieved, false if not      * @throws GenericFileOperationFailedException      *          can be thrown      */
+DECL|method|retrieveFile (T file, String name, Exchange exchange)
 name|boolean
 name|retrieveFile
 parameter_list|(
+name|T
+name|file
+parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|OutputStream
-name|out
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Stores the content as a new remote file (upload)      *      * @param name name of new file      * @param body content of the file      * @return true if the file was stored, false if not      * @throws GenericFileOperationFailedException      *          can be thrown      */
-DECL|method|storeFile (String name, InputStream body)
+comment|/**      * Stores the content as a new remote file (upload)      *      * @param name name of new file      * @param exchange with the content content of the file      * @return true if the file was stored, false if not      * @throws GenericFileOperationFailedException      *          can be thrown      */
+DECL|method|storeFile (String name, Exchange exchange)
 name|boolean
 name|storeFile
 parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|InputStream
-name|body
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
 comment|/**      * Gets the current remote directory      *      * @return the current directory path      * @throws GenericFileOperationFailedException      *          can be thrown      */
-DECL|method|getCurrentDirectory ()
+DECL|method|getCurrentDirectory (T file)
 name|String
 name|getCurrentDirectory
-parameter_list|()
+parameter_list|(
+name|T
+name|file
+parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
 comment|/**      * Change the current remote directory      *      * @param path the path to change to      * @throws GenericFileOperationFailedException      *          can be thrown      */
-DECL|method|changeCurrentDirectory (String path)
-name|void
+DECL|method|changeCurrentDirectory (T file, String path)
+name|T
 name|changeCurrentDirectory
 parameter_list|(
+name|T
+name|file
+parameter_list|,
 name|String
 name|path
 parameter_list|)
@@ -141,18 +142,30 @@ throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
 comment|/**      * List the files in the current remote directory      *      * @return a list of backing objects representing the files      * @throws GenericFileOperationFailedException      *          can be thrown      */
-DECL|method|listFiles ()
+DECL|method|listFiles (T file)
 name|List
+argument_list|<
+name|T
+argument_list|>
 name|listFiles
-parameter_list|()
+parameter_list|(
+name|T
+name|file
+parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
 comment|/**      * List the files in the given remote directory      *      * @param path the remote directory      * @return a list of backing objects representing the files      * @throws GenericFileOperationFailedException      *          can be thrown      */
-DECL|method|listFiles (String path)
+DECL|method|listFiles (T file, String path)
 name|List
+argument_list|<
+name|T
+argument_list|>
 name|listFiles
 parameter_list|(
+name|T
+name|file
+parameter_list|,
 name|String
 name|path
 parameter_list|)

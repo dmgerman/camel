@@ -138,6 +138,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|strategy
+operator|.
+name|GenericFileProcessStrategyFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ScheduledPollEndpoint
@@ -254,6 +272,9 @@ specifier|public
 specifier|abstract
 class|class
 name|GenericFileEndpoint
+parameter_list|<
+name|T
+parameter_list|>
 extends|extends
 name|ScheduledPollEndpoint
 block|{
@@ -306,6 +327,39 @@ DECL|field|configuration
 specifier|protected
 name|GenericFileConfiguration
 name|configuration
+decl_stmt|;
+comment|// TODO: Consider remove setNames
+comment|// TODO: Consider filename should always be specified when producing (to get rid of auto generating with id as filename)
+comment|// TODO: bufferSize& append can be moved to NewFileEndpoint as FTP does not support it
+DECL|field|directory
+specifier|protected
+name|boolean
+name|directory
+init|=
+literal|true
+decl_stmt|;
+DECL|field|autoCreate
+specifier|protected
+name|boolean
+name|autoCreate
+init|=
+literal|true
+decl_stmt|;
+DECL|field|bufferSize
+specifier|protected
+name|int
+name|bufferSize
+init|=
+literal|128
+operator|*
+literal|1024
+decl_stmt|;
+DECL|field|append
+specifier|protected
+name|boolean
+name|append
+init|=
+literal|true
 decl_stmt|;
 DECL|field|noop
 specifier|protected
@@ -399,6 +453,9 @@ specifier|protected
 name|Comparator
 argument_list|<
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|sorter
 decl_stmt|;
@@ -502,6 +559,9 @@ DECL|method|createConsumer (Processor processor)
 specifier|public
 specifier|abstract
 name|GenericFileConsumer
+argument_list|<
+name|T
+argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
@@ -514,27 +574,29 @@ DECL|method|createProducer ()
 specifier|public
 specifier|abstract
 name|GenericFileProducer
+argument_list|<
+name|T
+argument_list|>
 name|createProducer
 parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|createExchange (GenericFile file)
+DECL|method|createExchange (GenericFile<T> file)
 specifier|public
 specifier|abstract
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|createExchange
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|)
-function_decl|;
-DECL|method|createExchange ()
-specifier|public
-specifier|abstract
-name|GenericFileExchange
-name|createExchange
-parameter_list|()
 function_decl|;
 comment|/**      * Returns the first portion of the "protocol" in use. We use this so we can      * look back into the META-INF protocol file to locate the default strategy      */
 DECL|method|getUriProtocol ()
@@ -657,7 +719,8 @@ name|finder
 operator|.
 name|findClass
 argument_list|(
-literal|"ftp"
+name|getUriProtocol
+argument_list|()
 argument_list|,
 literal|"strategy.factory."
 argument_list|)
@@ -695,6 +758,13 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: remove me this new factory is listed in the MET-INF file
+name|factory
+operator|=
+name|GenericFileProcessStrategyFactory
+operator|.
+name|class
+expr_stmt|;
 if|if
 condition|(
 name|factory
@@ -1268,6 +1338,9 @@ specifier|public
 name|Comparator
 argument_list|<
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|getSorter
 parameter_list|()
@@ -1276,7 +1349,7 @@ return|return
 name|sorter
 return|;
 block|}
-DECL|method|setSorter (Comparator<GenericFile> sorter)
+DECL|method|setSorter (Comparator<GenericFile<T>> sorter)
 specifier|public
 name|void
 name|setSorter
@@ -1284,6 +1357,9 @@ parameter_list|(
 name|Comparator
 argument_list|<
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|sorter
 parameter_list|)
@@ -1498,6 +1574,110 @@ operator|.
 name|readLockTimeout
 operator|=
 name|readLockTimeout
+expr_stmt|;
+block|}
+DECL|method|getBufferSize ()
+specifier|public
+name|int
+name|getBufferSize
+parameter_list|()
+block|{
+return|return
+name|bufferSize
+return|;
+block|}
+DECL|method|setBufferSize (int bufferSize)
+specifier|public
+name|void
+name|setBufferSize
+parameter_list|(
+name|int
+name|bufferSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bufferSize
+operator|=
+name|bufferSize
+expr_stmt|;
+block|}
+DECL|method|isAppend ()
+specifier|public
+name|boolean
+name|isAppend
+parameter_list|()
+block|{
+return|return
+name|append
+return|;
+block|}
+DECL|method|setAppend (boolean append)
+specifier|public
+name|void
+name|setAppend
+parameter_list|(
+name|boolean
+name|append
+parameter_list|)
+block|{
+name|this
+operator|.
+name|append
+operator|=
+name|append
+expr_stmt|;
+block|}
+DECL|method|isDirectory ()
+specifier|public
+name|boolean
+name|isDirectory
+parameter_list|()
+block|{
+return|return
+name|directory
+return|;
+block|}
+DECL|method|setDirectory (boolean directory)
+specifier|public
+name|void
+name|setDirectory
+parameter_list|(
+name|boolean
+name|directory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|directory
+operator|=
+name|directory
+expr_stmt|;
+block|}
+DECL|method|isAutoCreate ()
+specifier|public
+name|boolean
+name|isAutoCreate
+parameter_list|()
+block|{
+return|return
+name|autoCreate
+return|;
+block|}
+DECL|method|setAutoCreate (boolean autoCreate)
+specifier|public
+name|void
+name|setAutoCreate
+parameter_list|(
+name|boolean
+name|autoCreate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoCreate
+operator|=
+name|autoCreate
 expr_stmt|;
 block|}
 comment|/**      * Should the file be moved after consuming?      */

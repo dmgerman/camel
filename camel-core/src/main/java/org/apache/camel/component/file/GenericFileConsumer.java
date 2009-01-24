@@ -22,26 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|ByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|OutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -172,6 +152,9 @@ specifier|public
 specifier|abstract
 class|class
 name|GenericFileConsumer
+parameter_list|<
+name|T
+parameter_list|>
 extends|extends
 name|ScheduledPollConsumer
 block|{
@@ -193,11 +176,17 @@ decl_stmt|;
 DECL|field|endpoint
 specifier|protected
 name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
 name|endpoint
 decl_stmt|;
 DECL|field|operations
 specifier|protected
 name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
 name|operations
 decl_stmt|;
 DECL|field|loggedIn
@@ -205,17 +194,23 @@ specifier|protected
 name|boolean
 name|loggedIn
 decl_stmt|;
-DECL|method|GenericFileConsumer (GenericFileEndpoint endpoint, Processor processor, GenericFileOperations operations)
+DECL|method|GenericFileConsumer (GenericFileEndpoint<T> endpoint, Processor processor, GenericFileOperations<T> operations)
 specifier|public
 name|GenericFileConsumer
 parameter_list|(
 name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
 name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
 name|operations
 parameter_list|)
 block|{
@@ -257,6 +252,9 @@ comment|// gather list of files to process
 name|List
 argument_list|<
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|files
 init|=
@@ -264,6 +262,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -342,6 +343,9 @@ comment|// using expressions
 name|List
 argument_list|<
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|exchanges
 init|=
@@ -349,6 +353,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 argument_list|(
 name|files
@@ -360,12 +367,18 @@ decl_stmt|;
 for|for
 control|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 range|:
 name|files
 control|)
 block|{
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|exchange
 init|=
 name|endpoint
@@ -468,6 +481,9 @@ operator|++
 control|)
 block|{
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|exchange
 init|=
 name|exchanges
@@ -521,7 +537,7 @@ name|prePollCheck
 parameter_list|()
 block|{     }
 comment|/**      * Polls the given directory for files to process      *      * @param fileName current directory or file      * @param fileList current list of files gathered      */
-DECL|method|pollDirectory (String fileName, List<GenericFile> fileList)
+DECL|method|pollDirectory (String fileName, List<GenericFile<T>> fileList)
 specifier|protected
 specifier|abstract
 name|void
@@ -533,12 +549,15 @@ parameter_list|,
 name|List
 argument_list|<
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|fileList
 parameter_list|)
 function_decl|;
 comment|/**      * Polls the given file      *      * @param fileName the file name      * @param fileList current list of files gathered      */
-DECL|method|pollFile (String fileName, List<GenericFile> fileList)
+DECL|method|pollFile (String fileName, List<GenericFile<T>> fileList)
 specifier|protected
 specifier|abstract
 name|void
@@ -550,18 +569,38 @@ parameter_list|,
 name|List
 argument_list|<
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|fileList
 parameter_list|)
 function_decl|;
+comment|/**      * Creates a GenericFile based on the given type T.      *      * @param file the concrete file type      * @return a new generic file representing the type      */
+DECL|method|asGenericFile (T file)
+specifier|protected
+specifier|abstract
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|asGenericFile
+parameter_list|(
+name|T
+name|file
+parameter_list|)
+function_decl|;
 comment|/**      * Processes the exchange      *      * @param exchange the exchange      */
-DECL|method|processExchange (final GenericFileExchange exchange)
+DECL|method|processExchange (final GenericFileExchange<T> exchange)
 specifier|protected
 name|void
 name|processExchange
 parameter_list|(
 specifier|final
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|exchange
 parameter_list|)
 block|{
@@ -620,6 +659,9 @@ comment|// must use file from exchange as it can be updated due the
 comment|// preMoveNamePrefix/preMoveNamePostfix options
 specifier|final
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|target
 init|=
 name|exchange
@@ -660,27 +702,18 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-name|OutputStream
-name|os
-init|=
-operator|new
-name|ByteArrayOutputStream
-argument_list|()
-decl_stmt|;
-name|target
-operator|.
-name|setBody
-argument_list|(
-name|os
-argument_list|)
-expr_stmt|;
 name|operations
 operator|.
 name|retrieveFile
 argument_list|(
+name|target
+operator|.
+name|getFile
+argument_list|()
+argument_list|,
 name|name
 argument_list|,
-name|os
+name|exchange
 argument_list|)
 expr_stmt|;
 if|if
@@ -750,6 +783,9 @@ parameter_list|)
 block|{
 specifier|final
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 init|=
 name|exchange
@@ -827,9 +863,7 @@ operator|||
 name|handled
 condition|)
 block|{
-comment|// commit the file strategy if there was no
-comment|// failure or already handled by the
-comment|// DeadLetterChannel
+comment|// commit the file strategy if there was no failure or already handled by the DeadLetterChannel
 name|processStrategyCommit
 argument_list|(
 name|processStrategy
@@ -848,8 +882,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// there was an exception but it was not handled
-comment|// by the DeadLetterChannel
+comment|// there was an exception but it was not handled by the DeadLetterChannel
 name|handleException
 argument_list|(
 name|exchange
@@ -916,7 +949,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Strategy when the file was processed and a commit should be executed.      *      * @param processStrategy the strategy to perform the commit      * @param exchange        the exchange      * @param file            the file processed      * @param failureHandled  is<tt>false</tt> if the exchange was processed succesfully,      *<tt>true</tt> if an exception occured during processing but it      *                        was handled by the failure processor (usually the DeadLetterChannel).      */
-DECL|method|processStrategyCommit (GenericFileProcessStrategy processStrategy, GenericFileExchange exchange, GenericFile file, boolean failureHandled)
+DECL|method|processStrategyCommit (GenericFileProcessStrategy processStrategy, GenericFileExchange exchange, GenericFile<T> file, boolean failureHandled)
 specifier|protected
 name|void
 name|processStrategyCommit
@@ -928,6 +961,9 @@ name|GenericFileExchange
 name|exchange
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|,
 name|boolean
@@ -1030,7 +1066,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Strategy when the file was not processed and a rollback should be      * executed.      *      * @param processStrategy the strategy to perform the commit      * @param exchange        the exchange      * @param file            the file processed      */
-DECL|method|processStrategyRollback (GenericFileProcessStrategy processStrategy, GenericFileExchange exchange, GenericFile file)
+DECL|method|processStrategyRollback (GenericFileProcessStrategy processStrategy, GenericFileExchange exchange, GenericFile<T> file)
 specifier|protected
 name|void
 name|processStrategyRollback
@@ -1042,6 +1078,9 @@ name|GenericFileExchange
 name|exchange
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|)
 block|{
@@ -1082,12 +1121,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Strategy for validating if the given remote file should be included or      * not      *      * @param file        the remote file      * @param isDirectory wether the file is a directory or a file      * @return<tt>true</tt> to include the file,<tt>false</tt> to skip it      */
-DECL|method|isValidFile (GenericFile file, boolean isDirectory)
+DECL|method|isValidFile (GenericFile<T> file, boolean isDirectory)
 specifier|protected
 name|boolean
 name|isValidFile
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|,
 name|boolean
@@ -1179,12 +1221,15 @@ literal|true
 return|;
 block|}
 comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file        the remote file      * @param isDirectory wether the file is a directory or a file      * @return<tt>true</tt> if the remote file is matched,<tt>false</tt> if      *         not      */
-DECL|method|isMatched (GenericFile file, boolean isDirectory)
+DECL|method|isMatched (GenericFile<T> file, boolean isDirectory)
 specifier|protected
 name|boolean
 name|isMatched
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|,
 name|boolean

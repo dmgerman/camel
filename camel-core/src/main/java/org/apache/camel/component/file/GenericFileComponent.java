@@ -114,6 +114,9 @@ specifier|public
 specifier|abstract
 class|class
 name|GenericFileComponent
+parameter_list|<
+name|T
+parameter_list|>
 extends|extends
 name|DefaultComponent
 block|{
@@ -139,6 +142,9 @@ block|}
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
 name|createEndpoint
 parameter_list|(
 name|String
@@ -156,6 +162,9 @@ block|{
 comment|// create the correct endpoint based on the protocol
 specifier|final
 name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
 name|endpoint
 decl_stmt|;
 comment|// call to subclasses to build their custom version of a GenericFileEndpoint
@@ -164,6 +173,10 @@ operator|=
 name|buildFileEndpoint
 argument_list|(
 name|uri
+argument_list|,
+name|remaining
+argument_list|,
+name|parameters
 argument_list|)
 expr_stmt|;
 comment|// sort by using file language
@@ -256,19 +269,49 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+name|afterPropertiesSet
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * File Components implements this method      *      * @param uri uri we are building from      * @return GenericFileEndpoint      */
-DECL|method|buildFileEndpoint (String uri)
+comment|/**      * File Components implements this method      */
+DECL|method|buildFileEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 specifier|abstract
 name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
 name|buildFileEndpoint
 parameter_list|(
 name|String
 name|uri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Map
+name|parameters
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * File Components implements this method      *      * @param endpoint the newly created endpoint to do some custom post configuration      */
+DECL|method|afterPropertiesSet (GenericFileEndpoint<T> endpoint)
+specifier|protected
+specifier|abstract
+name|void
+name|afterPropertiesSet
+parameter_list|(
+name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
+name|endpoint
 parameter_list|)
 throws|throws
 name|Exception

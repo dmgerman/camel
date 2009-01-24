@@ -24,17 +24,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
+name|File
 import|;
 end_import
 
@@ -157,6 +147,9 @@ DECL|class|GenericFileProducer
 specifier|public
 class|class
 name|GenericFileProducer
+parameter_list|<
+name|T
+parameter_list|>
 extends|extends
 name|DefaultProducer
 block|{
@@ -179,16 +172,25 @@ decl_stmt|;
 DECL|field|operations
 specifier|private
 name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
 name|operations
 decl_stmt|;
-DECL|method|GenericFileProducer (GenericFileEndpoint endpoint, GenericFileOperations operations)
+DECL|method|GenericFileProducer (GenericFileEndpoint<T> endpoint, GenericFileOperations<T> operations)
 specifier|protected
 name|GenericFileProducer
 parameter_list|(
 name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
 name|endpoint
 parameter_list|,
 name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
 name|operations
 parameter_list|)
 block|{
@@ -208,12 +210,18 @@ comment|/**      * Convenience method      */
 DECL|method|getGenericFileEndpoint ()
 specifier|protected
 name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
 name|getGenericFileEndpoint
 parameter_list|()
 block|{
 return|return
 operator|(
 name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
 operator|)
 name|getEndpoint
 argument_list|()
@@ -231,12 +239,18 @@ throws|throws
 name|Exception
 block|{
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|fileExchange
 init|=
 operator|(
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 operator|)
-name|getEndpoint
+name|getGenericFileEndpoint
 argument_list|()
 operator|.
 name|createExchange
@@ -260,12 +274,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Perform the work to process the fileExchange      *      * @param exchange fileExchange      * @throws Exception is thrown if some error      */
-DECL|method|processExchange (GenericFileExchange exchange)
+DECL|method|processExchange (GenericFileExchange<T> exchange)
 specifier|protected
 name|void
 name|processExchange
 parameter_list|(
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|exchange
 parameter_list|)
 throws|throws
@@ -446,23 +463,6 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-name|InputStream
-name|payload
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|(
-name|InputStream
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-try|try
-block|{
 comment|// build directory
 name|int
 name|lastPathIndex
@@ -527,7 +527,7 @@ name|storeFile
 argument_list|(
 name|fileName
 argument_list|,
-name|payload
+name|exchange
 argument_list|)
 decl_stmt|;
 if|if
@@ -545,21 +545,6 @@ operator|+
 name|fileName
 argument_list|)
 throw|;
-block|}
-block|}
-finally|finally
-block|{
-name|ObjectHelper
-operator|.
-name|close
-argument_list|(
-name|payload
-argument_list|,
-literal|"Closing payload"
-argument_list|,
-name|log
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|createFileName (Exchange exchange)
@@ -730,6 +715,12 @@ condition|(
 name|getGenericFileEndpoint
 argument_list|()
 operator|.
+name|isDirectory
+argument_list|()
+operator|||
+name|getGenericFileEndpoint
+argument_list|()
+operator|.
 name|getConfiguration
 argument_list|()
 operator|.
@@ -737,8 +728,8 @@ name|isDirectory
 argument_list|()
 condition|)
 block|{
-comment|// If the path isn't empty, we need to add a trailing / if it isn't
-comment|// already there
+comment|// Its a directory so we should use it as a basepath for the filename
+comment|// If the path isn't empty, we need to add a trailing / if it isn't already there
 name|String
 name|baseDir
 init|=
@@ -754,6 +745,7 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|// TODO windows or unix slashes. Maybe we should replace all \ to /
 name|baseDir
 operator|=
 name|endpointFile
@@ -772,17 +764,27 @@ literal|"/"
 operator|)
 expr_stmt|;
 block|}
-name|String
-name|fileName
-init|=
-operator|(
+if|if
+condition|(
 name|name
 operator|!=
 literal|null
-operator|)
-condition|?
+condition|)
+block|{
+name|answer
+operator|=
+name|baseDir
+operator|+
 name|name
-else|:
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// use a generated filename if no name provided
+name|answer
+operator|=
+name|baseDir
+operator|+
 name|getGenericFileEndpoint
 argument_list|()
 operator|.
@@ -793,13 +795,8 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|)
-decl_stmt|;
-name|answer
-operator|=
-name|baseDir
-operator|+
-name|fileName
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

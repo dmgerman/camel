@@ -85,14 +85,21 @@ DECL|class|GenericFileExchange
 specifier|public
 class|class
 name|GenericFileExchange
+parameter_list|<
+name|T
+parameter_list|>
 extends|extends
 name|DefaultExchange
 block|{
 DECL|field|genericFile
 specifier|private
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|genericFile
 decl_stmt|;
+comment|// TODO: Consider removing some of he constructors
 DECL|method|GenericFileExchange (CamelContext context)
 specifier|public
 name|GenericFileExchange
@@ -154,7 +161,7 @@ name|fromEndpoint
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|GenericFileExchange (GenericFileEndpoint endpoint, ExchangePattern pattern, GenericFile genericFile)
+DECL|method|GenericFileExchange (GenericFileEndpoint endpoint, ExchangePattern pattern, GenericFile<T> genericFile)
 specifier|public
 name|GenericFileExchange
 parameter_list|(
@@ -165,6 +172,9 @@ name|ExchangePattern
 name|pattern
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|genericFile
 parameter_list|)
 block|{
@@ -175,13 +185,13 @@ argument_list|,
 name|pattern
 argument_list|)
 expr_stmt|;
-name|setRemoteFile
+name|setGenericFile
 argument_list|(
 name|genericFile
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|GenericFileExchange (DefaultExchange parent, GenericFile genericFile)
+DECL|method|GenericFileExchange (DefaultExchange parent, GenericFile<T> genericFile)
 specifier|public
 name|GenericFileExchange
 parameter_list|(
@@ -189,6 +199,9 @@ name|DefaultExchange
 name|parent
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|genericFile
 parameter_list|)
 block|{
@@ -197,7 +210,7 @@ argument_list|(
 name|parent
 argument_list|)
 expr_stmt|;
-name|setRemoteFile
+name|setGenericFile
 argument_list|(
 name|genericFile
 argument_list|)
@@ -222,12 +235,15 @@ name|pattern
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|populateHeaders (GenericFile genericFile)
+DECL|method|populateHeaders (GenericFile<T> genericFile)
 specifier|protected
 name|void
 name|populateHeaders
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|genericFile
 parameter_list|)
 block|{
@@ -387,6 +403,9 @@ block|}
 DECL|method|getGenericFile ()
 specifier|public
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|getGenericFile
 parameter_list|()
 block|{
@@ -394,12 +413,15 @@ return|return
 name|genericFile
 return|;
 block|}
-DECL|method|setRemoteFile (GenericFile genericFile)
+DECL|method|setGenericFile (GenericFile<T> genericFile)
 specifier|public
 name|void
-name|setRemoteFile
+name|setGenericFile
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|genericFile
 parameter_list|)
 block|{

@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|OutputStream
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -49,7 +39,6 @@ end_comment
 begin_class
 DECL|class|GenericFile
 specifier|public
-specifier|abstract
 class|class
 name|GenericFile
 parameter_list|<
@@ -88,18 +77,9 @@ name|file
 decl_stmt|;
 DECL|field|body
 specifier|private
-name|OutputStream
+name|Object
 name|body
 decl_stmt|;
-DECL|method|GenericFile ()
-specifier|public
-name|GenericFile
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|clone ()
@@ -139,8 +119,6 @@ argument_list|<
 name|T
 argument_list|>
 name|result
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -448,7 +426,7 @@ expr_stmt|;
 block|}
 DECL|method|getBody ()
 specifier|public
-name|OutputStream
+name|Object
 name|getBody
 parameter_list|()
 block|{
@@ -456,12 +434,12 @@ return|return
 name|body
 return|;
 block|}
-DECL|method|setBody (OutputStream os)
+DECL|method|setBody (Object os)
 specifier|public
 name|void
 name|setBody
 parameter_list|(
-name|OutputStream
+name|Object
 name|os
 parameter_list|)
 block|{
