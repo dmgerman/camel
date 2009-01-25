@@ -979,8 +979,7 @@ argument_list|()
 condition|)
 block|{
 comment|// only add to idempotent repository if we could process the file
-comment|// use file.getAbsoluteFileName as key for the idempotent repository
-comment|// to support files with same name but in different folders
+comment|// only use the filename as the key as the file could be moved into a done folder
 name|endpoint
 operator|.
 name|getIdempotentRepository
@@ -990,7 +989,7 @@ name|add
 argument_list|(
 name|file
 operator|.
-name|getAbsoluteFileName
+name|getFileName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1186,13 +1185,12 @@ name|contains
 argument_list|(
 name|file
 operator|.
-name|getAbsoluteFileName
+name|getFileName
 argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// use file.getAbsoluteFileName as key for the idempotent repository
-comment|// to support files with same name but in different folders
+comment|// only use the filename as the key as the file could be moved into a done folder
 if|if
 condition|(
 name|log

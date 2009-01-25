@@ -412,15 +412,8 @@ throws|throws
 name|IOException
 block|{
 comment|// deleting any existing files before renaming
-name|boolean
-name|deleted
-init|=
-literal|false
-decl_stmt|;
 try|try
 block|{
-name|deleted
-operator|=
 name|operations
 operator|.
 name|deleteFile
@@ -440,76 +433,42 @@ parameter_list|)
 block|{
 comment|// ignore the file does not exists
 block|}
-if|if
-condition|(
-operator|!
-name|deleted
-condition|)
-block|{
-comment|// if we could not delete any existing file then maybe the folder is missing
-comment|// build folder if needed
+comment|// make parent folder if missing
 name|String
-name|name
+name|parent
 init|=
 name|to
 operator|.
-name|getAbsoluteFileName
+name|getParent
 argument_list|()
 decl_stmt|;
-name|int
-name|lastPathIndex
+name|boolean
+name|mkdir
 init|=
-name|name
-operator|.
-name|lastIndexOf
-argument_list|(
-literal|'/'
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|lastPathIndex
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-name|String
-name|directory
-init|=
-name|name
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-name|lastPathIndex
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
 name|operations
 operator|.
 name|buildDirectory
 argument_list|(
-name|directory
+name|parent
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|mkdir
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
 argument_list|(
-literal|"Cannot build directory: "
+literal|"Cannot create directory: "
 operator|+
-name|directory
+name|parent
 operator|+
-literal|" (maybe because of denied permissions)"
+literal|" (could be because of denied permissions)"
 argument_list|)
-expr_stmt|;
-block|}
-block|}
+throw|;
 block|}
 if|if
 condition|(

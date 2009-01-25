@@ -89,7 +89,7 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"target/idempotent"
+literal|"target/file-batch"
 argument_list|)
 expr_stmt|;
 name|template

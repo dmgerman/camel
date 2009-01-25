@@ -178,6 +178,7 @@ specifier|private
 name|long
 name|timeout
 decl_stmt|;
+comment|// TODO: We shall keep this with the GenericFileXX to support FileLock for java.io.File
 DECL|method|acquireExclusiveReadLock (File file)
 specifier|public
 name|boolean

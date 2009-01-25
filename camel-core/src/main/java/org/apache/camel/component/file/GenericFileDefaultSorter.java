@@ -71,19 +71,19 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default remote file sorter.  */
+comment|/**  * Default file sorter.  */
 end_comment
 
 begin_class
-DECL|class|GenericDefaultFileSorter
+DECL|class|GenericFileDefaultSorter
 specifier|public
 specifier|final
 class|class
-name|GenericDefaultFileSorter
+name|GenericFileDefaultSorter
 block|{
-DECL|method|GenericDefaultFileSorter ()
+DECL|method|GenericFileDefaultSorter ()
 specifier|private
-name|GenericDefaultFileSorter
+name|GenericFileDefaultSorter
 parameter_list|()
 block|{     }
 comment|/**      * Returns a new sort by name      */

@@ -509,7 +509,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Couldn't build directory: "
+literal|"Can not build directory: "
 operator|+
 name|directory
 operator|+

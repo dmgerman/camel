@@ -1148,12 +1148,11 @@ name|contains
 argument_list|(
 name|file
 operator|.
-name|getPath
+name|getName
 argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// use file.getPath as key for the idempotent repository to support files with same name but in different folders
 if|if
 condition|(
 name|LOG

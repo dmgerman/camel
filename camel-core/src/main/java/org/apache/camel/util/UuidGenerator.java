@@ -273,7 +273,10 @@ expr_stmt|;
 block|}
 name|UNIQUE_STUB
 operator|=
+name|generateSanitizedId
+argument_list|(
 name|stub
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|UuidGenerator (String prefix)
@@ -293,6 +296,8 @@ name|this
 operator|.
 name|seed
 operator|=
+name|generateSanitizedId
+argument_list|(
 name|prefix
 operator|+
 name|UNIQUE_STUB
@@ -303,6 +308,7 @@ operator|++
 operator|)
 operator|+
 literal|"-"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -407,6 +413,28 @@ operator|.
 name|replace
 argument_list|(
 literal|'.'
+argument_list|,
+literal|'-'
+argument_list|)
+expr_stmt|;
+name|id
+operator|=
+name|id
+operator|.
+name|replace
+argument_list|(
+literal|'/'
+argument_list|,
+literal|'-'
+argument_list|)
+expr_stmt|;
+name|id
+operator|=
+name|id
+operator|.
+name|replace
+argument_list|(
+literal|'\\'
 argument_list|,
 literal|'-'
 argument_list|)

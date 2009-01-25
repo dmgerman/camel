@@ -413,7 +413,7 @@ argument_list|)
 expr_stmt|;
 comment|// recursive add nested sorters
 return|return
-name|GenericDefaultFileSorter
+name|GenericFileDefaultSorter
 operator|.
 name|sortByFileLanguage
 argument_list|(
