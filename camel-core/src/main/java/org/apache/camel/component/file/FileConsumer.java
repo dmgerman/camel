@@ -957,7 +957,6 @@ argument_list|()
 condition|)
 block|{
 comment|// only add to idempotent repository if we could process the file
-comment|// use file.getPath as key for the idempotent repository to support files with same name but in different folders
 name|endpoint
 operator|.
 name|getIdempotentRepository
@@ -967,7 +966,7 @@ name|add
 argument_list|(
 name|file
 operator|.
-name|getPath
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
