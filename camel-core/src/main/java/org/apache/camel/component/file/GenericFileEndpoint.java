@@ -758,13 +758,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: remove me this new factory is listed in the MET-INF file
-name|factory
-operator|=
-name|GenericFileProcessStrategyFactory
-operator|.
-name|class
-expr_stmt|;
 if|if
 condition|(
 name|factory
