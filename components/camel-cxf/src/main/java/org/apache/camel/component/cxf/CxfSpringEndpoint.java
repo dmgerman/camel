@@ -869,6 +869,22 @@ expr_stmt|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+DECL|method|setBeanId (String id)
+specifier|public
+name|void
+name|setBeanId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beanId
+operator|=
+name|id
+expr_stmt|;
+block|}
 DECL|method|setServiceNamespace (String serviceNamespace)
 specifier|public
 name|void

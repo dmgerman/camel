@@ -369,7 +369,7 @@ literal|"The CxfEndpoint instance is null"
 argument_list|)
 throw|;
 block|}
-comment|//CamelContext
+comment|// CamelContext
 name|SpringCamelContext
 name|context
 init|=
@@ -383,6 +383,7 @@ name|getApplicationContext
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// The beanId will be set from endpointBean's property
 name|Endpoint
 name|answer
 init|=
