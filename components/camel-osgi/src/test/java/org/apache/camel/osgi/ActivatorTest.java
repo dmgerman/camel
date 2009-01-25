@@ -191,15 +191,15 @@ operator|.
 name|findTypeConverterPackageNames
 argument_list|()
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"We should find three converter package here"
-argument_list|,
-literal|3
+literal|"We should find some converter packages here"
 argument_list|,
 name|packages
 operator|.
 name|length
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertTrue
