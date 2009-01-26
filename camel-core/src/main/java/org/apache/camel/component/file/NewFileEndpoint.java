@@ -68,6 +68,20 @@ name|MemoryIdempotentRepository
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -128,6 +142,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|operations
+argument_list|,
+literal|"operations"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|file
+argument_list|,
+literal|"file"
+argument_list|)
+expr_stmt|;
 name|NewFileConsumer
 name|result
 init|=
@@ -246,6 +278,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|operations
+argument_list|,
+literal|"operations"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|GenericFileProducer
@@ -316,17 +357,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|getUriProtocol ()
-specifier|protected
-name|String
-name|getUriProtocol
-parameter_list|()
-block|{
-comment|// TODO: should be "file" when its ready
-return|return
-literal|"newfile"
-return|;
-block|}
 DECL|method|getOperations ()
 specifier|public
 name|NewFileOperations
@@ -378,6 +408,19 @@ name|file
 operator|=
 name|file
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getScheme ()
+specifier|public
+name|String
+name|getScheme
+parameter_list|()
+block|{
+comment|// TODO change to file when this is ready
+return|return
+literal|"newfile"
+return|;
 block|}
 block|}
 end_class

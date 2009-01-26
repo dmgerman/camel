@@ -24,7 +24,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|InputStream
 import|;
 end_import
 
@@ -306,6 +306,8 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|String
 name|target
 init|=
@@ -314,6 +316,9 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+name|preWriteCheck
+argument_list|()
+expr_stmt|;
 comment|// should we write to a temporary name and then afterwards rename to real target
 name|boolean
 name|writeAsTempAndRename
@@ -383,20 +388,23 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Renaming file: "
+literal|"Renaming file: ["
 operator|+
 name|tempTarget
 operator|+
-literal|" to: "
+literal|"] to: ["
 operator|+
 name|target
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
 name|boolean
 name|renamed
 init|=
-name|operations
+name|getOperations
+argument_list|()
 operator|.
 name|renameFile
 argument_list|(
@@ -426,7 +434,8 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// lets store the name we really used in the header, so end-users can retrieve it
+comment|// lets store the name we really used in the header, so end-users
+comment|// can retrieve it
 name|exchange
 operator|.
 name|getIn
@@ -442,19 +451,61 @@ name|target
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|handleFailedWrite
+argument_list|(
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * If we fail writing out a file, we will call this method. This hook is      * provided to disconnect from servers or clean up files we created (if needed).      */
+DECL|method|handleFailedWrite (GenericFileExchange<T> exchange, Exception exception)
+specifier|protected
+name|void
+name|handleFailedWrite
+parameter_list|(
+name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
+name|exchange
+parameter_list|,
+name|Exception
+name|exception
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+throw|throw
+name|exception
+throw|;
+block|}
 comment|/**      * Perform any actions that need to occur before we write Such as connecting      * to an FTP server etc.      */
 DECL|method|preWriteCheck ()
 specifier|protected
 name|void
 name|preWriteCheck
 parameter_list|()
+throws|throws
+name|Exception
 block|{     }
-DECL|method|writeFile (Exchange exchange, String fileName)
+DECL|method|writeFile (GenericFileExchange<T> exchange, String fileName)
 specifier|protected
 name|void
 name|writeFile
 parameter_list|(
-name|Exchange
+name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|exchange
 parameter_list|,
 name|String
@@ -462,6 +513,23 @@ name|fileName
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
+block|{
+name|InputStream
+name|payload
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|InputStream
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+try|try
 block|{
 comment|// build directory
 name|int
@@ -497,7 +565,8 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|operations
+name|getOperations
+argument_list|()
 operator|.
 name|buildDirectory
 argument_list|(
@@ -509,19 +578,50 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Can not build directory: "
+literal|"Couldn't build directory ["
 operator|+
 name|directory
 operator|+
-literal|" (could be because of denied permissions)"
+literal|"] (could be because of denied permissions)"
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// upload
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"About to write ["
+operator|+
+name|fileName
+operator|+
+literal|"] to ["
+operator|+
+name|getEndpoint
+argument_list|()
+operator|+
+literal|"] from exchange ["
+operator|+
+name|exchange
+operator|+
+literal|"]"
+argument_list|)
+expr_stmt|;
+block|}
 name|boolean
 name|success
 init|=
-name|operations
+name|getOperations
+argument_list|()
 operator|.
 name|storeFile
 argument_list|(
@@ -540,11 +640,53 @@ throw|throw
 operator|new
 name|GenericFileOperationFailedException
 argument_list|(
-literal|"Error writing file: "
+literal|"Error writing file ["
 operator|+
 name|fileName
+operator|+
+literal|"]"
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Wrote ["
+operator|+
+name|fileName
+operator|+
+literal|"] to ["
+operator|+
+name|getEndpoint
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|ObjectHelper
+operator|.
+name|close
+argument_list|(
+name|payload
+argument_list|,
+literal|"Closing payload"
+argument_list|,
+name|log
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|createFileName (Exchange exchange)
@@ -882,69 +1024,19 @@ argument_list|()
 return|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
+comment|/**      * @return the operations      */
+DECL|method|getOperations ()
+specifier|public
+name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
+name|getOperations
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Starting"
-argument_list|)
-expr_stmt|;
-block|}
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Stopping"
-argument_list|)
-expr_stmt|;
-block|}
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
+return|return
+name|operations
+return|;
 block|}
 block|}
 end_class

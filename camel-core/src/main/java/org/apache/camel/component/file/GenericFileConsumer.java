@@ -535,6 +535,8 @@ specifier|protected
 name|void
 name|prePollCheck
 parameter_list|()
+throws|throws
+name|Exception
 block|{     }
 comment|/**      * Polls the given directory for files to process      *      * @param fileName current directory or file      * @param fileList current list of files gathered      */
 DECL|method|pollDirectory (String fileName, List<GenericFile<T>> fileList)
@@ -706,11 +708,6 @@ name|operations
 operator|.
 name|retrieveFile
 argument_list|(
-name|target
-operator|.
-name|getFile
-argument_list|()
-argument_list|,
 name|name
 argument_list|,
 name|exchange

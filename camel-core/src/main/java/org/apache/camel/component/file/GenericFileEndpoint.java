@@ -580,12 +580,11 @@ argument_list|>
 name|file
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the first portion of the "protocol" in use. We use this so we can      * look back into the META-INF protocol file to locate the default strategy      */
-DECL|method|getUriProtocol ()
-specifier|protected
+DECL|method|getScheme ()
+specifier|public
 specifier|abstract
 name|String
-name|getUriProtocol
+name|getScheme
 parameter_list|()
 function_decl|;
 comment|/**      * Return the file name that will be auto-generated for the given message if      * none is provided      */
@@ -701,7 +700,7 @@ name|finder
 operator|.
 name|findClass
 argument_list|(
-name|getUriProtocol
+name|getScheme
 argument_list|()
 argument_list|,
 literal|"strategy.factory."
@@ -1685,12 +1684,15 @@ literal|null
 return|;
 block|}
 comment|/**      * Configures the given message with the file which sets the body to the      * file object and sets the {@link FileComponent#HEADER_FILE_NAME} header.      */
-DECL|method|configureMessage (GenericFile file, Message message)
+DECL|method|configureMessage (GenericFile<T> file, Message message)
 specifier|public
 name|void
 name|configureMessage
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|,
 name|Message

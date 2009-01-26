@@ -128,18 +128,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|InvalidPayloadException
 import|;
 end_import
@@ -238,13 +226,22 @@ specifier|final
 name|NewFileEndpoint
 name|endpoint
 decl_stmt|;
-DECL|method|NewFileOperations (final NewFileEndpoint endpoint)
+comment|// this is our filehandle to the filesystem
+DECL|field|currentFile
+specifier|private
+name|File
+name|currentFile
+decl_stmt|;
+DECL|method|NewFileOperations (final NewFileEndpoint endpoint, File fileHandle)
 specifier|public
 name|NewFileOperations
 parameter_list|(
 specifier|final
 name|NewFileEndpoint
 name|endpoint
+parameter_list|,
+name|File
+name|fileHandle
 parameter_list|)
 block|{
 name|this
@@ -252,6 +249,12 @@ operator|.
 name|endpoint
 operator|=
 name|endpoint
+expr_stmt|;
+name|this
+operator|.
+name|currentFile
+operator|=
+name|fileHandle
 expr_stmt|;
 block|}
 DECL|method|deleteFile (String name)
@@ -406,6 +409,65 @@ name|path
 argument_list|)
 return|;
 block|}
+DECL|method|listFiles ()
+specifier|public
+name|List
+argument_list|<
+name|File
+argument_list|>
+name|listFiles
+parameter_list|()
+throws|throws
+name|GenericFileOperationFailedException
+block|{
+return|return
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|this
+operator|.
+name|currentFile
+operator|.
+name|listFiles
+argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|method|listFiles (String path)
+specifier|public
+name|List
+argument_list|<
+name|File
+argument_list|>
+name|listFiles
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+throws|throws
+name|GenericFileOperationFailedException
+block|{
+return|return
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|this
+operator|.
+name|currentFile
+argument_list|,
+name|path
+argument_list|)
+operator|.
+name|listFiles
+argument_list|()
+argument_list|)
+return|;
+block|}
 DECL|method|listFiles (File file)
 specifier|public
 name|List
@@ -460,18 +522,18 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|retrieveFile (File file, String name, Exchange exchange)
+DECL|method|retrieveFile (String name, GenericFileExchange<File> exchange)
 specifier|public
 name|boolean
 name|retrieveFile
 parameter_list|(
-name|File
-name|file
-parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|Exchange
+name|GenericFileExchange
+argument_list|<
+name|File
+argument_list|>
 name|exchange
 parameter_list|)
 throws|throws
@@ -481,7 +543,7 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|storeFile (String name, Exchange exchange)
+DECL|method|storeFile (String name, GenericFileExchange<File> exchange)
 specifier|public
 name|boolean
 name|storeFile
@@ -489,7 +551,10 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Exchange
+name|GenericFileExchange
+argument_list|<
+name|File
+argument_list|>
 name|exchange
 parameter_list|)
 throws|throws
@@ -970,6 +1035,50 @@ expr_stmt|;
 block|}
 return|return
 name|out
+return|;
+block|}
+DECL|method|changeCurrentDirectory (String path)
+specifier|public
+name|void
+name|changeCurrentDirectory
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+throws|throws
+name|GenericFileOperationFailedException
+block|{
+name|this
+operator|.
+name|currentFile
+operator|=
+operator|new
+name|File
+argument_list|(
+name|this
+operator|.
+name|currentFile
+argument_list|,
+name|path
+argument_list|)
+operator|.
+name|getAbsoluteFile
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|getCurrentDirectory ()
+specifier|public
+name|String
+name|getCurrentDirectory
+parameter_list|()
+throws|throws
+name|GenericFileOperationFailedException
+block|{
+return|return
+name|currentFile
+operator|.
+name|getAbsolutePath
+argument_list|()
 return|;
 block|}
 block|}

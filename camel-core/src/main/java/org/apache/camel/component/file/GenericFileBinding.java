@@ -31,8 +31,8 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
+comment|/**      * Gets the body of the file      *      * @param file the file      * @return the body      */
 DECL|method|getBody (GenericFile<T> file)
-specifier|public
 name|Object
 name|getBody
 parameter_list|(
@@ -43,8 +43,8 @@ argument_list|>
 name|file
 parameter_list|)
 function_decl|;
+comment|/**      * Sets the body from the given file      *      * @param file the file      * @param body the body      */
 DECL|method|setBody (GenericFile<T> file, Object body)
-specifier|public
 name|void
 name|setBody
 parameter_list|(

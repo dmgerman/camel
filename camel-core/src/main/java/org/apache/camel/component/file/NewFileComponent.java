@@ -171,6 +171,8 @@ operator|new
 name|NewFileOperations
 argument_list|(
 name|result
+argument_list|,
+name|file
 argument_list|)
 decl_stmt|;
 name|result
