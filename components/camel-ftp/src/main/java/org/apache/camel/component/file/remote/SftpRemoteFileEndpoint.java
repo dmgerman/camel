@@ -22,17 +22,13 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|apache
+name|jcraft
 operator|.
-name|camel
+name|jsch
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|GenericFileOperationFailedException
+name|ChannelSftp
 import|;
 end_import
 
@@ -44,61 +40,97 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|GenericFileOperations
+name|Processor
 import|;
 end_import
 
-begin_comment
-comment|/**  * Remote file operations based on some backing framework  */
-end_comment
-
-begin_interface
-DECL|interface|RemoteFileOperations
+begin_class
+DECL|class|SftpRemoteFileEndpoint
 specifier|public
-interface|interface
-name|RemoteFileOperations
-parameter_list|<
-name|T
-parameter_list|>
+class|class
+name|SftpRemoteFileEndpoint
 extends|extends
-name|GenericFileOperations
+name|RemoteFileEndpoint
 argument_list|<
-name|T
+name|ChannelSftp
+operator|.
+name|LsEntry
 argument_list|>
 block|{
-comment|/**      * Connects to the remote server      *      * @param configuration configuraiton      * @return true if connected      * @throws GenericFileOperationFailedException      *          can be thrown      */
-DECL|method|connect (RemoteFileConfiguration configuration)
-name|boolean
-name|connect
+DECL|method|SftpRemoteFileEndpoint (String uri, SftpRemoteFileComponent component, RemoteFileOperations<ChannelSftp.LsEntry> operations, RemoteFileConfiguration configuration)
+specifier|public
+name|SftpRemoteFileEndpoint
 parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|SftpRemoteFileComponent
+name|component
+parameter_list|,
+name|RemoteFileOperations
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
+name|operations
+parameter_list|,
 name|RemoteFileConfiguration
 name|configuration
 parameter_list|)
-throws|throws
-name|GenericFileOperationFailedException
-function_decl|;
-comment|/**      * Returns whether we are connected to the remote server or not      *      * @return true if connected, false if not      * @throws GenericFileOperationFailedException      *          can be thrown      */
-DECL|method|isConnected ()
-name|boolean
-name|isConnected
-parameter_list|()
-throws|throws
-name|GenericFileOperationFailedException
-function_decl|;
-comment|/**      * Discconects from the remote server      *      * @throws GenericFileOperationFailedException      *          can be thrown      */
-DECL|method|disconnect ()
-name|void
-name|disconnect
-parameter_list|()
-throws|throws
-name|GenericFileOperationFailedException
-function_decl|;
+block|{
+name|super
+argument_list|(
+name|uri
+argument_list|,
+name|component
+argument_list|,
+name|operations
+argument_list|,
+name|configuration
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+annotation|@
+name|Override
+DECL|method|buildConsumer (Processor processor, RemoteFileOperations operations)
+specifier|protected
+name|RemoteFileConsumer
+name|buildConsumer
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
+name|RemoteFileOperations
+name|operations
+parameter_list|)
+block|{
+return|return
+operator|new
+name|SftpConsumer
+argument_list|(
+name|this
+argument_list|,
+name|processor
+argument_list|,
+name|operations
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getScheme ()
+specifier|public
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+literal|"sftp"
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

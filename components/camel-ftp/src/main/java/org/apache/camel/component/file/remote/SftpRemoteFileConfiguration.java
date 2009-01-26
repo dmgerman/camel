@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.remote.strategy
+DECL|package|org.apache.camel.component.file.remote
 package|package
 name|org
 operator|.
@@ -17,71 +17,71 @@ operator|.
 name|file
 operator|.
 name|remote
-operator|.
-name|strategy
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|net
 operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|remote
-operator|.
-name|RemoteFile
+name|URI
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|remote
-operator|.
-name|RemoteFileExchange
-import|;
-end_import
-
-begin_comment
-comment|/**  * Used for renaming files.  */
-end_comment
-
-begin_interface
-DECL|interface|RemoteFileRenamer
+begin_class
+DECL|class|SftpRemoteFileConfiguration
 specifier|public
-interface|interface
-name|RemoteFileRenamer
+class|class
+name|SftpRemoteFileConfiguration
+extends|extends
+name|RemoteFileConfiguration
 block|{
-comment|/**      * Renames the given file      *      * @param exchange  the exchange      * @param file      the original file.      * @return the renamed file name.      */
-DECL|method|renameFile (RemoteFileExchange exchange, RemoteFile file)
-name|RemoteFile
-name|renameFile
+DECL|field|DEFAULT_SFTP_PORT
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_SFTP_PORT
+init|=
+literal|22
+decl_stmt|;
+DECL|method|SftpRemoteFileConfiguration ()
+specifier|public
+name|SftpRemoteFileConfiguration
+parameter_list|()
+block|{     }
+DECL|method|SftpRemoteFileConfiguration (URI uri)
+specifier|public
+name|SftpRemoteFileConfiguration
 parameter_list|(
-name|RemoteFileExchange
-name|exchange
-parameter_list|,
-name|RemoteFile
-name|file
+name|URI
+name|uri
 parameter_list|)
-function_decl|;
+block|{
+name|super
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+annotation|@
+name|Override
+DECL|method|setDefaultPort ()
+specifier|protected
+name|void
+name|setDefaultPort
+parameter_list|()
+block|{
+name|setPort
+argument_list|(
+name|DEFAULT_SFTP_PORT
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

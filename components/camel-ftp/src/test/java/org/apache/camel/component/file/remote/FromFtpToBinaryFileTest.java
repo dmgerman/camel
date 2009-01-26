@@ -173,7 +173,7 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"./res/home"
+name|FTP_ROOT_DIR
 argument_list|)
 expr_stmt|;
 name|prepareFtpServer

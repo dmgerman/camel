@@ -97,7 +97,9 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./res/home/"
+name|FTP_ROOT_DIR
+operator|+
+literal|""
 argument_list|)
 expr_stmt|;
 name|template
@@ -122,7 +124,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./res/home/upload/user/claus/claus.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"upload/user/claus/claus.txt"
 argument_list|)
 decl_stmt|;
 name|file

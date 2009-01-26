@@ -268,7 +268,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"res/home/filelanguage/backup/"
+name|FTP_ROOT_DIR
+operator|+
+literal|"filelanguage/backup/"
 operator|+
 name|now
 operator|+

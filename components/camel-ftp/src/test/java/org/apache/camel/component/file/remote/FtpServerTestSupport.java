@@ -129,6 +129,16 @@ name|FtpServerTestSupport
 extends|extends
 name|ContextTestSupport
 block|{
+comment|// TODO: Figure out to set the home dir of the ftpServer from java
+DECL|field|FTP_ROOT_DIR
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FTP_ROOT_DIR
+init|=
+literal|"./res/home/"
+decl_stmt|;
 DECL|field|ftpServer
 specifier|protected
 name|FtpServer

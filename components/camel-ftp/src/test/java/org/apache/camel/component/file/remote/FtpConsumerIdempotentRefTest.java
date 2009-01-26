@@ -354,7 +354,7 @@ name|key
 parameter_list|)
 block|{
 return|return
-literal|false
+name|invoked
 return|;
 block|}
 block|}

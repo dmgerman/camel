@@ -50,6 +50,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFile
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -83,8 +99,11 @@ class|class
 name|FtpConsumer
 extends|extends
 name|RemoteFileConsumer
+argument_list|<
+name|FTPFile
+argument_list|>
 block|{
-DECL|method|FtpConsumer (RemoteFileEndpoint endpoint, Processor processor, RemoteFileOperations ftp)
+DECL|method|FtpConsumer (RemoteFileEndpoint endpoint, Processor processor, RemoteFileOperations fileOperations)
 specifier|public
 name|FtpConsumer
 parameter_list|(
@@ -95,7 +114,7 @@ name|Processor
 name|processor
 parameter_list|,
 name|RemoteFileOperations
-name|ftp
+name|fileOperations
 parameter_list|)
 block|{
 name|super
@@ -104,11 +123,11 @@ name|endpoint
 argument_list|,
 name|processor
 argument_list|,
-name|ftp
+name|fileOperations
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|pollDirectory (String fileName, List<RemoteFile> fileList)
+DECL|method|pollDirectory (String fileName, List<GenericFile<FTPFile>> fileList)
 specifier|protected
 name|void
 name|pollDirectory
@@ -118,7 +137,10 @@ name|fileName
 parameter_list|,
 name|List
 argument_list|<
-name|RemoteFile
+name|GenericFile
+argument_list|<
+name|FTPFile
+argument_list|>
 argument_list|>
 name|fileList
 parameter_list|)
@@ -300,7 +322,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|pollFile (String fileName, List<RemoteFile> fileList)
+DECL|method|pollFile (String fileName, List<GenericFile<FTPFile>> fileList)
 specifier|protected
 name|void
 name|pollFile
@@ -310,7 +332,10 @@ name|fileName
 parameter_list|,
 name|List
 argument_list|<
-name|RemoteFile
+name|GenericFile
+argument_list|<
+name|FTPFile
+argument_list|>
 argument_list|>
 name|fileList
 parameter_list|)
@@ -364,6 +389,16 @@ argument_list|(
 name|fileName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|list
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|FTPFile
 name|file
 init|=
@@ -382,6 +417,9 @@ literal|null
 condition|)
 block|{
 name|RemoteFile
+argument_list|<
+name|FTPFile
+argument_list|>
 name|remoteFile
 init|=
 name|asRemoteFile
@@ -407,6 +445,30 @@ operator|.
 name|add
 argument_list|(
 name|remoteFile
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Polled ["
+operator|+
+name|fileName
+operator|+
+literal|"]. No files found"
 argument_list|)
 expr_stmt|;
 block|}
@@ -495,10 +557,15 @@ name|remote
 operator|.
 name|setHostname
 argument_list|(
+operator|(
+operator|(
+name|RemoteFileConfiguration
+operator|)
 name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
+operator|)
 operator|.
 name|getHost
 argument_list|()
@@ -529,7 +596,7 @@ argument_list|()
 decl_stmt|;
 name|remote
 operator|.
-name|setAbsolutelFileName
+name|setAbsoluteFileName
 argument_list|(
 name|absoluteFileName
 argument_list|)

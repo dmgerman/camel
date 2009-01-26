@@ -30,7 +30,7 @@ specifier|public
 interface|interface
 name|RemoteFileExclusiveReadLockStrategy
 block|{
-comment|/**      * Acquires exclusive read lock to the file.      *      * @param operations remote file operations      * @param file the remote file      * @return<tt>true</tt> if read lock was acquired. If<tt>false</tt> Camel will skip the file and      *         try it on the next poll      */
+comment|/**      * Acquires exclusive read lock to the file.      *      * @param operations remote file operations      * @param file       the remote file      * @return<tt>true</tt> if read lock was acquired. If<tt>false</tt> Camel will skip the file and      *         try it on the next poll      */
 DECL|method|acquireExclusiveReadLock (RemoteFileOperations operations, RemoteFile file)
 name|boolean
 name|acquireExclusiveReadLock

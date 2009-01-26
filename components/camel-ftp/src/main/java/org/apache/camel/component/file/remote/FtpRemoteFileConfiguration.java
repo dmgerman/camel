@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.remote.strategy
+DECL|package|org.apache.camel.component.file.remote
 package|package
 name|org
 operator|.
@@ -17,19 +17,70 @@ operator|.
 name|file
 operator|.
 name|remote
-operator|.
-name|strategy
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
 begin_class
-DECL|class|NoOpRemoteFileProcessStrategy
+DECL|class|FtpRemoteFileConfiguration
 specifier|public
 class|class
-name|NoOpRemoteFileProcessStrategy
+name|FtpRemoteFileConfiguration
 extends|extends
-name|RemoteFileProcessStrategySupport
-block|{  }
+name|RemoteFileConfiguration
+block|{
+DECL|field|DEFAULT_FTP_PORT
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_FTP_PORT
+init|=
+literal|21
+decl_stmt|;
+DECL|method|FtpRemoteFileConfiguration ()
+specifier|public
+name|FtpRemoteFileConfiguration
+parameter_list|()
+block|{     }
+DECL|method|FtpRemoteFileConfiguration (URI uri)
+specifier|public
+name|FtpRemoteFileConfiguration
+parameter_list|(
+name|URI
+name|uri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setDefaultPort ()
+specifier|protected
+name|void
+name|setDefaultPort
+parameter_list|()
+block|{
+name|setPort
+argument_list|(
+name|DEFAULT_FTP_PORT
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 end_class
 
 end_unit

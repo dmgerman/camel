@@ -144,7 +144,9 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"res/home/filelanguage"
+name|FTP_ROOT_DIR
+operator|+
+literal|"filelanguage"
 argument_list|)
 expr_stmt|;
 name|deleteDirectory
@@ -215,7 +217,9 @@ argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"res/home/filelanguage/123.bak"
+name|FTP_ROOT_DIR
+operator|+
+literal|"filelanguage/123.bak"
 argument_list|)
 expr_stmt|;
 block|}
@@ -252,7 +256,9 @@ argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"res/home/filelanguage/123.bak"
+name|FTP_ROOT_DIR
+operator|+
+literal|"filelanguage/123.bak"
 argument_list|)
 expr_stmt|;
 block|}
@@ -305,7 +311,9 @@ argument_list|)
 decl_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"res/home/filelanguage/myfile-"
+name|FTP_ROOT_DIR
+operator|+
+literal|"filelanguage/myfile-"
 operator|+
 name|date
 operator|+
@@ -358,7 +366,9 @@ argument_list|)
 decl_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"res/home/filelanguage/myfile-"
+name|FTP_ROOT_DIR
+operator|+
+literal|"filelanguage/myfile-"
 operator|+
 name|date
 operator|+
@@ -418,7 +428,9 @@ argument_list|)
 decl_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"res/home/filelanguageinbox/myfile-123-"
+name|FTP_ROOT_DIR
+operator|+
+literal|"filelanguageinbox/myfile-123-"
 operator|+
 name|date
 operator|+
@@ -459,7 +471,9 @@ argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"res/home/filelanguage/myfile-abc.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"filelanguage/myfile-abc.txt"
 argument_list|)
 expr_stmt|;
 block|}
@@ -525,7 +539,9 @@ argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"res/home/filelanguage/mybirthday-19740420.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"filelanguage/mybirthday-19740420.txt"
 argument_list|)
 expr_stmt|;
 block|}

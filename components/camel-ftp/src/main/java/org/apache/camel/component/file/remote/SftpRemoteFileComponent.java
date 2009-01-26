@@ -22,13 +22,33 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|net
 operator|.
-name|camel
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|CamelContext
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|jcraft
+operator|.
+name|jsch
+operator|.
+name|ChannelSftp
 import|;
 end_import
 
@@ -40,11 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|GenericFileComponent
+name|CamelContext
 import|;
 end_import
 
@@ -65,36 +81,34 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for remote file components. Polling and consuming files from  * (logically) remote locations  *  * @param<T> the type of file that these remote endpoints provide  */
+comment|/**  * SFTP Remote File Component  */
 end_comment
 
 begin_class
-DECL|class|RemoteFileComponent
+DECL|class|SftpRemoteFileComponent
 specifier|public
-specifier|abstract
 class|class
-name|RemoteFileComponent
-parameter_list|<
-name|T
-parameter_list|>
+name|SftpRemoteFileComponent
 extends|extends
-name|GenericFileComponent
+name|RemoteFileComponent
 argument_list|<
-name|T
+name|ChannelSftp
+operator|.
+name|LsEntry
 argument_list|>
 block|{
-DECL|method|RemoteFileComponent ()
+DECL|method|SftpRemoteFileComponent ()
 specifier|public
-name|RemoteFileComponent
+name|SftpRemoteFileComponent
 parameter_list|()
 block|{
 name|super
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|RemoteFileComponent (CamelContext context)
+DECL|method|SftpRemoteFileComponent (CamelContext context)
 specifier|public
-name|RemoteFileComponent
+name|SftpRemoteFileComponent
 parameter_list|(
 name|CamelContext
 name|context
@@ -108,21 +122,95 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|afterPropertiesSet (GenericFileEndpoint<T> endpoint)
+DECL|method|buildFileEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
-name|void
-name|afterPropertiesSet
-parameter_list|(
 name|GenericFileEndpoint
 argument_list|<
-name|T
+name|ChannelSftp
+operator|.
+name|LsEntry
 argument_list|>
-name|endpoint
+name|buildFileEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Map
+name|parameters
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// noop
+comment|// get the uri part before the options as they can be non URI valid such
+comment|// as the expression using $ chars
+if|if
+condition|(
+name|uri
+operator|.
+name|indexOf
+argument_list|(
+literal|"?"
+argument_list|)
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+name|uri
+operator|=
+name|uri
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|uri
+operator|.
+name|indexOf
+argument_list|(
+literal|"?"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// lets make sure we create a new configuration as each endpoint can
+comment|// customize its own version
+name|SftpRemoteFileConfiguration
+name|config
+init|=
+operator|new
+name|SftpRemoteFileConfiguration
+argument_list|(
+operator|new
+name|URI
+argument_list|(
+name|uri
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|SftpRemoteFileOperations
+name|operations
+init|=
+operator|new
+name|SftpRemoteFileOperations
+argument_list|()
+decl_stmt|;
+return|return
+operator|new
+name|SftpRemoteFileEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|this
+argument_list|,
+name|operations
+argument_list|,
+name|config
+argument_list|)
+return|;
 block|}
 block|}
 end_class

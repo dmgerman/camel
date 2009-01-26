@@ -22,6 +22,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -44,7 +64,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|GenericFileComponent
+name|GenericFileEndpoint
 import|;
 end_import
 
@@ -54,47 +74,43 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|commons
 operator|.
-name|component
+name|net
 operator|.
-name|file
+name|ftp
 operator|.
-name|GenericFileEndpoint
+name|FTPFile
 import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for remote file components. Polling and consuming files from  * (logically) remote locations  *  * @param<T> the type of file that these remote endpoints provide  */
+comment|/**  * Standard FTP Remote File Component  */
 end_comment
 
 begin_class
-DECL|class|RemoteFileComponent
+DECL|class|FtpRemoteFileComponent
 specifier|public
-specifier|abstract
 class|class
-name|RemoteFileComponent
-parameter_list|<
-name|T
-parameter_list|>
+name|FtpRemoteFileComponent
 extends|extends
-name|GenericFileComponent
+name|RemoteFileComponent
 argument_list|<
-name|T
+name|FTPFile
 argument_list|>
 block|{
-DECL|method|RemoteFileComponent ()
+DECL|method|FtpRemoteFileComponent ()
 specifier|public
-name|RemoteFileComponent
+name|FtpRemoteFileComponent
 parameter_list|()
 block|{
 name|super
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|RemoteFileComponent (CamelContext context)
+DECL|method|FtpRemoteFileComponent (CamelContext context)
 specifier|public
-name|RemoteFileComponent
+name|FtpRemoteFileComponent
 parameter_list|(
 name|CamelContext
 name|context
@@ -108,21 +124,93 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|afterPropertiesSet (GenericFileEndpoint<T> endpoint)
+DECL|method|buildFileEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
-name|void
-name|afterPropertiesSet
-parameter_list|(
 name|GenericFileEndpoint
 argument_list|<
-name|T
+name|FTPFile
 argument_list|>
-name|endpoint
+name|buildFileEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Map
+name|parameters
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// noop
+comment|// get the uri part before the options as they can be non URI valid such
+comment|// as the expression using $ chars
+if|if
+condition|(
+name|uri
+operator|.
+name|indexOf
+argument_list|(
+literal|"?"
+argument_list|)
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+name|uri
+operator|=
+name|uri
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|uri
+operator|.
+name|indexOf
+argument_list|(
+literal|"?"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// lets make sure we create a new configuration as each endpoint can
+comment|// customize its own version
+name|FtpRemoteFileConfiguration
+name|config
+init|=
+operator|new
+name|FtpRemoteFileConfiguration
+argument_list|(
+operator|new
+name|URI
+argument_list|(
+name|uri
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|FtpRemoteFileOperations
+name|operations
+init|=
+operator|new
+name|FtpRemoteFileOperations
+argument_list|()
+decl_stmt|;
+return|return
+operator|new
+name|FtpRemoteFileEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|this
+argument_list|,
+name|operations
+argument_list|,
+name|config
+argument_list|)
+return|;
 block|}
 block|}
 end_class

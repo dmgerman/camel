@@ -250,12 +250,14 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"./res/home"
+name|FTP_ROOT_DIR
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"./res/home/slowfile"
+name|FTP_ROOT_DIR
+operator|+
+literal|"slowfile"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -366,7 +368,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./res/home/slowfile/hello.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"slowfile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|FileOutputStream

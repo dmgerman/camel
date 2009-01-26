@@ -170,7 +170,9 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"./res/home/movefile"
+name|FTP_ROOT_DIR
+operator|+
+literal|"movefile"
 argument_list|)
 expr_stmt|;
 name|prepareFtpServer
@@ -262,7 +264,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./res/home/movefile/hello.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"movefile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file
@@ -368,7 +372,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./res/home/inprogress/hello.bak"
+name|FTP_ROOT_DIR
+operator|+
+literal|"inprogress/hello.bak"
 argument_list|)
 decl_stmt|;
 name|file

@@ -191,7 +191,9 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"./res/home/getme"
+name|FTP_ROOT_DIR
+operator|+
+literal|"getme"
 argument_list|)
 expr_stmt|;
 name|prepareFtpServer

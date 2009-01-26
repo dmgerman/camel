@@ -110,12 +110,12 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"./res/home/"
+name|FTP_ROOT_DIR
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"./res/home/"
+name|FTP_ROOT_DIR
 argument_list|)
 expr_stmt|;
 name|prepareFtpServer
@@ -192,9 +192,12 @@ decl_stmt|;
 name|RemoteFile
 name|file
 init|=
+operator|(
+name|RemoteFile
+operator|)
 name|exchange
 operator|.
-name|getRemoteFile
+name|getGenericFile
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -203,7 +206,7 @@ literal|"hello.txt"
 argument_list|,
 name|file
 operator|.
-name|getAbsolutelFileName
+name|getAbsoluteFileName
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -278,6 +278,9 @@ block|{
 name|OutputStream
 name|os
 init|=
+operator|(
+name|OutputStream
+operator|)
 name|file
 operator|.
 name|getBody

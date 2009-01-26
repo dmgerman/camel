@@ -273,7 +273,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./res/home/noop/hello.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"noop/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file

@@ -26,6 +26,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|ByteArrayOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -67,6 +77,54 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFile
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFileExchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFileOperationFailedException
 import|;
 end_import
 
@@ -156,13 +214,14 @@ name|FtpRemoteFileOperations
 implements|implements
 name|RemoteFileOperations
 argument_list|<
-name|FTPClient
+name|FTPFile
 argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
+specifier|transient
 name|Log
 name|LOG
 init|=
@@ -177,6 +236,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|client
 specifier|private
+specifier|final
 name|FTPClient
 name|client
 decl_stmt|;
@@ -218,7 +278,7 @@ name|RemoteFileConfiguration
 name|config
 parameter_list|)
 throws|throws
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 block|{
 name|String
 name|host
@@ -258,7 +318,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Configuring FTPClient with config: "
+literal|"Configuring FTPFile with config: "
 operator|+
 name|config
 operator|.
@@ -394,7 +454,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Attempting to login anonymous"
+literal|"Attempting to login anonymousl"
 argument_list|)
 expr_stmt|;
 name|login
@@ -519,7 +579,7 @@ name|boolean
 name|isConnected
 parameter_list|()
 throws|throws
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 block|{
 return|return
 name|client
@@ -534,7 +594,7 @@ name|void
 name|disconnect
 parameter_list|()
 throws|throws
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 block|{
 try|try
 block|{
@@ -574,16 +634,19 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|deleteFile (String name)
+DECL|method|deleteFile (FTPClient client, String name)
 specifier|public
 name|boolean
 name|deleteFile
 parameter_list|(
+name|FTPClient
+name|client
+parameter_list|,
 name|String
 name|name
 parameter_list|)
 throws|throws
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 block|{
 if|if
 condition|(
@@ -656,7 +719,7 @@ name|String
 name|to
 parameter_list|)
 throws|throws
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 block|{
 if|if
 condition|(
@@ -732,7 +795,7 @@ name|String
 name|directory
 parameter_list|)
 throws|throws
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 block|{
 try|try
 block|{
@@ -800,7 +863,8 @@ operator|!
 name|success
 condition|)
 block|{
-comment|// we are here if the server side doesn't create intermediate folders
+comment|// we are here if the server side doesn't create
+comment|// intermediate folders
 comment|// so create the folder one by one
 name|buildDirectoryChunks
 argument_list|(
@@ -855,7 +919,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|retrieveFile (String name, OutputStream out)
+DECL|method|retrieveFile (String name, GenericFileExchange<FTPFile> exchange)
 specifier|public
 name|boolean
 name|retrieveFile
@@ -863,14 +927,42 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|OutputStream
-name|out
+name|GenericFileExchange
+argument_list|<
+name|FTPFile
+argument_list|>
+name|exchange
 parameter_list|)
 throws|throws
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 block|{
 try|try
 block|{
+name|GenericFile
+argument_list|<
+name|FTPFile
+argument_list|>
+name|target
+init|=
+name|exchange
+operator|.
+name|getGenericFile
+argument_list|()
+decl_stmt|;
+name|OutputStream
+name|os
+init|=
+operator|new
+name|ByteArrayOutputStream
+argument_list|()
+decl_stmt|;
+name|target
+operator|.
+name|setBody
+argument_list|(
+name|os
+argument_list|)
+expr_stmt|;
 return|return
 name|client
 operator|.
@@ -878,7 +970,7 @@ name|retrieveFile
 argument_list|(
 name|name
 argument_list|,
-name|out
+name|os
 argument_list|)
 return|;
 block|}
@@ -912,7 +1004,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|storeFile (String name, InputStream body)
+DECL|method|storeFile (String name, GenericFileExchange<FTPFile> exchange)
 specifier|public
 name|boolean
 name|storeFile
@@ -920,11 +1012,14 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|InputStream
-name|body
+name|GenericFileExchange
+argument_list|<
+name|FTPFile
+argument_list|>
+name|exchange
 parameter_list|)
 throws|throws
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 block|{
 try|try
 block|{
@@ -935,7 +1030,17 @@ name|storeFile
 argument_list|(
 name|name
 argument_list|,
-name|body
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|InputStream
+operator|.
+name|class
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -975,7 +1080,7 @@ name|String
 name|getCurrentDirectory
 parameter_list|()
 throws|throws
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 block|{
 try|try
 block|{
@@ -1025,7 +1130,7 @@ name|String
 name|newDirectory
 parameter_list|)
 throws|throws
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 block|{
 try|try
 block|{
@@ -1073,7 +1178,7 @@ name|List
 name|listFiles
 parameter_list|()
 throws|throws
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 block|{
 return|return
 name|listFiles
@@ -1091,7 +1196,7 @@ name|String
 name|path
 parameter_list|)
 throws|throws
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 block|{
 comment|// use current directory if path not given
 if|if
@@ -1280,6 +1385,99 @@ block|}
 return|return
 name|success
 return|;
+block|}
+DECL|method|changeCurrentDirectory (FTPClient client, String path)
+specifier|public
+name|FTPClient
+name|changeCurrentDirectory
+parameter_list|(
+name|FTPClient
+name|client
+parameter_list|,
+name|String
+name|path
+parameter_list|)
+throws|throws
+name|GenericFileOperationFailedException
+block|{
+try|try
+block|{
+name|client
+operator|.
+name|changeWorkingDirectory
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+return|return
+name|client
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RemoteFileOperationFailedException
+argument_list|(
+literal|"Failed to delete ["
+operator|+
+name|path
+operator|+
+literal|"]"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+DECL|method|deleteFile (String name)
+specifier|public
+name|boolean
+name|deleteFile
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|GenericFileOperationFailedException
+block|{
+try|try
+block|{
+return|return
+name|this
+operator|.
+name|client
+operator|.
+name|deleteFile
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RemoteFileOperationFailedException
+argument_list|(
+literal|"Failed to delete ["
+operator|+
+name|name
+operator|+
+literal|"]"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class

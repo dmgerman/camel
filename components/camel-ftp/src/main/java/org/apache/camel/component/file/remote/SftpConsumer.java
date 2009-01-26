@@ -62,6 +62,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFile
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -79,6 +95,11 @@ class|class
 name|SftpConsumer
 extends|extends
 name|RemoteFileConsumer
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 block|{
 DECL|method|SftpConsumer (RemoteFileEndpoint endpoint, Processor processor, RemoteFileOperations operations)
 specifier|public
@@ -104,7 +125,7 @@ name|operations
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|pollDirectory (String fileName, List<RemoteFile> fileList)
+DECL|method|pollDirectory (String fileName, List<GenericFile<ChannelSftp.LsEntry>> fileList)
 specifier|protected
 name|void
 name|pollDirectory
@@ -114,7 +135,12 @@ name|fileName
 parameter_list|,
 name|List
 argument_list|<
-name|RemoteFile
+name|GenericFile
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 argument_list|>
 name|fileList
 parameter_list|)
@@ -288,8 +314,8 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Polls the given file      *      * @param fileName  the file name      * @param fileList  current list of files gathered      */
-DECL|method|pollFile (String fileName, List<RemoteFile> fileList)
+comment|/**      * Polls the given file      *      * @param fileName the file name      * @param fileList current list of files gathered      */
+DECL|method|pollFile (String fileName, List<GenericFile<ChannelSftp.LsEntry>> fileList)
 specifier|protected
 name|void
 name|pollFile
@@ -299,7 +325,12 @@ name|fileName
 parameter_list|,
 name|List
 argument_list|<
-name|RemoteFile
+name|GenericFile
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 argument_list|>
 name|fileList
 parameter_list|)
@@ -490,10 +521,15 @@ name|remote
 operator|.
 name|setHostname
 argument_list|(
+operator|(
+operator|(
+name|RemoteFileConfiguration
+operator|)
 name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
+operator|)
 operator|.
 name|getHost
 argument_list|()
@@ -524,7 +560,7 @@ argument_list|()
 decl_stmt|;
 name|remote
 operator|.
-name|setAbsolutelFileName
+name|setAbsoluteFileName
 argument_list|(
 name|absoluteFileName
 argument_list|)

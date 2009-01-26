@@ -146,7 +146,9 @@ argument_list|()
 expr_stmt|;
 name|deleteDirectory
 argument_list|(
-literal|"./res/home/passive"
+name|FTP_ROOT_DIR
+operator|+
+literal|"passive"
 argument_list|)
 expr_stmt|;
 name|prepareFtpServer
