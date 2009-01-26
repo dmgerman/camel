@@ -154,7 +154,7 @@ extends|extends
 name|DefaultProducer
 block|{
 DECL|field|log
-specifier|private
+specifier|protected
 specifier|final
 specifier|transient
 name|Log
@@ -164,9 +164,8 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|GenericFileProducer
-operator|.
-name|class
+name|getClass
+argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|operations

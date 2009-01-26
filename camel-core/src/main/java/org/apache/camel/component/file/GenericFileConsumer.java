@@ -529,15 +529,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Override if required. Perform some checks (and perhaps actions) before we      * poll      */
+comment|/**      * Override if required. Perform some checks (and perhaps actions) before we      * poll.      *      * @return true to poll, false to skip this poll.      */
 DECL|method|prePollCheck ()
 specifier|protected
-name|void
+name|boolean
 name|prePollCheck
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+return|return
+literal|true
+return|;
+block|}
 comment|/**      * Polls the given directory for files to process      *      * @param fileName current directory or file      * @param fileList current list of files gathered      */
 DECL|method|pollDirectory (String fileName, List<GenericFile<T>> fileList)
 specifier|protected
@@ -576,20 +580,6 @@ name|T
 argument_list|>
 argument_list|>
 name|fileList
-parameter_list|)
-function_decl|;
-comment|/**      * Creates a GenericFile based on the given type T.      *      * @param file the concrete file type      * @return a new generic file representing the type      */
-DECL|method|asGenericFile (T file)
-specifier|protected
-specifier|abstract
-name|GenericFile
-argument_list|<
-name|T
-argument_list|>
-name|asGenericFile
-parameter_list|(
-name|T
-name|file
 parameter_list|)
 function_decl|;
 comment|/**      * Processes the exchange      *      * @param exchange the exchange      */
