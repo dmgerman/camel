@@ -209,6 +209,7 @@ name|FileProcessStrategySupport
 implements|implements
 name|FileProcessStrategy
 block|{
+comment|// TODO: Should be suppored by NewFile
 DECL|field|LOG
 specifier|private
 specifier|static

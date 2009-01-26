@@ -206,7 +206,23 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// nothing
+if|if
+condition|(
+name|exclusiveReadLockStrategy
+operator|!=
+literal|null
+condition|)
+block|{
+name|exclusiveReadLockStrategy
+operator|.
+name|releaseExclusiveReadLock
+argument_list|(
+name|operations
+argument_list|,
+name|file
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|rollback (GenericFileOperations operations, GenericFileEndpoint endpoint, GenericFileExchange exchange, GenericFile file)
 specifier|public
@@ -226,7 +242,23 @@ name|GenericFile
 name|file
 parameter_list|)
 block|{
-comment|// nothing
+if|if
+condition|(
+name|exclusiveReadLockStrategy
+operator|!=
+literal|null
+condition|)
+block|{
+name|exclusiveReadLockStrategy
+operator|.
+name|releaseExclusiveReadLock
+argument_list|(
+name|operations
+argument_list|,
+name|file
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getExclusiveReadLockStrategy ()
 specifier|public

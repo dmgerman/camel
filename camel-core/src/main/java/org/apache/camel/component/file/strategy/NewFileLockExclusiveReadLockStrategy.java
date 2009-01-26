@@ -22,6 +22,72 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|RandomAccessFile
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|channels
+operator|.
+name|FileChannel
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|channels
+operator|.
+name|FileLock
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -65,6 +131,20 @@ operator|.
 name|file
 operator|.
 name|GenericFileOperations
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -97,16 +177,19 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Acquires exclusive read lock to the given file. Will wait until the lock is granted.  * After granting the read lock it is realeased, we just want to make sure that when we start  * consuming the file its not currently in progress of being written by third party.  */
+comment|/**  * Acquires exclusive read lock to the given file. Will wait until the lock is granted.  * After granting the read lock it is released, we just want to make sure that when we start  * consuming the file its not currently in progress of being written by third party.  */
 end_comment
 
 begin_class
-DECL|class|GenericFileRenameExclusiveReadLockStrategy
+DECL|class|NewFileLockExclusiveReadLockStrategy
 specifier|public
 class|class
-name|GenericFileRenameExclusiveReadLockStrategy
+name|NewFileLockExclusiveReadLockStrategy
 implements|implements
 name|GenericFileExclusiveReadLockStrategy
+argument_list|<
+name|File
+argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
@@ -120,7 +203,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|GenericFileRenameExclusiveReadLockStrategy
+name|NewFileLockExclusiveReadLockStrategy
 operator|.
 name|class
 argument_list|)
@@ -130,18 +213,36 @@ specifier|private
 name|long
 name|timeout
 decl_stmt|;
-DECL|method|acquireExclusiveReadLock (GenericFileOperations operations, GenericFile file)
+DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file)
 specifier|public
 name|boolean
 name|acquireExclusiveReadLock
 parameter_list|(
 name|GenericFileOperations
+argument_list|<
+name|File
+argument_list|>
 name|operations
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|File
+argument_list|>
 name|file
 parameter_list|)
 block|{
+name|File
+name|target
+init|=
+operator|new
+name|File
+argument_list|(
+name|file
+operator|.
+name|getAbsoluteFileName
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|LOG
@@ -156,37 +257,30 @@ name|trace
 argument_list|(
 literal|"Waiting for exclusive read lock to file: "
 operator|+
-name|file
+name|target
 argument_list|)
 expr_stmt|;
 block|}
-comment|// the trick is to try to rename the file, if we can rename then we have exclusive read
-comment|// since its a Generic file we cannot use java.nio to get a RW lock
-name|String
-name|newName
+name|FileChannel
+name|channel
 init|=
-name|file
-operator|.
-name|getFileName
-argument_list|()
-operator|+
-literal|".camelExclusiveReadLock"
+literal|null
 decl_stmt|;
-comment|// clone and change the name
-name|GenericFile
-name|newFile
-init|=
-name|file
-operator|.
-name|clone
-argument_list|()
-decl_stmt|;
-name|newFile
-operator|.
-name|changeFileName
+try|try
+block|{
+comment|// try to acquire rw lock on the file before we can consume it
+name|channel
+operator|=
+operator|new
+name|RandomAccessFile
 argument_list|(
-name|newName
+name|target
+argument_list|,
+literal|"rw"
 argument_list|)
+operator|.
+name|getChannel
+argument_list|()
 expr_stmt|;
 name|long
 name|start
@@ -242,7 +336,7 @@ name|timeout
 operator|+
 literal|" millis. Will skip the file: "
 operator|+
-name|file
+name|target
 argument_list|)
 expr_stmt|;
 comment|// we could not get the lock within the timeout period, so return false
@@ -251,28 +345,112 @@ literal|false
 return|;
 block|}
 block|}
-name|exclusive
+comment|// get the lock using either try lock or not depending on if we are using timeout or not
+name|FileLock
+name|lock
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|lock
 operator|=
-name|operations
+name|timeout
+operator|>
+literal|0
+condition|?
+name|channel
 operator|.
-name|renameFile
-argument_list|(
-name|file
-operator|.
-name|getAbsoluteFileName
+name|tryLock
 argument_list|()
-argument_list|,
-name|newFile
+else|:
+name|channel
 operator|.
-name|getAbsoluteFileName
+name|lock
 argument_list|()
-argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|ex
+parameter_list|)
+block|{
+comment|// Also catch the OverlappingFileLockException here
+comment|// Do nothing here
+block|}
 if|if
 condition|(
-name|exclusive
+name|lock
+operator|!=
+literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Acquired exclusive read lock: "
+operator|+
+name|lock
+operator|+
+literal|" to file: "
+operator|+
+name|target
+argument_list|)
+expr_stmt|;
+block|}
+comment|// just release it now we dont want to hold it during the rest of the processing
+name|lock
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
+name|exclusive
+operator|=
+literal|true
+expr_stmt|;
+block|}
+else|else
+block|{
+name|sleep
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// must handle IOException as some apps on Windows etc. will still somehow hold a lock to a file
+comment|// such as AntiVirus or MS Office that has special locks for it's supported files
+if|if
+condition|(
+name|timeout
+operator|==
+literal|0
+condition|)
+block|{
+comment|// if not using timeout, then we cant retry, so rethrow
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|LOG
@@ -285,53 +463,56 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Acquired exclusive read lock to file: "
-operator|+
-name|file
-argument_list|)
-expr_stmt|;
-block|}
-comment|// rename it back so we can read it
-name|operations
-operator|.
-name|renameFile
-argument_list|(
-name|newFile
-operator|.
-name|getAbsoluteFileName
-argument_list|()
+literal|"Cannot acquire read lock. Will try again."
 argument_list|,
-name|file
-operator|.
-name|getAbsoluteFileName
-argument_list|()
+name|e
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
 name|sleep
 argument_list|()
 expr_stmt|;
 block|}
+finally|finally
+block|{
+comment|// must close channel
+name|ObjectHelper
+operator|.
+name|close
+argument_list|(
+name|channel
+argument_list|,
+literal|"while acquiring exclusive read lock for file: "
+operator|+
+name|target
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 literal|true
 return|;
 block|}
-DECL|method|releaseExclusiveReadLock (GenericFileOperations genericFileOperations, GenericFile genericFile)
+DECL|method|releaseExclusiveReadLock (GenericFileOperations<File> fileGenericFileOperations, GenericFile<File> fileGenericFile)
 specifier|public
 name|void
 name|releaseExclusiveReadLock
 parameter_list|(
 name|GenericFileOperations
-name|genericFileOperations
+argument_list|<
+name|File
+argument_list|>
+name|fileGenericFileOperations
 parameter_list|,
 name|GenericFile
-name|genericFile
+argument_list|<
+name|File
+argument_list|>
+name|fileGenericFile
 parameter_list|)
 block|{
-comment|// noop
+comment|// TODO: release read lock from above, as we should hold id during processing
 block|}
 DECL|method|sleep ()
 specifier|private
@@ -375,7 +556,7 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * Sets an optional timeout period.      *<p/>      * If the readlock could not be granted within the timeperiod then the wait is stopped and the      * {@link #acquireExclusiveReadLock(org.apache.camel.component.file.GenericFileOperations, org.apache.camel.component.file.GenericFile)}      *  acquireExclusiveReadLock} returns<tt>false</tt>.      *      * @param timeout period in millis      */
+comment|/**      * Sets an optional timeout period.      *<p/>      * If the readlock could not be granted within the timeperiod then the wait is stopped and the      * acquireReadLock returns<tt>false</tt>.      *      * @param timeout period in millis      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void

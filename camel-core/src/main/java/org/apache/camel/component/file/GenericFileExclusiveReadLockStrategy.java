@@ -27,17 +27,53 @@ DECL|interface|GenericFileExclusiveReadLockStrategy
 specifier|public
 interface|interface
 name|GenericFileExclusiveReadLockStrategy
+parameter_list|<
+name|T
+parameter_list|>
 block|{
-comment|/**      * Acquires exclusive read lock to the file.      *      * @param operations generic file operations      * @param file       the remote file      * @return<tt>true</tt> if read lock was acquired. If<tt>false</tt> Camel      *         will skip the file and try it on the next poll      */
-DECL|method|acquireExclusiveReadLock (GenericFileOperations operations, GenericFile file)
+comment|/**      * Acquires exclusive read lock to the file.      *      * @param operations generic file operations      * @param file       the file      * @return<tt>true</tt> if read lock was acquired. If<tt>false</tt> Camel      *         will skip the file and try it on the next poll      */
+DECL|method|acquireExclusiveReadLock (GenericFileOperations<T> operations, GenericFile<T> file)
 name|boolean
 name|acquireExclusiveReadLock
 parameter_list|(
 name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
 name|operations
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
+parameter_list|)
+function_decl|;
+comment|/**      * Releases the exclusive read lock granted by the<tt>acquireExclusiveReadLock</tt> method.      *      * @param operations generic file operations      * @param file       the file      */
+DECL|method|releaseExclusiveReadLock (GenericFileOperations<T> operations, GenericFile<T> file)
+name|void
+name|releaseExclusiveReadLock
+parameter_list|(
+name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
+name|operations
+parameter_list|,
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|file
+parameter_list|)
+function_decl|;
+comment|/**      * Sets an optional timeout period.      *<p/>      * If the readlock could not be granted within the timeperiod then the wait is stopped and the      *<tt>acquireExclusiveReadLock</tt> method returns<tt>false</tt>.      *      * @param timeout period in millis      */
+DECL|method|setTimeout (long timeout)
+name|void
+name|setTimeout
+parameter_list|(
+name|long
+name|timeout
 parameter_list|)
 function_decl|;
 block|}

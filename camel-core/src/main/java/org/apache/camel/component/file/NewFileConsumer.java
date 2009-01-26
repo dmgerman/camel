@@ -366,6 +366,16 @@ name|File
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// use file specific binding
+name|answer
+operator|.
+name|setBinding
+argument_list|(
+operator|new
+name|NewFileBinding
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|answer
 operator|.
 name|setFile

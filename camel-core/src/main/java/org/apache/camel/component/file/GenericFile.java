@@ -80,6 +80,18 @@ specifier|private
 name|Object
 name|body
 decl_stmt|;
+DECL|field|binding
+specifier|private
+name|GenericFileBinding
+argument_list|<
+name|T
+argument_list|>
+name|binding
+init|=
+operator|new
+name|GenericFileDefaultBinding
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|clone ()
@@ -215,6 +227,16 @@ argument_list|(
 name|source
 operator|.
 name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|setBinding
+argument_list|(
+name|source
+operator|.
+name|getBinding
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -530,7 +552,12 @@ name|getBody
 parameter_list|()
 block|{
 return|return
-name|body
+name|binding
+operator|.
+name|getBody
+argument_list|(
+name|this
+argument_list|)
 return|;
 block|}
 DECL|method|setBody (Object os)
@@ -542,11 +569,14 @@ name|Object
 name|os
 parameter_list|)
 block|{
-name|this
+name|binding
 operator|.
-name|body
-operator|=
+name|setBody
+argument_list|(
+name|this
+argument_list|,
 name|os
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getParent ()
@@ -572,6 +602,38 @@ literal|"/"
 argument_list|)
 argument_list|)
 return|;
+block|}
+DECL|method|getBinding ()
+specifier|public
+name|GenericFileBinding
+argument_list|<
+name|T
+argument_list|>
+name|getBinding
+parameter_list|()
+block|{
+return|return
+name|binding
+return|;
+block|}
+DECL|method|setBinding (GenericFileBinding<T> binding)
+specifier|public
+name|void
+name|setBinding
+parameter_list|(
+name|GenericFileBinding
+argument_list|<
+name|T
+argument_list|>
+name|binding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|binding
+operator|=
+name|binding
+expr_stmt|;
 block|}
 annotation|@
 name|Override

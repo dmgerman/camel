@@ -507,7 +507,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Can not build directory: "
 operator|+
@@ -781,6 +781,7 @@ block|}
 else|else
 block|{
 comment|// use a generated filename if no name provided
+comment|// TODO: Consider to require end user to always provide a filename instead of generating a new name
 name|answer
 operator|=
 name|baseDir
