@@ -144,8 +144,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// get the uri part before the options as they can be non URI valid such
-comment|// as the expression using $ chars
+comment|// get the base uri part before the options as they can be non URI valid such as the expression using $ chars
+comment|// and the URI constructor will regard $ as an illegal character and we dont want to enforce end users to
+comment|// to espace the $ for the expression (file language)
+name|String
+name|baseUri
+init|=
+name|uri
+decl_stmt|;
 if|if
 condition|(
 name|uri
@@ -159,7 +165,7 @@ operator|-
 literal|1
 condition|)
 block|{
-name|uri
+name|baseUri
 operator|=
 name|uri
 operator|.
@@ -176,8 +182,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// lets make sure we create a new configuration as each endpoint can
-comment|// customize its own version
+comment|// lets make sure we create a new configuration as each endpoint can customize its own version
+comment|// must pass on baseUri to the configuration (see above)
 name|FtpRemoteFileConfiguration
 name|config
 init|=
@@ -187,7 +193,7 @@ argument_list|(
 operator|new
 name|URI
 argument_list|(
-name|uri
+name|baseUri
 argument_list|)
 argument_list|)
 decl_stmt|;
