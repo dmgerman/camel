@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileFilter
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -111,7 +91,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filefilter/?filter=#myFilter"
+literal|"newfile://target/filefilter/?filter=#myFilter"
 decl_stmt|;
 annotation|@
 name|Override
@@ -194,7 +174,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filefilter/"
+literal|"newfile:target/filefilter/"
 argument_list|,
 literal|"This is a file to be filtered"
 argument_list|,
@@ -252,7 +232,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filefilter/"
+literal|"newfile:target/filefilter/"
 argument_list|,
 literal|"This is a file to be filtered"
 argument_list|,
@@ -267,7 +247,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filefilter/"
+literal|"newfile:target/filefilter/"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -324,14 +304,14 @@ specifier|public
 class|class
 name|MyFileFilter
 implements|implements
-name|FileFilter
+name|GenericFileFilter
 block|{
-DECL|method|accept (File pathname)
+DECL|method|accept (GenericFile pathname)
 specifier|public
 name|boolean
 name|accept
 parameter_list|(
-name|File
+name|GenericFile
 name|pathname
 parameter_list|)
 block|{
@@ -340,7 +320,7 @@ return|return
 operator|!
 name|pathname
 operator|.
-name|getName
+name|getFileName
 argument_list|()
 operator|.
 name|startsWith

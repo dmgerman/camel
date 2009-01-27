@@ -22,16 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Comparator
@@ -111,7 +101,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filesorter/?sorter=#mySorter"
+literal|"newfile://target/filesorter/?sorter=#mySorter"
 decl_stmt|;
 annotation|@
 name|Override
@@ -170,7 +160,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filesorter/"
+literal|"newfile:target/filesorter/"
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
@@ -185,7 +175,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filesorter/"
+literal|"newfile:target/filesorter/"
 argument_list|,
 literal|"Hello London"
 argument_list|,
@@ -200,7 +190,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filesorter/"
+literal|"newfile:target/filesorter/"
 argument_list|,
 literal|"Hello Copenhagen"
 argument_list|,
@@ -285,32 +275,32 @@ name|MyFileSorter
 implements|implements
 name|Comparator
 argument_list|<
-name|File
+name|GenericFile
 argument_list|>
 block|{
-DECL|method|compare (File o1, File o2)
+DECL|method|compare (GenericFile o1, GenericFile o2)
 specifier|public
 name|int
 name|compare
 parameter_list|(
-name|File
+name|GenericFile
 name|o1
 parameter_list|,
-name|File
+name|GenericFile
 name|o2
 parameter_list|)
 block|{
 return|return
 name|o1
 operator|.
-name|getName
+name|getFileName
 argument_list|()
 operator|.
 name|compareTo
 argument_list|(
 name|o2
 operator|.
-name|getName
+name|getFileName
 argument_list|()
 argument_list|)
 return|;

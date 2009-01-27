@@ -32,6 +32,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|lang
 operator|.
 name|reflect
@@ -313,6 +323,7 @@ decl_stmt|;
 comment|// TODO: Consider remove setNames
 comment|// TODO: Consider filename should always be specified when producing (to get rid of auto generating with id as filename)
 comment|// TODO: bufferSize& append can be moved to NewFileEndpoint as FTP does not support it
+comment|// TODO: configuration.getfile/setfile is a bit cumbersome setting endpoint using spring bean (see FileConsumerExpressionTest)
 DECL|field|directory
 specifier|protected
 name|boolean
@@ -466,6 +477,11 @@ specifier|protected
 name|GenericFileExclusiveReadLockStrategy
 name|exclusiveReadLockStrategy
 decl_stmt|;
+DECL|method|GenericFileEndpoint ()
+specifier|public
+name|GenericFileEndpoint
+parameter_list|()
+block|{     }
 DECL|method|GenericFileEndpoint (String endpointUri, Component component)
 specifier|public
 name|GenericFileEndpoint
@@ -483,48 +499,6 @@ name|endpointUri
 argument_list|,
 name|component
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|GenericFileEndpoint (String endpointUri, CamelContext context)
-specifier|public
-name|GenericFileEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|,
-name|context
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|GenericFileEndpoint (String endpointUri)
-specifier|public
-name|GenericFileEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|GenericFileEndpoint ()
-specifier|public
-name|GenericFileEndpoint
-parameter_list|()
-block|{
-name|super
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()
@@ -1452,6 +1426,20 @@ name|GenericFileConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
+if|if
+condition|(
+name|configuration
+operator|==
+literal|null
+condition|)
+block|{
+name|configuration
+operator|=
+operator|new
+name|GenericFileConfiguration
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|configuration
 return|;
@@ -1654,6 +1642,58 @@ operator|=
 name|autoCreate
 expr_stmt|;
 block|}
+DECL|method|getOperations ()
+specifier|public
+name|GenericFileOperations
+name|getOperations
+parameter_list|()
+block|{
+return|return
+name|operations
+return|;
+block|}
+DECL|method|setOperations (GenericFileOperations operations)
+specifier|public
+name|void
+name|setOperations
+parameter_list|(
+name|GenericFileOperations
+name|operations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operations
+operator|=
+name|operations
+expr_stmt|;
+block|}
+DECL|method|getProcessStrategy ()
+specifier|public
+name|GenericFileProcessStrategy
+name|getProcessStrategy
+parameter_list|()
+block|{
+return|return
+name|processStrategy
+return|;
+block|}
+DECL|method|setProcessStrategy (GenericFileProcessStrategy processStrategy)
+specifier|public
+name|void
+name|setProcessStrategy
+parameter_list|(
+name|GenericFileProcessStrategy
+name|processStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|processStrategy
+operator|=
+name|processStrategy
+expr_stmt|;
+block|}
 comment|/**      * Should the file be moved after consuming?      */
 DECL|method|isMoveFile ()
 specifier|public
@@ -1706,6 +1746,76 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
+comment|// compute the name that was written, it should be relative to the endpoint configuraion
+name|String
+name|name
+init|=
+name|file
+operator|.
+name|getRelativeFileName
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|name
+operator|.
+name|startsWith
+argument_list|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|getFile
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|name
+operator|=
+name|name
+operator|.
+name|substring
+argument_list|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|getFile
+argument_list|()
+operator|.
+name|length
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|name
+operator|.
+name|startsWith
+argument_list|(
+name|File
+operator|.
+name|separator
+argument_list|)
+operator|||
+name|name
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+comment|// skip trailing /
+name|name
+operator|=
+name|name
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 name|message
 operator|.
 name|setHeader
@@ -1714,10 +1824,7 @@ name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
-name|file
-operator|.
-name|getRelativeFileName
-argument_list|()
+name|name
 argument_list|)
 expr_stmt|;
 block|}

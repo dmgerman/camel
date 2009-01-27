@@ -111,7 +111,15 @@ DECL|method|NewFileEndpoint ()
 specifier|public
 name|NewFileEndpoint
 parameter_list|()
-block|{     }
+block|{
+comment|// use marker file as default exclusive read locks
+name|this
+operator|.
+name|readLock
+operator|=
+literal|"markerFile"
+expr_stmt|;
+block|}
 DECL|method|NewFileEndpoint (String endpointUri, Component component)
 specifier|public
 name|NewFileEndpoint
@@ -129,6 +137,13 @@ name|endpointUri
 argument_list|,
 name|component
 argument_list|)
+expr_stmt|;
+comment|// use marker file as default exclusive read locks
+name|this
+operator|.
+name|readLock
+operator|=
+literal|"markerFile"
 expr_stmt|;
 block|}
 DECL|method|createConsumer (Processor processor)
@@ -420,6 +435,24 @@ block|{
 comment|// TODO change to file when this is ready
 return|return
 literal|"newfile"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createEndpointUri ()
+specifier|protected
+name|String
+name|createEndpointUri
+parameter_list|()
+block|{
+return|return
+literal|"file://"
+operator|+
+name|getFile
+argument_list|()
+operator|.
+name|getAbsolutePath
+argument_list|()
 return|;
 block|}
 block|}

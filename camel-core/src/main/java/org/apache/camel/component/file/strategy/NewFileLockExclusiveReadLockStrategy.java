@@ -58,6 +58,18 @@ name|nio
 operator|.
 name|channels
 operator|.
+name|Channel
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|channels
+operator|.
 name|FileChannel
 import|;
 end_import
@@ -82,7 +94,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|Exchange
 import|;
 end_import
 
@@ -131,6 +143,20 @@ operator|.
 name|file
 operator|.
 name|GenericFileOperations
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
 import|;
 end_import
 
@@ -213,7 +239,7 @@ specifier|private
 name|long
 name|timeout
 decl_stmt|;
-DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file)
+DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
 specifier|public
 name|boolean
 name|acquireExclusiveReadLock
@@ -229,7 +255,12 @@ argument_list|<
 name|File
 argument_list|>
 name|file
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|File
 name|target
@@ -261,16 +292,12 @@ name|target
 argument_list|)
 expr_stmt|;
 block|}
-name|FileChannel
-name|channel
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
 comment|// try to acquire rw lock on the file before we can consume it
+name|FileChannel
 name|channel
-operator|=
+init|=
 operator|new
 name|RandomAccessFile
 argument_list|(
@@ -281,7 +308,7 @@ argument_list|)
 operator|.
 name|getChannel
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|long
 name|start
 init|=
@@ -376,8 +403,7 @@ name|IllegalStateException
 name|ex
 parameter_list|)
 block|{
-comment|// Also catch the OverlappingFileLockException here
-comment|// Do nothing here
+comment|// Also catch the OverlappingFileLockException here. Do nothing here
 block|}
 if|if
 condition|(
@@ -408,11 +434,27 @@ name|target
 argument_list|)
 expr_stmt|;
 block|}
-comment|// just release it now we dont want to hold it during the rest of the processing
-name|lock
+comment|// store lock so we can release it later
+name|exchange
 operator|.
-name|release
+name|setProperty
+argument_list|(
+literal|"org.apache.camel.file.lock"
+argument_list|,
+name|lock
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+literal|"org.apache.camel.file.lock.fileName"
+argument_list|,
+name|target
+operator|.
+name|getName
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|exclusive
 operator|=
@@ -444,11 +486,7 @@ condition|)
 block|{
 comment|// if not using timeout, then we cant retry, so rethrow
 throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
 name|e
-argument_list|)
 throw|;
 block|}
 if|if
@@ -473,28 +511,11 @@ name|sleep
 argument_list|()
 expr_stmt|;
 block|}
-finally|finally
-block|{
-comment|// must close channel
-name|ObjectHelper
-operator|.
-name|close
-argument_list|(
-name|channel
-argument_list|,
-literal|"while acquiring exclusive read lock for file: "
-operator|+
-name|target
-argument_list|,
-name|LOG
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 literal|true
 return|;
 block|}
-DECL|method|releaseExclusiveReadLock (GenericFileOperations<File> fileGenericFileOperations, GenericFile<File> fileGenericFile)
+DECL|method|releaseExclusiveReadLock (GenericFileOperations<File> fileGenericFileOperations, GenericFile<File> fileGenericFile, Exchange exchange)
 specifier|public
 name|void
 name|releaseExclusiveReadLock
@@ -510,9 +531,78 @@ argument_list|<
 name|File
 argument_list|>
 name|fileGenericFile
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-comment|// TODO: release read lock from above, as we should hold id during processing
+name|FileLock
+name|lock
+init|=
+name|ExchangeHelper
+operator|.
+name|getMandatoryProperty
+argument_list|(
+name|exchange
+argument_list|,
+literal|"org.apache.camel.file.lock"
+argument_list|,
+name|FileLock
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|String
+name|lockFileName
+init|=
+name|ExchangeHelper
+operator|.
+name|getMandatoryProperty
+argument_list|(
+name|exchange
+argument_list|,
+literal|"org.apache.camel.file.lock.filename"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|Channel
+name|channel
+init|=
+name|lock
+operator|.
+name|channel
+argument_list|()
+decl_stmt|;
+try|try
+block|{
+name|lock
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// must close channel
+name|ObjectHelper
+operator|.
+name|close
+argument_list|(
+name|channel
+argument_list|,
+literal|"while acquiring exclusive read lock for file: "
+operator|+
+name|lockFileName
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|sleep ()
 specifier|private

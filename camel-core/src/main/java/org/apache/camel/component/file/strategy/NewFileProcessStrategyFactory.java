@@ -453,12 +453,12 @@ return|;
 block|}
 else|else
 block|{
-comment|// default strategy will do nothing
-name|GenericFileNoOpProcessStrategy
+comment|// default strategy will move files in a .camel/ subfolder
+name|GenericFileRenameProcessStrategy
 name|strategy
 init|=
 operator|new
-name|GenericFileNoOpProcessStrategy
+name|GenericFileRenameProcessStrategy
 argument_list|()
 decl_stmt|;
 name|strategy
@@ -468,6 +468,19 @@ argument_list|(
 name|getExclusiveReadLockStrategy
 argument_list|(
 name|params
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|strategy
+operator|.
+name|setCommitRenamer
+argument_list|(
+operator|new
+name|GenericFileDefaultRenamer
+argument_list|(
+literal|".camel/"
+argument_list|,
+literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -671,7 +684,6 @@ name|readLock
 argument_list|)
 condition|)
 block|{
-comment|// TODO: marker file that is the stuff with the .camel file
 name|GenericFileExclusiveReadLockStrategy
 name|readLockStrategy
 init|=

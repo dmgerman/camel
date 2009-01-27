@@ -73,6 +73,11 @@ argument_list|<
 name|FTPFile
 argument_list|>
 block|{
+DECL|method|FtpRemoteFileEndpoint ()
+specifier|public
+name|FtpRemoteFileEndpoint
+parameter_list|()
+block|{     }
 DECL|method|FtpRemoteFileEndpoint (String uri, FtpRemoteFileComponent component, FtpRemoteFileOperations operations, RemoteFileConfiguration configuration)
 specifier|public
 name|FtpRemoteFileEndpoint

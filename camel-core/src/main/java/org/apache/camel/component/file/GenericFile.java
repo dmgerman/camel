@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -49,6 +69,11 @@ DECL|field|absoluteFileName
 specifier|private
 name|String
 name|absoluteFileName
+decl_stmt|;
+DECL|field|canonicalFileName
+specifier|private
+name|String
+name|canonicalFileName
 decl_stmt|;
 DECL|field|relativeFileName
 specifier|private
@@ -158,6 +183,16 @@ argument_list|(
 name|source
 operator|.
 name|getAbsoluteFileName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|setCanonicalFileName
+argument_list|(
+name|source
+operator|.
+name|getCanonicalFileName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -662,19 +697,6 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-name|getAbsoluteFileName
-argument_list|()
-return|;
-block|}
 comment|/**      * @param absoluteFileName the absoluteFileName to set      */
 DECL|method|setAbsoluteFileName (String absoluteFileName)
 specifier|public
@@ -701,6 +723,48 @@ parameter_list|()
 block|{
 return|return
 name|absoluteFileName
+return|;
+block|}
+DECL|method|getCanonicalFileName ()
+specifier|public
+name|String
+name|getCanonicalFileName
+parameter_list|()
+block|{
+return|return
+name|canonicalFileName
+return|;
+block|}
+DECL|method|setCanonicalFileName (String canonicalFileName)
+specifier|public
+name|void
+name|setCanonicalFileName
+parameter_list|(
+name|String
+name|canonicalFileName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|canonicalFileName
+operator|=
+name|canonicalFileName
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"GenericFile["
+operator|+
+name|fileName
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

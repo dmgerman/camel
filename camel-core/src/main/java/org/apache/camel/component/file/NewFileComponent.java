@@ -107,36 +107,6 @@ operator|new
 name|GenericFileConfiguration
 argument_list|()
 decl_stmt|;
-comment|// TODO: This code should be looked at, the parent stuff is might not needed
-name|File
-name|parent
-init|=
-name|file
-operator|.
-name|getParentFile
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|parent
-operator|!=
-literal|null
-condition|)
-block|{
-name|file
-operator|=
-operator|new
-name|File
-argument_list|(
-name|parent
-argument_list|,
-name|file
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|config
 operator|.
 name|setFile
@@ -144,16 +114,6 @@ argument_list|(
 name|file
 operator|.
 name|getPath
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|config
-operator|.
-name|setDirectory
-argument_list|(
-name|file
-operator|.
-name|isDirectory
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -201,7 +161,6 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
-comment|// TODO: Could be a noop in parent and only override if needed
 block|}
 block|}
 end_class

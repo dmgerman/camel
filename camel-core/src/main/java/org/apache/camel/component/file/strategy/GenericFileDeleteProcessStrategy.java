@@ -130,6 +130,20 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// must invoke super
+name|super
+operator|.
+name|commit
+argument_list|(
+name|operations
+argument_list|,
+name|endpoint
+argument_list|,
+name|exchange
+argument_list|,
+name|file
+argument_list|)
+expr_stmt|;
 name|boolean
 name|deleted
 init|=

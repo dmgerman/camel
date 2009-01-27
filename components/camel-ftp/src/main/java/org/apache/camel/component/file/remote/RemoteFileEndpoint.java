@@ -188,6 +188,13 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|method|RemoteFileEndpoint ()
+specifier|public
+name|RemoteFileEndpoint
+parameter_list|()
+block|{
+comment|// no args constructor for spring bean endpoint configuration
+block|}
 DECL|method|RemoteFileEndpoint (String uri, RemoteFileComponent<T> component, RemoteFileOperations<T> operations, RemoteFileConfiguration configuration)
 specifier|public
 name|RemoteFileEndpoint

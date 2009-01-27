@@ -193,7 +193,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage/"
+literal|"newfile://target/filelanguage/"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -292,7 +292,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage/"
+literal|"newfile://target/filelanguage/"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -391,7 +391,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage/"
+literal|"newfile://target/filelanguage/"
 argument_list|,
 literal|"Bye Big World"
 argument_list|,
@@ -467,7 +467,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage/"
+literal|"newfile://target/filelanguage/"
 argument_list|,
 literal|"Hello Big World"
 argument_list|,
@@ -543,7 +543,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage/"
+literal|"newfile://target/filelanguage/"
 argument_list|,
 literal|"Bean Language Rules The World"
 argument_list|,
@@ -616,7 +616,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filelanguage/report.txt?autoCreate=false"
+literal|"newfile://target/filelanguage/report.txt?directory=false&autoCreate=false"
 operator|+
 literal|"&expression=${id}.bak"
 argument_list|)
@@ -628,7 +628,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/filelanguage/report2.txt?autoCreate=false"
+literal|"newfile://target/filelanguage/report2.txt?directory=false&autoCreate=false"
 operator|+
 literal|"&expression=backup-${id}-${file:name.noext}.bak"
 argument_list|)
@@ -640,7 +640,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/filelanguage/report3.txt?autoCreate=false"
+literal|"newfile://target/filelanguage/report3.txt?directory=false&autoCreate=false"
 operator|+
 literal|"&expression=backup/${bean:myguidgenerator.guid}.txt"
 argument_list|)
@@ -652,7 +652,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/filelanguage/report4.txt?autoCreate=false"
+literal|"newfile://target/filelanguage/report4.txt?directory=false&autoCreate=false"
 operator|+
 literal|"&expression=../backup/${file:name}.bak"
 argument_list|)
@@ -663,11 +663,11 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 comment|// configured by java using java beans setters
-name|FileEndpoint
+name|NewFileEndpoint
 name|endpoint
 init|=
 operator|new
-name|FileEndpoint
+name|NewFileEndpoint
 argument_list|()
 decl_stmt|;
 name|endpoint
@@ -679,6 +679,16 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|setFile
+argument_list|(
+literal|"target/filelanguage/report5.txt"
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
 name|setFile
 argument_list|(
 operator|new
@@ -686,6 +696,29 @@ name|File
 argument_list|(
 literal|"target/filelanguage/report5.txt"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setOperations
+argument_list|(
+operator|new
+name|NewFileOperations
+argument_list|(
+name|endpoint
+argument_list|,
+name|endpoint
+operator|.
+name|getFile
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setDirectory
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 name|endpoint

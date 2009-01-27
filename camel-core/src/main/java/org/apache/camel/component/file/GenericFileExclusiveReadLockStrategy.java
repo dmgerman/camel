@@ -18,6 +18,18 @@ name|file
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * Strategy for acquiring exclusive read locks for files to be consumed. After  * granting the read lock it is realeased, we just want to make sure that when  * we start consuming the file its not currently in progress of being written by  * third party.  *<p/>  * Camel supports out of the box the following strategies:  *<ul>  *<li>GenericFileRenameExclusiveReadLockStrategy waiting until its possible to  * rename the file.</li>  *</ul>  */
 end_comment
@@ -31,8 +43,8 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Acquires exclusive read lock to the file.      *      * @param operations generic file operations      * @param file       the file      * @return<tt>true</tt> if read lock was acquired. If<tt>false</tt> Camel      *         will skip the file and try it on the next poll      */
-DECL|method|acquireExclusiveReadLock (GenericFileOperations<T> operations, GenericFile<T> file)
+comment|/**      * Acquires exclusive read lock to the file.      *      * @param operations generic file operations      * @param file       the file      * @param exchange   the exchange      * @return<tt>true</tt> if read lock was acquired. If<tt>false</tt> Camel      *         will skip the file and try it on the next poll      * @throws Exception can be thrown in case of errors      */
+DECL|method|acquireExclusiveReadLock (GenericFileOperations<T> operations, GenericFile<T> file, Exchange exchange)
 name|boolean
 name|acquireExclusiveReadLock
 parameter_list|(
@@ -47,10 +59,15 @@ argument_list|<
 name|T
 argument_list|>
 name|file
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Releases the exclusive read lock granted by the<tt>acquireExclusiveReadLock</tt> method.      *      * @param operations generic file operations      * @param file       the file      */
-DECL|method|releaseExclusiveReadLock (GenericFileOperations<T> operations, GenericFile<T> file)
+comment|/**      * Releases the exclusive read lock granted by the<tt>acquireExclusiveReadLock</tt> method.      *      * @param operations generic file operations      * @param file       the file      * @param exchange   the exchange      * @throws Exception can be thrown in case of errors      */
+DECL|method|releaseExclusiveReadLock (GenericFileOperations<T> operations, GenericFile<T> file, Exchange exchange)
 name|void
 name|releaseExclusiveReadLock
 parameter_list|(
@@ -65,7 +82,12 @@ argument_list|<
 name|T
 argument_list|>
 name|file
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 comment|/**      * Sets an optional timeout period.      *<p/>      * If the readlock could not be granted within the timeperiod then the wait is stopped and the      *<tt>acquireExclusiveReadLock</tt> method returns<tt>false</tt>.      *      * @param timeout period in millis      */
 DECL|method|setTimeout (long timeout)

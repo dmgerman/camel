@@ -2219,6 +2219,12 @@ operator|+
 literal|" but is: "
 operator|+
 name|endpoint
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
 argument_list|)
 throw|;
 block|}

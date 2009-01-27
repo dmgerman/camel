@@ -570,6 +570,8 @@ operator|.
 name|buildDirectory
 argument_list|(
 name|directory
+argument_list|,
+literal|false
 argument_list|)
 condition|)
 block|{
@@ -577,7 +579,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Couldn't build directory ["
+literal|"Can not build directory ["
 operator|+
 name|directory
 operator|+
@@ -854,15 +856,6 @@ decl_stmt|;
 if|if
 condition|(
 name|getGenericFileEndpoint
-argument_list|()
-operator|.
-name|isDirectory
-argument_list|()
-operator|||
-name|getGenericFileEndpoint
-argument_list|()
-operator|.
-name|getConfiguration
 argument_list|()
 operator|.
 name|isDirectory

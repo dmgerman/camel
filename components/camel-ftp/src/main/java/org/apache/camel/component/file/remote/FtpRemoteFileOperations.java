@@ -786,13 +786,16 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|buildDirectory (String directory)
+DECL|method|buildDirectory (String directory, boolean absolute)
 specifier|public
 name|boolean
 name|buildDirectory
 parameter_list|(
 name|String
 name|directory
+parameter_list|,
+name|boolean
+name|absolute
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException

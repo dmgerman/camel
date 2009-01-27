@@ -39,13 +39,6 @@ specifier|private
 name|String
 name|file
 decl_stmt|;
-DECL|field|directory
-specifier|private
-name|boolean
-name|directory
-init|=
-literal|true
-decl_stmt|;
 DECL|method|GenericFileConfiguration ()
 specifier|public
 name|GenericFileConfiguration
@@ -54,18 +47,6 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"/"
-operator|+
-name|file
-return|;
 block|}
 DECL|method|configure (URI uri)
 specifier|public
@@ -104,28 +85,6 @@ name|String
 name|file
 parameter_list|)
 block|{
-comment|// Avoid accidentally putting everything in root on
-comment|// servers that expose the full filesystem
-if|if
-condition|(
-name|file
-operator|.
-name|startsWith
-argument_list|(
-literal|"/"
-argument_list|)
-condition|)
-block|{
-name|file
-operator|=
-name|file
-operator|.
-name|substring
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
 name|this
 operator|.
 name|file
@@ -133,31 +92,15 @@ operator|=
 name|file
 expr_stmt|;
 block|}
-DECL|method|isDirectory ()
+DECL|method|toString ()
 specifier|public
-name|boolean
-name|isDirectory
+name|String
+name|toString
 parameter_list|()
 block|{
 return|return
-name|directory
+name|file
 return|;
-block|}
-DECL|method|setDirectory (boolean directory)
-specifier|public
-name|void
-name|setDirectory
-parameter_list|(
-name|boolean
-name|directory
-parameter_list|)
-block|{
-name|this
-operator|.
-name|directory
-operator|=
-name|directory
-expr_stmt|;
 block|}
 block|}
 end_class

@@ -284,9 +284,6 @@ name|isDirectory
 init|=
 name|endpoint
 operator|.
-name|getConfiguration
-argument_list|()
-operator|.
 name|isDirectory
 argument_list|()
 decl_stmt|;
@@ -1092,6 +1089,8 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|processStrategy
 operator|.
 name|rollback
@@ -1105,6 +1104,30 @@ argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error rolling back remote file strategy: "
+operator|+
+name|processStrategy
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|handleException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Strategy for validating if the given remote file should be included or      * not      *      * @param file        the remote file      * @param isDirectory wether the file is a directory or a file      * @return<tt>true</tt> to include the file,<tt>false</tt> to skip it      */
 DECL|method|isValidFile (GenericFile<T> file, boolean isDirectory)

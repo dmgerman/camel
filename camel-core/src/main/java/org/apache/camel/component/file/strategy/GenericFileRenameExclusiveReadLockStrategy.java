@@ -28,6 +28,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -130,7 +142,7 @@ specifier|private
 name|long
 name|timeout
 decl_stmt|;
-DECL|method|acquireExclusiveReadLock (GenericFileOperations operations, GenericFile file)
+DECL|method|acquireExclusiveReadLock (GenericFileOperations operations, GenericFile file, Exchange exchange)
 specifier|public
 name|boolean
 name|acquireExclusiveReadLock
@@ -140,7 +152,12 @@ name|operations
 parameter_list|,
 name|GenericFile
 name|file
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -319,17 +336,22 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|releaseExclusiveReadLock (GenericFileOperations genericFileOperations, GenericFile genericFile)
+DECL|method|releaseExclusiveReadLock (GenericFileOperations opeations, GenericFile file, Exchange exchange)
 specifier|public
 name|void
 name|releaseExclusiveReadLock
 parameter_list|(
 name|GenericFileOperations
-name|genericFileOperations
+name|opeations
 parameter_list|,
 name|GenericFile
-name|genericFile
+name|file
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 comment|// noop
 block|}
@@ -375,7 +397,7 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * Sets an optional timeout period.      *<p/>      * If the readlock could not be granted within the timeperiod then the wait is stopped and the      * {@link #acquireExclusiveReadLock(org.apache.camel.component.file.GenericFileOperations, org.apache.camel.component.file.GenericFile)}      *  acquireExclusiveReadLock} returns<tt>false</tt>.      *      * @param timeout period in millis      */
+comment|/**      * Sets an optional timeout period.      *<p/>      * If the readlock could not be granted within the timeperiod then the wait is stopped and the      *<tt>acquireExclusiveReadLock</tt> returns<tt>false</tt>.      *      * @param timeout period in millis      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void

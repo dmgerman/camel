@@ -882,17 +882,21 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|buildDirectory (String dirName)
+DECL|method|buildDirectory (String directory, boolean absolute)
 specifier|public
 name|boolean
 name|buildDirectory
 parameter_list|(
 name|String
-name|dirName
+name|directory
+parameter_list|,
+name|boolean
+name|absolute
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
+comment|// ignore absolute as all dirs are relative with FTP
 name|boolean
 name|success
 init|=
@@ -913,7 +917,7 @@ name|channel
 operator|.
 name|cd
 argument_list|(
-name|dirName
+name|directory
 argument_list|)
 expr_stmt|;
 name|success
@@ -949,7 +953,7 @@ name|debug
 argument_list|(
 literal|"Trying to build remote directory: "
 operator|+
-name|dirName
+name|directory
 argument_list|)
 expr_stmt|;
 block|}
@@ -959,7 +963,7 @@ name|channel
 operator|.
 name|mkdir
 argument_list|(
-name|dirName
+name|directory
 argument_list|)
 expr_stmt|;
 name|success
@@ -979,7 +983,7 @@ name|success
 operator|=
 name|buildDirectoryChunks
 argument_list|(
-name|dirName
+name|directory
 argument_list|)
 expr_stmt|;
 block|}
@@ -997,7 +1001,7 @@ name|RemoteFileOperationFailedException
 argument_list|(
 literal|"Cannot build directory "
 operator|+
-name|dirName
+name|directory
 argument_list|,
 name|e
 argument_list|)
@@ -1015,7 +1019,7 @@ name|RemoteFileOperationFailedException
 argument_list|(
 literal|"Cannot build directory "
 operator|+
-name|dirName
+name|directory
 argument_list|,
 name|e
 argument_list|)

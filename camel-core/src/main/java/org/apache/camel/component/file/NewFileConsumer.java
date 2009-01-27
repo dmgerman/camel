@@ -32,6 +32,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -163,6 +173,22 @@ operator|.
 name|listFiles
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|files
+operator|==
+literal|null
+operator|||
+name|files
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+comment|// no files in this directory to poll
+return|return;
+block|}
 for|for
 control|(
 name|File
@@ -341,8 +367,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Creates a new GenericFile<File> based on the given file.      *      * @param file the source file      * @return wrapped as a GenericFile      */
 DECL|method|asGenericFile (File file)
-specifier|protected
+specifier|public
+specifier|static
 name|GenericFile
 argument_list|<
 name|File
@@ -413,6 +441,27 @@ name|getAbsolutePath
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|answer
+operator|.
+name|setCanonicalFileName
+argument_list|(
+name|file
+operator|.
+name|getCanonicalPath
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 name|answer
 operator|.
 name|setLastModified

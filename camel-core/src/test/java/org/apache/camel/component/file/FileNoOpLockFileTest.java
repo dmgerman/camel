@@ -159,7 +159,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/reports/locked"
+literal|"newfile:target/reports/locked"
 argument_list|,
 literal|"Hello Locked"
 argument_list|,
@@ -222,7 +222,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/reports/notlocked"
+literal|"newfile:target/reports/notlocked"
 argument_list|,
 literal|"Hello Not Locked"
 argument_list|,
@@ -337,7 +337,7 @@ block|{
 comment|// for locks
 name|from
 argument_list|(
-literal|"file://target/reports/locked/?noop=true"
+literal|"newfile://target/reports/locked/?noop=true"
 argument_list|)
 operator|.
 name|process
@@ -355,7 +355,7 @@ expr_stmt|;
 comment|// for no locks
 name|from
 argument_list|(
-literal|"file://target/reports/notlocked/?noop=true&lock=false"
+literal|"newfile://target/reports/notlocked/?noop=true&readLock=false"
 argument_list|)
 operator|.
 name|process

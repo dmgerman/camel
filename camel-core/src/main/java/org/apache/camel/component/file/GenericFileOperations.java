@@ -37,6 +37,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
+comment|// TODO: setEndpoint method so we have access to it
 comment|/**      * Deletes the file name by name, relative to the current directory      *      * @param name name of the file      * @return true if deleted, false if not      * @throws GenericFileOperationFailedException      *          can be thrown      */
 DECL|method|deleteFile (String name)
 name|boolean
@@ -62,13 +63,16 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Builds the directory structure. Will test if the      * folder already exists.      *      * @param directory the directory path to build      * @return true if build or already exists, false if not possbile (could be      *         lack of permissions)      * @throws GenericFileOperationFailedException      *          can be thrown      */
-DECL|method|buildDirectory (String directory)
+comment|/**      * Builds the directory structure. Will test if the      * folder already exists.      *      * @param directory the directory path to build as a relative string name      * @param absolute wether the directory is an absolute or relative path      * @return true if build or already exists, false if not possbile (could be      *         lack of permissions)      * @throws GenericFileOperationFailedException      *          can be thrown      */
+DECL|method|buildDirectory (String directory, boolean absolute)
 name|boolean
 name|buildDirectory
 parameter_list|(
 name|String
 name|directory
+parameter_list|,
+name|boolean
+name|absolute
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException

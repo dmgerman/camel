@@ -266,7 +266,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// lets try the exchange header
+comment|// fall back on a property
 name|header
 operator|=
 name|exchange

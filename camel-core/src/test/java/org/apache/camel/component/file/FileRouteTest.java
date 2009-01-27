@@ -134,7 +134,7 @@ specifier|protected
 name|String
 name|uri
 init|=
-literal|"file:"
+literal|"newfile:"
 operator|+
 name|targetdir
 operator|+
@@ -213,7 +213,7 @@ argument_list|)
 expr_stmt|;
 name|uri
 operator|=
-literal|"file:"
+literal|"newfile:"
 operator|+
 name|targetdir
 operator|+
@@ -314,7 +314,7 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-literal|"org.apache.camel.file.lock.name"
+literal|"org.apache.camel.file.marker.filename"
 argument_list|,
 name|String
 operator|.
