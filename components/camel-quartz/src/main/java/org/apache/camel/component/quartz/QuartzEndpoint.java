@@ -280,15 +280,6 @@ name|QuartzEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|ENDPOINT_KEY
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|ENDPOINT_KEY
-init|=
-literal|"org.apache.camel.quartz"
-decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -305,6 +296,24 @@ name|QuartzEndpoint
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|ENDPOINT_KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ENDPOINT_KEY
+init|=
+literal|"org.apache.camel.quartz"
+decl_stmt|;
+DECL|field|CONTEXT_KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CONTEXT_KEY
+init|=
+literal|"org.apache.camel.CamelContext"
 decl_stmt|;
 DECL|field|scheduler
 specifier|private
@@ -331,16 +340,24 @@ specifier|private
 name|boolean
 name|started
 decl_stmt|;
-DECL|method|QuartzEndpoint (String endpointUri, QuartzComponent component, Scheduler scheduler)
+DECL|field|stateful
+specifier|private
+name|boolean
+name|stateful
+decl_stmt|;
+DECL|method|QuartzEndpoint (final String endpointUri, final QuartzComponent component, final Scheduler scheduler)
 specifier|public
 name|QuartzEndpoint
 parameter_list|(
+specifier|final
 name|String
 name|endpointUri
 parameter_list|,
+specifier|final
 name|QuartzComponent
 name|component
 parameter_list|,
+specifier|final
 name|Scheduler
 name|scheduler
 parameter_list|)
@@ -359,13 +376,15 @@ operator|=
 name|scheduler
 expr_stmt|;
 block|}
-DECL|method|QuartzEndpoint (String endpointUri, Scheduler scheduler)
+DECL|method|QuartzEndpoint (final String endpointUri, final Scheduler scheduler)
 specifier|public
 name|QuartzEndpoint
 parameter_list|(
+specifier|final
 name|String
 name|endpointUri
 parameter_list|,
+specifier|final
 name|Scheduler
 name|scheduler
 parameter_list|)
@@ -382,11 +401,12 @@ operator|=
 name|scheduler
 expr_stmt|;
 block|}
-DECL|method|addTriggers (Map<Trigger, JobDetail> triggerMap)
+DECL|method|addTriggers (final Map<Trigger, JobDetail> triggerMap)
 specifier|public
 name|void
 name|addTriggers
 parameter_list|(
+specifier|final
 name|Map
 argument_list|<
 name|Trigger
@@ -482,14 +502,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|addTrigger (Trigger trigger, JobDetail detail)
+DECL|method|addTrigger (final Trigger trigger, final JobDetail detail)
 specifier|public
 name|void
 name|addTrigger
 parameter_list|(
+specifier|final
 name|Trigger
 name|trigger
 parameter_list|,
+specifier|final
 name|JobDetail
 name|detail
 parameter_list|)
@@ -570,28 +592,36 @@ name|put
 argument_list|(
 name|ENDPOINT_KEY
 argument_list|,
+name|isStateful
+argument_list|()
+condition|?
+name|getEndpointUri
+argument_list|()
+else|:
 name|this
 argument_list|)
 expr_stmt|;
-name|Class
-name|jobClass
-init|=
+if|if
+condition|(
+literal|null
+operator|==
 name|detail
 operator|.
 name|getJobClass
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|jobClass
-operator|==
-literal|null
 condition|)
 block|{
 name|detail
 operator|.
 name|setJobClass
 argument_list|(
+name|isStateful
+argument_list|()
+condition|?
+name|StatefulCamelJob
+operator|.
+name|class
+else|:
 name|CamelJob
 operator|.
 name|class
@@ -628,14 +658,16 @@ name|trigger
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|removeTrigger (Trigger trigger, JobDetail jobDetail)
+DECL|method|removeTrigger (final Trigger trigger, final JobDetail jobDetail)
 specifier|public
 name|void
 name|removeTrigger
 parameter_list|(
+specifier|final
 name|Trigger
 name|trigger
 parameter_list|,
+specifier|final
 name|JobDetail
 name|jobDetail
 parameter_list|)
@@ -660,11 +692,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This method is invoked when a Quartz job is fired.      *      * @param jobExecutionContext the Quartz Job context      */
-DECL|method|onJobExecute (JobExecutionContext jobExecutionContext)
+DECL|method|onJobExecute (final JobExecutionContext jobExecutionContext)
 specifier|public
 name|void
 name|onJobExecute
 parameter_list|(
+specifier|final
 name|JobExecutionContext
 name|jobExecutionContext
 parameter_list|)
@@ -733,11 +766,12 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|createExchange (JobExecutionContext jobExecutionContext)
+DECL|method|createExchange (final JobExecutionContext jobExecutionContext)
 specifier|public
 name|Exchange
 name|createExchange
 parameter_list|(
+specifier|final
 name|JobExecutionContext
 name|jobExecutionContext
 parameter_list|)
@@ -865,11 +899,12 @@ return|return
 name|loadBalancer
 return|;
 block|}
-DECL|method|setLoadBalancer (LoadBalancer loadBalancer)
+DECL|method|setLoadBalancer (final LoadBalancer loadBalancer)
 specifier|public
 name|void
 name|setLoadBalancer
 parameter_list|(
+specifier|final
 name|LoadBalancer
 name|loadBalancer
 parameter_list|)
@@ -904,11 +939,12 @@ return|return
 name|jobDetail
 return|;
 block|}
-DECL|method|setJobDetail (JobDetail jobDetail)
+DECL|method|setJobDetail (final JobDetail jobDetail)
 specifier|public
 name|void
 name|setJobDetail
 parameter_list|(
+specifier|final
 name|JobDetail
 name|jobDetail
 parameter_list|)
@@ -943,11 +979,12 @@ return|return
 name|trigger
 return|;
 block|}
-DECL|method|setTrigger (Trigger trigger)
+DECL|method|setTrigger (final Trigger trigger)
 specifier|public
 name|void
 name|setTrigger
 parameter_list|(
+specifier|final
 name|Trigger
 name|trigger
 parameter_list|)
@@ -959,14 +996,46 @@ operator|=
 name|trigger
 expr_stmt|;
 block|}
+comment|/**      * @return the stateful mode      */
+DECL|method|isStateful ()
+specifier|public
+name|boolean
+name|isStateful
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|stateful
+return|;
+block|}
+comment|/**      * @param stateful sets the stateful mode      */
+DECL|method|setStateful (final boolean stateful)
+specifier|public
+name|void
+name|setStateful
+parameter_list|(
+specifier|final
+name|boolean
+name|stateful
+parameter_list|)
+block|{
+name|this
+operator|.
+name|stateful
+operator|=
+name|stateful
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-DECL|method|consumerStarted (QuartzConsumer consumer)
+DECL|method|consumerStarted (final QuartzConsumer consumer)
 specifier|public
 specifier|synchronized
 name|void
 name|consumerStarted
 parameter_list|(
+specifier|final
 name|QuartzConsumer
 name|consumer
 parameter_list|)
@@ -1006,12 +1075,13 @@ literal|true
 expr_stmt|;
 block|}
 block|}
-DECL|method|consumerStopped (QuartzConsumer consumer)
+DECL|method|consumerStopped (final QuartzConsumer consumer)
 specifier|public
 specifier|synchronized
 name|void
 name|consumerStopped
 parameter_list|(
+specifier|final
 name|QuartzConsumer
 name|consumer
 parameter_list|)

@@ -232,10 +232,11 @@ specifier|public
 name|QuartzComponent
 parameter_list|()
 block|{     }
-DECL|method|QuartzComponent (CamelContext context)
+DECL|method|QuartzComponent (final CamelContext context)
 specifier|public
 name|QuartzComponent
 parameter_list|(
+specifier|final
 name|CamelContext
 name|context
 parameter_list|)
@@ -248,17 +249,20 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (final String uri, final String remaining, final Map parameters)
 specifier|protected
 name|QuartzEndpoint
 name|createEndpoint
 parameter_list|(
+specifier|final
 name|String
 name|uri
 parameter_list|,
+specifier|final
 name|String
 name|remaining
 parameter_list|,
+specifier|final
 name|Map
 name|parameters
 parameter_list|)
@@ -618,11 +622,12 @@ return|return
 name|factory
 return|;
 block|}
-DECL|method|setFactory (SchedulerFactory factory)
+DECL|method|setFactory (final SchedulerFactory factory)
 specifier|public
 name|void
 name|setFactory
 parameter_list|(
+specifier|final
 name|SchedulerFactory
 name|factory
 parameter_list|)
@@ -659,11 +664,12 @@ return|return
 name|scheduler
 return|;
 block|}
-DECL|method|setScheduler (Scheduler scheduler)
+DECL|method|setScheduler (final Scheduler scheduler)
 specifier|public
 name|void
 name|setScheduler
 parameter_list|(
+specifier|final
 name|Scheduler
 name|scheduler
 parameter_list|)
@@ -685,11 +691,12 @@ return|return
 name|triggers
 return|;
 block|}
-DECL|method|setTriggers (Map triggers)
+DECL|method|setTriggers (final Map triggers)
 specifier|public
 name|void
 name|setTriggers
 parameter_list|(
+specifier|final
 name|Map
 name|triggers
 parameter_list|)
@@ -723,12 +730,32 @@ parameter_list|()
 throws|throws
 name|SchedulerException
 block|{
-return|return
+name|Scheduler
+name|scheduler
+init|=
 name|getFactory
 argument_list|()
 operator|.
 name|getScheduler
 argument_list|()
+decl_stmt|;
+name|scheduler
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|QuartzEndpoint
+operator|.
+name|CONTEXT_KEY
+argument_list|,
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|scheduler
 return|;
 block|}
 block|}
