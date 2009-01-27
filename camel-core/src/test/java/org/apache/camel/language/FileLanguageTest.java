@@ -30,16 +30,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|text
 operator|.
 name|SimpleDateFormat
@@ -140,39 +130,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|FileEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|NewFileEndpoint
+name|GenericFile
 import|;
 end_import
 
@@ -204,7 +162,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|GenericFile
+name|NewFileConsumer
 import|;
 end_import
 
@@ -220,7 +178,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|NewFileConsumer
+name|NewFileEndpoint
 import|;
 end_import
 

@@ -223,6 +223,16 @@ argument_list|<
 name|File
 argument_list|>
 block|{
+DECL|field|DEFAULT_LOCK_FILE_POSTFIX
+specifier|public
+specifier|static
+specifier|final
+specifier|transient
+name|String
+name|DEFAULT_LOCK_FILE_POSTFIX
+init|=
+literal|".camelLock"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -250,7 +260,7 @@ name|GenericFileDefaultRenamer
 argument_list|(
 literal|""
 argument_list|,
-literal|".camellock"
+name|DEFAULT_LOCK_FILE_POSTFIX
 argument_list|)
 decl_stmt|;
 DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> fileGenericFileOperations, GenericFile<File> file, Exchange exchange)

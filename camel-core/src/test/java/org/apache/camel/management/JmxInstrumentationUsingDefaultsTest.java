@@ -740,9 +740,16 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// need a little delay for fast computers being able to process
+comment|// the exchange in 0 millis and we need to simulate a little computation time
 name|from
 argument_list|(
 literal|"direct:start"
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|10
 argument_list|)
 operator|.
 name|to

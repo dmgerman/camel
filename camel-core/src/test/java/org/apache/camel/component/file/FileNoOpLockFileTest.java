@@ -88,6 +88,24 @@ name|camel
 operator|.
 name|component
 operator|.
+name|file
+operator|.
+name|strategy
+operator|.
+name|NewMarkerFileExclusiveReadLockStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
 name|mock
 operator|.
 name|MockEndpoint
@@ -280,7 +298,7 @@ name|filename
 operator|+=
 literal|"report.txt"
 operator|+
-name|FileEndpoint
+name|NewMarkerFileExclusiveReadLockStrategy
 operator|.
 name|DEFAULT_LOCK_FILE_POSTFIX
 expr_stmt|;
@@ -293,6 +311,13 @@ argument_list|(
 name|filename
 argument_list|)
 decl_stmt|;
+name|file
+operator|=
+name|file
+operator|.
+name|getAbsoluteFile
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Lock file should "
