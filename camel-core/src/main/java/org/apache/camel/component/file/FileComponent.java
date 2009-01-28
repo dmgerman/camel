@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://activemq.apache.org/camel/file.html">File Component</a>  * for working with file systems  *  * @version $Revision$  */
+comment|/**  * The<a href="http://camel.apache.org/file.html">File Component</a>  * for working with file systems  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Testing http://activemq.apache.org/camel/dsl.html  */
+comment|/**  * Testing http://camel.apache.org/dsl.html  */
 end_comment
 
 begin_class

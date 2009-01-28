@@ -589,7 +589,7 @@ specifier|final
 name|String
 name|WIKI_TYPECONVERER_URL
 init|=
-literal|"http://activemq.apache.org/camel/type-converter.html"
+literal|"http://camel.apache.org/type-converter.html"
 decl_stmt|;
 DECL|field|CONVERTER_TYPE_STATIC
 specifier|private

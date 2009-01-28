@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_comment
-comment|/**  * The JAXB POJOs for the  *<a href="http://activemq.apache.org/camel/xml-configuration.html">XML Configuration</a>  * of the routing rules.  */
+comment|/**  * The JAXB POJOs for the  *<a href="http://camel.apache.org/xml-configuration.html">XML Configuration</a>  * of the routing rules.  */
 end_comment
 
 begin_annotation

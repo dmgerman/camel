@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  * for turning the Spring Integration types into Camel native type.  *  * @version $Revision$  */
+comment|/**  * The<a href="http://camel.apache.org/type-converter.html">Type Converters</a>  * for turning the Spring Integration types into Camel native type.  *  * @version $Revision$  */
 end_comment
 
 begin_class

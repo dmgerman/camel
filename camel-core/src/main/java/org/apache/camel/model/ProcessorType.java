@@ -1216,7 +1216,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">ExchangePattern:</a>      * set the ExchangePattern {@link ExchangePattern} into the exchange      *      * @param exchangePattern  instance of {@link ExchangePattern}      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/exchange-pattern.html">ExchangePattern:</a>      * set the ExchangePattern {@link ExchangePattern} into the exchange      *      * @param exchangePattern  instance of {@link ExchangePattern}      * @return the builder      */
 DECL|method|setExchangePattern (ExchangePattern exchangePattern)
 specifier|public
 name|Type
@@ -1242,7 +1242,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">ExchangePattern:</a>      * set the exchange's ExchangePattern {@link ExchangePattern} to be InOnly      *      *      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/exchange-pattern.html">ExchangePattern:</a>      * set the exchange's ExchangePattern {@link ExchangePattern} to be InOnly      *      *      * @return the builder      */
 DECL|method|inOnly ()
 specifier|public
 name|Type
@@ -1258,7 +1258,7 @@ name|InOnly
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoint using an      *<a href="http://activemq.apache.org/camel/event-message.html">Event Message</a> or      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param uri The endpoint uri which is used for sending the exchange      * @return the builder      */
+comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param uri The endpoint uri which is used for sending the exchange      * @return the builder      */
 DECL|method|inOnly (String uri)
 specifier|public
 name|Type
@@ -1279,7 +1279,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoint using an      *<a href="http://activemq.apache.org/camel/event-message.html">Event Message</a> or       *<a href="http://activemq.apache.org/camel/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param endpoint The endpoint which is used for sending the exchange      * @return the builder      */
+comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or       *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param endpoint The endpoint which is used for sending the exchange      * @return the builder      */
 DECL|method|inOnly (Endpoint endpoint)
 specifier|public
 name|Type
@@ -1300,7 +1300,7 @@ name|endpoint
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoints using an      *<a href="http://activemq.apache.org/camel/event-message.html">Event Message</a> or      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param uris  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param uris  list of endpoints to send to      * @return the builder      */
 DECL|method|inOnly (String... uris)
 specifier|public
 name|Type
@@ -1322,7 +1322,7 @@ name|uris
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoints using an      *<a href="http://activemq.apache.org/camel/event-message.html">Event Message</a> or      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
 DECL|method|inOnly (Endpoint... endpoints)
 specifier|public
 name|Type
@@ -1344,7 +1344,7 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoints using an      *<a href="http://activemq.apache.org/camel/event-message.html">Event Message</a> or      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
 DECL|method|inOnly (Iterable<Endpoint> endpoints)
 specifier|public
 name|Type
@@ -1368,7 +1368,7 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">ExchangePattern:</a>      * set the exchange's ExchangePattern {@link ExchangePattern} to be InOut      *      *      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/exchange-pattern.html">ExchangePattern:</a>      * set the exchange's ExchangePattern {@link ExchangePattern} to be InOut      *      *      * @return the builder      */
 DECL|method|inOut ()
 specifier|public
 name|Type
@@ -1384,7 +1384,7 @@ name|InOut
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoint using an      *<a href="http://activemq.apache.org/camel/request-reply.html">Request Reply</a> or      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">InOut exchange pattern</a>      *      * @param uri The endpoint uri which is used for sending the exchange      * @return the builder      */
+comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *      * @param uri The endpoint uri which is used for sending the exchange      * @return the builder      */
 DECL|method|inOut (String uri)
 specifier|public
 name|Type
@@ -1405,7 +1405,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoint using an      *<a href="http://activemq.apache.org/camel/request-reply.html">Request Reply</a> or      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">InOut exchange pattern</a>      *      * @param endpoint The endpoint which is used for sending the exchange      * @return the builder      */
+comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *      * @param endpoint The endpoint which is used for sending the exchange      * @return the builder      */
 DECL|method|inOut (Endpoint endpoint)
 specifier|public
 name|Type
@@ -1426,7 +1426,7 @@ name|endpoint
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoints using an      *<a href="http://activemq.apache.org/camel/request-reply.html">Request Reply</a> or      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">InOut exchange pattern</a>      *      * @param uris  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *      * @param uris  list of endpoints to send to      * @return the builder      */
 DECL|method|inOut (String... uris)
 specifier|public
 name|Type
@@ -1448,7 +1448,7 @@ name|uris
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoints using an      *<a href="http://activemq.apache.org/camel/request-reply.html">Request Reply</a> or      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">InOut exchange pattern</a>      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
 DECL|method|inOut (Endpoint... endpoints)
 specifier|public
 name|Type
@@ -1470,7 +1470,7 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends the message to the given endpoints using an      *<a href="http://activemq.apache.org/camel/request-reply.html">Request Reply</a> or      *<a href="http://activemq.apache.org/camel/exchange-pattern.html">InOut exchange pattern</a>      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
+comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
 DECL|method|inOut (Iterable<Endpoint> endpoints)
 specifier|public
 name|Type
@@ -1494,7 +1494,7 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/multicast.html">Multicast EIP:</a>      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      *      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/multicast.html">Multicast EIP:</a>      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      *      * @return the builder      */
 DECL|method|multicast ()
 specifier|public
 name|MulticastType
@@ -1517,7 +1517,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/multicast.html">Multicast EIP:</a>      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      *      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/multicast.html">Multicast EIP:</a>      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      *      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the builder      */
 DECL|method|multicast (AggregationStrategy aggregationStrategy, boolean parallelProcessing)
 specifier|public
 name|MulticastType
@@ -1560,7 +1560,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/multicast.html">Multicast EIP:</a>      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      *      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/multicast.html">Multicast EIP:</a>      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      *      * @param aggregationStrategy the strategy used to aggregate responses for      *          every part      * @return the builder      */
 DECL|method|multicast (AggregationStrategy aggregationStrategy)
 specifier|public
 name|MulticastType
@@ -1593,7 +1593,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/pipes-nd-filters.html">Pipes and Filters EIP:</a>      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @param uris  list of endpoints      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/pipes-nd-filters.html">Pipes and Filters EIP:</a>      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @param uris  list of endpoints      * @return the builder      */
 DECL|method|pipeline (String... uris)
 specifier|public
 name|Type
@@ -1611,7 +1611,7 @@ name|uris
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/pipes-nd-filters.html">Pipes and Filters EIP:</a>      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @param endpoints  list of endpoints      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/pipes-nd-filters.html">Pipes and Filters EIP:</a>      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @param endpoints  list of endpoints      * @return the builder      */
 DECL|method|pipeline (Endpoint... endpoints)
 specifier|public
 name|Type
@@ -1629,7 +1629,7 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/pipes-nd-filters.html">Pipes and Filters EIP:</a>      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @param endpoints  list of endpoints      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/pipes-nd-filters.html">Pipes and Filters EIP:</a>      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @param endpoints  list of endpoints      * @return the builder      */
 DECL|method|pipeline (Collection<Endpoint> endpoints)
 specifier|public
 name|Type
@@ -1754,7 +1754,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *            * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *            * @return the builder      */
 DECL|method|idempotentConsumer ()
 specifier|public
 name|IdempotentConsumerType
@@ -1777,7 +1777,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdExpression  expression to test of duplicate messages      * @param idempotentRepository  the repository to use for duplicate chedck      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdExpression  expression to test of duplicate messages      * @param idempotentRepository  the repository to use for duplicate chedck      * @return the builder      */
 DECL|method|idempotentConsumer (Expression messageIdExpression, IdempotentRepository idempotentRepository)
 specifier|public
 name|IdempotentConsumerType
@@ -1810,7 +1810,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param idempotentRepository the repository to use for duplicate chedck      * @return the builder used to create the expression      */
+comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param idempotentRepository the repository to use for duplicate chedck      * @return the builder used to create the expression      */
 DECL|method|idempotentConsumer (IdempotentRepository idempotentRepository)
 specifier|public
 name|ExpressionClause
@@ -1851,7 +1851,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-filter.html">Message Filter EIP:</a>      * Creates a predicate expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @return the clause used to create the filter expression      */
+comment|/**      *<a href="http://camel.apache.org/message-filter.html">Message Filter EIP:</a>      * Creates a predicate expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @return the clause used to create the filter expression      */
 DECL|method|filter ()
 specifier|public
 name|ExpressionClause
@@ -1882,7 +1882,7 @@ name|filter
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-filter.html">Message Filter EIP:</a>      * Creates a predicate which is applied and only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @param predicate  predicate to use      * @return the builder       */
+comment|/**      *<a href="http://camel.apache.org/message-filter.html">Message Filter EIP:</a>      * Creates a predicate which is applied and only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @param predicate  predicate to use      * @return the builder       */
 DECL|method|filter (Predicate predicate)
 specifier|public
 name|FilterType
@@ -1910,7 +1910,7 @@ return|return
 name|filter
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-filter.html">Message Filter EIP:</a>      * Creates a predicate expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @param expression  the predicate expression to use      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-filter.html">Message Filter EIP:</a>      * Creates a predicate expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @param expression  the predicate expression to use      * @return the builder      */
 DECL|method|filter (ExpressionType expression)
 specifier|public
 name|FilterType
@@ -1945,7 +1945,7 @@ return|return
 name|filter
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-filter.html">Message Filter EIP:</a>      * Creates a predicate language expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @param language     language for expression      * @param expression   the expression      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-filter.html">Message Filter EIP:</a>      * Creates a predicate language expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @param language     language for expression      * @param expression   the expression      * @return the builder      */
 DECL|method|filter (String language, String expression)
 specifier|public
 name|FilterType
@@ -1971,7 +1971,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/load-balancer.html">Load Balancer EIP:</a>      * Creates a loadbalance      *      * @return  the builder      */
+comment|/**      *<a href="http://camel.apache.org/load-balancer.html">Load Balancer EIP:</a>      * Creates a loadbalance      *      * @return  the builder      */
 DECL|method|loadBalance ()
 specifier|public
 name|LoadBalanceType
@@ -1994,7 +1994,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/content-based-router.html">Content Based Router EIP:</a>      * Creates a choice of one or more predicates with an otherwise clause      *      * @return the builder for a choice expression      */
+comment|/**      *<a href="http://camel.apache.org/content-based-router.html">Content Based Router EIP:</a>      * Creates a choice of one or more predicates with an otherwise clause      *      * @return the builder for a choice expression      */
 DECL|method|choice ()
 specifier|public
 name|ChoiceType
@@ -2040,7 +2040,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @param recipients expression to decide the destinations      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @param recipients expression to decide the destinations      * @return the builder      */
 DECL|method|recipientList (Expression recipients)
 specifier|public
 name|Type
@@ -2071,7 +2071,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @return the expression clause to configure the expression to decide the destinations      */
+comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @return the expression clause to configure the expression to decide the destinations      */
 DECL|method|recipientList ()
 specifier|public
 name|ExpressionClause
@@ -2131,7 +2131,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *      * @param header  is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      *                class will look in for the list of URIs to route the message to.      * @param uriDelimiter  is the delimiter that will be used to split up      *                      the list of URIs in the routing slip.      * @return the buiider      */
+comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *      * @param header  is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      *                class will look in for the list of URIs to route the message to.      * @param uriDelimiter  is the delimiter that will be used to split up      *                      the list of URIs in the routing slip.      * @return the buiider      */
 DECL|method|routingSlip (String header, String uriDelimiter)
 specifier|public
 name|Type
@@ -2167,7 +2167,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p>      * The list of URIs will be split based on the default delimiter {@link RoutingSlipType#DEFAULT_DELIMITER}      *      * @param header  is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      *                class will look in for the list of URIs to route the message to.      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p>      * The list of URIs will be split based on the default delimiter {@link RoutingSlipType#DEFAULT_DELIMITER}      *      * @param header  is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      *                class will look in for the list of URIs to route the message to.      * @return the builder      */
 DECL|method|routingSlip (String header)
 specifier|public
 name|Type
@@ -2198,7 +2198,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @return the expression clause builder for the expression on which to split      */
+comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @return the expression clause builder for the expression on which to split      */
 DECL|method|split ()
 specifier|public
 name|ExpressionClause
@@ -2229,7 +2229,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @param expression  the expression on which to split the message      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @param expression  the expression on which to split the message      * @return the builder      */
 DECL|method|split (Expression expression)
 specifier|public
 name|SplitterType
@@ -2257,7 +2257,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression  the expression on which to split      * @param aggregationStrategy  the strategy used to aggregate responses for every part      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression  the expression on which to split      * @param aggregationStrategy  the strategy used to aggregate responses for every part      * @return the builder      */
 DECL|method|split (Expression expression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|SplitterType
@@ -2295,7 +2295,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param aggregationStrategy  the strategy used to aggregate responses for every part      * @return the expression clause for the expression on which to split      * @deprecated will be removed in Camel 2.0      */
+comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param aggregationStrategy  the strategy used to aggregate responses for every part      * @return the expression clause for the expression on which to split      * @deprecated will be removed in Camel 2.0      */
 DECL|method|split (AggregationStrategy aggregationStrategy)
 specifier|public
 name|ExpressionClause
@@ -2336,7 +2336,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the builder      * @deprecated will be removed in Camel 2.0      */
+comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the builder      * @deprecated will be removed in Camel 2.0      */
 DECL|method|split (Expression expression, boolean parallelProcessing)
 specifier|public
 name|SplitterType
@@ -2374,7 +2374,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param executor override the default {@link Executor}      * @return the builder      * @deprecated will be removed in Camel 2.0      */
+comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param executor override the default {@link Executor}      * @return the builder      * @deprecated will be removed in Camel 2.0      */
 DECL|method|split (Expression expression, boolean parallelProcessing, Executor executor)
 specifier|public
 name|SplitterType
@@ -2422,7 +2422,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the expression clause for the expression on which to split      * @deprecated will be removed in Camel 2.0      */
+comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the expression clause for the expression on which to split      * @deprecated will be removed in Camel 2.0      */
 DECL|method|split (boolean parallelProcessing)
 specifier|public
 name|ExpressionClause
@@ -2463,7 +2463,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      /**       *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>       * Creates a splitter allowing you split a message into a number of pieces and process them individually.       *<p>       * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param executor override the default {@link Executor}      * @return the expression clause for the expression on which to split      * @deprecated will be removed in Camel 2.0      */
+comment|/**      /**       *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>       * Creates a splitter allowing you split a message into a number of pieces and process them individually.       *<p>       * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param executor override the default {@link Executor}      * @return the expression clause for the expression on which to split      * @deprecated will be removed in Camel 2.0      */
 DECL|method|split (boolean parallelProcessing, Executor executor)
 specifier|public
 name|ExpressionClause
@@ -2514,7 +2514,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the builder      * @deprecated will be removed in Camel 2.0      */
+comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the builder      * @deprecated will be removed in Camel 2.0      */
 DECL|method|split (Expression expression, AggregationStrategy aggregationStrategy, boolean parallelProcessing)
 specifier|public
 name|SplitterType
@@ -2562,7 +2562,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param executor override the default {@link Executor}      * @return the builder      * @deprecated will be removed in Camel 2.0      */
+comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression the expression on which to split      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param executor override the default {@link Executor}      * @return the builder      * @deprecated will be removed in Camel 2.0      */
 DECL|method|split (Expression expression, AggregationStrategy aggregationStrategy, boolean parallelProcessing, Executor executor)
 specifier|public
 name|SplitterType
@@ -2620,7 +2620,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the expression clause for the expression on which to split      * @deprecated will be removed in Camel 2.0      */
+comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @return the expression clause for the expression on which to split      * @deprecated will be removed in Camel 2.0      */
 DECL|method|split (AggregationStrategy aggregationStrategy, boolean parallelProcessing)
 specifier|public
 name|ExpressionClause
@@ -2671,7 +2671,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param executor override the default {@link Executor}      * @return the expression clause for the expression on which to split      * @deprecated will be removed in Camel 2.0      */
+comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param aggregationStrategy the strategy used to aggregate responses for every part      * @param parallelProcessing if is<tt>true</tt> camel will fork thread to call the endpoint producer      * @param executor override the default {@link Executor}      * @return the expression clause for the expression on which to split      * @deprecated will be removed in Camel 2.0      */
 DECL|method|split (AggregationStrategy aggregationStrategy, boolean parallelProcessing, Executor executor)
 specifier|public
 name|ExpressionClause
@@ -2732,7 +2732,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer EIP:</a>      * Creates a resequencer allowing you to reorganize messages based on some comparator.      *      * @return the expression clause for the expressions on which to compare messages in order      */
+comment|/**      *<a href="http://camel.apache.org/resequencer.html">Resequencer EIP:</a>      * Creates a resequencer allowing you to reorganize messages based on some comparator.      *      * @return the expression clause for the expressions on which to compare messages in order      */
 DECL|method|resequence ()
 specifier|public
 name|ExpressionClause
@@ -2780,7 +2780,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer EIP:</a>      * Creates a resequencer allowing you to reorganize messages based on some comparator.      *      * @param expression the expression on which to compare messages in order      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/resequencer.html">Resequencer EIP:</a>      * Creates a resequencer allowing you to reorganize messages based on some comparator.      *      * @param expression the expression on which to compare messages in order      * @return the builder      */
 DECL|method|resequence (Expression expression)
 specifier|public
 name|ResequencerType
@@ -2805,7 +2805,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer EIP:</a>      * Creates a resequencer allowing you to reorganize messages based on some comparator.      *      * @param expressions the list of expressions on which to compare messages in order      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/resequencer.html">Resequencer EIP:</a>      * Creates a resequencer allowing you to reorganize messages based on some comparator.      *      * @param expressions the list of expressions on which to compare messages in order      * @return the builder      */
 DECL|method|resequence (List<Expression> expressions)
 specifier|public
 name|ResequencerType
@@ -2836,7 +2836,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/resequencer.html">Resequencer EIP:</a>      * Creates a splitter allowing you to reorganise messages based on some comparator.      *      * @param expressions the list of expressions on which to compare messages in order      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/resequencer.html">Resequencer EIP:</a>      * Creates a splitter allowing you to reorganise messages based on some comparator.      *      * @param expressions the list of expressions on which to compare messages in order      * @return the builder      */
 DECL|method|resequencer (Expression... expressions)
 specifier|public
 name|ResequencerType
@@ -2879,7 +2879,7 @@ name|list
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @return the expression clause to be used as builder to configure the correlation expression      */
+comment|/**      *<a href="http://camel.apache.org/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @return the expression clause to be used as builder to configure the correlation expression      */
 DECL|method|aggregate ()
 specifier|public
 name|ExpressionClause
@@ -2908,7 +2908,7 @@ name|createAndSetExpression
 argument_list|()
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param aggregationStrategy the strategy used for the aggregation      * @return the expression clause to be used as builder to configure the correlation expression      */
+comment|/**      *<a href="http://camel.apache.org/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param aggregationStrategy the strategy used for the aggregation      * @return the expression clause to be used as builder to configure the correlation expression      */
 DECL|method|aggregate (AggregationStrategy aggregationStrategy)
 specifier|public
 name|ExpressionClause
@@ -2947,7 +2947,7 @@ name|createAndSetExpression
 argument_list|()
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param aggregationCollection the collection used to perform the aggregation      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param aggregationCollection the collection used to perform the aggregation      * @return the builder      */
 DECL|method|aggregate (AggregationCollection aggregationCollection)
 specifier|public
 name|AggregatorType
@@ -2980,7 +2980,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      * @return the builder      */
 DECL|method|aggregate (Expression correlationExpression)
 specifier|public
 name|AggregatorType
@@ -3008,7 +3008,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      * @param aggregationStrategy the strategy used for the aggregation      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      * @param aggregationStrategy the strategy used for the aggregation      * @return the builder      */
 DECL|method|aggregate (Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
 name|AggregatorType
@@ -3041,7 +3041,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param processAtExpression  an expression to calculate the time at which the messages should be processed,      *                             should be convertable to long as time in millis      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param processAtExpression  an expression to calculate the time at which the messages should be processed,      *                             should be convertable to long as time in millis      * @return the builder      */
 DECL|method|delay (Expression processAtExpression)
 specifier|public
 name|DelayerType
@@ -3060,7 +3060,7 @@ literal|0L
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param processAtExpression  an expression to calculate the time at which the messages should be processed,      *                             should be convertable to long as time in millis      * @param delay                the delay in milliseconds which is added to the processAtExpression      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param processAtExpression  an expression to calculate the time at which the messages should be processed,      *                             should be convertable to long as time in millis      * @param delay                the delay in milliseconds which is added to the processAtExpression      * @return the builder      */
 DECL|method|delay (Expression processAtExpression, long delay)
 specifier|public
 name|DelayerType
@@ -3093,7 +3093,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @return the expression clause to create the expression      */
+comment|/**      *<a href="http://camel.apache.org/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @return the expression clause to create the expression      */
 DECL|method|delay ()
 specifier|public
 name|ExpressionClause
@@ -3124,7 +3124,7 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param delay  the default delay in millis      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param delay  the default delay in millis      * @return the builder      */
 DECL|method|delay (long delay)
 specifier|public
 name|DelayerType
@@ -3143,7 +3143,7 @@ name|delay
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/throttler.html">Throttler EIP:</a>      * Creates a throttler allowing you to ensure that a specific endpoint does not get overloaded,      * or that we don't exceed an agreed SLA with some external service.      *<p/>      * Will default use a time period of 1 second, so setting the maximumRequestCount to eg 10      * will default ensure at most 10 messages per second.       *      * @param maximumRequestCount  the maximum messages       * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/throttler.html">Throttler EIP:</a>      * Creates a throttler allowing you to ensure that a specific endpoint does not get overloaded,      * or that we don't exceed an agreed SLA with some external service.      *<p/>      * Will default use a time period of 1 second, so setting the maximumRequestCount to eg 10      * will default ensure at most 10 messages per second.       *      * @param maximumRequestCount  the maximum messages       * @return the builder      */
 DECL|method|throttle (long maximumRequestCount)
 specifier|public
 name|ThrottlerType
@@ -3171,7 +3171,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/loop.html">Loop EIP:</a>      * Creates a loop allowing to process the a message a number of times and possibly process them      * in a different way. Useful mostly for testing.      *      * @return the clause used to create the loop expression      */
+comment|/**      *<a href="http://camel.apache.org/loop.html">Loop EIP:</a>      * Creates a loop allowing to process the a message a number of times and possibly process them      * in a different way. Useful mostly for testing.      *      * @return the clause used to create the loop expression      */
 DECL|method|loop ()
 specifier|public
 name|ExpressionClause
@@ -3202,7 +3202,7 @@ name|loop
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/loop.html">Loop EIP:</a>      * Creates a loop allowing to process the a message a number of times and possibly process them      * in a different way. Useful mostly for testing.      *      * @param expression the loop expression      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/loop.html">Loop EIP:</a>      * Creates a loop allowing to process the a message a number of times and possibly process them      * in a different way. Useful mostly for testing.      *      * @param expression the loop expression      * @return the builder      */
 DECL|method|loop (Expression expression)
 specifier|public
 name|LoopType
@@ -3237,7 +3237,7 @@ return|return
 name|loop
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/loop.html">Loop EIP:</a>      * Creates a loop allowing to process the a message a number of times and possibly process them      * in a different way. Useful mostly for testing.      *      * @param count  the number of times      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/loop.html">Loop EIP:</a>      * Creates a loop allowing to process the a message a number of times and possibly process them      * in a different way. Useful mostly for testing.      *      * @param count  the number of times      * @return the builder      */
 DECL|method|loop (int count)
 specifier|public
 name|LoopType
@@ -3767,7 +3767,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/exception-clause.html">Exception clause</a>      * for cathing certain exceptions and handling them.      *      * @param exceptionType  the exception to catch      * @return the exception builder to configure      */
+comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for cathing certain exceptions and handling them.      *      * @param exceptionType  the exception to catch      * @return the exception builder to configure      */
 DECL|method|onException (Class exceptionType)
 specifier|public
 name|ExceptionType
@@ -3898,7 +3898,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Installs the given<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a> builder.      *      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
+comment|/**      * Installs the given<a href="http://camel.apache.org/error-handler.html">error handler</a> builder.      *      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|Type
@@ -3920,7 +3920,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Configures whether or not the<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a>      * is inherited by every processing node (or just the top most one)      *      * @param condition the flag as to whether error handlers should be inherited or not      * @return the current builder      */
+comment|/**      * Configures whether or not the<a href="http://camel.apache.org/error-handler.html">error handler</a>      * is inherited by every processing node (or just the top most one)      *      * @param condition the flag as to whether error handlers should be inherited or not      * @return the current builder      */
 DECL|method|inheritErrorHandler (boolean condition)
 specifier|public
 name|Type
@@ -3944,7 +3944,7 @@ return|;
 block|}
 comment|// Transformers
 comment|// -------------------------------------------------------------------------
-comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param processor  the custom {@link Processor}      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param processor  the custom {@link Processor}      * @return the builder      */
 DECL|method|process (Processor processor)
 specifier|public
 name|Type
@@ -3975,7 +3975,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor reference to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param ref   reference to a {@link Processor} to lookup in the registry      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor reference to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param ref   reference to a {@link Processor} to lookup in the registry      * @return the builder      */
 DECL|method|processRef (String ref)
 specifier|public
 name|Type
@@ -4011,7 +4011,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @return the builder      */
 DECL|method|bean (Object bean)
 specifier|public
 name|Type
@@ -4047,7 +4047,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
 DECL|method|bean (Object bean, String method)
 specifier|public
 name|Type
@@ -4093,7 +4093,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @return the builder      */
 DECL|method|bean (Class beanType)
 specifier|public
 name|Type
@@ -4129,7 +4129,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
 DECL|method|bean (Class beanType, String method)
 specifier|public
 name|Type
@@ -4175,7 +4175,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @return the builder      */
 DECL|method|beanRef (String ref)
 specifier|public
 name|Type
@@ -4206,7 +4206,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
 DECL|method|beanRef (String ref, String method)
 specifier|public
 name|Type
@@ -4242,7 +4242,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the IN message      *      * @return a expression builder clause to set the body      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the IN message      *      * @return a expression builder clause to set the body      */
 DECL|method|setBody ()
 specifier|public
 name|ExpressionClause
@@ -4297,7 +4297,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the IN message      *      * @param expression   the expression used to set the body      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the IN message      *      * @param expression   the expression used to set the body      * @return the builder      */
 DECL|method|setBody (Expression expression)
 specifier|public
 name|Type
@@ -4328,7 +4328,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the OUT message      *      * @param expression   the expression used to set the body      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the OUT message      *      * @param expression   the expression used to set the body      * @return the builder      */
 DECL|method|transform (Expression expression)
 specifier|public
 name|Type
@@ -4359,7 +4359,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the OUT message      *      * @return a expression builder clause to set the body      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the OUT message      *      * @return a expression builder clause to set the body      */
 DECL|method|transform ()
 specifier|public
 name|ExpressionClause
@@ -4889,7 +4889,7 @@ return|;
 block|}
 comment|// DataFormat support
 comment|// -------------------------------------------------------------------------
-comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Unmarshals the in body using a {@link DataFormat} expression to define      * the format of the input message and the output will be set on the out message body.      *      * @return the expression to create the {@link DataFormat}      */
+comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Unmarshals the in body using a {@link DataFormat} expression to define      * the format of the input message and the output will be set on the out message body.      *      * @return the expression to create the {@link DataFormat}      */
 DECL|method|unmarshal ()
 specifier|public
 name|DataFormatClause
@@ -4922,7 +4922,7 @@ name|Unmarshal
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
 DECL|method|unmarshal (DataFormatType dataFormatType)
 specifier|public
 name|Type
@@ -4948,7 +4948,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormat  the dataformat      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormat  the dataformat      * @return the builder      */
 DECL|method|unmarshal (DataFormat dataFormat)
 specifier|public
 name|Type
@@ -4969,7 +4969,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Unmarshals the in body using the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @param dataTypeRef  reference to a {@link DataFormat} to lookup in the registry      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Unmarshals the in body using the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @param dataTypeRef  reference to a {@link DataFormat} to lookup in the registry      * @return the builder      */
 DECL|method|unmarshal (String dataTypeRef)
 specifier|public
 name|Type
@@ -4995,7 +4995,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Marshals the in body using a {@link DataFormat} expression to define      * the format of the output which will be added to the out body.      *      * @return the expression to create the {@link DataFormat}      */
+comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Marshals the in body using a {@link DataFormat} expression to define      * the format of the output which will be added to the out body.      *      * @return the expression to create the {@link DataFormat}      */
 DECL|method|marshal ()
 specifier|public
 name|DataFormatClause
@@ -5028,7 +5028,7 @@ name|Marshal
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
 DECL|method|marshal (DataFormatType dataFormatType)
 specifier|public
 name|Type
@@ -5054,7 +5054,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormat  the dataformat      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormat  the dataformat      * @return the builder      */
 DECL|method|marshal (DataFormat dataFormat)
 specifier|public
 name|Type
@@ -5075,7 +5075,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/data-format.html">DataFormat:</a>      * Marshals the in body the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @param dataTypeRef  reference to a {@link DataFormat} to lookup in the registry      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Marshals the in body the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @param dataTypeRef  reference to a {@link DataFormat} to lookup in the registry      * @return the builder      */
 DECL|method|marshal (String dataTypeRef)
 specifier|public
 name|Type

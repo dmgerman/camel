@@ -249,7 +249,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for Camel based injector or post processing hooks which can be reused by  * both the<a href="http://activemq.apache.org/camel/spring.html">Spring</a>  * and<a href="http://activemq.apache.org/camel/guice.html">Guice</a> support.  *  * @version $Revision$  */
+comment|/**  * A helper class for Camel based injector or post processing hooks which can be reused by  * both the<a href="http://camel.apache.org/spring.html">Spring</a>  * and<a href="http://camel.apache.org/guice.html">Guice</a> support.  *  * @version $Revision$  */
 end_comment
 
 begin_class

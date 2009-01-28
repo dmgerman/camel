@@ -343,7 +343,7 @@ argument_list|(
 operator|new
 name|URL
 argument_list|(
-literal|"http://activemq.apache.org/camel/message.html"
+literal|"http://camel.apache.org/message.html"
 argument_list|)
 argument_list|)
 argument_list|)

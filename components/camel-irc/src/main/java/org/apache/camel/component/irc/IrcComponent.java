@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://activemq.apache.org/camel/irc.html">IRC Component</a>  *  * @version $Revision$  */
+comment|/**  * Defines the<a href="http://camel.apache.org/irc.html">IRC Component</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class

@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the<a href="http://activemq.apache.org/camel/artix-data-services.html">Artix Data Services</a>  * {@link DataFormat}  *  * @version $Revision$  */
+comment|/**  * Represents the<a href="http://camel.apache.org/artix-data-services.html">Artix Data Services</a>  * {@link DataFormat}  *  * @version $Revision$  */
 end_comment
 
 begin_class

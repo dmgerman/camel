@@ -239,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/dsl.html">Java DSL</a> which is  * used to build {@link Route} instances in a {@link CamelContext} for smart routing.  *  * @version $Revision$  */
+comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is  * used to build {@link Route} instances in a {@link CamelContext} for smart routing.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -396,7 +396,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Installs the given<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a> builder      *      * @param errorHandlerBuilder  the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
+comment|/**      * Installs the given<a href="http://camel.apache.org/error-handler.html">error handler</a> builder      *      * @param errorHandlerBuilder  the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|RouteBuilder
@@ -415,7 +415,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures whether or not the<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a>      * is inherited by every processing node (or just the top most one)      *      * @param inherit  whether error handlers should be inherited or not      * @return the current builder      */
+comment|/**      * Configures whether or not the<a href="http://camel.apache.org/error-handler.html">error handler</a>      * is inherited by every processing node (or just the top most one)      *      * @param inherit  whether error handlers should be inherited or not      * @return the current builder      */
 DECL|method|inheritErrorHandler (boolean inherit)
 specifier|public
 name|RouteBuilder
@@ -490,7 +490,7 @@ name|predicate
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exception exception to catch      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exception exception to catch      * @return the builder      */
 DECL|method|onException (Class exception)
 specifier|public
 name|ExceptionType
@@ -509,7 +509,7 @@ name|exception
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the builder      */
 DECL|method|onException (Class... exceptions)
 specifier|public
 name|ExceptionType

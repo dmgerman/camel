@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for implementation inheritance for different clauses in the<a  * href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *  * @version $Revision$  */
+comment|/**  * Base class for implementation inheritance for different clauses in the<a  * href="http://camel.apache.org/dsl.html">Java DSL</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -444,7 +444,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://activemq.apache.org/camel/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @return the builder      */
 DECL|method|bean (String beanRef)
 specifier|public
 name|ValueBuilder
@@ -465,7 +465,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://activemq.apache.org/camel/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
 DECL|method|bean (String beanRef, String method)
 specifier|public
 name|ValueBuilder
@@ -713,7 +713,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a disabled<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a>      * for removing the default error handler      *      * @return the builder      */
+comment|/**      * Creates a disabled<a href="http://camel.apache.org/error-handler.html">error handler</a>      * for removing the default error handler      *      * @return the builder      */
 DECL|method|noErrorHandler ()
 specifier|public
 name|NoErrorHandlerBuilder
@@ -726,7 +726,7 @@ name|NoErrorHandlerBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates an<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
+comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
 DECL|method|loggingErrorHandler ()
 specifier|public
 name|LoggingErrorHandlerBuilder
@@ -739,7 +739,7 @@ name|LoggingErrorHandlerBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates an<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
+comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
 DECL|method|loggingErrorHandler (String log)
 specifier|public
 name|LoggingErrorHandlerBuilder
@@ -761,7 +761,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
+comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
 DECL|method|loggingErrorHandler (Log log)
 specifier|public
 name|LoggingErrorHandlerBuilder
@@ -779,7 +779,7 @@ name|log
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an<a href="http://activemq.apache.org/camel/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
+comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
 DECL|method|loggingErrorHandler (Log log, LoggingLevel level)
 specifier|public
 name|LoggingErrorHandlerBuilder
@@ -802,7 +802,7 @@ name|level
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intented destination.      *      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intented destination.      *      * @return the builder      */
 DECL|method|deadLetterChannel ()
 specifier|public
 name|DeadLetterChannelBuilder
@@ -815,7 +815,7 @@ name|DeadLetterChannelBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intented destination.      *      * @param deadLetterUri  uri to the dead letter endpoint storing dead messages      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intented destination.      *      * @param deadLetterUri  uri to the dead letter endpoint storing dead messages      * @return the builder      */
 DECL|method|deadLetterChannel (String deadLetterUri)
 specifier|public
 name|DeadLetterChannelBuilder
@@ -835,7 +835,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intented destination.      *      * @param deadLetterEndpoint  dead letter endpoint storing dead messages      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intented destination.      *      * @param deadLetterEndpoint  dead letter endpoint storing dead messages      * @return the builder      */
 DECL|method|deadLetterChannel (Endpoint deadLetterEndpoint)
 specifier|public
 name|DeadLetterChannelBuilder

@@ -416,7 +416,7 @@ name|this
 operator|.
 name|url
 operator|=
-literal|"http://activemq.apache.org/camel/message-endpoint.html"
+literal|"http://camel.apache.org/message-endpoint.html"
 expr_stmt|;
 block|}
 elseif|else
@@ -465,7 +465,7 @@ name|this
 operator|.
 name|url
 operator|=
-literal|"http://activemq.apache.org/camel/message-endpoint.html"
+literal|"http://camel.apache.org/message-endpoint.html"
 expr_stmt|;
 block|}
 elseif|else
@@ -529,7 +529,7 @@ name|this
 operator|.
 name|url
 operator|=
-literal|"http://activemq.apache.org/camel/content-based-router.html"
+literal|"http://camel.apache.org/content-based-router.html"
 expr_stmt|;
 block|}
 elseif|else
@@ -556,7 +556,7 @@ name|this
 operator|.
 name|url
 operator|=
-literal|"http://activemq.apache.org/camel/content-based-router.html"
+literal|"http://camel.apache.org/content-based-router.html"
 expr_stmt|;
 name|this
 operator|.
@@ -702,7 +702,7 @@ name|this
 operator|.
 name|url
 operator|=
-literal|"http://activemq.apache.org/camel/routing-slip.html"
+literal|"http://camel.apache.org/routing-slip.html"
 expr_stmt|;
 name|this
 operator|.
@@ -1072,7 +1072,7 @@ name|this
 operator|.
 name|url
 operator|=
-literal|"http://activemq.apache.org/camel/"
+literal|"http://camel.apache.org/"
 operator|+
 name|this
 operator|.

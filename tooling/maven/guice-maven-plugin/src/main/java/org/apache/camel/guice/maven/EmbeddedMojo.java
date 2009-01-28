@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Runs a Camel using the  *<code>jndi.properties</code> file on the classpath to  * way to<a href="http://activemq.apache.org/camel/guice.html">bootstrap via Guice</a>  *  * @goal embedded  * @requiresDependencyResolution runtime  * @execute phase="test-compile"  */
+comment|/**  * Runs a Camel using the  *<code>jndi.properties</code> file on the classpath to  * way to<a href="http://camel.apache.org/guice.html">bootstrap via Guice</a>  *  * @goal embedded  * @requiresDependencyResolution runtime  * @execute phase="test-compile"  */
 end_comment
 
 begin_class

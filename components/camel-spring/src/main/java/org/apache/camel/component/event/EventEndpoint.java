@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://activemq.apache.org/camel/event.html">Event Endpoint</a>  * for working with Spring ApplicationEvents  *  * @version $Revision$  */
+comment|/**  * An<a href="http://camel.apache.org/event.html">Event Endpoint</a>  * for working with Spring ApplicationEvents  *  * @version $Revision$  */
 end_comment
 
 begin_class

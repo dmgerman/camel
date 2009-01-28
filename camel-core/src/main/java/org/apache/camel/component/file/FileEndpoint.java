@@ -305,7 +305,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/file.html">File Endpoint</a> for  * working with file systems  *  * @version $Revision$  */
+comment|/**  * A<a href="http://camel.apache.org/file.html">File Endpoint</a> for  * working with file systems  *  * @version $Revision$  */
 end_comment
 
 begin_class

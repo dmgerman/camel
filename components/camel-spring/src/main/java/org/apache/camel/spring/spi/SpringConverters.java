@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some Spring based  *<a href="http://activemq.apache.org/camel/type-converter.html">Type Converters</a>  *  * @version $Revision$  */
+comment|/**  * Some Spring based  *<a href="http://camel.apache.org/type-converter.html">Type Converters</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class

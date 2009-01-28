@@ -507,7 +507,7 @@ return|;
 block|}
 comment|// Languages
 comment|// -------------------------------------------------------------------------
-comment|/**      * Evaluates an expression using the<a      * href="http://activemq.apache.org/camel/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param bean the name of the bean looked up the registry      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param bean the name of the bean looked up the registry      * @return the builder to continue processing the DSL      */
 DECL|method|method (String bean)
 specifier|public
 name|T
@@ -535,7 +535,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://activemq.apache.org/camel/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param bean the name of the bean looked up the registry      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param bean the name of the bean looked up the registry      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
 DECL|method|method (String bean, String method)
 specifier|public
 name|T
@@ -568,7 +568,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates the<a href="http://activemq.apache.org/camel/el.html">EL      * Language from JSP and JSF</a> using the<a      * href="http://activemq.apache.org/camel/juel.html">JUEL library</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates the<a href="http://camel.apache.org/el.html">EL      * Language from JSP and JSF</a> using the<a      * href="http://camel.apache.org/juel.html">JUEL library</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|el (String text)
 specifier|public
 name|T
@@ -587,7 +587,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/groovy.html">Groovy      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/groovy.html">Groovy      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|groovy (String text)
 specifier|public
 name|T
@@ -606,7 +606,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a      * href="http://activemq.apache.org/camel/java-script.html">JavaScript      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a      * href="http://camel.apache.org/java-script.html">JavaScript      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|javaScript (String text)
 specifier|public
 name|T
@@ -644,7 +644,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a href="http://activemq.apache.org/camel/ognl.html">OGNL      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/ognl.html">OGNL      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|ognl (String text)
 specifier|public
 name|T
@@ -663,7 +663,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/mvel.html">MVEL      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/mvel.html">MVEL      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|mvel (String text)
 specifier|public
 name|T
@@ -682,7 +682,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/php.html">PHP      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/php.html">PHP      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|php (String text)
 specifier|public
 name|T
@@ -701,7 +701,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/python.html">Python      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/python.html">Python      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|python (String text)
 specifier|public
 name|T
@@ -720,7 +720,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/ruby.html">Ruby      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/ruby.html">Ruby      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|ruby (String text)
 specifier|public
 name|T
@@ -739,7 +739,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a href="http://activemq.apache.org/camel/sql.html">SQL      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/sql.html">SQL      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|sql (String text)
 specifier|public
 name|T
@@ -758,7 +758,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://activemq.apache.org/camel/simple.html">Simple      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/simple.html">Simple      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|simple (String text)
 specifier|public
 name|T
@@ -777,7 +777,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a href="http://activemq.apache.org/camel/xpath.html">XPath      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text)
 specifier|public
 name|T
@@ -796,7 +796,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a href="http://activemq.apache.org/camel/xpath.html">XPath      * expression</a> with the specified result type      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expressiopn      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified result type      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expressiopn      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text, Class resultType)
 specifier|public
 name|T
@@ -834,7 +834,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an<a href="http://activemq.apache.org/camel/xpath.html">XPath      * expression</a> with the specified result type and set of namespace      * prefixes and URIs      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified result type and set of namespace      * prefixes and URIs      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text, Class resultType, Namespaces namespaces)
 specifier|public
 name|T
@@ -864,7 +864,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a href="http://activemq.apache.org/camel/xpath.html">XPath      * expression</a> with the specified result type and set of namespace      * prefixes and URIs      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified result type and set of namespace      * prefixes and URIs      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text, Class resultType, Map<String, String> namespaces)
 specifier|public
 name|T
@@ -917,7 +917,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an<a href="http://activemq.apache.org/camel/xpath.html">XPath      * expression</a> with the specified set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text, Namespaces namespaces)
 specifier|public
 name|T
@@ -942,7 +942,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a href="http://activemq.apache.org/camel/xpath.html">XPath      * expression</a> with the specified set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text, Map<String, String> namespaces)
 specifier|public
 name|T
@@ -985,7 +985,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://activemq.apache.org/camel/xquery.html">XQuery expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text)
 specifier|public
 name|T
@@ -1004,7 +1004,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://activemq.apache.org/camel/xquery.html">XQuery expression</a>      * with the specified result type      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expressiopn      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expressiopn      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Class resultType)
 specifier|public
 name|T
@@ -1042,7 +1042,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://activemq.apache.org/camel/xquery.html">XQuery expression</a>      * with the specified result type and set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type and set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Class resultType, Namespaces namespaces)
 specifier|public
 name|T
@@ -1072,7 +1072,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://activemq.apache.org/camel/xquery.html">XQuery expression</a>      * with the specified result type and set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type and set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Class resultType, Map<String, String> namespaces)
 specifier|public
 name|T
@@ -1125,7 +1125,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://activemq.apache.org/camel/xquery.html">XQuery expression</a>      * with the specified set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Namespaces namespaces)
 specifier|public
 name|T
@@ -1150,7 +1150,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://activemq.apache.org/camel/xquery.html">XQuery expression</a>      * with the specified set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified set of namespace prefixes and URIs      *       * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Map<String, String> namespaces)
 specifier|public
 name|T

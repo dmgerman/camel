@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements a<a href="http://activemq.apache.org/camel/routing-slip.html">Routing Slip</a>  * pattern where the list of actual endpoints to send a message exchange to are  * dependent on the value of a message header.  */
+comment|/**  * Implements a<a href="http://camel.apache.org/routing-slip.html">Routing Slip</a>  * pattern where the list of actual endpoints to send a message exchange to are  * dependent on the value of a message header.  */
 end_comment
 
 begin_class

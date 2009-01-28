@@ -355,7 +355,7 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
-comment|/**      * Uses the      *<a href="http://activemq.apache.org/camel/artix-data-services.html">Artix Data Services</a>      * data format for dealing with lots of different message formats such as SWIFT etc.      */
+comment|/**      * Uses the      *<a href="http://camel.apache.org/artix-data-services.html">Artix Data Services</a>      * data format for dealing with lots of different message formats such as SWIFT etc.      */
 DECL|method|artixDS ()
 specifier|public
 name|T
@@ -371,7 +371,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the      *<a href="http://activemq.apache.org/camel/artix-data-services.html">Artix Data Services</a>      * data format with the specified type of ComplexDataObject      * for marshalling and unmarshalling messages using the dataObject's default Source and Sink.      */
+comment|/**      * Uses the      *<a href="http://camel.apache.org/artix-data-services.html">Artix Data Services</a>      * data format with the specified type of ComplexDataObject      * for marshalling and unmarshalling messages using the dataObject's default Source and Sink.      */
 DECL|method|artixDS (Class<?> dataObjectType)
 specifier|public
 name|T
@@ -395,7 +395,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the      *<a href="http://activemq.apache.org/camel/artix-data-services.html">Artix Data Services</a>      * data format with the specified type of ComplexDataObject      * for marshalling and unmarshalling messages using the dataObject's default Source and Sink.      */
+comment|/**      * Uses the      *<a href="http://camel.apache.org/artix-data-services.html">Artix Data Services</a>      * data format with the specified type of ComplexDataObject      * for marshalling and unmarshalling messages using the dataObject's default Source and Sink.      */
 DECL|method|artixDS (Class<?> elementType, ArtixDSContentType contentType)
 specifier|public
 name|T
@@ -424,7 +424,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the      *<a href="http://activemq.apache.org/camel/artix-data-services.html">Artix Data Services</a>      * data format with the specified content type      * for marshalling and unmarshalling messages      */
+comment|/**      * Uses the      *<a href="http://camel.apache.org/artix-data-services.html">Artix Data Services</a>      * data format with the specified content type      * for marshalling and unmarshalling messages      */
 DECL|method|artixDS (ArtixDSContentType contentType)
 specifier|public
 name|T

@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for including portions of the<a  * href="http://activemq.apache.org/camel/expression.html">expression</a> and  *<a href="http://activemq.apache.org/camel/predicate.html">predicate</a><a  * href="http://activemq.apache.org/camel/dsl.html">Java DSL</a>  *  * @version $Revision$  */
+comment|/**  * A helper class for including portions of the<a  * href="http://camel.apache.org/expression.html">expression</a> and  *<a href="http://camel.apache.org/predicate.html">predicate</a><a  * href="http://camel.apache.org/dsl.html">Java DSL</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -57,7 +57,7 @@ specifier|private
 name|Builder
 parameter_list|()
 block|{     }
-comment|/**      * Returns a<a href="http://activemq.apache.org/camel/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @return the builder      */
 DECL|method|bean (String beanRef)
 specifier|public
 specifier|static
@@ -86,7 +86,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://activemq.apache.org/camel/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
 DECL|method|bean (String beanRef, String method)
 specifier|public
 specifier|static

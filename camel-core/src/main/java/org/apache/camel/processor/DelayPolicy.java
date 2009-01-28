@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The base policy used when a fixed delay is needed.  *<p/>  * This policy is used by  *<a href="http://activemq.apache.org/camel/transactional-client.html">Transactional client</a>  * and<a href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter Channel</a>.  *  * The default values is:  *<ul>  *<li>delay = 1000L</li>  *</ul>  *<p/>  *  * @version $Revision$  */
+comment|/**  * The base policy used when a fixed delay is needed.  *<p/>  * This policy is used by  *<a href="http://camel.apache.org/transactional-client.html">Transactional client</a>  * and<a href="http://camel.apache.org/dead-letter-channel.html">Dead Letter Channel</a>.  *  * The default values is:  *<ul>  *<li>delay = 1000L</li>  *</ul>  *<p/>  *  * @version $Revision$  */
 end_comment
 
 begin_class

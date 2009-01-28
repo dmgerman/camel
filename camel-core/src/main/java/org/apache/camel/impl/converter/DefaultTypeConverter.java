@@ -245,7 +245,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of a type converter registry used for  *<a href="http://activemq.apache.org/camel/type-converter.html">type converters</a> in Camel.  *  * @version $Revision$  */
+comment|/**  * Default implementation of a type converter registry used for  *<a href="http://camel.apache.org/type-converter.html">type converters</a> in Camel.  *  * @version $Revision$  */
 end_comment
 
 begin_class

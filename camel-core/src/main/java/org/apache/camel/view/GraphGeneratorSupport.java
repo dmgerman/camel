@@ -309,7 +309,7 @@ specifier|private
 name|String
 name|imagePrefix
 init|=
-literal|"http://activemq.apache.org/camel/images/eip/"
+literal|"http://camel.apache.org/images/eip/"
 decl_stmt|;
 DECL|field|nodeMap
 specifier|private

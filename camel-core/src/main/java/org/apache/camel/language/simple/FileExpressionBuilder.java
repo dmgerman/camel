@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for working with<a href="http://activemq.apache.org/camel/expression.html">expressions</a> based  * on files.  *<p/>  * This expression expects the headers from the {@link FileLanguage} on the<b>IN</b> message.  *  * @see org.apache.camel.language.simple.FileLanguage  */
+comment|/**  * A helper class for working with<a href="http://camel.apache.org/expression.html">expressions</a> based  * on files.  *<p/>  * This expression expects the headers from the {@link FileLanguage} on the<b>IN</b> message.  *  * @see org.apache.camel.language.simple.FileLanguage  */
 end_comment
 
 begin_class

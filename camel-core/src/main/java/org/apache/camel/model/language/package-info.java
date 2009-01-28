@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_comment
-comment|/**  * The JAXB POJOs for the  *<a href="http://activemq.apache.org/camel/expression.html">Expression</a> and  *<a href="http://activemq.apache.org/camel/predicate.html">Predicate</a> plugins for the  *<a href="http://activemq.apache.org/camel/xml-configuration.html">XML Configuration</a>.  */
+comment|/**  * The JAXB POJOs for the  *<a href="http://camel.apache.org/expression.html">Expression</a> and  *<a href="http://camel.apache.org/predicate.html">Predicate</a> plugins for the  *<a href="http://camel.apache.org/xml-configuration.html">XML Configuration</a>.  */
 end_comment
 
 begin_annotation

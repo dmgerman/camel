@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://activemq.apache.org/camel/rss.html">RSS Endpoint</a>.  *   */
+comment|/**  * An<a href="http://camel.apache.org/rss.html">RSS Endpoint</a>.  *   */
 end_comment
 
 begin_class

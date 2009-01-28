@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://activemq.apache.org/camel/rss.html">RSS Component</a>.  *<p/>  * Camel uses<a href="https://rome.dev.java.net/">ROME</a> as the RSS implementation.    *  */
+comment|/**  * An<a href="http://camel.apache.org/rss.html">RSS Component</a>.  *<p/>  * Camel uses<a href="https://rome.dev.java.net/">ROME</a> as the RSS implementation.    *  */
 end_comment
 
 begin_class

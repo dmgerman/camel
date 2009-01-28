@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_comment
-comment|/**  * The JAXB POJOs for the  *<a href="http://activemq.apache.org/camel/rest.html">Camel REST Support</a>  */
+comment|/**  * The JAXB POJOs for the  *<a href="http://camel.apache.org/rest.html">Camel REST Support</a>  */
 end_comment
 
 begin_annotation

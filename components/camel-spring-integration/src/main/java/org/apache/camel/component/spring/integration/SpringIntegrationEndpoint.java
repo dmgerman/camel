@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://activemq.apache.org/camel/springIntergration.html">Spring Intergration Endpoint</a>  *  * @version $Revision$  */
+comment|/**  * Defines the<a href="http://camel.apache.org/springIntergration.html">Spring Intergration Endpoint</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class

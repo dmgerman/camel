@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/camel/routes.html">Route</a>  * defines the processing used on an inbound message exchange  * from a specific {@link Endpoint} within a {@link CamelContext}  *  * @version $Revision$  */
+comment|/**  * A<a href="http://camel.apache.org/routes.html">Route</a>  * defines the processing used on an inbound message exchange  * from a specific {@link Endpoint} within a {@link CamelContext}  *  * @version $Revision$  */
 end_comment
 
 begin_class

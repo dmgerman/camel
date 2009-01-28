@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Client that uses the<a href="http://activemq.apache.org/camel/message-endpoint.html">Mesage Endpoint</a>  * pattern to easily exchange messages with the Server.  *<p/>  * Notice this very same API can use for all components in Camel, so if we were using TCP communication instead  * of JMS messaging we could just use<code>camel.getEndpoint("mina:tcp://someserver:port")</code>.  *<p/>  * Requires that the JMS broker is running, as well as CamelServer  */
+comment|/**  * Client that uses the<a href="http://camel.apache.org/message-endpoint.html">Mesage Endpoint</a>  * pattern to easily exchange messages with the Server.  *<p/>  * Notice this very same API can use for all components in Camel, so if we were using TCP communication instead  * of JMS messaging we could just use<code>camel.getEndpoint("mina:tcp://someserver:port")</code>.  *<p/>  * Requires that the JMS broker is running, as well as CamelServer  */
 end_comment
 
 begin_class

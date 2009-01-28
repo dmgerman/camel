@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of a<a  * href="http://activemq.apache.org/camel/dead-letter-channel.html">Dead Letter  * Channel</a>  *  * @version $Revision$  */
+comment|/**  * A builder of a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
