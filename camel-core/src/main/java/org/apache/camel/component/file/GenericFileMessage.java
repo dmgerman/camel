@@ -50,6 +50,9 @@ block|{
 DECL|field|genericFile
 specifier|private
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|genericFile
 decl_stmt|;
 DECL|method|GenericFileMessage ()
@@ -57,11 +60,14 @@ specifier|public
 name|GenericFileMessage
 parameter_list|()
 block|{     }
-DECL|method|GenericFileMessage (GenericFile genericFile)
+DECL|method|GenericFileMessage (GenericFile<T> genericFile)
 specifier|public
 name|GenericFileMessage
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|genericFile
 parameter_list|)
 block|{
@@ -118,12 +124,15 @@ return|return
 name|genericFile
 return|;
 block|}
-DECL|method|setRemoteFile (GenericFile genericFile)
+DECL|method|setRemoteFile (GenericFile<T> genericFile)
 specifier|public
 name|void
 name|setRemoteFile
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|genericFile
 parameter_list|)
 block|{

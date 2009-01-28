@@ -82,6 +82,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -866,9 +876,7 @@ operator|!
 name|success
 condition|)
 block|{
-comment|// we are here if the server side doesn't create
-comment|// intermediate folders
-comment|// so create the folder one by one
+comment|// we are here if the server side doesn't create intermediate folders so create the folder one by one
 name|buildDirectoryChunks
 argument_list|(
 name|directory
@@ -1178,6 +1186,9 @@ block|}
 DECL|method|listFiles ()
 specifier|public
 name|List
+argument_list|<
+name|FTPFile
+argument_list|>
 name|listFiles
 parameter_list|()
 throws|throws
@@ -1193,6 +1204,9 @@ block|}
 DECL|method|listFiles (String path)
 specifier|public
 name|List
+argument_list|<
+name|FTPFile
+argument_list|>
 name|listFiles
 parameter_list|(
 name|String
@@ -1221,10 +1235,16 @@ try|try
 block|{
 specifier|final
 name|List
+argument_list|<
+name|FTPFile
+argument_list|>
 name|list
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|FTPFile
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|FTPFile
@@ -1238,22 +1258,18 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
-for|for
-control|(
-name|FTPFile
-name|file
-range|:
-name|files
-control|)
-block|{
 name|list
 operator|.
-name|add
+name|addAll
 argument_list|(
-name|file
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|files
+argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|list
 return|;

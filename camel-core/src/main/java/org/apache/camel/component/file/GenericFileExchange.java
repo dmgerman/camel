@@ -109,7 +109,6 @@ name|T
 argument_list|>
 name|genericFile
 decl_stmt|;
-comment|// TODO: Consider removing some of he constructors
 DECL|method|GenericFileExchange (CamelContext context)
 specifier|public
 name|GenericFileExchange
@@ -476,6 +475,9 @@ block|{
 return|return
 operator|new
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|this
 argument_list|,

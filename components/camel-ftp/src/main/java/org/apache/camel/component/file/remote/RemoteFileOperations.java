@@ -70,7 +70,7 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-comment|/**      * Connects to the remote server      *      * @param configuration configuraiton      * @return true if connected      * @throws GenericFileOperationFailedException      *          can be thrown      */
+comment|/**      * Connects to the remote server      *      * @param configuration configuraiton      * @return true if connected      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|connect (RemoteFileConfiguration configuration)
 name|boolean
 name|connect
@@ -81,7 +81,7 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Returns whether we are connected to the remote server or not      *      * @return true if connected, false if not      * @throws GenericFileOperationFailedException      *          can be thrown      */
+comment|/**      * Returns whether we are connected to the remote server or not      *      * @return true if connected, false if not      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|isConnected ()
 name|boolean
 name|isConnected
@@ -89,7 +89,7 @@ parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Discconects from the remote server      *      * @throws GenericFileOperationFailedException      *          can be thrown      */
+comment|/**      * Discconects from the remote server      *      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|disconnect ()
 name|void
 name|disconnect

@@ -293,7 +293,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"file.remote.host"
+literal|"CamelFileHost"
 argument_list|,
 operator|(
 operator|(

@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a remote file of some sort of backing object  */
+comment|/**  * Represents a remote file of some sort of backing object  *  * @param<T> the type of file that these remote endpoints provide  */
 end_comment
 
 begin_class
@@ -46,12 +46,12 @@ specifier|public
 class|class
 name|RemoteFile
 parameter_list|<
-name|F
+name|T
 parameter_list|>
 extends|extends
 name|GenericFile
 argument_list|<
-name|F
+name|T
 argument_list|>
 implements|implements
 name|Cloneable
@@ -87,31 +87,31 @@ operator|=
 name|hostname
 expr_stmt|;
 block|}
-DECL|method|copyFrom (RemoteFile<F> source)
+DECL|method|copyFrom (RemoteFile<T> source)
 specifier|public
 name|RemoteFile
 argument_list|<
-name|F
+name|T
 argument_list|>
 name|copyFrom
 parameter_list|(
 name|RemoteFile
 argument_list|<
-name|F
+name|T
 argument_list|>
 name|source
 parameter_list|)
 block|{
 name|RemoteFile
 argument_list|<
-name|F
+name|T
 argument_list|>
 name|result
 init|=
 operator|(
 name|RemoteFile
 argument_list|<
-name|F
+name|T
 argument_list|>
 operator|)
 name|source

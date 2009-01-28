@@ -103,17 +103,23 @@ argument_list|<
 name|FTPFile
 argument_list|>
 block|{
-DECL|method|FtpConsumer (RemoteFileEndpoint endpoint, Processor processor, RemoteFileOperations fileOperations)
+DECL|method|FtpConsumer (RemoteFileEndpoint<FTPFile> endpoint, Processor processor, RemoteFileOperations<FTPFile> fileOperations)
 specifier|public
 name|FtpConsumer
 parameter_list|(
 name|RemoteFileEndpoint
+argument_list|<
+name|FTPFile
+argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
 name|RemoteFileOperations
+argument_list|<
+name|FTPFile
+argument_list|>
 name|fileOperations
 parameter_list|)
 block|{

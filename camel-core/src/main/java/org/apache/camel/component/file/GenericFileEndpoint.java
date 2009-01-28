@@ -301,6 +301,9 @@ decl_stmt|;
 DECL|field|operations
 specifier|protected
 name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
 name|operations
 decl_stmt|;
 DECL|field|configuration
@@ -1633,6 +1636,9 @@ block|}
 DECL|method|getOperations ()
 specifier|public
 name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
 name|getOperations
 parameter_list|()
 block|{
@@ -1640,12 +1646,15 @@ return|return
 name|operations
 return|;
 block|}
-DECL|method|setOperations (GenericFileOperations operations)
+DECL|method|setOperations (GenericFileOperations<T> operations)
 specifier|public
 name|void
 name|setOperations
 parameter_list|(
 name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
 name|operations
 parameter_list|)
 block|{

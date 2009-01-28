@@ -114,12 +114,12 @@ specifier|public
 class|class
 name|RemoteFileProducer
 parameter_list|<
-name|F
+name|T
 parameter_list|>
 extends|extends
 name|GenericFileProducer
 argument_list|<
-name|F
+name|T
 argument_list|>
 block|{
 DECL|field|loggedIn
@@ -127,19 +127,19 @@ specifier|private
 name|boolean
 name|loggedIn
 decl_stmt|;
-DECL|method|RemoteFileProducer (RemoteFileEndpoint<F> endpoint, RemoteFileOperations<F> operations)
+DECL|method|RemoteFileProducer (RemoteFileEndpoint<T> endpoint, RemoteFileOperations<T> operations)
 specifier|protected
 name|RemoteFileProducer
 parameter_list|(
 name|RemoteFileEndpoint
 argument_list|<
-name|F
+name|T
 argument_list|>
 name|endpoint
 parameter_list|,
 name|RemoteFileOperations
 argument_list|<
-name|F
+name|T
 argument_list|>
 name|operations
 parameter_list|)
@@ -193,12 +193,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The file could not be written. We need to disconnect from the remote server.      */
-DECL|method|handleFailedWrite (GenericFileExchange exchange, Exception exception)
+DECL|method|handleFailedWrite (GenericFileExchange<T> exchange, Exception exception)
 specifier|protected
 name|void
 name|handleFailedWrite
 parameter_list|(
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|exchange
 parameter_list|,
 name|Exception

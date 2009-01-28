@@ -126,34 +126,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Remote file endpoint.  */
 end_comment
@@ -173,21 +145,6 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-DECL|field|log
-specifier|protected
-specifier|final
-specifier|transient
-name|Log
-name|log
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-decl_stmt|;
 DECL|method|RemoteFileEndpoint ()
 specifier|public
 name|RemoteFileEndpoint
@@ -262,6 +219,9 @@ name|Override
 DECL|method|createExchange (GenericFile<T> file)
 specifier|public
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|createExchange
 parameter_list|(
 name|GenericFile
@@ -274,6 +234,9 @@ block|{
 return|return
 operator|new
 name|RemoteFileExchange
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|this
 argument_list|,
@@ -329,6 +292,9 @@ name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|RemoteFileConsumer
+argument_list|<
+name|T
+argument_list|>
 name|createConsumer
 parameter_list|(
 name|Processor
@@ -361,6 +327,9 @@ literal|"protocol"
 argument_list|)
 expr_stmt|;
 name|RemoteFileConsumer
+argument_list|<
+name|T
+argument_list|>
 name|consumer
 init|=
 name|buildConsumer
@@ -475,6 +444,9 @@ DECL|method|buildConsumer (Processor processor, RemoteFileOperations<T> operatio
 specifier|protected
 specifier|abstract
 name|RemoteFileConsumer
+argument_list|<
+name|T
+argument_list|>
 name|buildConsumer
 parameter_list|(
 name|Processor

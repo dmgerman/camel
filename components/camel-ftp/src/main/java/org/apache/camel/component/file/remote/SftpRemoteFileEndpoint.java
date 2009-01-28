@@ -98,15 +98,25 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|buildConsumer (Processor processor, RemoteFileOperations operations)
+DECL|method|buildConsumer (Processor processor, RemoteFileOperations<ChannelSftp.LsEntry> operations)
 specifier|protected
 name|RemoteFileConsumer
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 name|buildConsumer
 parameter_list|(
 name|Processor
 name|processor
 parameter_list|,
 name|RemoteFileOperations
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 name|operations
 parameter_list|)
 block|{

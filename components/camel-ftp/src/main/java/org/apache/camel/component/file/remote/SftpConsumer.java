@@ -101,17 +101,27 @@ operator|.
 name|LsEntry
 argument_list|>
 block|{
-DECL|method|SftpConsumer (RemoteFileEndpoint endpoint, Processor processor, RemoteFileOperations operations)
+DECL|method|SftpConsumer (RemoteFileEndpoint<ChannelSftp.LsEntry> endpoint, Processor processor, RemoteFileOperations<ChannelSftp.LsEntry> operations)
 specifier|public
 name|SftpConsumer
 parameter_list|(
 name|RemoteFileEndpoint
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
 name|RemoteFileOperations
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 name|operations
 parameter_list|)
 block|{
@@ -406,6 +416,11 @@ literal|null
 condition|)
 block|{
 name|RemoteFile
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 name|remoteFile
 init|=
 name|asRemoteFile

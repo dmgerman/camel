@@ -48,22 +48,6 @@ name|GenericFileComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|GenericFileEndpoint
-import|;
-end_import
-
 begin_comment
 comment|/**  * Base class for remote file components. Polling and consuming files from  * (logically) remote locations  *  * @param<T> the type of file that these remote endpoints provide  */
 end_comment
@@ -105,24 +89,6 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|afterPropertiesSet (GenericFileEndpoint<T> endpoint)
-specifier|protected
-name|void
-name|afterPropertiesSet
-parameter_list|(
-name|GenericFileEndpoint
-argument_list|<
-name|T
-argument_list|>
-name|endpoint
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// noop
 block|}
 block|}
 end_class

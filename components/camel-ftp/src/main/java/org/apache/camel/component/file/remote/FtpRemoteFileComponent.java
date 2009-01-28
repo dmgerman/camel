@@ -218,6 +218,22 @@ name|config
 argument_list|)
 return|;
 block|}
+DECL|method|afterPropertiesSet (GenericFileEndpoint<FTPFile> endpoint)
+specifier|protected
+name|void
+name|afterPropertiesSet
+parameter_list|(
+name|GenericFileEndpoint
+argument_list|<
+name|FTPFile
+argument_list|>
+name|endpoint
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
 block|}
 end_class
 
