@@ -56,6 +56,10 @@ name|XPath
 import|;
 end_import
 
+begin_comment
+comment|//START SNIPPET: ex
+end_comment
+
 begin_class
 DECL|class|DistributeRecordsBean
 specifier|public
@@ -123,6 +127,10 @@ block|}
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: ex
+end_comment
 
 end_unit
 

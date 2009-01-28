@@ -54,6 +54,10 @@ name|ProducerTemplate
 import|;
 end_import
 
+begin_comment
+comment|//START SNIPPET: ex
+end_comment
+
 begin_class
 DECL|class|SendFileRecordsToQueueBean
 specifier|public
@@ -97,6 +101,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: ex
+end_comment
 
 end_unit
 
