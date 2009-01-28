@@ -376,7 +376,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// an exception occured while processing
+comment|// an exception occurred while processing
 comment|// TODO: Camel-585 somekind of flag to determine if we should send the exchange back to the client
 comment|// or do as now where we wrap as runtime exception to be thrown back to spring so it can do rollback
 name|rce
@@ -404,7 +404,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// a fault occured while processing
+comment|// a fault occurred while processing
 name|body
 operator|=
 name|exchange
