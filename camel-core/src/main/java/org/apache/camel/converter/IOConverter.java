@@ -584,8 +584,6 @@ parameter_list|(
 name|InputStream
 name|in
 parameter_list|)
-throws|throws
-name|FileNotFoundException
 block|{
 return|return
 operator|new
@@ -606,8 +604,6 @@ parameter_list|(
 name|OutputStream
 name|out
 parameter_list|)
-throws|throws
-name|FileNotFoundException
 block|{
 return|return
 operator|new

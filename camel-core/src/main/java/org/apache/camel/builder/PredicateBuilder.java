@@ -976,7 +976,7 @@ literal|" instanceof "
 operator|+
 name|type
 operator|.
-name|getName
+name|getCanonicalName
 argument_list|()
 return|;
 block|}

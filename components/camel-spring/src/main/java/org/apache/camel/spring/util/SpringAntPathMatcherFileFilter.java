@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file
+DECL|package|org.apache.camel.spring.util
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|spring
 operator|.
-name|file
+name|util
 package|;
 end_package
 
@@ -95,10 +95,10 @@ comment|/**  * File filter using Spring's {@link AntPathMatcher}.  *<p/>  * Excl
 end_comment
 
 begin_class
-DECL|class|AntPathMatcherFileFilter
+DECL|class|SpringAntPathMatcherFileFilter
 specifier|public
 class|class
-name|AntPathMatcherFileFilter
+name|SpringAntPathMatcherFileFilter
 implements|implements
 name|FileFilter
 block|{
@@ -114,7 +114,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|AntPathMatcherFileFilter
+name|SpringAntPathMatcherFileFilter
 operator|.
 name|class
 argument_list|)

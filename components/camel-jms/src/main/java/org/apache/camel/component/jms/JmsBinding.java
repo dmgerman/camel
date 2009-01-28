@@ -276,11 +276,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|component
 operator|.
-name|jaxp
+name|file
 operator|.
-name|XmlConverter
+name|GenericFile
 import|;
 end_import
 
@@ -292,9 +292,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|converter
 operator|.
-name|DefaultHeaderFilterStrategy
+name|jaxp
+operator|.
+name|XmlConverter
 import|;
 end_import
 
@@ -1811,6 +1813,10 @@ return|;
 block|}
 if|if
 condition|(
+name|body
+operator|instanceof
+name|GenericFile
+operator|||
 name|body
 operator|instanceof
 name|File
