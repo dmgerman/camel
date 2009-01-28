@@ -170,6 +170,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|InvalidPayloadException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -220,7 +232,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|ExchangeHelper
 import|;
 end_import
 
@@ -234,7 +246,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ExchangeHelper
+name|ObjectHelper
 import|;
 end_import
 
@@ -279,18 +291,6 @@ operator|.
 name|ObjectHelper
 operator|.
 name|isNotEmpty
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|InvalidPayloadException
 import|;
 end_import
 
