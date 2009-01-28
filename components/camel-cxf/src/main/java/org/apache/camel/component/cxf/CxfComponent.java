@@ -226,8 +226,6 @@ name|CxfSpringEndpoint
 argument_list|(
 name|this
 argument_list|,
-name|beanId
-argument_list|,
 name|bean
 argument_list|)
 expr_stmt|;

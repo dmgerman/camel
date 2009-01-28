@@ -490,6 +490,20 @@ name|apache
 operator|.
 name|cxf
 operator|.
+name|jaxws
+operator|.
+name|JaxWsServerFactoryBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
 name|message
 operator|.
 name|Message
@@ -579,16 +593,6 @@ DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
-decl_stmt|;
-DECL|field|hasWSProviderAnnotation
-specifier|private
-name|boolean
-name|hasWSProviderAnnotation
-decl_stmt|;
-DECL|field|hasWebServiceAnnotation
-specifier|private
-name|boolean
-name|hasWebServiceAnnotation
 decl_stmt|;
 DECL|field|cxfBindingInitialized
 specifier|private
@@ -739,19 +743,6 @@ argument_list|>
 name|cls
 parameter_list|)
 block|{
-name|hasWSProviderAnnotation
-operator|=
-name|CxfEndpointUtils
-operator|.
-name|hasAnnotation
-argument_list|(
-name|cls
-argument_list|,
-name|WebServiceProvider
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 comment|// address
 name|sfb
 operator|.
@@ -837,8 +828,16 @@ comment|// apply feature here
 if|if
 condition|(
 operator|!
-name|webServiceProviderAnnotated
-argument_list|()
+name|CxfEndpointUtils
+operator|.
+name|hasAnnotation
+argument_list|(
+name|cls
+argument_list|,
+name|WebServiceProvider
+operator|.
+name|class
+argument_list|)
 condition|)
 block|{
 if|if
@@ -954,18 +953,14 @@ argument_list|,
 literal|"Please provide endpoint service interface class"
 argument_list|)
 expr_stmt|;
-name|hasWebServiceAnnotation
-operator|=
+if|if
+condition|(
 name|CxfEndpointUtils
 operator|.
 name|hasWebServiceAnnotation
 argument_list|(
 name|cls
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|hasWebServiceAnnotation
 condition|)
 block|{
 return|return
@@ -1334,16 +1329,39 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// create server factory bean
+comment|// Shouldn't use CxfEndpointUtils.getServerFactoryBean(cls) as it is for
+comment|// CxfSoapComponent
 name|ServerFactoryBean
 name|answer
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
 name|CxfEndpointUtils
 operator|.
-name|getServerFactoryBean
+name|hasWebServiceAnnotation
 argument_list|(
 name|cls
 argument_list|)
-decl_stmt|;
+condition|)
+block|{
+name|answer
+operator|=
+operator|new
+name|JaxWsServerFactoryBean
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|answer
+operator|=
+operator|new
+name|ServerFactoryBean
+argument_list|()
+expr_stmt|;
+block|}
 comment|// setup server factory bean
 name|setupServerFactoryBean
 argument_list|(
@@ -1354,24 +1372,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
-return|;
-block|}
-DECL|method|webServiceProviderAnnotated ()
-name|boolean
-name|webServiceProviderAnnotated
-parameter_list|()
-block|{
-return|return
-name|hasWSProviderAnnotation
-return|;
-block|}
-DECL|method|webServiceAnnotated ()
-name|boolean
-name|webServiceAnnotated
-parameter_list|()
-block|{
-return|return
-name|hasWebServiceAnnotation
 return|;
 block|}
 comment|// Properties

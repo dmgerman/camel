@@ -1341,6 +1341,9 @@ name|payload
 init|=
 operator|(
 name|CxfPayload
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|outBody
 decl_stmt|;
@@ -1410,6 +1413,9 @@ name|MessageContentsList
 argument_list|(
 operator|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|outBody
 argument_list|)
@@ -1788,10 +1794,6 @@ argument_list|>
 argument_list|>
 name|cxfHeaders
 init|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 operator|(
 name|Map
 operator|)
@@ -1802,7 +1804,6 @@ argument_list|(
 name|Message
 operator|.
 name|PROTOCOL_HEADERS
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|Map
