@@ -51,7 +51,13 @@ DECL|method|FtpRemoteFileConfiguration ()
 specifier|public
 name|FtpRemoteFileConfiguration
 parameter_list|()
-block|{     }
+block|{
+name|setProtocol
+argument_list|(
+literal|"ftp"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|FtpRemoteFileConfiguration (URI uri)
 specifier|public
 name|FtpRemoteFileConfiguration

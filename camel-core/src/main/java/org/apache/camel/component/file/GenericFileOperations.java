@@ -37,8 +37,16 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|// TODO: setEndpoint method so we have access to it
-comment|/**      * Deletes the file name by name, relative to the current directory      *      * @param name name of the file      * @return true if deleted, false if not      * @throws GenericFileOperationFailedException      *          can be thrown      */
+comment|/**      * Sets the endpoint as some implementations need access to the endpoint and how its configured.      *      * @param endpoint the endpoint      */
+DECL|method|setEndpoint (GenericFileEndpoint endpoint)
+name|void
+name|setEndpoint
+parameter_list|(
+name|GenericFileEndpoint
+name|endpoint
+parameter_list|)
+function_decl|;
+comment|/**      * Deletes the file name by name, relative to the current directory      *      * @param name name of the file      * @return true if deleted, false if not      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|deleteFile (String name)
 name|boolean
 name|deleteFile
@@ -49,7 +57,7 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Renames the file      *      * @param from original name      * @param to   the new name      * @return true if renamed, false if not      * @throws GenericFileOperationFailedException      *          can be thrown      */
+comment|/**      * Renames the file      *      * @param from original name      * @param to   the new name      * @return true if renamed, false if not      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|renameFile (String from, String to)
 name|boolean
 name|renameFile
@@ -63,7 +71,7 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Builds the directory structure. Will test if the      * folder already exists.      *      * @param directory the directory path to build as a relative string name      * @param absolute wether the directory is an absolute or relative path      * @return true if build or already exists, false if not possbile (could be      *         lack of permissions)      * @throws GenericFileOperationFailedException      *          can be thrown      */
+comment|/**      * Builds the directory structure. Will test if the      * folder already exists.      *      * @param directory the directory path to build as a relative string name      * @param absolute wether the directory is an absolute or relative path      * @return true if build or already exists, false if not possbile (could be lack of permissions)      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|buildDirectory (String directory, boolean absolute)
 name|boolean
 name|buildDirectory
@@ -77,7 +85,7 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Retrieves the file      *      * @param name     name of the file      * @param exchange stream to write the content of the file into      * @return true if file has been retrieved, false if not      * @throws GenericFileOperationFailedException      *          can be thrown      */
+comment|/**      * Retrieves the file      *      * @param name     name of the file      * @param exchange stream to write the content of the file into      * @return true if file has been retrieved, false if not      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|retrieveFile (String name, GenericFileExchange<T> exchange)
 name|boolean
 name|retrieveFile
@@ -94,7 +102,7 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Stores the content as a new remote file (upload)      *      * @param name     name of new file      * @param exchange with the content content of the file      * @return true if the file was stored, false if not      * @throws GenericFileOperationFailedException      *          can be thrown      */
+comment|/**      * Stores the content as a new remote file (upload)      *      * @param name     name of new file      * @param exchange with the content content of the file      * @return true if the file was stored, false if not      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|storeFile (String name, GenericFileExchange<T> exchange)
 name|boolean
 name|storeFile
@@ -111,7 +119,7 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Gets the current remote directory      *      * @return the current directory path      * @throws GenericFileOperationFailedException      *          can be thrown      */
+comment|/**      * Gets the current remote directory      *      * @return the current directory path      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|getCurrentDirectory ()
 name|String
 name|getCurrentDirectory
@@ -119,7 +127,7 @@ parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Change the current remote directory      *      * @param path the path to change to      * @throws GenericFileOperationFailedException      *          can be thrown      */
+comment|/**      * Change the current remote directory      *      * @param path the path to change to      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|changeCurrentDirectory (String path)
 name|void
 name|changeCurrentDirectory
@@ -130,7 +138,7 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * List the files in the current directory      *      * @return a list of backing objects representing the files      * @throws GenericFileOperationFailedException      *          can be thrown      */
+comment|/**      * List the files in the current directory      *      * @return a list of backing objects representing the files      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|listFiles ()
 name|List
 argument_list|<
@@ -141,7 +149,7 @@ parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * List the files in the given remote directory      *      * @param path the remote directory      * @return a list of backing objects representing the files      * @throws GenericFileOperationFailedException      *          can be thrown      */
+comment|/**      * List the files in the given remote directory      *      * @param path the remote directory      * @return a list of backing objects representing the files      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|listFiles (String path)
 name|List
 argument_list|<

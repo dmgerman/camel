@@ -106,16 +106,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -189,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * File operations for {@link java.io.File}.  */
 end_comment
 
 begin_class
@@ -222,26 +212,20 @@ argument_list|)
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
-specifier|final
 name|NewFileEndpoint
 name|endpoint
 decl_stmt|;
-comment|// this is our filehandle to the filesystem
-DECL|field|currentFile
-specifier|private
-name|File
-name|currentFile
-decl_stmt|;
-DECL|method|NewFileOperations (final NewFileEndpoint endpoint, File fileHandle)
+DECL|method|NewFileOperations ()
+specifier|public
+name|NewFileOperations
+parameter_list|()
+block|{     }
+DECL|method|NewFileOperations (NewFileEndpoint endpoint)
 specifier|public
 name|NewFileOperations
 parameter_list|(
-specifier|final
 name|NewFileEndpoint
 name|endpoint
-parameter_list|,
-name|File
-name|fileHandle
 parameter_list|)
 block|{
 name|this
@@ -250,11 +234,24 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
+block|}
+DECL|method|setEndpoint (GenericFileEndpoint endpoint)
+specifier|public
+name|void
+name|setEndpoint
+parameter_list|(
+name|GenericFileEndpoint
+name|endpoint
+parameter_list|)
+block|{
 name|this
 operator|.
-name|currentFile
+name|endpoint
 operator|=
-name|fileHandle
+operator|(
+name|NewFileEndpoint
+operator|)
+name|endpoint
 expr_stmt|;
 block|}
 DECL|method|deleteFile (String name)
@@ -344,6 +341,15 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|endpoint
+argument_list|,
+literal|"endpoint"
+argument_list|)
+expr_stmt|;
 comment|// always create endpoint defined directory
 if|if
 condition|(
@@ -485,18 +491,9 @@ parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
 block|{
+comment|// noop
 return|return
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|this
-operator|.
-name|currentFile
-operator|.
-name|listFiles
-argument_list|()
-argument_list|)
+literal|null
 return|;
 block|}
 DECL|method|listFiles (String path)
@@ -513,24 +510,9 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
+comment|// noop
 return|return
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-operator|new
-name|File
-argument_list|(
-name|this
-operator|.
-name|currentFile
-argument_list|,
-name|path
-argument_list|)
-operator|.
-name|listFiles
-argument_list|()
-argument_list|)
+literal|null
 return|;
 block|}
 DECL|method|changeCurrentDirectory (String path)
@@ -544,23 +526,7 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-name|this
-operator|.
-name|currentFile
-operator|=
-operator|new
-name|File
-argument_list|(
-name|this
-operator|.
-name|currentFile
-argument_list|,
-name|path
-argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
+comment|// noop
 block|}
 DECL|method|getCurrentDirectory ()
 specifier|public
@@ -570,11 +536,9 @@ parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
 block|{
+comment|// noop
 return|return
-name|currentFile
-operator|.
-name|getAbsolutePath
-argument_list|()
+literal|null
 return|;
 block|}
 DECL|method|retrieveFile (String name, GenericFileExchange<File> exchange)
@@ -594,8 +558,9 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
+comment|// noop as we use type converters to read the body content for java.io.File
 return|return
-literal|false
+literal|true
 return|;
 block|}
 DECL|method|storeFile (String name, GenericFileExchange<File> exchange)
@@ -615,6 +580,15 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|endpoint
+argument_list|,
+literal|"endpoint"
+argument_list|)
+expr_stmt|;
 name|File
 name|file
 init|=

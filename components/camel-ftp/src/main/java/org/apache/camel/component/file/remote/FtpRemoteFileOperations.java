@@ -118,6 +118,22 @@ name|component
 operator|.
 name|file
 operator|.
+name|GenericFileEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
 name|GenericFileExchange
 import|;
 end_import
@@ -278,6 +294,17 @@ name|client
 operator|=
 name|client
 expr_stmt|;
+block|}
+DECL|method|setEndpoint (GenericFileEndpoint endpoint)
+specifier|public
+name|void
+name|setEndpoint
+parameter_list|(
+name|GenericFileEndpoint
+name|endpoint
+parameter_list|)
+block|{
+comment|// noop
 block|}
 DECL|method|connect (RemoteFileConfiguration config)
 specifier|public

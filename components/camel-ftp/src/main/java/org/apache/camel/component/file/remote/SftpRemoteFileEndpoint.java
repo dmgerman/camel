@@ -61,7 +61,16 @@ DECL|method|SftpRemoteFileEndpoint ()
 specifier|public
 name|SftpRemoteFileEndpoint
 parameter_list|()
-block|{     }
+block|{
+name|this
+operator|.
+name|operations
+operator|=
+operator|new
+name|SftpRemoteFileOperations
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|SftpRemoteFileEndpoint (String uri, SftpRemoteFileComponent component, RemoteFileOperations<ChannelSftp.LsEntry> operations, RemoteFileConfiguration configuration)
 specifier|public
 name|SftpRemoteFileEndpoint

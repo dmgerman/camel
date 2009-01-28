@@ -27,13 +27,19 @@ DECL|interface|GenericFileFilter
 specifier|public
 interface|interface
 name|GenericFileFilter
+parameter_list|<
+name|T
+parameter_list|>
 block|{
 comment|/**      * Tests whether or not the specified generic file should be included      *      * @param file the generic file to be tested      * @return<code>true</code> if and only if<code>file</code> should be included      */
-DECL|method|accept (GenericFile file)
+DECL|method|accept (GenericFile<T> file)
 name|boolean
 name|accept
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|)
 function_decl|;

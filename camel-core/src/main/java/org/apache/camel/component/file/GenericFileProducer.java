@@ -168,8 +168,18 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|endpoint
+specifier|protected
+specifier|final
+name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
+name|endpoint
+decl_stmt|;
 DECL|field|operations
-specifier|private
+specifier|protected
+specifier|final
 name|GenericFileOperations
 argument_list|<
 name|T
@@ -200,32 +210,22 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
+name|this
+operator|.
 name|operations
 operator|=
 name|operations
 expr_stmt|;
 block|}
-comment|/**      * Convenience method      */
-DECL|method|getGenericFileEndpoint ()
-specifier|protected
-name|GenericFileEndpoint
-argument_list|<
-name|T
-argument_list|>
-name|getGenericFileEndpoint
-parameter_list|()
-block|{
-return|return
-operator|(
-name|GenericFileEndpoint
-argument_list|<
-name|T
-argument_list|>
-operator|)
-name|getEndpoint
-argument_list|()
-return|;
-block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -249,8 +249,7 @@ argument_list|<
 name|T
 argument_list|>
 operator|)
-name|getGenericFileEndpoint
-argument_list|()
+name|endpoint
 operator|.
 name|createExchange
 argument_list|(
@@ -326,8 +325,7 @@ name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-name|getGenericFileEndpoint
-argument_list|()
+name|endpoint
 operator|.
 name|getTempPrefix
 argument_list|()
@@ -402,8 +400,7 @@ block|}
 name|boolean
 name|renamed
 init|=
-name|getOperations
-argument_list|()
+name|operations
 operator|.
 name|renameFile
 argument_list|(
@@ -564,8 +561,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|getOperations
-argument_list|()
+name|operations
 operator|.
 name|buildDirectory
 argument_list|(
@@ -621,8 +617,7 @@ block|}
 name|boolean
 name|success
 init|=
-name|getOperations
-argument_list|()
+name|operations
 operator|.
 name|storeFile
 argument_list|(
@@ -725,8 +720,7 @@ comment|// expression support
 name|Expression
 name|expression
 init|=
-name|getGenericFileEndpoint
-argument_list|()
+name|endpoint
 operator|.
 name|getExpression
 argument_list|()
@@ -844,8 +838,7 @@ block|}
 name|String
 name|endpointFile
 init|=
-name|getGenericFileEndpoint
-argument_list|()
+name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
@@ -855,8 +848,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|getGenericFileEndpoint
-argument_list|()
+name|endpoint
 operator|.
 name|isDirectory
 argument_list|()
@@ -920,8 +912,7 @@ name|answer
 operator|=
 name|baseDir
 operator|+
-name|getGenericFileEndpoint
-argument_list|()
+name|endpoint
 operator|.
 name|getGeneratedFileName
 argument_list|(
@@ -973,8 +964,7 @@ condition|)
 block|{
 comment|// no path
 return|return
-name|getGenericFileEndpoint
-argument_list|()
+name|endpoint
 operator|.
 name|getTempPrefix
 argument_list|()
@@ -1001,8 +991,7 @@ name|path
 operator|+
 literal|1
 argument_list|,
-name|getGenericFileEndpoint
-argument_list|()
+name|endpoint
 operator|.
 name|getTempPrefix
 argument_list|()
@@ -1015,20 +1004,6 @@ name|toString
 argument_list|()
 return|;
 block|}
-block|}
-comment|/**      * @return the operations      */
-DECL|method|getOperations ()
-specifier|public
-name|GenericFileOperations
-argument_list|<
-name|T
-argument_list|>
-name|getOperations
-parameter_list|()
-block|{
-return|return
-name|operations
-return|;
 block|}
 block|}
 end_class

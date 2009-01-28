@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * File binding with the {@link java.io.File} type.  */
 end_comment
 
 begin_class
@@ -60,11 +60,35 @@ argument_list|>
 name|file
 parameter_list|)
 block|{
-comment|// TODO: comment why I do this
-comment|// TODO: consider storing object and only create new if changed
-comment|// TODO: Consider callback from changeName to binding so we change
-comment|// change it at that time
-return|return
+comment|// as we use java.io.File itself as the body (not loading its content into a OutputStream etc.)
+comment|// we just store a java.io.File handle to the actual file denoted by the
+comment|// file.getAbsoluteFileName. We must do this as the original file consumed can be renamed before
+comment|// being processed (preMove) and thus it points to an invalid file location.
+comment|// GenericFile#getAbsoluteFileName() is always up-to-date and thus we use it to create a file
+comment|// handle that is correct
+if|if
+condition|(
+name|body
+operator|==
+literal|null
+operator|||
+operator|!
+name|file
+operator|.
+name|getAbsoluteFileName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|body
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|body
+operator|=
 operator|new
 name|File
 argument_list|(
@@ -73,6 +97,10 @@ operator|.
 name|getAbsoluteFileName
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|body
 return|;
 block|}
 DECL|method|setBody (GenericFile<File> file, Object body)

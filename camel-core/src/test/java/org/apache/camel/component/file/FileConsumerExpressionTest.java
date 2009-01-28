@@ -706,11 +706,6 @@ operator|new
 name|NewFileOperations
 argument_list|(
 name|endpoint
-argument_list|,
-name|endpoint
-operator|.
-name|getFile
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -51,7 +51,13 @@ DECL|method|SftpRemoteFileConfiguration ()
 specifier|public
 name|SftpRemoteFileConfiguration
 parameter_list|()
-block|{     }
+block|{
+name|setProtocol
+argument_list|(
+literal|"sftp"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|SftpRemoteFileConfiguration (URI uri)
 specifier|public
 name|SftpRemoteFileConfiguration

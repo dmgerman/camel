@@ -292,8 +292,7 @@ operator|(
 operator|(
 name|RemoteFileOperations
 operator|)
-name|getOperations
-argument_list|()
+name|operations
 operator|)
 operator|.
 name|disconnect
@@ -431,8 +430,7 @@ operator|(
 operator|(
 name|RemoteFileOperations
 operator|)
-name|getOperations
-argument_list|()
+name|operations
 operator|)
 operator|.
 name|isConnected
@@ -467,7 +465,15 @@ init|=
 operator|(
 name|RemoteFileOperations
 operator|)
-name|getOperations
+name|operations
+decl_stmt|;
+name|RemoteFileEndpoint
+name|rfe
+init|=
+operator|(
+name|RemoteFileEndpoint
+operator|)
+name|getEndpoint
 argument_list|()
 decl_stmt|;
 name|RemoteFileConfiguration
@@ -476,8 +482,7 @@ init|=
 operator|(
 name|RemoteFileConfiguration
 operator|)
-name|getGenericFileEndpoint
-argument_list|()
+name|rfe
 operator|.
 name|getConfiguration
 argument_list|()

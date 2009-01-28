@@ -101,6 +101,12 @@ DECL|field|operations
 specifier|private
 name|NewFileOperations
 name|operations
+init|=
+operator|new
+name|NewFileOperations
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 DECL|field|file
 specifier|private
@@ -422,6 +428,18 @@ operator|.
 name|file
 operator|=
 name|file
+expr_stmt|;
+comment|// update configuration as well
+name|getConfiguration
+argument_list|()
+operator|.
+name|setFile
+argument_list|(
+name|file
+operator|.
+name|getPath
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

@@ -430,6 +430,9 @@ decl_stmt|;
 DECL|field|filter
 specifier|protected
 name|GenericFileFilter
+argument_list|<
+name|T
+argument_list|>
 name|filter
 decl_stmt|;
 DECL|field|sorter
@@ -563,30 +566,14 @@ name|message
 parameter_list|)
 block|{
 return|return
-name|getFileFriendlyMessageId
+name|UuidGenerator
+operator|.
+name|generateSanitizedId
 argument_list|(
 name|message
 operator|.
 name|getMessageId
 argument_list|()
-argument_list|)
-return|;
-block|}
-DECL|method|getFileFriendlyMessageId (String id)
-specifier|protected
-name|String
-name|getFileFriendlyMessageId
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-block|{
-return|return
-name|UuidGenerator
-operator|.
-name|generateSanitizedId
-argument_list|(
-name|id
 argument_list|)
 return|;
 block|}
@@ -1249,6 +1236,9 @@ block|}
 DECL|method|getFilter ()
 specifier|public
 name|GenericFileFilter
+argument_list|<
+name|T
+argument_list|>
 name|getFilter
 parameter_list|()
 block|{
@@ -1256,12 +1246,15 @@ return|return
 name|filter
 return|;
 block|}
-DECL|method|setFilter (GenericFileFilter filter)
+DECL|method|setFilter (GenericFileFilter<T> filter)
 specifier|public
 name|void
 name|setFilter
 parameter_list|(
 name|GenericFileFilter
+argument_list|<
+name|T
+argument_list|>
 name|filter
 parameter_list|)
 block|{

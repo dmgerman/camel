@@ -155,9 +155,8 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/*     @Converter     public static String toString(Node node) {         StringBuffer buffer = new StringBuffer();         append(buffer, node);         return buffer.toString();     } */
 DECL|method|append (StringBuffer buffer, NodeList nodeList)
-specifier|protected
+specifier|private
 specifier|static
 name|void
 name|append
@@ -207,7 +206,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|append (StringBuffer buffer, Node node)
-specifier|protected
+specifier|private
 specifier|static
 name|void
 name|append

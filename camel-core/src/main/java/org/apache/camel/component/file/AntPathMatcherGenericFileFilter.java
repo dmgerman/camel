@@ -79,7 +79,7 @@ specifier|final
 name|String
 name|ANTPATHMATCHER_CLASSNAME
 init|=
-literal|"org.apache.camel.component.file.AntPathMatcherGenericFileFilter"
+literal|"org.apache.camel.component.file.AntPathMatcherFileFilter"
 decl_stmt|;
 DECL|field|excludes
 specifier|private

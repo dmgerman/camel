@@ -208,7 +208,7 @@ throws|throws
 name|Exception
 block|{
 comment|// lets check that our injected endpoint is valid
-name|FileEndpoint
+name|NewFileEndpoint
 name|fileEndpoint
 init|=
 name|Assertions
@@ -217,7 +217,7 @@ name|assertInstanceOf
 argument_list|(
 name|inputFile
 argument_list|,
-name|FileEndpoint
+name|NewFileEndpoint
 operator|.
 name|class
 argument_list|)
