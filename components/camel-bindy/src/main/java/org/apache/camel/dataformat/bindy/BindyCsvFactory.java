@@ -86,6 +86,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|TreeMap
 import|;
 end_import
@@ -158,7 +168,7 @@ name|bindy
 operator|.
 name|util
 operator|.
-name|ClassHelper
+name|AnnotationModelLoader
 import|;
 end_import
 
@@ -233,9 +243,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|modelsLoader
+specifier|private
+name|AnnotationModelLoader
+name|modelsLoader
+decl_stmt|;
 DECL|field|models
 specifier|private
-name|List
+name|Set
 argument_list|<
 name|Class
 argument_list|<
@@ -326,14 +341,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|modelsLoader
+operator|=
+operator|new
+name|AnnotationModelLoader
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|packageName
 operator|=
 name|packageName
 expr_stmt|;
-name|this
-operator|.
 name|initModel
 argument_list|()
 expr_stmt|;
@@ -350,8 +369,6 @@ block|{
 comment|// Find classes defined as Model
 name|initModelClasses
 argument_list|(
-name|this
-operator|.
 name|packageName
 argument_list|)
 expr_stmt|;
@@ -365,7 +382,7 @@ name|initCsvRecordParameters
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Find all the classes defined as model      *       * @param packageName      * @throws Exception      */
+comment|/**      * Find all the classes defined as model      */
 DECL|method|initModelClasses (String packageName)
 specifier|private
 name|void
@@ -379,15 +396,15 @@ name|Exception
 block|{
 name|models
 operator|=
-name|ClassHelper
+name|modelsLoader
 operator|.
-name|getClasses
+name|loadModels
 argument_list|(
 name|packageName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Find fields annoted in each class of the model      *       * @throws Exception      */
+comment|/**      * Find fields annoted in each class of the model      */
 DECL|method|initAnnotedFields ()
 specifier|private
 name|void
@@ -497,7 +514,6 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Bind the data of a record to their fields of the model      *       * @param data      * @throws Exception      */
 DECL|method|bind (List<String> data, Map<String, Object> model)
 specifier|public
 name|void
@@ -676,7 +692,6 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Unbind data from model objects and copy them to csv record      *       * @return String representing a csv record created      * @param model      * @throws Exception      */
 DECL|method|unbind (Map<String, Object> model)
 specifier|public
 name|String
@@ -881,7 +896,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Link objects together (Only 1to1 relation is allowed)      *       * @param model      * @throws Exception      */
+comment|/**      * Link objects together (Only 1to1 relation is allowed)      */
 DECL|method|link (Map<String, Object> model)
 specifier|public
 name|void
@@ -898,27 +913,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Iterator
-argument_list|<
-name|?
-argument_list|>
-name|it
-init|=
+for|for
+control|(
+name|String
+name|link
+range|:
 name|mapAnnotedLinkField
 operator|.
 name|keySet
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
+control|)
 block|{
 name|Field
 name|field
@@ -927,10 +931,7 @@ name|mapAnnotedLinkField
 operator|.
 name|get
 argument_list|(
-name|it
-operator|.
-name|next
-argument_list|()
+name|link
 argument_list|)
 decl_stmt|;
 name|field
@@ -993,7 +994,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Factory method generating new instances of the model and adding them to a      * HashMap      *       * @return Map is a collection of the objects used to bind data from csv      *         records      * @throws Exception      */
+comment|/**      * Factory method generating new instances of the model and adding them to a      * HashMap      *       * @return Map is a collection of the objects used to bind data from csv      *         records      * @throws Exception can be thrown      */
 DECL|method|factory ()
 specifier|public
 name|Map
@@ -1066,27 +1067,23 @@ return|return
 name|mapModel
 return|;
 block|}
-comment|/**      * Find the separator used to delimit the CSV fields      *       * @return String separator to split the content of a csv record into tokens      * @throws Exception      */
+comment|/**      * Find the separator used to delimit the CSV fields      */
 DECL|method|getSeparator ()
 specifier|public
 name|String
 name|getSeparator
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 name|separator
 return|;
 block|}
-comment|/**      * Get the parameter skipFirstLine      *       * @return String indicates if the first line of the CSV file must be      *         skipped. Values are Y (for Yes) or N (for No)      * @throws Exception      */
+comment|/**      * Get the parameter skipFirstLine      */
 DECL|method|getSkipFirstLine ()
 specifier|public
 name|boolean
 name|getSkipFirstLine
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 name|skipFirstLine

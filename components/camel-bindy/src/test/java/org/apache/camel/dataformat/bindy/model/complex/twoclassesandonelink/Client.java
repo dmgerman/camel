@@ -42,7 +42,27 @@ name|DataField
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|annotation
+operator|.
+name|Link
+import|;
+end_import
+
 begin_class
+annotation|@
+name|Link
 DECL|class|Client
 specifier|public
 class|class

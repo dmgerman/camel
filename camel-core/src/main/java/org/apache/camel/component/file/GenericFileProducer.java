@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -535,7 +545,9 @@ name|fileName
 operator|.
 name|lastIndexOf
 argument_list|(
-literal|'/'
+name|File
+operator|.
+name|separator
 argument_list|)
 decl_stmt|;
 if|if
@@ -871,7 +883,6 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|// TODO windows or unix slashes. Maybe we should replace all \ to /
 name|baseDir
 operator|=
 name|endpointFile
@@ -881,12 +892,16 @@ name|endpointFile
 operator|.
 name|endsWith
 argument_list|(
-literal|"/"
+name|File
+operator|.
+name|separator
 argument_list|)
 condition|?
 literal|""
 else|:
-literal|"/"
+name|File
+operator|.
+name|separator
 operator|)
 expr_stmt|;
 block|}
@@ -951,7 +966,9 @@ name|fileName
 operator|.
 name|lastIndexOf
 argument_list|(
-literal|"/"
+name|File
+operator|.
+name|separator
 argument_list|)
 decl_stmt|;
 if|if
