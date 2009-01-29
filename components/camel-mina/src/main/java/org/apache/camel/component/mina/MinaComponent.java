@@ -2199,7 +2199,7 @@ block|{
 return|return
 name|LineDelimiter
 operator|.
-name|AUTO
+name|DEFAULT
 return|;
 block|}
 switch|switch
@@ -2207,6 +2207,14 @@ condition|(
 name|delimiter
 condition|)
 block|{
+case|case
+name|DEFAULT
+case|:
+return|return
+name|LineDelimiter
+operator|.
+name|DEFAULT
+return|;
 case|case
 name|AUTO
 case|:

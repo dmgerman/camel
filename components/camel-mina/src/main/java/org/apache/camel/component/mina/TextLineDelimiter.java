@@ -28,10 +28,13 @@ specifier|public
 enum|enum
 name|TextLineDelimiter
 block|{
+DECL|enumConstant|DEFAULT
 DECL|enumConstant|AUTO
 DECL|enumConstant|UNIX
 DECL|enumConstant|WINDOWS
 DECL|enumConstant|MAC
+name|DEFAULT
+block|,
 name|AUTO
 block|,
 name|UNIX
