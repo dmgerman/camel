@@ -102,18 +102,15 @@ comment|// Helper Class
 block|}
 annotation|@
 name|FallbackConverter
-DECL|method|convertTo (Class<T> type, Exchange exchange, Object value, TypeConverterRegistry registry)
+DECL|method|convertTo (Class<?> type, Exchange exchange, Object value, TypeConverterRegistry registry)
 specifier|public
 specifier|static
-parameter_list|<
-name|T
-parameter_list|>
-name|T
+name|Object
 name|convertTo
 parameter_list|(
 name|Class
 argument_list|<
-name|T
+name|?
 argument_list|>
 name|type
 parameter_list|,

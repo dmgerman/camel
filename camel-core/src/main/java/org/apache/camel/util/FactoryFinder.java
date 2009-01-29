@@ -568,9 +568,6 @@ block|}
 name|Class
 name|clazz
 init|=
-operator|(
-name|Class
-operator|)
 name|classMap
 operator|.
 name|get
