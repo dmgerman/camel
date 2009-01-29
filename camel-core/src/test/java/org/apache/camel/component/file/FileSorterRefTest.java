@@ -101,7 +101,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"newfile://target/filesorter/?sorter=#mySorter"
+literal|"newfile://target/filesorter/?sorter=#mySorter&initialDelay=1000"
 decl_stmt|;
 annotation|@
 name|Override

@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test that verifies JMX connector server can be connected by  * a client.  *  * @version $Revision$  *  */
+comment|/**  * Test that verifies JMX connector server can be connected by  * a client.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -81,7 +81,7 @@ specifier|final
 name|String
 name|JMXSERVICEURL
 init|=
-literal|"service:jmx:rmi:///jndi/rmi://localhost:2000/jmxrmi/camel"
+literal|"service:jmx:rmi:///jndi/rmi://localhost:2123/jmxrmi/camel"
 decl_stmt|;
 DECL|field|clientConnector
 specifier|protected
@@ -100,7 +100,7 @@ name|Exception
 block|{
 name|sleepForConnection
 operator|=
-literal|2000
+literal|3000
 expr_stmt|;
 name|System
 operator|.
@@ -110,7 +110,7 @@ name|JmxSystemPropertyKeys
 operator|.
 name|CREATE_CONNECTOR
 argument_list|,
-literal|"True"
+literal|"true"
 argument_list|)
 expr_stmt|;
 comment|// need to explicit set it to false to use non-platform mbs
@@ -122,7 +122,7 @@ name|JmxSystemPropertyKeys
 operator|.
 name|USE_PLATFORM_MBS
 argument_list|,
-literal|"False"
+literal|"false"
 argument_list|)
 expr_stmt|;
 name|System
@@ -133,7 +133,7 @@ name|JmxSystemPropertyKeys
 operator|.
 name|REGISTRY_PORT
 argument_list|,
-literal|"2000"
+literal|"2123"
 argument_list|)
 expr_stmt|;
 name|super
