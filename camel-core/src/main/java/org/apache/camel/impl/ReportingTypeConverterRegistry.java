@@ -160,6 +160,34 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|addFallbackTypeConverter (TypeConverter typeConverter)
+specifier|public
+name|void
+name|addFallbackTypeConverter
+parameter_list|(
+name|TypeConverter
+name|typeConverter
+parameter_list|)
+block|{
+if|if
+condition|(
+name|errors
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+name|errors
+operator|.
+name|add
+argument_list|(
+literal|"Method should not be invoked."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|lookup (Class toType, Class fromType)
 specifier|public
 name|TypeConverter

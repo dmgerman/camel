@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|TypeConverter
 import|;
 end_import
 
@@ -62,7 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverter
+name|spi
+operator|.
+name|TypeConverterRegistry
 import|;
 end_import
 
@@ -81,23 +83,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link TypeConverter} implementation which instantiates an object  * so that an instance method can be used as a type converter  *  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.TypeConverter} implementation which invokes a static method  * as a fallback type converter from a type to another type  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|InstanceMethodTypeConverter
+DECL|class|StaticMethodFallbackTypeConverter
 specifier|public
 class|class
-name|InstanceMethodTypeConverter
+name|StaticMethodFallbackTypeConverter
 implements|implements
 name|TypeConverter
 block|{
-DECL|field|injector
-specifier|private
-specifier|final
-name|CachingInjector
-name|injector
-decl_stmt|;
 DECL|field|method
 specifier|private
 specifier|final
@@ -110,23 +106,23 @@ specifier|final
 name|boolean
 name|useExchange
 decl_stmt|;
-DECL|method|InstanceMethodTypeConverter (CachingInjector injector, Method method)
+DECL|field|registry
+specifier|private
+specifier|final
+name|TypeConverterRegistry
+name|registry
+decl_stmt|;
+DECL|method|StaticMethodFallbackTypeConverter (Method method, TypeConverterRegistry registry)
 specifier|public
-name|InstanceMethodTypeConverter
+name|StaticMethodFallbackTypeConverter
 parameter_list|(
-name|CachingInjector
-name|injector
-parameter_list|,
 name|Method
 name|method
+parameter_list|,
+name|TypeConverterRegistry
+name|registry
 parameter_list|)
 block|{
-name|this
-operator|.
-name|injector
-operator|=
-name|injector
-expr_stmt|;
 name|this
 operator|.
 name|method
@@ -144,7 +140,13 @@ argument_list|()
 operator|.
 name|length
 operator|==
-literal|2
+literal|4
+expr_stmt|;
+name|this
+operator|.
+name|registry
+operator|=
+name|registry
 expr_stmt|;
 block|}
 annotation|@
@@ -156,7 +158,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"InstanceMethodTypeConverter: "
+literal|"StaticMethodFallbackTypeConverter: "
 operator|+
 name|method
 return|;
@@ -211,34 +213,6 @@ name|Object
 name|value
 parameter_list|)
 block|{
-name|Object
-name|instance
-init|=
-name|injector
-operator|.
-name|newInstance
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|instance
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-literal|"Could not instantiate an instance of: "
-operator|+
-name|type
-operator|.
-name|getCanonicalName
-argument_list|()
-argument_list|)
-throw|;
-block|}
 return|return
 name|useExchange
 condition|?
@@ -251,11 +225,15 @@ name|invokeMethod
 argument_list|(
 name|method
 argument_list|,
-name|instance
+literal|null
+argument_list|,
+name|type
+argument_list|,
+name|exchange
 argument_list|,
 name|value
 argument_list|,
-name|exchange
+name|registry
 argument_list|)
 else|:
 operator|(
@@ -267,9 +245,13 @@ name|invokeMethod
 argument_list|(
 name|method
 argument_list|,
-name|instance
+literal|null
+argument_list|,
+name|type
 argument_list|,
 name|value
+argument_list|,
+name|registry
 argument_list|)
 return|;
 block|}

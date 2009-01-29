@@ -53,6 +53,15 @@ name|TypeConverter
 name|typeConverter
 parameter_list|)
 function_decl|;
+comment|/**      * Registers a new fallback type converter      *      * @param typeConverter the type converter to use      */
+DECL|method|addFallbackTypeConverter (TypeConverter typeConverter)
+name|void
+name|addFallbackTypeConverter
+parameter_list|(
+name|TypeConverter
+name|typeConverter
+parameter_list|)
+function_decl|;
 comment|/**      * Performs a lookup for a given type converter.      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @return the type converter or null if not found.      */
 DECL|method|lookup (Class toType, Class fromType)
 name|TypeConverter

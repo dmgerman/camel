@@ -74,6 +74,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|TypeConverterRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -81,14 +95,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link TypeConverter} implementation which instantiates an object  * so that an instance method can be used as a type converter  *  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.TypeConverter} implementation which instantiates an object  * so that an instance method can be used as a fallback type converter  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|InstanceMethodTypeConverter
+DECL|class|InstanceMethodFallbackTypeConverter
 specifier|public
 class|class
-name|InstanceMethodTypeConverter
+name|InstanceMethodFallbackTypeConverter
 implements|implements
 name|TypeConverter
 block|{
@@ -110,15 +124,24 @@ specifier|final
 name|boolean
 name|useExchange
 decl_stmt|;
-DECL|method|InstanceMethodTypeConverter (CachingInjector injector, Method method)
+DECL|field|registry
+specifier|private
+specifier|final
+name|TypeConverterRegistry
+name|registry
+decl_stmt|;
+DECL|method|InstanceMethodFallbackTypeConverter (CachingInjector injector, Method method, TypeConverterRegistry registry)
 specifier|public
-name|InstanceMethodTypeConverter
+name|InstanceMethodFallbackTypeConverter
 parameter_list|(
 name|CachingInjector
 name|injector
 parameter_list|,
 name|Method
 name|method
+parameter_list|,
+name|TypeConverterRegistry
+name|registry
 parameter_list|)
 block|{
 name|this
@@ -144,7 +167,13 @@ argument_list|()
 operator|.
 name|length
 operator|==
-literal|2
+literal|4
+expr_stmt|;
+name|this
+operator|.
+name|registry
+operator|=
+name|registry
 expr_stmt|;
 block|}
 annotation|@
@@ -156,7 +185,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"InstanceMethodTypeConverter: "
+literal|"InstanceMethodFallbackTypeConverter: "
 operator|+
 name|method
 return|;
@@ -253,9 +282,13 @@ name|method
 argument_list|,
 name|instance
 argument_list|,
+name|type
+argument_list|,
 name|value
 argument_list|,
 name|exchange
+argument_list|,
+name|registry
 argument_list|)
 else|:
 operator|(
@@ -269,7 +302,11 @@ name|method
 argument_list|,
 name|instance
 argument_list|,
+name|type
+argument_list|,
 name|value
+argument_list|,
+name|registry
 argument_list|)
 return|;
 block|}
