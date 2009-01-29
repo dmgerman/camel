@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointInject
+name|Produce
 import|;
 end_import
 
@@ -65,7 +65,7 @@ class|class
 name|SendFileRecordsToQueueBean
 block|{
 annotation|@
-name|EndpointInject
+name|Produce
 argument_list|(
 name|uri
 operator|=
