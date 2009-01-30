@@ -178,6 +178,35 @@ name|expression
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a predicate and value builder for properties on an exchange      */
+DECL|method|property (String name)
+specifier|public
+specifier|static
+name|ValueBuilder
+name|property
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|Expression
+name|expression
+init|=
+name|ExpressionBuilder
+operator|.
+name|propertyExpression
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a predicate and value builder for the inbound body on an exchange      */
 DECL|method|body ()
 specifier|public

@@ -63,7 +63,7 @@ name|Object
 name|body
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to the default endpoint with a specified header and header      * value      *      * @param body        the payload to send      * @param header      the header name      * @param headerValue the header value      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to the default endpoint with a specified header and header      * value      *      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @return the result (see class javadoc)      */
 DECL|method|sendBodyAndHeader (Object body, String header, Object headerValue)
 name|Object
 name|sendBodyAndHeader

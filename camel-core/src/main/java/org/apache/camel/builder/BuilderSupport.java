@@ -265,6 +265,25 @@ name|name
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a value builder for the given property      */
+DECL|method|property (String name)
+specifier|public
+name|ValueBuilder
+name|property
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|property
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a predicate and value builder for the inbound body on an exchange      */
 DECL|method|body ()
 specifier|public
