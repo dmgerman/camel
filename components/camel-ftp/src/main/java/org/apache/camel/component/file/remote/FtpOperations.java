@@ -233,10 +233,10 @@ comment|/**  * FTP remote file operations  */
 end_comment
 
 begin_class
-DECL|class|FtpRemoteFileOperations
+DECL|class|FtpOperations
 specifier|public
 class|class
-name|FtpRemoteFileOperations
+name|FtpOperations
 implements|implements
 name|RemoteFileOperations
 argument_list|<
@@ -255,7 +255,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|FtpRemoteFileOperations
+name|FtpOperations
 operator|.
 name|class
 argument_list|)
@@ -266,9 +266,9 @@ specifier|final
 name|FTPClient
 name|client
 decl_stmt|;
-DECL|method|FtpRemoteFileOperations ()
+DECL|method|FtpOperations ()
 specifier|public
-name|FtpRemoteFileOperations
+name|FtpOperations
 parameter_list|()
 block|{
 name|this
@@ -280,9 +280,9 @@ name|FTPClient
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|FtpRemoteFileOperations (FTPClient client)
+DECL|method|FtpOperations (FTPClient client)
 specifier|public
-name|FtpRemoteFileOperations
+name|FtpOperations
 parameter_list|(
 name|FTPClient
 name|client
@@ -341,9 +341,17 @@ operator|.
 name|getUsername
 argument_list|()
 decl_stmt|;
+name|FtpConfiguration
+name|ftpConfig
+init|=
+operator|(
+name|FtpConfiguration
+operator|)
+name|config
+decl_stmt|;
 if|if
 condition|(
-name|config
+name|ftpConfig
 operator|.
 name|getFtpClientConfig
 argument_list|()
@@ -357,7 +365,7 @@ name|trace
 argument_list|(
 literal|"Configuring FTPFile with config: "
 operator|+
-name|config
+name|ftpConfig
 operator|.
 name|getFtpClientConfig
 argument_list|()
@@ -367,7 +375,7 @@ name|client
 operator|.
 name|configure
 argument_list|(
-name|config
+name|ftpConfig
 operator|.
 name|getFtpClientConfig
 argument_list|()

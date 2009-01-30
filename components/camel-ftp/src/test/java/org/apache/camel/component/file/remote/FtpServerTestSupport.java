@@ -129,7 +129,6 @@ name|FtpServerTestSupport
 extends|extends
 name|ContextTestSupport
 block|{
-comment|// TODO: Figure out to set the home dir of the ftpServer from java
 DECL|field|FTP_ROOT_DIR
 specifier|public
 specifier|static
@@ -393,6 +392,8 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|fos
 operator|.
 name|write
@@ -408,11 +409,15 @@ name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|fos
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

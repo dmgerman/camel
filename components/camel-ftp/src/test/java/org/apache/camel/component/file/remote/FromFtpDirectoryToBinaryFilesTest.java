@@ -152,7 +152,7 @@ argument_list|()
 operator|+
 literal|"/incoming/?password=admin&directory=true"
 operator|+
-literal|"&binary=true&consumer.useFixedDelay=false&setNames=true&recursive=false&consumer.delay=5000"
+literal|"&binary=true&consumer.useFixedDelay=false&recursive=false&consumer.delay=5000"
 return|;
 block|}
 annotation|@

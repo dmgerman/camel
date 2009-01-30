@@ -85,32 +85,28 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Standard FTP Remote File Component  */
+comment|/**  * FTP Component  */
 end_comment
 
 begin_class
-DECL|class|FtpRemoteFileComponent
+DECL|class|FtpComponent
 specifier|public
 class|class
-name|FtpRemoteFileComponent
+name|FtpComponent
 extends|extends
 name|RemoteFileComponent
 argument_list|<
 name|FTPFile
 argument_list|>
 block|{
-DECL|method|FtpRemoteFileComponent ()
+DECL|method|FtpComponent ()
 specifier|public
-name|FtpRemoteFileComponent
+name|FtpComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|FtpRemoteFileComponent (CamelContext context)
+block|{     }
+DECL|method|FtpComponent (CamelContext context)
 specifier|public
-name|FtpRemoteFileComponent
+name|FtpComponent
 parameter_list|(
 name|CamelContext
 name|context
@@ -184,11 +180,11 @@ expr_stmt|;
 block|}
 comment|// lets make sure we create a new configuration as each endpoint can customize its own version
 comment|// must pass on baseUri to the configuration (see above)
-name|FtpRemoteFileConfiguration
+name|FtpConfiguration
 name|config
 init|=
 operator|new
-name|FtpRemoteFileConfiguration
+name|FtpConfiguration
 argument_list|(
 operator|new
 name|URI
@@ -197,16 +193,16 @@ name|baseUri
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|FtpRemoteFileOperations
+name|FtpOperations
 name|operations
 init|=
 operator|new
-name|FtpRemoteFileOperations
+name|FtpOperations
 argument_list|()
 decl_stmt|;
 return|return
 operator|new
-name|FtpRemoteFileEndpoint
+name|FtpEndpoint
 argument_list|(
 name|uri
 argument_list|,

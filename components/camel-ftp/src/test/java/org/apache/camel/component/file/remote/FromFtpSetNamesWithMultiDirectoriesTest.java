@@ -153,7 +153,7 @@ argument_list|()
 operator|+
 literal|"/incoming?password=admin&binary=true"
 operator|+
-literal|"&consumer.delay=2000&recursive=true&setNames=true"
+literal|"&consumer.delay=2000&recursive=true"
 return|;
 block|}
 annotation|@

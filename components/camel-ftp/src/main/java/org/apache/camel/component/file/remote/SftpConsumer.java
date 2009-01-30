@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SFTP consumer  */
+comment|/**  * Secure FTP consumer  */
 end_comment
 
 begin_class

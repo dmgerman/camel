@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|jcraft
+operator|.
+name|jsch
+operator|.
+name|ChannelSftp
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -32,36 +44,26 @@ name|Processor
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|net
-operator|.
-name|ftp
-operator|.
-name|FTPFile
-import|;
-end_import
+begin_comment
+comment|/**  * Secure FTP endpoint  */
+end_comment
 
 begin_class
-DECL|class|FtpRemoteFileEndpoint
+DECL|class|SftpEndpoint
 specifier|public
 class|class
-name|FtpRemoteFileEndpoint
+name|SftpEndpoint
 extends|extends
 name|RemoteFileEndpoint
 argument_list|<
-name|FTPFile
+name|ChannelSftp
+operator|.
+name|LsEntry
 argument_list|>
 block|{
-DECL|method|FtpRemoteFileEndpoint ()
+DECL|method|SftpEndpoint ()
 specifier|public
-name|FtpRemoteFileEndpoint
+name|SftpEndpoint
 parameter_list|()
 block|{
 name|this
@@ -69,21 +71,26 @@ operator|.
 name|operations
 operator|=
 operator|new
-name|FtpRemoteFileOperations
+name|SftpOperations
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|FtpRemoteFileEndpoint (String uri, FtpRemoteFileComponent component, FtpRemoteFileOperations operations, RemoteFileConfiguration configuration)
+DECL|method|SftpEndpoint (String uri, SftpComponent component, RemoteFileOperations<ChannelSftp.LsEntry> operations, RemoteFileConfiguration configuration)
 specifier|public
-name|FtpRemoteFileEndpoint
+name|SftpEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|FtpRemoteFileComponent
+name|SftpComponent
 name|component
 parameter_list|,
-name|FtpRemoteFileOperations
+name|RemoteFileOperations
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 name|operations
 parameter_list|,
 name|RemoteFileConfiguration
@@ -104,11 +111,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|buildConsumer (Processor processor, RemoteFileOperations<FTPFile> operations)
+DECL|method|buildConsumer (Processor processor, RemoteFileOperations<ChannelSftp.LsEntry> operations)
 specifier|protected
 name|RemoteFileConsumer
 argument_list|<
-name|FTPFile
+name|ChannelSftp
+operator|.
+name|LsEntry
 argument_list|>
 name|buildConsumer
 parameter_list|(
@@ -117,14 +126,16 @@ name|processor
 parameter_list|,
 name|RemoteFileOperations
 argument_list|<
-name|FTPFile
+name|ChannelSftp
+operator|.
+name|LsEntry
 argument_list|>
 name|operations
 parameter_list|)
 block|{
 return|return
 operator|new
-name|FtpConsumer
+name|SftpConsumer
 argument_list|(
 name|this
 argument_list|,
@@ -143,7 +154,7 @@ name|getScheme
 parameter_list|()
 block|{
 return|return
-literal|"ftp"
+literal|"sftp"
 return|;
 block|}
 block|}

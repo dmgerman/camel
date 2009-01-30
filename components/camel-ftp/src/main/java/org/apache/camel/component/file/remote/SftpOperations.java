@@ -315,10 +315,10 @@ comment|/**  * SFTP remote file operations  */
 end_comment
 
 begin_class
-DECL|class|SftpRemoteFileOperations
+DECL|class|SftpOperations
 specifier|public
 class|class
-name|SftpRemoteFileOperations
+name|SftpOperations
 implements|implements
 name|RemoteFileOperations
 argument_list|<
@@ -339,7 +339,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|SftpRemoteFileOperations
+name|SftpOperations
 operator|.
 name|class
 argument_list|)
@@ -518,11 +518,19 @@ operator|new
 name|JSch
 argument_list|()
 decl_stmt|;
+name|SftpConfiguration
+name|sftpConfig
+init|=
+operator|(
+name|SftpConfiguration
+operator|)
+name|configuration
+decl_stmt|;
 if|if
 condition|(
 name|isNotEmpty
 argument_list|(
-name|configuration
+name|sftpConfig
 operator|.
 name|getPrivateKeyFile
 argument_list|()
@@ -535,7 +543,7 @@ name|debug
 argument_list|(
 literal|"Using private keyfile: "
 operator|+
-name|configuration
+name|sftpConfig
 operator|.
 name|getPrivateKeyFile
 argument_list|()
@@ -545,7 +553,7 @@ if|if
 condition|(
 name|isNotEmpty
 argument_list|(
-name|configuration
+name|sftpConfig
 operator|.
 name|getPrivateKeyFilePassphrase
 argument_list|()
@@ -556,12 +564,12 @@ name|jsch
 operator|.
 name|addIdentity
 argument_list|(
-name|configuration
+name|sftpConfig
 operator|.
 name|getPrivateKeyFile
 argument_list|()
 argument_list|,
-name|configuration
+name|sftpConfig
 operator|.
 name|getPrivateKeyFilePassphrase
 argument_list|()
@@ -574,7 +582,7 @@ name|jsch
 operator|.
 name|addIdentity
 argument_list|(
-name|configuration
+name|sftpConfig
 operator|.
 name|getPrivateKeyFile
 argument_list|()
@@ -586,7 +594,7 @@ if|if
 condition|(
 name|isNotEmpty
 argument_list|(
-name|configuration
+name|sftpConfig
 operator|.
 name|getKnownHostsFile
 argument_list|()
@@ -599,7 +607,7 @@ name|debug
 argument_list|(
 literal|"Using knownhosts file: "
 operator|+
-name|configuration
+name|sftpConfig
 operator|.
 name|getKnownHostsFile
 argument_list|()
@@ -609,7 +617,7 @@ name|jsch
 operator|.
 name|setKnownHosts
 argument_list|(
-name|configuration
+name|sftpConfig
 operator|.
 name|getKnownHostsFile
 argument_list|()
