@@ -629,6 +629,14 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
+comment|// need a little sleep when sending large batches
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
 block|}
 name|resultEndpoint
 operator|.
