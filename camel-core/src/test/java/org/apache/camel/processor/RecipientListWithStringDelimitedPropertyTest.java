@@ -79,15 +79,6 @@ name|BODY
 init|=
 literal|"answer"
 decl_stmt|;
-DECL|field|PROPERTY_NAME
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|PROPERTY_NAME
-init|=
-literal|"myProperty"
-decl_stmt|;
 DECL|field|PROPERTY_VALUE
 specifier|private
 specifier|static
@@ -159,7 +150,7 @@ argument_list|)
 operator|.
 name|property
 argument_list|(
-name|PROPERTY_NAME
+literal|"myProperty"
 argument_list|)
 operator|.
 name|isEqualTo
@@ -176,7 +167,7 @@ argument_list|)
 operator|.
 name|property
 argument_list|(
-name|PROPERTY_NAME
+literal|"myProperty"
 argument_list|)
 operator|.
 name|isEqualTo
@@ -193,7 +184,7 @@ argument_list|)
 operator|.
 name|property
 argument_list|(
-name|PROPERTY_NAME
+literal|"myProperty"
 argument_list|)
 operator|.
 name|isEqualTo
@@ -222,7 +213,7 @@ literal|"direct:a"
 argument_list|,
 name|BODY
 argument_list|,
-name|PROPERTY_NAME
+literal|"myProperty"
 argument_list|,
 name|PROPERTY_VALUE
 argument_list|)
@@ -254,7 +245,7 @@ name|recipientList
 argument_list|(
 name|property
 argument_list|(
-name|PROPERTY_NAME
+literal|"myProperty"
 argument_list|)
 argument_list|)
 expr_stmt|;
