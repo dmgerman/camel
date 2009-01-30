@@ -35,26 +35,26 @@ specifier|private
 name|Object
 name|body
 decl_stmt|;
-DECL|method|getBody (GenericFile genericFile)
+DECL|method|getBody (GenericFile file)
 specifier|public
 name|Object
 name|getBody
 parameter_list|(
 name|GenericFile
-name|genericFile
+name|file
 parameter_list|)
 block|{
 return|return
 name|body
 return|;
 block|}
-DECL|method|setBody (GenericFile genericFile, Object body)
+DECL|method|setBody (GenericFile file, Object body)
 specifier|public
 name|void
 name|setBody
 parameter_list|(
 name|GenericFile
-name|genericFile
+name|file
 parameter_list|,
 name|Object
 name|body

@@ -39,15 +39,6 @@ specifier|private
 name|String
 name|file
 decl_stmt|;
-DECL|method|GenericFileConfiguration ()
-specifier|public
-name|GenericFileConfiguration
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|configure (URI uri)
 specifier|public
 name|void

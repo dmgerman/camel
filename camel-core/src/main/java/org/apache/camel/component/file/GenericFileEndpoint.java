@@ -243,7 +243,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generic Endpoint  */
+comment|/**  * Generic FileEndpoint  */
 end_comment
 
 begin_class
@@ -296,6 +296,9 @@ decl_stmt|;
 DECL|field|processStrategy
 specifier|protected
 name|GenericFileProcessStrategy
+argument_list|<
+name|T
+argument_list|>
 name|processStrategy
 decl_stmt|;
 DECL|field|operations
@@ -580,6 +583,9 @@ block|}
 DECL|method|getGenericFileProcessStrategy ()
 specifier|public
 name|GenericFileProcessStrategy
+argument_list|<
+name|T
+argument_list|>
 name|getGenericFileProcessStrategy
 parameter_list|()
 block|{
@@ -619,9 +625,17 @@ name|processStrategy
 return|;
 block|}
 comment|/**      * A strategy method to lazily create the file strategy      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createGenericFileStrategy ()
 specifier|protected
 name|GenericFileProcessStrategy
+argument_list|<
+name|T
+argument_list|>
 name|createGenericFileStrategy
 parameter_list|()
 block|{
@@ -747,6 +761,9 @@ decl_stmt|;
 return|return
 operator|(
 name|GenericFileProcessStrategy
+argument_list|<
+name|T
+argument_list|>
 operator|)
 name|ObjectHelper
 operator|.
@@ -783,12 +800,15 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|setGenericFileProcessStrategy (GenericFileProcessStrategy genericFileProcessStrategy)
+DECL|method|setGenericFileProcessStrategy (GenericFileProcessStrategy<T> genericFileProcessStrategy)
 specifier|public
 name|void
 name|setGenericFileProcessStrategy
 parameter_list|(
 name|GenericFileProcessStrategy
+argument_list|<
+name|T
+argument_list|>
 name|genericFileProcessStrategy
 parameter_list|)
 block|{
@@ -1661,6 +1681,9 @@ block|}
 DECL|method|getProcessStrategy ()
 specifier|public
 name|GenericFileProcessStrategy
+argument_list|<
+name|T
+argument_list|>
 name|getProcessStrategy
 parameter_list|()
 block|{
@@ -1668,12 +1691,15 @@ return|return
 name|processStrategy
 return|;
 block|}
-DECL|method|setProcessStrategy (GenericFileProcessStrategy processStrategy)
+DECL|method|setProcessStrategy (GenericFileProcessStrategy<T> processStrategy)
 specifier|public
 name|void
 name|setProcessStrategy
 parameter_list|(
 name|GenericFileProcessStrategy
+argument_list|<
+name|T
+argument_list|>
 name|processStrategy
 parameter_list|)
 block|{
@@ -2037,12 +2063,7 @@ name|put
 argument_list|(
 literal|"readLockTimeout"
 argument_list|,
-name|Long
-operator|.
-name|valueOf
-argument_list|(
 name|readLockTimeout
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

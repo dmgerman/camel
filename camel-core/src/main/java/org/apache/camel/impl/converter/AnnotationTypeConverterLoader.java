@@ -927,7 +927,7 @@ literal|"Ignoring converter type: "
 operator|+
 name|type
 operator|.
-name|getName
+name|getCanonicalName
 argument_list|()
 operator|+
 literal|" as a dependent class could not be found: "

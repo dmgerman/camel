@@ -245,9 +245,21 @@ name|Exception
 block|{
 comment|// before we poll is there anything we need to check ? Such as are we
 comment|// connected to the FTP Server Still ?
+if|if
+condition|(
+operator|!
 name|prePollCheck
 argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Skipping pool as pre poll check returned false"
+argument_list|)
 expr_stmt|;
+block|}
 comment|// gather list of files to process
 name|List
 argument_list|<
@@ -618,6 +630,9 @@ try|try
 block|{
 specifier|final
 name|GenericFileProcessStrategy
+argument_list|<
+name|T
+argument_list|>
 name|processStrategy
 init|=
 name|endpoint
@@ -933,15 +948,21 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Strategy when the file was processed and a commit should be executed.      *      * @param processStrategy the strategy to perform the commit      * @param exchange        the exchange      * @param file            the file processed      * @param failureHandled  is<tt>false</tt> if the exchange was processed succesfully,      *<tt>true</tt> if an exception occured during processing but it      *                        was handled by the failure processor (usually the DeadLetterChannel).      */
-DECL|method|processStrategyCommit (GenericFileProcessStrategy processStrategy, GenericFileExchange exchange, GenericFile<T> file, boolean failureHandled)
+DECL|method|processStrategyCommit (GenericFileProcessStrategy<T> processStrategy, GenericFileExchange<T> exchange, GenericFile<T> file, boolean failureHandled)
 specifier|protected
 name|void
 name|processStrategyCommit
 parameter_list|(
 name|GenericFileProcessStrategy
+argument_list|<
+name|T
+argument_list|>
 name|processStrategy
 parameter_list|,
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|exchange
 parameter_list|,
 name|GenericFile
@@ -1049,15 +1070,21 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Strategy when the file was not processed and a rollback should be      * executed.      *      * @param processStrategy the strategy to perform the commit      * @param exchange        the exchange      * @param file            the file processed      */
-DECL|method|processStrategyRollback (GenericFileProcessStrategy processStrategy, GenericFileExchange exchange, GenericFile<T> file)
+DECL|method|processStrategyRollback (GenericFileProcessStrategy<T> processStrategy, GenericFileExchange<T> exchange, GenericFile<T> file)
 specifier|protected
 name|void
 name|processStrategyRollback
 parameter_list|(
 name|GenericFileProcessStrategy
+argument_list|<
+name|T
+argument_list|>
 name|processStrategy
 parameter_list|,
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|exchange
 parameter_list|,
 name|GenericFile
@@ -1420,21 +1447,6 @@ block|}
 return|return
 literal|true
 return|;
-block|}
-comment|/**      * Override if required      */
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_class

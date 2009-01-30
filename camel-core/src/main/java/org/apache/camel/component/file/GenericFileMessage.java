@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Remote file message  */
+comment|/**  * Generic file message  */
 end_comment
 
 begin_class
@@ -47,20 +47,20 @@ parameter_list|>
 extends|extends
 name|DefaultMessage
 block|{
-DECL|field|genericFile
+DECL|field|file
 specifier|private
 name|GenericFile
 argument_list|<
 name|T
 argument_list|>
-name|genericFile
+name|file
 decl_stmt|;
 DECL|method|GenericFileMessage ()
 specifier|public
 name|GenericFileMessage
 parameter_list|()
 block|{     }
-DECL|method|GenericFileMessage (GenericFile<T> genericFile)
+DECL|method|GenericFileMessage (GenericFile<T> file)
 specifier|public
 name|GenericFileMessage
 parameter_list|(
@@ -68,27 +68,38 @@ name|GenericFile
 argument_list|<
 name|T
 argument_list|>
-name|genericFile
+name|file
 parameter_list|)
 block|{
 name|this
 operator|.
-name|genericFile
+name|file
 operator|=
-name|genericFile
+name|file
 expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getExchange ()
 specifier|public
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|getExchange
 parameter_list|()
 block|{
 return|return
 operator|(
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 operator|)
 name|super
 operator|.
@@ -105,7 +116,7 @@ name|createBody
 parameter_list|()
 block|{
 return|return
-name|genericFile
+name|file
 operator|.
 name|getBody
 argument_list|()
@@ -121,26 +132,26 @@ name|getGenericFile
 parameter_list|()
 block|{
 return|return
-name|genericFile
+name|file
 return|;
 block|}
-DECL|method|setRemoteFile (GenericFile<T> genericFile)
+DECL|method|setGenericFile (GenericFile<T> file)
 specifier|public
 name|void
-name|setRemoteFile
+name|setGenericFile
 parameter_list|(
 name|GenericFile
 argument_list|<
 name|T
 argument_list|>
-name|genericFile
+name|file
 parameter_list|)
 block|{
 name|this
 operator|.
-name|genericFile
+name|file
 operator|=
-name|genericFile
+name|file
 expr_stmt|;
 block|}
 annotation|@
@@ -168,7 +179,7 @@ block|{
 return|return
 literal|"GenericFileMessage: "
 operator|+
-name|genericFile
+name|file
 return|;
 block|}
 block|}

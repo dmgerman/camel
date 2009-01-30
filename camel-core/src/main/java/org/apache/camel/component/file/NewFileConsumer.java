@@ -491,7 +491,9 @@ operator|.
 name|getParent
 argument_list|()
 operator|+
-literal|"/"
+name|File
+operator|.
+name|separator
 operator|+
 name|file
 operator|.

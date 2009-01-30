@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Date
@@ -101,13 +111,13 @@ parameter_list|>
 extends|extends
 name|DefaultExchange
 block|{
-DECL|field|genericFile
+DECL|field|file
 specifier|private
 name|GenericFile
 argument_list|<
 name|T
 argument_list|>
-name|genericFile
+name|file
 decl_stmt|;
 DECL|method|GenericFileExchange (CamelContext context)
 specifier|public
@@ -170,7 +180,7 @@ name|fromEndpoint
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|GenericFileExchange (GenericFileEndpoint endpoint, ExchangePattern pattern, GenericFile<T> genericFile)
+DECL|method|GenericFileExchange (GenericFileEndpoint endpoint, ExchangePattern pattern, GenericFile<T> file)
 specifier|public
 name|GenericFileExchange
 parameter_list|(
@@ -184,7 +194,7 @@ name|GenericFile
 argument_list|<
 name|T
 argument_list|>
-name|genericFile
+name|file
 parameter_list|)
 block|{
 name|super
@@ -196,11 +206,11 @@ argument_list|)
 expr_stmt|;
 name|setGenericFile
 argument_list|(
-name|genericFile
+name|file
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|GenericFileExchange (DefaultExchange parent, GenericFile<T> genericFile)
+DECL|method|GenericFileExchange (DefaultExchange parent, GenericFile<T> file)
 specifier|public
 name|GenericFileExchange
 parameter_list|(
@@ -211,7 +221,7 @@ name|GenericFile
 argument_list|<
 name|T
 argument_list|>
-name|genericFile
+name|file
 parameter_list|)
 block|{
 name|super
@@ -221,7 +231,7 @@ argument_list|)
 expr_stmt|;
 name|setGenericFile
 argument_list|(
-name|genericFile
+name|file
 argument_list|)
 expr_stmt|;
 block|}
@@ -244,7 +254,7 @@ name|pattern
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|populateHeaders (GenericFile<T> genericFile)
+DECL|method|populateHeaders (GenericFile<T> file)
 specifier|protected
 name|void
 name|populateHeaders
@@ -253,12 +263,12 @@ name|GenericFile
 argument_list|<
 name|T
 argument_list|>
-name|genericFile
+name|file
 parameter_list|)
 block|{
 if|if
 condition|(
-name|genericFile
+name|file
 operator|!=
 literal|null
 condition|)
@@ -270,7 +280,7 @@ name|setHeader
 argument_list|(
 literal|"CamelFileName"
 argument_list|,
-name|genericFile
+name|file
 operator|.
 name|getFileName
 argument_list|()
@@ -283,7 +293,7 @@ name|setHeader
 argument_list|(
 literal|"CamelFileAbsolutePath"
 argument_list|,
-name|genericFile
+name|file
 operator|.
 name|getAbsoluteFileName
 argument_list|()
@@ -292,14 +302,16 @@ expr_stmt|;
 comment|// set the parent if there is a parent folder
 if|if
 condition|(
-name|genericFile
+name|file
 operator|.
 name|getRelativeFileName
 argument_list|()
 operator|.
 name|lastIndexOf
 argument_list|(
-literal|"/"
+name|File
+operator|.
+name|separator
 argument_list|)
 operator|!=
 operator|-
@@ -309,7 +321,7 @@ block|{
 name|String
 name|parent
 init|=
-name|genericFile
+name|file
 operator|.
 name|getRelativeFileName
 argument_list|()
@@ -318,14 +330,16 @@ name|substring
 argument_list|(
 literal|0
 argument_list|,
-name|genericFile
+name|file
 operator|.
 name|getRelativeFileName
 argument_list|()
 operator|.
 name|lastIndexOf
 argument_list|(
-literal|"/"
+name|File
+operator|.
+name|separator
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -347,7 +361,7 @@ name|setHeader
 argument_list|(
 literal|"CamelFilePath"
 argument_list|,
-name|genericFile
+name|file
 operator|.
 name|getRelativeFileName
 argument_list|()
@@ -360,7 +374,7 @@ name|setHeader
 argument_list|(
 literal|"CamelFileCanonicalPath"
 argument_list|,
-name|genericFile
+name|file
 operator|.
 name|getCanonicalFileName
 argument_list|()
@@ -368,7 +382,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|genericFile
+name|file
 operator|.
 name|getFileLength
 argument_list|()
@@ -383,7 +397,7 @@ name|setHeader
 argument_list|(
 literal|"CamelFileLength"
 argument_list|,
-name|genericFile
+name|file
 operator|.
 name|getFileLength
 argument_list|()
@@ -392,7 +406,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|genericFile
+name|file
 operator|.
 name|getLastModified
 argument_list|()
@@ -410,7 +424,7 @@ argument_list|,
 operator|new
 name|Date
 argument_list|(
-name|genericFile
+name|file
 operator|.
 name|getLastModified
 argument_list|()
@@ -430,10 +444,10 @@ name|getGenericFile
 parameter_list|()
 block|{
 return|return
-name|genericFile
+name|file
 return|;
 block|}
-DECL|method|setGenericFile (GenericFile<T> genericFile)
+DECL|method|setGenericFile (GenericFile<T> file)
 specifier|public
 name|void
 name|setGenericFile
@@ -442,27 +456,30 @@ name|GenericFile
 argument_list|<
 name|T
 argument_list|>
-name|genericFile
+name|file
 parameter_list|)
 block|{
 name|setIn
 argument_list|(
 operator|new
 name|GenericFileMessage
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
-name|genericFile
+name|file
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|genericFile
+name|file
 operator|=
-name|genericFile
+name|file
 expr_stmt|;
 name|populateHeaders
 argument_list|(
-name|genericFile
+name|file
 argument_list|)
 expr_stmt|;
 block|}
@@ -481,7 +498,7 @@ argument_list|>
 argument_list|(
 name|this
 argument_list|,
-name|genericFile
+name|file
 argument_list|)
 return|;
 block|}

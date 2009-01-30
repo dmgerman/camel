@@ -494,7 +494,7 @@ throw|throw
 name|exception
 throw|;
 block|}
-comment|/**      * Perform any actions that need to occur before we write Such as connecting      * to an FTP server etc.      */
+comment|/**      * Perform any actions that need to occur before we write such as connecting to an FTP server etc.      */
 DECL|method|preWriteCheck ()
 specifier|protected
 name|void

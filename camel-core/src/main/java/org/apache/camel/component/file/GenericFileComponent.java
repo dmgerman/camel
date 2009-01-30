@@ -278,7 +278,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * File Components implements this method      */
+comment|/**      * A factory method for derived file components to create the endpoint      *      * @param uri the full URI of the endpoint      * @param remaining the remaining part of the URI without the query      *                parameters or component prefix      * @param parameters the optional parameters passed in      * @return a newly created endpoint or null if the endpoint cannot be      *         created based on the inputs      * @throws Exception can be thrown      */
 DECL|method|buildFileEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 specifier|abstract
@@ -300,7 +300,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * File Components implements this method      *      * @param endpoint the newly created endpoint to do some custom post configuration      */
+comment|/**      * A factory method for derived file components to perform validation of properties      *      * @param endpoint the endpoint      * @throws Exception can be thrown in case of validation errors      */
 DECL|method|afterPropertiesSet (GenericFileEndpoint<T> endpoint)
 specifier|protected
 specifier|abstract
