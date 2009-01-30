@@ -314,10 +314,6 @@ specifier|protected
 name|GenericFileConfiguration
 name|configuration
 decl_stmt|;
-comment|// TODO: Consider remove setNames
-comment|// TODO: Consider filename should always be specified when producing (to get rid of auto generating with id as filename)
-comment|// TODO: bufferSize& append can be moved to NewFileEndpoint as FTP does not support it
-comment|// TODO: configuration.getfile/setfile is a bit cumbersome setting endpoint using spring bean (see FileConsumerExpressionTest)
 DECL|field|directory
 specifier|protected
 name|boolean
@@ -352,6 +348,16 @@ DECL|field|noop
 specifier|protected
 name|boolean
 name|noop
+decl_stmt|;
+DECL|field|recursive
+specifier|protected
+name|boolean
+name|recursive
+decl_stmt|;
+DECL|field|delete
+specifier|protected
+name|boolean
+name|delete
 decl_stmt|;
 DECL|field|tempPrefix
 specifier|protected
@@ -388,27 +394,10 @@ specifier|protected
 name|String
 name|excludedNamePostfix
 decl_stmt|;
-DECL|field|recursive
-specifier|protected
-name|boolean
-name|recursive
-decl_stmt|;
 DECL|field|regexPattern
 specifier|protected
 name|String
 name|regexPattern
-decl_stmt|;
-DECL|field|setNames
-specifier|protected
-name|boolean
-name|setNames
-init|=
-literal|true
-decl_stmt|;
-DECL|field|delete
-specifier|protected
-name|boolean
-name|delete
 decl_stmt|;
 DECL|field|expression
 specifier|protected
@@ -1051,32 +1040,6 @@ operator|.
 name|regexPattern
 operator|=
 name|regexPattern
-expr_stmt|;
-block|}
-DECL|method|isSetNames ()
-specifier|public
-name|boolean
-name|isSetNames
-parameter_list|()
-block|{
-return|return
-name|setNames
-return|;
-block|}
-DECL|method|setSetNames (boolean setNames)
-specifier|public
-name|void
-name|setSetNames
-parameter_list|(
-name|boolean
-name|setNames
-parameter_list|)
-block|{
-name|this
-operator|.
-name|setNames
-operator|=
-name|setNames
 expr_stmt|;
 block|}
 DECL|method|isDelete ()

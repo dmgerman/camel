@@ -679,16 +679,6 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|setFile
-argument_list|(
-literal|"target/filelanguage/report5.txt"
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
 name|setFile
 argument_list|(
 operator|new

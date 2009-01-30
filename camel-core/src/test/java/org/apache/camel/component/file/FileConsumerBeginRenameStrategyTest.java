@@ -226,6 +226,8 @@ argument_list|(
 literal|"./target/inprogress/london.txt"
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|fw
 operator|.
 name|write
@@ -238,11 +240,15 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|fw
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 name|MockEndpoint
 name|mock
 init|=

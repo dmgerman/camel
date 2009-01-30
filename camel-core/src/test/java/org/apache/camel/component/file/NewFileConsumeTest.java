@@ -201,6 +201,8 @@ literal|"target/consumefile/hello.txt"
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|fos
 operator|.
 name|write
@@ -211,11 +213,15 @@ name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|fos
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 name|Endpoint
 name|endpoint
 init|=

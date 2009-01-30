@@ -441,7 +441,7 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|assertEquals
+name|assertDirectoryEquals
 argument_list|(
 literal|"For uri: "
 operator|+
@@ -482,6 +482,9 @@ name|EXPECT_FILE
 argument_list|)
 expr_stmt|;
 name|GenericFile
+argument_list|<
+name|File
+argument_list|>
 name|consumedFile
 init|=
 name|NewFileConsumer
