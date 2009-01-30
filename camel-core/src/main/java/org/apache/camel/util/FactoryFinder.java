@@ -596,6 +596,13 @@ argument_list|,
 name|propertyPrefix
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|clazz
+operator|!=
+literal|null
+condition|)
+block|{
 name|classMap
 operator|.
 name|put
@@ -607,6 +614,7 @@ argument_list|,
 name|clazz
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|clazz
