@@ -78,6 +78,21 @@ name|Object
 name|headerValue
 parameter_list|)
 function_decl|;
+comment|/**      * Sends the body to the default endpoint with a specified property and property      * value      *      * @param body          the payload to send      * @param property      the property name      * @param propertyValue the property value      * @return the result (see class javadoc)      */
+DECL|method|sendBodyAndProperty (Object body, String property, Object propertyValue)
+name|Object
+name|sendBodyAndProperty
+parameter_list|(
+name|Object
+name|body
+parameter_list|,
+name|String
+name|property
+parameter_list|,
+name|Object
+name|propertyValue
+parameter_list|)
+function_decl|;
 comment|/**      * Sends the body to the default endpoint with the specified headers and      * header values      *      * @param body the payload to send      * @param headers      the headers      * @return the result (see class javadoc)      */
 DECL|method|sendBodyAndHeaders (Object body, Map<String, Object> headers)
 name|Object
@@ -335,6 +350,84 @@ name|header
 parameter_list|,
 name|Object
 name|headerValue
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with a specified property and property value      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result (see class javadoc)      */
+DECL|method|sendBodyAndProperty (String endpointUri, Object body, String property, Object propertyValue)
+name|Object
+name|sendBodyAndProperty
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|property
+parameter_list|,
+name|Object
+name|propertyValue
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with a specified property and property value      *      * @param endpoint the Endpoint to send to      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result (see class javadoc)      */
+DECL|method|sendBodyAndProperty (Endpoint endpoint, Object body, String property, Object propertyValue)
+name|Object
+name|sendBodyAndProperty
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|property
+parameter_list|,
+name|Object
+name|propertyValue
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with a specified property and property value      *      * @param endpoint the Endpoint to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result (see class javadoc)      */
+DECL|method|sendBodyAndProperty (Endpoint endpoint, ExchangePattern pattern, Object body, String property, Object propertyValue)
+name|Object
+name|sendBodyAndProperty
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|ExchangePattern
+name|pattern
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|property
+parameter_list|,
+name|Object
+name|propertyValue
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with a specified property and property value      *      * @param endpoint the Endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result (see class javadoc)      */
+DECL|method|sendBodyAndProperty (String endpoint, ExchangePattern pattern, Object body, String property, Object propertyValue)
+name|Object
+name|sendBodyAndProperty
+parameter_list|(
+name|String
+name|endpoint
+parameter_list|,
+name|ExchangePattern
+name|pattern
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|property
+parameter_list|,
+name|Object
+name|propertyValue
 parameter_list|)
 function_decl|;
 comment|/**      * Sends the body to an endpoint with the specified headers and header      * values      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      */
