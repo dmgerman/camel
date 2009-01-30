@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author martin.gilday  *  */
+comment|/**  * @author martin.gilday  *   */
 end_comment
 
 begin_class
@@ -218,7 +218,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.ContextTestSupport#createRouteBuilder()      */
+comment|/*      * (non-Javadoc)      *       * @see org.apache.camel.ContextTestSupport#createRouteBuilder()      */
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()

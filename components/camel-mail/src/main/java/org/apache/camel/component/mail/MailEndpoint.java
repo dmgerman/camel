@@ -98,7 +98,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ScheduledPollEndpoint
+name|DefaultHeaderFilterStrategy
 import|;
 end_import
 
@@ -112,7 +112,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultHeaderFilterStrategy
+name|ScheduledPollEndpoint
 import|;
 end_import
 

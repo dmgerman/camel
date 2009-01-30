@@ -269,7 +269,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/quartz.html">Quartz Endpoint</a>  *  * @version $Revision:520964 $  */
+comment|/**  * A<a href="http://activemq.apache.org/quartz.html">Quartz Endpoint</a>  *   * @version $Revision:520964 $  */
 end_comment
 
 begin_class
@@ -280,23 +280,6 @@ name|QuartzEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|QuartzEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|ENDPOINT_KEY
 specifier|public
 specifier|static
@@ -314,6 +297,23 @@ name|String
 name|CONTEXT_KEY
 init|=
 literal|"org.apache.camel.CamelContext"
+decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|QuartzEndpoint
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 DECL|field|scheduler
 specifier|private
@@ -691,7 +691,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method is invoked when a Quartz job is fired.      *      * @param jobExecutionContext the Quartz Job context      */
+comment|/**      * This method is invoked when a Quartz job is fired.      *       * @param jobExecutionContext the Quartz Job context      */
 DECL|method|onJobExecute (final JobExecutionContext jobExecutionContext)
 specifier|public
 name|void
@@ -1009,7 +1009,7 @@ operator|.
 name|stateful
 return|;
 block|}
-comment|/**      * @param stateful sets the stateful mode      */
+comment|/**      * @param stateful      *            sets the stateful mode      */
 DECL|method|setStateful (final boolean stateful)
 specifier|public
 name|void

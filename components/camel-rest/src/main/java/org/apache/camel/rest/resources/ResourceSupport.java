@@ -38,18 +38,6 @@ name|ws
 operator|.
 name|rs
 operator|.
-name|Produces
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|ws
-operator|.
-name|rs
-operator|.
 name|Path
 import|;
 end_import
@@ -63,6 +51,18 @@ operator|.
 name|rs
 operator|.
 name|PathParam
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|ws
+operator|.
+name|rs
+operator|.
+name|Produces
 import|;
 end_import
 

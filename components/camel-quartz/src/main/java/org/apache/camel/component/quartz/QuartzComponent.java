@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/quartz.html">Quartz Component</a>  *  * @version $Revision:520964 $  */
+comment|/**  * A<a href="http://camel.apache.org/quartz.html">Quartz Component</a>  *   * @version $Revision:520964 $  */
 end_comment
 
 begin_class
