@@ -1555,7 +1555,7 @@ name|mkdirs
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * To be used for folder/directory comparision that works across different platforms such      * as Window, Mac and Linux.      */
+comment|/**      * To be used for folder/directory comparison that works across different platforms such      * as Window, Mac and Linux.      */
 DECL|method|assertDirectoryEquals (String expected, String actual)
 specifier|public
 specifier|static
@@ -1579,7 +1579,7 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * To be used for folder/directory comparision that works across different platforms such      * as Window, Mac and Linux.      */
+comment|/**      * To be used for folder/directory comparison that works across different platforms such      * as Window, Mac and Linux.      */
 DECL|method|assertDirectoryEquals (String message, String expected, String actual)
 specifier|public
 specifier|static
@@ -1596,35 +1596,65 @@ name|String
 name|actual
 parameter_list|)
 block|{
-comment|// must use single / as path seperators
 name|String
 name|expectedPath
 init|=
+name|expected
+decl_stmt|;
+name|String
+name|actualPath
+init|=
+name|actual
+decl_stmt|;
+comment|// must use single / as path separators
+if|if
+condition|(
+name|expected
+operator|.
+name|indexOf
+argument_list|(
+literal|"\\"
+argument_list|)
+operator|>=
+literal|0
+condition|)
+block|{
+name|expectedPath
+operator|=
 name|expected
 operator|.
 name|replaceAll
 argument_list|(
 literal|"\\\\"
 argument_list|,
-name|File
-operator|.
-name|separator
+literal|"/"
 argument_list|)
-decl_stmt|;
-name|String
-name|acutalPath
-init|=
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|actual
+operator|.
+name|indexOf
+argument_list|(
+literal|"\\"
+argument_list|)
+operator|>=
+literal|0
+condition|)
+block|{
+name|actualPath
+operator|=
 name|actual
 operator|.
 name|replaceAll
 argument_list|(
 literal|"\\\\"
 argument_list|,
-name|File
-operator|.
-name|separator
+literal|"/"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|message
@@ -1638,7 +1668,7 @@ name|message
 argument_list|,
 name|expectedPath
 argument_list|,
-name|acutalPath
+name|actualPath
 argument_list|)
 expr_stmt|;
 block|}
@@ -1648,7 +1678,7 @@ name|assertEquals
 argument_list|(
 name|expectedPath
 argument_list|,
-name|acutalPath
+name|actualPath
 argument_list|)
 expr_stmt|;
 block|}
