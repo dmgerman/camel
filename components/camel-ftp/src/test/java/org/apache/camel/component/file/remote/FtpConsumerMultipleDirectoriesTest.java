@@ -233,7 +233,7 @@ operator|.
 name|getGenericFile
 argument_list|()
 decl_stmt|;
-name|assertEquals
+name|assertDirectoryEquals
 argument_list|(
 literal|"/multidir/bye.txt"
 argument_list|,
@@ -243,7 +243,7 @@ name|getAbsoluteFileName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertDirectoryEquals
 argument_list|(
 literal|"bye.txt"
 argument_list|,
@@ -288,7 +288,7 @@ operator|.
 name|getGenericFile
 argument_list|()
 expr_stmt|;
-name|assertEquals
+name|assertDirectoryEquals
 argument_list|(
 literal|"/multidir/sub/hello.txt"
 argument_list|,
@@ -298,7 +298,7 @@ name|getAbsoluteFileName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertDirectoryEquals
 argument_list|(
 literal|"sub/hello.txt"
 argument_list|,
@@ -343,7 +343,7 @@ operator|.
 name|getGenericFile
 argument_list|()
 expr_stmt|;
-name|assertEquals
+name|assertDirectoryEquals
 argument_list|(
 literal|"/multidir/sub/sub2/godday.txt"
 argument_list|,
@@ -353,7 +353,7 @@ name|getAbsoluteFileName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertDirectoryEquals
 argument_list|(
 literal|"sub/sub2/godday.txt"
 argument_list|,
