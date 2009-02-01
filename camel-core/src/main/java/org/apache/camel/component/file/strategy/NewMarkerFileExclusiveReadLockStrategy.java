@@ -480,6 +480,18 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+comment|// must close channel
+name|ObjectHelper
+operator|.
+name|close
+argument_list|(
+name|channel
+argument_list|,
+literal|"Closing channel"
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -511,18 +523,6 @@ name|lockfile
 operator|.
 name|delete
 argument_list|()
-expr_stmt|;
-comment|// must close channel
-name|ObjectHelper
-operator|.
-name|close
-argument_list|(
-name|channel
-argument_list|,
-literal|"Closing channel"
-argument_list|,
-name|LOG
-argument_list|)
 expr_stmt|;
 block|}
 block|}

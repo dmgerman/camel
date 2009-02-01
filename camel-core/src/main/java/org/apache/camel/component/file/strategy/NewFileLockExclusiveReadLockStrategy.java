@@ -588,7 +588,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// must close channel
+comment|// must close channel first
 name|ObjectHelper
 operator|.
 name|close
@@ -601,6 +601,39 @@ name|lockFileName
 argument_list|,
 name|LOG
 argument_list|)
+expr_stmt|;
+comment|// need to delete the lock file
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Deleting lock file: "
+operator|+
+name|lockFileName
+argument_list|)
+expr_stmt|;
+block|}
+name|File
+name|lockfile
+init|=
+operator|new
+name|File
+argument_list|(
+name|lockFileName
+argument_list|)
+decl_stmt|;
+name|lockfile
+operator|.
+name|delete
+argument_list|()
 expr_stmt|;
 block|}
 block|}

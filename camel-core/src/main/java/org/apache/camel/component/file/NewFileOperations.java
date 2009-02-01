@@ -563,13 +563,13 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|storeFile (String name, GenericFileExchange<File> exchange)
+DECL|method|storeFile (String fileName, GenericFileExchange<File> exchange)
 specifier|public
 name|boolean
 name|storeFile
 parameter_list|(
 name|String
-name|name
+name|fileName
 parameter_list|,
 name|GenericFileExchange
 argument_list|<
@@ -595,7 +595,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|name
+name|fileName
 argument_list|)
 decl_stmt|;
 try|try
