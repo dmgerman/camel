@@ -129,6 +129,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: e1
 name|result
 operator|.
 name|expectedBodiesReceived
@@ -137,6 +138,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// expect the lowest quote
+comment|// END SNIPPET: e1
+comment|// START SNIPPET: e2
 name|Map
 argument_list|<
 name|String
@@ -183,6 +186,7 @@ argument_list|,
 name|headers
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e2
 name|result
 operator|.
 name|assertIsSatisfied
