@@ -263,6 +263,11 @@ argument_list|,
 name|DEFAULT_LOCK_FILE_POSTFIX
 argument_list|)
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> fileGenericFileOperations, GenericFile<File> file, Exchange exchange)
 specifier|public
 name|boolean
@@ -295,6 +300,9 @@ name|renameFile
 argument_list|(
 operator|(
 name|GenericFileExchange
+argument_list|<
+name|File
+argument_list|>
 operator|)
 name|exchange
 argument_list|,

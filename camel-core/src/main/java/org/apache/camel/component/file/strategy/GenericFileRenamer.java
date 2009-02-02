@@ -61,16 +61,28 @@ DECL|interface|GenericFileRenamer
 specifier|public
 interface|interface
 name|GenericFileRenamer
+parameter_list|<
+name|T
+parameter_list|>
 block|{
 comment|/**      * Renames the given file      *      * @param exchange  the exchange      * @param file      the original file.      * @return the renamed file name.      */
-DECL|method|renameFile (GenericFileExchange exchange, GenericFile file)
+DECL|method|renameFile (GenericFileExchange<T> exchange, GenericFile<T> file)
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|renameFile
 parameter_list|(
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|exchange
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|)
 function_decl|;

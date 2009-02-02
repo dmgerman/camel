@@ -25,8 +25,14 @@ DECL|class|GenericFileNoOpProcessStrategy
 specifier|public
 class|class
 name|GenericFileNoOpProcessStrategy
+parameter_list|<
+name|T
+parameter_list|>
 extends|extends
 name|GenericFileProcessStrategySupport
+argument_list|<
+name|T
+argument_list|>
 block|{  }
 end_class
 

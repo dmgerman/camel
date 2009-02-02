@@ -83,23 +83,35 @@ DECL|class|GenericFileExpressionRenamer
 specifier|public
 class|class
 name|GenericFileExpressionRenamer
+parameter_list|<
+name|T
+parameter_list|>
 implements|implements
 name|GenericFileRenamer
+argument_list|<
+name|T
+argument_list|>
 block|{
 DECL|field|expression
 specifier|private
 name|Expression
 name|expression
 decl_stmt|;
-DECL|method|renameFile (GenericFileExchange exchange, GenericFile file)
+DECL|method|renameFile (GenericFileExchange<T> exchange, GenericFile<T> file)
 specifier|public
 name|GenericFile
 name|renameFile
 parameter_list|(
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|exchange
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|)
 block|{
