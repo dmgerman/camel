@@ -46,6 +46,20 @@ name|FileExchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  * Camel default file renamer.  *  * @version $Revision$  */
 end_comment
@@ -144,6 +158,15 @@ argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
+name|name
+operator|=
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ON_WINDOWS
@@ -162,7 +185,7 @@ name|name
 operator|.
 name|startsWith
 argument_list|(
-literal|"//"
+literal|"\\\\"
 argument_list|)
 operator|)
 condition|)

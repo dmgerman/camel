@@ -68,6 +68,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|FileUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -159,6 +173,17 @@ argument_list|,
 name|result
 argument_list|)
 decl_stmt|;
+comment|// must normalize path to cater for Windows and other OS
+name|name
+operator|=
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+comment|// special handling for Windows \\ paths
 if|if
 condition|(
 name|ON_WINDOWS
@@ -177,7 +202,7 @@ name|name
 operator|.
 name|startsWith
 argument_list|(
-literal|"//"
+literal|"\\\\"
 argument_list|)
 operator|)
 condition|)
