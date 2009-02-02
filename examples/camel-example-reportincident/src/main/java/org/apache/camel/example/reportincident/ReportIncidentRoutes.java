@@ -103,7 +103,7 @@ comment|// endpoint to our CXF webservice
 name|String
 name|cxfEndpoint
 init|=
-literal|"cxf://http://localhost:8080/reportincident/webservices/incident"
+literal|"cxf://http://localhost:9080/reportincident/webservices/incident"
 operator|+
 literal|"?serviceClass=org.apache.camel.example.reportincident.ReportIncidentEndpoint"
 operator|+
