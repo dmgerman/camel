@@ -205,7 +205,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"restlet:http://localhost:8080/users/{username}?restletMethod=POST"
+literal|"restlet:http://localhost:9080/users/{username}?restletMethod=POST"
 argument_list|)
 operator|.
 name|process
@@ -269,7 +269,7 @@ init|=
 operator|new
 name|PostMethod
 argument_list|(
-literal|"http://localhost:8080/users/homer"
+literal|"http://localhost:9080/users/homer"
 argument_list|)
 decl_stmt|;
 name|RequestEntity

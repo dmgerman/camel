@@ -83,7 +83,7 @@ block|{
 comment|// START SNIPPET: consumer_route
 name|from
 argument_list|(
-literal|"restlet:http://localhost:8080/securedOrders?restletMethod=post&restletRealmRef=realm"
+literal|"restlet:http://localhost:9080/securedOrders?restletMethod=post&restletRealmRef=realm"
 argument_list|)
 operator|.
 name|process
@@ -148,7 +148,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"restlet:http://localhost:8080/securedOrders?restletMethod=post"
+literal|"restlet:http://localhost:9080/securedOrders?restletMethod=post"
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: producer_route

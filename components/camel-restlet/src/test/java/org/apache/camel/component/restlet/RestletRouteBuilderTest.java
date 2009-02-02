@@ -202,13 +202,13 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"restlet:http://localhost:8080/orders?restletMethod=post&foo=bar"
+literal|"restlet:http://localhost:9080/orders?restletMethod=post&foo=bar"
 argument_list|)
 expr_stmt|;
 comment|// Restlet consumer to handler POST method
 name|from
 argument_list|(
-literal|"restlet:http://localhost:8080/orders?restletMethod=post"
+literal|"restlet:http://localhost:9080/orders?restletMethod=post"
 argument_list|)
 operator|.
 name|process
@@ -268,7 +268,7 @@ expr_stmt|;
 comment|// Restlet consumer default to handle GET method
 name|from
 argument_list|(
-literal|"restlet:http://localhost:8080/orders/{id}/{x}"
+literal|"restlet:http://localhost:9080/orders/{id}/{x}"
 argument_list|)
 operator|.
 name|process
@@ -393,7 +393,7 @@ name|Method
 operator|.
 name|GET
 argument_list|,
-literal|"http://localhost:8080/orders/99991/6"
+literal|"http://localhost:9080/orders/99991/6"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -444,7 +444,7 @@ name|Method
 operator|.
 name|POST
 argument_list|,
-literal|"http://localhost:8080/orders/99991/6"
+literal|"http://localhost:9080/orders/99991/6"
 argument_list|)
 argument_list|)
 decl_stmt|;
