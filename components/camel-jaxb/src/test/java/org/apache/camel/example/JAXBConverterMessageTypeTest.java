@@ -119,8 +119,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: fails see CAMEL-583
-comment|/*         MessageType message = converter.convertTo(MessageType.class, "<message><hello>bar</hello></message>");          assertNotNull("Message should not be null!", message);         */
+name|MessageType
+name|message
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|MessageType
+operator|.
+name|class
+argument_list|,
+literal|"<message><hello>bar</hello></message>"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Message should not be null!"
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
