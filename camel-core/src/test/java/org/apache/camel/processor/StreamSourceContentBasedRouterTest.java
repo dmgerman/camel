@@ -275,13 +275,6 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|convertBodyTo
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-operator|.
 name|choice
 argument_list|()
 operator|.

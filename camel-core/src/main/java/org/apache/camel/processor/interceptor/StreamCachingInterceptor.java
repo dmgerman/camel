@@ -122,6 +122,20 @@ name|Interceptor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|MessageHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * {@link Interceptor} that converts a message into a re-readable format  */
 end_comment
@@ -182,11 +196,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|newBody
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 name|exchange
 operator|.
 name|getIn
@@ -198,6 +207,16 @@ name|newBody
 argument_list|)
 expr_stmt|;
 block|}
+name|MessageHelper
+operator|.
+name|resetStreamCache
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

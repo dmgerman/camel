@@ -42,6 +42,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Reader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|StringReader
 import|;
 end_import
@@ -336,9 +346,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|streamCaching
-argument_list|()
-expr_stmt|;
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -396,9 +403,9 @@ name|assertEquals
 argument_list|(
 literal|"Should read the inputstream out again"
 argument_list|,
-name|result
-argument_list|,
 literal|"<hello>Willem</hello>"
+argument_list|,
+name|result
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -417,9 +424,6 @@ name|from
 argument_list|(
 literal|"direct:errorHandler"
 argument_list|)
-operator|.
-name|streamCaching
-argument_list|()
 operator|.
 name|process
 argument_list|(
@@ -456,9 +460,9 @@ name|assertEquals
 argument_list|(
 literal|"Should read the inputstream out again"
 argument_list|,
-name|result
-argument_list|,
 literal|"<hello>Willem</hello>"
+argument_list|,
+name|result
 argument_list|)
 expr_stmt|;
 block|}

@@ -204,6 +204,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|MessageHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -888,6 +902,17 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|// reset cached streams so they can be read again
+name|MessageHelper
+operator|.
+name|resetStreamCache
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// wait until we should redeliver
 name|data
 operator|.

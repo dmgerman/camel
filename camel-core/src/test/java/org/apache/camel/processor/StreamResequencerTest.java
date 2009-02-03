@@ -559,6 +559,27 @@ name|getProcessor
 argument_list|()
 expr_stmt|;
 block|}
+comment|// we are not interested in any other delegate processors in the route (e.g. stream caching)
+while|while
+condition|(
+name|outputProcessor
+operator|instanceof
+name|DelegateProcessor
+condition|)
+block|{
+name|outputProcessor
+operator|=
+operator|(
+operator|(
+name|DelegateProcessor
+operator|)
+name|outputProcessor
+operator|)
+operator|.
+name|getProcessor
+argument_list|()
+expr_stmt|;
+block|}
 name|assertIsInstanceOf
 argument_list|(
 name|StreamResequencer
