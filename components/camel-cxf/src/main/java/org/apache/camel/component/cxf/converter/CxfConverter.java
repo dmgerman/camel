@@ -571,10 +571,12 @@ argument_list|)
 condition|)
 block|{
 return|return
-operator|(
-name|T
-operator|)
+name|type
+operator|.
+name|cast
+argument_list|(
 name|embedded
+argument_list|)
 return|;
 block|}
 else|else
