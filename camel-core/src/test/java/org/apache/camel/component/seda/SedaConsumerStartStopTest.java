@@ -175,7 +175,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|20
+literal|10
 condition|;
 name|i
 operator|++
@@ -273,7 +273,7 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|20
+literal|10
 argument_list|)
 expr_stmt|;
 name|mock
@@ -305,7 +305,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|20
+literal|10
 condition|;
 name|i
 operator|++
@@ -315,7 +315,7 @@ if|if
 condition|(
 name|i
 operator|==
-literal|10
+literal|5
 condition|)
 block|{
 comment|// stop while sending, and then start again to pickup what is left in the queue
@@ -328,7 +328,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|900
+literal|500
 argument_list|)
 expr_stmt|;
 name|consumer

@@ -149,7 +149,7 @@ name|start
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should be slower to run: "
+literal|"Should not be that fast to run: "
 operator|+
 name|delta
 argument_list|,
@@ -166,7 +166,7 @@ name|delta
 argument_list|,
 name|delta
 operator|<
-literal|7000
+literal|9000
 argument_list|)
 expr_stmt|;
 block|}
