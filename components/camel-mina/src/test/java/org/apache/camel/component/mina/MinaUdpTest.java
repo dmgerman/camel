@@ -134,13 +134,6 @@ argument_list|)
 decl_stmt|;
 name|endpoint
 operator|.
-name|expectedMessageCount
-argument_list|(
-name|messageCount
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Hello Message: 0"
@@ -148,13 +141,6 @@ argument_list|,
 literal|"Hello Message: 1"
 argument_list|,
 literal|"Hello Message: 2"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
 argument_list|)
 expr_stmt|;
 name|sendUdpMessages
@@ -179,6 +165,8 @@ operator|new
 name|DatagramSocket
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|InetAddress
 name|address
 init|=
@@ -248,8 +236,17 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|socket
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}

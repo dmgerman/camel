@@ -118,7 +118,7 @@ block|{
 comment|// lets setup a server
 name|from
 argument_list|(
-literal|"mina:udp://localhost:9123"
+literal|"mina:udp://localhost:9123?sync=false"
 argument_list|)
 operator|.
 name|to
@@ -133,7 +133,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mina:udp://localhost:9123"
+literal|"mina:udp://localhost:9123?sync=false"
 argument_list|)
 expr_stmt|;
 block|}

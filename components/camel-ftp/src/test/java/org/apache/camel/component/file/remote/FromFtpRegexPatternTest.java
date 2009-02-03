@@ -174,8 +174,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|getFtpUrl
-argument_list|()
+name|ftpUrl
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -190,8 +189,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|getFtpUrl
-argument_list|()
+name|ftpUrl
 argument_list|,
 literal|"Reports"
 argument_list|,
@@ -206,8 +204,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|getFtpUrl
-argument_list|()
+name|ftpUrl
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -222,8 +219,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-name|getFtpUrl
-argument_list|()
+name|ftpUrl
 argument_list|,
 literal|"Reports"
 argument_list|,

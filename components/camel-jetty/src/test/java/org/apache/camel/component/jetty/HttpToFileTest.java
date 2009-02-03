@@ -147,7 +147,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|File
@@ -206,6 +206,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/myworld"
+argument_list|)
+expr_stmt|;
 name|disableJMX
 argument_list|()
 expr_stmt|;
@@ -270,6 +275,13 @@ name|constant
 argument_list|(
 literal|"hello.txt"
 argument_list|)
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
 argument_list|)
 operator|.
 name|to
