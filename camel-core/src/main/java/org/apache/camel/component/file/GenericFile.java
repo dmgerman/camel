@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -68,6 +78,8 @@ name|GenericFile
 parameter_list|<
 name|T
 parameter_list|>
+implements|implements
+name|Serializable
 block|{
 DECL|field|absoluteFileName
 specifier|private
@@ -709,6 +721,9 @@ name|binding
 operator|=
 operator|new
 name|GenericFileDefaultBinding
+argument_list|<
+name|T
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
@@ -735,7 +750,6 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-comment|/**      * @param absoluteFileName the absoluteFileName to set      */
 DECL|method|setAbsoluteFileName (String absoluteFileName)
 specifier|public
 name|void
@@ -758,7 +772,6 @@ name|absoluteFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @return the absoluteFileName      */
 DECL|method|getAbsoluteFileName ()
 specifier|public
 name|String
@@ -806,7 +819,7 @@ block|{
 return|return
 literal|"GenericFile["
 operator|+
-name|fileName
+name|relativeFileName
 operator|+
 literal|"]"
 return|;

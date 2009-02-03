@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy to rename a file  *   * @version $Revision$  */
+comment|/**  * A strategy to rename a file  *   * @version $Revision$  * @deprecated will be replaced with NewFile in Camel 2.0  */
 end_comment
 
 begin_class

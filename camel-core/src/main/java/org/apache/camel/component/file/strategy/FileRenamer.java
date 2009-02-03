@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used for renaming files.  *  * @version $Revision$  */
+comment|/**  * Used for renaming files.  *  * @version $Revision$  * @deprecated will be replaced with NewFile in Camel 2.0  */
 end_comment
 
 begin_interface

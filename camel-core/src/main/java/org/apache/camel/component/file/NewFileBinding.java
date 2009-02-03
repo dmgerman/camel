@@ -28,6 +28,16 @@ name|File
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
 begin_comment
 comment|/**  * File binding with the {@link java.io.File} type.  */
 end_comment
@@ -42,6 +52,8 @@ name|GenericFileBinding
 argument_list|<
 name|File
 argument_list|>
+implements|,
+name|Serializable
 block|{
 DECL|field|body
 specifier|private

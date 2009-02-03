@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory to provide the {@link org.apache.camel.component.file.FileProcessStrategy} to use.  */
+comment|/**  * Factory to provide the {@link org.apache.camel.component.file.FileProcessStrategy} to use.  * @deprecated will be replaced with NewFile in Camel 2.0  */
 end_comment
 
 begin_class

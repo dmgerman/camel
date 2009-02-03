@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * File component.  */
 end_comment
 
 begin_class
@@ -53,6 +53,56 @@ argument_list|<
 name|File
 argument_list|>
 block|{
+comment|/**      * Header key holding the value: the fixed filename to use for producing files.      */
+DECL|field|HEADER_FILE_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_FILE_NAME
+init|=
+literal|"CamelFileName"
+decl_stmt|;
+comment|/**      * Header key holding the value: absolute filepath for the actual file produced (by file producer).      * Value is set automatically by Camel      */
+DECL|field|HEADER_FILE_NAME_PRODUCED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_FILE_NAME_PRODUCED
+init|=
+literal|"CamelFileNameProduced"
+decl_stmt|;
+comment|/**      * Header key holding the value: current index of total in the batch being consumed      */
+DECL|field|HEADER_FILE_BATCH_INDEX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_FILE_BATCH_INDEX
+init|=
+literal|"CamelFileBatchIndex"
+decl_stmt|;
+comment|/**      * Header key holding the value: total in the batch being consumed      */
+DECL|field|HEADER_FILE_BATCH_TOTAL
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_FILE_BATCH_TOTAL
+init|=
+literal|"CamelFileBatchTotal"
+decl_stmt|;
+comment|/**      * Default camel lock filename postfix      */
+DECL|field|DEFAULT_LOCK_FILE_POSTFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_LOCK_FILE_POSTFIX
+init|=
+literal|".camelLock"
+decl_stmt|;
 DECL|method|buildFileEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|GenericFileEndpoint

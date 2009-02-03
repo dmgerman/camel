@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Default binding for generic file.  */
 end_comment
 
 begin_class
@@ -27,20 +27,29 @@ DECL|class|GenericFileDefaultBinding
 specifier|public
 class|class
 name|GenericFileDefaultBinding
+parameter_list|<
+name|T
+parameter_list|>
 implements|implements
 name|GenericFileBinding
+argument_list|<
+name|T
+argument_list|>
 block|{
 DECL|field|body
 specifier|private
 name|Object
 name|body
 decl_stmt|;
-DECL|method|getBody (GenericFile file)
+DECL|method|getBody (GenericFile<T> file)
 specifier|public
 name|Object
 name|getBody
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|)
 block|{
@@ -48,12 +57,15 @@ return|return
 name|body
 return|;
 block|}
-DECL|method|setBody (GenericFile file, Object body)
+DECL|method|setBody (GenericFile<T> file, Object body)
 specifier|public
 name|void
 name|setBody
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|,
 name|Object

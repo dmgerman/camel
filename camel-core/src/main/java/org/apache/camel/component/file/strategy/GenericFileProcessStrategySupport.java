@@ -134,13 +134,11 @@ block|{
 DECL|field|exclusiveReadLockStrategy
 specifier|private
 name|GenericFileExclusiveReadLockStrategy
+argument_list|<
+name|T
+argument_list|>
 name|exclusiveReadLockStrategy
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|begin (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, GenericFileExchange<T> exchange, GenericFile<T> file)
 specifier|public
 name|boolean
@@ -211,11 +209,6 @@ return|return
 literal|true
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|commit (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, GenericFileExchange<T> exchange, GenericFile<T> file)
 specifier|public
 name|void
@@ -268,11 +261,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|rollback (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, GenericFileExchange<T> exchange, GenericFile<T> file)
 specifier|public
 name|void
@@ -328,6 +316,9 @@ block|}
 DECL|method|getExclusiveReadLockStrategy ()
 specifier|public
 name|GenericFileExclusiveReadLockStrategy
+argument_list|<
+name|T
+argument_list|>
 name|getExclusiveReadLockStrategy
 parameter_list|()
 block|{
@@ -335,12 +326,15 @@ return|return
 name|exclusiveReadLockStrategy
 return|;
 block|}
-DECL|method|setExclusiveReadLockStrategy (GenericFileExclusiveReadLockStrategy exclusiveReadLockStrategy)
+DECL|method|setExclusiveReadLockStrategy (GenericFileExclusiveReadLockStrategy<T> exclusiveReadLockStrategy)
 specifier|public
 name|void
 name|setExclusiveReadLockStrategy
 parameter_list|(
 name|GenericFileExclusiveReadLockStrategy
+argument_list|<
+name|T
+argument_list|>
 name|exclusiveReadLockStrategy
 parameter_list|)
 block|{

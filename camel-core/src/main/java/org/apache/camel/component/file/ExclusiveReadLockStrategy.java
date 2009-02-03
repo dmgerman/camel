@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy for acquiring exclusive read locks for files to be consumed.  * After granting the read lock it is realeased, we just want to make sure that when we start  * consuming the file its not currently in progress of being written by third party.  *<p/>  * Camel supports out of the box the following strategies:  *<ul>  *<li>FileLockExclusiveReadLockStrategy using {@link java.nio.channels.FileLock}</li>  *<li>FileRenameExclusiveReadLockStrategy waiting until its possible to rename the file. Can be used on file  *   systems where the FileLock isn't supported.</li>  *</ul>  */
+comment|/**  * Strategy for acquiring exclusive read locks for files to be consumed.  * After granting the read lock it is realeased, we just want to make sure that when we start  * consuming the file its not currently in progress of being written by third party.  *<p/>  * Camel supports out of the box the following strategies:  *<ul>  *<li>FileLockExclusiveReadLockStrategy using {@link java.nio.channels.FileLock}</li>  *<li>FileRenameExclusiveReadLockStrategy waiting until its possible to rename the file. Can be used on file  *   systems where the FileLock isn't supported.</li>  *</ul>  * @deprecated will be replaced with NewFile in Camel 2.0  */
 end_comment
 
 begin_interface

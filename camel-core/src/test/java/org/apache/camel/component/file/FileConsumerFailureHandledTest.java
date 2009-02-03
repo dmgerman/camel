@@ -140,15 +140,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 name|deleteDirectory
 argument_list|(
 literal|"target/messages"
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testParis ()
@@ -159,11 +159,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/messages"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -221,11 +216,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/messages"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -284,11 +274,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/messages"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=

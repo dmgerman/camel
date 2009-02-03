@@ -116,10 +116,12 @@ name|FileConsumerBeginRenameStrategyTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testRenameSuccess ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testRenameSuccess
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -134,6 +136,20 @@ argument_list|(
 literal|"target/reports"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testRenameSuccess ()
+specifier|public
+name|void
+name|testRenameSuccess
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|MockEndpoint
 name|mock
 init|=
@@ -192,16 +208,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/inprogress"
-argument_list|)
-expr_stmt|;
-name|deleteDirectory
-argument_list|(
-literal|"target/reports"
-argument_list|)
-expr_stmt|;
 comment|// create a file in inprogress to let there be a duplicate file
 name|File
 name|file

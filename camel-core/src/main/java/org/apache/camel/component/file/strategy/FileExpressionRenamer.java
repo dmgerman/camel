@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * File renamed using {@link Expression} to dynamically compute the file name.  *<p/>  * If most cases the {@link org.apache.camel.language.simple.FileLanguage FileLanguage} is used to  * create the expressions.  */
+comment|/**  * File renamed using {@link Expression} to dynamically compute the file name.  *<p/>  * If most cases the {@link org.apache.camel.language.simple.FileLanguage FileLanguage} is used to  * create the expressions.  * @deprecated will be replaced with NewFile in Camel 2.0  */
 end_comment
 
 begin_class

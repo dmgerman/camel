@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * File endpoint.  */
 end_comment
 
 begin_class
@@ -276,6 +276,42 @@ operator|.
 name|memoryIdempotentRepository
 argument_list|(
 name|DEFAULT_IDEMPOTENT_CACHE_SIZE
+argument_list|)
+expr_stmt|;
+block|}
+comment|// fix wrong directory option if its a file
+if|if
+condition|(
+name|isDirectory
+argument_list|()
+operator|&&
+name|file
+operator|.
+name|isFile
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+name|file
+operator|+
+literal|" is not a directory so setting option directory=false"
+argument_list|)
+expr_stmt|;
+block|}
+name|setDirectory
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

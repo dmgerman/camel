@@ -89,6 +89,34 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -120,6 +148,19 @@ parameter_list|>
 extends|extends
 name|DefaultComponent
 block|{
+DECL|field|log
+specifier|protected
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
+decl_stmt|;
 DECL|method|GenericFileComponent ()
 specifier|public
 name|GenericFileComponent
@@ -139,6 +180,11 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|GenericFileEndpoint

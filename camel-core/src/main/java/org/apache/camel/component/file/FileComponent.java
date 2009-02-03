@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/file.html">File Component</a>  * for working with file systems  *  * @version $Revision$  */
+comment|/**  * The<a href="http://camel.apache.org/file.html">File Component</a>  * for working with file systems  *  * @version $Revision$  * @deprecated will be replaced with NewFile in Camel 2.0  */
 end_comment
 
 begin_class
@@ -146,7 +146,9 @@ specifier|final
 name|String
 name|HEADER_FILE_NAME
 init|=
-literal|"org.apache.camel.file.name"
+name|NewFileComponent
+operator|.
+name|HEADER_FILE_NAME
 decl_stmt|;
 comment|/**      * Header key holding the value: absolute filepath for the actual file produced (by file producer).      * Value is set automatically by Camel      */
 DECL|field|HEADER_FILE_NAME_PRODUCED
@@ -156,7 +158,9 @@ specifier|final
 name|String
 name|HEADER_FILE_NAME_PRODUCED
 init|=
-literal|"org.apache.camel.file.name.produced"
+name|NewFileComponent
+operator|.
+name|HEADER_FILE_NAME_PRODUCED
 decl_stmt|;
 comment|/**      * Header key holding the value: current index of total in the batch being consumed      */
 DECL|field|HEADER_FILE_BATCH_INDEX
@@ -166,7 +170,9 @@ specifier|final
 name|String
 name|HEADER_FILE_BATCH_INDEX
 init|=
-literal|"org.apache.camel.file.index"
+name|NewFileComponent
+operator|.
+name|HEADER_FILE_BATCH_INDEX
 decl_stmt|;
 comment|/**      * Header key holding the value: total in the batch being consumed      */
 DECL|field|HEADER_FILE_BATCH_TOTAL
@@ -176,7 +182,9 @@ specifier|final
 name|String
 name|HEADER_FILE_BATCH_TOTAL
 init|=
-literal|"org.apache.camel.file.total"
+name|NewFileComponent
+operator|.
+name|HEADER_FILE_BATCH_TOTAL
 decl_stmt|;
 DECL|method|FileComponent ()
 specifier|public

@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy which will delete the file when its processed  *  * @version $Revision$  */
+comment|/**  * A strategy which will delete the file when its processed  *  * @version $Revision$  * @deprecated will be replaced with NewFile in Camel 2.0  */
 end_comment
 
 begin_class

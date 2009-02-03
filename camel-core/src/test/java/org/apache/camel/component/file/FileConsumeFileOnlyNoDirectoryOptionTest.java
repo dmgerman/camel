@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.strategy
+DECL|package|org.apache.camel.component.file
 package|package
 name|org
 operator|.
@@ -15,47 +15,72 @@ operator|.
 name|component
 operator|.
 name|file
-operator|.
-name|strategy
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|RouteBuilder
+import|;
+end_import
+
 begin_comment
-comment|/**  * A simple strategy which does not move or delete the processed files in any way.  *  * @version $Revision$  * @deprecated will be replaced with NewFile in Camel 2.0  */
+comment|/**  * Unit test for consuming the same filename only.  */
 end_comment
 
 begin_class
-DECL|class|NoOpFileProcessStrategy
+DECL|class|FileConsumeFileOnlyNoDirectoryOptionTest
 specifier|public
 class|class
-name|NoOpFileProcessStrategy
+name|FileConsumeFileOnlyNoDirectoryOptionTest
 extends|extends
-name|FileProcessStrategySupport
+name|FileConsumeFileOnlyTest
 block|{
-DECL|method|NoOpFileProcessStrategy ()
-specifier|public
-name|NoOpFileProcessStrategy
+annotation|@
+name|Override
+DECL|method|createRouteBuilder ()
+specifier|protected
+name|RouteBuilder
+name|createRouteBuilder
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-name|super
+return|return
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// directory=false is not set but Camel so figure out report.txt is a file and consume
+comment|// the file anyway
+name|from
 argument_list|(
-literal|true
+literal|"newfile://target/fileonly/report.txt?recursive=false&delete=true&initialDelay=1000"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|NoOpFileProcessStrategy (boolean isLock)
-specifier|public
-name|NoOpFileProcessStrategy
-parameter_list|(
-name|boolean
-name|isLock
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|isLock
-argument_list|)
-expr_stmt|;
+block|}
+return|;
 block|}
 block|}
 end_class

@@ -300,7 +300,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"newfile:target/report2.txt?autoCreate=false"
+literal|"newfile:target/report2.txt?autoCreate=false&directory=false"
 argument_list|)
 expr_stmt|;
 name|from

@@ -117,8 +117,14 @@ DECL|class|GenericFileRenameExclusiveReadLockStrategy
 specifier|public
 class|class
 name|GenericFileRenameExclusiveReadLockStrategy
+parameter_list|<
+name|T
+parameter_list|>
 implements|implements
 name|GenericFileExclusiveReadLockStrategy
+argument_list|<
+name|T
+argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
@@ -142,15 +148,21 @@ specifier|private
 name|long
 name|timeout
 decl_stmt|;
-DECL|method|acquireExclusiveReadLock (GenericFileOperations operations, GenericFile file, Exchange exchange)
+DECL|method|acquireExclusiveReadLock (GenericFileOperations<T> operations, GenericFile<T> file, Exchange exchange)
 specifier|public
 name|boolean
 name|acquireExclusiveReadLock
 parameter_list|(
 name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
 name|operations
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|,
 name|Exchange
@@ -191,6 +203,9 @@ literal|".camelExclusiveReadLock"
 decl_stmt|;
 comment|// clone and change the name
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|newFile
 init|=
 name|file
@@ -336,15 +351,21 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|releaseExclusiveReadLock (GenericFileOperations opeations, GenericFile file, Exchange exchange)
+DECL|method|releaseExclusiveReadLock (GenericFileOperations<T> opeations, GenericFile<T> file, Exchange exchange)
 specifier|public
 name|void
 name|releaseExclusiveReadLock
 parameter_list|(
 name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
 name|opeations
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|,
 name|Exchange

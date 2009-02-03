@@ -358,7 +358,6 @@ name|int
 name|b
 init|=
 operator|(
-operator|(
 name|text
 operator|!=
 literal|null
@@ -398,7 +397,6 @@ condition|?
 literal|0x08
 else|:
 literal|0x00
-operator|)
 operator|)
 decl_stmt|;
 name|out

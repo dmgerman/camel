@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For consuming files.  *  * @version $Revision$  */
+comment|/**  * For consuming files.  *  * @version $Revision$  * @deprecated will be replaced with NewFile in Camel 2.0  */
 end_comment
 
 begin_class

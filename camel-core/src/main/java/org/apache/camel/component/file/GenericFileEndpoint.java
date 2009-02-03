@@ -1736,6 +1736,9 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|isDirectory
+argument_list|()
+operator|&&
 name|name
 operator|.
 name|startsWith
@@ -1748,6 +1751,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|// remove the file path configured on the endpoint for directory=true
 name|name
 operator|=
 name|name
@@ -1763,6 +1767,23 @@ operator|.
 name|length
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|isDirectory
+argument_list|()
+condition|)
+block|{
+comment|// use the filename for directory=false
+name|name
+operator|=
+name|file
+operator|.
+name|getFileName
+argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -1799,7 +1820,7 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,

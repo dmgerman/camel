@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Message Message} for File  *  * @version $Revision$  */
+comment|/**  * A {@link org.apache.camel.Message Message} for File  *  * @version $Revision$  * @deprecated will be replaced with NewFile in Camel 2.0  */
 end_comment
 
 begin_class

@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * File consumer.  */
 end_comment
 
 begin_class
@@ -141,6 +141,26 @@ name|exists
 argument_list|()
 condition|)
 block|{
+return|return;
+block|}
+comment|// could be a file and not a directory so delegate to poll file instead
+comment|// this happens if end user has specified a filename in the URI but have not
+comment|// set directory=false as an option
+if|if
+condition|(
+name|fileOrDirectory
+operator|.
+name|isFile
+argument_list|()
+condition|)
+block|{
+name|pollFile
+argument_list|(
+name|fileName
+argument_list|,
+name|fileList
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 if|if

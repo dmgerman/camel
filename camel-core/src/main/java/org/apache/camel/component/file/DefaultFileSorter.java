@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default file sorter.  *  * @version $Revision$  */
+comment|/**  * Default file sorter.  *  * @version $Revision$  * @deprecated will be replaced with NewFile in Camel 2.0  */
 end_comment
 
 begin_class

@@ -100,6 +100,9 @@ decl_stmt|;
 DECL|method|renameFile (GenericFileExchange<T> exchange, GenericFile<T> file)
 specifier|public
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|renameFile
 parameter_list|(
 name|GenericFileExchange
@@ -156,6 +159,9 @@ argument_list|)
 decl_stmt|;
 comment|// clone and change the name
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|result
 init|=
 name|file

@@ -184,11 +184,17 @@ decl_stmt|;
 DECL|field|beginRenamer
 specifier|private
 name|GenericFileRenamer
+argument_list|<
+name|T
+argument_list|>
 name|beginRenamer
 decl_stmt|;
 DECL|field|commitRenamer
 specifier|private
 name|GenericFileRenamer
+argument_list|<
+name|T
+argument_list|>
 name|commitRenamer
 decl_stmt|;
 DECL|method|GenericFileRenameProcessStrategy ()
@@ -211,6 +217,9 @@ name|this
 argument_list|(
 operator|new
 name|GenericFileDefaultRenamer
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|namePrefix
 argument_list|,
@@ -242,6 +251,9 @@ name|this
 argument_list|(
 operator|new
 name|GenericFileDefaultRenamer
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|namePrefix
 argument_list|,
@@ -250,6 +262,9 @@ argument_list|)
 argument_list|,
 operator|new
 name|GenericFileDefaultRenamer
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|preNamePrefix
 argument_list|,
@@ -258,14 +273,20 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|GenericFileRenameProcessStrategy (GenericFileRenamer commitRenamer, GenericFileRenamer beginRenamer)
+DECL|method|GenericFileRenameProcessStrategy (GenericFileRenamer<T> commitRenamer, GenericFileRenamer<T> beginRenamer)
 specifier|public
 name|GenericFileRenameProcessStrategy
 parameter_list|(
 name|GenericFileRenamer
+argument_list|<
+name|T
+argument_list|>
 name|commitRenamer
 parameter_list|,
 name|GenericFileRenamer
+argument_list|<
+name|T
+argument_list|>
 name|beginRenamer
 parameter_list|)
 block|{
@@ -351,6 +372,9 @@ literal|null
 condition|)
 block|{
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|newName
 init|=
 name|beginRenamer
@@ -363,6 +387,9 @@ name|file
 argument_list|)
 decl_stmt|;
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|to
 init|=
 name|renameFile
@@ -442,6 +469,9 @@ literal|null
 condition|)
 block|{
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|newName
 init|=
 name|commitRenamer
@@ -464,19 +494,30 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|renameFile (GenericFileOperations operations, GenericFile from, GenericFile to)
+DECL|method|renameFile (GenericFileOperations<T> operations, GenericFile<T> from, GenericFile<T> to)
 specifier|private
-specifier|static
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|renameFile
 parameter_list|(
 name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
 name|operations
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|from
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|to
 parameter_list|)
 throws|throws
@@ -530,7 +571,7 @@ throw|throw
 operator|new
 name|GenericFileOperationFailedException
 argument_list|(
-literal|"Can not create directory: "
+literal|"Cannot create directory: "
 operator|+
 name|to
 operator|.
@@ -608,6 +649,9 @@ block|}
 DECL|method|getBeginRenamer ()
 specifier|public
 name|GenericFileRenamer
+argument_list|<
+name|T
+argument_list|>
 name|getBeginRenamer
 parameter_list|()
 block|{
@@ -615,12 +659,15 @@ return|return
 name|beginRenamer
 return|;
 block|}
-DECL|method|setBeginRenamer (GenericFileRenamer beginRenamer)
+DECL|method|setBeginRenamer (GenericFileRenamer<T> beginRenamer)
 specifier|public
 name|void
 name|setBeginRenamer
 parameter_list|(
 name|GenericFileRenamer
+argument_list|<
+name|T
+argument_list|>
 name|beginRenamer
 parameter_list|)
 block|{
@@ -634,6 +681,9 @@ block|}
 DECL|method|getCommitRenamer ()
 specifier|public
 name|GenericFileRenamer
+argument_list|<
+name|T
+argument_list|>
 name|getCommitRenamer
 parameter_list|()
 block|{
@@ -641,12 +691,15 @@ return|return
 name|commitRenamer
 return|;
 block|}
-DECL|method|setCommitRenamer (GenericFileRenamer commitRenamer)
+DECL|method|setCommitRenamer (GenericFileRenamer<T> commitRenamer)
 specifier|public
 name|void
 name|setCommitRenamer
 parameter_list|(
 name|GenericFileRenamer
+argument_list|<
+name|T
+argument_list|>
 name|commitRenamer
 parameter_list|)
 block|{

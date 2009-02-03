@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for {@link org.apache.camel.component.file.FileProcessStrategy} implementation to extend.  *  * @version $Revision$  */
+comment|/**  * Base class for {@link org.apache.camel.component.file.FileProcessStrategy} implementation to extend.  *  * @version $Revision$  * @deprecated will be replaced with NewFile in Camel 2.0  */
 end_comment
 
 begin_class

@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Camel default file renamer.  *  * @version $Revision$  */
+comment|/**  * Camel default file renamer.  *  * @version $Revision$  * @deprecated will be replaced with NewFile in Camel 2.0  */
 end_comment
 
 begin_class

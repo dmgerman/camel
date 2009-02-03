@@ -531,6 +531,34 @@ argument_list|,
 name|total
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|NewFileComponent
+operator|.
+name|HEADER_FILE_BATCH_INDEX
+argument_list|,
+name|index
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|NewFileComponent
+operator|.
+name|HEADER_FILE_BATCH_TOTAL
+argument_list|,
+name|total
+argument_list|)
+expr_stmt|;
 name|processExchange
 argument_list|(
 name|exchange
@@ -825,9 +853,6 @@ argument_list|(
 literal|"Done processing file: "
 operator|+
 name|file
-operator|.
-name|getAbsoluteFileName
-argument_list|()
 operator|+
 literal|". Status is: "
 operator|+
@@ -948,6 +973,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Strategy when the file was processed and a commit should be executed.      *      * @param processStrategy the strategy to perform the commit      * @param exchange        the exchange      * @param file            the file processed      * @param failureHandled  is<tt>false</tt> if the exchange was processed succesfully,      *<tt>true</tt> if an exception occured during processing but it      *                        was handled by the failure processor (usually the DeadLetterChannel).      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|processStrategyCommit (GenericFileProcessStrategy<T> processStrategy, GenericFileExchange<T> exchange, GenericFile<T> file, boolean failureHandled)
 specifier|protected
 name|void
@@ -1157,6 +1187,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Strategy for validating if the given remote file should be included or      * not      *      * @param file        the remote file      * @param isDirectory wether the file is a directory or a file      * @return<tt>true</tt> to include the file,<tt>false</tt> to skip it      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|isValidFile (GenericFile<T> file, boolean isDirectory)
 specifier|protected
 name|boolean
@@ -1301,7 +1336,7 @@ name|name
 operator|.
 name|endsWith
 argument_list|(
-name|FileEndpoint
+name|NewFileComponent
 operator|.
 name|DEFAULT_LOCK_FILE_POSTFIX
 argument_list|)

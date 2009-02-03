@@ -57,8 +57,14 @@ DECL|class|GenericFileDefaultRenamer
 specifier|public
 class|class
 name|GenericFileDefaultRenamer
+parameter_list|<
+name|T
+parameter_list|>
 implements|implements
 name|GenericFileRenamer
+argument_list|<
+name|T
+argument_list|>
 block|{
 DECL|field|namePrefix
 specifier|private
@@ -99,15 +105,24 @@ operator|=
 name|namePostfix
 expr_stmt|;
 block|}
-DECL|method|renameFile (GenericFileExchange exchange, GenericFile file)
+DECL|method|renameFile (GenericFileExchange<T> exchange, GenericFile<T> file)
 specifier|public
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|renameFile
 parameter_list|(
 name|GenericFileExchange
+argument_list|<
+name|T
+argument_list|>
 name|exchange
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|)
 block|{
@@ -124,6 +139,9 @@ argument_list|)
 decl_stmt|;
 comment|// clone and change the name
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|result
 init|=
 name|file

@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a strategy for marking that a file is processed.  *  * @version $Revision$  */
+comment|/**  * Represents a strategy for marking that a file is processed.  *  * @version $Revision$  * @deprecated will be replaced with NewFile in Camel 2.0  */
 end_comment
 
 begin_interface

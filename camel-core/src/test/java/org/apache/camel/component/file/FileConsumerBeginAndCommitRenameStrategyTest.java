@@ -120,10 +120,12 @@ name|FileConsumerBeginAndCommitRenameStrategyTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testRenameSuccess ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testRenameSuccess
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -143,6 +145,20 @@ argument_list|(
 literal|"target/reports"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testRenameSuccess ()
+specifier|public
+name|void
+name|testRenameSuccess
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|MockEndpoint
 name|mock
 init|=

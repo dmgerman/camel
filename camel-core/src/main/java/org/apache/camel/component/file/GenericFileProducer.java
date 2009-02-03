@@ -463,6 +463,21 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
+name|NewFileComponent
+operator|.
+name|HEADER_FILE_NAME_PRODUCED
+argument_list|,
+name|target
+argument_list|)
+expr_stmt|;
+comment|// @deprecated will be removed later
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
 name|FileComponent
 operator|.
 name|HEADER_FILE_NAME_PRODUCED
@@ -551,7 +566,15 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// build directory
+comment|// build directory if auto create is enabled
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isAutoCreate
+argument_list|()
+condition|)
+block|{
 name|int
 name|lastPathIndex
 init|=
@@ -586,6 +609,29 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|directory
+operator|.
+name|startsWith
+argument_list|(
+name|File
+operator|.
+name|separator
+argument_list|)
+condition|)
+block|{
+comment|// skip trailing /
+name|directory
+operator|=
+name|directory
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 operator|!
 name|operations
 operator|.
@@ -608,6 +654,7 @@ operator|+
 literal|"] (could be because of denied permissions)"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// upload
@@ -733,7 +780,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -785,7 +832,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 operator|+

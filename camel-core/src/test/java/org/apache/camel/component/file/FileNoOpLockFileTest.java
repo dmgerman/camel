@@ -88,24 +88,6 @@ name|camel
 operator|.
 name|component
 operator|.
-name|file
-operator|.
-name|strategy
-operator|.
-name|NewMarkerFileExclusiveReadLockStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
 name|mock
 operator|.
 name|MockEndpoint
@@ -134,15 +116,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 name|deleteDirectory
 argument_list|(
 literal|"target/reports"
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testLocked ()
@@ -153,11 +135,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/reports"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -181,7 +158,7 @@ literal|"newfile:target/reports/locked"
 argument_list|,
 literal|"Hello Locked"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -216,11 +193,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/reports"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -244,7 +216,7 @@ literal|"newfile:target/reports/notlocked"
 argument_list|,
 literal|"Hello Not Locked"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -298,7 +270,7 @@ name|filename
 operator|+=
 literal|"report.txt"
 operator|+
-name|NewMarkerFileExclusiveReadLockStrategy
+name|NewFileComponent
 operator|.
 name|DEFAULT_LOCK_FILE_POSTFIX
 expr_stmt|;
