@@ -1191,12 +1191,24 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Trying to build remote directory: "
+literal|"Trying to build remote directory by chunk: "
 operator|+
 name|directory
 argument_list|)
 expr_stmt|;
 block|}
+comment|// do not try to build root / folder
+if|if
+condition|(
+operator|!
+name|directory
+operator|.
+name|equals
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
 try|try
 block|{
 name|channel
@@ -1218,6 +1230,7 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore keep trying to create the rest of the path
+block|}
 block|}
 block|}
 return|return

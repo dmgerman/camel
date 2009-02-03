@@ -912,6 +912,8 @@ name|success
 condition|)
 block|{
 comment|// we are here if the server side doesn't create intermediate folders so create the folder one by one
+name|success
+operator|=
 name|buildDirectoryChunks
 argument_list|(
 name|directory
@@ -923,6 +925,13 @@ block|}
 finally|finally
 block|{
 comment|// change back to original directory
+if|if
+condition|(
+name|originalDirectory
+operator|!=
+literal|null
+condition|)
+block|{
 name|client
 operator|.
 name|changeWorkingDirectory
@@ -930,6 +939,7 @@ argument_list|(
 name|originalDirectory
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|success
@@ -1408,6 +1418,18 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+comment|// do not try to build root / folder
+if|if
+condition|(
+operator|!
+name|directory
+operator|.
+name|equals
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
 if|if
 condition|(
 name|LOG
@@ -1420,7 +1442,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Trying to build remote directory: "
+literal|"Trying to build remote directory by chunk: "
 operator|+
 name|directory
 argument_list|)
@@ -1435,6 +1457,7 @@ argument_list|(
 name|directory
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|success
