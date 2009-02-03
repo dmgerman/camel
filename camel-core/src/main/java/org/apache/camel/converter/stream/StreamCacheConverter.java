@@ -407,6 +407,11 @@ name|serialVersionUID
 init|=
 literal|4147248494104812945L
 decl_stmt|;
+DECL|method|SourceCache ()
+specifier|public
+name|SourceCache
+parameter_list|()
+block|{         }
 DECL|method|SourceCache (String text)
 specifier|public
 name|SourceCache
