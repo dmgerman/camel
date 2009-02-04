@@ -145,7 +145,7 @@ name|sendBodyAndHeader
 argument_list|(
 name|data
 argument_list|,
-literal|"org.apache.camel.file.name"
+literal|"CamelFileName"
 argument_list|,
 name|filename
 argument_list|)

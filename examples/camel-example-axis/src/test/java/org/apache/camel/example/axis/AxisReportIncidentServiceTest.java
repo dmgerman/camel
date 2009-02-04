@@ -208,7 +208,7 @@ name|connector
 operator|.
 name|setPort
 argument_list|(
-literal|8080
+literal|9080
 argument_list|)
 expr_stmt|;
 name|connector
@@ -325,7 +325,7 @@ init|=
 operator|new
 name|URL
 argument_list|(
-literal|"http://localhost:8080/unittest/services/ReportIncidentPort"
+literal|"http://localhost:9080/unittest/services/ReportIncidentPort"
 argument_list|)
 decl_stmt|;
 comment|// Axis stuff to get the port where we can send the webservice request
