@@ -46,7 +46,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|FileComponent
+name|NewFileComponent
 import|;
 end_import
 
@@ -255,7 +255,7 @@ argument_list|()
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,

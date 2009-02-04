@@ -92,7 +92,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|FileComponent
+name|NewFileComponent
 import|;
 end_import
 
@@ -325,18 +325,7 @@ name|Exception
 block|{
 comment|// prepares the FTP Server by creating a file on the server that we want to unit
 comment|// test that we can pool and store as a local file
-name|String
-name|ftpUrl
-init|=
-literal|"ftp://admin@localhost:"
-operator|+
-name|getPort
-argument_list|()
-operator|+
-literal|"/incoming/?password=admin&binary=true"
-operator|+
-literal|"&consumer.delay=2000&recursive=false"
-decl_stmt|;
+comment|/*String ftpUrl = "ftp://admin@localhost:" + getPort() + "/incoming/?password=admin&binary=true"                 + "&consumer.delay=2000&recursive=false";*/
 name|Endpoint
 name|endpoint
 init|=
@@ -378,7 +367,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -449,7 +438,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,

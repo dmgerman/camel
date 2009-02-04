@@ -46,22 +46,6 @@ name|component
 operator|.
 name|file
 operator|.
-name|FileComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
 name|GenericFile
 import|;
 end_import
@@ -79,6 +63,22 @@ operator|.
 name|file
 operator|.
 name|GenericFileFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|NewFileComponent
 import|;
 end_import
 
@@ -204,7 +204,7 @@ argument_list|()
 argument_list|,
 literal|"This is a file to be filtered"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -263,7 +263,7 @@ argument_list|()
 argument_list|,
 literal|"This is a file to be filtered"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -279,7 +279,7 @@ argument_list|()
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,

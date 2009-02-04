@@ -60,6 +60,22 @@ name|camel
 operator|.
 name|component
 operator|.
+name|file
+operator|.
+name|NewFileComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
 name|mock
 operator|.
 name|MockEndpoint
@@ -139,7 +155,7 @@ argument_list|()
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,

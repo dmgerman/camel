@@ -46,7 +46,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|FileComponent
+name|NewFileComponent
 import|;
 end_import
 
@@ -162,16 +162,7 @@ name|Exception
 block|{
 comment|// prepares the FTP Server by creating files on the server that we want to unit
 comment|// test that we can pool and store as a local file
-name|String
-name|ftpUrl
-init|=
-literal|"ftp://admin@localhost:"
-operator|+
-name|getPort
-argument_list|()
-operator|+
-literal|"/excludename/?password=admin"
-decl_stmt|;
+comment|// String ftpUrl = "ftp://admin@localhost:" + getPort() + "/excludename/?password=admin";
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -181,7 +172,7 @@ argument_list|()
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -197,7 +188,7 @@ argument_list|()
 argument_list|,
 literal|"Reports"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -213,7 +204,7 @@ argument_list|()
 argument_list|,
 literal|"Bye World"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -229,7 +220,7 @@ argument_list|()
 argument_list|,
 literal|"Reports"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,

@@ -46,7 +46,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|FileComponent
+name|NewFileComponent
 import|;
 end_import
 
@@ -297,7 +297,7 @@ argument_list|()
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -313,7 +313,7 @@ argument_list|()
 argument_list|,
 literal|"Hello London"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -329,7 +329,7 @@ argument_list|()
 argument_list|,
 literal|"Hello Copenhagen"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -345,7 +345,7 @@ argument_list|()
 argument_list|,
 literal|"Hello Dublin"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
