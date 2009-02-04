@@ -47,6 +47,24 @@ name|PASSWORD
 init|=
 literal|"org.apache.camel.restlet.auth.password"
 decl_stmt|;
+DECL|field|MEDIA_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MEDIA_TYPE
+init|=
+literal|"org.apache.camel.restlet.mediaType"
+decl_stmt|;
+DECL|field|RESPONSE_CODE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RESPONSE_CODE
+init|=
+literal|"org.apache.camel.restlet.responseCode"
+decl_stmt|;
 DECL|method|RestletConstants ()
 specifier|private
 name|RestletConstants
