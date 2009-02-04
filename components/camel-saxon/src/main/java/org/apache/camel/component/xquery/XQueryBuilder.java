@@ -760,9 +760,6 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|initialize
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -853,7 +850,20 @@ return|;
 block|}
 else|else
 block|{
-comment|// TODO figure out how to convert to the given type
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ResultType: "
+operator|+
+name|resultType
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" not supported"
+argument_list|)
+throw|;
 block|}
 block|}
 switch|switch
@@ -945,7 +955,9 @@ throws|throws
 name|Exception
 block|{
 name|initialize
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 return|return
 name|getExpression
@@ -972,7 +984,9 @@ throws|throws
 name|Exception
 block|{
 name|initialize
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 name|String
 name|text
@@ -1002,7 +1016,9 @@ throws|throws
 name|Exception
 block|{
 name|initialize
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 name|byte
 index|[]
@@ -1033,7 +1049,9 @@ throws|throws
 name|Exception
 block|{
 name|initialize
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 name|DOMResult
 name|result
@@ -1087,7 +1105,9 @@ throws|throws
 name|Exception
 block|{
 name|initialize
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 name|ByteArrayOutputStream
 name|buffer
@@ -1145,7 +1165,9 @@ throws|throws
 name|Exception
 block|{
 name|initialize
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 name|StringWriter
 name|buffer
@@ -2332,12 +2354,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Initializes this builder -<b>Must be invoked before evaluation</b>.      */
-DECL|method|initialize ()
+DECL|method|initialize (Exchange exchange)
 specifier|protected
 specifier|synchronized
 name|void
 name|initialize
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|XPathException
 throws|,
@@ -2476,6 +2501,17 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|// let the configuration be accessible on the exchange as its shared for this evaulation
+comment|// and can be needed for 3rd part type converters or in some other situations
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+literal|"CamelSaxonConfiguration"
+argument_list|,
+name|configuration
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
