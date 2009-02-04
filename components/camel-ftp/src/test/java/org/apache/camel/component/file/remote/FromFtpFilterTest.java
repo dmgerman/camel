@@ -76,22 +76,6 @@ name|camel
 operator|.
 name|component
 operator|.
-name|file
-operator|.
-name|NewFileComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
 name|mock
 operator|.
 name|MockEndpoint
@@ -195,18 +179,12 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"This is a file to be filtered"
-argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
 argument_list|,
 literal|"skipme.txt"
 argument_list|)
@@ -254,34 +232,22 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"This is a file to be filtered"
 argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
-argument_list|,
 literal|"skipme.txt"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"Hello World"
-argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
 argument_list|,
 literal|"hello.txt"
 argument_list|)
@@ -344,7 +310,7 @@ name|GenericFile
 name|file
 parameter_list|)
 block|{
-comment|// we dont accept any files starting with skip in the name
+comment|// we don't accept any files starting with skip in the name
 return|return
 operator|!
 name|file

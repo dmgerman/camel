@@ -325,7 +325,6 @@ name|Exception
 block|{
 comment|// prepares the FTP Server by creating a file on the server that we want to unit
 comment|// test that we can pool and store as a local file
-comment|/*String ftpUrl = "ftp://admin@localhost:" + getPort() + "/incoming/?password=admin&binary=true"                 + "&consumer.delay=2000&recursive=false";*/
 name|Endpoint
 name|endpoint
 init|=

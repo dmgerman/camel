@@ -102,18 +102,12 @@ operator|+
 literal|""
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"Hello World"
-argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
 argument_list|,
 literal|"claus.txt"
 argument_list|)

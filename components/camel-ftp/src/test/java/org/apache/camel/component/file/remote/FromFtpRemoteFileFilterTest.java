@@ -46,22 +46,6 @@ name|component
 operator|.
 name|file
 operator|.
-name|NewFileComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
 name|GenericFile
 import|;
 end_import
@@ -239,67 +223,42 @@ name|Exception
 block|{
 comment|// prepares the FTP Server by creating files on the server that we want to unit
 comment|// test that we can pool
-comment|//String ftpUrl = "ftp://admin@localhost:" + getPort() + "/filefilter/?password=admin";
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
-argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"Report 1"
 argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
-argument_list|,
 literal|"report1.txt"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"Bye World"
 argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
-argument_list|,
 literal|"bye.txt"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"Report 2"
-argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
 argument_list|,
 literal|"report2.txt"
 argument_list|)

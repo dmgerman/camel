@@ -44,22 +44,6 @@ name|camel
 operator|.
 name|component
 operator|.
-name|file
-operator|.
-name|NewFileComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
 name|mock
 operator|.
 name|MockEndpoint
@@ -153,10 +137,7 @@ name|Exception
 block|{
 comment|// prepares the FTP Server by creating files on the server that we want to unit
 comment|// test that we can pool and store as a local file
-comment|//String ftpUrl = "ftp://admin@localhost:" + getPort() + "/dirnotmatched";
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
@@ -165,16 +146,10 @@ literal|"/?password=admin"
 argument_list|,
 literal|"This is a dot file"
 argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
-argument_list|,
 literal|".skipme"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
@@ -183,16 +158,10 @@ literal|"/?password=admin"
 argument_list|,
 literal|"This is a web file"
 argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
-argument_list|,
 literal|"index.html"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
@@ -201,16 +170,10 @@ literal|"/?password=admin"
 argument_list|,
 literal|"This is a readme file"
 argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
-argument_list|,
 literal|"readme.txt"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
@@ -219,16 +182,10 @@ literal|"/2007/?password=admin"
 argument_list|,
 literal|"2007 report"
 argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
-argument_list|,
 literal|"report2007.txt"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
@@ -236,10 +193,6 @@ operator|+
 literal|"/2008/?password=admin"
 argument_list|,
 literal|"2008 report"
-argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
 argument_list|,
 literal|"report2008.txt"
 argument_list|)

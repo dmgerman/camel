@@ -44,22 +44,6 @@ name|camel
 operator|.
 name|component
 operator|.
-name|file
-operator|.
-name|NewFileComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
 name|mock
 operator|.
 name|MockEndpoint
@@ -246,18 +230,12 @@ name|Exception
 block|{
 comment|// prepares the FTP Server by creating files on the server that we want to unit
 comment|// test that we can pool and store as a local file
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"Hello World"
-argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
 argument_list|,
 literal|"hello.txt"
 argument_list|)

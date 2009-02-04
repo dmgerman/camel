@@ -44,22 +44,6 @@ name|camel
 operator|.
 name|component
 operator|.
-name|file
-operator|.
-name|NewFileComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
 name|mock
 operator|.
 name|MockEndpoint
@@ -228,18 +212,12 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"Hello World"
-argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
 argument_list|,
 literal|"report.txt"
 argument_list|)
@@ -268,18 +246,12 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// move file back
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"Hello World"
-argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
 argument_list|,
 literal|"report.txt"
 argument_list|)

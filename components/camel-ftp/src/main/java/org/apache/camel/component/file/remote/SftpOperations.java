@@ -1143,7 +1143,7 @@ name|dirName
 operator|.
 name|split
 argument_list|(
-literal|"\\/"
+literal|"\\/|\\\\"
 argument_list|)
 decl_stmt|;
 name|boolean

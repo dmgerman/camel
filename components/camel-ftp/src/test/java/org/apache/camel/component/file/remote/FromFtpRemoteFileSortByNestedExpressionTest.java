@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify remotefile sortby option.  */
+comment|/**  * Unit test to verify remotefile sort by option.  */
 end_comment
 
 begin_class
@@ -278,76 +278,42 @@ name|Exception
 block|{
 comment|// prepares the FTP Server by creating files on the server that we want to unit
 comment|// test that we can pool
-name|String
-name|ftpUrl
-init|=
-literal|"ftp://admin@localhost:"
-operator|+
-name|getPort
-argument_list|()
-operator|+
-literal|"/sortbynested/?password=admin"
-decl_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
-argument_list|,
 literal|"paris.txt"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"Hello London"
 argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
-argument_list|,
 literal|"london.txt"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"Hello Copenhagen"
 argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
-argument_list|,
 literal|"copenhagen.xml"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
+name|sendFile
 argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
 literal|"Hello Dublin"
-argument_list|,
-name|NewFileComponent
-operator|.
-name|HEADER_FILE_NAME
 argument_list|,
 literal|"dublin.txt"
 argument_list|)
