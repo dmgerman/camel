@@ -79,6 +79,7 @@ end_comment
 begin_class
 DECL|class|StreamCaching
 specifier|public
+specifier|final
 class|class
 name|StreamCaching
 implements|implements

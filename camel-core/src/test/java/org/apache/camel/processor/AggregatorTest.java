@@ -430,7 +430,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// in this sample we aggregate using our own startegy with a completion predicate
+comment|// in this sample we aggregate using our own strategy with a completion predicate
 comment|// stating that the aggregated header is equal to 5.
 name|from
 argument_list|(

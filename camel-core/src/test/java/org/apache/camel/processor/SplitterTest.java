@@ -311,10 +311,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testSpliterWithAggregationStrategy ()
+DECL|method|testSplitterWithAggregationStrategy ()
 specifier|public
 name|void
-name|testSpliterWithAggregationStrategy
+name|testSplitterWithAggregationStrategy
 parameter_list|()
 throws|throws
 name|Exception
@@ -701,10 +701,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSpliterWithAggregationStrategyParallel ()
+DECL|method|testSplitterWithAggregationStrategyParallel ()
 specifier|public
 name|void
-name|testSpliterWithAggregationStrategyParallel
+name|testSplitterWithAggregationStrategyParallel
 parameter_list|()
 throws|throws
 name|Exception
@@ -813,10 +813,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSpliterWithAggregationStrategyParallelStreaming ()
+DECL|method|testSplitterWithAggregationStrategyParallelStreaming ()
 specifier|public
 name|void
-name|testSpliterWithAggregationStrategyParallelStreaming
+name|testSplitterWithAggregationStrategyParallelStreaming
 parameter_list|()
 throws|throws
 name|Exception
