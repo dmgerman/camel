@@ -323,6 +323,7 @@ argument_list|,
 literal|"myorderid"
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: e1
 name|List
 argument_list|<
 name|OrderItem
@@ -368,6 +369,7 @@ argument_list|,
 literal|"myorderid"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -491,6 +493,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: e2
 comment|// split up the order so individual OrderItems can be validated by the appropriate bean
 name|from
 argument_list|(
@@ -556,10 +559,12 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e2
 block|}
 block|}
 return|;
 block|}
+comment|// START SNIPPET: e3
 DECL|class|OrderItem
 specifier|public
 specifier|static
@@ -607,6 +612,7 @@ name|quantity
 expr_stmt|;
 block|}
 block|}
+comment|// END SNIPPET: e3
 DECL|class|OrderItemHelper
 specifier|public
 specifier|static
@@ -619,6 +625,7 @@ specifier|private
 name|OrderItemHelper
 parameter_list|()
 block|{         }
+comment|// START SNIPPET: e4
 DECL|method|isWidget (@ody OrderItem orderItem)
 specifier|public
 specifier|static
@@ -642,8 +649,10 @@ literal|"widget"
 argument_list|)
 return|;
 block|}
+comment|// END SNIPPET: e4
 block|}
 comment|/**      * Bean that checks whether the specified number of widgets can be ordered      */
+comment|// START SNIPPET: e5
 DECL|class|WidgetInventory
 specifier|public
 specifier|static
@@ -689,7 +698,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// END SNIPPET: e5
 comment|/**      * Bean that checks whether the specified number of gadgets can be ordered      */
+comment|// START SNIPPET: e6
 DECL|class|GadgetInventory
 specifier|public
 specifier|static
@@ -735,7 +746,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// END SNIPPET: e6
 comment|/**      * Aggregation strategy that re-assembles the validated OrderItems       * into an order, which is just a List.      */
+comment|// START SNIPPET: e7
 DECL|class|MyOrderAggregationStrategy
 specifier|public
 specifier|static
@@ -821,6 +834,7 @@ name|oldExchange
 return|;
 block|}
 block|}
+comment|// END SNIPPET: e7
 block|}
 end_class
 
