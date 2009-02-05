@@ -322,7 +322,7 @@ comment|// must be logged in to be able to upload the file
 name|String
 name|message
 init|=
-literal|"Could not connect/login to: "
+literal|"Cannot connect/login to: "
 operator|+
 operator|(
 operator|(
@@ -452,7 +452,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Not connected/logged in, connecting to "
+literal|"Not already connected/logged in. Connecting to: "
 operator|+
 name|getEndpoint
 argument_list|()

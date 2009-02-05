@@ -908,16 +908,6 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-comment|// must normalize path to cater for Windows and other OS
-name|name
-operator|=
-name|FileUtil
-operator|.
-name|normalizePath
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
 name|String
 name|endpointFile
 init|=
@@ -1016,6 +1006,16 @@ operator|=
 name|endpointFile
 expr_stmt|;
 block|}
+comment|// must normalize path to cater for Windows and other OS
+name|answer
+operator|=
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;

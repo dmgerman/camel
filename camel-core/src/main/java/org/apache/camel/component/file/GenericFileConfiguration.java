@@ -28,6 +28,20 @@ name|URI
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
+import|;
+end_import
+
 begin_class
 DECL|class|GenericFileConfiguration
 specifier|public
@@ -76,11 +90,17 @@ name|String
 name|file
 parameter_list|)
 block|{
+comment|// must normalize path to cater for Windows and other OS
 name|this
 operator|.
 name|file
 operator|=
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
 name|file
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|toString ()
