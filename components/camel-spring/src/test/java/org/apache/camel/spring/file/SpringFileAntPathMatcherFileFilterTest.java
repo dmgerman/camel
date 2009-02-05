@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file
+DECL|package|org.apache.camel.spring.file
 package|package
 name|org
 operator|.
@@ -12,21 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|spring
 operator|.
 name|file
 package|;
 end_package
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
 
 begin_import
 import|import
@@ -100,9 +90,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|hamcrest
+name|component
 operator|.
-name|Assertions
+name|file
+operator|.
+name|FileComponent
 import|;
 end_import
 
@@ -159,10 +151,10 @@ end_comment
 begin_class
 annotation|@
 name|ContextConfiguration
-DECL|class|SpringFileRouteTest
+DECL|class|SpringFileAntPathMatcherFileFilterTest
 specifier|public
 class|class
-name|SpringFileRouteTest
+name|SpringFileAntPathMatcherFileFilterTest
 extends|extends
 name|AbstractJUnit38SpringContextTests
 block|{
@@ -171,7 +163,7 @@ specifier|protected
 name|String
 name|expectedBody
 init|=
-literal|"Hello World!"
+literal|"Godday World"
 decl_stmt|;
 annotation|@
 name|Autowired
@@ -181,7 +173,12 @@ name|ProducerTemplate
 name|template
 decl_stmt|;
 annotation|@
-name|Autowired
+name|EndpointInject
+argument_list|(
+name|name
+operator|=
+literal|"myFileEndpoint"
+argument_list|)
 DECL|field|inputFile
 specifier|protected
 name|Endpoint
@@ -199,45 +196,14 @@ specifier|protected
 name|MockEndpoint
 name|result
 decl_stmt|;
-DECL|method|testMocksAreValid ()
+DECL|method|testAntPatchMatherFilter ()
 specifier|public
 name|void
-name|testMocksAreValid
+name|testAntPatchMatherFilter
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// lets check that our injected endpoint is valid
-name|NewFileEndpoint
-name|fileEndpoint
-init|=
-name|Assertions
-operator|.
-name|assertInstanceOf
-argument_list|(
-name|inputFile
-argument_list|,
-name|NewFileEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"File"
-argument_list|,
-operator|new
-name|File
-argument_list|(
-literal|"target/test-default-inbox"
-argument_list|)
-argument_list|,
-name|fileEndpoint
-operator|.
-name|getFile
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|result
 operator|.
 name|expectedBodiesReceived
@@ -245,11 +211,34 @@ argument_list|(
 name|expectedBody
 argument_list|)
 expr_stmt|;
-name|result
+name|template
 operator|.
-name|setResultWaitTime
+name|sendBodyAndHeader
 argument_list|(
-literal|5000
+name|inputFile
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|FileComponent
+operator|.
+name|HEADER_FILE_NAME
+argument_list|,
+literal|"hello.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+name|inputFile
+argument_list|,
+literal|"Bye World"
+argument_list|,
+name|FileComponent
+operator|.
+name|HEADER_FILE_NAME
+argument_list|,
+literal|"bye.xml"
 argument_list|)
 expr_stmt|;
 name|template
@@ -264,7 +253,37 @@ name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
-literal|"hello.txt"
+literal|"subfolder/foo/godday.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+name|inputFile
+argument_list|,
+literal|"Bad world"
+argument_list|,
+name|FileComponent
+operator|.
+name|HEADER_FILE_NAME
+argument_list|,
+literal|"subfolder/badday.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+name|inputFile
+argument_list|,
+literal|"Day world"
+argument_list|,
+name|FileComponent
+operator|.
+name|HEADER_FILE_NAME
+argument_list|,
+literal|"day.xml"
 argument_list|)
 expr_stmt|;
 name|result
@@ -287,7 +306,7 @@ name|TestSupport
 operator|.
 name|deleteDirectory
 argument_list|(
-literal|"target/test-default-inbox"
+literal|"target/antpathmatcher"
 argument_list|)
 expr_stmt|;
 name|super
