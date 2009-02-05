@@ -206,7 +206,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|100
+literal|500
 argument_list|)
 expr_stmt|;
 comment|// content of file should be Hello Paris
@@ -222,6 +222,9 @@ name|File
 argument_list|(
 literal|"./target/done/paris.txt"
 argument_list|)
+operator|.
+name|getAbsoluteFile
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
