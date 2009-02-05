@@ -86,9 +86,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mock
+name|file
 operator|.
-name|MockEndpoint
+name|FileComponent
 import|;
 end_import
 
@@ -118,9 +118,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|file
+name|mock
 operator|.
-name|FileComponent
+name|MockEndpoint
 import|;
 end_import
 
