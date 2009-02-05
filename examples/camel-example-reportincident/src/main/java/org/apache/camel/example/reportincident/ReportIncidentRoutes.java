@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -44,7 +56,21 @@ name|component
 operator|.
 name|file
 operator|.
-name|FileComponent
+name|NewFileComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultCamelContext
 import|;
 end_import
 
@@ -76,6 +102,27 @@ name|ReportIncidentRoutes
 extends|extends
 name|RouteBuilder
 block|{
+DECL|field|usingServletTransport
+specifier|private
+name|boolean
+name|usingServletTransport
+init|=
+literal|true
+decl_stmt|;
+DECL|method|setUsingServletTransport (boolean flag)
+specifier|public
+name|void
+name|setUsingServletTransport
+parameter_list|(
+name|boolean
+name|flag
+parameter_list|)
+block|{
+name|usingServletTransport
+operator|=
+name|flag
+expr_stmt|;
+block|}
 DECL|method|configure ()
 specifier|public
 name|void
@@ -100,10 +147,28 @@ literal|"0"
 argument_list|)
 expr_stmt|;
 comment|// endpoint to our CXF webservice
+comment|// We should use the related path to publish the service, when using the ServletTransport
+name|String
+name|cxfEndpointAddress
+init|=
+literal|"cxf:/incident"
+decl_stmt|;
+comment|// Using the full http address for stand alone running
+if|if
+condition|(
+operator|!
+name|usingServletTransport
+condition|)
+block|{
+name|cxfEndpointAddress
+operator|=
+literal|"cxf://http://localhost:9080/camel-example-reportincident/webservices/incident"
+expr_stmt|;
+block|}
 name|String
 name|cxfEndpoint
 init|=
-literal|"cxf://http://localhost:9080/reportincident/webservices/incident"
+name|cxfEndpointAddress
 operator|+
 literal|"?serviceClass=org.apache.camel.example.reportincident.ReportIncidentEndpoint"
 operator|+
@@ -126,7 +191,7 @@ comment|// then set the file name using the FilenameGenerator bean
 operator|.
 name|setHeader
 argument_list|(
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -151,7 +216,7 @@ comment|// and store the file
 operator|.
 name|to
 argument_list|(
-literal|"file://target/subfolder"
+literal|"newfile://target/subfolder"
 argument_list|)
 comment|// return OK as response
 operator|.
@@ -166,7 +231,7 @@ expr_stmt|;
 comment|// second part from the file backup -> send email
 name|from
 argument_list|(
-literal|"file://target/subfolder"
+literal|"newfile://target/subfolder"
 argument_list|)
 comment|// set the subject of the email
 operator|.
@@ -185,6 +250,53 @@ name|to
 argument_list|(
 literal|"smtp://someone@localhost?password=secret&to=incident@mycompany.com"
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|main (String args[])
+specifier|public
+specifier|static
+name|void
+name|main
+parameter_list|(
+name|String
+name|args
+index|[]
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|CamelContext
+name|camel
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
+name|ReportIncidentRoutes
+name|routes
+init|=
+operator|new
+name|ReportIncidentRoutes
+argument_list|()
+decl_stmt|;
+name|routes
+operator|.
+name|setUsingServletTransport
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|camel
+operator|.
+name|addRoutes
+argument_list|(
+name|routes
+argument_list|)
+expr_stmt|;
+name|camel
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 block|}
 block|}
