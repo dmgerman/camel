@@ -200,6 +200,32 @@ literal|"file://target/exclusiveread/slowfile?consumer.delay=500&readLock=rename
 decl_stmt|;
 annotation|@
 name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|deleteDirectory
+argument_list|(
+literal|"./target/exclusiveread"
+argument_list|)
+expr_stmt|;
+name|createDirectory
+argument_list|(
+literal|"./target/exclusiveread/slowfile"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|isUseRouteBuilder ()
 specifier|public
 name|boolean
@@ -227,16 +253,6 @@ condition|)
 block|{
 return|return;
 block|}
-name|deleteDirectory
-argument_list|(
-literal|"./target/exclusiveread"
-argument_list|)
-expr_stmt|;
-name|createDirectory
-argument_list|(
-literal|"./target/exclusiveread/slowfile"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -291,16 +307,6 @@ condition|)
 block|{
 return|return;
 block|}
-name|deleteDirectory
-argument_list|(
-literal|"./target/exclusiveread"
-argument_list|)
-expr_stmt|;
-name|createDirectory
-argument_list|(
-literal|"./target/exclusiveread/slowfile"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addRoutes
@@ -411,16 +417,6 @@ condition|)
 block|{
 return|return;
 block|}
-name|deleteDirectory
-argument_list|(
-literal|"./target/exclusiveread"
-argument_list|)
-expr_stmt|;
-name|createDirectory
-argument_list|(
-literal|"./target/exclusiveread/slowfile"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addRoutes
@@ -533,16 +529,6 @@ condition|)
 block|{
 return|return;
 block|}
-name|deleteDirectory
-argument_list|(
-literal|"./target/exclusiveread"
-argument_list|)
-expr_stmt|;
-name|createDirectory
-argument_list|(
-literal|"./target/exclusiveread/slowfile"
-argument_list|)
-expr_stmt|;
 comment|// to test that if noop and thus idempotent we will retry to consume the file
 comment|// the 2nd. time since the first time we could not get the read lock due timeout
 comment|// so the file should only be marked in the idempotent repository if we could process it

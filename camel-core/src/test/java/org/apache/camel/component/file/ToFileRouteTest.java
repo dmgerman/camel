@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -144,6 +134,13 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|expectedFileExists
+argument_list|(
+literal|"target/test-reports/report.txt"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -155,33 +152,6 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-comment|// assert the file exists
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"target/test-reports/report.txt"
-argument_list|)
-decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"The file should have been written"
-argument_list|,
-name|file
-operator|.
-name|exists
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createRegistry ()

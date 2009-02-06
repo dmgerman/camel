@@ -187,13 +187,6 @@ argument_list|,
 literal|"paris.txt"
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied
@@ -283,13 +276,6 @@ operator|.
 name|HEADER_FILE_NAME
 argument_list|,
 literal|"london.txt"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|100
 argument_list|)
 expr_stmt|;
 name|mock

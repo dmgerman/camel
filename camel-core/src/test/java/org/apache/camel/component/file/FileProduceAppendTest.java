@@ -70,20 +70,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|IOConverter
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test to verify the append option  */
 end_comment
@@ -119,6 +105,15 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|expectedFileExists
+argument_list|(
+literal|"target/test-file-append/hello.txt"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -130,30 +125,6 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-name|String
-name|body
-init|=
-name|IOConverter
-operator|.
-name|toString
-argument_list|(
-operator|new
-name|File
-argument_list|(
-literal|"target/test-file-append/hello.txt"
-argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Hello World"
-argument_list|,
-name|body
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testAppendFile ()
@@ -177,6 +148,15 @@ operator|.
 name|expectedMessageCount
 argument_list|(
 literal|1
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|expectedFileExists
+argument_list|(
+literal|"target/test-file-append/hello.txt"
+argument_list|,
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 comment|// create a file with some content we want to append to the existing file
@@ -203,30 +183,6 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-name|String
-name|body
-init|=
-name|IOConverter
-operator|.
-name|toString
-argument_list|(
-operator|new
-name|File
-argument_list|(
-literal|"target/test-file-append/hello.txt"
-argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Hello World"
-argument_list|,
-name|body
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@

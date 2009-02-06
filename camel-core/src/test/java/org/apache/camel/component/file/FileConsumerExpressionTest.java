@@ -513,6 +513,15 @@ argument_list|(
 literal|"Bye Big World"
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|expectedFileExists
+argument_list|(
+literal|"target/filelanguage/backup/123.txt"
+argument_list|,
+literal|"Bye Big World"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -530,40 +539,6 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-comment|// give time for consumer to rename file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
-expr_stmt|;
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"target/filelanguage/backup/123.txt"
-argument_list|)
-decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"File should have been renamed"
-argument_list|,
-name|file
-operator|.
-name|exists
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testRenameToSiblingFolder ()
@@ -627,6 +602,13 @@ argument_list|(
 literal|"Hello Big World"
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|expectedFileExists
+argument_list|(
+literal|"target/backup/report4.txt.bak"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -644,40 +626,6 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-comment|// give time for consumer to rename file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
-expr_stmt|;
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"target/backup/report4.txt.bak"
-argument_list|)
-decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"File should have been renamed"
-argument_list|,
-name|file
-operator|.
-name|exists
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testRenameToBeanWithBeanLanguage ()
@@ -802,6 +750,13 @@ argument_list|(
 literal|"Bean Language Rules The World"
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|expectedFileExists
+argument_list|(
+literal|"target/filelanguage/123"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -819,40 +774,6 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-comment|// give time for consumer to rename file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
-expr_stmt|;
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"target/filelanguage/123"
-argument_list|)
-decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"File should have been renamed"
-argument_list|,
-name|file
-operator|.
-name|exists
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 DECL|class|MyGuidGenerator

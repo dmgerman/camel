@@ -285,13 +285,6 @@ argument_list|,
 literal|"london.txt"
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied

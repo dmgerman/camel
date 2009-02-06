@@ -94,20 +94,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|IOConverter
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test for the FileRenameStrategy using preMove and move options  */
 end_comment
@@ -181,6 +167,15 @@ argument_list|(
 literal|"Hello Paris"
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|expectedFileExists
+argument_list|(
+literal|"./target/done/paris.txt"
+argument_list|,
+literal|"Hello Paris"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -200,41 +195,6 @@ name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|()
-expr_stmt|;
-comment|// sleep to let the file consumer do its renaming
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
-comment|// content of file should be Hello Paris
-name|String
-name|content
-init|=
-name|IOConverter
-operator|.
-name|toString
-argument_list|(
-operator|new
-name|File
-argument_list|(
-literal|"./target/done/paris.txt"
-argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"The file should have been renamed"
-argument_list|,
-literal|"Hello Paris"
-argument_list|,
-name|content
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testIllegalOptions ()

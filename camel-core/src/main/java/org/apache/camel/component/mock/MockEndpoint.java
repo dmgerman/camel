@@ -42,6 +42,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -270,6 +290,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|converter
+operator|.
+name|IOConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -329,6 +363,20 @@ operator|.
 name|util
 operator|.
 name|ExpressionComparator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
 import|;
 end_import
 
@@ -863,9 +911,9 @@ range|:
 name|endpoints
 control|)
 block|{
-name|MockEndpoint
+name|endpoint
 operator|.
-name|expectsMessageCount
+name|setExpectedMessageCount
 argument_list|(
 name|count
 argument_list|)
@@ -983,7 +1031,7 @@ expr_stmt|;
 block|}
 comment|// Testing API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Set the processor that will be invoked when the index      * message is received.      *      * @param index      * @param processor      */
+comment|/**      * Set the processor that will be invoked when the index      * message is received.      */
 DECL|method|whenExchangeReceived (int index, Processor processor)
 specifier|public
 name|void
@@ -1008,7 +1056,7 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the processor that will be invoked when the some message      * is received.      *      * This processor could be overwritten by      * {@link #whenExchangeReceived(int, Processor)} method.      *      * @param processor      */
+comment|/**      * Set the processor that will be invoked when the some message      * is received.      *      * This processor could be overwritten by      * {@link #whenExchangeReceived(int, Processor)} method.      */
 DECL|method|whenAnyExchangeReceived (Processor processor)
 specifier|public
 name|void
@@ -1748,7 +1796,185 @@ name|bodyList
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that messages received should have ascending values      * of the given expression such as a user generated counter value      *      * @param expression      */
+comment|/**      * Adds an expection that a file exists with the given name      *      * @param name name of file, will cater for / and \ on different OS platforms      */
+DECL|method|expectedFileExists (final String name)
+specifier|public
+name|void
+name|expectedFileExists
+parameter_list|(
+specifier|final
+name|String
+name|name
+parameter_list|)
+block|{
+name|expectedFileExists
+argument_list|(
+name|name
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Adds an expection that a file exists with the given name      *<p>      * Will wait at most 5 seconds while checking for the existence of the file.      *      * @param name name of file, will cater for / and \ on different OS platforms      * @param content content of file to compare, can be<tt>null</tt> to not compare content      */
+DECL|method|expectedFileExists (final String name, final String content)
+specifier|public
+name|void
+name|expectedFileExists
+parameter_list|(
+specifier|final
+name|String
+name|name
+parameter_list|,
+specifier|final
+name|String
+name|content
+parameter_list|)
+block|{
+specifier|final
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
+name|name
+argument_list|)
+argument_list|)
+operator|.
+name|getAbsoluteFile
+argument_list|()
+decl_stmt|;
+name|expects
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+comment|// wait at most 2 seconds for the file to exists
+specifier|final
+name|long
+name|timeout
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|+
+literal|5000
+decl_stmt|;
+name|boolean
+name|stop
+init|=
+literal|false
+decl_stmt|;
+while|while
+condition|(
+operator|!
+name|stop
+operator|&&
+operator|!
+name|file
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+try|try
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|50
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+name|stop
+operator|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|>
+name|timeout
+expr_stmt|;
+block|}
+name|assertTrue
+argument_list|(
+literal|"The file should exists: "
+operator|+
+name|name
+argument_list|,
+name|file
+operator|.
+name|exists
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|content
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|assertEquals
+argument_list|(
+literal|"Content of file: "
+operator|+
+name|name
+argument_list|,
+name|content
+argument_list|,
+name|IOConverter
+operator|.
+name|toString
+argument_list|(
+name|file
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Adds an expectation that messages received should have ascending values      * of the given expression such as a user generated counter value      */
 DECL|method|expectsAscending (final Expression expression)
 specifier|public
 name|void
@@ -1780,7 +2006,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that messages received should have descending values      * of the given expression such as a user generated counter value      *      * @param expression      */
+comment|/**      * Adds an expectation that messages received should have descending values      * of the given expression such as a user generated counter value      */
 DECL|method|expectsDescending (final Expression expression)
 specifier|public
 name|void
