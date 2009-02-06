@@ -399,6 +399,11 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createProcessorExchangePairsIterable (final Exchange exchange, Object value)
 specifier|private
 name|Iterable
@@ -588,9 +593,6 @@ argument_list|()
 expr_stmt|;
 block|}
 name|Iterator
-argument_list|<
-name|Object
-argument_list|>
 name|iter
 init|=
 name|ObjectHelper

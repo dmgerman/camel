@@ -1354,12 +1354,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[] or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
+comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[] or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *<p/>      * Will default use comma for String separating String values.      *      * @param value  the value      * @return the iterator      */
 DECL|method|createIterator (Object value)
 specifier|public
 specifier|static
@@ -1368,6 +1363,34 @@ name|createIterator
 parameter_list|(
 name|Object
 name|value
+parameter_list|)
+block|{
+return|return
+name|createIterator
+argument_list|(
+name|value
+argument_list|,
+literal|","
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[] or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *      * @param value  the value      * @param  delimiter  delimiter for separating String values      * @return the iterator      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|createIterator (Object value, String delimiter)
+specifier|public
+specifier|static
+name|Iterator
+name|createIterator
+parameter_list|(
+name|Object
+name|value
+parameter_list|,
+name|String
+name|delimiter
 parameter_list|)
 block|{
 if|if
@@ -1556,12 +1579,11 @@ operator|)
 name|value
 argument_list|)
 decl_stmt|;
-comment|// use comma as delimiter for String values
 name|scanner
 operator|.
 name|useDelimiter
 argument_list|(
-literal|","
+name|delimiter
 argument_list|)
 expr_stmt|;
 return|return
