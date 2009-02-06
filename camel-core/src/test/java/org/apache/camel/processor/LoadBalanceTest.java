@@ -217,6 +217,11 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|x
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|body
 operator|=
 literal|"<two/>"
@@ -245,6 +250,11 @@ name|body
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|y
+operator|.
+name|reset
 argument_list|()
 expr_stmt|;
 name|body
