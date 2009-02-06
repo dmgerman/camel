@@ -164,7 +164,7 @@ literal|"newfile:target/filesorter/"
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -179,7 +179,7 @@ literal|"newfile:target/filesorter/"
 argument_list|,
 literal|"Hello London"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -194,7 +194,7 @@ literal|"newfile:target/filesorter/"
 argument_list|,
 literal|"Hello Copenhagen"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,

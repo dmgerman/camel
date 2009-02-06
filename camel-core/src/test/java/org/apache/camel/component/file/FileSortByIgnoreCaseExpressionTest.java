@@ -77,7 +77,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filesorter/"
+literal|"newfile://target/filesorter/"
 decl_stmt|;
 annotation|@
 name|Override
@@ -100,6 +100,18 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|isUseRouteBuilder ()
+specifier|public
+name|boolean
+name|isUseRouteBuilder
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|prepareFolder (String folder)
 specifier|private
 name|void
@@ -113,13 +125,13 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filesorter/"
+literal|"newfile:target/filesorter/"
 operator|+
 name|folder
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -130,13 +142,13 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filesorter/"
+literal|"newfile:target/filesorter/"
 operator|+
 name|folder
 argument_list|,
 literal|"Hello London"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -147,13 +159,13 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/filesorter/"
+literal|"newfile:target/filesorter/"
 operator|+
 name|folder
 argument_list|,
 literal|"Hello Copenhagen"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -161,10 +173,10 @@ literal|"Report-1.xml"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSortFiles ()
+DECL|method|testSortFilesByNameWithCase ()
 specifier|public
 name|void
-name|testSortFiles
+name|testSortFilesByNameWithCase
 parameter_list|()
 throws|throws
 name|Exception
@@ -174,114 +186,16 @@ argument_list|(
 literal|"a"
 argument_list|)
 expr_stmt|;
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-decl_stmt|;
-name|mock
+name|context
 operator|.
-name|expectedBodiesReceived
+name|addRoutes
 argument_list|(
-literal|"Hello London"
-argument_list|,
-literal|"Hello Copenhagen"
-argument_list|,
-literal|"Hello Paris"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|testSortFilesNoCase ()
-specifier|public
-name|void
-name|testSortFilesNoCase
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|prepareFolder
-argument_list|(
-literal|"b"
-argument_list|)
-expr_stmt|;
-name|MockEndpoint
-name|nocase
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:nocase"
-argument_list|)
-decl_stmt|;
-name|nocase
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello Copenhagen"
-argument_list|,
-literal|"Hello London"
-argument_list|,
-literal|"Hello Paris"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|testSortFilesNoCaseReverse ()
-specifier|public
-name|void
-name|testSortFilesNoCaseReverse
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|prepareFolder
-argument_list|(
-literal|"c"
-argument_list|)
-expr_stmt|;
-name|MockEndpoint
-name|nocasereverse
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:nocasereverse"
-argument_list|)
-decl_stmt|;
-name|nocasereverse
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello Paris"
-argument_list|,
-literal|"Hello London"
-argument_list|,
-literal|"Hello Copenhagen"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|createRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
 operator|new
 name|RouteBuilder
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|configure
@@ -301,6 +215,68 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello London"
+argument_list|,
+literal|"Hello Copenhagen"
+argument_list|,
+literal|"Hello Paris"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testSortFilesByNameNoCase ()
+specifier|public
+name|void
+name|testSortFilesByNameNoCase
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|prepareFolder
+argument_list|(
+literal|"b"
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|addRoutes
+argument_list|(
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|from
 argument_list|(
 name|fileUrl
@@ -313,6 +289,68 @@ argument_list|(
 literal|"mock:nocase"
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|MockEndpoint
+name|nocase
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:nocase"
+argument_list|)
+decl_stmt|;
+name|nocase
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello Copenhagen"
+argument_list|,
+literal|"Hello London"
+argument_list|,
+literal|"Hello Paris"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testSortFilesByNameNoCaseReverse ()
+specifier|public
+name|void
+name|testSortFilesByNameNoCaseReverse
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|prepareFolder
+argument_list|(
+literal|"c"
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|addRoutes
+argument_list|(
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|from
 argument_list|(
 name|fileUrl
@@ -327,7 +365,35 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|;
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|MockEndpoint
+name|nocasereverse
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:nocasereverse"
+argument_list|)
+decl_stmt|;
+name|nocasereverse
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello Paris"
+argument_list|,
+literal|"Hello London"
+argument_list|,
+literal|"Hello Copenhagen"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -171,6 +171,9 @@ literal|"target/reports/report.txt/"
 operator|+
 name|id
 argument_list|)
+operator|.
+name|getAbsoluteFile
+argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -210,6 +213,9 @@ name|File
 argument_list|(
 literal|"target/report2.txt"
 argument_list|)
+operator|.
+name|getAbsoluteFile
+argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -249,6 +255,9 @@ name|File
 argument_list|(
 literal|"target/report-super.txt"
 argument_list|)
+operator|.
+name|getAbsoluteFile
+argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
