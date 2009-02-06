@@ -434,15 +434,15 @@ specifier|private
 name|String
 name|preMoveNamePostfix
 decl_stmt|;
-DECL|field|excludedNamePrefix
+DECL|field|excludeNamePrefix
 specifier|private
 name|String
-name|excludedNamePrefix
+name|excludeNamePrefix
 decl_stmt|;
-DECL|field|excludedNamePostfix
+DECL|field|excludeNamePostfix
 specifier|private
 name|String
-name|excludedNamePostfix
+name|excludeNamePostfix
 decl_stmt|;
 DECL|field|bufferSize
 specifier|private
@@ -1357,56 +1357,56 @@ operator|=
 name|ignoreFileNameHeader
 expr_stmt|;
 block|}
-DECL|method|getExcludedNamePrefix ()
+DECL|method|getExcludeNamePrefix ()
 specifier|public
 name|String
-name|getExcludedNamePrefix
+name|getExcludeNamePrefix
 parameter_list|()
 block|{
 return|return
-name|excludedNamePrefix
+name|excludeNamePrefix
 return|;
 block|}
-DECL|method|setExcludedNamePrefix (String excludedNamePrefix)
+DECL|method|setExcludeNamePrefix (String excludeNamePrefix)
 specifier|public
 name|void
-name|setExcludedNamePrefix
+name|setExcludeNamePrefix
 parameter_list|(
 name|String
-name|excludedNamePrefix
+name|excludeNamePrefix
 parameter_list|)
 block|{
 name|this
 operator|.
-name|excludedNamePrefix
+name|excludeNamePrefix
 operator|=
-name|excludedNamePrefix
+name|excludeNamePrefix
 expr_stmt|;
 block|}
-DECL|method|getExcludedNamePostfix ()
+DECL|method|getExcludeNamePostfix ()
 specifier|public
 name|String
-name|getExcludedNamePostfix
+name|getExcludeNamePostfix
 parameter_list|()
 block|{
 return|return
-name|excludedNamePostfix
+name|excludeNamePostfix
 return|;
 block|}
-DECL|method|setExcludedNamePostfix (String excludedNamePostfix)
+DECL|method|setExcludeNamePostfix (String excludeNamePostfix)
 specifier|public
 name|void
-name|setExcludedNamePostfix
+name|setExcludeNamePostfix
 parameter_list|(
 name|String
-name|excludedNamePostfix
+name|excludeNamePostfix
 parameter_list|)
 block|{
 name|this
 operator|.
-name|excludedNamePostfix
+name|excludeNamePostfix
 operator|=
-name|excludedNamePostfix
+name|excludeNamePostfix
 expr_stmt|;
 block|}
 DECL|method|getExpression ()

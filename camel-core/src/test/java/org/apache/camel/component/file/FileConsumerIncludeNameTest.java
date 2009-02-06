@@ -61,28 +61,28 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test that file consumer will exclude pre and postfixes  */
+comment|/**  * Unit test that file consumer will include pre and postfixes  */
 end_comment
 
 begin_class
-DECL|class|FileConsumerExcludeNameTest
+DECL|class|FileConsumerIncludeNameTest
 specifier|public
 class|class
-name|FileConsumerExcludeNameTest
+name|FileConsumerIncludeNameTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testExludePreAndPostfixes ()
+DECL|method|testIncludePreAndPostfixes ()
 specifier|public
 name|void
-name|testExludePreAndPostfixes
+name|testIncludePreAndPostfixes
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/exclude"
+literal|"./target/include"
 argument_list|)
 expr_stmt|;
 name|prepareFiles
@@ -129,7 +129,7 @@ block|{
 name|String
 name|url
 init|=
-literal|"file://target/exclude"
+literal|"newfile://target/include"
 decl_stmt|;
 name|template
 operator|.
@@ -139,7 +139,7 @@ name|url
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -154,7 +154,7 @@ name|url
 argument_list|,
 literal|"Reports"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -169,7 +169,7 @@ name|url
 argument_list|,
 literal|"Bye World"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -184,7 +184,7 @@ name|url
 argument_list|,
 literal|"Reports"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -214,7 +214,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/exclude/?excludeNamePrefix=secret&excludeNamePostfix=xml"
+literal|"newfile://target/include/?includeNamePrefix=report&includeNamePostfix=txt"
 argument_list|)
 operator|.
 name|to

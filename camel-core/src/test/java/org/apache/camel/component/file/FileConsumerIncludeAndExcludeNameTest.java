@@ -61,28 +61,28 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test that file consumer will exclude pre and postfixes  */
+comment|/**  * Unit test that file consumer will include/exclude pre and postfixes  */
 end_comment
 
 begin_class
-DECL|class|FileConsumerExcludeNameTest
+DECL|class|FileConsumerIncludeAndExcludeNameTest
 specifier|public
 class|class
-name|FileConsumerExcludeNameTest
+name|FileConsumerIncludeAndExcludeNameTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testExludePreAndPostfixes ()
+DECL|method|testIncludePreAndPostfixes ()
 specifier|public
 name|void
-name|testExludePreAndPostfixes
+name|testIncludePreAndPostfixes
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/exclude"
+literal|"./target/includeexclude"
 argument_list|)
 expr_stmt|;
 name|prepareFiles
@@ -105,11 +105,11 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
-literal|"Reports"
+literal|"Report 2"
 argument_list|,
-literal|"Reports"
+literal|"Report 3"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -129,7 +129,7 @@ block|{
 name|String
 name|url
 init|=
-literal|"file://target/exclude"
+literal|"newfile://target/includeexclude"
 decl_stmt|;
 name|template
 operator|.
@@ -139,7 +139,7 @@ name|url
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -152,13 +152,13 @@ name|sendBodyAndHeader
 argument_list|(
 name|url
 argument_list|,
-literal|"Reports"
+literal|"Report 1"
 argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
-literal|"report1.txt"
+literal|"report1.xml"
 argument_list|)
 expr_stmt|;
 name|template
@@ -167,28 +167,28 @@ name|sendBodyAndHeader
 argument_list|(
 name|url
 argument_list|,
-literal|"Bye World"
+literal|"Report 2"
 argument_list|,
-name|FileComponent
-operator|.
-name|HEADER_FILE_NAME
-argument_list|,
-literal|"secret.txt"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-name|url
-argument_list|,
-literal|"Reports"
-argument_list|,
-name|FileComponent
+name|NewFileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
 literal|"report2.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+name|url
+argument_list|,
+literal|"Report 3"
+argument_list|,
+name|NewFileComponent
+operator|.
+name|HEADER_FILE_NAME
+argument_list|,
+literal|"report3.txt"
 argument_list|)
 expr_stmt|;
 block|}
@@ -214,7 +214,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/exclude/?excludeNamePrefix=secret&excludeNamePostfix=xml"
+literal|"newfile://target/includeexclude/?includeNamePrefix=report&excludeNamePostfix=xml"
 argument_list|)
 operator|.
 name|to

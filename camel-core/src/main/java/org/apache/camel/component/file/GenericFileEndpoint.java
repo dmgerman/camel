@@ -384,15 +384,25 @@ specifier|protected
 name|String
 name|preMoveNamePostfix
 decl_stmt|;
-DECL|field|excludedNamePrefix
+DECL|field|excludeNamePrefix
 specifier|protected
 name|String
-name|excludedNamePrefix
+name|excludeNamePrefix
 decl_stmt|;
-DECL|field|excludedNamePostfix
+DECL|field|excludeNamePostfix
 specifier|protected
 name|String
-name|excludedNamePostfix
+name|excludeNamePostfix
+decl_stmt|;
+DECL|field|includeNamePrefix
+specifier|protected
+name|String
+name|includeNamePrefix
+decl_stmt|;
+DECL|field|includeNamePostfix
+specifier|protected
+name|String
+name|includeNamePostfix
 decl_stmt|;
 DECL|field|regexPattern
 specifier|protected
@@ -938,56 +948,108 @@ operator|=
 name|preMoveNamePostfix
 expr_stmt|;
 block|}
-DECL|method|getExcludedNamePrefix ()
+DECL|method|getExcludeNamePrefix ()
 specifier|public
 name|String
-name|getExcludedNamePrefix
+name|getExcludeNamePrefix
 parameter_list|()
 block|{
 return|return
-name|excludedNamePrefix
+name|excludeNamePrefix
 return|;
 block|}
-DECL|method|setExcludedNamePrefix (String excludedNamePrefix)
+DECL|method|setExcludeNamePrefix (String excludeNamePrefix)
 specifier|public
 name|void
-name|setExcludedNamePrefix
+name|setExcludeNamePrefix
 parameter_list|(
 name|String
-name|excludedNamePrefix
+name|excludeNamePrefix
 parameter_list|)
 block|{
 name|this
 operator|.
-name|excludedNamePrefix
+name|excludeNamePrefix
 operator|=
-name|excludedNamePrefix
+name|excludeNamePrefix
 expr_stmt|;
 block|}
-DECL|method|getExcludedNamePostfix ()
+DECL|method|getExcludeNamePostfix ()
 specifier|public
 name|String
-name|getExcludedNamePostfix
+name|getExcludeNamePostfix
 parameter_list|()
 block|{
 return|return
-name|excludedNamePostfix
+name|excludeNamePostfix
 return|;
 block|}
-DECL|method|setExcludedNamePostfix (String excludedNamePostfix)
+DECL|method|setExcludeNamePostfix (String excludeNamePostfix)
 specifier|public
 name|void
-name|setExcludedNamePostfix
+name|setExcludeNamePostfix
 parameter_list|(
 name|String
-name|excludedNamePostfix
+name|excludeNamePostfix
 parameter_list|)
 block|{
 name|this
 operator|.
-name|excludedNamePostfix
+name|excludeNamePostfix
 operator|=
-name|excludedNamePostfix
+name|excludeNamePostfix
+expr_stmt|;
+block|}
+DECL|method|getIncludeNamePrefix ()
+specifier|public
+name|String
+name|getIncludeNamePrefix
+parameter_list|()
+block|{
+return|return
+name|includeNamePrefix
+return|;
+block|}
+DECL|method|setIncludeNamePrefix (String includeNamePrefix)
+specifier|public
+name|void
+name|setIncludeNamePrefix
+parameter_list|(
+name|String
+name|includeNamePrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeNamePrefix
+operator|=
+name|includeNamePrefix
+expr_stmt|;
+block|}
+DECL|method|getIncludeNamePostfix ()
+specifier|public
+name|String
+name|getIncludeNamePostfix
+parameter_list|()
+block|{
+return|return
+name|includeNamePostfix
+return|;
+block|}
+DECL|method|setIncludeNamePostfix (String includeNamePostfix)
+specifier|public
+name|void
+name|setIncludeNamePostfix
+parameter_list|(
+name|String
+name|includeNamePostfix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeNamePostfix
+operator|=
+name|includeNamePostfix
 expr_stmt|;
 block|}
 DECL|method|isRecursive ()

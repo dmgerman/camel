@@ -1311,7 +1311,7 @@ name|isNotEmpty
 argument_list|(
 name|endpoint
 operator|.
-name|getExcludedNamePrefix
+name|getExcludeNamePrefix
 argument_list|()
 argument_list|)
 condition|)
@@ -1324,7 +1324,7 @@ name|startsWith
 argument_list|(
 name|endpoint
 operator|.
-name|getExcludedNamePrefix
+name|getExcludeNamePrefix
 argument_list|()
 argument_list|)
 condition|)
@@ -1342,7 +1342,7 @@ name|isNotEmpty
 argument_list|(
 name|endpoint
 operator|.
-name|getExcludedNamePostfix
+name|getExcludeNamePostfix
 argument_list|()
 argument_list|)
 condition|)
@@ -1355,7 +1355,7 @@ name|endsWith
 argument_list|(
 name|endpoint
 operator|.
-name|getExcludedNamePostfix
+name|getExcludeNamePostfix
 argument_list|()
 argument_list|)
 condition|)
