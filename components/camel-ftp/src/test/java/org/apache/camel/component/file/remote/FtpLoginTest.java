@@ -203,14 +203,6 @@ argument_list|,
 literal|"tiger"
 argument_list|)
 expr_stmt|;
-comment|// give time for producer
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|2000
-argument_list|)
-expr_stmt|;
 comment|// assert file created
 name|File
 name|file

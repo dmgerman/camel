@@ -203,7 +203,7 @@ literal|"preMoveNamePostfix"
 argument_list|)
 decl_stmt|;
 name|Expression
-name|expression
+name|moveExpression
 init|=
 operator|(
 name|Expression
@@ -212,7 +212,7 @@ name|params
 operator|.
 name|get
 argument_list|(
-literal|"expression"
+literal|"moveExpression"
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -397,7 +397,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|expression
+name|moveExpression
 operator|!=
 literal|null
 operator|||
@@ -431,7 +431,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|expression
+name|moveExpression
 operator|!=
 literal|null
 condition|)
@@ -453,7 +453,7 @@ name|renamer
 operator|.
 name|setExpression
 argument_list|(
-name|expression
+name|moveExpression
 argument_list|)
 expr_stmt|;
 name|strategy

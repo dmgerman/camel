@@ -211,7 +211,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"newfile://target?expression=../done/${file:name}&delete=true"
+literal|"newfile://target?moveExpression=../done/${file:name}&delete=true"
 argument_list|)
 operator|.
 name|createConsumer
@@ -270,7 +270,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"newfile://target/reports?preMoveExpression=../inprogress/${file:name.noext}.bak&expression=../done/${file:name}&consumer.delay=5000"
+literal|"newfile://target/reports?preMoveExpression=../inprogress/${file:name.noext}.bak&moveExpression=../done/${file:name}&consumer.delay=5000"
 argument_list|)
 operator|.
 name|process

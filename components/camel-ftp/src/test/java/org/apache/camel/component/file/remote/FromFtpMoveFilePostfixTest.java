@@ -307,45 +307,17 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-comment|// give some time to move the file after we recieved it on mock
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
-comment|// assert the file is moved
-name|File
-name|file
-init|=
-operator|new
-name|File
+name|expectedFileExists
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
 literal|"movefile/hello.txt.old"
 argument_list|)
-decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"The file should have been moved"
-argument_list|,
-name|file
+name|mock
 operator|.
-name|exists
+name|assertIsSatisfied
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()

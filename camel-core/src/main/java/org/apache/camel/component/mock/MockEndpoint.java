@@ -1815,7 +1815,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expection that a file exists with the given name      *<p>      * Will wait at most 5 seconds while checking for the existence of the file.      *      * @param name name of file, will cater for / and \ on different OS platforms      * @param content content of file to compare, can be<tt>null</tt> to not compare content      */
+comment|/**      * Adds an expection that a file exists with the given name      *<p/>      * Will wait at most 5 seconds while checking for the existence of the file.      *      * @param name name of file, will cater for / and \ on different OS platforms      * @param content content of file to compare, can be<tt>null</tt> to not compare content      */
 DECL|method|expectedFileExists (final String name, final String content)
 specifier|public
 name|void
@@ -1859,7 +1859,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-comment|// wait at most 2 seconds for the file to exists
+comment|// wait at most 5 seconds for the file to exists
 specifier|final
 name|long
 name|timeout

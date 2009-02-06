@@ -409,10 +409,15 @@ specifier|protected
 name|String
 name|regexPattern
 decl_stmt|;
-DECL|field|expression
+DECL|field|fileExpression
 specifier|protected
 name|Expression
-name|expression
+name|fileExpression
+decl_stmt|;
+DECL|field|moveExpression
+specifier|protected
+name|Expression
+name|moveExpression
 decl_stmt|;
 DECL|field|preMoveExpression
 specifier|protected
@@ -1130,37 +1135,37 @@ operator|=
 name|delete
 expr_stmt|;
 block|}
-DECL|method|getExpression ()
+DECL|method|getMoveExpression ()
 specifier|public
 name|Expression
-name|getExpression
+name|getMoveExpression
 parameter_list|()
 block|{
 return|return
-name|expression
+name|moveExpression
 return|;
 block|}
-DECL|method|setExpression (Expression expression)
+DECL|method|setMoveExpression (Expression moveExpression)
 specifier|public
 name|void
-name|setExpression
+name|setMoveExpression
 parameter_list|(
 name|Expression
-name|expression
+name|moveExpression
 parameter_list|)
 block|{
 name|this
 operator|.
-name|expression
+name|moveExpression
 operator|=
-name|expression
+name|moveExpression
 expr_stmt|;
 block|}
-comment|/**      * Sets the expression based on      * {@link org.apache.camel.language.simple.FileLanguage}      */
-DECL|method|setExpression (String fileLanguageExpression)
+comment|/**      * Sets the move expression based on      * {@link org.apache.camel.language.simple.FileLanguage}      */
+DECL|method|setMoveExpression (String fileLanguageExpression)
 specifier|public
 name|void
-name|setExpression
+name|setMoveExpression
 parameter_list|(
 name|String
 name|fileLanguageExpression
@@ -1168,7 +1173,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|expression
+name|moveExpression
 operator|=
 name|FileLanguage
 operator|.
@@ -1217,6 +1222,54 @@ block|{
 name|this
 operator|.
 name|preMoveExpression
+operator|=
+name|FileLanguage
+operator|.
+name|file
+argument_list|(
+name|fileLanguageExpression
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getFileExpression ()
+specifier|public
+name|Expression
+name|getFileExpression
+parameter_list|()
+block|{
+return|return
+name|fileExpression
+return|;
+block|}
+DECL|method|setFileExpression (Expression fileExpression)
+specifier|public
+name|void
+name|setFileExpression
+parameter_list|(
+name|Expression
+name|fileExpression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileExpression
+operator|=
+name|fileExpression
+expr_stmt|;
+block|}
+comment|/**      * Sets the file expression based on      * {@link org.apache.camel.language.simple.FileLanguage}      */
+DECL|method|setFileExpression (String fileLanguageExpression)
+specifier|public
+name|void
+name|setFileExpression
+parameter_list|(
+name|String
+name|fileLanguageExpression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileExpression
 operator|=
 name|FileLanguage
 operator|.
@@ -1735,7 +1788,7 @@ operator|=
 name|processStrategy
 expr_stmt|;
 block|}
-comment|/**      * Should the file be moved after consuming?      */
+comment|/**      * Should the file be moved after consuming?      *      * @deprecated not used      */
 DECL|method|isMoveFile ()
 specifier|public
 name|boolean
@@ -1759,7 +1812,7 @@ name|preMoveNamePrefix
 operator|!=
 literal|null
 operator|||
-name|expression
+name|moveExpression
 operator|!=
 literal|null
 return|;
@@ -2030,7 +2083,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|expression
+name|moveExpression
 operator|!=
 literal|null
 condition|)
@@ -2039,9 +2092,9 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"expression"
+literal|"moveExpression"
 argument_list|,
-name|expression
+name|moveExpression
 argument_list|)
 expr_stmt|;
 block|}

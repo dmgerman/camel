@@ -210,7 +210,7 @@ argument_list|()
 operator|!=
 literal|null
 operator|||
-name|getExpression
+name|getMoveExpression
 argument_list|()
 operator|!=
 literal|null
@@ -221,7 +221,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"You cannot set delete=true and a moveNamePrefix, moveNamePostfix or expression option"
+literal|"You cannot set both delete=true and either a (moveNamePrefix, moveNamePostfix or moveExpression) option"
 argument_list|)
 throw|;
 block|}

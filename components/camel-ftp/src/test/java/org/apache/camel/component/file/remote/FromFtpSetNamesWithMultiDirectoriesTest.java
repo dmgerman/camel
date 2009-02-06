@@ -244,14 +244,6 @@ operator|>
 literal|10000
 argument_list|)
 expr_stmt|;
-comment|// wait until the file producer has written the file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 comment|// assert the file
 name|File
 name|file
@@ -313,14 +305,6 @@ name|length
 argument_list|()
 operator|>
 literal|50000
-argument_list|)
-expr_stmt|;
-comment|// let some time pass to let the consumer etc. properly do its business before closing
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
 argument_list|)
 expr_stmt|;
 block|}

@@ -99,10 +99,10 @@ comment|/**  * Unit test for FTP using expression (file language)  */
 end_comment
 
 begin_class
-DECL|class|FtpConsumerExpressionTest
+DECL|class|FtpConsumerMoveExpressionTest
 specifier|public
 class|class
-name|FtpConsumerExpressionTest
+name|FtpConsumerMoveExpressionTest
 extends|extends
 name|FtpServerTestSupport
 block|{
@@ -300,7 +300,7 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&expression=backup/${date:now:yyyyMMdd}/${bean:myguidgenerator}"
+literal|"&moveExpression=backup/${date:now:yyyyMMdd}/${bean:myguidgenerator}"
 operator|+
 literal|"-${file:name.noext}.bak"
 argument_list|)

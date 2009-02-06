@@ -105,10 +105,10 @@ comment|/**  * Unit test for expression option for file consumer.  */
 end_comment
 
 begin_class
-DECL|class|FileConsumerExpressionTest
+DECL|class|FileConsumerMoveExpressionTest
 specifier|public
 class|class
-name|FileConsumerExpressionTest
+name|FileConsumerMoveExpressionTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -207,7 +207,7 @@ name|from
 argument_list|(
 literal|"newfile://target/filelanguage/report.txt?directory=false&autoCreate=false"
 operator|+
-literal|"&expression=${id}.bak"
+literal|"&moveExpression=${id}.bak"
 argument_list|)
 operator|.
 name|to
@@ -344,7 +344,7 @@ name|from
 argument_list|(
 literal|"newfile://target/filelanguage/report2.txt?directory=false&autoCreate=false"
 operator|+
-literal|"&expression=backup-${id}-${file:name.noext}.bak"
+literal|"&moveExpression=backup-${id}-${file:name.noext}.bak"
 argument_list|)
 operator|.
 name|to
@@ -481,7 +481,7 @@ name|from
 argument_list|(
 literal|"newfile://target/filelanguage/report3.txt?directory=false&autoCreate=false"
 operator|+
-literal|"&expression=backup/${bean:myguidgenerator.guid}.txt"
+literal|"&moveExpression=backup/${bean:myguidgenerator.guid}.txt"
 argument_list|)
 operator|.
 name|to
@@ -570,7 +570,7 @@ name|from
 argument_list|(
 literal|"newfile://target/filelanguage/report4.txt?directory=false&autoCreate=false"
 operator|+
-literal|"&expression=../backup/${file:name}.bak"
+literal|"&moveExpression=../backup/${file:name}.bak"
 argument_list|)
 operator|.
 name|to
@@ -706,7 +706,7 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|setExpression
+name|setMoveExpression
 argument_list|(
 name|BeanLanguage
 operator|.

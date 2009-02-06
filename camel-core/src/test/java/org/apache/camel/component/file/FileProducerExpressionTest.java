@@ -201,7 +201,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file://target/filelanguage?expression=${bean:myguidgenerator}.bak"
+literal|"file://target/filelanguage?fileExpression=${bean:myguidgenerator}.bak"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -273,7 +273,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file://target/filelanguage?expression=myfile-${date:now:yyyyMMdd}.txt"
+literal|"file://target/filelanguage?fileExpression=myfile-${date:now:yyyyMMdd}.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -321,7 +321,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file://target/filelanguage?expression="
+literal|"file://target/filelanguage?fileExpression="
 operator|+
 name|expression
 argument_list|,
@@ -366,7 +366,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage?expression=myfile-${in.header.foo}.txt"
+literal|"file://target/filelanguage?fileExpression=myfile-${in.header.foo}.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -422,7 +422,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/filelanguage?expression=mybirthday-${date:in.header.birthday:yyyyMMdd}.txt"
+literal|"file://target/filelanguage?fileExpression=mybirthday-${date:in.header.birthday:yyyyMMdd}.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|,

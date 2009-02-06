@@ -253,7 +253,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"newfile://target?expression=${file:name.noext}.bak&delete=true"
+literal|"newfile://target?moveExpression=${file:name.noext}.bak&delete=true"
 argument_list|)
 operator|.
 name|createConsumer

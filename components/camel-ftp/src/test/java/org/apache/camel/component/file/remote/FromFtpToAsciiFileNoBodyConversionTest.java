@@ -159,14 +159,6 @@ argument_list|(
 literal|"Hello ASCII from FTPServer"
 argument_list|)
 expr_stmt|;
-comment|// let some time pass to let the consumer etc. properly do its business before closing
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

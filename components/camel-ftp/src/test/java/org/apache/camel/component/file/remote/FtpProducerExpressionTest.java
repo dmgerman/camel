@@ -113,6 +113,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|isUseRouteBuilder ()
+specifier|public
+name|boolean
+name|isUseRouteBuilder
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|setUp ()
 specifier|protected
 name|void
@@ -187,16 +199,9 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&expression=${bean:myguidgenerator}.bak"
+literal|"&fileExpression=${bean:myguidgenerator}.bak"
 argument_list|,
 literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
 argument_list|)
 expr_stmt|;
 name|assertFileExists
@@ -225,13 +230,6 @@ argument_list|,
 literal|"${bean:myguidgenerator}.bak"
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
 name|assertFileExists
 argument_list|(
 name|FTP_ROOT_DIR
@@ -256,13 +254,6 @@ argument_list|,
 literal|"Hello World"
 argument_list|,
 literal|"myfile-${date:now:yyyyMMdd}.txt"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
 argument_list|)
 expr_stmt|;
 name|String
@@ -308,16 +299,9 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&expression=myfile-${date:now:yyyyMMdd}.txt"
+literal|"&fileExpression=myfile-${date:now:yyyyMMdd}.txt"
 argument_list|,
 literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
 argument_list|)
 expr_stmt|;
 name|String
@@ -368,18 +352,11 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&expression="
+literal|"&fileExpression="
 operator|+
 name|expression
 argument_list|,
 literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
 argument_list|)
 expr_stmt|;
 name|String
@@ -425,20 +402,13 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&expression=myfile-${in.header.foo}.txt"
+literal|"&fileExpression=myfile-${in.header.foo}.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|,
 literal|"foo"
 argument_list|,
 literal|"abc"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
 argument_list|)
 expr_stmt|;
 name|assertFileExists
@@ -493,20 +463,13 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&expression=mybirthday-${date:in.header.birthday:yyyyMMdd}.txt"
+literal|"&fileExpression=mybirthday-${date:in.header.birthday:yyyyMMdd}.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|,
 literal|"birthday"
 argument_list|,
 name|date
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
 argument_list|)
 expr_stmt|;
 name|assertFileExists

@@ -231,23 +231,15 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// give our poller chance to collect the file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give our mock a chance to delete chance to del the file
+comment|// give our mock a chance to delete the file
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|250
 argument_list|)
 expr_stmt|;
 comment|// assert the file is NOT there now

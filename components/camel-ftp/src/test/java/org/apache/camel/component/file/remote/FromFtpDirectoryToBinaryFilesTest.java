@@ -243,14 +243,6 @@ operator|>
 literal|10000
 argument_list|)
 expr_stmt|;
-comment|// wait until the file producer has written the file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|2000
-argument_list|)
-expr_stmt|;
 comment|// assert the file
 name|File
 name|file
