@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -86,6 +96,28 @@ name|hostname
 operator|=
 name|hostname
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|needToNormalize ()
+specifier|public
+name|boolean
+name|needToNormalize
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+DECL|method|getFileSeparator ()
+specifier|public
+name|String
+name|getFileSeparator
+parameter_list|()
+block|{
+return|return
+literal|"/"
+return|;
 block|}
 DECL|method|copyFrom (RemoteFile<T> source)
 specifier|public

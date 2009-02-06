@@ -115,6 +115,18 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|needToNormalize ()
+specifier|public
+name|boolean
+name|needToNormalize
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|configure (URI uri)
 specifier|public
 name|void

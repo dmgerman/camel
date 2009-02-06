@@ -286,6 +286,28 @@ return|return
 name|result
 return|;
 block|}
+DECL|method|needToNormalize ()
+specifier|public
+name|boolean
+name|needToNormalize
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+DECL|method|getFileSeparator ()
+specifier|public
+name|String
+name|getFileSeparator
+parameter_list|()
+block|{
+return|return
+name|File
+operator|.
+name|separator
+return|;
+block|}
 comment|/**      * Changes the name of this remote file. This method alters the absolute and      * relative names as well.      *      * @param newName the new name      */
 DECL|method|changeFileName (String newName)
 specifier|public
@@ -296,24 +318,29 @@ name|String
 name|newName
 parameter_list|)
 block|{
-comment|// must normalize path to cater for Windows and other OS
 name|newName
 operator|=
+name|needToNormalize
+argument_list|()
+comment|// must normalize path to cater for Windows and other OS
+condition|?
 name|FileUtil
 operator|.
 name|normalizePath
 argument_list|(
 name|newName
 argument_list|)
+comment|// for the remote file we don't need to do that
+else|:
+name|newName
 expr_stmt|;
 name|setAbsoluteFileName
 argument_list|(
 name|getParent
 argument_list|()
 operator|+
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 operator|+
 name|newName
 argument_list|)
@@ -331,9 +358,8 @@ name|newName
 operator|.
 name|indexOf
 argument_list|(
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 argument_list|)
 operator|!=
 operator|-
@@ -352,9 +378,8 @@ name|newName
 operator|.
 name|lastIndexOf
 argument_list|(
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -368,9 +393,8 @@ name|newName
 operator|.
 name|lastIndexOf
 argument_list|(
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 argument_list|)
 operator|+
 literal|1
@@ -383,9 +407,8 @@ name|relativeFileName
 operator|.
 name|indexOf
 argument_list|(
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 argument_list|)
 operator|!=
 operator|-
@@ -422,15 +445,13 @@ name|setRelativeFileName
 argument_list|(
 name|relative
 operator|+
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 operator|+
 name|baseNewName
 operator|+
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 operator|+
 name|newName
 argument_list|)
@@ -442,9 +463,8 @@ name|setRelativeFileName
 argument_list|(
 name|relative
 operator|+
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 operator|+
 name|newName
 argument_list|)
@@ -464,9 +484,8 @@ name|setRelativeFileName
 argument_list|(
 name|baseNewName
 operator|+
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 operator|+
 name|newName
 argument_list|)
@@ -666,9 +685,8 @@ argument_list|()
 operator|.
 name|lastIndexOf
 argument_list|(
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 argument_list|)
 operator|>
 literal|0
@@ -687,9 +705,8 @@ argument_list|()
 operator|.
 name|lastIndexOf
 argument_list|(
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 argument_list|)
 argument_list|)
 return|;
@@ -759,17 +776,23 @@ name|String
 name|absoluteFileName
 parameter_list|)
 block|{
-comment|// must normalize path to cater for Windows and other OS
 name|this
 operator|.
 name|absoluteFileName
 operator|=
+name|needToNormalize
+argument_list|()
+comment|// must normalize path to cater for Windows and other OS
+condition|?
 name|FileUtil
 operator|.
 name|normalizePath
 argument_list|(
 name|absoluteFileName
 argument_list|)
+comment|// we don't need to do that for Remote File
+else|:
+name|absoluteFileName
 expr_stmt|;
 block|}
 DECL|method|getAbsoluteFileName ()

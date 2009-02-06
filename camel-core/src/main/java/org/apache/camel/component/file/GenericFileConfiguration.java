@@ -53,6 +53,16 @@ specifier|private
 name|String
 name|file
 decl_stmt|;
+DECL|method|needToNormalize ()
+specifier|public
+name|boolean
+name|needToNormalize
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|configure (URI uri)
 specifier|public
 name|void
@@ -90,17 +100,23 @@ name|String
 name|file
 parameter_list|)
 block|{
-comment|// must normalize path to cater for Windows and other OS
 name|this
 operator|.
 name|file
 operator|=
+name|needToNormalize
+argument_list|()
+comment|// must normalize path to cater for Windows and other OS
+condition|?
 name|FileUtil
 operator|.
 name|normalizePath
 argument_list|(
 name|file
 argument_list|)
+comment|// for the remote file we don't need to do that
+else|:
+name|file
 expr_stmt|;
 block|}
 DECL|method|toString ()
