@@ -51,14 +51,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test that ftp consumer will exclude pre and postfixes  */
+comment|/**  * Unit test that ftp consumer will include pre and postfixes  */
 end_comment
 
 begin_class
-DECL|class|FtpConsumerExcludeNameTest
+DECL|class|FtpConsumerIncludeNameTest
 specifier|public
 class|class
-name|FtpConsumerExcludeNameTest
+name|FtpConsumerIncludeNameTest
 extends|extends
 name|FtpServerTestSupport
 block|{
@@ -74,9 +74,9 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/excludename?password=admin"
+literal|"/includename?password=admin"
 operator|+
-literal|"&excludeNamePrefix=secret&excludeNamePostfix=xml"
+literal|"&includeNamePrefix=report&excludeNamePostfix=xml"
 return|;
 block|}
 annotation|@
@@ -98,10 +98,10 @@ name|prepareFtpServer
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testExludePreAndPostfixes ()
+DECL|method|testIncludeAndExludePreAndPostfixes ()
 specifier|public
 name|void
-name|testExludePreAndPostfixes
+name|testIncludeAndExludePreAndPostfixes
 parameter_list|()
 throws|throws
 name|Exception
@@ -118,16 +118,14 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Reports"
-argument_list|,
-literal|"Reports"
+literal|"Report 1"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -161,7 +159,7 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
-literal|"Reports"
+literal|"Report 1"
 argument_list|,
 literal|"report1.txt"
 argument_list|)
@@ -181,9 +179,9 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 argument_list|,
-literal|"Reports"
+literal|"Report 2"
 argument_list|,
-literal|"report2.txt"
+literal|"report2.xml"
 argument_list|)
 expr_stmt|;
 block|}
