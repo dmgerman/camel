@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -179,6 +199,7 @@ end_comment
 begin_class
 DECL|class|JaxbConverter
 specifier|public
+specifier|final
 class|class
 name|JaxbConverter
 block|{
@@ -186,6 +207,25 @@ DECL|field|jaxbConverter
 specifier|private
 name|XmlConverter
 name|jaxbConverter
+decl_stmt|;
+DECL|field|contexts
+specifier|private
+name|Map
+argument_list|<
+name|Class
+argument_list|,
+name|JAXBContext
+argument_list|>
+name|contexts
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|Class
+argument_list|,
+name|JAXBContext
+argument_list|>
+argument_list|()
 decl_stmt|;
 DECL|method|getJaxbConverter ()
 specifier|public
@@ -231,7 +271,6 @@ annotation|@
 name|Converter
 DECL|method|toSource (@asAnnotationXmlRootElement.class)Object value)
 specifier|public
-specifier|static
 name|JAXBSource
 name|toSource
 parameter_list|(
@@ -251,7 +290,7 @@ block|{
 name|JAXBContext
 name|context
 init|=
-name|createJaxbContext
+name|getJaxbContext
 argument_list|(
 name|value
 argument_list|)
@@ -268,7 +307,7 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toDocument ( @asAnnotationXmlRootElement.class)Object value)
+DECL|method|toDocument (@asAnnotationXmlRootElement.class)Object value)
 specifier|public
 name|Document
 name|toDocument
@@ -291,7 +330,7 @@ block|{
 name|JAXBContext
 name|context
 init|=
-name|createJaxbContext
+name|getJaxbContext
 argument_list|(
 name|value
 argument_list|)
@@ -378,9 +417,64 @@ return|return
 name|answer
 return|;
 block|}
+DECL|method|getJaxbContext (Object value)
+specifier|private
+specifier|synchronized
+name|JAXBContext
+name|getJaxbContext
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+throws|throws
+name|JAXBException
+block|{
+name|JAXBContext
+name|context
+init|=
+name|contexts
+operator|.
+name|get
+argument_list|(
+name|value
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|context
+operator|==
+literal|null
+condition|)
+block|{
+name|context
+operator|=
+name|createJaxbContext
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+name|contexts
+operator|.
+name|put
+argument_list|(
+name|value
+operator|.
+name|getClass
+argument_list|()
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|context
+return|;
+block|}
 DECL|method|createJaxbContext (Object value)
-specifier|protected
-specifier|static
+specifier|private
 name|JAXBContext
 name|createJaxbContext
 parameter_list|(
@@ -405,9 +499,7 @@ literal|"Cannot convert from null value to JAXBSource"
 argument_list|)
 throw|;
 block|}
-name|JAXBContext
-name|context
-init|=
+return|return
 name|JAXBContext
 operator|.
 name|newInstance
@@ -417,17 +509,8 @@ operator|.
 name|getClass
 argument_list|()
 argument_list|)
-decl_stmt|;
-return|return
-name|context
 return|;
 block|}
-comment|//    public void write(OutputStream out, Object value) throws JAXBException {
-comment|//        JAXBContext context = JAXBContext.newInstance(value.getClass());
-comment|//        Marshaller marshaller = context.createMarshaller();
-comment|//        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-comment|//        marshaller.marshal(value, out);
-comment|//    }
 block|}
 end_class
 
