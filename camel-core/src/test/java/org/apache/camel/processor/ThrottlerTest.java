@@ -157,7 +157,7 @@ name|resultEndpoint
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|1000
+literal|5000
 argument_list|)
 expr_stmt|;
 for|for
