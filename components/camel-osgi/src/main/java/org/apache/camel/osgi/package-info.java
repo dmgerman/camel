@@ -17,7 +17,7 @@ name|XmlSchema
 argument_list|(
 name|namespace
 operator|=
-literal|"http://activemq.apache.org/camel/schema/osgi"
+literal|"http://camel.apache.org/schema/osgi"
 argument_list|,
 name|elementFormDefault
 operator|=

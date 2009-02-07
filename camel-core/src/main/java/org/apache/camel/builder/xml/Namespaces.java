@@ -163,7 +163,7 @@ specifier|final
 name|String
 name|DEFAULT_NAMESPACE
 init|=
-literal|"http://activemq.apache.org/camel/schema/spring"
+literal|"http://camel.apache.org/schema/spring"
 decl_stmt|;
 DECL|field|IN_NAMESPACE
 specifier|public

@@ -228,7 +228,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-empty_stmt|;
 DECL|method|testThreadProcessor ()
 specifier|public
 name|void

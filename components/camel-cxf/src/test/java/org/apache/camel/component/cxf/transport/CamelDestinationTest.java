@@ -353,7 +353,7 @@ init|=
 operator|new
 name|QName
 argument_list|(
-literal|"http://activemq.apache.org/camel-test"
+literal|"http://camel.apache.org/camel-test"
 argument_list|,
 literal|"port"
 argument_list|)
@@ -421,7 +421,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"{http://activemq.apache.org/camel-test}port.camel-destination"
+literal|"{http://camel.apache.org/camel-test}port.camel-destination"
 argument_list|,
 name|destination
 operator|.

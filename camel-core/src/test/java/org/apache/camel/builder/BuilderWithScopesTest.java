@@ -2120,7 +2120,6 @@ block|}
 block|}
 return|;
 block|}
-empty_stmt|;
 DECL|method|testRouteWithTryCatchFinallyEndNoException ()
 specifier|public
 name|void

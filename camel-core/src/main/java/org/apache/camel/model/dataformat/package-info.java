@@ -21,7 +21,7 @@ name|XmlSchema
 argument_list|(
 name|namespace
 operator|=
-literal|"http://activemq.apache.org/camel/schema/spring"
+literal|"http://camel.apache.org/schema/spring"
 argument_list|,
 name|elementFormDefault
 operator|=

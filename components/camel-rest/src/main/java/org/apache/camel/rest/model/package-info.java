@@ -21,7 +21,7 @@ name|XmlSchema
 argument_list|(
 name|namespace
 operator|=
-literal|"http://activemq.apache.org/camel/schema/rest"
+literal|"http://camel.apache.org/schema/rest"
 argument_list|,
 name|elementFormDefault
 operator|=

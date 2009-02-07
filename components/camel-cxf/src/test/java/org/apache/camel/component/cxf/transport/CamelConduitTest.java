@@ -333,7 +333,7 @@ init|=
 operator|new
 name|QName
 argument_list|(
-literal|"http://activemq.apache.org/camel-test"
+literal|"http://camel.apache.org/camel-test"
 argument_list|,
 literal|"portA"
 argument_list|)
@@ -344,7 +344,7 @@ init|=
 operator|new
 name|QName
 argument_list|(
-literal|"http://activemq.apache.org/camel-test"
+literal|"http://camel.apache.org/camel-test"
 argument_list|,
 literal|"portB"
 argument_list|)

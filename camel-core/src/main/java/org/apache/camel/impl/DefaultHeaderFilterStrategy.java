@@ -85,7 +85,6 @@ name|IN
 block|,
 name|OUT
 block|}
-empty_stmt|;
 DECL|field|inFilter
 specifier|private
 name|Set
