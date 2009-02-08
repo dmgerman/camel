@@ -97,6 +97,26 @@ specifier|private
 name|Expression
 name|expression
 decl_stmt|;
+DECL|method|GenericFileExpressionRenamer ()
+specifier|public
+name|GenericFileExpressionRenamer
+parameter_list|()
+block|{     }
+DECL|method|GenericFileExpressionRenamer (Expression expression)
+specifier|public
+name|GenericFileExpressionRenamer
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
+expr_stmt|;
+block|}
 DECL|method|renameFile (GenericFileExchange<T> exchange, GenericFile<T> file)
 specifier|public
 name|GenericFile

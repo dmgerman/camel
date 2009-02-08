@@ -357,7 +357,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Could not acquire read lock within "
+literal|"Cannot acquire read lock within "
 operator|+
 name|timeout
 operator|+
@@ -439,7 +439,7 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-literal|"org.apache.camel.file.lock"
+literal|"CamelFileLock"
 argument_list|,
 name|lock
 argument_list|)
@@ -448,7 +448,7 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-literal|"org.apache.camel.file.lock.fileName"
+literal|"CamelFileLockName"
 argument_list|,
 name|target
 operator|.
@@ -547,7 +547,7 @@ name|getMandatoryProperty
 argument_list|(
 name|exchange
 argument_list|,
-literal|"org.apache.camel.file.lock"
+literal|"CamelFileLock"
 argument_list|,
 name|FileLock
 operator|.
@@ -563,7 +563,7 @@ name|getMandatoryProperty
 argument_list|(
 name|exchange
 argument_list|,
-literal|"org.apache.camel.file.lock.filename"
+literal|"CamelFileLockName"
 argument_list|,
 name|String
 operator|.

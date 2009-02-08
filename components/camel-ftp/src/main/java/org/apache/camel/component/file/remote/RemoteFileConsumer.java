@@ -209,7 +209,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Disconnecting from "
+literal|"Disconnecting from: "
 operator|+
 name|remoteServer
 argument_list|()
@@ -283,7 +283,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Not connected/logged in, connecting to "
+literal|"Not connected/logged in, connecting to: "
 operator|+
 name|remoteServer
 argument_list|()
@@ -319,7 +319,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Connected and logged in to "
+literal|"Connected and logged in to: "
 operator|+
 name|remoteServer
 argument_list|()

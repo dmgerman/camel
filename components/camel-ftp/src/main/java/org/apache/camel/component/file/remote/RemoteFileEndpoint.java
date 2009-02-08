@@ -333,29 +333,17 @@ condition|(
 name|isDelete
 argument_list|()
 operator|&&
-operator|(
-name|getMoveNamePrefix
-argument_list|()
-operator|!=
-literal|null
-operator|||
-name|getMoveNamePostfix
-argument_list|()
-operator|!=
-literal|null
-operator|||
 name|getMoveExpression
 argument_list|()
 operator|!=
 literal|null
-operator|)
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"You cannot both set delete=true and either a (moveNamePrefix, moveNamePostfix or moveExpression) option"
+literal|"You cannot both set delete=true and moveExpression options"
 argument_list|)
 throw|;
 block|}

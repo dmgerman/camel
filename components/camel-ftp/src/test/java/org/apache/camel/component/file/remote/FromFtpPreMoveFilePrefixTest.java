@@ -138,7 +138,7 @@ argument_list|()
 operator|+
 literal|"/movefile?password=admin&binary=false&consumer.delay=5000"
 operator|+
-literal|"&preMoveNamePrefix=done/"
+literal|"&preMoveExpression=done/${file:name}"
 return|;
 block|}
 annotation|@

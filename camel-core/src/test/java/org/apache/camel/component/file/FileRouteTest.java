@@ -314,7 +314,7 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-literal|"org.apache.camel.file.marker.filename"
+literal|"CamelFileLockName"
 argument_list|,
 name|String
 operator|.

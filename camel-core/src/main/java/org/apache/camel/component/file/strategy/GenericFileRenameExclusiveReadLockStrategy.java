@@ -268,7 +268,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Could not acquire read lock within "
+literal|"Cannot acquire read lock within "
 operator|+
 name|timeout
 operator|+

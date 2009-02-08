@@ -152,6 +152,11 @@ name|operations
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -228,7 +233,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception occured during stopping. "
+literal|"Exception occured during stopping: "
 operator|+
 name|exception
 operator|.
@@ -243,7 +248,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception occured during processing."
+literal|"Exception occured during processing. "
 argument_list|,
 name|exception
 argument_list|)
@@ -281,7 +286,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Disconnecting from "
+literal|"Disconnecting from: "
 operator|+
 name|getEndpoint
 argument_list|()
@@ -395,7 +400,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception occured during disconnecting from "
+literal|"Exception occured during disconnecting from: "
 operator|+
 name|getEndpoint
 argument_list|()
@@ -508,7 +513,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Connected and logged in to "
+literal|"Connected and logged in to: "
 operator|+
 name|getEndpoint
 argument_list|()

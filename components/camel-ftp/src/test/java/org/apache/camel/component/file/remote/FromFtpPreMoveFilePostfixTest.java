@@ -138,7 +138,7 @@ argument_list|()
 operator|+
 literal|"/movefile?password=admin&binary=false"
 operator|+
-literal|"&preMoveNamePostfix=.old"
+literal|"&preMoveExpression=${file:name}.old"
 return|;
 block|}
 annotation|@

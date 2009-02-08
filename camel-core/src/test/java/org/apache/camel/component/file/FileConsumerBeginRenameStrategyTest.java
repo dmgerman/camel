@@ -306,7 +306,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"newfile://target/reports?preMoveNamePrefix=../inprogress/&consumer.delay=5000"
+literal|"newfile://target/reports?preMoveExpression=../inprogress/${file:name}&consumer.delay=5000"
 argument_list|)
 operator|.
 name|process
