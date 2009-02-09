@@ -134,6 +134,37 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testConcurrentConsumersConfigured ()
+specifier|public
+name|void
+name|testConcurrentConsumersConfigured
+parameter_list|()
+block|{
+name|SedaEndpoint
+name|endpoint
+init|=
+name|resolveMandatoryEndpoint
+argument_list|(
+literal|"seda:foo?concurrentConsumers=5"
+argument_list|,
+name|SedaEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"concurrentConsumers"
+argument_list|,
+literal|5
+argument_list|,
+name|endpoint
+operator|.
+name|getConcurrentConsumers
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
