@@ -526,8 +526,66 @@ name|endpoint
 operator|.
 name|isLenientProperties
 argument_list|()
-operator|&&
+condition|)
+block|{
+name|validateUnknownParameters
+argument_list|(
+name|uri
+argument_list|,
 name|parameters
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|return
+name|endpoint
+return|;
+block|}
+comment|/**      * Strategy for validation of unknown parameters not able to be resolved to any endpoint options.      *      * @param uri          the uri - the uri the end user provided untouched      * @param parameters   the parameters, an empty map if no parameters given      * @param optionPrefix optional prefix to filter the parameters for validation. Use<tt>null</tt> for validate all.      * @throws ResolveEndpointFailedException should be thrown if the URI validation failed      */
+DECL|method|validateUnknownParameters (String uri, Map parameters, String optionPrefix)
+specifier|protected
+name|void
+name|validateUnknownParameters
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Map
+name|parameters
+parameter_list|,
+name|String
+name|optionPrefix
+parameter_list|)
+block|{
+name|Map
+name|param
+init|=
+name|parameters
+decl_stmt|;
+if|if
+condition|(
+name|optionPrefix
+operator|!=
+literal|null
+condition|)
+block|{
+name|param
+operator|=
+name|IntrospectionSupport
+operator|.
+name|extractProperties
+argument_list|(
+name|parameters
+argument_list|,
+name|optionPrefix
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|param
 operator|.
 name|size
 argument_list|()
@@ -543,7 +601,7 @@ name|uri
 argument_list|,
 literal|"There are "
 operator|+
-name|parameters
+name|param
 operator|.
 name|size
 argument_list|()
@@ -554,16 +612,12 @@ literal|" Check the uri if the parameters are spelt correctly and that they are 
 operator|+
 literal|" Unknown parameters=["
 operator|+
-name|parameters
+name|param
 operator|+
 literal|"]"
 argument_list|)
 throw|;
 block|}
-block|}
-return|return
-name|endpoint
-return|;
 block|}
 comment|/**      * Strategy for validation of the uri when creating the endpoint.      *      * @param uri        the uri - the uri the end user provided untouched      * @param path       the path - part after the scheme      * @param parameters the parameters, an empty map if no parameters given      * @throws ResolveEndpointFailedException should be thrown if the URI validation failed      */
 DECL|method|validateURI (String uri, String path, Map parameters)

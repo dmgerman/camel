@@ -425,7 +425,7 @@ name|Exception
 block|{
 comment|// http client can be configured from URI options
 name|HttpClientParams
-name|params
+name|clientParams
 init|=
 operator|new
 name|HttpClientParams
@@ -435,7 +435,17 @@ name|IntrospectionSupport
 operator|.
 name|setProperties
 argument_list|(
-name|params
+name|clientParams
+argument_list|,
+name|parameters
+argument_list|,
+literal|"httpClient."
+argument_list|)
+expr_stmt|;
+comment|// validate that we could resolve all httpClient. parameters as this component is lenient
+name|validateUnknownParameters
+argument_list|(
+name|uri
 argument_list|,
 name|parameters
 argument_list|,
@@ -534,7 +544,7 @@ name|this
 argument_list|,
 name|httpUri
 argument_list|,
-name|params
+name|clientParams
 argument_list|,
 name|httpConnectionManager
 argument_list|,

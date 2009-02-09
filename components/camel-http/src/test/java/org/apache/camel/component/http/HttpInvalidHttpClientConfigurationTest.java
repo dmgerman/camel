@@ -97,10 +97,10 @@ comment|/**  * Unit test of invalid configuraiton  */
 end_comment
 
 begin_class
-DECL|class|HttpInvalidConfigurationTest
+DECL|class|HttpInvalidHttpClientConfigurationTest
 specifier|public
 class|class
-name|HttpInvalidConfigurationTest
+name|HttpInvalidHttpClientConfigurationTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -140,7 +140,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|"You have duplicated the http(s) protocol."
+literal|"Unknown parameters=[{xxx=true}]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -186,7 +186,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"http://http://www.google.com"
+literal|"http://www.google.com?httpClient.xxx=true"
 argument_list|)
 expr_stmt|;
 block|}
