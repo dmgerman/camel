@@ -650,13 +650,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|//TODO: revert this once we get DelegateProcessor to support async
-name|setErrorHandlerBuilder
-argument_list|(
-name|noErrorHandler
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// START SNIPPET: example
 name|from
 argument_list|(

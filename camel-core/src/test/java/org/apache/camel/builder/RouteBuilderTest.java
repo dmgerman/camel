@@ -1527,7 +1527,7 @@ expr_stmt|;
 comment|// take off the StreamCacheInterceptor
 name|processor
 operator|=
-name|unwrapInterceptor
+name|unwrapDelegateProcessor
 argument_list|(
 name|processor
 argument_list|)
