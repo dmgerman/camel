@@ -142,7 +142,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"http://localhost:8080/myworld"
+literal|"http://localhost:9080/myworld"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -222,7 +222,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"File conent"
+literal|"File content"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -274,7 +274,14 @@ block|{
 comment|// put the incoming data on the seda queue and return a fixed response that we got the file
 name|from
 argument_list|(
-literal|"jetty:http://localhost:8080/myworld"
+literal|"jetty:http://localhost:9080/myworld"
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
 argument_list|)
 operator|.
 name|to
