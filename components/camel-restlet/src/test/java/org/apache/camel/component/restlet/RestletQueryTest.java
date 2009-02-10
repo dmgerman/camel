@@ -194,7 +194,10 @@ name|QUERY_STRING
 argument_list|,
 name|exchange
 operator|.
-name|getProperty
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
 argument_list|(
 name|RestletConstants
 operator|.
