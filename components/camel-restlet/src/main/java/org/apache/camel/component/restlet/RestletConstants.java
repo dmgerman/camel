@@ -65,6 +65,15 @@ name|RESPONSE_CODE
 init|=
 literal|"org.apache.camel.restlet.responseCode"
 decl_stmt|;
+DECL|field|QUERY_STRING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|QUERY_STRING
+init|=
+literal|"org.apache.camel.restlet.queryString"
+decl_stmt|;
 DECL|method|RestletConstants ()
 specifier|private
 name|RestletConstants
