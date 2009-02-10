@@ -107,7 +107,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:8080/myapp/myservice"
+literal|"http://localhost:9080/myapp/myservice"
 argument_list|,
 literal|"bookid=123"
 argument_list|)
@@ -163,7 +163,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"jetty:http://localhost:8080/myapp/myservice"
+literal|"jetty:http://localhost:9080/myapp/myservice"
 argument_list|)
 operator|.
 name|process

@@ -124,7 +124,7 @@ init|=
 operator|new
 name|URL
 argument_list|(
-literal|"http://localhost:8080/test"
+literal|"http://localhost:9080/test"
 argument_list|)
 decl_stmt|;
 name|URLConnection

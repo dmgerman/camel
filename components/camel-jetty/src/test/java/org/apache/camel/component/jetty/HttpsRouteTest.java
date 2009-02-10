@@ -546,7 +546,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jetty:http://localhost:8080/test"
+literal|"jetty:http://localhost:9080/test"
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -602,7 +602,7 @@ init|=
 operator|new
 name|URL
 argument_list|(
-literal|"https://localhost:8080/hello"
+literal|"https://localhost:9080/hello"
 argument_list|)
 operator|.
 name|openStream
@@ -666,7 +666,7 @@ block|{
 operator|new
 name|URL
 argument_list|(
-literal|"http://localhost:8080/hello"
+literal|"http://localhost:9080/hello"
 argument_list|)
 operator|.
 name|openStream
@@ -697,7 +697,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jetty:https://localhost:8080/test"
+literal|"jetty:https://localhost:9080/test"
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -782,7 +782,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:https://localhost:8080/test"
+literal|"jetty:https://localhost:9080/test"
 argument_list|)
 operator|.
 name|to
@@ -824,7 +824,7 @@ block|}
 decl_stmt|;
 name|from
 argument_list|(
-literal|"jetty:https://localhost:8080/hello"
+literal|"jetty:https://localhost:9080/hello"
 argument_list|)
 operator|.
 name|process

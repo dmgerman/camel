@@ -147,7 +147,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:8080/myapp/myservice"
+literal|"http://localhost:9080/myapp/myservice"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -187,7 +187,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:8081/myapp/myotherservice"
+literal|"http://localhost:9081/myapp/myotherservice"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -288,7 +288,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:8080/myapp/myservice?httpBindingRef=default"
+literal|"jetty:http://localhost:9080/myapp/myservice?httpBindingRef=default"
 argument_list|)
 operator|.
 name|transform
@@ -301,7 +301,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:8081/myapp/myotherservice?httpBindingRef=myownbinder"
+literal|"jetty:http://localhost:9081/myapp/myotherservice?httpBindingRef=myownbinder"
 argument_list|)
 operator|.
 name|process

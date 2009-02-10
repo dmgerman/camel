@@ -202,7 +202,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"http://localhost:8080/test"
+literal|"http://localhost:9080/test"
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -309,7 +309,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:8080/test"
+literal|"jetty:http://localhost:9080/test"
 argument_list|)
 operator|.
 name|convertBodyTo

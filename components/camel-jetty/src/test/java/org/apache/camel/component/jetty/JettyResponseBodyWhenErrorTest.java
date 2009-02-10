@@ -122,7 +122,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"http://localhost:8080/myapp/myservice"
+literal|"http://localhost:9080/myapp/myservice"
 argument_list|,
 literal|"bookid=123"
 argument_list|)
@@ -270,7 +270,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:8080/myapp/myservice"
+literal|"jetty:http://localhost:9080/myapp/myservice"
 argument_list|)
 operator|.
 name|process
