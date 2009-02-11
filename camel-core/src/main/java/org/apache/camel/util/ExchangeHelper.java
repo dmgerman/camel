@@ -776,6 +776,9 @@ name|Exchange
 name|source
 parameter_list|)
 block|{
+comment|// --------------------------------------------------------------------
+comment|//  TODO: merge logic with that of copyResultsPreservePattern()
+comment|// --------------------------------------------------------------------
 if|if
 condition|(
 name|result
@@ -926,6 +929,182 @@ name|getProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+comment|/**      * Copies the<code>source</code> exchange to<code>target</code> exchange      * preserving the {@link ExchangePattern} of<code>target</code>.        *       * @param source source exchange.      * @param result target exchange.      *       * @see #resultMessage(Exchange)      * @see #faultMessage(Exchange)      */
+DECL|method|copyResultsPreservePattern (Exchange result, Exchange source)
+specifier|public
+specifier|static
+name|void
+name|copyResultsPreservePattern
+parameter_list|(
+name|Exchange
+name|result
+parameter_list|,
+name|Exchange
+name|source
+parameter_list|)
+block|{
+comment|// --------------------------------------------------------------------
+comment|//  TODO: merge logic with that of copyResults()
+comment|// --------------------------------------------------------------------
+if|if
+condition|(
+name|source
+operator|==
+name|result
+condition|)
+block|{
+comment|// no need to copy
+return|return;
+block|}
+comment|// copy in message
+name|Message
+name|m
+init|=
+name|source
+operator|.
+name|getIn
+argument_list|()
+decl_stmt|;
+name|result
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|copyFrom
+argument_list|(
+name|m
+argument_list|)
+expr_stmt|;
+comment|// copy out message
+name|m
+operator|=
+name|source
+operator|.
+name|getOut
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|m
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// exchange pattern sensitive
+name|getResultMessage
+argument_list|(
+name|result
+argument_list|)
+operator|.
+name|copyFrom
+argument_list|(
+name|m
+argument_list|)
+expr_stmt|;
+block|}
+comment|// copy fault message
+name|m
+operator|=
+name|source
+operator|.
+name|getFault
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|m
+operator|!=
+literal|null
+condition|)
+block|{
+name|result
+operator|.
+name|getFault
+argument_list|()
+operator|.
+name|copyFrom
+argument_list|(
+name|m
+argument_list|)
+expr_stmt|;
+block|}
+comment|// copy exception
+name|result
+operator|.
+name|setException
+argument_list|(
+name|source
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// copy properties
+name|result
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|result
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|source
+operator|.
+name|getProperties
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Returns the message where to write results in an      * exchange-pattern-sensitive way.      *       * @param exchange      *            message exchange.      * @return result message.      */
+DECL|method|getResultMessage (Exchange exchange)
+specifier|public
+specifier|static
+name|Message
+name|getResultMessage
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
+operator|.
+name|isOutCapable
+argument_list|()
+condition|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+return|;
 block|}
 block|}
 comment|/**      * Returns true if the given exchange pattern (if defined) can support IN messagea      *      * @param exchange the exchange to interrogate      * @return true if the exchange is defined as an {@link ExchangePattern} which supports      * IN messages      */
