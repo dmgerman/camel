@@ -174,6 +174,10 @@ block|{
 annotation|@
 name|XmlAttribute
 argument_list|(
+name|name
+operator|=
+literal|"uri"
+argument_list|,
 name|required
 operator|=
 literal|true
@@ -186,6 +190,10 @@ decl_stmt|;
 annotation|@
 name|XmlAttribute
 argument_list|(
+name|name
+operator|=
+literal|"strategyRef"
+argument_list|,
 name|required
 operator|=
 literal|false
