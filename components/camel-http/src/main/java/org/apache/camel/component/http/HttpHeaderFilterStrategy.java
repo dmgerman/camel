@@ -136,7 +136,7 @@ name|toLowerCase
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setIsLowercase
+name|setLowercase
 argument_list|(
 literal|true
 argument_list|)

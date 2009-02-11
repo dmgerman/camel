@@ -839,15 +839,7 @@ parameter_list|)
 block|{
 name|Object
 name|value
-init|=
-name|expression
-operator|.
-name|evaluate
-argument_list|(
-name|exchange
-argument_list|)
 decl_stmt|;
-comment|// lets try convert to the type of the expected
 if|if
 condition|(
 name|expected
@@ -857,9 +849,9 @@ condition|)
 block|{
 name|value
 operator|=
-name|ExchangeHelper
+name|expression
 operator|.
-name|convertToType
+name|evaluate
 argument_list|(
 name|exchange
 argument_list|,
@@ -867,8 +859,18 @@ name|expected
 operator|.
 name|getClass
 argument_list|()
-argument_list|,
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|value
+operator|=
+name|expression
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}

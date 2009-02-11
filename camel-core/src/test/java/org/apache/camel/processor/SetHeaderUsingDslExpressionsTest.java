@@ -70,6 +70,20 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|ExpressionAdapter
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.impl
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|impl
 package|;
 end_package
 
@@ -40,22 +40,8 @@ name|Expression
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|ExpressionSupport
-import|;
-end_import
-
 begin_comment
-comment|/**  * A helper class for developers wishing to implement an {@link Expression} using Java code with a minimum amount  * of code to write so that the developer only needs to implement the {@link #evaluate(Exchange)} method.  *  * @version $Revision$  */
+comment|/**  * A helper class for developers wishing to implement an {@link Expression} using Java code with a minimum amount  * of code to write so that the developer only needs to implement one of the  * {@link #evaluate(Exchange)} or {@link #evaluate(org.apache.camel.Exchange, Class)} methods.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -67,16 +53,6 @@ name|ExpressionAdapter
 extends|extends
 name|ExpressionSupport
 block|{
-DECL|method|evaluate (Exchange exchange)
-specifier|public
-specifier|abstract
-name|Object
-name|evaluate
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-function_decl|;
 DECL|method|assertionFailureMessage (Exchange exchange)
 specifier|protected
 name|String
@@ -89,6 +65,26 @@ block|{
 return|return
 name|toString
 argument_list|()
+return|;
+block|}
+DECL|method|evaluate (Exchange exchange)
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
 return|;
 block|}
 block|}

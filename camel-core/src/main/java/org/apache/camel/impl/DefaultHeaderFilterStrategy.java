@@ -111,17 +111,16 @@ specifier|private
 name|Pattern
 name|outFilterPattern
 decl_stmt|;
-DECL|field|isLowercase
+DECL|field|lowercase
 specifier|private
 name|boolean
-name|isLowercase
+name|lowercase
 decl_stmt|;
 DECL|field|allowNullValues
 specifier|private
 name|boolean
 name|allowNullValues
 decl_stmt|;
-comment|/**      * Applies filtering logic to Camel Message header that is      * going to be copied to target message.      *       * It returns true if the filtering logics return a match.  Otherwise,      * it returns false.  A match means the header should be excluded.      *       * @param headerName       * @param headerValue      * @return true if this header should be filtered out.      */
 DECL|method|applyFilterToCamelHeaders (String headerName, Object headerValue)
 specifier|public
 name|boolean
@@ -147,7 +146,6 @@ name|headerValue
 argument_list|)
 return|;
 block|}
-comment|/**      * Applies filtering logic to an external message header message that       * is going to be copied to Camel message header.      *       * It returns true if the filtering logics return a match.  Otherwise,      * it returns false.  A match means the header should be excluded.      *        * @param headerName       * @param headerValue      * @return true if this header should be excluded.      */
 DECL|method|applyFilterToExternalHeaders (String headerName, Object headerValue)
 specifier|public
 name|boolean
@@ -204,7 +202,7 @@ return|return
 name|outFilter
 return|;
 block|}
-comment|/**      * Sets the "out" direction filter set.  The "out" direction is referred to       * copying headers from a Camel message to an external message.      */
+comment|/**      * Sets the "out" direction filter set.  The "out" direction is referred to       * copying headers from a Camel message to an external message.      *      * @param value  the filter      */
 DECL|method|setOutFilter (Set<String> value)
 specifier|public
 name|void
@@ -308,7 +306,7 @@ return|return
 name|inFilter
 return|;
 block|}
-comment|/**      * Sets the "in" direction filter set.  The "in" direction is referred to       * copying headers from an external message to a Camel message.      */
+comment|/**      * Sets the "in" direction filter set.  The "in" direction is referred to       * copying headers from an external message to a Camel message.      *      * @param value the filter      */
 DECL|method|setInFilter (Set<String> value)
 specifier|public
 name|void
@@ -382,27 +380,27 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Gets the isLowercase property which is a boolean to determinte      * whether header names should be converted to lowercase before      * checking it the filter Set.  It does not affect filtering using      * regular expression pattern.      */
-DECL|method|getIsLowercase ()
+DECL|method|isLowercase ()
 specifier|public
 name|boolean
-name|getIsLowercase
+name|isLowercase
 parameter_list|()
 block|{
 return|return
-name|isLowercase
+name|lowercase
 return|;
 block|}
 comment|/**      * Sets the isLowercase property which is a boolean to determinte      * whether header names should be converted to lowercase before      * checking it the filter Set.  It does not affect filtering using      * regular expression pattern.      */
-DECL|method|setIsLowercase (boolean value)
+DECL|method|setLowercase (boolean value)
 specifier|public
 name|void
-name|setIsLowercase
+name|setLowercase
 parameter_list|(
 name|boolean
 name|value
 parameter_list|)
 block|{
-name|isLowercase
+name|lowercase
 operator|=
 name|value
 expr_stmt|;
@@ -570,7 +568,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|isLowercase
+name|lowercase
 condition|)
 block|{
 if|if

@@ -119,6 +119,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|ExpressionAdapter
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -435,7 +449,7 @@ name|Expression
 name|catFightCats
 init|=
 operator|new
-name|Expression
+name|ExpressionAdapter
 argument_list|()
 block|{
 specifier|public

@@ -411,9 +411,6 @@ comment|// modified is a Date object
 name|Date
 name|modified
 init|=
-operator|(
-name|Date
-operator|)
 name|FileLanguage
 operator|.
 name|file
@@ -424,6 +421,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|Date
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals

@@ -54,7 +54,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Expression
+name|impl
+operator|.
+name|ExpressionAdapter
 import|;
 end_import
 
@@ -90,7 +92,7 @@ block|{
 name|super
 argument_list|(
 operator|new
-name|Expression
+name|ExpressionAdapter
 argument_list|()
 block|{
 specifier|public

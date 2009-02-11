@@ -154,6 +154,20 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|ExpressionAdapter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
 name|ScheduledPollEndpoint
 import|;
 end_import
@@ -786,7 +800,7 @@ argument_list|(
 name|getEntityManagerFactory
 argument_list|()
 argument_list|,
-literal|"entityManagerFactory property"
+literal|"entityManagerFactory"
 argument_list|)
 expr_stmt|;
 block|}
@@ -860,7 +874,6 @@ name|getTemplate
 argument_list|()
 argument_list|)
 return|;
-comment|// return new DefaultTransactionStrategy(emf);
 block|}
 DECL|method|createProducerExpression ()
 specifier|protected
@@ -896,7 +909,7 @@ else|else
 block|{
 return|return
 operator|new
-name|Expression
+name|ExpressionAdapter
 argument_list|()
 block|{
 specifier|public

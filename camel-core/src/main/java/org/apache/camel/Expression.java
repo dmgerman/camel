@@ -33,6 +33,24 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the value of the expression on the given exchange      *      * @param exchange the message exchange on which to evaluate the expression      * @param type the expected type of the evaluation result      * @return the value of the expression      */
+DECL|method|evaluate (Exchange exchange, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|evaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

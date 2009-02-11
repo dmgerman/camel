@@ -184,6 +184,13 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|}
+argument_list|)
 DECL|method|getBody (Class<T> type, Object body)
 specifier|protected
 parameter_list|<

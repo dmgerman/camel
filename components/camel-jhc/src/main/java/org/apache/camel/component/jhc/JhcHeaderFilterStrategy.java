@@ -87,7 +87,7 @@ operator|.
 name|HTTP_RESPONSE_CODE
 argument_list|)
 expr_stmt|;
-name|setIsLowercase
+name|setLowercase
 argument_list|(
 literal|true
 argument_list|)

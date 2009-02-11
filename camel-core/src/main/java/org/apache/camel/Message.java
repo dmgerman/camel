@@ -54,13 +54,13 @@ specifier|public
 interface|interface
 name|Message
 block|{
-comment|/**      * Returns the id of the message      *      * @return the id of the message      */
+comment|/**      * Returns the id of the message      */
 DECL|method|getMessageId ()
 name|String
 name|getMessageId
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the id of the message      *      * @param messageId      */
+comment|/**      * Sets the id of the message      *      * @param messageId id of the message      */
 DECL|method|setMessageId (String messageId)
 name|void
 name|setMessageId
@@ -114,7 +114,7 @@ name|Object
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Removes the named header from this message      *      * @param name      * @return the old value of the header      */
+comment|/**      * Removes the named header from this message      *      * @param name name of the header      * @return the old value of the header      */
 DECL|method|removeHeader (String name)
 name|Object
 name|removeHeader
@@ -134,7 +134,7 @@ argument_list|>
 name|getHeaders
 parameter_list|()
 function_decl|;
-comment|/**      * Set all the headers associated with this message      *      * @param headers      */
+comment|/**      * Set all the headers associated with this message      *      * @param headers headers to set      */
 DECL|method|setHeaders (Map<String, Object> headers)
 name|void
 name|setHeaders
@@ -148,7 +148,7 @@ argument_list|>
 name|headers
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the body of the message as a POJO      *      * @return the body of the message      */
+comment|/**      * Returns the body of the message as a POJO      */
 DECL|method|getBody ()
 name|Object
 name|getBody
@@ -169,7 +169,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the body of the message      */
+comment|/**      * Sets the body of the message      *      * @param body the body      */
 DECL|method|setBody (Object body)
 name|void
 name|setBody
@@ -178,7 +178,7 @@ name|Object
 name|body
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the body of the message as a specific type      */
+comment|/**      * Sets the body of the message as a specific type      *      * @param body the body      * @param type the type of the body      */
 DECL|method|setBody (Object body, Class<T> type)
 parameter_list|<
 name|T
@@ -202,7 +202,7 @@ name|Message
 name|copy
 parameter_list|()
 function_decl|;
-comment|/**      * Copies the contents of the other message into this message      */
+comment|/**      * Copies the contents of the other message into this message      *      * @param message the other message      */
 DECL|method|copyFrom (Message message)
 name|void
 name|copyFrom
@@ -261,7 +261,7 @@ argument_list|>
 name|getAttachments
 parameter_list|()
 function_decl|;
-comment|/**      * Set all the attachments associated with this message      *      * @param attachments      */
+comment|/**      * Set all the attachments associated with this message      *      * @param attachments attachements      */
 DECL|method|setAttachments (Map<String, DataHandler> attachments)
 name|void
 name|setAttachments

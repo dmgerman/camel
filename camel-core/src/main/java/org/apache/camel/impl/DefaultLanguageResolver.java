@@ -134,6 +134,11 @@ argument_list|(
 literal|"META-INF/services/org/apache/camel/language/resolver/"
 argument_list|)
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|resolveLanguage (String name, CamelContext context)
 specifier|public
 name|Language
@@ -248,6 +253,11 @@ name|context
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|noSpecificLanguageFound (String name, CamelContext context)
 specifier|protected
 name|Language

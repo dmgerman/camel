@@ -28,6 +28,18 @@ name|Endpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A proxy creation failed trying to create a proxy of a given type and on an given endpoint  *  * @version $Revision$  */
 end_comment
@@ -38,7 +50,7 @@ specifier|public
 class|class
 name|ProxyInstantiationException
 extends|extends
-name|RuntimeException
+name|RuntimeCamelException
 block|{
 DECL|field|type
 specifier|private

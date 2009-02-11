@@ -1634,6 +1634,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// create a dummy exchange as Exchange is needed for expression evaluation
 name|Exchange
 name|dummy
 init|=
