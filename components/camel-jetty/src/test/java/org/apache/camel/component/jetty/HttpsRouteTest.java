@@ -297,7 +297,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|setSystemProp (String key, String value)
-specifier|private
+specifier|protected
 name|void
 name|setSystemProp
 parameter_list|(
@@ -337,7 +337,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|restoreSystemProperties ()
-specifier|private
+specifier|protected
 name|void
 name|restoreSystemProperties
 parameter_list|()
