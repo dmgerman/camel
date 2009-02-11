@@ -118,6 +118,32 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|HeaderFilterStrategyAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultPollingEndpoint
@@ -193,7 +219,18 @@ class|class
 name|HttpEndpoint
 extends|extends
 name|DefaultPollingEndpoint
+implements|implements
+name|HeaderFilterStrategyAware
 block|{
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+init|=
+operator|new
+name|HttpHeaderFilterStrategy
+argument_list|()
+decl_stmt|;
 DECL|field|binding
 specifier|private
 name|HttpBinding
@@ -224,6 +261,11 @@ specifier|private
 name|HttpConnectionManager
 name|httpConnectionManager
 decl_stmt|;
+DECL|method|HttpEndpoint ()
+specifier|public
+name|HttpEndpoint
+parameter_list|()
+block|{     }
 DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, HttpConnectionManager httpConnectionManager)
 specifier|public
 name|HttpEndpoint
@@ -406,6 +448,24 @@ name|HttpClient
 name|createHttpClient
 parameter_list|()
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|clientParams
+argument_list|,
+literal|"clientParams"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|httpConnectionManager
+argument_list|,
+literal|"httpConnectionManager"
+argument_list|)
+expr_stmt|;
 name|HttpClient
 name|answer
 init|=
@@ -497,6 +557,16 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 comment|/**      * Provide access to the client parameters used on new {@link HttpClient} instances      * used by producers or consumers of this endpoint.      */
@@ -581,19 +651,6 @@ return|return
 name|binding
 return|;
 block|}
-DECL|method|getHeaderFilterStrategy ()
-specifier|public
-name|HeaderFilterStrategy
-name|getHeaderFilterStrategy
-parameter_list|()
-block|{
-return|return
-name|component
-operator|.
-name|getHeaderFilterStrategy
-argument_list|()
-return|;
-block|}
 DECL|method|setBinding (HttpBinding binding)
 specifier|public
 name|void
@@ -609,16 +666,6 @@ name|binding
 operator|=
 name|binding
 expr_stmt|;
-block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 DECL|method|getPath ()
 specifier|public
@@ -701,6 +748,74 @@ block|{
 return|return
 name|httpUri
 return|;
+block|}
+DECL|method|setHttpUri (URI httpUri)
+specifier|public
+name|void
+name|setHttpUri
+parameter_list|(
+name|URI
+name|httpUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpUri
+operator|=
+name|httpUri
+expr_stmt|;
+block|}
+DECL|method|getHttpConnectionManager ()
+specifier|public
+name|HttpConnectionManager
+name|getHttpConnectionManager
+parameter_list|()
+block|{
+return|return
+name|httpConnectionManager
+return|;
+block|}
+DECL|method|setHttpConnectionManager (HttpConnectionManager httpConnectionManager)
+specifier|public
+name|void
+name|setHttpConnectionManager
+parameter_list|(
+name|HttpConnectionManager
+name|httpConnectionManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpConnectionManager
+operator|=
+name|httpConnectionManager
+expr_stmt|;
+block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|headerFilterStrategy
+return|;
+block|}
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|headerFilterStrategy
+expr_stmt|;
 block|}
 block|}
 end_class

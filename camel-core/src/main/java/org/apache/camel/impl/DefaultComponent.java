@@ -528,7 +528,7 @@ name|isLenientProperties
 argument_list|()
 condition|)
 block|{
-name|validateUnknownParameters
+name|validateParameters
 argument_list|(
 name|uri
 argument_list|,
@@ -543,11 +543,11 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Strategy for validation of unknown parameters not able to be resolved to any endpoint options.      *      * @param uri          the uri - the uri the end user provided untouched      * @param parameters   the parameters, an empty map if no parameters given      * @param optionPrefix optional prefix to filter the parameters for validation. Use<tt>null</tt> for validate all.      * @throws ResolveEndpointFailedException should be thrown if the URI validation failed      */
-DECL|method|validateUnknownParameters (String uri, Map parameters, String optionPrefix)
+comment|/**      * Strategy for validation of parameters, that was not able to be resolved to any endpoint options.      *      * @param uri          the uri - the uri the end user provided untouched      * @param parameters   the parameters, an empty map if no parameters given      * @param optionPrefix optional prefix to filter the parameters for validation. Use<tt>null</tt> for validate all.      * @throws ResolveEndpointFailedException should be thrown if the URI validation failed      */
+DECL|method|validateParameters (String uri, Map parameters, String optionPrefix)
 specifier|protected
 name|void
-name|validateUnknownParameters
+name|validateParameters
 parameter_list|(
 name|String
 name|uri
