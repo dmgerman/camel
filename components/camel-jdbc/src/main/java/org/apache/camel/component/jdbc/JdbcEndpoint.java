@@ -112,6 +112,11 @@ specifier|private
 name|DataSource
 name|dataSource
 decl_stmt|;
+DECL|method|JdbcEndpoint ()
+specifier|public
+name|JdbcEndpoint
+parameter_list|()
+block|{     }
 DECL|method|JdbcEndpoint (String endpointUri, Component component, DataSource dataSource)
 specifier|public
 name|JdbcEndpoint
@@ -189,6 +194,16 @@ name|readSize
 argument_list|)
 return|;
 block|}
+DECL|method|getReadSize ()
+specifier|public
+name|int
+name|getReadSize
+parameter_list|()
+block|{
+return|return
+name|readSize
+return|;
+block|}
 DECL|method|setReadSize (int readSize)
 specifier|public
 name|void
@@ -204,6 +219,44 @@ name|readSize
 operator|=
 name|readSize
 expr_stmt|;
+block|}
+DECL|method|getDataSource ()
+specifier|public
+name|DataSource
+name|getDataSource
+parameter_list|()
+block|{
+return|return
+name|dataSource
+return|;
+block|}
+DECL|method|setDataSource (DataSource dataSource)
+specifier|public
+name|void
+name|setDataSource
+parameter_list|(
+name|DataSource
+name|dataSource
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataSource
+operator|=
+name|dataSource
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|createEndpointUri ()
+specifier|protected
+name|String
+name|createEndpointUri
+parameter_list|()
+block|{
+return|return
+literal|"jdbc"
+return|;
 block|}
 block|}
 end_class

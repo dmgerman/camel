@@ -152,6 +152,11 @@ name|JdbcRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|ds
+specifier|protected
+name|DataSource
+name|ds
+decl_stmt|;
 DECL|field|driverClass
 specifier|private
 name|String
@@ -179,11 +184,6 @@ name|String
 name|password
 init|=
 literal|""
-decl_stmt|;
-DECL|field|ds
-specifier|private
-name|DataSource
-name|ds
 decl_stmt|;
 DECL|method|testJdbcRoutes ()
 specifier|public
