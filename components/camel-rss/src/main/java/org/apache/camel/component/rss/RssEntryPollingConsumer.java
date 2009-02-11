@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -104,28 +94,12 @@ name|component
 operator|.
 name|feed
 operator|.
-name|FeedEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|feed
-operator|.
 name|FeedEntryPollingConsumer
 import|;
 end_import
 
 begin_comment
-comment|/**  * Consumer to poll RSS feeds and return each entry from the feed step by step.  *  */
+comment|/**  * Consumer to poll RSS feeds and return each entry from the feed step by step.  */
 end_comment
 
 begin_class

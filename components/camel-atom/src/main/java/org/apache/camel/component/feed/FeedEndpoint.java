@@ -153,6 +153,11 @@ specifier|private
 name|boolean
 name|sortEntries
 decl_stmt|;
+DECL|method|FeedEndpoint ()
+specifier|public
+name|FeedEndpoint
+parameter_list|()
+block|{     }
 DECL|method|FeedEndpoint (String endpointUri, FeedComponent component, String feedUri)
 specifier|public
 name|FeedEndpoint
@@ -180,15 +185,6 @@ name|feedUri
 operator|=
 name|feedUri
 expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|feedUri
-argument_list|,
-literal|"feedUri property"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|FeedEndpoint (String endpointUri, String feedUri)
 specifier|public
@@ -211,15 +207,6 @@ operator|.
 name|feedUri
 operator|=
 name|feedUri
-expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|feedUri
-argument_list|,
-literal|"feedUri property"
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|FeedEndpoint (String endpointUri)
@@ -273,6 +260,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|feedUri
+argument_list|,
+literal|"feedUri"
+argument_list|)
+expr_stmt|;
 name|FeedPollingConsumer
 name|answer
 decl_stmt|;
@@ -426,6 +422,20 @@ name|Object
 name|entry
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
+DECL|method|createEndpointUri ()
+specifier|protected
+name|String
+name|createEndpointUri
+parameter_list|()
+block|{
+return|return
+literal|"atom:"
+operator|+
+name|feedUri
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getFeedUri ()

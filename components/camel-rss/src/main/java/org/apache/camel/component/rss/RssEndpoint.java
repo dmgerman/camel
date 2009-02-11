@@ -50,35 +50,7 @@ name|feed
 operator|.
 name|synd
 operator|.
-name|SyndEntry
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|syndication
-operator|.
-name|feed
-operator|.
-name|synd
-operator|.
 name|SyndFeed
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Consumer
 import|;
 end_import
 
@@ -103,18 +75,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
 import|;
 end_import
 
@@ -163,36 +123,6 @@ operator|.
 name|feed
 operator|.
 name|FeedPollingConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|dataformat
-operator|.
-name|rss
-operator|.
-name|RssDataFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultPollingEndpoint
 import|;
 end_import
 
@@ -263,6 +193,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|method|RssEndpoint ()
+specifier|public
+name|RssEndpoint
+parameter_list|()
+block|{     }
 DECL|method|RssEndpoint (String endpointUri, FeedComponent component, String feedUri)
 specifier|public
 name|RssEndpoint
@@ -407,12 +342,7 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-operator|new
-name|Object
-index|[]
-block|{
 name|entry
-block|}
 argument_list|)
 argument_list|)
 expr_stmt|;

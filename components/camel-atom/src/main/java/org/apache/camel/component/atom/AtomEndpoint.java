@@ -38,33 +38,7 @@ name|abdera
 operator|.
 name|model
 operator|.
-name|Entry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|abdera
-operator|.
-name|model
-operator|.
 name|Feed
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Consumer
 import|;
 end_import
 
@@ -89,18 +63,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
 import|;
 end_import
 
@@ -152,34 +114,6 @@ name|FeedPollingConsumer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultPollingEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * An<a href="http://camel.apache.org/atom.html">Atom Endpoint</a>.  *  * @version $Revision$  */
 end_comment
@@ -202,6 +136,11 @@ name|HEADER_ATOM_FEED
 init|=
 literal|"org.apache.camel.component.atom.feed"
 decl_stmt|;
+DECL|method|AtomEndpoint ()
+specifier|public
+name|AtomEndpoint
+parameter_list|()
+block|{     }
 DECL|method|AtomEndpoint (String endpointUri, FeedComponent component, String feedUri)
 specifier|public
 name|AtomEndpoint

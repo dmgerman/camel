@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|feed
@@ -72,22 +60,8 @@ name|FeedEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultComponent
-import|;
-end_import
-
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/rss.html">RSS Component</a>.  *<p/>  * Camel uses<a href="https://rome.dev.java.net/">ROME</a> as the RSS implementation.    *  */
+comment|/**  * An<a href="http://camel.apache.org/rss.html">RSS Component</a>.  *<p/>  * Camel uses<a href="https://rome.dev.java.net/">ROME</a> as the RSS implementation.    */
 end_comment
 
 begin_class

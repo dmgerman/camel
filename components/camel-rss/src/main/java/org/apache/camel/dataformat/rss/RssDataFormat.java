@@ -40,32 +40,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|syndication
-operator|.
-name|feed
-operator|.
-name|synd
-operator|.
-name|SyndEntry
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|sun
@@ -244,7 +218,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Couldn't marshal RSS feed to XML."
+literal|"Cannot marshal RSS feed to XML."
 argument_list|)
 expr_stmt|;
 block|}
