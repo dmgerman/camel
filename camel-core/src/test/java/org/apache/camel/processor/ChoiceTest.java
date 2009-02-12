@@ -103,6 +103,11 @@ specifier|protected
 name|MockEndpoint
 name|z
 decl_stmt|;
+DECL|field|end
+specifier|protected
+name|MockEndpoint
+name|end
+decl_stmt|;
 DECL|method|testSendToFirstWhen ()
 specifier|public
 name|void
@@ -117,6 +122,13 @@ init|=
 literal|"<one/>"
 decl_stmt|;
 name|x
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+name|body
+argument_list|)
+expr_stmt|;
+name|end
 operator|.
 name|expectedBodiesReceived
 argument_list|(
@@ -165,6 +177,13 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
+name|end
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+name|body
+argument_list|)
+expr_stmt|;
 name|expectsMessageCount
 argument_list|(
 literal|0
@@ -199,6 +218,13 @@ init|=
 literal|"<three/>"
 decl_stmt|;
 name|z
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+name|body
+argument_list|)
+expr_stmt|;
+name|end
 operator|.
 name|expectedBodiesReceived
 argument_list|(
@@ -291,6 +317,13 @@ argument_list|(
 literal|"mock:z"
 argument_list|)
 expr_stmt|;
+name|end
+operator|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:end"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -348,6 +381,14 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:z"
+argument_list|)
+operator|.
+name|end
+argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"mock:end"
 argument_list|)
 expr_stmt|;
 block|}
