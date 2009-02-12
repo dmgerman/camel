@@ -651,6 +651,26 @@ name|headerFilterStrategy
 operator|=
 name|headerFilterStrategy
 expr_stmt|;
+if|if
+condition|(
+name|restletBinding
+operator|instanceof
+name|HeaderFilterStrategyAware
+condition|)
+block|{
+operator|(
+operator|(
+name|HeaderFilterStrategyAware
+operator|)
+name|restletBinding
+operator|)
+operator|.
+name|setHeaderFilterStrategy
+argument_list|(
+name|headerFilterStrategy
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
