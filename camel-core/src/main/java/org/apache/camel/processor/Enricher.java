@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
+name|Producer
 import|;
 end_import
 
@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A content enricher that enriches input data by first obtaining additional  * data from a<i>resource</i> identified by an<code>resourceUri</code> and  * second by aggregating input data and additional data. Aggregation of input  * data and additional data is delegated to an {@link AggregationStrategy}  * object.  */
+comment|/**  * A content enricher that enriches input data by first obtaining additional  * data from a<i>resource</i> represented by an endpoint<code>producer</code>  * and second by aggregating input data and additional data. Aggregation of  * input data and additional data is delegated to an {@link AggregationStrategy}  * object.  */
 end_comment
 
 begin_class
@@ -138,28 +138,23 @@ name|ServiceSupport
 implements|implements
 name|Processor
 block|{
-DECL|field|producer
-specifier|private
-name|ProducerTemplate
-name|producer
-decl_stmt|;
-DECL|field|resourceUri
-specifier|private
-name|String
-name|resourceUri
-decl_stmt|;
 DECL|field|aggregationStrategy
 specifier|private
 name|AggregationStrategy
 name|aggregationStrategy
 decl_stmt|;
-comment|/**      * Creates a new {@link Enricher}. The default aggregation strategy is to      * copy the additional data obtained from the enricher's resource over the      * input data. When using the copy aggregation strategy the enricher      * degenerates to a normal transformer.      *      * @param resourceUri URI of resource endpoint for obtaining additional data.      */
-DECL|method|Enricher (String resourceUri)
+DECL|field|producer
+specifier|private
+name|Producer
+name|producer
+decl_stmt|;
+comment|/**      * Creates a new {@link Enricher}. The default aggregation strategy is to      * copy the additional data obtained from the enricher's resource over the      * input data. When using the copy aggregation strategy the enricher      * degenerates to a normal transformer.      *       * @param producer      *            producer to resource endpoint.      */
+DECL|method|Enricher (Producer producer)
 specifier|public
 name|Enricher
 parameter_list|(
-name|String
-name|resourceUri
+name|Producer
+name|producer
 parameter_list|)
 block|{
 name|this
@@ -167,20 +162,20 @@ argument_list|(
 name|defaultAggregationStrategy
 argument_list|()
 argument_list|,
-name|resourceUri
+name|producer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link Enricher}.      *      * @param aggregationStrategy aggregation strategy to aggregate input data and additional data.      * @param resourceUri         URI of resource endpoint for obtaining additional data.      */
-DECL|method|Enricher (AggregationStrategy aggregationStrategy, String resourceUri)
+comment|/**      * Creates a new {@link Enricher}.      *       * @param aggregationStrategy      *            aggregation strategy to aggregate input data and additional      *            data.      * @param producer      *            producer to resource endpoint.      */
+DECL|method|Enricher (AggregationStrategy aggregationStrategy, Producer producer)
 specifier|public
 name|Enricher
 parameter_list|(
 name|AggregationStrategy
 name|aggregationStrategy
 parameter_list|,
-name|String
-name|resourceUri
+name|Producer
+name|producer
 parameter_list|)
 block|{
 name|this
@@ -191,9 +186,9 @@ name|aggregationStrategy
 expr_stmt|;
 name|this
 operator|.
-name|resourceUri
+name|producer
 operator|=
-name|resourceUri
+name|producer
 expr_stmt|;
 block|}
 comment|/**      * Sets the aggregation strategy for this enricher.      *      * @param aggregationStrategy the aggregationStrategy to set      */
@@ -228,7 +223,7 @@ name|defaultAggregationStrategy
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Enriches the input data (<code>exchange</code>) by first obtaining      * additional data from an endpoint identified by an      *<code>resourceUri</code> and second by aggregating input data and      * additional data. Aggregation of input data and additional data is      * delegated to an {@link AggregationStrategy} object set at construction      * time. If the message exchange with the resource endpoint fails then no      * aggregation will be done and the failed exchange content is copied over      * to the original message exchange.      *      * @param exchange input data.      */
+comment|/**      * Enriches the input data (<code>exchange</code>) by first obtaining      * additional data from an endpoint represented by an endpoint      *<code>producer</code> and second by aggregating input data and additional      * data. Aggregation of input data and additional data is delegated to an      * {@link AggregationStrategy} object set at construction time. If the      * message exchange with the resource endpoint fails then no aggregation      * will be done and the failed exchange content is copied over to the      * original message exchange.      *       * @param exchange      *            input data.      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -240,7 +235,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// create in-out exchange to obtain additional data from resource
 name|Exchange
 name|resourceExchange
 init|=
@@ -253,18 +247,10 @@ operator|.
 name|InOut
 argument_list|)
 decl_stmt|;
-comment|// send created exchange to resource endpoint
-name|resourceExchange
-operator|=
-name|getProducerTemplate
-argument_list|(
-name|exchange
-argument_list|)
+name|producer
 operator|.
-name|send
+name|process
 argument_list|(
-name|resourceUri
-argument_list|,
 name|resourceExchange
 argument_list|)
 expr_stmt|;
@@ -407,45 +393,6 @@ name|CopyAggregationStrategy
 argument_list|()
 return|;
 block|}
-DECL|method|getProducerTemplate (Exchange exchange)
-specifier|private
-specifier|synchronized
-name|ProducerTemplate
-name|getProducerTemplate
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|producer
-operator|==
-literal|null
-condition|)
-block|{
-name|producer
-operator|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|createProducerTemplate
-argument_list|()
-expr_stmt|;
-name|producer
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|producer
-return|;
-block|}
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -453,7 +400,13 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+name|producer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -462,23 +415,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|producer
-operator|!=
-literal|null
-condition|)
-block|{
 name|producer
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|producer
-operator|=
-literal|null
-expr_stmt|;
-block|}
 block|}
 DECL|class|CopyAggregationStrategy
 specifier|private
