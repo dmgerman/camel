@@ -497,6 +497,8 @@ class|class
 name|CxfEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|HeaderFilterStrategyAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -1537,6 +1539,13 @@ operator|.
 name|cxfBinding
 operator|=
 name|cxfBinding
+expr_stmt|;
+name|cxfBindingInitialized
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getCxfBinding ()

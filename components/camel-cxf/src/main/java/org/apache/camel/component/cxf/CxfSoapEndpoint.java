@@ -142,6 +142,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|HeaderFilterStrategyAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|PollingConsumer
 import|;
 end_import
@@ -259,6 +271,8 @@ class|class
 name|CxfSoapEndpoint
 implements|implements
 name|Endpoint
+implements|,
+name|HeaderFilterStrategyAware
 block|{
 DECL|field|endpoint
 specifier|private
@@ -311,6 +325,10 @@ DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
+init|=
+operator|new
+name|CxfHeaderFilterStrategy
+argument_list|()
 decl_stmt|;
 DECL|method|CxfSoapEndpoint (Endpoint endpoint)
 specifier|public
@@ -321,37 +339,10 @@ name|endpoint
 parameter_list|)
 block|{
 name|this
-argument_list|(
-name|endpoint
-argument_list|,
-operator|new
-name|CxfHeaderFilterStrategy
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|CxfSoapEndpoint (Endpoint endpoint, HeaderFilterStrategy headerFilterStrategy)
-specifier|public
-name|CxfSoapEndpoint
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|,
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-parameter_list|)
-block|{
-name|this
 operator|.
 name|endpoint
 operator|=
 name|endpoint
-expr_stmt|;
-name|this
-operator|.
-name|headerFilterStrategy
-operator|=
-name|headerFilterStrategy
 expr_stmt|;
 block|}
 DECL|method|getInnerEndpoint ()
@@ -789,6 +780,20 @@ block|{
 return|return
 name|headerFilterStrategy
 return|;
+block|}
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|strategy
+parameter_list|)
+block|{
+name|headerFilterStrategy
+operator|=
+name|strategy
+expr_stmt|;
 block|}
 DECL|method|isLenientProperties ()
 specifier|public

@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|HeaderFilterStrategyAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -117,6 +129,8 @@ class|class
 name|JhcEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|HeaderFilterStrategyAware
 block|{
 DECL|field|params
 specifier|private
@@ -132,6 +146,10 @@ DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
+init|=
+operator|new
+name|JhcHeaderFilterStrategy
+argument_list|()
 decl_stmt|;
 DECL|method|JhcEndpoint (String endpointUri, JhcComponent component, URI httpUri)
 specifier|public

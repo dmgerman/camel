@@ -169,6 +169,8 @@ class|class
 name|RestletEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|HeaderFilterStrategyAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -625,6 +627,13 @@ operator|.
 name|restletBinding
 operator|=
 name|restletBinding
+expr_stmt|;
+name|bindingInitialized
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
