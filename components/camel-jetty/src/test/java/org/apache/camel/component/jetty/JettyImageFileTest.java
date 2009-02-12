@@ -250,6 +250,9 @@ argument_list|(
 literal|"jetty:http://localhost:9080/myapp/myservice"
 argument_list|)
 operator|.
+name|streamCaching
+argument_list|()
+operator|.
 name|process
 argument_list|(
 operator|new

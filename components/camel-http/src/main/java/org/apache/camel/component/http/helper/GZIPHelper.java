@@ -292,7 +292,7 @@ name|HttpServletRequest
 name|request
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|InputStream
 name|dataStream
