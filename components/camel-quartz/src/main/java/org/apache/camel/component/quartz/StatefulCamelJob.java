@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author martin.gilday  *   */
+comment|/**  * Stateful job  */
 end_comment
 
 begin_class
@@ -92,7 +92,6 @@ name|StatefulCamelJob
 implements|implements
 name|StatefulJob
 block|{
-comment|/*      * (non-Javadoc)      *       * @see org.quartz.Job#execute(org.quartz.JobExecutionContext)      */
 DECL|method|execute (final JobExecutionContext context)
 specifier|public
 name|void

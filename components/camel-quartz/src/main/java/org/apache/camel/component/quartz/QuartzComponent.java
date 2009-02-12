@@ -466,7 +466,6 @@ name|getHost
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*          * String[] names = ObjectHelper.splitOnCharacter(remaining, "/", 2); if          * (names[1] != null) { group = names[0]; name = names[1]; } else { name =          * names[0]; }          */
 name|Trigger
 name|trigger
 init|=

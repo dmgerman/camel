@@ -68,18 +68,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -107,20 +95,6 @@ operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
 import|;
 end_import
 
@@ -345,6 +319,11 @@ specifier|private
 name|boolean
 name|stateful
 decl_stmt|;
+DECL|method|QuartzEndpoint ()
+specifier|public
+name|QuartzEndpoint
+parameter_list|()
+block|{     }
 DECL|method|QuartzEndpoint (final String endpointUri, final QuartzComponent component, final Scheduler scheduler)
 specifier|public
 name|QuartzEndpoint
@@ -603,12 +582,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-literal|null
-operator|==
 name|detail
 operator|.
 name|getJobClass
 argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 name|detail
@@ -836,6 +815,32 @@ name|processor
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|createEndpointUri ()
+specifier|protected
+name|String
+name|createEndpointUri
+parameter_list|()
+block|{
+return|return
+literal|"quartz://"
+operator|+
+name|getTrigger
+argument_list|()
+operator|.
+name|getGroup
+argument_list|()
+operator|+
+literal|"/"
+operator|+
+name|getTrigger
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 annotation|@
@@ -996,7 +1001,6 @@ operator|=
 name|trigger
 expr_stmt|;
 block|}
-comment|/**      * @return the stateful mode      */
 DECL|method|isStateful ()
 specifier|public
 name|boolean
@@ -1009,7 +1013,6 @@ operator|.
 name|stateful
 return|;
 block|}
-comment|/**      * @param stateful      *            sets the stateful mode      */
 DECL|method|setStateful (final boolean stateful)
 specifier|public
 name|void
@@ -1025,6 +1028,22 @@ operator|.
 name|stateful
 operator|=
 name|stateful
+expr_stmt|;
+block|}
+DECL|method|setScheduler (Scheduler scheduler)
+specifier|public
+name|void
+name|setScheduler
+parameter_list|(
+name|Scheduler
+name|scheduler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scheduler
+operator|=
+name|scheduler
 expr_stmt|;
 block|}
 comment|// Implementation methods

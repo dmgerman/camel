@@ -111,10 +111,10 @@ specifier|protected
 name|MockEndpoint
 name|resultEndpoint
 decl_stmt|;
-DECL|method|testSendAndReceiveMails ()
+DECL|method|testQuartzRoute ()
 specifier|public
 name|void
-name|testSendAndReceiveMails
+name|testQuartzRoute
 parameter_list|()
 throws|throws
 name|Exception

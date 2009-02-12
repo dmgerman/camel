@@ -108,8 +108,6 @@ operator|+
 name|QuartzEndpoint
 operator|.
 name|ENDPOINT_KEY
-operator|+
-literal|". Bad job data map"
 argument_list|)
 throw|;
 block|}
