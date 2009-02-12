@@ -290,6 +290,11 @@ name|flushOnSend
 init|=
 literal|true
 decl_stmt|;
+DECL|method|JpaEndpoint ()
+specifier|public
+name|JpaEndpoint
+parameter_list|()
+block|{     }
 DECL|method|JpaEndpoint (String uri, JpaComponent component)
 specifier|public
 name|JpaEndpoint
@@ -461,6 +466,31 @@ parameter_list|()
 block|{
 return|return
 literal|false
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createEndpointUri ()
+specifier|protected
+name|String
+name|createEndpointUri
+parameter_list|()
+block|{
+return|return
+literal|"jpa"
+operator|+
+name|entityType
+operator|!=
+literal|null
+condition|?
+literal|"://"
+operator|+
+name|entityType
+operator|.
+name|getName
+argument_list|()
+else|:
+literal|""
 return|;
 block|}
 comment|// Properties
@@ -923,6 +953,12 @@ block|{
 name|Object
 name|answer
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|answer
+operator|=
 name|exchange
 operator|.
 name|getIn
@@ -932,7 +968,16 @@ name|getBody
 argument_list|(
 name|type
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoTypeConversionAvailableException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 if|if
 condition|(
 name|answer

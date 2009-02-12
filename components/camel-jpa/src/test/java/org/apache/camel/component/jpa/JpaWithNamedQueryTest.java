@@ -649,8 +649,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// lets now test that the database is updated
-comment|// TODO we need to sleep as we will be invoked from inside the
-comment|// transaction!
+comment|// we need to sleep as we will be invoked from inside the transaction!
 name|Thread
 operator|.
 name|sleep
