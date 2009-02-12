@@ -198,7 +198,6 @@ argument_list|)
 decl_stmt|;
 DECL|field|resourceUri
 specifier|private
-specifier|final
 name|String
 name|resourceUri
 decl_stmt|;
@@ -227,6 +226,11 @@ name|byte
 index|[]
 name|buffer
 decl_stmt|;
+DECL|method|ResourceBasedEndpoint ()
+specifier|protected
+name|ResourceBasedEndpoint
+parameter_list|()
+block|{     }
 DECL|method|ResourceBasedEndpoint (String endpointUri, Component component, String resourceUri, Processor processor)
 specifier|public
 name|ResourceBasedEndpoint
@@ -361,33 +365,6 @@ return|return
 name|resource
 return|;
 block|}
-DECL|method|isContentCache ()
-specifier|public
-name|boolean
-name|isContentCache
-parameter_list|()
-block|{
-return|return
-name|contentCache
-return|;
-block|}
-comment|/**      * Sets wether to use resource content cache or not - default is<tt>false</tt>.      *      * @see #getResourceAsInputStream()      */
-DECL|method|setContentCache (boolean contentCache)
-specifier|public
-name|void
-name|setContentCache
-parameter_list|(
-name|boolean
-name|contentCache
-parameter_list|)
-block|{
-name|this
-operator|.
-name|contentCache
-operator|=
-name|contentCache
-expr_stmt|;
-block|}
 comment|/**      * Gets the resource as an input stream considering the cache flag as well.      *<p/>      * If cache is enabled then the resource content is cached in an internal buffer and this content is      * returned to avoid loading the resource over and over again.      *      * @return  the input stream      * @throws IOException is thrown if error loading the content of the resource to the local cache buffer      */
 DECL|method|getResourceAsInputStream ()
 specifier|public
@@ -497,6 +474,33 @@ name|getInputStream
 argument_list|()
 return|;
 block|}
+DECL|method|isContentCache ()
+specifier|public
+name|boolean
+name|isContentCache
+parameter_list|()
+block|{
+return|return
+name|contentCache
+return|;
+block|}
+comment|/**      * Sets wether to use resource content cache or not - default is<tt>false</tt>.      *      * @see #getResourceAsInputStream()      */
+DECL|method|setContentCache (boolean contentCache)
+specifier|public
+name|void
+name|setContentCache
+parameter_list|(
+name|boolean
+name|contentCache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contentCache
+operator|=
+name|contentCache
+expr_stmt|;
+block|}
 DECL|method|getResourceLoader ()
 specifier|public
 name|ResourceLoader
@@ -532,6 +536,22 @@ block|{
 return|return
 name|resourceUri
 return|;
+block|}
+DECL|method|setResourceUri (String resourceUri)
+specifier|public
+name|void
+name|setResourceUri
+parameter_list|(
+name|String
+name|resourceUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resourceUri
+operator|=
+name|resourceUri
+expr_stmt|;
 block|}
 block|}
 end_class

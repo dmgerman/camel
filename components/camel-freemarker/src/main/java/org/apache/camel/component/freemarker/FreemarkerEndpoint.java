@@ -170,7 +170,12 @@ specifier|private
 name|Configuration
 name|configuration
 decl_stmt|;
-DECL|method|FreemarkerEndpoint (String uri, Component component, String resourceUri, Map parameters)
+DECL|method|FreemarkerEndpoint ()
+specifier|public
+name|FreemarkerEndpoint
+parameter_list|()
+block|{     }
+DECL|method|FreemarkerEndpoint (String uri, Component component, String resourceUri)
 specifier|public
 name|FreemarkerEndpoint
 parameter_list|(
@@ -182,9 +187,6 @@ name|component
 parameter_list|,
 name|String
 name|resourceUri
-parameter_list|,
-name|Map
-name|parameters
 parameter_list|)
 block|{
 name|super
@@ -223,6 +225,21 @@ return|return
 name|ExchangePattern
 operator|.
 name|InOut
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createEndpointUri ()
+specifier|protected
+name|String
+name|createEndpointUri
+parameter_list|()
+block|{
+return|return
+literal|"freemarker:"
+operator|+
+name|getResourceUri
+argument_list|()
 return|;
 block|}
 comment|/**      * Sets the encoding to be used for loading the template file.      */

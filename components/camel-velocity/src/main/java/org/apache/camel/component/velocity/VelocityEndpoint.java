@@ -232,12 +232,6 @@ name|VelocityEndpoint
 extends|extends
 name|ResourceBasedEndpoint
 block|{
-DECL|field|component
-specifier|private
-specifier|final
-name|VelocityComponent
-name|component
-decl_stmt|;
 DECL|field|velocityEngine
 specifier|private
 name|VelocityEngine
@@ -255,7 +249,12 @@ specifier|private
 name|String
 name|encoding
 decl_stmt|;
-DECL|method|VelocityEndpoint (String uri, VelocityComponent component, String resourceUri, Map parameters)
+DECL|method|VelocityEndpoint ()
+specifier|public
+name|VelocityEndpoint
+parameter_list|()
+block|{     }
+DECL|method|VelocityEndpoint (String uri, VelocityComponent component, String resourceUri)
 specifier|public
 name|VelocityEndpoint
 parameter_list|(
@@ -267,9 +266,6 @@ name|component
 parameter_list|,
 name|String
 name|resourceUri
-parameter_list|,
-name|Map
-name|parameters
 parameter_list|)
 block|{
 name|super
@@ -282,12 +278,6 @@ name|resourceUri
 argument_list|,
 literal|null
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|component
-operator|=
-name|component
 expr_stmt|;
 block|}
 annotation|@
@@ -316,8 +306,24 @@ operator|.
 name|InOut
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|createEndpointUri ()
+specifier|protected
+name|String
+name|createEndpointUri
+parameter_list|()
+block|{
+return|return
+literal|"velocity:"
+operator|+
+name|getResourceUri
+argument_list|()
+return|;
+block|}
 DECL|method|getVelocityEngine ()
 specifier|private
+specifier|synchronized
 name|VelocityEngine
 name|getVelocityEngine
 parameter_list|()
@@ -333,9 +339,8 @@ condition|)
 block|{
 name|velocityEngine
 operator|=
-name|component
-operator|.
-name|getVelocityEngine
+operator|new
+name|VelocityEngine
 argument_list|()
 expr_stmt|;
 name|velocityEngine
