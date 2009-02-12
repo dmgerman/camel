@@ -22,16 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Map
@@ -85,34 +75,6 @@ operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|URISupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|UnsafeUriCharactersEncoder
 import|;
 end_import
 
@@ -217,7 +179,7 @@ name|String
 argument_list|>
 name|realm
 decl_stmt|;
-DECL|method|RestletEndpoint (RestletComponent component, String remaining, Map<String, String> parameters, RestletBinding restletBinding)
+DECL|method|RestletEndpoint (RestletComponent component, String remaining, RestletBinding restletBinding)
 specifier|public
 name|RestletEndpoint
 parameter_list|(
@@ -226,14 +188,6 @@ name|component
 parameter_list|,
 name|String
 name|remaining
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|parameters
 parameter_list|,
 name|RestletBinding
 name|restletBinding
@@ -254,83 +208,6 @@ name|restletBinding
 operator|=
 name|restletBinding
 expr_stmt|;
-name|URI
-name|u
-init|=
-operator|new
-name|URI
-argument_list|(
-name|UnsafeUriCharactersEncoder
-operator|.
-name|encode
-argument_list|(
-name|remaining
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|protocol
-operator|=
-name|u
-operator|.
-name|getScheme
-argument_list|()
-expr_stmt|;
-name|uriPattern
-operator|=
-name|u
-operator|.
-name|getPath
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|parameters
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
-name|uriPattern
-operator|=
-name|uriPattern
-operator|+
-literal|"?"
-operator|+
-name|URISupport
-operator|.
-name|createQueryString
-argument_list|(
-name|parameters
-argument_list|)
-expr_stmt|;
-block|}
-name|host
-operator|=
-name|u
-operator|.
-name|getHost
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|u
-operator|.
-name|getPort
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
-name|port
-operator|=
-name|u
-operator|.
-name|getPort
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|isSingleton ()
 specifier|public
@@ -392,7 +269,6 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * @param restletConsumer      */
 DECL|method|connect (RestletConsumer restletConsumer)
 specifier|public
 name|void
@@ -418,7 +294,6 @@ name|restletConsumer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param restletConsumer      */
 DECL|method|disconnect (RestletConsumer restletConsumer)
 specifier|public
 name|void
@@ -444,62 +319,16 @@ name|restletConsumer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @return the protocol      */
-DECL|method|getProtocol ()
+DECL|method|getRestletMethod ()
 specifier|public
-name|String
-name|getProtocol
+name|Method
+name|getRestletMethod
 parameter_list|()
 block|{
 return|return
-name|protocol
+name|restletMethod
 return|;
 block|}
-comment|/**      * @return the host      */
-DECL|method|getHost ()
-specifier|public
-name|String
-name|getHost
-parameter_list|()
-block|{
-return|return
-name|host
-return|;
-block|}
-comment|/**      * @return the port      */
-DECL|method|getPort ()
-specifier|public
-name|int
-name|getPort
-parameter_list|()
-block|{
-return|return
-name|port
-return|;
-block|}
-comment|/**      * @return the uriPattern      */
-DECL|method|getUriPattern ()
-specifier|public
-name|String
-name|getUriPattern
-parameter_list|()
-block|{
-return|return
-name|uriPattern
-return|;
-block|}
-comment|/**      * @return the restletBinding      */
-DECL|method|getRestletBinding ()
-specifier|public
-name|RestletBinding
-name|getRestletBinding
-parameter_list|()
-block|{
-return|return
-name|restletBinding
-return|;
-block|}
-comment|/**      * @param restletMethod the restletMethod to set      */
 DECL|method|setRestletMethod (Method restletMethod)
 specifier|public
 name|void
@@ -516,18 +345,151 @@ operator|=
 name|restletMethod
 expr_stmt|;
 block|}
-comment|/**      * @return the restletMethod      */
-DECL|method|getRestletMethod ()
+DECL|method|getProtocol ()
 specifier|public
-name|Method
-name|getRestletMethod
+name|String
+name|getProtocol
 parameter_list|()
 block|{
 return|return
-name|restletMethod
+name|protocol
 return|;
 block|}
-comment|/**      * @param realm      */
+DECL|method|setProtocol (String protocol)
+specifier|public
+name|void
+name|setProtocol
+parameter_list|(
+name|String
+name|protocol
+parameter_list|)
+block|{
+name|this
+operator|.
+name|protocol
+operator|=
+name|protocol
+expr_stmt|;
+block|}
+DECL|method|getHost ()
+specifier|public
+name|String
+name|getHost
+parameter_list|()
+block|{
+return|return
+name|host
+return|;
+block|}
+DECL|method|setHost (String host)
+specifier|public
+name|void
+name|setHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+name|this
+operator|.
+name|host
+operator|=
+name|host
+expr_stmt|;
+block|}
+DECL|method|getPort ()
+specifier|public
+name|int
+name|getPort
+parameter_list|()
+block|{
+return|return
+name|port
+return|;
+block|}
+DECL|method|setPort (int port)
+specifier|public
+name|void
+name|setPort
+parameter_list|(
+name|int
+name|port
+parameter_list|)
+block|{
+name|this
+operator|.
+name|port
+operator|=
+name|port
+expr_stmt|;
+block|}
+DECL|method|getUriPattern ()
+specifier|public
+name|String
+name|getUriPattern
+parameter_list|()
+block|{
+return|return
+name|uriPattern
+return|;
+block|}
+DECL|method|setUriPattern (String uriPattern)
+specifier|public
+name|void
+name|setUriPattern
+parameter_list|(
+name|String
+name|uriPattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uriPattern
+operator|=
+name|uriPattern
+expr_stmt|;
+block|}
+DECL|method|getRestletBinding ()
+specifier|public
+name|RestletBinding
+name|getRestletBinding
+parameter_list|()
+block|{
+return|return
+name|restletBinding
+return|;
+block|}
+DECL|method|setRestletBinding (RestletBinding restletBinding)
+specifier|public
+name|void
+name|setRestletBinding
+parameter_list|(
+name|RestletBinding
+name|restletBinding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|restletBinding
+operator|=
+name|restletBinding
+expr_stmt|;
+block|}
+DECL|method|getRealm ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getRealm
+parameter_list|()
+block|{
+return|return
+name|realm
+return|;
+block|}
 DECL|method|setRealm (Map<String, String> realm)
 specifier|public
 name|void
@@ -548,22 +510,6 @@ name|realm
 operator|=
 name|realm
 expr_stmt|;
-block|}
-comment|/**      * @return the realm      */
-DECL|method|getRealm ()
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|getRealm
-parameter_list|()
-block|{
-return|return
-name|realm
-return|;
 block|}
 block|}
 end_class
