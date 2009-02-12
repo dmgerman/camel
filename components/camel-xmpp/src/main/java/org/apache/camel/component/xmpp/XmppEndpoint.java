@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Consumer
 import|;
 end_import
@@ -73,6 +61,18 @@ operator|.
 name|camel
 operator|.
 name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|HeaderFilterStrategyAware
 import|;
 end_import
 
@@ -111,6 +111,34 @@ operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultHeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategy
 import|;
 end_import
 
@@ -229,6 +257,8 @@ class|class
 name|XmppEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|HeaderFilterStrategyAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -246,6 +276,15 @@ name|XmppEndpoint
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+init|=
+operator|new
+name|DefaultHeaderFilterStrategy
+argument_list|()
 decl_stmt|;
 DECL|field|binding
 specifier|private
@@ -316,6 +355,11 @@ specifier|private
 name|String
 name|serviceName
 decl_stmt|;
+DECL|method|XmppEndpoint ()
+specifier|public
+name|XmppEndpoint
+parameter_list|()
+block|{     }
 DECL|method|XmppEndpoint (String uri, XmppComponent component)
 specifier|public
 name|XmppEndpoint
@@ -332,17 +376,6 @@ argument_list|(
 name|uri
 argument_list|,
 name|component
-argument_list|)
-expr_stmt|;
-name|binding
-operator|=
-operator|new
-name|XmppBinding
-argument_list|(
-name|component
-operator|.
-name|getHeaderFilterStrategy
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -514,6 +547,42 @@ name|message
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|createEndpointUri ()
+specifier|protected
+name|String
+name|createEndpointUri
+parameter_list|()
+block|{
+return|return
+literal|"xmpp://"
+operator|+
+name|host
+operator|+
+literal|":"
+operator|+
+name|port
+operator|+
+literal|"/"
+operator|+
+name|participant
+operator|+
+literal|"?serviceName="
+operator|+
+name|serviceName
+return|;
+block|}
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getBinding ()
@@ -533,7 +602,9 @@ name|binding
 operator|=
 operator|new
 name|XmppBinding
-argument_list|()
+argument_list|(
+name|headerFilterStrategy
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -891,6 +962,32 @@ operator|=
 name|connection
 expr_stmt|;
 block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|headerFilterStrategy
+return|;
+block|}
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|headerFilterStrategy
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|createConnection ()
@@ -1106,8 +1203,6 @@ name|resolveRoom
 parameter_list|()
 throws|throws
 name|XMPPException
-throws|,
-name|CamelException
 block|{
 if|if
 condition|(
@@ -1176,7 +1271,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|XMPPException
 argument_list|(
 literal|"Cannot find Multi User Chat service"
 argument_list|)
@@ -1190,14 +1285,6 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
@@ -1207,23 +1294,12 @@ operator|+
 name|chatServer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|room
 operator|+
 literal|"@"
 operator|+
 name|chatServer
-return|;
-block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
 return|;
 block|}
 block|}
