@@ -112,30 +112,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -149,18 +125,6 @@ operator|.
 name|camel
 operator|.
 name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
 import|;
 end_import
 
@@ -186,9 +150,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|DefaultExchange
+name|ObjectHelper
 import|;
 end_import
 
@@ -232,6 +196,11 @@ specifier|private
 name|String
 name|method
 decl_stmt|;
+DECL|method|RmiEndpoint ()
+specifier|public
+name|RmiEndpoint
+parameter_list|()
+block|{     }
 DECL|method|RmiEndpoint (String endpointUri, RmiComponent component)
 specifier|protected
 name|RmiEndpoint
@@ -299,6 +268,21 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|createEndpointUri ()
+specifier|protected
+name|String
+name|createEndpointUri
+parameter_list|()
+block|{
+return|return
+name|uri
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -307,9 +291,16 @@ parameter_list|(
 name|Processor
 name|processor
 parameter_list|)
-throws|throws
-name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|uri
+argument_list|,
+literal|"uri"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|remoteInterfaces
@@ -326,7 +317,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|IllegalArgumentException
 argument_list|(
 literal|"To create a RMI consumer, the RMI endpoint's remoteInterfaces property must be be configured."
 argument_list|)
@@ -350,6 +341,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|uri
+argument_list|,
+literal|"uri"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|RmiProducer
@@ -637,6 +637,32 @@ operator|.
 name|method
 operator|=
 name|method
+expr_stmt|;
+block|}
+DECL|method|getUri ()
+specifier|public
+name|URI
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
+block|}
+DECL|method|setUri (URI uri)
+specifier|public
+name|void
+name|setUri
+parameter_list|(
+name|URI
+name|uri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
 expr_stmt|;
 block|}
 block|}

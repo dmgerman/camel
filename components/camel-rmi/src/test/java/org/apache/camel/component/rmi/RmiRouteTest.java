@@ -156,6 +156,16 @@ name|RmiRouteTest
 extends|extends
 name|TestCase
 block|{
+DECL|method|getPort ()
+specifier|protected
+name|int
+name|getPort
+parameter_list|()
+block|{
+return|return
+literal|37541
+return|;
+block|}
 DECL|method|testPojoRoutes ()
 specifier|public
 name|void
@@ -177,7 +187,8 @@ name|LocateRegistry
 operator|.
 name|createRegistry
 argument_list|(
-literal|37541
+name|getPort
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: register
@@ -211,68 +222,16 @@ name|context
 argument_list|)
 decl_stmt|;
 comment|// END SNIPPET: register
-comment|// START SNIPPET: route
-comment|// lets add simple route
 name|camelContext
 operator|.
 name|addRoutes
 argument_list|(
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-specifier|public
-name|void
-name|configure
-parameter_list|()
-block|{
-name|from
+name|getRouteBuilder
 argument_list|(
-literal|"direct:hello"
+name|camelContext
 argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"rmi://localhost:37541/bye"
 argument_list|)
 expr_stmt|;
-comment|// When exposing an RMI endpoint, the interfaces it exposes must
-comment|// be configured.
-name|RmiEndpoint
-name|bye
-init|=
-operator|(
-name|RmiEndpoint
-operator|)
-name|endpoint
-argument_list|(
-literal|"rmi://localhost:37541/bye"
-argument_list|)
-decl_stmt|;
-name|bye
-operator|.
-name|setRemoteInterfaces
-argument_list|(
-name|ISay
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-name|bye
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"bean:bye"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-argument_list|)
-expr_stmt|;
-comment|// END SNIPPET: route
 name|camelContext
 operator|.
 name|start
@@ -324,6 +283,75 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|getRouteBuilder (final CamelContext context)
+specifier|protected
+name|RouteBuilder
+name|getRouteBuilder
+parameter_list|(
+specifier|final
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+comment|// START SNIPPET: route
+comment|// lets add simple route
+specifier|public
+name|void
+name|configure
+parameter_list|()
+block|{
+name|from
+argument_list|(
+literal|"direct:hello"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"rmi://localhost:37541/bye"
+argument_list|)
+expr_stmt|;
+comment|// When exposing an RMI endpoint, the interfaces it exposes must
+comment|// be configured.
+name|RmiEndpoint
+name|bye
+init|=
+operator|(
+name|RmiEndpoint
+operator|)
+name|endpoint
+argument_list|(
+literal|"rmi://localhost:37541/bye"
+argument_list|)
+decl_stmt|;
+name|bye
+operator|.
+name|setRemoteInterfaces
+argument_list|(
+name|ISay
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+name|bye
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"bean:bye"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// END SNIPPET: route
+block|}
+return|;
 block|}
 DECL|method|classPathHasSpaces ()
 specifier|private
