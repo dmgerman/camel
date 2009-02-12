@@ -60,9 +60,35 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultExchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
@@ -107,9 +133,16 @@ DECL|class|Enricher
 specifier|public
 class|class
 name|Enricher
+extends|extends
+name|ServiceSupport
 implements|implements
 name|Processor
 block|{
+DECL|field|producer
+specifier|private
+name|ProducerTemplate
+name|producer
+decl_stmt|;
 DECL|field|resourceUri
 specifier|private
 name|String
@@ -120,7 +153,7 @@ specifier|private
 name|AggregationStrategy
 name|aggregationStrategy
 decl_stmt|;
-comment|/**      * Creates a new {@link Enricher}. The default aggregation strategy is to      * copy the additional data obtained from the enricher's resource over the      * input data. When using the copy aggregation strategy the enricher      * degenerates to a normal transformer.      *       * @param resourceUri      *            URI of resource endpoint for obtaining additional data.      */
+comment|/**      * Creates a new {@link Enricher}. The default aggregation strategy is to      * copy the additional data obtained from the enricher's resource over the      * input data. When using the copy aggregation strategy the enricher      * degenerates to a normal transformer.      *      * @param resourceUri URI of resource endpoint for obtaining additional data.      */
 DECL|method|Enricher (String resourceUri)
 specifier|public
 name|Enricher
@@ -138,7 +171,7 @@ name|resourceUri
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link Enricher}.      *       * @param aggregationStrategy      *            aggregation strategy to aggregate input data and additional      *            data.      * @param resourceUri      *            URI of resource endpoint for obtaining additional data.      */
+comment|/**      * Creates a new {@link Enricher}.      *      * @param aggregationStrategy aggregation strategy to aggregate input data and additional data.      * @param resourceUri         URI of resource endpoint for obtaining additional data.      */
 DECL|method|Enricher (AggregationStrategy aggregationStrategy, String resourceUri)
 specifier|public
 name|Enricher
@@ -163,7 +196,7 @@ operator|=
 name|resourceUri
 expr_stmt|;
 block|}
-comment|/**      * Sets the aggregation strategy for this enricher.      *       * @param aggregationStrategy the aggregationStrategy to set      */
+comment|/**      * Sets the aggregation strategy for this enricher.      *      * @param aggregationStrategy the aggregationStrategy to set      */
 DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|void
@@ -180,7 +213,7 @@ operator|=
 name|aggregationStrategy
 expr_stmt|;
 block|}
-comment|/**      * Sets the default aggregation strategy for this enricher.      *       * @param aggregationStrategy the aggregationStrategy to set      */
+comment|/**      * Sets the default aggregation strategy for this enricher.      */
 DECL|method|setDefaultAggregationStrategy ()
 specifier|public
 name|void
@@ -195,7 +228,7 @@ name|defaultAggregationStrategy
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Enriches the input data (<code>exchange</code>) by first obtaining      * additional data from an endpoint identified by an      *<code>resourceUri</code> and second by aggregating input data and      * additional data. Aggregation of input data and additional data is      * delegated to an {@link AggregationStrategy} object set at construction      * time. If the message exchange with the resource endpoint fails then no      * aggregation will be done and the failed exchange content is copied over      * to the original message exchange.      *       * @param exchange      *            input data.      */
+comment|/**      * Enriches the input data (<code>exchange</code>) by first obtaining      * additional data from an endpoint identified by an      *<code>resourceUri</code> and second by aggregating input data and      * additional data. Aggregation of input data and additional data is      * delegated to an {@link AggregationStrategy} object set at construction      * time. If the message exchange with the resource endpoint fails then no      * aggregation will be done and the failed exchange content is copied over      * to the original message exchange.      *      * @param exchange input data.      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -223,13 +256,10 @@ decl_stmt|;
 comment|// send created exchange to resource endpoint
 name|resourceExchange
 operator|=
+name|getProducerTemplate
+argument_list|(
 name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|createProducerTemplate
-argument_list|()
+argument_list|)
 operator|.
 name|send
 argument_list|(
@@ -285,7 +315,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates a new {@link DefaultExchange} instance from the given      *<code>exchange</code>. The resulting exchange's pattern is defined by      *<code>pattern</code>.      *       * @param source      *            exchange to copy from.      * @param pattern      *            exchange pattern to set.      * @return created exchange.      */
+comment|/**      * Creates a new {@link DefaultExchange} instance from the given      *<code>exchange</code>. The resulting exchange's pattern is defined by      *<code>pattern</code>.      *      * @param source  exchange to copy from.      * @param pattern exchange pattern to set.      * @return created exchange.      */
 DECL|method|createResourceExchange (Exchange source, ExchangePattern pattern)
 specifier|protected
 name|Exchange
@@ -376,6 +406,79 @@ operator|new
 name|CopyAggregationStrategy
 argument_list|()
 return|;
+block|}
+DECL|method|getProducerTemplate (Exchange exchange)
+specifier|private
+specifier|synchronized
+name|ProducerTemplate
+name|getProducerTemplate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|producer
+operator|==
+literal|null
+condition|)
+block|{
+name|producer
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|createProducerTemplate
+argument_list|()
+expr_stmt|;
+name|producer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|producer
+return|;
+block|}
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|producer
+operator|!=
+literal|null
+condition|)
+block|{
+name|producer
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|producer
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 DECL|class|CopyAggregationStrategy
 specifier|private
