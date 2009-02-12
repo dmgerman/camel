@@ -78,18 +78,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -417,17 +405,27 @@ DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
+init|=
+operator|new
+name|JmsHeaderFilterStrategy
+argument_list|()
 decl_stmt|;
 DECL|method|JmsComponent ()
 specifier|public
 name|JmsComponent
 parameter_list|()
+block|{     }
+DECL|method|JmsComponent (CamelContext context)
+specifier|public
+name|JmsComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 block|{
-name|setHeaderFilterStrategy
+name|super
 argument_list|(
-operator|new
-name|JmsHeaderFilterStrategy
-argument_list|()
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -444,34 +442,6 @@ operator|.
 name|configuration
 operator|=
 name|configuration
-expr_stmt|;
-name|setHeaderFilterStrategy
-argument_list|(
-operator|new
-name|JmsHeaderFilterStrategy
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|JmsComponent (CamelContext context)
-specifier|public
-name|JmsComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-name|setHeaderFilterStrategy
-argument_list|(
-operator|new
-name|JmsHeaderFilterStrategy
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Static builder method      */
@@ -1637,6 +1607,32 @@ operator|=
 name|queueBrowseStrategy
 expr_stmt|;
 block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|headerFilterStrategy
+return|;
+block|}
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|strategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|strategy
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 annotation|@
@@ -2123,6 +2119,14 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+name|endpoint
+operator|.
+name|setHeaderFilterStrategy
+argument_list|(
+name|getHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;
@@ -2215,32 +2219,6 @@ name|type
 argument_list|)
 return|;
 block|}
-block|}
-DECL|method|getHeaderFilterStrategy ()
-specifier|public
-name|HeaderFilterStrategy
-name|getHeaderFilterStrategy
-parameter_list|()
-block|{
-return|return
-name|headerFilterStrategy
-return|;
-block|}
-DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
-specifier|public
-name|void
-name|setHeaderFilterStrategy
-parameter_list|(
-name|HeaderFilterStrategy
-name|strategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|headerFilterStrategy
-operator|=
-name|strategy
-expr_stmt|;
 block|}
 block|}
 end_class

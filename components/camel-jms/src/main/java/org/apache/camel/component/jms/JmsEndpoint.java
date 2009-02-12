@@ -307,10 +307,16 @@ class|class
 name|JmsEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|HeaderFilterStrategyAware
 block|{
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+decl_stmt|;
 DECL|field|pubSubDomain
 specifier|private
-specifier|final
 name|boolean
 name|pubSubDomain
 decl_stmt|;
@@ -344,6 +350,19 @@ specifier|private
 name|Requestor
 name|requestor
 decl_stmt|;
+DECL|method|JmsEndpoint ()
+specifier|public
+name|JmsEndpoint
+parameter_list|()
+block|{
+name|this
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|JmsEndpoint (String uri, JmsComponent component, String destinationName, boolean pubSubDomain, JmsConfiguration configuration)
 specifier|public
 name|JmsEndpoint
@@ -491,19 +510,6 @@ argument_list|,
 name|destinationName
 argument_list|,
 literal|true
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|JmsEndpoint ()
-specifier|public
-name|JmsEndpoint
-parameter_list|()
-block|{
-name|this
-argument_list|(
-literal|null
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -858,6 +864,46 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+if|if
+condition|(
+name|headerFilterStrategy
+operator|==
+literal|null
+condition|)
+block|{
+name|headerFilterStrategy
+operator|=
+operator|new
+name|JmsHeaderFilterStrategy
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|headerFilterStrategy
+return|;
+block|}
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|strategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|strategy
+expr_stmt|;
+block|}
 DECL|method|getBinding ()
 specifier|public
 name|JmsBinding
@@ -1257,42 +1303,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-DECL|method|getHeaderFilterStrategy ()
-specifier|public
-name|HeaderFilterStrategy
-name|getHeaderFilterStrategy
-parameter_list|()
-block|{
-if|if
-condition|(
-name|getComponent
-argument_list|()
-operator|instanceof
-name|HeaderFilterStrategyAware
-condition|)
-block|{
-return|return
-operator|(
-operator|(
-name|HeaderFilterStrategyAware
-operator|)
-name|getComponent
-argument_list|()
-operator|)
-operator|.
-name|getHeaderFilterStrategy
-argument_list|()
-return|;
-block|}
-else|else
-block|{
-return|return
-operator|new
-name|JmsHeaderFilterStrategy
-argument_list|()
-return|;
 block|}
 block|}
 comment|// Delegated properties from the configuration
