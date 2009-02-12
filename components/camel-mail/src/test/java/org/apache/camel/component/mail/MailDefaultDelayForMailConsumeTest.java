@@ -146,14 +146,12 @@ argument_list|(
 literal|"Hello Paris"
 argument_list|)
 expr_stmt|;
-comment|// poll next mail and that is should be done within the default delay + 2 sec slack
+comment|// poll next mail and that is should be done within the default delay (overrule to 5 sec) + 2 sec slack
 name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-name|MailConsumer
-operator|.
-name|DEFAULT_CONSUMER_DELAY
+literal|5000L
 operator|+
 literal|2000L
 argument_list|)
@@ -179,9 +177,7 @@ literal|"Camel should not default poll the mailbox to often"
 argument_list|,
 name|delta
 operator|>
-name|MailConsumer
-operator|.
-name|DEFAULT_CONSUMER_DELAY
+literal|5000
 operator|-
 literal|1000L
 argument_list|)
@@ -207,9 +203,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// we overrule the default of 60 sec to 5 so the unit test is faster
 name|from
 argument_list|(
-literal|"pop3://bond@localhost"
+literal|"pop3://bond@localhost?delay=5000"
 argument_list|)
 operator|.
 name|to

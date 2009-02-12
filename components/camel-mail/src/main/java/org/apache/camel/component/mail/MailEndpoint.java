@@ -120,6 +120,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|mail
@@ -166,20 +180,20 @@ specifier|private
 name|MailConfiguration
 name|configuration
 decl_stmt|;
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+init|=
+operator|new
+name|DefaultHeaderFilterStrategy
+argument_list|()
+decl_stmt|;
 DECL|method|MailEndpoint ()
 specifier|public
 name|MailEndpoint
 parameter_list|()
-block|{
-name|this
-operator|.
-name|binding
-operator|=
-operator|new
-name|MailBinding
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|MailEndpoint (String uri, MailComponent component, MailConfiguration configuration)
 specifier|public
 name|MailEndpoint
@@ -206,19 +220,6 @@ operator|.
 name|configuration
 operator|=
 name|configuration
-expr_stmt|;
-name|this
-operator|.
-name|binding
-operator|=
-operator|new
-name|MailBinding
-argument_list|(
-name|component
-operator|.
-name|getHeaderFilterStrategy
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|MailEndpoint (String endpointUri, MailConfiguration configuration)
@@ -460,6 +461,16 @@ name|message
 argument_list|)
 return|;
 block|}
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getBinding ()
@@ -479,14 +490,16 @@ name|binding
 operator|=
 operator|new
 name|MailBinding
-argument_list|()
+argument_list|(
+name|headerFilterStrategy
+argument_list|)
 expr_stmt|;
 block|}
 return|return
 name|binding
 return|;
 block|}
-comment|/**      * Sets the binding used to convert from a Camel message to and from a Mail      * message      *      * @param binding the binding to use      */
+comment|/**      * Sets the binding used to convert from a Camel message to and from a Mail message      */
 DECL|method|setBinding (MailBinding binding)
 specifier|public
 name|void
@@ -529,15 +542,31 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|isSingleton ()
+DECL|method|getHeaderFilterStrategy ()
 specifier|public
-name|boolean
-name|isSingleton
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
 parameter_list|()
 block|{
 return|return
-literal|false
+name|headerFilterStrategy
 return|;
+block|}
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|headerFilterStrategy
+expr_stmt|;
 block|}
 block|}
 end_class
