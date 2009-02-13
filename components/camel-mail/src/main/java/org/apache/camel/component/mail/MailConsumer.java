@@ -550,7 +550,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|MessagingException
+name|Exception
 name|e
 parameter_list|)
 block|{
