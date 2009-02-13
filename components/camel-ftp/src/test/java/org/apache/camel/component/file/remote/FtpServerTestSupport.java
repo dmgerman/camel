@@ -265,6 +265,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+block|{
 name|super
 operator|.
 name|tearDown
@@ -283,6 +285,17 @@ name|port
 operator|=
 literal|0
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore while shutting down as we could be polling during shutdown
+comment|// and get errors when the ftp server is stopping. This is only an issue
+comment|// since we host the ftp server embedded in the same jvm for unit testing
+block|}
 block|}
 DECL|method|initFtpServer ()
 specifier|protected
