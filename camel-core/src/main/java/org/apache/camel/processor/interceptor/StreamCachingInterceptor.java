@@ -440,7 +440,8 @@ else|else
 block|{
 try|try
 block|{
-name|processor
+name|getProcessor
+argument_list|()
 operator|.
 name|process
 argument_list|(

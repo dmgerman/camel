@@ -247,13 +247,6 @@ argument_list|(
 literal|"jetty:http://localhost:9080/myworld"
 argument_list|)
 operator|.
-name|convertBodyTo
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-operator|.
 name|choice
 argument_list|()
 operator|.
