@@ -74,7 +74,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/idempotent?password=admin&binary=false&idempotent=true&delete=true"
+literal|"/idempotent?password=admin&binary=false&idempotent=true&delete=true&delay=1000"
 return|;
 block|}
 annotation|@

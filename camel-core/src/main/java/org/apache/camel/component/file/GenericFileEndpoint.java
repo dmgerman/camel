@@ -321,6 +321,11 @@ name|directory
 init|=
 literal|true
 decl_stmt|;
+DECL|field|localWorkDirectory
+specifier|protected
+name|String
+name|localWorkDirectory
+decl_stmt|;
 DECL|field|autoCreate
 specifier|protected
 name|boolean
@@ -1662,6 +1667,32 @@ operator|.
 name|processStrategy
 operator|=
 name|processStrategy
+expr_stmt|;
+block|}
+DECL|method|getLocalWorkDirectory ()
+specifier|public
+name|String
+name|getLocalWorkDirectory
+parameter_list|()
+block|{
+return|return
+name|localWorkDirectory
+return|;
+block|}
+DECL|method|setLocalWorkDirectory (String localWorkDirectory)
+specifier|public
+name|void
+name|setLocalWorkDirectory
+parameter_list|(
+name|String
+name|localWorkDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|localWorkDirectory
+operator|=
+name|localWorkDirectory
 expr_stmt|;
 block|}
 comment|/**      * Configures the given message with the file which sets the body to the      * file object.      */

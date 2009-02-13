@@ -873,7 +873,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Uses fail over load balancer      *       * @retrun the builder      */
+comment|/**      * Uses fail over load balancer      *       * @return the builder      */
 DECL|method|failOver ()
 specifier|public
 name|LoadBalanceType
@@ -894,7 +894,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Uses fail over load balancer      *       * @param the exception Class which we want to catch      * @retrun the builder      */
+comment|/**      * Uses fail over load balancer      *       * @param throwable exception Class which we want to catch      * @return the builder      */
 DECL|method|failOver (Class throwable)
 specifier|public
 name|LoadBalanceType

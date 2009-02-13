@@ -159,6 +159,25 @@ operator|.
 name|getClass
 argument_list|()
 decl_stmt|;
+comment|// maybe from is already the type we want
+if|if
+condition|(
+name|from
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+return|return
+name|file
+operator|.
+name|getBody
+argument_list|()
+return|;
+block|}
+comment|// no then try to lookup a type converter
 name|TypeConverter
 name|tc
 init|=

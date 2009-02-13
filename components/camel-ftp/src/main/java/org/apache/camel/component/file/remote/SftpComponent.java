@@ -200,7 +200,9 @@ operator|new
 name|SftpOperations
 argument_list|()
 decl_stmt|;
-return|return
+name|SftpEndpoint
+name|result
+init|=
 operator|new
 name|SftpEndpoint
 argument_list|(
@@ -212,6 +214,16 @@ name|operations
 argument_list|,
 name|config
 argument_list|)
+decl_stmt|;
+name|operations
+operator|.
+name|setEndpoint
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+return|return
+name|result
 return|;
 block|}
 DECL|method|afterPropertiesSet (GenericFileEndpoint<ChannelSftp.LsEntry> endpoint)

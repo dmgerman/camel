@@ -480,6 +480,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|asRemoteFile (String directory, FTPFile file)
 specifier|private
 name|RemoteFile
@@ -499,7 +504,7 @@ name|RemoteFile
 argument_list|<
 name|FTPFile
 argument_list|>
-name|remote
+name|answer
 init|=
 operator|new
 name|RemoteFile
@@ -508,14 +513,14 @@ name|FTPFile
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|remote
+name|answer
 operator|.
 name|setFile
 argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
-name|remote
+name|answer
 operator|.
 name|setFileName
 argument_list|(
@@ -525,7 +530,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|remote
+name|answer
 operator|.
 name|setFileLength
 argument_list|(
@@ -545,7 +550,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|remote
+name|answer
 operator|.
 name|setLastModified
 argument_list|(
@@ -559,7 +564,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|remote
+name|answer
 operator|.
 name|setHostname
 argument_list|(
@@ -600,7 +605,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-name|remote
+name|answer
 operator|.
 name|setAbsoluteFileName
 argument_list|(
@@ -652,7 +657,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|remote
+name|answer
 operator|.
 name|setRelativeFileName
 argument_list|(
@@ -660,7 +665,7 @@ name|relativePath
 argument_list|)
 expr_stmt|;
 return|return
-name|remote
+name|answer
 return|;
 block|}
 block|}
