@@ -809,7 +809,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Evaluation "
+literal|"Evaluation: "
 operator|+
 name|expression
 operator|+
@@ -943,7 +943,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Evaluation "
+literal|"Evaluation: "
 operator|+
 name|expression
 operator|+
@@ -1458,16 +1458,33 @@ parameter_list|)
 throws|throws
 name|AssertionError
 block|{
-try|try
-block|{
 name|List
 name|list
-init|=
+decl_stmt|;
+try|try
+block|{
+name|list
+operator|=
 name|evaluateAsList
 argument_list|(
 name|exchange
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 operator|!
@@ -1492,21 +1509,6 @@ operator|+
 literal|" as evaluated: "
 operator|+
 name|list
-argument_list|)
-throw|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|AssertionError
-argument_list|(
-name|e
 argument_list|)
 throw|;
 block|}
@@ -2683,8 +2685,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|// let the configuration be accessible on the exchange as its shared for this evaulation
-comment|// and can be needed for 3rd part type converters or in some other situations
+comment|// let the configuration be accessible on the exchange as its shared for this evaluation
+comment|// and can be needed by 3rd party type converters or other situations (camel-artixds)
 name|exchange
 operator|.
 name|setProperty
