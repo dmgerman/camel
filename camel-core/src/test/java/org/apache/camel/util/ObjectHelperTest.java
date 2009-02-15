@@ -1067,6 +1067,159 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testBefore ()
+specifier|public
+name|void
+name|testBefore
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"Hello "
+argument_list|,
+name|ObjectHelper
+operator|.
+name|before
+argument_list|(
+literal|"Hello World"
+argument_list|,
+literal|"World"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello "
+argument_list|,
+name|ObjectHelper
+operator|.
+name|before
+argument_list|(
+literal|"Hello World Again"
+argument_list|,
+literal|"World"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|null
+argument_list|,
+name|ObjectHelper
+operator|.
+name|before
+argument_list|(
+literal|"Hello Again"
+argument_list|,
+literal|"Foo"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testAfter ()
+specifier|public
+name|void
+name|testAfter
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|" World"
+argument_list|,
+name|ObjectHelper
+operator|.
+name|after
+argument_list|(
+literal|"Hello World"
+argument_list|,
+literal|"Hello"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|" World Again"
+argument_list|,
+name|ObjectHelper
+operator|.
+name|after
+argument_list|(
+literal|"Hello World Again"
+argument_list|,
+literal|"Hello"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|null
+argument_list|,
+name|ObjectHelper
+operator|.
+name|after
+argument_list|(
+literal|"Hello Again"
+argument_list|,
+literal|"Foo"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBetween ()
+specifier|public
+name|void
+name|testBetween
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"foo bar"
+argument_list|,
+name|ObjectHelper
+operator|.
+name|between
+argument_list|(
+literal|"Hello 'foo bar' how are you"
+argument_list|,
+literal|"'"
+argument_list|,
+literal|"'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"foo bar"
+argument_list|,
+name|ObjectHelper
+operator|.
+name|between
+argument_list|(
+literal|"Hello ${foo bar} how are you"
+argument_list|,
+literal|"${"
+argument_list|,
+literal|"}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|null
+argument_list|,
+name|ObjectHelper
+operator|.
+name|between
+argument_list|(
+literal|"Hello ${foo bar} how are you"
+argument_list|,
+literal|"'"
+argument_list|,
+literal|"'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

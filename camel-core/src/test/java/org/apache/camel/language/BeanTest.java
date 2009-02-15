@@ -129,6 +129,13 @@ argument_list|,
 literal|"abc"
 argument_list|)
 expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"foo?method=cheese"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testPredicates ()
 specifier|public
@@ -141,6 +148,11 @@ block|{
 name|assertPredicate
 argument_list|(
 literal|"foo.isFooHeaderAbc"
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"foo?method=isFooHeaderAbc"
 argument_list|)
 expr_stmt|;
 block|}
