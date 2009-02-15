@@ -184,6 +184,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|FileUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -1189,10 +1203,15 @@ init|=
 operator|new
 name|File
 argument_list|(
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
 name|endpoint
 operator|.
 name|getLocalWorkDirectory
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|OutputStream
@@ -1394,32 +1413,6 @@ argument_list|,
 name|os
 argument_list|)
 expr_stmt|;
-comment|// rename temp to local after we have retrieved the data
-if|if
-condition|(
-operator|!
-name|temp
-operator|.
-name|renameTo
-argument_list|(
-name|local
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|RemoteFileOperationFailedException
-argument_list|(
-literal|"Cannot rename local work file from: "
-operator|+
-name|temp
-operator|+
-literal|" to: "
-operator|+
-name|local
-argument_list|)
-throw|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1452,6 +1445,7 @@ throw|;
 block|}
 finally|finally
 block|{
+comment|// need to close the stream before rename it
 name|ObjectHelper
 operator|.
 name|close
@@ -1465,6 +1459,32 @@ argument_list|,
 name|LOG
 argument_list|)
 expr_stmt|;
+block|}
+comment|// rename temp to local after we have retrieved the data
+if|if
+condition|(
+operator|!
+name|temp
+operator|.
+name|renameTo
+argument_list|(
+name|local
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|RemoteFileOperationFailedException
+argument_list|(
+literal|"Cannot rename local work file from: "
+operator|+
+name|temp
+operator|+
+literal|" to: "
+operator|+
+name|local
+argument_list|)
+throw|;
 block|}
 return|return
 name|result

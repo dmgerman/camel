@@ -138,6 +138,20 @@ name|IOConverter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -178,6 +192,11 @@ block|{
 name|deleteDirectory
 argument_list|(
 literal|"target/lwd"
+argument_list|)
+expr_stmt|;
+name|deleteDirectory
+argument_list|(
+literal|"target/out"
 argument_list|)
 expr_stmt|;
 name|super
@@ -441,7 +460,12 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
 literal|"target/lwd/hello.txt"
+argument_list|)
 argument_list|,
 name|body
 operator|.
