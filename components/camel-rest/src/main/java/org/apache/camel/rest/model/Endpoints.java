@@ -128,6 +128,20 @@ name|Endpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -246,6 +260,15 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"camelContext has not been injected!"
+argument_list|)
+expr_stmt|;
 name|Collection
 argument_list|<
 name|Endpoint
