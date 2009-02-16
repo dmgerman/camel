@@ -189,7 +189,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/file2file/in"
+literal|"file://target/file2file/in"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -300,7 +300,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"newfile://target/file2file/in"
+literal|"file://target/file2file/in"
 argument_list|)
 operator|.
 name|to
@@ -315,7 +315,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"newfile://target/file2file/out"
+literal|"file://target/file2file/out"
 argument_list|,
 literal|"mock:result"
 argument_list|)

@@ -216,7 +216,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/routefromfile"
+literal|"file://target/routefromfile"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -294,7 +294,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"newfile://target/routefromfile"
+literal|"file://target/routefromfile"
 argument_list|)
 operator|.
 name|to
