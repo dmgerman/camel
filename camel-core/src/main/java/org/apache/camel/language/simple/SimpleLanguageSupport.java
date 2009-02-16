@@ -238,7 +238,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"^\\$\\{(.+)\\}\\s+(==|>|>=|<|<=|!=|is)\\s+(.+)$"
+literal|"^\\$\\{(.+)\\}\\s+(==|>|>=|<|<=|!=)\\s+(.+)$"
 argument_list|)
 decl_stmt|;
 DECL|field|log
@@ -490,6 +490,19 @@ argument_list|,
 literal|"'"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|constant
+operator|==
+literal|null
+condition|)
+block|{
+comment|// if no ' ' around then fallback to the text itself
+name|constant
+operator|=
+name|text
+expr_stmt|;
+block|}
 name|String
 name|simple
 init|=

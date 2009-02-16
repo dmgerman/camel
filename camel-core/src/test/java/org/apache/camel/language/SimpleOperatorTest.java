@@ -117,7 +117,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header.foo} == abc"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.foo} == 'def'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == def"
 argument_list|,
 literal|false
 argument_list|)
@@ -139,7 +153,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header.bar} == 123"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.bar} == '444'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} == 444"
 argument_list|,
 literal|false
 argument_list|)
@@ -170,7 +198,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header.foo} != abc"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.foo} != 'def'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} != def"
 argument_list|,
 literal|true
 argument_list|)
@@ -192,7 +234,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header.bar} != 123"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.bar} != '444'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} != 444"
 argument_list|,
 literal|true
 argument_list|)
@@ -223,7 +279,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header.foo}> aaa"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.foo}> 'def'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo}> def"
 argument_list|,
 literal|false
 argument_list|)
@@ -238,7 +308,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header.bar}> 100"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.bar}> '123'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar}> 123"
 argument_list|,
 literal|false
 argument_list|)
@@ -269,7 +353,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header.foo}>= aaa"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.foo}>= 'abc'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo}>= abc"
 argument_list|,
 literal|true
 argument_list|)
@@ -291,7 +389,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header.bar}>= 100"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.bar}>= '123'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar}>= 123"
 argument_list|,
 literal|true
 argument_list|)
@@ -322,7 +434,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header.foo}< aaa"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.foo}< 'def'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo}< def"
 argument_list|,
 literal|true
 argument_list|)
@@ -337,7 +463,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header.bar}< 100"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.bar}< '123'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar}< 123"
 argument_list|,
 literal|false
 argument_list|)
@@ -368,7 +508,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header.foo}<= aaa"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.foo}<= 'abc'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo}<= abc"
 argument_list|,
 literal|true
 argument_list|)
@@ -390,7 +544,21 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"${in.header.bar}<= 100"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"${in.header.bar}<= '123'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar}<= 123"
 argument_list|,
 literal|true
 argument_list|)
