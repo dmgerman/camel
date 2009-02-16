@@ -46,7 +46,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|NewFileComponent
+name|FileComponent
 import|;
 end_import
 

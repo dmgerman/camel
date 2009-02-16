@@ -77,7 +77,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"newfile://target/filesorter/"
+literal|"file://target/filesorter/"
 decl_stmt|;
 annotation|@
 name|Override
@@ -125,7 +125,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/filesorter/"
+literal|"file:target/filesorter/"
 operator|+
 name|folder
 argument_list|,
@@ -142,7 +142,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/filesorter/"
+literal|"file:target/filesorter/"
 operator|+
 name|folder
 argument_list|,
@@ -159,7 +159,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/filesorter/"
+literal|"file:target/filesorter/"
 operator|+
 name|folder
 argument_list|,
@@ -176,7 +176,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/filesorter/"
+literal|"file:target/filesorter/"
 operator|+
 name|folder
 argument_list|,

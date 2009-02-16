@@ -87,7 +87,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"newfile://target/multidir/?recursive=true&delete=true&consumer.delay=5000&sortBy=file:path"
+literal|"file://target/multidir/?recursive=true&delete=true&consumer.delay=5000&sortBy=file:path"
 decl_stmt|;
 annotation|@
 name|Override

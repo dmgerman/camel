@@ -154,11 +154,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/reports/locked"
+literal|"file:target/reports/locked"
 argument_list|,
 literal|"Hello Locked"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -212,11 +212,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/reports/notlocked"
+literal|"file:target/reports/notlocked"
 argument_list|,
 literal|"Hello Not Locked"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -270,7 +270,7 @@ name|filename
 operator|+=
 literal|"report.txt"
 operator|+
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|DEFAULT_LOCK_FILE_POSTFIX
 expr_stmt|;
@@ -334,7 +334,7 @@ block|{
 comment|// for locks
 name|from
 argument_list|(
-literal|"newfile://target/reports/locked/?noop=true"
+literal|"file://target/reports/locked/?noop=true"
 argument_list|)
 operator|.
 name|process
@@ -352,7 +352,7 @@ expr_stmt|;
 comment|// for no locks
 name|from
 argument_list|(
-literal|"newfile://target/reports/notlocked/?noop=true&readLock=false"
+literal|"file://target/reports/notlocked/?noop=true&readLock=false"
 argument_list|)
 operator|.
 name|process

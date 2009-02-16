@@ -463,7 +463,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME_PRODUCED
 argument_list|,
@@ -780,7 +780,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -832,7 +832,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 operator|+

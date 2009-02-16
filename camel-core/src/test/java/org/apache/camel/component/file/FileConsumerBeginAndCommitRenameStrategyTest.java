@@ -180,7 +180,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/reports"
+literal|"file:target/reports"
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
@@ -211,7 +211,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"newfile://target?moveExpression=../done/${file:name}&delete=true"
+literal|"file://target?moveExpression=../done/${file:name}&delete=true"
 argument_list|)
 operator|.
 name|createConsumer
@@ -253,7 +253,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"newfile://target?moveExpression=${file:name.noext}.bak&delete=true"
+literal|"file://target?moveExpression=${file:name.noext}.bak&delete=true"
 argument_list|)
 operator|.
 name|createConsumer
@@ -312,7 +312,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"newfile://target/reports?preMoveExpression=../inprogress/${file:name}&moveExpression=../done/${file:name}&consumer.delay=5000"
+literal|"file://target/reports?preMoveExpression=../inprogress/${file:name}&moveExpression=../done/${file:name}&consumer.delay=5000"
 argument_list|)
 operator|.
 name|process

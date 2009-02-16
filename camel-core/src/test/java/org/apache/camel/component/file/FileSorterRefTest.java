@@ -101,7 +101,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"newfile://target/filesorter/?sorter=#mySorter&initialDelay=1000"
+literal|"file://target/filesorter/?sorter=#mySorter&initialDelay=1000"
 decl_stmt|;
 annotation|@
 name|Override
@@ -160,11 +160,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/filesorter/"
+literal|"file:target/filesorter/"
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -175,11 +175,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/filesorter/"
+literal|"file:target/filesorter/"
 argument_list|,
 literal|"Hello London"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -190,11 +190,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/filesorter/"
+literal|"file:target/filesorter/"
 argument_list|,
 literal|"Hello Copenhagen"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,

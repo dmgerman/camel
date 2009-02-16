@@ -91,7 +91,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"newfile://target/filefilter/?filter=#myFilter"
+literal|"file://target/filefilter/?filter=#myFilter"
 decl_stmt|;
 annotation|@
 name|Override
@@ -174,7 +174,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/filefilter/"
+literal|"file:target/filefilter/"
 argument_list|,
 literal|"This is a file to be filtered"
 argument_list|,
@@ -232,7 +232,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/filefilter/"
+literal|"file:target/filefilter/"
 argument_list|,
 literal|"This is a file to be filtered"
 argument_list|,
@@ -247,7 +247,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/filefilter/"
+literal|"file:target/filefilter/"
 argument_list|,
 literal|"Hello World"
 argument_list|,

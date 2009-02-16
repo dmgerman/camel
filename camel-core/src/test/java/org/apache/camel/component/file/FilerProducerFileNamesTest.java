@@ -127,14 +127,14 @@ argument_list|(
 literal|"This is a good report"
 argument_list|)
 expr_stmt|;
-name|NewFileEndpoint
+name|FileEndpoint
 name|fileEndpoint
 init|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"newfile:target/reports/report.txt"
+literal|"file:target/reports/report.txt"
 argument_list|,
-name|NewFileEndpoint
+name|FileEndpoint
 operator|.
 name|class
 argument_list|)
@@ -299,7 +299,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"newfile:target/reports/report.txt"
+literal|"file:target/reports/report.txt"
 argument_list|)
 expr_stmt|;
 name|from
@@ -309,7 +309,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"newfile:target/report2.txt?autoCreate=false&directory=false"
+literal|"file:target/report2.txt?autoCreate=false&directory=false"
 argument_list|)
 expr_stmt|;
 name|from
@@ -331,7 +331,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"newfile:target/"
+literal|"file:target/"
 argument_list|)
 expr_stmt|;
 block|}

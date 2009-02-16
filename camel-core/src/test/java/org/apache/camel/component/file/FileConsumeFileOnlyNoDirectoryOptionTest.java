@@ -70,7 +70,7 @@ comment|// directory=false is not set but Camel so figure out report.txt is a fi
 comment|// the file anyway
 name|from
 argument_list|(
-literal|"newfile://target/fileonly/report.txt?recursive=false&delete=true&initialDelay=1000"
+literal|"file://target/fileonly/report.txt?recursive=false&delete=true&initialDelay=1000"
 argument_list|)
 operator|.
 name|to

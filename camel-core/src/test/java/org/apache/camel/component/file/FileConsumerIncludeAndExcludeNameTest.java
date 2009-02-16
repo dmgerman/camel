@@ -129,7 +129,7 @@ block|{
 name|String
 name|url
 init|=
-literal|"newfile://target/includeexclude"
+literal|"file://target/includeexclude"
 decl_stmt|;
 name|template
 operator|.
@@ -139,7 +139,7 @@ name|url
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -154,7 +154,7 @@ name|url
 argument_list|,
 literal|"Report 1"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -169,7 +169,7 @@ name|url
 argument_list|,
 literal|"Report 2"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -184,7 +184,7 @@ name|url
 argument_list|,
 literal|"Report 3"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -214,7 +214,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"newfile://target/includeexclude/?includeNamePrefix=report&excludeNamePostfix=xml"
+literal|"file://target/includeexclude/?includeNamePrefix=report&excludeNamePostfix=xml"
 argument_list|)
 operator|.
 name|to

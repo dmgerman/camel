@@ -108,14 +108,14 @@ argument_list|(
 literal|"direct:a"
 argument_list|)
 decl_stmt|;
-name|NewFileEndpoint
+name|FileEndpoint
 name|fileEndpoint
 init|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"newfile://target"
+literal|"file://target"
 argument_list|,
-name|NewFileEndpoint
+name|FileEndpoint
 operator|.
 name|class
 argument_list|)
@@ -221,7 +221,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"newfile://target"
+literal|"file://target"
 argument_list|)
 expr_stmt|;
 block|}

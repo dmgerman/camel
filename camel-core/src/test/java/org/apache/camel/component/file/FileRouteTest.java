@@ -134,7 +134,7 @@ specifier|protected
 name|String
 name|uri
 init|=
-literal|"newfile:"
+literal|"file:"
 operator|+
 name|targetdir
 operator|+
@@ -213,7 +213,7 @@ argument_list|)
 expr_stmt|;
 name|uri
 operator|=
-literal|"newfile:"
+literal|"file:"
 operator|+
 name|targetdir
 operator|+

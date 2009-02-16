@@ -104,7 +104,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|NewFileEndpoint
+name|FileEndpoint
 import|;
 end_import
 
@@ -240,7 +240,7 @@ throws|throws
 name|Exception
 block|{
 comment|// lets check that our injected endpoint is valid
-name|NewFileEndpoint
+name|FileEndpoint
 name|fileEndpoint
 init|=
 name|Assertions
@@ -249,7 +249,7 @@ name|assertInstanceOf
 argument_list|(
 name|inputFile
 argument_list|,
-name|NewFileEndpoint
+name|FileEndpoint
 operator|.
 name|class
 argument_list|)

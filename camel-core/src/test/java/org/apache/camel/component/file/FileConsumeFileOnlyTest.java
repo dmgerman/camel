@@ -96,7 +96,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/fileonly"
+literal|"file://target/fileonly"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -111,7 +111,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/fileonly"
+literal|"file://target/fileonly"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -126,7 +126,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/fileonly/2008"
+literal|"file://target/fileonly/2008"
 argument_list|,
 literal|"2008 Report"
 argument_list|,
@@ -189,7 +189,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"newfile://target/fileonly/report.txt?directory=false&recursive=false&delete=true"
+literal|"file://target/fileonly/report.txt?directory=false&recursive=false&delete=true"
 argument_list|)
 operator|.
 name|to

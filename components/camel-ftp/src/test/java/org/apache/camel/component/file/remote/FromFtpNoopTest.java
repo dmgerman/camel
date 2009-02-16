@@ -92,7 +92,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|NewFileComponent
+name|FileComponent
 import|;
 end_import
 
@@ -204,7 +204,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,

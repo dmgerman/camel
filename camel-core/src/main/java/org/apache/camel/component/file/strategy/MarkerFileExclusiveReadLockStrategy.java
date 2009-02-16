@@ -36,16 +36,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|RandomAccessFile
 import|;
 end_import
@@ -95,6 +85,22 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|FileComponent
 import|;
 end_import
 
@@ -203,14 +209,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Acquires exclusive read lock to the given file. Will wait until the lock is granted.  * After granting the read lock it is released, we just want to make sure that when we start  * consuming the file its not currently in progress of being written by third party.  */
+comment|/**  * Acquires read lock to the given file using a marker file so other Camel consumers wont acquire the same file.  * This is the default behaviour in Camel 1.x.  */
 end_comment
 
 begin_class
-DECL|class|NewFileLockExclusiveReadLockStrategy
+DECL|class|MarkerFileExclusiveReadLockStrategy
 specifier|public
 class|class
-name|NewFileLockExclusiveReadLockStrategy
+name|MarkerFileExclusiveReadLockStrategy
 implements|implements
 name|GenericFileExclusiveReadLockStrategy
 argument_list|<
@@ -229,17 +235,17 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|NewFileLockExclusiveReadLockStrategy
+name|MarkerFileExclusiveReadLockStrategy
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|timeout
-specifier|private
-name|long
-name|timeout
-decl_stmt|;
-DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> fileGenericFileOperations, GenericFile<File> file, Exchange exchange)
 specifier|public
 name|boolean
 name|acquireExclusiveReadLock
@@ -248,7 +254,7 @@ name|GenericFileOperations
 argument_list|<
 name|File
 argument_list|>
-name|operations
+name|fileGenericFileOperations
 parameter_list|,
 name|GenericFile
 argument_list|<
@@ -262,17 +268,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|File
-name|target
+name|String
+name|lockFileName
 init|=
-operator|new
-name|File
-argument_list|(
 name|file
 operator|.
 name|getAbsoluteFileName
 argument_list|()
-argument_list|)
+operator|+
+name|FileComponent
+operator|.
+name|DEFAULT_LOCK_FILE_POSTFIX
 decl_stmt|;
 if|if
 condition|(
@@ -286,22 +292,23 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for exclusive read lock to file: "
+literal|"Locking the file: "
 operator|+
-name|target
+name|file
+operator|+
+literal|" using the lock file name: "
+operator|+
+name|lockFileName
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
-comment|// try to acquire rw lock on the file before we can consume it
 name|FileChannel
 name|channel
 init|=
 operator|new
 name|RandomAccessFile
 argument_list|(
-name|target
+name|lockFileName
 argument_list|,
 literal|"rw"
 argument_list|)
@@ -309,102 +316,14 @@ operator|.
 name|getChannel
 argument_list|()
 decl_stmt|;
-name|long
-name|start
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
-name|boolean
-name|exclusive
-init|=
-literal|false
-decl_stmt|;
-while|while
-condition|(
-operator|!
-name|exclusive
-condition|)
-block|{
-comment|// timeout check
-if|if
-condition|(
-name|timeout
-operator|>
-literal|0
-condition|)
-block|{
-name|long
-name|delta
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-operator|-
-name|start
-decl_stmt|;
-if|if
-condition|(
-name|delta
-operator|>
-name|timeout
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Cannot acquire read lock within "
-operator|+
-name|timeout
-operator|+
-literal|" millis. Will skip the file: "
-operator|+
-name|target
-argument_list|)
-expr_stmt|;
-comment|// we could not get the lock within the timeout period, so return false
-return|return
-literal|false
-return|;
-block|}
-block|}
-comment|// get the lock using either try lock or not depending on if we are using timeout or not
 name|FileLock
 name|lock
 init|=
-literal|null
+name|channel
+operator|.
+name|lock
+argument_list|()
 decl_stmt|;
-try|try
-block|{
-name|lock
-operator|=
-name|timeout
-operator|>
-literal|0
-condition|?
-name|channel
-operator|.
-name|tryLock
-argument_list|()
-else|:
-name|channel
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalStateException
-name|ex
-parameter_list|)
-block|{
-comment|// Also catch the OverlappingFileLockException here. Do nothing here
-block|}
 if|if
 condition|(
 name|lock
@@ -412,29 +331,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Acquired exclusive read lock: "
-operator|+
-name|lock
-operator|+
-literal|" to file: "
-operator|+
-name|target
-argument_list|)
-expr_stmt|;
-block|}
-comment|// store lock so we can release it later
 name|exchange
 operator|.
 name|setProperty
@@ -450,70 +346,19 @@ name|setProperty
 argument_list|(
 literal|"CamelFileLockName"
 argument_list|,
-name|target
-operator|.
-name|getName
-argument_list|()
+name|lockFileName
 argument_list|)
 expr_stmt|;
-name|exclusive
-operator|=
-literal|true
-expr_stmt|;
-block|}
-else|else
-block|{
-name|sleep
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// must handle IOException as some apps on Windows etc. will still somehow hold a lock to a file
-comment|// such as AntiVirus or MS Office that has special locks for it's supported files
-if|if
-condition|(
-name|timeout
-operator|==
-literal|0
-condition|)
-block|{
-comment|// if not using timeout, then we cant retry, so rethrow
-throw|throw
-name|e
-throw|;
-block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Cannot acquire read lock. Will try again."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-name|sleep
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 literal|true
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 DECL|method|releaseExclusiveReadLock (GenericFileOperations<File> fileGenericFileOperations, GenericFile<File> fileGenericFile, Exchange exchange)
 specifier|public
@@ -578,6 +423,24 @@ operator|.
 name|channel
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Unlocking file: "
+operator|+
+name|lockFileName
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|lock
@@ -588,21 +451,18 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// must close channel first
+comment|// must close channel
 name|ObjectHelper
 operator|.
 name|close
 argument_list|(
 name|channel
 argument_list|,
-literal|"while acquiring exclusive read lock for file: "
-operator|+
-name|lockFileName
+literal|"Closing channel"
 argument_list|,
 name|LOG
 argument_list|)
 expr_stmt|;
-comment|// need to delete the lock file
 if|if
 condition|(
 name|LOG
@@ -637,49 +497,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|sleep ()
-specifier|private
-name|void
-name|sleep
-parameter_list|()
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Exclusive read lock not granted. Sleeping for 1000 millis."
-argument_list|)
-expr_stmt|;
-try|try
-block|{
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
-block|}
-DECL|method|getTimeout ()
-specifier|public
-name|long
-name|getTimeout
-parameter_list|()
-block|{
-return|return
-name|timeout
-return|;
-block|}
-comment|/**      * Sets an optional timeout period.      *<p/>      * If the readlock could not be granted within the timeperiod then the wait is stopped and the      * acquireReadLock returns<tt>false</tt>.      *      * @param timeout period in millis      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -689,12 +506,7 @@ name|long
 name|timeout
 parameter_list|)
 block|{
-name|this
-operator|.
-name|timeout
-operator|=
-name|timeout
-expr_stmt|;
+comment|// noop
 block|}
 block|}
 end_class

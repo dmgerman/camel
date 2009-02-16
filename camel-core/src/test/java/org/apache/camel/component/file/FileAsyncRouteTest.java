@@ -156,7 +156,7 @@ specifier|protected
 name|String
 name|uri
 init|=
-literal|"newfile:target/test-async-inbox?delete=true&consumer.delay=10000&recursive=true"
+literal|"file:target/test-async-inbox?delete=true&consumer.delay=10000&recursive=true"
 decl_stmt|;
 DECL|field|receivedLatch
 specifier|private

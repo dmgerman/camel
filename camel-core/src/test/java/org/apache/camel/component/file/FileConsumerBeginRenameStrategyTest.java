@@ -176,7 +176,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/reports"
+literal|"file:target/reports"
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
@@ -267,7 +267,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile:target/reports"
+literal|"file:target/reports"
 argument_list|,
 literal|"Hello London"
 argument_list|,
@@ -306,7 +306,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"newfile://target/reports?preMoveExpression=../inprogress/${file:name}&consumer.delay=5000"
+literal|"file://target/reports?preMoveExpression=../inprogress/${file:name}&consumer.delay=5000"
 argument_list|)
 operator|.
 name|process

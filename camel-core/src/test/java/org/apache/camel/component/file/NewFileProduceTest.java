@@ -123,11 +123,11 @@ argument_list|(
 literal|"target/producefile"
 argument_list|)
 expr_stmt|;
-name|NewFileComponent
+name|FileComponent
 name|comp
 init|=
 operator|new
-name|NewFileComponent
+name|FileComponent
 argument_list|()
 decl_stmt|;
 name|comp
@@ -144,7 +144,7 @@ name|comp
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"newfile://target/producefile"
+literal|"file://target/producefile"
 argument_list|,
 literal|"target/producefile"
 argument_list|,

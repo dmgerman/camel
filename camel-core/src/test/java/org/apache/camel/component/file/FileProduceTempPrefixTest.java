@@ -83,7 +83,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"newfile://target/tempandrename/?tempPrefix=inprogress."
+literal|"file://target/tempandrename/?tempPrefix=inprogress."
 decl_stmt|;
 DECL|method|testCreateTempFileName ()
 specifier|public

@@ -168,11 +168,11 @@ argument_list|(
 literal|"target/consumefile"
 argument_list|)
 expr_stmt|;
-name|NewFileComponent
+name|FileComponent
 name|comp
 init|=
 operator|new
-name|NewFileComponent
+name|FileComponent
 argument_list|()
 decl_stmt|;
 name|comp
@@ -229,7 +229,7 @@ name|comp
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"newfile://target/consumefile"
+literal|"file://target/consumefile"
 argument_list|,
 literal|"target/consumefile"
 argument_list|,

@@ -574,7 +574,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_BATCH_INDEX
 argument_list|,
@@ -588,7 +588,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_BATCH_TOTAL
 argument_list|,
@@ -1372,7 +1372,7 @@ name|name
 operator|.
 name|endsWith
 argument_list|(
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|DEFAULT_LOCK_FILE_POSTFIX
 argument_list|)

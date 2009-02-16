@@ -195,10 +195,10 @@ comment|/**  * File operations for {@link java.io.File}.  */
 end_comment
 
 begin_class
-DECL|class|NewFileOperations
+DECL|class|FileOperations
 specifier|public
 class|class
-name|NewFileOperations
+name|FileOperations
 implements|implements
 name|GenericFileOperations
 argument_list|<
@@ -217,26 +217,26 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|NewFileOperations
+name|FileOperations
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
-name|NewFileEndpoint
+name|FileEndpoint
 name|endpoint
 decl_stmt|;
-DECL|method|NewFileOperations ()
+DECL|method|FileOperations ()
 specifier|public
-name|NewFileOperations
+name|FileOperations
 parameter_list|()
 block|{     }
-DECL|method|NewFileOperations (NewFileEndpoint endpoint)
+DECL|method|FileOperations (FileEndpoint endpoint)
 specifier|public
-name|NewFileOperations
+name|FileOperations
 parameter_list|(
-name|NewFileEndpoint
+name|FileEndpoint
 name|endpoint
 parameter_list|)
 block|{
@@ -261,7 +261,7 @@ operator|.
 name|endpoint
 operator|=
 operator|(
-name|NewFileEndpoint
+name|FileEndpoint
 operator|)
 name|endpoint
 expr_stmt|;

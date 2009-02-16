@@ -43,10 +43,10 @@ comment|/**  * File binding with the {@link java.io.File} type.  */
 end_comment
 
 begin_class
-DECL|class|NewFileBinding
+DECL|class|FileBinding
 specifier|public
 class|class
-name|NewFileBinding
+name|FileBinding
 implements|implements
 name|GenericFileBinding
 argument_list|<

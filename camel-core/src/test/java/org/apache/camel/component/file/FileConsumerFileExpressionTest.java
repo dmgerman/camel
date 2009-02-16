@@ -164,11 +164,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/filelanguage/bean"
+literal|"file://target/filelanguage/bean"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -179,11 +179,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/filelanguage/bean"
+literal|"file://target/filelanguage/bean"
 argument_list|,
 literal|"Goodday World"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -194,11 +194,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/filelanguage/bean"
+literal|"file://target/filelanguage/bean"
 argument_list|,
 literal|"Bye World"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -224,7 +224,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"newfile://target/filelanguage/bean/"
+literal|"file://target/filelanguage/bean/"
 operator|+
 literal|"?fileExpression=${bean:counter.next}.txt&delete=true"
 argument_list|)
@@ -282,11 +282,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/filelanguage/date"
+literal|"file://target/filelanguage/date"
 argument_list|,
 literal|"Bye World"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -297,11 +297,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/filelanguage/date"
+literal|"file://target/filelanguage/date"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -312,11 +312,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/filelanguage/date"
+literal|"file://target/filelanguage/date"
 argument_list|,
 literal|"Goodday World"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -343,7 +343,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"newfile://target/filelanguage/date/"
+literal|"file://target/filelanguage/date/"
 operator|+
 literal|"?fileExpression=myfile-${date:now:yyyyMMdd}.txt"
 argument_list|)

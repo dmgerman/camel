@@ -372,7 +372,7 @@ literal|"target/messages/input/"
 operator|+
 name|filename
 operator|+
-name|FileEndpoint
+name|FileComponent
 operator|.
 name|DEFAULT_LOCK_FILE_POSTFIX
 argument_list|)

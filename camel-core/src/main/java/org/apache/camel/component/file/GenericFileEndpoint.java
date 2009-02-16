@@ -1813,7 +1813,7 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,

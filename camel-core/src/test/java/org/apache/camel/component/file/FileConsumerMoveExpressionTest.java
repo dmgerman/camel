@@ -205,7 +205,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"newfile://target/filelanguage/report.txt?directory=false&autoCreate=false"
+literal|"file://target/filelanguage/report.txt?directory=false&autoCreate=false"
 operator|+
 literal|"&moveExpression=${id}.bak"
 argument_list|)
@@ -243,11 +243,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/filelanguage/"
+literal|"file://target/filelanguage/"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -342,7 +342,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"newfile://target/filelanguage/report2.txt?directory=false&autoCreate=false"
+literal|"file://target/filelanguage/report2.txt?directory=false&autoCreate=false"
 operator|+
 literal|"&moveExpression=backup-${id}-${file:name.noext}.bak"
 argument_list|)
@@ -380,11 +380,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/filelanguage/"
+literal|"file://target/filelanguage/"
 argument_list|,
 literal|"Bye World"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -479,7 +479,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"newfile://target/filelanguage/report3.txt?directory=false&autoCreate=false"
+literal|"file://target/filelanguage/report3.txt?directory=false&autoCreate=false"
 operator|+
 literal|"&moveExpression=backup/${bean:myguidgenerator.guid}.txt"
 argument_list|)
@@ -526,11 +526,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/filelanguage/"
+literal|"file://target/filelanguage/"
 argument_list|,
 literal|"Bye Big World"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -568,7 +568,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"newfile://target/filelanguage/report4.txt?directory=false&autoCreate=false"
+literal|"file://target/filelanguage/report4.txt?directory=false&autoCreate=false"
 operator|+
 literal|"&moveExpression=../backup/${file:name}.bak"
 argument_list|)
@@ -613,11 +613,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/filelanguage/"
+literal|"file://target/filelanguage/"
 argument_list|,
 literal|"Hello Big World"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -654,11 +654,11 @@ throws|throws
 name|Exception
 block|{
 comment|// configured by java using java beans setters
-name|NewFileEndpoint
+name|FileEndpoint
 name|endpoint
 init|=
 operator|new
-name|NewFileEndpoint
+name|FileEndpoint
 argument_list|()
 decl_stmt|;
 name|endpoint
@@ -684,7 +684,7 @@ operator|.
 name|setOperations
 argument_list|(
 operator|new
-name|NewFileOperations
+name|FileOperations
 argument_list|(
 name|endpoint
 argument_list|)
@@ -761,11 +761,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"newfile://target/filelanguage/"
+literal|"file://target/filelanguage/"
 argument_list|,
 literal|"Bean Language Rules The World"
 argument_list|,
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
