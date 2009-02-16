@@ -672,6 +672,189 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testConstains ()
+specifier|public
+name|void
+name|testConstains
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} contains 'a'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} contains a"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} contains 'ab'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} contains 'abc'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} contains 'def'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} contains def"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testRegex ()
+specifier|public
+name|void
+name|testRegex
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} regex '^a..$'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} regex '^ab.$'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} regex ^ab.$"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} regex ^d.*$"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} regex '^\\d{3}'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} regex '^\\d{2}'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} regex ^\\d{3}"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} regex ^\\d{2}"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testIn ()
+specifier|public
+name|void
+name|testIn
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// string to string
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} in 'foo,abc,def'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} in ${bean:generator.generateFilename}"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} in foo,abc,def"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} in 'foo,def'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// integer to string
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} in '100,123,200'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} in 100,123,200"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} in ${bean:generator.generateId}"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} in '100,200'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getLanguageName ()
 specifier|protected
 name|String

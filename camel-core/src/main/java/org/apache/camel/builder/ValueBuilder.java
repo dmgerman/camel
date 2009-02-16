@@ -497,6 +497,17 @@ argument_list|(
 name|value
 argument_list|)
 decl_stmt|;
+name|right
+operator|=
+name|ExpressionBuilder
+operator|.
+name|convertTo
+argument_list|(
+name|right
+argument_list|,
+name|expression
+argument_list|)
+expr_stmt|;
 name|Predicate
 name|predicate
 init|=
