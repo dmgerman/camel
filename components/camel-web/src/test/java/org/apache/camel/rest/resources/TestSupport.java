@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|sun
@@ -93,6 +83,16 @@ operator|.
 name|config
 operator|.
 name|DefaultClientConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
 import|;
 end_import
 
@@ -247,6 +247,68 @@ name|Main
 operator|.
 name|stop
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|assertHtmlResponse (String response)
+specifier|protected
+name|void
+name|assertHtmlResponse
+parameter_list|(
+name|String
+name|response
+parameter_list|)
+block|{
+name|assertNotNull
+argument_list|(
+literal|"No text returned!"
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
+name|assertResponseContains
+argument_list|(
+name|response
+argument_list|,
+literal|"<html>"
+argument_list|)
+expr_stmt|;
+name|assertResponseContains
+argument_list|(
+name|response
+argument_list|,
+literal|"</html>"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|assertResponseContains (String response, String text)
+specifier|protected
+name|void
+name|assertResponseContains
+parameter_list|(
+name|String
+name|response
+parameter_list|,
+name|String
+name|text
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+literal|"Response should contain "
+operator|+
+name|text
+operator|+
+literal|" but was: "
+operator|+
+name|response
+argument_list|,
+name|response
+operator|.
+name|contains
+argument_list|(
+name|text
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 block|}
