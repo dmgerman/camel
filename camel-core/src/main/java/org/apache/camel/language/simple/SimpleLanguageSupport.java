@@ -34,7 +34,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Iterator
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
+name|List
 import|;
 end_import
 
@@ -262,7 +262,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"^\\$\\{(.+)\\}\\s+(==|>|>=|<|<=|!=|contains|regex|in)\\s+(.+)$"
+literal|"^\\$\\{(.+)\\}\\s+(==|>|>=|<|<=|!=|contains|not contains|regex|not regex|in|not in)\\s+(.+)$"
 argument_list|)
 decl_stmt|;
 DECL|field|log
@@ -725,6 +725,10 @@ condition|(
 name|operator
 operator|==
 name|CONTAINS
+operator|||
+name|operator
+operator|==
+name|NOT_CONTAINS
 condition|)
 block|{
 name|predicate
@@ -738,6 +742,23 @@ argument_list|,
 name|rightConverted
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|operator
+operator|==
+name|NOT_CONTAINS
+condition|)
+block|{
+name|predicate
+operator|=
+name|PredicateBuilder
+operator|.
+name|not
+argument_list|(
+name|predicate
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -745,6 +766,10 @@ condition|(
 name|operator
 operator|==
 name|REGEX
+operator|||
+name|operator
+operator|==
+name|NOT_REGEX
 condition|)
 block|{
 comment|// reg ex should use String pattern, so we evalute the right hand side as a String
@@ -768,6 +793,23 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|operator
+operator|==
+name|NOT_REGEX
+condition|)
+block|{
+name|predicate
+operator|=
+name|PredicateBuilder
+operator|.
+name|not
+argument_list|(
+name|predicate
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -775,6 +817,10 @@ condition|(
 name|operator
 operator|==
 name|IN
+operator|||
+name|operator
+operator|==
+name|NOT_IN
 condition|)
 block|{
 comment|// okay the in operator is a bit more complex as we need to build a list of values
@@ -849,6 +895,23 @@ name|toArray
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|operator
+operator|==
+name|NOT_IN
+condition|)
+block|{
+name|predicate
+operator|=
+name|PredicateBuilder
+operator|.
+name|not
+argument_list|(
+name|predicate
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

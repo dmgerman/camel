@@ -1525,7 +1525,7 @@ literal|""
 operator|+
 name|expression
 operator|+
-literal|".convertTo("
+literal|".convertToEvaluatedType("
 operator|+
 name|type
 operator|+

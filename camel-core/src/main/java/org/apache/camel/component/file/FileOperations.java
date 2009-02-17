@@ -601,6 +601,10 @@ argument_list|,
 literal|"endpoint"
 argument_list|)
 expr_stmt|;
+comment|// we can write the file by 3 different techniques
+comment|// 1. write file to file
+comment|// 2. rename a file from a local work path
+comment|// 3. write stream to file
 name|File
 name|file
 init|=
@@ -612,12 +616,36 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+comment|// is the body file based
 name|File
 name|source
 init|=
 literal|null
 decl_stmt|;
 try|try
+block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+operator|instanceof
+name|File
+operator|||
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+operator|instanceof
+name|GenericFile
+condition|)
 block|{
 name|source
 operator|=
@@ -634,6 +662,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 catch|catch
 parameter_list|(
 name|NoTypeConversionAvailableException
@@ -647,13 +676,90 @@ condition|(
 name|source
 operator|!=
 literal|null
+condition|)
+block|{
+comment|// okay we know the body is a file type
+comment|// so try to see if we can optimize by renaming the local work path file instead of doing
+comment|// a full file to file copy, as the local work copy is to be deleted afterwords anyway
+comment|// local work path
+name|File
+name|local
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|FileComponent
+operator|.
+name|HEADER_FILE_LOCAL_WORK_PATH
+argument_list|,
+name|File
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|local
+operator|!=
+literal|null
 operator|&&
+name|local
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|boolean
+name|renamed
+init|=
+name|writeFileByLocalWorkPath
+argument_list|(
+name|local
+argument_list|,
+name|file
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|renamed
+condition|)
+block|{
+comment|// clear header as we have renamed the file
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|FileComponent
+operator|.
+name|HEADER_FILE_LOCAL_WORK_PATH
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// return as the operation is complete, we just renamed the local work file
+comment|// to the target.
+return|return
+literal|true
+return|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
 name|source
 operator|.
 name|exists
 argument_list|()
 condition|)
 block|{
+comment|// no there is no local work file so use file to file copy if the source exists
 name|writeFileByFile
 argument_list|(
 name|source
@@ -661,9 +767,12 @@ argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
-else|else
-block|{
+block|}
+comment|// fallback and use stream based
 name|InputStream
 name|in
 init|=
@@ -685,7 +794,9 @@ argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-block|}
+return|return
+literal|true
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -723,8 +834,48 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|writeFileByLocalWorkPath (File source, File file)
+specifier|private
+name|boolean
+name|writeFileByLocalWorkPath
+parameter_list|(
+name|File
+name|source
+parameter_list|,
+name|File
+name|file
+parameter_list|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Using local work file being renamed from: "
+operator|+
+name|source
+operator|+
+literal|" to: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+block|}
 return|return
-literal|true
+name|source
+operator|.
+name|renameTo
+argument_list|(
+name|file
+argument_list|)
 return|;
 block|}
 DECL|method|writeFileByFile (File source, File target)

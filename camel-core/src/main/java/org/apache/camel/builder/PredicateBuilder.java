@@ -260,9 +260,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"not "
+literal|"not ("
 operator|+
 name|predicate
+operator|+
+literal|")"
 return|;
 block|}
 block|}
@@ -1230,11 +1232,11 @@ block|{
 return|return
 name|expression
 operator|+
-literal|".matches("
+literal|".matches('"
 operator|+
 name|pattern
 operator|+
-literal|")"
+literal|"')"
 return|;
 block|}
 annotation|@

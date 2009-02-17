@@ -103,6 +103,16 @@ name|DEFAULT_LOCK_FILE_POSTFIX
 init|=
 literal|".camelLock"
 decl_stmt|;
+comment|/**      * Header key holding file path to a local work directory containg a consumed file (if any)      */
+DECL|field|HEADER_FILE_LOCAL_WORK_PATH
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_FILE_LOCAL_WORK_PATH
+init|=
+literal|"CamelFileLocalWorkPath"
+decl_stmt|;
 DECL|method|buildFileEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|GenericFileEndpoint

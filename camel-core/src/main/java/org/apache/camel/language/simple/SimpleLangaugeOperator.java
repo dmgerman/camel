@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Operators supported by simple language  *<ul>  *<li>EQ : ==</li>  *<li>GT :></li>  *<li>GTE :>=</li>  *<li>LT :<</li>  *<li>LTE :<=</li>  *<li>NOT : !=</li>  *<li>contains : tested for if it contains the value</li>  *<li>regex : matching a regular expression</li>  *<li>in : tested for in a list of values separated by comma</li>  *</ul>  */
+comment|/**  * Operators supported by simple language  *<ul>  *<li>EQ : ==</li>  *<li>GT :></li>  *<li>GTE :>=</li>  *<li>LT :<</li>  *<li>LTE :<=</li>  *<li>NOT : !=</li>  *<li>contains : tested for if it contains the value</li>  *<li>not contains : tested for if it does not contain the value</li>  *<li>regex : matching a regular expression</li>  *<li>not regex : not matching a regular expression</li>  *<li>in : tested for in a list of values separated by comma</li>  *<li>not in : tested for not in a list of values separated by comma</li>  *</ul>  */
 end_comment
 
 begin_enum
@@ -35,8 +35,11 @@ DECL|enumConstant|LT
 DECL|enumConstant|LTE
 DECL|enumConstant|NOT
 DECL|enumConstant|CONTAINS
+DECL|enumConstant|NOT_CONTAINS
 DECL|enumConstant|REGEX
+DECL|enumConstant|NOT_REGEX
 DECL|enumConstant|IN
+DECL|enumConstant|NOT_IN
 name|EQ
 block|,
 name|GT
@@ -51,9 +54,15 @@ name|NOT
 block|,
 name|CONTAINS
 block|,
+name|NOT_CONTAINS
+block|,
 name|REGEX
 block|,
+name|NOT_REGEX
+block|,
 name|IN
+block|,
+name|NOT_IN
 block|;
 DECL|method|asOperator (String text)
 specifier|public
@@ -172,6 +181,21 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"not contains"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|NOT_CONTAINS
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 literal|"regex"
 operator|.
 name|equals
@@ -187,6 +211,21 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"not regex"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|NOT_REGEX
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 literal|"in"
 operator|.
 name|equals
@@ -197,6 +236,21 @@ condition|)
 block|{
 return|return
 name|IN
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"not in"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|NOT_IN
 return|;
 block|}
 throw|throw
@@ -306,6 +360,18 @@ if|if
 condition|(
 name|operator
 operator|==
+name|NOT_CONTAINS
+condition|)
+block|{
+return|return
+literal|"not contains"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
 name|REGEX
 condition|)
 block|{
@@ -318,11 +384,35 @@ if|if
 condition|(
 name|operator
 operator|==
+name|NOT_REGEX
+condition|)
+block|{
+return|return
+literal|"not regex"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
 name|IN
 condition|)
 block|{
 return|return
 literal|"in"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
+name|NOT_IN
+condition|)
+block|{
+return|return
+literal|"not in"
 return|;
 block|}
 return|return

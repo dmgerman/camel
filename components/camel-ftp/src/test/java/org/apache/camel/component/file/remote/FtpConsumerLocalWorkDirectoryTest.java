@@ -165,7 +165,7 @@ extends|extends
 name|FtpServerTestSupport
 block|{
 DECL|method|getFtpUrl ()
-specifier|private
+specifier|protected
 name|String
 name|getFtpUrl
 parameter_list|()
@@ -479,9 +479,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/out"
-argument_list|,
 literal|"mock:result"
+argument_list|,
+literal|"file://target/out"
 argument_list|)
 expr_stmt|;
 block|}

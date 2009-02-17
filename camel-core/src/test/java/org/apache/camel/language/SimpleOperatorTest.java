@@ -723,6 +723,57 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testNotConstains ()
+specifier|public
+name|void
+name|testNotConstains
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not contains 'a'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not contains a"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not contains 'ab'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not contains 'abc'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not contains 'def'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not contains def"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testRegex ()
 specifier|public
 name|void
@@ -785,6 +836,71 @@ argument_list|(
 literal|"${in.header.bar} regex ^\\d{2}"
 argument_list|,
 literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNotRegex ()
+specifier|public
+name|void
+name|testNotRegex
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not regex '^a..$'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not regex '^ab.$'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not regex ^ab.$"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not regex ^d.*$"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} not regex '^\\d{3}'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} not regex '^\\d{2}'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} not regex ^\\d{3}"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} not regex ^\\d{2}"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -852,6 +968,73 @@ argument_list|(
 literal|"${in.header.bar} in '100,200'"
 argument_list|,
 literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNotIn ()
+specifier|public
+name|void
+name|testNotIn
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// string to string
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not in 'foo,abc,def'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not in ${bean:generator.generateFilename}"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not in foo,abc,def"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not in 'foo,def'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// integer to string
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} not in '100,123,200'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} not in 100,123,200"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} not in ${bean:generator.generateId}"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} not in '100,200'"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
