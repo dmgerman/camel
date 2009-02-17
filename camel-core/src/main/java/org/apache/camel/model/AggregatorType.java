@@ -420,6 +420,18 @@ name|String
 name|collectionRef
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|groupExchanges
+specifier|private
+name|Boolean
+name|groupExchanges
+decl_stmt|;
+annotation|@
 name|XmlElement
 argument_list|(
 name|name
@@ -894,6 +906,21 @@ name|outBatchSize
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|groupExchanges
+operator|!=
+literal|null
+condition|)
+block|{
+name|aggregator
+operator|.
+name|setGroupExchanges
+argument_list|(
+name|groupExchanges
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|aggregator
 return|;
@@ -1209,6 +1236,32 @@ return|return
 name|completedPredicate
 return|;
 block|}
+DECL|method|getGroupExchanges ()
+specifier|public
+name|Boolean
+name|getGroupExchanges
+parameter_list|()
+block|{
+return|return
+name|groupExchanges
+return|;
+block|}
+DECL|method|setGroupExchanges (Boolean groupExchanges)
+specifier|public
+name|void
+name|setGroupExchanges
+parameter_list|(
+name|Boolean
+name|groupExchanges
+parameter_list|)
+block|{
+name|this
+operator|.
+name|groupExchanges
+operator|=
+name|groupExchanges
+expr_stmt|;
+block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 comment|/**      * Sets the in batch size for number of exchanges received      *      * @param batchSize  the batch size      * @return builder      */
@@ -1338,6 +1391,22 @@ block|{
 name|setStrategyRef
 argument_list|(
 name|strategyRef
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Enables grouped exchanges, so the aggregator will group all aggregated exchanges into a single      * combined {@link org.apache.camel.impl.GroupedExchange} class holding all the aggregated exchanges.      *      * @return the builder      */
+DECL|method|groupExchanges ()
+specifier|public
+name|AggregatorType
+name|groupExchanges
+parameter_list|()
+block|{
+name|setGroupExchanges
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
