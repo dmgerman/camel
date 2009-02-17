@@ -56,7 +56,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|NewFileComponent
+name|FileComponent
 import|;
 end_import
 
@@ -191,7 +191,7 @@ comment|// then set the file name using the FilenameGenerator bean
 operator|.
 name|setHeader
 argument_list|(
-name|NewFileComponent
+name|FileComponent
 operator|.
 name|HEADER_FILE_NAME
 argument_list|,
@@ -216,7 +216,7 @@ comment|// and store the file
 operator|.
 name|to
 argument_list|(
-literal|"newfile://target/subfolder"
+literal|"file://target/subfolder"
 argument_list|)
 comment|// return OK as response
 operator|.
@@ -231,7 +231,7 @@ expr_stmt|;
 comment|// second part from the file backup -> send email
 name|from
 argument_list|(
-literal|"newfile://target/subfolder"
+literal|"file://target/subfolder"
 argument_list|)
 comment|// set the subject of the email
 operator|.
