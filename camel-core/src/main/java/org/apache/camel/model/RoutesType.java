@@ -625,6 +625,68 @@ name|route
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a new route from the given URI inputs      *      * @param uris  the from uri      * @return the builder      */
+DECL|method|from (String... uris)
+specifier|public
+name|RouteType
+name|from
+parameter_list|(
+name|String
+modifier|...
+name|uris
+parameter_list|)
+block|{
+name|RouteType
+name|route
+init|=
+name|createRoute
+argument_list|()
+decl_stmt|;
+name|route
+operator|.
+name|from
+argument_list|(
+name|uris
+argument_list|)
+expr_stmt|;
+return|return
+name|route
+argument_list|(
+name|route
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a new route from the given endpoints      *      * @param endpoints  the from endpoints      * @return the builder      */
+DECL|method|from (Endpoint... endpoints)
+specifier|public
+name|RouteType
+name|from
+parameter_list|(
+name|Endpoint
+modifier|...
+name|endpoints
+parameter_list|)
+block|{
+name|RouteType
+name|route
+init|=
+name|createRoute
+argument_list|()
+decl_stmt|;
+name|route
+operator|.
+name|from
+argument_list|(
+name|endpoints
+argument_list|)
+expr_stmt|;
+return|return
+name|route
+argument_list|(
+name|route
+argument_list|)
+return|;
+block|}
 comment|/**      * Creates a new route using the given route      *      * @param route the route      * @return the builder      */
 DECL|method|route (RouteType route)
 specifier|public

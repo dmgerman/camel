@@ -396,6 +396,66 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Creates a new route from the given URIs input      *      * @param uris  the from uris      * @return the builder      */
+DECL|method|from (String... uris)
+specifier|public
+name|RouteType
+name|from
+parameter_list|(
+name|String
+modifier|...
+name|uris
+parameter_list|)
+block|{
+name|RouteType
+name|answer
+init|=
+name|routeCollection
+operator|.
+name|from
+argument_list|(
+name|uris
+argument_list|)
+decl_stmt|;
+name|configureRoute
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * Creates a new route from the given endpoint      *      * @param endpoints  the from endpoints      * @return the builder      */
+DECL|method|from (Endpoint... endpoints)
+specifier|public
+name|RouteType
+name|from
+parameter_list|(
+name|Endpoint
+modifier|...
+name|endpoints
+parameter_list|)
+block|{
+name|RouteType
+name|answer
+init|=
+name|routeCollection
+operator|.
+name|from
+argument_list|(
+name|endpoints
+argument_list|)
+decl_stmt|;
+name|configureRoute
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Installs the given<a href="http://camel.apache.org/error-handler.html">error handler</a> builder      *      * @param errorHandlerBuilder  the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
