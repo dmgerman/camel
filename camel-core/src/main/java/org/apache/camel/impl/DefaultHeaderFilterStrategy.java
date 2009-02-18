@@ -568,7 +568,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|lowercase
+name|isLowercase
+argument_list|()
 condition|)
 block|{
 if|if

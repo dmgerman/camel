@@ -101,6 +101,9 @@ argument_list|(
 name|GZIPHelper
 operator|.
 name|CONTENT_ENCODING
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|getOutFilter
@@ -111,6 +114,9 @@ argument_list|(
 name|HttpMethods
 operator|.
 name|HTTP_METHOD
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|getOutFilter
