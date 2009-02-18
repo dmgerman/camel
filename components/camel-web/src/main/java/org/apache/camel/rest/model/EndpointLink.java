@@ -252,7 +252,7 @@ parameter_list|)
 block|{
 comment|// TODO how to encode as a href?
 return|return
-literal|"/endpoint/"
+literal|"/endpoints/"
 operator|+
 name|uri
 return|;
