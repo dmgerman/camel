@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.rest.model
+DECL|package|org.apache.camel.web.model
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|rest
+name|web
 operator|.
 name|model
 package|;
@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Endpoint
 import|;
 end_import
 
@@ -100,37 +100,44 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|Camel
+DECL|class|EndpointLink
 specifier|public
 class|class
-name|Camel
+name|EndpointLink
 block|{
 annotation|@
 name|XmlAttribute
-DECL|field|name
+DECL|field|uri
 specifier|private
 name|String
-name|name
+name|uri
 decl_stmt|;
-DECL|method|Camel ()
+annotation|@
+name|XmlAttribute
+DECL|field|href
+specifier|private
+name|String
+name|href
+decl_stmt|;
+DECL|method|EndpointLink ()
 specifier|public
-name|Camel
+name|EndpointLink
 parameter_list|()
 block|{     }
-DECL|method|Camel (CamelContext camelContext)
+DECL|method|EndpointLink (Endpoint endpoint)
 specifier|public
-name|Camel
+name|EndpointLink
 parameter_list|(
-name|CamelContext
-name|camelContext
+name|Endpoint
+name|endpoint
 parameter_list|)
 block|{
-name|setName
-argument_list|(
-name|camelContext
-operator|.
-name|getName
+name|this
 argument_list|()
+expr_stmt|;
+name|load
+argument_list|(
+name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -143,37 +150,112 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"CamelContext: "
+literal|"EndpointLink{href='"
 operator|+
-name|getName
-argument_list|()
+name|href
+operator|+
+literal|"' uri='"
+operator|+
+name|uri
+operator|+
+literal|"'}"
 return|;
 block|}
-DECL|method|getName ()
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-name|name
-return|;
-block|}
-DECL|method|setName (String name)
+DECL|method|load (Endpoint endpoint)
 specifier|public
 name|void
-name|setName
+name|load
 parameter_list|(
-name|String
-name|name
+name|Endpoint
+name|endpoint
 parameter_list|)
 block|{
 name|this
 operator|.
-name|name
+name|uri
 operator|=
-name|name
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|href
+operator|=
+name|createHref
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHref ()
+specifier|public
+name|String
+name|getHref
+parameter_list|()
+block|{
+return|return
+name|href
+return|;
+block|}
+DECL|method|setHref (String href)
+specifier|public
+name|void
+name|setHref
+parameter_list|(
+name|String
+name|href
+parameter_list|)
+block|{
+name|this
+operator|.
+name|href
+operator|=
+name|href
+expr_stmt|;
+block|}
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
+block|}
+DECL|method|setUri (String uri)
+specifier|public
+name|void
+name|setUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
+expr_stmt|;
+block|}
+DECL|method|createHref (String uri)
+specifier|protected
+name|String
+name|createHref
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+comment|// TODO how to encode as a href?
+return|return
+literal|"/endpoints/"
+operator|+
+name|uri
+return|;
 block|}
 block|}
 end_class

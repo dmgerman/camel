@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.rest.resources
+DECL|package|org.apache.camel.web.resources
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|rest
+name|web
 operator|.
 name|resources
 package|;
@@ -70,7 +70,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|rest
+name|web
 operator|.
 name|model
 operator|.
@@ -86,7 +86,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|rest
+name|web
 operator|.
 name|model
 operator|.

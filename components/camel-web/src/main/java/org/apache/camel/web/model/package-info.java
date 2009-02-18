@@ -8,7 +8,7 @@ comment|/**  * The JAXB POJOs for the  *<a href="http://camel.apache.org/rest.ht
 end_comment
 
 begin_annotation
-DECL|package|org.apache.camel.rest.model
+DECL|package|org.apache.camel.web.model
 annotation|@
 name|javax
 operator|.
@@ -41,7 +41,7 @@ argument_list|)
 end_annotation
 
 begin_package
-DECL|package|org.apache.camel.rest.model
+DECL|package|org.apache.camel.web.model
 package|package
 name|org
 operator|.
@@ -49,7 +49,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|rest
+name|web
 operator|.
 name|model
 package|;

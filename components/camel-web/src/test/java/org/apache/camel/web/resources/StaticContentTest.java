@@ -4,7 +4,7 @@ comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or 
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.rest.resources
+DECL|package|org.apache.camel.web.resources
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|rest
+name|web
 operator|.
 name|resources
 package|;
@@ -23,29 +23,51 @@ comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|Constants
+DECL|class|StaticContentTest
 specifier|public
 class|class
-name|Constants
+name|StaticContentTest
+extends|extends
+name|TestSupport
 block|{
-DECL|field|HTML_MIME_TYPES
+DECL|method|testCssFile ()
 specifier|public
-specifier|static
-specifier|final
+name|void
+name|testCssFile
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|String
-name|HTML_MIME_TYPES
+name|response
 init|=
-literal|"text/html;qs=5"
-decl_stmt|;
-DECL|field|DATA_MIME_TYPES
-specifier|public
-specifier|static
-specifier|final
+name|resource
+argument_list|(
+literal|"/css/site.css"
+argument_list|)
+operator|.
+name|get
+argument_list|(
 name|String
-name|DATA_MIME_TYPES
-init|=
-literal|"text/xml,application/xml,application/json"
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Should have returned a response"
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
+name|assertResponseContains
+argument_list|(
+name|response
+argument_list|,
+literal|"Rounded Box Styles"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
