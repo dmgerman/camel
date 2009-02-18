@@ -383,12 +383,6 @@ specifier|final
 name|ProducerTemplate
 name|template
 decl_stmt|;
-annotation|@
-name|Context
-DECL|field|headers
-name|HttpHeaders
-name|headers
-decl_stmt|;
 DECL|method|EndpointResource (CamelContext camelContext, ProducerTemplate template, Endpoint endpoint)
 specifier|public
 name|EndpointResource
@@ -460,16 +454,6 @@ parameter_list|()
 block|{
 return|return
 name|template
-return|;
-block|}
-DECL|method|getHeaders ()
-specifier|public
-name|HttpHeaders
-name|getHeaders
-parameter_list|()
-block|{
-return|return
-name|headers
 return|;
 block|}
 DECL|method|getCamelContext ()
@@ -611,11 +595,16 @@ operator|.
 name|APPLICATION_XML
 block|}
 argument_list|)
-DECL|method|postMessage (final String body)
+DECL|method|postMessage (@ontext HttpHeaders headers,final String body)
 specifier|public
 name|Response
 name|postMessage
 parameter_list|(
+annotation|@
+name|Context
+name|HttpHeaders
+name|headers
+parameter_list|,
 specifier|final
 name|String
 name|body
@@ -625,6 +614,8 @@ name|URISyntaxException
 block|{
 name|sendMessage
 argument_list|(
+name|headers
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
@@ -645,11 +636,16 @@ name|Consumes
 argument_list|(
 literal|"application/x-www-form-urlencoded"
 argument_list|)
-DECL|method|processForm (Form formData)
+DECL|method|processForm (@ontext HttpHeaders headers, Form formData)
 specifier|public
 name|Response
 name|processForm
 parameter_list|(
+annotation|@
+name|Context
+name|HttpHeaders
+name|headers
+parameter_list|,
 name|Form
 name|formData
 parameter_list|)
@@ -683,6 +679,8 @@ argument_list|)
 decl_stmt|;
 name|sendMessage
 argument_list|(
+name|headers
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
@@ -703,11 +701,15 @@ name|build
 argument_list|()
 return|;
 block|}
-DECL|method|sendMessage (final String body)
+DECL|method|sendMessage (final HttpHeaders headers, final String body)
 specifier|protected
 name|void
 name|sendMessage
 parameter_list|(
+specifier|final
+name|HttpHeaders
+name|headers
+parameter_list|,
 specifier|final
 name|String
 name|body
