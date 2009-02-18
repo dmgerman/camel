@@ -52,20 +52,6 @@ name|Processor
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExpressionHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/delayer.html">Delayer</a> which  * delays processing the exchange until the correct amount of time has elapsed  * using an expression to determine the delivery time.<p/> For example if you  * wish to delay JMS messages by 25 seconds from their publish time you could  * create an instance of this class with the expression  *<code>header("JMSTimestamp")</code> and a delay value of 25000L.  *   * @version $Revision$  */
 end_comment
@@ -203,12 +189,10 @@ block|{
 name|Long
 name|longValue
 init|=
-name|ExpressionHelper
-operator|.
-name|evaluateAsType
-argument_list|(
 name|timeExpression
-argument_list|,
+operator|.
+name|evaluate
+argument_list|(
 name|exchange
 argument_list|,
 name|Long
