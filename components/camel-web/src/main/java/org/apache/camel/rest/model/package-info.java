@@ -8,6 +8,7 @@ comment|/**  * The JAXB POJOs for the  *<a href="http://camel.apache.org/rest.ht
 end_comment
 
 begin_annotation
+DECL|package|org.apache.camel.rest.model
 annotation|@
 name|javax
 operator|.

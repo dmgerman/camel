@@ -46,22 +46,6 @@ name|api
 operator|.
 name|view
 operator|.
-name|ImplicitProduces
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|jersey
-operator|.
-name|api
-operator|.
-name|view
-operator|.
 name|Viewable
 import|;
 end_import
@@ -74,31 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ProducerTemplate
 import|;
 end_import
 
@@ -296,10 +256,6 @@ begin_comment
 comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
-begin_comment
-comment|//@ImplicitProduces(Constants.HTML_MIME_TYPES)
-end_comment
-
 begin_class
 DECL|class|EndpointsResource
 specifier|public
@@ -366,7 +322,8 @@ return|return
 operator|new
 name|Endpoints
 argument_list|(
-name|camelContext
+name|getCamelContext
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -423,7 +380,8 @@ condition|)
 block|{
 name|endpoint
 operator|=
-name|camelContext
+name|getCamelContext
+argument_list|()
 operator|.
 name|getEndpoint
 argument_list|(
@@ -443,9 +401,8 @@ return|return
 operator|new
 name|EndpointResource
 argument_list|(
-name|camelContext
-argument_list|,
-name|template
+name|getContextResource
+argument_list|()
 argument_list|,
 name|endpoint
 argument_list|)

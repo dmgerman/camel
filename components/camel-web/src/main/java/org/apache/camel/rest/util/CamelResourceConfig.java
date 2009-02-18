@@ -20,21 +20,17 @@ end_package
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|sun
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|jersey
 operator|.
-name|util
+name|api
 operator|.
-name|Map
+name|core
+operator|.
+name|PackagesResourceConfig
 import|;
 end_import
 
@@ -54,17 +50,21 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|sun
+name|util
 operator|.
-name|jersey
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|api
+name|util
 operator|.
-name|core
-operator|.
-name|PackagesResourceConfig
+name|Map
 import|;
 end_import
 
