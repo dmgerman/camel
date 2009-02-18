@@ -382,10 +382,10 @@ operator|.
 name|APPLICATION_JSON
 block|}
 argument_list|)
-DECL|method|getEndpointsDTO ()
+DECL|method|getDTO ()
 specifier|public
 name|Endpoints
-name|getEndpointsDTO
+name|getDTO
 parameter_list|()
 block|{
 return|return
@@ -495,10 +495,10 @@ name|MediaType
 operator|.
 name|TEXT_PLAIN
 argument_list|)
-DECL|method|postMessage (String uri)
+DECL|method|postUri (String uri)
 specifier|public
 name|Response
-name|postMessage
+name|postUri
 parameter_list|(
 name|String
 name|uri
@@ -548,10 +548,10 @@ name|Consumes
 argument_list|(
 literal|"application/x-www-form-urlencoded"
 argument_list|)
-DECL|method|processForm (@ontext UriInfo uriInfo, Form formData)
+DECL|method|postUriForm (@ontext UriInfo uriInfo, Form formData)
 specifier|public
 name|Response
-name|processForm
+name|postUriForm
 parameter_list|(
 annotation|@
 name|Context
@@ -685,7 +685,7 @@ name|getEndpoints
 parameter_list|()
 block|{
 return|return
-name|getEndpointsDTO
+name|getDTO
 argument_list|()
 operator|.
 name|getEndpoints

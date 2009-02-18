@@ -636,10 +636,10 @@ name|Consumes
 argument_list|(
 literal|"application/x-www-form-urlencoded"
 argument_list|)
-DECL|method|processForm (@ontext HttpHeaders headers, Form formData)
+DECL|method|postMessageForm (@ontext HttpHeaders headers, Form formData)
 specifier|public
 name|Response
-name|processForm
+name|postMessageForm
 parameter_list|(
 annotation|@
 name|Context
