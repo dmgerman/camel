@@ -702,7 +702,7 @@ name|newExp
 argument_list|)
 return|;
 block|}
-comment|/**      * Replaces all occurrencies of the regular expression with the given      * replacement      */
+comment|/**      * Replaces all occurrences of the regular expression with the given      * replacement      */
 DECL|method|regexReplaceAll (String regex, String replacement)
 specifier|public
 name|ValueBuilder
@@ -737,7 +737,7 @@ name|newExp
 argument_list|)
 return|;
 block|}
-comment|/**      * Replaces all occurrencies of the regular expression with the given      * replacement      */
+comment|/**      * Replaces all occurrences of the regular expression with the given      * replacement      */
 DECL|method|regexReplaceAll (String regex, Expression replacement)
 specifier|public
 name|ValueBuilder
