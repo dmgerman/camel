@@ -188,6 +188,9 @@ name|routes
 init|=
 name|resource
 operator|.
+name|getRoutesResource
+argument_list|()
+operator|.
 name|getRouteDefinitions
 argument_list|()
 decl_stmt|;
