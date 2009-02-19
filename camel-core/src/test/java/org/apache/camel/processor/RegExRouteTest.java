@@ -70,13 +70,13 @@ DECL|field|orignalBody
 name|String
 name|orignalBody
 init|=
-literal|"Foo"
+literal|"Foo and another Foo"
 decl_stmt|;
-DECL|field|replacedBody
+DECL|field|expectedBody
 name|String
-name|replacedBody
+name|expectedBody
 init|=
-literal|"Bar"
+literal|"Bar and another Bar"
 decl_stmt|;
 DECL|method|testSendingMessage ()
 specifier|public
@@ -98,7 +98,7 @@ name|result
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-name|replacedBody
+name|expectedBody
 argument_list|)
 expr_stmt|;
 name|template
