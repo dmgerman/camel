@@ -22,7 +22,7 @@ name|XmlSchema
 argument_list|(
 name|namespace
 operator|=
-literal|"http://camel.apache.org/schema/rest"
+literal|"http://camel.apache.org/schema/web"
 argument_list|,
 name|elementFormDefault
 operator|=
