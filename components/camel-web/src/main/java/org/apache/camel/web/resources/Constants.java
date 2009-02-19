@@ -46,6 +46,15 @@ name|DATA_MIME_TYPES
 init|=
 literal|"text/xml,application/xml,application/json"
 decl_stmt|;
+DECL|field|DOT_MIMETYPE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DOT_MIMETYPE
+init|=
+literal|"text/vnd.graphviz"
+decl_stmt|;
 block|}
 end_class
 

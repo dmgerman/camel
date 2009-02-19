@@ -68,6 +68,22 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|web
+operator|.
+name|resources
+operator|.
+name|Constants
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -150,6 +166,22 @@ argument_list|,
 name|MediaType
 operator|.
 name|APPLICATION_JSON_TYPE
+argument_list|)
+expr_stmt|;
+name|m
+operator|.
+name|put
+argument_list|(
+literal|"dot"
+argument_list|,
+name|MediaType
+operator|.
+name|valueOf
+argument_list|(
+name|Constants
+operator|.
+name|DOT_MIMETYPE
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
