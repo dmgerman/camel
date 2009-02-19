@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * The active routes in Camel which are used to implement one or more  *<a href="http://camel.apache.org/enterprise-integration-patterns.html">Enterprise Integration Paterns</a>  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -180,7 +180,7 @@ name|contextResource
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the routes currently active within this context      *      * @return      */
+comment|/**      * Returns the routes currently active within this context      */
 annotation|@
 name|GET
 annotation|@
@@ -249,6 +249,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Returns the Graphviz DOT<a href="http://camel.apache.org/visualisation.html">Visualisation</a>      * of the current Camel routes      */
 annotation|@
 name|GET
 annotation|@

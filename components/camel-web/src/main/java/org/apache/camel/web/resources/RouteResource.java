@@ -34,6 +34,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|view
+operator|.
+name|RouteDotGenerator
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|ws
@@ -70,8 +84,18 @@ name|MediaType
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * A single Camel Route which is used to implement one or more  *<a href="http://camel.apache.org/enterprise-integration-patterns.html">Enterprise Integration Paterns</a>  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -113,6 +137,7 @@ operator|=
 name|route
 expr_stmt|;
 block|}
+comment|/**      * Returns the XML or JSON representation of this route      */
 annotation|@
 name|GET
 annotation|@
@@ -140,6 +165,43 @@ parameter_list|()
 block|{
 return|return
 name|route
+return|;
+block|}
+comment|/**      * Returns the Graphviz DOT<a href="http://camel.apache.org/visualisation.html">Visualisation</a>      * of this route      */
+annotation|@
+name|GET
+annotation|@
+name|Produces
+argument_list|(
+name|Constants
+operator|.
+name|DOT_MIMETYPE
+argument_list|)
+DECL|method|getDot ()
+specifier|public
+name|String
+name|getDot
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|RouteDotGenerator
+name|generator
+init|=
+operator|new
+name|RouteDotGenerator
+argument_list|(
+literal|"/tmp/camel"
+argument_list|)
+decl_stmt|;
+return|return
+name|generator
+operator|.
+name|getRoutesText
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * A Camel<a href="http://camel.apache.org/exchange.html">message exchange</a>   * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class

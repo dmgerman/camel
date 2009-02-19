@@ -167,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The resource for the CamelContext  *  * @version $Revision$  */
+comment|/**  * The root Camel resource from which all other resources can be navigated such as for<code>endpoints</code>  * or<code>routes</code>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -292,6 +292,7 @@ block|}
 block|}
 comment|// representations
 comment|//-------------------------------------------------------------------------
+comment|/**      * Returns the XML or JSON representation of the CamelContext      */
 annotation|@
 name|GET
 comment|// TODO we can replace this long expression with a static constant
@@ -327,6 +328,7 @@ name|camelContext
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the active endpoints      */
 annotation|@
 name|Path
 argument_list|(
@@ -346,6 +348,7 @@ name|this
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the active routes      */
 annotation|@
 name|Path
 argument_list|(

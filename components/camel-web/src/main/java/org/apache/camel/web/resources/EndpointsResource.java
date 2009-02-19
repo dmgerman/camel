@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision: 1.1 $  */
+comment|/**  * The active endpoints in Camel  *   * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -327,7 +327,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Looks up an individual endpoint      */
+comment|/**      * Returns the resource of an individual Camel endpoint      *      * @param id the endpoints unique URI      */
 annotation|@
 name|Path
 argument_list|(
@@ -417,6 +417,7 @@ block|}
 block|}
 comment|// Creating endpoints
 comment|//-------------------------------------------------------------------------
+comment|/**      * Creates a new Endpoint for the given URI that is posted.      *      * @param uri the plain text URI of the endpoint to be created      */
 annotation|@
 name|POST
 annotation|@
@@ -472,6 +473,7 @@ name|build
 argument_list|()
 return|;
 block|}
+comment|/**      * Creates a new Endpoint for the given URI that is posted using form encoding with the<code>uri</code>      * value in the form being used to specify the endpoints unique URI.      *      * @param formData is the form data POSTed typically from a HTML form with the<code>uri</code> field used to create      * the endpoint      */
 annotation|@
 name|POST
 annotation|@

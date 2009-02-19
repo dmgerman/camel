@@ -295,7 +295,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A Camel<a href="http://camel.apache.org/endpoint.html">Endpoint</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -399,6 +399,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Returns a single Camel<a href="http://camel.apache.org/exchange.html">message exchange</a> on this endpoint if the endpoint supports      *<a href="http://camel.apache.org/browsableendpoint.html">being browsed</a>      */
 annotation|@
 name|Path
 argument_list|(
@@ -471,6 +472,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Posts a<a href="http://camel.apache.org/message.html">message</a> to this Camel endpoint with the payload      * being text, XML or JSON      */
 annotation|@
 name|POST
 annotation|@
@@ -528,6 +530,7 @@ name|build
 argument_list|()
 return|;
 block|}
+comment|/**      * Posts a<a href="http://camel.apache.org/message.html">message</a> to this Camel endpoint taking the      * form data and extracting the<code>body</code> field as the body of the message.      */
 annotation|@
 name|POST
 annotation|@
@@ -551,17 +554,6 @@ parameter_list|)
 throws|throws
 name|URISyntaxException
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Received form! "
-operator|+
-name|formData
-argument_list|)
-expr_stmt|;
 name|String
 name|body
 init|=
@@ -569,7 +561,7 @@ name|formData
 operator|.
 name|getFirst
 argument_list|(
-literal|"text"
+literal|"body"
 argument_list|,
 name|String
 operator|.
@@ -614,21 +606,6 @@ name|String
 name|body
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Sending to "
-operator|+
-name|endpoint
-operator|+
-literal|" body: "
-operator|+
-name|body
-argument_list|)
-expr_stmt|;
 name|getTemplate
 argument_list|()
 operator|.
@@ -686,17 +663,6 @@ operator|.
 name|getRequestHeaders
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Headers are: "
-operator|+
-name|requestHeaders
-argument_list|)
-expr_stmt|;
 name|Set
 argument_list|<
 name|Map
@@ -804,18 +770,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-else|else
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"No request headers!"
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
