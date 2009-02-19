@@ -127,7 +127,7 @@ parameter_list|()
 block|{
 comment|//Utility Class
 block|}
-comment|/**      * Creates a {@link PollingConsumer} and polls all pending messages on the endpoint      * and invokes the given {@link Processor} to process each {@link Exchange} and then closes      * down the consumer and throws any exceptions thrown.      *      * @param endpoint      * @param processor      */
+comment|/**      * Creates a {@link PollingConsumer} and polls all pending messages on the endpoint      * and invokes the given {@link Processor} to process each {@link Exchange} and then closes      * down the consumer and throws any exceptions thrown.      */
 DECL|method|pollEndpoint (Endpoint endpoint, Processor processor, long timeout)
 specifier|public
 specifier|static
@@ -227,7 +227,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Creates a {@link PollingConsumer} and polls all pending messages on the      * endpoint and invokes the given {@link Processor} to process each      * {@link Exchange} and then closes down the consumer and throws any      * exceptions thrown.      *      * @param endpoint      * @param processor      */
+comment|/**      * Creates a {@link PollingConsumer} and polls all pending messages on the      * endpoint and invokes the given {@link Processor} to process each      * {@link Exchange} and then closes down the consumer and throws any      * exceptions thrown.      */
 DECL|method|pollEndpoint (Endpoint endpoint, Processor processor)
 specifier|public
 specifier|static

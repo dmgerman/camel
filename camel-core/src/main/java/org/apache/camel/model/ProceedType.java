@@ -165,8 +165,12 @@ name|toString
 parameter_list|()
 block|{
 return|return
-name|getShortName
+literal|"proceed["
+operator|+
+name|getOutputs
 argument_list|()
+operator|+
+literal|"]"
 return|;
 block|}
 block|}
