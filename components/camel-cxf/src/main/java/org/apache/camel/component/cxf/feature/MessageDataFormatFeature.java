@@ -182,6 +182,10 @@ name|RECEIVE
 block|,
 name|Phase
 operator|.
+name|USER_STREAM
+block|,
+name|Phase
+operator|.
 name|INVOKE
 block|,
 name|Phase
@@ -202,6 +206,10 @@ block|{
 name|Phase
 operator|.
 name|PREPARE_SEND
+block|,
+name|Phase
+operator|.
+name|USER_STREAM
 block|,
 name|Phase
 operator|.

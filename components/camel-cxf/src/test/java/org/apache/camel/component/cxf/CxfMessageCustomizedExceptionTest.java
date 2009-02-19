@@ -18,18 +18,6 @@ name|cxf
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|BusFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Test for throwing the CustomizedException from Camel CXF consumer with MESSAGE DataFormat  */
 end_comment
