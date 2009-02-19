@@ -143,6 +143,32 @@ name|routeContext
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+name|getShortName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|getShortName
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
