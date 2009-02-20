@@ -367,7 +367,7 @@ block|{
 return|return
 name|ExpressionBuilder
 operator|.
-name|systemProperty
+name|systemPropertyExpression
 argument_list|(
 name|remainder
 argument_list|)

@@ -32,6 +32,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Comparator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -501,7 +511,7 @@ name|right
 operator|=
 name|ExpressionBuilder
 operator|.
-name|convertTo
+name|convertToExpression
 argument_list|(
 name|right
 argument_list|,
@@ -687,7 +697,7 @@ name|newExp
 init|=
 name|ExpressionBuilder
 operator|.
-name|regexTokenize
+name|regexTokenizeExpression
 argument_list|(
 name|expression
 argument_list|,
@@ -790,7 +800,7 @@ name|newExp
 init|=
 name|ExpressionBuilder
 operator|.
-name|convertTo
+name|convertToExpression
 argument_list|(
 name|expression
 argument_list|,
@@ -805,7 +815,7 @@ name|newExp
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the current value a String using the registered type converters      *       * @return the current builder      */
+comment|/**      * Converts the current value to a String using the registered type converters      *       * @return the current builder      */
 DECL|method|convertToString ()
 specifier|public
 name|ValueBuilder
@@ -821,7 +831,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Appends the string evaluation of this expression with the given value      *       * @param value the value or expression to append      * @return the current builder      */
+comment|/**      * Appends the string evaluation of this expression with the given value      *      * @param value the value or expression to append      * @return the current builder      */
 DECL|method|append (Object value)
 specifier|public
 name|ValueBuilder
@@ -846,6 +856,36 @@ argument_list|(
 name|value
 argument_list|)
 argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Sorts the current value using the given comparator. The current value must be convertable      * to a {@link List} to allow sorting using the comparator.      *      * @param comparator  the comparator used by sorting      * @return the current builder      */
+DECL|method|sort (Comparator comparator)
+specifier|public
+name|ValueBuilder
+name|sort
+parameter_list|(
+name|Comparator
+name|comparator
+parameter_list|)
+block|{
+name|Expression
+name|newExp
+init|=
+name|ExpressionBuilder
+operator|.
+name|sortExpression
+argument_list|(
+name|expression
+argument_list|,
+name|comparator
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|newExp
 argument_list|)
 return|;
 block|}

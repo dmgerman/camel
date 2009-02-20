@@ -571,7 +571,7 @@ name|rightConverted
 operator|=
 name|ExpressionBuilder
 operator|.
-name|convertTo
+name|convertToExpression
 argument_list|(
 name|right
 argument_list|,

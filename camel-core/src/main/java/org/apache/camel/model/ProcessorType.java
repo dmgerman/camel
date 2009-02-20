@@ -62,6 +62,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Comparator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -633,6 +643,22 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|Builder
+operator|.
+name|body
 import|;
 end_import
 
@@ -4462,6 +4488,99 @@ operator|(
 name|Type
 operator|)
 name|this
+return|;
+block|}
+comment|/**      * Sorts the IN message body using the given comparator.      * The IN body mut be convertable to {@link List}.      *      * @param comparator  the comparator to use for sorting      * @return the builder      */
+DECL|method|sortBody (Comparator comparator)
+specifier|public
+name|Type
+name|sortBody
+parameter_list|(
+name|Comparator
+name|comparator
+parameter_list|)
+block|{
+name|addOutput
+argument_list|(
+operator|new
+name|SortType
+argument_list|(
+name|body
+argument_list|()
+argument_list|,
+name|comparator
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Sorts the IN message body using a default sorting based on toString representation.      * The IN body mut be convertable to {@link List}.      *      * @return the builder      */
+DECL|method|sortBody ()
+specifier|public
+name|Type
+name|sortBody
+parameter_list|()
+block|{
+return|return
+name|sortBody
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Sorts the expression using the given comparator      *      * @param expression  the expression, must be convertable to {@link List}      * @param comparator  the comparator to use for sorting      * @return the builder      */
+DECL|method|sort (Expression expression, Comparator comparator)
+specifier|public
+name|Type
+name|sort
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|,
+name|Comparator
+name|comparator
+parameter_list|)
+block|{
+name|addOutput
+argument_list|(
+operator|new
+name|SortType
+argument_list|(
+name|expression
+argument_list|,
+name|comparator
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Sorts the expression using a default sorting based on toString representation.       *      * @param expression  the expression, must be convertable to {@link List}      * @return the builder      */
+DECL|method|sort (Expression expression)
+specifier|public
+name|Type
+name|sort
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+return|return
+name|sort
+argument_list|(
+name|expression
+argument_list|,
+literal|null
+argument_list|)
 return|;
 block|}
 comment|/**      * Enriches an exchange with additional data obtained from a      *<code>resourceUri</code>.      *       * @param resourceUri      *            URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy      *            aggregation strategy to aggregate input data and additional      *            data.      * @return this processor type      * @see Enricher      *       */

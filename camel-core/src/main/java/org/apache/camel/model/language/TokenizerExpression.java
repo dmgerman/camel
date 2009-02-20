@@ -156,7 +156,7 @@ name|builder
 operator|.
 name|ExpressionBuilder
 operator|.
-name|regexTokenize
+name|regexTokenizeExpression
 import|;
 end_import
 
@@ -373,7 +373,7 @@ name|regex
 condition|)
 block|{
 return|return
-name|regexTokenize
+name|regexTokenizeExpression
 argument_list|(
 name|exp
 argument_list|,
