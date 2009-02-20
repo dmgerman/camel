@@ -163,6 +163,17 @@ name|JAXB_CONTEXT_PACKAGES
 operator|+
 literal|":org.apache.camel.web.model"
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|">>> Creating a JAXBJSON context with packages "
+operator|+
+name|packages
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|context
