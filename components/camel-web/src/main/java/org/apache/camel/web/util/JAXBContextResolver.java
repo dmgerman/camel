@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * A resolver of the JAXB context primed for the Camel XML languages  * which supports JSON as well as XML encoding  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -152,7 +152,6 @@ name|mapped
 argument_list|()
 decl_stmt|;
 comment|//JSONConfiguration.Builder builder = JSONConfiguration.natural();
-comment|//this.context = new JSONJAXBContext(builder.build(), cTypes);
 name|this
 operator|.
 name|packages
@@ -162,17 +161,6 @@ operator|.
 name|JAXB_CONTEXT_PACKAGES
 operator|+
 literal|":org.apache.camel.web.model"
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|">>> Creating a JAXBJSON context with packages "
-operator|+
-name|packages
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -253,6 +241,26 @@ block|}
 block|}
 return|return
 literal|null
+return|;
+block|}
+DECL|method|getPackages ()
+specifier|public
+name|String
+name|getPackages
+parameter_list|()
+block|{
+return|return
+name|packages
+return|;
+block|}
+DECL|method|getContext ()
+specifier|public
+name|JAXBContext
+name|getContext
+parameter_list|()
+block|{
+return|return
+name|context
 return|;
 block|}
 block|}
