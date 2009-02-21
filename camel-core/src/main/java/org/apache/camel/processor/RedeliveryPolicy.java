@@ -58,6 +58,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|LoggingLevel
@@ -97,7 +111,7 @@ comment|// Code taken from the ActiveMQ codebase
 end_comment
 
 begin_comment
-comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 5</li>  *<li>delay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.ERROR</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *  * @version $Revision$  */
+comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 5</li>  *<li>delay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.ERROR</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *<p/>  * This policy can be configured either by one of the following two settings:  *<ul>  *<li>using convnetional options, using all the options defined above</li>  *<li>using delay pattern to declare intervals for delays</li>  *</ul>  *<p/>  *<b>Note:</b> If using delay patterns then the following options is not used (delay, backOffMultiplier, useExponentialBackOff, useCollisionAvoidance)  *<p/>  *<b>Using delay pattern</b>:  *<br/>The delay pattern syntax is:<tt>limit:delay;limit 2:delay 2;limit 3:delay 3;...;limit N:delay N</tt>.  *<p/>  * How it works is best illustrate with an example with this pattern:<tt>delayPattern=5:1000;10:5000:20:20000</tt>  *<br/>The delays will be for attempt in range 0..4 = 0 millis, 5..9 = 1000 millis, 10..19 = 5000 millis,>= 20 = 20000 millis.  *<p/>  * If you want to set a starting delay, then use 0 as the first limit, eg:<tt>0:1000;5:5000</tt> will use 1 sec delay  * until attempt number 5 where it will use 5 seconds going forward.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -191,6 +205,11 @@ name|LoggingLevel
 operator|.
 name|ERROR
 decl_stmt|;
+DECL|field|delayPattern
+specifier|protected
+name|String
+name|delayPattern
+decl_stmt|;
 DECL|method|RedeliveryPolicy ()
 specifier|public
 name|RedeliveryPolicy
@@ -240,6 +259,10 @@ operator|+
 literal|", collisionAvoidanceFactor="
 operator|+
 name|collisionAvoidanceFactor
+operator|+
+literal|", delayPattern="
+operator|+
+name|delayPattern
 operator|+
 literal|"]"
 return|;
@@ -333,21 +356,26 @@ name|getMaximumRedeliveries
 argument_list|()
 return|;
 block|}
-comment|/**      * Calculates the new redelivery delay based on the last one then sleeps for the necessary amount of time      */
-DECL|method|sleep (long redeliveryDelay)
+comment|/**      * Calculates the new redelivery delay based on the last one then sleeps for the necessary amount of time      *      * @param redeliveryDelay  previous redelivery delay      * @param redeliveryCounter  number of previous redelivery attempts      * @return the calculate delay      */
+DECL|method|sleep (long redeliveryDelay, int redeliveryCounter)
 specifier|public
 name|long
 name|sleep
 parameter_list|(
 name|long
 name|redeliveryDelay
+parameter_list|,
+name|int
+name|redeliveryCounter
 parameter_list|)
 block|{
 name|redeliveryDelay
 operator|=
-name|getRedeliveryDelay
+name|calculateRedeliveryDelay
 argument_list|(
 name|redeliveryDelay
+argument_list|,
+name|redeliveryCounter
 argument_list|)
 expr_stmt|;
 if|if
@@ -397,13 +425,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Thread interrupted: "
 operator|+
@@ -419,15 +447,39 @@ return|return
 name|redeliveryDelay
 return|;
 block|}
-DECL|method|getRedeliveryDelay (long previousDelay)
-specifier|public
+DECL|method|calculateRedeliveryDelay (long previousDelay, int redeliveryCounter)
+specifier|protected
 name|long
-name|getRedeliveryDelay
+name|calculateRedeliveryDelay
 parameter_list|(
 name|long
 name|previousDelay
+parameter_list|,
+name|int
+name|redeliveryCounter
 parameter_list|)
 block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|delayPattern
+argument_list|)
+condition|)
+block|{
+comment|// calculate delay using the pattern
+return|return
+name|calculateRedeliverDelayUsingPattern
+argument_list|(
+name|delayPattern
+argument_list|,
+name|redeliveryCounter
+argument_list|)
+return|;
+block|}
+comment|// calculate the delay using the conventional parameters
 name|long
 name|redeliveryDelay
 decl_stmt|;
@@ -529,6 +581,100 @@ expr_stmt|;
 block|}
 return|return
 name|redeliveryDelay
+return|;
+block|}
+comment|/**      * Calculates the delay using the delay pattern      */
+DECL|method|calculateRedeliverDelayUsingPattern (String delayPattern, int redeliveryCounter)
+specifier|protected
+specifier|static
+name|long
+name|calculateRedeliverDelayUsingPattern
+parameter_list|(
+name|String
+name|delayPattern
+parameter_list|,
+name|int
+name|redeliveryCounter
+parameter_list|)
+block|{
+name|String
+index|[]
+name|groups
+init|=
+name|delayPattern
+operator|.
+name|split
+argument_list|(
+literal|";"
+argument_list|)
+decl_stmt|;
+comment|// find the group where ther redelivery counter matches
+name|long
+name|answer
+init|=
+literal|0
+decl_stmt|;
+for|for
+control|(
+name|String
+name|group
+range|:
+name|groups
+control|)
+block|{
+name|long
+name|delay
+init|=
+name|Long
+operator|.
+name|valueOf
+argument_list|(
+name|ObjectHelper
+operator|.
+name|after
+argument_list|(
+name|group
+argument_list|,
+literal|":"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|int
+name|count
+init|=
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
+name|ObjectHelper
+operator|.
+name|before
+argument_list|(
+name|group
+argument_list|,
+literal|":"
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|count
+operator|>
+name|redeliveryCounter
+condition|)
+block|{
+break|break;
+block|}
+else|else
+block|{
+name|answer
+operator|=
+name|delay
+expr_stmt|;
+block|}
+block|}
+return|return
+name|answer
 return|;
 block|}
 comment|// Builder methods
@@ -679,6 +825,25 @@ block|{
 name|setRetryAttemptedLogLevel
 argument_list|(
 name|retryAttemptedLogLevel
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the delay pattern with delay intervals.      */
+DECL|method|delayPattern (String delayPattern)
+specifier|public
+name|RedeliveryPolicy
+name|delayPattern
+parameter_list|(
+name|String
+name|delayPattern
+parameter_list|)
+block|{
+name|setDelayPattern
+argument_list|(
+name|delayPattern
 argument_list|)
 expr_stmt|;
 return|return
@@ -967,6 +1132,33 @@ block|{
 return|return
 name|retryAttemptedLogLevel
 return|;
+block|}
+DECL|method|getDelayPattern ()
+specifier|public
+name|String
+name|getDelayPattern
+parameter_list|()
+block|{
+return|return
+name|delayPattern
+return|;
+block|}
+comment|/**      * Sets an optional delay pattern to use insted of fixed delay.      */
+DECL|method|setDelayPattern (String delayPattern)
+specifier|public
+name|void
+name|setDelayPattern
+parameter_list|(
+name|String
+name|delayPattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delayPattern
+operator|=
+name|delayPattern
+expr_stmt|;
 block|}
 block|}
 end_class

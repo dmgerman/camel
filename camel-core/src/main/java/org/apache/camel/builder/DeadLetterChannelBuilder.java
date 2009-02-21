@@ -460,6 +460,27 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|delayPattern (String delayPattern)
+specifier|public
+name|DeadLetterChannelBuilder
+name|delayPattern
+parameter_list|(
+name|String
+name|delayPattern
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|delayPattern
+argument_list|(
+name|delayPattern
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
 name|DeadLetterChannelBuilder

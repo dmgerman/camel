@@ -927,6 +927,10 @@ argument_list|(
 name|data
 operator|.
 name|redeliveryDelay
+argument_list|,
+name|data
+operator|.
+name|redeliveryCounter
 argument_list|)
 expr_stmt|;
 comment|// letting onRedeliver be executed
@@ -1244,11 +1248,15 @@ name|data
 operator|.
 name|currentRedeliveryPolicy
 operator|.
-name|getRedeliveryDelay
+name|calculateRedeliveryDelay
 argument_list|(
 name|data
 operator|.
 name|redeliveryDelay
+argument_list|,
+name|data
+operator|.
+name|redeliveryCounter
 argument_list|)
 expr_stmt|;
 name|timer
@@ -1437,7 +1445,7 @@ block|}
 comment|/**      * Gives an optional configure redelivery processor a chance to process before the Exchange      * will be redelivered. This can be used to alter the Exchange.      */
 DECL|method|deliverToRedeliveryProcessor (final Exchange exchange, final AsyncCallback callback, final RedeliveryData data)
 specifier|private
-name|boolean
+name|void
 name|deliverToRedeliveryProcessor
 parameter_list|(
 specifier|final
@@ -1460,9 +1468,7 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return
-literal|true
-return|;
+return|return;
 block|}
 if|if
 condition|(
@@ -1480,7 +1486,11 @@ literal|"RedeliveryProcessor "
 operator|+
 name|redeliveryProcessor
 operator|+
-literal|" is processing Exchange before its redelivered"
+literal|" is processing Exchange: "
+operator|+
+name|exchange
+operator|+
+literal|" before its redelivered"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1494,9 +1504,6 @@ argument_list|(
 name|redeliveryProcessor
 argument_list|)
 decl_stmt|;
-name|boolean
-name|sync
-init|=
 name|afp
 operator|.
 name|process
@@ -1515,22 +1522,19 @@ name|boolean
 name|sync
 parameter_list|)
 block|{
-name|callback
+name|LOG
 operator|.
-name|done
+name|trace
 argument_list|(
-name|data
-operator|.
-name|sync
+literal|"Redelivery processor done"
 argument_list|)
 expr_stmt|;
+comment|// do NOT call done on callback as this is the redelivery processor that
+comment|// is done. we should not mark the entire exchange as done.
 block|}
 block|}
 argument_list|)
-decl_stmt|;
-return|return
-name|sync
-return|;
+expr_stmt|;
 block|}
 DECL|method|deliverToFaultProcessor (final Exchange exchange, final AsyncCallback callback, final RedeliveryData data)
 specifier|private
