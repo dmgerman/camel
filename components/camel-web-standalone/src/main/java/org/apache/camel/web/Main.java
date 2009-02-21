@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|mortbay
-operator|.
-name|jetty
-operator|.
-name|runner
-operator|.
-name|Runner
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -120,6 +106,20 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|mortbay
+operator|.
+name|jetty
+operator|.
+name|runner
+operator|.
+name|Runner
+import|;
+end_import
+
 begin_comment
 comment|/**  * A bootstrap class for starting Jetty Runner using an embedded war  *  * @version $Revision: 745637 $  */
 end_comment
@@ -127,6 +127,7 @@ end_comment
 begin_class
 DECL|class|Main
 specifier|public
+specifier|final
 class|class
 name|Main
 block|{
@@ -168,6 +169,13 @@ name|KB
 init|=
 literal|1024
 decl_stmt|;
+DECL|method|Main ()
+specifier|private
+name|Main
+parameter_list|()
+block|{
+comment|// is started from main
+block|}
 DECL|method|main (String[] args)
 specifier|public
 specifier|static

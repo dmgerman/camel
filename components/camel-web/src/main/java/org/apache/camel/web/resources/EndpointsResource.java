@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -20,77 +20,31 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|sun
+name|net
 operator|.
-name|jersey
-operator|.
-name|api
-operator|.
-name|representation
-operator|.
-name|Form
+name|URI
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|sun
+name|net
 operator|.
-name|jersey
-operator|.
-name|api
-operator|.
-name|view
-operator|.
-name|Viewable
+name|URISyntaxException
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|web
-operator|.
-name|model
-operator|.
-name|EndpointLink
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|web
-operator|.
-name|model
-operator|.
-name|Endpoints
+name|List
 import|;
 end_import
 
@@ -224,36 +178,82 @@ end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|net
+name|sun
 operator|.
-name|URI
+name|jersey
+operator|.
+name|api
+operator|.
+name|representation
+operator|.
+name|Form
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|net
+name|sun
 operator|.
-name|URISyntaxException
+name|jersey
+operator|.
+name|api
+operator|.
+name|view
+operator|.
+name|Viewable
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|camel
+operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|web
+operator|.
+name|model
+operator|.
+name|EndpointLink
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|web
+operator|.
+name|model
+operator|.
+name|Endpoints
 import|;
 end_import
 
 begin_comment
-comment|/**  * The active endpoints in Camel  *   * @version $Revision: 1.1 $  */
+comment|/**  * The active endpoints in Camel  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -473,7 +473,7 @@ name|build
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a new Endpoint for the given URI that is posted using form encoding with the<code>uri</code>      * value in the form being used to specify the endpoints unique URI.      *      * @param formData is the form data POSTed typically from a HTML form with the<code>uri</code> field used to create      * the endpoint      */
+comment|/**      * Creates a new Endpoint for the given URI that is posted using form encoding with the<code>uri</code>      * value in the form being used to specify the endpoints unique URI.      *      * @param formData is the form data POSTed typically from a HTML form with the<code>uri</code> field used to create      *                 the endpoint      */
 annotation|@
 name|POST
 annotation|@
