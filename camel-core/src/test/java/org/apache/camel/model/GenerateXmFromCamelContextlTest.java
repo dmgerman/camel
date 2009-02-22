@@ -141,11 +141,9 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Found route: "
 operator|+

@@ -354,7 +354,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-literal|"org.apache.camel.RedeliveryCounter"
+literal|"CamelRedeliveryCounter"
 argument_list|,
 name|Integer
 operator|.

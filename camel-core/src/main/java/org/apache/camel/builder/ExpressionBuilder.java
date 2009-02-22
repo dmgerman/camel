@@ -571,9 +571,9 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-name|DeadLetterChannel
+name|Exchange
 operator|.
-name|EXCEPTION_CAUSE_PROPERTY
+name|EXCEPTION_CAUGHT
 argument_list|,
 name|Throwable
 operator|.
@@ -641,9 +641,9 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-name|DeadLetterChannel
+name|Exchange
 operator|.
-name|EXCEPTION_CAUSE_PROPERTY
+name|EXCEPTION_CAUGHT
 argument_list|,
 name|Throwable
 operator|.
@@ -1431,6 +1431,11 @@ block|}
 return|;
 block|}
 comment|/**      * Returns an expression which converts the given expression to the given type      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|convertToExpression (final Expression expression, final Class type)
 specifier|public
 specifier|static

@@ -132,6 +132,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAttribute
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -422,6 +436,22 @@ name|ExpressionSubElementType
 name|handled
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+argument_list|(
+name|name
+operator|=
+literal|"onRedeliveryRef"
+argument_list|,
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|onRedeliveryRef
+specifier|private
+name|String
+name|onRedeliveryRef
+decl_stmt|;
+annotation|@
 name|XmlElementRef
 DECL|field|outputs
 specifier|private
@@ -468,6 +498,13 @@ DECL|field|retryUntilPolicy
 specifier|private
 name|Predicate
 name|retryUntilPolicy
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|onRedelivery
+specifier|private
+name|Processor
+name|onRedelivery
 decl_stmt|;
 DECL|method|ExceptionType ()
 specifier|public
@@ -669,6 +706,31 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// lookup onRedelivery if ref is provided
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|onRedeliveryRef
+argument_list|)
+condition|)
+block|{
+name|onRedelivery
+operator|=
+name|routeContext
+operator|.
+name|lookup
+argument_list|(
+name|onRedeliveryRef
+argument_list|,
+name|Processor
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1120,6 +1182,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a processor that should be processed<b>before</b> a redelivey attempt.      *<p/>      * Can be used to change the {@link org.apache.camel.Exchange}<b>before</b> its being redelivered.      */
+DECL|method|onRedelivery (Processor processor)
+specifier|public
+name|ExceptionType
+name|onRedelivery
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|setOnRedelivery
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getOutputs ()
@@ -1395,6 +1476,58 @@ operator|.
 name|retryUntilPolicy
 operator|=
 name|retryUntilPolicy
+expr_stmt|;
+block|}
+DECL|method|getOnRedelivery ()
+specifier|public
+name|Processor
+name|getOnRedelivery
+parameter_list|()
+block|{
+return|return
+name|onRedelivery
+return|;
+block|}
+DECL|method|setOnRedelivery (Processor onRedelivery)
+specifier|public
+name|void
+name|setOnRedelivery
+parameter_list|(
+name|Processor
+name|onRedelivery
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onRedelivery
+operator|=
+name|onRedelivery
+expr_stmt|;
+block|}
+DECL|method|getOnRedeliveryRef ()
+specifier|public
+name|String
+name|getOnRedeliveryRef
+parameter_list|()
+block|{
+return|return
+name|onRedeliveryRef
+return|;
+block|}
+DECL|method|setOnRedeliveryRef (String onRedeliveryRef)
+specifier|public
+name|void
+name|setOnRedeliveryRef
+parameter_list|(
+name|String
+name|onRedeliveryRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onRedeliveryRef
+operator|=
+name|onRedeliveryRef
 expr_stmt|;
 block|}
 comment|// Implementation methods

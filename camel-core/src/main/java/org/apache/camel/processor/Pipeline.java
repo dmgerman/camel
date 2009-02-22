@@ -357,7 +357,7 @@ operator|||
 name|exceptionHandled
 condition|)
 block|{
-comment|// The Exchange.EXCEPTION_HANDLED_PROPERTY property is only set if satisfactory handling was done
+comment|// The Exchange.EXCEPTION_HANDLED property is only set if satisfactory handling was done
 comment|//  by the error handler.  It's still an exception, the exchange still failed.
 if|if
 condition|(
@@ -654,7 +654,7 @@ operator|||
 name|exceptionHandled
 condition|)
 block|{
-comment|// The Exchange.EXCEPTION_HANDLED_PROPERTY property is only set if satisfactory handling was done
+comment|// The Exchange.EXCEPTION_HANDLED property is only set if satisfactory handling was done
 comment|//  by the error handler.  It's still an exception, the exchange still failed.
 if|if
 condition|(
@@ -777,7 +777,7 @@ name|getProperty
 argument_list|(
 name|Exchange
 operator|.
-name|EXCEPTION_HANDLED_PROPERTY
+name|EXCEPTION_HANDLED
 argument_list|)
 argument_list|)
 return|;

@@ -153,7 +153,7 @@ argument_list|)
 operator|.
 name|header
 argument_list|(
-literal|"org.apache.camel.Redelivered"
+literal|"CamelRedelivered"
 argument_list|)
 operator|.
 name|isEqualTo
@@ -172,7 +172,7 @@ argument_list|)
 operator|.
 name|header
 argument_list|(
-literal|"org.apache.camel.RedeliveryCounter"
+literal|"CamelRedeliveryCounter"
 argument_list|)
 operator|.
 name|isEqualTo

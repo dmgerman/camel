@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.interceptor
+DECL|package|org.apache.camel.processor
 package|package
 name|org
 operator|.
@@ -13,10 +13,18 @@ operator|.
 name|camel
 operator|.
 name|processor
-operator|.
-name|interceptor
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
 
 begin_import
 import|import
@@ -84,31 +92,15 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|onexception
-operator|.
-name|MyTechnicalException
-import|;
-end_import
-
 begin_comment
-comment|/**  * Unit test for testing possibility to modify exchange before redelivering  */
+comment|/**  * Unit test for testing possibility to modify exchange before redelivering specific  * per on exception  */
 end_comment
 
 begin_class
-DECL|class|InterceptAlterMessageBeforeRedeliveryTest
+DECL|class|DeadLetterChannelOnExceptionOnRedeliveryTest
 specifier|public
 class|class
-name|InterceptAlterMessageBeforeRedeliveryTest
+name|DeadLetterChannelOnExceptionOnRedeliveryTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -117,10 +109,10 @@ specifier|static
 name|int
 name|counter
 decl_stmt|;
-DECL|method|testInterceptAlterMessageBeforeRedelivery ()
+DECL|method|testGlobalOnRedelivery ()
 specifier|public
 name|void
-name|testInterceptAlterMessageBeforeRedelivery
+name|testGlobalOnRedelivery
 parameter_list|()
 throws|throws
 name|Exception
@@ -153,10 +145,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testInterceptAlterMessageWithHeadersBeforeRedelivery ()
+DECL|method|testRouteSpecificOnRedelivery ()
 specifier|public
 name|void
-name|testInterceptAlterMessageWithHeadersBeforeRedelivery
+name|testRouteSpecificOnRedelivery
 parameter_list|()
 throws|throws
 name|Exception
@@ -173,29 +165,33 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World123"
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedHeaderReceived
+name|message
 argument_list|(
-literal|"foo"
-argument_list|,
-literal|"123"
+literal|0
+argument_list|)
+operator|.
+name|header
+argument_list|(
+literal|"Timeout"
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+literal|5000
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBodyAndHeader
+name|sendBody
 argument_list|(
-literal|"direct:start"
+literal|"direct:io"
 argument_list|,
 literal|"Hello World"
-argument_list|,
-literal|"foo"
-argument_list|,
-literal|"123"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -246,7 +242,28 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// to execute unit test much faster we dont use delay between redeliveries
+comment|// START SNIPPET: e1
+comment|// when we redeliver caused by an IOException we want to do some special
+comment|// code before the redeliver attempt
+name|onException
+argument_list|(
+name|IOException
+operator|.
+name|class
+argument_list|)
+operator|.
+name|onRedelivery
+argument_list|(
+operator|new
+name|MyIORedeliverPrcessor
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// END SNIPPET: e1
+comment|// START SNIPPET: e2
+comment|// we configure our Dead Letter Channel to invoke
+comment|// MyRedeliveryProcessor before a redelivery is
+comment|// attempted. This allows us to alter the message before
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -254,39 +271,71 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 operator|.
+name|onRedelivery
+argument_list|(
+operator|new
+name|MyRedeliverPrcessor
+argument_list|()
+argument_list|)
+comment|// setting delay to zero is just to make unit teting faster
+operator|.
 name|delay
 argument_list|(
 literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// START SNIPPET: e1
-comment|// we configure an interceptor that is triggered when the redelivery flag
-comment|// has been set TRUE on an exchange
-name|intercept
-argument_list|()
-operator|.
-name|when
+comment|// END SNIPPET: e2
+name|from
 argument_list|(
-name|header
-argument_list|(
-literal|"CamelRedelivered"
-argument_list|)
-operator|.
-name|isEqualTo
-argument_list|(
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
+literal|"direct:start"
 argument_list|)
 operator|.
 name|process
 argument_list|(
 operator|new
-name|Processor
+name|ThrowExceptionProcessor
 argument_list|()
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:io"
+argument_list|)
+operator|.
+name|process
+argument_list|(
+operator|new
+name|ThrowIOExceptionProcessor
+argument_list|()
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|;
+block|}
+comment|// START SNIPPET: e3
+comment|// This is our processor that is executed before every redelivery attempt
+comment|// here we can do what we want in the java code, such as altering the message
+DECL|class|MyRedeliverPrcessor
+specifier|public
+specifier|static
+class|class
+name|MyRedeliverPrcessor
+implements|implements
+name|Processor
 block|{
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
@@ -346,20 +395,55 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// END SNIPPET: e3
+comment|// START SNIPPET: e4
+comment|// This is our processor that is executed before IOException redeliver attempt
+comment|// here we can do what we want in the java code, such as altering the message
+DECL|class|MyIORedeliverPrcessor
+specifier|public
+specifier|static
+class|class
+name|MyIORedeliverPrcessor
+implements|implements
+name|Processor
+block|{
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// just for show and tell, here we set a special header to instruct
+comment|// the receive a given timeout value
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"Timeout"
+argument_list|,
+literal|5000
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: e1
-name|from
-argument_list|(
-literal|"direct:start"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
+block|}
+block|}
+comment|// END SNIPPET: e4
+DECL|class|ThrowExceptionProcessor
+specifier|public
+specifier|static
+class|class
+name|ThrowExceptionProcessor
+implements|implements
 name|Processor
-argument_list|()
 block|{
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
@@ -381,7 +465,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|MyTechnicalException
+name|IllegalArgumentException
 argument_list|(
 literal|"Forced by unit test"
 argument_list|)
@@ -389,16 +473,43 @@ throw|;
 block|}
 block|}
 block|}
-argument_list|)
-operator|.
-name|to
+DECL|class|ThrowIOExceptionProcessor
+specifier|public
+specifier|static
+class|class
+name|ThrowIOExceptionProcessor
+implements|implements
+name|Processor
+block|{
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// force some error so Camel will do redelivery
+if|if
+condition|(
+operator|++
+name|counter
+operator|<=
+literal|3
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
 argument_list|(
-literal|"mock:result"
+literal|"Cannot connect"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
-return|;
 block|}
 block|}
 end_class

@@ -197,7 +197,7 @@ argument_list|)
 operator|.
 name|header
 argument_list|(
-name|DeadLetterChannel
+name|Exchange
 operator|.
 name|REDELIVERED
 argument_list|)
@@ -216,7 +216,7 @@ argument_list|)
 operator|.
 name|header
 argument_list|(
-name|DeadLetterChannel
+name|Exchange
 operator|.
 name|REDELIVERY_COUNTER
 argument_list|)
@@ -272,7 +272,7 @@ argument_list|)
 operator|.
 name|header
 argument_list|(
-name|DeadLetterChannel
+name|Exchange
 operator|.
 name|REDELIVERED
 argument_list|)
@@ -291,7 +291,7 @@ argument_list|)
 operator|.
 name|header
 argument_list|(
-name|DeadLetterChannel
+name|Exchange
 operator|.
 name|REDELIVERY_COUNTER
 argument_list|)
@@ -333,9 +333,9 @@ argument_list|)
 operator|.
 name|getProperty
 argument_list|(
-name|DeadLetterChannel
+name|Exchange
 operator|.
-name|EXCEPTION_CAUSE_PROPERTY
+name|EXCEPTION_CAUGHT
 argument_list|,
 name|Throwable
 operator|.
@@ -452,7 +452,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|DeadLetterChannel
+name|Exchange
 operator|.
 name|REDELIVERY_COUNTER
 argument_list|,
@@ -520,7 +520,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|DeadLetterChannel
+name|Exchange
 operator|.
 name|REDELIVERY_COUNTER
 argument_list|,

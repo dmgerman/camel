@@ -213,7 +213,7 @@ name|assertMessageHeader
 argument_list|(
 name|in
 argument_list|,
-name|DeadLetterChannel
+name|Exchange
 operator|.
 name|REDELIVERY_COUNTER
 argument_list|,
@@ -224,7 +224,7 @@ name|assertMessageHeader
 argument_list|(
 name|in
 argument_list|,
-name|DeadLetterChannel
+name|Exchange
 operator|.
 name|REDELIVERED
 argument_list|,
@@ -319,7 +319,7 @@ name|assertMessageHeader
 argument_list|(
 name|in
 argument_list|,
-name|DeadLetterChannel
+name|Exchange
 operator|.
 name|REDELIVERY_COUNTER
 argument_list|,
@@ -330,7 +330,7 @@ name|assertMessageHeader
 argument_list|(
 name|in
 argument_list|,
-name|DeadLetterChannel
+name|Exchange
 operator|.
 name|REDELIVERED
 argument_list|,
