@@ -281,6 +281,12 @@ name|boolean
 name|hasAttachments
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the unique ID for a message exchange if this message is capable of creating one or null if not      */
+DECL|method|createExchangeId ()
+name|String
+name|createExchangeId
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
