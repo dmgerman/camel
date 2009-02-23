@@ -272,6 +272,18 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// use little delay to run unit test fast
+name|errorHandler
+argument_list|(
+name|deadLetterChannel
+argument_list|()
+operator|.
+name|delay
+argument_list|(
+literal|25
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|TryType
 name|tryType
 init|=

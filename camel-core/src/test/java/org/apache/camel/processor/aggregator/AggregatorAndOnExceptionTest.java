@@ -265,7 +265,7 @@ name|header
 argument_list|(
 name|Exchange
 operator|.
-name|AGGREGATED_COUNT
+name|AGGREGATED_SIZE
 argument_list|)
 operator|.
 name|isEqualTo

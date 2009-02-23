@@ -60,11 +60,11 @@ name|BEAN_MULTI_PARAMETER_ARRAY
 init|=
 literal|"CamelBeanMultiParameterArray"
 decl_stmt|;
-DECL|field|AGGREGATED_COUNT
+DECL|field|AGGREGATED_SIZE
 name|String
-name|AGGREGATED_COUNT
+name|AGGREGATED_SIZE
 init|=
-literal|"CamelAggregatedCount"
+literal|"CamelAggregatedSize"
 decl_stmt|;
 DECL|field|CHARSET_NAME
 name|String

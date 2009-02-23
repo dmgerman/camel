@@ -301,7 +301,7 @@ name|getProperty
 argument_list|(
 name|Exchange
 operator|.
-name|AGGREGATED_COUNT
+name|AGGREGATED_SIZE
 argument_list|,
 name|Integer
 operator|.
@@ -340,7 +340,7 @@ name|setProperty
 argument_list|(
 name|Exchange
 operator|.
-name|AGGREGATED_COUNT
+name|AGGREGATED_SIZE
 argument_list|,
 name|count
 argument_list|)
@@ -389,7 +389,7 @@ name|setProperty
 argument_list|(
 name|Exchange
 operator|.
-name|AGGREGATED_COUNT
+name|AGGREGATED_SIZE
 argument_list|,
 name|Integer
 operator|.
