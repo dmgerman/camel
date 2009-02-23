@@ -486,8 +486,9 @@ literal|false
 return|;
 block|}
 block|}
+comment|/**      * Returns the version of this service      */
 DECL|method|getVersion ()
-specifier|protected
+specifier|public
 specifier|synchronized
 name|String
 name|getVersion
