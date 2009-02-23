@@ -385,6 +385,9 @@ operator|new
 name|Camel
 argument_list|(
 name|camelContext
+argument_list|,
+name|getVersion
+argument_list|()
 argument_list|)
 return|;
 block|}
