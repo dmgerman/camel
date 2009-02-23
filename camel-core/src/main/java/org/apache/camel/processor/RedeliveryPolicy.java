@@ -58,9 +58,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|model
 operator|.
-name|ObjectHelper
+name|LoggingLevel
 import|;
 end_import
 
@@ -72,9 +72,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|util
 operator|.
-name|LoggingLevel
+name|ObjectHelper
 import|;
 end_import
 
