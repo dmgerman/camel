@@ -222,9 +222,9 @@ argument_list|)
 operator|.
 name|setHeader
 argument_list|(
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 name|constant
 argument_list|(

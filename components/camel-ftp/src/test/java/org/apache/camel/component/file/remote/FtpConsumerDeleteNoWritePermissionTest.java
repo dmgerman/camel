@@ -44,22 +44,6 @@ name|PollingConsumer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileComponent
-import|;
-end_import
-
 begin_comment
 comment|/**  * User does not have write permissions so can't deleted consumed file.  */
 end_comment
@@ -205,9 +189,9 @@ name|ftpUrl
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"hello.txt"
 argument_list|)

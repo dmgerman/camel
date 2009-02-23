@@ -371,6 +371,11 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getPrefixes (String namespaceURI)
 specifier|public
 name|Iterator

@@ -908,6 +908,11 @@ block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Sends the exchange to the given endpoint      *      * @param uri  the endpoint to send to      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|to (String uri)
 specifier|public
 name|Type
@@ -934,6 +939,11 @@ name|this
 return|;
 block|}
 comment|/**      * Sends the exchange to the given endpoint      *      * @param endpoint  the endpoint to send to      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|to (Endpoint endpoint)
 specifier|public
 name|Type
@@ -960,6 +970,11 @@ name|this
 return|;
 block|}
 comment|/**      * Sends the exchange with certain exchange pattern to the given endpoint      *      * @param pattern the pattern to use for the message exchange      * @param uri  the endpoint to send to      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|to (ExchangePattern pattern, String uri)
 specifier|public
 name|Type
@@ -991,6 +1006,11 @@ name|this
 return|;
 block|}
 comment|/**      * Sends the exchange with certain exchange pattern to the given endpoint      *      * @param pattern the pattern to use for the message exchange      * @param endpoint  the endpoint to send to      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|to (ExchangePattern pattern, Endpoint endpoint)
 specifier|public
 name|Type
@@ -1022,6 +1042,11 @@ name|this
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints      *      * @param uris  list of endpoints to send to      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|to (String... uris)
 specifier|public
 name|Type
@@ -1058,6 +1083,11 @@ name|this
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|to (Endpoint... endpoints)
 specifier|public
 name|Type
@@ -1094,6 +1124,11 @@ name|this
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|to (Iterable<Endpoint> endpoints)
 specifier|public
 name|Type
@@ -1132,6 +1167,11 @@ name|this
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints      *      * @param pattern the pattern to use for the message exchanges      * @param uris  list of endpoints to send to      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|to (ExchangePattern pattern, String... uris)
 specifier|public
 name|Type
@@ -1173,6 +1213,11 @@ name|this
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints      *      * @param pattern the pattern to use for the message exchanges      * @param endpoints  list of endpoints to send to      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|to (ExchangePattern pattern, Endpoint... endpoints)
 specifier|public
 name|Type
@@ -1214,6 +1259,11 @@ name|this
 return|;
 block|}
 comment|/**      * Sends the exchange to a list of endpoints      *      * @param pattern the pattern to use for the message exchanges      * @param endpoints  list of endpoints to send to      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|to (ExchangePattern pattern, Iterable<Endpoint> endpoints)
 specifier|public
 name|Type
@@ -1257,6 +1307,11 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/exchange-pattern.html">ExchangePattern:</a>      * set the ExchangePattern {@link ExchangePattern} into the exchange      *      * @param exchangePattern  instance of {@link ExchangePattern}      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|setExchangePattern (ExchangePattern exchangePattern)
 specifier|public
 name|Type
@@ -1690,6 +1745,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Ends the current block      *      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|end ()
 specifier|public
 name|ProcessorType
@@ -2081,6 +2141,11 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @param recipients expression to decide the destinations      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|recipientList (Expression recipients)
 specifier|public
 name|Type
@@ -2154,9 +2219,6 @@ name|Type
 argument_list|>
 argument_list|>
 argument_list|(
-operator|(
-name|Type
-operator|)
 name|this
 argument_list|)
 decl_stmt|;
@@ -2172,6 +2234,11 @@ name|clause
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *      * @param header  is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      *                class will look in for the list of URIs to route the message to.      * @param uriDelimiter  is the delimiter that will be used to split up      *                      the list of URIs in the routing slip.      * @return the buiider      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|routingSlip (String header, String uriDelimiter)
 specifier|public
 name|Type
@@ -2208,6 +2275,11 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p>      * The list of URIs will be split based on the default delimiter {@link RoutingSlipType#DEFAULT_DELIMITER}      *      * @param header  is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      *                class will look in for the list of URIs to route the message to.      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|routingSlip (String header)
 specifier|public
 name|Type
@@ -2885,6 +2957,11 @@ name|loop
 return|;
 block|}
 comment|/**      * Creates a fault message based on the given throwable.      *      * @param fault   the fault      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|throwFault (Throwable fault)
 specifier|public
 name|Type
@@ -2942,6 +3019,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      *      * @param ref  a reference in the registry to lookup the interceptor that must be of type {@link DelegateProcessor}      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|interceptor (String ref)
 specifier|public
 name|Type
@@ -2973,6 +3055,11 @@ name|this
 return|;
 block|}
 comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      *      * @param refs  a list of reference in the registry to lookup the interceptor that must      *              be of type {@link DelegateProcessor}      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|interceptors (String... refs)
 specifier|public
 name|Type
@@ -3005,6 +3092,11 @@ name|this
 return|;
 block|}
 comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      *      * @param interceptor  the interceptor      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|intercept (DelegateProcessor interceptor)
 specifier|public
 name|Type
@@ -3152,6 +3244,11 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Procceeds the given intercepted route.      *<p/>      * Proceed is used in conjunction with intercept where calling proceed will route the message through the      * original route path from the point of interception. This can be used to implement the      *<a href="http://www.enterpriseintegrationpatterns.com/Detour.html">detour</a> pattern.      *      * @return the builder      * @see ProcessorType#proceed()      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|proceed ()
 specifier|public
 name|Type
@@ -3275,6 +3372,11 @@ name|this
 return|;
 block|}
 comment|/**      * Stops the given intercepted route.      *<p/>      * As opposed to {@link #proceed()} calling stop will stop the message route and<b>not</b> continue      * from the interepted origin.      *      * @return the builder      * @see #proceed()      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|stop ()
 specifier|public
 name|Type
@@ -3481,6 +3583,11 @@ name|answer
 return|;
 block|}
 comment|/**      * Forces handling of faults as exceptions      *      * @return the current builder with the fault handler configured      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|handleFault ()
 specifier|public
 name|Type
@@ -3502,6 +3609,11 @@ name|this
 return|;
 block|}
 comment|/**      * Installs the given<a href="http://camel.apache.org/error-handler.html">error handler</a> builder.      *      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|Type
@@ -3524,6 +3636,11 @@ name|this
 return|;
 block|}
 comment|/**      * Configures whether or not the<a href="http://camel.apache.org/error-handler.html">error handler</a>      * is inherited by every processing node (or just the top most one)      *      * @param condition the flag as to whether error handlers should be inherited or not      * @return the current builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|inheritErrorHandler (boolean condition)
 specifier|public
 name|Type
@@ -3548,6 +3665,11 @@ block|}
 comment|// Transformers
 comment|// -------------------------------------------------------------------------
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param processor  the custom {@link Processor}      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|process (Processor processor)
 specifier|public
 name|Type
@@ -3579,6 +3701,11 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor reference to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param ref   reference to a {@link Processor} to lookup in the registry      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|processRef (String ref)
 specifier|public
 name|Type
@@ -3615,6 +3742,11 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|bean (Object bean)
 specifier|public
 name|Type
@@ -3651,6 +3783,11 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|bean (Object bean, String method)
 specifier|public
 name|Type
@@ -3697,6 +3834,11 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|bean (Class beanType)
 specifier|public
 name|Type
@@ -3733,6 +3875,11 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param  beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|bean (Class beanType, String method)
 specifier|public
 name|Type
@@ -3779,6 +3926,11 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|beanRef (String ref)
 specifier|public
 name|Type
@@ -3810,6 +3962,11 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguty)      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|beanRef (String ref, String method)
 specifier|public
 name|Type
@@ -3876,9 +4033,6 @@ name|Type
 argument_list|>
 argument_list|>
 argument_list|(
-operator|(
-name|Type
-operator|)
 name|this
 argument_list|)
 decl_stmt|;
@@ -3901,6 +4055,11 @@ name|clause
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the IN message      *      * @param expression   the expression used to set the body      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|setBody (Expression expression)
 specifier|public
 name|Type
@@ -3932,6 +4091,11 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a processor which sets the body on the OUT message      *      * @param expression   the expression used to set the body      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|transform (Expression expression)
 specifier|public
 name|Type
@@ -4073,9 +4237,6 @@ name|Type
 argument_list|>
 argument_list|>
 argument_list|(
-operator|(
-name|Type
-operator|)
 name|this
 argument_list|)
 decl_stmt|;
@@ -4100,6 +4261,11 @@ name|clause
 return|;
 block|}
 comment|/**      * Adds a processor which sets the header on the IN message      *      * @param name  the header name      * @param expression  the expression used to set the header      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|setHeader (String name, Expression expression)
 specifier|public
 name|Type
@@ -4169,9 +4335,6 @@ name|Type
 argument_list|>
 argument_list|>
 argument_list|(
-operator|(
-name|Type
-operator|)
 name|this
 argument_list|)
 decl_stmt|;
@@ -4196,6 +4359,11 @@ name|clause
 return|;
 block|}
 comment|/**      * Adds a processor which sets the header on the OUT message      *      * @param name  the header name      * @param expression  the expression used to set the header      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|setOutHeader (String name, Expression expression)
 specifier|public
 name|Type
@@ -4259,6 +4427,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Adds a processor which sets the exchange property      *      * @param name  the property name      * @param expression  the expression used to set the property      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|setProperty (String name, Expression expression)
 specifier|public
 name|Type
@@ -4328,9 +4501,6 @@ name|Type
 argument_list|>
 argument_list|>
 argument_list|(
-operator|(
-name|Type
-operator|)
 name|this
 argument_list|)
 decl_stmt|;
@@ -4355,6 +4525,11 @@ name|clause
 return|;
 block|}
 comment|/**      * Adds a processor which removes the header on the IN message      *      * @param name  the header name      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|removeHeader (String name)
 specifier|public
 name|Type
@@ -4408,6 +4583,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Adds a processor which removes the exchange property      *      * @param name  the property name      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|removeProperty (String name)
 specifier|public
 name|Type
@@ -4439,6 +4619,11 @@ name|this
 return|;
 block|}
 comment|/**      * Converts the IN message body to the specified type      *      * @param type the type to convert to      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|convertBodyTo (Class type)
 specifier|public
 name|Type
@@ -4465,6 +4650,11 @@ name|this
 return|;
 block|}
 comment|/**      * Converts the IN message body to the specified class type      *      * @param typeString the type to convert to as a fully qualified classname      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|convertBodyTo (String typeString)
 specifier|public
 name|Type
@@ -4491,6 +4681,11 @@ name|this
 return|;
 block|}
 comment|/**      * Sorts the IN message body using the given comparator.      * The IN body mut be convertable to {@link List}.      *      * @param comparator  the comparator to use for sorting      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|sortBody (Comparator comparator)
 specifier|public
 name|Type
@@ -4534,6 +4729,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sorts the expression using the given comparator      *      * @param expression  the expression, must be convertable to {@link List}      * @param comparator  the comparator to use for sorting      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|sort (Expression expression, Comparator comparator)
 specifier|public
 name|Type
@@ -4583,7 +4783,12 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Enriches an exchange with additional data obtained from a      *<code>resourceUri</code>.      *       * @param resourceUri      *            URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy      *            aggregation strategy to aggregate input data and additional      *            data.      * @return this processor type      * @see Enricher      *       */
+comment|/**      * Enriches an exchange with additional data obtained from a      *<code>resourceUri</code>.      *       * @param resourceUri      *            URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy      *            aggregation strategy to aggregate input data and additional      *            data.      * @return this processor type      * @see Enricher      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|enrich (String resourceUri, AggregationStrategy aggregationStrategy)
 specifier|public
 name|Type
@@ -4650,6 +4855,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Unmarshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|unmarshal (DataFormatType dataFormatType)
 specifier|public
 name|Type
@@ -4697,6 +4907,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Unmarshals the in body using the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @param dataTypeRef  reference to a {@link DataFormat} to lookup in the registry      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|unmarshal (String dataTypeRef)
 specifier|public
 name|Type
@@ -4756,6 +4971,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Marshals the in body using the specified {@link DataFormat}      * and sets the output on the out message body.      *      * @param dataFormatType  the dataformat      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|marshal (DataFormatType dataFormatType)
 specifier|public
 name|Type
@@ -4803,6 +5023,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/data-format.html">DataFormat:</a>      * Marshals the in body the specified {@link DataFormat}      * reference in the {@link org.apache.camel.spi.Registry} and sets      * the output on the out message body.      *      * @param dataTypeRef  reference to a {@link DataFormat} to lookup in the registry      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|marshal (String dataTypeRef)
 specifier|public
 name|Type
@@ -4832,6 +5057,11 @@ comment|// Properties
 comment|// -------------------------------------------------------------------------
 annotation|@
 name|XmlTransient
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getParent ()
 specifier|public
 name|ProcessorType
@@ -5012,9 +5242,6 @@ operator|==
 literal|null
 operator|||
 name|value
-operator|.
-name|booleanValue
-argument_list|()
 return|;
 block|}
 annotation|@
@@ -5138,7 +5365,7 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * A strategy method which allows derived classes to wrap the child      * processor in some kind of interceptor      *      * @param routeContext the route context      * @param target       the processor which can be wrapped      * @return the original processor or a new wrapped interceptor      */
+comment|/**      * A strategy method which allows derived classes to wrap the child      * processor in some kind of interceptor      *      * @param routeContext the route context      * @param target       the processor which can be wrapped      * @return the original processor or a new wrapped interceptor      * @throws Exception can be thrown in case of error      */
 DECL|method|wrapProcessorInInterceptors (RouteContext routeContext, Processor target)
 specifier|protected
 name|Processor
@@ -5521,6 +5748,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|addOutput (ProcessorType processorType)
 specifier|public
 name|void

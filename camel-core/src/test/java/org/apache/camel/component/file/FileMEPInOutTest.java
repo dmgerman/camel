@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -120,9 +132,9 @@ literal|"direct:in"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"FileMEPInOutTest.txt"
 argument_list|)

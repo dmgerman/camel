@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ExchangePattern
 import|;
 end_import
@@ -105,7 +117,7 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
@@ -114,9 +126,11 @@ name|camel
 operator|.
 name|component
 operator|.
-name|bean
+name|jms
 operator|.
-name|BeanProcessor
+name|JmsComponent
+operator|.
+name|jmsComponentClientAcknowledge
 import|;
 end_import
 
@@ -147,24 +161,6 @@ operator|.
 name|impl
 operator|.
 name|JndiRegistry
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsComponent
-operator|.
-name|jmsComponentClientAcknowledge
 import|;
 end_import
 
@@ -317,9 +313,9 @@ name|InOut
 argument_list|,
 literal|"James"
 argument_list|,
-name|BeanProcessor
+name|Exchange
 operator|.
-name|METHOD_NAME
+name|BEAN_METHOD_NAME
 argument_list|,
 literal|"approveLoan"
 argument_list|)
@@ -365,9 +361,9 @@ name|InOut
 argument_list|,
 literal|"James"
 argument_list|,
-name|BeanProcessor
+name|Exchange
 operator|.
-name|METHOD_NAME
+name|BEAN_METHOD_NAME
 argument_list|,
 literal|"approveLoan"
 argument_list|)
@@ -414,9 +410,9 @@ name|InOut
 argument_list|,
 literal|"James"
 argument_list|,
-name|BeanProcessor
+name|Exchange
 operator|.
-name|METHOD_NAME
+name|BEAN_METHOD_NAME
 argument_list|,
 literal|"approveSuperLoan"
 argument_list|)

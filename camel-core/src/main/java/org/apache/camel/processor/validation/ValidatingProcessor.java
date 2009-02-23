@@ -587,9 +587,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"You must specify a schema, "
-operator|+
-literal|"schemaFile, schemaSource or schemaUrl property"
+literal|"You must specify a schema, schemaFile, schemaSource or schemaUrl property"
 argument_list|)
 throw|;
 block|}

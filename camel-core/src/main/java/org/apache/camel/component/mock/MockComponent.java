@@ -149,7 +149,7 @@ init|=
 operator|new
 name|ThroughputLogger
 argument_list|(
-literal|"org.apache.camel.mock:"
+literal|"org.apache.camel.component.mock:"
 operator|+
 name|remaining
 argument_list|,

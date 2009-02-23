@@ -143,6 +143,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a clone based on the source      *      * @param source the source      * @return a clone of the source      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|copyFrom (GenericFile<T> source)
 specifier|public
 name|GenericFile

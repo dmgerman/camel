@@ -1944,7 +1944,7 @@ name|getNode
 argument_list|()
 return|;
 block|}
-comment|/**      * Converts the given TRaX Source into a W3C DOM node      * @throws SAXException      * @throws IOException      * @throws ParserConfigurationException      */
+comment|/**      * Converts the given TRaX Source into a W3C DOM node      */
 annotation|@
 name|Converter
 DECL|method|toDOMNode (Source source)

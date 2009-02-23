@@ -63,11 +63,6 @@ DECL|class|Route
 specifier|public
 class|class
 name|Route
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 block|{
 DECL|field|ID_PROPERTY
 specifier|public

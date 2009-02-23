@@ -470,6 +470,11 @@ name|loadBalancer
 return|;
 block|}
 comment|/**      * Factory method to create the load balancer instance      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createLoadBalancer (RouteContext routeContext)
 specifier|protected
 name|LoadBalancer
@@ -513,13 +518,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"The class "
+literal|"Cannot find class: "
 operator|+
 name|loadBalancerTypeName
 operator|+
-literal|" is not on the classpath! Cannot use the loadBalancer "
-operator|+
-name|this
+literal|" in the classpath"
 argument_list|)
 throw|;
 block|}
@@ -690,24 +693,21 @@ name|void
 name|done
 parameter_list|(
 name|boolean
-name|doneSynchronously
+name|sync
 parameter_list|)
 block|{
 comment|// Only handle the async case...
 if|if
 condition|(
-name|doneSynchronously
+operator|!
+name|sync
 condition|)
-block|{
-return|return;
-block|}
-else|else
 block|{
 name|callback
 operator|.
 name|done
 argument_list|(
-name|doneSynchronously
+name|sync
 argument_list|)
 expr_stmt|;
 block|}

@@ -740,7 +740,6 @@ name|BatchResequencerConfig
 name|batchConfig
 parameter_list|)
 block|{
-comment|// TODO: find out how to have these two within an<xsd:choice>
 name|batch
 argument_list|(
 name|batchConfig
@@ -767,7 +766,6 @@ name|StreamResequencerConfig
 name|streamConfig
 parameter_list|)
 block|{
-comment|// TODO: find out how to have these two within an<xsd:choice>
 name|stream
 argument_list|(
 name|streamConfig
@@ -816,7 +814,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Creates a batch {@link Resequencer} instance applying the given      *<code>config</code>.      *       * @param routeContext      *            route context.      * @param config      *            batch resequencer configuration.      * @return the configured batch resequencer.      * @throws Exception       */
+comment|/**      * Creates a batch {@link Resequencer} instance applying the given      *<code>config</code>.      *       * @param routeContext route context.      * @param config batch resequencer configuration.      * @return the configured batch resequencer.      * @throws Exception can be thrown      */
 DECL|method|createBatchResequencer (RouteContext routeContext, BatchResequencerConfig config)
 specifier|protected
 name|Resequencer
@@ -879,7 +877,7 @@ return|return
 name|resequencer
 return|;
 block|}
-comment|/**      * Creates a {@link StreamResequencer} instance applying the given      *<code>config</code>.      *       * @param routeContext      *            route context.      * @param config      *            stream resequencer configuration.      * @return the configured stream resequencer.      * @throws Exception      */
+comment|/**      * Creates a {@link StreamResequencer} instance applying the given      *<code>config</code>.      *       * @param routeContext route context.      * @param config stream resequencer configuration.      * @return the configured stream resequencer.      * @throws Exception can be thrwon      */
 DECL|method|createStreamResequencer (RouteContext routeContext, StreamResequencerConfig config)
 specifier|protected
 name|StreamResequencer

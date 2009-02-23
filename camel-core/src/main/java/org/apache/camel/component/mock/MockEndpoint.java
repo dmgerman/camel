@@ -1761,6 +1761,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds an expectation that the given body values are received by this      * endpoint in any order      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|expectedBodiesReceivedInAnyOrder (Object... bodies)
 specifier|public
 name|void
@@ -2994,6 +2999,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|performAssertions (Exchange exchange)
 specifier|protected
 name|void

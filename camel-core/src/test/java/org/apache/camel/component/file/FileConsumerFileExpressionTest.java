@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -168,9 +180,9 @@ literal|"file://target/filelanguage/bean"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"122.txt"
 argument_list|)
@@ -183,9 +195,9 @@ literal|"file://target/filelanguage/bean"
 argument_list|,
 literal|"Goodday World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"123.txt"
 argument_list|)
@@ -198,9 +210,9 @@ literal|"file://target/filelanguage/bean"
 argument_list|,
 literal|"Bye World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"124.txt"
 argument_list|)
@@ -286,9 +298,9 @@ literal|"file://target/filelanguage/date"
 argument_list|,
 literal|"Bye World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"myfile-20081128.txt"
 argument_list|)
@@ -301,9 +313,9 @@ literal|"file://target/filelanguage/date"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"myfile-20081129.txt"
 argument_list|)
@@ -316,9 +328,9 @@ literal|"file://target/filelanguage/date"
 argument_list|,
 literal|"Goodday World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"myfile-${date:now:yyyyMMdd}.txt"
 argument_list|)

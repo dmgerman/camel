@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -131,9 +143,9 @@ literal|"file:target/dotfiles/"
 argument_list|,
 literal|"This is a dot file"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|".skipme"
 argument_list|)
@@ -189,9 +201,9 @@ literal|"file:target/dotfiles/"
 argument_list|,
 literal|"This is a dot file"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|".skipme"
 argument_list|)
@@ -204,9 +216,9 @@ literal|"file:target/dotfiles/"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"hello.txt"
 argument_list|)

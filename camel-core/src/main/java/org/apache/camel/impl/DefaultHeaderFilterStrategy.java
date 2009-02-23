@@ -111,10 +111,10 @@ specifier|private
 name|Pattern
 name|outFilterPattern
 decl_stmt|;
-DECL|field|lowercase
+DECL|field|lowerCase
 specifier|private
 name|boolean
-name|lowercase
+name|lowerCase
 decl_stmt|;
 DECL|field|allowNullValues
 specifier|private
@@ -380,27 +380,27 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Gets the isLowercase property which is a boolean to determinte      * whether header names should be converted to lowercase before      * checking it the filter Set.  It does not affect filtering using      * regular expression pattern.      */
-DECL|method|isLowercase ()
+DECL|method|isLowerCase ()
 specifier|public
 name|boolean
-name|isLowercase
+name|isLowerCase
 parameter_list|()
 block|{
 return|return
-name|lowercase
+name|lowerCase
 return|;
 block|}
 comment|/**      * Sets the isLowercase property which is a boolean to determinte      * whether header names should be converted to lowercase before      * checking it the filter Set.  It does not affect filtering using      * regular expression pattern.      */
-DECL|method|setLowercase (boolean value)
+DECL|method|setLowerCase (boolean value)
 specifier|public
 name|void
-name|setLowercase
+name|setLowerCase
 parameter_list|(
 name|boolean
 name|value
 parameter_list|)
 block|{
-name|lowercase
+name|lowerCase
 operator|=
 name|value
 expr_stmt|;
@@ -568,7 +568,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|isLowercase
+name|isLowerCase
 argument_list|()
 condition|)
 block|{

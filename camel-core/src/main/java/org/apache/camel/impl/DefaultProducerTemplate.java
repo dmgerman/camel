@@ -216,6 +216,7 @@ name|ProducerTemplate
 block|{
 DECL|field|context
 specifier|private
+specifier|final
 name|CamelContext
 name|context
 decl_stmt|;
@@ -1874,8 +1875,6 @@ parameter_list|)
 block|{
 name|Endpoint
 name|e
-init|=
-literal|null
 decl_stmt|;
 synchronized|synchronized
 init|(

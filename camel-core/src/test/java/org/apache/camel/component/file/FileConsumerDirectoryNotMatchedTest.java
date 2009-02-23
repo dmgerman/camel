@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -107,9 +119,9 @@ literal|"file:target/dirnotmatched/"
 argument_list|,
 literal|"This is a dot file"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|".skipme"
 argument_list|)
@@ -122,9 +134,9 @@ literal|"file:target/dirnotmatched/"
 argument_list|,
 literal|"This is a web file"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"index.html"
 argument_list|)
@@ -137,9 +149,9 @@ literal|"file:target/dirnotmatched/2007"
 argument_list|,
 literal|"2007 report"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"report2007.txt"
 argument_list|)
@@ -152,9 +164,9 @@ literal|"file:target/dirnotmatched/2008"
 argument_list|,
 literal|"2008 report"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"report2008.txt"
 argument_list|)

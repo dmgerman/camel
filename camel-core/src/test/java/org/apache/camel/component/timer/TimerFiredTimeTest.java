@@ -131,7 +131,9 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-literal|"org.apache.camel.timer.name"
+name|Exchange
+operator|.
+name|TIMER_NAME
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -141,7 +143,9 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-literal|"org.apache.camel.timer.firedTime"
+name|Exchange
+operator|.
+name|TIMER_FIRED_TIME
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -580,6 +580,11 @@ name|newData
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|printNode (PrintWriter writer, NodeData fromData, ProcessorType node)
 specifier|protected
 name|NodeData

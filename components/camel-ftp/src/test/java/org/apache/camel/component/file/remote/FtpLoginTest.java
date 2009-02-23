@@ -66,22 +66,6 @@ name|Producer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileComponent
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test for login failure due bad password and login with accepted password  */
 end_comment
@@ -293,9 +277,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"report.txt"
 argument_list|)

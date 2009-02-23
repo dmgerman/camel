@@ -124,7 +124,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *      * @throws Exception      */
+comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -176,7 +176,7 @@ name|methodCache
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *      * @throws Exception      */
+comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -226,7 +226,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *      * @throws Exception      */
+comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -271,7 +271,7 @@ name|interfaceClasses
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      *      * @throws Exception      */
+comment|/**      * Creates a Proxy which sends PojoExchange to the endpoint.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -326,7 +326,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the class loader of the first interface or throws {@link IllegalArgumentException} if there are no interfaces specified      *      * @return the class loader      */
+comment|/**      * Returns the class loader of the first interface or throws {@link IllegalArgumentException} if there are no interfaces specified      */
 DECL|method|getClassLoader (Class... interfaces)
 specifier|protected
 specifier|static

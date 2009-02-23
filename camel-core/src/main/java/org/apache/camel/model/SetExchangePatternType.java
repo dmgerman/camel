@@ -306,9 +306,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"setExchangePattern["
-operator|+
-literal|"pattern: "
+literal|"setExchangePattern[pattern: "
 operator|+
 name|pattern
 operator|+

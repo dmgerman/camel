@@ -76,15 +76,13 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|bind
+name|camel
 operator|.
-name|annotation
-operator|.
-name|XmlTransient
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -96,7 +94,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|processor
+operator|.
+name|loadbalancer
+operator|.
+name|FailOverLoadBalancer
 import|;
 end_import
 
@@ -215,26 +217,16 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Can't find the failException "
+literal|"Cannot find failException: "
 operator|+
 name|failedException
 operator|+
-literal|" for the FailOverLoadBalancer"
+literal|" to be used with this FailOverLoadBalancer"
 argument_list|)
 throw|;
 block|}
 return|return
 operator|new
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|loadbalancer
-operator|.
 name|FailOverLoadBalancer
 argument_list|(
 name|failExceptionClazz
@@ -245,16 +237,6 @@ else|else
 block|{
 return|return
 operator|new
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|loadbalancer
-operator|.
 name|FailOverLoadBalancer
 argument_list|()
 return|;

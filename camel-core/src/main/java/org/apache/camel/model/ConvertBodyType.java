@@ -309,6 +309,11 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getOutputs ()
 specifier|public
 name|List
@@ -418,7 +423,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Can't load the class with the class name: "
+literal|"Cannot load the class with the class name: "
 operator|+
 name|getType
 argument_list|()

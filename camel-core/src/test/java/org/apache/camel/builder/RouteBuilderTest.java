@@ -416,9 +416,6 @@ expr_stmt|;
 for|for
 control|(
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 name|route
 range|:
 name|routes

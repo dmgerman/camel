@@ -65,7 +65,7 @@ specifier|private
 name|long
 name|timeout
 decl_stmt|;
-comment|/**      * Creates a new timeout task using the given {@link Timer} instance and      * timeout value. The task is not scheduled immediately. It will be      * scheduled by calling this task's {@link #schedule()} method.      *       * @param timer      *            a timer      * @param timeout      *            a timeout value.      */
+comment|/**      * Creates a new timeout task using the given {@link Timer} instance and      * timeout value. The task is not scheduled immediately. It will be      * scheduled by calling this task's {@link #schedule()} method.      *       * @param timer a timer      * @param timeout a timeout value.      */
 DECL|method|Timeout (Timer timer, long timeout)
 specifier|public
 name|Timeout

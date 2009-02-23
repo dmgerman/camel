@@ -208,11 +208,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No consumers available on "
+literal|"No consumers available on endpoint: "
 operator|+
-name|this
+name|endpoint
 operator|+
-literal|" to process "
+literal|" to process: "
 operator|+
 name|exchange
 argument_list|)
@@ -278,9 +278,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No consumers available on "
+literal|"No consumers available on endpoint: "
 operator|+
-name|this
+name|endpoint
 operator|+
 literal|" to process "
 operator|+

@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -105,9 +117,9 @@ argument_list|)
 operator|.
 name|header
 argument_list|(
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME_PRODUCED
+name|FILE_NAME_PRODUCED
 argument_list|)
 operator|.
 name|contains
@@ -123,9 +135,9 @@ literal|"direct:in"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"FileHeaderFileNameProducedTest.txt"
 argument_list|)

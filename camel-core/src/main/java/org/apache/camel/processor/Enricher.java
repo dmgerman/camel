@@ -148,7 +148,7 @@ specifier|private
 name|Producer
 name|producer
 decl_stmt|;
-comment|/**      * Creates a new {@link Enricher}. The default aggregation strategy is to      * copy the additional data obtained from the enricher's resource over the      * input data. When using the copy aggregation strategy the enricher      * degenerates to a normal transformer.      *       * @param producer      *            producer to resource endpoint.      */
+comment|/**      * Creates a new {@link Enricher}. The default aggregation strategy is to      * copy the additional data obtained from the enricher's resource over the      * input data. When using the copy aggregation strategy the enricher      * degenerates to a normal transformer.      *       * @param producer producer to resource endpoint.      */
 DECL|method|Enricher (Producer producer)
 specifier|public
 name|Enricher
@@ -166,7 +166,7 @@ name|producer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link Enricher}.      *       * @param aggregationStrategy      *            aggregation strategy to aggregate input data and additional      *            data.      * @param producer      *            producer to resource endpoint.      */
+comment|/**      * Creates a new {@link Enricher}.      *       * @param aggregationStrategy  aggregation strategy to aggregate input data and additional data.      * @param producer producer to resource endpoint.      */
 DECL|method|Enricher (AggregationStrategy aggregationStrategy, Producer producer)
 specifier|public
 name|Enricher
@@ -223,7 +223,7 @@ name|defaultAggregationStrategy
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Enriches the input data (<code>exchange</code>) by first obtaining      * additional data from an endpoint represented by an endpoint      *<code>producer</code> and second by aggregating input data and additional      * data. Aggregation of input data and additional data is delegated to an      * {@link AggregationStrategy} object set at construction time. If the      * message exchange with the resource endpoint fails then no aggregation      * will be done and the failed exchange content is copied over to the      * original message exchange.      *       * @param exchange      *            input data.      */
+comment|/**      * Enriches the input data (<code>exchange</code>) by first obtaining      * additional data from an endpoint represented by an endpoint      *<code>producer</code> and second by aggregating input data and additional      * data. Aggregation of input data and additional data is delegated to an      * {@link AggregationStrategy} object set at construction time. If the      * message exchange with the resource endpoint fails then no aggregation      * will be done and the failed exchange content is copied over to the      * original message exchange.      *       * @param exchange input data.      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

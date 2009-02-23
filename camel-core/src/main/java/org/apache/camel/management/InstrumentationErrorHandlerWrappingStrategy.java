@@ -102,7 +102,7 @@ name|PerformanceCounter
 argument_list|>
 name|counterMap
 decl_stmt|;
-DECL|method|InstrumentationErrorHandlerWrappingStrategy ( Map<ProcessorType, PerformanceCounter> counterMap)
+DECL|method|InstrumentationErrorHandlerWrappingStrategy (Map<ProcessorType, PerformanceCounter> counterMap)
 specifier|public
 name|InstrumentationErrorHandlerWrappingStrategy
 parameter_list|(

@@ -210,9 +210,6 @@ block|{
 name|time
 operator|=
 name|longValue
-operator|.
-name|longValue
-argument_list|()
 expr_stmt|;
 block|}
 block|}

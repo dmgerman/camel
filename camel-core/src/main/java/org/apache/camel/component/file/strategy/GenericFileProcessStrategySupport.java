@@ -38,11 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileComponent
+name|Exchange
 import|;
 end_import
 
@@ -447,9 +443,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_LOCAL_WORK_PATH
+name|FILE_LOCAL_WORK_PATH
 argument_list|,
 name|File
 operator|.

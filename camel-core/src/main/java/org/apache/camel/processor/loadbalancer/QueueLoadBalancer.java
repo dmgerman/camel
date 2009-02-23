@@ -278,12 +278,9 @@ block|{
 comment|// Only handle the async case...
 if|if
 condition|(
+operator|!
 name|sync
 condition|)
-block|{
-return|return;
-block|}
-else|else
 block|{
 name|callback
 operator|.

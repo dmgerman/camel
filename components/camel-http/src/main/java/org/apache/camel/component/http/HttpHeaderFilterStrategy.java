@@ -129,15 +129,15 @@ name|toLowerCase
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setLowercase
+name|setLowerCase
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// filter headers begin with "org.apache.camel"
+comment|// filter headers begin with "Camel" or "org.apache.camel"
 name|setOutFilterPattern
 argument_list|(
-literal|"(org\\.apache\\.camel)[\\.|a-z|A-z|0-9]*"
+literal|"([Camel|org\\.apache\\.camel])[\\.|a-z|A-z|0-9]*"
 argument_list|)
 expr_stmt|;
 block|}

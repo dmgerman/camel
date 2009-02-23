@@ -40,6 +40,18 @@ name|ContextTestSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -102,9 +114,9 @@ literal|"dataset:foo"
 argument_list|,
 literal|"<hello>world!</hello>"
 argument_list|,
-name|DataSet
+name|Exchange
 operator|.
-name|INDEX_HEADER
+name|DATASET_INDEX
 argument_list|,
 name|i
 argument_list|)

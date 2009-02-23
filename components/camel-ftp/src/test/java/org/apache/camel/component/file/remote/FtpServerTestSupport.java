@@ -70,11 +70,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileComponent
+name|Exchange
 import|;
 end_import
 
@@ -557,9 +553,9 @@ name|url
 argument_list|,
 name|body
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 name|fileName
 argument_list|)

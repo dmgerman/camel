@@ -367,6 +367,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * An expression of an outbound message body converted to the expected type      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|outBody (Class expectedType)
 specifier|public
 name|T

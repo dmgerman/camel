@@ -67,8 +67,6 @@ argument_list|(
 name|exchange
 argument_list|,
 literal|"No XML body could be found on the input message"
-operator|+
-name|exchange
 argument_list|)
 expr_stmt|;
 block|}

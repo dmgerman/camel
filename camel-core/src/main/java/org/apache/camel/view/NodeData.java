@@ -326,6 +326,11 @@ specifier|final
 name|String
 name|imagePrefix
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|NodeData (String id, Object node, String imagePrefix)
 specifier|public
 name|NodeData

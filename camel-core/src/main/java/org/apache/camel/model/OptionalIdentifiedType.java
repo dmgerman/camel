@@ -333,6 +333,11 @@ block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Sets the description of this node      *      * @param id  sets the id, use null to not set an id      * @param text  sets the text description, use null to not set a text      * @param lang  sets the language for the description, use null to not set a language      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|description (String id, String text, String lang)
 specifier|public
 name|T

@@ -158,9 +158,9 @@ literal|"file:target/reports/locked"
 argument_list|,
 literal|"Hello Locked"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"report.txt"
 argument_list|)
@@ -216,9 +216,9 @@ literal|"file:target/reports/notlocked"
 argument_list|,
 literal|"Hello Not Locked"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"report.txt"
 argument_list|)

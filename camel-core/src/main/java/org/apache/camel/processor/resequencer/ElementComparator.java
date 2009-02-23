@@ -47,7 +47,7 @@ name|E
 argument_list|>
 name|comparator
 decl_stmt|;
-comment|/**      * Creates a new element comparator instance.      *       * @param comparator a sequence element comparator this comparator delegates      *        to.      */
+comment|/**      * Creates a new element comparator instance.      *       * @param comparator a sequence element comparator this comparator delegates to.      */
 DECL|method|ElementComparator (SequenceElementComparator<E> comparator)
 specifier|public
 name|ElementComparator
@@ -66,7 +66,6 @@ operator|=
 name|comparator
 expr_stmt|;
 block|}
-comment|/**      * @see SequenceElementComparator#predecessor(java.lang.Object, java.lang.Object)      */
 DECL|method|predecessor (Element<E> o1, Element<E> o2)
 specifier|public
 name|boolean
@@ -102,7 +101,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * @see SequenceElementComparator#successor(java.lang.Object, java.lang.Object)      */
 DECL|method|successor (Element<E> o1, Element<E> o2)
 specifier|public
 name|boolean
@@ -138,7 +136,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)      */
 DECL|method|compare (Element<E> o1, Element<E> o2)
 specifier|public
 name|int

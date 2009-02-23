@@ -208,6 +208,11 @@ name|blockingQueue
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getBlockingQueue (String uri, Map parameters)
 specifier|protected
 name|BlockingQueue

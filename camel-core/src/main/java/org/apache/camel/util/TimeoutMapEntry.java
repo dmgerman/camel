@@ -153,6 +153,8 @@ block|{
 name|Object
 name|oldValue
 init|=
+name|this
+operator|.
 name|value
 decl_stmt|;
 name|this

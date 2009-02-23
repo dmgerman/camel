@@ -341,7 +341,7 @@ block|{
 comment|// ignore, use the default "locahost"
 block|}
 block|}
-comment|/**      * Implements the naming strategy for a {@link CamelContext}.      * The convention used for a {@link CamelContext} ObjectName is:      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,type=context,name=&lt;context-name&gt;</tt>      *      * @param context the camel context      * @return generated ObjectName      * @throws MalformedObjectNameException      */
+comment|/**      * Implements the naming strategy for a {@link CamelContext}.      * The convention used for a {@link CamelContext} ObjectName is:      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,type=context,name=&lt;context-name&gt;</tt>      *      * @param context the camel context      * @return generated ObjectName      * @throws MalformedObjectNameException can be thrown      */
 DECL|method|getObjectName (CamelContext context)
 specifier|public
 name|ObjectName
@@ -685,11 +685,6 @@ throws|throws
 name|MalformedObjectNameException
 block|{
 name|Route
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|route
 init|=
 name|mbean

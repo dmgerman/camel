@@ -693,7 +693,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor for executing the splitting action.       *      * @return the builder      */
+comment|/**      * Setting the executor for executing the splitting action.       *      * @param executor the executor      * @return the builder      */
 DECL|method|executor (Executor executor)
 specifier|public
 name|SplitterType

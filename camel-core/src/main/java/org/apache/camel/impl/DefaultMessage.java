@@ -337,7 +337,7 @@ argument_list|>
 name|createHeaders
 parameter_list|()
 block|{
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -390,7 +390,7 @@ argument_list|>
 name|createAttachments
 parameter_list|()
 block|{
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

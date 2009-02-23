@@ -84,18 +84,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -103,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This FailOverLoadBalancer will choose other processor when the exception happens  */
+comment|/**  * This FailOverLoadBalancer will failover to use next processor when an exception occured  */
 end_comment
 
 begin_class
@@ -151,9 +139,11 @@ else|else
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|IllegalArgumentException
 argument_list|(
-literal|"The FailOverLoadBalancer construction parameter should be the child of Throwable"
+literal|"Class is not an instance of Trowable: "
+operator|+
+name|throwable
 argument_list|)
 throw|;
 block|}
@@ -424,8 +414,6 @@ parameter_list|)
 block|{
 name|boolean
 name|sync
-init|=
-literal|false
 decl_stmt|;
 name|List
 argument_list|<
@@ -481,8 +469,6 @@ name|exchange
 argument_list|)
 throw|;
 block|}
-else|else
-block|{
 if|if
 condition|(
 name|processor
@@ -645,7 +631,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|sync

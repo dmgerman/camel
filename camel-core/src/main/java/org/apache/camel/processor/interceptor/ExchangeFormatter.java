@@ -40,7 +40,7 @@ specifier|public
 interface|interface
 name|ExchangeFormatter
 block|{
-comment|/**      * Generates a string representation of the exchange      */
+comment|/**      * Generates a string representation of the exchange      *      * @param exchange the exchange      * @return a string representation of the exchange      */
 DECL|method|format (Exchange exchange)
 name|Object
 name|format

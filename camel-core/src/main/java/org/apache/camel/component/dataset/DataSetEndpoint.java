@@ -509,9 +509,9 @@ name|in
 operator|.
 name|setHeader
 argument_list|(
-name|DataSet
+name|Exchange
 operator|.
-name|INDEX_HEADER
+name|DATASET_INDEX
 argument_list|,
 name|messageIndex
 argument_list|)
@@ -864,9 +864,9 @@ name|getMandatoryHeader
 argument_list|(
 name|actual
 argument_list|,
-name|DataSet
+name|Exchange
 operator|.
-name|INDEX_HEADER
+name|DATASET_INDEX
 argument_list|,
 name|Long
 operator|.
@@ -877,9 +877,9 @@ name|assertEquals
 argument_list|(
 literal|"Header: "
 operator|+
-name|DataSet
+name|Exchange
 operator|.
-name|INDEX_HEADER
+name|DATASET_INDEX
 argument_list|,
 name|index
 argument_list|,

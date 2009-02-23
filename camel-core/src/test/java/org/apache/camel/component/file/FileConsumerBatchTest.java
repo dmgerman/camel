@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -100,9 +112,9 @@ literal|"file://target/file-batch/"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"hello.txt"
 argument_list|)
@@ -115,9 +127,9 @@ literal|"file://target/file-batch/"
 argument_list|,
 literal|"Bye World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"bye.txt"
 argument_list|)
@@ -194,9 +206,9 @@ argument_list|)
 operator|.
 name|header
 argument_list|(
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_BATCH_TOTAL
+name|FILE_BATCH_SIZE
 argument_list|)
 operator|.
 name|isEqualTo
@@ -213,9 +225,9 @@ argument_list|)
 operator|.
 name|header
 argument_list|(
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_BATCH_INDEX
+name|FILE_BATCH_INDEX
 argument_list|)
 operator|.
 name|isEqualTo
@@ -232,9 +244,9 @@ argument_list|)
 operator|.
 name|header
 argument_list|(
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_BATCH_INDEX
+name|FILE_BATCH_INDEX
 argument_list|)
 operator|.
 name|isEqualTo

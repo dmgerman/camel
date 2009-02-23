@@ -74,9 +74,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
-name|FactoryFinder
+name|NoFactoryAvailableException
 import|;
 end_import
 
@@ -90,7 +88,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|NoFactoryAvailableException
+name|FactoryFinder
 import|;
 end_import
 

@@ -120,6 +120,11 @@ literal|10000
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|MethodInfoCache (CamelContext camelContext, int classCacheSize, int methodCacheSize)
 specifier|public
 name|MethodInfoCache

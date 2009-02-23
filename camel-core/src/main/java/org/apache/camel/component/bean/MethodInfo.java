@@ -949,9 +949,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|BeanProcessor
+name|Exchange
 operator|.
-name|MULTI_PARAMETER_ARRAY
+name|BEAN_MULTI_PARAMETER_ARRAY
 argument_list|)
 operator|!=
 literal|null
@@ -966,9 +966,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|BeanProcessor
+name|Exchange
 operator|.
-name|MULTI_PARAMETER_ARRAY
+name|BEAN_MULTI_PARAMETER_ARRAY
 argument_list|,
 name|Boolean
 operator|.
@@ -1354,7 +1354,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Adds the current class and all of its base classes (apart from {@link Object} to the given list      * @param type      * @param result      */
+comment|/**      * Adds the current class and all of its base classes (apart from {@link Object} to the given list      */
 DECL|method|addTypeAndSuperTypes (Class<?> type, List<Class<?>> result)
 specifier|protected
 name|void

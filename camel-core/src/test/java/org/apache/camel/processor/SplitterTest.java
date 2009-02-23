@@ -291,9 +291,9 @@ name|assertMessageHeader
 argument_list|(
 name|in
 argument_list|,
-name|Splitter
+name|Exchange
 operator|.
-name|SPLIT_COUNTER
+name|SPLIT_INDEX
 argument_list|,
 name|i
 argument_list|)
@@ -302,7 +302,7 @@ name|assertMessageHeader
 argument_list|(
 name|in
 argument_list|,
-name|Splitter
+name|Exchange
 operator|.
 name|SPLIT_SIZE
 argument_list|,
@@ -425,9 +425,9 @@ name|assertMessageHeader
 argument_list|(
 name|out
 argument_list|,
-name|Splitter
+name|Exchange
 operator|.
-name|SPLIT_COUNTER
+name|SPLIT_INDEX
 argument_list|,
 literal|4
 argument_list|)
@@ -649,9 +649,9 @@ name|in
 operator|.
 name|getHeader
 argument_list|(
-name|Splitter
+name|Exchange
 operator|.
-name|SPLIT_COUNTER
+name|SPLIT_INDEX
 argument_list|,
 name|Integer
 operator|.
@@ -682,7 +682,7 @@ name|assertMessageHeader
 argument_list|(
 name|in
 argument_list|,
-name|Splitter
+name|Exchange
 operator|.
 name|SPLIT_SIZE
 argument_list|,
@@ -1041,9 +1041,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|Splitter
+name|Exchange
 operator|.
-name|SPLIT_COUNTER
+name|SPLIT_INDEX
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1057,7 +1057,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|Splitter
+name|Exchange
 operator|.
 name|SPLIT_SIZE
 argument_list|)

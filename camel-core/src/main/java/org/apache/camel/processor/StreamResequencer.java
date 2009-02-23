@@ -200,7 +200,7 @@ specifier|private
 name|int
 name|capacity
 decl_stmt|;
-comment|/**      * Creates a new {@link StreamResequencer} instance.      *       * @param endpoint      *            endpoint to poll exchanges from.      * @param processor      *            next processor that processes re-ordered exchanges.      * @param comparator      *            a sequence element comparator for exchanges.      */
+comment|/**      * Creates a new {@link StreamResequencer} instance.      *       * @param processor next processor that processes re-ordered exchanges.      * @param comparator a sequence element comparator for exchanges.      */
 DECL|method|StreamResequencer (Processor processor, SequenceElementComparator<Exchange> comparator)
 specifier|public
 name|StreamResequencer
@@ -255,7 +255,7 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
-comment|/**      * Returns this resequencer's exception handler.      *       * @return this resequencer's exception handler.      */
+comment|/**      * Returns this resequencer's exception handler.      */
 DECL|method|getExceptionHandler ()
 specifier|public
 name|ExceptionHandler
@@ -266,7 +266,7 @@ return|return
 name|exceptionHandler
 return|;
 block|}
-comment|/**      * Returns the next processor.      *       * @return the next processor.      */
+comment|/**      * Returns the next processor.      */
 DECL|method|getProcessor ()
 specifier|public
 name|Processor
@@ -288,7 +288,7 @@ return|return
 name|capacity
 return|;
 block|}
-comment|/**      * Returns this resequencer's timeout. This sets the resequencer engine's      * timeout via {@link ResequencerEngine#setTimeout(long)}. This value is      * also used to define the polling timeout from the endpoint.      *       * @return this resequencer's timeout.      * (Processor)       * @see ResequencerEngine#setTimeout(long)      */
+comment|/**      * Returns this resequencer's timeout. This sets the resequencer engine's      * timeout via {@link ResequencerEngine#setTimeout(long)}. This value is      * also used to define the polling timeout from the endpoint.      *       * @return this resequencer's timeout. (Processor)      * @see ResequencerEngine#setTimeout(long)      */
 DECL|method|getTimeout ()
 specifier|public
 name|long
@@ -410,14 +410,14 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends the<code>exchange</code> to the next<code>processor</code>.      *       * @param o      *            exchange to send.      */
-DECL|method|sendElement (Exchange o)
+comment|/**      * Sends the<code>exchange</code> to the next<code>processor</code>.      *       * @param exchange exchange to send.      */
+DECL|method|sendElement (Exchange exchange)
 specifier|public
 name|void
 name|sendElement
 parameter_list|(
 name|Exchange
-name|o
+name|exchange
 parameter_list|)
 throws|throws
 name|Exception
@@ -426,7 +426,7 @@ name|processor
 operator|.
 name|process
 argument_list|(
-name|o
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -493,7 +493,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"Delivery Thread"
+literal|"Resequencer Delivery Thread"
 argument_list|)
 expr_stmt|;
 block|}

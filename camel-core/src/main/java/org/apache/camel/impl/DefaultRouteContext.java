@@ -42,16 +42,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -99,18 +89,6 @@ operator|.
 name|camel
 operator|.
 name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
 import|;
 end_import
 
@@ -289,20 +267,6 @@ operator|.
 name|processor
 operator|.
 name|UnitOfWorkProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|DataFormat
 import|;
 end_import
 
@@ -753,6 +717,11 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|commit ()
 specifier|public
 name|void
@@ -916,8 +885,6 @@ name|Intercept
 name|interceptor
 parameter_list|)
 block|{
-comment|/*         InterceptorRef block = new InterceptorRef(interceptor);         RouteType route = getRoute();         List<ProcessorType<?>> list = route.getOutputs();         for (ProcessorType<?> processorType : list) {             block.addOutput(processorType);         }         route.clearOutput();         route.intercept(block); */
-comment|//getRoute().getInterceptors().add(new InterceptorRef(interceptor));
 name|lastInterceptor
 operator|=
 operator|(
@@ -1042,18 +1009,20 @@ return|return
 name|routeAdded
 return|;
 block|}
-DECL|method|setIsRouteAdded (boolean b)
+DECL|method|setIsRouteAdded (boolean routeAdded)
 specifier|public
 name|void
 name|setIsRouteAdded
 parameter_list|(
 name|boolean
-name|b
+name|routeAdded
 parameter_list|)
 block|{
+name|this
+operator|.
 name|routeAdded
 operator|=
-name|b
+name|routeAdded
 expr_stmt|;
 block|}
 DECL|method|getDataFormat (String ref)

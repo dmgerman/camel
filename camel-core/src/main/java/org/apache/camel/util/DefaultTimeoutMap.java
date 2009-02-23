@@ -228,6 +228,11 @@ name|schedulePoll
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|get (Object key)
 specifier|public
 name|Object
@@ -297,6 +302,11 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|put (Object key, Object value, long timeoutMillis)
 specifier|public
 name|void
@@ -415,6 +425,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getKeys ()
 specifier|public
 name|Object

@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ProducerTemplate
 import|;
 end_import
@@ -63,22 +75,6 @@ operator|.
 name|camel
 operator|.
 name|TestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileComponent
 import|;
 end_import
 
@@ -219,9 +215,9 @@ name|inputFile
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"hello.txt"
 argument_list|)
@@ -234,9 +230,9 @@ name|inputFile
 argument_list|,
 literal|"Bye World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"bye.xml"
 argument_list|)
@@ -249,9 +245,9 @@ name|inputFile
 argument_list|,
 name|expectedBody
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"subfolder/foo/godday.txt"
 argument_list|)
@@ -264,9 +260,9 @@ name|inputFile
 argument_list|,
 literal|"Bad world"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"subfolder/badday.txt"
 argument_list|)
@@ -279,9 +275,9 @@ name|inputFile
 argument_list|,
 literal|"Day world"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"day.xml"
 argument_list|)

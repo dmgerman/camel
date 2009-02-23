@@ -302,6 +302,11 @@ operator|=
 name|context
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createContext ()
 specifier|protected
 name|Context

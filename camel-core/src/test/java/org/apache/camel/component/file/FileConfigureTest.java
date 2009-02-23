@@ -518,9 +518,9 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|)
 argument_list|)
 expr_stmt|;

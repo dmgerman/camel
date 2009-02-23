@@ -433,6 +433,11 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|parseQuery (String uri)
 specifier|public
 specifier|static
@@ -569,10 +574,9 @@ name|UnsupportedEncodingException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|(
 name|URISyntaxException
-operator|)
+name|se
+init|=
 operator|new
 name|URISyntaxException
 argument_list|(
@@ -583,11 +587,16 @@ argument_list|()
 argument_list|,
 literal|"Invalid encoding"
 argument_list|)
+decl_stmt|;
+name|se
 operator|.
 name|initCause
 argument_list|(
 name|e
 argument_list|)
+expr_stmt|;
+throw|throw
+name|se
 throw|;
 block|}
 block|}
@@ -1153,6 +1162,11 @@ name|EMPTY_MAP
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|splitComponents (String str)
 specifier|private
 specifier|static
@@ -1429,22 +1443,13 @@ literal|true
 decl_stmt|;
 for|for
 control|(
-name|Iterator
-name|iter
-init|=
+name|Object
+name|o
+range|:
 name|options
 operator|.
 name|keySet
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
-init|;
-name|iter
-operator|.
-name|hasNext
-argument_list|()
-condition|;
 control|)
 block|{
 if|if
@@ -1473,10 +1478,7 @@ init|=
 operator|(
 name|String
 operator|)
-name|iter
-operator|.
-name|next
-argument_list|()
+name|o
 decl_stmt|;
 name|String
 name|value
@@ -1547,10 +1549,9 @@ name|UnsupportedEncodingException
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|(
 name|URISyntaxException
-operator|)
+name|se
+init|=
 operator|new
 name|URISyntaxException
 argument_list|(
@@ -1561,11 +1562,16 @@ argument_list|()
 argument_list|,
 literal|"Invalid encoding"
 argument_list|)
+decl_stmt|;
+name|se
 operator|.
 name|initCause
 argument_list|(
 name|e
 argument_list|)
+expr_stmt|;
+throw|throw
+name|se
 throw|;
 block|}
 block|}

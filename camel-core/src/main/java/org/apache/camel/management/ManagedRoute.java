@@ -46,18 +46,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Route
 import|;
 end_import
@@ -141,11 +129,6 @@ decl_stmt|;
 DECL|field|route
 specifier|private
 name|Route
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|route
 decl_stmt|;
 DECL|field|description
@@ -153,15 +136,10 @@ specifier|private
 name|String
 name|description
 decl_stmt|;
-DECL|method|ManagedRoute (Route<? extends Exchange> route)
+DECL|method|ManagedRoute (Route route)
 name|ManagedRoute
 parameter_list|(
 name|Route
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|route
 parameter_list|)
 block|{
@@ -184,11 +162,6 @@ block|}
 DECL|method|getRoute ()
 specifier|public
 name|Route
-argument_list|<
-name|?
-extends|extends
-name|Exchange
-argument_list|>
 name|getRoute
 parameter_list|()
 block|{

@@ -255,6 +255,11 @@ literal|null
 return|;
 block|}
 comment|/**      * Sets the value of the entry in the map for the given key, though if the      * map already contains a value for the given key then the value is appended      * to a list of values.      *      * @param map the map to add the entry to      * @param key the key in the map      * @param value the value to put in the map      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|appendValue (Map map, Object key, Object value)
 specifier|public
 specifier|static
@@ -344,6 +349,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Filters the given list to skip instanceof filter objects.      *       * @param list  the list      * @param filters  objects to skip      * @return a new list without the filtered objects      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|filterList (List list, Object... filters)
 specifier|public
 specifier|static

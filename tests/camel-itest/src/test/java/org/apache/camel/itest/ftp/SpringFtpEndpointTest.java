@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
+name|Exchange
 import|;
 end_import
 
@@ -72,11 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileComponent
+name|ProducerTemplate
 import|;
 end_import
 
@@ -313,9 +309,9 @@ name|inputFTP
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"hello.txt"
 argument_list|)

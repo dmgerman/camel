@@ -410,6 +410,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|JndiContext (Hashtable environment, Map bindings)
 specifier|public
 name|JndiContext
@@ -491,6 +496,11 @@ operator|=
 name|nameInNamespace
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|JndiContext (JndiContext clone, Hashtable env)
 specifier|protected
 name|JndiContext
@@ -558,6 +568,11 @@ name|nameInNamespace
 expr_stmt|;
 block|}
 comment|/**      * A helper method to create the JNDI bindings from the input environment      * properties using $foo.class to point to a class name with $foo.* being      * properties set on the injected bean      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createBindingsMapFromEnvironment (Hashtable env)
 specifier|public
 specifier|static
@@ -755,6 +770,11 @@ name|frozen
 return|;
 block|}
 comment|/**      * internalBind is intended for use only during setup or possibly by      * suitably synchronized superclasses. It binds every possible lookup into a      * map in each context. To do this, each context strips off one name segment      * and if necessary creates a new context for it. Then it asks that context      * to bind the remaining name. It returns a map containing all the bindings      * from the next context, plus the context it just created (if it in fact      * created it). (the names are suitably extended by the segment originally      * lopped off).      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|internalBind (String name, Object value)
 specifier|protected
 name|Map
@@ -1093,6 +1113,11 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|addToEnvironment (String propName, Object propVal)
 specifier|public
 name|Object

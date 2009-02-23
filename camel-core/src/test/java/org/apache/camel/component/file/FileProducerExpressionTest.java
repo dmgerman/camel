@@ -88,6 +88,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|JndiRegistry
@@ -176,9 +188,9 @@ literal|"file://target/filelanguage"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"${bean:myguidgenerator}.bak"
 argument_list|)
@@ -228,9 +240,9 @@ literal|"file://target/filelanguage"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"myfile-${date:now:yyyyMMdd}.txt"
 argument_list|)

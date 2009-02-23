@@ -336,6 +336,11 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getProperties (Object target, Map properties, String optionPrefix)
 specifier|public
 specifier|static
@@ -892,6 +897,11 @@ return|return
 name|rc
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|extractProperties (Map properties, String optionPrefix)
 specifier|public
 specifier|static
@@ -1478,6 +1488,11 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|convert (TypeConverter typeConverter, Class type, Object value)
 specifier|private
 specifier|static
@@ -2261,6 +2276,11 @@ return|return
 name|name
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|addFields (Object target, Class startClass, Class stopClass, LinkedHashMap map)
 specifier|private
 specifier|static

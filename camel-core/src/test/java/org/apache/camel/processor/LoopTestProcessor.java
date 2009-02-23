@@ -137,9 +137,9 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-name|LoopProcessor
+name|Exchange
 operator|.
-name|PROP_ITER_COUNT
+name|LOOP_SIZE
 argument_list|,
 name|Integer
 operator|.
@@ -153,9 +153,9 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-name|LoopProcessor
+name|Exchange
 operator|.
-name|PROP_ITER_INDEX
+name|LOOP_INDEX
 argument_list|,
 name|Integer
 operator|.

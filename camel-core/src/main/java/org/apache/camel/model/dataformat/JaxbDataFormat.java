@@ -300,9 +300,6 @@ literal|null
 operator|&&
 operator|!
 name|answer
-operator|.
-name|booleanValue
-argument_list|()
 condition|)
 block|{
 name|setProperty
@@ -350,9 +347,6 @@ literal|null
 operator|&&
 operator|!
 name|answer
-operator|.
-name|booleanValue
-argument_list|()
 condition|)
 block|{
 name|setProperty

@@ -432,7 +432,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * A helper method to return true if any of the predicates      * matches.      */
+comment|/**      * A helper method to return true if any of the predicates matches.      */
 DECL|method|in (final Predicate... predicates)
 specifier|public
 specifier|static

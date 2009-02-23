@@ -405,6 +405,11 @@ operator|=
 name|resolverUtil
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|load (TypeConverterRegistry registry)
 specifier|public
 name|void
@@ -952,6 +957,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|handleHasConverterAnnotation (TypeConverterRegistry registry, Class type, CachingInjector injector, Method method)
 specifier|private
 name|CachingInjector
@@ -1173,6 +1183,11 @@ return|return
 name|injector
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|handleHasFallbackConverterAnnotation (TypeConverterRegistry registry, Class type, CachingInjector injector, Method method)
 specifier|private
 name|CachingInjector

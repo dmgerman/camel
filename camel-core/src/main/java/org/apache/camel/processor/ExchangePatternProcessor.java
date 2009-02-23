@@ -97,7 +97,7 @@ DECL|method|ExchangePatternProcessor ()
 specifier|public
 name|ExchangePatternProcessor
 parameter_list|()
-block|{              }
+block|{     }
 DECL|method|ExchangePatternProcessor (ExchangePattern ep)
 specifier|public
 name|ExchangePatternProcessor

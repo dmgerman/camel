@@ -931,7 +931,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Copies the<code>source</code> exchange to<code>target</code> exchange      * preserving the {@link ExchangePattern} of<code>target</code>.        *       * @param source source exchange.      * @param result target exchange.      *       * @see #resultMessage(Exchange)      * @see #faultMessage(Exchange)      */
+comment|/**      * Copies the<code>source</code> exchange to<code>target</code> exchange      * preserving the {@link ExchangePattern} of<code>target</code>.        *       * @param source source exchange.      * @param result target exchange.      */
 DECL|method|copyResultsPreservePattern (Exchange result, Exchange source)
 specifier|public
 specifier|static
@@ -1232,6 +1232,11 @@ name|answer
 return|;
 block|}
 comment|/**      * Populates the Map with the variables which are made available to a script or template      *      * @param exchange the exchange to make available      * @param map      the map to populate      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|populateVariableMap (Exchange exchange, Map map)
 specifier|public
 specifier|static

@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -247,9 +259,9 @@ literal|"file://target/filelanguage/"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"report.txt"
 argument_list|)
@@ -384,9 +396,9 @@ literal|"file://target/filelanguage/"
 argument_list|,
 literal|"Bye World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"report2.txt"
 argument_list|)
@@ -530,9 +542,9 @@ literal|"file://target/filelanguage/"
 argument_list|,
 literal|"Bye Big World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"report3.txt"
 argument_list|)
@@ -617,9 +629,9 @@ literal|"file://target/filelanguage/"
 argument_list|,
 literal|"Hello Big World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"report4.txt"
 argument_list|)
@@ -765,9 +777,9 @@ literal|"file://target/filelanguage/"
 argument_list|,
 literal|"Bean Language Rules The World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"report5.txt"
 argument_list|)

@@ -463,24 +463,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME_PRODUCED
-argument_list|,
-name|target
-argument_list|)
-expr_stmt|;
-comment|// @deprecated will be removed later
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setHeader
-argument_list|(
-name|FileComponent
-operator|.
-name|HEADER_FILE_NAME_PRODUCED
+name|FILE_NAME_PRODUCED
 argument_list|,
 name|target
 argument_list|)
@@ -780,9 +765,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 name|String
 operator|.
@@ -832,9 +817,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 operator|+
 literal|" contains a FileLanguage expression: "
 operator|+

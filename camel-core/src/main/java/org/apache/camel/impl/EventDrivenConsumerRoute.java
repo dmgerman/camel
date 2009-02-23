@@ -107,16 +107,8 @@ DECL|class|EventDrivenConsumerRoute
 specifier|public
 class|class
 name|EventDrivenConsumerRoute
-parameter_list|<
-name|E
-extends|extends
-name|Exchange
-parameter_list|>
 extends|extends
 name|Route
-argument_list|<
-name|E
-argument_list|>
 block|{
 DECL|field|processor
 specifier|private

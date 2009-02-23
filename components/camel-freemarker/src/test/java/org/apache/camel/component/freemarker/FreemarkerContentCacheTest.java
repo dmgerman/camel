@@ -38,9 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|Exchange
 import|;
 end_import
 
@@ -52,11 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|builder
 operator|.
-name|file
-operator|.
-name|FileComponent
+name|RouteBuilder
 import|;
 end_import
 
@@ -110,9 +106,9 @@ literal|"file://target/test-classes/org/apache/camel/component/freemarker?append
 argument_list|,
 literal|"Hello ${headers.name}"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"hello.ftl"
 argument_list|)
@@ -168,9 +164,9 @@ literal|"file://target/test-classes/org/apache/camel/component/freemarker?append
 argument_list|,
 literal|"Bye ${headers.name}"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"hello.ftl"
 argument_list|)
@@ -256,9 +252,9 @@ literal|"file://target/test-classes/org/apache/camel/component/freemarker?append
 argument_list|,
 literal|"Bye ${headers.name}"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"hello.ftl"
 argument_list|)

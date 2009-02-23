@@ -38,6 +38,7 @@ specifier|public
 interface|interface
 name|ProcessorFactory
 block|{
+comment|/**      * Creates the processor.      *      * @return a newly created processor      * @throws Exception is thrown if the processor cannot be created      */
 DECL|method|createProcessor ()
 name|Processor
 name|createProcessor

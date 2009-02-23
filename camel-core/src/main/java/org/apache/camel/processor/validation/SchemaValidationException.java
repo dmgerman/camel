@@ -179,7 +179,7 @@ operator|=
 name|warnings
 expr_stmt|;
 block|}
-comment|/**      * Returns the schema that failed      *       * @return the schema that failed      */
+comment|/**      * Returns the schema that failed      */
 DECL|method|getSchema ()
 specifier|public
 name|Object
@@ -190,7 +190,7 @@ return|return
 name|schema
 return|;
 block|}
-comment|/**      * Returns the validation errors      *       * @return the validation errors      */
+comment|/**      * Returns the validation errors      */
 DECL|method|getErrors ()
 specifier|public
 name|List
@@ -204,7 +204,7 @@ return|return
 name|errors
 return|;
 block|}
-comment|/**      * Returns the fatal validation errors      *       * @return the fatal validation errors      */
+comment|/**      * Returns the fatal validation errors      */
 DECL|method|getFatalErrors ()
 specifier|public
 name|List
@@ -218,7 +218,7 @@ return|return
 name|fatalErrors
 return|;
 block|}
-comment|/**      * Returns the validation warnings      *       * @return the validation warnings      */
+comment|/**      * Returns the validation warnings      */
 DECL|method|getWarnings ()
 specifier|public
 name|List

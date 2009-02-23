@@ -46,7 +46,7 @@ argument_list|<
 name|E
 argument_list|>
 block|{
-comment|/**      * Returns<code>true</code> if<code>o1</code> is an immediate predecessor      * of<code>o2</code>.      *       * @param o1 a sequence element.      * @param o2 a sequence element.      */
+comment|/**      * Returns<code>true</code> if<code>o1</code> is an immediate predecessor      * of<code>o2</code>.      *       * @param o1 a sequence element.      * @param o2 a sequence element.      * @return true if its an immediate predecessor      */
 DECL|method|predecessor (E o1, E o2)
 name|boolean
 name|predecessor
@@ -58,7 +58,7 @@ name|E
 name|o2
 parameter_list|)
 function_decl|;
-comment|/**      * Returns<code>true</code> if<code>o1</code> is an immediate successor      * of<code>o2</code>.      *       * @param o1 a sequence element.      * @param o2 a sequence element.      */
+comment|/**      * Returns<code>true</code> if<code>o1</code> is an immediate successor      * of<code>o2</code>.      *       * @param o1 a sequence element.      * @param o2 a sequence element.      * @return true if its an immediate sucessor      */
 DECL|method|successor (E o1, E o2)
 name|boolean
 name|successor

@@ -1738,7 +1738,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Finds matching classes within a jar files that contains a folder      * structure matching the package structure. If the File is not a JarFile or      * does not exist a warning will be logged, but no error will be raised.      *      * @param test    a Test used to filter the classes that are discovered      * @param parent  the parent package under which classes must be in order to      *                be considered      * @param jarfile the jar file to be examined for classes      * @param stream  the inputstream of the jar file to be examined for classes      * @param urlPath the url of the jar file to be examined for classes      */
+comment|/**      * Finds matching classes within a jar files that contains a folder      * structure matching the package structure. If the File is not a JarFile or      * does not exist a warning will be logged, but no error will be raised.      *      * @param test    a Test used to filter the classes that are discovered      * @param parent  the parent package under which classes must be in order to      *                be considered      * @param stream  the inputstream of the jar file to be examined for classes      * @param urlPath the url of the jar file to be examined for classes      */
 DECL|method|loadImplementationsInJar (Test test, String parent, InputStream stream, String urlPath)
 specifier|private
 name|void
@@ -1890,6 +1890,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Add the class designated by the fully qualified class name provided to      * the set of resolved classes if and only if it is approved by the Test      * supplied.      *      * @param test the test used to determine if the class matches      * @param fqn  the fully qualified name of a class      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|addIfMatching (Test test, String fqn)
 specifier|protected
 name|void

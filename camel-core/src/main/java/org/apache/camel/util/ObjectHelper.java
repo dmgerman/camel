@@ -505,6 +505,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * A helper method for performing an ordered comparison on the objects      * handling nulls and objects which do not handle sorting gracefully      *      * @param a  the first object      * @param b  the second object      * @param ignoreCase  ignore case for string comparison      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|compare (Object a, Object b, boolean ignoreCase)
 specifier|public
 specifier|static
@@ -1778,19 +1783,11 @@ operator|instanceof
 name|Boolean
 condition|)
 block|{
-name|Boolean
-name|flag
-init|=
+return|return
 operator|(
 name|Boolean
 operator|)
 name|value
-decl_stmt|;
-return|return
-name|flag
-operator|.
-name|booleanValue
-argument_list|()
 return|;
 block|}
 else|else
@@ -2103,7 +2100,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not find class: "
+literal|"Cannot find class: "
 operator|+
 name|name
 argument_list|)
@@ -2179,7 +2176,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Can not load class: "
+literal|"Cannot load class: "
 operator|+
 name|name
 operator|+
@@ -3008,7 +3005,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Could not close: "
+literal|"Cannot close: "
 operator|+
 name|name
 operator|+
@@ -3023,7 +3020,12 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Converts the given value to the required type or throw a meaningful      * exception      */
+comment|/**      * Converts the given value to the required type or throw a meaningful exception      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|cast (Class<T> toType, Object value)
 specifier|public
 specifier|static
@@ -3410,19 +3412,11 @@ operator|instanceof
 name|Boolean
 condition|)
 block|{
-name|Boolean
-name|aBoolean
-init|=
+return|return
 operator|(
 name|Boolean
 operator|)
 name|value
-decl_stmt|;
-return|return
-name|aBoolean
-operator|.
-name|booleanValue
-argument_list|()
 return|;
 block|}
 elseif|else

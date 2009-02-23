@@ -337,7 +337,7 @@ argument_list|>
 name|getEndpoints
 parameter_list|()
 function_decl|;
-comment|/**      * Returns a new Map containing all of the active endpoints with the key of the map being their      * unique key      */
+comment|/**      * Returns a new Map containing all of the active endpoints with the key of the map being their      * unique key.      *      * @return map of active endpoints      */
 DECL|method|getEndpointMap ()
 name|Map
 argument_list|<

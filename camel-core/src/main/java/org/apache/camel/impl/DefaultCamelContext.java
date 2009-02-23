@@ -164,7 +164,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|NoFactoryAvailableException
 import|;
 end_import
 
@@ -536,35 +536,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|CamelContextHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|FactoryFinder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|NoFactoryAvailableException
 import|;
 end_import
 
@@ -1029,7 +1001,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Not possible to use JMX lifecycle strategy. Using DefaultLifecycleStrategy instead."
+literal|"Cannot use JMX lifecycle strategy. Using DefaultLifecycleStrategy instead."
 argument_list|)
 expr_stmt|;
 name|lifecycleStrategy
@@ -1146,7 +1118,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Component previously added: "
+literal|"Cannot add component as its already previously added: "
 operator|+
 name|componentName
 argument_list|)
@@ -2164,21 +2136,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Failed to resolve endpoint "
-operator|+
-name|uri
-operator|+
-literal|". Reason: "
-operator|+
-name|e
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|ResolveEndpointFailedException
@@ -2319,7 +2276,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"overriding existing routes is not supported yet, use addRoutes instead"
+literal|"Overriding existing routes is not supported yet, use addRoutes instead"
 argument_list|)
 throw|;
 block|}
@@ -3511,9 +3468,6 @@ block|{
 for|for
 control|(
 name|Route
-argument_list|<
-name|Exchange
-argument_list|>
 name|route
 range|:
 name|routeList
@@ -3807,7 +3761,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Attempt to convert the bean from a {@link Registry} to an endpoint using      * some kind of transformation or wrapper      *      * @param uri  the uri for the endpoint (and name in the registry)      * @param bean the bean to be converted to an endpoint, which will be not null      * @return a new endpoint      */
+comment|/**      * Strategy method for attempting to convert the bean from a {@link Registry} to an endpoint using      * some kind of transformation or wrapper      *      * @param uri  the uri for the endpoint (and name in the registry)      * @param bean the bean to be converted to an endpoint, which will be not null      * @return a new endpoint      */
 DECL|method|convertBeanToEndpoint (String uri, Object bean)
 specifier|protected
 name|Endpoint

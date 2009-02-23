@@ -435,7 +435,9 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-literal|"org.apache.camel.timer.name"
+name|Exchange
+operator|.
+name|TIMER_NAME
 argument_list|,
 name|endpoint
 operator|.
@@ -447,7 +449,9 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-literal|"org.apache.camel.timer.time"
+name|Exchange
+operator|.
+name|TIMER_TIME
 argument_list|,
 name|endpoint
 operator|.
@@ -459,7 +463,9 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-literal|"org.apache.camel.timer.period"
+name|Exchange
+operator|.
+name|TIMER_PERIOD
 argument_list|,
 name|endpoint
 operator|.
@@ -478,7 +484,9 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-literal|"org.apache.camel.timer.firedTime"
+name|Exchange
+operator|.
+name|TIMER_FIRED_TIME
 argument_list|,
 name|now
 argument_list|)

@@ -442,7 +442,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No otherwise clause was specified for a choice block, any unmatched exchanges will be dropped"
+literal|"No otherwise clause was specified for this choice block: "
+operator|+
+name|this
+operator|+
+literal|", any unmatched exchanges will be dropped."
 argument_list|)
 expr_stmt|;
 block|}
@@ -642,6 +646,11 @@ operator|=
 name|whenClauses
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getOutputs ()
 specifier|public
 name|List

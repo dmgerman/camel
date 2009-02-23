@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoFactoryAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|ComponentResolver
@@ -65,20 +77,6 @@ operator|.
 name|util
 operator|.
 name|FactoryFinder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|NoFactoryAvailableException
 import|;
 end_import
 
@@ -152,6 +150,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|resolveComponent (String name, CamelContext context)
 specifier|public
 name|Component
@@ -223,9 +226,7 @@ argument_list|(
 literal|"Ignored error looking up bean: "
 operator|+
 name|name
-operator|+
-literal|". Error: "
-operator|+
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;

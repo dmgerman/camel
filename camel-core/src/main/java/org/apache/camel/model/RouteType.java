@@ -1150,7 +1150,6 @@ name|interceptor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*         List<InterceptorType> list = output.getInterceptors();         if (list == null) {             LOG.warn("No interceptor collection: " + output);         } else {             list.addAll(getInterceptors());         } */
 block|}
 annotation|@
 name|Override

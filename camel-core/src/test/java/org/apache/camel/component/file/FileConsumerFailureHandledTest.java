@@ -182,9 +182,9 @@ literal|"file:target/messages/input/?delete=true"
 argument_list|,
 literal|"Paris"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"paris.txt"
 argument_list|)
@@ -240,9 +240,9 @@ literal|"file:target/messages/input/?delete=true"
 argument_list|,
 literal|"London"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"london.txt"
 argument_list|)
@@ -298,9 +298,9 @@ literal|"file:target/messages/input/?delete=true"
 argument_list|,
 literal|"Madrid"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"madrid.txt"
 argument_list|)

@@ -225,6 +225,11 @@ block|}
 comment|/**      * Converts a collection to a List if it is not already      */
 annotation|@
 name|Converter
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|toList (Collection collection)
 specifier|public
 specifier|static
@@ -246,6 +251,11 @@ block|}
 comment|/**      * Converts an {@link Iterator} to a {@link ArrayList}      */
 annotation|@
 name|Converter
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|toArrayList (Iterator it)
 specifier|public
 specifier|static
@@ -288,6 +298,11 @@ return|;
 block|}
 annotation|@
 name|Converter
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|toSet (Object[] array)
 specifier|public
 specifier|static
@@ -324,6 +339,11 @@ return|;
 block|}
 annotation|@
 name|Converter
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|toSet (Collection collection)
 specifier|public
 specifier|static
@@ -363,6 +383,11 @@ return|;
 block|}
 annotation|@
 name|Converter
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|toProperties (Map map)
 specifier|public
 specifier|static
@@ -393,6 +418,11 @@ return|;
 block|}
 annotation|@
 name|Converter
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|toHashtable (Map map)
 specifier|public
 specifier|static
@@ -413,6 +443,11 @@ return|;
 block|}
 annotation|@
 name|Converter
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|toHashMap (Map map)
 specifier|public
 specifier|static
@@ -434,6 +469,11 @@ block|}
 comment|/**      * Converts an {@link Iterable} into a {@link List}       */
 annotation|@
 name|Converter
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|toList (Iterable iterable)
 specifier|public
 specifier|static

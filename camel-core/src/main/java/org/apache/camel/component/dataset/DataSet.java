@@ -40,12 +40,6 @@ specifier|public
 interface|interface
 name|DataSet
 block|{
-DECL|field|INDEX_HEADER
-name|String
-name|INDEX_HEADER
-init|=
-literal|"camelDataSetIndex"
-decl_stmt|;
 comment|/**      * Populates a message exchange when using the DataSet as a source of messages      */
 DECL|method|populateMessage (Exchange exchange, long messageIndex)
 name|void

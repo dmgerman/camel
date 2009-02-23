@@ -1187,9 +1187,6 @@ operator|+
 literal|">>> "
 operator|+
 name|from
-operator|.
-name|toString
-argument_list|()
 operator|+
 literal|" --> "
 operator|+

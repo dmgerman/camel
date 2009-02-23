@@ -458,9 +458,9 @@ literal|"direct:start2"
 argument_list|,
 literal|"test"
 argument_list|,
-name|BeanProcessor
+name|Exchange
 operator|.
-name|METHOD_NAME
+name|BEAN_METHOD_NAME
 argument_list|,
 literal|"d"
 argument_list|)

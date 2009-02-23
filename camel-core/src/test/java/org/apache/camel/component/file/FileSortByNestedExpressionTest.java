@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -131,9 +143,9 @@ name|folder
 argument_list|,
 literal|"Hello Paris"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"paris.txt"
 argument_list|)
@@ -148,9 +160,9 @@ name|folder
 argument_list|,
 literal|"Hello London"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"london.txt"
 argument_list|)
@@ -165,9 +177,9 @@ name|folder
 argument_list|,
 literal|"Hello Copenhagen"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"copenhagen.xml"
 argument_list|)
@@ -182,9 +194,9 @@ name|folder
 argument_list|,
 literal|"Hello Dublin"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"dublin.txt"
 argument_list|)

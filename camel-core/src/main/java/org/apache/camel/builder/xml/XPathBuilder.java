@@ -2334,6 +2334,11 @@ block|}
 return|;
 block|}
 comment|/**      * Strategy method to extract the document from the exchange      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getDocument (Exchange exchange)
 specifier|protected
 name|Object

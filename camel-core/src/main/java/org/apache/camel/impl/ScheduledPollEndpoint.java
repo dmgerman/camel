@@ -332,6 +332,11 @@ name|consumerProperties
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|configureScheduledPollConsumerProperties (Map options, Map consumerProperties)
 specifier|private
 name|void

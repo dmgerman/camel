@@ -702,9 +702,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|BeanProcessor
+name|Exchange
 operator|.
-name|METHOD_NAME
+name|BEAN_METHOD_NAME
 argument_list|,
 name|String
 operator|.
@@ -1285,6 +1285,11 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createMethodInfo (Class clazz, Method method)
 specifier|protected
 name|MethodInfo
@@ -1606,6 +1611,11 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|chooseMethodWithMatchingBody (Exchange exchange, Collection<MethodInfo> operationList)
 specifier|protected
 name|MethodInfo

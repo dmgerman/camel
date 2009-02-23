@@ -95,7 +95,6 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

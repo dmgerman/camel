@@ -34,8 +34,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
 name|NoFactoryAvailableException
 import|;
 end_import

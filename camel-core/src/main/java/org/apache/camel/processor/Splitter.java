@@ -200,24 +200,6 @@ name|MulticastProcessor
 implements|implements
 name|Processor
 block|{
-DECL|field|SPLIT_SIZE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SPLIT_SIZE
-init|=
-literal|"org.apache.camel.splitSize"
-decl_stmt|;
-DECL|field|SPLIT_COUNTER
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SPLIT_COUNTER
-init|=
-literal|"org.apache.camel.splitCounter"
-decl_stmt|;
 DECL|field|expression
 specifier|private
 specifier|final
@@ -520,7 +502,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"remove is not supported by this iterator"
+literal|"Remove is not supported by this iterator"
 argument_list|)
 throw|;
 block|}
@@ -668,7 +650,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|updateNewExchange (Exchange exchange, int i, Iterable<ProcessorExchangePair> allPairs)
+DECL|method|updateNewExchange (Exchange exchange, int index, Iterable<ProcessorExchangePair> allPairs)
 specifier|protected
 name|void
 name|updateNewExchange
@@ -677,7 +659,7 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|int
-name|i
+name|index
 parameter_list|,
 name|Iterable
 argument_list|<
@@ -693,9 +675,11 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|SPLIT_COUNTER
+name|Exchange
+operator|.
+name|SPLIT_INDEX
 argument_list|,
-name|i
+name|index
 argument_list|)
 expr_stmt|;
 if|if
@@ -712,6 +696,8 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
+name|Exchange
+operator|.
 name|SPLIT_SIZE
 argument_list|,
 operator|(

@@ -62,11 +62,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|FileComponent
+name|Exchange
 import|;
 end_import
 
@@ -212,9 +208,9 @@ literal|"file://target/fileidempotent/"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|FileComponent
+name|Exchange
 operator|.
-name|HEADER_FILE_NAME
+name|FILE_NAME
 argument_list|,
 literal|"report.txt"
 argument_list|)
