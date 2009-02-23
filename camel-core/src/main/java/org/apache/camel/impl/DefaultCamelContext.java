@@ -94,6 +94,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|TreeMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|Callable
@@ -1508,7 +1518,7 @@ init|)
 block|{
 return|return
 operator|new
-name|HashMap
+name|TreeMap
 argument_list|<
 name|String
 argument_list|,
