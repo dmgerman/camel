@@ -194,6 +194,46 @@ name|Camel
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TreeMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Properties
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * The root Camel resource from which all other resources can be navigated such as for<code>endpoints</code>  * or<code>routes</code>  *  * @version $Revision$  */
 end_comment
@@ -350,6 +390,24 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Returns the system properties      */
+DECL|method|getSystemProperties ()
+specifier|public
+name|Map
+name|getSystemProperties
+parameter_list|()
+block|{
+return|return
+operator|new
+name|TreeMap
+argument_list|(
+name|System
+operator|.
+name|getProperties
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|// representations
 comment|//-------------------------------------------------------------------------
 comment|/**      * Returns the XML or JSON representation of the CamelContext      */
@@ -426,6 +484,25 @@ block|{
 return|return
 operator|new
 name|RoutesResource
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Path
+argument_list|(
+literal|"converters"
+argument_list|)
+DECL|method|getConvertersResource ()
+specifier|public
+name|ConvertersResource
+name|getConvertersResource
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ConvertersResource
 argument_list|(
 name|this
 argument_list|)
