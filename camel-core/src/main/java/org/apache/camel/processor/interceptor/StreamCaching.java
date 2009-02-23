@@ -165,7 +165,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Enable stream caching for a RouteContext      *       * @param context the route context      */
+comment|/**      * Disable stream caching for a RouteContext      *       * @param context the route context      */
 DECL|method|disable (RouteContext context)
 specifier|public
 specifier|static
