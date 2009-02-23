@@ -306,18 +306,27 @@ name|EndpointResource
 extends|extends
 name|CamelChildResourceSupport
 block|{
+DECL|field|key
+specifier|private
+specifier|final
+name|String
+name|key
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
 name|Endpoint
 name|endpoint
 decl_stmt|;
-DECL|method|EndpointResource (CamelContextResource contextResource, Endpoint endpoint)
+DECL|method|EndpointResource (CamelContextResource contextResource, String key, Endpoint endpoint)
 specifier|public
 name|EndpointResource
 parameter_list|(
 name|CamelContextResource
 name|contextResource
+parameter_list|,
+name|String
+name|key
 parameter_list|,
 name|Endpoint
 name|endpoint
@@ -327,6 +336,12 @@ name|super
 argument_list|(
 name|contextResource
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|key
+operator|=
+name|key
 expr_stmt|;
 name|this
 operator|.
@@ -345,11 +360,23 @@ return|return
 operator|new
 name|EndpointLink
 argument_list|(
+name|key
+argument_list|,
 name|endpoint
 argument_list|)
 operator|.
 name|getHref
 argument_list|()
+return|;
+block|}
+DECL|method|getKey ()
+specifier|public
+name|String
+name|getKey
+parameter_list|()
+block|{
+return|return
+name|key
 return|;
 block|}
 DECL|method|getUri ()

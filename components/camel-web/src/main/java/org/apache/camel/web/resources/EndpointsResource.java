@@ -404,6 +404,8 @@ argument_list|(
 name|getContextResource
 argument_list|()
 argument_list|,
+name|id
+argument_list|,
 name|endpoint
 argument_list|)
 return|;
