@@ -301,6 +301,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: routeDefinition
 name|from
 argument_list|(
 literal|"jetty:http://localhost:9000?matchOnUriPrefix=true"
@@ -311,6 +312,7 @@ argument_list|(
 literal|"cxfbean:customerServiceBean"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: routeDefinition
 block|}
 block|}
 return|;
@@ -350,6 +352,7 @@ name|in
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: clientInvocation
 name|url
 operator|=
 operator|new
@@ -375,6 +378,7 @@ name|in
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: clientInvocation
 block|}
 DECL|method|testPutConsumer ()
 specifier|public
