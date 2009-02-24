@@ -102,9 +102,9 @@ specifier|public
 annotation_defn|@interface
 name|Property
 block|{
-DECL|method|name ()
+DECL|method|value ()
 name|String
-name|name
+name|value
 parameter_list|()
 function_decl|;
 block|}

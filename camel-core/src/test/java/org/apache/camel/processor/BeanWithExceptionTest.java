@@ -394,7 +394,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|someMethod (String body, @Header(name = R) String header)
+DECL|method|someMethod (String body, @Header(R) String header)
 specifier|public
 name|void
 name|someMethod
@@ -405,8 +405,6 @@ parameter_list|,
 annotation|@
 name|Header
 argument_list|(
-name|name
-operator|=
 literal|"foo"
 argument_list|)
 name|String

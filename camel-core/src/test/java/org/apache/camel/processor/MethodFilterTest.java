@@ -258,7 +258,7 @@ specifier|static
 class|class
 name|MyBean
 block|{
-DECL|method|matches (@eadername = R)String location)
+DECL|method|matches (@eaderR)String location)
 specifier|public
 name|boolean
 name|matches
@@ -266,8 +266,6 @@ parameter_list|(
 annotation|@
 name|Header
 argument_list|(
-name|name
-operator|=
 literal|"foo"
 argument_list|)
 name|String

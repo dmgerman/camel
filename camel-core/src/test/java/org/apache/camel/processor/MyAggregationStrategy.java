@@ -135,7 +135,7 @@ name|result
 return|;
 block|}
 comment|/**      * An expression used to determine if the aggregation is complete      */
-DECL|method|isCompleted (@eadername = R) Integer aggregated)
+DECL|method|isCompleted (@eaderR) Integer aggregated)
 specifier|public
 name|boolean
 name|isCompleted
@@ -143,8 +143,6 @@ parameter_list|(
 annotation|@
 name|Header
 argument_list|(
-name|name
-operator|=
 literal|"aggregated"
 argument_list|)
 name|Integer

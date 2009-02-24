@@ -2213,7 +2213,7 @@ name|propertyExpression
 argument_list|(
 name|propertyAnnotation
 operator|.
-name|name
+name|value
 argument_list|()
 argument_list|)
 return|;
@@ -2256,7 +2256,7 @@ name|headerExpression
 argument_list|(
 name|headerAnnotation
 operator|.
-name|name
+name|value
 argument_list|()
 argument_list|)
 return|;

@@ -147,7 +147,7 @@ name|copy
 return|;
 block|}
 comment|/**      * An expression used to determine if the aggregation is complete      */
-DECL|method|isCompleted (@eadername = Exchange.AGGREGATED_SIZE) Integer aggregated)
+DECL|method|isCompleted (@eaderExchange.AGGREGATED_SIZE) Integer aggregated)
 specifier|public
 name|boolean
 name|isCompleted
@@ -155,8 +155,6 @@ parameter_list|(
 annotation|@
 name|Header
 argument_list|(
-name|name
-operator|=
 name|Exchange
 operator|.
 name|AGGREGATED_SIZE

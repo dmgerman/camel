@@ -323,7 +323,7 @@ class|class
 name|MyRetryBean
 block|{
 comment|// using bean binding we can bind the information from the exchange to the types we have in our method signature
-DECL|method|retryUntil (@eadername = Exchange.REDELIVERY_COUNTER) Integer counter, @Body String body, @ExchangeException Exception causedBy)
+DECL|method|retryUntil (@eaderExchange.REDELIVERY_COUNTER) Integer counter, @Body String body, @ExchangeException Exception causedBy)
 specifier|public
 name|boolean
 name|retryUntil
@@ -331,8 +331,6 @@ parameter_list|(
 annotation|@
 name|Header
 argument_list|(
-name|name
-operator|=
 name|Exchange
 operator|.
 name|REDELIVERY_COUNTER

@@ -276,7 +276,7 @@ class|class
 name|MyBean
 block|{
 comment|// START SNIPPET: e1
-DECL|method|doSomething (@eadername = R) String user, @Body String body, Exchange exchange)
+DECL|method|doSomething (@eaderR) String user, @Body String body, Exchange exchange)
 specifier|public
 name|void
 name|doSomething
@@ -284,8 +284,6 @@ parameter_list|(
 annotation|@
 name|Header
 argument_list|(
-name|name
-operator|=
 literal|"user"
 argument_list|)
 name|String

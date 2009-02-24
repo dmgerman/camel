@@ -427,7 +427,7 @@ specifier|final
 class|class
 name|DataEnricherBean
 block|{
-DECL|method|addDataBackIn (Exchange exchange, @Header(name = R) String claimCheck)
+DECL|method|addDataBackIn (Exchange exchange, @Header(R) String claimCheck)
 specifier|public
 name|void
 name|addDataBackIn
@@ -438,8 +438,6 @@ parameter_list|,
 annotation|@
 name|Header
 argument_list|(
-name|name
-operator|=
 literal|"claimCheck"
 argument_list|)
 name|String

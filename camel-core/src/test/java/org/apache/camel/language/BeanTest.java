@@ -380,7 +380,7 @@ literal|"foo"
 argument_list|)
 return|;
 block|}
-DECL|method|isFooHeaderAbc (@eadername = R)String foo)
+DECL|method|isFooHeaderAbc (@eaderR) String foo)
 specifier|public
 name|boolean
 name|isFooHeaderAbc
@@ -388,8 +388,6 @@ parameter_list|(
 annotation|@
 name|Header
 argument_list|(
-name|name
-operator|=
 literal|"foo"
 argument_list|)
 name|String
