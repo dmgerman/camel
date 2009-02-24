@@ -94,11 +94,10 @@ block|{
 DECL|field|PORT
 specifier|public
 specifier|static
-specifier|final
 name|int
 name|PORT
 init|=
-literal|8080
+literal|9998
 decl_stmt|;
 DECL|field|WEBAPP_DIR
 specifier|public
@@ -147,11 +146,6 @@ throws|throws
 name|Exception
 block|{
 comment|// now lets start the web server
-name|int
-name|port
-init|=
-name|PORT
-decl_stmt|;
 if|if
 condition|(
 name|args
@@ -169,16 +163,42 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+name|int
 name|port
-operator|=
+init|=
 name|Integer
 operator|.
 name|parseInt
 argument_list|(
 name|text
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|port
+operator|>
+literal|0
+condition|)
+block|{
+name|PORT
+operator|=
+name|port
 expr_stmt|;
 block|}
+block|}
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|start ()
+specifier|public
+specifier|static
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|System
 operator|.
 name|out
@@ -187,27 +207,9 @@ name|println
 argument_list|(
 literal|"Starting Web Server on port: "
 operator|+
-name|port
+name|PORT
 argument_list|)
 expr_stmt|;
-name|run
-argument_list|(
-name|port
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|run (int port)
-specifier|public
-specifier|static
-name|void
-name|run
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-throws|throws
-name|Exception
-block|{
 name|SelectChannelConnector
 name|connector
 init|=
@@ -219,7 +221,7 @@ name|connector
 operator|.
 name|setPort
 argument_list|(
-name|port
+name|PORT
 argument_list|)
 expr_stmt|;
 name|connector
@@ -308,11 +310,10 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Started the Camel REST Console: point your web browser at http://localhost:"
+literal|"Started the Camel REST Console: point your web browser at "
 operator|+
-name|port
-operator|+
-literal|"/"
+name|getRootUrl
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|System
@@ -346,6 +347,22 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
+comment|/**      * Returns the root URL of the application      */
+DECL|method|getRootUrl ()
+specifier|public
+specifier|static
+name|String
+name|getRootUrl
+parameter_list|()
+block|{
+return|return
+literal|"http://localhost:"
+operator|+
+name|PORT
+operator|+
+name|WEBAPP_CTX
+return|;
 block|}
 block|}
 end_class
