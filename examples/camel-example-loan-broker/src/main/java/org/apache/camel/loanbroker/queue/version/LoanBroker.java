@@ -350,6 +350,8 @@ argument_list|)
 expr_stmt|;
 comment|// Now we aggregate the response message by using the Constants.PROPERTY_SSN header.
 comment|// The aggregation will be complete when all the three bank responses are received
+comment|// In Camel 2.0 the we use AGGERATED_SIZE instead of AGGERATED_COUNT as the header
+comment|// name of the aggregated message size.
 name|from
 argument_list|(
 literal|"jms:queue:bankReplyQueue"
@@ -375,7 +377,7 @@ name|header
 argument_list|(
 name|Exchange
 operator|.
-name|AGGREGATED_COUNT
+name|AGGREGATED_SIZE
 argument_list|)
 operator|.
 name|isEqualTo
