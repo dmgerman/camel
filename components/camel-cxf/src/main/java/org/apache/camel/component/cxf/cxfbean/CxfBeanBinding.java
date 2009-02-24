@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf.jaxrs
+DECL|package|org.apache.camel.component.cxf.cxfbean
 package|package
 name|org
 operator|.
@@ -16,17 +16,19 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|jaxrs
+name|cxfbean
 package|;
 end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Map
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -38,7 +40,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|spi
+operator|.
+name|HeaderFilterStrategy
 import|;
 end_import
 
@@ -48,57 +52,38 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|cxf
 operator|.
-name|impl
+name|message
 operator|.
-name|DefaultComponent
+name|Message
 import|;
 end_import
 
 begin_comment
-comment|/**  * A CXF Component that supports JAX-RS endpoints.  *   * @version $Revision$  */
+comment|/**  * A Strategy to bind a Camel exchange to a CXF message used by {@link CxfBeanDestination}.   *   * @version $Revision$  */
 end_comment
 
-begin_class
-DECL|class|CxfJaxrsComponent
+begin_interface
+DECL|interface|CxfBeanBinding
 specifier|public
-class|class
-name|CxfJaxrsComponent
-extends|extends
-name|DefaultComponent
+interface|interface
+name|CxfBeanBinding
 block|{
-annotation|@
-name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
-specifier|protected
-name|Endpoint
-name|createEndpoint
+comment|/**      * Create a CXF {@link Message} from a Camel exchange.      *       * @param camelExchange      * @param headerFilterStrategy      */
+DECL|method|createCxfMessageFromCamelExchange (Exchange camelExchange, HeaderFilterStrategy headerFilterStrategy)
+name|Message
+name|createCxfMessageFromCamelExchange
 parameter_list|(
-name|String
-name|uri
+name|Exchange
+name|camelExchange
 parameter_list|,
-name|String
-name|remaining
-parameter_list|,
-name|Map
-name|parameters
+name|HeaderFilterStrategy
+name|headerFilterStrategy
 parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|CxfJaxrsEndpoint
-argument_list|(
-name|remaining
-argument_list|,
-name|this
-argument_list|)
-return|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

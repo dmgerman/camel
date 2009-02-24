@@ -1008,6 +1008,16 @@ operator|+
 name|BASE_BEAN_NAME_SUFFIX
 return|;
 block|}
+DECL|method|getCamelDestinationUri ()
+specifier|public
+name|String
+name|getCamelDestinationUri
+parameter_list|()
+block|{
+return|return
+name|camelDestinationUri
+return|;
+block|}
 DECL|method|initConfig ()
 specifier|private
 name|void

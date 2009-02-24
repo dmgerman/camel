@@ -193,6 +193,11 @@ specifier|protected
 name|HttpBinding
 name|httpBinding
 decl_stmt|;
+DECL|field|matchOnUriPrefix
+specifier|private
+name|boolean
+name|matchOnUriPrefix
+decl_stmt|;
 comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *      * @param  consumer the consumer      * @throws Exception can be thrown      */
 DECL|method|connect (HttpConsumer consumer)
 specifier|public
@@ -355,6 +360,24 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+name|matchOnUriPrefix
+operator|=
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"matchOnUriPrefix"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -611,6 +634,16 @@ name|httpBinding
 operator|=
 name|httpBinding
 expr_stmt|;
+block|}
+DECL|method|isMatchOnUriPrefix ()
+specifier|public
+name|boolean
+name|isMatchOnUriPrefix
+parameter_list|()
+block|{
+return|return
+name|matchOnUriPrefix
+return|;
 block|}
 block|}
 end_class
