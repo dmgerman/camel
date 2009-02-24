@@ -40,7 +40,7 @@ DECL|field|CONTENT_TYPE
 name|String
 name|CONTENT_TYPE
 init|=
-literal|"CamelCxfBeanContextType"
+literal|"CamelCxfBeanContentType"
 decl_stmt|;
 DECL|field|CHARACTER_ENCODING
 name|String
