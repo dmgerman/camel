@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|HeaderFilterStrategyAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|cxf
@@ -189,6 +201,8 @@ class|class
 name|CxfBeanEndpoint
 extends|extends
 name|ProcessorEndpoint
+implements|implements
+name|HeaderFilterStrategyAware
 block|{
 DECL|field|URI_PREFIX
 specifier|private
