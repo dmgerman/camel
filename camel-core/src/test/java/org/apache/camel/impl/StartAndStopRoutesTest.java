@@ -217,7 +217,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|assertProduceConsumers
+name|assertProducerAndConsumerCounts
 argument_list|(
 literal|"endpointA"
 argument_list|,
@@ -228,7 +228,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|assertProduceConsumers
+name|assertProducerAndConsumerCounts
 argument_list|(
 literal|"endpointB"
 argument_list|,
@@ -239,7 +239,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|assertProduceConsumers
+name|assertProducerAndConsumerCounts
 argument_list|(
 literal|"endpointC"
 argument_list|,
@@ -257,7 +257,7 @@ argument_list|(
 name|route
 argument_list|)
 expr_stmt|;
-name|assertProduceConsumers
+name|assertProducerAndConsumerCounts
 argument_list|(
 literal|"endpointA"
 argument_list|,
@@ -268,7 +268,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|assertProduceConsumers
+name|assertProducerAndConsumerCounts
 argument_list|(
 literal|"endpointB"
 argument_list|,
@@ -279,7 +279,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|assertProduceConsumers
+name|assertProducerAndConsumerCounts
 argument_list|(
 literal|"endpointC"
 argument_list|,
@@ -316,7 +316,7 @@ argument_list|(
 name|route
 argument_list|)
 expr_stmt|;
-name|assertProduceConsumers
+name|assertProducerAndConsumerCounts
 argument_list|(
 literal|"endpointA"
 argument_list|,
@@ -327,7 +327,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|assertProduceConsumers
+name|assertProducerAndConsumerCounts
 argument_list|(
 literal|"endpointB"
 argument_list|,
@@ -338,7 +338,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|assertProduceConsumers
+name|assertProducerAndConsumerCounts
 argument_list|(
 literal|"endpointC"
 argument_list|,
@@ -378,10 +378,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|assertProduceConsumers (String name, SedaEndpoint endpoint, int producerCount, int consumerCount)
+DECL|method|assertProducerAndConsumerCounts (String name, SedaEndpoint endpoint, int producerCount, int consumerCount)
 specifier|protected
 name|void
-name|assertProduceConsumers
+name|assertProducerAndConsumerCounts
 parameter_list|(
 name|String
 name|name
