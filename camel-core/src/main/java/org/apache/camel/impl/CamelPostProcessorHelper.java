@@ -451,7 +451,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|subscribeMethod (Method method, Object bean, String endpointUri, String endpointName)
-specifier|protected
+specifier|public
 name|void
 name|subscribeMethod
 parameter_list|(
