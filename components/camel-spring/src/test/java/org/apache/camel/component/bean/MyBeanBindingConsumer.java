@@ -188,7 +188,7 @@ name|uri
 operator|=
 literal|"direct:startHeaderExpression"
 argument_list|)
-DECL|method|doSomethingHeaderExpression (String payload, @Header(name = R) int count)
+DECL|method|doSomethingHeaderExpression (String payload, @Header(R) int count)
 specifier|public
 name|void
 name|doSomethingHeaderExpression
@@ -199,8 +199,6 @@ parameter_list|,
 annotation|@
 name|Header
 argument_list|(
-name|name
-operator|=
 literal|"number"
 argument_list|)
 name|int
@@ -230,7 +228,7 @@ name|uri
 operator|=
 literal|"direct:startMany"
 argument_list|)
-DECL|method|doSomethingManyExpression (String payload, @Constant(value = R) int count, @Header(name = R) int number)
+DECL|method|doSomethingManyExpression (String payload, @Constant(value = R) int count, @Header(R) int number)
 specifier|public
 name|void
 name|doSomethingManyExpression
@@ -251,8 +249,6 @@ parameter_list|,
 annotation|@
 name|Header
 argument_list|(
-name|name
-operator|=
 literal|"number"
 argument_list|)
 name|int
