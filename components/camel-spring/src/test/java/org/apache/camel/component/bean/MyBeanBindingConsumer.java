@@ -104,7 +104,7 @@ name|uri
 operator|=
 literal|"direct:startBeanExpression"
 argument_list|)
-DECL|method|doSomethingBeanExpression (String payload, @Bean(value = R) int count)
+DECL|method|doSomethingBeanExpression (String payload, @Bean(R) int count)
 specifier|public
 name|void
 name|doSomethingBeanExpression
@@ -115,8 +115,6 @@ parameter_list|,
 annotation|@
 name|Bean
 argument_list|(
-name|value
-operator|=
 literal|"myCounter"
 argument_list|)
 name|int
@@ -146,7 +144,7 @@ name|uri
 operator|=
 literal|"direct:startConstantExpression"
 argument_list|)
-DECL|method|doSomethingConstantExpression (String payload, @Constant(value = R) int count)
+DECL|method|doSomethingConstantExpression (String payload, @Constant(R) int count)
 specifier|public
 name|void
 name|doSomethingConstantExpression
@@ -157,8 +155,6 @@ parameter_list|,
 annotation|@
 name|Constant
 argument_list|(
-name|value
-operator|=
 literal|"5"
 argument_list|)
 name|int
@@ -228,7 +224,7 @@ name|uri
 operator|=
 literal|"direct:startMany"
 argument_list|)
-DECL|method|doSomethingManyExpression (String payload, @Constant(value = R) int count, @Header(R) int number)
+DECL|method|doSomethingManyExpression (String payload, @Constant(R) int count, @Header(R) int number)
 specifier|public
 name|void
 name|doSomethingManyExpression
@@ -239,8 +235,6 @@ parameter_list|,
 annotation|@
 name|Constant
 argument_list|(
-name|value
-operator|=
 literal|"5"
 argument_list|)
 name|int
