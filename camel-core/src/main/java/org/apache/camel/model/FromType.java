@@ -321,6 +321,9 @@ name|uri
 operator|=
 name|uri
 expr_stmt|;
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|getRef ()
 specifier|public
@@ -347,6 +350,9 @@ operator|.
 name|ref
 operator|=
 name|ref
+expr_stmt|;
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getEndpoint ()
@@ -479,6 +485,19 @@ return|return
 literal|"no uri or ref supplied!"
 return|;
 block|}
+block|}
+DECL|method|clear ()
+specifier|protected
+name|void
+name|clear
+parameter_list|()
+block|{
+name|this
+operator|.
+name|endpoint
+operator|=
+literal|null
+expr_stmt|;
 block|}
 block|}
 end_class
