@@ -482,9 +482,7 @@ name|warn
 argument_list|(
 name|endpoint
 operator|+
-literal|" consumer caught an exception while processing "
-operator|+
-literal|"JMS message: "
+literal|" consumer caught an exception while processing JMS message: "
 operator|+
 name|message
 argument_list|,
@@ -542,7 +540,9 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-literal|"org.apache.camel.jms.replyDestination"
+name|Constants
+operator|.
+name|JMS_REPLY_DESTINATION
 argument_list|,
 name|replyDestination
 argument_list|)
