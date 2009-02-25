@@ -268,12 +268,11 @@ name|Exception
 operator|)
 name|exchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
+name|getProperty
 argument_list|(
-literal|"caught.exception"
+name|Exchange
+operator|.
+name|EXCEPTION_CAUGHT
 argument_list|)
 decl_stmt|;
 name|assertNotNull

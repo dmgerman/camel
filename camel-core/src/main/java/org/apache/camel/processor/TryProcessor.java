@@ -17,6 +17,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -117,22 +133,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
 import|;
 end_import
 
@@ -547,12 +547,11 @@ argument_list|()
 decl_stmt|;
 name|localExchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setHeader
+name|setProperty
 argument_list|(
-literal|"caught.exception"
+name|Exchange
+operator|.
+name|EXCEPTION_CAUGHT
 argument_list|,
 name|e
 argument_list|)
@@ -575,12 +574,11 @@ argument_list|)
 expr_stmt|;
 name|localExchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|removeHeader
+name|removeProperty
 argument_list|(
-literal|"caught.exception"
+name|Exchange
+operator|.
+name|EXCEPTION_CAUGHT
 argument_list|)
 expr_stmt|;
 name|ExchangeHelper
