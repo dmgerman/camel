@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The LoanBroker is a RouteBuilder which builds the whole loan message routing rules  *  * @version $  */
+comment|/**  * The LoanBroker is a RouteBuilder which builds the whole loan message routing rules  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -122,7 +122,7 @@ name|LoanBroker
 extends|extends
 name|RouteBuilder
 block|{
-comment|/**      * A main() so we can easily run these routing rules in our IDE      * @throws Exception      */
+comment|/**      * A main() so we can easily run these routing rules in our IDE      */
 comment|// START SNIPPET: starting
 DECL|method|main (String... args)
 specifier|public
@@ -371,7 +371,7 @@ name|BankResponseAggregationStrategy
 argument_list|()
 argument_list|)
 operator|.
-name|completedPredicate
+name|completionPredicate
 argument_list|(
 name|header
 argument_list|(

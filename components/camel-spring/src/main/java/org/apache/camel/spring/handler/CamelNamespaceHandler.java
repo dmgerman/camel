@@ -823,7 +823,9 @@ parameter_list|(
 name|Throwable
 name|t
 parameter_list|)
-block|{         }
+block|{
+comment|// not running OSGi so we callback to the regular factory bean
+block|}
 name|registerParser
 argument_list|(
 literal|"camelContext"

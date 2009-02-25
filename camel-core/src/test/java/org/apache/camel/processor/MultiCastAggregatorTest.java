@@ -460,7 +460,7 @@ name|BodyInAggregatingStrategy
 argument_list|()
 argument_list|)
 operator|.
-name|completedPredicate
+name|completionPredicate
 argument_list|(
 name|header
 argument_list|(

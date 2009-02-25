@@ -700,7 +700,7 @@ block|}
 block|}
 argument_list|)
 operator|.
-name|completedPredicate
+name|completionPredicate
 argument_list|(
 name|header
 argument_list|(

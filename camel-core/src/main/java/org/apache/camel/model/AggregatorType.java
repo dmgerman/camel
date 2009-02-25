@@ -436,16 +436,16 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"completedPredicate"
+literal|"completionPredicate"
 argument_list|,
 name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|completedPredicate
+DECL|field|completionPredicate
 specifier|private
 name|ExpressionSubElementType
-name|completedPredicate
+name|completionPredicate
 decl_stmt|;
 DECL|method|AggregatorType ()
 specifier|public
@@ -806,7 +806,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|getCompletedPredicate
+name|getCompletionPredicate
 argument_list|()
 operator|!=
 literal|null
@@ -814,7 +814,7 @@ condition|)
 block|{
 name|predicate
 operator|=
-name|getCompletedPredicate
+name|getCompletionPredicate
 argument_list|()
 operator|.
 name|createPredicate
@@ -1210,30 +1210,30 @@ operator|=
 name|collectionRef
 expr_stmt|;
 block|}
-DECL|method|setCompletedPredicate (ExpressionSubElementType completedPredicate)
+DECL|method|setCompletionPredicate (ExpressionSubElementType completionPredicate)
 specifier|public
 name|void
-name|setCompletedPredicate
+name|setCompletionPredicate
 parameter_list|(
 name|ExpressionSubElementType
-name|completedPredicate
+name|completionPredicate
 parameter_list|)
 block|{
 name|this
 operator|.
-name|completedPredicate
+name|completionPredicate
 operator|=
-name|completedPredicate
+name|completionPredicate
 expr_stmt|;
 block|}
-DECL|method|getCompletedPredicate ()
+DECL|method|getCompletionPredicate ()
 specifier|public
 name|ExpressionSubElementType
-name|getCompletedPredicate
+name|getCompletionPredicate
 parameter_list|()
 block|{
 return|return
-name|completedPredicate
+name|completionPredicate
 return|;
 block|}
 DECL|method|getGroupExchanges ()
@@ -1414,13 +1414,13 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the predicate used to determine if the aggregation is completed      *      * @return the clause used to create the predicate      */
-DECL|method|completedPredicate ()
+DECL|method|completionPredicate ()
 specifier|public
 name|ExpressionClause
 argument_list|<
 name|AggregatorType
 argument_list|>
-name|completedPredicate
+name|completionPredicate
 parameter_list|()
 block|{
 name|checkNoCompletedPredicate
@@ -1441,7 +1441,7 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|setCompletedPredicate
+name|setCompletionPredicate
 argument_list|(
 operator|new
 name|ExpressionSubElementType
@@ -1458,10 +1458,10 @@ name|clause
 return|;
 block|}
 comment|/**      * Sets the predicate used to determine if the aggregation is completed      *      * @param predicate  the predicate      */
-DECL|method|completedPredicate (Predicate predicate)
+DECL|method|completionPredicate (Predicate predicate)
 specifier|public
 name|AggregatorType
-name|completedPredicate
+name|completionPredicate
 parameter_list|(
 name|Predicate
 name|predicate
@@ -1470,7 +1470,7 @@ block|{
 name|checkNoCompletedPredicate
 argument_list|()
 expr_stmt|;
-name|setCompletedPredicate
+name|setCompletionPredicate
 argument_list|(
 operator|new
 name|ExpressionSubElementType
@@ -1491,7 +1491,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|getCompletedPredicate
+name|getCompletionPredicate
 argument_list|()
 operator|!=
 literal|null
@@ -1501,7 +1501,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"There is already a completedPredicate defined for this aggregator: "
+literal|"There is already a completionPredicate defined for this aggregator: "
 operator|+
 name|this
 argument_list|)
