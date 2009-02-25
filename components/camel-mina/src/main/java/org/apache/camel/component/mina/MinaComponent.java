@@ -639,10 +639,6 @@ DECL|field|configuration
 specifier|private
 name|MinaConfiguration
 name|configuration
-init|=
-operator|new
-name|MinaConfiguration
-argument_list|()
 decl_stmt|;
 DECL|method|MinaComponent ()
 specifier|public
@@ -682,24 +678,36 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// must use copy as each endpoint can have different options
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|configuration
-argument_list|,
-literal|"configuration"
-argument_list|)
-expr_stmt|;
+comment|// Using the configuration which set by the component as a default one
+comment|// Since the configuration's properties will be set by the URI
+comment|// we need to copy or create a new MinaConfiguration here
 name|MinaConfiguration
 name|config
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|configuration
+operator|!=
+literal|null
+condition|)
+block|{
+name|config
+operator|=
 name|configuration
 operator|.
 name|copy
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|config
+operator|=
+operator|new
+name|MinaConfiguration
+argument_list|()
+expr_stmt|;
+block|}
 name|URI
 name|u
 init|=
@@ -2362,25 +2370,10 @@ comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getConfiguration ()
 specifier|public
-specifier|synchronized
 name|MinaConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
-if|if
-condition|(
-name|configuration
-operator|==
-literal|null
-condition|)
-block|{
-name|configuration
-operator|=
-operator|new
-name|MinaConfiguration
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|configuration
 return|;
