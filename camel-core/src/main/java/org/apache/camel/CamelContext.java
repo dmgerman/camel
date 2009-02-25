@@ -417,20 +417,6 @@ argument_list|>
 name|getRoutes
 parameter_list|()
 function_decl|;
-comment|/**      * Adds a collection of routes to this context      *      * @param routes the routes to add      * @throws Exception if the routes could not be created for whatever reason      */
-DECL|method|addRoutes (Collection<Route> routes)
-name|void
-name|addRoutes
-parameter_list|(
-name|Collection
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * Adds a collection of routes to this context using the given builder      * to build them      *      * @param builder the builder which will create the routes and add them to this context      * @throws Exception if the routes could not be created for whatever reason      */
 DECL|method|addRoutes (Routes builder)
 name|void
@@ -452,6 +438,42 @@ argument_list|<
 name|RouteType
 argument_list|>
 name|routeDefinitions
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Removes a collection of route definitions from the context - stopping any previously running      * routes if any of them are actively running      */
+DECL|method|removeRouteDefinitions (Collection<RouteType> routeDefinitions)
+name|void
+name|removeRouteDefinitions
+parameter_list|(
+name|Collection
+argument_list|<
+name|RouteType
+argument_list|>
+name|routeDefinitions
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Starts the given route if it has been previously stopped      */
+DECL|method|startRoute (RouteType route)
+name|void
+name|startRoute
+parameter_list|(
+name|RouteType
+name|route
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Stops the given route. It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      */
+DECL|method|stopRoute (RouteType route)
+name|void
+name|stopRoute
+parameter_list|(
+name|RouteType
+name|route
 parameter_list|)
 throws|throws
 name|Exception

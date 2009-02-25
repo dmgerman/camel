@@ -82,6 +82,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|RouteType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|bam
 operator|.
 name|model
@@ -255,10 +269,11 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|createRoute ()
+comment|/**      * Returns the processor of the route      */
+DECL|method|getProcessor ()
 specifier|public
-name|Route
-name|createRoute
+name|Processor
+name|getProcessor
 parameter_list|()
 throws|throws
 name|Exception
@@ -287,14 +302,7 @@ argument_list|)
 throw|;
 block|}
 return|return
-operator|new
-name|EventDrivenConsumerRoute
-argument_list|(
-name|getEndpoint
-argument_list|()
-argument_list|,
 name|processor
-argument_list|)
 return|;
 block|}
 comment|// Builder methods

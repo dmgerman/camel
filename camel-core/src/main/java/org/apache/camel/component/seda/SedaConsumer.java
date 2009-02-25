@@ -575,6 +575,13 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+name|endpoint
+operator|.
+name|onStarted
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|doStop ()
 specifier|protected
@@ -584,6 +591,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|endpoint
+operator|.
+name|onStopped
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|executor
 operator|.
 name|shutdownNow

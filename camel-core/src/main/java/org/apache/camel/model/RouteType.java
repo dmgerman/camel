@@ -478,7 +478,10 @@ return|;
 block|}
 DECL|method|addRoutes (CamelContext context, Collection<Route> routes)
 specifier|public
-name|void
+name|List
+argument_list|<
+name|RouteContext
+argument_list|>
 name|addRoutes
 parameter_list|(
 name|CamelContext
@@ -493,6 +496,19 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|List
+argument_list|<
+name|RouteContext
+argument_list|>
+name|answer
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|RouteContext
+argument_list|>
+argument_list|()
+decl_stmt|;
 name|setCamelContext
 argument_list|(
 name|context
@@ -527,14 +543,27 @@ range|:
 name|inputs
 control|)
 block|{
+name|RouteContext
+name|routeContext
+init|=
 name|addRoutes
 argument_list|(
 name|routes
 argument_list|,
 name|fromType
 argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|add
+argument_list|(
+name|routeContext
+argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|resolveEndpoint (String uri)
 specifier|public
@@ -1001,7 +1030,7 @@ comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|addRoutes (Collection<Route> routes, FromType fromType)
 specifier|protected
-name|void
+name|RouteContext
 name|addRoutes
 parameter_list|(
 name|Collection
@@ -1091,6 +1120,9 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
+return|return
+name|routeContext
+return|;
 block|}
 annotation|@
 name|Override

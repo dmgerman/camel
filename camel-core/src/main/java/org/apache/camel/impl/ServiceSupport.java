@@ -213,12 +213,8 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|starting
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
+name|notStarting
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -391,6 +387,20 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+DECL|method|notStarting ()
+specifier|protected
+name|void
+name|notStarting
+parameter_list|()
+block|{
+name|starting
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Creates a new thread name with the given prefix      */
 DECL|method|getThreadName (String prefix)
 specifier|protected
