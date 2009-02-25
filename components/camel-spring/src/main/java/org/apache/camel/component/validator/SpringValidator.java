@@ -189,13 +189,12 @@ block|}
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"You must specify a schema, schemaFile, schemaResource, schemaSource or schemaUrl property"
-argument_list|)
-throw|;
+return|return
+name|super
+operator|.
+name|createSchemaSource
+argument_list|()
+return|;
 block|}
 block|}
 block|}

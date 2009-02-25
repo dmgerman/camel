@@ -154,6 +154,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Looks up the bean with the given name in the application context and      * returns it, or throws an exception if the bean is not present or is not      * of the given type      *      * @param type the type of the bean      * @param beanName the name of the bean in the application context      * @return the bean      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|bean (Class<T> type, String beanName)
 specifier|public
 parameter_list|<
@@ -193,6 +198,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Looks up the bean with the given type in the application context and      * returns it, or throws an exception if the bean is not present or there      * are multiple possible beans to choose from for the given type      *      * @param type the type of the bean      * @return the bean      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|bean (Class<T> type)
 specifier|public
 parameter_list|<

@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -200,9 +188,17 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Not created with a ConfigurableApplicationContext! Was: "
+literal|"Class: "
 operator|+
 name|applicationContext
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" is not an instanceof ConfigurableApplicationContext."
 argument_list|)
 throw|;
 block|}
@@ -235,7 +231,6 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-comment|// getConfigurableApplicationContext().addApplicationListener(answer);
 return|return
 name|answer
 return|;

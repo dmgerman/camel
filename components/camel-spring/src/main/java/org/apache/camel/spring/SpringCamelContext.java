@@ -425,7 +425,6 @@ operator|.
 name|TRUE
 argument_list|)
 decl_stmt|;
-comment|// start context by default
 DECL|method|SpringCamelContext ()
 specifier|public
 name|SpringCamelContext

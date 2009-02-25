@@ -209,6 +209,11 @@ specifier|private
 name|BeanPostProcessor
 name|beanPostProcessor
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|RouteBuilderFinder (SpringCamelContext camelContext, String[] packages, ClassLoader classLoader, BeanPostProcessor postProcessor, ResolverUtil resolverUtil)
 specifier|public
 name|RouteBuilderFinder
@@ -504,6 +509,11 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|instantiateBuilder (Class type)
 specifier|protected
 name|Routes

@@ -824,7 +824,7 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-comment|// not running OSGi so we callback to the regular factory bean
+comment|// not running with camel-osgi so we fallback to the regular factory bean
 block|}
 name|registerParser
 argument_list|(
@@ -1741,8 +1741,8 @@ block|}
 block|}
 block|}
 block|}
-comment|// inject endpoints defined in routes where we can have set an id in the from/to types
-name|injectWithinRoutesNodeIdsAsEndpoint
+comment|// register as endpoint defined indirectly in the routes by from/to types having id explict set
+name|registerEndpointsWithIdsDefinedInFromToTypes
 argument_list|(
 name|element
 argument_list|,
@@ -1925,10 +1925,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|injectWithinRoutesNodeIdsAsEndpoint (Element element, ParserContext parserContext, String contextId)
+DECL|method|registerEndpointsWithIdsDefinedInFromToTypes (Element element, ParserContext parserContext, String contextId)
 specifier|protected
 name|void
-name|injectWithinRoutesNodeIdsAsEndpoint
+name|registerEndpointsWithIdsDefinedInFromToTypes
 parameter_list|(
 name|Element
 name|element
@@ -2029,7 +2029,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// recursive
-name|injectWithinRoutesNodeIdsAsEndpoint
+name|registerEndpointsWithIdsDefinedInFromToTypes
 argument_list|(
 name|childElement
 argument_list|,
@@ -2089,7 +2089,6 @@ argument_list|,
 name|parserContext
 argument_list|)
 decl_stmt|;
-comment|// TODO we can zap this?
 name|definition
 operator|.
 name|getPropertyValues
@@ -2106,8 +2105,6 @@ name|contextId
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// definition.getPropertyValues().addPropertyValue("context",
-comment|// builder.getBeanDefinition());
 name|parserContext
 operator|.
 name|registerComponent

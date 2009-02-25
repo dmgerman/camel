@@ -251,6 +251,11 @@ operator|=
 name|expectedMessageEndpoint
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|start ()
 specifier|public
 name|void

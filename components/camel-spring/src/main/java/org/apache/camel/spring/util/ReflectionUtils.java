@@ -332,14 +332,14 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"Cannot inject value of class '"
+literal|"Cannot inject value of class: "
 operator|+
 name|value
 operator|.
 name|getClass
 argument_list|()
 operator|+
-literal|"' into "
+literal|" into: "
 operator|+
 name|f
 argument_list|)

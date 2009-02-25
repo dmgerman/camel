@@ -329,16 +329,13 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|Thread
 operator|.
-name|info
-argument_list|(
-literal|"Caught: "
-operator|+
-name|e
-argument_list|,
-name|e
-argument_list|)
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
 expr_stmt|;
 block|}
 block|}

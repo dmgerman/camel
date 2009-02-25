@@ -182,6 +182,8 @@ argument_list|(
 name|fromUri
 argument_list|)
 decl_stmt|;
+name|route
+operator|=
 name|addBeanCall
 argument_list|(
 name|route
@@ -448,7 +450,7 @@ comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 DECL|method|addBeanCall (ProcessorType route)
 specifier|protected
-name|void
+name|ProcessorType
 name|addBeanCall
 parameter_list|(
 name|ProcessorType
@@ -540,6 +542,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+name|route
+return|;
 block|}
 DECL|method|singletonList (String value)
 specifier|protected

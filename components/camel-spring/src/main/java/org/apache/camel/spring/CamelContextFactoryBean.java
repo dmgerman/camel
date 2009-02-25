@@ -1767,6 +1767,11 @@ name|installRoutes
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getBeanForType (Class<T> clazz)
 specifier|private
 parameter_list|<
@@ -1981,7 +1986,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/*          * if (context != null) { context.onApplicationEvent(event); }          */
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
@@ -2561,9 +2565,6 @@ operator|!=
 literal|null
 operator|&&
 name|autowireRouteBuilders
-operator|.
-name|booleanValue
-argument_list|()
 condition|)
 block|{
 name|Map

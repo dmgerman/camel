@@ -183,6 +183,11 @@ operator|=
 name|xmlConverter
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|Endpoint
@@ -365,7 +370,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Can't find the TransformerFactoryClass with the class name "
+literal|"Cannot find the TransformerFactoryClass with the class name "
 operator|+
 name|transformerFactoryClassName
 argument_list|)
