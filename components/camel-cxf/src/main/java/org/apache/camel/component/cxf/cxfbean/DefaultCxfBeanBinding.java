@@ -476,7 +476,7 @@ name|camelMessage
 operator|.
 name|getHeader
 argument_list|(
-literal|"org.apache.camel.component.http.path"
+literal|"CamelHttpPath"
 argument_list|,
 name|String
 operator|.
@@ -583,7 +583,7 @@ name|camelMessage
 operator|.
 name|getHeader
 argument_list|(
-literal|"http.requestMethod"
+literal|"CamelHttpMethod"
 argument_list|,
 name|String
 operator|.
@@ -640,7 +640,7 @@ name|camelMessage
 operator|.
 name|getHeader
 argument_list|(
-literal|"org.apache.camel.component.http.characterEncoding"
+literal|"CamelHttpCharacterEncoding"
 argument_list|,
 name|String
 operator|.
@@ -694,13 +694,6 @@ return|return
 name|answer
 return|;
 block|}
-if|if
-condition|(
-name|answer
-operator|==
-literal|null
-condition|)
-block|{
 comment|// try http component header
 name|answer
 operator|=
@@ -708,14 +701,13 @@ name|camelMessage
 operator|.
 name|getHeader
 argument_list|(
-literal|"org.apache.camel.component.http.contentType"
+literal|"CamelHttpContentType"
 argument_list|,
 name|String
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|answer
@@ -729,8 +721,6 @@ return|;
 block|}
 comment|// return default
 return|return
-name|answer
-operator|=
 literal|"*/*"
 return|;
 block|}

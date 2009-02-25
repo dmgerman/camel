@@ -34,16 +34,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -64,29 +54,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|OutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|PrintWriter
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|zip
-operator|.
-name|GZIPOutputStream
 import|;
 end_import
 
@@ -489,7 +457,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|HttpProducer
+name|HttpConstants
 operator|.
 name|HTTP_RESPONSE_CODE
 argument_list|)
@@ -504,7 +472,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|HttpProducer
+name|HttpConstants
 operator|.
 name|HTTP_RESPONSE_CODE
 argument_list|,
@@ -664,6 +632,7 @@ decl_stmt|;
 name|int
 name|c
 decl_stmt|;
+comment|// TODO: Use a buffer to write faster instead of looping one char at a time
 while|while
 condition|(
 operator|(

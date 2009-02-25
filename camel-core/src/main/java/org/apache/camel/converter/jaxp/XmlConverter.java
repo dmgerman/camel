@@ -502,7 +502,6 @@ name|transformerFactory
 decl_stmt|;
 static|static
 block|{
-comment|// TODO: Use ObjectHelper.loadClass instead
 name|Class
 name|cl
 init|=
@@ -512,9 +511,9 @@ try|try
 block|{
 name|cl
 operator|=
-name|Class
+name|ObjectHelper
 operator|.
-name|forName
+name|loadClass
 argument_list|(
 literal|"org.apache.xalan.xsltc.trax.DOM2SAX"
 argument_list|)
@@ -862,8 +861,6 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Converts the given input Node into text      */
-comment|/*     @Converter     public String toString(NodeList nodeList) throws TransformerException {         StringWriter buffer = new StringWriter();         for (int i = 0, size = nodeList.getLength(); i< size; i++) {             Node node = nodeList.item(i);             Source source = new DOMSource(node);             toResult(source, new StreamResult(buffer));         }         return buffer.toString();     } */
 comment|/**      * Converts the given input Node into text      */
 annotation|@
 name|Converter

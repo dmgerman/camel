@@ -90,7 +90,7 @@ name|component
 operator|.
 name|http
 operator|.
-name|HttpExchange
+name|HttpConstants
 import|;
 end_import
 
@@ -106,7 +106,7 @@ name|component
 operator|.
 name|http
 operator|.
-name|HttpProducer
+name|HttpExchange
 import|;
 end_import
 
@@ -259,9 +259,9 @@ name|serverUri
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|HttpProducer
+name|HttpConstants
 operator|.
-name|QUERY
+name|HTTP_QUERY
 argument_list|,
 literal|"one=uno&two=dos"
 argument_list|)

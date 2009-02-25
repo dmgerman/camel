@@ -343,7 +343,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|HttpMethods
+name|HttpConstants
 operator|.
 name|HTTP_METHOD
 argument_list|,
@@ -357,9 +357,9 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|HttpProducer
+name|HttpConstants
 operator|.
-name|QUERY
+name|HTTP_QUERY
 argument_list|,
 name|request
 operator|.
@@ -371,9 +371,9 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|HttpProducer
+name|HttpConstants
 operator|.
-name|PATH
+name|HTTP_PATH
 argument_list|,
 name|request
 operator|.
@@ -385,9 +385,9 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|HttpProducer
+name|HttpConstants
 operator|.
-name|CONTENT_TYPE
+name|HTTP_CONTENT_TYPE
 argument_list|,
 name|request
 operator|.
@@ -399,9 +399,9 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|HttpProducer
+name|HttpConstants
 operator|.
-name|CHARACTER_ENCODING
+name|HTTP_CHARACTER_ENCODING
 argument_list|,
 name|request
 operator|.

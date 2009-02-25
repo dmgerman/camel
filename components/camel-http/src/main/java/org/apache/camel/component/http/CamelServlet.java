@@ -122,23 +122,6 @@ specifier|private
 name|boolean
 name|matchOnUriPrefix
 decl_stmt|;
-comment|/**      * @param matchOnUriPrefix the matchOnUriPrefix to set      */
-DECL|method|setMatchOnUriPrefix (boolean matchOnUriPrefix)
-specifier|public
-name|void
-name|setMatchOnUriPrefix
-parameter_list|(
-name|boolean
-name|matchOnUriPrefix
-parameter_list|)
-block|{
-name|this
-operator|.
-name|matchOnUriPrefix
-operator|=
-name|matchOnUriPrefix
-expr_stmt|;
-block|}
 DECL|method|CamelServlet (boolean matchOnUriPrefix)
 specifier|public
 name|CamelServlet
@@ -386,6 +369,22 @@ block|{
 return|return
 name|matchOnUriPrefix
 return|;
+block|}
+DECL|method|setMatchOnUriPrefix (boolean matchOnUriPrefix)
+specifier|public
+name|void
+name|setMatchOnUriPrefix
+parameter_list|(
+name|boolean
+name|matchOnUriPrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|matchOnUriPrefix
+operator|=
+name|matchOnUriPrefix
+expr_stmt|;
 block|}
 block|}
 end_class

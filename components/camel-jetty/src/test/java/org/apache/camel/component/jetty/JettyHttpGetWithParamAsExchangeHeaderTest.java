@@ -56,23 +56,7 @@ name|component
 operator|.
 name|http
 operator|.
-name|HttpMethods
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|HttpProducer
+name|HttpConstants
 import|;
 end_import
 
@@ -149,7 +133,7 @@ name|mock
 operator|.
 name|expectedHeaderReceived
 argument_list|(
-name|HttpMethods
+name|HttpConstants
 operator|.
 name|HTTP_METHOD
 argument_list|,
@@ -209,7 +193,7 @@ name|mock
 operator|.
 name|expectedHeaderReceived
 argument_list|(
-name|HttpMethods
+name|HttpConstants
 operator|.
 name|HTTP_METHOD
 argument_list|,
@@ -224,9 +208,9 @@ name|serverUri
 argument_list|,
 literal|null
 argument_list|,
-name|HttpProducer
+name|HttpConstants
 operator|.
-name|QUERY
+name|HTTP_QUERY
 argument_list|,
 literal|"one=uno&two=dos"
 argument_list|)
@@ -262,7 +246,7 @@ name|mock
 operator|.
 name|expectedHeaderReceived
 argument_list|(
-name|HttpMethods
+name|HttpConstants
 operator|.
 name|HTTP_METHOD
 argument_list|,

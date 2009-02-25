@@ -23,11 +23,11 @@ comment|/**  * Constants  */
 end_comment
 
 begin_class
-DECL|class|Constants
+DECL|class|JmsConstants
 specifier|public
 specifier|final
 class|class
-name|Constants
+name|JmsConstants
 block|{
 DECL|field|JMS_REPLY_DESTINATION
 specifier|public
@@ -38,9 +38,9 @@ name|JMS_REPLY_DESTINATION
 init|=
 literal|"CamelJmsReplyDestination"
 decl_stmt|;
-DECL|method|Constants ()
+DECL|method|JmsConstants ()
 specifier|private
-name|Constants
+name|JmsConstants
 parameter_list|()
 block|{
 comment|// utility class

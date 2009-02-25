@@ -540,7 +540,7 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-name|Constants
+name|JmsConstants
 operator|.
 name|JMS_REPLY_DESTINATION
 argument_list|,

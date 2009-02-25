@@ -318,6 +318,8 @@ operator|.
 name|getResponseBodyAsStream
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|IOUtils
 operator|.
 name|copy
@@ -332,11 +334,15 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|is
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 name|Message
 name|message
 init|=
@@ -429,7 +435,9 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-literal|"http.responseCode"
+name|HttpConstants
+operator|.
+name|HTTP_RESPONSE_CODE
 argument_list|,
 name|responseCode
 argument_list|)

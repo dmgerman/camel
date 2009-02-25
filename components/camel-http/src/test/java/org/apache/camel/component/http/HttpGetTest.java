@@ -313,9 +313,9 @@ argument_list|)
 operator|.
 name|setHeader
 argument_list|(
-name|HttpProducer
+name|HttpConstants
 operator|.
-name|QUERY
+name|HTTP_QUERY
 argument_list|,
 name|constant
 argument_list|(

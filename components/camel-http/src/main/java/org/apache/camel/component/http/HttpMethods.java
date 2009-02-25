@@ -261,18 +261,6 @@ enum|;
 end_enum
 
 begin_decl_stmt
-DECL|field|HTTP_METHOD
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|HTTP_METHOD
-init|=
-literal|"http.requestMethod"
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
 DECL|field|clazz
 specifier|final
 name|Class

@@ -24,36 +24,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|BufferedReader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -65,28 +35,6 @@ operator|.
 name|nio
 operator|.
 name|ByteBuffer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|zip
-operator|.
-name|GZIPOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|servlet
-operator|.
-name|ServletInputStream
 import|;
 end_import
 
@@ -111,18 +59,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
 import|;
 end_import
 
@@ -177,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some converter methods to make it easier to convert the body to RequestEntity types.  *   */
+comment|/**  * Some converter methods to make it easier to convert the body to RequestEntity types.  */
 end_comment
 
 begin_class
@@ -212,9 +148,6 @@ name|GZIPHelper
 operator|.
 name|toGZIPInputStreamIfRequested
 argument_list|(
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -225,6 +158,10 @@ argument_list|(
 name|GZIPHelper
 operator|.
 name|CONTENT_ENCODING
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 argument_list|,
 name|buffer
@@ -260,9 +197,6 @@ name|GZIPHelper
 operator|.
 name|toGZIPInputStreamIfRequested
 argument_list|(
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -273,6 +207,10 @@ argument_list|(
 name|GZIPHelper
 operator|.
 name|CONTENT_ENCODING
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 argument_list|,
 name|array
@@ -304,9 +242,6 @@ name|GZIPHelper
 operator|.
 name|getGZIPWrappedInputStream
 argument_list|(
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -317,6 +252,10 @@ argument_list|(
 name|GZIPHelper
 operator|.
 name|CONTENT_ENCODING
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 argument_list|,
 name|inStream
@@ -348,9 +287,6 @@ name|GZIPHelper
 operator|.
 name|toGZIPInputStreamIfRequested
 argument_list|(
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -361,6 +297,10 @@ argument_list|(
 name|GZIPHelper
 operator|.
 name|CONTENT_ENCODING
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 argument_list|,
 name|str

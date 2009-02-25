@@ -86,24 +86,6 @@ name|http
 operator|.
 name|HttpMethods
 operator|.
-name|HTTP_METHOD
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|HttpMethods
-operator|.
 name|POST
 import|;
 end_import
@@ -410,6 +392,8 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
+name|HttpConstants
+operator|.
 name|HTTP_METHOD
 argument_list|,
 name|POST
@@ -529,6 +513,8 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
+name|HttpConstants
+operator|.
 name|HTTP_METHOD
 argument_list|,
 name|GET
@@ -755,9 +741,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HttpProducer
+name|HttpConstants
 operator|.
-name|QUERY
+name|HTTP_QUERY
 argument_list|,
 literal|"q=Camel"
 argument_list|)
@@ -876,9 +862,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HttpProducer
+name|HttpConstants
 operator|.
-name|QUERY
+name|HTTP_QUERY
 argument_list|,
 literal|"q=Camel"
 argument_list|)
