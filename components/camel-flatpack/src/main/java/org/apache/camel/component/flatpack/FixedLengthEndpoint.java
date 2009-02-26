@@ -491,7 +491,7 @@ name|notNull
 argument_list|(
 name|resource
 argument_list|,
-literal|"endpoint.resource"
+literal|"resource"
 argument_list|)
 expr_stmt|;
 name|Reader

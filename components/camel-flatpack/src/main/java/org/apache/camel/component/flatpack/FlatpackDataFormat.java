@@ -350,6 +350,11 @@ specifier|private
 name|boolean
 name|fixed
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
 specifier|public
 name|void
@@ -787,7 +792,7 @@ name|notNull
 argument_list|(
 name|resource
 argument_list|,
-literal|"resource property"
+literal|"resource"
 argument_list|)
 expr_stmt|;
 return|return
@@ -909,7 +914,7 @@ name|notNull
 argument_list|(
 name|resource
 argument_list|,
-literal|"resource property"
+literal|"resource"
 argument_list|)
 expr_stmt|;
 name|FixedWriterFactory

@@ -228,7 +228,7 @@ return|;
 block|}
 comment|/**      * Puts the values of the dataset into the map      */
 DECL|method|putValues (Map<String, Object> map, DataSet dataSet)
-specifier|public
+specifier|private
 specifier|static
 name|void
 name|putValues
