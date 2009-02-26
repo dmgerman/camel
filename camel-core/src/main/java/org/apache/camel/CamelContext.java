@@ -595,6 +595,15 @@ name|String
 name|path
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the current status of the given route      */
+DECL|method|getRouteStatus (RouteType route)
+name|ServiceStatus
+name|getRouteStatus
+parameter_list|(
+name|RouteType
+name|route
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
