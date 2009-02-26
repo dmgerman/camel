@@ -451,7 +451,9 @@ name|out
 operator|.
 name|setHeader
 argument_list|(
-literal|"org.apache.camel.freemarker.resource"
+name|FreemarkerConstants
+operator|.
+name|RESOURCE
 argument_list|,
 name|getResource
 argument_list|()
@@ -461,7 +463,9 @@ name|out
 operator|.
 name|setHeader
 argument_list|(
-literal|"org.apache.camel.freemarker.resourceUri"
+name|FreemarkerConstants
+operator|.
+name|RESOURCE_URI
 argument_list|,
 name|path
 argument_list|)
