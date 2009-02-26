@@ -98,6 +98,20 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Endpoint for Camel Cometd.  *  * @version $Revision:520964 $  */
 end_comment
@@ -165,11 +179,6 @@ specifier|private
 name|CometdComponent
 name|component
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|CometdEndpoint (CometdComponent component, String uri, String remaining, Map parameters)
 specifier|public
 name|CometdEndpoint
@@ -190,6 +199,8 @@ block|{
 name|super
 argument_list|(
 name|uri
+argument_list|,
+name|component
 argument_list|)
 expr_stmt|;
 name|this
@@ -217,11 +228,13 @@ name|URISyntaxException
 name|e
 parameter_list|)
 block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+argument_list|)
+throw|;
 block|}
 block|}
 DECL|method|createProducer ()
@@ -232,6 +245,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|component
+argument_list|,
+literal|"component"
+argument_list|)
+expr_stmt|;
 name|CometdProducer
 name|producer
 init|=
@@ -256,6 +278,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|component
+argument_list|,
+literal|"component"
+argument_list|)
+expr_stmt|;
 name|CometdConsumer
 name|consumer
 init|=

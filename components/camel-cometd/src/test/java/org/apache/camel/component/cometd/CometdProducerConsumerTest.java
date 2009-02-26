@@ -101,7 +101,7 @@ specifier|final
 name|String
 name|URI
 init|=
-literal|"cometd://localhost:8080/service/test?resourceBase=./target/test-classes/webapp&"
+literal|"cometd://0.0.0.0:8080/service/test?resourceBase=./target/test-classes/webapp&"
 operator|+
 literal|"timeout=240000&interval=0&maxInterval=30000&multiFrameInterval=1500&jsonCommented=true&logLevel=2"
 decl_stmt|;

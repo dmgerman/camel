@@ -406,7 +406,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *       * @throws Exception      */
+comment|/**      * Connects the URL specified on the endpoint to the specified processor.      */
 DECL|method|connect (CometdProducerConsumer prodcon)
 specifier|public
 name|void
@@ -652,9 +652,6 @@ block|{
 name|CometdEndpoint
 name|endpoint
 init|=
-operator|(
-name|CometdEndpoint
-operator|)
 name|prodcon
 operator|.
 name|getEndpoint
@@ -745,7 +742,7 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|createServletForConnector ( Connector connector, CometdEndpoint endpoint)
+DECL|method|createServletForConnector (Connector connector, CometdEndpoint endpoint)
 specifier|protected
 name|ContinuationCometdServlet
 name|createServletForConnector

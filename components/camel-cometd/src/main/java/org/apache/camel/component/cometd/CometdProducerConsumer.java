@@ -36,11 +36,13 @@ specifier|public
 interface|interface
 name|CometdProducerConsumer
 block|{
+comment|/**      * Gets the endpoint      */
 DECL|method|getEndpoint ()
 name|CometdEndpoint
 name|getEndpoint
 parameter_list|()
 function_decl|;
+comment|/**      * Sets the bayeux to use.      */
 DECL|method|setBayeux (AbstractBayeux bayeux)
 name|void
 name|setBayeux

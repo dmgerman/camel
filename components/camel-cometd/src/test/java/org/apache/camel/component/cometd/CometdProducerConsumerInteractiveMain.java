@@ -40,26 +40,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URL
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -99,10 +79,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|CometdProducerConsumerInteractiveTest
+DECL|class|CometdProducerConsumerInteractiveMain
 specifier|public
 class|class
-name|CometdProducerConsumerInteractiveTest
+name|CometdProducerConsumerInteractiveMain
 block|{
 DECL|field|URI
 specifier|private
@@ -111,7 +91,7 @@ specifier|final
 name|String
 name|URI
 init|=
-literal|"cometd://localhost:8080/service/test?resourceBase=./src/test/resources/webapp&"
+literal|"cometd://0.0.0.0:8080/service/test?resourceBase=./src/test/resources/webapp&"
 operator|+
 literal|"timeout=240000&interval=0&maxInterval=30000&multiFrameInterval=1500&jsonCommented=true&logLevel=2"
 decl_stmt|;
@@ -122,7 +102,7 @@ specifier|final
 name|String
 name|URIS
 init|=
-literal|"cometds://localhost:8443/service/test?resourceBase=./src/test/resources/webapp&"
+literal|"cometds://0.0.0.0:8443/service/test?resourceBase=./src/test/resources/webapp&"
 operator|+
 literal|"timeout=240000&interval=0&maxInterval=30000&multiFrameInterval=1500&jsonCommented=true&logLevel=2"
 decl_stmt|;
@@ -151,11 +131,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|CometdProducerConsumerInteractiveTest
+name|CometdProducerConsumerInteractiveMain
 name|me
 init|=
 operator|new
-name|CometdProducerConsumerInteractiveTest
+name|CometdProducerConsumerInteractiveMain
 argument_list|()
 decl_stmt|;
 name|me
