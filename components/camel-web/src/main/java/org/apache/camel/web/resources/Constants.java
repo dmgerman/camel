@@ -56,6 +56,27 @@ name|DOT_MIMETYPE
 init|=
 literal|"text/vnd.graphviz"
 decl_stmt|;
+DECL|field|JAXB_PACKAGES
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JAXB_PACKAGES
+init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|Constants
+operator|.
+name|JAXB_CONTEXT_PACKAGES
+operator|+
+literal|":org.apache.camel.web.model"
+decl_stmt|;
 DECL|method|Constants ()
 specifier|private
 name|Constants
