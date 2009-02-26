@@ -208,10 +208,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// TODO fix this test
-DECL|method|xtestJmsRouteWithObjectMessage ()
+DECL|method|testJmsRouteWithObjectMessage ()
 specifier|public
 name|void
-name|xtestJmsRouteWithObjectMessage
+name|testJmsRouteWithObjectMessage
 parameter_list|()
 throws|throws
 name|Exception

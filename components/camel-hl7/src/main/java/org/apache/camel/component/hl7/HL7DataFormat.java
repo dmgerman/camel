@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.dataformat.hl7
+DECL|package|org.apache.camel.component.hl7
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|dataformat
+name|component
 operator|.
 name|hl7
 package|;
@@ -229,7 +229,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"hl7.msh.sendingApplication"
+name|HL7Constants
+operator|.
+name|HL7_SENDING_APPLICATION
 argument_list|,
 name|terser
 operator|.
@@ -246,7 +248,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"hl7.msh.sendingFacility"
+name|HL7Constants
+operator|.
+name|HL7_SENDING_FACILITY
 argument_list|,
 name|terser
 operator|.
@@ -263,7 +267,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"hl7.msh.receivingApplication"
+name|HL7Constants
+operator|.
+name|HL7_RECEIVING_APPLICATION
 argument_list|,
 name|terser
 operator|.
@@ -280,7 +286,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"hl7.msh.receivingFacility"
+name|HL7Constants
+operator|.
+name|HL7_RECEIVING_FACILITY
 argument_list|,
 name|terser
 operator|.
@@ -297,7 +305,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"hl7.msh.timestamp"
+name|HL7Constants
+operator|.
+name|HL7_TIMESTAMP
 argument_list|,
 name|terser
 operator|.
@@ -314,7 +324,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"hl7.msh.security"
+name|HL7Constants
+operator|.
+name|HL7_SECURITY
 argument_list|,
 name|terser
 operator|.
@@ -331,7 +343,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"hl7.msh.messageType"
+name|HL7Constants
+operator|.
+name|HL7_MESSAGE_TYPE
 argument_list|,
 name|terser
 operator|.
@@ -348,7 +362,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"hl7.msh.triggerEvent"
+name|HL7Constants
+operator|.
+name|HL7_TRIGGER_EVENT
 argument_list|,
 name|terser
 operator|.
@@ -365,7 +381,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"hl7.msh.messageControl"
+name|HL7Constants
+operator|.
+name|HL7_MESSAGE_CONTROL
 argument_list|,
 name|terser
 operator|.
@@ -382,7 +400,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"hl7.msh.processingId"
+name|HL7Constants
+operator|.
+name|HL7_PROCESSING_ID
 argument_list|,
 name|terser
 operator|.
@@ -399,7 +419,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"hl7.msh.versionId"
+name|HL7Constants
+operator|.
+name|HL7_VERSION_ID
 argument_list|,
 name|terser
 operator|.

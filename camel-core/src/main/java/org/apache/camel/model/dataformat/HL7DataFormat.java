@@ -107,7 +107,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"org.apache.camel.dataformat.hl7.HL7DataFormat"
+literal|"org.apache.camel.component.hl7.HL7DataFormat"
 argument_list|)
 expr_stmt|;
 block|}
