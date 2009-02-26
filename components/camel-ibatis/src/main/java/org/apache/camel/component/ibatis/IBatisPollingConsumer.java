@@ -275,10 +275,7 @@ control|)
 block|{
 if|if
 condition|(
-operator|!
-name|super
-operator|.
-name|isStopped
+name|isRunAllowed
 argument_list|()
 condition|)
 block|{
