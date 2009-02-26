@@ -470,6 +470,7 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
+comment|//final IrcConfiguration config = new IrcConfiguration("irc.codehaus.org", "camel-irc", "Camel IRC Component", "#camel-test");
 specifier|final
 name|IrcConfiguration
 name|config
@@ -479,7 +480,7 @@ name|IrcConfiguration
 argument_list|(
 literal|"irc.codehaus.org"
 argument_list|,
-literal|"camel-irc"
+literal|"camel-rc"
 argument_list|,
 literal|"Camel IRC Component"
 argument_list|,

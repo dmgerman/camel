@@ -229,19 +229,6 @@ name|IrcConfiguration
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|ircComponent ()
-specifier|public
-specifier|static
-name|IrcComponent
-name|ircComponent
-parameter_list|()
-block|{
-return|return
-operator|new
-name|IrcComponent
-argument_list|()
-return|;
-block|}
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|IrcEndpoint
@@ -259,6 +246,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// lets make sure we copy the configuration as each endpoint can customize its own version
 name|IrcConfiguration
 name|config
 init|=
@@ -279,9 +267,6 @@ name|uri
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// lets make sure we copy the configuration as each endpoint can
-comment|// customize its own version
-specifier|final
 name|IrcEndpoint
 name|endpoint
 init|=
@@ -308,32 +293,6 @@ expr_stmt|;
 return|return
 name|endpoint
 return|;
-block|}
-DECL|method|getConfiguration ()
-specifier|public
-name|IrcConfiguration
-name|getConfiguration
-parameter_list|()
-block|{
-return|return
-name|configuration
-return|;
-block|}
-DECL|method|setConfiguration (IrcConfiguration configuration)
-specifier|public
-name|void
-name|setConfiguration
-parameter_list|(
-name|IrcConfiguration
-name|configuration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|configuration
-operator|=
-name|configuration
-expr_stmt|;
 block|}
 DECL|method|getIRCConnection (IrcConfiguration configuration)
 specifier|public
@@ -438,6 +397,14 @@ name|IrcConfiguration
 name|configuration
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -471,6 +438,7 @@ name|getUsername
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|IRCConnection
 name|conn
@@ -516,7 +484,6 @@ argument_list|(
 literal|"UTF-8"
 argument_list|)
 expr_stmt|;
-comment|// conn.setDaemon(true);
 name|conn
 operator|.
 name|setColors
@@ -548,17 +515,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Failed to connect: "
-operator|+
-name|e
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|RuntimeCamelException
@@ -606,7 +562,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error closing connection."
+literal|"Error during closing connection."
 argument_list|,
 name|e
 argument_list|)
@@ -624,8 +580,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// lets use a copy so we can clear the connections eagerly in case of
-comment|// exceptions
+comment|// lets use a copy so we can clear the connections eagerly in case of exceptions
 name|Map
 argument_list|<
 name|String
@@ -686,6 +641,32 @@ name|super
 operator|.
 name|doStop
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|IrcConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
+DECL|method|setConfiguration (IrcConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|IrcConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 block|}
 block|}

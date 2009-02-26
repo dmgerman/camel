@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultProducer
@@ -243,8 +231,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
 specifier|final
 name|String
 name|msg
@@ -279,7 +265,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-specifier|final
 name|String
 name|target
 init|=
@@ -303,7 +288,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"sending to: "
+literal|"Sending to: "
 operator|+
 name|target
 operator|+
@@ -322,21 +307,6 @@ argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
 block|}
 block|}
 annotation|@
@@ -366,7 +336,6 @@ argument_list|(
 name|ircErrorLogger
 argument_list|)
 expr_stmt|;
-specifier|final
 name|String
 name|target
 init|=
@@ -378,15 +347,24 @@ operator|.
 name|getTarget
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"joining: "
+literal|"Joining: "
 operator|+
 name|target
 argument_list|)
 expr_stmt|;
+block|}
 name|connection
 operator|.
 name|doJoin
@@ -405,11 +383,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|connection
@@ -425,6 +398,11 @@ name|ircErrorLogger
 argument_list|)
 expr_stmt|;
 block|}
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|isMessageACommand (String msg)
 specifier|protected

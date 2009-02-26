@@ -209,6 +209,8 @@ name|connection
 operator|=
 name|connection
 expr_stmt|;
+name|this
+operator|.
 name|configuration
 operator|=
 name|endpoint
@@ -226,6 +228,13 @@ name|doStop
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+if|if
+condition|(
+name|connection
+operator|!=
+literal|null
+condition|)
 block|{
 name|String
 name|target
@@ -252,6 +261,7 @@ argument_list|(
 name|listener
 argument_list|)
 expr_stmt|;
+block|}
 name|super
 operator|.
 name|doStop
@@ -284,26 +294,39 @@ operator|.
 name|getTarget
 argument_list|()
 decl_stmt|;
-name|connection
-operator|.
-name|addIRCEventListener
-argument_list|(
+name|listener
+operator|=
 operator|new
 name|FilteredIRCEventAdapter
 argument_list|(
 name|target
 argument_list|)
+expr_stmt|;
+name|connection
+operator|.
+name|addIRCEventListener
+argument_list|(
+name|listener
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"joining: "
+literal|"Joining: "
 operator|+
 name|target
 argument_list|)
 expr_stmt|;
+block|}
 name|connection
 operator|.
 name|doJoin
@@ -399,12 +422,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: what should we do when a processing failure
-comment|// occurs??
+name|handleException
+argument_list|(
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -460,12 +481,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: what should we do when a processing failure
-comment|// occurs??
+name|handleException
+argument_list|(
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -534,12 +553,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: what should we do when a processing failure
-comment|// occurs??
+name|handleException
+argument_list|(
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -619,12 +636,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: what should we do when a processing failure
-comment|// occurs??
+name|handleException
+argument_list|(
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -699,12 +714,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: what should we do when a processing failure
-comment|// occurs??
+name|handleException
+argument_list|(
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -779,12 +792,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: what should we do when a processing failure
-comment|// occurs??
+name|handleException
+argument_list|(
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -859,12 +870,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: what should we do when a processing failure
-comment|// occurs??
+name|handleException
+argument_list|(
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -939,12 +948,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: what should we do when a processing failure
-comment|// occurs??
+name|handleException
+argument_list|(
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}

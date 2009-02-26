@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -826,89 +836,28 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"IrcConfiguration{"
-operator|+
-literal|"target='"
-operator|+
-name|target
-operator|+
-literal|'\''
-operator|+
-literal|", hostname='"
+literal|"IrcConfiguration[hostname: "
 operator|+
 name|hostname
 operator|+
-literal|'\''
+literal|", ports="
 operator|+
-literal|", password='"
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|ports
+argument_list|)
 operator|+
-name|password
+literal|", target: "
 operator|+
-literal|'\''
+name|target
 operator|+
-literal|", nickname='"
-operator|+
-name|nickname
-operator|+
-literal|'\''
-operator|+
-literal|", realname='"
-operator|+
-name|realname
-operator|+
-literal|'\''
-operator|+
-literal|", username='"
+literal|", username="
 operator|+
 name|username
 operator|+
-literal|'\''
-operator|+
-literal|", persistent="
-operator|+
-name|persistent
-operator|+
-literal|", colors="
-operator|+
-name|colors
-operator|+
-literal|", onNick="
-operator|+
-name|onNick
-operator|+
-literal|", onQuit="
-operator|+
-name|onQuit
-operator|+
-literal|", onJoin="
-operator|+
-name|onJoin
-operator|+
-literal|", onKick="
-operator|+
-name|onKick
-operator|+
-literal|", onMode="
-operator|+
-name|onMode
-operator|+
-literal|", onPart="
-operator|+
-name|onPart
-operator|+
-literal|", onTopic="
-operator|+
-name|onTopic
-operator|+
-literal|", onPrivmsg="
-operator|+
-name|onPrivmsg
-operator|+
-literal|", ports="
-operator|+
-name|ports
-operator|+
-literal|'}'
+literal|"]"
 return|;
 block|}
 block|}

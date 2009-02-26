@@ -99,10 +99,10 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|IrcRouteIntegration
+DECL|class|IrcRouteTest
 specifier|public
 class|class
-name|IrcRouteIntegration
+name|IrcRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -164,7 +164,6 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|//Thread.sleep(10000);
 name|List
 argument_list|<
 name|Exchange
@@ -237,7 +236,9 @@ name|when
 argument_list|(
 name|header
 argument_list|(
-literal|"irc.messageType"
+name|IrcConstants
+operator|.
+name|IRC_MESSAGE_TYPE
 argument_list|)
 operator|.
 name|isEqualTo
@@ -255,7 +256,9 @@ name|when
 argument_list|(
 name|header
 argument_list|(
-literal|"irc.messageType"
+name|IrcConstants
+operator|.
+name|IRC_MESSAGE_TYPE
 argument_list|)
 operator|.
 name|isEqualTo
@@ -269,8 +272,6 @@ argument_list|(
 literal|"seda:consumerJoined"
 argument_list|)
 expr_stmt|;
-comment|// TODO this causes errors on shutdown...
-comment|//otherwise().to("mock:otherIrcCommands");
 name|from
 argument_list|(
 literal|"seda:consumerJoined"

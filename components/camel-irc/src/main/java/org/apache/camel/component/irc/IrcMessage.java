@@ -468,7 +468,9 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"irc.messageType"
+name|IrcConstants
+operator|.
+name|IRC_MESSAGE_TYPE
 argument_list|,
 name|messageType
 argument_list|)
@@ -484,7 +486,9 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"irc.target"
+name|IrcConstants
+operator|.
+name|IRC_TARGET
 argument_list|,
 name|target
 argument_list|)
@@ -501,7 +505,9 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"irc.user.kicked"
+name|IrcConstants
+operator|.
+name|IRC_USER_KICKED
 argument_list|,
 name|whoWasKickedNick
 argument_list|)
@@ -518,7 +524,9 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"irc.user.host"
+name|IrcConstants
+operator|.
+name|IRC_USER_HOST
 argument_list|,
 name|user
 operator|.
@@ -530,7 +538,9 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"irc.user.nick"
+name|IrcConstants
+operator|.
+name|IRC_USER_NICK
 argument_list|,
 name|user
 operator|.
@@ -542,7 +552,9 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"irc.user.servername"
+name|IrcConstants
+operator|.
+name|IRC_USER_SERVERNAME
 argument_list|,
 name|user
 operator|.
@@ -554,7 +566,9 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"irc.user.username"
+name|IrcConstants
+operator|.
+name|IRC_USER_USERNAME
 argument_list|,
 name|user
 operator|.
