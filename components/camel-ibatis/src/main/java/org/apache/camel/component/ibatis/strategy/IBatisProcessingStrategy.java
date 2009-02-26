@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processing strategy for dealing with IBatis records  */
+comment|/**  * Processing strategy for dealing with IBatis.  */
 end_comment
 
 begin_interface
@@ -84,7 +84,7 @@ specifier|public
 interface|interface
 name|IBatisProcessingStrategy
 block|{
-comment|/**      * Called when record is being queried.      *       * @param consumer The Ibatis Polling Consumer      * @param endpoint The Ibatis Endpoint      * @return Results of the query as a java.util.List      * @throws Exception      */
+comment|/**      * Called when record is being queried.      *       * @param consumer The Ibatis Polling Consumer      * @param endpoint The Ibatis Endpoint      * @return Results of the query as a java.util.List      * @throws Exception can be thrown in case of error      */
 DECL|method|poll (IBatisPollingConsumer consumer, IBatisEndpoint endpoint)
 name|List
 name|poll
@@ -98,8 +98,8 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Called if there is a statement to be run after processing      *       * @param endpoint The Ibatis Enpoint      * @param exchange The exchange after it has been processed      * @param data The original data delivered to the route      * @param consumeStatement The update statement to run      * @throws Exception      */
-DECL|method|commit (IBatisEndpoint endpoint, Exchange exchange, Object data, String consumeStatement)
+comment|/**      * Commit callback if there are a statements to be run after processing.      *       * @param endpoint The Ibatis Enpoint      * @param exchange The exchange after it has been processed      * @param data The original data delivered to the route      * @param consumeStatements Name of the statement(s) to run, will use SQL update. Use comma to provide multiple statements to run.      * @throws Exception can be thrown in case of error      */
+DECL|method|commit (IBatisEndpoint endpoint, Exchange exchange, Object data, String consumeStatements)
 name|void
 name|commit
 parameter_list|(
@@ -113,7 +113,7 @@ name|Object
 name|data
 parameter_list|,
 name|String
-name|consumeStatement
+name|consumeStatements
 parameter_list|)
 throws|throws
 name|Exception

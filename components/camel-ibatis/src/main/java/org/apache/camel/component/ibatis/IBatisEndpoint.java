@@ -30,36 +30,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|sql
-operator|.
-name|SQLException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|ibatis
@@ -69,42 +39,6 @@ operator|.
 name|client
 operator|.
 name|SqlMapClient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|PollingConsumer
 import|;
 end_import
 
@@ -182,48 +116,6 @@ name|DefaultPollingEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * An<a href="http://camel.apache.org/ibatis.html>iBatis Endpoint</a>  * for performing SQL operations using an XML mapping file to abstract away the SQL  *  * @version $Revision$  */
 end_comment
@@ -236,53 +128,27 @@ name|IBatisEndpoint
 extends|extends
 name|DefaultPollingEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|IBatisEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|strategy
 specifier|private
 name|IBatisProcessingStrategy
 name|strategy
 decl_stmt|;
-comment|/**      * Indicates if transactions are necessary.  Defaulted in IBatisComponent.      */
 DECL|field|useTransactions
 specifier|private
 name|boolean
 name|useTransactions
 decl_stmt|;
-comment|/**      * Statement to run when polling or processing      */
 DECL|field|statement
 specifier|private
 name|String
 name|statement
 decl_stmt|;
-comment|/**      * Name of a strategy to use for dealing w/      * polling a database and consuming the message.  Can be a bean name      * or a class name.      */
-DECL|field|consumeStrategyName
-specifier|private
-name|String
-name|consumeStrategyName
-decl_stmt|;
-comment|/**      * URI parameters      */
-DECL|field|params
-specifier|private
-name|Map
-name|params
-decl_stmt|;
-DECL|method|IBatisEndpoint (String uri, IBatisComponent component, String statement, Map params)
+DECL|method|IBatisEndpoint ()
+specifier|public
+name|IBatisEndpoint
+parameter_list|()
+block|{     }
+DECL|method|IBatisEndpoint (String uri, IBatisComponent component, String statement)
 specifier|public
 name|IBatisEndpoint
 parameter_list|(
@@ -294,9 +160,6 @@ name|component
 parameter_list|,
 name|String
 name|statement
-parameter_list|,
-name|Map
-name|params
 parameter_list|)
 throws|throws
 name|Exception
@@ -307,12 +170,6 @@ name|uri
 argument_list|,
 name|component
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|params
-operator|=
-name|params
 expr_stmt|;
 name|setUseTransactions
 argument_list|(
@@ -405,8 +262,7 @@ return|return
 name|consumer
 return|;
 block|}
-comment|/*     @Override     public PollingConsumer<Exchange> createPollingConsumer() throws Exception {         return new IBatisPollingConsumer(this);     } */
-comment|/**      * @return SqlMapClient      * @throws IOException if the component is configured with a SqlMapConfig      * and there is a problem reading the file      */
+comment|/**      * Gets the iBatis SqlMapClient      */
 DECL|method|getSqlMapClient ()
 specifier|public
 name|SqlMapClient
@@ -423,7 +279,7 @@ name|getSqlMapClient
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the IbatisProcessingStrategy to to use when consuming messages+        * from the database      * @return IbatisProcessingStrategy      * @throws Exception      */
+comment|/**      * Gets the IbatisProcessingStrategy to to use when consuming messages from the database      */
 DECL|method|getProcessingStrategy ()
 specifier|public
 name|IBatisProcessingStrategy
@@ -439,36 +295,34 @@ operator|==
 literal|null
 condition|)
 block|{
-name|String
-name|strategyName
-init|=
-operator|(
-name|String
-operator|)
-name|params
-operator|.
-name|get
-argument_list|(
-literal|"consumeStrategy"
-argument_list|)
-decl_stmt|;
 name|strategy
 operator|=
-name|getStrategy
-argument_list|(
-name|strategyName
-argument_list|,
 operator|new
 name|DefaultIBatisProcessingStategy
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 return|return
 name|strategy
 return|;
 block|}
-comment|/**      * Statement to run when polling or processing      * @return name of the statement     */
+DECL|method|setStrategy (IBatisProcessingStrategy strategy)
+specifier|public
+name|void
+name|setStrategy
+parameter_list|(
+name|IBatisProcessingStrategy
+name|strategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|strategy
+operator|=
+name|strategy
+expr_stmt|;
+block|}
+comment|/**      * Statement to run when polling or processing     */
 DECL|method|getStatement ()
 specifier|public
 name|String
@@ -479,7 +333,7 @@ return|return
 name|statement
 return|;
 block|}
-comment|/**      * Statement to run when polling or processing      * @param statement      */
+comment|/**      * Statement to run when polling or processing      */
 DECL|method|setStatement (String statement)
 specifier|public
 name|void
@@ -496,132 +350,7 @@ operator|=
 name|statement
 expr_stmt|;
 block|}
-comment|/**      * Resolves a strategy in the camelContext or by class name      * @param name      * @param defaultStrategy      * @return IbatisProcessingStrategy      * @throws Exception      */
-DECL|method|getStrategy (String name, IBatisProcessingStrategy defaultStrategy)
-specifier|private
-name|IBatisProcessingStrategy
-name|getStrategy
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|IBatisProcessingStrategy
-name|defaultStrategy
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|name
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-name|defaultStrategy
-return|;
-block|}
-name|IBatisProcessingStrategy
-name|strategy
-init|=
-name|getComponent
-argument_list|()
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
-argument_list|(
-name|name
-argument_list|,
-name|IBatisProcessingStrategy
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|strategy
-operator|==
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|clazz
-init|=
-name|ObjectHelper
-operator|.
-name|loadClass
-argument_list|(
-name|name
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|clazz
-operator|!=
-literal|null
-condition|)
-block|{
-name|strategy
-operator|=
-name|ObjectHelper
-operator|.
-name|newInstance
-argument_list|(
-name|clazz
-argument_list|,
-name|IBatisProcessingStrategy
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Failed to resolve/create processing strategy ("
-operator|+
-name|name
-operator|+
-literal|")"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-throw|throw
-name|e
-throw|;
-block|}
-block|}
-return|return
-name|strategy
-operator|!=
-literal|null
-condition|?
-name|strategy
-else|:
-name|defaultStrategy
-return|;
-block|}
-comment|/**      * Indicates if transactions should be used when calling statements.  Useful if using a comma separated list when      * consuming records.      * @return boolean      */
+comment|/**      * Indicates if transactions should be used when calling statements.  Useful if using a comma separated list when      * consuming records.      */
 DECL|method|isUseTransactions ()
 specifier|public
 name|boolean
@@ -632,7 +361,7 @@ return|return
 name|useTransactions
 return|;
 block|}
-comment|/**      * Sets indicator to use transactions for consuming and error handling statements.      * @param useTransactions      */
+comment|/**      * Sets indicator to use transactions for consuming and error handling statements.      */
 DECL|method|setUseTransactions (boolean useTransactions)
 specifier|public
 name|void
@@ -647,32 +376,6 @@ operator|.
 name|useTransactions
 operator|=
 name|useTransactions
-expr_stmt|;
-block|}
-DECL|method|getConsumeStrategyName ()
-specifier|public
-name|String
-name|getConsumeStrategyName
-parameter_list|()
-block|{
-return|return
-name|consumeStrategyName
-return|;
-block|}
-DECL|method|setConsumeStrategyName (String consumeStrategyName)
-specifier|public
-name|void
-name|setConsumeStrategyName
-parameter_list|(
-name|String
-name|consumeStrategyName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|consumeStrategyName
-operator|=
-name|consumeStrategyName
 expr_stmt|;
 block|}
 block|}

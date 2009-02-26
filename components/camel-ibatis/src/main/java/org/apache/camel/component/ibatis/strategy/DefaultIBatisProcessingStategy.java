@@ -110,8 +110,7 @@ name|DefaultIBatisProcessingStategy
 implements|implements
 name|IBatisProcessingStrategy
 block|{
-comment|/**      * Calls update on the SqlMapClient using the consumeStatement.      * Will call multiple statements if the consumeStatement is a comma separated list.      * The parameter passed to the statement is the original data delivered to the route.      */
-DECL|method|commit (IBatisEndpoint endpoint, Exchange exchange, Object data, String consumeStatement)
+DECL|method|commit (IBatisEndpoint endpoint, Exchange exchange, Object data, String consumeStatements)
 specifier|public
 name|void
 name|commit
@@ -126,7 +125,7 @@ name|Object
 name|data
 parameter_list|,
 name|String
-name|consumeStatement
+name|consumeStatements
 parameter_list|)
 throws|throws
 name|Exception
@@ -151,7 +150,7 @@ name|String
 index|[]
 name|statements
 init|=
-name|consumeStatement
+name|consumeStatements
 operator|.
 name|split
 argument_list|(

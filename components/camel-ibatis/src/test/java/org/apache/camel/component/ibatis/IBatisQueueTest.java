@@ -350,6 +350,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"ibatis:selectUnprocessedAccounts?consumer.onConsume=consumeAccount"
@@ -360,6 +361,7 @@ argument_list|(
 literal|"mock:results"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:start"

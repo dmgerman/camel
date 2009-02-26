@@ -94,35 +94,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|ResourceBasedComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultComponent
 import|;
 end_import
 
@@ -151,20 +125,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|core
-operator|.
-name|io
-operator|.
-name|ClassPathResource
 import|;
 end_import
 
@@ -259,66 +219,10 @@ operator|=
 name|sqlMapClient
 expr_stmt|;
 block|}
-comment|// Properties
-comment|//-------------------------------------------------------------------------
-comment|/**      * Returns the configured SqlMapClient.      *      * @return com.ibatis.sqlmap.client.SqlMapClient      * @throws IOException If configured with a SqlMapConfig and there      * is a problem reading the resource.      */
-DECL|method|getSqlMapClient ()
-specifier|public
-name|SqlMapClient
-name|getSqlMapClient
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|sqlMapClient
-operator|==
-literal|null
-condition|)
-block|{
-name|sqlMapClient
-operator|=
-name|createSqlMapClient
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|sqlMapClient
-return|;
-block|}
-comment|/**      * Sets the SqlMapClient      * @param sqlMapClient The client      */
-DECL|method|setSqlMapClient (SqlMapClient sqlMapClient)
-specifier|public
-name|void
-name|setSqlMapClient
-parameter_list|(
-name|SqlMapClient
-name|sqlMapClient
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sqlMapClient
-operator|=
-name|sqlMapClient
-expr_stmt|;
-block|}
-comment|/**      * The Spring uri of the SqlMapConfig      * @return java.lang.String      */
-DECL|method|getSqlMapConfig ()
-specifier|public
-name|String
-name|getSqlMapConfig
-parameter_list|()
-block|{
-return|return
-name|sqlMapConfig
-return|;
-block|}
 comment|/**      * Creates an IbatisEndpoint for use by an IbatisConsumer or IbatisProducer.      */
 annotation|@
 name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map params)
+DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|IBatisEndpoint
 name|createEndpoint
@@ -330,12 +234,14 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
-name|params
+name|parameters
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|IBatisEndpoint
+name|answer
+init|=
 operator|new
 name|IBatisEndpoint
 argument_list|(
@@ -344,9 +250,17 @@ argument_list|,
 name|this
 argument_list|,
 name|remaining
-argument_list|,
-name|params
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|answer
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|createSqlMapClient ()
@@ -384,6 +298,62 @@ argument_list|(
 name|is
 argument_list|)
 argument_list|)
+return|;
+block|}
+comment|// Properties
+comment|//-------------------------------------------------------------------------
+comment|/**      * Returns the configured SqlMapClient.      *      * @return com.ibatis.sqlmap.client.SqlMapClient      * @throws IOException If configured with a SqlMapConfig and there      * is a problem reading the resource.      */
+DECL|method|getSqlMapClient ()
+specifier|public
+name|SqlMapClient
+name|getSqlMapClient
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|sqlMapClient
+operator|==
+literal|null
+condition|)
+block|{
+name|sqlMapClient
+operator|=
+name|createSqlMapClient
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|sqlMapClient
+return|;
+block|}
+comment|/**      * Sets the SqlMapClient      */
+DECL|method|setSqlMapClient (SqlMapClient sqlMapClient)
+specifier|public
+name|void
+name|setSqlMapClient
+parameter_list|(
+name|SqlMapClient
+name|sqlMapClient
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sqlMapClient
+operator|=
+name|sqlMapClient
+expr_stmt|;
+block|}
+comment|/**      * The Spring uri of the SqlMapConfig      */
+DECL|method|getSqlMapConfig ()
+specifier|public
+name|String
+name|getSqlMapConfig
+parameter_list|()
+block|{
+return|return
+name|sqlMapConfig
 return|;
 block|}
 DECL|method|isUseTransactions ()
