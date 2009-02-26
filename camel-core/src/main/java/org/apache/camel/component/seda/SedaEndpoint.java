@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -44,27 +54,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
 import|;
 end_import
 
@@ -88,7 +78,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executor
+name|CopyOnWriteArraySet
 import|;
 end_import
 
@@ -101,18 +91,6 @@ operator|.
 name|concurrent
 operator|.
 name|LinkedBlockingQueue
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CopyOnWriteArraySet
 import|;
 end_import
 
