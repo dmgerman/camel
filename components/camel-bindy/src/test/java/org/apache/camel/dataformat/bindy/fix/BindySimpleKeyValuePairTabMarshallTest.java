@@ -160,7 +160,7 @@ name|model
 operator|.
 name|fix
 operator|.
-name|simple
+name|tab
 operator|.
 name|Header
 import|;
@@ -182,7 +182,7 @@ name|model
 operator|.
 name|fix
 operator|.
-name|simple
+name|tab
 operator|.
 name|Order
 import|;
@@ -204,7 +204,7 @@ name|model
 operator|.
 name|fix
 operator|.
-name|simple
+name|tab
 operator|.
 name|Trailer
 import|;
@@ -365,20 +365,7 @@ specifier|private
 name|String
 name|result
 init|=
-literal|"1=BE.CHM.001
-literal|8=FIX 4.1
-literal|9=20
-literal|10=220
-literal|11=CHM0001-01
-literal|22=4
-literal|34=1
-literal|35=0
-literal|48=BE0001245678
-literal|49=INVMGR
-literal|54=1
-literal|56=BRKR
-literal|58=this is a camel - bindy test
-literal|"
+literal|"1=BE.CHM.001\t8=FIX 4.1\t9=20\t10=0\t11=CHM0001-01\t22=4\t34=1\t35=0\t48=BE0001245678\t49=INVMGR\t54=1\t56=BRKR\t58=this is a camel - bindy test\t"
 decl_stmt|;
 annotation|@
 name|Produce
@@ -665,7 +652,7 @@ init|=
 operator|new
 name|BindyKeyValuePairDataFormat
 argument_list|(
-literal|"org.apache.camel.dataformat.bindy.model.fix.simple"
+literal|"org.apache.camel.dataformat.bindy.model.fix.tab"
 argument_list|)
 decl_stmt|;
 annotation|@

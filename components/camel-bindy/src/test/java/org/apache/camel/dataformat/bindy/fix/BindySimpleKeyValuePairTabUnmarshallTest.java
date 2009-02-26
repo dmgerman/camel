@@ -257,7 +257,7 @@ init|=
 operator|new
 name|BindyKeyValuePairDataFormat
 argument_list|(
-literal|"org.apache.camel.dataformat.bindy.model.fix.simple"
+literal|"org.apache.camel.dataformat.bindy.model.fix.tab"
 argument_list|)
 decl_stmt|;
 annotation|@
