@@ -126,16 +126,6 @@ name|AtomEndpoint
 extends|extends
 name|FeedEndpoint
 block|{
-comment|/**      * Header key for the {@link org.apache.abdera.model.Feed} object is stored on the in message on the exchange.      */
-DECL|field|HEADER_ATOM_FEED
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|HEADER_ATOM_FEED
-init|=
-literal|"org.apache.camel.component.atom.feed"
-decl_stmt|;
 DECL|method|AtomEndpoint ()
 specifier|public
 name|AtomEndpoint
@@ -216,7 +206,9 @@ name|createExchangeWithFeedHeader
 argument_list|(
 name|feed
 argument_list|,
-name|HEADER_ATOM_FEED
+name|AtomConstants
+operator|.
+name|ATOM_FEED
 argument_list|)
 decl_stmt|;
 name|exchange
@@ -262,7 +254,9 @@ name|createExchangeWithFeedHeader
 argument_list|(
 name|feed
 argument_list|,
-name|HEADER_ATOM_FEED
+name|AtomConstants
+operator|.
+name|ATOM_FEED
 argument_list|)
 decl_stmt|;
 name|exchange

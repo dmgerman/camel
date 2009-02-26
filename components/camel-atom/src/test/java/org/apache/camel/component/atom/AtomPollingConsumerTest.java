@@ -190,9 +190,9 @@ name|in
 operator|.
 name|getHeader
 argument_list|(
-name|AtomEndpoint
+name|AtomConstants
 operator|.
-name|HEADER_ATOM_FEED
+name|ATOM_FEED
 argument_list|)
 operator|instanceof
 name|Feed
@@ -205,9 +205,9 @@ name|in
 operator|.
 name|getHeader
 argument_list|(
-name|AtomEndpoint
+name|AtomConstants
 operator|.
-name|HEADER_ATOM_FEED
+name|ATOM_FEED
 argument_list|,
 name|Feed
 operator|.
