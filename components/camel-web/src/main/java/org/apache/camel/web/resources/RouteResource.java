@@ -40,6 +40,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|ws
@@ -59,6 +69,30 @@ operator|.
 name|rs
 operator|.
 name|Produces
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|ws
+operator|.
+name|rs
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|ws
+operator|.
+name|rs
+operator|.
+name|PathParam
 import|;
 end_import
 
@@ -324,6 +358,26 @@ name|getRoutesText
 argument_list|(
 name|getCamelContext
 argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Looks up an individual route      */
+annotation|@
+name|Path
+argument_list|(
+literal|"status"
+argument_list|)
+DECL|method|getRouteStatus ()
+specifier|public
+name|RouteStatusResource
+name|getRouteStatus
+parameter_list|()
+block|{
+return|return
+operator|new
+name|RouteStatusResource
+argument_list|(
+name|this
 argument_list|)
 return|;
 block|}

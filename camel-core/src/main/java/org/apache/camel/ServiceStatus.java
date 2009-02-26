@@ -38,7 +38,40 @@ block|,
 name|Stopping
 block|,
 name|Stopped
-block|; }
+block|;
+DECL|method|isStartable ()
+specifier|public
+name|boolean
+name|isStartable
+parameter_list|()
+block|{
+return|return
+name|this
+operator|!=
+name|Starting
+operator|&&
+name|this
+operator|!=
+name|Started
+return|;
+block|}
+DECL|method|isStoppable ()
+specifier|public
+name|boolean
+name|isStoppable
+parameter_list|()
+block|{
+return|return
+name|this
+operator|!=
+name|Stopping
+operator|&&
+name|this
+operator|!=
+name|Stopped
+return|;
+block|}
+block|}
 end_enum
 
 end_unit

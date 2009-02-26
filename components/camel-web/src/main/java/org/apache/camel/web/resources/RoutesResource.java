@@ -292,10 +292,10 @@ name|Path
 argument_list|(
 literal|"{id}"
 argument_list|)
-DECL|method|getEndpoint (@athParamR) String id)
+DECL|method|getRoute (@athParamR) String id)
 specifier|public
 name|RouteResource
-name|getEndpoint
+name|getRoute
 parameter_list|(
 annotation|@
 name|PathParam
