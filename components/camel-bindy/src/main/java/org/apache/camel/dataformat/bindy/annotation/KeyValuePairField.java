@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This annotation represents the root class of the model. When a CSV,  * fixed-length record must be described in the model we will use this  * annotation and the separator (for csv record) to know how to split the data  * during the unmarshal process  * The separator (mandatory)  * The name is optional and could be used in the future to bind a property which a different name  * The skipfirstline (optional) allows to skip the first line of the file/content received  */
+comment|/**  * An annotation used to identify in a POJO which property is link to a key value pair field  * The tag (mandatory) identifies the key of the key value pair (e.g. 8 equals the begin string in FIX  * The name (optional) could be used in the future to bind a property which a different name  * The pattern (optional) allows to define the pattern of the data (useful for Date, BigDecimal ...)  * The precision (optional) reflects the precision to be used with BigDecimal number  * The required (optional) field allows to define if the field is required or not. This property is  * not yet used but will be useful in the future with the validation  */
 end_comment
 
 begin_annotation_defn
@@ -70,12 +70,18 @@ name|RetentionPolicy
 operator|.
 name|RUNTIME
 argument_list|)
-DECL|annotation|CsvRecord
+DECL|annotation|KeyValuePairField
 specifier|public
 annotation_defn|@interface
-name|CsvRecord
+name|KeyValuePairField
 block|{
-comment|/**      * Name describing the record (optional)      *       * @return String      */
+comment|/**      * tag identifying the field in the message (mandatory)      *       * @return int      */
+DECL|method|tag ()
+name|int
+name|tag
+parameter_list|()
+function_decl|;
+comment|/**      * name of the field (optional)      *       * @return String      */
 DECL|method|name ()
 name|String
 name|name
@@ -83,17 +89,26 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * Separator used to split a record in tokens (mandatory)      *       * @return String      */
-DECL|method|separator ()
+comment|/**      * pattern that the formater will use to transform the data (optional)      *       * @return String      */
+DECL|method|pattern ()
 name|String
-name|separator
+name|pattern
 parameter_list|()
+default|default
+literal|""
 function_decl|;
-comment|/**      * The skipFirstLine parameter will allow to skip or not the first line of a      * CSV file. This line often contains columns definition      *       * @return boolean      */
-DECL|method|skipFirstLine ()
+comment|/**      * precision of the BigDecimal number to be created      *       * @return int      */
+DECL|method|precision ()
+name|int
+name|precision
+parameter_list|()
+default|default
+literal|0
+function_decl|;
+DECL|method|required ()
 DECL|field|false
 name|boolean
-name|skipFirstLine
+name|required
 parameter_list|()
 default|default
 literal|false

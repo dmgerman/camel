@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This annotation represents the root class of the model. When a CSV,  * fixed-length record must be described in the model we will use this  * annotation and the separator (for csv record) to know how to split the data  * during the unmarshal process  * The separator (mandatory)  * The name is optional and could be used in the future to bind a property which a different name  * The skipfirstline (optional) allows to skip the first line of the file/content received  */
+comment|/**  * This annotation represents the root class of the model. When a message (FIX message  * containing key-value pairs) must be described in the model, we will use this  * annotation.   * The key pair separator (mandatory) defines the separator between the key and the value  * The pair separator (mandatory) allows to define which character separate the pairs from each other  * The name is optional and could be used in the future to bind a property which a different name  * The type (optional) allow to define the type of the message (e.g. FIX, EMX, ...)  * The version (optional) defines the version of the message (e.g. 4.1, ...)  */
 end_comment
 
 begin_annotation_defn
@@ -70,12 +70,12 @@ name|RetentionPolicy
 operator|.
 name|RUNTIME
 argument_list|)
-DECL|annotation|CsvRecord
+DECL|annotation|Message
 specifier|public
 annotation_defn|@interface
-name|CsvRecord
+name|Message
 block|{
-comment|/**      * Name describing the record (optional)      *       * @return String      */
+comment|/**      * Name describing the message (optional)      *       * @return String      */
 DECL|method|name ()
 name|String
 name|name
@@ -83,20 +83,33 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * Separator used to split a record in tokens (mandatory)      *       * @return String      */
-DECL|method|separator ()
+comment|/**      * Pair separator used to split the key value pairs in tokens (mandatory)      *       * @return String      */
+DECL|method|pairSeparator ()
 name|String
-name|separator
+name|pairSeparator
 parameter_list|()
 function_decl|;
-comment|/**      * The skipFirstLine parameter will allow to skip or not the first line of a      * CSV file. This line often contains columns definition      *       * @return boolean      */
-DECL|method|skipFirstLine ()
-DECL|field|false
-name|boolean
-name|skipFirstLine
+comment|/**      * Key value pair separator is used to split the values from their keys (mandatory)      *       * @return String      */
+DECL|method|keyValuePairSeparator ()
+name|String
+name|keyValuePairSeparator
+parameter_list|()
+function_decl|;
+comment|/**      * type is used to define the type of the message (e.g. FIX, EMX, ...) (optional)      */
+DECL|method|type ()
+name|String
+name|type
 parameter_list|()
 default|default
-literal|false
+literal|"FIX"
+function_decl|;
+comment|/**      * version defines the version of the message (e.g. 4.1, ...) (optional)      */
+DECL|method|version ()
+name|String
+name|version
+parameter_list|()
+default|default
+literal|"4.1"
 function_decl|;
 block|}
 end_annotation_defn

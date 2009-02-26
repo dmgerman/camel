@@ -82,6 +82,22 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|swing
+operator|.
+name|plaf
+operator|.
+name|basic
+operator|.
+name|BasicBorders
+operator|.
+name|SplitPaneBorder
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -130,7 +146,61 @@ name|bindy
 operator|.
 name|annotation
 operator|.
+name|KeyValuePairField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|annotation
+operator|.
 name|Link
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|annotation
+operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|util
+operator|.
+name|ConvertSeparator
 import|;
 end_import
 
@@ -177,14 +247,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The BindyCsvFactory is the class who allows to :  * Generate a model associated to a CSV record, bind data from a record  * to the POJOs, export data of POJOs to a CSV record and format data  * into String, Date, Double, ... according to the format/pattern defined  */
+comment|/**  * The BindyKeyValuePairFactory is the class who allows to bind data of type  * key value pair. Such format exist in financial messages FIX.  * This class allows to generate a model associated to message, bind data from a message  * to the POJOs, export data of POJOs to a message and format data  * into String, Date, Double, ... according to the format/pattern defined  */
 end_comment
 
 begin_class
-DECL|class|BindyCsvFactory
+DECL|class|BindyKeyValuePairFactory
 specifier|public
 class|class
-name|BindyCsvFactory
+name|BindyKeyValuePairFactory
 extends|extends
 name|BindyAbstractFactory
 implements|implements
@@ -202,27 +272,27 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|BindyCsvFactory
+name|BindyKeyValuePairFactory
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|mapDataField
+DECL|field|mapKeyValuePairField
 specifier|private
 name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|DataField
+name|KeyValuePairField
 argument_list|>
-name|mapDataField
+name|mapKeyValuePairField
 init|=
 operator|new
 name|LinkedHashMap
 argument_list|<
 name|Integer
 argument_list|,
-name|DataField
+name|KeyValuePairField
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -245,19 +315,19 @@ name|Field
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|separator
+DECL|field|keyValuePairSeparator
 specifier|private
 name|String
-name|separator
+name|keyValuePairSeparator
 decl_stmt|;
-DECL|field|skipFirstLine
+DECL|field|pairSeparator
 specifier|private
-name|boolean
-name|skipFirstLine
+name|String
+name|pairSeparator
 decl_stmt|;
-DECL|method|BindyCsvFactory (String packageName)
+DECL|method|BindyKeyValuePairFactory (String packageName)
 specifier|public
-name|BindyCsvFactory
+name|BindyKeyValuePairFactory
 parameter_list|(
 name|String
 name|packageName
@@ -270,27 +340,26 @@ argument_list|(
 name|packageName
 argument_list|)
 expr_stmt|;
-comment|// initialize specific parameters of the csv model
-name|initCsvModel
+comment|// Initialize what is specific to Key Value Pair model
+name|initKeyValuePairModel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * method uses to initialize the model representing the classes who will      * bind the data This process will scan for classes according to the package      * name provided, check the classes and fields annoted and retrieve the      * separator of the CSV record      *       * @throws Exception      */
-DECL|method|initCsvModel ()
+comment|/**      * method uses to initialize the model representing the classes who will      * bind the data This process will scan for classes according to the package      * name provided, check the classes and fields annoted. Next, we retrieve the      * parameters required like : Pair Separator& key value pair separator      *       * @throws Exception      */
+DECL|method|initKeyValuePairModel ()
 specifier|public
 name|void
-name|initCsvModel
+name|initKeyValuePairModel
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Find annotated Datafields declared in the Model classes
+comment|// Find annotated KeyValuePairfields declared in the Model classes
 name|initAnnotedFields
 argument_list|()
 expr_stmt|;
-comment|// initialize Csv parameter(s)
-comment|// separator and skip first line from @CSVrecord annotation
-name|initCsvRecordParameters
+comment|// Initialize key value pair parameter(s)
+name|initMessageParameters
 argument_list|()
 expr_stmt|;
 block|}
@@ -322,21 +391,21 @@ name|getDeclaredFields
 argument_list|()
 control|)
 block|{
-name|DataField
-name|dataField
+name|KeyValuePairField
+name|keyValuePairField
 init|=
 name|field
 operator|.
 name|getAnnotation
 argument_list|(
-name|DataField
+name|KeyValuePairField
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|dataField
+name|keyValuePairField
 operator|!=
 literal|null
 condition|)
@@ -353,48 +422,48 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Position defined in the class : "
+literal|"Key declared in the class : "
 operator|+
 name|cl
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|", position : "
+literal|", key : "
 operator|+
-name|dataField
+name|keyValuePairField
 operator|.
-name|pos
+name|tag
 argument_list|()
 operator|+
 literal|", Field : "
 operator|+
-name|dataField
+name|keyValuePairField
 operator|.
 name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|mapDataField
+name|mapKeyValuePairField
 operator|.
 name|put
 argument_list|(
-name|dataField
+name|keyValuePairField
 operator|.
-name|pos
+name|tag
 argument_list|()
 argument_list|,
-name|dataField
+name|keyValuePairField
 argument_list|)
 expr_stmt|;
 name|mapAnnotedField
 operator|.
 name|put
 argument_list|(
-name|dataField
+name|keyValuePairField
 operator|.
-name|pos
+name|tag
 argument_list|()
 argument_list|,
 name|field
@@ -491,6 +560,24 @@ name|pos
 init|=
 literal|0
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Data : "
+operator|+
+name|data
+argument_list|)
+expr_stmt|;
+block|}
 while|while
 condition|(
 name|pos
@@ -501,10 +588,6 @@ name|size
 argument_list|()
 condition|)
 block|{
-comment|// Set the field with the data received
-comment|// Only when no empty line is provided
-comment|// Data is transformed according to the pattern defined or by
-comment|// default the type of the field (int, double, String, ...)
 if|if
 condition|(
 operator|!
@@ -521,25 +604,100 @@ literal|""
 argument_list|)
 condition|)
 block|{
-name|DataField
-name|dataField
+comment|// Separate the key from its value
+comment|// e.g 8=FIX 4.1 --> key = 8 and Value = FIX 4.1
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|this
+operator|.
+name|keyValuePairSeparator
+argument_list|,
+literal|"Key Value Pair not defined in the @Message annotation"
+argument_list|)
+expr_stmt|;
+name|String
+index|[]
+name|keyValuePair
 init|=
-name|mapDataField
+name|data
 operator|.
 name|get
 argument_list|(
 name|pos
+argument_list|)
+operator|.
+name|split
+argument_list|(
+name|this
+operator|.
+name|getKeyValuePairSeparator
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|int
+name|tag
+init|=
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|keyValuePair
+index|[
+literal|0
+index|]
+argument_list|)
+decl_stmt|;
+name|String
+name|value
+init|=
+name|keyValuePair
+index|[
+literal|1
+index|]
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Key : "
+operator|+
+name|tag
+operator|+
+literal|", value : "
+operator|+
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+name|KeyValuePairField
+name|keyValuePairField
+init|=
+name|mapKeyValuePairField
+operator|.
+name|get
+argument_list|(
+name|tag
 argument_list|)
 decl_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|dataField
+name|keyValuePairField
 argument_list|,
-literal|"No position defined for the field positoned : "
+literal|"No tag defined for the field : "
 operator|+
-name|pos
+name|tag
 argument_list|)
 expr_stmt|;
 name|Field
@@ -549,7 +707,7 @@ name|mapAnnotedField
 operator|.
 name|get
 argument_list|(
-name|pos
+name|tag
 argument_list|)
 decl_stmt|;
 name|field
@@ -571,18 +729,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Pos : "
+literal|"Tag : "
 operator|+
-name|pos
+name|tag
 operator|+
 literal|", Data : "
 operator|+
-name|data
-operator|.
-name|get
-argument_list|(
-name|pos
-argument_list|)
+name|value
 operator|+
 literal|", Field type : "
 operator|+
@@ -602,7 +755,7 @@ decl_stmt|;
 name|String
 name|pattern
 init|=
-name|dataField
+name|keyValuePairField
 operator|.
 name|pattern
 argument_list|()
@@ -620,7 +773,7 @@ argument_list|()
 argument_list|,
 name|pattern
 argument_list|,
-name|dataField
+name|keyValuePairField
 operator|.
 name|precision
 argument_list|()
@@ -647,12 +800,7 @@ name|format
 operator|.
 name|parse
 argument_list|(
-name|data
-operator|.
-name|get
-argument_list|(
-name|pos
-argument_list|)
+name|value
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -689,19 +837,19 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|DataField
+name|KeyValuePairField
 argument_list|>
-name|dataFields
+name|keyValuePairFields
 init|=
 operator|new
 name|TreeMap
 argument_list|<
 name|Integer
 argument_list|,
-name|DataField
+name|KeyValuePairField
 argument_list|>
 argument_list|(
-name|mapDataField
+name|mapKeyValuePairField
 argument_list|)
 decl_stmt|;
 name|Iterator
@@ -710,7 +858,7 @@ name|Integer
 argument_list|>
 name|it
 init|=
-name|dataFields
+name|keyValuePairFields
 operator|.
 name|keySet
 argument_list|()
@@ -725,11 +873,49 @@ name|notNull
 argument_list|(
 name|this
 operator|.
-name|separator
+name|pairSeparator
 argument_list|,
-literal|"The separator has not been instantiated or property not defined in the @CsvRecord annotation"
+literal|"The pair separator has not been instantiated or property not defined in the @Message annotation"
 argument_list|)
 expr_stmt|;
+name|char
+name|separator
+init|=
+name|ConvertSeparator
+operator|.
+name|getCharDelimitor
+argument_list|(
+name|this
+operator|.
+name|getPairSeparator
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Separator converted : "
+operator|+
+name|separator
+operator|+
+literal|", from : "
+operator|+
+name|this
+operator|.
+name|getPairSeparator
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 while|while
 condition|(
 name|it
@@ -738,10 +924,10 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|DataField
-name|dataField
+name|KeyValuePairField
+name|keyValuePairField
 init|=
-name|mapDataField
+name|mapKeyValuePairField
 operator|.
 name|get
 argument_list|(
@@ -751,6 +937,15 @@ name|next
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|keyValuePairField
+argument_list|,
+literal|"KeyValuePair is null !"
+argument_list|)
+expr_stmt|;
 comment|// Retrieve the field
 name|Field
 name|field
@@ -759,9 +954,9 @@ name|mapAnnotedField
 operator|.
 name|get
 argument_list|(
-name|dataField
+name|keyValuePairField
 operator|.
-name|pos
+name|tag
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -773,6 +968,44 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Tag : "
+operator|+
+name|keyValuePairField
+operator|.
+name|tag
+argument_list|()
+operator|+
+literal|", Field type : "
+operator|+
+name|field
+operator|.
+name|getType
+argument_list|()
+operator|+
+literal|", class : "
+operator|+
+name|field
+operator|.
+name|getDeclaringClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Retrieve the format associated to the type
 name|Format
 name|format
@@ -780,7 +1013,7 @@ decl_stmt|;
 name|String
 name|pattern
 init|=
-name|dataField
+name|keyValuePairField
 operator|.
 name|pattern
 argument_list|()
@@ -798,7 +1031,7 @@ argument_list|()
 argument_list|,
 name|pattern
 argument_list|,
-name|dataField
+name|keyValuePairField
 operator|.
 name|precision
 argument_list|()
@@ -820,11 +1053,44 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Model object : "
+operator|+
+name|obj
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Convert the content to a String and append it to the builder
+comment|// Add the tag followed by its key value pair separator
+comment|// the data and finish by the pair separator
 name|builder
 operator|.
 name|append
 argument_list|(
+name|keyValuePairField
+operator|.
+name|tag
+argument_list|()
+operator|+
+name|this
+operator|.
+name|getKeyValuePairSeparator
+argument_list|()
+operator|+
 name|format
 operator|.
 name|format
@@ -836,27 +1102,10 @@ argument_list|(
 name|obj
 argument_list|)
 argument_list|)
+operator|+
+name|separator
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
-name|builder
-operator|.
-name|append
-argument_list|(
-name|this
-operator|.
-name|getSeparator
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 return|return
 name|builder
@@ -865,40 +1114,48 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Find the separator used to delimit the CSV fields      */
-DECL|method|getSeparator ()
+comment|/**      * Find the pair separator used to delimit the key value pair fields      */
+DECL|method|getPairSeparator ()
 specifier|public
 name|String
-name|getSeparator
+name|getPairSeparator
 parameter_list|()
 block|{
 return|return
-name|separator
+name|pairSeparator
 return|;
 block|}
-comment|/**      * Find the separator used to delimit the CSV fields      */
-DECL|method|getSkipFirstLine ()
+comment|/**      * Find the key value pair separator used to link the key with its value      */
+DECL|method|getKeyValuePairSeparator ()
 specifier|public
-name|boolean
-name|getSkipFirstLine
+name|String
+name|getKeyValuePairSeparator
 parameter_list|()
 block|{
 return|return
-name|skipFirstLine
+name|keyValuePairSeparator
 return|;
 block|}
-comment|/**      * Get paramaters defined in @Csvrecord annotation      */
-DECL|method|initCsvRecordParameters ()
+comment|/**      * Get parameters defined in @Message annotation      */
+DECL|method|initMessageParameters ()
 specifier|private
 name|void
-name|initCsvRecordParameters
+name|initMessageParameters
 parameter_list|()
 block|{
 if|if
 condition|(
-name|separator
+operator|(
+name|pairSeparator
 operator|==
 literal|null
+operator|)
+operator|||
+operator|(
+name|keyValuePairSeparator
+operator|==
+literal|null
+operator|)
 condition|)
 block|{
 for|for
@@ -912,70 +1169,44 @@ range|:
 name|models
 control|)
 block|{
-comment|// Get annotation @CsvRecord from the class
-name|CsvRecord
-name|record
+comment|// Get annotation @Message from the class
+name|Message
+name|message
 init|=
 name|cl
 operator|.
 name|getAnnotation
 argument_list|(
-name|CsvRecord
+name|Message
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|record
+name|message
 operator|!=
 literal|null
 condition|)
 block|{
-comment|// Get skipFirstLine parameter
-name|skipFirstLine
-operator|=
-name|record
-operator|.
-name|skipFirstLine
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Skip First Line parameter of the CSV : "
-operator|+
-name|skipFirstLine
-argument_list|)
-expr_stmt|;
-block|}
-comment|// Get Separator parameter
+comment|// Get Pair Separator parameter
 name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|record
+name|message
 operator|.
-name|separator
+name|pairSeparator
 argument_list|()
 argument_list|,
-literal|"No separator has been defined in the @Record annotation !"
+literal|"No Pair Separator has been defined in the @Message annotation !"
 argument_list|)
 expr_stmt|;
-name|separator
+name|pairSeparator
 operator|=
-name|record
+name|message
 operator|.
-name|separator
+name|pairSeparator
 argument_list|()
 expr_stmt|;
 if|if
@@ -990,9 +1221,47 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Separator defined for the CSV : "
+literal|"Pair Separator defined for the message : "
 operator|+
-name|separator
+name|pairSeparator
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Get KeyValuePair Separator parameter
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|message
+operator|.
+name|keyValuePairSeparator
+argument_list|()
+argument_list|,
+literal|"No Key Value Pair Separator has been defined in the @Message annotation !"
+argument_list|)
+expr_stmt|;
+name|keyValuePairSeparator
+operator|=
+name|message
+operator|.
+name|keyValuePairSeparator
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Key Value Pair Separator defined for the message : "
+operator|+
+name|keyValuePairSeparator
 argument_list|)
 expr_stmt|;
 block|}

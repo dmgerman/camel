@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation used to identify in a POJO which property is link to a field of  * a record (csv, ...) a) position identifies the position of the data in the  * record (mandatory) b) name is optional and could be used in the future to  * bind a property which a different name c) pattern which is optional allows to  * define the pattern of the data (useful for Date, ...) d) length allows to  * define for fixed length message the size of the data's block e) precision  * reflects the precision to be used with BigDecimal number  */
+comment|/**  * An annotation used to identify in a POJO which property is link to a field of  * a record (csv, ...).  * The position (mandatory) identifies the position of the data in the record  * The name is optional and could be used in the future to bind a property which a different name  * The pattern (optional) allows to define the pattern of the data (useful for Date, ...)  * The length (optional) allows to define for fixed length message the size of the data's block  * The precision(optional) reflects the precision to be used with BigDecimal number  */
 end_comment
 
 begin_annotation_defn
