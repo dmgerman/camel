@@ -36,7 +36,17 @@ specifier|final
 name|String
 name|JMS_REPLY_DESTINATION
 init|=
-literal|"CamelJmsReplyDestination"
+literal|"JMSReplyTo"
+decl_stmt|;
+comment|//"CamelJmsReplyDestination";
+DECL|field|JMS_DESTINATION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_DESTINATION
+init|=
+literal|"JMSDestination"
 decl_stmt|;
 DECL|method|JmsConstants ()
 specifier|private

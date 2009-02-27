@@ -131,6 +131,40 @@ name|destination
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|JmsTemporaryTopicEndpoint (TemporaryTopic jmsDestination)
+specifier|public
+name|JmsTemporaryTopicEndpoint
+parameter_list|(
+name|TemporaryTopic
+name|jmsDestination
+parameter_list|)
+throws|throws
+name|JMSException
+block|{
+name|super
+argument_list|(
+literal|"jms:temp:topic:"
+operator|+
+name|jmsDestination
+operator|.
+name|getTopicName
+argument_list|()
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|jmsDestination
+operator|=
+name|jmsDestination
+expr_stmt|;
+name|setDestination
+argument_list|(
+name|jmsDestination
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * This endpoint is a singleton so that the temporary destination instances are shared across all      * producers and consumers of the same endpoint URI      *      * @return true      */
 DECL|method|isSingleton ()
 specifier|public
