@@ -427,7 +427,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|// send the reply
+comment|// send the reply if we got a response and the exchange is out capable
 if|if
 condition|(
 name|rce
@@ -440,6 +440,14 @@ literal|null
 operator|&&
 operator|!
 name|disableReplyTo
+operator|&&
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
+operator|.
+name|isOutCapable
+argument_list|()
 condition|)
 block|{
 name|sendReply
@@ -547,6 +555,19 @@ argument_list|,
 name|replyDestination
 argument_list|)
 expr_stmt|;
+comment|// only change pattern if not already out capable
+if|if
+condition|(
+operator|!
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
+operator|.
+name|isOutCapable
+argument_list|()
+condition|)
+block|{
 name|exchange
 operator|.
 name|setPattern
@@ -556,6 +577,7 @@ operator|.
 name|InOut
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|exchange
