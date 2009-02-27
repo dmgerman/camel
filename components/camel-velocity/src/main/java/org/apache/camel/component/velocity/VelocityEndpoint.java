@@ -644,7 +644,9 @@ name|out
 operator|.
 name|setHeader
 argument_list|(
-literal|"org.apache.camel.velocity.resource"
+name|VelocityConstants
+operator|.
+name|VELOCITY_RESOURCE
 argument_list|,
 name|resource
 argument_list|)
@@ -653,7 +655,9 @@ name|out
 operator|.
 name|setHeader
 argument_list|(
-literal|"org.apache.camel.velocity.resourceUri"
+name|VelocityConstants
+operator|.
+name|VELOCITY_RESOURCE_URI
 argument_list|,
 name|path
 argument_list|)
