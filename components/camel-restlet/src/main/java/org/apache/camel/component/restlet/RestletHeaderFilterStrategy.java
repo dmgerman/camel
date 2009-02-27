@@ -59,7 +59,7 @@ name|add
 argument_list|(
 name|RestletConstants
 operator|.
-name|LOGIN
+name|RESTLET_LOGIN
 argument_list|)
 expr_stmt|;
 name|getOutFilter
@@ -69,7 +69,7 @@ name|add
 argument_list|(
 name|RestletConstants
 operator|.
-name|PASSWORD
+name|RESTLET_PASSWORD
 argument_list|)
 expr_stmt|;
 block|}

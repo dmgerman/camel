@@ -122,7 +122,7 @@ name|put
 argument_list|(
 name|RestletConstants
 operator|.
-name|LOGIN
+name|RESTLET_LOGIN
 argument_list|,
 literal|"admin"
 argument_list|)
@@ -133,7 +133,7 @@ name|put
 argument_list|(
 name|RestletConstants
 operator|.
-name|PASSWORD
+name|RESTLET_PASSWORD
 argument_list|,
 literal|"foo"
 argument_list|)
@@ -206,7 +206,7 @@ name|put
 argument_list|(
 name|RestletConstants
 operator|.
-name|LOGIN
+name|RESTLET_LOGIN
 argument_list|,
 literal|"admin"
 argument_list|)
@@ -217,7 +217,7 @@ name|put
 argument_list|(
 name|RestletConstants
 operator|.
-name|PASSWORD
+name|RESTLET_PASSWORD
 argument_list|,
 literal|"bad"
 argument_list|)

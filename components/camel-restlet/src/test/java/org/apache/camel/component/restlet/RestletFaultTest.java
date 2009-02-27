@@ -176,7 +176,7 @@ name|setHeader
 argument_list|(
 name|RestletConstants
 operator|.
-name|RESPONSE_CODE
+name|RESTLET_RESPONSE_CODE
 argument_list|,
 literal|"404"
 argument_list|)
@@ -190,7 +190,7 @@ name|setHeader
 argument_list|(
 name|RestletConstants
 operator|.
-name|MEDIA_TYPE
+name|RESTLET_MEDIA_TYPE
 argument_list|,
 literal|"text/plain"
 argument_list|)

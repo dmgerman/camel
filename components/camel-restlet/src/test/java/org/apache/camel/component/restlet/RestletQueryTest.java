@@ -201,7 +201,7 @@ name|getHeader
 argument_list|(
 name|RestletConstants
 operator|.
-name|QUERY_STRING
+name|RESTLET_QUERY_STRING
 argument_list|,
 name|String
 operator|.

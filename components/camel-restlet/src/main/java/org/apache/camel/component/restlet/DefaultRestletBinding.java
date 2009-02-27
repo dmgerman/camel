@@ -431,7 +431,7 @@ name|setHeader
 argument_list|(
 name|RestletConstants
 operator|.
-name|QUERY_STRING
+name|RESTLET_QUERY_STRING
 argument_list|,
 name|query
 argument_list|)
@@ -448,6 +448,7 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// TODO: What is this form used for? Doesnt make sence in the code below as form is never used
 name|Form
 name|form
 init|=
@@ -674,9 +675,6 @@ comment|// login and password are filtered by header filter strategy
 name|String
 name|login
 init|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -686,15 +684,16 @@ name|getHeader
 argument_list|(
 name|RestletConstants
 operator|.
-name|LOGIN
+name|RESTLET_LOGIN
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|String
 name|password
 init|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -704,7 +703,11 @@ name|getHeader
 argument_list|(
 name|RestletConstants
 operator|.
-name|PASSWORD
+name|RESTLET_PASSWORD
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -911,8 +914,6 @@ parameter_list|)
 block|{
 name|Message
 name|out
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1027,7 +1028,7 @@ name|getHeader
 argument_list|(
 name|RestletConstants
 operator|.
-name|MEDIA_TYPE
+name|RESTLET_MEDIA_TYPE
 argument_list|,
 name|MediaType
 operator|.
@@ -1099,7 +1100,7 @@ name|getHeader
 argument_list|(
 name|RestletConstants
 operator|.
-name|RESPONSE_CODE
+name|RESTLET_RESPONSE_CODE
 argument_list|,
 name|Integer
 operator|.
