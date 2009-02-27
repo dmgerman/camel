@@ -244,7 +244,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mina:tcp://localhost:8080?sync=true"
+literal|"mina:tcp://localhost:8080?sync=true&lazySessionCreation=true"
 argument_list|)
 operator|.
 name|to

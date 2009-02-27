@@ -133,7 +133,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mina:vm://localhost:9123"
+literal|"mina:vm://localhost:9123?lazySessionCreation=true"
 argument_list|)
 expr_stmt|;
 block|}

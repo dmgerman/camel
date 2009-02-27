@@ -133,7 +133,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mina:tcp://localhost:9123?sync=false"
+literal|"mina:tcp://localhost:9123?sync=false&lazySessionCreation=true"
 argument_list|)
 expr_stmt|;
 block|}
