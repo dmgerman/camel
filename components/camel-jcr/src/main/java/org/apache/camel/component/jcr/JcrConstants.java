@@ -30,14 +30,14 @@ class|class
 name|JcrConstants
 block|{
 comment|/**      * Property key for specifying the name of a node in the repository      */
-DECL|field|NODE_NAME
+DECL|field|JCR_NODE_NAME
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|NODE_NAME
+name|JCR_NODE_NAME
 init|=
-literal|"org.apache.camel.component.jcr.node_name"
+literal|"CamelJcrNodeName"
 decl_stmt|;
 DECL|method|JcrConstants ()
 specifier|private

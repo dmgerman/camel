@@ -281,7 +281,7 @@ name|getProperty
 argument_list|(
 name|JcrConstants
 operator|.
-name|NODE_NAME
+name|JCR_NODE_NAME
 argument_list|)
 operator|!=
 literal|null
@@ -294,7 +294,7 @@ name|getProperty
 argument_list|(
 name|JcrConstants
 operator|.
-name|NODE_NAME
+name|JCR_NODE_NAME
 argument_list|,
 name|String
 operator|.
