@@ -166,16 +166,6 @@ name|RssEndpoint
 extends|extends
 name|FeedEndpoint
 block|{
-comment|/**      * Header key for the {@link com.sun.syndication.feed.synd.SyndFeed} object is stored on the in message on the exchange.      */
-DECL|field|HEADER_RSS_FEED
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|HEADER_RSS_FEED
-init|=
-literal|"org.apache.camel.component.rss.feed"
-decl_stmt|;
 DECL|field|LOG
 specifier|protected
 specifier|static
@@ -273,7 +263,9 @@ name|createExchangeWithFeedHeader
 argument_list|(
 name|feed
 argument_list|,
-name|HEADER_RSS_FEED
+name|RssConstants
+operator|.
+name|RSS_FEED
 argument_list|)
 decl_stmt|;
 name|exchange
@@ -311,7 +303,9 @@ name|createExchangeWithFeedHeader
 argument_list|(
 name|feed
 argument_list|,
-name|HEADER_RSS_FEED
+name|RssConstants
+operator|.
+name|RSS_FEED
 argument_list|)
 decl_stmt|;
 name|SyndFeed

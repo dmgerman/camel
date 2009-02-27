@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|sun
@@ -188,9 +178,9 @@ name|in
 operator|.
 name|getHeader
 argument_list|(
-name|RssEndpoint
+name|RssConstants
 operator|.
-name|HEADER_RSS_FEED
+name|RSS_FEED
 argument_list|)
 operator|instanceof
 name|SyndFeed
@@ -203,9 +193,9 @@ name|in
 operator|.
 name|getHeader
 argument_list|(
-name|RssEndpoint
+name|RssConstants
 operator|.
-name|HEADER_RSS_FEED
+name|RSS_FEED
 argument_list|,
 name|SyndFeed
 operator|.

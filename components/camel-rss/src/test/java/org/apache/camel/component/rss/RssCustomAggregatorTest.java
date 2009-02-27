@@ -238,9 +238,9 @@ name|in
 operator|.
 name|getHeader
 argument_list|(
-name|RssEndpoint
+name|RssConstants
 operator|.
-name|HEADER_RSS_FEED
+name|RSS_FEED
 argument_list|)
 operator|instanceof
 name|SyndFeed
