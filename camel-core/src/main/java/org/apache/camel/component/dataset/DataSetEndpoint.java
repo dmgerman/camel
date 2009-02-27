@@ -251,17 +251,11 @@ DECL|field|produceDelay
 specifier|private
 name|long
 name|produceDelay
-init|=
-operator|-
-literal|1
 decl_stmt|;
 DECL|field|consumeDelay
 specifier|private
 name|long
 name|consumeDelay
-init|=
-operator|-
-literal|1
 decl_stmt|;
 DECL|field|startTime
 specifier|private

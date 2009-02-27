@@ -473,22 +473,17 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|Exchange
-name|convertedExchange
-init|=
-name|exchange
-decl_stmt|;
 name|producerCache
 operator|.
 name|send
 argument_list|(
 name|endpoint
 argument_list|,
-name|convertedExchange
+name|exchange
 argument_list|)
 expr_stmt|;
 return|return
-name|convertedExchange
+name|exchange
 return|;
 block|}
 DECL|method|send (Endpoint endpoint, Processor processor)
@@ -2099,8 +2094,6 @@ parameter_list|)
 block|{
 name|Endpoint
 name|endpoint
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -2366,6 +2359,7 @@ operator|!
 name|notOut
 condition|)
 block|{
+comment|// we have a response in out and the pattern is out capable
 name|answer
 operator|=
 name|result
@@ -2377,8 +2371,32 @@ name|getBody
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|hasOut
+operator|&&
+name|result
+operator|.
+name|getPattern
+argument_list|()
+operator|==
+name|ExchangePattern
+operator|.
+name|InOptionalOut
+condition|)
+block|{
+comment|// special case where the result is InOptionalOut and with no OUT response
+comment|// so we should return null to indicate this fact
+name|answer
+operator|=
+literal|null
+expr_stmt|;
+block|}
 else|else
 block|{
+comment|// use IN as the response
 name|answer
 operator|=
 name|result

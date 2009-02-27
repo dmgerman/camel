@@ -856,6 +856,29 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|result
+operator|.
+name|getPattern
+argument_list|()
+operator|==
+name|ExchangePattern
+operator|.
+name|InOptionalOut
+condition|)
+block|{
+comment|// special case where the result is InOptionalOut and with no OUT response
+comment|// so we should return null to indicate this fact
+name|result
+operator|.
+name|setOut
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 else|else
 block|{
 comment|// no results so lets copy the last input
