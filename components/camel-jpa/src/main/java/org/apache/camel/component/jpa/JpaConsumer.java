@@ -223,9 +223,6 @@ decl_stmt|;
 DECL|field|deleteHandler
 specifier|private
 name|DeleteHandler
-argument_list|<
-name|Object
-argument_list|>
 name|deleteHandler
 decl_stmt|;
 DECL|field|query
@@ -608,7 +605,7 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * A strategy method to lock an object with an exclusive lock so that it can      * be processed      *       * @param entity the entity to be locked      * @param entityManager      * @return true if the entity was locked      */
+comment|/**      * A strategy method to lock an object with an exclusive lock so that it can      * be processed      *       * @param entity the entity to be locked      * @param entityManager entity manager      * @return true if the entity was locked      */
 DECL|method|lockEntity (Object entity, EntityManager entityManager)
 specifier|protected
 name|boolean

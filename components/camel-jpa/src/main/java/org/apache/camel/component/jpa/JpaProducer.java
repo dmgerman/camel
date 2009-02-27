@@ -283,15 +283,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-literal|"CamelJpaValue"
-argument_list|,
-name|values
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class
