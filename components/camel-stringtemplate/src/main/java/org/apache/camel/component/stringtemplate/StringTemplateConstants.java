@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.freemarker
+DECL|package|org.apache.camel.component.stringtemplate
 package|package
 name|org
 operator|.
@@ -14,42 +14,33 @@ name|camel
 operator|.
 name|component
 operator|.
-name|freemarker
+name|stringtemplate
 package|;
 end_package
 
 begin_comment
-comment|/**  * Freemarker Constants  */
+comment|/**  * StringTemplate constants.  */
 end_comment
 
 begin_class
-DECL|class|FreemarkerConstants
+DECL|class|StringTemplateConstants
 specifier|public
 specifier|final
 class|class
-name|FreemarkerConstants
+name|StringTemplateConstants
 block|{
-DECL|field|FREEMARKER_RESOURCE
+DECL|field|STRINGTEMPLATE_RESOURCE
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|FREEMARKER_RESOURCE
+name|STRINGTEMPLATE_RESOURCE
 init|=
-literal|"CamelFreemarkerResource"
+literal|"CamelStringTemplateResource"
 decl_stmt|;
-DECL|field|FREEMARKER_RESOURCE_URI
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|FREEMARKER_RESOURCE_URI
-init|=
-literal|"CamelFreemarkerResourceUri"
-decl_stmt|;
-DECL|method|FreemarkerConstants ()
+DECL|method|StringTemplateConstants ()
 specifier|private
-name|FreemarkerConstants
+name|StringTemplateConstants
 parameter_list|()
 block|{
 comment|// Utility class

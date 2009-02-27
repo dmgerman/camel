@@ -355,7 +355,9 @@ name|out
 operator|.
 name|setHeader
 argument_list|(
-literal|"org.apache.camel.stringtemplate.resource"
+name|StringTemplateConstants
+operator|.
+name|STRINGTEMPLATE_RESOURCE
 argument_list|,
 name|getResource
 argument_list|()

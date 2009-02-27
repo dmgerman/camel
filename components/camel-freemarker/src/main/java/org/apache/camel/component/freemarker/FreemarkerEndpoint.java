@@ -453,7 +453,7 @@ name|setHeader
 argument_list|(
 name|FreemarkerConstants
 operator|.
-name|RESOURCE
+name|FREEMARKER_RESOURCE
 argument_list|,
 name|getResource
 argument_list|()
@@ -465,7 +465,7 @@ name|setHeader
 argument_list|(
 name|FreemarkerConstants
 operator|.
-name|RESOURCE_URI
+name|FREEMARKER_RESOURCE_URI
 argument_list|,
 name|path
 argument_list|)
