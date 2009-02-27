@@ -478,7 +478,6 @@ name|value
 expr_stmt|;
 block|}
 block|}
-empty_stmt|;
 DECL|method|JmsProducer (JmsEndpoint endpoint)
 specifier|public
 name|JmsProducer
@@ -531,7 +530,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|c
+name|JmsConfiguration
 operator|.
 name|REPLYTO_TEMP_DEST_AFFINITY_PER_ENDPOINT
 argument_list|)
@@ -554,7 +553,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|c
+name|JmsConfiguration
 operator|.
 name|REPLYTO_TEMP_DEST_AFFINITY_PER_COMPONENT
 argument_list|)
@@ -1208,22 +1207,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO cannot pass in callback using destination?
 name|template
 operator|.
 name|send
 argument_list|(
 name|destination
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|messageCreator
 argument_list|,
 name|callback
 argument_list|)
 expr_stmt|;
-comment|// template.send(destination, messageCreator);
 block|}
 else|else
 block|{
@@ -1642,9 +1636,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to retrieve JMSMessageID from outgoing JMS Message and "
-operator|+
-literal|"set it into Camel's MessageId"
+literal|"Unable to retrieve JMSMessageID from outgoing JMS Message and set it into Camel's MessageId"
 argument_list|,
 name|e
 argument_list|)

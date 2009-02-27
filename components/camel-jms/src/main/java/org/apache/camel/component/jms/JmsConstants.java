@@ -38,7 +38,6 @@ name|JMS_REPLY_DESTINATION
 init|=
 literal|"JMSReplyTo"
 decl_stmt|;
-comment|//"CamelJmsReplyDestination";
 DECL|field|JMS_DESTINATION
 specifier|public
 specifier|static

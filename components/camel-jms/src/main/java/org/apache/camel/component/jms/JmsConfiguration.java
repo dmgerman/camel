@@ -212,20 +212,6 @@ name|jms
 operator|.
 name|connection
 operator|.
-name|JmsResourceHolder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jms
-operator|.
-name|connection
-operator|.
 name|JmsTransactionManager
 import|;
 end_import
@@ -1059,6 +1045,104 @@ argument_list|,
 name|destinationName
 argument_list|)
 decl_stmt|;
+return|return
+name|doSendToDestination
+argument_list|(
+name|destination
+argument_list|,
+name|messageCreator
+argument_list|,
+name|callback
+argument_list|,
+name|session
+argument_list|)
+return|;
+block|}
+block|}
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|send (final Destination destination, final MessageCreator messageCreator, final MessageSentCallback callback)
+specifier|public
+name|void
+name|send
+parameter_list|(
+specifier|final
+name|Destination
+name|destination
+parameter_list|,
+specifier|final
+name|MessageCreator
+name|messageCreator
+parameter_list|,
+specifier|final
+name|MessageSentCallback
+name|callback
+parameter_list|)
+throws|throws
+name|JmsException
+block|{
+name|execute
+argument_list|(
+operator|new
+name|SessionCallback
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|doInJms
+parameter_list|(
+name|Session
+name|session
+parameter_list|)
+throws|throws
+name|JMSException
+block|{
+return|return
+name|doSendToDestination
+argument_list|(
+name|destination
+argument_list|,
+name|messageCreator
+argument_list|,
+name|callback
+argument_list|,
+name|session
+argument_list|)
+return|;
+block|}
+block|}
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doSendToDestination (final Destination destination, final MessageCreator messageCreator, final MessageSentCallback callback, final Session session)
+specifier|private
+name|Object
+name|doSendToDestination
+parameter_list|(
+specifier|final
+name|Destination
+name|destination
+parameter_list|,
+specifier|final
+name|MessageCreator
+name|messageCreator
+parameter_list|,
+specifier|final
+name|MessageSentCallback
+name|callback
+parameter_list|,
+specifier|final
+name|Session
+name|session
+parameter_list|)
+throws|throws
+name|JMSException
+block|{
 name|Assert
 operator|.
 name|notNull
@@ -1175,12 +1259,6 @@ block|}
 return|return
 literal|null
 return|;
-block|}
-block|}
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**          * Override so we can support preserving the Qos settings that have          * been set on the message.          */
 annotation|@
@@ -2145,7 +2223,7 @@ return|return
 name|listenerConnectionFactory
 return|;
 block|}
-comment|/**      * Sets the connection factory to be used for consuming messages via the      * {@link #createMessageListenerContainer(JmsEndpoint)}      *      * @param listenerConnectionFactory the connection factory to use for      *                consuming messages      */
+comment|/**      * Sets the connection factory to be used for consuming messages via the      * {@link #createMessageListenerContainer(JmsEndpoint)}      *      * @param listenerConnectionFactory the connection factory to use for      *                                  consuming messages      */
 DECL|method|setListenerConnectionFactory (ConnectionFactory listenerConnectionFactory)
 specifier|public
 name|void
@@ -3107,7 +3185,7 @@ operator|=
 name|consumerTransacted
 expr_stmt|;
 block|}
-comment|/**      * Should InOut operations (request reply) default to using transacted mode?      *      * By default this is false as you need to commit the outgoing request before you can consume the input      */
+comment|/**      * Should InOut operations (request reply) default to using transacted mode?      *<p/>      * By default this is false as you need to commit the outgoing request before you can consume the input      */
 DECL|method|isTransactedInOut ()
 specifier|public
 name|boolean
@@ -3170,7 +3248,7 @@ return|return
 name|eagerLoadingOfProperties
 return|;
 block|}
-comment|/**      * Enables eager loading of JMS properties as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties      *      * @param eagerLoadingOfProperties whether or not to enable eager loading of      *                JMS properties on inbound messages      */
+comment|/**      * Enables eager loading of JMS properties as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties      *      * @param eagerLoadingOfProperties whether or not to enable eager loading of      *                                 JMS properties on inbound messages      */
 DECL|method|setEagerLoadingOfProperties (boolean eagerLoadingOfProperties)
 specifier|public
 name|void
@@ -3197,7 +3275,7 @@ return|return
 name|disableReplyTo
 return|;
 block|}
-comment|/**      * Disables the use of the JMSReplyTo header for consumers so that inbound      * messages are treated as InOnly rather than InOut requests.      *      * @param disableReplyTo whether or not to disable the use of JMSReplyTo      *                header indicating an InOut      */
+comment|/**      * Disables the use of the JMSReplyTo header for consumers so that inbound      * messages are treated as InOnly rather than InOut requests.      *      * @param disableReplyTo whether or not to disable the use of JMSReplyTo      *                       header indicating an InOut      */
 DECL|method|setDisableReplyTo (boolean disableReplyTo)
 specifier|public
 name|void
@@ -4223,7 +4301,7 @@ name|getConnectionFactory
 argument_list|()
 return|;
 block|}
-comment|/**      * Factory method which which allows derived classes to customize the lazy       * transcationManager creation      */
+comment|/**      * Factory method which which allows derived classes to customize the lazy      * transcationManager creation      */
 DECL|method|createTransactionManager ()
 specifier|protected
 name|PlatformTransactionManager
