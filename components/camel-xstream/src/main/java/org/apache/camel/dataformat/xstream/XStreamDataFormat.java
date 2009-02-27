@@ -220,11 +220,7 @@ DECL|method|XStreamDataFormat ()
 specifier|public
 name|XStreamDataFormat
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|XStreamDataFormat (XStream xstream)
 specifier|public
 name|XStreamDataFormat
