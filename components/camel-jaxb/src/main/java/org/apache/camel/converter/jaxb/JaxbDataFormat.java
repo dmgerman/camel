@@ -86,30 +86,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|Marshaller
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|Unmarshaller
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -184,16 +160,6 @@ name|ignoreJAXBElement
 init|=
 literal|true
 decl_stmt|;
-DECL|field|marshaller
-specifier|private
-name|Marshaller
-name|marshaller
-decl_stmt|;
-DECL|field|unmarshaller
-specifier|private
-name|Unmarshaller
-name|unmarshaller
-decl_stmt|;
 DECL|method|JaxbDataFormat ()
 specifier|public
 name|JaxbDataFormat
@@ -248,7 +214,11 @@ name|IOException
 block|{
 try|try
 block|{
-name|getMarshaller
+comment|// must create a new instance of marshaller as its not thred safe
+name|getContext
+argument_list|()
+operator|.
+name|createMarshaller
 argument_list|()
 operator|.
 name|marshal
@@ -293,10 +263,14 @@ name|ClassNotFoundException
 block|{
 try|try
 block|{
+comment|// must create a new instance of unmarshaller as its not thred safe
 name|Object
 name|answer
 init|=
-name|getUnmarshaller
+name|getContext
+argument_list|()
+operator|.
+name|createUnmarshaller
 argument_list|()
 operator|.
 name|unmarshal
@@ -375,6 +349,7 @@ expr_stmt|;
 block|}
 DECL|method|getContext ()
 specifier|public
+specifier|synchronized
 name|JAXBContext
 name|getContext
 parameter_list|()
@@ -440,50 +415,6 @@ operator|=
 name|contextPath
 expr_stmt|;
 block|}
-DECL|method|getMarshaller ()
-specifier|public
-name|Marshaller
-name|getMarshaller
-parameter_list|()
-throws|throws
-name|JAXBException
-block|{
-if|if
-condition|(
-name|marshaller
-operator|==
-literal|null
-condition|)
-block|{
-name|marshaller
-operator|=
-name|getContext
-argument_list|()
-operator|.
-name|createMarshaller
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|marshaller
-return|;
-block|}
-DECL|method|setMarshaller (Marshaller marshaller)
-specifier|public
-name|void
-name|setMarshaller
-parameter_list|(
-name|Marshaller
-name|marshaller
-parameter_list|)
-block|{
-name|this
-operator|.
-name|marshaller
-operator|=
-name|marshaller
-expr_stmt|;
-block|}
 DECL|method|isPrettyPrint ()
 specifier|public
 name|boolean
@@ -508,50 +439,6 @@ operator|.
 name|prettyPrint
 operator|=
 name|prettyPrint
-expr_stmt|;
-block|}
-DECL|method|getUnmarshaller ()
-specifier|public
-name|Unmarshaller
-name|getUnmarshaller
-parameter_list|()
-throws|throws
-name|JAXBException
-block|{
-if|if
-condition|(
-name|unmarshaller
-operator|==
-literal|null
-condition|)
-block|{
-name|unmarshaller
-operator|=
-name|getContext
-argument_list|()
-operator|.
-name|createUnmarshaller
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|unmarshaller
-return|;
-block|}
-DECL|method|setUnmarshaller (Unmarshaller unmarshaller)
-specifier|public
-name|void
-name|setUnmarshaller
-parameter_list|(
-name|Unmarshaller
-name|unmarshaller
-parameter_list|)
-block|{
-name|this
-operator|.
-name|unmarshaller
-operator|=
-name|unmarshaller
 expr_stmt|;
 block|}
 DECL|method|createContext ()
