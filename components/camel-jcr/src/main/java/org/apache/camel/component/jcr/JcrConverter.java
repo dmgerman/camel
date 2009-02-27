@@ -128,7 +128,6 @@ specifier|public
 class|class
 name|JcrConverter
 block|{
-comment|/**      * Converts a {@link Boolean} into a {@link Value}      * @param bool the boolean      * @return the value      */
 annotation|@
 name|Converter
 DECL|method|toValue (Boolean bool)
@@ -148,7 +147,6 @@ name|bool
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts an {@link InputStream} into a {@link Value}      * @param stream the input stream      * @return the value      */
 annotation|@
 name|Converter
 DECL|method|toValue (InputStream stream)
@@ -168,7 +166,6 @@ name|stream
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts a {@link Calendar} into a {@link Value}      * @param calendar the calendar      * @return the value      */
 annotation|@
 name|Converter
 DECL|method|toValue (Calendar calendar)
@@ -188,7 +185,6 @@ name|calendar
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts a {@link String} into a {@link Value}      * @param value the string      * @return the value      */
 annotation|@
 name|Converter
 DECL|method|toValue (String value)

@@ -157,11 +157,6 @@ specifier|private
 name|String
 name|base
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|JcrEndpoint (String endpointUri, JcrComponent component)
 specifier|protected
 name|JcrEndpoint
@@ -234,9 +229,6 @@ name|this
 operator|.
 name|repository
 operator|=
-operator|(
-name|Repository
-operator|)
 name|component
 operator|.
 name|getCamelContext
@@ -251,6 +243,10 @@ name|uri
 operator|.
 name|getHost
 argument_list|()
+argument_list|,
+name|Repository
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 if|if
@@ -372,7 +368,6 @@ literal|"No consumer endpoint support for JCR available"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Creates a new {@link Producer}       */
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -389,7 +384,6 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 DECL|method|isSingleton ()
 specifier|public
 name|boolean

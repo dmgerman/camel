@@ -412,7 +412,7 @@ argument_list|)
 operator|.
 name|setProperty
 argument_list|(
-name|JcrComponent
+name|JcrConstants
 operator|.
 name|NODE_NAME
 argument_list|,
