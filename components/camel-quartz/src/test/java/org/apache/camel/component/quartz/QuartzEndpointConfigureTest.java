@@ -219,7 +219,7 @@ name|endpoint
 init|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"quartz://myGroup/myTimerName/0/0/12/*/*/$"
+literal|"quartz://myGroup/myTimerName?cron=0_0/5_12-18_?_*_MON-FRI"
 argument_list|)
 decl_stmt|;
 name|CronTrigger
@@ -265,7 +265,75 @@ name|assertEquals
 argument_list|(
 literal|"cron expression"
 argument_list|,
-literal|"0 0 12 * * ?"
+literal|"0 0/5 12-18 ? * MON-FRI"
+argument_list|,
+name|trigger
+operator|.
+name|getCronExpression
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testConfigureAnotherCronExpression ()
+specifier|public
+name|void
+name|testConfigureAnotherCronExpression
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|QuartzEndpoint
+name|endpoint
+init|=
+name|resolveMandatoryEndpoint
+argument_list|(
+literal|"quartz://myGroup/myTimerName?cron=0_0_*_*_*_?"
+argument_list|)
+decl_stmt|;
+name|CronTrigger
+name|trigger
+init|=
+name|assertIsInstanceOf
+argument_list|(
+name|CronTrigger
+operator|.
+name|class
+argument_list|,
+name|endpoint
+operator|.
+name|getTrigger
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"getName()"
+argument_list|,
+literal|"myTimerName"
+argument_list|,
+name|trigger
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"getGroup()"
+argument_list|,
+literal|"myGroup"
+argument_list|,
+name|trigger
+operator|.
+name|getGroup
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"cron expression"
+argument_list|,
+literal|"0 0 * * * ?"
 argument_list|,
 name|trigger
 operator|.

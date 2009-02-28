@@ -152,9 +152,9 @@ name|schedulerContext
 operator|.
 name|get
 argument_list|(
-name|QuartzEndpoint
+name|QuartzConstants
 operator|.
-name|CONTEXT_KEY
+name|QUARTZ_CAMEL_CONTEXT
 argument_list|)
 decl_stmt|;
 name|String
@@ -173,9 +173,9 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|QuartzEndpoint
+name|QuartzConstants
 operator|.
-name|ENDPOINT_KEY
+name|QUARTZ_ENDPOINT
 argument_list|)
 decl_stmt|;
 name|QuartzEndpoint
