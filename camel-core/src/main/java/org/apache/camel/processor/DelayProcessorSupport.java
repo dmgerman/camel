@@ -263,9 +263,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// only run is we are started
 while|while
 condition|(
-literal|true
+name|isRunAllowed
+argument_list|()
 condition|)
 block|{
 name|long
@@ -409,11 +411,15 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sleep interupted: "
+literal|"Sleep interrupted, are we stopping? "
 operator|+
-name|e
-argument_list|,
-name|e
+operator|(
+name|isStopping
+argument_list|()
+operator|||
+name|isStopped
+argument_list|()
+operator|)
 argument_list|)
 expr_stmt|;
 block|}

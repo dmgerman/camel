@@ -59,14 +59,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Delayer while shutting down so its interrupted and will also stop.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|DelayerTest
+DECL|class|DelayerWhileShutdownTest
 specifier|public
 class|class
-name|DelayerTest
+name|DelayerWhileShutdownTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -79,57 +79,28 @@ throws|throws
 name|Exception
 block|{
 name|MockEndpoint
-name|resultEndpoint
+name|mock
 init|=
-name|resolveMandatoryEndpoint
+name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
-argument_list|,
-name|MockEndpoint
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
-name|resultEndpoint
+name|mock
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|0
+literal|"Short delay"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBodyAndHeader
+name|sendBody
 argument_list|(
 literal|"seda:a"
 argument_list|,
-literal|"<hello>world!</hello>"
-argument_list|,
-literal|"JMSTimestamp"
-argument_list|,
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
+literal|"Long delay"
 argument_list|)
-expr_stmt|;
-name|resultEndpoint
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-comment|// now if we wait a bit longer we should receive the message!
-name|resultEndpoint
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|resultEndpoint
-operator|.
-name|assertIsSatisfied
-argument_list|()
 expr_stmt|;
 name|template
 operator|.
@@ -137,25 +108,10 @@ name|sendBody
 argument_list|(
 literal|"seda:b"
 argument_list|,
-literal|"<hello>world!</hello>"
+literal|"Short delay"
 argument_list|)
 expr_stmt|;
-name|resultEndpoint
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-comment|// now if we wait a bit longer we should receive the message!
-name|resultEndpoint
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|resultEndpoint
-operator|.
-name|assertIsSatisfied
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -175,7 +131,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// START SNIPPET: ex
 name|from
 argument_list|(
 literal|"seda:a"
@@ -183,12 +138,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-name|header
-argument_list|(
-literal|"JMSTimestamp"
-argument_list|)
-argument_list|,
-literal|3000
+literal|5000
 argument_list|)
 operator|.
 name|to
@@ -196,8 +146,6 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: ex
-comment|// START SNIPPET: ex2
 name|from
 argument_list|(
 literal|"seda:b"
@@ -205,7 +153,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|3000
+literal|10
 argument_list|)
 operator|.
 name|to
@@ -213,7 +161,6 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: ex2
 block|}
 block|}
 return|;
