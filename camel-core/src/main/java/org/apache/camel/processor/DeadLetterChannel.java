@@ -702,6 +702,24 @@ condition|)
 block|{
 if|if
 condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Rejected execution as we are not started for exchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|exchange
 operator|.
 name|getException
@@ -868,6 +886,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// wait until we should redeliver
+try|try
+block|{
 name|data
 operator|.
 name|redeliveryDelay
@@ -887,6 +907,31 @@ operator|.
 name|redeliveryCounter
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Sleep interrupted, are we stopping? "
+operator|+
+operator|(
+name|isStopping
+argument_list|()
+operator|||
+name|isStopped
+argument_list|()
+operator|)
+argument_list|)
+expr_stmt|;
+comment|// continue from top
+continue|continue;
+block|}
 comment|// letting onRedeliver be executed
 name|deliverToRedeliveryProcessor
 argument_list|(

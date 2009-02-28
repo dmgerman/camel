@@ -463,9 +463,22 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|boolean
+name|interrupted
+init|=
 name|sleep
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+if|if
+condition|(
+name|interrupted
+condition|)
+block|{
+comment|// we were interrputed while sleeping, we are likely being shutdown so return false
+return|return
+literal|false
+return|;
+block|}
 block|}
 block|}
 block|}
@@ -507,9 +520,22 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
+name|interrupted
+init|=
 name|sleep
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+if|if
+condition|(
+name|interrupted
+condition|)
+block|{
+comment|// we were interrputed while sleeping, we are likely being shutdown so return false
+return|return
+literal|false
+return|;
+block|}
 block|}
 return|return
 literal|true
@@ -639,7 +665,7 @@ block|}
 block|}
 DECL|method|sleep ()
 specifier|private
-name|void
+name|boolean
 name|sleep
 parameter_list|()
 block|{
@@ -659,6 +685,9 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -666,7 +695,16 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-comment|// ignore
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Sleep interrupted while waiting for exclusive read lock"
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
 block|}
 block|}
 DECL|method|getTimeout ()

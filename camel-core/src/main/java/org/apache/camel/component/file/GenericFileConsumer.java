@@ -520,11 +520,15 @@ init|;
 name|index
 operator|<
 name|total
+operator|&&
+name|isRunAllowed
+argument_list|()
 condition|;
 name|index
 operator|++
 control|)
 block|{
+comment|// only loop if we are started (allowed to run)
 name|GenericFileExchange
 argument_list|<
 name|T

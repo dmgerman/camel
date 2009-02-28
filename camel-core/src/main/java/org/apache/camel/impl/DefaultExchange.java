@@ -130,18 +130,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|UnitOfWork
@@ -158,7 +146,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|UuidGenerator
+name|ExchangeHelper
 import|;
 end_import
 
@@ -172,7 +160,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ExchangeHelper
+name|UuidGenerator
 import|;
 end_import
 

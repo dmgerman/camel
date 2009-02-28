@@ -260,7 +260,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverter
+name|ServiceStatus
 import|;
 end_import
 
@@ -272,7 +272,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ServiceStatus
+name|TypeConverter
 import|;
 end_import
 

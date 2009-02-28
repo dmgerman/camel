@@ -135,10 +135,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|xxxtestOnExceptionAlterMessageWithHeadersBeforeRedelivery ()
+DECL|method|testOnExceptionAlterMessageWithHeadersBeforeRedelivery ()
 specifier|public
 name|void
-name|xxxtestOnExceptionAlterMessageWithHeadersBeforeRedelivery
+name|testOnExceptionAlterMessageWithHeadersBeforeRedelivery
 parameter_list|()
 throws|throws
 name|Exception

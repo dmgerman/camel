@@ -356,7 +356,7 @@ name|getMaximumRedeliveries
 argument_list|()
 return|;
 block|}
-comment|/**      * Calculates the new redelivery delay based on the last one then sleeps for the necessary amount of time      *      * @param redeliveryDelay  previous redelivery delay      * @param redeliveryCounter  number of previous redelivery attempts      * @return the calculate delay      */
+comment|/**      * Calculates the new redelivery delay based on the last one then sleeps for the necessary amount of time      *      * @param redeliveryDelay  previous redelivery delay      * @param redeliveryCounter  number of previous redelivery attempts      * @return the calculate delay      * @throws InterruptedException is thrown if the sleep is interruped likely because of shutdown      */
 DECL|method|sleep (long redeliveryDelay, int redeliveryCounter)
 specifier|public
 name|long
@@ -368,6 +368,8 @@ parameter_list|,
 name|int
 name|redeliveryCounter
 parameter_list|)
+throws|throws
+name|InterruptedException
 block|{
 name|redeliveryDelay
 operator|=
@@ -405,8 +407,6 @@ literal|" millis until attempting redelivery"
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
 name|Thread
 operator|.
 name|sleep
@@ -414,34 +414,6 @@ argument_list|(
 name|redeliveryDelay
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Thread interrupted: "
-operator|+
-name|e
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 return|return
 name|redeliveryDelay
