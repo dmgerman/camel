@@ -529,6 +529,18 @@ argument_list|,
 literal|" "
 argument_list|)
 decl_stmt|;
+comment|// replace + back to space so its a cron expression
+name|s
+operator|=
+name|s
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\+"
+argument_list|,
+literal|" "
+argument_list|)
+expr_stmt|;
 name|CronTrigger
 name|cron
 init|=
