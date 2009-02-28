@@ -641,7 +641,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting lock file: "
+literal|"Deleting (releasing) exclusive lock file: "
 operator|+
 name|lockFileName
 argument_list|)

@@ -1736,6 +1736,16 @@ name|name
 init|=
 name|file
 operator|.
+name|isAbsolute
+argument_list|()
+condition|?
+name|file
+operator|.
+name|getAbsoluteFileName
+argument_list|()
+else|:
+name|file
+operator|.
 name|getRelativeFileName
 argument_list|()
 decl_stmt|;

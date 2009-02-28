@@ -83,14 +83,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for the FileRenameStrategy using move options with absolute paths  */
+comment|/**  * Unit test for consuming from an absolute path  */
 end_comment
 
 begin_class
-DECL|class|FileConsumerCommitRenameAbsolutePathStrategyTest
+DECL|class|FileConsumerAbsolutePathTest
 specifier|public
 class|class
-name|FileConsumerCommitRenameAbsolutePathStrategyTest
+name|FileConsumerAbsolutePathTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -111,11 +111,6 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/done"
-argument_list|)
-expr_stmt|;
-name|deleteDirectory
-argument_list|(
 literal|"target/reports"
 argument_list|)
 expr_stmt|;
@@ -131,7 +126,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 operator|+
-literal|"/target"
+literal|"/target/reports"
 expr_stmt|;
 name|super
 operator|.
@@ -139,10 +134,10 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testRenameSuccess ()
+DECL|method|testConsumeFromAbsolutePath ()
 specifier|public
 name|void
-name|testRenameSuccess
+name|testConsumeFromAbsolutePath
 parameter_list|()
 throws|throws
 name|Exception
@@ -159,15 +154,6 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello Paris"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|expectedFileExists
-argument_list|(
-literal|"./target/done/paris.txt"
-argument_list|,
 literal|"Hello Paris"
 argument_list|)
 expr_stmt|;
@@ -214,11 +200,11 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/reports?moveExpression="
+literal|"file://"
 operator|+
 name|base
 operator|+
-literal|"/done/${file:name}&consumer.delay=5000"
+literal|"?delete=true"
 argument_list|)
 operator|.
 name|to

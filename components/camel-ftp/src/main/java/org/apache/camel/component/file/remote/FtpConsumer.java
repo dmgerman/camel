@@ -582,6 +582,14 @@ name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// all ftp files is consider as relative
+name|answer
+operator|.
+name|setAbsolute
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|String
 name|absoluteFileName
 init|=
