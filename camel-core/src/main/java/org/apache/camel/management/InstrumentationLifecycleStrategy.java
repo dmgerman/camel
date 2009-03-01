@@ -140,18 +140,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Route
 import|;
 end_import
@@ -649,7 +637,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Instrumentation processor not found for route endpoint "
+literal|"Instrumentation processor not found for route endpoint: "
 operator|+
 name|route
 operator|.
@@ -949,6 +937,8 @@ argument_list|(
 operator|new
 name|InstrumentationErrorHandlerWrappingStrategy
 argument_list|(
+name|routeContext
+argument_list|,
 name|counterMap
 argument_list|)
 argument_list|)

@@ -102,10 +102,18 @@ name|PerformanceCounter
 argument_list|>
 name|counterMap
 decl_stmt|;
-DECL|method|InstrumentationErrorHandlerWrappingStrategy (Map<ProcessorType, PerformanceCounter> counterMap)
+DECL|field|routeContext
+specifier|private
+name|RouteContext
+name|routeContext
+decl_stmt|;
+DECL|method|InstrumentationErrorHandlerWrappingStrategy (RouteContext routeContext, Map<ProcessorType, PerformanceCounter> counterMap)
 specifier|public
 name|InstrumentationErrorHandlerWrappingStrategy
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|Map
 argument_list|<
 name|ProcessorType
@@ -121,15 +129,18 @@ name|counterMap
 operator|=
 name|counterMap
 expr_stmt|;
+name|this
+operator|.
+name|routeContext
+operator|=
+name|routeContext
+expr_stmt|;
 block|}
-DECL|method|wrapProcessorInErrorHandler (RouteContext routeContext, ProcessorType processorType, Processor target)
+DECL|method|wrapProcessorInErrorHandler (ProcessorType processorType, Processor target)
 specifier|public
 name|Processor
 name|wrapProcessorInErrorHandler
 parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|,
 name|ProcessorType
 name|processorType
 parameter_list|,

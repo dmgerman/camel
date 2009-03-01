@@ -5668,8 +5668,6 @@ name|strategy
 operator|.
 name|wrapProcessorInErrorHandler
 argument_list|(
-name|routeContext
-argument_list|,
 name|this
 argument_list|,
 name|target
