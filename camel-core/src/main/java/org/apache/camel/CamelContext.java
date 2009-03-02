@@ -540,6 +540,15 @@ name|InterceptStrategy
 name|interceptStrategy
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the interceptor strategies      *      * @return the list of current interceptor strategies      */
+DECL|method|getInterceptStrategies ()
+name|List
+argument_list|<
+name|InterceptStrategy
+argument_list|>
+name|getInterceptStrategies
+parameter_list|()
+function_decl|;
 comment|/**      * Gets the default error handler builder which is inherited by the routes      *      * @return the builder      */
 DECL|method|getErrorHandlerBuilder ()
 name|ErrorHandlerBuilder

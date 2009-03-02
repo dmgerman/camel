@@ -210,41 +210,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|spi
 operator|.
-name|bean
-operator|.
-name|BeanLanguage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|language
-operator|.
-name|simple
-operator|.
-name|SimpleLanguage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|DeadLetterChannel
+name|Language
 import|;
 end_import
 
@@ -2433,7 +2401,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Could not find java.util.Date object at "
+literal|"Cannot find java.util.Date object at "
 operator|+
 name|command
 argument_list|)
@@ -2495,7 +2463,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Could not find java.util.Date object at "
+literal|"Cannot find java.util.Date object at "
 operator|+
 name|command
 argument_list|)
@@ -2554,7 +2522,7 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|simpleExpression (final String simple)
+DECL|method|simpleExpression (final String expression)
 specifier|public
 specifier|static
 name|Expression
@@ -2562,7 +2530,7 @@ name|simpleExpression
 parameter_list|(
 specifier|final
 name|String
-name|simple
+name|expression
 parameter_list|)
 block|{
 return|return
@@ -2578,14 +2546,28 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+comment|// resolve language using context to have a clear separation of packages
 comment|// must call evalute to return the nested langauge evaluate when evaluating
 comment|// stacked expressions
-return|return
-name|SimpleLanguage
+name|Language
+name|language
+init|=
+name|exchange
 operator|.
-name|simple
+name|getContext
+argument_list|()
+operator|.
+name|resolveLanguage
 argument_list|(
-name|simple
+literal|"simple"
+argument_list|)
+decl_stmt|;
+return|return
+name|language
+operator|.
+name|createExpression
+argument_list|(
+name|expression
 argument_list|)
 operator|.
 name|evaluate
@@ -2604,7 +2586,7 @@ block|{
 return|return
 literal|"simple("
 operator|+
-name|simple
+name|expression
 operator|+
 literal|")"
 return|;
@@ -2636,12 +2618,26 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+comment|// resolve language using context to have a clear separation of packages
 comment|// must call evalute to return the nested langauge evaluate when evaluating
 comment|// stacked expressions
-return|return
-name|BeanLanguage
+name|Language
+name|language
+init|=
+name|exchange
 operator|.
-name|bean
+name|getContext
+argument_list|()
+operator|.
+name|resolveLanguage
+argument_list|(
+literal|"bean"
+argument_list|)
+decl_stmt|;
+return|return
+name|language
+operator|.
+name|createExpression
 argument_list|(
 name|expression
 argument_list|)
