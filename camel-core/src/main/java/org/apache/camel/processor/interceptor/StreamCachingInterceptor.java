@@ -96,10 +96,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
-operator|.
-name|stream
-operator|.
 name|StreamCache
 import|;
 end_import

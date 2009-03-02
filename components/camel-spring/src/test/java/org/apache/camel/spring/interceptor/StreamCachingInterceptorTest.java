@@ -86,11 +86,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|StreamCache
 import|;
 end_import
 
@@ -102,11 +98,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|component
 operator|.
-name|stream
+name|mock
 operator|.
-name|StreamCache
+name|MockEndpoint
 import|;
 end_import
 
@@ -235,7 +231,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|//assertTrue(a.assertExchangeReceived(0).getIn().getBody() instanceof StreamCache);
 block|}
 DECL|method|createCamelContext ()
 specifier|protected

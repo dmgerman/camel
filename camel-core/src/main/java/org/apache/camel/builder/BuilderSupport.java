@@ -90,7 +90,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoSuchEndpointException
+name|LoggingLevel
 import|;
 end_import
 
@@ -102,7 +102,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|LoggingLevel
+name|NoSuchEndpointException
 import|;
 end_import
 

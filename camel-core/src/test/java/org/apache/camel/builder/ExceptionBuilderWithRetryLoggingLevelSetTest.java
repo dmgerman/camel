@@ -56,7 +56,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|LoggingLevel
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|LoggingLevel
+name|RuntimeCamelException
 import|;
 end_import
 

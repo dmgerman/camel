@@ -4,38 +4,18 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter.stream
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|converter
-operator|.
-name|stream
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|StreamCachingInterceptor
-import|;
-end_import
-
 begin_comment
-comment|/**  * Tagging interface to indicate that a type is capable of caching the underlying data stream.  *<p/>  * This is a useful feature for avoid message re-readability issues.  * This interface is mainly used by the {@link StreamCachingInterceptor} for determining if/how to wrap a  * stream-based message.  */
+comment|/**  * Tagging interface to indicate that a type is capable of caching the underlying data stream.  *<p/>  * This is a useful feature for avoid message re-readability issues.  * This interface is mainly used by the {@link org.apache.camel.processor.interceptor.StreamCachingInterceptor}  * for determining if/how to wrap a stream-based message.  *  * @version $Revision$  */
 end_comment
 
 begin_interface

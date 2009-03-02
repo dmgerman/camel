@@ -84,7 +84,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|LoggingLevel
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|LoggingLevel
+name|Processor
 import|;
 end_import
 
