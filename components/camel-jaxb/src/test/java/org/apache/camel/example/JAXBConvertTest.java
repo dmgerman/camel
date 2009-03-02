@@ -102,7 +102,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverter
+name|StreamCache
 import|;
 end_import
 
@@ -114,11 +114,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
-operator|.
-name|stream
-operator|.
-name|StreamCache
+name|TypeConverter
 import|;
 end_import
 
