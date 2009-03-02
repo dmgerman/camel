@@ -45,7 +45,7 @@ name|Object
 name|getBean
 parameter_list|()
 throws|throws
-name|Exception
+name|NoBeanAvailableException
 function_decl|;
 DECL|method|getProcessor ()
 name|Processor

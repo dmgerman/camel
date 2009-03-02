@@ -247,7 +247,7 @@ name|Object
 name|getBean
 parameter_list|()
 throws|throws
-name|Exception
+name|NoBeanAvailableException
 block|{
 name|Object
 name|value
@@ -508,8 +508,6 @@ specifier|protected
 name|Object
 name|lookupBean
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 name|registry

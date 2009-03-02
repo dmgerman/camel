@@ -329,7 +329,7 @@ name|dataFormat
 operator|=
 name|type
 operator|.
-name|createDataFormat
+name|getDataFormat
 argument_list|(
 name|routeContext
 argument_list|)
