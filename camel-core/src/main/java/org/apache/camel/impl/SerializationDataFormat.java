@@ -86,9 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|spi
 operator|.
-name|IOConverter
+name|DataFormat
 import|;
 end_import
 
@@ -100,9 +100,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|util
 operator|.
-name|DataFormat
+name|ExchangeHelper
 import|;
 end_import
 
@@ -138,10 +138,16 @@ block|{
 name|ObjectOutput
 name|out
 init|=
-name|IOConverter
+name|ExchangeHelper
 operator|.
-name|toObjectOutput
+name|convertToType
 argument_list|(
+name|exchange
+argument_list|,
+name|ObjectOutput
+operator|.
+name|class
+argument_list|,
 name|stream
 argument_list|)
 decl_stmt|;
@@ -199,10 +205,16 @@ block|{
 name|ObjectInput
 name|in
 init|=
-name|IOConverter
+name|ExchangeHelper
 operator|.
-name|toObjectInput
+name|convertToType
 argument_list|(
+name|exchange
+argument_list|,
+name|ObjectInput
+operator|.
+name|class
+argument_list|,
 name|stream
 argument_list|)
 decl_stmt|;
