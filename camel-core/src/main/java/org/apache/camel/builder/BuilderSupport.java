@@ -102,8 +102,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
 name|LoggingLevel
 import|;
 end_import

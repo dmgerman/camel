@@ -84,9 +84,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultCamelContext
+name|LoggingLevel
 import|;
 end_import
 
@@ -98,9 +96,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|impl
 operator|.
-name|LoggingLevel
+name|DefaultCamelContext
 import|;
 end_import
 
