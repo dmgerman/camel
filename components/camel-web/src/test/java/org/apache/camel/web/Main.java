@@ -91,11 +91,11 @@ specifier|final
 class|class
 name|Main
 block|{
-DECL|field|PORT
+DECL|field|mainPort
 specifier|public
 specifier|static
 name|int
-name|PORT
+name|mainPort
 init|=
 literal|9998
 decl_stmt|;
@@ -180,7 +180,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|PORT
+name|mainPort
 operator|=
 name|port
 expr_stmt|;
@@ -207,7 +207,7 @@ name|println
 argument_list|(
 literal|"Starting Web Server on port: "
 operator|+
-name|PORT
+name|mainPort
 argument_list|)
 expr_stmt|;
 name|SelectChannelConnector
@@ -221,7 +221,7 @@ name|connector
 operator|.
 name|setPort
 argument_list|(
-name|PORT
+name|mainPort
 argument_list|)
 expr_stmt|;
 name|connector
@@ -359,7 +359,7 @@ block|{
 return|return
 literal|"http://localhost:"
 operator|+
-name|PORT
+name|mainPort
 operator|+
 name|WEBAPP_CTX
 return|;

@@ -40,16 +40,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|ws
@@ -57,18 +47,6 @@ operator|.
 name|rs
 operator|.
 name|GET
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|ws
-operator|.
-name|rs
-operator|.
-name|Produces
 import|;
 end_import
 
@@ -92,7 +70,7 @@ name|ws
 operator|.
 name|rs
 operator|.
-name|PathParam
+name|Produces
 import|;
 end_import
 
@@ -143,18 +121,6 @@ operator|.
 name|bind
 operator|.
 name|Marshaller
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|Result
 import|;
 end_import
 
