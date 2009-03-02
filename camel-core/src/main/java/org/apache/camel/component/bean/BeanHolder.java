@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchBeanException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -45,7 +57,7 @@ name|Object
 name|getBean
 parameter_list|()
 throws|throws
-name|NoBeanAvailableException
+name|NoSuchBeanException
 function_decl|;
 DECL|method|getProcessor ()
 name|Processor

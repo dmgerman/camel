@@ -62,6 +62,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchBeanException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Registry
@@ -247,7 +259,7 @@ name|Object
 name|getBean
 parameter_list|()
 throws|throws
-name|NoBeanAvailableException
+name|NoSuchBeanException
 block|{
 name|Object
 name|value
@@ -264,7 +276,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|NoBeanAvailableException
+name|NoSuchBeanException
 argument_list|(
 name|name
 argument_list|)
