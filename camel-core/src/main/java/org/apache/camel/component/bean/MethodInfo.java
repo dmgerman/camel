@@ -178,39 +178,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|ConstantExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|RecipientList
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
 import|;
 end_import
 
@@ -462,13 +432,7 @@ name|recipientList
 operator|=
 operator|new
 name|RecipientList
-argument_list|(
-operator|new
-name|ConstantExpression
-argument_list|(
-literal|null
-argument_list|)
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -1211,7 +1175,7 @@ literal|2
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the pattern annotation on the given annotated element; either as a direct annotation or      * on an annotation which is also annotated      *      * @param annotatedElement the element to look for the annotation      * @return the first matching annotation or null if none could be found      */
+comment|/**      * Returns the pattern annotation on the given annotated element; either as a direct annotation or      * on an annotation which is also annotated      *      * @param annotatedElement the element to look for the annotation      * @param depth the current depth      * @return the first matching annotation or null if none could be found      */
 DECL|method|getPatternAnnotation (AnnotatedElement annotatedElement, int depth)
 specifier|protected
 name|Pattern

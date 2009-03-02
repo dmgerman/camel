@@ -210,7 +210,6 @@ name|Processor
 block|{
 DECL|field|expression
 specifier|private
-specifier|final
 name|Expression
 name|expression
 decl_stmt|;
@@ -223,6 +222,11 @@ operator|new
 name|ProducerCache
 argument_list|()
 decl_stmt|;
+DECL|method|RecipientList ()
+specifier|public
+name|RecipientList
+parameter_list|()
+block|{     }
 DECL|method|RecipientList (Expression expression)
 specifier|public
 name|RecipientList
@@ -256,7 +260,15 @@ block|{
 return|return
 literal|"RecipientList["
 operator|+
+operator|(
 name|expression
+operator|!=
+literal|null
+condition|?
+name|expression
+else|:
+literal|""
+operator|)
 operator|+
 literal|"]"
 return|;
