@@ -76,6 +76,20 @@ name|DataFormat
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Marshals the body of the incoming message using the given  *<a href="http://camel.apache.org/data-format.html">data format</a>  *  * @version $Revision$  */
 end_comment
@@ -120,6 +134,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|dataFormat
+argument_list|,
+literal|"dataFormat"
+argument_list|)
+expr_stmt|;
 name|ByteArrayOutputStream
 name|buffer
 init|=

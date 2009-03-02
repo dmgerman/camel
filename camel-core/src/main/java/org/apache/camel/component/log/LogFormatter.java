@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -88,9 +78,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|interceptor
+name|spi
 operator|.
 name|ExchangeFormatter
 import|;

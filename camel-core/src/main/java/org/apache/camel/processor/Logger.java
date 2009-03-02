@@ -76,9 +76,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|interceptor
+name|spi
 operator|.
 name|ExchangeFormatter
 import|;

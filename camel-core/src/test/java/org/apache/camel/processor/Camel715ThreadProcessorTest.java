@@ -165,7 +165,7 @@ specifier|final
 name|int
 name|ITERS
 init|=
-literal|50000
+literal|20000
 decl_stmt|;
 DECL|class|SendingProcessor
 class|class

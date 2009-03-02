@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.interceptor
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|interceptor
+name|spi
 package|;
 end_package
 
@@ -31,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A plugin used to turn an {@link Exchange} into a String  * so it can be logged to a file  *  * @version $Revision$  */
+comment|/**  * A plugin used to turn an {@link Exchange} into a String representation  * usually to be used for logging or tracing purposes.  *  * @version $Revision$  */
 end_comment
 
 begin_interface

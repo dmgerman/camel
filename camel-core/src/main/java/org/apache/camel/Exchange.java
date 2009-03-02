@@ -138,6 +138,12 @@ name|LOOP_SIZE
 init|=
 literal|"CamelLoopSize"
 decl_stmt|;
+DECL|field|PROCESSED_SYNC
+name|String
+name|PROCESSED_SYNC
+init|=
+literal|"CamelProcessedSync"
+decl_stmt|;
 DECL|field|REDELIVERED
 name|String
 name|REDELIVERED

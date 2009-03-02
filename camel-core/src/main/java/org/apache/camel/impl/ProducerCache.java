@@ -517,14 +517,9 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-name|ProducerCache
+name|Exchange
 operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|".SYNC"
+name|PROCESSED_SYNC
 argument_list|,
 name|Boolean
 operator|.
@@ -541,7 +536,7 @@ else|:
 name|rc
 return|;
 block|}
-DECL|method|setProcessedSync (Exchange exchange, boolean b)
+DECL|method|setProcessedSync (Exchange exchange, boolean sync)
 specifier|public
 specifier|static
 name|void
@@ -551,23 +546,18 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|boolean
-name|b
+name|sync
 parameter_list|)
 block|{
 name|exchange
 operator|.
 name|setProperty
 argument_list|(
-name|ProducerCache
+name|Exchange
 operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|".SYNC"
+name|PROCESSED_SYNC
 argument_list|,
-name|b
+name|sync
 condition|?
 name|Boolean
 operator|.

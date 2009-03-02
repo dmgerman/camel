@@ -36,9 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|interceptor
+name|spi
 operator|.
 name|ExchangeFormatter
 import|;
@@ -89,6 +87,9 @@ parameter_list|)
 block|{
 return|return
 name|exchange
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 block|}
