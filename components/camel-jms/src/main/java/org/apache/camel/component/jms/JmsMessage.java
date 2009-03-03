@@ -359,6 +359,17 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|getAttachments
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|that
+operator|.
+name|getAttachments
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Returns the underlying JMS message      */
 DECL|method|getJmsMessage ()
