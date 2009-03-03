@@ -166,6 +166,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|PackageScanClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -281,6 +295,20 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|BindyKeyValuePairFactory
+name|factory
+init|=
+name|getFactory
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getPackageScanClassResolver
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|List
 argument_list|<
 name|Map
@@ -321,8 +349,7 @@ block|{
 name|String
 name|result
 init|=
-name|getFactory
-argument_list|()
+name|factory
 operator|.
 name|unbind
 argument_list|(
@@ -376,6 +403,20 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|BindyKeyValuePairFactory
+name|factory
+init|=
+name|getFactory
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getPackageScanClassResolver
+argument_list|()
+argument_list|)
+decl_stmt|;
 comment|// List of Pojos
 name|List
 argument_list|<
@@ -409,8 +450,7 @@ name|Object
 argument_list|>
 name|model
 init|=
-name|getFactory
-argument_list|()
+name|factory
 operator|.
 name|factory
 argument_list|()
@@ -439,8 +479,7 @@ name|ObjectHelper
 operator|.
 name|notEmpty
 argument_list|(
-name|getFactory
-argument_list|()
+name|factory
 operator|.
 name|getPairSeparator
 argument_list|()
@@ -451,8 +490,7 @@ expr_stmt|;
 name|String
 name|separator
 init|=
-name|getFactory
-argument_list|()
+name|factory
 operator|.
 name|getPairSeparator
 argument_list|()
@@ -541,8 +579,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Bind data from message with model classes
-name|getFactory
-argument_list|()
+name|factory
 operator|.
 name|bind
 argument_list|(
@@ -552,8 +589,7 @@ name|model
 argument_list|)
 expr_stmt|;
 comment|// Link objects together
-name|getFactory
-argument_list|()
+name|factory
 operator|.
 name|link
 argument_list|(
@@ -612,11 +648,14 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Method used to create the singleton of the BindyKeyValuePairFactory      */
-DECL|method|getFactory ()
+DECL|method|getFactory (PackageScanClassResolver resolver)
 specifier|public
 name|BindyKeyValuePairFactory
 name|getFactory
-parameter_list|()
+parameter_list|(
+name|PackageScanClassResolver
+name|resolver
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -632,6 +671,8 @@ operator|=
 operator|new
 name|BindyKeyValuePairFactory
 argument_list|(
+name|resolver
+argument_list|,
 name|this
 operator|.
 name|packageName

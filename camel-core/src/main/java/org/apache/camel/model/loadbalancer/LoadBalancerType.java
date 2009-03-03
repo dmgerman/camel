@@ -192,22 +192,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|notNull
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents an XML&lt;loadBalance/&gt; element  */
 end_comment
@@ -308,6 +292,8 @@ operator|==
 literal|null
 condition|)
 block|{
+name|ObjectHelper
+operator|.
 name|notNull
 argument_list|(
 name|ref
@@ -494,17 +480,17 @@ block|{
 name|Class
 name|type
 init|=
-name|ObjectHelper
+name|routeContext
 operator|.
-name|loadClass
+name|getCamelContext
+argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
 argument_list|(
 name|loadBalancerTypeName
-argument_list|,
-name|getClass
-argument_list|()
-operator|.
-name|getClassLoader
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

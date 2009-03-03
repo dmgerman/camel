@@ -38,6 +38,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|PackageScanClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -97,21 +111,17 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|OsgiAnnotationTypeConverterLoader (BundleContext context)
+DECL|method|OsgiAnnotationTypeConverterLoader (PackageScanClassResolver packageScanClassResolver)
 specifier|public
 name|OsgiAnnotationTypeConverterLoader
 parameter_list|(
-name|BundleContext
-name|context
+name|PackageScanClassResolver
+name|packageScanClassResolver
 parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|new
-name|OsgiResolverUtil
-argument_list|(
-name|context
-argument_list|)
+name|packageScanClassResolver
 argument_list|)
 expr_stmt|;
 block|}

@@ -106,6 +106,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|PackageScanClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|TypeConverterRegistry
 import|;
 end_import
@@ -260,6 +274,20 @@ name|TypeMapping
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|ReportingTypeConverterLoader (PackageScanClassResolver resolver)
+specifier|public
+name|ReportingTypeConverterLoader
+parameter_list|(
+name|PackageScanClassResolver
+name|resolver
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|resolver
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getTypeConversions ()
 specifier|public
 name|TypeMapping

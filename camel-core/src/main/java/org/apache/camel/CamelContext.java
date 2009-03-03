@@ -110,6 +110,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ExchangeConverter
 import|;
 end_import
@@ -167,6 +181,20 @@ operator|.
 name|spi
 operator|.
 name|LifecycleStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|PackageScanClassResolver
 import|;
 end_import
 
@@ -611,6 +639,36 @@ name|getRouteStatus
 parameter_list|(
 name|RouteType
 name|route
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the class resolver to be used for loading/lookup of classes.      */
+DECL|method|getClassResolver ()
+name|ClassResolver
+name|getClassResolver
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the package scanning class resolver      */
+DECL|method|getPackageScanClassResolver ()
+name|PackageScanClassResolver
+name|getPackageScanClassResolver
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the class resolver to be use      */
+DECL|method|setClassResolver (ClassResolver resolver)
+name|void
+name|setClassResolver
+parameter_list|(
+name|ClassResolver
+name|resolver
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the package scanning class resolver to use      */
+DECL|method|setPackageScanClassResolver (PackageScanClassResolver resolver)
+name|void
+name|setPackageScanClassResolver
+parameter_list|(
+name|PackageScanClassResolver
+name|resolver
 parameter_list|)
 function_decl|;
 block|}

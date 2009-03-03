@@ -92,9 +92,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spi
 operator|.
-name|ResolverUtil
+name|PackageScanClassResolver
 import|;
 end_import
 
@@ -196,7 +196,7 @@ name|packages
 decl_stmt|;
 DECL|field|resolver
 specifier|private
-name|ResolverUtil
+name|PackageScanClassResolver
 name|resolver
 decl_stmt|;
 DECL|field|applicationContext
@@ -214,7 +214,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|RouteBuilderFinder (SpringCamelContext camelContext, String[] packages, ClassLoader classLoader, BeanPostProcessor postProcessor, ResolverUtil resolverUtil)
+DECL|method|RouteBuilderFinder (SpringCamelContext camelContext, String[] packages, ClassLoader classLoader, BeanPostProcessor postProcessor, PackageScanClassResolver resolver)
 specifier|public
 name|RouteBuilderFinder
 parameter_list|(
@@ -231,8 +231,8 @@ parameter_list|,
 name|BeanPostProcessor
 name|postProcessor
 parameter_list|,
-name|ResolverUtil
-name|resolverUtil
+name|PackageScanClassResolver
+name|resolver
 parameter_list|)
 block|{
 name|this
@@ -266,32 +266,16 @@ name|this
 operator|.
 name|resolver
 operator|=
-name|resolverUtil
+name|resolver
 expr_stmt|;
-comment|// lets add all the available class loaders just in case of weirdness
-comment|// we could make this more strict once we've worked out all the gremlins
-comment|// in servicemix-camel
-name|Set
-name|set
-init|=
+comment|// add our provided loader as well
 name|resolver
 operator|.
-name|getClassLoaders
-argument_list|()
-decl_stmt|;
-name|set
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|set
-operator|.
-name|add
+name|addClassLoader
 argument_list|(
 name|classLoader
 argument_list|)
 expr_stmt|;
-comment|/*         set.add(classLoader);         set.add(applicationContext.getClassLoader());         set.add(getClass().getClassLoader()); */
 block|}
 DECL|method|getPackages ()
 specifier|public
@@ -331,6 +315,12 @@ name|IllegalAccessException
 throws|,
 name|InstantiationException
 block|{
+name|Set
+argument_list|<
+name|Class
+argument_list|>
+name|classes
+init|=
 name|resolver
 operator|.
 name|findImplementations
@@ -341,17 +331,6 @@ name|class
 argument_list|,
 name|packages
 argument_list|)
-expr_stmt|;
-name|Set
-argument_list|<
-name|Class
-argument_list|>
-name|classes
-init|=
-name|resolver
-operator|.
-name|getClasses
-argument_list|()
 decl_stmt|;
 for|for
 control|(

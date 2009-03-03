@@ -887,9 +887,15 @@ condition|)
 block|{
 name|jpaTraceEventMessageClass
 operator|=
-name|ObjectHelper
+name|exchange
 operator|.
-name|loadClass
+name|getContext
+argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
 argument_list|(
 name|JPA_TRACE_EVENT_MESSAGE
 argument_list|)

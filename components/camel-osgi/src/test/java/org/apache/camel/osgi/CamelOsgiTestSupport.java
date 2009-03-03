@@ -88,6 +88,17 @@ operator|new
 name|MockBundleContext
 argument_list|()
 decl_stmt|;
+DECL|field|resolver
+specifier|private
+name|OsgiPackageScanClassResolver
+name|resolver
+init|=
+operator|new
+name|OsgiPackageScanClassResolver
+argument_list|(
+name|bundleContext
+argument_list|)
+decl_stmt|;
 DECL|field|bundle
 specifier|private
 name|MockBundle
@@ -160,6 +171,16 @@ parameter_list|()
 block|{
 return|return
 name|bundleContext
+return|;
+block|}
+DECL|method|getResolver ()
+specifier|public
+name|OsgiPackageScanClassResolver
+name|getResolver
+parameter_list|()
+block|{
+return|return
+name|resolver
 return|;
 block|}
 block|}

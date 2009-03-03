@@ -134,6 +134,7 @@ specifier|public
 class|class
 name|FactoryFinder
 block|{
+comment|// TODO: Extract interface to SPI
 DECL|field|classMap
 specifier|protected
 specifier|final

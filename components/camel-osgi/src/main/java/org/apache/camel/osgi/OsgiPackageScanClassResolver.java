@@ -76,9 +76,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|impl
 operator|.
-name|ResolverUtil
+name|DefaultPackageScanClassResolver
 import|;
 end_import
 
@@ -90,11 +90,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spi
 operator|.
-name|ResolverUtil
-operator|.
-name|Test
+name|PackageScanFilter
 import|;
 end_import
 
@@ -137,21 +135,21 @@ import|;
 end_import
 
 begin_class
-DECL|class|OsgiResolverUtil
+DECL|class|OsgiPackageScanClassResolver
 specifier|public
 class|class
-name|OsgiResolverUtil
+name|OsgiPackageScanClassResolver
 extends|extends
-name|ResolverUtil
+name|DefaultPackageScanClassResolver
 block|{
 DECL|field|bundle
 specifier|private
 name|Bundle
 name|bundle
 decl_stmt|;
-DECL|method|OsgiResolverUtil (BundleContext context)
+DECL|method|OsgiPackageScanClassResolver (BundleContext context)
 specifier|public
-name|OsgiResolverUtil
+name|OsgiPackageScanClassResolver
 parameter_list|(
 name|BundleContext
 name|context
@@ -165,7 +163,6 @@ name|getBundle
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Returns the classloaders that will be used for scanning for classes.       * Here we just add BundleDelegatingClassLoader here      *      * @return the ClassLoader instances that will be used to scan for classes      */
 DECL|method|getClassLoaders ()
 specifier|public
 name|Set
@@ -208,17 +205,22 @@ return|return
 name|classLoaders
 return|;
 block|}
-comment|/**      * Scans for classes starting at the package provided and descending into      * subpackages. Each class is offered up to the Test as it is discovered,      * and if the Test returns true the class is retained. Accumulated classes      * can be fetched by calling {@link #getClasses()}.      *      * @param test        an instance of {@link Test} that will be used to filter      *                    classes      * @param packageName the name of the package from which to start scanning      *                    for classes, e.g. {@code net.sourceforge.stripes}      */
-DECL|method|find (Test test, String packageName)
+DECL|method|find (PackageScanFilter test, String packageName, Set<Class> classes)
 specifier|public
 name|void
 name|find
 parameter_list|(
-name|Test
+name|PackageScanFilter
 name|test
 parameter_list|,
 name|String
 name|packageName
+parameter_list|,
+name|Set
+argument_list|<
+name|Class
+argument_list|>
+name|classes
 parameter_list|)
 block|{
 name|packageName
@@ -271,6 +273,8 @@ argument_list|,
 name|packageName
 argument_list|,
 name|osgiClassLoader
+argument_list|,
+name|classes
 argument_list|)
 expr_stmt|;
 block|}
@@ -307,18 +311,20 @@ argument_list|,
 name|packageName
 argument_list|,
 name|classLoader
+argument_list|,
+name|classes
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
 block|}
-DECL|method|findInOsgiClassLoader (Test test, String packageName, ClassLoader osgiClassLoader)
+DECL|method|findInOsgiClassLoader (PackageScanFilter test, String packageName, ClassLoader osgiClassLoader, Set<Class> classes)
 specifier|private
 name|void
 name|findInOsgiClassLoader
 parameter_list|(
-name|Test
+name|PackageScanFilter
 name|test
 parameter_list|,
 name|String
@@ -326,6 +332,12 @@ name|packageName
 parameter_list|,
 name|ClassLoader
 name|osgiClassLoader
+parameter_list|,
+name|Set
+argument_list|<
+name|Class
+argument_list|>
+name|classes
 parameter_list|)
 block|{
 try|try
@@ -382,9 +394,10 @@ argument_list|,
 name|osgiClassLoader
 argument_list|,
 name|mth
+argument_list|,
+name|classes
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 catch|catch
@@ -402,7 +415,6 @@ operator|+
 name|osgiClassLoader
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 comment|/**      * Gets the osgi classloader if any in the given set      */
@@ -499,12 +511,12 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|loadImplementationsInBundle (Test test, String packageName, ClassLoader loader, Method mth)
+DECL|method|loadImplementationsInBundle (PackageScanFilter test, String packageName, ClassLoader loader, Method mth, Set<Class> classes)
 specifier|private
 name|void
 name|loadImplementationsInBundle
 parameter_list|(
-name|Test
+name|PackageScanFilter
 name|test
 parameter_list|,
 name|String
@@ -515,6 +527,12 @@ name|loader
 parameter_list|,
 name|Method
 name|mth
+parameter_list|,
+name|Set
+argument_list|<
+name|Class
+argument_list|>
+name|classes
 parameter_list|)
 block|{
 comment|// Use an inner class to avoid a NoClassDefFoundError when used in a non-osgi env
@@ -558,6 +576,8 @@ argument_list|(
 name|test
 argument_list|,
 name|url
+argument_list|,
+name|classes
 argument_list|)
 expr_stmt|;
 block|}
@@ -577,7 +597,12 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
-DECL|method|getImplementationsInBundle (Test test, String packageName, ClassLoader loader, Method mth)
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|getImplementationsInBundle (PackageScanFilter test, String packageName, ClassLoader loader, Method mth)
 specifier|static
 name|Set
 argument_list|<
@@ -585,7 +610,7 @@ name|String
 argument_list|>
 name|getImplementationsInBundle
 parameter_list|(
-name|Test
+name|PackageScanFilter
 name|test
 parameter_list|,
 name|String
@@ -735,13 +760,6 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-name|pathString
-operator|.
-name|indexOf
-argument_list|(
-name|packageName
-argument_list|)
-expr_stmt|;
 name|urls
 operator|.
 name|add

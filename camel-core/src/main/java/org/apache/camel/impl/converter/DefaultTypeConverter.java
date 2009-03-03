@@ -172,6 +172,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|PackageScanClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|TypeConverterAware
 import|;
 end_import
@@ -353,28 +367,33 @@ specifier|private
 name|boolean
 name|loaded
 decl_stmt|;
-DECL|method|DefaultTypeConverter (Injector injector)
+DECL|method|DefaultTypeConverter (PackageScanClassResolver resolver, Injector injector)
 specifier|public
 name|DefaultTypeConverter
 parameter_list|(
+name|PackageScanClassResolver
+name|resolver
+parameter_list|,
 name|Injector
 name|injector
 parameter_list|)
 block|{
+name|this
+operator|.
+name|injector
+operator|=
+name|injector
+expr_stmt|;
 name|typeConverterLoaders
 operator|.
 name|add
 argument_list|(
 operator|new
 name|AnnotationTypeConverterLoader
-argument_list|()
+argument_list|(
+name|resolver
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|injector
-operator|=
-name|injector
+argument_list|)
 expr_stmt|;
 comment|// add to string first as it will then be last in the last as to string can nearly
 comment|// always convert something to a string so we want it only as the last resort

@@ -54,7 +54,7 @@ init|=
 operator|new
 name|OsgiAnnotationTypeConverterLoader
 argument_list|(
-name|getBundleContext
+name|getResolver
 argument_list|()
 argument_list|)
 decl_stmt|;

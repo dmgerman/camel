@@ -224,6 +224,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|PackageScanClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -325,10 +339,13 @@ specifier|private
 name|String
 name|pairSeparator
 decl_stmt|;
-DECL|method|BindyKeyValuePairFactory (String packageName)
+DECL|method|BindyKeyValuePairFactory (PackageScanClassResolver resolver, String packageName)
 specifier|public
 name|BindyKeyValuePairFactory
 parameter_list|(
+name|PackageScanClassResolver
+name|resolver
+parameter_list|,
 name|String
 name|packageName
 parameter_list|)
@@ -337,6 +354,8 @@ name|Exception
 block|{
 name|super
 argument_list|(
+name|resolver
+argument_list|,
 name|packageName
 argument_list|)
 expr_stmt|;

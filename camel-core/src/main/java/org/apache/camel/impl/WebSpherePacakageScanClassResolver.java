@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.util
+DECL|package|org.apache.camel.impl
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|impl
 package|;
 end_package
 
@@ -47,16 +47,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * WebSphere specific resolver util to handle loading annotated resources in JAR files.  * @deprecated  */
+comment|/**  * WebSphere specific resolver to handle loading annotated resources in JAR files.  */
 end_comment
 
 begin_class
-DECL|class|WebSphereResolverUtil
+DECL|class|WebSpherePacakageScanClassResolver
 specifier|public
 class|class
-name|WebSphereResolverUtil
+name|WebSpherePacakageScanClassResolver
 extends|extends
-name|ResolverUtil
+name|DefaultPackageScanClassResolver
 block|{
 DECL|field|resourcePath
 specifier|private
@@ -64,9 +64,9 @@ name|String
 name|resourcePath
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param resourcePath  the fixed resource path to use for fetching camel jars in WebSphere.      */
-DECL|method|WebSphereResolverUtil (String resourcePath)
+DECL|method|WebSpherePacakageScanClassResolver (String resourcePath)
 specifier|public
-name|WebSphereResolverUtil
+name|WebSpherePacakageScanClassResolver
 parameter_list|(
 name|String
 name|resourcePath
@@ -105,7 +105,7 @@ literal|"com.ibm"
 argument_list|)
 return|;
 block|}
-comment|/**      * Overloaded to handle specific problem with getting resources on the IBM WebSphere platform.      *<p/>      * WebSphere can<b>not</b> load resources if the resource to load is a folder name, such as a      * packagename, you have to explicit name a resource that is a file.      *      * @param loader  the classloader      * @param packageName   the packagename for the package to load      * @return  URL's for the given package      * @throws IOException is thrown by the classloader      */
+comment|/**      * Overloaded to handle specific problem with getting resources on the IBM WebSphere platform.      *<p/>      * WebSphere can<b>not</b> load resources if the resource to load is a folder name, such as a      * packagename, you have to explicit name a resource that is a file.      *      * @param loader  the classloader      * @param packageName   the packagename for the package to load      * @return  URL's for the given package      * @throws java.io.IOException is thrown by the classloader      */
 annotation|@
 name|Override
 annotation|@

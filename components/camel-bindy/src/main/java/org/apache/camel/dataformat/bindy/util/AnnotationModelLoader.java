@@ -114,9 +114,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spi
 operator|.
-name|ResolverUtil
+name|PackageScanClassResolver
 import|;
 end_import
 
@@ -132,10 +132,7 @@ name|AnnotationModelLoader
 block|{
 DECL|field|resolver
 specifier|private
-name|ResolverUtil
-argument_list|<
-name|Object
-argument_list|>
+name|PackageScanClassResolver
 name|resolver
 decl_stmt|;
 DECL|field|annotations
@@ -151,19 +148,19 @@ argument_list|>
 argument_list|>
 name|annotations
 decl_stmt|;
-DECL|method|AnnotationModelLoader ()
+DECL|method|AnnotationModelLoader (PackageScanClassResolver resolver)
 specifier|public
 name|AnnotationModelLoader
-parameter_list|()
+parameter_list|(
+name|PackageScanClassResolver
+name|resolver
+parameter_list|)
 block|{
+name|this
+operator|.
 name|resolver
 operator|=
-operator|new
-name|ResolverUtil
-argument_list|<
-name|Object
-argument_list|>
-argument_list|()
+name|resolver
 expr_stmt|;
 name|annotations
 operator|=
@@ -212,9 +209,6 @@ specifier|public
 name|Set
 argument_list|<
 name|Class
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|loadModels
 parameter_list|(
@@ -224,6 +218,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+return|return
 name|resolver
 operator|.
 name|findAnnotated
@@ -232,12 +227,6 @@ name|annotations
 argument_list|,
 name|packageName
 argument_list|)
-expr_stmt|;
-return|return
-name|resolver
-operator|.
-name|getClasses
-argument_list|()
 return|;
 block|}
 block|}

@@ -716,9 +716,15 @@ block|{
 comment|// use default
 name|factory
 operator|=
-name|ObjectHelper
+name|this
 operator|.
-name|loadClass
+name|getCamelContext
+argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
 argument_list|(
 name|DEFAULT_STRATEGYFACTORY_CLASS
 argument_list|)
