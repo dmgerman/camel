@@ -214,7 +214,7 @@ name|IOException
 block|{
 try|try
 block|{
-comment|// must create a new instance of marshaller as its not thred safe
+comment|// must create a new instance of marshaller as its not thread safe
 name|getContext
 argument_list|()
 operator|.
@@ -263,7 +263,7 @@ name|ClassNotFoundException
 block|{
 try|try
 block|{
-comment|// must create a new instance of unmarshaller as its not thred safe
+comment|// must create a new instance of unmarshaller as its not thread safe
 name|Object
 name|answer
 init|=

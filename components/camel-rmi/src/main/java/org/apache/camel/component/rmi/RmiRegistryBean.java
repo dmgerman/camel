@@ -24,9 +24,7 @@ name|java
 operator|.
 name|rmi
 operator|.
-name|registry
-operator|.
-name|Registry
+name|AccessException
 import|;
 end_import
 
@@ -46,7 +44,7 @@ name|java
 operator|.
 name|rmi
 operator|.
-name|AccessException
+name|RemoteException
 import|;
 end_import
 
@@ -56,7 +54,9 @@ name|java
 operator|.
 name|rmi
 operator|.
-name|RemoteException
+name|registry
+operator|.
+name|Registry
 import|;
 end_import
 
