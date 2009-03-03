@@ -157,14 +157,10 @@ name|TypeConverter
 name|typeConverter
 parameter_list|)
 block|{
-name|System
+name|typeConverters
 operator|.
-name|out
-operator|.
-name|println
+name|add
 argument_list|(
-literal|" Adding the type converter"
-operator|+
 name|typeConverter
 argument_list|)
 expr_stmt|;
@@ -178,14 +174,10 @@ name|TypeConverter
 name|typeConverter
 parameter_list|)
 block|{
-name|System
+name|fallbackTypeConverters
 operator|.
-name|out
-operator|.
-name|println
+name|add
 argument_list|(
-literal|" Adding the fall back type converter"
-operator|+
 name|typeConverter
 argument_list|)
 expr_stmt|;
