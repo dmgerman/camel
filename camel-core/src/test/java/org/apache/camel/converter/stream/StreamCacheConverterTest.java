@@ -24,26 +24,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -68,18 +48,6 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|TransformerException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
 name|stream
 operator|.
 name|StreamSource
@@ -88,11 +56,25 @@ end_import
 
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|camel
+operator|.
+name|ContextTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -138,6 +120,20 @@ name|XmlConverter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultExchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * Test cases for {@link StreamCacheConverter}  */
 end_comment
@@ -148,7 +144,7 @@ specifier|public
 class|class
 name|StreamCacheConverterTest
 extends|extends
-name|TestCase
+name|ContextTestSupport
 block|{
 DECL|field|TEST_FILE
 specifier|private
@@ -163,6 +159,11 @@ DECL|field|converter
 specifier|private
 name|StreamCacheConverter
 name|converter
+decl_stmt|;
+DECL|field|exchange
+specifier|private
+name|Exchange
+name|exchange
 decl_stmt|;
 annotation|@
 name|Override
@@ -187,6 +188,16 @@ operator|new
 name|StreamCacheConverter
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|exchange
+operator|=
+operator|new
+name|DefaultExchange
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testConvertToStreamCacheStreamSource ()
 specifier|public
@@ -194,11 +205,7 @@ name|void
 name|testConvertToStreamCacheStreamSource
 parameter_list|()
 throws|throws
-name|IOException
-throws|,
-name|FileNotFoundException
-throws|,
-name|TransformerException
+name|Exception
 block|{
 name|StreamSource
 name|source
@@ -218,6 +225,8 @@ operator|.
 name|convertToStreamCache
 argument_list|(
 name|source
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 comment|//assert re-readability of the cached StreamSource
@@ -266,7 +275,7 @@ name|void
 name|testConvertToStreamCacheInputStream
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|InputStream
 name|is
@@ -285,6 +294,8 @@ operator|.
 name|convertToStreamCache
 argument_list|(
 name|is
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 comment|//assert re-readability of the cached InputStream
