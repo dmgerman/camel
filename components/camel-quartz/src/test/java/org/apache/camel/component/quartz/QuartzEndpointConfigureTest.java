@@ -219,7 +219,7 @@ name|endpoint
 init|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"quartz://myGroup/myTimerName?cron=0_0/5_12-18_?_*_MON-FRI"
+literal|"quartz://myGroup/myTimerName?cron=0+0/5+12-18+?+*+MON-FRI"
 argument_list|)
 decl_stmt|;
 name|CronTrigger
@@ -287,7 +287,7 @@ name|endpoint
 init|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"quartz://myGroup/myTimerName?cron=0_0_*_*_*_?"
+literal|"quartz://myGroup/myTimerName?cron=0+0+*+*+*+?"
 argument_list|)
 decl_stmt|;
 name|CronTrigger

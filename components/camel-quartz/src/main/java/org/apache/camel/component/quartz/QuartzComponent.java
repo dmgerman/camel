@@ -516,23 +516,10 @@ parameter_list|)
 throws|throws
 name|ParseException
 block|{
-comment|// replace _ back to space so its a cron expression
-name|String
-name|s
-init|=
-name|path
-operator|.
-name|replaceAll
-argument_list|(
-literal|"_"
-argument_list|,
-literal|" "
-argument_list|)
-decl_stmt|;
 comment|// replace + back to space so its a cron expression
-name|s
+name|path
 operator|=
-name|s
+name|path
 operator|.
 name|replaceAll
 argument_list|(
@@ -552,7 +539,7 @@ name|cron
 operator|.
 name|setCronExpression
 argument_list|(
-name|s
+name|path
 argument_list|)
 expr_stmt|;
 return|return
@@ -587,6 +574,14 @@ name|getScheduler
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -599,6 +594,7 @@ name|getSchedulerName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|scheduler
 operator|.
 name|start
@@ -622,6 +618,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -634,6 +638,7 @@ name|getSchedulerName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|scheduler
 operator|.
 name|shutdown
@@ -733,6 +738,11 @@ block|}
 DECL|method|getTriggers ()
 specifier|public
 name|Map
+argument_list|<
+name|Trigger
+argument_list|,
+name|JobDetail
+argument_list|>
 name|getTriggers
 parameter_list|()
 block|{
@@ -740,13 +750,18 @@ return|return
 name|triggers
 return|;
 block|}
-DECL|method|setTriggers (final Map triggers)
+DECL|method|setTriggers (final Map<Trigger, JobDetail> triggers)
 specifier|public
 name|void
 name|setTriggers
 parameter_list|(
 specifier|final
 name|Map
+argument_list|<
+name|Trigger
+argument_list|,
+name|JobDetail
+argument_list|>
 name|triggers
 parameter_list|)
 block|{

@@ -119,10 +119,10 @@ parameter_list|()
 block|{
 comment|// START SNIPPET: e1
 comment|// triggers every 2th second at precise 00,02,04,06..58
-comment|// notice we must use _ as space when configurd using URI parameter
+comment|// notice we must use + as space when configurd using URI parameter
 name|from
 argument_list|(
-literal|"quartz://myGroup/myTimerName?cron=0/2_*_*_*_*_?"
+literal|"quartz://myGroup/myTimerName?cron=0/2+*+*+*+*+?"
 argument_list|)
 operator|.
 name|to
