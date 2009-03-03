@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Consume
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|EndpointInject
 import|;
 end_import
@@ -51,18 +63,6 @@ operator|.
 name|camel
 operator|.
 name|Headers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|MessageDriven
 import|;
 end_import
 
@@ -111,7 +111,7 @@ name|ProducerTemplate
 name|producer
 decl_stmt|;
 annotation|@
-name|MessageDriven
+name|Consume
 argument_list|(
 name|uri
 operator|=

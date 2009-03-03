@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointInject
+name|Consume
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|MessageDriven
+name|EndpointInject
 import|;
 end_import
 
@@ -135,7 +135,7 @@ name|ProducerTemplate
 name|destination
 decl_stmt|;
 annotation|@
-name|MessageDriven
+name|Consume
 argument_list|(
 name|uri
 operator|=

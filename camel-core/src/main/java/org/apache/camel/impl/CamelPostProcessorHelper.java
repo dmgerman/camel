@@ -110,18 +110,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|MessageDriven
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|PollingConsumer
 import|;
 end_import
@@ -357,52 +345,6 @@ name|Object
 name|bean
 parameter_list|)
 block|{
-name|MessageDriven
-name|annotation
-init|=
-name|method
-operator|.
-name|getAnnotation
-argument_list|(
-name|MessageDriven
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|annotation
-operator|!=
-literal|null
-condition|)
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Creating a consumer for: "
-operator|+
-name|annotation
-argument_list|)
-expr_stmt|;
-name|subscribeMethod
-argument_list|(
-name|method
-argument_list|,
-name|bean
-argument_list|,
-name|annotation
-operator|.
-name|uri
-argument_list|()
-argument_list|,
-name|annotation
-operator|.
-name|name
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|Consume
 name|consume
 init|=
@@ -512,15 +454,6 @@ argument_list|,
 name|endpoint
 argument_list|)
 decl_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Created processor: "
-operator|+
-name|processor
-argument_list|)
-expr_stmt|;
 name|Consumer
 name|consumer
 init|=
@@ -531,6 +464,28 @@ argument_list|(
 name|processor
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created processor: "
+operator|+
+name|processor
+operator|+
+literal|" for consumer: "
+operator|+
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
 name|startService
 argument_list|(
 name|consumer
@@ -872,7 +827,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" which cannot be injected via @EndpointInject for "
+literal|" which cannot be injected via @EndpointInject/@Produce for: "
 operator|+
 name|endpoint
 argument_list|)
@@ -914,7 +869,7 @@ name|e
 argument_list|)
 return|;
 block|}
-comment|/**      * Factory method to create a started {@link org.apache.camel.PollingConsumer} to be injected      * into a POJO      */
+comment|/**      * Factory method to create a started {@link org.apache.camel.PollingConsumer} to be injected into a POJO      */
 DECL|method|createInjectionPollingConsumer (Endpoint endpoint)
 specifier|protected
 name|PollingConsumer
@@ -959,7 +914,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * A Factory method to create a started {@link org.apache.camel.Producer} to be injected into      * a POJO      */
+comment|/**      * A Factory method to create a started {@link org.apache.camel.Producer} to be injected into a POJO      */
 DECL|method|createInjectionProducer (Endpoint endpoint)
 specifier|protected
 name|Producer

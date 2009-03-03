@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Header
+name|Consume
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|MessageDriven
+name|Header
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|ProducerTemplate
 name|template
 decl_stmt|;
 annotation|@
-name|MessageDriven
+name|Consume
 argument_list|(
 name|uri
 operator|=
@@ -138,7 +138,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|MessageDriven
+name|Consume
 argument_list|(
 name|uri
 operator|=
@@ -178,7 +178,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|MessageDriven
+name|Consume
 argument_list|(
 name|uri
 operator|=
@@ -218,7 +218,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|MessageDriven
+name|Consume
 argument_list|(
 name|uri
 operator|=

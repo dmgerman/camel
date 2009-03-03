@@ -307,7 +307,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A bean post processor which implements the<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>  * features in Camel such as the<a href="http://camel.apache.org/bean-injection.html">Bean Injection</a> of objects like  * {@link Endpoint} and  * {@link org.apache.camel.ProducerTemplate} together with support for  *<a href="http://camel.apache.org/pojo-consuming.html">POJO Consuming</a> via the  * {@link org.apache.camel.Consume} and {@link org.apache.camel.MessageDriven} annotations along with  *<a href="http://camel.apache.org/pojo-producing.html">POJO Producing</a> via the  * {@link org.apache.camel.Produce} annotation along with other annotations such as  * {@link org.apache.camel.RecipientList} for creating<a href="http://camel.apache.org/recipientlist-annotation.html">a Recipient List router via annotations</a>.  *<p>  * If you use the&lt;camelContext&gt; element in your<a href="http://camel.apache.org/spring.html">Spring XML</a>  * then one of these bean post processors is implicity installed and configured for you. So you should never have to  * explicitly create or configure one of these instances.  *  * @version $Revision$  */
+comment|/**  * A bean post processor which implements the<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>  * features in Camel. Features such as the<a href="http://camel.apache.org/bean-injection.html">Bean Injection</a> of objects like  * {@link Endpoint} and  * {@link org.apache.camel.ProducerTemplate} together with support for  *<a href="http://camel.apache.org/pojo-consuming.html">POJO Consuming</a> via the  * {@link org.apache.camel.Consume} annotation along with  *<a href="http://camel.apache.org/pojo-producing.html">POJO Producing</a> via the  * {@link org.apache.camel.Produce} annotation along with other annotations such as  * {@link org.apache.camel.RecipientList} for creating<a href="http://camel.apache.org/recipientlist-annotation.html">a Recipient List router via annotations</a>.  *<p>  * If you use the&lt;camelContext&gt; element in your<a href="http://camel.apache.org/spring.html">Spring XML</a>  * then one of these bean post processors is implicity installed and configured for you. So you should never have to  * explicitly create or configure one of these instances.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -1004,66 +1004,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-DECL|method|consumerInjection (final Object bean)
-specifier|protected
-name|void
-name|consumerInjection
-parameter_list|(
-specifier|final
-name|Object
-name|bean
-parameter_list|)
-block|{
-name|org
-operator|.
-name|springframework
-operator|.
-name|util
-operator|.
-name|ReflectionUtils
-operator|.
-name|doWithMethods
-argument_list|(
-name|bean
-operator|.
-name|getClass
-argument_list|()
-argument_list|,
-operator|new
-name|org
-operator|.
-name|springframework
-operator|.
-name|util
-operator|.
-name|ReflectionUtils
-operator|.
-name|MethodCallback
-argument_list|()
-block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-specifier|public
-name|void
-name|doWith
-parameter_list|(
-name|Method
-name|method
-parameter_list|)
-throws|throws
-name|IllegalArgumentException
-throws|,
-name|IllegalAccessException
-block|{
-comment|/*                  * TODO support callbacks? if                  * (method.getAnnotation(Callback.class) != null) { try {                  * Expression e = ExpressionFactory.createExpression(                  * method.getAnnotation(Callback.class).condition());                  * JexlContext jc = JexlHelper.createContext();                  * jc.getVars().put("this", obj); Object r = e.evaluate(jc); if                  * (!(r instanceof Boolean)) { throw new                  * RuntimeException("Expression did not returned a boolean value                  * but: " + r); } Boolean oldVal =                  * req.getCallbacks().get(method); Boolean newVal = (Boolean) r;                  * if ((oldVal == null || !oldVal)&& newVal) {                  * req.getCallbacks().put(method, newVal); method.invoke(obj,                  * new Object[0]); // TODO: handle return value and sent it as                  * the answer } } catch (Exception e) { throw new                  * RuntimeException("Unable to invoke callback", e); } }                  */
-block|}
-block|}
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|getPostProcessor ()
 specifier|public
