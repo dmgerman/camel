@@ -2181,6 +2181,13 @@ operator|.
 name|loadClass
 argument_list|(
 name|DEFAULT_QUEUE_BROWSE_STRATEGY
+argument_list|,
+name|JmsComponent
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
