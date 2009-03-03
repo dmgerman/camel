@@ -30,6 +30,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|osgi
+operator|.
+name|framework
+operator|.
+name|BundleContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|osgi
@@ -138,6 +150,16 @@ parameter_list|()
 block|{
 return|return
 name|testActivator
+return|;
+block|}
+DECL|method|getBundleContext ()
+specifier|public
+name|BundleContext
+name|getBundleContext
+parameter_list|()
+block|{
+return|return
+name|bundleContext
 return|;
 block|}
 block|}
