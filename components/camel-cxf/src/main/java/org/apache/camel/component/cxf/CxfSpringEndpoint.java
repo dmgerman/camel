@@ -32,26 +32,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -121,20 +101,6 @@ operator|.
 name|spring
 operator|.
 name|SpringCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IntrospectionSupport
 import|;
 end_import
 
@@ -388,10 +354,6 @@ name|bean
 operator|=
 name|bean
 expr_stmt|;
-comment|// set properties from bean which can be overridden by endpoint URI
-name|setPropertiesBean
-argument_list|()
-expr_stmt|;
 comment|// create configurer
 name|configurer
 operator|=
@@ -410,70 +372,6 @@ name|getApplicationContext
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Read properties from the CxfEndpointBean and copy them to the       * properties of this class.  Note that the properties values can       * be overridden by values in URI query as the DefaultComponent       * will perform "setProperties" later (after the constructor).       */
-DECL|method|setPropertiesBean ()
-specifier|private
-name|void
-name|setPropertiesBean
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|bean
-operator|.
-name|getProperties
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|copy
-init|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|()
-decl_stmt|;
-name|copy
-operator|.
-name|putAll
-argument_list|(
-name|bean
-operator|.
-name|getProperties
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// pass the copy the method modifies the properties map
-name|IntrospectionSupport
-operator|.
-name|setProperties
-argument_list|(
-name|getCamelContext
-argument_list|()
-operator|.
-name|getTypeConverter
-argument_list|()
-argument_list|,
-name|this
-argument_list|,
-name|copy
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      *       * A help to get the service class.  The serviceClass classname in URI       * query takes precedence over the serviceClass in CxfEndpointBean.      */
 DECL|method|getSEIClass ()
