@@ -384,6 +384,11 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+name|setCanonicalFileName
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 name|String
 name|fileName
 init|=
@@ -424,6 +429,11 @@ name|getFileSeparator
 argument_list|()
 operator|+
 name|newName
+argument_list|)
+expr_stmt|;
+name|setCanonicalFileName
+argument_list|(
+literal|null
 argument_list|)
 expr_stmt|;
 comment|// relative name is a bit more complex to set as newName itself can contain
@@ -484,6 +494,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|relativeFileName
+operator|!=
+literal|null
+operator|&&
 name|relativeFileName
 operator|.
 name|indexOf
