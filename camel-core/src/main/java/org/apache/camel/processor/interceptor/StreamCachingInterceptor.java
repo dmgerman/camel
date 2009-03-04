@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|InterceptorRef
@@ -332,10 +344,13 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-try|try
-block|{
-name|StreamCache
-name|newBody
+comment|// Change the body to StreamCache if possible
+comment|// important to lookup for the type converter to avoid excessive overhead of trying to covnert if not possible
+comment|// as Camel will throw NoTypeConversionAvailableException that we just ignores. So we want to avoid this
+comment|// exception handling as it hurts performance dramatically for high throughput
+comment|// See also MessageSupport#getBody and CAMEL-1417
+name|Object
+name|body
 init|=
 name|exchange
 operator|.
@@ -343,10 +358,61 @@ name|getIn
 argument_list|()
 operator|.
 name|getBody
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|body
+operator|!=
+literal|null
+condition|)
+block|{
+name|TypeConverter
+name|tc
+init|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverterRegistry
+argument_list|()
+operator|.
+name|lookup
 argument_list|(
 name|StreamCache
 operator|.
 name|class
+argument_list|,
+name|body
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|tc
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|StreamCache
+name|newBody
+init|=
+name|tc
+operator|.
+name|convertTo
+argument_list|(
+name|StreamCache
+operator|.
+name|class
+argument_list|,
+name|exchange
+argument_list|,
+name|body
 argument_list|)
 decl_stmt|;
 if|if
@@ -385,6 +451,8 @@ name|ex
 parameter_list|)
 block|{
 comment|// ignore if in is not of StreamCache type
+block|}
+block|}
 block|}
 return|return
 name|proceed

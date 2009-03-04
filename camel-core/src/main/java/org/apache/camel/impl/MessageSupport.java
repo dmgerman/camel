@@ -84,6 +84,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|converter
+operator|.
+name|DefaultTypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|UuidGenerator
@@ -233,6 +249,11 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|boolean
+name|tryConvert
+init|=
+literal|true
+decl_stmt|;
 name|TypeConverter
 name|converter
 init|=
@@ -241,12 +262,59 @@ operator|.
 name|getTypeConverter
 argument_list|()
 decl_stmt|;
+comment|// if its the default type converter then use a performance shortcut to check if it can convert it
+comment|// this is faster than getting throwing and catching NoTypeConversionAvailableException
+comment|// the StreamCachingInterceptor will attempt to convert the payload to a StremCache for caching purpose
+comment|// so we get invoked on each node the exchange passes. So this is a little performance optimization
+comment|// to avoid the excessive exception handling
+if|if
+condition|(
+name|body
+operator|!=
+literal|null
+operator|&&
+name|converter
+operator|instanceof
+name|DefaultTypeConverter
+condition|)
+block|{
+name|DefaultTypeConverter
+name|defaultTypeConverter
+init|=
+operator|(
+name|DefaultTypeConverter
+operator|)
+name|converter
+decl_stmt|;
+comment|// we can only check if there is no converter meaning we have tried to convert it beforehand
+comment|// and then knows for sure there is no converter possible
+name|tryConvert
+operator|=
+operator|!
+name|defaultTypeConverter
+operator|.
+name|hasNoConverterFor
+argument_list|(
+name|type
+argument_list|,
+name|body
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|tryConvert
+condition|)
+block|{
 try|try
 block|{
-comment|// lets first try converting the message itself first
+comment|// lets first try converting the body itself first
 comment|// as for some types like InputStream v Reader its more efficient to do the transformation
-comment|// from the Message itself as its got efficient implementations of them, before trying the
-comment|// payload
+comment|// from the body itself as its got efficient implementations of them, before trying the
+comment|// message
 return|return
 name|converter
 operator|.
@@ -268,6 +336,8 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
+block|}
+comment|// fallback to the message itself
 return|return
 name|converter
 operator|.
