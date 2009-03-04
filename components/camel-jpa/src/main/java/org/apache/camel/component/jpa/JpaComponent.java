@@ -88,20 +88,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * A JPA Component  *  * @version $Revision$  */
 end_comment
@@ -205,17 +191,30 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// provide the class loader of this component to work in OSGi environments as camel-jpa must be able
+comment|// to resolve the entity classes
 name|Class
 argument_list|<
 name|?
 argument_list|>
 name|type
 init|=
-name|ObjectHelper
+name|getCamelContext
+argument_list|()
 operator|.
-name|loadClass
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
 argument_list|(
 name|path
+argument_list|,
+name|JpaComponent
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

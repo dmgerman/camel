@@ -447,7 +447,6 @@ return|;
 block|}
 DECL|method|createQueueBrowseStrategy ()
 specifier|protected
-specifier|static
 name|QueueBrowseStrategy
 name|createQueueBrowseStrategy
 parameter_list|()
@@ -464,7 +463,10 @@ operator|=
 name|JmsComponent
 operator|.
 name|tryCreateDefaultQueueBrowseStrategy
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch

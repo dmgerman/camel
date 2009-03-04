@@ -1986,7 +1986,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Attempts to load the given class name using the thread context class      * loader or the class loader used to load this class      *      * @param name the name of the class to load      * @return the class or null if it could not be loaded      * @deprecated use ClassResolver instead      */
+comment|/**      * Attempts to load the given class name using the thread context class      * loader or the class loader used to load this class      *      * @param name the name of the class to load      * @return the class or null if it could not be loaded      */
 DECL|method|loadClass (String name)
 specifier|public
 specifier|static
@@ -2014,7 +2014,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Attempts to load the given class name using the thread context class      * loader or the given class loader      *      * @param name the name of the class to load      * @param loader the class loader to use after the thread context class      *                loader      * @return the class or null if it could not be loaded      * @deprecated use ClassResolver instead      */
+comment|/**      * Attempts to load the given class name using the thread context class      * loader or the given class loader      *      * @param name the name of the class to load      * @param loader the class loader to use after the thread context class      *                loader      * @return the class or null if it could not be loaded      */
 DECL|method|loadClass (String name, ClassLoader loader)
 specifier|public
 specifier|static
@@ -2110,7 +2110,7 @@ return|return
 name|clazz
 return|;
 block|}
-comment|/**      * Loads the given class with the provided classloader (may be null).      * Will ignore any class not found and return null.      *      * @param name    the name of the class to load      * @param loader  a provided loader (may be null)      * @return the class, or null if it could not be loaded      * @deprecated use ClassResolver instead      */
+comment|/**      * Loads the given class with the provided classloader (may be null).      * Will ignore any class not found and return null.      *      * @param name    the name of the class to load      * @param loader  a provided loader (may be null)      * @return the class, or null if it could not be loaded      */
 DECL|method|doLoadClass (String name, ClassLoader loader)
 specifier|private
 specifier|static

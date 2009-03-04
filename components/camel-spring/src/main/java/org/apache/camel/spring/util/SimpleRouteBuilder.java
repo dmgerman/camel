@@ -66,20 +66,6 @@ name|ProcessorType
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * A simple {@link RouteBuilder} which can be configured directly with one or more from URIs, zero or more to URIs  * and an optional bean processing step.  *  * @version $Revision$  */
 end_comment
@@ -385,9 +371,13 @@ condition|)
 block|{
 name|beanType
 operator|=
-name|ObjectHelper
+name|getContext
+argument_list|()
 operator|.
-name|loadClass
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
 argument_list|(
 name|beanClass
 argument_list|,

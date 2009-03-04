@@ -116,20 +116,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|core
@@ -336,14 +322,26 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// provide the class loader of this component to work in OSGi environments
 name|Class
 name|factoryClass
 init|=
-name|ObjectHelper
+name|getCamelContext
+argument_list|()
 operator|.
-name|loadClass
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
 argument_list|(
 name|transformerFactoryClassName
+argument_list|,
+name|XsltComponent
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -370,7 +368,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot find the TransformerFactoryClass with the class name "
+literal|"Cannot find the TransformerFactoryClass with the class name: "
 operator|+
 name|transformerFactoryClassName
 argument_list|)

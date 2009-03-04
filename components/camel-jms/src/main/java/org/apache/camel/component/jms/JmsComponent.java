@@ -1562,7 +1562,10 @@ block|{
 name|queueBrowseStrategy
 operator|=
 name|tryCreateDefaultQueueBrowseStrategy
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -2162,23 +2165,31 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Attempts to instantiate the default {@link QueueBrowseStrategy} which      * should work fine if Spring 2.5.x or later is on the classpath but this      * will fail if 2.0.x are on the classpath. We can continue to operate on      * this version we just cannot support the browseable queues supported by      * {@link JmsQueueEndpoint}      *      * @return the queue browse strategy or null if it cannot be supported      */
-DECL|method|tryCreateDefaultQueueBrowseStrategy ()
+DECL|method|tryCreateDefaultQueueBrowseStrategy (CamelContext context)
 specifier|protected
 specifier|static
 name|QueueBrowseStrategy
 name|tryCreateDefaultQueueBrowseStrategy
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 block|{
 comment|// lets try instantiate the default implementation
+comment|// use the class loading this class from camel-jms to work in OSGi environments as the camel-jms
+comment|// should import the spring-jms jars.
 name|Class
 argument_list|<
 name|?
 argument_list|>
 name|type
 init|=
-name|ObjectHelper
+name|context
 operator|.
-name|loadClass
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
 argument_list|(
 name|DEFAULT_QUEUE_BROWSE_STRATEGY
 argument_list|,
@@ -2215,14 +2226,15 @@ block|}
 else|else
 block|{
 return|return
-operator|(
-name|QueueBrowseStrategy
-operator|)
 name|ObjectHelper
 operator|.
 name|newInstance
 argument_list|(
 name|type
+argument_list|,
+name|QueueBrowseStrategy
+operator|.
+name|class
 argument_list|)
 return|;
 block|}
