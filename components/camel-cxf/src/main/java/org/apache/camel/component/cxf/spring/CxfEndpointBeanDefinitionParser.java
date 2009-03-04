@@ -371,6 +371,11 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Override
 DECL|method|mapElement (ParserContext ctx, BeanDefinitionBuilder bean, Element el, String name)
 specifier|protected
@@ -401,11 +406,6 @@ argument_list|)
 condition|)
 block|{
 name|Map
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
 name|map
 init|=
 name|ctx
@@ -423,6 +423,31 @@ name|getBeanDefinition
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|Map
+name|props
+init|=
+name|getPropertyMap
+argument_list|(
+name|bean
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|props
+operator|!=
+literal|null
+condition|)
+block|{
+name|map
+operator|.
+name|putAll
+argument_list|(
+name|props
+argument_list|)
+expr_stmt|;
+block|}
 name|bean
 operator|.
 name|addPropertyValue
@@ -628,6 +653,8 @@ init|=
 name|getPropertyMap
 argument_list|(
 name|bean
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|map
@@ -701,6 +728,8 @@ init|=
 name|getPropertyMap
 argument_list|(
 name|bean
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|map
@@ -795,7 +824,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|getPropertyMap (BeanDefinitionBuilder bean)
+DECL|method|getPropertyMap (BeanDefinitionBuilder bean, boolean lazyInstantiation)
 specifier|private
 name|Map
 argument_list|<
@@ -807,6 +836,9 @@ name|getPropertyMap
 parameter_list|(
 name|BeanDefinitionBuilder
 name|bean
+parameter_list|,
+name|boolean
+name|lazyInstantiation
 parameter_list|)
 block|{
 name|PropertyValue
@@ -845,6 +877,11 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|lazyInstantiation
+condition|)
+block|{
 name|map
 operator|=
 operator|new
@@ -865,6 +902,7 @@ argument_list|,
 name|map
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
