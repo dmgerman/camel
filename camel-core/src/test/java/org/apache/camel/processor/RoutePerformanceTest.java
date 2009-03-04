@@ -164,6 +164,15 @@ name|getSize
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|endpoint
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|123
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

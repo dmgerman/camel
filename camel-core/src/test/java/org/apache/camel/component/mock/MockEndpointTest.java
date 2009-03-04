@@ -558,6 +558,14 @@ argument_list|(
 literal|6
 argument_list|)
 expr_stmt|;
+comment|// wait at most 2 sec to speedup unit testing
+name|resultEndpoint
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 name|resultEndpoint
 operator|.
 name|assertIsNotSatisfied
@@ -751,6 +759,55 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|testExpectationOfHeaderWithNumber ()
+specifier|public
+name|void
+name|testExpectationOfHeaderWithNumber
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+name|MockEndpoint
+name|resultEndpoint
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|resultEndpoint
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+comment|// assert we can assert using other than string, eg numbers
+name|resultEndpoint
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+literal|"number"
+argument_list|,
+literal|123
+argument_list|)
+expr_stmt|;
+name|sendHeader
+argument_list|(
+literal|"number"
+argument_list|,
+literal|123
+argument_list|)
+expr_stmt|;
+name|resultEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+name|resultEndpoint
+operator|.
+name|assertIsNotSatisfied
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|sendMessages (int... counters)
 specifier|protected
 name|void
@@ -857,7 +914,7 @@ return|return
 name|list
 return|;
 block|}
-DECL|method|sendHeader (String name, String value)
+DECL|method|sendHeader (String name, Object value)
 specifier|protected
 name|void
 name|sendHeader
@@ -865,7 +922,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|String
+name|Object
 name|value
 parameter_list|)
 block|{

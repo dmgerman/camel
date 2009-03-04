@@ -531,7 +531,7 @@ name|headerName
 decl_stmt|;
 DECL|field|headerValue
 specifier|private
-name|String
+name|Object
 name|headerValue
 decl_stmt|;
 DECL|field|actualHeader
@@ -1375,15 +1375,17 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds an expectation that the given header name& value are received by this      * endpoint      */
-DECL|method|expectedHeaderReceived (String name, String value)
+DECL|method|expectedHeaderReceived (final String name, final Object value)
 specifier|public
 name|void
 name|expectedHeaderReceived
 parameter_list|(
+specifier|final
 name|String
 name|name
 parameter_list|,
-name|String
+specifier|final
+name|Object
 name|value
 parameter_list|)
 block|{
@@ -1423,16 +1425,32 @@ operator|!=
 literal|null
 argument_list|)
 expr_stmt|;
+name|Object
+name|actualValue
+init|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|actualHeader
+operator|.
+name|getClass
+argument_list|()
+argument_list|,
+name|headerValue
+argument_list|)
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Header of message"
 argument_list|,
-name|headerValue
+name|actualValue
 argument_list|,
 name|actualHeader
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
