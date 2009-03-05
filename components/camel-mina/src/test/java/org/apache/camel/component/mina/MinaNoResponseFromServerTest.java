@@ -223,7 +223,7 @@ specifier|private
 name|String
 name|uri
 init|=
-literal|"mina:tcp://localhost:11300?sync=true&codec=myCodec"
+literal|"mina:tcp://localhost:11300?sync=true&codec=#myCodec"
 decl_stmt|;
 DECL|method|testNoResponse ()
 specifier|public

@@ -42,11 +42,11 @@ name|Exception
 block|{
 name|uri
 operator|=
-literal|"mina:vm://localhost:11301?sync=true&codec=myCodec"
+literal|"mina:vm://localhost:11301?sync=true&codec=#myCodec"
 expr_stmt|;
 name|badUri
 operator|=
-literal|"mina:vm://localhost:11301?sync=true&codec=XXX"
+literal|"mina:vm://localhost:11301?sync=true&codec=#XXX"
 expr_stmt|;
 name|super
 operator|.

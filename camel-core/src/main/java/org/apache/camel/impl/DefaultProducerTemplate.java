@@ -1382,6 +1382,29 @@ name|processor
 argument_list|)
 return|;
 block|}
+DECL|method|requestBody (Object body)
+specifier|public
+name|Object
+name|requestBody
+parameter_list|(
+name|Object
+name|body
+parameter_list|)
+block|{
+return|return
+name|sendBody
+argument_list|(
+name|getMandatoryDefaultEndpoint
+argument_list|()
+argument_list|,
+name|ExchangePattern
+operator|.
+name|InOut
+argument_list|,
+name|body
+argument_list|)
+return|;
+block|}
 DECL|method|requestBody (Endpoint endpoint, Object body)
 specifier|public
 name|Object

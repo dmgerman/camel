@@ -66,6 +66,22 @@ name|IoFilter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|mina
+operator|.
+name|filter
+operator|.
+name|codec
+operator|.
+name|ProtocolCodecFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Mina configuration  */
 end_comment
@@ -112,7 +128,7 @@ name|textlineDelimiter
 decl_stmt|;
 DECL|field|codec
 specifier|private
-name|String
+name|ProtocolCodecFactory
 name|codec
 decl_stmt|;
 DECL|field|encoding
@@ -392,7 +408,7 @@ expr_stmt|;
 block|}
 DECL|method|getCodec ()
 specifier|public
-name|String
+name|ProtocolCodecFactory
 name|getCodec
 parameter_list|()
 block|{
@@ -400,12 +416,12 @@ return|return
 name|codec
 return|;
 block|}
-DECL|method|setCodec (String codec)
+DECL|method|setCodec (ProtocolCodecFactory codec)
 specifier|public
 name|void
 name|setCodec
 parameter_list|(
-name|String
+name|ProtocolCodecFactory
 name|codec
 parameter_list|)
 block|{

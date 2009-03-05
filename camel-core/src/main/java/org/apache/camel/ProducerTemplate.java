@@ -542,6 +542,15 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
+comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param body the payload to send      * @return the result (see class javadoc)      */
+DECL|method|requestBody (Object body)
+name|Object
+name|requestBody
+parameter_list|(
+name|Object
+name|body
+parameter_list|)
+function_decl|;
 comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint the Endpoint to send to      * @param body     the payload      * @return the result (see class javadoc)      */
 DECL|method|requestBody (Endpoint endpoint, Object body)
 name|Object
