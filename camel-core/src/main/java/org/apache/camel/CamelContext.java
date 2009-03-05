@@ -617,6 +617,31 @@ argument_list|>
 name|getDataFormats
 parameter_list|()
 function_decl|;
+comment|/**      * Sets the properties that can be referenced in the camel context      */
+DECL|method|setProperties (Map<String, String> properties)
+name|void
+name|setProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|properties
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the properties that can be referenced in the camel context      */
+DECL|method|getProperties ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getProperties
+parameter_list|()
+function_decl|;
 comment|/**      * Create a FactoryFinder which will be used for the loading the factory class from META-INF      * @return the factory finder      */
 DECL|method|createFactoryFinder ()
 name|FactoryFinder

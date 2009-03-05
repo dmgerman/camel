@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|springframework
@@ -77,6 +87,55 @@ name|bean
 operator|.
 name|getCamelContext
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|properties
+init|=
+name|bean
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getProperties
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"the properties should not been null"
+argument_list|,
+name|properties
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"No properties injected"
+argument_list|,
+name|properties
+operator|.
+name|size
+argument_list|()
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should get the value of org.apache.camel.test"
+argument_list|,
+name|properties
+operator|.
+name|get
+argument_list|(
+literal|"org.apache.camel.test"
+argument_list|)
+argument_list|,
+literal|"this is a test"
 argument_list|)
 expr_stmt|;
 block|}
