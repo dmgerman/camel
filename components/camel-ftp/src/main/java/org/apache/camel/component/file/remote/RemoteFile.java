@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -115,6 +105,7 @@ name|String
 name|getFileSeparator
 parameter_list|()
 block|{
+comment|// always use / as separator for FTP
 return|return
 literal|"/"
 return|;
@@ -151,6 +142,16 @@ operator|.
 name|clone
 argument_list|()
 decl_stmt|;
+name|result
+operator|.
+name|setAbsolute
+argument_list|(
+name|source
+operator|.
+name|isAbsolute
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|result
 operator|.
 name|setAbsoluteFileName

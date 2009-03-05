@@ -523,9 +523,8 @@ name|relativeFileName
 operator|.
 name|lastIndexOf
 argument_list|(
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
