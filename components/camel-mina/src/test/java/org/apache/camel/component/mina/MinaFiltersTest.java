@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For unit testing the<tt>logger</tt> option.  */
+comment|/**  * For unit testing the<tt>filters</tt> option.  */
 end_comment
 
 begin_class
