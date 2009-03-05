@@ -105,10 +105,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|OsgiResolverUtilTest
+DECL|class|OsgiPackageScanClassResolverTest
 specifier|public
 class|class
-name|OsgiResolverUtilTest
+name|OsgiPackageScanClassResolverTest
 extends|extends
 name|CamelOsgiTestSupport
 block|{

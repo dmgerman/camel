@@ -165,7 +165,7 @@ expr_stmt|;
 comment|// Special WebSphere trick to load a file that exists in the JAR and then let it go from there.
 comment|// The trick is that we just need the URL's for the .jars that contains the type
 comment|// converters that is annotated. So by searching for this resource WebSphere is able to find
-comment|// it and return the URL to the .jar file with the resource. Then the default ResolverUtil
+comment|// it and return the URL to the .jar file with the resource. Then the DefaultPackageScanClassResolver
 comment|// can take it from there and find the classes that are annotated.
 name|enumeration
 operator|=
