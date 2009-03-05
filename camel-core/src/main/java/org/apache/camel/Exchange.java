@@ -54,6 +54,12 @@ name|BEAN_METHOD_NAME
 init|=
 literal|"CamelBeanMethodName"
 decl_stmt|;
+DECL|field|BEAN_HOLDER
+name|String
+name|BEAN_HOLDER
+init|=
+literal|"CamelBeanHolder"
+decl_stmt|;
 DECL|field|BEAN_MULTI_PARAMETER_ARRAY
 name|String
 name|BEAN_MULTI_PARAMETER_ARRAY

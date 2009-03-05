@@ -374,7 +374,9 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-literal|"org.apache.camel.bean.BeanHolder"
+name|Exchange
+operator|.
+name|BEAN_HOLDER
 argument_list|,
 name|beanHolder
 argument_list|)

@@ -278,7 +278,9 @@ name|out
 operator|.
 name|getProperty
 argument_list|(
-literal|"org.apache.camel.bean.BeanHolder"
+name|Exchange
+operator|.
+name|BEAN_HOLDER
 argument_list|,
 name|BeanHolder
 operator|.
