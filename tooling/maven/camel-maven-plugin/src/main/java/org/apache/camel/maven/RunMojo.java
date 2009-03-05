@@ -498,11 +498,11 @@ specifier|protected
 name|String
 name|dotDir
 decl_stmt|;
-comment|/**      * Allows the DOT file generation to be disabled      *      * @parameter expression="true"      * @readonly      */
-DECL|field|dotEnabled
+comment|/**      * Allows the DOT file generation to be enabled      *      * @parameter expression="false"      */
+DECL|field|useDot
 specifier|protected
 name|boolean
-name|dotEnabled
+name|useDot
 decl_stmt|;
 comment|/**      * @component      */
 DECL|field|artifactResolver
@@ -697,7 +697,7 @@ name|dotDir
 operator|!=
 literal|null
 operator|&&
-name|dotEnabled
+name|useDot
 condition|)
 block|{
 name|args
