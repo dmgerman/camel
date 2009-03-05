@@ -160,6 +160,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -781,23 +795,17 @@ expr_stmt|;
 return|return
 name|createEndpoint
 argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
 name|uri
 argument_list|,
 name|config
 argument_list|)
 return|;
 block|}
-DECL|method|createEndpoint (CamelContext context, MinaConfiguration config)
+DECL|method|createEndpoint (MinaConfiguration config)
 specifier|public
 name|Endpoint
 name|createEndpoint
 parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
 name|MinaConfiguration
 name|config
 parameter_list|)
@@ -807,22 +815,17 @@ block|{
 return|return
 name|createEndpoint
 argument_list|(
-name|context
-argument_list|,
 literal|null
 argument_list|,
 name|config
 argument_list|)
 return|;
 block|}
-DECL|method|createEndpoint (CamelContext context, String uri, MinaConfiguration config)
+DECL|method|createEndpoint (String uri, MinaConfiguration config)
 specifier|private
 name|Endpoint
 name|createEndpoint
 parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
 name|String
 name|uri
 parameter_list|,
@@ -832,6 +835,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+literal|"camelContext"
+argument_list|)
+expr_stmt|;
 name|String
 name|protocol
 init|=
@@ -861,8 +874,6 @@ block|{
 return|return
 name|createSocketEndpoint
 argument_list|(
-name|context
-argument_list|,
 name|uri
 argument_list|,
 name|config
@@ -897,8 +908,6 @@ block|{
 return|return
 name|createDatagramEndpoint
 argument_list|(
-name|context
-argument_list|,
 name|uri
 argument_list|,
 name|config
@@ -919,8 +928,6 @@ block|{
 return|return
 name|createVmEndpoint
 argument_list|(
-name|context
-argument_list|,
 name|uri
 argument_list|,
 name|config
@@ -945,14 +952,11 @@ throw|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-DECL|method|createVmEndpoint (CamelContext context, String uri, MinaConfiguration configuration)
+DECL|method|createVmEndpoint (String uri, MinaConfiguration configuration)
 specifier|protected
 name|MinaEndpoint
 name|createVmEndpoint
 parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
 name|String
 name|uri
 parameter_list|,
@@ -1112,13 +1116,6 @@ argument_list|)
 decl_stmt|;
 name|endpoint
 operator|.
-name|setCamelContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
 name|setAddress
 argument_list|(
 name|address
@@ -1177,14 +1174,11 @@ return|return
 name|endpoint
 return|;
 block|}
-DECL|method|createSocketEndpoint (CamelContext context, String uri, MinaConfiguration configuration)
+DECL|method|createSocketEndpoint (String uri, MinaConfiguration configuration)
 specifier|protected
 name|MinaEndpoint
 name|createSocketEndpoint
 parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
 name|String
 name|uri
 parameter_list|,
@@ -1392,13 +1386,6 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-name|endpoint
-operator|.
-name|setCamelContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
 name|endpoint
 operator|.
 name|setAddress
@@ -1618,14 +1605,11 @@ name|codecFactory
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createDatagramEndpoint (CamelContext context, String uri, MinaConfiguration configuration)
+DECL|method|createDatagramEndpoint (String uri, MinaConfiguration configuration)
 specifier|protected
 name|MinaEndpoint
 name|createDatagramEndpoint
 parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
 name|String
 name|uri
 parameter_list|,
@@ -1846,13 +1830,6 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-name|endpoint
-operator|.
-name|setCamelContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
 name|endpoint
 operator|.
 name|setAddress
