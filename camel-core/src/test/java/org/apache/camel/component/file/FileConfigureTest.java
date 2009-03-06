@@ -491,6 +491,14 @@ name|FileConsumer
 operator|.
 name|asGenericFile
 argument_list|(
+name|endpoint
+operator|.
+name|getFile
+argument_list|()
+operator|.
+name|getPath
+argument_list|()
+argument_list|,
 name|file
 argument_list|)
 decl_stmt|;

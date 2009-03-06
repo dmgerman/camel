@@ -327,19 +327,6 @@ operator|.
 name|getFile
 argument_list|()
 decl_stmt|;
-name|boolean
-name|isDirectory
-init|=
-name|endpoint
-operator|.
-name|isDirectory
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|isDirectory
-condition|)
-block|{
 name|pollDirectory
 argument_list|(
 name|name
@@ -347,17 +334,6 @@ argument_list|,
 name|files
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|pollFile
-argument_list|(
-name|name
-argument_list|,
-name|files
-argument_list|)
-expr_stmt|;
-block|}
 comment|// sort files using file comparator if provided
 if|if
 condition|(

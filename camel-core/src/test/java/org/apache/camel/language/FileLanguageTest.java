@@ -640,6 +640,8 @@ name|FileConsumer
 operator|.
 name|asGenericFile
 argument_list|(
+literal|"target/filelanguage"
+argument_list|,
 name|file
 argument_list|)
 decl_stmt|;

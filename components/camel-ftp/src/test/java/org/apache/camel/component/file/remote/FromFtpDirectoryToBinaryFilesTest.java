@@ -134,9 +134,9 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/incoming/?password=admin&directory=true"
+literal|"/incoming/?password=admin"
 operator|+
-literal|"&binary=true&consumer.useFixedDelay=false&recursive=false&consumer.delay=5000"
+literal|"&binary=true&useFixedDelay=false&recursive=false&delay=5000"
 return|;
 block|}
 annotation|@
@@ -149,6 +149,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+name|FTP_ROOT_DIR
+operator|+
+literal|"incoming"
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|setUp

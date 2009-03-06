@@ -1571,32 +1571,6 @@ operator|=
 name|append
 expr_stmt|;
 block|}
-DECL|method|isDirectory ()
-specifier|public
-name|boolean
-name|isDirectory
-parameter_list|()
-block|{
-return|return
-name|directory
-return|;
-block|}
-DECL|method|setDirectory (boolean directory)
-specifier|public
-name|void
-name|setDirectory
-parameter_list|(
-name|boolean
-name|directory
-parameter_list|)
-block|{
-name|this
-operator|.
-name|directory
-operator|=
-name|directory
-expr_stmt|;
-block|}
 DECL|method|isAutoCreate ()
 specifier|public
 name|boolean
@@ -1757,9 +1731,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|isDirectory
-argument_list|()
-operator|&&
 name|name
 operator|.
 name|startsWith
@@ -1788,23 +1759,6 @@ operator|.
 name|length
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|isDirectory
-argument_list|()
-condition|)
-block|{
-comment|// use the filename for directory=false
-name|name
-operator|=
-name|file
-operator|.
-name|getFileName
-argument_list|()
 expr_stmt|;
 block|}
 if|if

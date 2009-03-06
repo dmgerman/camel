@@ -191,16 +191,6 @@ name|isBinary
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|ftpEndpoint
-operator|.
-name|isDirectory
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testSftpConfigurationDefaults ()
 specifier|public
@@ -302,16 +292,6 @@ name|isBinary
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|sftpEndpoint
-operator|.
-name|isDirectory
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testFtpExplicitConfiguration ()
 specifier|public
@@ -326,7 +306,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"ftp://user@hostname:1021/some/file?password=secret&binary=true&directory=false"
+literal|"ftp://user@hostname:1021/some/file?password=secret&binary=true"
 argument_list|)
 decl_stmt|;
 name|assertIsInstanceOf
@@ -417,16 +397,6 @@ name|isBinary
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|ftpEndpoint
-operator|.
-name|isDirectory
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testSftpExplicitConfiguration ()
 specifier|public
@@ -441,7 +411,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"sftp://user@hostname:1021/some/file?password=secret&binary=true&directory=false"
+literal|"sftp://user@hostname:1021/some/file?password=secret&binary=true"
 argument_list|)
 decl_stmt|;
 name|assertIsInstanceOf
@@ -529,16 +499,6 @@ argument_list|,
 name|config
 operator|.
 name|isBinary
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|sftpEndpoint
-operator|.
-name|isDirectory
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -679,7 +639,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"sftp://user@hostname:1021/some/file?password=secret&binary=true&directory=false&knownHostsFile=/home/janstey/.ssh/known_hosts"
+literal|"sftp://user@hostname:1021/some/file?password=secret&binary=true&knownHostsFile=/home/janstey/.ssh/known_hosts"
 argument_list|)
 decl_stmt|;
 name|assertIsInstanceOf
@@ -767,16 +727,6 @@ argument_list|,
 name|config
 operator|.
 name|isBinary
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|sftpEndpoint
-operator|.
-name|isDirectory
 argument_list|()
 argument_list|)
 expr_stmt|;

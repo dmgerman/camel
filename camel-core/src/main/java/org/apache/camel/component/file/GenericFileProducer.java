@@ -888,14 +888,6 @@ operator|.
 name|getFile
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|endpoint
-operator|.
-name|isDirectory
-argument_list|()
-condition|)
-block|{
 comment|// Its a directory so we should use it as a base path for the filename
 comment|// If the path isn't empty, we need to add a trailing / if it isn't already there
 name|String
@@ -965,14 +957,6 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-name|answer
-operator|=
-name|endpointFile
 expr_stmt|;
 block|}
 comment|// must normalize path to cater for Windows and other OS

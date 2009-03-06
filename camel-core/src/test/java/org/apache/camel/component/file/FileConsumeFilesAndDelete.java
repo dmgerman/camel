@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -77,10 +87,10 @@ comment|/**  * Unit test for consuming the same filename only.  */
 end_comment
 
 begin_class
-DECL|class|FileConsumeFileOnlyTest
+DECL|class|FileConsumeFilesAndDelete
 specifier|public
 class|class
-name|FileConsumeFileOnlyTest
+name|FileConsumeFilesAndDelete
 extends|extends
 name|ContextTestSupport
 block|{
@@ -108,7 +118,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/fileonly"
+literal|"file://target/files"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -123,7 +133,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/fileonly"
+literal|"file://target/files"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -138,7 +148,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/fileonly/2008"
+literal|"file://target/files/2008"
 argument_list|,
 literal|"2008 Report"
 argument_list|,
@@ -150,10 +160,10 @@ literal|"report2008.txt"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testConsumeFileOnly ()
+DECL|method|testConsumeAndDelete ()
 specifier|public
 name|void
-name|testConsumeFileOnly
+name|testConsumeAndDelete
 parameter_list|()
 throws|throws
 name|Exception
@@ -175,6 +185,49 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
+expr_stmt|;
+comment|// give time to delete files
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|200
+argument_list|)
+expr_stmt|;
+comment|// file should not exists
+name|assertFalse
+argument_list|(
+literal|"File should been deleted"
+argument_list|,
+operator|new
+name|File
+argument_list|(
+literal|"target/files/report.txt"
+argument_list|)
+operator|.
+name|getAbsoluteFile
+argument_list|()
+operator|.
+name|exists
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+literal|"File should been deleted"
+argument_list|,
+operator|new
+name|File
+argument_list|(
+literal|"target/files/.camel/report.txt"
+argument_list|)
+operator|.
+name|getAbsoluteFile
+argument_list|()
+operator|.
+name|exists
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -201,7 +254,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/fileonly/report.txt?directory=false&recursive=false&delete=true"
+literal|"file://target/files/?recursive=false&delete=true"
 argument_list|)
 operator|.
 name|to

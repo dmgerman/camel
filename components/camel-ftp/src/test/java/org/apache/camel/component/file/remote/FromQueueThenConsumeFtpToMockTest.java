@@ -123,10 +123,8 @@ extends|extends
 name|FtpServerTestSupport
 block|{
 comment|// START SNIPPET: e1
-comment|// we use directory=false to indicate we only want to consume a single file
 comment|// we use delay=5000 to use 5 sec delay between pools to avoid polling a second time before we stop the consumer
 comment|// this is because we only want to run a single poll and get the file
-comment|// file=getme/ is the path to the folder where the file is
 DECL|method|getFtpUrl ()
 specifier|private
 name|String
@@ -139,7 +137,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"?password=admin&binary=false&directory=false&consumer.delay=5000&file=getme/"
+literal|"/getme?password=admin&binary=false&delay=5000"
 return|;
 block|}
 comment|// END SNIPPET: e1
@@ -365,11 +363,14 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// construct the total url for the ftp consumer
+comment|// set a regex pattern to only consume the file we want
 name|String
 name|url
 init|=
 name|getFtpUrl
 argument_list|()
+operator|+
+literal|"&regexPattern="
 operator|+
 name|filename
 decl_stmt|;

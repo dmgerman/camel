@@ -901,6 +901,24 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Building directory: "
+operator|+
+name|directory
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|String
@@ -913,8 +931,6 @@ argument_list|()
 decl_stmt|;
 name|boolean
 name|success
-init|=
-literal|false
 decl_stmt|;
 try|try
 block|{
@@ -977,6 +993,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+name|success
+return|;
 block|}
 finally|finally
 block|{
@@ -997,9 +1016,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
-name|success
-return|;
 block|}
 catch|catch
 parameter_list|(
@@ -1901,7 +1917,7 @@ name|dirName
 operator|.
 name|split
 argument_list|(
-literal|"\\/|\\\\"
+literal|"/|\\\\"
 argument_list|)
 decl_stmt|;
 name|boolean

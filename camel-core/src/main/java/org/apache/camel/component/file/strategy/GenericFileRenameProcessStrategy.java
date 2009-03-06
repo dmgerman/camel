@@ -400,7 +400,10 @@ operator|.
 name|getParent
 argument_list|()
 argument_list|,
-literal|true
+name|to
+operator|.
+name|isAbsolute
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

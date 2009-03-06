@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.remote
+DECL|package|org.apache.camel.component.file
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|file
-operator|.
-name|remote
 package|;
 end_package
 
@@ -28,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|ContextTestSupport
 import|;
 end_import
 
@@ -41,18 +39,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
 import|;
 end_import
 
@@ -87,36 +73,96 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to poll a file from the FTP server and not a folder as most test is.  */
+comment|/**  * Unit test for consuming multiple directories.  */
 end_comment
 
 begin_class
-DECL|class|FromFtpPollFileOnlyTest
+DECL|class|FileConsumeMoveMultipleDirectoriesTest
 specifier|public
 class|class
-name|FromFtpPollFileOnlyTest
+name|FileConsumeMoveMultipleDirectoriesTest
 extends|extends
-name|FtpServerTestSupport
+name|ContextTestSupport
 block|{
-DECL|method|getFtpUrl ()
+DECL|field|fileUrl
 specifier|private
 name|String
-name|getFtpUrl
+name|fileUrl
+init|=
+literal|"file://target/multidir/?recursive=true&initialDelay=2000&delay=5000"
+operator|+
+literal|"&excludeNamePostfix=old&moveExpression=done/${file:name}.old"
+decl_stmt|;
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-return|return
-literal|"ftp://admin@localhost:"
-operator|+
-name|getPort
+name|deleteDirectory
+argument_list|(
+literal|"target/multidir"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
 argument_list|()
-operator|+
-literal|"/fileonly/?password=admin"
-return|;
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+name|fileUrl
+argument_list|,
+literal|"Bye World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"bye.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+name|fileUrl
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"sub/hello.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+name|fileUrl
+argument_list|,
+literal|"Godday World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"sub/sub2/godday.txt"
+argument_list|)
+expr_stmt|;
 block|}
-DECL|method|testPollFileOnly ()
+DECL|method|testMultiDir ()
 specifier|public
 name|void
-name|testPollFileOnly
+name|testMultiDir
 parameter_list|()
 throws|throws
 name|Exception
@@ -131,116 +177,37 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
-literal|"Hello World from FTPServer"
+literal|"Bye World"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+literal|"Godday World"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|prepareFtpServer
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|prepareFtpServer ()
-specifier|private
-name|void
-name|prepareFtpServer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// prepares the FTP Server by creating a file on the server that we want to unit
-comment|// test that we can pool and store as a local file
-name|Endpoint
-name|endpoint
-init|=
-name|context
-operator|.
-name|getEndpoint
+name|expectedFileExists
 argument_list|(
-literal|"ftp://admin@localhost:"
-operator|+
-name|getPort
-argument_list|()
-operator|+
-literal|"/fileonly/?password=admin&binary=false"
-argument_list|)
-decl_stmt|;
-name|Exchange
-name|exchange
-init|=
-name|endpoint
-operator|.
-name|createExchange
-argument_list|()
-decl_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-literal|"Hello World from FTPServer"
+literal|"target/multidir/done/bye.txt.old"
 argument_list|)
 expr_stmt|;
-name|exchange
+name|mock
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setHeader
+name|expectedFileExists
 argument_list|(
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"report.txt"
+literal|"target/multidir/done/sub/hello.txt.old"
 argument_list|)
 expr_stmt|;
-name|Producer
-name|producer
-init|=
-name|endpoint
+name|mock
 operator|.
-name|createProducer
-argument_list|()
-decl_stmt|;
-name|producer
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-name|producer
-operator|.
-name|process
+name|expectedFileExists
 argument_list|(
-name|exchange
+literal|"target/multidir/done/sub/sub2/godday.txt.old"
 argument_list|)
 expr_stmt|;
-name|producer
-operator|.
-name|stop
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -266,8 +233,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|getFtpUrl
-argument_list|()
+name|fileUrl
 argument_list|)
 operator|.
 name|to

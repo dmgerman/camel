@@ -60,6 +60,20 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * File consumer.  */
 end_comment
@@ -75,6 +89,11 @@ argument_list|<
 name|File
 argument_list|>
 block|{
+DECL|field|rootPath
+specifier|private
+name|String
+name|rootPath
+decl_stmt|;
 DECL|method|FileConsumer (GenericFileEndpoint<File> endpoint, Processor processor, GenericFileOperations<File> operations)
 specifier|public
 name|FileConsumer
@@ -103,6 +122,18 @@ name|processor
 argument_list|,
 name|operations
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|rootPath
+operator|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getFile
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|pollDirectory (String fileName, List<GenericFile<File>> fileList)
@@ -226,6 +257,8 @@ name|gf
 init|=
 name|asGenericFile
 argument_list|(
+name|rootPath
+argument_list|,
 name|file
 argument_list|)
 decl_stmt|;
@@ -364,6 +397,8 @@ name|gf
 init|=
 name|asGenericFile
 argument_list|(
+name|rootPath
+argument_list|,
 name|file
 argument_list|)
 decl_stmt|;
@@ -388,7 +423,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Creates a new GenericFile<File> based on the given file.      *      * @param file the source file      * @return wrapped as a GenericFile      */
-DECL|method|asGenericFile (File file)
+DECL|method|asGenericFile (String rootPath, File file)
 specifier|public
 specifier|static
 name|GenericFile
@@ -397,6 +432,9 @@ name|File
 argument_list|>
 name|asGenericFile
 parameter_list|(
+name|String
+name|rootPath
+parameter_list|,
 name|File
 name|file
 parameter_list|)
@@ -415,6 +453,13 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// use file specific binding
+name|answer
+operator|.
+name|setEndpointPath
+argument_list|(
+name|rootPath
+argument_list|)
+expr_stmt|;
 name|answer
 operator|.
 name|setBinding
@@ -520,9 +565,63 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// skip root path
+name|File
+name|path
+decl_stmt|;
 if|if
 condition|(
 name|file
+operator|.
+name|getPath
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+name|rootPath
+argument_list|)
+condition|)
+block|{
+name|path
+operator|=
+operator|new
+name|File
+argument_list|(
+name|ObjectHelper
+operator|.
+name|after
+argument_list|(
+name|file
+operator|.
+name|getPath
+argument_list|()
+argument_list|,
+name|rootPath
+operator|+
+name|File
+operator|.
+name|separator
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|path
+operator|=
+operator|new
+name|File
+argument_list|(
+name|file
+operator|.
+name|getPath
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|path
 operator|.
 name|getParent
 argument_list|()
@@ -534,7 +633,7 @@ name|answer
 operator|.
 name|setRelativeFileName
 argument_list|(
-name|file
+name|path
 operator|.
 name|getParent
 argument_list|()
@@ -556,7 +655,7 @@ name|answer
 operator|.
 name|setRelativeFileName
 argument_list|(
-name|file
+name|path
 operator|.
 name|getName
 argument_list|()
