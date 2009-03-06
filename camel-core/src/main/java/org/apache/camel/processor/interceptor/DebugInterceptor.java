@@ -86,7 +86,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -119,7 +119,7 @@ block|{
 DECL|field|node
 specifier|private
 specifier|final
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 decl_stmt|;
 DECL|field|exchanges
@@ -168,11 +168,11 @@ name|enabled
 init|=
 literal|true
 decl_stmt|;
-DECL|method|DebugInterceptor (ProcessorType node, Processor target, List<Exchange> exchanges, List<ExceptionEvent> exceptions)
+DECL|method|DebugInterceptor (ProcessorDefinition node, Processor target, List<Exchange> exchanges, List<ExceptionEvent> exceptions)
 specifier|public
 name|DebugInterceptor
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|,
 name|Processor
@@ -306,7 +306,7 @@ block|}
 block|}
 DECL|method|getNode ()
 specifier|public
-name|ProcessorType
+name|ProcessorDefinition
 name|getNode
 parameter_list|()
 block|{

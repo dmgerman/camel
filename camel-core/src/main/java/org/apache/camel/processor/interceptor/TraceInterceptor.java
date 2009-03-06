@@ -120,7 +120,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -326,7 +326,7 @@ decl_stmt|;
 DECL|field|node
 specifier|private
 specifier|final
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 decl_stmt|;
 DECL|field|tracer
@@ -345,11 +345,11 @@ specifier|private
 name|Class
 name|jpaTraceEventMessageClass
 decl_stmt|;
-DECL|method|TraceInterceptor (ProcessorType node, Processor target, TraceFormatter formatter, Tracer tracer)
+DECL|method|TraceInterceptor (ProcessorDefinition node, Processor target, TraceFormatter formatter, Tracer tracer)
 specifier|public
 name|TraceInterceptor
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|,
 name|Processor
@@ -479,11 +479,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|TraceInterceptor (ProcessorType node, Processor target, Tracer tracer)
+DECL|method|TraceInterceptor (ProcessorDefinition node, Processor target, Tracer tracer)
 specifier|public
 name|TraceInterceptor
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|,
 name|Processor
@@ -715,7 +715,7 @@ comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getNode ()
 specifier|public
-name|ProcessorType
+name|ProcessorDefinition
 name|getNode
 parameter_list|()
 block|{
@@ -1146,12 +1146,12 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Returns true if the given node should be logged in the trace list      */
-DECL|method|shouldLogNode (ProcessorType node)
+DECL|method|shouldLogNode (ProcessorDefinition node)
 specifier|protected
 name|boolean
 name|shouldLogNode
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|)
 block|{

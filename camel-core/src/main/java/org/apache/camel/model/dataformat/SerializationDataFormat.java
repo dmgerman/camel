@@ -77,7 +77,7 @@ specifier|public
 class|class
 name|SerializationDataFormat
 extends|extends
-name|DataFormatType
+name|DataFormatDefinition
 block|{
 annotation|@
 name|Override

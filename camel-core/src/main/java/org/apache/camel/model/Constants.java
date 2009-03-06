@@ -34,9 +34,17 @@ specifier|final
 name|String
 name|JAXB_CONTEXT_PACKAGES
 init|=
-literal|"org.apache.camel:org.apache.camel.model:org.apache.camel.model.config:org.apache.camel.model.dataformat"
+literal|"org.apache.camel:"
 operator|+
-literal|":org.apache.camel.model.language:org.apache.camel.model.loadbalancer"
+literal|"org.apache.camel.model:"
+operator|+
+literal|"org.apache.camel.model.config:"
+operator|+
+literal|"org.apache.camel.model.dataformat:"
+operator|+
+literal|"org.apache.camel.model.language:"
+operator|+
+literal|"org.apache.camel.model.loadbalancer"
 decl_stmt|;
 DECL|method|Constants ()
 specifier|private

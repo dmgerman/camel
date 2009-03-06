@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|FromType
+name|FromDefinition
 import|;
 end_import
 
@@ -76,7 +76,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -90,7 +90,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -169,7 +169,7 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routes
 init|=
@@ -201,7 +201,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|RouteType
+name|RouteDefinition
 name|route
 range|:
 name|routes
@@ -209,7 +209,7 @@ control|)
 block|{
 name|List
 argument_list|<
-name|FromType
+name|FromDefinition
 argument_list|>
 name|inputs
 init|=
@@ -230,7 +230,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|FromType
+name|FromDefinition
 name|fromType
 init|=
 name|inputs
@@ -257,7 +257,7 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|outputs
 init|=

@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|HeaderExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|method|HeaderExpression ()
 specifier|public

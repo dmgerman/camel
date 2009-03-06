@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|RubyExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|method|RubyExpression ()
 specifier|public

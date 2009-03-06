@@ -100,7 +100,7 @@ specifier|public
 class|class
 name|LongHeader
 extends|extends
-name|HeaderType
+name|HeaderDefinition
 block|{
 annotation|@
 name|XmlAttribute

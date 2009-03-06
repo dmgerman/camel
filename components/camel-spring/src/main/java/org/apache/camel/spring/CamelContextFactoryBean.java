@@ -236,7 +236,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionType
+name|ExceptionDefinition
 import|;
 end_import
 
@@ -264,7 +264,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptType
+name|InterceptDefinition
 import|;
 end_import
 
@@ -278,7 +278,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProceedType
+name|ProceedDefinition
 import|;
 end_import
 
@@ -292,7 +292,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -334,7 +334,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -350,7 +350,7 @@ name|model
 operator|.
 name|config
 operator|.
-name|PropertiesType
+name|PropertiesDefinition
 import|;
 end_import
 
@@ -366,7 +366,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|DataFormatsType
+name|DataFormatsDefinition
 import|;
 end_import
 
@@ -803,7 +803,7 @@ literal|false
 argument_list|)
 DECL|field|properties
 specifier|private
-name|PropertiesType
+name|PropertiesDefinition
 name|properties
 decl_stmt|;
 annotation|@
@@ -834,7 +834,7 @@ literal|"jmxAgent"
 argument_list|,
 name|type
 operator|=
-name|CamelJMXAgentType
+name|CamelJMXAgentDefinition
 operator|.
 name|class
 argument_list|,
@@ -844,7 +844,7 @@ literal|false
 argument_list|)
 DECL|field|camelJMXAgent
 specifier|private
-name|CamelJMXAgentType
+name|CamelJMXAgentDefinition
 name|camelJMXAgent
 decl_stmt|;
 annotation|@
@@ -896,7 +896,7 @@ literal|"proxy"
 argument_list|,
 name|type
 operator|=
-name|CamelProxyFactoryType
+name|CamelProxyFactoryDefinition
 operator|.
 name|class
 argument_list|,
@@ -914,7 +914,7 @@ literal|"export"
 argument_list|,
 name|type
 operator|=
-name|CamelServiceExporterType
+name|CamelServiceExporterDefinition
 operator|.
 name|class
 argument_list|,
@@ -987,7 +987,7 @@ literal|false
 argument_list|)
 DECL|field|dataFormats
 specifier|private
-name|DataFormatsType
+name|DataFormatsDefinition
 name|dataFormats
 decl_stmt|;
 annotation|@
@@ -1005,14 +1005,14 @@ DECL|field|exceptionClauses
 specifier|private
 name|List
 argument_list|<
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|>
 name|exceptionClauses
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1031,14 +1031,14 @@ DECL|field|intercepts
 specifier|private
 name|List
 argument_list|<
-name|InterceptType
+name|InterceptDefinition
 argument_list|>
 name|intercepts
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|InterceptType
+name|InterceptDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1057,14 +1057,14 @@ DECL|field|routes
 specifier|private
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routes
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1487,7 +1487,7 @@ block|}
 comment|// setup the intercepts
 for|for
 control|(
-name|RouteType
+name|RouteDefinition
 name|route
 range|:
 name|routes
@@ -1513,7 +1513,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|InterceptType
+name|InterceptDefinition
 name|intercept
 range|:
 name|intercepts
@@ -1521,7 +1521,7 @@ control|)
 block|{
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
@@ -1531,7 +1531,7 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
@@ -1540,7 +1540,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
@@ -1550,7 +1550,7 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
@@ -1559,7 +1559,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ProcessorType
+name|ProcessorDefinition
 name|output
 range|:
 name|route
@@ -1572,7 +1572,7 @@ if|if
 condition|(
 name|output
 operator|instanceof
-name|ExceptionType
+name|ExceptionDefinition
 condition|)
 block|{
 name|exceptionHandlers
@@ -1617,7 +1617,7 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
-name|InterceptType
+name|InterceptDefinition
 name|proxy
 init|=
 name|intercept
@@ -1644,7 +1644,7 @@ argument_list|)
 expr_stmt|;
 comment|// if there is a proceed in the interceptor proxy then we should add
 comment|// the current outputs to out route so we will proceed and continue to route to them
-name|ProceedType
+name|ProceedDefinition
 name|proceed
 init|=
 name|ProcessorTypeHelper
@@ -1656,7 +1656,7 @@ operator|.
 name|getOutputs
 argument_list|()
 argument_list|,
-name|ProceedType
+name|ProceedDefinition
 operator|.
 name|class
 argument_list|)
@@ -2152,7 +2152,7 @@ DECL|method|getRoutes ()
 specifier|public
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|getRoutes
 parameter_list|()
@@ -2161,14 +2161,14 @@ return|return
 name|routes
 return|;
 block|}
-DECL|method|setRoutes (List<RouteType> routes)
+DECL|method|setRoutes (List<RouteDefinition> routes)
 specifier|public
 name|void
 name|setRoutes
 parameter_list|(
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routes
 parameter_list|)
@@ -2184,7 +2184,7 @@ DECL|method|getIntercepts ()
 specifier|public
 name|List
 argument_list|<
-name|InterceptType
+name|InterceptDefinition
 argument_list|>
 name|getIntercepts
 parameter_list|()
@@ -2193,14 +2193,14 @@ return|return
 name|intercepts
 return|;
 block|}
-DECL|method|setIntercepts (List<InterceptType> intercepts)
+DECL|method|setIntercepts (List<InterceptDefinition> intercepts)
 specifier|public
 name|void
 name|setIntercepts
 parameter_list|(
 name|List
 argument_list|<
-name|InterceptType
+name|InterceptDefinition
 argument_list|>
 name|intercepts
 parameter_list|)
@@ -2310,7 +2310,7 @@ expr_stmt|;
 block|}
 DECL|method|getProperties ()
 specifier|public
-name|PropertiesType
+name|PropertiesDefinition
 name|getProperties
 parameter_list|()
 block|{
@@ -2318,12 +2318,12 @@ return|return
 name|properties
 return|;
 block|}
-DECL|method|setProperties (PropertiesType properties)
+DECL|method|setProperties (PropertiesDefinition properties)
 specifier|public
 name|void
 name|setProperties
 parameter_list|(
-name|PropertiesType
+name|PropertiesDefinition
 name|properties
 parameter_list|)
 block|{
@@ -2389,12 +2389,12 @@ return|return
 name|beanPostProcessor
 return|;
 block|}
-DECL|method|setCamelJMXAgent (CamelJMXAgentType agent)
+DECL|method|setCamelJMXAgent (CamelJMXAgentDefinition agent)
 specifier|public
 name|void
 name|setCamelJMXAgent
 parameter_list|(
-name|CamelJMXAgentType
+name|CamelJMXAgentDefinition
 name|agent
 parameter_list|)
 block|{
@@ -2457,7 +2457,7 @@ expr_stmt|;
 block|}
 DECL|method|getCamelJMXAgent ()
 specifier|public
-name|CamelJMXAgentType
+name|CamelJMXAgentDefinition
 name|getCamelJMXAgent
 parameter_list|()
 block|{
@@ -2892,12 +2892,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|setDataFormats (DataFormatsType dataFormats)
+DECL|method|setDataFormats (DataFormatsDefinition dataFormats)
 specifier|public
 name|void
 name|setDataFormats
 parameter_list|(
-name|DataFormatsType
+name|DataFormatsDefinition
 name|dataFormats
 parameter_list|)
 block|{
@@ -2910,7 +2910,7 @@ expr_stmt|;
 block|}
 DECL|method|getDataFormats ()
 specifier|public
-name|DataFormatsType
+name|DataFormatsDefinition
 name|getDataFormats
 parameter_list|()
 block|{
@@ -2918,14 +2918,14 @@ return|return
 name|dataFormats
 return|;
 block|}
-DECL|method|setExceptionClauses (List<ExceptionType> exceptionClauses)
+DECL|method|setExceptionClauses (List<ExceptionDefinition> exceptionClauses)
 specifier|public
 name|void
 name|setExceptionClauses
 parameter_list|(
 name|List
 argument_list|<
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|>
 name|exceptionClauses
 parameter_list|)
@@ -2941,7 +2941,7 @@ DECL|method|getExceptionClauses ()
 specifier|public
 name|List
 argument_list|<
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|>
 name|getExceptionClauses
 parameter_list|()

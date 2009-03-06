@@ -364,7 +364,7 @@ name|Converter
 DECL|method|toMessageType (Exchange exchange)
 specifier|public
 specifier|static
-name|MessageType
+name|MessageDefinition
 name|toMessageType
 parameter_list|(
 name|Exchange
@@ -386,18 +386,18 @@ name|Converter
 DECL|method|toMessageType (Message in)
 specifier|public
 specifier|static
-name|MessageType
+name|MessageDefinition
 name|toMessageType
 parameter_list|(
 name|Message
 name|in
 parameter_list|)
 block|{
-name|MessageType
+name|MessageDefinition
 name|answer
 init|=
 operator|new
-name|MessageType
+name|MessageDefinition
 argument_list|()
 decl_stmt|;
 name|answer

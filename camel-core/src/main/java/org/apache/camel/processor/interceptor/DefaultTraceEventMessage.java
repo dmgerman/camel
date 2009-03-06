@@ -72,7 +72,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -195,7 +195,7 @@ name|String
 name|causedByException
 decl_stmt|;
 comment|/**      * Creates a {@link DefaultTraceEventMessage} based on the given node it was traced while processing      * the current {@link Exchange}      *      * @param toNode the node where this trace is intercepted      * @param exchange the current {@link Exchange}      */
-DECL|method|DefaultTraceEventMessage (final Date timestamp, final ProcessorType toNode, final Exchange exchange)
+DECL|method|DefaultTraceEventMessage (final Date timestamp, final ProcessorDefinition toNode, final Exchange exchange)
 specifier|public
 name|DefaultTraceEventMessage
 parameter_list|(
@@ -204,7 +204,7 @@ name|Date
 name|timestamp
 parameter_list|,
 specifier|final
-name|ProcessorType
+name|ProcessorDefinition
 name|toNode
 parameter_list|,
 specifier|final
@@ -449,12 +449,12 @@ expr_stmt|;
 block|}
 comment|// Implementation
 comment|//---------------------------------------------------------------
-DECL|method|extractNode (ProcessorType node)
+DECL|method|extractNode (ProcessorDefinition node)
 specifier|private
 name|String
 name|extractNode
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|)
 block|{
@@ -535,7 +535,7 @@ operator|.
 name|getUnitOfWork
 argument_list|()
 decl_stmt|;
-name|ProcessorType
+name|ProcessorDefinition
 name|last
 init|=
 name|tuow

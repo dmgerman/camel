@@ -212,7 +212,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -1443,21 +1443,21 @@ DECL|method|getRouteDefinitions ()
 specifier|public
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|getRouteDefinitions
 parameter_list|()
 block|{
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|answer
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;

@@ -70,7 +70,7 @@ name|model
 operator|.
 name|language
 operator|.
-name|ExpressionType
+name|ExpressionDefinition
 import|;
 end_import
 
@@ -126,7 +126,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -159,7 +159,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -207,7 +207,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -222,12 +222,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|FilterType
+name|FilterDefinition
 name|filter
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|FilterType
+name|FilterDefinition
 operator|.
 name|class
 argument_list|,
@@ -255,7 +255,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -270,12 +270,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|FilterType
+name|FilterDefinition
 name|filter
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|FilterType
+name|FilterDefinition
 operator|.
 name|class
 argument_list|,
@@ -303,7 +303,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -318,12 +318,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|FilterType
+name|FilterDefinition
 name|filter
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|FilterType
+name|FilterDefinition
 operator|.
 name|class
 argument_list|,
@@ -351,7 +351,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -366,12 +366,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|FilterType
+name|FilterDefinition
 name|filter
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|FilterType
+name|FilterDefinition
 operator|.
 name|class
 argument_list|,
@@ -399,7 +399,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -414,12 +414,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|RecipientListType
+name|RecipientListDefinition
 name|node
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|RecipientListType
+name|RecipientListDefinition
 operator|.
 name|class
 argument_list|,
@@ -447,7 +447,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -482,7 +482,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -497,12 +497,12 @@ argument_list|,
 literal|"direct:start"
 argument_list|)
 expr_stmt|;
-name|TransformType
+name|TransformDefinition
 name|node
 init|=
 name|assertNthProcessorInstanceOf
 argument_list|(
-name|TransformType
+name|TransformDefinition
 operator|.
 name|class
 argument_list|,
@@ -541,7 +541,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -556,12 +556,12 @@ argument_list|,
 literal|"direct:start"
 argument_list|)
 expr_stmt|;
-name|SetBodyType
+name|SetBodyDefinition
 name|node
 init|=
 name|assertNthProcessorInstanceOf
 argument_list|(
-name|SetBodyType
+name|SetBodyDefinition
 operator|.
 name|class
 argument_list|,
@@ -600,7 +600,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -615,12 +615,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|SetHeaderType
+name|SetHeaderDefinition
 name|node
 init|=
 name|assertNthProcessorInstanceOf
 argument_list|(
-name|SetHeaderType
+name|SetHeaderDefinition
 operator|.
 name|class
 argument_list|,
@@ -669,7 +669,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -684,12 +684,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|SetHeaderType
+name|SetHeaderDefinition
 name|node
 init|=
 name|assertNthProcessorInstanceOf
 argument_list|(
-name|SetHeaderType
+name|SetHeaderDefinition
 operator|.
 name|class
 argument_list|,
@@ -738,7 +738,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -753,12 +753,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|SetOutHeaderType
+name|SetOutHeaderDefinition
 name|node
 init|=
 name|assertNthProcessorInstanceOf
 argument_list|(
-name|SetOutHeaderType
+name|SetOutHeaderDefinition
 operator|.
 name|class
 argument_list|,
@@ -807,7 +807,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -822,12 +822,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|SetOutHeaderType
+name|SetOutHeaderDefinition
 name|node
 init|=
 name|assertNthProcessorInstanceOf
 argument_list|(
-name|SetOutHeaderType
+name|SetOutHeaderDefinition
 operator|.
 name|class
 argument_list|,
@@ -876,7 +876,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -891,12 +891,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|ConvertBodyType
+name|ConvertBodyDefinition
 name|node
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|ConvertBodyType
+name|ConvertBodyDefinition
 operator|.
 name|class
 argument_list|,
@@ -934,7 +934,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -949,12 +949,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|RoutingSlipType
+name|RoutingSlipDefinition
 name|node
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|RoutingSlipType
+name|RoutingSlipDefinition
 operator|.
 name|class
 argument_list|,
@@ -973,7 +973,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|RoutingSlipType
+name|RoutingSlipDefinition
 operator|.
 name|DEFAULT_DELIMITER
 argument_list|,
@@ -992,7 +992,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -1007,12 +1007,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|RoutingSlipType
+name|RoutingSlipDefinition
 name|node
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|RoutingSlipType
+name|RoutingSlipDefinition
 operator|.
 name|class
 argument_list|,
@@ -1031,7 +1031,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|RoutingSlipType
+name|RoutingSlipDefinition
 operator|.
 name|DEFAULT_DELIMITER
 argument_list|,
@@ -1050,7 +1050,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -1065,12 +1065,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|RoutingSlipType
+name|RoutingSlipDefinition
 name|node
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|RoutingSlipType
+name|RoutingSlipDefinition
 operator|.
 name|class
 argument_list|,
@@ -1107,7 +1107,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -1154,7 +1154,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -1169,12 +1169,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|ChoiceType
+name|ChoiceDefinition
 name|choice
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|ChoiceType
+name|ChoiceDefinition
 operator|.
 name|class
 argument_list|,
@@ -1183,7 +1183,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|WhenType
+name|WhenDefinition
 argument_list|>
 name|whens
 init|=
@@ -1225,7 +1225,7 @@ argument_list|,
 literal|"seda:c"
 argument_list|)
 expr_stmt|;
-name|OtherwiseType
+name|OtherwiseDefinition
 name|otherwise
 init|=
 name|choice
@@ -1258,7 +1258,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -1273,12 +1273,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|SplitterType
+name|SplitterDefinition
 name|splitter
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|SplitterType
+name|SplitterDefinition
 operator|.
 name|class
 argument_list|,
@@ -1315,7 +1315,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -1330,12 +1330,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|LoadBalanceType
+name|LoadBalanceDefinition
 name|loadBalance
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|LoadBalanceType
+name|LoadBalanceDefinition
 operator|.
 name|class
 argument_list|,
@@ -1378,7 +1378,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -1393,12 +1393,12 @@ argument_list|,
 literal|"seda:a"
 argument_list|)
 expr_stmt|;
-name|LoadBalanceType
+name|LoadBalanceDefinition
 name|loadBalance
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|LoadBalanceType
+name|LoadBalanceDefinition
 operator|.
 name|class
 argument_list|,
@@ -1462,7 +1462,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -1470,12 +1470,12 @@ argument_list|(
 literal|"resequencerBatch.xml"
 argument_list|)
 decl_stmt|;
-name|ResequencerType
+name|ResequencerDefinition
 name|resequencer
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|ResequencerType
+name|ResequencerDefinition
 operator|.
 name|class
 argument_list|,
@@ -1533,7 +1533,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -1541,12 +1541,12 @@ argument_list|(
 literal|"resequencerStream.xml"
 argument_list|)
 decl_stmt|;
-name|ResequencerType
+name|ResequencerDefinition
 name|resequencer
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|ResequencerType
+name|ResequencerDefinition
 operator|.
 name|class
 argument_list|,
@@ -1604,7 +1604,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneRoute
@@ -1612,12 +1612,12 @@ argument_list|(
 literal|"loop.xml"
 argument_list|)
 decl_stmt|;
-name|LoopType
+name|LoopDefinition
 name|loop
 init|=
 name|assertOneProcessorInstanceOf
 argument_list|(
-name|LoopType
+name|LoopDefinition
 operator|.
 name|class
 argument_list|,
@@ -1650,7 +1650,7 @@ comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|assertOneRoute (String uri)
 specifier|protected
-name|RouteType
+name|RouteDefinition
 name|assertOneRoute
 parameter_list|(
 name|String
@@ -1667,7 +1667,7 @@ argument_list|(
 name|uri
 argument_list|)
 decl_stmt|;
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|assertOneElement
@@ -1682,19 +1682,19 @@ return|return
 name|route
 return|;
 block|}
-DECL|method|assertFrom (RouteType route, String uri)
+DECL|method|assertFrom (RouteDefinition route, String uri)
 specifier|protected
 name|void
 name|assertFrom
 parameter_list|(
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|,
 name|String
 name|uri
 parameter_list|)
 block|{
-name|FromType
+name|FromDefinition
 name|from
 init|=
 name|assertOneElement
@@ -1718,7 +1718,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertChildTo (String message, ProcessorType<?> route, String uri)
+DECL|method|assertChildTo (String message, ProcessorDefinition<?> route, String uri)
 specifier|protected
 name|void
 name|assertChildTo
@@ -1726,7 +1726,7 @@ parameter_list|(
 name|String
 name|message
 parameter_list|,
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
@@ -1736,7 +1736,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
@@ -1750,12 +1750,12 @@ name|getOutputs
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ToType
+name|ToDefinition
 name|value
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|ToType
+name|ToDefinition
 operator|.
 name|class
 argument_list|,
@@ -1799,7 +1799,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertTo (String message, ProcessorType<?> processor, String uri)
+DECL|method|assertTo (String message, ProcessorDefinition<?> processor, String uri)
 specifier|protected
 name|void
 name|assertTo
@@ -1807,7 +1807,7 @@ parameter_list|(
 name|String
 name|message
 parameter_list|,
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
@@ -1817,12 +1817,12 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|ToType
+name|ToDefinition
 name|value
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|ToType
+name|ToDefinition
 operator|.
 name|class
 argument_list|,
@@ -1866,12 +1866,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertChildTo (ProcessorType<?> route, String... uris)
+DECL|method|assertChildTo (ProcessorDefinition<?> route, String... uris)
 specifier|protected
 name|void
 name|assertChildTo
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
@@ -1884,7 +1884,7 @@ parameter_list|)
 block|{
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|list
 init|=
@@ -1934,12 +1934,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|assertChildTo (ProcessorType<?> route, String uri, int toIdx)
+DECL|method|assertChildTo (ProcessorDefinition<?> route, String uri, int toIdx)
 specifier|protected
 name|void
 name|assertChildTo
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
@@ -1954,7 +1954,7 @@ parameter_list|)
 block|{
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|list
 init|=
@@ -1980,7 +1980,7 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertOneProcessorInstanceOf (Class<T> type, ProcessorType<?> route)
+DECL|method|assertOneProcessorInstanceOf (Class<T> type, ProcessorDefinition<?> route)
 specifier|protected
 parameter_list|<
 name|T
@@ -1994,14 +1994,14 @@ name|T
 argument_list|>
 name|type
 parameter_list|,
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
 name|route
 parameter_list|)
 block|{
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
@@ -2024,7 +2024,7 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|assertNthProcessorInstanceOf (Class<T> type, ProcessorType<?> route, int index)
+DECL|method|assertNthProcessorInstanceOf (Class<T> type, ProcessorDefinition<?> route, int index)
 specifier|protected
 parameter_list|<
 name|T
@@ -2038,7 +2038,7 @@ name|T
 argument_list|>
 name|type
 parameter_list|,
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
@@ -2048,7 +2048,7 @@ name|int
 name|index
 parameter_list|)
 block|{
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
@@ -2073,12 +2073,12 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|assertExpression (ExpressionType expression, String language, String languageExpression)
+DECL|method|assertExpression (ExpressionDefinition expression, String language, String languageExpression)
 specifier|protected
 name|void
 name|assertExpression
 parameter_list|(
-name|ExpressionType
+name|ExpressionDefinition
 name|expression
 parameter_list|,
 name|String
@@ -2120,12 +2120,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertInterceptorRefs (ProcessorType route, String... names)
+DECL|method|assertInterceptorRefs (ProcessorDefinition route, String... names)
 specifier|protected
 name|void
 name|assertInterceptorRefs
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|route
 parameter_list|,
 name|String
@@ -2133,11 +2133,11 @@ modifier|...
 name|names
 parameter_list|)
 block|{
-name|RouteType
+name|RouteDefinition
 name|rt
 init|=
 operator|(
-name|RouteType
+name|RouteDefinition
 operator|)
 name|route
 decl_stmt|;
@@ -2149,7 +2149,7 @@ expr_stmt|;
 comment|// Rely on the fact that reference ids are unique
 name|List
 argument_list|<
-name|InterceptorType
+name|InterceptorDefinition
 argument_list|>
 name|interceptors
 init|=
@@ -2187,7 +2187,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|InterceptorType
+name|InterceptorDefinition
 name|it
 range|:
 name|interceptors

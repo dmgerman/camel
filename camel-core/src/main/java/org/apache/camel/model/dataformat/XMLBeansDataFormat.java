@@ -112,7 +112,7 @@ specifier|public
 class|class
 name|XMLBeansDataFormat
 extends|extends
-name|DataFormatType
+name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute

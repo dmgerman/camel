@@ -28,7 +28,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|WhenType
+name|WhenDefinition
 import|;
 end_import
 
@@ -52,17 +52,17 @@ decl_stmt|;
 DECL|field|when
 specifier|private
 specifier|final
-name|WhenType
+name|WhenDefinition
 name|when
 decl_stmt|;
-DECL|method|ExceptionPolicyKey (Class exceptionClass, WhenType when)
+DECL|method|ExceptionPolicyKey (Class exceptionClass, WhenDefinition when)
 specifier|public
 name|ExceptionPolicyKey
 parameter_list|(
 name|Class
 name|exceptionClass
 parameter_list|,
-name|WhenType
+name|WhenDefinition
 name|when
 parameter_list|)
 block|{
@@ -91,7 +91,7 @@ return|;
 block|}
 DECL|method|getWhen ()
 specifier|public
-name|WhenType
+name|WhenDefinition
 name|getWhen
 parameter_list|()
 block|{
@@ -119,7 +119,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|newInstance (Class exceptionClass, WhenType when)
+DECL|method|newInstance (Class exceptionClass, WhenDefinition when)
 specifier|public
 specifier|static
 name|ExceptionPolicyKey
@@ -128,7 +128,7 @@ parameter_list|(
 name|Class
 name|exceptionClass
 parameter_list|,
-name|WhenType
+name|WhenDefinition
 name|when
 parameter_list|)
 block|{

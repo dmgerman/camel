@@ -126,7 +126,7 @@ specifier|public
 class|class
 name|StringDataFormat
 extends|extends
-name|DataFormatType
+name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute

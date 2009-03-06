@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Container to hold {@link org.apache.camel.model.RouteType Route}.  *  * @version $Revision$  */
+comment|/**  * Container to hold {@link org.apache.camel.model.RouteDefinition Route}.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -56,19 +56,19 @@ name|XmlElementRef
 DECL|method|getRoutes ()
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|getRoutes
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the routes to use      *      * @param routes the routes      */
-DECL|method|setRoutes (List<RouteType> routes)
+DECL|method|setRoutes (List<RouteDefinition> routes)
 name|void
 name|setRoutes
 parameter_list|(
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routes
 parameter_list|)

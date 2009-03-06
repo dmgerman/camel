@@ -52,7 +52,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -201,7 +201,7 @@ name|showException
 init|=
 literal|true
 decl_stmt|;
-DECL|method|format (final TraceInterceptor interceptor, final ProcessorType node, final Exchange exchange)
+DECL|method|format (final TraceInterceptor interceptor, final ProcessorDefinition node, final Exchange exchange)
 specifier|public
 name|Object
 name|format
@@ -211,7 +211,7 @@ name|TraceInterceptor
 name|interceptor
 parameter_list|,
 specifier|final
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|,
 specifier|final
@@ -917,12 +917,12 @@ name|getId
 argument_list|()
 return|;
 block|}
-DECL|method|getNodeMessage (ProcessorType node)
+DECL|method|getNodeMessage (ProcessorDefinition node)
 specifier|protected
 name|String
 name|getNodeMessage
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|)
 block|{
@@ -977,7 +977,7 @@ return|;
 block|}
 block|}
 comment|/**      * Creates the breadcrumb based on whether this was a trace of      * an exchange coming out of or into a processing step. For example,       *<br/><tt>transform(body) -> ID-mojo/39713-1225468755256/2-0</tt>      *<br/>or      *<br/><tt>ID-mojo/39713-1225468755256/2-0 -> transform(body)</tt>      */
-DECL|method|extractBreadCrumb (TraceInterceptor interceptor, ProcessorType currentNode, Exchange exchange)
+DECL|method|extractBreadCrumb (TraceInterceptor interceptor, ProcessorDefinition currentNode, Exchange exchange)
 specifier|protected
 name|String
 name|extractBreadCrumb
@@ -985,7 +985,7 @@ parameter_list|(
 name|TraceInterceptor
 name|interceptor
 parameter_list|,
-name|ProcessorType
+name|ProcessorDefinition
 name|currentNode
 parameter_list|,
 name|Exchange
@@ -1107,7 +1107,7 @@ operator|.
 name|getUnitOfWork
 argument_list|()
 decl_stmt|;
-name|ProcessorType
+name|ProcessorDefinition
 name|prev
 init|=
 name|tuow

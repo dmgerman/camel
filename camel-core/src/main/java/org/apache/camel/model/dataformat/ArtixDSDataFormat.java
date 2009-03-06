@@ -154,7 +154,7 @@ specifier|public
 class|class
 name|ArtixDSDataFormat
 extends|extends
-name|DataFormatType
+name|DataFormatDefinition
 block|{
 DECL|field|LOG
 specifier|private

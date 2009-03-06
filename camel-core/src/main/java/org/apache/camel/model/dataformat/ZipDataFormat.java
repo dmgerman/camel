@@ -134,7 +134,7 @@ specifier|public
 class|class
 name|ZipDataFormat
 extends|extends
-name|DataFormatType
+name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute

@@ -98,7 +98,7 @@ specifier|public
 class|class
 name|CsvDataFormat
 extends|extends
-name|DataFormatType
+name|DataFormatDefinition
 block|{
 DECL|method|CsvDataFormat ()
 specifier|public

@@ -94,7 +94,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|FromType
+name|FromDefinition
 import|;
 end_import
 
@@ -108,7 +108,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -156,7 +156,7 @@ name|Exception
 block|{
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routes
 init|=
@@ -174,7 +174,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|routes
@@ -291,7 +291,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// lets mutate the route...
-name|FromType
+name|FromDefinition
 name|fromType
 init|=
 name|assertOneElement

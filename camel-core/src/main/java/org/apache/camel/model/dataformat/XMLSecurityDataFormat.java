@@ -112,7 +112,7 @@ specifier|public
 class|class
 name|XMLSecurityDataFormat
 extends|extends
-name|DataFormatType
+name|DataFormatDefinition
 block|{
 DECL|field|TRIPLEDES
 specifier|private

@@ -134,7 +134,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ChoiceType
+name|ChoiceDefinition
 import|;
 end_import
 
@@ -148,7 +148,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionType
+name|ExceptionDefinition
 import|;
 end_import
 
@@ -162,7 +162,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptType
+name|InterceptDefinition
 import|;
 end_import
 
@@ -176,7 +176,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -190,7 +190,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -204,7 +204,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RoutesType
+name|RoutesDefinition
 import|;
 end_import
 
@@ -266,11 +266,11 @@ argument_list|)
 decl_stmt|;
 DECL|field|routeCollection
 specifier|private
-name|RoutesType
+name|RoutesDefinition
 name|routeCollection
 init|=
 operator|new
-name|RoutesType
+name|RoutesDefinition
 argument_list|()
 decl_stmt|;
 DECL|field|routes
@@ -341,14 +341,14 @@ function_decl|;
 comment|/**      * Creates a new route from the given URI input      *      * @param uri  the from uri      * @return the builder      */
 DECL|method|from (String uri)
 specifier|public
-name|RouteType
+name|RouteDefinition
 name|from
 parameter_list|(
 name|String
 name|uri
 parameter_list|)
 block|{
-name|RouteType
+name|RouteDefinition
 name|answer
 init|=
 name|routeCollection
@@ -370,14 +370,14 @@ block|}
 comment|/**      * Creates a new route from the given endpoint      *      * @param endpoint  the from endpoint      * @return the builder      */
 DECL|method|from (Endpoint endpoint)
 specifier|public
-name|RouteType
+name|RouteDefinition
 name|from
 parameter_list|(
 name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-name|RouteType
+name|RouteDefinition
 name|answer
 init|=
 name|routeCollection
@@ -399,7 +399,7 @@ block|}
 comment|/**      * Creates a new route from the given URIs input      *      * @param uris  the from uris      * @return the builder      */
 DECL|method|from (String... uris)
 specifier|public
-name|RouteType
+name|RouteDefinition
 name|from
 parameter_list|(
 name|String
@@ -407,7 +407,7 @@ modifier|...
 name|uris
 parameter_list|)
 block|{
-name|RouteType
+name|RouteDefinition
 name|answer
 init|=
 name|routeCollection
@@ -429,7 +429,7 @@ block|}
 comment|/**      * Creates a new route from the given endpoint      *      * @param endpoints  the from endpoints      * @return the builder      */
 DECL|method|from (Endpoint... endpoints)
 specifier|public
-name|RouteType
+name|RouteDefinition
 name|from
 parameter_list|(
 name|Endpoint
@@ -437,7 +437,7 @@ modifier|...
 name|endpoints
 parameter_list|)
 block|{
-name|RouteType
+name|RouteDefinition
 name|answer
 init|=
 name|routeCollection
@@ -517,10 +517,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a route for an interceptor; use the {@link ProcessorType#proceed()} method      * to continue processing the underlying route being intercepted.      * @return the builder      */
+comment|/**      * Adds a route for an interceptor; use the {@link ProcessorDefinition#proceed()} method      * to continue processing the underlying route being intercepted.      * @return the builder      */
 DECL|method|intercept ()
 specifier|public
-name|InterceptType
+name|InterceptDefinition
 name|intercept
 parameter_list|()
 block|{
@@ -534,7 +534,7 @@ block|}
 comment|/**      * Applies a route for an interceptor if the given predicate is true      * otherwise the interceptor route is not applied      *      * @param predicate  the predicate      * @return the builder      */
 DECL|method|intercept (Predicate predicate)
 specifier|public
-name|ChoiceType
+name|ChoiceDefinition
 name|intercept
 parameter_list|(
 name|Predicate
@@ -553,7 +553,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exception exception to catch      * @return the builder      */
 DECL|method|onException (Class exception)
 specifier|public
-name|ExceptionType
+name|ExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
@@ -572,7 +572,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the builder      */
 DECL|method|onException (Class... exceptions)
 specifier|public
-name|ExceptionType
+name|ExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
@@ -580,7 +580,7 @@ modifier|...
 name|exceptions
 parameter_list|)
 block|{
-name|ExceptionType
+name|ExceptionDefinition
 name|last
 init|=
 literal|null
@@ -848,12 +848,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setRouteCollection (RoutesType routeCollection)
+DECL|method|setRouteCollection (RoutesDefinition routeCollection)
 specifier|public
 name|void
 name|setRouteCollection
 parameter_list|(
-name|RoutesType
+name|RoutesDefinition
 name|routeCollection
 parameter_list|)
 block|{
@@ -866,7 +866,7 @@ expr_stmt|;
 block|}
 DECL|method|getRouteCollection ()
 specifier|public
-name|RoutesType
+name|RoutesDefinition
 name|getRouteCollection
 parameter_list|()
 block|{
@@ -924,12 +924,12 @@ name|DefaultCamelContext
 argument_list|()
 return|;
 block|}
-DECL|method|configureRoute (RouteType route)
+DECL|method|configureRoute (RouteDefinition route)
 specifier|protected
 name|void
 name|configureRoute
 parameter_list|(
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|)
 block|{

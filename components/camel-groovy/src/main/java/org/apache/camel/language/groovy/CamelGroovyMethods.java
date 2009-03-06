@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ChoiceType
+name|ChoiceDefinition
 import|;
 end_import
 
@@ -78,7 +78,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|FilterType
+name|FilterDefinition
 import|;
 end_import
 
@@ -92,7 +92,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -114,13 +114,13 @@ parameter_list|()
 block|{
 comment|// Utility Class
 block|}
-DECL|method|filter (ProcessorType self, Closure filter)
+DECL|method|filter (ProcessorDefinition self, Closure filter)
 specifier|public
 specifier|static
-name|FilterType
+name|FilterDefinition
 name|filter
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|self
 parameter_list|,
 name|Closure
@@ -139,13 +139,13 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|when (ChoiceType self, Closure filter)
+DECL|method|when (ChoiceDefinition self, Closure filter)
 specifier|public
 specifier|static
-name|ChoiceType
+name|ChoiceDefinition
 name|when
 parameter_list|(
-name|ChoiceType
+name|ChoiceDefinition
 name|self
 parameter_list|,
 name|Closure

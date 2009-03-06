@@ -94,7 +94,7 @@ specifier|public
 class|class
 name|JsonDataFormat
 extends|extends
-name|DataFormatType
+name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute

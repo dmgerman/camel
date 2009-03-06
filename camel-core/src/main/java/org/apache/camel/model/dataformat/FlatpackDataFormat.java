@@ -98,7 +98,7 @@ specifier|public
 class|class
 name|FlatpackDataFormat
 extends|extends
-name|DataFormatType
+name|DataFormatDefinition
 block|{
 DECL|method|FlatpackDataFormat ()
 specifier|public

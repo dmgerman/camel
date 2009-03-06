@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|JXPathExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|method|JXPathExpression ()
 specifier|public

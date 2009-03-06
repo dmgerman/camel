@@ -194,7 +194,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionType
+name|ExceptionDefinition
 import|;
 end_import
 
@@ -208,7 +208,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -222,7 +222,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -795,7 +795,7 @@ comment|// Create a map (ProcessorType -> PerformanceCounter)
 comment|// to be passed to InstrumentationInterceptStrategy.
 name|Map
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|,
 name|PerformanceCounter
 argument_list|>
@@ -804,7 +804,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|,
 name|PerformanceCounter
 argument_list|>
@@ -815,7 +815,7 @@ comment|// The performance counter are MBeans that we register with MBeanServer.
 comment|// These performance counter will be embedded
 comment|// to InstrumentationProcessor and wrap the appropriate processor
 comment|// by InstrumentationInterceptStrategy.
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 name|routeContext
@@ -825,7 +825,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ProcessorType
+name|ProcessorDefinition
 name|processor
 range|:
 name|route
@@ -946,7 +946,7 @@ expr_stmt|;
 comment|// Add an InstrumentationProcessor at the beginning of each route and
 comment|// set up the interceptorMap for onRoutesAdd() method to register the
 comment|// ManagedRoute MBeans.
-name|RouteType
+name|RouteDefinition
 name|routeType
 init|=
 name|routeContext
@@ -1012,34 +1012,34 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|exceptionHandlers
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|outputs
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// separate out the exception handers in the outputs
 for|for
 control|(
-name|ProcessorType
+name|ProcessorDefinition
 name|output
 range|:
 name|routeType
@@ -1052,7 +1052,7 @@ if|if
 condition|(
 name|output
 operator|instanceof
-name|ExceptionType
+name|ExceptionDefinition
 condition|)
 block|{
 name|exceptionHandlers
@@ -1109,7 +1109,7 @@ expr_stmt|;
 comment|// add the output
 for|for
 control|(
-name|ProcessorType
+name|ProcessorDefinition
 name|processorType
 range|:
 name|outputs

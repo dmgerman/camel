@@ -262,7 +262,7 @@ literal|false
 argument_list|)
 DECL|field|description
 specifier|private
-name|Description
+name|DescriptionDefinition
 name|description
 decl_stmt|;
 comment|/**      * Gets the value of the id property.      */
@@ -295,7 +295,7 @@ expr_stmt|;
 block|}
 DECL|method|getDescription ()
 specifier|public
-name|Description
+name|DescriptionDefinition
 name|getDescription
 parameter_list|()
 block|{
@@ -303,12 +303,12 @@ return|return
 name|description
 return|;
 block|}
-DECL|method|setDescription (Description description)
+DECL|method|setDescription (DescriptionDefinition description)
 specifier|public
 name|void
 name|setDescription
 parameter_list|(
-name|Description
+name|DescriptionDefinition
 name|description
 parameter_list|)
 block|{
@@ -383,7 +383,7 @@ block|{
 name|description
 operator|=
 operator|new
-name|Description
+name|DescriptionDefinition
 argument_list|()
 expr_stmt|;
 block|}
@@ -412,7 +412,7 @@ block|{
 name|description
 operator|=
 operator|new
-name|Description
+name|DescriptionDefinition
 argument_list|()
 expr_stmt|;
 block|}

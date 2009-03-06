@@ -150,9 +150,9 @@ specifier|public
 class|class
 name|ProcessorRef
 extends|extends
-name|OutputType
+name|OutputDefinition
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 block|{
 annotation|@

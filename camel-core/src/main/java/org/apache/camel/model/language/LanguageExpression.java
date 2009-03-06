@@ -98,7 +98,7 @@ specifier|public
 class|class
 name|LanguageExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 annotation|@
 name|XmlAttribute

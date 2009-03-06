@@ -344,7 +344,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -360,7 +360,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|DataFormatType
+name|DataFormatDefinition
 import|;
 end_import
 
@@ -867,14 +867,14 @@ DECL|field|routeDefinitions
 specifier|private
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routeDefinitions
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -914,7 +914,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DataFormatType
+name|DataFormatDefinition
 argument_list|>
 name|dataFormats
 init|=
@@ -923,7 +923,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|DataFormatType
+name|DataFormatDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -2596,14 +2596,14 @@ expr_stmt|;
 block|}
 comment|//addRouteCollection(routeList);
 block|}
-DECL|method|addRouteDefinitions (Collection<RouteType> routeDefinitions)
+DECL|method|addRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 specifier|public
 name|void
 name|addRouteDefinitions
 parameter_list|(
 name|Collection
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routeDefinitions
 parameter_list|)
@@ -2612,7 +2612,7 @@ name|Exception
 block|{
 for|for
 control|(
-name|RouteType
+name|RouteDefinition
 name|routeDefinition
 range|:
 name|routeDefinitions
@@ -2648,14 +2648,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|removeRouteDefinitions (Collection<RouteType> routeDefinitions)
+DECL|method|removeRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 specifier|public
 name|void
 name|removeRouteDefinitions
 parameter_list|(
 name|Collection
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routeDefinitions
 parameter_list|)
@@ -2673,7 +2673,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|RouteType
+name|RouteDefinition
 name|routeDefinition
 range|:
 name|routeDefinitions
@@ -2686,12 +2686,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getRouteStatus (RouteType route)
+DECL|method|getRouteStatus (RouteDefinition route)
 specifier|public
 name|ServiceStatus
 name|getRouteStatus
 parameter_list|(
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|)
 block|{
@@ -2743,12 +2743,12 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|startRoute (RouteType route)
+DECL|method|startRoute (RouteDefinition route)
 specifier|public
 name|void
 name|startRoute
 parameter_list|(
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|)
 throws|throws
@@ -2803,12 +2803,12 @@ name|routeService
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|stopRoute (RouteType route)
+DECL|method|stopRoute (RouteDefinition route)
 specifier|public
 name|void
 name|stopRoute
 parameter_list|(
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|)
 throws|throws
@@ -3295,7 +3295,7 @@ DECL|method|getRouteDefinitions ()
 specifier|public
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|getRouteDefinitions
 parameter_list|()
@@ -3749,14 +3749,14 @@ literal|") started"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|startRouteDefinitions (Collection<RouteType> list)
+DECL|method|startRouteDefinitions (Collection<RouteDefinition> list)
 specifier|protected
 name|void
 name|startRouteDefinitions
 parameter_list|(
 name|Collection
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|list
 parameter_list|)
@@ -3772,7 +3772,7 @@ condition|)
 block|{
 for|for
 control|(
-name|RouteType
+name|RouteDefinition
 name|route
 range|:
 name|list
@@ -4224,7 +4224,7 @@ name|isStarting
 argument_list|()
 return|;
 block|}
-DECL|method|setDataFormats (Map<String, DataFormatType> dataFormats)
+DECL|method|setDataFormats (Map<String, DataFormatDefinition> dataFormats)
 specifier|public
 name|void
 name|setDataFormats
@@ -4233,7 +4233,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DataFormatType
+name|DataFormatDefinition
 argument_list|>
 name|dataFormats
 parameter_list|)
@@ -4251,7 +4251,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DataFormatType
+name|DataFormatDefinition
 argument_list|>
 name|getDataFormats
 parameter_list|()

@@ -48,7 +48,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -96,7 +96,7 @@ DECL|field|counterMap
 specifier|private
 name|Map
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|,
 name|PerformanceCounter
 argument_list|>
@@ -107,7 +107,7 @@ specifier|private
 name|RouteContext
 name|routeContext
 decl_stmt|;
-DECL|method|InstrumentationErrorHandlerWrappingStrategy (RouteContext routeContext, Map<ProcessorType, PerformanceCounter> counterMap)
+DECL|method|InstrumentationErrorHandlerWrappingStrategy (RouteContext routeContext, Map<ProcessorDefinition, PerformanceCounter> counterMap)
 specifier|public
 name|InstrumentationErrorHandlerWrappingStrategy
 parameter_list|(
@@ -116,7 +116,7 @@ name|routeContext
 parameter_list|,
 name|Map
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|,
 name|PerformanceCounter
 argument_list|>
@@ -136,12 +136,12 @@ operator|=
 name|routeContext
 expr_stmt|;
 block|}
-DECL|method|wrapProcessorInErrorHandler (ProcessorType processorType, Processor target)
+DECL|method|wrapProcessorInErrorHandler (ProcessorDefinition processorType, Processor target)
 specifier|public
 name|Processor
 name|wrapProcessorInErrorHandler
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|processorType
 parameter_list|,
 name|Processor

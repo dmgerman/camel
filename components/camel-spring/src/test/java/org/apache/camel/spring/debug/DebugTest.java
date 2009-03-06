@@ -72,7 +72,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -272,7 +272,7 @@ decl_stmt|;
 comment|// now lets get the routes
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routes
 init|=

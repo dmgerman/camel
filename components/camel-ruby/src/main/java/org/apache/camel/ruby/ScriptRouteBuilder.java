@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -78,7 +78,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -142,7 +142,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|node
 specifier|protected
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 decl_stmt|;
 DECL|method|ScriptRouteBuilder ()
@@ -166,12 +166,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|configureRoute (RouteType route)
+DECL|method|configureRoute (RouteDefinition route)
 specifier|protected
 name|void
 name|configureRoute
 parameter_list|(
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|)
 block|{
@@ -191,7 +191,7 @@ expr_stmt|;
 block|}
 DECL|method|to (String uri)
 specifier|public
-name|ProcessorType
+name|ProcessorDefinition
 name|to
 parameter_list|(
 name|String
@@ -210,7 +210,7 @@ return|;
 block|}
 DECL|method|to (Endpoint endpoint)
 specifier|public
-name|ProcessorType
+name|ProcessorDefinition
 name|to
 parameter_list|(
 name|Endpoint
@@ -229,7 +229,7 @@ return|;
 block|}
 DECL|method|getNode ()
 specifier|public
-name|ProcessorType
+name|ProcessorDefinition
 name|getNode
 parameter_list|()
 block|{
@@ -252,12 +252,12 @@ return|return
 name|node
 return|;
 block|}
-DECL|method|setNode (ProcessorType node)
+DECL|method|setNode (ProcessorDefinition node)
 specifier|public
 name|void
 name|setNode
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|)
 block|{

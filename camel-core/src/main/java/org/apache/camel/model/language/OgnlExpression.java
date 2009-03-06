@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|OgnlExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|method|OgnlExpression ()
 specifier|public

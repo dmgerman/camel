@@ -98,7 +98,7 @@ specifier|public
 class|class
 name|HL7DataFormat
 extends|extends
-name|DataFormatType
+name|DataFormatDefinition
 block|{
 DECL|method|HL7DataFormat ()
 specifier|public

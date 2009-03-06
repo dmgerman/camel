@@ -322,7 +322,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -336,7 +336,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RoutesType
+name|RoutesDefinition
 import|;
 end_import
 
@@ -399,7 +399,7 @@ name|jaxbContext
 expr_stmt|;
 block|}
 comment|/**      * Write the specified 'routeTypes' to 'fileName' as XML using JAXB.      */
-DECL|method|marshalRoutesUsingJaxb (String fileName, List<RouteType> routeTypes)
+DECL|method|marshalRoutesUsingJaxb (String fileName, List<RouteDefinition> routeTypes)
 specifier|public
 name|void
 name|marshalRoutesUsingJaxb
@@ -409,7 +409,7 @@ name|fileName
 parameter_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routeTypes
 parameter_list|)
@@ -471,7 +471,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|RouteType
+name|RouteDefinition
 name|routeType
 range|:
 name|routeTypes
@@ -719,7 +719,7 @@ name|XmlRootElement
 name|annotation
 init|=
 operator|(
-name|RoutesType
+name|RoutesDefinition
 operator|.
 name|class
 operator|)

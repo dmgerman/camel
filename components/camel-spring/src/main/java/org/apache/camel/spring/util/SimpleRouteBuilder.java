@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -160,7 +160,7 @@ range|:
 name|fromUris
 control|)
 block|{
-name|ProcessorType
+name|ProcessorDefinition
 name|route
 init|=
 name|from
@@ -438,12 +438,12 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-DECL|method|addBeanCall (ProcessorType route)
+DECL|method|addBeanCall (ProcessorDefinition route)
 specifier|protected
-name|ProcessorType
+name|ProcessorDefinition
 name|addBeanCall
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|route
 parameter_list|)
 block|{

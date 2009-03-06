@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -114,7 +114,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|DataFormatType
+name|DataFormatDefinition
 import|;
 end_import
 
@@ -320,7 +320,7 @@ name|DataFormatClause
 parameter_list|<
 name|T
 extends|extends
-name|ProcessorType
+name|ProcessorDefinition
 parameter_list|>
 block|{
 DECL|field|processorType
@@ -884,12 +884,12 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|dataFormat (DataFormatType dataFormatType)
+DECL|method|dataFormat (DataFormatDefinition dataFormatType)
 specifier|private
 name|T
 name|dataFormat
 parameter_list|(
-name|DataFormatType
+name|DataFormatDefinition
 name|dataFormatType
 parameter_list|)
 block|{

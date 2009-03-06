@@ -98,7 +98,7 @@ specifier|public
 class|class
 name|RssDataFormat
 extends|extends
-name|DataFormatType
+name|DataFormatDefinition
 block|{
 DECL|method|RssDataFormat ()
 specifier|public

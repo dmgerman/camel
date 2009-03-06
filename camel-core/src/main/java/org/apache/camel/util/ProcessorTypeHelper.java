@@ -36,7 +36,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ChoiceType
+name|ChoiceDefinition
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|WhenType
+name|WhenDefinition
 import|;
 end_import
 
@@ -90,7 +90,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|findFirstTypeInOutputs (List<ProcessorType> outputs, Class<T> type)
+DECL|method|findFirstTypeInOutputs (List<ProcessorDefinition> outputs, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -101,7 +101,7 @@ name|findFirstTypeInOutputs
 parameter_list|(
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|outputs
 parameter_list|,
@@ -130,7 +130,7 @@ return|;
 block|}
 for|for
 control|(
-name|ProcessorType
+name|ProcessorDefinition
 name|out
 range|:
 name|outputs
@@ -160,20 +160,20 @@ if|if
 condition|(
 name|out
 operator|instanceof
-name|ChoiceType
+name|ChoiceDefinition
 condition|)
 block|{
-name|ChoiceType
+name|ChoiceDefinition
 name|choice
 init|=
 operator|(
-name|ChoiceType
+name|ChoiceDefinition
 operator|)
 name|out
 decl_stmt|;
 for|for
 control|(
-name|WhenType
+name|WhenDefinition
 name|when
 range|:
 name|choice
@@ -184,7 +184,7 @@ control|)
 block|{
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|children
 init|=
@@ -217,7 +217,7 @@ block|}
 block|}
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|children
 init|=
@@ -254,7 +254,7 @@ block|}
 comment|// try children as well
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|children
 init|=

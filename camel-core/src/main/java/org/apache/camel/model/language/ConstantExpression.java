@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|ConstantExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|method|ConstantExpression ()
 specifier|public

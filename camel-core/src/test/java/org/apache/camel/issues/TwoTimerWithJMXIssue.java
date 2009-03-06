@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -197,12 +197,12 @@ name|MyTracer
 implements|implements
 name|InterceptStrategy
 block|{
-DECL|method|wrapProcessorInInterceptors (ProcessorType processorType, Processor target)
+DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorType, Processor target)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|processorType
 parameter_list|,
 name|Processor

@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|PropertyExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|method|PropertyExpression ()
 specifier|public

@@ -257,7 +257,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 operator|.
 name|class
 argument_list|)
@@ -295,7 +295,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|DataFormatType
+name|DataFormatDefinition
 operator|.
 name|class
 argument_list|)
@@ -314,7 +314,7 @@ name|model
 operator|.
 name|language
 operator|.
-name|ExpressionType
+name|ExpressionDefinition
 operator|.
 name|class
 argument_list|)
@@ -333,7 +333,7 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
-name|LoadBalancerType
+name|LoadBalancerDefinition
 operator|.
 name|class
 argument_list|)

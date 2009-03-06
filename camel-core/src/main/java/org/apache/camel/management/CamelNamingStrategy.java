@@ -138,7 +138,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -819,8 +819,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
-comment|/**      * Implements the naming strategy for a {@link ProcessorType}.      * The convention used for a {@link ProcessorType} ObjectName is:      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,route=&lt;route-name&gt;,type=processor,name=&lt;processor-name&gt;,nodeid=&lt;node-id&gt;</tt>      */
-DECL|method|getObjectName (RouteContext routeContext, ProcessorType processor)
+comment|/**      * Implements the naming strategy for a {@link ProcessorDefinition}.      * The convention used for a {@link ProcessorDefinition} ObjectName is:      *<tt>&lt;domain&gt;:context=&lt;context-name&gt;,route=&lt;route-name&gt;,type=processor,name=&lt;processor-name&gt;,nodeid=&lt;node-id&gt;</tt>      */
+DECL|method|getObjectName (RouteContext routeContext, ProcessorDefinition processor)
 specifier|public
 name|ObjectName
 name|getObjectName
@@ -828,7 +828,7 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|,
-name|ProcessorType
+name|ProcessorDefinition
 name|processor
 parameter_list|)
 throws|throws

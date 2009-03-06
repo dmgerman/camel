@@ -89,7 +89,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MessageType
+name|MessageDefinition
 name|messageType
 init|=
 name|JaxbConverter

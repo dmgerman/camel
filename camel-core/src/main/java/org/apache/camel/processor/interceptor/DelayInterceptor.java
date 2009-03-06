@@ -52,7 +52,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -85,7 +85,7 @@ block|{
 DECL|field|node
 specifier|private
 specifier|final
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 decl_stmt|;
 DECL|field|delayer
@@ -93,11 +93,11 @@ specifier|private
 name|Delayer
 name|delayer
 decl_stmt|;
-DECL|method|DelayInterceptor (ProcessorType node, Processor target, Delayer delayer)
+DECL|method|DelayInterceptor (ProcessorDefinition node, Processor target, Delayer delayer)
 specifier|public
 name|DelayInterceptor
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|,
 name|Processor

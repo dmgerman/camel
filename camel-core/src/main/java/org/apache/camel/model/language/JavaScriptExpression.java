@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|JavaScriptExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|method|JavaScriptExpression ()
 specifier|public

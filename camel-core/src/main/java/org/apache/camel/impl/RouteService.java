@@ -82,7 +82,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the runtime objects for a given {@link RouteType} so that it can be stopped independently  * of other routes  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents the runtime objects for a given {@link RouteDefinition} so that it can be stopped independently  * of other routes  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -135,7 +135,7 @@ decl_stmt|;
 DECL|field|routeType
 specifier|private
 specifier|final
-name|RouteType
+name|RouteDefinition
 name|routeType
 decl_stmt|;
 DECL|field|routeContexts
@@ -161,14 +161,14 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
-DECL|method|RouteService (DefaultCamelContext camelContext, RouteType routeType, List<RouteContext> routeContexts, Collection<Route> routes)
+DECL|method|RouteService (DefaultCamelContext camelContext, RouteDefinition routeType, List<RouteContext> routeContexts, Collection<Route> routes)
 specifier|public
 name|RouteService
 parameter_list|(
 name|DefaultCamelContext
 name|camelContext
 parameter_list|,
-name|RouteType
+name|RouteDefinition
 name|routeType
 parameter_list|,
 name|List
@@ -253,7 +253,7 @@ return|;
 block|}
 DECL|method|getRouteType ()
 specifier|public
-name|RouteType
+name|RouteDefinition
 name|getRouteType
 parameter_list|()
 block|{

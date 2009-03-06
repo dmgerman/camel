@@ -166,7 +166,7 @@ specifier|public
 class|class
 name|InterceptorRef
 extends|extends
-name|InterceptorType
+name|InterceptorDefinition
 block|{
 annotation|@
 name|XmlAttribute

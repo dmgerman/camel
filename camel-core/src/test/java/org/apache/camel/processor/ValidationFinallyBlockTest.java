@@ -92,7 +92,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|TryType
+name|TryDefinition
 import|;
 end_import
 
@@ -305,7 +305,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|TryType
+name|TryDefinition
 name|tryType
 init|=
 name|from

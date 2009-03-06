@@ -62,7 +62,7 @@ name|converter
 operator|.
 name|jaxb
 operator|.
-name|MessageType
+name|MessageDefinition
 import|;
 end_import
 
@@ -119,14 +119,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MessageType
+name|MessageDefinition
 name|message
 init|=
 name|converter
 operator|.
 name|convertTo
 argument_list|(
-name|MessageType
+name|MessageDefinition
 operator|.
 name|class
 argument_list|,

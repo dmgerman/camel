@@ -158,7 +158,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionType
+name|ExceptionDefinition
 import|;
 end_import
 
@@ -185,23 +185,23 @@ name|HashMap
 argument_list|<
 name|ExceptionPolicyKey
 argument_list|,
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|>
 name|policies
 decl_stmt|;
 DECL|field|type1
 specifier|private
-name|ExceptionType
+name|ExceptionDefinition
 name|type1
 decl_stmt|;
 DECL|field|type2
 specifier|private
-name|ExceptionType
+name|ExceptionDefinition
 name|type2
 decl_stmt|;
 DECL|field|type3
 specifier|private
-name|ExceptionType
+name|ExceptionDefinition
 name|type3
 decl_stmt|;
 DECL|method|setupPolicies ()
@@ -223,14 +223,14 @@ name|HashMap
 argument_list|<
 name|ExceptionPolicyKey
 argument_list|,
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|>
 argument_list|()
 expr_stmt|;
 name|type1
 operator|=
 operator|new
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|(
 name|CamelExchangeException
 operator|.
@@ -240,7 +240,7 @@ expr_stmt|;
 name|type2
 operator|=
 operator|new
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|(
 name|Exception
 operator|.
@@ -250,7 +250,7 @@ expr_stmt|;
 name|type3
 operator|=
 operator|new
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|(
 name|IOException
 operator|.
@@ -326,14 +326,14 @@ name|HashMap
 argument_list|<
 name|ExceptionPolicyKey
 argument_list|,
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|>
 argument_list|()
 expr_stmt|;
 name|type1
 operator|=
 operator|new
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|(
 name|CamelExchangeException
 operator|.
@@ -343,7 +343,7 @@ expr_stmt|;
 name|type3
 operator|=
 operator|new
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|(
 name|IOException
 operator|.
@@ -402,14 +402,14 @@ name|HashMap
 argument_list|<
 name|ExceptionPolicyKey
 argument_list|,
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|>
 argument_list|()
 expr_stmt|;
 name|type1
 operator|=
 operator|new
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|(
 name|FileNotFoundException
 operator|.
@@ -419,7 +419,7 @@ expr_stmt|;
 name|type2
 operator|=
 operator|new
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|(
 name|ConnectException
 operator|.
@@ -429,7 +429,7 @@ expr_stmt|;
 name|type3
 operator|=
 operator|new
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|(
 name|IOException
 operator|.
@@ -494,7 +494,7 @@ block|{
 name|setupPolicies
 argument_list|()
 expr_stmt|;
-name|ExceptionType
+name|ExceptionDefinition
 name|result
 init|=
 name|strategy
@@ -531,7 +531,7 @@ block|{
 name|setupPolicies
 argument_list|()
 expr_stmt|;
-name|ExceptionType
+name|ExceptionDefinition
 name|result
 init|=
 name|strategy
@@ -566,7 +566,7 @@ block|{
 name|setupPolicies
 argument_list|()
 expr_stmt|;
-name|ExceptionType
+name|ExceptionDefinition
 name|result
 init|=
 name|strategy
@@ -601,7 +601,7 @@ block|{
 name|setupPolicies
 argument_list|()
 expr_stmt|;
-name|ExceptionType
+name|ExceptionDefinition
 name|result
 init|=
 name|strategy
@@ -682,7 +682,7 @@ block|{
 name|setupPolicies
 argument_list|()
 expr_stmt|;
-name|ExceptionType
+name|ExceptionDefinition
 name|result
 init|=
 name|strategy
@@ -763,7 +763,7 @@ block|{
 name|setupPolicies
 argument_list|()
 expr_stmt|;
-name|ExceptionType
+name|ExceptionDefinition
 name|result
 init|=
 name|strategy
@@ -826,7 +826,7 @@ block|{
 name|setupPolicies
 argument_list|()
 expr_stmt|;
-name|ExceptionType
+name|ExceptionDefinition
 name|result
 init|=
 name|strategy
@@ -859,7 +859,7 @@ block|{
 name|setupPoliciesNoTopLevelException
 argument_list|()
 expr_stmt|;
-name|ExceptionType
+name|ExceptionDefinition
 name|result
 init|=
 name|strategy
@@ -912,7 +912,7 @@ literal|"Somefile not found"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ExceptionType
+name|ExceptionDefinition
 name|result
 init|=
 name|strategy
@@ -963,7 +963,7 @@ literal|"Somefile not found"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ExceptionType
+name|ExceptionDefinition
 name|result
 init|=
 name|strategy
@@ -1018,7 +1018,7 @@ literal|"Not connected"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ExceptionType
+name|ExceptionDefinition
 name|result
 init|=
 name|strategy
@@ -1069,7 +1069,7 @@ literal|"Bad url"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ExceptionType
+name|ExceptionDefinition
 name|result
 init|=
 name|strategy

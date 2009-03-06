@@ -126,7 +126,7 @@ name|model
 operator|.
 name|language
 operator|.
-name|ExpressionType
+name|ExpressionDefinition
 import|;
 end_import
 
@@ -175,16 +175,16 @@ specifier|public
 class|class
 name|ExpressionNode
 extends|extends
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 block|{
 annotation|@
 name|XmlElementRef
 DECL|field|expression
 specifier|private
-name|ExpressionType
+name|ExpressionDefinition
 name|expression
 decl_stmt|;
 annotation|@
@@ -193,14 +193,14 @@ DECL|field|outputs
 specifier|private
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|outputs
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -209,11 +209,11 @@ specifier|public
 name|ExpressionNode
 parameter_list|()
 block|{     }
-DECL|method|ExpressionNode (ExpressionType expression)
+DECL|method|ExpressionNode (ExpressionDefinition expression)
 specifier|public
 name|ExpressionNode
 parameter_list|(
-name|ExpressionType
+name|ExpressionDefinition
 name|expression
 parameter_list|)
 block|{
@@ -242,7 +242,7 @@ block|{
 name|setExpression
 argument_list|(
 operator|new
-name|ExpressionType
+name|ExpressionDefinition
 argument_list|(
 name|expression
 argument_list|)
@@ -268,7 +268,7 @@ block|{
 name|setExpression
 argument_list|(
 operator|new
-name|ExpressionType
+name|ExpressionDefinition
 argument_list|(
 name|predicate
 argument_list|)
@@ -290,7 +290,7 @@ return|;
 block|}
 DECL|method|getExpression ()
 specifier|public
-name|ExpressionType
+name|ExpressionDefinition
 name|getExpression
 parameter_list|()
 block|{
@@ -298,12 +298,12 @@ return|return
 name|expression
 return|;
 block|}
-DECL|method|setExpression (ExpressionType expression)
+DECL|method|setExpression (ExpressionDefinition expression)
 specifier|public
 name|void
 name|setExpression
 parameter_list|(
-name|ExpressionType
+name|ExpressionDefinition
 name|expression
 parameter_list|)
 block|{
@@ -318,7 +318,7 @@ DECL|method|getOutputs ()
 specifier|public
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -327,14 +327,14 @@ return|return
 name|outputs
 return|;
 block|}
-DECL|method|setOutputs (List<ProcessorType> outputs)
+DECL|method|setOutputs (List<ProcessorDefinition> outputs)
 specifier|public
 name|void
 name|setOutputs
 parameter_list|(
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|outputs
 parameter_list|)
@@ -413,12 +413,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|configureChild (ProcessorType output)
+DECL|method|configureChild (ProcessorDefinition output)
 specifier|protected
 name|void
 name|configureChild
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|output
 parameter_list|)
 block|{

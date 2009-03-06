@@ -140,7 +140,7 @@ specifier|public
 class|class
 name|TokenizerExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 annotation|@
 name|XmlAttribute

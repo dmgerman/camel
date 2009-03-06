@@ -92,7 +92,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -202,7 +202,7 @@ DECL|field|routeList
 specifier|private
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|routeList
 decl_stmt|;
@@ -434,13 +434,13 @@ return|return
 name|id
 return|;
 block|}
-DECL|method|addInterceptedNode (ProcessorType node)
+DECL|method|addInterceptedNode (ProcessorDefinition node)
 specifier|public
 specifier|synchronized
 name|void
 name|addInterceptedNode
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|)
 block|{
@@ -456,7 +456,7 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -472,7 +472,7 @@ block|}
 DECL|method|getLastInterceptedNode ()
 specifier|public
 specifier|synchronized
-name|ProcessorType
+name|ProcessorDefinition
 name|getLastInterceptedNode
 parameter_list|()
 block|{
@@ -510,7 +510,7 @@ DECL|method|getInterceptedNodes ()
 specifier|public
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|getInterceptedNodes
 parameter_list|()

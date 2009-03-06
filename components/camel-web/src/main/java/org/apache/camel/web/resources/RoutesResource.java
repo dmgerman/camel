@@ -122,7 +122,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -136,7 +136,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RoutesType
+name|RoutesDefinition
 import|;
 end_import
 
@@ -202,15 +202,15 @@ block|}
 argument_list|)
 DECL|method|getRouteDefinitions ()
 specifier|public
-name|RoutesType
+name|RoutesDefinition
 name|getRouteDefinitions
 parameter_list|()
 block|{
-name|RoutesType
+name|RoutesDefinition
 name|answer
 init|=
 operator|new
-name|RoutesType
+name|RoutesDefinition
 argument_list|()
 decl_stmt|;
 name|CamelContext
@@ -228,7 +228,7 @@ condition|)
 block|{
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|list
 init|=
@@ -308,7 +308,7 @@ parameter_list|)
 block|{
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|list
 init|=
@@ -317,7 +317,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|RouteType
+name|RouteDefinition
 name|routeType
 range|:
 name|list
@@ -357,7 +357,7 @@ DECL|method|getRoutes ()
 specifier|public
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|getRoutes
 parameter_list|()

@@ -166,7 +166,7 @@ specifier|public
 class|class
 name|FailOverLoadBalanceStrategy
 extends|extends
-name|LoadBalancerType
+name|LoadBalancerDefinition
 block|{
 annotation|@
 name|XmlAttribute

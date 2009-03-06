@@ -80,7 +80,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|TryType
+name|TryDefinition
 import|;
 end_import
 
@@ -284,7 +284,7 @@ literal|25
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|TryType
+name|TryDefinition
 name|tryType
 init|=
 name|from

@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|GroovyExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|method|GroovyExpression ()
 specifier|public

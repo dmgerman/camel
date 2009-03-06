@@ -158,7 +158,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionType
+name|ExceptionDefinition
 import|;
 end_import
 
@@ -1320,7 +1320,7 @@ name|e
 argument_list|)
 expr_stmt|;
 comment|// find the error handler to use (if any)
-name|ExceptionType
+name|ExceptionDefinition
 name|exceptionPolicy
 init|=
 name|getExceptionPolicy

@@ -154,7 +154,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -190,7 +190,7 @@ expr_stmt|;
 block|}
 DECL|method|getRoute ()
 specifier|public
-name|RouteType
+name|RouteDefinition
 name|getRoute
 parameter_list|()
 block|{

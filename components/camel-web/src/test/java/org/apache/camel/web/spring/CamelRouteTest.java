@@ -82,7 +82,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RoutesType
+name|RoutesDefinition
 import|;
 end_import
 
@@ -183,7 +183,7 @@ argument_list|(
 name|camelContext
 argument_list|)
 decl_stmt|;
-name|RoutesType
+name|RoutesDefinition
 name|routes
 init|=
 name|resource
@@ -196,7 +196,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|list
 init|=
@@ -224,7 +224,7 @@ name|JAXBContext
 operator|.
 name|newInstance
 argument_list|(
-name|RoutesType
+name|RoutesDefinition
 operator|.
 name|class
 operator|.

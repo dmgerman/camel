@@ -28,37 +28,37 @@ name|NodeFactory
 block|{
 DECL|method|createFilter ()
 specifier|public
-name|FilterType
+name|FilterDefinition
 name|createFilter
 parameter_list|()
 block|{
 return|return
 operator|new
-name|FilterType
+name|FilterDefinition
 argument_list|()
 return|;
 block|}
 DECL|method|createLoop ()
 specifier|public
-name|LoopType
+name|LoopDefinition
 name|createLoop
 parameter_list|()
 block|{
 return|return
 operator|new
-name|LoopType
+name|LoopDefinition
 argument_list|()
 return|;
 block|}
 DECL|method|createRoute ()
 specifier|public
-name|RouteType
+name|RouteDefinition
 name|createRoute
 parameter_list|()
 block|{
 return|return
 operator|new
-name|RouteType
+name|RouteDefinition
 argument_list|()
 return|;
 block|}

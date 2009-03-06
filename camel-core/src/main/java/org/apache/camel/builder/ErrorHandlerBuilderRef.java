@@ -48,7 +48,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionType
+name|ExceptionDefinition
 import|;
 end_import
 
@@ -134,12 +134,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|addErrorHandlers (ExceptionType exception)
+DECL|method|addErrorHandlers (ExceptionDefinition exception)
 specifier|public
 name|void
 name|addErrorHandlers
 parameter_list|(
-name|ExceptionType
+name|ExceptionDefinition
 name|exception
 parameter_list|)
 block|{
@@ -215,7 +215,7 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|ExceptionType
+name|ExceptionDefinition
 argument_list|>
 name|list
 init|=
@@ -224,7 +224,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ExceptionType
+name|ExceptionDefinition
 name|exceptionType
 range|:
 name|list

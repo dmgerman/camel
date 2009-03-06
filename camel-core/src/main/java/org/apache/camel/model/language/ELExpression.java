@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|ELExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|method|ELExpression ()
 specifier|public

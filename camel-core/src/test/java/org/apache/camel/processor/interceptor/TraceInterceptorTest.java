@@ -66,7 +66,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -210,7 +210,7 @@ name|EasyMock
 operator|.
 name|isA
 argument_list|(
-name|ProcessorType
+name|ProcessorDefinition
 operator|.
 name|class
 argument_list|)

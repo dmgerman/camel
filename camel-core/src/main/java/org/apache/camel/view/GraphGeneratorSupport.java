@@ -138,7 +138,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ChoiceType
+name|ChoiceDefinition
 import|;
 end_import
 
@@ -152,7 +152,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|FromType
+name|FromDefinition
 import|;
 end_import
 
@@ -166,7 +166,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|MulticastType
+name|MulticastDefinition
 import|;
 end_import
 
@@ -180,7 +180,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -194,7 +194,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -208,7 +208,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ToType
+name|ToDefinition
 import|;
 end_import
 
@@ -224,7 +224,7 @@ name|model
 operator|.
 name|language
 operator|.
-name|ExpressionType
+name|ExpressionDefinition
 import|;
 end_import
 
@@ -353,7 +353,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 name|routeGroupMap
@@ -422,7 +422,7 @@ name|IOException
 block|{
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routes
 init|=
@@ -443,12 +443,12 @@ name|createRouteMapText
 argument_list|()
 return|;
 block|}
-DECL|method|getRouteText (RouteType route)
+DECL|method|getRouteText (RouteDefinition route)
 specifier|public
 name|String
 name|getRouteText
 parameter_list|(
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|)
 throws|throws
@@ -540,7 +540,7 @@ expr_stmt|;
 block|}
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routes
 init|=
@@ -588,7 +588,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 argument_list|>
@@ -609,7 +609,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 name|entry
@@ -623,7 +623,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 name|map
@@ -635,7 +635,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 argument_list|()
@@ -675,7 +675,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|generateFile (File parent, String fileName, Map<String, List<RouteType>> map)
+DECL|method|generateFile (File parent, String fileName, Map<String, List<RouteDefinition>> map)
 specifier|private
 name|void
 name|generateFile
@@ -692,7 +692,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 name|map
@@ -747,7 +747,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|generateFile (PrintWriter writer, Map<String, List<RouteType>> map)
+DECL|method|generateFile (PrintWriter writer, Map<String, List<RouteDefinition>> map)
 specifier|protected
 specifier|abstract
 name|void
@@ -762,39 +762,39 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 name|map
 parameter_list|)
 function_decl|;
-DECL|method|isMulticastNode (ProcessorType node)
+DECL|method|isMulticastNode (ProcessorDefinition node)
 specifier|protected
 name|boolean
 name|isMulticastNode
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|)
 block|{
 return|return
 name|node
 operator|instanceof
-name|MulticastType
+name|MulticastDefinition
 operator|||
 name|node
 operator|instanceof
-name|ChoiceType
+name|ChoiceDefinition
 return|;
 block|}
-DECL|method|getLabel (List<ExpressionType> expressions)
+DECL|method|getLabel (List<ExpressionDefinition> expressions)
 specifier|protected
 name|String
 name|getLabel
 parameter_list|(
 name|List
 argument_list|<
-name|ExpressionType
+name|ExpressionDefinition
 argument_list|>
 name|expressions
 parameter_list|)
@@ -808,7 +808,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ExpressionType
+name|ExpressionDefinition
 name|expression
 range|:
 name|expressions
@@ -832,12 +832,12 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|getLabel (ExpressionType expression)
+DECL|method|getLabel (ExpressionDefinition expression)
 specifier|protected
 name|String
 name|getLabel
 parameter_list|(
-name|ExpressionType
+name|ExpressionDefinition
 name|expression
 parameter_list|)
 block|{
@@ -877,14 +877,14 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|FromType
+name|FromDefinition
 condition|)
 block|{
-name|FromType
+name|FromDefinition
 name|fromType
 init|=
 operator|(
-name|FromType
+name|FromDefinition
 operator|)
 name|node
 decl_stmt|;
@@ -901,14 +901,14 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|ToType
+name|ToDefinition
 condition|)
 block|{
-name|ToType
+name|ToDefinition
 name|toType
 init|=
 operator|(
-name|ToType
+name|ToDefinition
 operator|)
 name|node
 decl_stmt|;
@@ -977,7 +977,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|createRouteGroupMap (List<RouteType> routes)
+DECL|method|createRouteGroupMap (List<RouteDefinition> routes)
 specifier|protected
 name|Map
 argument_list|<
@@ -985,14 +985,14 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 name|createRouteGroupMap
 parameter_list|(
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routes
 parameter_list|)
@@ -1003,7 +1003,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 name|map
@@ -1015,14 +1015,14 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|RouteType
+name|RouteDefinition
 name|route
 range|:
 name|routes
@@ -1040,7 +1040,7 @@ return|return
 name|map
 return|;
 block|}
-DECL|method|createRouteGroupMap (RouteType route)
+DECL|method|createRouteGroupMap (RouteDefinition route)
 specifier|protected
 name|Map
 argument_list|<
@@ -1048,12 +1048,12 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 name|createRouteGroupMap
 parameter_list|(
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|)
 block|{
@@ -1063,7 +1063,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 name|map
@@ -1075,7 +1075,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 argument_list|()
@@ -1091,7 +1091,7 @@ return|return
 name|map
 return|;
 block|}
-DECL|method|addRouteToMap (Map<String, List<RouteType>> map, RouteType route)
+DECL|method|addRouteToMap (Map<String, List<RouteDefinition>> map, RouteDefinition route)
 specifier|protected
 name|void
 name|addRouteToMap
@@ -1102,12 +1102,12 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 name|map
 parameter_list|,
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|)
 block|{
@@ -1133,7 +1133,7 @@ expr_stmt|;
 block|}
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|list
 init|=
@@ -1156,7 +1156,7 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|()
 expr_stmt|;

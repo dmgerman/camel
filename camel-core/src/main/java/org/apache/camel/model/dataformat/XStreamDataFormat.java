@@ -112,7 +112,7 @@ specifier|public
 class|class
 name|XStreamDataFormat
 extends|extends
-name|DataFormatType
+name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute

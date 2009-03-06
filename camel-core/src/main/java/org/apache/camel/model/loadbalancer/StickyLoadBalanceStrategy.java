@@ -86,7 +86,7 @@ name|model
 operator|.
 name|language
 operator|.
-name|ExpressionType
+name|ExpressionDefinition
 import|;
 end_import
 
@@ -130,7 +130,7 @@ specifier|public
 class|class
 name|StickyLoadBalanceStrategy
 extends|extends
-name|LoadBalancerType
+name|LoadBalancerDefinition
 block|{
 annotation|@
 name|XmlElement
@@ -145,13 +145,13 @@ literal|"expression"
 argument_list|,
 name|type
 operator|=
-name|ExpressionType
+name|ExpressionDefinition
 operator|.
 name|class
 argument_list|)
 DECL|field|expressionType
 specifier|private
-name|ExpressionType
+name|ExpressionDefinition
 name|expressionType
 decl_stmt|;
 annotation|@
@@ -167,13 +167,13 @@ literal|"loadBalancer"
 argument_list|,
 name|type
 operator|=
-name|LoadBalancerType
+name|LoadBalancerDefinition
 operator|.
 name|class
 argument_list|)
 DECL|field|loadBalancerType
 specifier|private
-name|LoadBalancerType
+name|LoadBalancerDefinition
 name|loadBalancerType
 decl_stmt|;
 DECL|method|StickyLoadBalanceStrategy ()
@@ -187,11 +187,11 @@ literal|"org.apache.camel.processor.loadbalancer.StickyLoadBalancer"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|StickyLoadBalanceStrategy (ExpressionType expressionType)
+DECL|method|StickyLoadBalanceStrategy (ExpressionDefinition expressionType)
 specifier|public
 name|StickyLoadBalanceStrategy
 parameter_list|(
-name|ExpressionType
+name|ExpressionDefinition
 name|expressionType
 parameter_list|)
 block|{
@@ -205,14 +205,14 @@ operator|=
 name|expressionType
 expr_stmt|;
 block|}
-DECL|method|StickyLoadBalanceStrategy (ExpressionType expressionType, LoadBalancerType loadBalancerType)
+DECL|method|StickyLoadBalanceStrategy (ExpressionDefinition expressionType, LoadBalancerDefinition loadBalancerType)
 specifier|public
 name|StickyLoadBalanceStrategy
 parameter_list|(
-name|ExpressionType
+name|ExpressionDefinition
 name|expressionType
 parameter_list|,
-name|LoadBalancerType
+name|LoadBalancerDefinition
 name|loadBalancerType
 parameter_list|)
 block|{
@@ -232,12 +232,12 @@ operator|=
 name|loadBalancerType
 expr_stmt|;
 block|}
-DECL|method|setExpressionType (ExpressionType expressionType)
+DECL|method|setExpressionType (ExpressionDefinition expressionType)
 specifier|public
 name|void
 name|setExpressionType
 parameter_list|(
-name|ExpressionType
+name|ExpressionDefinition
 name|expressionType
 parameter_list|)
 block|{
@@ -250,7 +250,7 @@ expr_stmt|;
 block|}
 DECL|method|getExpressionType ()
 specifier|public
-name|ExpressionType
+name|ExpressionDefinition
 name|getExpressionType
 parameter_list|()
 block|{
@@ -258,12 +258,12 @@ return|return
 name|expressionType
 return|;
 block|}
-DECL|method|setLoadBalancerType (LoadBalancerType loadBalancerType)
+DECL|method|setLoadBalancerType (LoadBalancerDefinition loadBalancerType)
 specifier|public
 name|void
 name|setLoadBalancerType
 parameter_list|(
-name|LoadBalancerType
+name|LoadBalancerDefinition
 name|loadBalancerType
 parameter_list|)
 block|{
@@ -276,7 +276,7 @@ expr_stmt|;
 block|}
 DECL|method|getLoadBalancerType ()
 specifier|public
-name|LoadBalancerType
+name|LoadBalancerDefinition
 name|getLoadBalancerType
 parameter_list|()
 block|{
@@ -295,7 +295,7 @@ name|LoadBalancer
 name|loadBalancer
 parameter_list|)
 block|{
-name|ExpressionType
+name|ExpressionDefinition
 name|expression
 init|=
 name|getExpressionType
@@ -318,7 +318,7 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-name|LoadBalancerType
+name|LoadBalancerDefinition
 name|type
 init|=
 name|getLoadBalancerType

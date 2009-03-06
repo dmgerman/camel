@@ -124,7 +124,7 @@ specifier|public
 class|class
 name|TidyMarkupDataFormat
 extends|extends
-name|DataFormatType
+name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute

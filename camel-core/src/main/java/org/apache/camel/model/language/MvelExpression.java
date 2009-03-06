@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|MvelExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|method|MvelExpression ()
 specifier|public

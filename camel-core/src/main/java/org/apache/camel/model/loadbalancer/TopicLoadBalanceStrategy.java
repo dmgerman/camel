@@ -79,7 +79,7 @@ specifier|public
 class|class
 name|TopicLoadBalanceStrategy
 extends|extends
-name|LoadBalancerType
+name|LoadBalancerDefinition
 block|{
 annotation|@
 name|Override

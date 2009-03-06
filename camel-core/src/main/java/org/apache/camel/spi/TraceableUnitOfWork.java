@@ -36,7 +36,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -53,17 +53,17 @@ extends|extends
 name|UnitOfWork
 block|{
 comment|/**      * Adds the given node that was intercepted      *      * @param node the node      */
-DECL|method|addInterceptedNode (ProcessorType node)
+DECL|method|addInterceptedNode (ProcessorDefinition node)
 name|void
 name|addInterceptedNode
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the last intercepted node, is<tt>null</tt> if no last exists.      */
 DECL|method|getLastInterceptedNode ()
-name|ProcessorType
+name|ProcessorDefinition
 name|getLastInterceptedNode
 parameter_list|()
 function_decl|;
@@ -71,7 +71,7 @@ comment|/**      * Gets the current list of intercepted nodes, representing the 
 DECL|method|getInterceptedNodes ()
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|getInterceptedNodes
 parameter_list|()

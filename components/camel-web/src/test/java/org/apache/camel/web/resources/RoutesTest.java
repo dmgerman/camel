@@ -38,7 +38,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -52,7 +52,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RoutesType
+name|RoutesDefinition
 import|;
 end_import
 
@@ -116,7 +116,7 @@ argument_list|,
 name|text
 argument_list|)
 expr_stmt|;
-name|RoutesType
+name|RoutesDefinition
 name|routes
 init|=
 name|resource
@@ -133,7 +133,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-name|RoutesType
+name|RoutesDefinition
 operator|.
 name|class
 argument_list|)
@@ -147,7 +147,7 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routeList
 init|=

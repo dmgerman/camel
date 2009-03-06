@@ -134,7 +134,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -166,17 +166,17 @@ name|CamelChildResourceSupport
 block|{
 DECL|field|route
 specifier|private
-name|RouteType
+name|RouteDefinition
 name|route
 decl_stmt|;
-DECL|method|RouteResource (RoutesResource routesResource, RouteType route)
+DECL|method|RouteResource (RoutesResource routesResource, RouteDefinition route)
 specifier|public
 name|RouteResource
 parameter_list|(
 name|RoutesResource
 name|routesResource
 parameter_list|,
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|)
 block|{
@@ -217,7 +217,7 @@ block|}
 argument_list|)
 DECL|method|getRoute ()
 specifier|public
-name|RouteType
+name|RouteDefinition
 name|getRoute
 parameter_list|()
 block|{

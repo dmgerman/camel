@@ -96,7 +96,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|FromType
+name|FromDefinition
 import|;
 end_import
 
@@ -110,7 +110,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -124,7 +124,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -140,7 +140,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|DataFormatType
+name|DataFormatDefinition
 import|;
 end_import
 
@@ -162,13 +162,13 @@ parameter_list|()
 function_decl|;
 comment|/**      * Gets the from type      *      * @return the from type      */
 DECL|method|getFrom ()
-name|FromType
+name|FromDefinition
 name|getFrom
 parameter_list|()
 function_decl|;
 comment|/**      * Get the route type      *      * @return the route type      */
 DECL|method|getRoute ()
-name|RouteType
+name|RouteDefinition
 name|getRoute
 parameter_list|()
 function_decl|;
@@ -179,11 +179,11 @@ name|getCamelContext
 parameter_list|()
 function_decl|;
 comment|/**      * Creates a processor      *      * @param node  the node      * @return the created processor      * @throws Exception can be thrown      */
-DECL|method|createProcessor (ProcessorType node)
+DECL|method|createProcessor (ProcessorDefinition node)
 name|Processor
 name|createProcessor
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|)
 throws|throws
@@ -303,7 +303,7 @@ name|ErrorHandlerWrappingStrategy
 name|strategy
 parameter_list|)
 function_decl|;
-comment|/**      * If this flag is true, {@link ProcessorType#addRoutes(RouteContext, java.util.Collection)}      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *      * @param value the flag      */
+comment|/**      * If this flag is true, {@link ProcessorDefinition#addRoutes(RouteContext, java.util.Collection)}      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *      * @param value the flag      */
 DECL|method|setIsRouteAdded (boolean value)
 name|void
 name|setIsRouteAdded
@@ -320,7 +320,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * Get a DataFormatType by ref name      *      * @param ref  the ref name to lookup      * @return the found object      */
 DECL|method|getDataFormat (String ref)
-name|DataFormatType
+name|DataFormatDefinition
 name|getDataFormat
 parameter_list|(
 name|String

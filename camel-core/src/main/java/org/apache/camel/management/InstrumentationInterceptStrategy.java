@@ -48,7 +48,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -82,19 +82,19 @@ DECL|field|counterMap
 specifier|private
 name|Map
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|,
 name|PerformanceCounter
 argument_list|>
 name|counterMap
 decl_stmt|;
-DECL|method|InstrumentationInterceptStrategy (Map<ProcessorType, PerformanceCounter> counterMap)
+DECL|method|InstrumentationInterceptStrategy (Map<ProcessorDefinition, PerformanceCounter> counterMap)
 specifier|public
 name|InstrumentationInterceptStrategy
 parameter_list|(
 name|Map
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|,
 name|PerformanceCounter
 argument_list|>
@@ -108,12 +108,12 @@ operator|=
 name|counterMap
 expr_stmt|;
 block|}
-DECL|method|wrapProcessorInInterceptors (ProcessorType processorType, Processor target)
+DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorType, Processor target)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|processorType
 parameter_list|,
 name|Processor

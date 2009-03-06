@@ -114,7 +114,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RoutingSlipType
+name|RoutingSlipDefinition
 import|;
 end_import
 
@@ -240,7 +240,7 @@ name|this
 argument_list|(
 name|header
 argument_list|,
-name|RoutingSlipType
+name|RoutingSlipDefinition
 operator|.
 name|DEFAULT_DELIMITER
 argument_list|)

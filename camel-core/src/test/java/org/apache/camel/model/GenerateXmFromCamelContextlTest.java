@@ -108,7 +108,7 @@ name|Exception
 block|{
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|list
 init|=
@@ -131,7 +131,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|RouteType
+name|RouteDefinition
 name|routeType
 init|=
 name|list

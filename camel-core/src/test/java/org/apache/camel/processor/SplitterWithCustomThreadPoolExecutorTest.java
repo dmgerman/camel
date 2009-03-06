@@ -98,7 +98,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -112,7 +112,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -126,7 +126,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|SplitterType
+name|SplitterDefinition
 import|;
 end_import
 
@@ -211,18 +211,18 @@ expr_stmt|;
 block|}
 DECL|method|getSplitter ()
 specifier|protected
-name|SplitterType
+name|SplitterDefinition
 name|getSplitter
 parameter_list|()
 block|{
-name|SplitterType
+name|SplitterDefinition
 name|result
 init|=
 literal|null
 decl_stmt|;
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routeDefinitions
 init|=
@@ -233,7 +233,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|RouteType
+name|RouteDefinition
 name|routeType
 range|:
 name|routeDefinitions
@@ -263,26 +263,26 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|firstSplitterType (List<ProcessorType> outputs)
+DECL|method|firstSplitterType (List<ProcessorDefinition> outputs)
 specifier|protected
-name|SplitterType
+name|SplitterDefinition
 name|firstSplitterType
 parameter_list|(
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|outputs
 parameter_list|)
 block|{
-name|SplitterType
+name|SplitterDefinition
 name|result
 init|=
 literal|null
 decl_stmt|;
 for|for
 control|(
-name|ProcessorType
+name|ProcessorDefinition
 name|processorType
 range|:
 name|outputs
@@ -292,13 +292,13 @@ if|if
 condition|(
 name|processorType
 operator|instanceof
-name|SplitterType
+name|SplitterDefinition
 condition|)
 block|{
 name|result
 operator|=
 operator|(
-name|SplitterType
+name|SplitterDefinition
 operator|)
 name|processorType
 expr_stmt|;

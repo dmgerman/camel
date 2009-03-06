@@ -66,7 +66,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|FromType
+name|FromDefinition
 import|;
 end_import
 
@@ -94,7 +94,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|MulticastType
+name|MulticastDefinition
 import|;
 end_import
 
@@ -108,7 +108,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|PipelineType
+name|PipelineDefinition
 import|;
 end_import
 
@@ -122,7 +122,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -136,7 +136,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -150,7 +150,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ToType
+name|ToDefinition
 import|;
 end_import
 
@@ -200,7 +200,7 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-DECL|method|printRoutes (PrintWriter writer, Map<String, List<RouteType>> map)
+DECL|method|printRoutes (PrintWriter writer, Map<String, List<RouteDefinition>> map)
 specifier|protected
 name|void
 name|printRoutes
@@ -214,7 +214,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 name|map
@@ -230,7 +230,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 argument_list|>
@@ -251,7 +251,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 name|entry
@@ -281,7 +281,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|printRoutes (PrintWriter writer, String group, List<RouteType> routes)
+DECL|method|printRoutes (PrintWriter writer, String group, List<RouteDefinition> routes)
 specifier|protected
 name|void
 name|printRoutes
@@ -294,7 +294,7 @@ name|group
 parameter_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routes
 parameter_list|)
@@ -364,7 +364,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|RouteType
+name|RouteDefinition
 name|route
 range|:
 name|routes
@@ -372,7 +372,7 @@ control|)
 block|{
 name|List
 argument_list|<
-name|FromType
+name|FromDefinition
 argument_list|>
 name|inputs
 init|=
@@ -383,7 +383,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|FromType
+name|FromDefinition
 name|input
 range|:
 name|inputs
@@ -453,7 +453,7 @@ literal|"_"
 argument_list|)
 return|;
 block|}
-DECL|method|printRoute (PrintWriter writer, final RouteType route, FromType input)
+DECL|method|printRoute (PrintWriter writer, final RouteDefinition route, FromDefinition input)
 specifier|protected
 name|void
 name|printRoute
@@ -462,10 +462,10 @@ name|PrintWriter
 name|writer
 parameter_list|,
 specifier|final
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|,
-name|FromType
+name|FromDefinition
 name|input
 parameter_list|)
 block|{
@@ -492,7 +492,7 @@ name|nodeData
 decl_stmt|;
 for|for
 control|(
-name|ProcessorType
+name|ProcessorDefinition
 name|output
 range|:
 name|route
@@ -524,7 +524,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|printNode (PrintWriter writer, NodeData fromData, ProcessorType node)
+DECL|method|printNode (PrintWriter writer, NodeData fromData, ProcessorDefinition node)
 specifier|protected
 name|NodeData
 name|printNode
@@ -535,7 +535,7 @@ parameter_list|,
 name|NodeData
 name|fromData
 parameter_list|,
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|)
 block|{
@@ -543,7 +543,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|MulticastType
+name|MulticastDefinition
 operator|||
 name|node
 operator|instanceof
@@ -553,7 +553,7 @@ block|{
 comment|// no need for a multicast or interceptor node
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|outputs
 init|=
@@ -572,7 +572,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|ProcessorType
+name|ProcessorDefinition
 name|output
 range|:
 name|outputs
@@ -699,7 +699,7 @@ comment|// now lets write any children
 comment|//List<ProcessorType> outputs = node.getOutputs();
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|outputs
 init|=
@@ -716,7 +716,7 @@ condition|)
 block|{
 for|for
 control|(
-name|ProcessorType
+name|ProcessorDefinition
 name|output
 range|:
 name|outputs
@@ -939,7 +939,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|generateFile (PrintWriter writer, Map<String, List<RouteType>> map)
+DECL|method|generateFile (PrintWriter writer, Map<String, List<RouteDefinition>> map)
 specifier|protected
 name|void
 name|generateFile
@@ -953,7 +953,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 argument_list|>
 name|map
@@ -1001,13 +1001,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Is the given node a pipeline      */
-DECL|method|isPipeline (ProcessorType node)
+DECL|method|isPipeline (ProcessorDefinition node)
 specifier|private
 specifier|static
 name|boolean
 name|isPipeline
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|)
 block|{
@@ -1015,7 +1015,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|MulticastType
+name|MulticastDefinition
 condition|)
 block|{
 return|return
@@ -1026,7 +1026,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|PipelineType
+name|PipelineDefinition
 condition|)
 block|{
 return|return
@@ -1064,7 +1064,7 @@ operator|!
 operator|(
 name|type
 operator|instanceof
-name|ToType
+name|ToDefinition
 operator|)
 condition|)
 block|{

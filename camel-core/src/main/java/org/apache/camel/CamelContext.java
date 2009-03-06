@@ -80,7 +80,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|DataFormatType
+name|DataFormatDefinition
 import|;
 end_import
 
@@ -431,7 +431,7 @@ comment|/**      * Returns a list of the current route definitions      *      *
 DECL|method|getRouteDefinitions ()
 name|List
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|getRouteDefinitions
 parameter_list|()
@@ -457,13 +457,13 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Adds a collection of route definitions to the context      *      * @param routeDefinitions the route definitions to add      * @throws Exception if the route definition could not be created for whatever reason      */
-DECL|method|addRouteDefinitions (Collection<RouteType> routeDefinitions)
+DECL|method|addRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 name|void
 name|addRouteDefinitions
 parameter_list|(
 name|Collection
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routeDefinitions
 parameter_list|)
@@ -471,13 +471,13 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Removes a collection of route definitions from the context - stopping any previously running      * routes if any of them are actively running      */
-DECL|method|removeRouteDefinitions (Collection<RouteType> routeDefinitions)
+DECL|method|removeRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 name|void
 name|removeRouteDefinitions
 parameter_list|(
 name|Collection
 argument_list|<
-name|RouteType
+name|RouteDefinition
 argument_list|>
 name|routeDefinitions
 parameter_list|)
@@ -485,22 +485,22 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Starts the given route if it has been previously stopped      */
-DECL|method|startRoute (RouteType route)
+DECL|method|startRoute (RouteDefinition route)
 name|void
 name|startRoute
 parameter_list|(
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Stops the given route. It will remain in the list of route definitions return by {@link #getRouteDefinitions()}      * unless you use the {@link #removeRouteDefinitions(java.util.Collection)}      */
-DECL|method|stopRoute (RouteType route)
+DECL|method|stopRoute (RouteDefinition route)
 name|void
 name|stopRoute
 parameter_list|(
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|)
 throws|throws
@@ -593,7 +593,7 @@ name|errorHandlerBuilder
 parameter_list|)
 function_decl|;
 comment|/**      * Sets the data formats that can be referenced in the routes.      * @param dataFormats the data formats      */
-DECL|method|setDataFormats (Map<String, DataFormatType> dataFormats)
+DECL|method|setDataFormats (Map<String, DataFormatDefinition> dataFormats)
 name|void
 name|setDataFormats
 parameter_list|(
@@ -601,7 +601,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DataFormatType
+name|DataFormatDefinition
 argument_list|>
 name|dataFormats
 parameter_list|)
@@ -612,7 +612,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DataFormatType
+name|DataFormatDefinition
 argument_list|>
 name|getDataFormats
 parameter_list|()
@@ -658,11 +658,11 @@ name|path
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the current status of the given route      */
-DECL|method|getRouteStatus (RouteType route)
+DECL|method|getRouteStatus (RouteDefinition route)
 name|ServiceStatus
 name|getRouteStatus
 parameter_list|(
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|)
 function_decl|;

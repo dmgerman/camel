@@ -232,7 +232,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptorType
+name|InterceptorDefinition
 import|;
 end_import
 
@@ -770,14 +770,14 @@ name|Exception
 block|{
 name|List
 argument_list|<
-name|InterceptorType
+name|InterceptorDefinition
 argument_list|>
 name|interceptors
 init|=
 operator|new
 name|LinkedList
 argument_list|<
-name|InterceptorType
+name|InterceptorDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;

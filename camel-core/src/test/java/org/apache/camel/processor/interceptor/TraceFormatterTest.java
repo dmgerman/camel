@@ -114,7 +114,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -478,7 +478,7 @@ name|MyTraceFormatter
 implements|implements
 name|TraceFormatter
 block|{
-DECL|method|format (TraceInterceptor interceptor, ProcessorType node, Exchange exchange)
+DECL|method|format (TraceInterceptor interceptor, ProcessorDefinition node, Exchange exchange)
 specifier|public
 name|Object
 name|format
@@ -486,7 +486,7 @@ parameter_list|(
 name|TraceInterceptor
 name|interceptor
 parameter_list|,
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|,
 name|Exchange

@@ -172,7 +172,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|OutputType
+name|OutputDefinition
 import|;
 end_import
 
@@ -186,7 +186,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -334,11 +334,11 @@ name|overdueAction
 decl_stmt|;
 DECL|field|overdueProcessors
 specifier|private
-name|OutputType
+name|OutputDefinition
 name|overdueProcessors
 init|=
 operator|new
-name|OutputType
+name|OutputDefinition
 argument_list|()
 decl_stmt|;
 DECL|method|TemporalRule (TimeExpression first, TimeExpression second)
@@ -403,7 +403,7 @@ return|;
 block|}
 DECL|method|errorIfOver (Time builder)
 specifier|public
-name|OutputType
+name|OutputDefinition
 name|errorIfOver
 parameter_list|(
 name|Time
@@ -422,7 +422,7 @@ return|;
 block|}
 DECL|method|errorIfOver (long millis)
 specifier|public
-name|OutputType
+name|OutputDefinition
 name|errorIfOver
 parameter_list|(
 name|long
@@ -443,7 +443,7 @@ block|{
 name|overdueProcessors
 operator|=
 operator|new
-name|OutputType
+name|OutputDefinition
 argument_list|()
 expr_stmt|;
 block|}
@@ -504,11 +504,11 @@ name|Route
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|RouteType
+name|RouteDefinition
 name|route
 init|=
 operator|new
-name|RouteType
+name|RouteDefinition
 argument_list|()
 decl_stmt|;
 name|route

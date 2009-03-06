@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|PhpExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|method|PhpExpression ()
 specifier|public

@@ -38,7 +38,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -52,12 +52,12 @@ specifier|public
 interface|interface
 name|ErrorHandlerWrappingStrategy
 block|{
-comment|/**      * This method is invoked by      * {@link ProcessorType#wrapProcessor(RouteContext, Processor)}      * to give the implementor an opportunity to wrap the target processor      * in a route.      *      * @param processorType the object that invokes this method      * @param target the processor to be wrapped      * @return processor wrapped with an interceptor or not wrapped      * @throws Exception can be thrown      */
-DECL|method|wrapProcessorInErrorHandler (ProcessorType processorType, Processor target)
+comment|/**      * This method is invoked by      * {@link ProcessorDefinition#wrapProcessor(RouteContext, Processor)}      * to give the implementor an opportunity to wrap the target processor      * in a route.      *      * @param processorType the object that invokes this method      * @param target the processor to be wrapped      * @return processor wrapped with an interceptor or not wrapped      * @throws Exception can be thrown      */
+DECL|method|wrapProcessorInErrorHandler (ProcessorDefinition processorType, Processor target)
 name|Processor
 name|wrapProcessorInErrorHandler
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|processorType
 parameter_list|,
 name|Processor

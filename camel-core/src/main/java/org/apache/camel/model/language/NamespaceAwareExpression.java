@@ -140,7 +140,7 @@ specifier|abstract
 class|class
 name|NamespaceAwareExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 implements|implements
 name|NamespaceAware
 block|{

@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|PythonExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|method|PythonExpression ()
 specifier|public

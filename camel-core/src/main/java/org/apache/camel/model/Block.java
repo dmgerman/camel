@@ -26,11 +26,11 @@ specifier|public
 interface|interface
 name|Block
 block|{
-DECL|method|addOutput (ProcessorType processorType)
+DECL|method|addOutput (ProcessorDefinition processorType)
 name|void
 name|addOutput
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|processorType
 parameter_list|)
 function_decl|;

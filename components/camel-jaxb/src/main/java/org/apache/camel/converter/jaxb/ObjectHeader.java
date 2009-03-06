@@ -100,7 +100,7 @@ specifier|public
 class|class
 name|ObjectHeader
 extends|extends
-name|HeaderType
+name|HeaderDefinition
 block|{
 annotation|@
 name|XmlAnyElement

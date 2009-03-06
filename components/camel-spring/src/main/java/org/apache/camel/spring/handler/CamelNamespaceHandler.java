@@ -168,7 +168,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|FromType
+name|FromDefinition
 import|;
 end_import
 
@@ -182,7 +182,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|SendType
+name|SendDefinition
 import|;
 end_import
 
@@ -198,7 +198,7 @@ name|model
 operator|.
 name|config
 operator|.
-name|PropertiesType
+name|PropertiesDefinition
 import|;
 end_import
 
@@ -382,7 +382,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|CamelJMXAgentType
+name|CamelJMXAgentDefinition
 import|;
 end_import
 
@@ -799,7 +799,7 @@ name|addBeanDefinitionParser
 argument_list|(
 literal|"jmxAgent"
 argument_list|,
-name|CamelJMXAgentType
+name|CamelJMXAgentDefinition
 operator|.
 name|class
 argument_list|)
@@ -1262,7 +1262,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 operator|.
 name|class
 argument_list|)
@@ -1300,7 +1300,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|DataFormatType
+name|DataFormatDefinition
 operator|.
 name|class
 argument_list|)
@@ -1319,7 +1319,7 @@ name|model
 operator|.
 name|language
 operator|.
-name|ExpressionType
+name|ExpressionDefinition
 operator|.
 name|class
 argument_list|)
@@ -1338,7 +1338,7 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
-name|LoadBalancerType
+name|LoadBalancerDefinition
 operator|.
 name|class
 argument_list|)
@@ -2039,11 +2039,11 @@ if|if
 condition|(
 name|object
 operator|instanceof
-name|FromType
+name|FromDefinition
 operator|||
 name|object
 operator|instanceof
-name|SendType
+name|SendDefinition
 condition|)
 block|{
 name|registerEndpoint

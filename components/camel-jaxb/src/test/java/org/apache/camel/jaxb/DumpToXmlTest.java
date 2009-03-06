@@ -64,7 +64,7 @@ name|converter
 operator|.
 name|jaxb
 operator|.
-name|MessageType
+name|MessageDefinition
 import|;
 end_import
 
@@ -210,7 +210,7 @@ argument_list|)
 operator|.
 name|convertBodyTo
 argument_list|(
-name|MessageType
+name|MessageDefinition
 operator|.
 name|class
 argument_list|)

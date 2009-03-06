@@ -100,7 +100,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -326,7 +326,7 @@ decl_stmt|;
 comment|// get the list of intercepted nodes
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|list
 init|=
@@ -336,7 +336,7 @@ name|getInterceptedNodes
 argument_list|()
 decl_stmt|;
 comment|// get the 2nd last as the last is me (MyErrorProcessor)
-name|ProcessorType
+name|ProcessorDefinition
 name|last
 init|=
 name|list

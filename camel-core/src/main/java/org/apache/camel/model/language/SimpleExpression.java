@@ -49,7 +49,7 @@ specifier|public
 class|class
 name|SimpleExpression
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|method|SimpleExpression ()
 specifier|public

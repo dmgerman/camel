@@ -46,7 +46,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|AggregatorType
+name|AggregatorDefinition
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ChoiceType
+name|ChoiceDefinition
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|FilterType
+name|FilterDefinition
 import|;
 end_import
 
@@ -102,7 +102,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|FromType
+name|FromDefinition
 import|;
 end_import
 
@@ -116,7 +116,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|OtherwiseType
+name|OtherwiseDefinition
 import|;
 end_import
 
@@ -130,7 +130,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -144,7 +144,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RecipientListType
+name|RecipientListDefinition
 import|;
 end_import
 
@@ -158,7 +158,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ResequencerType
+name|ResequencerDefinition
 import|;
 end_import
 
@@ -172,7 +172,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RoutingSlipType
+name|RoutingSlipDefinition
 import|;
 end_import
 
@@ -186,7 +186,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|SplitterType
+name|SplitterDefinition
 import|;
 end_import
 
@@ -200,7 +200,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ToType
+name|ToDefinition
 import|;
 end_import
 
@@ -214,7 +214,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|WhenType
+name|WhenDefinition
 import|;
 end_import
 
@@ -309,7 +309,7 @@ DECL|field|outputs
 specifier|public
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|outputs
 decl_stmt|;
@@ -361,14 +361,14 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|ProcessorType
+name|ProcessorDefinition
 condition|)
 block|{
-name|ProcessorType
+name|ProcessorDefinition
 name|processorType
 init|=
 operator|(
-name|ProcessorType
+name|ProcessorDefinition
 operator|)
 name|node
 decl_stmt|;
@@ -386,14 +386,14 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|FromType
+name|FromDefinition
 condition|)
 block|{
-name|FromType
+name|FromDefinition
 name|fromType
 init|=
 operator|(
-name|FromType
+name|FromDefinition
 operator|)
 name|node
 decl_stmt|;
@@ -429,14 +429,14 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|ToType
+name|ToDefinition
 condition|)
 block|{
-name|ToType
+name|ToDefinition
 name|toType
 init|=
 operator|(
-name|ToType
+name|ToDefinition
 operator|)
 name|node
 decl_stmt|;
@@ -478,7 +478,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|FilterType
+name|FilterDefinition
 condition|)
 block|{
 name|this
@@ -507,7 +507,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|WhenType
+name|WhenDefinition
 condition|)
 block|{
 name|this
@@ -542,7 +542,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|OtherwiseType
+name|OtherwiseDefinition
 condition|)
 block|{
 name|this
@@ -575,7 +575,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|ChoiceType
+name|ChoiceDefinition
 condition|)
 block|{
 name|this
@@ -604,24 +604,24 @@ name|edgeLabel
 operator|=
 literal|""
 expr_stmt|;
-name|ChoiceType
+name|ChoiceDefinition
 name|choice
 init|=
 operator|(
-name|ChoiceType
+name|ChoiceDefinition
 operator|)
 name|node
 decl_stmt|;
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|outputs
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 argument_list|(
 name|choice
@@ -663,7 +663,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|RecipientListType
+name|RecipientListDefinition
 condition|)
 block|{
 name|this
@@ -686,7 +686,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|RoutingSlipType
+name|RoutingSlipDefinition
 condition|)
 block|{
 name|this
@@ -715,7 +715,7 @@ name|tooltop
 operator|=
 operator|(
 operator|(
-name|RoutingSlipType
+name|RoutingSlipDefinition
 operator|)
 name|node
 operator|)
@@ -729,7 +729,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|SplitterType
+name|SplitterDefinition
 condition|)
 block|{
 name|this
@@ -752,7 +752,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|AggregatorType
+name|AggregatorDefinition
 condition|)
 block|{
 name|this
@@ -775,7 +775,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|ResequencerType
+name|ResequencerDefinition
 condition|)
 block|{
 name|this
@@ -1100,7 +1100,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|ProcessorType
+name|ProcessorDefinition
 operator|&&
 name|this
 operator|.
@@ -1109,11 +1109,11 @@ operator|==
 literal|null
 condition|)
 block|{
-name|ProcessorType
+name|ProcessorDefinition
 name|processorType
 init|=
 operator|(
-name|ProcessorType
+name|ProcessorDefinition
 operator|)
 name|node
 decl_stmt|;

@@ -80,7 +80,7 @@ name|model
 operator|.
 name|language
 operator|.
-name|ExpressionType
+name|ExpressionDefinition
 import|;
 end_import
 
@@ -145,7 +145,7 @@ parameter_list|<
 name|T
 parameter_list|>
 extends|extends
-name|ExpressionType
+name|ExpressionDefinition
 block|{
 DECL|field|result
 specifier|private

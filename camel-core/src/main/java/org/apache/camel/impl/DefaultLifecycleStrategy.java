@@ -104,7 +104,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -118,7 +118,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -221,7 +221,7 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
-name|RouteType
+name|RouteDefinition
 name|routeType
 init|=
 name|routeContext
@@ -251,14 +251,14 @@ block|{
 comment|// configure the outputs
 name|List
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 name|outputs
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ProcessorType
+name|ProcessorDefinition
 argument_list|>
 argument_list|(
 name|routeType
@@ -276,7 +276,7 @@ expr_stmt|;
 comment|// add the output configure the outputs with the routeType
 for|for
 control|(
-name|ProcessorType
+name|ProcessorDefinition
 name|processorType
 range|:
 name|outputs

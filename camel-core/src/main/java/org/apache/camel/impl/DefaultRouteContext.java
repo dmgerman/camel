@@ -166,7 +166,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|FromType
+name|FromDefinition
 import|;
 end_import
 
@@ -180,7 +180,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorType
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -194,7 +194,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteType
+name|RouteDefinition
 import|;
 end_import
 
@@ -210,7 +210,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|DataFormatType
+name|DataFormatDefinition
 import|;
 end_import
 
@@ -326,12 +326,12 @@ name|RouteContext
 block|{
 DECL|field|route
 specifier|private
-name|RouteType
+name|RouteDefinition
 name|route
 decl_stmt|;
 DECL|field|from
 specifier|private
-name|FromType
+name|FromDefinition
 name|from
 decl_stmt|;
 DECL|field|routes
@@ -397,14 +397,14 @@ specifier|private
 name|boolean
 name|routeAdded
 decl_stmt|;
-DECL|method|DefaultRouteContext (RouteType route, FromType from, Collection<Route> routes)
+DECL|method|DefaultRouteContext (RouteDefinition route, FromDefinition from, Collection<Route> routes)
 specifier|public
 name|DefaultRouteContext
 parameter_list|(
-name|RouteType
+name|RouteDefinition
 name|route
 parameter_list|,
-name|FromType
+name|FromDefinition
 name|from
 parameter_list|,
 name|Collection
@@ -460,7 +460,7 @@ expr_stmt|;
 name|route
 operator|=
 operator|new
-name|RouteType
+name|RouteDefinition
 argument_list|(
 literal|"temporary"
 argument_list|)
@@ -495,7 +495,7 @@ return|;
 block|}
 DECL|method|getFrom ()
 specifier|public
-name|FromType
+name|FromDefinition
 name|getFrom
 parameter_list|()
 block|{
@@ -505,7 +505,7 @@ return|;
 block|}
 DECL|method|getRoute ()
 specifier|public
-name|RouteType
+name|RouteDefinition
 name|getRoute
 parameter_list|()
 block|{
@@ -539,12 +539,12 @@ return|return
 name|camelContext
 return|;
 block|}
-DECL|method|createProcessor (ProcessorType node)
+DECL|method|createProcessor (ProcessorDefinition node)
 specifier|public
 name|Processor
 name|createProcessor
 parameter_list|(
-name|ProcessorType
+name|ProcessorDefinition
 name|node
 parameter_list|)
 throws|throws
@@ -1027,7 +1027,7 @@ expr_stmt|;
 block|}
 DECL|method|getDataFormat (String ref)
 specifier|public
-name|DataFormatType
+name|DataFormatDefinition
 name|getDataFormat
 parameter_list|(
 name|String
@@ -1038,7 +1038,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DataFormatType
+name|DataFormatDefinition
 argument_list|>
 name|dataFormats
 init|=
