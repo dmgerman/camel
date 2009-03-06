@@ -122,7 +122,7 @@ name|model
 operator|.
 name|language
 operator|.
-name|ExpressionType
+name|ExpressionDefinition
 import|;
 end_import
 
@@ -168,7 +168,7 @@ annotation|@
 name|XmlElementRef
 DECL|field|expressionType
 specifier|private
-name|ExpressionType
+name|ExpressionDefinition
 name|expressionType
 decl_stmt|;
 annotation|@
@@ -222,7 +222,7 @@ expr_stmt|;
 block|}
 DECL|method|getExpressionType ()
 specifier|public
-name|ExpressionType
+name|ExpressionDefinition
 name|getExpressionType
 parameter_list|()
 block|{
@@ -230,12 +230,12 @@ return|return
 name|expressionType
 return|;
 block|}
-DECL|method|setExpressionType (ExpressionType expressionType)
+DECL|method|setExpressionType (ExpressionDefinition expressionType)
 specifier|public
 name|void
 name|setExpressionType
 parameter_list|(
-name|ExpressionType
+name|ExpressionDefinition
 name|expressionType
 parameter_list|)
 block|{
@@ -307,7 +307,7 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
-name|ExpressionType
+name|ExpressionDefinition
 name|expressionType
 init|=
 name|getExpressionType
@@ -347,7 +347,7 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
-name|ExpressionType
+name|ExpressionDefinition
 name|expressionType
 init|=
 name|getExpressionType

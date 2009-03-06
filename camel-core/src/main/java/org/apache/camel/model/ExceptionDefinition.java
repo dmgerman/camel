@@ -412,7 +412,7 @@ literal|false
 argument_list|)
 DECL|field|retryUntil
 specifier|private
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 name|retryUntil
 decl_stmt|;
 annotation|@
@@ -444,7 +444,7 @@ literal|false
 argument_list|)
 DECL|field|handled
 specifier|private
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 name|handled
 decl_stmt|;
 annotation|@
@@ -1370,12 +1370,12 @@ return|return
 name|handledPolicy
 return|;
 block|}
-DECL|method|setHandled (ExpressionSubElementDefinition handled)
+DECL|method|setHandled (ExpressionSubElementType handled)
 specifier|public
 name|void
 name|setHandled
 parameter_list|(
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 name|handled
 parameter_list|)
 block|{
@@ -1388,7 +1388,7 @@ expr_stmt|;
 block|}
 DECL|method|getHandled ()
 specifier|public
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 name|getHandled
 parameter_list|()
 block|{
@@ -1440,7 +1440,7 @@ expr_stmt|;
 block|}
 DECL|method|getRetryUntil ()
 specifier|public
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 name|getRetryUntil
 parameter_list|()
 block|{
@@ -1448,12 +1448,12 @@ return|return
 name|retryUntil
 return|;
 block|}
-DECL|method|setRetryUntil (ExpressionSubElementDefinition retryUntil)
+DECL|method|setRetryUntil (ExpressionSubElementType retryUntil)
 specifier|public
 name|void
 name|setRetryUntil
 parameter_list|(
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 name|retryUntil
 parameter_list|)
 block|{

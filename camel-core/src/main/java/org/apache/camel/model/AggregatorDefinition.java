@@ -318,7 +318,7 @@ literal|false
 argument_list|)
 DECL|field|correlationExpression
 specifier|private
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 name|correlationExpression
 decl_stmt|;
 annotation|@
@@ -444,7 +444,7 @@ literal|false
 argument_list|)
 DECL|field|completionPredicate
 specifier|private
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 name|completionPredicate
 decl_stmt|;
 DECL|method|AggregatorDefinition ()
@@ -1210,12 +1210,12 @@ operator|=
 name|collectionRef
 expr_stmt|;
 block|}
-DECL|method|setCompletionPredicate (ExpressionSubElementDefinition completionPredicate)
+DECL|method|setCompletionPredicate (ExpressionSubElementType completionPredicate)
 specifier|public
 name|void
 name|setCompletionPredicate
 parameter_list|(
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 name|completionPredicate
 parameter_list|)
 block|{
@@ -1228,7 +1228,7 @@ expr_stmt|;
 block|}
 DECL|method|getCompletionPredicate ()
 specifier|public
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 name|getCompletionPredicate
 parameter_list|()
 block|{
@@ -1444,7 +1444,7 @@ decl_stmt|;
 name|setCompletionPredicate
 argument_list|(
 operator|new
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 argument_list|(
 operator|(
 name|Expression
@@ -1473,7 +1473,7 @@ expr_stmt|;
 name|setCompletionPredicate
 argument_list|(
 operator|new
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 argument_list|(
 name|predicate
 argument_list|)
@@ -1508,12 +1508,12 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|setCorrelationExpression (ExpressionSubElementDefinition correlationExpression)
+DECL|method|setCorrelationExpression (ExpressionSubElementType correlationExpression)
 specifier|public
 name|void
 name|setCorrelationExpression
 parameter_list|(
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 name|correlationExpression
 parameter_list|)
 block|{
@@ -1526,7 +1526,7 @@ expr_stmt|;
 block|}
 DECL|method|getCorrelationExpression ()
 specifier|public
-name|ExpressionSubElementDefinition
+name|ExpressionSubElementType
 name|getCorrelationExpression
 parameter_list|()
 block|{
