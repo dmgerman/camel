@@ -301,6 +301,13 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// Here we just pass the exception back , don't need to use errorHandler
+name|errorHandler
+argument_list|(
+name|noErrorHandler
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 name|ROUTER_ENDPOINT_URI
