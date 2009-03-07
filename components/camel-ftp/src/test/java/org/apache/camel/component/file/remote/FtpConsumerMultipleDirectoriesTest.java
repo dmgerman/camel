@@ -201,7 +201,7 @@ argument_list|()
 decl_stmt|;
 name|assertDirectoryEquals
 argument_list|(
-literal|"/multidir/bye.txt"
+literal|"multidir/bye.txt"
 argument_list|,
 name|file
 operator|.
@@ -256,7 +256,7 @@ argument_list|()
 expr_stmt|;
 name|assertDirectoryEquals
 argument_list|(
-literal|"/multidir/sub/hello.txt"
+literal|"multidir/sub/hello.txt"
 argument_list|,
 name|file
 operator|.
@@ -311,7 +311,7 @@ argument_list|()
 expr_stmt|;
 name|assertDirectoryEquals
 argument_list|(
-literal|"/multidir/sub/sub2/godday.txt"
+literal|"multidir/sub/sub2/godday.txt"
 argument_list|,
 name|file
 operator|.

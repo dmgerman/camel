@@ -46,6 +46,20 @@ name|GenericFileConfiguration
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  * Configuration of the FTP server  */
 end_comment
@@ -199,29 +213,19 @@ name|directory
 argument_list|)
 expr_stmt|;
 comment|// for FTP we must not start with a / root, so skip it if its there
-if|if
-condition|(
-name|getDirectory
-argument_list|()
+name|super
 operator|.
-name|startsWith
-argument_list|(
-literal|"/"
-argument_list|)
-condition|)
-block|{
 name|setDirectory
 argument_list|(
+name|FileUtil
+operator|.
+name|stripLeadingSeparator
+argument_list|(
 name|getDirectory
 argument_list|()
-operator|.
-name|substring
-argument_list|(
-literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Returns human readable server information for logging purpose      */
 DECL|method|remoteServerInformation ()
