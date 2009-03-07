@@ -226,7 +226,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/exclude/?excludeNamePrefix=secret&excludeNamePostfix=xml"
+literal|"file://target/exclude/?exclude=^secret.*|.*xml$"
 argument_list|)
 operator|.
 name|to

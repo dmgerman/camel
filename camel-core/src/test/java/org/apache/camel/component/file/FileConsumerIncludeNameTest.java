@@ -226,7 +226,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/include/?includeNamePrefix=report&includeNamePostfix=txt"
+literal|"file://target/include/?include=^report.*txt$"
 argument_list|)
 operator|.
 name|to

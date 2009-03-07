@@ -155,7 +155,7 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"hello.xml"
+literal|"hello.txt"
 argument_list|)
 expr_stmt|;
 name|template
@@ -226,7 +226,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/includeexclude/?includeNamePrefix=report&excludeNamePostfix=xml"
+literal|"file://target/includeexclude/?include=.*txt&exclude=hello.*"
 argument_list|)
 operator|.
 name|to

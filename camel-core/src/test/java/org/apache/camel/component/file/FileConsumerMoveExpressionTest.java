@@ -217,7 +217,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filelanguage/?excludeNamePostfix=.bak"
+literal|"file://target/filelanguage/?exclude=.*bak"
 operator|+
 literal|"&moveExpression=${id}.bak"
 argument_list|)
@@ -354,7 +354,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filelanguage/?excludeNamePostfix=.bak"
+literal|"file://target/filelanguage/?exclude=.*bak"
 operator|+
 literal|"&moveExpression=backup-${id}-${file:name.noext}.bak"
 argument_list|)
@@ -491,7 +491,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filelanguage/?excludeNamePostfix=.bak"
+literal|"file://target/filelanguage/?exclude=.*bak"
 operator|+
 literal|"&moveExpression=backup/${bean:myguidgenerator.guid}.txt"
 argument_list|)
@@ -580,7 +580,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filelanguage/?excludeNamePostfix=.bak"
+literal|"file://target/filelanguage/?exclude=.*bak"
 operator|+
 literal|"&moveExpression=../backup/${file:name}.bak"
 argument_list|)
@@ -723,9 +723,9 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|setExcludeNamePostfix
+name|setExclude
 argument_list|(
-literal|".bak"
+literal|".*bak"
 argument_list|)
 expr_stmt|;
 name|from

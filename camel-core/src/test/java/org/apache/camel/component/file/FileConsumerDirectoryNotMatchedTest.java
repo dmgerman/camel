@@ -89,7 +89,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/dirnotmatched/?recursive=true&regexPattern=.*\\.txt$"
+literal|"file://target/dirnotmatched/?recursive=true&include=.*txt$"
 decl_stmt|;
 annotation|@
 name|Override

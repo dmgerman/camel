@@ -91,7 +91,7 @@ name|fileUrl
 init|=
 literal|"file://target/multidir/?recursive=true&initialDelay=2000&delay=5000"
 operator|+
-literal|"&excludeNamePostfix=old&moveExpression=done/${file:name}.old"
+literal|"&exclude=.*old&moveExpression=done/${file:name}.old"
 decl_stmt|;
 annotation|@
 name|Override
