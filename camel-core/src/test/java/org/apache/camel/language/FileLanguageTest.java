@@ -383,16 +383,6 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"${file:canonical.path}"
-argument_list|,
-name|file
-operator|.
-name|getCanonicalPath
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
 literal|"${file:length}"
 argument_list|,
 name|file

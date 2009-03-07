@@ -44,6 +44,22 @@ name|PollingConsumer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFileOperationFailedException
+import|;
+end_import
+
 begin_comment
 comment|/**  * User does not have write permissions so can't deleted consumed file.  */
 end_comment
@@ -154,7 +170,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 name|fofe
 parameter_list|)
 block|{

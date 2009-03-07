@@ -66,6 +66,22 @@ name|Producer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFileOperationFailedException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for login failure due bad password and login with accepted password  */
 end_comment
@@ -120,13 +136,13 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should have thrown a RemoteFileOperationFailedException"
+literal|"Should have thrown a GenericFileOperationFailedException"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 name|e
 parameter_list|)
 block|{

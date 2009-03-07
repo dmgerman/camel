@@ -528,7 +528,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot connect to "
 operator|+
@@ -913,7 +913,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot delete file: "
 operator|+
@@ -1002,7 +1002,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot rename file from: "
 operator|+
@@ -1142,7 +1142,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot build directory: "
 operator|+
@@ -1160,7 +1160,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot build directory: "
 operator|+
@@ -1345,7 +1345,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot get current directory"
 argument_list|,
@@ -1383,7 +1383,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot change current directory to: "
 operator|+
@@ -1509,7 +1509,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot list directory: "
 operator|+
@@ -1644,7 +1644,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot retrieve file: "
 operator|+
@@ -1754,7 +1754,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot delete existing local work file: "
 operator|+
@@ -1782,7 +1782,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot delete existing local work file: "
 operator|+
@@ -1803,7 +1803,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot create new local work file: "
 operator|+
@@ -1845,7 +1845,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot create new local work file: "
 operator|+
@@ -1899,7 +1899,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot rename local work file from: "
 operator|+
@@ -1920,7 +1920,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot retrieve file: "
 operator|+
@@ -2006,7 +2006,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot store file: "
 operator|+
@@ -2024,7 +2024,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot store file: "
 operator|+

@@ -155,7 +155,7 @@ name|fileList
 parameter_list|)
 block|{
 name|File
-name|fileOrDirectory
+name|directory
 init|=
 operator|new
 name|File
@@ -166,30 +166,25 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|fileOrDirectory
+name|directory
 operator|.
 name|exists
 argument_list|()
-condition|)
-block|{
-return|return;
-block|}
-comment|// could be a file and not a directory so delegate to poll file instead
-comment|// this happens if end user has specified a filename in the URI but have not
-comment|// set directory=false as an option
-if|if
-condition|(
-name|fileOrDirectory
+operator|||
+operator|!
+name|directory
 operator|.
-name|isFile
+name|isDirectory
 argument_list|()
 condition|)
 block|{
-name|pollFile
+name|log
+operator|.
+name|warn
 argument_list|(
-name|fileName
-argument_list|,
-name|fileList
+literal|"Cannot poll directory as file does not exists or is not a directory: "
+operator|+
+name|directory
 argument_list|)
 expr_stmt|;
 return|return;
@@ -208,7 +203,7 @@ name|trace
 argument_list|(
 literal|"Polling directory: "
 operator|+
-name|fileOrDirectory
+name|directory
 operator|.
 name|getPath
 argument_list|()
@@ -219,7 +214,7 @@ name|File
 index|[]
 name|files
 init|=
-name|fileOrDirectory
+name|directory
 operator|.
 name|listFiles
 argument_list|()
@@ -287,11 +282,13 @@ condition|)
 block|{
 comment|// recursive scan and add the sub files and folders
 name|String
-name|directory
+name|subDirectory
 init|=
 name|fileName
 operator|+
-literal|"/"
+name|File
+operator|.
+name|separator
 operator|+
 name|file
 operator|.
@@ -300,7 +297,7 @@ argument_list|()
 decl_stmt|;
 name|pollDirectory
 argument_list|(
-name|directory
+name|subDirectory
 argument_list|,
 name|fileList
 argument_list|)
@@ -342,7 +339,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring unsupported file type "
+literal|"Ignoring unsupported file type for file: "
 operator|+
 name|file
 argument_list|)
@@ -516,27 +513,6 @@ name|getAbsolutePath
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|answer
-operator|.
-name|setCanonicalFileName
-argument_list|(
-name|file
-operator|.
-name|getCanonicalPath
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|answer
 operator|.
 name|setLastModified

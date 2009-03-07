@@ -470,7 +470,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
@@ -608,7 +608,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
@@ -649,7 +649,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
@@ -713,7 +713,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
@@ -796,7 +796,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
@@ -894,7 +894,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
@@ -1064,7 +1064,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
@@ -1206,7 +1206,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
@@ -1346,7 +1346,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot delete existing local work file: "
 operator|+
@@ -1374,7 +1374,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot delete existing local work file: "
 operator|+
@@ -1395,7 +1395,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot create new local work file: "
 operator|+
@@ -1439,7 +1439,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot create new local work file: "
 operator|+
@@ -1491,7 +1491,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
@@ -1543,7 +1543,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot rename local work file from: "
 operator|+
@@ -1612,7 +1612,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
@@ -1675,7 +1675,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
@@ -1726,7 +1726,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
@@ -1847,7 +1847,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
@@ -1901,7 +1901,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RemoteFileOperationFailedException
+name|GenericFileOperationFailedException
 argument_list|(
 name|client
 operator|.
