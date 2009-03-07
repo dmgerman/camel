@@ -123,6 +123,7 @@ name|threadCounter
 decl_stmt|;
 DECL|field|started
 specifier|private
+specifier|final
 name|AtomicBoolean
 name|started
 init|=
@@ -134,6 +135,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|starting
 specifier|private
+specifier|final
 name|AtomicBoolean
 name|starting
 init|=
@@ -145,6 +147,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|stopping
 specifier|private
+specifier|final
 name|AtomicBoolean
 name|stopping
 init|=
@@ -156,6 +159,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|stopped
 specifier|private
+specifier|final
 name|AtomicBoolean
 name|stopped
 init|=

@@ -26,18 +26,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|TimeUnit
 import|;
 end_import
@@ -57,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An alternative to a {@link CountDownLatch} -- this implementation also supports incrementing  * the latch count while counting down.  It can also be used to count up to 0 from a negative integer.  */
+comment|/**  * An alternative to a {@link java.util.concurrent.CountDownLatch}.  *<p/>  * This implementation also supports incrementing the latch count while counting down.  * It can also be used to count up to 0 from a negative integer.  */
 end_comment
 
 begin_class

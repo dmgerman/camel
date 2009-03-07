@@ -138,34 +138,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|Injector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Registry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -1178,7 +1150,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new instance of the given type using the {@link Injector} on the given      * {@link CamelContext}      */
+comment|/**      * Creates a new instance of the given type using the {@link org.apache.camel.spi.Injector} on the given      * {@link CamelContext}      */
 DECL|method|newInstance (Class<T> beanType)
 specifier|public
 parameter_list|<
@@ -1207,7 +1179,7 @@ name|beanType
 argument_list|)
 return|;
 block|}
-comment|/**      * Look up the given named bean in the {@link Registry} on the      * {@link CamelContext}      */
+comment|/**      * Look up the given named bean in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext}      */
 DECL|method|lookup (String name)
 specifier|public
 name|Object
@@ -1230,7 +1202,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Look up the given named bean of the given type in the {@link Registry} on the      * {@link CamelContext}      */
+comment|/**      * Look up the given named bean of the given type in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext}      */
 DECL|method|lookup (String name, Class<T> beanType)
 specifier|public
 parameter_list|<
@@ -1264,7 +1236,7 @@ name|beanType
 argument_list|)
 return|;
 block|}
-comment|/**      * Look up the given named bean in the {@link Registry} on the      * {@link CamelContext} or throws exception if not found.      */
+comment|/**      * Look up the given named bean in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext} or throws exception if not found.      */
 DECL|method|mandatoryLookup (String name)
 specifier|public
 name|Object
@@ -1286,7 +1258,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Look up the given named bean of the given type in the {@link Registry} on the      * {@link CamelContext} or throws exception if not found.      */
+comment|/**      * Look up the given named bean of the given type in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext} or throws exception if not found.      */
 DECL|method|mandatoryLookup (String name, Class<T> beanType)
 specifier|public
 parameter_list|<

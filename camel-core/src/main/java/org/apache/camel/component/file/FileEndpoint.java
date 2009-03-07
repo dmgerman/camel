@@ -445,7 +445,7 @@ comment|// update configuration as well
 name|getConfiguration
 argument_list|()
 operator|.
-name|setFile
+name|setDirectory
 argument_list|(
 name|file
 operator|.

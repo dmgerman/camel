@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -101,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of an event driven {@link Consumer} which uses the {@link PollingConsumer}  *  * @version $Revision$  */
+comment|/**  * A default implementation of an event driven {@link org.apache.camel.Consumer} which uses the  * {@link PollingConsumer}  *  * @version $Revision$  */
 end_comment
 
 begin_class

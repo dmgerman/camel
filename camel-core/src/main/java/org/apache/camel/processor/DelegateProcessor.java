@@ -62,20 +62,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|Policy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ServiceHelper
@@ -83,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Delegate pattern which delegates processing to a nested processor which can  * be useful for implementation inheritance when writing an {@link Policy}  *   * @version $Revision$  */
+comment|/**  * A Delegate pattern which delegates processing to a nested processor which can  * be useful for implementation inheritance when writing an {@link org.apache.camel.spi.Policy}  *   * @version $Revision$  */
 end_comment
 
 begin_class

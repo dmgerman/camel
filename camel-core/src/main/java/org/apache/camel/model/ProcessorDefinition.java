@@ -456,20 +456,6 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Enricher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
 name|Pipeline
 import|;
 end_import
@@ -4769,7 +4755,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Enriches an exchange with additional data obtained from a      *<code>resourceUri</code>.      *       * @param resourceUri      *            URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy      *            aggregation strategy to aggregate input data and additional      *            data.      * @return this processor type      * @see Enricher      */
+comment|/**      * Enriches an exchange with additional data obtained from a      *<code>resourceUri</code>.      *       * @param resourceUri      *            URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy      *            aggregation strategy to aggregate input data and additional      *            data.      * @return this processor type      * @see org.apache.camel.processor.Enricher      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

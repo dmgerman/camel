@@ -60,36 +60,12 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|PollingConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for an endpoint which the default consumer mode is to use a {@link PollingConsumer}  *  * @version $Revision$  */
+comment|/**  * A base class for an endpoint which the default consumer mode is to use a {@link org.apache.camel.PollingConsumer}  *  * @version $Revision$  */
 end_comment
 
 begin_class

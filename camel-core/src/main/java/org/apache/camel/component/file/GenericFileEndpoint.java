@@ -1710,7 +1710,7 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
-comment|// compute the name that was written, it should be relative to the endpoint configuraion
+comment|// compute the name that was written
 name|String
 name|name
 init|=
@@ -1729,6 +1729,7 @@ operator|.
 name|getRelativeFileName
 argument_list|()
 decl_stmt|;
+comment|// skip leading endpoint configured directory
 if|if
 condition|(
 name|name
@@ -1738,25 +1739,23 @@ argument_list|(
 name|getConfiguration
 argument_list|()
 operator|.
-name|getFile
+name|getDirectory
 argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// remove the file path configured on the endpoint for directory=true
 name|name
 operator|=
-name|name
+name|ObjectHelper
 operator|.
-name|substring
+name|after
 argument_list|(
+name|name
+argument_list|,
 name|getConfiguration
 argument_list|()
 operator|.
-name|getFile
-argument_list|()
-operator|.
-name|length
+name|getDirectory
 argument_list|()
 argument_list|)
 expr_stmt|;

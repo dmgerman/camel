@@ -48,10 +48,10 @@ specifier|public
 class|class
 name|GenericFileConfiguration
 block|{
-DECL|field|file
+DECL|field|directory
 specifier|private
 name|String
-name|file
+name|directory
 decl_stmt|;
 DECL|method|needToNormalize ()
 specifier|public
@@ -72,7 +72,7 @@ name|URI
 name|uri
 parameter_list|)
 block|{
-name|setFile
+name|setDirectory
 argument_list|(
 name|uri
 operator|.
@@ -81,28 +81,28 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getFile ()
+DECL|method|getDirectory ()
 specifier|public
 name|String
-name|getFile
+name|getDirectory
 parameter_list|()
 block|{
 return|return
-name|file
+name|directory
 return|;
 block|}
-DECL|method|setFile (String file)
+DECL|method|setDirectory (String directory)
 specifier|public
 name|void
-name|setFile
+name|setDirectory
 parameter_list|(
 name|String
-name|file
+name|directory
 parameter_list|)
 block|{
 name|this
 operator|.
-name|file
+name|directory
 operator|=
 name|needToNormalize
 argument_list|()
@@ -112,12 +112,29 @@ name|FileUtil
 operator|.
 name|normalizePath
 argument_list|(
-name|file
+name|directory
 argument_list|)
-comment|// for the remote file we don't need to do that
+comment|// for the remote directory we don't need to do that
 else|:
-name|file
+name|directory
 expr_stmt|;
+comment|// endpoint directory must not be null
+if|if
+condition|(
+name|this
+operator|.
+name|directory
+operator|==
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|directory
+operator|=
+literal|""
+expr_stmt|;
+block|}
 block|}
 DECL|method|toString ()
 specifier|public
@@ -126,7 +143,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-name|file
+name|directory
 return|;
 block|}
 block|}

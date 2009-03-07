@@ -50,18 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|ExpressionSupport
@@ -138,6 +126,7 @@ name|ExpressionSupport
 block|{
 DECL|field|expression
 specifier|private
+specifier|final
 name|String
 name|expression
 decl_stmt|;
@@ -312,9 +301,6 @@ parameter_list|)
 block|{
 return|return
 name|expression
-operator|.
-name|toString
-argument_list|()
 return|;
 block|}
 comment|/*      * Get a compiled expression instance for better performance      */

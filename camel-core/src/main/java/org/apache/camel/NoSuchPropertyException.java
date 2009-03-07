@@ -14,22 +14,8 @@ name|camel
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-import|;
-end_import
-
 begin_comment
-comment|/**  * An exception caused when a mandatory property is not available on a message  * {@link Exchange}  *   * @see ExchangeHelper#getMandatoryProperty(Exchange, String, Class)  *   * @version $Revision$  */
+comment|/**  * An exception caused when a mandatory property is not available on a message  * {@link Exchange}  *   * @see org.apache.camel.util.ExchangeHelper#getMandatoryProperty(Exchange, String, Class)  *   * @version $Revision$  */
 end_comment
 
 begin_class

@@ -28,6 +28,7 @@ name|CollectionStringBuffer
 block|{
 DECL|field|buffer
 specifier|private
+specifier|final
 name|StringBuffer
 name|buffer
 init|=

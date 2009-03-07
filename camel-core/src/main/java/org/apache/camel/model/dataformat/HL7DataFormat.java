@@ -60,20 +60,6 @@ name|XmlRootElement
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|DataFormat
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a<a href="http://camel.apache.org/hl7.html">HL7</a> {@link org.apache.camel.spi.DataFormat}.  *  * @version $Revision$  */
 end_comment

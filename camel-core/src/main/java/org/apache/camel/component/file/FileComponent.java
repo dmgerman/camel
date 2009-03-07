@@ -119,7 +119,7 @@ argument_list|()
 decl_stmt|;
 name|config
 operator|.
-name|setFile
+name|setDirectory
 argument_list|(
 name|file
 operator|.

@@ -885,7 +885,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getFile
+name|getDirectory
 argument_list|()
 decl_stmt|;
 comment|// Its a directory so we should use it as a base path for the filename

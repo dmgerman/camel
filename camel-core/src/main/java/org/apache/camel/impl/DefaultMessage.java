@@ -68,20 +68,8 @@ name|Exchange
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
-import|;
-end_import
-
 begin_comment
-comment|/**  * The default implementation of {@link Message}  *  * @version $Revision$  */
+comment|/**  * The default implementation of {@link org.apache.camel.Message}  *  * @version $Revision$  */
 end_comment
 
 begin_class

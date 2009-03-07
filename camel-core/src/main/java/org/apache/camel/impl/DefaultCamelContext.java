@@ -799,6 +799,7 @@ name|routes
 decl_stmt|;
 DECL|field|servicesToClose
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Service
@@ -865,6 +866,7 @@ name|lifecycleStrategy
 decl_stmt|;
 DECL|field|routeDefinitions
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|RouteDefinition
@@ -962,6 +964,7 @@ name|class
 decl_stmt|;
 DECL|field|routeServices
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String

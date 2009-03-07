@@ -110,7 +110,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptorRef
+name|InterceptorDefinition
 import|;
 end_import
 
@@ -124,7 +124,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptorDefinition
+name|InterceptorRef
 import|;
 end_import
 

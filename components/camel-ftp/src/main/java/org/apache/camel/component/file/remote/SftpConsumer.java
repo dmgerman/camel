@@ -101,6 +101,11 @@ operator|.
 name|LsEntry
 argument_list|>
 block|{
+DECL|field|endpointPath
+specifier|private
+name|String
+name|endpointPath
+decl_stmt|;
 DECL|method|SftpConsumer (RemoteFileEndpoint<ChannelSftp.LsEntry> endpoint, Processor processor, RemoteFileOperations<ChannelSftp.LsEntry> operations)
 specifier|public
 name|SftpConsumer
@@ -133,6 +138,18 @@ name|processor
 argument_list|,
 name|operations
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|endpointPath
+operator|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getDirectory
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|pollDirectory (String fileName, List<GenericFile<ChannelSftp.LsEntry>> fileList)
@@ -396,6 +413,16 @@ argument_list|(
 name|fileName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|list
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|ChannelSftp
 operator|.
 name|LsEntry
@@ -451,6 +478,30 @@ expr_stmt|;
 block|}
 block|}
 block|}
+else|else
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Polled ["
+operator|+
+name|fileName
+operator|+
+literal|"]. No files found"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 DECL|method|asRemoteFile (String directory, ChannelSftp.LsEntry file)
 specifier|private
 name|RemoteFile
@@ -476,7 +527,7 @@ name|ChannelSftp
 operator|.
 name|LsEntry
 argument_list|>
-name|remote
+name|answer
 init|=
 operator|new
 name|RemoteFile
@@ -487,14 +538,21 @@ name|LsEntry
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|remote
+name|answer
+operator|.
+name|setEndpointPath
+argument_list|(
+name|endpointPath
+argument_list|)
+expr_stmt|;
+name|answer
 operator|.
 name|setFile
 argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
-name|remote
+name|answer
 operator|.
 name|setFileName
 argument_list|(
@@ -504,7 +562,7 @@ name|getFilename
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|remote
+name|answer
 operator|.
 name|setFileLength
 argument_list|(
@@ -517,7 +575,7 @@ name|getSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|remote
+name|answer
 operator|.
 name|setLastModified
 argument_list|(
@@ -532,7 +590,7 @@ operator|*
 literal|1000L
 argument_list|)
 expr_stmt|;
-name|remote
+name|answer
 operator|.
 name|setHostname
 argument_list|(
@@ -550,6 +608,15 @@ name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// all ftp files is considered as relative
+name|answer
+operator|.
+name|setAbsolute
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// create a pseudo absolute name
 name|String
 name|absoluteFileName
 init|=
@@ -573,36 +640,24 @@ operator|.
 name|getFilename
 argument_list|()
 decl_stmt|;
-name|remote
+name|answer
 operator|.
 name|setAbsoluteFileName
 argument_list|(
 name|absoluteFileName
 argument_list|)
 expr_stmt|;
-comment|// the relative filename
-name|String
-name|ftpBasePath
-init|=
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getFile
-argument_list|()
-decl_stmt|;
+comment|// the relative filename, skip the leading endpoint configured path
 name|String
 name|relativePath
 init|=
-name|absoluteFileName
+name|ObjectHelper
 operator|.
-name|substring
+name|after
 argument_list|(
-name|ftpBasePath
-operator|.
-name|length
-argument_list|()
+name|absoluteFileName
+argument_list|,
+name|endpointPath
 argument_list|)
 decl_stmt|;
 if|if
@@ -615,6 +670,7 @@ literal|"/"
 argument_list|)
 condition|)
 block|{
+comment|// skip trailing /
 name|relativePath
 operator|=
 name|relativePath
@@ -625,7 +681,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|remote
+name|answer
 operator|.
 name|setRelativeFileName
 argument_list|(
@@ -633,7 +689,7 @@ name|relativePath
 argument_list|)
 expr_stmt|;
 return|return
-name|remote
+name|answer
 return|;
 block|}
 block|}

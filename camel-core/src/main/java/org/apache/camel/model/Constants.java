@@ -34,6 +34,8 @@ specifier|final
 name|String
 name|JAXB_CONTEXT_PACKAGES
 init|=
+literal|""
+operator|+
 literal|"org.apache.camel:"
 operator|+
 literal|"org.apache.camel.model:"

@@ -114,6 +114,10 @@ name|RouteContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Represents the ZIP XML {@link org.apache.camel.spi.DataFormat}  */
+end_comment
+
 begin_class
 annotation|@
 name|XmlRootElement

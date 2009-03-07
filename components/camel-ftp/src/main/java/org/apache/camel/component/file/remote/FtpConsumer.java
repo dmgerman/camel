@@ -146,7 +146,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getFile
+name|getDirectory
 argument_list|()
 expr_stmt|;
 block|}
@@ -619,7 +619,7 @@ name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// all ftp files is consider as relative
+comment|// all ftp files is considered as relative
 name|answer
 operator|.
 name|setAbsolute
@@ -627,6 +627,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// create a pseudo absolute name
 name|String
 name|absoluteFileName
 init|=
@@ -657,29 +658,17 @@ argument_list|(
 name|absoluteFileName
 argument_list|)
 expr_stmt|;
-comment|// the relative filename
-name|String
-name|ftpBasePath
-init|=
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getFile
-argument_list|()
-decl_stmt|;
+comment|// the relative filename, skip the leading endpoint configured path
 name|String
 name|relativePath
 init|=
-name|absoluteFileName
+name|ObjectHelper
 operator|.
-name|substring
+name|after
 argument_list|(
-name|ftpBasePath
-operator|.
-name|length
-argument_list|()
+name|absoluteFileName
+argument_list|,
+name|endpointPath
 argument_list|)
 decl_stmt|;
 if|if
@@ -692,6 +681,7 @@ literal|"/"
 argument_list|)
 condition|)
 block|{
+comment|// skip trailing /
 name|relativePath
 operator|=
 name|relativePath

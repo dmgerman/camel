@@ -14,22 +14,8 @@ name|camel
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Registry
-import|;
-end_import
-
 begin_comment
-comment|/**  * A runtime exception if a given bean could not be found in the {@link Registry}  *  * @version $Revision$  */
+comment|/**  * A runtime exception if a given bean could not be found in the {@link org.apache.camel.spi.Registry}  *  * @version $Revision$  */
 end_comment
 
 begin_class

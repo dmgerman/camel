@@ -326,6 +326,7 @@ name|RouteContext
 block|{
 DECL|field|route
 specifier|private
+specifier|final
 name|RouteDefinition
 name|route
 decl_stmt|;
@@ -336,6 +337,7 @@ name|from
 decl_stmt|;
 DECL|field|routes
 specifier|private
+specifier|final
 name|Collection
 argument_list|<
 name|Route
@@ -349,6 +351,7 @@ name|endpoint
 decl_stmt|;
 DECL|field|eventDrivenProcessors
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Processor

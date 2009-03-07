@@ -344,6 +344,7 @@ comment|// A map (Endpoint -> InstrumentationProcessor) to facilitate
 comment|// adding per-route interceptor and registering ManagedRoute MBean
 DECL|field|interceptorMap
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|Endpoint

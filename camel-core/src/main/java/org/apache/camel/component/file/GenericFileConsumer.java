@@ -324,7 +324,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getFile
+name|getDirectory
 argument_list|()
 decl_stmt|;
 name|pollDirectory

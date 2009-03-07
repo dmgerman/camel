@@ -34,16 +34,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Iterator
 import|;
 end_import
@@ -121,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Collection} which aggregates exchanges together using a correlation  * expression so that there is only a single message exchange sent for a single  * correlation key.  *  * @version $Revision$  */
+comment|/**  * A {@link java.util.Collection} which aggregates exchanges together using a correlation  * expression so that there is only a single message exchange sent for a single  * correlation key.  *  * @version $Revision$  */
 end_comment
 
 begin_class

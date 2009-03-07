@@ -60,22 +60,8 @@ name|XmlRootElement
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|DataFormat
-import|;
-end_import
-
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/rss.html">RSS</a> {@link org.apache.camel.spi.DataFormat}.  *  */
+comment|/**  * Represents a<a href="http://camel.apache.org/rss.html">RSS</a> {@link org.apache.camel.spi.DataFormat}.  */
 end_comment
 
 begin_class

@@ -74,20 +74,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|Policy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|AsyncProcessorHelper
@@ -109,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Delegate pattern which delegates processing to a nested AsyncProcessor which can  * be useful for implementation inheritance when writing an {@link Policy}  */
+comment|/**  * A Delegate pattern which delegates processing to a nested AsyncProcessor which can  * be useful for implementation inheritance when writing an {@link org.apache.camel.spi.Policy}  */
 end_comment
 
 begin_class

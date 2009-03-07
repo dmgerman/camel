@@ -34,7 +34,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|Serializable
+name|IOException
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|Serializable
 import|;
 end_import
 

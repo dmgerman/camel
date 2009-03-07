@@ -28,20 +28,8 @@ name|Exchange
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Expression
-import|;
-end_import
-
 begin_comment
-comment|/**  * A helper class for developers wishing to implement an {@link Expression} using Java code with a minimum amount  * of code to write so that the developer only needs to implement one of the  * {@link #evaluate(Exchange)} or {@link #evaluate(org.apache.camel.Exchange, Class)} methods.  *  * @version $Revision$  */
+comment|/**  * A helper class for developers wishing to implement an {@link org.apache.camel.Expression}  * using Java code with a minimum amount of code to write so that the developer only needs  * to implement one of the {@link #evaluate(Exchange)} or  * {@link #evaluate(org.apache.camel.Exchange, Class)} methods.  *  * @version $Revision$  */
 end_comment
 
 begin_class

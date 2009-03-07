@@ -89,10 +89,10 @@ argument_list|<
 name|File
 argument_list|>
 block|{
-DECL|field|rootPath
+DECL|field|endpointPath
 specifier|private
 name|String
-name|rootPath
+name|endpointPath
 decl_stmt|;
 DECL|method|FileConsumer (GenericFileEndpoint<File> endpoint, Processor processor, GenericFileOperations<File> operations)
 specifier|public
@@ -125,14 +125,14 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|rootPath
+name|endpointPath
 operator|=
 name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getFile
+name|getDirectory
 argument_list|()
 expr_stmt|;
 block|}
@@ -257,7 +257,7 @@ name|gf
 init|=
 name|asGenericFile
 argument_list|(
-name|rootPath
+name|endpointPath
 argument_list|,
 name|file
 argument_list|)
@@ -397,7 +397,7 @@ name|gf
 init|=
 name|asGenericFile
 argument_list|(
-name|rootPath
+name|endpointPath
 argument_list|,
 name|file
 argument_list|)
@@ -422,8 +422,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates a new GenericFile<File> based on the given file.      *      * @param file the source file      * @return wrapped as a GenericFile      */
-DECL|method|asGenericFile (String rootPath, File file)
+comment|/**      * Creates a new GenericFile<File> based on the given file.      *      * @param endpointPath the starting directory the endpoint was configued with      * @param file the source file      * @return wrapped as a GenericFile      */
+DECL|method|asGenericFile (String endpointPath, File file)
 specifier|public
 specifier|static
 name|GenericFile
@@ -433,7 +433,7 @@ argument_list|>
 name|asGenericFile
 parameter_list|(
 name|String
-name|rootPath
+name|endpointPath
 parameter_list|,
 name|File
 name|file
@@ -457,7 +457,7 @@ name|answer
 operator|.
 name|setEndpointPath
 argument_list|(
-name|rootPath
+name|endpointPath
 argument_list|)
 expr_stmt|;
 name|answer
@@ -565,7 +565,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// skip root path
 name|File
 name|path
 decl_stmt|;
@@ -578,10 +577,11 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-name|rootPath
+name|endpointPath
 argument_list|)
 condition|)
 block|{
+comment|// skip duplicate endpoint path
 name|path
 operator|=
 operator|new
@@ -596,7 +596,7 @@ operator|.
 name|getPath
 argument_list|()
 argument_list|,
-name|rootPath
+name|endpointPath
 operator|+
 name|File
 operator|.
