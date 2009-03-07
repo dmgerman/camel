@@ -179,6 +179,50 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|setDirectory (String directory)
+specifier|public
+name|void
+name|setDirectory
+parameter_list|(
+name|String
+name|directory
+parameter_list|)
+block|{
+comment|// let super do its work first
+name|super
+operator|.
+name|setDirectory
+argument_list|(
+name|directory
+argument_list|)
+expr_stmt|;
+comment|// for FTP we must not start with a / root, so skip it if its there
+if|if
+condition|(
+name|getDirectory
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+name|setDirectory
+argument_list|(
+name|getDirectory
+argument_list|()
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|/**      * Returns human readable server information for logging purpose      */
 DECL|method|remoteServerInformation ()
 specifier|public
