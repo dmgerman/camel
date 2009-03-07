@@ -479,7 +479,7 @@ comment|// END SNIPPET: marshalRoute
 comment|// START SNIPPET: unmarshalRoute
 name|from
 argument_list|(
-literal|"file:src/test/resources/daltons.csv?noop=true"
+literal|"file:src/test/resources/?fileName=daltons.csv&noop=true"
 argument_list|)
 operator|.
 name|unmarshal
