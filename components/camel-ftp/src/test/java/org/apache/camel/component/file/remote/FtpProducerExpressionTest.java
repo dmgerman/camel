@@ -199,7 +199,7 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&fileExpression=${bean:myguidgenerator}.bak"
+literal|"&fileName=${bean:myguidgenerator}.bak"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -299,7 +299,7 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&fileExpression=myfile-${date:now:yyyyMMdd}.txt"
+literal|"&fileName=myfile-${date:now:yyyyMMdd}.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -352,7 +352,7 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&fileExpression="
+literal|"&fileName="
 operator|+
 name|expression
 argument_list|,
@@ -402,7 +402,7 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&fileExpression=myfile-${in.header.foo}.txt"
+literal|"&fileName=myfile-${in.header.foo}.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -463,7 +463,7 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&fileExpression=mybirthday-${date:in.header.birthday:yyyyMMdd}.txt"
+literal|"&fileName=mybirthday-${date:in.header.birthday:yyyyMMdd}.txt"
 argument_list|,
 literal|"Hello World"
 argument_list|,

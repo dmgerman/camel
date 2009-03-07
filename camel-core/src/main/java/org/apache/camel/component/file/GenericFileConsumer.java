@@ -1441,7 +1441,7 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|getFileExpression
+name|getFileName
 argument_list|()
 operator|!=
 literal|null
@@ -1511,7 +1511,7 @@ name|String
 operator|)
 name|endpoint
 operator|.
-name|getFileExpression
+name|getFileName
 argument_list|()
 operator|.
 name|evaluate

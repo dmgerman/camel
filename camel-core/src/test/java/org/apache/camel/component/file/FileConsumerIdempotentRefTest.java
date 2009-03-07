@@ -221,7 +221,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/idempotent/?idempotent=true&idempotentRepository=#myRepo&moveExpression=done/${file:name}"
+literal|"file://target/idempotent/?idempotent=true&idempotentRepository=#myRepo&move=done/${file:name}"
 argument_list|)
 operator|.
 name|to

@@ -78,7 +78,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"ftp://target?moveExpression=../done/${file:name}&delete=true"
+literal|"ftp://target?move=../done/${file:name}&delete=true"
 argument_list|)
 operator|.
 name|createConsumer
@@ -120,7 +120,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target?moveExpression=../done/${file:name}&delete=true"
+literal|"file://target?move=../done/${file:name}&delete=true"
 argument_list|)
 operator|.
 name|createConsumer

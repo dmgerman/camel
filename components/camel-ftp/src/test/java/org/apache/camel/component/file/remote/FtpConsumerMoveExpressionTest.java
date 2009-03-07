@@ -300,7 +300,7 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&moveExpression=backup/${date:now:yyyyMMdd}/${bean:myguidgenerator}"
+literal|"&move=backup/${date:now:yyyyMMdd}/${bean:myguidgenerator}"
 operator|+
 literal|"-${file:name.noext}.bak"
 argument_list|)

@@ -176,7 +176,7 @@ name|params
 operator|.
 name|get
 argument_list|(
-literal|"moveExpression"
+literal|"move"
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -189,7 +189,7 @@ name|params
 operator|.
 name|get
 argument_list|(
-literal|"preMoveExpression"
+literal|"preMove"
 argument_list|)
 decl_stmt|;
 if|if

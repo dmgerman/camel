@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to test preMoveExpression option.  */
+comment|/**  * Unit test to test preMove option.  */
 end_comment
 
 begin_class
@@ -134,7 +134,7 @@ argument_list|()
 operator|+
 literal|"/movefile?password=admin&binary=false&consumer.delay=5000"
 operator|+
-literal|"&preMoveExpression=../inprogress/${file:name.noext}.bak"
+literal|"&preMove=../inprogress/${file:name.noext}.bak"
 return|;
 block|}
 annotation|@

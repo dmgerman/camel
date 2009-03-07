@@ -328,12 +328,39 @@ operator|)
 name|operations
 argument_list|)
 decl_stmt|;
+comment|// we assume its a file if the name has a dot in it (eg foo.txt)
+if|if
+condition|(
+name|configuration
+operator|.
+name|getDirectory
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"."
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Only directory is supported. Endpoint must be configured with a valid directory: "
+operator|+
+name|configuration
+operator|.
+name|getDirectory
+argument_list|()
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|isDelete
 argument_list|()
 operator|&&
-name|getMoveExpression
+name|getMove
 argument_list|()
 operator|!=
 literal|null
@@ -343,7 +370,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"You cannot both set delete=true and moveExpression options"
+literal|"You cannot both set delete=true and move options"
 argument_list|)
 throw|;
 block|}

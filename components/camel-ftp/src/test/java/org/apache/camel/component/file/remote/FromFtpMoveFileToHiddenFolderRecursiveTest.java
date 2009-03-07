@@ -88,7 +88,7 @@ argument_list|()
 operator|+
 literal|"?password=admin&recursive=true&binary=false"
 operator|+
-literal|"&moveExpression=.done/${file:name}&initialDelay=3000&delay=5000"
+literal|"&move=.done/${file:name}&initialDelay=3000&delay=5000"
 return|;
 block|}
 annotation|@

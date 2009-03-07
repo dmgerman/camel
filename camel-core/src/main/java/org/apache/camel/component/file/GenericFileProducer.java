@@ -780,7 +780,7 @@ name|expression
 init|=
 name|endpoint
 operator|.
-name|getFileExpression
+name|getFileName
 argument_list|()
 decl_stmt|;
 if|if

@@ -219,7 +219,7 @@ name|from
 argument_list|(
 literal|"file://target/filelanguage/?exclude=.*bak"
 operator|+
-literal|"&moveExpression=${id}.bak"
+literal|"&move=${id}.bak"
 argument_list|)
 operator|.
 name|to
@@ -356,7 +356,7 @@ name|from
 argument_list|(
 literal|"file://target/filelanguage/?exclude=.*bak"
 operator|+
-literal|"&moveExpression=backup-${id}-${file:name.noext}.bak"
+literal|"&move=backup-${id}-${file:name.noext}.bak"
 argument_list|)
 operator|.
 name|to
@@ -493,7 +493,7 @@ name|from
 argument_list|(
 literal|"file://target/filelanguage/?exclude=.*bak"
 operator|+
-literal|"&moveExpression=backup/${bean:myguidgenerator.guid}.txt"
+literal|"&move=backup/${bean:myguidgenerator.guid}.txt"
 argument_list|)
 operator|.
 name|to
@@ -582,7 +582,7 @@ name|from
 argument_list|(
 literal|"file://target/filelanguage/?exclude=.*bak"
 operator|+
-literal|"&moveExpression=../backup/${file:name}.bak"
+literal|"&move=../backup/${file:name}.bak"
 argument_list|)
 operator|.
 name|to
@@ -711,7 +711,7 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|setMoveExpression
+name|setMove
 argument_list|(
 name|BeanLanguage
 operator|.

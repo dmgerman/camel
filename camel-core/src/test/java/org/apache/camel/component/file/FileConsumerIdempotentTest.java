@@ -154,7 +154,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/idempotent/?idempotent=true&moveExpression=done/${file:name}"
+literal|"file://target/idempotent/?idempotent=true&move=done/${file:name}"
 argument_list|)
 operator|.
 name|to

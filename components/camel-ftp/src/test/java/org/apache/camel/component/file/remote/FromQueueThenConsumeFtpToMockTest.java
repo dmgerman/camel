@@ -363,14 +363,14 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// construct the total url for the ftp consumer
-comment|// set a regex pattern to only consume the file we want
+comment|// add the fileName option with the file we want to consume
 name|String
 name|url
 init|=
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&regexPattern="
+literal|"&fileName="
 operator|+
 name|filename
 decl_stmt|;

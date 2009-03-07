@@ -218,7 +218,7 @@ literal|"file://"
 operator|+
 name|base
 operator|+
-literal|"?moveExpression=../done/${file:name}"
+literal|"?move=../done/${file:name}"
 argument_list|)
 operator|.
 name|to

@@ -342,7 +342,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/reports?moveExpression=../done/${file:name}&consumer.delay=5000"
+literal|"file://target/reports?move=../done/${file:name}&consumer.delay=5000"
 argument_list|)
 operator|.
 name|to

@@ -238,7 +238,7 @@ name|from
 argument_list|(
 literal|"file://target/filelanguage/bean/"
 operator|+
-literal|"?fileExpression=${bean:counter.next}.txt&delete=true"
+literal|"?fileName=${bean:counter.next}.txt&delete=true"
 argument_list|)
 operator|.
 name|to
@@ -357,7 +357,7 @@ name|from
 argument_list|(
 literal|"file://target/filelanguage/date/"
 operator|+
-literal|"?fileExpression=myfile-${date:now:yyyyMMdd}.txt"
+literal|"?fileName=myfile-${date:now:yyyyMMdd}.txt"
 argument_list|)
 operator|.
 name|to

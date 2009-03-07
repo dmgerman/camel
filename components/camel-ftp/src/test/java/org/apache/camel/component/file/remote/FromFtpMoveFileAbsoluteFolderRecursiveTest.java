@@ -86,9 +86,9 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/movefile?password=admin&recursive=true&binary=false&excludeNamePostfix=.old"
+literal|"/movefile?password=admin&recursive=true&binary=false&exclude=.*old"
 operator|+
-literal|"&moveExpression=/done/${file:name}.old&initialDelay=5000&delay=5000"
+literal|"&move=/done/${file:name}.old&initialDelay=2500&delay=5000"
 return|;
 block|}
 annotation|@

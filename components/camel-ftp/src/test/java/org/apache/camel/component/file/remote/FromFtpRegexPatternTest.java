@@ -86,7 +86,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/regexp?password=admin&regexPattern=report.*"
+literal|"/regexp?password=admin&include=report.*"
 return|;
 block|}
 DECL|method|testFtpRegexPattern ()

@@ -76,7 +76,7 @@ argument_list|()
 operator|+
 literal|"/excludename?password=admin"
 operator|+
-literal|"&excludeNamePrefix=secret&excludeNamePostfix=xml"
+literal|"&exclude=secret.*|.*xml"
 return|;
 block|}
 annotation|@
