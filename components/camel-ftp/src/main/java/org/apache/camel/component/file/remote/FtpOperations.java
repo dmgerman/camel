@@ -419,7 +419,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Configuring FTPFile with config: "
+literal|"Configuring FTPClient with config: "
 operator|+
 name|ftpConfig
 operator|.
