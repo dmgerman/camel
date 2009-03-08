@@ -219,6 +219,13 @@ specifier|private
 name|LoggingLevel
 name|retryAttemptedLogLevel
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|logStackTrace
+specifier|private
+name|Boolean
+name|logStackTrace
+decl_stmt|;
 DECL|method|createRedeliveryPolicy (CamelContext context, RedeliveryPolicy parentPolicy)
 specifier|public
 name|RedeliveryPolicy
@@ -398,6 +405,21 @@ name|maximumRedeliveryDelay
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|logStackTrace
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setLogStackTrace
+argument_list|(
+name|logStackTrace
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -528,6 +550,25 @@ block|{
 name|setRetryAttemptedLogLevel
 argument_list|(
 name|retryAttemptedLogLevel
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets wheter stack traces should be logged, can be used to reduce verbose.      *      * @param logStackTrace  wheter stack traces should be logged or not      * @return the builder      */
+DECL|method|logStackTrace (boolean logStackTrace)
+specifier|public
+name|RedeliveryPolicyDefinition
+name|logStackTrace
+parameter_list|(
+name|boolean
+name|logStackTrace
+parameter_list|)
+block|{
+name|setLogStackTrace
+argument_list|(
+name|logStackTrace
 argument_list|)
 expr_stmt|;
 return|return
@@ -887,6 +928,32 @@ operator|.
 name|ref
 operator|=
 name|ref
+expr_stmt|;
+block|}
+DECL|method|getLogStackTrace ()
+specifier|public
+name|Boolean
+name|getLogStackTrace
+parameter_list|()
+block|{
+return|return
+name|logStackTrace
+return|;
+block|}
+DECL|method|setLogStackTrace (Boolean logStackTrace)
+specifier|public
+name|void
+name|setLogStackTrace
+parameter_list|(
+name|Boolean
+name|logStackTrace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logStackTrace
+operator|=
+name|logStackTrace
 expr_stmt|;
 block|}
 block|}

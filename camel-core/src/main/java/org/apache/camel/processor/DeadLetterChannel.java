@@ -1990,6 +1990,13 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|isLogStackTrace
+argument_list|()
+operator|&&
 name|e
 operator|!=
 literal|null
