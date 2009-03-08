@@ -343,7 +343,7 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"resequencer"
+literal|"resequence"
 return|;
 block|}
 comment|// Fluent API

@@ -268,7 +268,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Delayer[on: "
+literal|"Delay[on: "
 operator|+
 name|getExpression
 argument_list|()
@@ -334,7 +334,7 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"delayer"
+literal|"delay"
 return|;
 block|}
 DECL|method|getDelayTime ()

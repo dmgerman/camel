@@ -237,7 +237,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Throttler["
+literal|"Throttle["
 operator|+
 name|getMaximumRequestsPerPeriod
 argument_list|()
@@ -264,7 +264,7 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"throttler"
+literal|"throttle"
 return|;
 block|}
 annotation|@

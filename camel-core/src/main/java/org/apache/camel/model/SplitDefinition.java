@@ -380,7 +380,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Splitter["
+literal|"Split["
 operator|+
 name|getExpression
 argument_list|()
@@ -402,7 +402,7 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"splitter"
+literal|"split"
 return|;
 block|}
 annotation|@

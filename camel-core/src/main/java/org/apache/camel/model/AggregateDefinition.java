@@ -569,7 +569,7 @@ else|:
 literal|""
 decl_stmt|;
 return|return
-literal|"Aggregator["
+literal|"Aggregate["
 operator|+
 name|expressionString
 operator|+
@@ -590,7 +590,7 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"aggregator"
+literal|"aggregate"
 return|;
 block|}
 annotation|@
