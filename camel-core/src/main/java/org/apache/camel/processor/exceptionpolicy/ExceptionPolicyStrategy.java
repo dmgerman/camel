@@ -50,12 +50,12 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionDefinition
+name|OnExceptionDefinition
 import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy to determine which {@link org.apache.camel.model.ExceptionDefinition} should handle the thrown  * exception.  *  * @see org.apache.camel.processor.exceptionpolicy.DefaultExceptionPolicyStrategy DefaultExceptionPolicy  */
+comment|/**  * A strategy to determine which {@link org.apache.camel.model.OnExceptionDefinition} should handle the thrown  * exception.  *  * @see org.apache.camel.processor.exceptionpolicy.DefaultExceptionPolicyStrategy DefaultExceptionPolicy  */
 end_comment
 
 begin_interface
@@ -64,16 +64,16 @@ specifier|public
 interface|interface
 name|ExceptionPolicyStrategy
 block|{
-comment|/**      * Resolves the {@link org.apache.camel.model.ExceptionDefinition} that should handle the thrown exception.      *      * @param exceptionPolicices the configured exception policies to resolve from      * @param exchange           the exchange      * @param exception          the exception that was thrown      * @return the resolved exception type to handle this exception,<tt>null</tt> if none found.      */
-DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, ExceptionDefinition> exceptionPolicices, Exchange exchange, Throwable exception)
-name|ExceptionDefinition
+comment|/**      * Resolves the {@link org.apache.camel.model.OnExceptionDefinition} that should handle the thrown exception.      *      * @param exceptionPolicices the configured exception policies to resolve from      * @param exchange           the exchange      * @param exception          the exception that was thrown      * @return the resolved exception type to handle this exception,<tt>null</tt> if none found.      */
+DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, OnExceptionDefinition> exceptionPolicices, Exchange exchange, Throwable exception)
+name|OnExceptionDefinition
 name|getExceptionPolicy
 parameter_list|(
 name|Map
 argument_list|<
 name|ExceptionPolicyKey
 argument_list|,
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|exceptionPolicices
 parameter_list|,

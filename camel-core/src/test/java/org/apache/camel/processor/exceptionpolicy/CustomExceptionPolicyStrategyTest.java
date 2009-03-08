@@ -128,7 +128,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionDefinition
+name|OnExceptionDefinition
 import|;
 end_import
 
@@ -179,16 +179,16 @@ name|MyPolicy
 implements|implements
 name|ExceptionPolicyStrategy
 block|{
-DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, ExceptionDefinition> exceptionPolicices, Exchange exchange, Throwable exception)
+DECL|method|getExceptionPolicy (Map<ExceptionPolicyKey, OnExceptionDefinition> exceptionPolicices, Exchange exchange, Throwable exception)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|getExceptionPolicy
 parameter_list|(
 name|Map
 argument_list|<
 name|ExceptionPolicyKey
 argument_list|,
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|exceptionPolicices
 parameter_list|,

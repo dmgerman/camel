@@ -379,14 +379,14 @@ DECL|field|interceptors
 specifier|private
 name|List
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 name|interceptors
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -919,7 +919,7 @@ DECL|method|getInterceptors ()
 specifier|public
 name|List
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 name|getInterceptors
 parameter_list|()
@@ -930,14 +930,14 @@ return|;
 block|}
 annotation|@
 name|XmlTransient
-DECL|method|setInterceptors (List<InterceptorDefinition> interceptors)
+DECL|method|setInterceptors (List<AbstractInterceptorDefinition> interceptors)
 specifier|public
 name|void
 name|setInterceptors
 parameter_list|(
 name|List
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 name|interceptors
 parameter_list|)
@@ -1283,7 +1283,7 @@ expr_stmt|;
 block|}
 name|List
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 name|interceptors
 init|=
@@ -1292,7 +1292,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 name|interceptor
 range|:
 name|interceptors
@@ -1309,12 +1309,12 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|addInterceptor (InterceptorDefinition interceptor)
+DECL|method|addInterceptor (AbstractInterceptorDefinition interceptor)
 specifier|public
 name|void
 name|addInterceptor
 parameter_list|(
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 name|interceptor
 parameter_list|)
 block|{

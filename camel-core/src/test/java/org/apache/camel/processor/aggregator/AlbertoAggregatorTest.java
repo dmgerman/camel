@@ -158,7 +158,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|AggregatorDefinition
+name|AggregateDefinition
 import|;
 end_import
 
@@ -1048,7 +1048,7 @@ literal|"direct:joinBrothers"
 argument_list|)
 expr_stmt|;
 comment|// Join all brothers lists and remove surname and type headers
-name|AggregatorDefinition
+name|AggregateDefinition
 name|agg
 init|=
 name|from

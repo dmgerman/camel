@@ -246,14 +246,14 @@ DECL|field|interceptors
 specifier|private
 name|List
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 name|interceptors
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -280,14 +280,14 @@ DECL|field|exceptions
 specifier|private
 name|List
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|exceptions
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -357,7 +357,7 @@ DECL|method|getInterceptors ()
 specifier|public
 name|List
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 name|getInterceptors
 parameter_list|()
@@ -366,14 +366,14 @@ return|return
 name|interceptors
 return|;
 block|}
-DECL|method|setInterceptors (List<InterceptorDefinition> interceptors)
+DECL|method|setInterceptors (List<AbstractInterceptorDefinition> interceptors)
 specifier|public
 name|void
 name|setInterceptors
 parameter_list|(
 name|List
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 name|interceptors
 parameter_list|)
@@ -421,7 +421,7 @@ DECL|method|getExceptions ()
 specifier|public
 name|List
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|getExceptions
 parameter_list|()
@@ -430,14 +430,14 @@ return|return
 name|exceptions
 return|;
 block|}
-DECL|method|setExceptions (List<ExceptionDefinition> exceptions)
+DECL|method|setExceptions (List<OnExceptionDefinition> exceptions)
 specifier|public
 name|void
 name|setExceptions
 parameter_list|(
 name|List
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|exceptions
 parameter_list|)
@@ -716,7 +716,7 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 name|list
 init|=
@@ -725,7 +725,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 name|interceptorType
 range|:
 name|list
@@ -823,7 +823,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|InterceptorRef
+name|InterceptorDefinition
 argument_list|(
 name|interceptor
 argument_list|)
@@ -896,18 +896,18 @@ block|}
 comment|/**      * Adds an on exception      *       * @param exception  the exception      * @return the builder      */
 DECL|method|onException (Class exception)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
 name|exception
 parameter_list|)
 block|{
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|answer
 init|=
 operator|new
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|(
 name|exception
 argument_list|)

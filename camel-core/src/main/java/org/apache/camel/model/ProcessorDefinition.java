@@ -720,14 +720,14 @@ DECL|field|interceptors
 specifier|private
 name|List
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 name|interceptors
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -2287,16 +2287,16 @@ DECL|method|split ()
 specifier|public
 name|ExpressionClause
 argument_list|<
-name|SplitterDefinition
+name|SplitDefinition
 argument_list|>
 name|split
 parameter_list|()
 block|{
-name|SplitterDefinition
+name|SplitDefinition
 name|answer
 init|=
 operator|new
-name|SplitterDefinition
+name|SplitDefinition
 argument_list|()
 decl_stmt|;
 name|addOutput
@@ -2316,18 +2316,18 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * This splitter responds with the latest message returned from destination      * endpoint.      *      * @param expression  the expression on which to split the message      * @return the builder      */
 DECL|method|split (Expression expression)
 specifier|public
-name|SplitterDefinition
+name|SplitDefinition
 name|split
 parameter_list|(
 name|Expression
 name|expression
 parameter_list|)
 block|{
-name|SplitterDefinition
+name|SplitDefinition
 name|answer
 init|=
 operator|new
-name|SplitterDefinition
+name|SplitDefinition
 argument_list|(
 name|expression
 argument_list|)
@@ -2344,7 +2344,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/splitter.html">Splitter EIP:</a>      * Creates a splitter allowing you split a message into a number of pieces and process them individually.      *<p>      * The splitter responds with the answer produced by the given {@link AggregationStrategy}.      *      * @param expression  the expression on which to split      * @param aggregationStrategy  the strategy used to aggregate responses for every part      * @return the builder      */
 DECL|method|split (Expression expression, AggregationStrategy aggregationStrategy)
 specifier|public
-name|SplitterDefinition
+name|SplitDefinition
 name|split
 parameter_list|(
 name|Expression
@@ -2354,11 +2354,11 @@ name|AggregationStrategy
 name|aggregationStrategy
 parameter_list|)
 block|{
-name|SplitterDefinition
+name|SplitDefinition
 name|answer
 init|=
 operator|new
-name|SplitterDefinition
+name|SplitDefinition
 argument_list|(
 name|expression
 argument_list|)
@@ -2384,16 +2384,16 @@ DECL|method|resequence ()
 specifier|public
 name|ExpressionClause
 argument_list|<
-name|ResequencerDefinition
+name|ResequenceDefinition
 argument_list|>
 name|resequence
 parameter_list|()
 block|{
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|answer
 init|=
 operator|new
-name|ResequencerDefinition
+name|ResequenceDefinition
 argument_list|()
 decl_stmt|;
 name|addOutput
@@ -2403,14 +2403,14 @@ argument_list|)
 expr_stmt|;
 name|ExpressionClause
 argument_list|<
-name|ResequencerDefinition
+name|ResequenceDefinition
 argument_list|>
 name|clause
 init|=
 operator|new
 name|ExpressionClause
 argument_list|<
-name|ResequencerDefinition
+name|ResequenceDefinition
 argument_list|>
 argument_list|(
 name|answer
@@ -2430,7 +2430,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/resequencer.html">Resequencer EIP:</a>      * Creates a resequencer allowing you to reorganize messages based on some comparator.      *      * @param expression the expression on which to compare messages in order      * @return the builder      */
 DECL|method|resequence (Expression expression)
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|resequence
 parameter_list|(
 name|Expression
@@ -2455,7 +2455,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/resequencer.html">Resequencer EIP:</a>      * Creates a resequencer allowing you to reorganize messages based on some comparator.      *      * @param expressions the list of expressions on which to compare messages in order      * @return the builder      */
 DECL|method|resequence (List<Expression> expressions)
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|resequence
 parameter_list|(
 name|List
@@ -2465,11 +2465,11 @@ argument_list|>
 name|expressions
 parameter_list|)
 block|{
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|answer
 init|=
 operator|new
-name|ResequencerDefinition
+name|ResequenceDefinition
 argument_list|(
 name|expressions
 argument_list|)
@@ -2486,7 +2486,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/resequencer.html">Resequencer EIP:</a>      * Creates a splitter allowing you to reorganise messages based on some comparator.      *      * @param expressions the list of expressions on which to compare messages in order      * @return the builder      */
 DECL|method|resequencer (Expression... expressions)
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|resequencer
 parameter_list|(
 name|Expression
@@ -2531,16 +2531,16 @@ DECL|method|aggregate ()
 specifier|public
 name|ExpressionClause
 argument_list|<
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|>
 name|aggregate
 parameter_list|()
 block|{
-name|AggregatorDefinition
+name|AggregateDefinition
 name|answer
 init|=
 operator|new
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|()
 decl_stmt|;
 name|addOutput
@@ -2560,7 +2560,7 @@ DECL|method|aggregate (AggregationStrategy aggregationStrategy)
 specifier|public
 name|ExpressionClause
 argument_list|<
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|>
 name|aggregate
 parameter_list|(
@@ -2568,11 +2568,11 @@ name|AggregationStrategy
 name|aggregationStrategy
 parameter_list|)
 block|{
-name|AggregatorDefinition
+name|AggregateDefinition
 name|answer
 init|=
 operator|new
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|()
 decl_stmt|;
 name|answer
@@ -2597,18 +2597,18 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param aggregationCollection the collection used to perform the aggregation      * @return the builder      */
 DECL|method|aggregate (AggregationCollection aggregationCollection)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 name|aggregate
 parameter_list|(
 name|AggregationCollection
 name|aggregationCollection
 parameter_list|)
 block|{
-name|AggregatorDefinition
+name|AggregateDefinition
 name|answer
 init|=
 operator|new
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|()
 decl_stmt|;
 name|answer
@@ -2630,18 +2630,18 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      * @return the builder      */
 DECL|method|aggregate (Expression correlationExpression)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 name|aggregate
 parameter_list|(
 name|Expression
 name|correlationExpression
 parameter_list|)
 block|{
-name|AggregatorDefinition
+name|AggregateDefinition
 name|answer
 init|=
 operator|new
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|(
 name|correlationExpression
 argument_list|)
@@ -2658,7 +2658,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/aggregator.html">Aggregator EIP:</a>      * Creates an aggregator allowing you to combine a number of messages together into a single message.      *      * @param correlationExpression the expression used to calculate the      *                              correlation key. For a JMS message this could be the      *                              expression<code>header("JMSDestination")</code> or      *<code>header("JMSCorrelationID")</code>      * @param aggregationStrategy the strategy used for the aggregation      * @return the builder      */
 DECL|method|aggregate (Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 name|aggregate
 parameter_list|(
 name|Expression
@@ -2668,11 +2668,11 @@ name|AggregationStrategy
 name|aggregationStrategy
 parameter_list|)
 block|{
-name|AggregatorDefinition
+name|AggregateDefinition
 name|answer
 init|=
 operator|new
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|(
 name|correlationExpression
 argument_list|,
@@ -2691,7 +2691,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param processAtExpression  an expression to calculate the time at which the messages should be processed,      *                             should be convertable to long as time in millis      * @return the builder      */
 DECL|method|delay (Expression processAtExpression)
 specifier|public
-name|DelayerDefinition
+name|DelayDefinition
 name|delay
 parameter_list|(
 name|Expression
@@ -2710,7 +2710,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param processAtExpression  an expression to calculate the time at which the messages should be processed,      *                             should be convertable to long as time in millis      * @param delay                the delay in milliseconds which is added to the processAtExpression      * @return the builder      */
 DECL|method|delay (Expression processAtExpression, long delay)
 specifier|public
-name|DelayerDefinition
+name|DelayDefinition
 name|delay
 parameter_list|(
 name|Expression
@@ -2720,11 +2720,11 @@ name|long
 name|delay
 parameter_list|)
 block|{
-name|DelayerDefinition
+name|DelayDefinition
 name|answer
 init|=
 operator|new
-name|DelayerDefinition
+name|DelayDefinition
 argument_list|(
 name|processAtExpression
 argument_list|,
@@ -2745,16 +2745,16 @@ DECL|method|delay ()
 specifier|public
 name|ExpressionClause
 argument_list|<
-name|DelayerDefinition
+name|DelayDefinition
 argument_list|>
 name|delay
 parameter_list|()
 block|{
-name|DelayerDefinition
+name|DelayDefinition
 name|answer
 init|=
 operator|new
-name|DelayerDefinition
+name|DelayDefinition
 argument_list|()
 decl_stmt|;
 name|addOutput
@@ -2774,7 +2774,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/delayer.html">Delayer EIP:</a>      * Creates a delayer allowing you to delay the delivery of messages to some destination.      *      * @param delay  the default delay in millis      * @return the builder      */
 DECL|method|delay (long delay)
 specifier|public
-name|DelayerDefinition
+name|DelayDefinition
 name|delay
 parameter_list|(
 name|long
@@ -2793,18 +2793,18 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/throttler.html">Throttler EIP:</a>      * Creates a throttler allowing you to ensure that a specific endpoint does not get overloaded,      * or that we don't exceed an agreed SLA with some external service.      *<p/>      * Will default use a time period of 1 second, so setting the maximumRequestCount to eg 10      * will default ensure at most 10 messages per second.       *      * @param maximumRequestCount  the maximum messages       * @return the builder      */
 DECL|method|throttle (long maximumRequestCount)
 specifier|public
-name|ThrottlerDefinition
+name|ThrottleDefinition
 name|throttle
 parameter_list|(
 name|long
 name|maximumRequestCount
 parameter_list|)
 block|{
-name|ThrottlerDefinition
+name|ThrottleDefinition
 name|answer
 init|=
 operator|new
-name|ThrottlerDefinition
+name|ThrottleDefinition
 argument_list|(
 name|maximumRequestCount
 argument_list|)
@@ -3005,11 +3005,11 @@ name|String
 name|ref
 parameter_list|)
 block|{
-name|InterceptorRef
+name|InterceptorDefinition
 name|interceptor
 init|=
 operator|new
-name|InterceptorRef
+name|InterceptorDefinition
 argument_list|(
 name|ref
 argument_list|)
@@ -3081,7 +3081,7 @@ block|{
 name|intercept
 argument_list|(
 operator|new
-name|InterceptorRef
+name|InterceptorDefinition
 argument_list|(
 name|interceptor
 argument_list|)
@@ -3118,12 +3118,12 @@ name|answer
 return|;
 block|}
 comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      *      * @param  interceptor  the interceptor      */
-DECL|method|intercept (InterceptorDefinition interceptor)
+DECL|method|intercept (AbstractInterceptorDefinition interceptor)
 specifier|public
 name|void
 name|intercept
 parameter_list|(
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 name|interceptor
 parameter_list|)
 block|{
@@ -3139,12 +3139,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds an interceptor around the whole of this nodes processing      *      * @param interceptor  the interceptor      */
-DECL|method|addInterceptor (InterceptorDefinition interceptor)
+DECL|method|addInterceptor (AbstractInterceptorDefinition interceptor)
 specifier|public
 name|void
 name|addInterceptor
 parameter_list|(
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 name|interceptor
 parameter_list|)
 block|{
@@ -3169,7 +3169,7 @@ block|{
 name|addInterceptor
 argument_list|(
 operator|new
-name|InterceptorRef
+name|InterceptorDefinition
 argument_list|(
 name|interceptor
 argument_list|)
@@ -3447,18 +3447,18 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for cathing certain exceptions and handling them.      *      * @param exceptionType  the exception to catch      * @return the exception builder to configure      */
 DECL|method|onException (Class exceptionType)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
 name|exceptionType
 parameter_list|)
 block|{
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|answer
 init|=
 operator|new
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|(
 name|exceptionType
 argument_list|)
@@ -3506,15 +3506,15 @@ block|}
 comment|/**      * Creates a policy.      *<p/>      * Policy can be used for transactional policies.      *      * @return the policy builder to configure      */
 DECL|method|policies ()
 specifier|public
-name|PolicyRef
+name|PolicyDefinition
 name|policies
 parameter_list|()
 block|{
-name|PolicyRef
+name|PolicyDefinition
 name|answer
 init|=
 operator|new
-name|PolicyRef
+name|PolicyDefinition
 argument_list|()
 decl_stmt|;
 name|addOutput
@@ -3529,18 +3529,18 @@ block|}
 comment|/**      * Apply a {@link Policy}.      *<p/>      * Policy can be used for transactional policies.      *      * @param policy  the policy to apply      * @return the policy builder to configure      */
 DECL|method|policy (Policy policy)
 specifier|public
-name|PolicyRef
+name|PolicyDefinition
 name|policy
 parameter_list|(
 name|Policy
 name|policy
 parameter_list|)
 block|{
-name|PolicyRef
+name|PolicyDefinition
 name|answer
 init|=
 operator|new
-name|PolicyRef
+name|PolicyDefinition
 argument_list|(
 name|policy
 argument_list|)
@@ -3651,11 +3651,11 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
-name|ProcessorRef
+name|ProcessDefinition
 name|answer
 init|=
 operator|new
-name|ProcessorRef
+name|ProcessDefinition
 argument_list|(
 name|processor
 argument_list|)
@@ -3687,11 +3687,11 @@ name|String
 name|ref
 parameter_list|)
 block|{
-name|ProcessorRef
+name|ProcessDefinition
 name|answer
 init|=
 operator|new
-name|ProcessorRef
+name|ProcessDefinition
 argument_list|()
 decl_stmt|;
 name|answer
@@ -3728,11 +3728,11 @@ name|Object
 name|bean
 parameter_list|)
 block|{
-name|BeanRef
+name|BeanDefinition
 name|answer
 init|=
 operator|new
-name|BeanRef
+name|BeanDefinition
 argument_list|()
 decl_stmt|;
 name|answer
@@ -3772,11 +3772,11 @@ name|String
 name|method
 parameter_list|)
 block|{
-name|BeanRef
+name|BeanDefinition
 name|answer
 init|=
 operator|new
-name|BeanRef
+name|BeanDefinition
 argument_list|()
 decl_stmt|;
 name|answer
@@ -3820,11 +3820,11 @@ name|Class
 name|beanType
 parameter_list|)
 block|{
-name|BeanRef
+name|BeanDefinition
 name|answer
 init|=
 operator|new
-name|BeanRef
+name|BeanDefinition
 argument_list|()
 decl_stmt|;
 name|answer
@@ -3864,11 +3864,11 @@ name|String
 name|method
 parameter_list|)
 block|{
-name|BeanRef
+name|BeanDefinition
 name|answer
 init|=
 operator|new
-name|BeanRef
+name|BeanDefinition
 argument_list|()
 decl_stmt|;
 name|answer
@@ -3912,11 +3912,11 @@ name|String
 name|ref
 parameter_list|)
 block|{
-name|BeanRef
+name|BeanDefinition
 name|answer
 init|=
 operator|new
-name|BeanRef
+name|BeanDefinition
 argument_list|(
 name|ref
 argument_list|)
@@ -3951,11 +3951,11 @@ name|String
 name|method
 parameter_list|)
 block|{
-name|BeanRef
+name|BeanDefinition
 name|answer
 init|=
 operator|new
-name|BeanRef
+name|BeanDefinition
 argument_list|(
 name|ref
 argument_list|,
@@ -4776,7 +4776,7 @@ block|{
 name|addOutput
 argument_list|(
 operator|new
-name|EnricherDefinition
+name|EnrichDefinition
 argument_list|(
 name|aggregationStrategy
 argument_list|,
@@ -5434,7 +5434,7 @@ block|}
 block|}
 name|List
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 name|list
 init|=
@@ -5491,7 +5491,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 name|interceptorType
 range|:
 name|list
@@ -5878,7 +5878,7 @@ operator|!
 operator|(
 name|currentProcessor
 operator|instanceof
-name|ExceptionDefinition
+name|OnExceptionDefinition
 operator|||
 name|currentProcessor
 operator|instanceof

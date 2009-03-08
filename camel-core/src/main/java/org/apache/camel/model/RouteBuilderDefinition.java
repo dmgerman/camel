@@ -136,7 +136,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"routeBuilderRef"
+literal|"routeBuilder"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -145,10 +145,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|RouteBuilderRef
+DECL|class|RouteBuilderDefinition
 specifier|public
 class|class
-name|RouteBuilderRef
+name|RouteBuilderDefinition
 extends|extends
 name|IdentifiedType
 block|{
@@ -164,14 +164,14 @@ specifier|private
 name|String
 name|ref
 decl_stmt|;
-DECL|method|RouteBuilderRef ()
+DECL|method|RouteBuilderDefinition ()
 specifier|public
-name|RouteBuilderRef
+name|RouteBuilderDefinition
 parameter_list|()
 block|{     }
-DECL|method|RouteBuilderRef (String ref)
+DECL|method|RouteBuilderDefinition (String ref)
 specifier|public
-name|RouteBuilderRef
+name|RouteBuilderDefinition
 parameter_list|(
 name|String
 name|ref

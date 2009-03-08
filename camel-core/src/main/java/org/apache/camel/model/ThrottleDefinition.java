@@ -165,10 +165,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|ThrottlerDefinition
+DECL|class|ThrottleDefinition
 specifier|public
 class|class
-name|ThrottlerDefinition
+name|ThrottleDefinition
 extends|extends
 name|ProcessorDefinition
 argument_list|<
@@ -208,14 +208,14 @@ name|ProcessorDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|ThrottlerDefinition ()
+DECL|method|ThrottleDefinition ()
 specifier|public
-name|ThrottlerDefinition
+name|ThrottleDefinition
 parameter_list|()
 block|{     }
-DECL|method|ThrottlerDefinition (long maximumRequestsPerPeriod)
+DECL|method|ThrottleDefinition (long maximumRequestsPerPeriod)
 specifier|public
-name|ThrottlerDefinition
+name|ThrottleDefinition
 parameter_list|(
 name|long
 name|maximumRequestsPerPeriod
@@ -329,7 +329,7 @@ comment|// ---------------------------------------------------------------------
 comment|/**      * Sets the time period during which the maximum request count is valid for      *      * @param timePeriodMillis  period in millis      * @return the builder      */
 DECL|method|timePeriodMillis (long timePeriodMillis)
 specifier|public
-name|ThrottlerDefinition
+name|ThrottleDefinition
 name|timePeriodMillis
 parameter_list|(
 name|long
@@ -348,7 +348,7 @@ block|}
 comment|/**      * Sets the time period during which the maximum request count per period      *      * @param maximumRequestsPerPeriod  the maximum request count number per time period      * @return the builder      */
 DECL|method|maximumRequestsPerPeriod (Long maximumRequestsPerPeriod)
 specifier|public
-name|ThrottlerDefinition
+name|ThrottleDefinition
 name|maximumRequestsPerPeriod
 parameter_list|(
 name|Long

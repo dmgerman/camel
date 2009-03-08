@@ -94,7 +94,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionDefinition
+name|OnExceptionDefinition
 import|;
 end_import
 
@@ -167,7 +167,7 @@ name|Map
 argument_list|<
 name|ExceptionPolicyKey
 argument_list|,
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|exceptionPolicies
 init|=
@@ -176,7 +176,7 @@ name|LinkedHashMap
 argument_list|<
 name|ExceptionPolicyKey
 argument_list|,
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -188,12 +188,12 @@ init|=
 name|createDefaultExceptionPolicyStrategy
 argument_list|()
 decl_stmt|;
-DECL|method|addExceptionPolicy (ExceptionDefinition exceptionType)
+DECL|method|addExceptionPolicy (OnExceptionDefinition exceptionType)
 specifier|public
 name|void
 name|addExceptionPolicy
 parameter_list|(
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|exceptionType
 parameter_list|)
 block|{
@@ -269,7 +269,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|policy
 init|=
 name|getExceptionPolicy
@@ -317,10 +317,10 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Attempts to find the best suited {@link ExceptionDefinition} to be used for handling the given thrown exception.      *      * @param exchange  the exchange      * @param exception the exception that was thrown      * @return the best exception type to handle this exception,<tt>null</tt> if none found.      */
+comment|/**      * Attempts to find the best suited {@link OnExceptionDefinition} to be used for handling the given thrown exception.      *      * @param exchange  the exchange      * @param exception the exception that was thrown      * @return the best exception type to handle this exception,<tt>null</tt> if none found.      */
 DECL|method|getExceptionPolicy (Exchange exchange, Throwable exception)
 specifier|protected
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|getExceptionPolicy
 parameter_list|(
 name|Exchange
@@ -358,7 +358,7 @@ name|exception
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the strategy to use for resolving the {@link ExceptionDefinition} to use      * for handling thrown exceptions.      */
+comment|/**      * Sets the strategy to use for resolving the {@link OnExceptionDefinition} to use      * for handling thrown exceptions.      */
 DECL|method|setExceptionPolicy (ExceptionPolicyStrategy exceptionPolicy)
 specifier|public
 name|void

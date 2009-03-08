@@ -351,10 +351,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|ExceptionDefinition
+DECL|class|OnExceptionDefinition
 specifier|public
 class|class
-name|ExceptionDefinition
+name|OnExceptionDefinition
 extends|extends
 name|ProcessorDefinition
 argument_list|<
@@ -412,7 +412,7 @@ literal|false
 argument_list|)
 DECL|field|retryUntil
 specifier|private
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 name|retryUntil
 decl_stmt|;
 annotation|@
@@ -444,7 +444,7 @@ literal|false
 argument_list|)
 DECL|field|handled
 specifier|private
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 name|handled
 decl_stmt|;
 annotation|@
@@ -518,14 +518,14 @@ specifier|private
 name|Processor
 name|onRedelivery
 decl_stmt|;
-DECL|method|ExceptionDefinition ()
+DECL|method|OnExceptionDefinition ()
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 parameter_list|()
 block|{     }
-DECL|method|ExceptionDefinition (List<Class> exceptionClasses)
+DECL|method|OnExceptionDefinition (List<Class> exceptionClasses)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 parameter_list|(
 name|List
 argument_list|<
@@ -541,9 +541,9 @@ operator|=
 name|exceptionClasses
 expr_stmt|;
 block|}
-DECL|method|ExceptionDefinition (Class exceptionType)
+DECL|method|OnExceptionDefinition (Class exceptionType)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 parameter_list|(
 name|Class
 name|exceptionType
@@ -784,7 +784,7 @@ annotation|@
 name|Override
 DECL|method|onException (Class exceptionType)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
@@ -806,7 +806,7 @@ block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      */
 DECL|method|handled (boolean handled)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|handled
 parameter_list|(
 name|boolean
@@ -840,7 +840,7 @@ block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      */
 DECL|method|handled (Predicate handled)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|handled
 parameter_list|(
 name|Predicate
@@ -859,7 +859,7 @@ block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      */
 DECL|method|handled (Expression handled)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|handled
 parameter_list|(
 name|Expression
@@ -881,7 +881,7 @@ block|}
 comment|/**      * Sets an additional predicate that should be true before the onException is triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should be intercepted      * by this exception type or not.      *      * @param predicate  predicate that determines true or false      * @return the builder      */
 DECL|method|onWhen (Predicate predicate)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|onWhen
 parameter_list|(
 name|Predicate
@@ -906,7 +906,7 @@ DECL|method|onWhen ()
 specifier|public
 name|ExpressionClause
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|onWhen
 parameter_list|()
@@ -919,14 +919,14 @@ argument_list|()
 expr_stmt|;
 name|ExpressionClause
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|clause
 init|=
 operator|new
 name|ExpressionClause
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 argument_list|(
 name|this
@@ -946,7 +946,7 @@ block|}
 comment|/**      * Sets the retry until predicate.      *      * @param until predicate that determines when to stop retrying      * @return the builder      */
 DECL|method|retryUntil (Predicate until)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|retryUntil
 parameter_list|(
 name|Predicate
@@ -965,7 +965,7 @@ block|}
 comment|/**      * Sets the retry until expression.      *      * @param until expression that determines when to stop retrying      * @return the builder      */
 DECL|method|retryUntil (Expression until)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|retryUntil
 parameter_list|(
 name|Expression
@@ -987,7 +987,7 @@ block|}
 comment|/**      * Sets the back off multiplier      *      * @param backOffMultiplier  the back off multiplier      * @return the builder      */
 DECL|method|backOffMultiplier (double backOffMultiplier)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|backOffMultiplier
 parameter_list|(
 name|double
@@ -1009,7 +1009,7 @@ block|}
 comment|/**      * Sets the collision avoidance factor      *      * @param collisionAvoidanceFactor  the factor      * @return the builder      */
 DECL|method|collisionAvoidanceFactor (double collisionAvoidanceFactor)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|collisionAvoidanceFactor
 parameter_list|(
 name|double
@@ -1031,7 +1031,7 @@ block|}
 comment|/**      * Sets the collision avoidance percentage      *      * @param collisionAvoidancePercent  the percentage      * @return the builder      */
 DECL|method|collisionAvoidancePercent (short collisionAvoidancePercent)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|collisionAvoidancePercent
 parameter_list|(
 name|short
@@ -1053,7 +1053,7 @@ block|}
 comment|/**      * Sets the fixed delay between redeliveries      *      * @param delay  delay in millis      * @return the builder      */
 DECL|method|redeliveryDelay (long delay)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|redeliveryDelay
 parameter_list|(
 name|long
@@ -1075,7 +1075,7 @@ block|}
 comment|/**      * Sets the logging level to use when retries has exhausted      *      * @param retriesExhaustedLogLevel  the logging level      * @return the builder      */
 DECL|method|retriesExhaustedLogLevel (LoggingLevel retriesExhaustedLogLevel)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|retriesExhaustedLogLevel
 parameter_list|(
 name|LoggingLevel
@@ -1097,7 +1097,7 @@ block|}
 comment|/**      * Sets the logging level to use for logging retry attempts      *      * @param retryAttemptedLogLevel  the logging level      * @return the builder      */
 DECL|method|retryAttemptedLogLevel (LoggingLevel retryAttemptedLogLevel)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|retryAttemptedLogLevel
 parameter_list|(
 name|LoggingLevel
@@ -1119,7 +1119,7 @@ block|}
 comment|/**      * Sets the maximum redeliveries      *<ul>      *<li>5 = default value</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries  the value      * @return the builder      */
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|maximumRedeliveries
 parameter_list|(
 name|int
@@ -1141,7 +1141,7 @@ block|}
 comment|/**      * Turn on collision avoidance.      *      * @return the builder      */
 DECL|method|useCollisionAvoidance ()
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|useCollisionAvoidance
 parameter_list|()
 block|{
@@ -1158,7 +1158,7 @@ block|}
 comment|/**      * Turn on exponential backk off      *      * @return the builder      */
 DECL|method|useExponentialBackOff ()
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|useExponentialBackOff
 parameter_list|()
 block|{
@@ -1175,7 +1175,7 @@ block|}
 comment|/**      * Sets the maximum delay between redelivery      *      * @param maximumRedeliveryDelay  the delay in millis      * @return the builder      */
 DECL|method|maximumRedeliveryDelay (long maximumRedeliveryDelay)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|maximumRedeliveryDelay
 parameter_list|(
 name|long
@@ -1197,7 +1197,7 @@ block|}
 comment|/**      * Sets a processor that should be processed<b>before</b> a redelivey attempt.      *<p/>      * Can be used to change the {@link org.apache.camel.Exchange}<b>before</b> its being redelivered.      */
 DECL|method|onRedelivery (Processor processor)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|onRedelivery
 parameter_list|(
 name|Processor
@@ -1370,12 +1370,12 @@ return|return
 name|handledPolicy
 return|;
 block|}
-DECL|method|setHandled (ExpressionSubElementType handled)
+DECL|method|setHandled (ExpressionSubElementDefinition handled)
 specifier|public
 name|void
 name|setHandled
 parameter_list|(
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 name|handled
 parameter_list|)
 block|{
@@ -1388,7 +1388,7 @@ expr_stmt|;
 block|}
 DECL|method|getHandled ()
 specifier|public
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 name|getHandled
 parameter_list|()
 block|{
@@ -1440,7 +1440,7 @@ expr_stmt|;
 block|}
 DECL|method|getRetryUntil ()
 specifier|public
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 name|getRetryUntil
 parameter_list|()
 block|{
@@ -1448,12 +1448,12 @@ return|return
 name|retryUntil
 return|;
 block|}
-DECL|method|setRetryUntil (ExpressionSubElementType retryUntil)
+DECL|method|setRetryUntil (ExpressionSubElementDefinition retryUntil)
 specifier|public
 name|void
 name|setRetryUntil
 parameter_list|(
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 name|retryUntil
 parameter_list|)
 block|{

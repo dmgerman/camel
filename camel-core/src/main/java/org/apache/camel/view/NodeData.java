@@ -46,7 +46,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|AggregatorDefinition
+name|AggregateDefinition
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|BeanRef
+name|BeanDefinition
 import|;
 end_import
 
@@ -158,7 +158,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ResequencerDefinition
+name|ResequenceDefinition
 import|;
 end_import
 
@@ -186,7 +186,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|SplitterDefinition
+name|SplitDefinition
 import|;
 end_import
 
@@ -729,7 +729,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|SplitterDefinition
+name|SplitDefinition
 condition|)
 block|{
 name|this
@@ -752,7 +752,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|AggregatorDefinition
+name|AggregateDefinition
 condition|)
 block|{
 name|this
@@ -775,7 +775,7 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|ResequencerDefinition
+name|ResequenceDefinition
 condition|)
 block|{
 name|this
@@ -798,14 +798,14 @@ if|if
 condition|(
 name|node
 operator|instanceof
-name|BeanRef
+name|BeanDefinition
 condition|)
 block|{
-name|BeanRef
+name|BeanDefinition
 name|beanRef
 init|=
 operator|(
-name|BeanRef
+name|BeanDefinition
 operator|)
 name|node
 decl_stmt|;

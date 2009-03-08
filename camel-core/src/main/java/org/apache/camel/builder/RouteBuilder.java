@@ -148,7 +148,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionDefinition
+name|OnExceptionDefinition
 import|;
 end_import
 
@@ -553,7 +553,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exception exception to catch      * @return the builder      */
 DECL|method|onException (Class exception)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
@@ -572,7 +572,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the builder      */
 DECL|method|onException (Class... exceptions)
 specifier|public
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
@@ -580,7 +580,7 @@ modifier|...
 name|exceptions
 parameter_list|)
 block|{
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|last
 init|=
 literal|null

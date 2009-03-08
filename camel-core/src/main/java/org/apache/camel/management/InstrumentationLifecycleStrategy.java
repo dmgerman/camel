@@ -194,7 +194,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionDefinition
+name|OnExceptionDefinition
 import|;
 end_import
 
@@ -1053,7 +1053,7 @@ if|if
 condition|(
 name|output
 operator|instanceof
-name|ExceptionDefinition
+name|OnExceptionDefinition
 condition|)
 block|{
 name|exceptionHandlers

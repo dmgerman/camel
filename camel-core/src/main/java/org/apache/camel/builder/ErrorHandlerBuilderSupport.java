@@ -46,7 +46,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionDefinition
+name|OnExceptionDefinition
 import|;
 end_import
 
@@ -81,23 +81,23 @@ DECL|field|exceptions
 specifier|private
 name|List
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|exceptions
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|addErrorHandlers (ExceptionDefinition exception)
+DECL|method|addErrorHandlers (OnExceptionDefinition exception)
 specifier|public
 name|void
 name|addErrorHandlers
 parameter_list|(
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|exception
 parameter_list|)
 block|{
@@ -120,7 +120,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|exception
 range|:
 name|exceptions
@@ -139,7 +139,7 @@ DECL|method|getExceptions ()
 specifier|public
 name|List
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|getExceptions
 parameter_list|()
@@ -148,14 +148,14 @@ return|return
 name|exceptions
 return|;
 block|}
-DECL|method|setErrorHandlers (List<ExceptionDefinition> exceptions)
+DECL|method|setErrorHandlers (List<OnExceptionDefinition> exceptions)
 specifier|public
 name|void
 name|setErrorHandlers
 parameter_list|(
 name|List
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|exceptions
 parameter_list|)

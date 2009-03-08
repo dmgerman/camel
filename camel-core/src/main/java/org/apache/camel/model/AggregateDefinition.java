@@ -295,14 +295,14 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|AggregatorDefinition
+DECL|class|AggregateDefinition
 specifier|public
 class|class
-name|AggregatorDefinition
+name|AggregateDefinition
 extends|extends
 name|ProcessorDefinition
 argument_list|<
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|>
 block|{
 annotation|@
@@ -318,7 +318,7 @@ literal|false
 argument_list|)
 DECL|field|correlationExpression
 specifier|private
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 name|correlationExpression
 decl_stmt|;
 annotation|@
@@ -444,17 +444,17 @@ literal|false
 argument_list|)
 DECL|field|completionPredicate
 specifier|private
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 name|completionPredicate
 decl_stmt|;
-DECL|method|AggregatorDefinition ()
+DECL|method|AggregateDefinition ()
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 parameter_list|()
 block|{     }
-DECL|method|AggregatorDefinition (Predicate predicate)
+DECL|method|AggregateDefinition (Predicate predicate)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 parameter_list|(
 name|Predicate
 name|predicate
@@ -478,9 +478,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|AggregatorDefinition (Expression correlationExpression)
+DECL|method|AggregateDefinition (Expression correlationExpression)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 parameter_list|(
 name|Expression
 name|correlationExpression
@@ -504,9 +504,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|AggregatorDefinition (ExpressionDefinition correlationExpression)
+DECL|method|AggregateDefinition (ExpressionDefinition correlationExpression)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 parameter_list|(
 name|ExpressionDefinition
 name|correlationExpression
@@ -519,9 +519,9 @@ operator|=
 name|correlationExpression
 expr_stmt|;
 block|}
-DECL|method|AggregatorDefinition (Expression correlationExpression, AggregationStrategy aggregationStrategy)
+DECL|method|AggregateDefinition (Expression correlationExpression, AggregationStrategy aggregationStrategy)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 parameter_list|(
 name|Expression
 name|correlationExpression
@@ -617,21 +617,21 @@ DECL|method|createAndSetExpression ()
 specifier|public
 name|ExpressionClause
 argument_list|<
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|>
 name|createAndSetExpression
 parameter_list|()
 block|{
 name|ExpressionClause
 argument_list|<
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|>
 name|clause
 init|=
 operator|new
 name|ExpressionClause
 argument_list|<
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|>
 argument_list|(
 name|this
@@ -1210,12 +1210,12 @@ operator|=
 name|collectionRef
 expr_stmt|;
 block|}
-DECL|method|setCompletionPredicate (ExpressionSubElementType completionPredicate)
+DECL|method|setCompletionPredicate (ExpressionSubElementDefinition completionPredicate)
 specifier|public
 name|void
 name|setCompletionPredicate
 parameter_list|(
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 name|completionPredicate
 parameter_list|)
 block|{
@@ -1228,7 +1228,7 @@ expr_stmt|;
 block|}
 DECL|method|getCompletionPredicate ()
 specifier|public
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 name|getCompletionPredicate
 parameter_list|()
 block|{
@@ -1267,7 +1267,7 @@ comment|//----------------------------------------------------------------------
 comment|/**      * Sets the in batch size for number of exchanges received      *      * @param batchSize  the batch size      * @return builder      */
 DECL|method|batchSize (int batchSize)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 name|batchSize
 parameter_list|(
 name|int
@@ -1286,7 +1286,7 @@ block|}
 comment|/**      * Sets the out batch size for number of exchanges sent      *      * @param batchSize  the batch size      * @return builder      */
 DECL|method|outBatchSize (int batchSize)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 name|outBatchSize
 parameter_list|(
 name|int
@@ -1305,7 +1305,7 @@ block|}
 comment|/**      * Sets the batch timeout      *      * @param batchTimeout  the timeout in millis      * @return the builder      */
 DECL|method|batchTimeout (long batchTimeout)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 name|batchTimeout
 parameter_list|(
 name|long
@@ -1324,7 +1324,7 @@ block|}
 comment|/**      * Sets the aggregate collection to use      *      * @param aggregationCollection  the aggregate collection to use      * @return the builder      */
 DECL|method|aggregationCollection (AggregationCollection aggregationCollection)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 name|aggregationCollection
 parameter_list|(
 name|AggregationCollection
@@ -1343,7 +1343,7 @@ block|}
 comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy  the aggregate strategy to use      * @return the builder      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 name|aggregationStrategy
 parameter_list|(
 name|AggregationStrategy
@@ -1362,7 +1362,7 @@ block|}
 comment|/**      * Sets the aggregate collection to use      *      * @param collectionRef  reference to the aggregate collection to lookup in the registry      * @return the builder      */
 DECL|method|collectionRef (String collectionRef)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 name|collectionRef
 parameter_list|(
 name|String
@@ -1381,7 +1381,7 @@ block|}
 comment|/**      * Sets the aggregate strategy to use      *      * @param strategyRef  reference to the strategy to lookup in the registry      * @return the builder      */
 DECL|method|strategyRef (String strategyRef)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 name|strategyRef
 parameter_list|(
 name|String
@@ -1400,7 +1400,7 @@ block|}
 comment|/**      * Enables grouped exchanges, so the aggregator will group all aggregated exchanges into a single      * combined {@link org.apache.camel.impl.GroupedExchange} class holding all the aggregated exchanges.      *      * @return the builder      */
 DECL|method|groupExchanges ()
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 name|groupExchanges
 parameter_list|()
 block|{
@@ -1418,7 +1418,7 @@ DECL|method|completionPredicate ()
 specifier|public
 name|ExpressionClause
 argument_list|<
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|>
 name|completionPredicate
 parameter_list|()
@@ -1428,14 +1428,14 @@ argument_list|()
 expr_stmt|;
 name|ExpressionClause
 argument_list|<
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|>
 name|clause
 init|=
 operator|new
 name|ExpressionClause
 argument_list|<
-name|AggregatorDefinition
+name|AggregateDefinition
 argument_list|>
 argument_list|(
 name|this
@@ -1444,7 +1444,7 @@ decl_stmt|;
 name|setCompletionPredicate
 argument_list|(
 operator|new
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 argument_list|(
 operator|(
 name|Expression
@@ -1460,7 +1460,7 @@ block|}
 comment|/**      * Sets the predicate used to determine if the aggregation is completed      *      * @param predicate  the predicate      */
 DECL|method|completionPredicate (Predicate predicate)
 specifier|public
-name|AggregatorDefinition
+name|AggregateDefinition
 name|completionPredicate
 parameter_list|(
 name|Predicate
@@ -1473,7 +1473,7 @@ expr_stmt|;
 name|setCompletionPredicate
 argument_list|(
 operator|new
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 argument_list|(
 name|predicate
 argument_list|)
@@ -1508,12 +1508,12 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|setCorrelationExpression (ExpressionSubElementType correlationExpression)
+DECL|method|setCorrelationExpression (ExpressionSubElementDefinition correlationExpression)
 specifier|public
 name|void
 name|setCorrelationExpression
 parameter_list|(
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 name|correlationExpression
 parameter_list|)
 block|{
@@ -1526,7 +1526,7 @@ expr_stmt|;
 block|}
 DECL|method|getCorrelationExpression ()
 specifier|public
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 name|getCorrelationExpression
 parameter_list|()
 block|{

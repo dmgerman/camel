@@ -68,7 +68,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionDefinition
+name|OnExceptionDefinition
 import|;
 end_import
 
@@ -129,7 +129,7 @@ operator|.
 name|addExceptionPolicy
 argument_list|(
 operator|new
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|(
 name|exceptions
 argument_list|)
@@ -221,7 +221,7 @@ operator|.
 name|addExceptionPolicy
 argument_list|(
 operator|new
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|(
 name|exceptions
 argument_list|)
@@ -282,7 +282,7 @@ operator|.
 name|addExceptionPolicy
 argument_list|(
 operator|new
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|(
 name|ChildException
 operator|.
@@ -295,7 +295,7 @@ operator|.
 name|addExceptionPolicy
 argument_list|(
 operator|new
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|(
 name|ParentException
 operator|.
@@ -358,7 +358,7 @@ operator|.
 name|addExceptionPolicy
 argument_list|(
 operator|new
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|(
 name|ParentException
 operator|.
@@ -371,7 +371,7 @@ operator|.
 name|addExceptionPolicy
 argument_list|(
 operator|new
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|(
 name|ChildException
 operator|.

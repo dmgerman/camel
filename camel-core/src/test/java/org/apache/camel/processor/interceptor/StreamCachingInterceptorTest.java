@@ -218,7 +218,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 import|;
 end_import
 
@@ -232,7 +232,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptorRef
+name|InterceptorDefinition
 import|;
 end_import
 
@@ -770,22 +770,22 @@ name|Exception
 block|{
 name|List
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 name|interceptors
 init|=
 operator|new
 name|LinkedList
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|InterceptorRef
+name|InterceptorDefinition
 name|streamCache
 init|=
 operator|new
-name|InterceptorRef
+name|InterceptorDefinition
 argument_list|(
 operator|new
 name|StreamCachingInterceptor
@@ -804,7 +804,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|InterceptorRef
+name|InterceptorDefinition
 argument_list|(
 operator|new
 name|DelegateProcessor

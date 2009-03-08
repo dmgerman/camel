@@ -964,7 +964,7 @@ operator|=
 name|logger
 expr_stmt|;
 block|}
-comment|/**      * Sets the exception policy strategy to use for resolving the {@link org.apache.camel.model.ExceptionDefinition}      * to use for a given thrown exception      */
+comment|/**      * Sets the exception policy strategy to use for resolving the {@link org.apache.camel.model.OnExceptionDefinition}      * to use for a given thrown exception      */
 DECL|method|getExceptionPolicyStrategy ()
 specifier|public
 name|ExceptionPolicyStrategy

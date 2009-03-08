@@ -273,7 +273,7 @@ literal|false
 argument_list|)
 DECL|field|expression
 specifier|private
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 name|expression
 decl_stmt|;
 DECL|method|SortDefinition ()
@@ -601,7 +601,7 @@ operator|.
 name|expression
 operator|=
 operator|new
-name|ExpressionSubElementType
+name|ExpressionSubElementDefinition
 argument_list|(
 name|expression
 argument_list|)

@@ -191,10 +191,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|BeanRef
+DECL|class|BeanDefinition
 specifier|public
 class|class
-name|BeanRef
+name|BeanDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
@@ -235,6 +235,9 @@ argument_list|)
 DECL|field|beanType
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|beanType
 decl_stmt|;
 annotation|@
@@ -244,14 +247,14 @@ specifier|private
 name|Object
 name|bean
 decl_stmt|;
-DECL|method|BeanRef ()
+DECL|method|BeanDefinition ()
 specifier|public
-name|BeanRef
+name|BeanDefinition
 parameter_list|()
 block|{     }
-DECL|method|BeanRef (String ref)
+DECL|method|BeanDefinition (String ref)
 specifier|public
-name|BeanRef
+name|BeanDefinition
 parameter_list|(
 name|String
 name|ref
@@ -264,9 +267,9 @@ operator|=
 name|ref
 expr_stmt|;
 block|}
-DECL|method|BeanRef (String ref, String method)
+DECL|method|BeanDefinition (String ref, String method)
 specifier|public
-name|BeanRef
+name|BeanDefinition
 parameter_list|(
 name|String
 name|ref
@@ -416,7 +419,7 @@ comment|//----------------------------------------------------------------------
 comment|/**      * Sets the ref String on camel bean      *      * @param ref  the bean's id in the registry      * @return the builder      */
 DECL|method|ref (String ref)
 specifier|public
-name|BeanRef
+name|BeanDefinition
 name|ref
 parameter_list|(
 name|String
@@ -435,7 +438,7 @@ block|}
 comment|/**      * Sets the calling method name of camel bean      *      * @param method  the bean's method name which wants camel to call      * @return the builder      */
 DECL|method|method (String method)
 specifier|public
-name|BeanRef
+name|BeanDefinition
 name|method
 parameter_list|(
 name|String
@@ -454,7 +457,7 @@ block|}
 comment|/**      * Sets the bean's instance that camel to call      *      * @param bean the instance of the bean      * @return the builder      */
 DECL|method|bean (Object bean)
 specifier|public
-name|BeanRef
+name|BeanDefinition
 name|bean
 parameter_list|(
 name|Object
@@ -473,7 +476,7 @@ block|}
 comment|/**      * Sets the Class of the bean that camel will instantiation it for calling      *      * @param beanType the Class of the bean      * @return the builder      */
 DECL|method|beanType (Class beanType)
 specifier|public
-name|BeanRef
+name|BeanDefinition
 name|beanType
 parameter_list|(
 name|Class

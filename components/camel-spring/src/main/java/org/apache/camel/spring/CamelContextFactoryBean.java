@@ -236,7 +236,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionDefinition
+name|OnExceptionDefinition
 import|;
 end_import
 
@@ -306,7 +306,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteBuilderRef
+name|RouteBuilderDefinition
 import|;
 end_import
 
@@ -934,7 +934,7 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"routeBuilderRef"
+literal|"routeBuilder"
 argument_list|,
 name|required
 operator|=
@@ -944,14 +944,14 @@ DECL|field|builderRefs
 specifier|private
 name|List
 argument_list|<
-name|RouteBuilderRef
+name|RouteBuilderDefinition
 argument_list|>
 name|builderRefs
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|RouteBuilderRef
+name|RouteBuilderDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1005,14 +1005,14 @@ DECL|field|exceptionClauses
 specifier|private
 name|List
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|exceptionClauses
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1572,7 +1572,7 @@ if|if
 condition|(
 name|output
 operator|instanceof
-name|ExceptionDefinition
+name|OnExceptionDefinition
 condition|)
 block|{
 name|exceptionHandlers
@@ -2469,7 +2469,7 @@ DECL|method|getBuilderRefs ()
 specifier|public
 name|List
 argument_list|<
-name|RouteBuilderRef
+name|RouteBuilderDefinition
 argument_list|>
 name|getBuilderRefs
 parameter_list|()
@@ -2478,14 +2478,14 @@ return|return
 name|builderRefs
 return|;
 block|}
-DECL|method|setBuilderRefs (List<RouteBuilderRef> builderRefs)
+DECL|method|setBuilderRefs (List<RouteBuilderDefinition> builderRefs)
 specifier|public
 name|void
 name|setBuilderRefs
 parameter_list|(
 name|List
 argument_list|<
-name|RouteBuilderRef
+name|RouteBuilderDefinition
 argument_list|>
 name|builderRefs
 parameter_list|)
@@ -2803,7 +2803,7 @@ condition|)
 block|{
 for|for
 control|(
-name|RouteBuilderRef
+name|RouteBuilderDefinition
 name|builderRef
 range|:
 name|builderRefs
@@ -2918,14 +2918,14 @@ return|return
 name|dataFormats
 return|;
 block|}
-DECL|method|setExceptionClauses (List<ExceptionDefinition> exceptionClauses)
+DECL|method|setExceptionClauses (List<OnExceptionDefinition> exceptionClauses)
 specifier|public
 name|void
 name|setExceptionClauses
 parameter_list|(
 name|List
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|exceptionClauses
 parameter_list|)
@@ -2941,7 +2941,7 @@ DECL|method|getExceptionClauses ()
 specifier|public
 name|List
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|getExceptionClauses
 parameter_list|()

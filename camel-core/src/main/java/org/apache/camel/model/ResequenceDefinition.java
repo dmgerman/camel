@@ -234,10 +234,10 @@ name|name
 operator|=
 literal|"resequence"
 argument_list|)
-DECL|class|ResequencerDefinition
+DECL|class|ResequenceDefinition
 specifier|public
 class|class
-name|ResequencerDefinition
+name|ResequenceDefinition
 extends|extends
 name|ProcessorDefinition
 argument_list|<
@@ -300,9 +300,9 @@ name|Expression
 argument_list|>
 name|expressionList
 decl_stmt|;
-DECL|method|ResequencerDefinition ()
+DECL|method|ResequenceDefinition ()
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 parameter_list|()
 block|{
 name|this
@@ -311,9 +311,9 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ResequencerDefinition (List<Expression> expressions)
+DECL|method|ResequenceDefinition (List<Expression> expressions)
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 parameter_list|(
 name|List
 argument_list|<
@@ -351,7 +351,7 @@ comment|// ---------------------------------------------------------------------
 comment|/**      * Configures the stream-based resequencing algorithm using the default      * configuration.      *      * @return the builder      */
 DECL|method|stream ()
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|stream
 parameter_list|()
 block|{
@@ -368,7 +368,7 @@ block|}
 comment|/**      * Configures the batch-based resequencing algorithm using the default      * configuration.      *      * @return the builder      */
 DECL|method|batch ()
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|batch
 parameter_list|()
 block|{
@@ -385,7 +385,7 @@ block|}
 comment|/**      * Configures the stream-based resequencing algorithm using the given      * {@link StreamResequencerConfig}.      *      * @param config  the config      * @return the builder      */
 DECL|method|stream (StreamResequencerConfig config)
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|stream
 parameter_list|(
 name|StreamResequencerConfig
@@ -411,7 +411,7 @@ block|}
 comment|/**      * Configures the batch-based resequencing algorithm using the given      * {@link BatchResequencerConfig}.      *      * @param config  the config      * @return the builder      */
 DECL|method|batch (BatchResequencerConfig config)
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|batch
 parameter_list|(
 name|BatchResequencerConfig
@@ -437,7 +437,7 @@ block|}
 comment|/**      * Sets the expression to use for reordering      *      * @param expression  the expression      * @return the builder      */
 DECL|method|expression (ExpressionDefinition expression)
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|expression
 parameter_list|(
 name|ExpressionDefinition
@@ -458,7 +458,7 @@ block|}
 comment|/**      * Sets the timeout      * @param timeout  timeout in millis      * @return the builder      */
 DECL|method|timeout (long timeout)
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|timeout
 parameter_list|(
 name|long
@@ -497,7 +497,7 @@ block|}
 comment|/**      * Sets the in batch size for number of exchanges received      * @param batchSize  the batch size      * @return the builder      */
 DECL|method|size (int batchSize)
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|size
 parameter_list|(
 name|int
@@ -533,7 +533,7 @@ block|}
 comment|/**      * Sets the capacity for the stream resequencer      *      * @param capacity  the capacity      * @return the builder      */
 DECL|method|capacity (int capacity)
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|capacity
 parameter_list|(
 name|int
@@ -569,7 +569,7 @@ block|}
 comment|/**      * Sets the comparator to use for stream resequencer      *      * @param comparator  the comparator      * @return the builder      */
 DECL|method|comparator (ExpressionResultComparator comparator)
 specifier|public
-name|ResequencerDefinition
+name|ResequenceDefinition
 name|comparator
 parameter_list|(
 name|ExpressionResultComparator

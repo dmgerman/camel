@@ -106,7 +106,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptorRef
+name|InterceptorDefinition
 import|;
 end_import
 
@@ -1181,7 +1181,7 @@ name|InterceptStrategy
 operator|||
 name|node
 operator|instanceof
-name|InterceptorRef
+name|InterceptorDefinition
 operator|)
 condition|)
 block|{

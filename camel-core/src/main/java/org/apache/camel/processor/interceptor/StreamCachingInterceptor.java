@@ -110,7 +110,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 import|;
 end_import
 
@@ -124,7 +124,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptorRef
+name|InterceptorDefinition
 import|;
 end_import
 
@@ -227,7 +227,7 @@ literal|")"
 return|;
 block|}
 comment|/**      * Remove the {@link StreamCachingInterceptor} type of interceptor from the given list of interceptors      *      * @param interceptors the list of interceptors      */
-DECL|method|noStreamCaching (List<InterceptorDefinition> interceptors)
+DECL|method|noStreamCaching (List<AbstractInterceptorDefinition> interceptors)
 specifier|public
 specifier|static
 name|void
@@ -235,7 +235,7 @@ name|noStreamCaching
 parameter_list|(
 name|List
 argument_list|<
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 argument_list|>
 name|interceptors
 parameter_list|)
@@ -258,7 +258,7 @@ name|i
 operator|++
 control|)
 block|{
-name|InterceptorDefinition
+name|AbstractInterceptorDefinition
 name|interceptor
 init|=
 name|interceptors
@@ -272,11 +272,11 @@ if|if
 condition|(
 name|interceptor
 operator|instanceof
-name|InterceptorRef
+name|InterceptorDefinition
 operator|&&
 operator|(
 operator|(
-name|InterceptorRef
+name|InterceptorDefinition
 operator|)
 name|interceptor
 operator|)

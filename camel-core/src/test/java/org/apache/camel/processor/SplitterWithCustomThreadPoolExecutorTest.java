@@ -126,7 +126,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|SplitterDefinition
+name|SplitDefinition
 import|;
 end_import
 
@@ -211,11 +211,11 @@ expr_stmt|;
 block|}
 DECL|method|getSplitter ()
 specifier|protected
-name|SplitterDefinition
+name|SplitDefinition
 name|getSplitter
 parameter_list|()
 block|{
-name|SplitterDefinition
+name|SplitDefinition
 name|result
 init|=
 literal|null
@@ -265,7 +265,7 @@ return|;
 block|}
 DECL|method|firstSplitterType (List<ProcessorDefinition> outputs)
 specifier|protected
-name|SplitterDefinition
+name|SplitDefinition
 name|firstSplitterType
 parameter_list|(
 name|List
@@ -275,7 +275,7 @@ argument_list|>
 name|outputs
 parameter_list|)
 block|{
-name|SplitterDefinition
+name|SplitDefinition
 name|result
 init|=
 literal|null
@@ -292,13 +292,13 @@ if|if
 condition|(
 name|processorType
 operator|instanceof
-name|SplitterDefinition
+name|SplitDefinition
 condition|)
 block|{
 name|result
 operator|=
 operator|(
-name|SplitterDefinition
+name|SplitDefinition
 operator|)
 name|processorType
 expr_stmt|;

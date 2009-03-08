@@ -267,10 +267,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|SplitterDefinition
+DECL|class|SplitDefinition
 specifier|public
 class|class
-name|SplitterDefinition
+name|SplitDefinition
 extends|extends
 name|ExpressionNode
 block|{
@@ -338,14 +338,14 @@ name|streaming
 init|=
 literal|false
 decl_stmt|;
-DECL|method|SplitterDefinition ()
+DECL|method|SplitDefinition ()
 specifier|public
-name|SplitterDefinition
+name|SplitDefinition
 parameter_list|()
 block|{     }
-DECL|method|SplitterDefinition (Expression expression)
+DECL|method|SplitDefinition (Expression expression)
 specifier|public
-name|SplitterDefinition
+name|SplitDefinition
 parameter_list|(
 name|Expression
 name|expression
@@ -357,9 +357,9 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SplitterDefinition (ExpressionDefinition expression)
+DECL|method|SplitDefinition (ExpressionDefinition expression)
 specifier|public
-name|SplitterDefinition
+name|SplitDefinition
 parameter_list|(
 name|ExpressionDefinition
 name|expression
@@ -609,7 +609,7 @@ DECL|method|expression ()
 specifier|public
 name|ExpressionClause
 argument_list|<
-name|SplitterDefinition
+name|SplitDefinition
 argument_list|>
 name|expression
 parameter_list|()
@@ -626,7 +626,7 @@ block|}
 comment|/**      * Set the aggregationStrategy      *      * @return the builder      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
-name|SplitterDefinition
+name|SplitDefinition
 name|aggregationStrategy
 parameter_list|(
 name|AggregationStrategy
@@ -645,7 +645,7 @@ block|}
 comment|/**      * Doing the splitting work in parallel      *      * @return the builder      */
 DECL|method|parallelProcessing ()
 specifier|public
-name|SplitterDefinition
+name|SplitDefinition
 name|parallelProcessing
 parameter_list|()
 block|{
@@ -661,7 +661,7 @@ block|}
 comment|/**      * Set the splitting action's thread model      *      * @param parallelProcessing<tt>true</tt> to use a thread pool, if<tt>false</tt> then work is done in the      * calling thread.      *      * @return the builder      */
 DECL|method|parallelProcessing (boolean parallelProcessing)
 specifier|public
-name|SplitterDefinition
+name|SplitDefinition
 name|parallelProcessing
 parameter_list|(
 name|boolean
@@ -677,10 +677,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables streaming.       * See {@link SplitterDefinition#setStreaming(boolean)} for more information      *      * @return the builder      */
+comment|/**      * Enables streaming.       * See {@link SplitDefinition#setStreaming(boolean)} for more information      *      * @return the builder      */
 DECL|method|streaming ()
 specifier|public
-name|SplitterDefinition
+name|SplitDefinition
 name|streaming
 parameter_list|()
 block|{
@@ -696,7 +696,7 @@ block|}
 comment|/**      * Setting the executor for executing the splitting action.       *      * @param executor the executor      * @return the builder      */
 DECL|method|executor (Executor executor)
 specifier|public
-name|SplitterDefinition
+name|SplitDefinition
 name|executor
 parameter_list|(
 name|Executor

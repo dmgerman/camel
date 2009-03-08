@@ -48,7 +48,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ExceptionDefinition
+name|OnExceptionDefinition
 import|;
 end_import
 
@@ -97,22 +97,22 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Adds error handler for the given exception type      * @param exception  the exception to handle      */
-DECL|method|addErrorHandlers (ExceptionDefinition exception)
+DECL|method|addErrorHandlers (OnExceptionDefinition exception)
 name|void
 name|addErrorHandlers
 parameter_list|(
-name|ExceptionDefinition
+name|OnExceptionDefinition
 name|exception
 parameter_list|)
 function_decl|;
 comment|/**      * Adds the error handlers for the given list of exception types      * @param exceptions  the list of exceptions to handle      */
-DECL|method|setErrorHandlers (List<ExceptionDefinition> exceptions)
+DECL|method|setErrorHandlers (List<OnExceptionDefinition> exceptions)
 name|void
 name|setErrorHandlers
 parameter_list|(
 name|List
 argument_list|<
-name|ExceptionDefinition
+name|OnExceptionDefinition
 argument_list|>
 name|exceptions
 parameter_list|)
