@@ -442,18 +442,18 @@ decl_stmt|;
 comment|// use file specific binding
 name|answer
 operator|.
-name|setEndpointPath
-argument_list|(
-name|endpointPath
-argument_list|)
-expr_stmt|;
-name|answer
-operator|.
 name|setBinding
 argument_list|(
 operator|new
 name|FileBinding
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setEndpointPath
+argument_list|(
+name|endpointPath
 argument_list|)
 expr_stmt|;
 name|answer

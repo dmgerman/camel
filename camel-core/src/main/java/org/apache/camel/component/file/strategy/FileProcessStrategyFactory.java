@@ -368,7 +368,7 @@ return|;
 block|}
 else|else
 block|{
-comment|// default strategy will move files in a .camel/ subfolder
+comment|// default strategy will move files in a .camel/ subfolder where the file was consumed
 name|GenericFileRenameProcessStrategy
 argument_list|<
 name|File
@@ -399,7 +399,7 @@ name|FileLanguage
 operator|.
 name|file
 argument_list|(
-literal|".camel/${file:name}"
+literal|"${file:parent}/.camel/${file:onlyname}"
 argument_list|)
 decl_stmt|;
 name|strategy

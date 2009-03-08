@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|URI
@@ -135,6 +145,20 @@ operator|=
 literal|""
 expr_stmt|;
 block|}
+comment|// strip tailing slash
+name|this
+operator|.
+name|directory
+operator|=
+name|FileUtil
+operator|.
+name|stripTrailingSeparator
+argument_list|(
+name|this
+operator|.
+name|directory
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|toString ()
 specifier|public
