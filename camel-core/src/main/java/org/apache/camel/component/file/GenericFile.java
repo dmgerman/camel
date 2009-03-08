@@ -40,26 +40,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Stack
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -363,22 +343,6 @@ operator|.
 name|separator
 return|;
 block|}
-DECL|method|normalizePath (String path)
-specifier|public
-specifier|static
-name|String
-name|normalizePath
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-return|return
-name|path
-return|;
-comment|// TODO: not needed
-comment|/*        // only normalize path if it contains .. as we want to avoid: path/../sub/../sub2 as this can leads to trouble         if (path.indexOf("..") == -1) {             return path;         }          Stack<String> stack = new Stack<String>();         String[] parts = path.split(File.separator);         for (String part : parts) {             if (part.equals("..")&& !stack.isEmpty()) {                 // only pop if there is a previous path                 stack.pop();             } else {                 stack.push(part);             }         }          // build path based on stack         StringBuilder sb = new StringBuilder();         for (Iterator it = stack.iterator(); it.hasNext();) {             sb.append(it.next());             if (it.hasNext()) {                 sb.append(File.separator);             }         }          return sb.toString();*/
-block|}
 comment|/**      * Changes the name of this remote file. This method alters the absolute and      * relative names as well.      *      * @param newName the new name      */
 DECL|method|changeFileName (String newName)
 specifier|public
@@ -661,14 +625,6 @@ name|String
 name|relativeFilePath
 parameter_list|)
 block|{
-name|String
-name|path
-init|=
-name|normalizePath
-argument_list|(
-name|relativeFilePath
-argument_list|)
-decl_stmt|;
 name|this
 operator|.
 name|relativeFilePath
@@ -680,10 +636,10 @@ name|FileUtil
 operator|.
 name|normalizePath
 argument_list|(
-name|path
+name|relativeFilePath
 argument_list|)
 else|:
-name|path
+name|relativeFilePath
 expr_stmt|;
 block|}
 DECL|method|getFileName ()
@@ -945,14 +901,6 @@ name|String
 name|absoluteFilePath
 parameter_list|)
 block|{
-name|String
-name|path
-init|=
-name|normalizePath
-argument_list|(
-name|absoluteFilePath
-argument_list|)
-decl_stmt|;
 name|this
 operator|.
 name|absoluteFilePath
@@ -964,10 +912,10 @@ name|FileUtil
 operator|.
 name|normalizePath
 argument_list|(
-name|path
+name|absoluteFilePath
 argument_list|)
 else|:
-name|path
+name|absoluteFilePath
 expr_stmt|;
 block|}
 DECL|method|getAbsoluteFilePath ()

@@ -148,7 +148,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|OnExceptionDefinition
+name|InterceptDefinition
 import|;
 end_import
 
@@ -162,7 +162,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptDefinition
+name|OnExceptionDefinition
 import|;
 end_import
 
