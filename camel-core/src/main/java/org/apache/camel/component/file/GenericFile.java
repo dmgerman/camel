@@ -34,7 +34,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|Serializable
 import|;
 end_import
 
@@ -42,9 +42,19 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|Serializable
+name|Stack
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
 import|;
 end_import
 
@@ -96,20 +106,25 @@ specifier|private
 name|String
 name|endpointPath
 decl_stmt|;
-DECL|field|absoluteFileName
-specifier|private
-name|String
-name|absoluteFileName
-decl_stmt|;
-DECL|field|relativeFileName
-specifier|private
-name|String
-name|relativeFileName
-decl_stmt|;
 DECL|field|fileName
 specifier|private
 name|String
 name|fileName
+decl_stmt|;
+DECL|field|fileNameOnly
+specifier|private
+name|String
+name|fileNameOnly
+decl_stmt|;
+DECL|field|relativeFilePath
+specifier|private
+name|String
+name|relativeFilePath
+decl_stmt|;
+DECL|field|absoluteFilePath
+specifier|private
+name|String
+name|absoluteFilePath
 decl_stmt|;
 DECL|field|fileLength
 specifier|private
@@ -234,21 +249,21 @@ argument_list|)
 expr_stmt|;
 name|result
 operator|.
-name|setAbsoluteFileName
+name|setAbsoluteFilePath
 argument_list|(
 name|source
 operator|.
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|result
 operator|.
-name|setRelativeFileName
+name|setRelativeFilePath
 argument_list|(
 name|source
 operator|.
-name|getRelativeFileName
+name|getRelativeFilePath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -259,6 +274,16 @@ argument_list|(
 name|source
 operator|.
 name|getFileName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|setFileNameOnly
+argument_list|(
+name|source
+operator|.
+name|getFileNameOnly
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -338,6 +363,22 @@ operator|.
 name|separator
 return|;
 block|}
+DECL|method|normalizePath (String path)
+specifier|public
+specifier|static
+name|String
+name|normalizePath
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|path
+return|;
+comment|// TODO: not needed
+comment|/*        // only normalize path if it contains .. as we want to avoid: path/../sub/../sub2 as this can leads to trouble         if (path.indexOf("..") == -1) {             return path;         }          Stack<String> stack = new Stack<String>();         String[] parts = path.split(File.separator);         for (String part : parts) {             if (part.equals("..")&& !stack.isEmpty()) {                 // only pop if there is a previous path                 stack.pop();             } else {                 stack.push(part);             }         }          // build path based on stack         StringBuilder sb = new StringBuilder();         for (Iterator it = stack.iterator(); it.hasNext();) {             sb.append(it.next());             if (it.hasNext()) {                 sb.append(File.separator);             }         }          return sb.toString();*/
+block|}
 comment|/**      * Changes the name of this remote file. This method alters the absolute and      * relative names as well.      *      * @param newName the new name      */
 DECL|method|changeFileName (String newName)
 specifier|public
@@ -362,7 +403,6 @@ argument_list|)
 else|:
 name|newName
 expr_stmt|;
-comment|// is it relative or absolute
 name|boolean
 name|absolute
 init|=
@@ -385,6 +425,7 @@ operator|==
 operator|-
 literal|1
 decl_stmt|;
+comment|// use java.io.File to help us with computing name changes
 name|File
 name|file
 init|=
@@ -394,14 +435,13 @@ argument_list|(
 name|newName
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|absolute
-condition|)
-block|{
-name|setAbsolute
+comment|// store the file name only
+name|setFileNameOnly
 argument_list|(
-literal|true
+name|file
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|setFileName
@@ -412,46 +452,31 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setRelativeFileName
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-name|setAbsoluteFileName
-argument_list|(
-name|file
-operator|.
-name|getAbsolutePath
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|setAbsolute
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|setFileName
-argument_list|(
-name|file
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// relative name is a bit more complex for relative files
+comment|// relative name is a bit more complex
 if|if
 condition|(
 name|nameChangeOnly
 condition|)
 block|{
-name|setRelativeFileName
+name|setRelativeFilePath
 argument_list|(
 name|changeNameOnly
 argument_list|(
-name|getRelativeFileName
+name|getRelativeFilePath
+argument_list|()
+argument_list|,
+name|file
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|setFileName
+argument_list|(
+name|changeNameOnly
+argument_list|(
+name|getFileName
 argument_list|()
 argument_list|,
 name|file
@@ -474,7 +499,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|setRelativeFileName
+name|setRelativeFilePath
 argument_list|(
 name|file
 operator|.
@@ -493,7 +518,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|setRelativeFileName
+name|setRelativeFilePath
 argument_list|(
 name|file
 operator|.
@@ -503,15 +528,42 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// absolute vs relative
+if|if
+condition|(
+name|absolute
+condition|)
+block|{
+name|setAbsolute
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|setAbsoluteFilePath
+argument_list|(
+name|file
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|setAbsolute
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 comment|// construct a pseudo absolute filename that the file operations uses
-name|setAbsoluteFileName
+name|setAbsoluteFilePath
 argument_list|(
 name|endpointPath
 operator|+
 name|getFileSeparator
 argument_list|()
 operator|+
-name|getRelativeFileName
+name|getRelativeFilePath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -590,28 +642,36 @@ name|isAbsolute
 argument_list|()
 return|;
 block|}
-DECL|method|getRelativeFileName ()
+DECL|method|getRelativeFilePath ()
 specifier|public
 name|String
-name|getRelativeFileName
+name|getRelativeFilePath
 parameter_list|()
 block|{
 return|return
-name|relativeFileName
+name|relativeFilePath
 return|;
 block|}
-DECL|method|setRelativeFileName (String relativeFileName)
+DECL|method|setRelativeFilePath (String relativeFilePath)
 specifier|public
 name|void
-name|setRelativeFileName
+name|setRelativeFilePath
 parameter_list|(
 name|String
-name|relativeFileName
+name|relativeFilePath
 parameter_list|)
 block|{
+name|String
+name|path
+init|=
+name|normalizePath
+argument_list|(
+name|relativeFilePath
+argument_list|)
+decl_stmt|;
 name|this
 operator|.
-name|relativeFileName
+name|relativeFilePath
 operator|=
 name|needToNormalize
 argument_list|()
@@ -620,10 +680,10 @@ name|FileUtil
 operator|.
 name|normalizePath
 argument_list|(
-name|relativeFileName
+name|path
 argument_list|)
 else|:
-name|relativeFileName
+name|path
 expr_stmt|;
 block|}
 DECL|method|getFileName ()
@@ -781,7 +841,7 @@ block|{
 name|String
 name|name
 init|=
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 decl_stmt|;
 name|File
@@ -805,7 +865,7 @@ block|{
 name|String
 name|name
 init|=
-name|getRelativeFileName
+name|getRelativeFilePath
 argument_list|()
 decl_stmt|;
 name|File
@@ -876,18 +936,26 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-DECL|method|setAbsoluteFileName (String absoluteFileName)
+DECL|method|setAbsoluteFilePath (String absoluteFilePath)
 specifier|public
 name|void
-name|setAbsoluteFileName
+name|setAbsoluteFilePath
 parameter_list|(
 name|String
-name|absoluteFileName
+name|absoluteFilePath
 parameter_list|)
 block|{
+name|String
+name|path
+init|=
+name|normalizePath
+argument_list|(
+name|absoluteFilePath
+argument_list|)
+decl_stmt|;
 name|this
 operator|.
-name|absoluteFileName
+name|absoluteFilePath
 operator|=
 name|needToNormalize
 argument_list|()
@@ -896,20 +964,20 @@ name|FileUtil
 operator|.
 name|normalizePath
 argument_list|(
-name|absoluteFileName
+name|path
 argument_list|)
 else|:
-name|absoluteFileName
+name|path
 expr_stmt|;
 block|}
-DECL|method|getAbsoluteFileName ()
+DECL|method|getAbsoluteFilePath ()
 specifier|public
 name|String
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 parameter_list|()
 block|{
 return|return
-name|absoluteFileName
+name|absoluteFilePath
 return|;
 block|}
 DECL|method|isAbsolute ()
@@ -974,6 +1042,32 @@ else|:
 name|endpointPath
 expr_stmt|;
 block|}
+DECL|method|getFileNameOnly ()
+specifier|public
+name|String
+name|getFileNameOnly
+parameter_list|()
+block|{
+return|return
+name|fileNameOnly
+return|;
+block|}
+DECL|method|setFileNameOnly (String fileNameOnly)
+specifier|public
+name|void
+name|setFileNameOnly
+parameter_list|(
+name|String
+name|fileNameOnly
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileNameOnly
+operator|=
+name|fileNameOnly
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -988,9 +1082,9 @@ operator|+
 operator|(
 name|absolute
 condition|?
-name|absoluteFileName
+name|absoluteFilePath
 else|:
-name|relativeFileName
+name|relativeFilePath
 operator|)
 operator|+
 literal|"]"

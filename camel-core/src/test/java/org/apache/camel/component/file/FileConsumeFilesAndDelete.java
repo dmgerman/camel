@@ -212,23 +212,6 @@ name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"File should been deleted"
-argument_list|,
-operator|new
-name|File
-argument_list|(
-literal|"target/files/.camel/report.txt"
-argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
-operator|.
-name|exists
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -254,7 +237,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/files/?recursive=false&delete=true"
+literal|"file://target/files/?fileName=report.txt&delete=true"
 argument_list|)
 operator|.
 name|to

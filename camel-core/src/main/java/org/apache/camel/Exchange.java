@@ -126,6 +126,12 @@ name|FILE_NAME
 init|=
 literal|"CamelFileName"
 decl_stmt|;
+DECL|field|FILE_NAME_ONLY
+name|String
+name|FILE_NAME_ONLY
+init|=
+literal|"CamelFileNameOnly"
+decl_stmt|;
 DECL|field|FILE_NAME_PRODUCED
 name|String
 name|FILE_NAME_PRODUCED

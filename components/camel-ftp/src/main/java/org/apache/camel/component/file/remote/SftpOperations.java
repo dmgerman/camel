@@ -864,16 +864,6 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-comment|// for FTP we can not use leading / for refering to files
-name|name
-operator|=
-name|FileUtil
-operator|.
-name|stripLeadingSeparator
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -938,25 +928,6 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-comment|// for FTP we can not use leading / for refering to files
-name|from
-operator|=
-name|FileUtil
-operator|.
-name|stripLeadingSeparator
-argument_list|(
-name|from
-argument_list|)
-expr_stmt|;
-name|to
-operator|=
-name|FileUtil
-operator|.
-name|stripLeadingSeparator
-argument_list|(
-name|to
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -1031,16 +1002,6 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-comment|// for FTP we can not use leading / for refering to files
-name|directory
-operator|=
-name|FileUtil
-operator|.
-name|stripLeadingSeparator
-argument_list|(
-name|directory
-argument_list|)
-expr_stmt|;
 comment|// ignore absolute as all dirs are relative with FTP
 name|boolean
 name|success
@@ -1703,7 +1664,7 @@ operator|.
 name|getGenericFile
 argument_list|()
 operator|.
-name|getRelativeFileName
+name|getRelativeFilePath
 argument_list|()
 decl_stmt|;
 name|temp

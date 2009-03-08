@@ -32,16 +32,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -485,7 +475,7 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|.
-name|setFileName
+name|setFileNameOnly
 argument_list|(
 name|file
 operator|.
@@ -505,7 +495,7 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|.
-name|setAbsoluteFileName
+name|setAbsoluteFilePath
 argument_list|(
 name|file
 operator|.
@@ -531,11 +521,15 @@ name|isAbsolute
 argument_list|()
 condition|)
 block|{
+comment|// use absolute path as relative
 name|answer
 operator|.
-name|setRelativeFileName
+name|setRelativeFilePath
 argument_list|(
-literal|null
+name|file
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -607,7 +601,7 @@ condition|)
 block|{
 name|answer
 operator|.
-name|setRelativeFileName
+name|setRelativeFilePath
 argument_list|(
 name|path
 operator|.
@@ -629,7 +623,7 @@ else|else
 block|{
 name|answer
 operator|.
-name|setRelativeFileName
+name|setRelativeFilePath
 argument_list|(
 name|path
 operator|.
@@ -639,6 +633,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// name is the relative path as we want to preserve leading paths relative to the endpoint path
+name|answer
+operator|.
+name|setFileName
+argument_list|(
+name|answer
+operator|.
+name|getRelativeFilePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// use file as body as we have converters if needed as stream
 name|answer
 operator|.

@@ -696,7 +696,7 @@ name|name
 init|=
 name|target
 operator|.
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 decl_stmt|;
 comment|// retrieve the file using the stream

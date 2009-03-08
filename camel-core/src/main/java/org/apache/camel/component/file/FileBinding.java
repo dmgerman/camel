@@ -74,9 +74,9 @@ parameter_list|)
 block|{
 comment|// as we use java.io.File itself as the body (not loading its content into a OutputStream etc.)
 comment|// we just store a java.io.File handle to the actual file denoted by the
-comment|// file.getAbsoluteFileName. We must do this as the original file consumed can be renamed before
+comment|// file.getAbsoluteFilePath. We must do this as the original file consumed can be renamed before
 comment|// being processed (preMove) and thus it points to an invalid file location.
-comment|// GenericFile#getAbsoluteFileName() is always up-to-date and thus we use it to create a file
+comment|// GenericFile#getAbsoluteFilePath() is always up-to-date and thus we use it to create a file
 comment|// handle that is correct
 if|if
 condition|(
@@ -87,7 +87,7 @@ operator|||
 operator|!
 name|file
 operator|.
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 operator|.
 name|equals
@@ -106,7 +106,7 @@ name|File
 argument_list|(
 name|file
 operator|.
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -177,7 +177,7 @@ name|path
 init|=
 name|file
 operator|.
-name|getRelativeFileName
+name|getRelativeFilePath
 argument_list|()
 decl_stmt|;
 name|Boolean

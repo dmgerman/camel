@@ -1610,7 +1610,7 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
-comment|// compute the name that was written
+comment|// compute name to set on header that should be relative to starting directory
 name|String
 name|name
 init|=
@@ -1621,12 +1621,12 @@ argument_list|()
 condition|?
 name|file
 operator|.
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 else|:
 name|file
 operator|.
-name|getRelativeFileName
+name|getRelativeFilePath
 argument_list|()
 decl_stmt|;
 comment|// skip leading endpoint configured directory
@@ -1657,39 +1657,14 @@ argument_list|()
 operator|.
 name|getDirectory
 argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|name
-operator|.
-name|startsWith
-argument_list|(
+operator|+
 name|File
 operator|.
 name|separator
 argument_list|)
-operator|||
-name|name
-operator|.
-name|startsWith
-argument_list|(
-literal|"/"
-argument_list|)
-condition|)
-block|{
-comment|// skip trailing /
-name|name
-operator|=
-name|name
-operator|.
-name|substring
-argument_list|(
-literal|1
-argument_list|)
 expr_stmt|;
 block|}
+comment|// adjust filename
 name|message
 operator|.
 name|setHeader

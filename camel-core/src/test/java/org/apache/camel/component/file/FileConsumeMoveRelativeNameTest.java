@@ -77,10 +77,10 @@ comment|/**  * Unit test for consuming multiple directories.  */
 end_comment
 
 begin_class
-DECL|class|FileConsumeMoveMultipleDirectoriesTest
+DECL|class|FileConsumeMoveRelativeNameTest
 specifier|public
 class|class
-name|FileConsumeMoveMultipleDirectoriesTest
+name|FileConsumeMoveRelativeNameTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -91,7 +91,7 @@ name|fileUrl
 init|=
 literal|"file://target/multidir/?recursive=true&initialDelay=2000&delay=5000"
 operator|+
-literal|"&exclude=.*old&move=done/${file:name}.old"
+literal|"&move=.done/${file:name}.old"
 decl_stmt|;
 annotation|@
 name|Override
@@ -190,21 +190,21 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/multidir/done/bye.txt.old"
+literal|"target/multidir/.done/bye.txt.old"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/multidir/done/sub/hello.txt.old"
+literal|"target/multidir/.done/sub/hello.txt.old"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"target/multidir/done/sub/sub2/godday.txt.old"
+literal|"target/multidir/.done/sub/sub2/godday.txt.old"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

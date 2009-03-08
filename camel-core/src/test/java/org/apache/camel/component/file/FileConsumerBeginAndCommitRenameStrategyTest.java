@@ -312,7 +312,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/reports?preMove=../inprogress/${file:name}&move=../done/${file:name}&consumer.delay=5000"
+literal|"file://target/reports?preMove=../inprogress/${file:name}&move=../done/${file:name}&delay=5000"
 argument_list|)
 operator|.
 name|process
@@ -352,7 +352,7 @@ operator|.
 name|getGenericFile
 argument_list|()
 operator|.
-name|getRelativeFileName
+name|getRelativeFilePath
 argument_list|()
 operator|.
 name|indexOf

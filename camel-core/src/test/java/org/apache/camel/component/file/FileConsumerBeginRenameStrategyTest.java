@@ -346,7 +346,7 @@ operator|.
 name|getGenericFile
 argument_list|()
 operator|.
-name|getRelativeFileName
+name|getRelativeFilePath
 argument_list|()
 operator|.
 name|indexOf

@@ -88,7 +88,7 @@ argument_list|()
 operator|+
 literal|"?password=admin&recursive=true&binary=false"
 operator|+
-literal|"&move=.done/${file:name}&initialDelay=3000&delay=5000"
+literal|"&move=${file:parent}/.done/${file:onlyname}&initialDelay=3000&delay=5000"
 return|;
 block|}
 annotation|@
@@ -214,7 +214,7 @@ name|expectedFileExists
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|".done/bye/bye.txt"
+literal|"bye/.done/bye.txt"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -223,7 +223,7 @@ name|expectedFileExists
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|".done/goodday/goodday.txt"
+literal|"goodday/.done/goodday.txt"
 argument_list|)
 expr_stmt|;
 name|mock

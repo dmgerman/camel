@@ -564,6 +564,16 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|.
+name|setFileNameOnly
+argument_list|(
+name|file
+operator|.
+name|getFilename
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
 name|setFileLength
 argument_list|(
 name|file
@@ -642,7 +652,7 @@ argument_list|()
 decl_stmt|;
 name|answer
 operator|.
-name|setAbsoluteFileName
+name|setAbsoluteFilePath
 argument_list|(
 name|absoluteFileName
 argument_list|)
@@ -683,7 +693,7 @@ expr_stmt|;
 block|}
 name|answer
 operator|.
-name|setRelativeFileName
+name|setRelativeFilePath
 argument_list|(
 name|relativePath
 argument_list|)

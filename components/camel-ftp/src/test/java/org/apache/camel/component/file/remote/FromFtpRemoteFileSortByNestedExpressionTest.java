@@ -138,7 +138,7 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&sortBy=file:name.ext;file:name"
+literal|"&sortBy=file:ext;file:name"
 argument_list|)
 operator|.
 name|to
@@ -210,7 +210,7 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&sortBy=file:name.ext;reverse:file:name"
+literal|"&sortBy=file:ext;reverse:file:name"
 argument_list|)
 operator|.
 name|to

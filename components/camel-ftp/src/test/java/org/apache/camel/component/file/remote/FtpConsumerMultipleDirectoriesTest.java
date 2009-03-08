@@ -205,7 +205,7 @@ literal|"multidir/bye.txt"
 argument_list|,
 name|file
 operator|.
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -215,7 +215,7 @@ literal|"bye.txt"
 argument_list|,
 name|file
 operator|.
-name|getRelativeFileName
+name|getRelativeFilePath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -260,7 +260,7 @@ literal|"multidir/sub/hello.txt"
 argument_list|,
 name|file
 operator|.
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -270,7 +270,7 @@ literal|"sub/hello.txt"
 argument_list|,
 name|file
 operator|.
-name|getRelativeFileName
+name|getRelativeFilePath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -315,7 +315,7 @@ literal|"multidir/sub/sub2/godday.txt"
 argument_list|,
 name|file
 operator|.
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -325,7 +325,7 @@ literal|"sub/sub2/godday.txt"
 argument_list|,
 name|file
 operator|.
-name|getRelativeFileName
+name|getRelativeFilePath
 argument_list|()
 argument_list|)
 expr_stmt|;

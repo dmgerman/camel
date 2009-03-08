@@ -273,7 +273,7 @@ name|lockFileName
 init|=
 name|file
 operator|.
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 operator|+
 name|FileComponent

@@ -86,9 +86,9 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/movefile?password=admin&recursive=true&binary=false&exclude=.*old"
+literal|"/movefile?password=admin&recursive=true&binary=false"
 operator|+
-literal|"&move=/done/${file:name}.old&initialDelay=2500&delay=5000"
+literal|"&move=/.done/${file:name}.old&initialDelay=2500&delay=5000"
 return|;
 block|}
 annotation|@
@@ -207,7 +207,7 @@ name|expectedFileExists
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"done/hello.txt.old"
+literal|".done/hello.txt.old"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -216,7 +216,7 @@ name|expectedFileExists
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"done/bye/bye.txt.old"
+literal|".done/bye/bye.txt.old"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -225,7 +225,7 @@ name|expectedFileExists
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"done/goodday/goodday.txt.old"
+literal|".done/goodday/goodday.txt.old"
 argument_list|)
 expr_stmt|;
 name|mock

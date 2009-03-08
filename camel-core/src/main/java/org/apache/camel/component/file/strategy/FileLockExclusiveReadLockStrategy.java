@@ -270,7 +270,7 @@ name|File
 argument_list|(
 name|file
 operator|.
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 argument_list|)
 decl_stmt|;

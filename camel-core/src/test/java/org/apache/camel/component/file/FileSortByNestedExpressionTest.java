@@ -236,7 +236,7 @@ name|from
 argument_list|(
 name|fileUrl
 operator|+
-literal|"a/?sortBy=file:name.ext;file:name"
+literal|"a/?sortBy=file:ext;file:name"
 argument_list|)
 operator|.
 name|to
@@ -312,7 +312,7 @@ name|from
 argument_list|(
 name|fileUrl
 operator|+
-literal|"b/?sortBy=file:name.ext;reverse:file:name"
+literal|"b/?sortBy=file:ext;reverse:file:name"
 argument_list|)
 operator|.
 name|to

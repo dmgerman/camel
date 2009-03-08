@@ -374,7 +374,7 @@ name|deleteFile
 argument_list|(
 name|to
 operator|.
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -458,12 +458,12 @@ name|renameFile
 argument_list|(
 name|from
 operator|.
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 argument_list|,
 name|to
 operator|.
-name|getAbsoluteFileName
+name|getAbsoluteFilePath
 argument_list|()
 argument_list|)
 decl_stmt|;
