@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.language.simple
+DECL|package|org.apache.camel.builder
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
-operator|.
-name|simple
+name|builder
 package|;
 end_package
 
@@ -70,20 +68,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|ExpressionBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|ExpressionAdapter
@@ -128,14 +112,16 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|language
 operator|.
-name|FileUtil
+name|simple
+operator|.
+name|SimpleLanguage
 import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for working with<a href="http://camel.apache.org/expression.html">expressions</a> based  * on files.  *<p/>  * This expression expects the headers from the {@link FileLanguage} on the<b>IN</b> message.  *  * @see org.apache.camel.language.simple.FileLanguage  */
+comment|/**  * A helper class for working with<a href="http://camel.apache.org/expression.html">expressions</a> based  * on files.  *<p/>  * This expression expects the headers from the {@link org.apache.camel.language.simple.FileLanguage} on the<b>IN</b> message.  *  * @see org.apache.camel.language.simple.FileLanguage  */
 end_comment
 
 begin_class
