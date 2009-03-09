@@ -353,13 +353,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|getIn
-argument_list|()
+comment|// we must normal path according to protocol if we build our own paths
+name|String
+name|path
+init|=
+name|file
 operator|.
-name|setHeader
+name|normalizePathToProtocol
 argument_list|(
-literal|"CamelFilePath"
-argument_list|,
 name|file
 operator|.
 name|getEndpointPath
@@ -373,6 +374,16 @@ name|file
 operator|.
 name|getRelativeFilePath
 argument_list|()
+argument_list|)
+decl_stmt|;
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"CamelFilePath"
+argument_list|,
+name|path
 argument_list|)
 expr_stmt|;
 block|}

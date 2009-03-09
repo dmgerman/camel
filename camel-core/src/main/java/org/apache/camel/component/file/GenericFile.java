@@ -66,6 +66,34 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Generic File. Specific implementations of a file based endpoint need to  * provide a File for transfer.  */
 end_comment
@@ -81,6 +109,22 @@ parameter_list|>
 implements|implements
 name|Serializable
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|GenericFile
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|endpointPath
 specifier|private
 name|String
@@ -343,15 +387,25 @@ name|String
 name|newName
 parameter_list|)
 block|{
-name|newName
-operator|=
-name|FileUtil
+comment|// TODO: Should be TRACE
+if|if
+condition|(
+name|LOG
 operator|.
-name|normalizePath
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
+literal|"Changing name to: "
+operator|+
 name|newName
 argument_list|)
 expr_stmt|;
+block|}
 comment|// use java.io.File to help us with computing name changes
 name|File
 name|file
@@ -361,14 +415,6 @@ name|File
 argument_list|(
 name|newName
 argument_list|)
-decl_stmt|;
-name|boolean
-name|absolute
-init|=
-name|file
-operator|.
-name|isAbsolute
-argument_list|()
 decl_stmt|;
 name|boolean
 name|nameChangeOnly
@@ -383,6 +429,14 @@ argument_list|)
 operator|==
 operator|-
 literal|1
+decl_stmt|;
+name|boolean
+name|absolute
+init|=
+name|file
+operator|.
+name|isAbsolute
+argument_list|()
 decl_stmt|;
 comment|// store the file name only
 name|setFileNameOnly
@@ -514,6 +568,25 @@ argument_list|()
 operator|+
 name|getRelativeFilePath
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// TODO: Should be TRACE
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Name changed: "
+operator|+
+name|this
 argument_list|)
 expr_stmt|;
 block|}
