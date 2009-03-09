@@ -132,20 +132,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|UnitOfWork
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|UuidGenerator
@@ -153,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default implementation of {@link UnitOfWork}  *  * @version $Revision$  */
+comment|/**  * The default implementation of {@link org.apache.camel.spi.UnitOfWork}  *  * @version $Revision$  */
 end_comment
 
 begin_class

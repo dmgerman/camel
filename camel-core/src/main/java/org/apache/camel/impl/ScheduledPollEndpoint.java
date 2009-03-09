@@ -80,18 +80,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ResolveEndpointFailedException
 import|;
 end_import
@@ -111,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for {@link Endpoint} which creates a {@link ScheduledPollConsumer}  *  * @version $Revision$  */
+comment|/**  * A base class for {@link org.apache.camel.Endpoint} which creates a {@link ScheduledPollConsumer}  *  * @version $Revision$  */
 end_comment
 
 begin_class

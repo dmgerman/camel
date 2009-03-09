@@ -96,18 +96,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|PollingConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -169,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of the {@link PollingConsumer} which uses the normal  * asynchronous consumer mechanism along with a {@link BlockingQueue} to allow  * the caller to pull messages on demand.  *  * @version $Revision$  */
+comment|/**  * A default implementation of the {@link org.apache.camel.PollingConsumer} which uses the normal  * asynchronous consumer mechanism along with a {@link BlockingQueue} to allow  * the caller to pull messages on demand.  *  * @version $Revision$  */
 end_comment
 
 begin_class

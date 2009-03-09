@@ -230,20 +230,6 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|ExpressionClause
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
 name|PredicateBuilder
 import|;
 end_import
@@ -1211,7 +1197,7 @@ return|return
 literal|""
 return|;
 block|}
-comment|/**      * Allows derived classes to set a lazily created expressionType instance      * such as if using the {@link ExpressionClause}      */
+comment|/**      * Allows derived classes to set a lazily created expressionType instance      * such as if using the {@link org.apache.camel.builder.ExpressionClause}      */
 DECL|method|setExpressionType (ExpressionDefinition expressionType)
 specifier|protected
 name|void

@@ -294,22 +294,8 @@ name|ZipDataFormat
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|DataFormat
-import|;
-end_import
-
 begin_comment
-comment|/**  * An expression for constructing the different possible {@link DataFormat}  * options.  *  * @version $Revision$  */
+comment|/**  * An expression for constructing the different possible {@link org.apache.camel.spi.DataFormat}  * options.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -335,7 +321,7 @@ specifier|final
 name|Operation
 name|operation
 decl_stmt|;
-comment|/**      * {@link DataFormat} operations.      */
+comment|/**      * {@link org.apache.camel.spi.DataFormat} operations.      */
 DECL|enum|Operation
 specifier|public
 enum|enum

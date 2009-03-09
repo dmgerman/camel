@@ -176,20 +176,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|RouteDefinition
 import|;
 end_import
@@ -517,7 +503,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a route for an interceptor; use the {@link ProcessorDefinition#proceed()} method      * to continue processing the underlying route being intercepted.      * @return the builder      */
+comment|/**      * Adds a route for an interceptor; use the {@link org.apache.camel.model.ProcessorDefinition#proceed()} method      * to continue processing the underlying route being intercepted.      * @return the builder      */
 DECL|method|intercept ()
 specifier|public
 name|InterceptDefinition
