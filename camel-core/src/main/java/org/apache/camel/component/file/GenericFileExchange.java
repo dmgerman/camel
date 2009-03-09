@@ -353,7 +353,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// we must normal path according to protocol if we build our own paths
+comment|// we must normalize path according to protocol if we build our own paths
 name|String
 name|path
 init|=

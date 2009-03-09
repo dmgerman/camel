@@ -387,18 +387,17 @@ name|String
 name|newName
 parameter_list|)
 block|{
-comment|// TODO: Should be TRACE
 if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Changing name to: "
 operator|+
@@ -415,20 +414,6 @@ name|File
 argument_list|(
 name|newName
 argument_list|)
-decl_stmt|;
-name|boolean
-name|nameChangeOnly
-init|=
-name|newName
-operator|.
-name|indexOf
-argument_list|(
-name|getFileSeparator
-argument_list|()
-argument_list|)
-operator|==
-operator|-
-literal|1
 decl_stmt|;
 name|boolean
 name|absolute
@@ -455,43 +440,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// relative name is a bit more complex
-if|if
-condition|(
-name|nameChangeOnly
-condition|)
-block|{
-name|setRelativeFilePath
-argument_list|(
-name|changeNameOnly
-argument_list|(
-name|getRelativeFilePath
-argument_list|()
-argument_list|,
-name|file
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|setFileName
-argument_list|(
-name|changeNameOnly
-argument_list|(
-name|getFileName
-argument_list|()
-argument_list|,
-name|file
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
+comment|// relative path
 if|if
 condition|(
 name|file
@@ -530,8 +479,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|// absolute vs relative
+comment|// absolute path
 if|if
 condition|(
 name|absolute
@@ -558,7 +506,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-comment|// construct a pseudo absolute filename that the file operations uses
+comment|// construct a pseudo absolute filename that the file operations uses even for relative only
 name|setAbsoluteFilePath
 argument_list|(
 name|endpointPath
@@ -571,77 +519,23 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: Should be TRACE
 if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Name changed: "
+literal|"Name changed to: "
 operator|+
 name|this
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-DECL|method|changeNameOnly (String path, String name)
-specifier|private
-name|String
-name|changeNameOnly
-parameter_list|(
-name|String
-name|path
-parameter_list|,
-name|String
-name|name
-parameter_list|)
-block|{
-name|int
-name|pos
-init|=
-name|path
-operator|.
-name|lastIndexOf
-argument_list|(
-name|getFileSeparator
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|pos
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-return|return
-name|path
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-name|pos
-operator|+
-literal|1
-argument_list|)
-operator|+
-name|name
-return|;
-block|}
-else|else
-block|{
-return|return
-name|name
-return|;
 block|}
 block|}
 DECL|method|getRelativeFilePath ()
