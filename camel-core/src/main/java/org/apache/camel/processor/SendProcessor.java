@@ -189,7 +189,7 @@ implements|,
 name|Service
 block|{
 DECL|field|LOG
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 specifier|transient
@@ -206,22 +206,22 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|destination
-specifier|private
+specifier|protected
 name|Endpoint
 name|destination
 decl_stmt|;
 DECL|field|producer
-specifier|private
+specifier|protected
 name|Producer
 name|producer
 decl_stmt|;
 DECL|field|processor
-specifier|private
+specifier|protected
 name|AsyncProcessor
 name|processor
 decl_stmt|;
 DECL|field|pattern
-specifier|private
+specifier|protected
 name|ExchangePattern
 name|pattern
 decl_stmt|;
@@ -347,6 +347,8 @@ block|}
 block|}
 else|else
 block|{
+name|exchange
+operator|=
 name|configureExchange
 argument_list|(
 name|exchange
@@ -423,6 +425,8 @@ return|;
 block|}
 else|else
 block|{
+name|exchange
+operator|=
 name|configureExchange
 argument_list|(
 name|exchange
@@ -524,7 +528,7 @@ block|}
 block|}
 DECL|method|configureExchange (Exchange exchange)
 specifier|protected
-name|void
+name|Exchange
 name|configureExchange
 parameter_list|(
 name|Exchange
@@ -546,6 +550,9 @@ name|pattern
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|exchange
+return|;
 block|}
 block|}
 end_class

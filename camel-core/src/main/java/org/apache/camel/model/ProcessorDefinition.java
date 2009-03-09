@@ -2990,6 +2990,47 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|wireTap (String uri)
+specifier|public
+name|Type
+name|wireTap
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|WireTapDefinition
+name|answer
+init|=
+operator|new
+name|WireTapDefinition
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setUri
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
 comment|/**      * Intercepts outputs added to this node in the future (i.e. intercepts outputs added after this statement)      *      * @param ref  a reference in the registry to lookup the interceptor that must be of type {@link DelegateProcessor}      * @return the builder      */
 annotation|@
 name|SuppressWarnings

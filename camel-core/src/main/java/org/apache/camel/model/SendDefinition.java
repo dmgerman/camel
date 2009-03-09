@@ -209,7 +209,7 @@ operator|=
 literal|false
 argument_list|)
 DECL|field|uri
-specifier|private
+specifier|protected
 name|String
 name|uri
 decl_stmt|;
@@ -221,14 +221,14 @@ operator|=
 literal|false
 argument_list|)
 DECL|field|ref
-specifier|private
+specifier|protected
 name|String
 name|ref
 decl_stmt|;
 annotation|@
 name|XmlTransient
 DECL|field|endpoint
-specifier|private
+specifier|protected
 name|Endpoint
 name|endpoint
 decl_stmt|;
