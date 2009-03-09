@@ -147,6 +147,8 @@ DECL|field|lazySessionCreation
 specifier|private
 name|boolean
 name|lazySessionCreation
+init|=
+literal|true
 decl_stmt|;
 DECL|field|transferExchange
 specifier|private
