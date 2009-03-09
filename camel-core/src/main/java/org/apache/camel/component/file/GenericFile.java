@@ -134,6 +134,18 @@ specifier|private
 name|boolean
 name|absolute
 decl_stmt|;
+DECL|method|getFileSeparator ()
+specifier|public
+name|String
+name|getFileSeparator
+parameter_list|()
+block|{
+return|return
+name|File
+operator|.
+name|separator
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|clone ()
@@ -321,28 +333,6 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|needToNormalize ()
-specifier|public
-name|boolean
-name|needToNormalize
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-DECL|method|getFileSeparator ()
-specifier|public
-name|String
-name|getFileSeparator
-parameter_list|()
-block|{
-return|return
-name|File
-operator|.
-name|separator
-return|;
-block|}
 comment|/**      * Changes the name of this remote file. This method alters the absolute and      * relative names as well.      *      * @param newName the new name      */
 DECL|method|changeFileName (String newName)
 specifier|public
@@ -355,25 +345,30 @@ parameter_list|)
 block|{
 name|newName
 operator|=
-name|needToNormalize
-argument_list|()
-condition|?
 name|FileUtil
 operator|.
 name|normalizePath
 argument_list|(
 name|newName
 argument_list|)
-else|:
-name|newName
 expr_stmt|;
-name|boolean
-name|absolute
+comment|// use java.io.File to help us with computing name changes
+name|File
+name|file
 init|=
-name|isAbsolutePath
+operator|new
+name|File
 argument_list|(
 name|newName
 argument_list|)
+decl_stmt|;
+name|boolean
+name|absolute
+init|=
+name|file
+operator|.
+name|isAbsolute
+argument_list|()
 decl_stmt|;
 name|boolean
 name|nameChangeOnly
@@ -388,16 +383,6 @@ argument_list|)
 operator|==
 operator|-
 literal|1
-decl_stmt|;
-comment|// use java.io.File to help us with computing name changes
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-name|newName
-argument_list|)
 decl_stmt|;
 comment|// store the file name only
 name|setFileNameOnly
@@ -586,26 +571,6 @@ name|name
 return|;
 block|}
 block|}
-DECL|method|isAbsolutePath (String path)
-specifier|private
-name|boolean
-name|isAbsolutePath
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-return|return
-operator|new
-name|File
-argument_list|(
-name|path
-argument_list|)
-operator|.
-name|isAbsolute
-argument_list|()
-return|;
-block|}
 DECL|method|getRelativeFilePath ()
 specifier|public
 name|String
@@ -629,17 +594,10 @@ name|this
 operator|.
 name|relativeFilePath
 operator|=
-name|needToNormalize
-argument_list|()
-condition|?
-name|FileUtil
-operator|.
-name|normalizePath
+name|normalizePathToProtocol
 argument_list|(
 name|relativeFilePath
 argument_list|)
-else|:
-name|relativeFilePath
 expr_stmt|;
 block|}
 DECL|method|getFileName ()
@@ -665,7 +623,10 @@ name|this
 operator|.
 name|fileName
 operator|=
+name|normalizePathToProtocol
+argument_list|(
 name|fileName
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getFileLength ()
@@ -788,6 +749,9 @@ name|String
 name|getParent
 parameter_list|()
 block|{
+name|String
+name|parent
+decl_stmt|;
 if|if
 condition|(
 name|isAbsolute
@@ -809,12 +773,13 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
-return|return
+name|parent
+operator|=
 name|path
 operator|.
 name|getParent
 argument_list|()
-return|;
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -835,13 +800,20 @@ argument_list|,
 name|name
 argument_list|)
 decl_stmt|;
-return|return
+name|parent
+operator|=
 name|path
 operator|.
 name|getParent
 argument_list|()
-return|;
+expr_stmt|;
 block|}
+return|return
+name|normalizePathToProtocol
+argument_list|(
+name|parent
+argument_list|)
+return|;
 block|}
 DECL|method|getBinding ()
 specifier|public
@@ -905,17 +877,10 @@ name|this
 operator|.
 name|absoluteFilePath
 operator|=
-name|needToNormalize
-argument_list|()
-condition|?
-name|FileUtil
-operator|.
-name|normalizePath
+name|normalizePathToProtocol
 argument_list|(
 name|absoluteFilePath
 argument_list|)
-else|:
-name|absoluteFilePath
 expr_stmt|;
 block|}
 DECL|method|getAbsoluteFilePath ()
@@ -977,17 +942,10 @@ name|this
 operator|.
 name|endpointPath
 operator|=
-name|needToNormalize
-argument_list|()
-condition|?
-name|FileUtil
-operator|.
-name|normalizePath
+name|normalizePathToProtocol
 argument_list|(
 name|endpointPath
 argument_list|)
-else|:
-name|endpointPath
 expr_stmt|;
 block|}
 DECL|method|getFileNameOnly ()
@@ -1015,6 +973,28 @@ name|fileNameOnly
 operator|=
 name|fileNameOnly
 expr_stmt|;
+block|}
+comment|/**      * Fixes the path separator to be according to the protocol      */
+DECL|method|normalizePathToProtocol (String path)
+specifier|protected
+name|String
+name|normalizePathToProtocol
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|path
+operator|.
+name|replaceAll
+argument_list|(
+literal|"/|\\\\"
+argument_list|,
+name|getFileSeparator
+argument_list|()
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override

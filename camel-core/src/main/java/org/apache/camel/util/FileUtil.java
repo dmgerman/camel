@@ -1673,7 +1673,7 @@ return|return
 literal|null
 return|;
 block|}
-if|if
+while|while
 condition|(
 name|name
 operator|.
@@ -1692,14 +1692,15 @@ name|separator
 argument_list|)
 condition|)
 block|{
-return|return
+name|name
+operator|=
 name|name
 operator|.
 name|substring
 argument_list|(
 literal|1
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 return|return
 name|name
@@ -1727,7 +1728,7 @@ return|return
 literal|null
 return|;
 block|}
-if|if
+while|while
 condition|(
 name|name
 operator|.
@@ -1746,7 +1747,8 @@ name|separator
 argument_list|)
 condition|)
 block|{
-return|return
+name|name
+operator|=
 name|name
 operator|.
 name|substring
@@ -1760,7 +1762,7 @@ argument_list|()
 operator|-
 literal|1
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 return|return
 name|name
