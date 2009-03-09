@@ -234,11 +234,11 @@ block|{
 return|return
 name|path
 operator|.
-name|replaceAll
+name|replace
 argument_list|(
-literal|"/"
+literal|'/'
 argument_list|,
-literal|"\\\\"
+literal|'\\'
 argument_list|)
 return|;
 block|}

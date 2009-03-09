@@ -117,13 +117,13 @@ expr_stmt|;
 block|}
 DECL|method|getFileSeparator ()
 specifier|public
-name|String
+name|char
 name|getFileSeparator
 parameter_list|()
 block|{
 comment|// always use / as separator for FTP
 return|return
-literal|"/"
+literal|'/'
 return|;
 block|}
 annotation|@
