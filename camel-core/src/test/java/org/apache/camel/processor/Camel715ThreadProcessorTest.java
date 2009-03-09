@@ -234,6 +234,14 @@ name|void
 name|testThreadProcessor
 parameter_list|()
 block|{
+name|long
+name|start
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
 try|try
 block|{
 name|CamelContext
@@ -383,6 +391,33 @@ name|latch
 operator|.
 name|await
 argument_list|()
+expr_stmt|;
+name|long
+name|delta
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|-
+name|start
+decl_stmt|;
+comment|// should be able to run in approx 5 sec on my local laptop.
+comment|// we had once a performance degrade that caused this test to take 9x longer
+comment|// so this is a safe guard that this should not happen again.
+comment|// in case some slow AIX box can not run this in 10 sec or less, then we
+comment|// should disable this timing as we want it to trigger on local bulds in case
+comment|// it happens again
+name|assertTrue
+argument_list|(
+literal|"Should be faster than 10 sec, took: "
+operator|+
+name|delta
+argument_list|,
+name|delta
+operator|<
+literal|10000
+argument_list|)
 expr_stmt|;
 name|context
 operator|.
