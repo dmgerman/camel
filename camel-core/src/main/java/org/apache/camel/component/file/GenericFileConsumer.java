@@ -587,26 +587,6 @@ argument_list|>
 name|fileList
 parameter_list|)
 function_decl|;
-comment|/**      * Polls the given file      *      * @param fileName the file name      * @param fileList current list of files gathered      */
-DECL|method|pollFile (String fileName, List<GenericFile<T>> fileList)
-specifier|protected
-specifier|abstract
-name|void
-name|pollFile
-parameter_list|(
-name|String
-name|fileName
-parameter_list|,
-name|List
-argument_list|<
-name|GenericFile
-argument_list|<
-name|T
-argument_list|>
-argument_list|>
-name|fileList
-parameter_list|)
-function_decl|;
 comment|/**      * Processes the exchange      *      * @param exchange the exchange      */
 DECL|method|processExchange (final GenericFileExchange<T> exchange)
 specifier|protected
