@@ -100,6 +100,34 @@ name|AggregationStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -112,6 +140,22 @@ name|SplitAggregateInOutTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|SplitAggregateInOutTest
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|expectedBody
 specifier|private
 name|String
@@ -159,6 +203,15 @@ name|assertEquals
 argument_list|(
 name|expectedBody
 argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Response to caller: "
+operator|+
 name|out
 argument_list|)
 expr_stmt|;
@@ -301,6 +354,15 @@ name|String
 name|line
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"HandleOrder: "
+operator|+
+name|line
+argument_list|)
+expr_stmt|;
 return|return
 literal|"(id="
 operator|+
@@ -324,6 +386,15 @@ name|String
 name|line
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"BuildCombinedResponse: "
+operator|+
+name|line
+argument_list|)
+expr_stmt|;
 return|return
 literal|"Response["
 operator|+
@@ -388,6 +459,24 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Aggregate old orders: "
+operator|+
+name|orders
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Aggregate new order: "
+operator|+
+name|newLine
+argument_list|)
+expr_stmt|;
 comment|// put orders together separating by semi colon
 name|orders
 operator|=
