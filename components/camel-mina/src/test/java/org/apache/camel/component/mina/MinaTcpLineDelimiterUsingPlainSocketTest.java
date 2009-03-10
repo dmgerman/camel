@@ -550,6 +550,23 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// use no delay for fast unit testing
+name|errorHandler
+argument_list|(
+name|deadLetterChannel
+argument_list|()
+operator|.
+name|maximumRedeliveries
+argument_list|(
+literal|2
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 name|uri

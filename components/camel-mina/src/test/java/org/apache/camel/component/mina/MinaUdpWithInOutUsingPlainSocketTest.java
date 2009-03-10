@@ -126,20 +126,6 @@ name|LogFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|mina
-operator|.
-name|common
-operator|.
-name|ByteBuffer
-import|;
-end_import
-
 begin_comment
 comment|/**  * To test InOut exchange for the UDP protocol.  */
 end_comment
@@ -267,7 +253,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending data"
+literal|"+++ Sending data +++"
 argument_list|)
 expr_stmt|;
 name|socket
@@ -315,7 +301,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Receving data"
+literal|"+++ Receving data +++"
 argument_list|)
 expr_stmt|;
 name|socket
@@ -389,8 +375,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ByteBuffer
-name|in
+name|String
+name|s
 init|=
 name|exchange
 operator|.
@@ -399,21 +385,9 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|(
-name|ByteBuffer
+name|String
 operator|.
 name|class
-argument_list|)
-decl_stmt|;
-name|String
-name|s
-init|=
-name|MinaConverter
-operator|.
-name|toString
-argument_list|(
-name|in
-argument_list|,
-name|exchange
 argument_list|)
 decl_stmt|;
 name|exchange

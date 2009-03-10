@@ -506,7 +506,7 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-comment|// write the body
+comment|// log what we are writing
 if|if
 condition|(
 name|LOG
@@ -515,16 +515,51 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|Object
+name|out
+init|=
+name|body
+decl_stmt|;
+if|if
+condition|(
+name|body
+operator|instanceof
+name|byte
+index|[]
+condition|)
+block|{
+comment|// byte arrays is not readable so convert to string
+name|out
+operator|=
+name|exchange
 operator|.
-name|debug
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
 argument_list|(
-literal|"Writing body: "
-operator|+
+name|String
+operator|.
+name|class
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Writing body : "
+operator|+
+name|out
+argument_list|)
+expr_stmt|;
+block|}
+comment|// write the body
 name|MinaHelper
 operator|.
 name|writeBody

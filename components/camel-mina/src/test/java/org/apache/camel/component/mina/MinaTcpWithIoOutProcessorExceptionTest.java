@@ -94,20 +94,6 @@ name|DefaultCamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
 begin_comment
 comment|/**  * To unit test CAMEL-364.  */
 end_comment
@@ -226,6 +212,23 @@ name|Exchange
 name|e
 parameter_list|)
 block|{
+comment|// use no delay for fast unit testing
+name|errorHandler
+argument_list|(
+name|deadLetterChannel
+argument_list|()
+operator|.
+name|maximumRedeliveries
+argument_list|(
+literal|2
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Hello World"

@@ -469,6 +469,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// log what we received
 if|if
 condition|(
 name|LOG
@@ -477,13 +478,47 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
+name|Object
+name|in
+init|=
+name|object
+decl_stmt|;
+if|if
+condition|(
+name|in
+operator|instanceof
+name|byte
+index|[]
+condition|)
+block|{
+comment|// byte arrays is not readable so convert to string
+name|in
+operator|=
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|,
+name|in
+argument_list|)
+expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|debug
 argument_list|(
 literal|"Received body: "
 operator|+
-name|object
+name|in
 argument_list|)
 expr_stmt|;
 block|}
