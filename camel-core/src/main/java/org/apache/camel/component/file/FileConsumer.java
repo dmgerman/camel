@@ -186,7 +186,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot poll directory as file does not exists or is not a directory: "
+literal|"Cannot poll as directory does not exists or its not a directory: "
 operator|+
 name|directory
 argument_list|)

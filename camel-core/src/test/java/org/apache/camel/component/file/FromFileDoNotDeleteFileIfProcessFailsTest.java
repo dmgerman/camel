@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.remote
+DECL|package|org.apache.camel.component.file
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|file
-operator|.
-name|remote
 package|;
 end_package
 
@@ -38,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|ContextTestSupport
 import|;
 end_import
 
@@ -63,18 +61,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
 import|;
 end_import
 
@@ -113,28 +99,20 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|FromFtpDoNotDeleteFileIfProcessFailsTest
+DECL|class|FromFileDoNotDeleteFileIfProcessFailsTest
 specifier|public
 class|class
-name|FromFtpDoNotDeleteFileIfProcessFailsTest
+name|FromFileDoNotDeleteFileIfProcessFailsTest
 extends|extends
-name|FtpServerTestSupport
+name|ContextTestSupport
 block|{
-DECL|method|getFtpUrl ()
+DECL|field|body
 specifier|private
 name|String
-name|getFtpUrl
-parameter_list|()
-block|{
-return|return
-literal|"ftp://admin@localhost:"
-operator|+
-name|getPort
-argument_list|()
-operator|+
-literal|"/deletefile/?password=admin&delete=true"
-return|;
-block|}
+name|body
+init|=
+literal|"Hello World this file will NOT be deleted"
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -145,119 +123,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+literal|"./target/deletefile"
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|setUp
 argument_list|()
-expr_stmt|;
-name|prepareFtpServer
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|prepareFtpServer ()
-specifier|private
-name|void
-name|prepareFtpServer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// prepares the FTP Server by creating a file on the server that we want to unit
-comment|// test that we can pool and store as a local file
-name|Endpoint
-name|endpoint
-init|=
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-name|getFtpUrl
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|Exchange
-name|exchange
-init|=
-name|endpoint
-operator|.
-name|createExchange
-argument_list|()
-decl_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-literal|"Hello World this file will NOT be deleted"
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setHeader
-argument_list|(
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
-name|Producer
-name|producer
-init|=
-name|endpoint
-operator|.
-name|createProducer
-argument_list|()
-decl_stmt|;
-name|producer
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-name|producer
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-name|producer
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-comment|// assert file is created
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"./res/home/deletefile/hello.txt"
-argument_list|)
-decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"The file should exists"
-argument_list|,
-name|file
-operator|.
-name|exists
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testPollFileAndShouldNotBeDeleted ()
@@ -268,6 +142,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/deletefile"
+argument_list|,
+name|body
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"hello.txt"
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -278,16 +167,9 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World this file will NOT be deleted"
+name|body
 argument_list|)
 expr_stmt|;
 name|mock
@@ -310,7 +192,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./res/home/deletefile/hello.txt"
+literal|"./target/deletefile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file
@@ -351,7 +233,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use no delay for fast unit testing
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -366,14 +247,18 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|0
+literal|100
+argument_list|)
+operator|.
+name|logStackTrace
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-name|getFtpUrl
-argument_list|()
+literal|"file://target/deletefile?delete=true"
 argument_list|)
 operator|.
 name|process

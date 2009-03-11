@@ -132,10 +132,10 @@ name|ContextTestSupport
 block|{
 annotation|@
 name|Override
-DECL|method|tearDown ()
+DECL|method|setUp ()
 specifier|protected
 name|void
-name|tearDown
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -147,7 +147,7 @@ argument_list|)
 expr_stmt|;
 name|super
 operator|.
-name|tearDown
+name|setUp
 argument_list|()
 expr_stmt|;
 block|}
@@ -178,7 +178,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/messages/input/?delete=true"
+literal|"file:target/messages/input/?delete=true&delay=5000"
 argument_list|,
 literal|"Paris"
 argument_list|,
@@ -205,6 +205,8 @@ expr_stmt|;
 name|asserFiles
 argument_list|(
 literal|"paris.txt"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -236,7 +238,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/messages/input/?delete=true"
+literal|"file:target/messages/input/?delete=true&delay=5000"
 argument_list|,
 literal|"London"
 argument_list|,
@@ -260,9 +262,73 @@ argument_list|(
 literal|200
 argument_list|)
 expr_stmt|;
+comment|// london should be delated as we have failure handled it
 name|asserFiles
 argument_list|(
 literal|"london.txt"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDublin ()
+specifier|public
+name|void
+name|testDublin
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:beer"
+argument_list|)
+decl_stmt|;
+comment|// we get the original input so its not Hello London but only London
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Dublin"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file:target/messages/input/?delete=true&delay=5000"
+argument_list|,
+literal|"Dublin"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"dublin.txt"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+comment|// sleep otherwise the file assertions below could fail
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|200
+argument_list|)
+expr_stmt|;
+comment|// dublin should NOT be deleted, but should be retired on next consumer
+name|asserFiles
+argument_list|(
+literal|"dublin.txt"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -294,7 +360,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:target/messages/input/?delete=true"
+literal|"file:target/messages/input/?delete=true&delay=5000"
 argument_list|,
 literal|"Madrid"
 argument_list|,
@@ -318,13 +384,16 @@ argument_list|(
 literal|200
 argument_list|)
 expr_stmt|;
+comment|// madrid should NOT be deleted, but should be retired on next consumer
 name|asserFiles
 argument_list|(
 literal|"madrid.txt"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|asserFiles (String filename)
+DECL|method|asserFiles (String filename, boolean deleted)
 specifier|private
 specifier|static
 name|void
@@ -332,7 +401,12 @@ name|asserFiles
 parameter_list|(
 name|String
 name|filename
+parameter_list|,
+name|boolean
+name|deleted
 parameter_list|)
+throws|throws
+name|InterruptedException
 block|{
 comment|// file should be deleted as deleted=true in parameter in the route below
 name|File
@@ -352,10 +426,13 @@ literal|"File "
 operator|+
 name|filename
 operator|+
-literal|" should be deleted"
+literal|" should be deleted: "
+operator|+
+name|deleted
 argument_list|,
-literal|false
+name|deleted
 argument_list|,
+operator|!
 name|file
 operator|.
 name|exists
@@ -363,6 +440,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// and no lock files
+name|String
+name|lock
+init|=
+name|filename
+operator|+
+name|FileComponent
+operator|.
+name|DEFAULT_LOCK_FILE_POSTFIX
+decl_stmt|;
 name|file
 operator|=
 operator|new
@@ -370,22 +456,16 @@ name|File
 argument_list|(
 literal|"target/messages/input/"
 operator|+
-name|filename
-operator|+
-name|FileComponent
-operator|.
-name|DEFAULT_LOCK_FILE_POSTFIX
+name|lock
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertFalse
 argument_list|(
 literal|"File "
 operator|+
-name|filename
+name|lock
 operator|+
-literal|" lock should be deleted"
-argument_list|,
-literal|false
+literal|" should be deleted"
 argument_list|,
 name|file
 operator|.
@@ -415,6 +495,7 @@ throws|throws
 name|Exception
 block|{
 comment|// make sure mock:error is the dead letter channel
+comment|// use no delay for fast unit testing
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -426,6 +507,45 @@ name|maximumRedeliveries
 argument_list|(
 literal|2
 argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|logStackTrace
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// special for not handled when we got beer
+name|onException
+argument_list|(
+name|ValidationException
+operator|.
+name|class
+argument_list|)
+operator|.
+name|onWhen
+argument_list|(
+name|exceptionMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"beer"
+argument_list|)
+argument_list|)
+operator|.
+name|handled
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:beer"
 argument_list|)
 expr_stmt|;
 comment|// special failure handler for ValidationException
@@ -434,6 +554,11 @@ argument_list|(
 name|ValidationException
 operator|.
 name|class
+argument_list|)
+operator|.
+name|handled
+argument_list|(
+literal|true
 argument_list|)
 operator|.
 name|to
@@ -532,6 +657,27 @@ operator|new
 name|RuntimeCamelException
 argument_list|(
 literal|"Madrid is not a supported city"
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"Dublin"
+operator|.
+name|equals
+argument_list|(
+name|body
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|ValidationException
+argument_list|(
+name|exchange
+argument_list|,
+literal|"Dublin have good beer"
 argument_list|)
 throw|;
 block|}

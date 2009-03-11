@@ -425,7 +425,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sleep interrupted while waiting for exclusive read lock"
+literal|"Sleep interrupted while waiting for exclusive read lock, so breaking out"
 argument_list|)
 expr_stmt|;
 return|return

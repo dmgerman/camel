@@ -629,6 +629,23 @@ name|LOG
 argument_list|)
 expr_stmt|;
 comment|// need to delete the lock file
+name|File
+name|lockfile
+init|=
+operator|new
+name|File
+argument_list|(
+name|lockFileName
+argument_list|)
+decl_stmt|;
+name|boolean
+name|deleted
+init|=
+name|lockfile
+operator|.
+name|delete
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|LOG
@@ -641,26 +658,16 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting (releasing) exclusive lock file: "
+literal|"Exclusive lock file: "
 operator|+
 name|lockFileName
+operator|+
+literal|" was deleted: "
+operator|+
+name|deleted
 argument_list|)
 expr_stmt|;
 block|}
-name|File
-name|lockfile
-init|=
-operator|new
-name|File
-argument_list|(
-name|lockFileName
-argument_list|)
-decl_stmt|;
-name|lockfile
-operator|.
-name|delete
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 DECL|method|sleep ()
@@ -699,7 +706,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sleep interrupted while waiting for exclusive read lock"
+literal|"Sleep interrupted while waiting for exclusive read lock, so breaking out"
 argument_list|)
 expr_stmt|;
 return|return

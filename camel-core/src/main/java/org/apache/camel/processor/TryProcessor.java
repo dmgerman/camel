@@ -281,7 +281,7 @@ name|e
 operator|!=
 literal|null
 operator|&&
-name|DeadLetterChannel
+name|ExchangeHelper
 operator|.
 name|isFailureHandled
 argument_list|(

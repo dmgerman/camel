@@ -796,16 +796,6 @@ operator|.
 name|isFailed
 argument_list|()
 decl_stmt|;
-name|boolean
-name|handled
-init|=
-name|DeadLetterChannel
-operator|.
-name|isFailureHandled
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|log
@@ -822,21 +812,9 @@ literal|"Done processing file: "
 operator|+
 name|file
 operator|+
-literal|". Status is: "
+literal|" using exchange: "
 operator|+
-operator|(
-name|failed
-condition|?
-literal|"failed: "
-operator|+
-name|failed
-operator|+
-literal|", handled by failure processor: "
-operator|+
-name|handled
-else|:
-literal|"processed OK"
-operator|)
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -851,8 +829,6 @@ if|if
 condition|(
 operator|!
 name|failed
-operator|||
-name|handled
 condition|)
 block|{
 comment|// commit the file strategy if there was no failure or already handled by the DeadLetterChannel
@@ -863,8 +839,6 @@ argument_list|,
 name|exchange
 argument_list|,
 name|file
-argument_list|,
-name|handled
 argument_list|)
 expr_stmt|;
 name|committed
@@ -940,13 +914,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy when the file was processed and a commit should be executed.      *      * @param processStrategy the strategy to perform the commit      * @param exchange        the exchange      * @param file            the file processed      * @param failureHandled  is<tt>false</tt> if the exchange was processed succesfully,      *<tt>true</tt> if an exception occured during processing but it      *                        was handled by the failure processor (usually the DeadLetterChannel).      */
+comment|/**      * Strategy when the file was processed and a commit should be executed.      *      * @param processStrategy the strategy to perform the commit      * @param exchange        the exchange      * @param file            the file processed      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|processStrategyCommit (GenericFileProcessStrategy<T> processStrategy, GenericFileExchange<T> exchange, GenericFile<T> file, boolean failureHandled)
+DECL|method|processStrategyCommit (GenericFileProcessStrategy<T> processStrategy, GenericFileExchange<T> exchange, GenericFile<T> file)
 specifier|protected
 name|void
 name|processStrategyCommit
@@ -968,9 +942,6 @@ argument_list|<
 name|T
 argument_list|>
 name|file
-parameter_list|,
-name|boolean
-name|failureHandled
 parameter_list|)
 block|{
 if|if
@@ -1003,13 +974,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Committing remote file strategy: "
 operator|+
@@ -1018,14 +989,6 @@ operator|+
 literal|" for file: "
 operator|+
 name|file
-operator|+
-operator|(
-name|failureHandled
-condition|?
-literal|" that was handled by the failure processor."
-else|:
-literal|""
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1096,13 +1059,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isWarnEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"Rolling back remote file strategy: "
 operator|+

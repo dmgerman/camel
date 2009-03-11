@@ -463,6 +463,23 @@ argument_list|,
 name|LOG
 argument_list|)
 expr_stmt|;
+name|File
+name|lockfile
+init|=
+operator|new
+name|File
+argument_list|(
+name|lockFileName
+argument_list|)
+decl_stmt|;
+name|boolean
+name|deleted
+init|=
+name|lockfile
+operator|.
+name|delete
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|LOG
@@ -475,26 +492,16 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Deleting lock file: "
+literal|"Lock file: "
 operator|+
 name|lockFileName
+operator|+
+literal|" was deleted: "
+operator|+
+name|deleted
 argument_list|)
 expr_stmt|;
 block|}
-name|File
-name|lockfile
-init|=
-operator|new
-name|File
-argument_list|(
-name|lockFileName
-argument_list|)
-decl_stmt|;
-name|lockfile
-operator|.
-name|delete
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 DECL|method|setTimeout (long timeout)

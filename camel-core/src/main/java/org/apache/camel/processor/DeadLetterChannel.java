@@ -202,6 +202,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|MessageHelper
 import|;
 end_import
@@ -477,6 +491,8 @@ operator|!=
 literal|null
 operator|&&
 operator|!
+name|ExchangeHelper
+operator|.
 name|isFailureHandled
 argument_list|(
 name|exchange
@@ -989,6 +1005,8 @@ operator|!=
 literal|null
 operator|&&
 operator|!
+name|ExchangeHelper
+operator|.
 name|isFailureHandled
 argument_list|(
 name|exchange
@@ -1040,6 +1058,8 @@ argument_list|()
 operator|==
 literal|null
 operator|||
+name|ExchangeHelper
+operator|.
 name|isFailureHandled
 argument_list|(
 name|exchange
@@ -1583,6 +1603,8 @@ name|data
 parameter_list|)
 block|{
 comment|// we did not success with the redelivery so now we let the failure processor handle it
+name|ExchangeHelper
+operator|.
 name|setFailureHandled
 argument_list|(
 name|exchange
@@ -1692,72 +1714,6 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
-DECL|method|isFailureHandled (Exchange exchange)
-specifier|public
-specifier|static
-name|boolean
-name|isFailureHandled
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-name|Boolean
-name|handled
-init|=
-name|exchange
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|FAILURE_HANDLED
-argument_list|,
-name|Boolean
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-return|return
-name|handled
-operator|!=
-literal|null
-operator|&&
-name|handled
-return|;
-block|}
-DECL|method|setFailureHandled (Exchange exchange)
-specifier|public
-specifier|static
-name|void
-name|setFailureHandled
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|FAILURE_HANDLED
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
-comment|// clear exception since its failure handled
-name|exchange
-operator|.
-name|setException
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Returns the output processor      */
 DECL|method|getOutput ()
 specifier|public

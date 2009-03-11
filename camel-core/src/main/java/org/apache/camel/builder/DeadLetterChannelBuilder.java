@@ -595,6 +595,27 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|logStackTrace (boolean logStackTrace)
+specifier|public
+name|DeadLetterChannelBuilder
+name|logStackTrace
+parameter_list|(
+name|boolean
+name|logStackTrace
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogStackTrace
+argument_list|(
+name|logStackTrace
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the logger used for caught exceptions      */
 DECL|method|logger (Logger logger)
 specifier|public
