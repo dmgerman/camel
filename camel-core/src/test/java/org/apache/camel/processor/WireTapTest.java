@@ -193,7 +193,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|100
+literal|1000
 argument_list|)
 operator|.
 name|setBody
