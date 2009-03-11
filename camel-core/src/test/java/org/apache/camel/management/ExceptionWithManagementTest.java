@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|AssertionFailedError
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -249,7 +239,7 @@ name|Exception
 block|{
 name|onException
 argument_list|(
-name|AssertionFailedError
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
@@ -287,7 +277,7 @@ name|Exception
 block|{
 throw|throw
 operator|new
-name|AssertionFailedError
+name|IllegalArgumentException
 argument_list|(
 literal|"intentional error"
 argument_list|)

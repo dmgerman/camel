@@ -154,15 +154,16 @@ specifier|private
 name|AggregationStrategy
 name|aggregationStrategy
 decl_stmt|;
-DECL|field|map
+DECL|field|aggregated
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|Object
 argument_list|,
 name|Exchange
 argument_list|>
-name|map
+name|aggregated
 init|=
 operator|new
 name|LinkedHashMap
@@ -202,7 +203,7 @@ operator|=
 name|aggregationStrategy
 expr_stmt|;
 block|}
-DECL|method|getMap ()
+DECL|method|getAggregated ()
 specifier|protected
 name|Map
 argument_list|<
@@ -210,11 +211,11 @@ name|Object
 argument_list|,
 name|Exchange
 argument_list|>
-name|getMap
+name|getAggregated
 parameter_list|()
 block|{
 return|return
-name|map
+name|aggregated
 return|;
 block|}
 annotation|@
@@ -250,7 +251,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"evaluated expression: "
+literal|"Evaluated expression: "
 operator|+
 name|correlationExpression
 operator|+
@@ -263,7 +264,7 @@ block|}
 name|Exchange
 name|oldExchange
 init|=
-name|map
+name|aggregated
 operator|.
 name|get
 argument_list|(
@@ -339,9 +340,13 @@ block|}
 comment|// the strategy may just update the old exchange and return it
 if|if
 condition|(
+operator|!
 name|newExchange
-operator|!=
+operator|.
+name|equals
+argument_list|(
 name|oldExchange
+argument_list|)
 condition|)
 block|{
 if|if
@@ -356,11 +361,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"put exchange:"
+literal|"Put exchange:"
 operator|+
 name|newExchange
 operator|+
-literal|" for key:"
+literal|" with coorelation key:"
 operator|+
 name|correlationKey
 argument_list|)
@@ -390,7 +395,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|map
+name|aggregated
 operator|.
 name|put
 argument_list|(
@@ -421,7 +426,7 @@ name|iterator
 parameter_list|()
 block|{
 return|return
-name|map
+name|aggregated
 operator|.
 name|values
 argument_list|()
@@ -437,7 +442,7 @@ name|size
 parameter_list|()
 block|{
 return|return
-name|map
+name|aggregated
 operator|.
 name|size
 argument_list|()
@@ -451,7 +456,7 @@ name|void
 name|clear
 parameter_list|()
 block|{
-name|map
+name|aggregated
 operator|.
 name|clear
 argument_list|()

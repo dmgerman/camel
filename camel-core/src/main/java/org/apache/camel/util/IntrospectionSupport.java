@@ -546,7 +546,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ignore
 parameter_list|)
 block|{
@@ -653,11 +653,7 @@ name|String
 name|property
 parameter_list|)
 throws|throws
-name|SecurityException
-throws|,
 name|NoSuchMethodException
-throws|,
-name|IllegalArgumentException
 throws|,
 name|IllegalAccessException
 throws|,
@@ -744,9 +740,7 @@ parameter_list|)
 throws|throws
 name|NoSuchMethodException
 block|{
-name|Method
-name|method
-init|=
+return|return
 name|type
 operator|.
 name|getMethod
@@ -760,9 +754,6 @@ argument_list|(
 name|propertyName
 argument_list|)
 argument_list|)
-decl_stmt|;
-return|return
-name|method
 return|;
 block|}
 DECL|method|setProperties (Object target, Map properties, String optionPrefix)

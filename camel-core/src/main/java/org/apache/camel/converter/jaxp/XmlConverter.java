@@ -505,11 +505,11 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
-comment|// do nothing here
+comment|// ignore
 block|}
 name|DOM_TO_SAX_CLASS
 operator|=

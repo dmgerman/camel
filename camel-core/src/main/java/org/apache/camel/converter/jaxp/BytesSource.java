@@ -100,6 +100,7 @@ name|StreamSource
 block|{
 DECL|field|data
 specifier|private
+specifier|final
 name|byte
 index|[]
 name|data

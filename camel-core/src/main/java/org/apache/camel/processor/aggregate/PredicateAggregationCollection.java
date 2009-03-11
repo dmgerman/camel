@@ -171,7 +171,7 @@ block|{
 comment|// this exchange has now aggregated so lets add it to the collection of things to send
 name|super
 operator|.
-name|getMap
+name|getAggregated
 argument_list|()
 operator|.
 name|remove

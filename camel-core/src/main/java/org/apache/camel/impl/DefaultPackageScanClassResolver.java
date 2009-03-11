@@ -1973,8 +1973,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|LOG
@@ -1987,7 +1987,7 @@ name|fqn
 operator|+
 literal|"' due to a "
 operator|+
-name|t
+name|e
 operator|.
 name|getClass
 argument_list|()
@@ -1997,12 +1997,12 @@ argument_list|()
 operator|+
 literal|" with message: "
 operator|+
-name|t
+name|e
 operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

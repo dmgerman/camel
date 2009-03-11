@@ -2368,7 +2368,7 @@ name|command
 operator|.
 name|lastIndexOf
 argument_list|(
-literal|"."
+literal|'.'
 argument_list|)
 operator|+
 literal|1
@@ -2430,7 +2430,7 @@ name|command
 operator|.
 name|lastIndexOf
 argument_list|(
-literal|"."
+literal|'.'
 argument_list|)
 operator|+
 literal|1

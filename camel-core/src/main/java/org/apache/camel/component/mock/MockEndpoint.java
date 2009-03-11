@@ -515,6 +515,7 @@ name|actualBodyValues
 decl_stmt|;
 DECL|field|propertyChangeSupport
 specifier|private
+specifier|final
 name|PropertyChangeSupport
 name|propertyChangeSupport
 init|=
@@ -2966,7 +2967,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

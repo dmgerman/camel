@@ -180,9 +180,7 @@ operator|.
 name|getRelativeFilePath
 argument_list|()
 decl_stmt|;
-name|Boolean
-name|result
-init|=
+return|return
 operator|(
 name|Boolean
 operator|)
@@ -196,9 +194,6 @@ name|filter
 argument_list|,
 name|path
 argument_list|)
-decl_stmt|;
-return|return
-name|result
 return|;
 block|}
 catch|catch

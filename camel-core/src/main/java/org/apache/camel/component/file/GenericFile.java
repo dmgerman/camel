@@ -107,6 +107,8 @@ parameter_list|<
 name|T
 parameter_list|>
 implements|implements
+name|Cloneable
+implements|,
 name|Serializable
 block|{
 DECL|field|LOG

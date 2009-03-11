@@ -354,6 +354,7 @@ name|injector
 decl_stmt|;
 DECL|field|typeConverterLoaders
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|TypeConverterLoader
@@ -369,6 +370,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|fallbackConverters
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|TypeConverter

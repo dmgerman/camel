@@ -331,6 +331,8 @@ argument_list|(
 literal|"Unknown message exchange pattern: "
 operator|+
 name|value
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
