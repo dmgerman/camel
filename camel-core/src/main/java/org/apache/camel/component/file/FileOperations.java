@@ -416,6 +416,7 @@ return|return
 literal|true
 return|;
 block|}
+comment|// TODO: Check bug for double starting directory
 name|File
 name|path
 decl_stmt|;

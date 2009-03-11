@@ -383,6 +383,11 @@ specifier|protected
 name|boolean
 name|delete
 decl_stmt|;
+DECL|field|flattern
+specifier|protected
+name|boolean
+name|flattern
+decl_stmt|;
 DECL|field|tempPrefix
 specifier|protected
 name|String
@@ -946,6 +951,32 @@ operator|.
 name|delete
 operator|=
 name|delete
+expr_stmt|;
+block|}
+DECL|method|isFlattern ()
+specifier|public
+name|boolean
+name|isFlattern
+parameter_list|()
+block|{
+return|return
+name|flattern
+return|;
+block|}
+DECL|method|setFlattern (boolean flattern)
+specifier|public
+name|void
+name|setFlattern
+parameter_list|(
+name|boolean
+name|flattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|flattern
+operator|=
+name|flattern
 expr_stmt|;
 block|}
 DECL|method|getMove ()
@@ -1640,6 +1671,29 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|flattern
+condition|)
+block|{
+comment|// when flattern the file name should not contain any paths
+name|message
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+name|file
+operator|.
+name|getFileNameOnly
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// compute name to set on header that should be relative to starting directory
 name|String
 name|name
@@ -1718,6 +1772,7 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Strategy to configure the move or premove option based on a String input.      *<p/>      * @param expression the original string input      * @return configured string or the original if no modifications is needed      */
 DECL|method|configureMoveOrPreMoveExpression (String expression)

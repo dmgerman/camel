@@ -441,6 +441,33 @@ argument_list|(
 name|newName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Normalized endpointPath: "
+operator|+
+name|endpointPath
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Normalized newFileName: "
+operator|+
+name|newFileName
+argument_list|)
+expr_stmt|;
+block|}
 name|File
 name|file
 init|=
@@ -618,6 +645,56 @@ name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"FileNameOnly: "
+operator|+
+name|getFileNameOnly
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"FileName: "
+operator|+
+name|getFileName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Absolute: "
+operator|+
+name|isAbsolute
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Relative path: "
+operator|+
+name|getRelativeFilePath
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Absolute path: "
+operator|+
+name|getAbsoluteFilePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|trace
