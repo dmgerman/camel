@@ -219,7 +219,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|exception
 specifier|private
-name|Throwable
+name|Exception
 name|exception
 decl_stmt|;
 comment|/**      * Creates a payload object with the information from the given exchange.      * Only marshal the Serializable object      *      * @param exchange     the exchange      * @return the holder object with information copied form the exchange      */
