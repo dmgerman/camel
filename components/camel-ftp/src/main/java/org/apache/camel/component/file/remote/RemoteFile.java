@@ -46,7 +46,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|FileUtil
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|FileUtil
+name|ObjectHelper
 import|;
 end_import
 
@@ -115,6 +115,8 @@ operator|=
 name|hostname
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFileSeparator ()
 specifier|public
 name|char
@@ -124,6 +126,29 @@ block|{
 comment|// always use / as separator for FTP
 return|return
 literal|'/'
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isAbsolute (String name)
+specifier|protected
+name|boolean
+name|isAbsolute
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|name
+operator|.
+name|startsWith
+argument_list|(
+literal|""
+operator|+
+name|getFileSeparator
+argument_list|()
+argument_list|)
 return|;
 block|}
 annotation|@

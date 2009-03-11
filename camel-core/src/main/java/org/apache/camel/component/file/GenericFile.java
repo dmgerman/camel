@@ -363,6 +363,31 @@ return|return
 name|result
 return|;
 block|}
+DECL|method|isAbsolute (String name)
+specifier|protected
+name|boolean
+name|isAbsolute
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
+return|return
+name|file
+operator|.
+name|isAbsolute
+argument_list|()
+return|;
+block|}
 comment|/**      * Changes the name of this remote file. This method alters the absolute and      * relative names as well.      *      * @param newName the new name      */
 DECL|method|changeFileName (String newName)
 specifier|public
@@ -391,7 +416,6 @@ name|newName
 argument_list|)
 expr_stmt|;
 block|}
-comment|// use java.io.File to help us with computing name changes
 name|File
 name|file
 init|=
@@ -400,14 +424,6 @@ name|File
 argument_list|(
 name|newName
 argument_list|)
-decl_stmt|;
-name|boolean
-name|absolute
-init|=
-name|file
-operator|.
-name|isAbsolute
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -518,7 +534,10 @@ block|}
 comment|// absolute path
 if|if
 condition|(
-name|absolute
+name|isAbsolute
+argument_list|(
+name|newName
+argument_list|)
 condition|)
 block|{
 name|setAbsolute
@@ -528,10 +547,7 @@ argument_list|)
 expr_stmt|;
 name|setAbsoluteFilePath
 argument_list|(
-name|file
-operator|.
-name|getAbsolutePath
-argument_list|()
+name|newName
 argument_list|)
 expr_stmt|;
 block|}
