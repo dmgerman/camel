@@ -236,7 +236,7 @@ name|fault
 decl_stmt|;
 DECL|field|exception
 specifier|private
-name|Throwable
+name|Exception
 name|exception
 decl_stmt|;
 DECL|field|exchangeId
@@ -1124,7 +1124,7 @@ expr_stmt|;
 block|}
 DECL|method|getException ()
 specifier|public
-name|Throwable
+name|Exception
 name|getException
 parameter_list|()
 block|{
@@ -1132,12 +1132,12 @@ return|return
 name|exception
 return|;
 block|}
-DECL|method|setException (Throwable exception)
+DECL|method|setException (Exception exception)
 specifier|public
 name|void
 name|setException
 parameter_list|(
-name|Throwable
+name|Exception
 name|exception
 parameter_list|)
 block|{

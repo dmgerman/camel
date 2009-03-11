@@ -1895,7 +1895,7 @@ name|Exchange
 operator|.
 name|EXCEPTION_CAUGHT
 argument_list|,
-name|Throwable
+name|Exception
 operator|.
 name|class
 argument_list|)

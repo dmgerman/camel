@@ -249,7 +249,7 @@ if|if
 condition|(
 name|faultBody
 operator|instanceof
-name|Throwable
+name|Exception
 condition|)
 block|{
 name|exchange
@@ -257,7 +257,7 @@ operator|.
 name|setException
 argument_list|(
 operator|(
-name|Throwable
+name|Exception
 operator|)
 name|faultBody
 argument_list|)
@@ -384,7 +384,7 @@ if|if
 condition|(
 name|faultBody
 operator|instanceof
-name|Throwable
+name|Exception
 condition|)
 block|{
 name|exchange
@@ -392,7 +392,7 @@ operator|.
 name|setException
 argument_list|(
 operator|(
-name|Throwable
+name|Exception
 operator|)
 name|faultBody
 argument_list|)

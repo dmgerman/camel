@@ -72,7 +72,7 @@ return|;
 block|}
 DECL|method|checkException (Exchange oldExchange, Exchange newExchange)
 specifier|protected
-name|Throwable
+name|Exception
 name|checkException
 parameter_list|(
 name|Exchange

@@ -340,16 +340,16 @@ parameter_list|)
 function_decl|;
 comment|/**      * Returns the exception associated with this exchange      *      * @return the exception (or null if no faults)      */
 DECL|method|getException ()
-name|Throwable
+name|Exception
 name|getException
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the exception associated with this exchange      *      * @param e  the caused exception      */
-DECL|method|setException (Throwable e)
+DECL|method|setException (Exception e)
 name|void
 name|setException
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 function_decl|;

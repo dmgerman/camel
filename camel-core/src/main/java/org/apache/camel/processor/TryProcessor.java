@@ -254,7 +254,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Throwable
+name|Exception
 name|e
 decl_stmt|;
 comment|// try processor first
@@ -509,7 +509,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Throwable
+name|Exception
 name|lastException
 init|=
 name|exchange

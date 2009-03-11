@@ -337,10 +337,15 @@ name|exchange
 operator|.
 name|setException
 argument_list|(
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
 name|e
 operator|.
 name|getCause
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
