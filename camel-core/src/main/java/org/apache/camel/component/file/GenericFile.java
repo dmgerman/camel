@@ -457,28 +457,6 @@ name|absolute
 condition|)
 block|{
 comment|// for relative then we should avoid having the endpoint path duplicated so clip it
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"endpointPath "
-operator|+
-name|endpointPath
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"newName "
-operator|+
-name|newFileName
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
