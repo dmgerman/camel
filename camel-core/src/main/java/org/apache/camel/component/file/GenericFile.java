@@ -48,6 +48,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|FileUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -416,13 +430,24 @@ name|newName
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Make sure the newName is normalized.
+name|String
+name|newFileName
+init|=
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
+name|newName
+argument_list|)
+decl_stmt|;
 name|File
 name|file
 init|=
 operator|new
 name|File
 argument_list|(
-name|newName
+name|newFileName
 argument_list|)
 decl_stmt|;
 if|if
@@ -432,6 +457,28 @@ name|absolute
 condition|)
 block|{
 comment|// for relative then we should avoid having the endpoint path duplicated so clip it
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"endpointPath "
+operator|+
+name|endpointPath
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"newName "
+operator|+
+name|newFileName
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -441,7 +488,7 @@ argument_list|(
 name|endpointPath
 argument_list|)
 operator|&&
-name|newName
+name|newFileName
 operator|.
 name|startsWith
 argument_list|(
@@ -450,13 +497,13 @@ argument_list|)
 condition|)
 block|{
 comment|// clip starting endpoint in case it was added
-name|newName
+name|newFileName
 operator|=
 name|ObjectHelper
 operator|.
 name|after
 argument_list|(
-name|newName
+name|newFileName
 argument_list|,
 name|endpointPath
 operator|+
@@ -470,7 +517,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|newName
+name|newFileName
 argument_list|)
 expr_stmt|;
 block|}
@@ -536,7 +583,7 @@ if|if
 condition|(
 name|isAbsolute
 argument_list|(
-name|newName
+name|newFileName
 argument_list|)
 condition|)
 block|{
@@ -547,7 +594,7 @@ argument_list|)
 expr_stmt|;
 name|setAbsoluteFilePath
 argument_list|(
-name|newName
+name|newFileName
 argument_list|)
 expr_stmt|;
 block|}

@@ -342,6 +342,7 @@ argument_list|(
 name|to
 argument_list|)
 decl_stmt|;
+comment|//System.out.println("rename the file from " + from + " to " + to);
 return|return
 name|file
 operator|.
