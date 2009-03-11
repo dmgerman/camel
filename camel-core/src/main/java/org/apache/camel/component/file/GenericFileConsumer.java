@@ -1279,7 +1279,7 @@ name|name
 init|=
 name|file
 operator|.
-name|getFileName
+name|getFileNameOnly
 argument_list|()
 decl_stmt|;
 comment|// folders/names starting with dot is always skipped (eg. ".", ".camel", ".camelLock")
@@ -1486,9 +1486,6 @@ argument_list|)
 decl_stmt|;
 name|fileExpressionResult
 operator|=
-operator|(
-name|String
-operator|)
 name|endpoint
 operator|.
 name|getFileName
@@ -1497,6 +1494,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|dummy
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

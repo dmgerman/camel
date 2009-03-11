@@ -102,7 +102,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates the single {@link RouteBuilder} to use in this confguration      * @return      */
+comment|/**      * Creates the single {@link RouteBuilder} to use in this confguration      */
 DECL|method|route ()
 specifier|public
 specifier|abstract
