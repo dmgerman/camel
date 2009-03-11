@@ -257,13 +257,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Finding best suited exception policy for thrown exception "
 operator|+
@@ -384,13 +384,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"The type did not match when: "
 operator|+
@@ -459,7 +459,7 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
@@ -472,7 +472,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Using "
 operator|+
@@ -486,7 +486,7 @@ else|else
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"No candidate found to be used as exception policy"
 argument_list|)
