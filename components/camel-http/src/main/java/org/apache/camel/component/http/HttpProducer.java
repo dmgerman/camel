@@ -140,6 +140,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|converter
+operator|.
+name|stream
+operator|.
+name|CachedOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultProducer
@@ -568,6 +584,8 @@ argument_list|(
 name|extractResponseBody
 argument_list|(
 name|method
+argument_list|,
+name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -656,6 +674,8 @@ init|=
 name|extractResponseBody
 argument_list|(
 name|method
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 if|if
@@ -803,7 +823,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Extracts the response from the method as a InputStream.      *      * @param method  the method that was executed      * @return  the response as a stream      * @throws IOException can be thrown      */
-DECL|method|extractResponseBody (HttpMethod method)
+DECL|method|extractResponseBody (HttpMethod method, Exchange exchange)
 specifier|protected
 specifier|static
 name|InputStream
@@ -811,12 +831,15 @@ name|extractResponseBody
 parameter_list|(
 name|HttpMethod
 name|method
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|LoadingByteArrayOutputStream
-name|bos
+name|CachedOutputStream
+name|cos
 init|=
 literal|null
 decl_stmt|;
@@ -827,11 +850,19 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|bos
+name|cos
 operator|=
 operator|new
-name|LoadingByteArrayOutputStream
+name|CachedOutputStream
+argument_list|(
+name|exchange
+operator|.
+name|getContext
 argument_list|()
+operator|.
+name|getProperties
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|is
 operator|=
@@ -860,18 +891,18 @@ name|copy
 argument_list|(
 name|is
 argument_list|,
-name|bos
+name|cos
 argument_list|)
 expr_stmt|;
-name|bos
+name|cos
 operator|.
 name|flush
 argument_list|()
 expr_stmt|;
 return|return
-name|bos
+name|cos
 operator|.
-name|createInputStream
+name|getInputStream
 argument_list|()
 return|;
 block|}
@@ -882,17 +913,6 @@ operator|.
 name|close
 argument_list|(
 name|is
-argument_list|,
-literal|"Extracting response body"
-argument_list|,
-name|LOG
-argument_list|)
-expr_stmt|;
-name|ObjectHelper
-operator|.
-name|close
-argument_list|(
-name|bos
 argument_list|,
 literal|"Extracting response body"
 argument_list|,
