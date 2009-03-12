@@ -101,14 +101,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the list of the currently active<a href="http://camel.apache.org/languages.html">languages</a>  * in the current camel context  *  * @version $Revision: 1.1 $  */
+comment|/**  * Represents the list of the currently active<a href="http://camel.apache.org/component.html">components</a>  * in the current camel context  *  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
-DECL|class|LanguagesResource
+DECL|class|ComponentsResource
 specifier|public
 class|class
-name|LanguagesResource
+name|ComponentsResource
 extends|extends
 name|CamelChildResourceSupport
 block|{
@@ -124,14 +124,14 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|LanguagesResource
+name|ComponentsResource
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|LanguagesResource (CamelContextResource contextResource)
+DECL|method|ComponentsResource (CamelContextResource contextResource)
 specifier|public
-name|LanguagesResource
+name|ComponentsResource
 parameter_list|(
 name|CamelContextResource
 name|contextResource
@@ -143,13 +143,13 @@ name|contextResource
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getLanguageIds ()
+DECL|method|getComponentIds ()
 specifier|public
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|getLanguageIds
+name|getComponentIds
 parameter_list|()
 block|{
 name|List
@@ -167,7 +167,7 @@ argument_list|(
 name|getCamelContext
 argument_list|()
 operator|.
-name|getLanguageNames
+name|getComponentNames
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -182,7 +182,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Returns a specific language      */
+comment|/**      * Returns a specific component      */
 annotation|@
 name|Path
 argument_list|(
@@ -190,7 +190,7 @@ literal|"{id}"
 argument_list|)
 DECL|method|getLanguage (@athParamR) String id)
 specifier|public
-name|LanguageResource
+name|ComponentResource
 name|getLanguage
 parameter_list|(
 annotation|@
@@ -215,7 +215,7 @@ return|;
 block|}
 return|return
 operator|new
-name|LanguageResource
+name|ComponentResource
 argument_list|(
 name|getContextResource
 argument_list|()

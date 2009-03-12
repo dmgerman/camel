@@ -20,21 +20,29 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|camel
+operator|.
+name|model
+operator|.
+name|RouteDefinition
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|StringWriter
+name|camel
+operator|.
+name|view
+operator|.
+name|RouteDotGenerator
 import|;
 end_import
 
@@ -126,29 +134,21 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|RouteDefinition
+name|IOException
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|view
-operator|.
-name|RouteDotGenerator
+name|StringWriter
 import|;
 end_import
 
