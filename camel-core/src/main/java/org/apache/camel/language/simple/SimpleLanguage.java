@@ -38,9 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|ExpressionBuilder
+name|ExpressionIllegalSyntaxException
 import|;
 end_import
 
@@ -52,9 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|builder
 operator|.
-name|IllegalSyntaxException
+name|ExpressionBuilder
 import|;
 end_import
 
@@ -412,13 +410,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalSyntaxException
+name|ExpressionIllegalSyntaxException
 argument_list|(
-name|this
-argument_list|,
-name|expression
+literal|"Valid syntax: ${date:command:pattern} was: "
 operator|+
-literal|" ${date:command:pattern} is the correct syntax."
+name|expression
 argument_list|)
 throw|;
 block|}
@@ -477,10 +473,8 @@ return|;
 block|}
 throw|throw
 operator|new
-name|IllegalSyntaxException
+name|ExpressionIllegalSyntaxException
 argument_list|(
-name|this
-argument_list|,
 name|expression
 argument_list|)
 throw|;

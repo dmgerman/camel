@@ -50,9 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|ExpressionSupport
+name|ExpressionEvaluationException
 import|;
 end_import
 
@@ -64,9 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|impl
 operator|.
-name|ExpressionEvaluationException
+name|ExpressionSupport
 import|;
 end_import
 
@@ -330,6 +328,22 @@ expr_stmt|;
 block|}
 return|return
 name|compiledExpression
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"JXpath["
+operator|+
+name|expression
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

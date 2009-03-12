@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|LanguageTestSupport
+name|ExpressionEvaluationException
 import|;
 end_import
 
@@ -38,9 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
-operator|.
-name|ExpressionEvaluationException
+name|LanguageTestSupport
 import|;
 end_import
 
@@ -154,9 +152,7 @@ argument_list|(
 literal|"ins/body"
 argument_list|)
 expr_stmt|;
-comment|// assertInvalidPredicate("in/body");
 block|}
-comment|/*      * @Override protected void populateExchange(Exchange exchange) { Message in =      * exchange.getIn(); in.setHeader("foo", "abc"); in.setHeader("bar", 123);      * in.setBody(body); }      */
 DECL|method|assertInvalidExpression (String expression)
 specifier|private
 name|void

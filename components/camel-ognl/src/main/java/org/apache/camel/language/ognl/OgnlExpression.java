@@ -74,22 +74,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|ExpressionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|language
-operator|.
 name|ExpressionEvaluationException
 import|;
 end_import
@@ -102,9 +86,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|ExpressionIllegalSyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|IllegalSyntaxException
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|ExpressionSupport
 import|;
 end_import
 
@@ -191,10 +187,8 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|IllegalSyntaxException
+name|ExpressionIllegalSyntaxException
 argument_list|(
-name|language
-argument_list|,
 name|expressionString
 argument_list|,
 name|e
@@ -238,8 +232,7 @@ name|exchange
 parameter_list|)
 block|{
 comment|// TODO we could use caching here but then we'd have possible
-comment|// concurrency issues
-comment|// so lets assume that the provider caches
+comment|// concurrency issues so lets assume that the provider caches
 name|OgnlContext
 name|oglContext
 init|=
@@ -296,6 +289,22 @@ parameter_list|)
 block|{
 return|return
 name|expressionString
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"OGNL["
+operator|+
+name|expressionString
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

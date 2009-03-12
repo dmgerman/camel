@@ -53,11 +53,15 @@ name|PredicateSupport
 implements|implements
 name|Predicate
 block|{
-DECL|method|assertMatches (String text, Exchange exchange)
+DECL|method|assertMatches (Predicate predicate, String text, Exchange exchange)
 specifier|public
+specifier|static
 name|void
 name|assertMatches
 parameter_list|(
+name|Predicate
+name|predicate
+parameter_list|,
 name|String
 name|text
 parameter_list|,
@@ -68,20 +72,42 @@ block|{
 if|if
 condition|(
 operator|!
+name|predicate
+operator|.
 name|matches
 argument_list|(
 name|exchange
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|text
+operator|==
+literal|null
+condition|)
+block|{
 throw|throw
 operator|new
 name|AssertionError
 argument_list|(
-name|assertionFailureMessage
-argument_list|(
+name|predicate
+operator|+
+literal|" on "
+operator|+
 name|exchange
 argument_list|)
+throw|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+name|text
+operator|+
+name|predicate
 operator|+
 literal|" on "
 operator|+
@@ -90,19 +116,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|assertionFailureMessage (Exchange exchange)
-specifier|protected
-name|String
-name|assertionFailureMessage
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-return|return
-name|toString
-argument_list|()
-return|;
 block|}
 block|}
 end_class

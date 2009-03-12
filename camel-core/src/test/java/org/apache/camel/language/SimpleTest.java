@@ -28,6 +28,18 @@ name|LanguageTestSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExpressionIllegalSyntaxException
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -65,7 +77,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalSyntaxException
+name|ExpressionIllegalSyntaxException
 name|e
 parameter_list|)
 block|{

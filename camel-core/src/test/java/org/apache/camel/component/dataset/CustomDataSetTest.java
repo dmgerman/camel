@@ -114,6 +114,20 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|PredicateSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|RouteBuilder
 import|;
 end_import
@@ -235,10 +249,12 @@ operator|+
 name|predicate
 argument_list|)
 expr_stmt|;
-name|predicate
+name|PredicateSupport
 operator|.
 name|assertMatches
 argument_list|(
+name|predicate
+argument_list|,
 literal|"Actual: "
 operator|+
 name|actual
