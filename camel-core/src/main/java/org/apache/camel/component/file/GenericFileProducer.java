@@ -84,11 +84,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|spi
 operator|.
-name|simple
-operator|.
-name|FileLanguage
+name|Language
 import|;
 end_import
 
@@ -814,11 +812,25 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+name|Language
+name|language
+init|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|resolveLanguage
+argument_list|(
+literal|"file"
+argument_list|)
+decl_stmt|;
 name|expression
 operator|=
-name|FileLanguage
+name|language
 operator|.
-name|file
+name|createExpression
 argument_list|(
 name|name
 argument_list|)
@@ -867,6 +879,10 @@ block|}
 comment|// flattern name
 if|if
 condition|(
+name|name
+operator|!=
+literal|null
+operator|&&
 name|endpoint
 operator|.
 name|isFlattern

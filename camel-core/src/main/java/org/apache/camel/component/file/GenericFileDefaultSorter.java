@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Expression
 import|;
 end_import
@@ -48,11 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|spi
 operator|.
-name|simple
-operator|.
-name|FileLanguage
+name|Language
 import|;
 end_import
 
@@ -382,8 +392,8 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns a new sory by file language expression      *      * @param expression the file language expression      * @param reverse    true to reverse order      * @return the comparator      */
-DECL|method|sortByFileLanguage ( final String expression, final boolean reverse)
+comment|/**      * Returns a new sory by file language expression      *      * @param context    the camel context      * @param expression the file language expression      * @param reverse    true to reverse order      * @return the comparator      */
+DECL|method|sortByFileLanguage ( CamelContext context, String expression, boolean reverse)
 specifier|public
 specifier|static
 name|Comparator
@@ -392,11 +402,12 @@ name|GenericFileExchange
 argument_list|>
 name|sortByFileLanguage
 parameter_list|(
-specifier|final
+name|CamelContext
+name|context
+parameter_list|,
 name|String
 name|expression
 parameter_list|,
-specifier|final
 name|boolean
 name|reverse
 parameter_list|)
@@ -404,6 +415,8 @@ block|{
 return|return
 name|sortByFileLanguage
 argument_list|(
+name|context
+argument_list|,
 name|expression
 argument_list|,
 name|reverse
@@ -414,8 +427,8 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a new sory by file language expression      *      * @param expression the file language expression      * @param reverse    true to reverse order      * @param ignoreCase ignore case if comparing strings      * @return the comparator      */
-DECL|method|sortByFileLanguage ( final String expression, final boolean reverse, final boolean ignoreCase)
+comment|/**      * Returns a new sory by file language expression      *      * @param context    the camel context      * @param expression the file language expression      * @param reverse    true to reverse order      * @param ignoreCase ignore case if comparing strings      * @return the comparator      */
+DECL|method|sortByFileLanguage ( CamelContext context, String expression, boolean reverse, boolean ignoreCase)
 specifier|public
 specifier|static
 name|Comparator
@@ -424,15 +437,15 @@ name|GenericFileExchange
 argument_list|>
 name|sortByFileLanguage
 parameter_list|(
-specifier|final
+name|CamelContext
+name|context
+parameter_list|,
 name|String
 name|expression
 parameter_list|,
-specifier|final
 name|boolean
 name|reverse
 parameter_list|,
-specifier|final
 name|boolean
 name|ignoreCase
 parameter_list|)
@@ -440,6 +453,8 @@ block|{
 return|return
 name|sortByFileLanguage
 argument_list|(
+name|context
+argument_list|,
 name|expression
 argument_list|,
 name|reverse
@@ -450,8 +465,8 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a new sort by file language expression      *      * @param expression the file language expression      * @param reverse    true to reverse order      * @param ignoreCase ignore case if comparing strings      * @param nested     nested comparator for sub group sorting, can be null      * @return the comparator      */
-DECL|method|sortByFileLanguage ( final String expression, final boolean reverse, final boolean ignoreCase, final Comparator<GenericFileExchange> nested)
+comment|/**      * Returns a new sort by file language expression      *      * @param context    the camel context      * @param expression the file language expression      * @param reverse    true to reverse order      * @param ignoreCase ignore case if comparing strings      * @param nested     nested comparator for sub group sorting, can be null      * @return the comparator      */
+DECL|method|sortByFileLanguage ( final CamelContext context, final String expression, final boolean reverse, final boolean ignoreCase, final Comparator<GenericFileExchange> nested)
 specifier|public
 specifier|static
 name|Comparator
@@ -460,6 +475,10 @@ name|GenericFileExchange
 argument_list|>
 name|sortByFileLanguage
 parameter_list|(
+specifier|final
+name|CamelContext
+name|context
+parameter_list|,
 specifier|final
 name|String
 name|expression
@@ -499,13 +518,23 @@ name|GenericFileExchange
 name|o2
 parameter_list|)
 block|{
+name|Language
+name|language
+init|=
+name|context
+operator|.
+name|resolveLanguage
+argument_list|(
+literal|"file"
+argument_list|)
+decl_stmt|;
 specifier|final
 name|Expression
 name|exp
 init|=
-name|FileLanguage
+name|language
 operator|.
-name|file
+name|createExpression
 argument_list|(
 name|expression
 argument_list|)

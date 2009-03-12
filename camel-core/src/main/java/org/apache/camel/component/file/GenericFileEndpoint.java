@@ -88,6 +88,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Component
 import|;
 end_import
@@ -162,11 +174,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|spi
 operator|.
-name|simple
-operator|.
-name|FileLanguage
+name|IdempotentRepository
 import|;
 end_import
 
@@ -180,7 +190,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|IdempotentRepository
+name|Language
 import|;
 end_import
 
@@ -774,6 +784,10 @@ name|getMethod
 argument_list|(
 literal|"createGenericFileProcessStrategy"
 argument_list|,
+name|CamelContext
+operator|.
+name|class
+argument_list|,
 name|Map
 operator|.
 name|class
@@ -793,6 +807,9 @@ argument_list|(
 name|factoryMethod
 argument_list|,
 literal|null
+argument_list|,
+name|getCamelContext
+argument_list|()
 argument_list|,
 name|getParamsAsMap
 argument_list|()
@@ -814,7 +831,7 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|".createGenericFileProcessStrategy(GenericFileEndpoint endpoint) method not found"
+literal|".createGenericFileProcessStrategy method not found"
 argument_list|,
 name|e
 argument_list|)
@@ -1044,9 +1061,7 @@ name|this
 operator|.
 name|move
 operator|=
-name|FileLanguage
-operator|.
-name|file
+name|createFileLangugeExpression
 argument_list|(
 name|expression
 argument_list|)
@@ -1100,9 +1115,7 @@ name|this
 operator|.
 name|preMove
 operator|=
-name|FileLanguage
-operator|.
-name|file
+name|createFileLangugeExpression
 argument_list|(
 name|expression
 argument_list|)
@@ -1148,9 +1161,7 @@ name|this
 operator|.
 name|fileName
 operator|=
-name|FileLanguage
-operator|.
-name|file
+name|createFileLangugeExpression
 argument_list|(
 name|fileLanguageExpression
 argument_list|)
@@ -1345,6 +1356,9 @@ name|GenericFileDefaultSorter
 operator|.
 name|sortByFileLanguage
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|expression
 argument_list|,
 name|reverse
@@ -2050,6 +2064,35 @@ expr_stmt|;
 block|}
 return|return
 name|params
+return|;
+block|}
+DECL|method|createFileLangugeExpression (String expression)
+specifier|private
+name|Expression
+name|createFileLangugeExpression
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+name|Language
+name|language
+init|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|resolveLanguage
+argument_list|(
+literal|"file"
+argument_list|)
+decl_stmt|;
+return|return
+name|language
+operator|.
+name|createExpression
+argument_list|(
+name|expression
+argument_list|)
 return|;
 block|}
 block|}

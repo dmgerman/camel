@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Expression
 import|;
 end_import
@@ -92,11 +104,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|spi
 operator|.
-name|simple
-operator|.
-name|FileLanguage
+name|Language
 import|;
 end_import
 
@@ -126,12 +136,15 @@ specifier|private
 name|FileProcessStrategyFactory
 parameter_list|()
 block|{     }
-DECL|method|createGenericFileProcessStrategy (Map<String, Object> params)
+DECL|method|createGenericFileProcessStrategy (CamelContext context, Map<String, Object> params)
 specifier|public
 specifier|static
 name|GenericFileProcessStrategy
 name|createGenericFileProcessStrategy
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -392,12 +405,23 @@ name|params
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Expression
-name|exp
+comment|// use context to lookup language to let it be loose coupled
+name|Language
+name|language
 init|=
-name|FileLanguage
+name|context
 operator|.
-name|file
+name|resolveLanguage
+argument_list|(
+literal|"file"
+argument_list|)
+decl_stmt|;
+name|Expression
+name|expression
+init|=
+name|language
+operator|.
+name|createExpression
 argument_list|(
 literal|"${file:parent}/.camel/${file:onlyname}"
 argument_list|)
@@ -412,7 +436,7 @@ argument_list|<
 name|File
 argument_list|>
 argument_list|(
-name|exp
+name|expression
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -463,6 +463,9 @@ name|GenericFileDefaultSorter
 operator|.
 name|sortByFileLanguage
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|reminder
 argument_list|,
 name|reverse

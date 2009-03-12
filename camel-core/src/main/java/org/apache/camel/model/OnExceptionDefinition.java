@@ -240,7 +240,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|ExpressionClause
+name|ExpressionBuilder
 import|;
 end_import
 
@@ -252,11 +252,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|builder
 operator|.
-name|constant
-operator|.
-name|ConstantLanguage
+name|ExpressionClause
 import|;
 end_import
 
@@ -825,19 +823,12 @@ name|boolean
 name|handled
 parameter_list|)
 block|{
-name|ConstantLanguage
-name|constant
+name|Expression
+name|expression
 init|=
-operator|new
-name|ConstantLanguage
-argument_list|()
-decl_stmt|;
-return|return
-name|handled
-argument_list|(
-name|constant
+name|ExpressionBuilder
 operator|.
-name|createPredicate
+name|constantExpression
 argument_list|(
 name|Boolean
 operator|.
@@ -846,6 +837,11 @@ argument_list|(
 name|handled
 argument_list|)
 argument_list|)
+decl_stmt|;
+return|return
+name|handled
+argument_list|(
+name|expression
 argument_list|)
 return|;
 block|}

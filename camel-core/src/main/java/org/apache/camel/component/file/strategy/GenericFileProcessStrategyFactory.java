@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Expression
 import|;
 end_import
@@ -105,12 +117,15 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|createGenericFileProcessStrategy (Map<String, Object> params)
+DECL|method|createGenericFileProcessStrategy (CamelContext context, Map<String, Object> params)
 specifier|public
 specifier|static
 name|GenericFileProcessStrategy
 name|createGenericFileProcessStrategy
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|Map
 argument_list|<
 name|String
