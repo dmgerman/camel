@@ -484,6 +484,48 @@ name|getAbsolutePath
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getFileSeparator ()
+specifier|public
+name|char
+name|getFileSeparator
+parameter_list|()
+block|{
+return|return
+name|File
+operator|.
+name|separatorChar
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isAbsolute (String name)
+specifier|public
+name|boolean
+name|isAbsolute
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+comment|// relative or absolute path?
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
+return|return
+name|file
+operator|.
+name|isAbsolute
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

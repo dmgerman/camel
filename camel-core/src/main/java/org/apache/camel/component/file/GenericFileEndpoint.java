@@ -556,6 +556,23 @@ name|String
 name|getScheme
 parameter_list|()
 function_decl|;
+DECL|method|getFileSeparator ()
+specifier|public
+specifier|abstract
+name|char
+name|getFileSeparator
+parameter_list|()
+function_decl|;
+DECL|method|isAbsolute (String name)
+specifier|public
+specifier|abstract
+name|boolean
+name|isAbsolute
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Return the file name that will be auto-generated for the given message if      * none is provided      */
 DECL|method|getGeneratedFileName (Message message)
 specifier|public
@@ -1819,24 +1836,14 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
-comment|// relative or absolute path?
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-name|expression
-argument_list|)
-decl_stmt|;
 comment|// if relative then insert start with the parent folder
 if|if
 condition|(
 operator|!
-name|file
-operator|.
 name|isAbsolute
-argument_list|()
+argument_list|(
+name|expression
+argument_list|)
 condition|)
 block|{
 name|sb
@@ -1850,9 +1857,8 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1869,9 +1875,8 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|sb

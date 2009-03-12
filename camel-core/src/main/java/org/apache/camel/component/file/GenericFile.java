@@ -404,6 +404,24 @@ name|isAbsolute
 argument_list|()
 return|;
 block|}
+DECL|method|normalizePath (String name)
+specifier|protected
+name|String
+name|normalizePath
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
 comment|/**      * Changes the name of this remote file. This method alters the absolute and      * relative names as well.      *      * @param newName the new name      */
 DECL|method|changeFileName (String newName)
 specifier|public
@@ -436,8 +454,6 @@ comment|// Make sure the newName is normalized.
 name|String
 name|newFileName
 init|=
-name|FileUtil
-operator|.
 name|normalizePath
 argument_list|(
 name|newName

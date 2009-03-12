@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -544,6 +554,38 @@ operator|)
 operator|.
 name|remoteServerInformation
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getFileSeparator ()
+specifier|public
+name|char
+name|getFileSeparator
+parameter_list|()
+block|{
+return|return
+literal|'/'
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isAbsolute (String name)
+specifier|public
+name|boolean
+name|isAbsolute
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|name
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
 return|;
 block|}
 block|}

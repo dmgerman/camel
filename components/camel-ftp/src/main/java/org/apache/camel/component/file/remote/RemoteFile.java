@@ -152,6 +152,21 @@ argument_list|)
 return|;
 block|}
 annotation|@
+name|Override
+DECL|method|normalizePath (String name)
+specifier|protected
+name|String
+name|normalizePath
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|name
+return|;
+block|}
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
