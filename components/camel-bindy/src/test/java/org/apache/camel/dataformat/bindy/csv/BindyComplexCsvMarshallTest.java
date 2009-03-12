@@ -355,7 +355,7 @@ specifier|private
 name|String
 name|result
 init|=
-literal|"10,A1,Julia,Roberts,BE123456789,Belgium Ventage 10/12,150,USD,14-01-2009"
+literal|"10,A1,Julia,Roberts,BE123456789,Belgium Ventage 10/12,150,USD,14-01-2009\r\n"
 decl_stmt|;
 annotation|@
 name|Produce

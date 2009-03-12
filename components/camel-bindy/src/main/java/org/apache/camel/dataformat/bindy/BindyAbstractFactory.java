@@ -211,6 +211,11 @@ name|Field
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|crlf
+specifier|protected
+name|String
+name|crlf
+decl_stmt|;
 DECL|field|modelsLoader
 specifier|private
 name|AnnotationModelLoader
@@ -511,6 +516,17 @@ expr_stmt|;
 block|}
 return|return
 name|mapModel
+return|;
+block|}
+comment|/**      * Find the carriage return set      */
+DECL|method|getCarriageReturn ()
+specifier|public
+name|String
+name|getCarriageReturn
+parameter_list|()
+block|{
+return|return
+name|crlf
 return|;
 block|}
 block|}

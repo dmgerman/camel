@@ -202,24 +202,39 @@ argument_list|()
 operator|+
 literal|" : "
 operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|this
 operator|.
 name|getClientNr
 argument_list|()
+argument_list|)
 operator|+
 literal|", "
 operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|this
 operator|.
 name|getFirstName
 argument_list|()
+argument_list|)
 operator|+
 literal|", "
 operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|this
 operator|.
 name|getLastName
 argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

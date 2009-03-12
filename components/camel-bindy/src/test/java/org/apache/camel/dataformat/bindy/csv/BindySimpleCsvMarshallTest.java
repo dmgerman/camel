@@ -333,7 +333,7 @@ specifier|private
 name|String
 name|result
 init|=
-literal|"1,B2,Keira,Knightley,XX23456789,France OOO,450.45,EUR,14-01-2009"
+literal|"1,B2,Keira,Knightley,XX23456789,France OOO,450.45,EUR,14-01-2009\r\n"
 decl_stmt|;
 annotation|@
 name|Produce

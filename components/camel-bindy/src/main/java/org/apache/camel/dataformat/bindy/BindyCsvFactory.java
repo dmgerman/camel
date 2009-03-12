@@ -795,17 +795,7 @@ expr_stmt|;
 comment|// Retrieve the format associated to the type
 name|Format
 name|format
-decl_stmt|;
-name|String
-name|pattern
 init|=
-name|dataField
-operator|.
-name|pattern
-argument_list|()
-decl_stmt|;
-name|format
-operator|=
 name|FormatFactory
 operator|.
 name|getFormat
@@ -815,14 +805,17 @@ operator|.
 name|getType
 argument_list|()
 argument_list|,
+name|dataField
+operator|.
 name|pattern
+argument_list|()
 argument_list|,
 name|dataField
 operator|.
 name|precision
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|Object
 name|obj
 init|=
@@ -1012,6 +1005,32 @@ argument_list|(
 literal|"Separator defined for the CSV : "
 operator|+
 name|separator
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Get carriage return parameter
+name|crlf
+operator|=
+name|record
+operator|.
+name|crlf
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Carriage return defined for the CSV : "
+operator|+
+name|crlf
 argument_list|)
 expr_stmt|;
 block|}

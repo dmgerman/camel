@@ -454,7 +454,6 @@ name|toString
 parameter_list|()
 block|{
 return|return
-operator|(
 literal|"Model : "
 operator|+
 name|Order
@@ -466,70 +465,111 @@ argument_list|()
 operator|+
 literal|" : "
 operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|this
 operator|.
 name|getOrderNr
 argument_list|()
+argument_list|)
 operator|+
 literal|", "
 operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|this
 operator|.
 name|getAmount
 argument_list|()
-operator|.
-name|toString
-argument_list|()
+argument_list|)
 operator|+
 literal|", "
 operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|this
 operator|.
 name|getIsinCode
 argument_list|()
+argument_list|)
 operator|+
 literal|", "
 operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|this
 operator|.
 name|getInstrumentName
 argument_list|()
+argument_list|)
 operator|+
 literal|", "
 operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|this
 operator|.
 name|getCurrency
 argument_list|()
-operator|)
+argument_list|)
 operator|+
 literal|", "
 operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|this
 operator|.
 name|getClientNr
 argument_list|()
+argument_list|)
 operator|+
 literal|", "
 operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|this
 operator|.
 name|getFirstName
 argument_list|()
+argument_list|)
 operator|+
 literal|", "
 operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|this
 operator|.
 name|getLastName
 argument_list|()
+argument_list|)
 operator|+
 literal|", "
 operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|this
 operator|.
 name|getOrderDate
 argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

@@ -148,6 +148,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|util
+operator|.
+name|Converter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|DataFormat
@@ -329,6 +347,23 @@ argument_list|>
 operator|)
 name|body
 decl_stmt|;
+name|byte
+index|[]
+name|CRLF
+decl_stmt|;
+comment|// Get CRLF
+name|CRLF
+operator|=
+name|Converter
+operator|.
+name|getByteReturn
+argument_list|(
+name|factory
+operator|.
+name|getCarriageReturn
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Map
@@ -381,6 +416,14 @@ operator|.
 name|write
 argument_list|(
 name|bytes
+argument_list|)
+expr_stmt|;
+comment|// Add a carriage return
+name|outputStream
+operator|.
+name|write
+argument_list|(
+name|CRLF
 argument_list|)
 expr_stmt|;
 block|}
@@ -437,7 +480,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// Create POJO where CSV data will be stored
+comment|// Pojos of the model
 name|Map
 argument_list|<
 name|String
@@ -445,11 +488,6 @@ argument_list|,
 name|Object
 argument_list|>
 name|model
-init|=
-name|factory
-operator|.
-name|factory
-argument_list|()
 decl_stmt|;
 name|InputStreamReader
 name|in
@@ -566,6 +604,14 @@ name|line
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Create POJO where CSV data will be stored
+name|model
+operator|=
+name|factory
+operator|.
+name|factory
+argument_list|()
+expr_stmt|;
 comment|// Split the CSV record according to the separator defined in
 comment|// annotated class @CSVRecord
 name|List

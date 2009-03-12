@@ -200,7 +200,7 @@ name|bindy
 operator|.
 name|util
 operator|.
-name|ConvertSeparator
+name|Converter
 import|;
 end_import
 
@@ -900,7 +900,7 @@ expr_stmt|;
 name|char
 name|separator
 init|=
-name|ConvertSeparator
+name|Converter
 operator|.
 name|getCharDelimitor
 argument_list|(
@@ -922,11 +922,16 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Separator converted : "
+literal|"Separator converted : '0x"
 operator|+
+name|Integer
+operator|.
+name|toHexString
+argument_list|(
 name|separator
+argument_list|)
 operator|+
-literal|", from : "
+literal|"', from : "
 operator|+
 name|this
 operator|.
@@ -1281,6 +1286,32 @@ argument_list|(
 literal|"Key Value Pair Separator defined for the message : "
 operator|+
 name|keyValuePairSeparator
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Get carriage return parameter
+name|crlf
+operator|=
+name|message
+operator|.
+name|crlf
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Carriage return defined for the message : "
+operator|+
+name|crlf
 argument_list|)
 expr_stmt|;
 block|}

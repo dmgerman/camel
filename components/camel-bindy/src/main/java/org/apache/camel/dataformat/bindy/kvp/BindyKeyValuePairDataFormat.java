@@ -152,6 +152,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|util
+operator|.
+name|Converter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|DataFormat
@@ -333,6 +351,23 @@ argument_list|>
 operator|)
 name|body
 decl_stmt|;
+name|byte
+index|[]
+name|crlf
+decl_stmt|;
+comment|// Get CRLF
+name|crlf
+operator|=
+name|Converter
+operator|.
+name|getByteReturn
+argument_list|(
+name|factory
+operator|.
+name|getCarriageReturn
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Map
@@ -385,6 +420,14 @@ operator|.
 name|write
 argument_list|(
 name|bytes
+argument_list|)
+expr_stmt|;
+comment|// Add a carriage return
+name|outputStream
+operator|.
+name|write
+argument_list|(
+name|crlf
 argument_list|)
 expr_stmt|;
 block|}
@@ -441,7 +484,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// Create POJO where messages data will be saved
+comment|// Pojos of the model
 name|Map
 argument_list|<
 name|String
@@ -449,11 +492,6 @@ argument_list|,
 name|Object
 argument_list|>
 name|model
-init|=
-name|factory
-operator|.
-name|factory
-argument_list|()
 decl_stmt|;
 name|InputStreamReader
 name|in
@@ -558,6 +596,14 @@ name|line
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Create POJO where CSV data will be stored
+name|model
+operator|=
+name|factory
+operator|.
+name|factory
+argument_list|()
+expr_stmt|;
 comment|// Split the message according to the pair separator defined in
 comment|// annotated class @Message
 name|List

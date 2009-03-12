@@ -378,7 +378,7 @@ literal|49=INVMGR
 literal|54=1
 literal|56=BRKR
 literal|58=this is a camel - bindy test
-literal|"
+literal|\r\n"
 decl_stmt|;
 annotation|@
 name|Produce
