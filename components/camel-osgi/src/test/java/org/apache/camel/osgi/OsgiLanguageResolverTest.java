@@ -125,7 +125,7 @@ name|language
 init|=
 name|resolver
 operator|.
-name|noSpecificLanguageFound
+name|resolveLanguage
 argument_list|(
 literal|"js"
 argument_list|,
