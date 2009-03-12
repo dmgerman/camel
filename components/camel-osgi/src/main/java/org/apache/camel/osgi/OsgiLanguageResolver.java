@@ -161,6 +161,18 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Override
+DECL|method|getLog ()
+specifier|protected
+name|Log
+name|getLog
+parameter_list|()
+block|{
+return|return
+name|LOG
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|findLanguage (String name)
 specifier|protected
 name|Class
@@ -181,10 +193,12 @@ name|name
 argument_list|)
 return|;
 block|}
-DECL|method|findLanaguageResolver (String name)
+annotation|@
+name|Override
+DECL|method|findLanguageResolver (String name)
 specifier|protected
 name|Class
-name|findLanaguageResolver
+name|findLanguageResolver
 parameter_list|(
 name|String
 name|name

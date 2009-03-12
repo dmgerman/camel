@@ -187,6 +187,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|method|getLog ()
+specifier|protected
+name|Log
+name|getLog
+parameter_list|()
+block|{
+return|return
+name|LOG
+return|;
+block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -229,13 +239,15 @@ name|bean
 operator|!=
 literal|null
 operator|&&
-name|LOG
+name|getLog
+argument_list|()
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|getLog
+argument_list|()
 operator|.
 name|debug
 argument_list|(
@@ -256,7 +268,8 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|getLog
+argument_list|()
 operator|.
 name|debug
 argument_list|(
