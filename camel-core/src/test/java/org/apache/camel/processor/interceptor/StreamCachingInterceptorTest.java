@@ -729,6 +729,7 @@ name|configure
 parameter_list|()
 block|{
 comment|//Stream caching for a single route...
+comment|//START SNIPPET: route
 name|from
 argument_list|(
 literal|"direct:a"
@@ -742,7 +743,9 @@ argument_list|(
 literal|"mock:a"
 argument_list|)
 expr_stmt|;
+comment|//END SNIPPET
 comment|//... or for all the following routes in this builder
+comment|//START SNIPPET: routebuilder
 name|streamCaching
 argument_list|()
 expr_stmt|;
@@ -756,6 +759,7 @@ argument_list|(
 literal|"mock:b"
 argument_list|)
 expr_stmt|;
+comment|//END SNIPPET
 block|}
 block|}
 return|;
