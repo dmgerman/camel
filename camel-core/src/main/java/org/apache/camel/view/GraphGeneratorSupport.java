@@ -409,6 +409,32 @@ operator|=
 name|dir
 expr_stmt|;
 block|}
+DECL|method|getImagePrefix ()
+specifier|public
+name|String
+name|getImagePrefix
+parameter_list|()
+block|{
+return|return
+name|imagePrefix
+return|;
+block|}
+DECL|method|setImagePrefix (String imagePrefix)
+specifier|public
+name|void
+name|setImagePrefix
+parameter_list|(
+name|String
+name|imagePrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|imagePrefix
+operator|=
+name|imagePrefix
+expr_stmt|;
+block|}
 DECL|method|getRoutesText (CamelContext context)
 specifier|public
 name|String
