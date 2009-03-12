@@ -474,7 +474,25 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/*      public List<EndpointLink> getEndpoints() {         return getEndpointsResource().getDTO().getEndpoints();     } */
+annotation|@
+name|Path
+argument_list|(
+literal|"languages"
+argument_list|)
+DECL|method|getLanguages ()
+specifier|public
+name|LanguagesResource
+name|getLanguages
+parameter_list|()
+block|{
+return|return
+operator|new
+name|LanguagesResource
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
