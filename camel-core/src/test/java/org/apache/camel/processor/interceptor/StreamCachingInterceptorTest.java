@@ -743,7 +743,7 @@ argument_list|(
 literal|"mock:a"
 argument_list|)
 expr_stmt|;
-comment|//END SNIPPET
+comment|//END SNIPPET: route
 comment|//... or for all the following routes in this builder
 comment|//START SNIPPET: routebuilder
 name|streamCaching
@@ -759,7 +759,7 @@ argument_list|(
 literal|"mock:b"
 argument_list|)
 expr_stmt|;
-comment|//END SNIPPET
+comment|//END SNIPPET: routebuilder
 block|}
 block|}
 return|;
