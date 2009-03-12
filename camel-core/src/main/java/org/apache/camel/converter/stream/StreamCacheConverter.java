@@ -519,12 +519,21 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// set up CachedOutputStream with the properties
 name|CachedOutputStream
 name|cos
 init|=
 operator|new
 name|CachedOutputStream
+argument_list|(
+name|exchange
+operator|.
+name|getContext
 argument_list|()
+operator|.
+name|getProperties
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|IOHelper
 operator|.
