@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|IsSingleton
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Predicate
 import|;
 end_import
@@ -95,6 +107,8 @@ class|class
 name|HeaderLanguage
 implements|implements
 name|Language
+implements|,
+name|IsSingleton
 block|{
 DECL|method|header (String headerName)
 specifier|public
@@ -152,6 +166,16 @@ name|header
 argument_list|(
 name|expression
 argument_list|)
+return|;
+block|}
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 block|}

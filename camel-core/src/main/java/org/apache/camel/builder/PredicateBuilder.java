@@ -163,7 +163,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|PredicateSupport
+name|Predicate
 argument_list|()
 block|{
 specifier|public
@@ -231,7 +231,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|PredicateSupport
+name|Predicate
 argument_list|()
 block|{
 specifier|public
@@ -302,7 +302,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|PredicateSupport
+name|Predicate
 argument_list|()
 block|{
 specifier|public
@@ -383,7 +383,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|PredicateSupport
+name|Predicate
 argument_list|()
 block|{
 specifier|public
@@ -454,7 +454,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|PredicateSupport
+name|Predicate
 argument_list|()
 block|{
 specifier|public
@@ -1027,7 +1027,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|PredicateSupport
+name|Predicate
 argument_list|()
 block|{
 specifier|public
@@ -1140,7 +1140,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|PredicateSupport
+name|Predicate
 argument_list|()
 block|{
 specifier|public

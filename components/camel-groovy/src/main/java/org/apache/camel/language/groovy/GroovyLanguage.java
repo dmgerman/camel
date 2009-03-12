@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|IsSingleton
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Language
@@ -63,6 +75,8 @@ class|class
 name|GroovyLanguage
 implements|implements
 name|Language
+implements|,
+name|IsSingleton
 block|{
 DECL|method|groovy (String expression)
 specifier|public
@@ -131,6 +145,11 @@ name|expression
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|parseExpression (String expression)
 specifier|protected
 name|Class
@@ -152,6 +171,16 @@ name|parseClass
 argument_list|(
 name|expression
 argument_list|)
+return|;
+block|}
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 block|}

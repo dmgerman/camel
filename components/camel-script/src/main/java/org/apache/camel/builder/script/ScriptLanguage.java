@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|IsSingleton
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Language
@@ -67,6 +79,8 @@ class|class
 name|ScriptLanguage
 implements|implements
 name|Language
+implements|,
+name|IsSingleton
 block|{
 DECL|field|language
 specifier|private
@@ -125,6 +139,16 @@ name|language
 argument_list|,
 name|expression
 argument_list|)
+return|;
+block|}
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|false
 return|;
 block|}
 block|}

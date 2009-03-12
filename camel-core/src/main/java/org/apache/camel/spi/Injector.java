@@ -41,6 +41,24 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Instantiates a new instance of the given object type possibly injecting values      * into the object in the process      *      * @param instance an instance of the type to create      * @return a newly created instance      */
+DECL|method|newInstance (Class<T> type, Object instance)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|newInstance
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|Object
+name|instance
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

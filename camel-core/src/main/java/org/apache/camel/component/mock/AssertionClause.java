@@ -98,7 +98,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|PredicateSupport
+name|ValueBuilder
 import|;
 end_import
 
@@ -110,9 +110,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|util
 operator|.
-name|ValueBuilder
+name|PredicateAssertHelper
 import|;
 end_import
 
@@ -428,7 +428,7 @@ range|:
 name|predicates
 control|)
 block|{
-name|PredicateSupport
+name|PredicateAssertHelper
 operator|.
 name|assertMatches
 argument_list|(

@@ -1012,17 +1012,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Error committing remote file strategy: "
-operator|+
-name|processStrategy
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 name|handleException
 argument_list|(
 name|e
@@ -1099,17 +1088,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Error rolling back remote file strategy: "
-operator|+
-name|processStrategy
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 name|handleException
 argument_list|(
 name|e

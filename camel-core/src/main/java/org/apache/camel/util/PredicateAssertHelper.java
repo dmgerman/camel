@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.builder
+DECL|package|org.apache.camel.util
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|util
 package|;
 end_package
 
@@ -41,18 +41,23 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for {@link Predicate} implementations  *  * @version $Revision$  */
+comment|/**  * A helper for doing {@link Predicate} assertions.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|PredicateSupport
+DECL|class|PredicateAssertHelper
 specifier|public
-specifier|abstract
+specifier|final
 class|class
-name|PredicateSupport
-implements|implements
-name|Predicate
+name|PredicateAssertHelper
 block|{
+DECL|method|PredicateAssertHelper ()
+specifier|private
+name|PredicateAssertHelper
+parameter_list|()
+block|{
+comment|// Utility class
+block|}
 DECL|method|assertMatches (Predicate predicate, String text, Exchange exchange)
 specifier|public
 specifier|static

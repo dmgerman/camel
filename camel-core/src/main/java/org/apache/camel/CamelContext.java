@@ -301,6 +301,15 @@ argument_list|>
 name|componentType
 parameter_list|)
 function_decl|;
+comment|/**      * Gets a readonly list of names of the components currently registered      *      * @return a readonly list with the names of the the componens.      */
+DECL|method|getComponentNames ()
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getComponentNames
+parameter_list|()
+function_decl|;
 comment|/**      * Removes a previously added component.      *      * @param componentName the component name to remove      * @return the previously added component or null if it had not been previously added.      */
 DECL|method|removeComponent (String componentName)
 name|Component
@@ -552,6 +561,15 @@ parameter_list|(
 name|String
 name|language
 parameter_list|)
+function_decl|;
+comment|/**      * Gets a readonly list with the names of the languages currently registered.      *      * @return a readonly list with the names of the the languages.       */
+DECL|method|getLanguageNames ()
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getLanguageNames
+parameter_list|()
 function_decl|;
 comment|/**      * Creates a new ProducerTemplate.      *<p/>      * See this FAQ before use:<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">      * Why does Camel use too many threads with ProducerTemplate?</a>      *      * @return the template      */
 DECL|method|createProducerTemplate ()

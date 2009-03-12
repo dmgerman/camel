@@ -104,6 +104,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|IsSingleton
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Predicate
 import|;
 end_import
@@ -236,6 +248,8 @@ class|class
 name|SimpleLanguageSupport
 implements|implements
 name|Language
+implements|,
+name|IsSingleton
 block|{
 DECL|field|PATTERN
 specifier|protected

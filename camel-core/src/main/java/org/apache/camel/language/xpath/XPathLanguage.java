@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|IsSingleton
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Predicate
 import|;
 end_import
@@ -95,6 +107,8 @@ class|class
 name|XPathLanguage
 implements|implements
 name|Language
+implements|,
+name|IsSingleton
 block|{
 DECL|field|resultType
 specifier|private
@@ -207,6 +221,16 @@ name|resultType
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
 block|}
 block|}
 end_class
