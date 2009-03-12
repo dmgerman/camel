@@ -48,6 +48,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|mina
 operator|.
 name|common
@@ -81,6 +109,23 @@ specifier|final
 class|class
 name|MinaHelper
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|MinaHelper
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|method|MinaHelper ()
 specifier|private
 name|MinaHelper
@@ -88,7 +133,7 @@ parameter_list|()
 block|{
 comment|//Utility Class
 block|}
-comment|/**      * Writes the given body to MINA session. Will wait until the body has been written.      *      * @param session   the MINA session      * @param body      the body to write (send)      * @param exchange  the mina exchange used for error reporting      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
+comment|/**      * Writes the given body to MINA session. Will wait until the body has been written.      *      * @param session  the MINA session      * @param body     the body to write (send)      * @param exchange the mina exchange used for error reporting      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
 DECL|method|writeBody (IoSession session, Object body, Exchange exchange)
 specifier|public
 specifier|static
@@ -132,11 +177,24 @@ name|isWritten
 argument_list|()
 condition|)
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot write body: "
+operator|+
+name|body
+operator|+
+literal|" using session: "
+operator|+
+name|session
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|CamelExchangeException
 argument_list|(
-literal|"Could not write body"
+literal|"Cannot write body"
 argument_list|,
 name|exchange
 argument_list|)
