@@ -217,6 +217,7 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// filter the unused phase
+comment|// PRE_INVOKE needs to be removed.  Otherwise, HolderInInterceptor will interfere us
 DECL|field|REMOVING_IN_PHASES
 specifier|private
 specifier|static
@@ -245,6 +246,10 @@ block|,
 name|Phase
 operator|.
 name|POST_LOGICAL_ENDING
+block|,
+name|Phase
+operator|.
+name|PRE_INVOKE
 block|}
 decl_stmt|;
 DECL|field|REMOVING_OUT_PHASES

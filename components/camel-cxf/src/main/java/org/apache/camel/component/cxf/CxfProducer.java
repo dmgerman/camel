@@ -226,6 +226,20 @@ name|apache
 operator|.
 name|cxf
 operator|.
+name|message
+operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
 name|service
 operator|.
 name|model
@@ -348,12 +362,7 @@ name|getCxfBinding
 argument_list|()
 decl_stmt|;
 comment|// create invocation context
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|WrappedMessageContext
 name|requestContext
 init|=
 operator|new
@@ -605,6 +614,21 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// Remove protocol headers from scopes.  Otherwise, response headers can be
+comment|// overwritten by request headers when SOAPHandlerInterceptor tries to create
+comment|// a wrapped message context by the copyScoped() method.
+name|requestContext
+operator|.
+name|getScopes
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|Message
+operator|.
+name|PROTOCOL_HEADERS
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -641,12 +665,7 @@ name|Client
 operator|.
 name|REQUEST_CONTEXT
 argument_list|,
-operator|(
-operator|(
-name|WrappedMessageContext
-operator|)
 name|requestContext
-operator|)
 operator|.
 name|getWrappedMap
 argument_list|()
