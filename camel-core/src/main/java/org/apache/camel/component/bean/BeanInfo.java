@@ -816,6 +816,28 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Choosed method to invoke: "
+operator|+
+name|methodInfo
+operator|+
+literal|" on bean: "
+operator|+
+name|pojo
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|methodInfo
 operator|.
@@ -826,6 +848,24 @@ argument_list|,
 name|exchange
 argument_list|)
 return|;
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Cannot find suitable method to invoke on bean: "
+operator|+
+name|pojo
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 literal|null
@@ -1671,6 +1711,24 @@ condition|)
 block|{
 if|if
 condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Found a possible method: "
+operator|+
+name|methodInfo
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|methodInfo
 operator|.
 name|hasExceptionParameter
@@ -1699,8 +1757,64 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// TODO refactor below into a separate method
 comment|// find best suited method to use
+return|return
+name|chooseBestPossibleMethodInfo
+argument_list|(
+name|exchange
+argument_list|,
+name|operationList
+argument_list|,
+name|body
+argument_list|,
+name|possibles
+argument_list|,
+name|possiblesWithException
+argument_list|)
+return|;
+block|}
+comment|// no match so return null
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|chooseBestPossibleMethodInfo (Exchange exchange, Collection<MethodInfo> operationList, Object body, List<MethodInfo> possibles, List<MethodInfo> possiblesWithException)
+specifier|private
+name|MethodInfo
+name|chooseBestPossibleMethodInfo
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Collection
+argument_list|<
+name|MethodInfo
+argument_list|>
+name|operationList
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|List
+argument_list|<
+name|MethodInfo
+argument_list|>
+name|possibles
+parameter_list|,
+name|List
+argument_list|<
+name|MethodInfo
+argument_list|>
+name|possiblesWithException
+parameter_list|)
+throws|throws
+name|AmbiguousMethodCallException
+block|{
 name|Exception
 name|exception
 init|=
@@ -1732,6 +1846,22 @@ operator|==
 literal|1
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Exchange has exception set so we prefer method that also has exception as parameter"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// prefer the method that accepts exception in case we have an exception also
 return|return
 name|possiblesWithException
@@ -1771,6 +1901,22 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"No poosible methods trying to convert body to parameter types"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// TODO: Make sure this is properly unit tested
 comment|// lets try converting
 name|Object
@@ -1819,11 +1965,47 @@ condition|)
 block|{
 if|if
 condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Converted body from: "
+operator|+
+name|body
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|"to: "
+operator|+
+name|methodInfo
+operator|.
+name|getBodyParameterType
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|newBody
 operator|!=
 literal|null
 condition|)
 block|{
+comment|// we already have found one new body that could be converted so now we have 2 methods
+comment|// and then its ambiguous
 throw|throw
 operator|new
 name|AmbiguousMethodCallException
@@ -1871,6 +2053,32 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Setting converted body: "
+operator|+
+name|body
+argument_list|)
+expr_stmt|;
+block|}
+name|Message
+name|in
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+decl_stmt|;
 name|in
 operator|.
 name|setBody
@@ -1896,15 +2104,39 @@ operator|==
 literal|1
 condition|)
 block|{
-return|return
+name|MethodInfo
+name|answer
+init|=
 name|operationsWithCustomAnnotation
 operator|.
 name|get
 argument_list|(
 literal|0
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"There are only one method with annotations so we choose it: "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
 return|;
 block|}
+comment|// phew try to choose among multiple methods with annotations
 return|return
 name|chooseMethodWithCustomAnnotations
 argument_list|(
@@ -1914,8 +2146,7 @@ name|possibles
 argument_list|)
 return|;
 block|}
-block|}
-comment|// no match so return null
+comment|// cannot find a good method to use
 return|return
 literal|null
 return|;
