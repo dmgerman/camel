@@ -301,7 +301,7 @@ argument_list|>
 name|componentType
 parameter_list|)
 function_decl|;
-comment|/**      * Gets a readonly list of names of the components currently registered      *      * @return a readonly list with the names of the the componens.      */
+comment|/**      * Gets a readonly list of names of the components currently registered      *      * @return a readonly list with the names of the the components      */
 DECL|method|getComponentNames ()
 name|List
 argument_list|<
@@ -562,7 +562,7 @@ name|String
 name|language
 parameter_list|)
 function_decl|;
-comment|/**      * Gets a readonly list with the names of the languages currently registered.      *      * @return a readonly list with the names of the the languages.       */
+comment|/**      * Gets a readonly list with the names of the languages currently registered.      *      * @return a readonly list with the names of the the languages      */
 DECL|method|getLanguageNames ()
 name|List
 argument_list|<

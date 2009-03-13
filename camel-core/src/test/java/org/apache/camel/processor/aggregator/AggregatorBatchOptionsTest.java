@@ -530,7 +530,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|10
+literal|100
 argument_list|)
 expr_stmt|;
 comment|// when we sent the next message we have reached the in batch size limit and the current
