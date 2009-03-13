@@ -500,6 +500,24 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|disableRedelivery ()
+specifier|public
+name|DeadLetterChannelBuilder
+name|disableRedelivery
+parameter_list|()
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|maximumRedeliveries
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|maximumRedeliveryDelay (long maximumRedeliveryDelay)
 specifier|public
 name|DeadLetterChannelBuilder

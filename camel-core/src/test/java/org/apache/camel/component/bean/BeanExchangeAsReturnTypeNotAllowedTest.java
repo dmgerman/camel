@@ -256,12 +256,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// no redelivery for faster unit test
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
 argument_list|(
 literal|"mock:dead"
 argument_list|)
+operator|.
+name|disableRedelivery
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|from

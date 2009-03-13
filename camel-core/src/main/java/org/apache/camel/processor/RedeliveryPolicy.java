@@ -850,6 +850,22 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Disables redelivery by setting maximum redeliveries to 0.      */
+DECL|method|disableRedelivery ()
+specifier|public
+name|RedeliveryPolicy
+name|disableRedelivery
+parameter_list|()
+block|{
+name|setMaximumRedeliveries
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getBackOffMultiplier ()

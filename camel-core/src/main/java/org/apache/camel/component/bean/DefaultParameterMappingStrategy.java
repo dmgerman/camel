@@ -84,6 +84,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|ExpressionBuilder
@@ -132,7 +144,6 @@ expr_stmt|;
 block|}
 DECL|method|getDefaultParameterTypeExpression (Class parameterType)
 specifier|public
-specifier|synchronized
 name|Expression
 name|getDefaultParameterTypeExpression
 parameter_list|(
@@ -157,7 +168,6 @@ block|}
 comment|/**      * Adds a default parameter type mapping to an expression      */
 DECL|method|addParameterMapping (Class parameterType, Expression expression)
 specifier|public
-specifier|synchronized
 name|void
 name|addParameterMapping
 parameter_list|(
@@ -178,8 +188,6 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates an invocation on the given POJO using annotations to decide which method to invoke      * and to figure out which parameters to use      */
-comment|/*     public MethodInvocation createInvocation(Object pojo,                                              BeanInfo beanInfo,                                              Exchange messageExchange,                                              Endpoint pojoEndpoint) throws RuntimeCamelException {         return beanInfo.createInvocation(pojo, messageExchange);     } */
 DECL|method|loadDefaultRegistry ()
 specifier|public
 name|void
@@ -207,6 +215,30 @@ argument_list|,
 name|ExpressionBuilder
 operator|.
 name|inMessageExpression
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addParameterMapping
+argument_list|(
+name|Exception
+operator|.
+name|class
+argument_list|,
+name|ExpressionBuilder
+operator|.
+name|exchangeExceptionExpression
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addParameterMapping
+argument_list|(
+name|TypeConverter
+operator|.
+name|class
+argument_list|,
+name|ExpressionBuilder
+operator|.
+name|typeConverterExpression
 argument_list|()
 argument_list|)
 expr_stmt|;
