@@ -90,9 +90,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|Exchange
 import|;
 end_import
 
@@ -104,11 +102,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|mock
+name|apache
 operator|.
-name|MockEndpoint
+name|camel
+operator|.
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
@@ -139,21 +147,27 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for unseen option.  */
+comment|/**  * Unit test for rollback option.  */
 end_comment
 
 begin_class
-DECL|class|MailProcessOnlyUnseenMessagesTest
+DECL|class|MailDoNotDeleteIfProcessFailsTest
 specifier|public
 class|class
-name|MailProcessOnlyUnseenMessagesTest
+name|MailDoNotDeleteIfProcessFailsTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testProcessOnlyUnseenMessages ()
+DECL|field|counter
+specifier|private
+specifier|static
+name|int
+name|counter
+decl_stmt|;
+DECL|method|testRoolbackIfProcessFails ()
 specifier|public
 name|void
-name|testProcessOnlyUnseenMessages
+name|testRoolbackIfProcessFails
 parameter_list|()
 throws|throws
 name|Exception
@@ -161,72 +175,36 @@ block|{
 name|prepareMailbox
 argument_list|()
 expr_stmt|;
-name|sendBody
-argument_list|(
-literal|"direct:a"
-argument_list|,
-literal|"Message 3"
-argument_list|)
-expr_stmt|;
-name|MockEndpoint
-name|mock
-init|=
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
-decl_stmt|;
-name|mock
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Message 3"
+literal|"Message 1"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-comment|// reset mock so we can make new assertions
-name|mock
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-comment|// send a new message, now we should only receive this new massages as all the others has been SEEN
-name|sendBody
+comment|// the first 2 attempt should fail
+name|getMockEndpoint
 argument_list|(
-literal|"direct:a"
+literal|"mock:error"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|3
 argument_list|,
-literal|"Message 4"
+name|counter
 argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Message 4"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|prepareMailbox ()
@@ -300,7 +278,7 @@ operator|.
 name|expunge
 argument_list|()
 expr_stmt|;
-comment|// inserts two messages with the SEEN flag
+comment|// inserts two new messages
 name|Message
 index|[]
 name|msg
@@ -348,7 +326,7 @@ name|Flag
 operator|.
 name|SEEN
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|msg
@@ -426,19 +404,66 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|from
+comment|// no redelivery for unit test as we want it to be polled next time
+name|errorHandler
 argument_list|(
-literal|"direct:a"
+name|deadLetterChannel
+argument_list|(
+literal|"mock:error"
 argument_list|)
 operator|.
-name|to
+name|maximumRedeliveries
 argument_list|(
-literal|"smtp://claus@localhost"
+literal|0
+argument_list|)
+operator|.
+name|logStackTrace
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"imap://localhost?username=claus&password=secret&unseen=true&consumer.delay=1000"
+literal|"imap://localhost?username=claus&password=secret&unseen=true&delay=250"
+argument_list|)
+operator|.
+name|process
+argument_list|(
+operator|new
+name|Processor
+argument_list|()
+block|{
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|counter
+operator|++
+expr_stmt|;
+if|if
+condition|(
+name|counter
+operator|<
+literal|3
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Forced by unit test"
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
 argument_list|)
 operator|.
 name|to

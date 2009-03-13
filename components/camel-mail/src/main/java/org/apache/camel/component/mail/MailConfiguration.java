@@ -225,22 +225,22 @@ name|folderName
 init|=
 name|DEFAULT_FOLDER_NAME
 decl_stmt|;
-DECL|field|deleteProcessedMessages
+DECL|field|delete
 specifier|private
 name|boolean
-name|deleteProcessedMessages
+name|delete
+decl_stmt|;
+DECL|field|unseen
+specifier|private
+name|boolean
+name|unseen
+init|=
+literal|true
 decl_stmt|;
 DECL|field|ignoreUriScheme
 specifier|private
 name|boolean
 name|ignoreUriScheme
-decl_stmt|;
-DECL|field|processOnlyUnseenMessages
-specifier|private
-name|boolean
-name|processOnlyUnseenMessages
-init|=
-literal|true
 decl_stmt|;
 DECL|field|recipients
 specifier|private
@@ -1354,30 +1354,30 @@ operator|=
 name|from
 expr_stmt|;
 block|}
-DECL|method|isDeleteProcessedMessages ()
+DECL|method|isDelete ()
 specifier|public
 name|boolean
-name|isDeleteProcessedMessages
+name|isDelete
 parameter_list|()
 block|{
 return|return
-name|deleteProcessedMessages
+name|delete
 return|;
 block|}
-DECL|method|setDeleteProcessedMessages (boolean deleteProcessedMessages)
+DECL|method|setDelete (boolean delete)
 specifier|public
 name|void
-name|setDeleteProcessedMessages
+name|setDelete
 parameter_list|(
 name|boolean
-name|deleteProcessedMessages
+name|delete
 parameter_list|)
 block|{
 name|this
 operator|.
-name|deleteProcessedMessages
+name|delete
 operator|=
-name|deleteProcessedMessages
+name|delete
 expr_stmt|;
 block|}
 DECL|method|getFolderName ()
@@ -1432,30 +1432,30 @@ operator|=
 name|ignoreUriScheme
 expr_stmt|;
 block|}
-DECL|method|isProcessOnlyUnseenMessages ()
+DECL|method|isUnseen ()
 specifier|public
 name|boolean
-name|isProcessOnlyUnseenMessages
+name|isUnseen
 parameter_list|()
 block|{
 return|return
-name|processOnlyUnseenMessages
+name|unseen
 return|;
 block|}
-DECL|method|setProcessOnlyUnseenMessages (boolean processOnlyUnseenMessages)
+DECL|method|setUnseen (boolean unseen)
 specifier|public
 name|void
-name|setProcessOnlyUnseenMessages
+name|setUnseen
 parameter_list|(
 name|boolean
-name|processOnlyUnseenMessages
+name|unseen
 parameter_list|)
 block|{
 name|this
 operator|.
-name|processOnlyUnseenMessages
+name|unseen
 operator|=
-name|processOnlyUnseenMessages
+name|unseen
 expr_stmt|;
 block|}
 comment|/**      * Sets the<tt>To</tt> email address. Separate multiple email addresses with comma.      */
