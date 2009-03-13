@@ -627,7 +627,7 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
-comment|// lookup in registry first if there is a strategy defined
+comment|// lookup in registry first if there is a user define strategy
 name|Registry
 name|registry
 init|=
@@ -643,12 +643,9 @@ name|registry
 operator|.
 name|lookup
 argument_list|(
-name|ParameterMappingStrategy
+name|BeanConstants
 operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
+name|BEAN_PARAMETER_MAPPING_STRATEGY
 argument_list|,
 name|ParameterMappingStrategy
 operator|.
@@ -674,6 +671,9 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * @deprecated not used      */
+annotation|@
+name|Deprecated
 DECL|method|createInvocation (Method method, Object pojo, Exchange exchange)
 specifier|public
 name|MethodInvocation
@@ -1901,6 +1901,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// TODO: This code is not covered by existing unit test in camel-core, need to be tested
 if|if
 condition|(
 name|LOG
@@ -1917,7 +1918,6 @@ literal|"No poosible methods trying to convert body to parameter types"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: Make sure this is properly unit tested
 comment|// lets try converting
 name|Object
 name|newBody

@@ -18,39 +18,35 @@ name|bean
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Expression
-import|;
-end_import
-
 begin_comment
-comment|/**  * A strategy for creating a default parameter expression for a given type  *  * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
-begin_interface
-DECL|interface|ParameterMappingStrategy
+begin_class
+DECL|class|BeanConstants
 specifier|public
-interface|interface
-name|ParameterMappingStrategy
+specifier|final
+class|class
+name|BeanConstants
 block|{
-comment|/**      * Gets an expression used for evaluation with the current Exchange and its result      * is used as parameter value for the given type      *      * @param parameterType the parameter type      * @return the expression to evalute as value      */
-DECL|method|getDefaultParameterTypeExpression (Class parameterType)
-name|Expression
-name|getDefaultParameterTypeExpression
-parameter_list|(
-name|Class
-name|parameterType
-parameter_list|)
-function_decl|;
+DECL|field|BEAN_PARAMETER_MAPPING_STRATEGY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|BEAN_PARAMETER_MAPPING_STRATEGY
+init|=
+literal|"CamelBeanParameterMappingStrategy"
+decl_stmt|;
+DECL|method|BeanConstants ()
+specifier|private
+name|BeanConstants
+parameter_list|()
+block|{
+comment|// Utility class
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 
