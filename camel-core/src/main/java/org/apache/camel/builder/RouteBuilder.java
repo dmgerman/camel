@@ -353,6 +353,46 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Creates a new route from the given URI input      *      * @param uri  the String formatted from uri      * @param args arguments for the string formatting of the uri      * @return the builder      */
+DECL|method|fromF (String uri, Object... args)
+specifier|public
+name|RouteDefinition
+name|fromF
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Object
+modifier|...
+name|args
+parameter_list|)
+block|{
+name|RouteDefinition
+name|answer
+init|=
+name|routeCollection
+operator|.
+name|from
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+name|uri
+argument_list|,
+name|args
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|configureRoute
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Creates a new route from the given endpoint      *      * @param endpoint  the from endpoint      * @return the builder      */
 DECL|method|from (Endpoint endpoint)
 specifier|public
