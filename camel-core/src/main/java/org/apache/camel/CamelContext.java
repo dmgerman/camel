@@ -138,6 +138,34 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|FactoryFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|FactoryFinderResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Injector
 import|;
 end_import
@@ -223,20 +251,6 @@ operator|.
 name|spi
 operator|.
 name|TypeConverterRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|FactoryFinder
 import|;
 end_import
 
@@ -660,20 +674,31 @@ argument_list|>
 name|getProperties
 parameter_list|()
 function_decl|;
-comment|/**      * Create a FactoryFinder which will be used for the loading the factory class from META-INF      * @return the factory finder      */
-DECL|method|createFactoryFinder ()
+comment|/**      * Gets the default FactoryFinder which will be used for the loading the factory class from META-INF      *      * @return the default factory finder      */
+DECL|method|getDefaultFactoryFinder ()
 name|FactoryFinder
-name|createFactoryFinder
+name|getDefaultFactoryFinder
 parameter_list|()
 function_decl|;
-comment|/**      * Create a FactoryFinder which will be used for the loading the factory class from META-INF      * @param path the META-INF path      * @return the factory finder      */
-DECL|method|createFactoryFinder (String path)
+comment|/**      * Sets the factory finder resolver to use.      *      * @param resolver the factory finder resolver      */
+DECL|method|setFactoryFinderResolver (FactoryFinderResolver resolver)
+name|void
+name|setFactoryFinderResolver
+parameter_list|(
+name|FactoryFinderResolver
+name|resolver
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the FactoryFinder which will be used for the loading the factory class from META-INF in the given path      *      * @param path the META-INF path      * @return the factory finder      */
+DECL|method|getFactoryFinder (String path)
 name|FactoryFinder
-name|createFactoryFinder
+name|getFactoryFinder
 parameter_list|(
 name|String
 name|path
 parameter_list|)
+throws|throws
+name|NoFactoryAvailableException
 function_decl|;
 comment|/**      * Returns the current status of the given route      */
 DECL|method|getRouteStatus (RouteDefinition route)

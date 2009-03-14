@@ -287,11 +287,11 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|setFactoryFinderClass
+name|setFactoryFinderResolver
 argument_list|(
+operator|new
 name|OsgiFactoryFinder
-operator|.
-name|class
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|addOsgiAnnotationTypeConverterLoader

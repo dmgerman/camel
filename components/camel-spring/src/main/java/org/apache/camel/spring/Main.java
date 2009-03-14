@@ -100,11 +100,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|impl
 operator|.
-name|handler
-operator|.
-name|CamelNamespaceHandler
+name|MainSupport
 import|;
 end_import
 
@@ -116,9 +114,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spring
 operator|.
-name|MainSupport
+name|handler
+operator|.
+name|CamelNamespaceHandler
 import|;
 end_import
 

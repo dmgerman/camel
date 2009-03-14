@@ -19,6 +19,7 @@ package org.apache.camel.scala;
 import junit.framework.TestCase
 import junit.framework.Assert._
 
+import org.apache.camel.impl.DefaultFactoryFinder
 import org.apache.camel.impl.DefaultPackageScanClassResolver
 import org.apache.camel.impl.converter.DefaultTypeConverter
 import org.apache.camel.util.ReflectionInjector
@@ -30,7 +31,8 @@ import org.w3c.dom.Document
  */
 class ScalaTypeConverterTest extends TestCase {
   
-  val converter = new DefaultTypeConverter(new DefaultPackageScanClassResolver(), new ReflectionInjector())
+  val converter = new DefaultTypeConverter(new DefaultPackageScanClassResolver(),
+      new ReflectionInjector(), new DefaultFactoryFinder())
   
   def testDocumentConverter = {
     val result = converter.convertTo(classOf[Document], <persons/>)

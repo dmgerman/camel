@@ -229,26 +229,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|getComponent (String name)
-specifier|protected
-name|Class
-name|getComponent
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-name|Activator
-operator|.
-name|getComponent
+annotation|@
+name|SuppressWarnings
 argument_list|(
-name|name
+literal|"unchecked"
 argument_list|)
-return|;
-block|}
 DECL|method|resolveComponent (String name, CamelContext context)
 specifier|public
 name|Component
@@ -355,8 +340,6 @@ block|}
 comment|// Check in OSGi bundles
 name|Class
 name|type
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -439,6 +422,26 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|getComponent (String name)
+specifier|protected
+name|Class
+name|getComponent
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|Activator
+operator|.
+name|getComponent
+argument_list|(
+name|name
+argument_list|)
+return|;
 block|}
 block|}
 end_class
