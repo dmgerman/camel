@@ -290,7 +290,7 @@ operator|.
 name|setFactoryFinderResolver
 argument_list|(
 operator|new
-name|OsgiFactoryFinder
+name|OsgiFactoryFinderResolver
 argument_list|()
 argument_list|)
 expr_stmt|;

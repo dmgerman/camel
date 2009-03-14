@@ -38,6 +38,20 @@ name|NoFactoryAvailableException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultClassResolver
+import|;
+end_import
+
 begin_class
 DECL|class|OsgiFactoryFinderTest
 specifier|public
@@ -60,6 +74,10 @@ init|=
 operator|new
 name|OsgiFactoryFinder
 argument_list|(
+operator|new
+name|DefaultClassResolver
+argument_list|()
+argument_list|,
 literal|"META-INF/services/org/apache/camel/component/"
 argument_list|)
 decl_stmt|;
