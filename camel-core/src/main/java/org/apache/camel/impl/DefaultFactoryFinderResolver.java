@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel.impl
 package|package
 name|org
 operator|.
@@ -12,31 +12,95 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|impl
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|FactoryFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|FactoryFinderResolver
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents a resolver of FactoryFinder to  *  * @version $Revision$  */
+comment|/**  * Default factory finder.  *  * @version $Revision$  */
 end_comment
 
-begin_interface
-DECL|interface|FactoryFinderResolver
+begin_class
+DECL|class|DefaultFactoryFinderResolver
 specifier|public
-interface|interface
+class|class
+name|DefaultFactoryFinderResolver
+implements|implements
 name|FactoryFinderResolver
 block|{
-comment|/**      * Creates a new defaut factory finder using a default resource path.      *      * @param classResolver the class resolcer to use      * @return a factory finder.      */
+DECL|field|DEFAULT_RESOURCE_PATH
+specifier|public
+specifier|static
+specifier|final
+specifier|transient
+name|String
+name|DEFAULT_RESOURCE_PATH
+init|=
+literal|"META-INF/services/org/apache/camel/"
+decl_stmt|;
 DECL|method|resolveDefaultFactoryFinder (ClassResolver classResolver)
+specifier|public
 name|FactoryFinder
 name|resolveDefaultFactoryFinder
 parameter_list|(
 name|ClassResolver
 name|classResolver
 parameter_list|)
-function_decl|;
-comment|/**      * Creates a new factory finder.      *      * @param classResolver the class resolcer to use      * @param resourcePath the resource path as base to lookup files within      * @return a factory finder.      */
+block|{
+return|return
+operator|new
+name|DefaultFactoryFinder
+argument_list|(
+name|classResolver
+argument_list|,
+name|DEFAULT_RESOURCE_PATH
+argument_list|)
+return|;
+block|}
 DECL|method|resolveFactoryFinder (ClassResolver classResolver, String resourcePath)
+specifier|public
 name|FactoryFinder
 name|resolveFactoryFinder
 parameter_list|(
@@ -46,9 +110,19 @@ parameter_list|,
 name|String
 name|resourcePath
 parameter_list|)
-function_decl|;
+block|{
+return|return
+operator|new
+name|DefaultFactoryFinder
+argument_list|(
+name|classResolver
+argument_list|,
+name|resourcePath
+argument_list|)
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

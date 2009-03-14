@@ -120,7 +120,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|FactoryFinder
+name|ClassResolver
 import|;
 end_import
 
@@ -134,7 +134,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|FactoryFinderResolver
+name|FactoryFinder
 import|;
 end_import
 
@@ -177,19 +177,7 @@ class|class
 name|DefaultFactoryFinder
 implements|implements
 name|FactoryFinder
-implements|,
-name|FactoryFinderResolver
 block|{
-DECL|field|DEFAULT_RESOURCE_PATH
-specifier|public
-specifier|static
-specifier|final
-specifier|transient
-name|String
-name|DEFAULT_RESOURCE_PATH
-init|=
-literal|"META-INF/services/org/apache/camel/"
-decl_stmt|;
 DECL|field|classMap
 specifier|protected
 specifier|final
@@ -210,65 +198,39 @@ name|Class
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|classResolver
+specifier|private
+name|ClassResolver
+name|classResolver
+decl_stmt|;
 DECL|field|path
 specifier|private
 name|String
 name|path
 decl_stmt|;
-DECL|method|DefaultFactoryFinder ()
-specifier|public
-name|DefaultFactoryFinder
-parameter_list|()
-block|{
-name|this
-argument_list|(
-name|DEFAULT_RESOURCE_PATH
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|DefaultFactoryFinder (String resourcePath)
+DECL|method|DefaultFactoryFinder (ClassResolver classResolver, String resourcePath)
 specifier|public
 name|DefaultFactoryFinder
 parameter_list|(
+name|ClassResolver
+name|classResolver
+parameter_list|,
 name|String
 name|resourcePath
 parameter_list|)
 block|{
 name|this
 operator|.
+name|classResolver
+operator|=
+name|classResolver
+expr_stmt|;
+name|this
+operator|.
 name|path
 operator|=
 name|resourcePath
 expr_stmt|;
-block|}
-DECL|method|resolveDefaultFactoryFinder ()
-specifier|public
-name|FactoryFinder
-name|resolveDefaultFactoryFinder
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultFactoryFinder
-argument_list|()
-return|;
-block|}
-DECL|method|resolveFactoryFinder (String path)
-specifier|public
-name|FactoryFinder
-name|resolveFactoryFinder
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-return|return
-operator|new
-name|DefaultFactoryFinder
-argument_list|(
-name|path
-argument_list|)
-return|;
 block|}
 DECL|method|getResourcePath ()
 specifier|public
@@ -776,9 +738,9 @@ block|}
 name|Class
 name|clazz
 init|=
-name|ObjectHelper
+name|classResolver
 operator|.
-name|loadClass
+name|resolveClass
 argument_list|(
 name|className
 argument_list|)
@@ -823,7 +785,7 @@ decl_stmt|;
 name|InputStream
 name|in
 init|=
-name|ObjectHelper
+name|classResolver
 operator|.
 name|loadResourceAsStream
 argument_list|(

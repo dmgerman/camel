@@ -176,6 +176,20 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|DefaultClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
 name|DefaultExchange
 import|;
 end_import
@@ -190,7 +204,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultFactoryFinder
+name|DefaultFactoryFinderResolver
 import|;
 end_import
 
@@ -326,8 +340,15 @@ name|ReflectionInjector
 argument_list|()
 argument_list|,
 operator|new
-name|DefaultFactoryFinder
+name|DefaultFactoryFinderResolver
 argument_list|()
+operator|.
+name|resolveDefaultFactoryFinder
+argument_list|(
+operator|new
+name|DefaultClassResolver
+argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|class|IntegerPropertyEditor

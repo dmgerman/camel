@@ -16,6 +16,16 @@ name|spi
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
 begin_comment
 comment|/**  * A class resolver for loading classes in a loosly coupled manner to cater for different platforms such  * as standalone, web container, j2ee container and OSGi platforms.  */
 end_comment
@@ -165,6 +175,15 @@ name|loader
 parameter_list|)
 throws|throws
 name|ClassNotFoundException
+function_decl|;
+comment|/**      * Loads the given resource as a stream      * @param uri the uri of the resource      * @return as a stream      */
+DECL|method|loadResourceAsStream (String uri)
+name|InputStream
+name|loadResourceAsStream
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
 function_decl|;
 block|}
 end_interface

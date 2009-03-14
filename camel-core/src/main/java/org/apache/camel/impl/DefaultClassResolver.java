@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -394,6 +404,33 @@ throw|;
 block|}
 return|return
 name|answer
+return|;
+block|}
+DECL|method|loadResourceAsStream (String uri)
+specifier|public
+name|InputStream
+name|loadResourceAsStream
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|uri
+argument_list|,
+literal|"uri"
+argument_list|)
+expr_stmt|;
+return|return
+name|ObjectHelper
+operator|.
+name|loadResourceAsStream
+argument_list|(
+name|uri
+argument_list|)
 return|;
 block|}
 DECL|method|loadClass (String name, ClassLoader loader)
