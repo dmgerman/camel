@@ -163,6 +163,7 @@ name|ErrorHandler
 block|{
 DECL|field|exceptionPolicies
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|ExceptionPolicyKey

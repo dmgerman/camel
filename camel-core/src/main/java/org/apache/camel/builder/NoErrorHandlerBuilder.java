@@ -54,16 +54,6 @@ name|NoErrorHandlerBuilder
 extends|extends
 name|ErrorHandlerBuilderSupport
 block|{
-DECL|method|copy ()
-specifier|public
-name|ErrorHandlerBuilder
-name|copy
-parameter_list|()
-block|{
-return|return
-name|this
-return|;
-block|}
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor

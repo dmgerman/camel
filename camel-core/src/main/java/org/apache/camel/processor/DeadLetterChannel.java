@@ -305,16 +305,25 @@ argument_list|()
 decl_stmt|;
 DECL|field|output
 specifier|private
+specifier|final
 name|Processor
 name|output
 decl_stmt|;
 DECL|field|deadLetter
 specifier|private
+specifier|final
 name|Processor
 name|deadLetter
 decl_stmt|;
+DECL|field|deadLetterUri
+specifier|private
+specifier|final
+name|String
+name|deadLetterUri
+decl_stmt|;
 DECL|field|outputAsync
 specifier|private
+specifier|final
 name|AsyncProcessor
 name|outputAsync
 decl_stmt|;
@@ -330,6 +339,7 @@ name|logger
 decl_stmt|;
 DECL|field|redeliveryProcessor
 specifier|private
+specifier|final
 name|Processor
 name|redeliveryProcessor
 decl_stmt|;
@@ -526,7 +536,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|DeadLetterChannel (Processor output, Processor deadLetter, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Logger logger, ExceptionPolicyStrategy exceptionPolicyStrategy)
+comment|/**      * Creates the dead letter channel.      *      * @param output                    outer processor that should use this dead letter channel      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param redeliveryProcessor       an optional processor to run before redelivert attempt      * @param redeliveryPolicy          policy for redelivery      * @param logger                    logger to use for logging failures and redelivery attempts      * @param exceptionPolicyStrategy   strategy for onException handling      */
+DECL|method|DeadLetterChannel (Processor output, Processor deadLetter, String deadLetterUri, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Logger logger, ExceptionPolicyStrategy exceptionPolicyStrategy)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
@@ -535,6 +546,9 @@ name|output
 parameter_list|,
 name|Processor
 name|deadLetter
+parameter_list|,
+name|String
+name|deadLetterUri
 parameter_list|,
 name|Processor
 name|redeliveryProcessor
@@ -560,6 +574,12 @@ operator|.
 name|deadLetter
 operator|=
 name|deadLetter
+expr_stmt|;
+name|this
+operator|.
+name|deadLetterUri
+operator|=
+name|deadLetterUri
 expr_stmt|;
 name|this
 operator|.
@@ -630,7 +650,15 @@ name|output
 operator|+
 literal|", "
 operator|+
+operator|(
+name|deadLetterUri
+operator|!=
+literal|null
+condition|?
+name|deadLetterUri
+else|:
 name|deadLetter
+operator|)
 operator|+
 literal|"]"
 return|;

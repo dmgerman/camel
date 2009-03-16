@@ -118,20 +118,6 @@ operator|=
 name|ref
 expr_stmt|;
 block|}
-DECL|method|copy ()
-specifier|public
-name|ErrorHandlerBuilder
-name|copy
-parameter_list|()
-block|{
-return|return
-operator|new
-name|ErrorHandlerBuilderRef
-argument_list|(
-name|ref
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|addErrorHandlers (OnExceptionDefinition exception)

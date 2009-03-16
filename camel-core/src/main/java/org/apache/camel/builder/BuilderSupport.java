@@ -205,55 +205,6 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-DECL|method|BuilderSupport (BuilderSupport parent)
-specifier|protected
-name|BuilderSupport
-parameter_list|(
-name|BuilderSupport
-name|parent
-parameter_list|)
-block|{
-name|this
-operator|.
-name|context
-operator|=
-name|parent
-operator|.
-name|getContext
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|inheritErrorHandler
-operator|=
-name|parent
-operator|.
-name|inheritErrorHandler
-expr_stmt|;
-if|if
-condition|(
-name|inheritErrorHandler
-operator|&&
-name|parent
-operator|.
-name|errorHandlerBuilder
-operator|!=
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|errorHandlerBuilder
-operator|=
-name|parent
-operator|.
-name|errorHandlerBuilder
-operator|.
-name|copy
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * Returns a value builder for the given header      */
@@ -936,11 +887,7 @@ return|return
 operator|new
 name|DeadLetterChannelBuilder
 argument_list|(
-operator|new
-name|SendProcessor
-argument_list|(
 name|deadLetterEndpoint
-argument_list|)
 argument_list|)
 return|;
 block|}

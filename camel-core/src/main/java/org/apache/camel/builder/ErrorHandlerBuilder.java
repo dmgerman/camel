@@ -76,13 +76,7 @@ specifier|public
 interface|interface
 name|ErrorHandlerBuilder
 block|{
-comment|/**      * Creates a copy of this builder      */
-DECL|method|copy ()
-name|ErrorHandlerBuilder
-name|copy
-parameter_list|()
-function_decl|;
-comment|/**      * Creates the error handler interceptor      */
+comment|/**      * Creates the error handler interceptor      *      * @param routeContext the route context      * @param processor the outer processor      * @return the error handler      * @throws Exception is thrown if the error handler could not be created      */
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 name|Processor
 name|createErrorHandler
@@ -96,7 +90,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Adds error handler for the given exception type      * @param exception  the exception to handle      */
+comment|/**      * Adds error handler for the given exception type      *      * @param exception  the exception to handle      */
 DECL|method|addErrorHandlers (OnExceptionDefinition exception)
 name|void
 name|addErrorHandlers
@@ -105,7 +99,7 @@ name|OnExceptionDefinition
 name|exception
 parameter_list|)
 function_decl|;
-comment|/**      * Adds the error handlers for the given list of exception types      * @param exceptions  the list of exceptions to handle      */
+comment|/**      * Adds the error handlers for the given list of exception types      *      * @param exceptions  the list of exceptions to handle      */
 DECL|method|setErrorHandlers (List<OnExceptionDefinition> exceptions)
 name|void
 name|setErrorHandlers
