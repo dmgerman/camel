@@ -110,20 +110,6 @@ name|ActivityRules
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ProcessorFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -133,8 +119,6 @@ DECL|class|ActivityBuilder
 specifier|public
 class|class
 name|ActivityBuilder
-implements|implements
-name|ProcessorFactory
 block|{
 DECL|field|processBuilder
 specifier|private
