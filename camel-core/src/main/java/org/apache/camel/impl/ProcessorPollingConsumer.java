@@ -92,6 +92,7 @@ name|PollingConsumerSupport
 block|{
 DECL|field|processor
 specifier|private
+specifier|final
 name|Processor
 name|processor
 decl_stmt|;

@@ -44,6 +44,7 @@ name|PackageScanFilter
 block|{
 DECL|field|parent
 specifier|private
+specifier|final
 name|Class
 name|parent
 decl_stmt|;

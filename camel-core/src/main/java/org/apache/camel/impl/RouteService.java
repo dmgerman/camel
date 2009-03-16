@@ -158,6 +158,7 @@ name|routes
 decl_stmt|;
 DECL|field|id
 specifier|private
+specifier|final
 name|String
 name|id
 decl_stmt|;

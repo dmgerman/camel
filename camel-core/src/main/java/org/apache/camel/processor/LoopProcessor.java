@@ -136,6 +136,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|expression
 specifier|private
+specifier|final
 name|Expression
 name|expression
 decl_stmt|;

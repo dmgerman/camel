@@ -68,6 +68,7 @@ name|Processor
 block|{
 DECL|field|expression
 specifier|private
+specifier|final
 name|Expression
 name|expression
 decl_stmt|;

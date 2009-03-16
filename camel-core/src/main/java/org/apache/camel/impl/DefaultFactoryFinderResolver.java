@@ -70,16 +70,6 @@ name|DefaultFactoryFinderResolver
 implements|implements
 name|FactoryFinderResolver
 block|{
-DECL|field|DEFAULT_RESOURCE_PATH
-specifier|public
-specifier|static
-specifier|final
-specifier|transient
-name|String
-name|DEFAULT_RESOURCE_PATH
-init|=
-literal|"META-INF/services/org/apache/camel/"
-decl_stmt|;
 DECL|method|resolveDefaultFactoryFinder (ClassResolver classResolver)
 specifier|public
 name|FactoryFinder
@@ -90,12 +80,11 @@ name|classResolver
 parameter_list|)
 block|{
 return|return
-operator|new
-name|DefaultFactoryFinder
+name|resolveFactoryFinder
 argument_list|(
 name|classResolver
 argument_list|,
-name|DEFAULT_RESOURCE_PATH
+literal|"META-INF/services/org/apache/camel/"
 argument_list|)
 return|;
 block|}

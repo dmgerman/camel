@@ -262,6 +262,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|defaultThreadPoolSize
 specifier|private
+specifier|final
 name|int
 name|defaultThreadPoolSize
 init|=

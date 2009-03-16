@@ -208,19 +208,20 @@ name|ServiceSupport
 implements|implements
 name|Processor
 block|{
-DECL|field|expression
-specifier|private
-name|Expression
-name|expression
-decl_stmt|;
 DECL|field|producerCache
 specifier|private
+specifier|final
 name|ProducerCache
 name|producerCache
 init|=
 operator|new
 name|ProducerCache
 argument_list|()
+decl_stmt|;
+DECL|field|expression
+specifier|private
+name|Expression
+name|expression
 decl_stmt|;
 DECL|method|RecipientList ()
 specifier|public
@@ -470,7 +471,13 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+name|producerCache
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

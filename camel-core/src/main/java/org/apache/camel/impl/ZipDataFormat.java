@@ -146,6 +146,7 @@ name|DataFormat
 block|{
 DECL|field|compressionLevel
 specifier|private
+specifier|final
 name|int
 name|compressionLevel
 decl_stmt|;
@@ -316,6 +317,11 @@ return|;
 block|}
 finally|finally
 block|{
+name|unzipInput
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|bos
 operator|.
 name|close

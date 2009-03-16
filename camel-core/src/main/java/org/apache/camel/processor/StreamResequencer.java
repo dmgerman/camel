@@ -174,11 +174,13 @@ literal|1000L
 decl_stmt|;
 DECL|field|exceptionHandler
 specifier|private
+specifier|final
 name|ExceptionHandler
 name|exceptionHandler
 decl_stmt|;
 DECL|field|engine
 specifier|private
+specifier|final
 name|ResequencerEngine
 argument_list|<
 name|Exchange
@@ -187,6 +189,7 @@ name|engine
 decl_stmt|;
 DECL|field|processor
 specifier|private
+specifier|final
 name|Processor
 name|processor
 decl_stmt|;

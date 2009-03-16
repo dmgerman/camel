@@ -207,6 +207,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|producerCache
+specifier|private
+specifier|final
+name|ProducerCache
+name|producerCache
+init|=
+operator|new
+name|ProducerCache
+argument_list|()
+decl_stmt|;
 DECL|field|header
 specifier|private
 specifier|final
@@ -218,15 +228,6 @@ specifier|private
 specifier|final
 name|String
 name|uriDelimiter
-decl_stmt|;
-DECL|field|producerCache
-specifier|private
-name|ProducerCache
-name|producerCache
-init|=
-operator|new
-name|ProducerCache
-argument_list|()
 decl_stmt|;
 DECL|method|RoutingSlip (String header)
 specifier|public
@@ -451,7 +452,13 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+name|producerCache
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|updateRoutingSlip (Exchange current)
 specifier|private
 name|void

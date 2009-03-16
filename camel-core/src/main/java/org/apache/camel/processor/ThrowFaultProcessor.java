@@ -66,6 +66,7 @@ name|Processor
 block|{
 DECL|field|fault
 specifier|private
+specifier|final
 name|Throwable
 name|fault
 decl_stmt|;

@@ -66,6 +66,7 @@ name|DelayProcessorSupport
 block|{
 DECL|field|timeExpression
 specifier|private
+specifier|final
 name|Expression
 name|timeExpression
 decl_stmt|;

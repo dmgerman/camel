@@ -52,6 +52,7 @@ name|DelegateProcessor
 block|{
 DECL|field|exceptions
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Class

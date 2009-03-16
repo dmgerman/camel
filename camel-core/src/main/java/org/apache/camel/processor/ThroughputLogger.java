@@ -109,6 +109,7 @@ name|groupStartTime
 decl_stmt|;
 DECL|field|receivedCounter
 specifier|private
+specifier|final
 name|AtomicInteger
 name|receivedCounter
 init|=

@@ -214,11 +214,13 @@ name|groupExchanges
 decl_stmt|;
 DECL|field|processor
 specifier|private
+specifier|final
 name|Processor
 name|processor
 decl_stmt|;
 DECL|field|collection
 specifier|private
+specifier|final
 name|Collection
 argument_list|<
 name|Exchange
@@ -232,6 +234,7 @@ name|exceptionHandler
 decl_stmt|;
 DECL|field|sender
 specifier|private
+specifier|final
 name|BatchSender
 name|sender
 decl_stmt|;

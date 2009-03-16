@@ -60,6 +60,7 @@ name|DefaultPackageScanClassResolver
 block|{
 DECL|field|resourcePath
 specifier|private
+specifier|final
 name|String
 name|resourcePath
 decl_stmt|;

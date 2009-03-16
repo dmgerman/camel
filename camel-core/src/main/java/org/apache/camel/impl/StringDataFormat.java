@@ -100,6 +100,7 @@ name|DataFormat
 block|{
 DECL|field|charset
 specifier|private
+specifier|final
 name|String
 name|charset
 decl_stmt|;

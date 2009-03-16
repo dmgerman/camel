@@ -66,6 +66,7 @@ name|DelegateProcessor
 block|{
 DECL|field|predicate
 specifier|private
+specifier|final
 name|Predicate
 name|predicate
 decl_stmt|;

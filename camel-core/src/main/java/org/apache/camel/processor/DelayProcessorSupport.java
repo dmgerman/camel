@@ -134,6 +134,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|stoppedLatch
 specifier|private
+specifier|final
 name|CountDownLatch
 name|stoppedLatch
 init|=

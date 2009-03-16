@@ -225,6 +225,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|producers
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String

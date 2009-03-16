@@ -81,6 +81,7 @@ name|Producer
 block|{
 DECL|field|endpoint
 specifier|private
+specifier|final
 name|Endpoint
 name|endpoint
 decl_stmt|;
