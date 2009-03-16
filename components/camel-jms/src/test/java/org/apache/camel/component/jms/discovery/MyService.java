@@ -111,6 +111,9 @@ argument_list|,
 operator|new
 name|Date
 argument_list|()
+operator|.
+name|getTime
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

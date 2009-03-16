@@ -19,52 +19,31 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * JMS constants  */
+comment|/**  * Enum for different {@link javax.jms.Message} types.  *  * @version $Revision$  */
 end_comment
 
-begin_class
-DECL|class|JmsConstants
+begin_enum
+DECL|enum|JmsMessageType
 specifier|public
-specifier|final
-class|class
-name|JmsConstants
+enum|enum
+name|JmsMessageType
 block|{
-DECL|field|JMS_REPLY_DESTINATION
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|JMS_REPLY_DESTINATION
-init|=
-literal|"JMSReplyTo"
-decl_stmt|;
-DECL|field|JMS_DESTINATION
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|JMS_DESTINATION
-init|=
-literal|"JMSDestination"
-decl_stmt|;
-DECL|field|JMS_MESSAGE_TYPE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|JMS_MESSAGE_TYPE
-init|=
-literal|"CamelJmsMessageType"
-decl_stmt|;
-DECL|method|JmsConstants ()
-specifier|private
-name|JmsConstants
-parameter_list|()
-block|{
-comment|// utility class
+DECL|enumConstant|Bytes
+DECL|enumConstant|Map
+DECL|enumConstant|Object
+DECL|enumConstant|Strem
+DECL|enumConstant|Text
+name|Bytes
+block|,
+name|Map
+block|,
+name|Object
+block|,
+name|Strem
+block|,
+name|Text
 block|}
-block|}
-end_class
+end_enum
 
 end_unit
 

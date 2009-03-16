@@ -896,6 +896,11 @@ specifier|private
 name|String
 name|replyToDestinationSelectorName
 decl_stmt|;
+DECL|field|jmsMessageType
+specifier|private
+name|JmsMessageType
+name|jmsMessageType
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -4563,6 +4568,32 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getJmsMessageType ()
+specifier|public
+name|JmsMessageType
+name|getJmsMessageType
+parameter_list|()
+block|{
+return|return
+name|jmsMessageType
+return|;
+block|}
+DECL|method|setJmsMessageType (JmsMessageType jmsMessageType)
+specifier|public
+name|void
+name|setJmsMessageType
+parameter_list|(
+name|JmsMessageType
+name|jmsMessageType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jmsMessageType
+operator|=
+name|jmsMessageType
+expr_stmt|;
 block|}
 block|}
 end_class

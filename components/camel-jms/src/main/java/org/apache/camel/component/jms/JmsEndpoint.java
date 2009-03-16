@@ -3127,6 +3127,38 @@ name|useVersion102
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getJmsMessageType ()
+specifier|public
+name|JmsMessageType
+name|getJmsMessageType
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getJmsMessageType
+argument_list|()
+return|;
+block|}
+DECL|method|setJmsMessageType (JmsMessageType jmsMessageType)
+specifier|public
+name|void
+name|setJmsMessageType
+parameter_list|(
+name|JmsMessageType
+name|jmsMessageType
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setJmsMessageType
+argument_list|(
+name|jmsMessageType
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 annotation|@
