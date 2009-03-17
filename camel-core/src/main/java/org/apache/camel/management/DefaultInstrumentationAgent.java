@@ -799,12 +799,9 @@ name|NotCompliantMBeanException
 name|e
 parameter_list|)
 block|{
-comment|// If this is not a "normal" MBean, then try to deploy it using JMX
-comment|// annotations
+comment|// If this is not a "normal" MBean, then try to deploy it using JMX annotations
 name|ModelMBeanInfo
 name|mbi
-init|=
-literal|null
 decl_stmt|;
 name|mbi
 operator|=
@@ -1027,9 +1024,6 @@ name|mbeans
 operator|.
 name|remove
 argument_list|(
-operator|(
-name|ObjectName
-operator|)
 name|name
 argument_list|)
 expr_stmt|;
@@ -1256,8 +1250,6 @@ parameter_list|()
 block|{
 name|String
 name|hostName
-init|=
-name|DEFAULT_HOST
 decl_stmt|;
 name|boolean
 name|canAccessSystemProps

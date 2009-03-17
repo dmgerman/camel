@@ -274,6 +274,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -494,15 +508,16 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+comment|// must rethrow to allow CamelContext fallback to non JMX agent to allow
+comment|// Camel to continue to run
+throw|throw
+name|ObjectHelper
 operator|.
-name|warn
+name|wrapRuntimeCamelException
 argument_list|(
-literal|"Could not register CamelContext MBean"
-argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 block|}

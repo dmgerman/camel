@@ -3795,6 +3795,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+try|try
+block|{
 name|lifecycleStrategy
 operator|.
 name|onContextStart
@@ -3802,6 +3804,60 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// not all containers allow access to its MBeanServer (such as OC4j)
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot start lifecycleStrategy: "
+operator|+
+name|lifecycleStrategy
+operator|+
+literal|". Cause: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|lifecycleStrategy
+operator|instanceof
+name|InstrumentationLifecycleStrategy
+condition|)
+block|{
+comment|// fallback to non JMX lifecycle to allow Camel to startup
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Will fallback to use default (non JMX) lifecycle strategy"
+argument_list|)
+expr_stmt|;
+name|lifecycleStrategy
+operator|=
+operator|new
+name|DefaultLifecycleStrategy
+argument_list|()
+expr_stmt|;
+name|lifecycleStrategy
+operator|.
+name|onContextStart
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|forceLazyInitialization
 argument_list|()
 expr_stmt|;
@@ -3862,7 +3918,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|//startRoutes(routes);
 name|LOG
 operator|.
 name|info
@@ -3918,7 +3973,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/*         protected void startRoutes(Collection<Route> routeList) throws Exception {             if (routeList != null) {                 for (Route route : routeList) {                     List<Service> services = route.getServicesForRoute();                     for (Service service : services) {                         addService(service);                     }                 }             }         }      */
 comment|/**      * Starts the given route service      */
 DECL|method|startRouteService (RouteService routeService)
 specifier|protected
