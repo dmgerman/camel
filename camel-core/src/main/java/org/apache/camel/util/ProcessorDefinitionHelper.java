@@ -73,15 +73,15 @@ comment|/**  * Helper class for ProcessorType and the other model classes.  */
 end_comment
 
 begin_class
-DECL|class|ProcessorTypeHelper
+DECL|class|ProcessorDefinitionHelper
 specifier|public
 specifier|final
 class|class
-name|ProcessorTypeHelper
+name|ProcessorDefinitionHelper
 block|{
-DECL|method|ProcessorTypeHelper ()
+DECL|method|ProcessorDefinitionHelper ()
 specifier|private
-name|ProcessorTypeHelper
+name|ProcessorDefinitionHelper
 parameter_list|()
 block|{     }
 comment|/**      * Looks for the given type in the list of outputs and recurring all the children as well.      * Will stop at first found and return it.      *      * @param outputs  list of outputs, can be null or empty.      * @param type     the type to look for      * @return         the first found type, or<tt>null</tt> if not found      */
@@ -215,6 +215,17 @@ name|child
 return|;
 block|}
 block|}
+comment|// otherwise is optional
+if|if
+condition|(
+name|choice
+operator|.
+name|getOtherwise
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|List
 argument_list|<
 name|ProcessorDefinition
@@ -249,6 +260,7 @@ block|{
 return|return
 name|child
 return|;
+block|}
 block|}
 block|}
 comment|// try children as well

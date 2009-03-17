@@ -514,7 +514,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ProcessorTypeHelper
+name|ProcessorDefinitionHelper
 import|;
 end_import
 
@@ -1687,7 +1687,7 @@ comment|// the current outputs to out route so we will proceed and continue to r
 name|ProceedDefinition
 name|proceed
 init|=
-name|ProcessorTypeHelper
+name|ProcessorDefinitionHelper
 operator|.
 name|findFirstTypeInOutputs
 argument_list|(
