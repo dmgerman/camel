@@ -103,7 +103,7 @@ init|=
 literal|"http://localhost:9080/camel-example-reportincident/webservices/incident"
 decl_stmt|;
 DECL|field|camel
-specifier|private
+specifier|protected
 name|CamelContext
 name|camel
 decl_stmt|;
@@ -145,6 +145,20 @@ expr_stmt|;
 name|camel
 operator|.
 name|start
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|stopCamel ()
+specifier|protected
+name|void
+name|stopCamel
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|camel
+operator|.
+name|stop
 argument_list|()
 expr_stmt|;
 block|}
@@ -212,6 +226,11 @@ argument_list|(
 literal|"incident@mycompany.com"
 argument_list|)
 decl_stmt|;
+name|inbox
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Should not have mails"
@@ -337,10 +356,35 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// stop camel
-name|camel
+name|assertTrue
+argument_list|(
+literal|" We should get the email address from the mail "
+argument_list|,
+operator|(
+operator|(
+name|String
+operator|)
+name|inbox
 operator|.
-name|stop
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getContent
+argument_list|()
+operator|)
+operator|.
+name|indexOf
+argument_list|(
+literal|"- email: davsclaus@apache.org"
+argument_list|)
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// stop camel
+name|stopCamel
 argument_list|()
 expr_stmt|;
 block|}
