@@ -293,21 +293,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|timer
+comment|// we can use a single shared static timer for async redeliveries
+DECL|field|REDELIVER_TIMER
 specifier|private
 specifier|static
+specifier|final
 name|Timer
-name|timer
+name|REDELIVER_TIMER
 init|=
 operator|new
 name|Timer
-argument_list|()
-decl_stmt|;
-DECL|field|output
-specifier|private
-specifier|final
-name|Processor
-name|output
+argument_list|(
+literal|"Camel DeadLetterChannel Redeliver Timer"
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 DECL|field|deadLetter
 specifier|private
@@ -321,11 +321,23 @@ specifier|final
 name|String
 name|deadLetterUri
 decl_stmt|;
+DECL|field|output
+specifier|private
+specifier|final
+name|Processor
+name|output
+decl_stmt|;
 DECL|field|outputAsync
 specifier|private
 specifier|final
 name|AsyncProcessor
 name|outputAsync
+decl_stmt|;
+DECL|field|redeliveryProcessor
+specifier|private
+specifier|final
+name|Processor
+name|redeliveryProcessor
 decl_stmt|;
 DECL|field|redeliveryPolicy
 specifier|private
@@ -336,12 +348,6 @@ DECL|field|logger
 specifier|private
 name|Logger
 name|logger
-decl_stmt|;
-DECL|field|redeliveryProcessor
-specifier|private
-specifier|final
-name|Processor
-name|redeliveryProcessor
 decl_stmt|;
 DECL|class|RedeliveryData
 specifier|private
@@ -509,7 +515,7 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-comment|// if we are redelivering then sleep before trying again
+comment|// deliver to async to process it
 name|asyncProcess
 argument_list|(
 name|exchange
@@ -1284,7 +1290,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|// wait until we should redeliver
+comment|// wait until we should redeliver using a timer to avoid thread blocking
 name|data
 operator|.
 name|redeliveryDelay
@@ -1304,7 +1310,7 @@ operator|.
 name|redeliveryCounter
 argument_list|)
 expr_stmt|;
-name|timer
+name|REDELIVER_TIMER
 operator|.
 name|schedule
 argument_list|(

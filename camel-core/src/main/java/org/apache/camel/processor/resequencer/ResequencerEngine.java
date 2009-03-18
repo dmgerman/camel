@@ -128,7 +128,9 @@ operator|=
 operator|new
 name|Timer
 argument_list|(
-literal|"Stream Resequencer Timer"
+literal|"Camel Stream Resequencer Timer"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

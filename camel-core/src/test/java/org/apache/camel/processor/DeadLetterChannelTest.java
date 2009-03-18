@@ -561,7 +561,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-literal|"Timer-0"
+literal|"Camel DeadLetterChannel Redeliver Timer"
 argument_list|)
 expr_stmt|;
 block|}

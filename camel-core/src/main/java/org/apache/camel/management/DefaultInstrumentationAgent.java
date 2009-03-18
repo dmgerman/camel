@@ -112,6 +112,42 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Executors
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -407,6 +443,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|executorService
+specifier|private
+name|ExecutorService
+name|executorService
+decl_stmt|;
 DECL|field|server
 specifier|private
 name|MBeanServer
@@ -646,6 +687,16 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+DECL|method|getRegistryPort ()
+specifier|public
+name|Integer
+name|getRegistryPort
+parameter_list|()
+block|{
+return|return
+name|registryPort
+return|;
+block|}
 DECL|method|setConnectorPort (Integer value)
 specifier|public
 name|void
@@ -659,6 +710,16 @@ name|connectorPort
 operator|=
 name|value
 expr_stmt|;
+block|}
+DECL|method|getConnectorPort ()
+specifier|public
+name|Integer
+name|getConnectorPort
+parameter_list|()
+block|{
+return|return
+name|connectorPort
+return|;
 block|}
 DECL|method|setMBeanServerDefaultDomain (String value)
 specifier|public
@@ -674,6 +735,16 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+DECL|method|getMBeanServerDefaultDomain ()
+specifier|public
+name|String
+name|getMBeanServerDefaultDomain
+parameter_list|()
+block|{
+return|return
+name|mBeanServerDefaultDomain
+return|;
+block|}
 DECL|method|setMBeanObjectDomainName (String value)
 specifier|public
 name|void
@@ -687,6 +758,16 @@ name|mBeanObjectDomainName
 operator|=
 name|value
 expr_stmt|;
+block|}
+DECL|method|getMBeanObjectDomainName ()
+specifier|public
+name|String
+name|getMBeanObjectDomainName
+parameter_list|()
+block|{
+return|return
+name|mBeanObjectDomainName
+return|;
 block|}
 DECL|method|setServiceUrlPath (String value)
 specifier|public
@@ -702,6 +783,16 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+DECL|method|getServiceUrlPath ()
+specifier|public
+name|String
+name|getServiceUrlPath
+parameter_list|()
+block|{
+return|return
+name|serviceUrlPath
+return|;
+block|}
 DECL|method|setCreateConnector (Boolean flag)
 specifier|public
 name|void
@@ -715,6 +806,16 @@ name|createConnector
 operator|=
 name|flag
 expr_stmt|;
+block|}
+DECL|method|getCreateConnector ()
+specifier|public
+name|Boolean
+name|getCreateConnector
+parameter_list|()
+block|{
+return|return
+name|createConnector
+return|;
 block|}
 DECL|method|setUsePlatformMBeanServer (Boolean flag)
 specifier|public
@@ -730,6 +831,30 @@ operator|=
 name|flag
 expr_stmt|;
 block|}
+DECL|method|getUsePlatformMBeanServer ()
+specifier|public
+name|Boolean
+name|getUsePlatformMBeanServer
+parameter_list|()
+block|{
+return|return
+name|usePlatformMBeanServer
+return|;
+block|}
+DECL|method|setServer (MBeanServer value)
+specifier|public
+name|void
+name|setServer
+parameter_list|(
+name|MBeanServer
+name|value
+parameter_list|)
+block|{
+name|server
+operator|=
+name|value
+expr_stmt|;
+block|}
 DECL|method|getMBeanServer ()
 specifier|public
 name|MBeanServer
@@ -739,6 +864,32 @@ block|{
 return|return
 name|server
 return|;
+block|}
+DECL|method|getExecutorService ()
+specifier|public
+name|ExecutorService
+name|getExecutorService
+parameter_list|()
+block|{
+return|return
+name|executorService
+return|;
+block|}
+DECL|method|setExecutorService (ExecutorService executorService)
+specifier|public
+name|void
+name|setExecutorService
+parameter_list|(
+name|ExecutorService
+name|executorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
+expr_stmt|;
 block|}
 DECL|method|register (Object obj, ObjectName name)
 specifier|public
@@ -1527,6 +1678,7 @@ block|{
 comment|// The registry may had been created, we could get the registry instead
 block|}
 comment|// Create an RMI connector and start it
+specifier|final
 name|JMXServiceURL
 name|url
 decl_stmt|;
@@ -1594,12 +1746,70 @@ argument_list|,
 name|server
 argument_list|)
 expr_stmt|;
-comment|// Start the connector server asynchronously (in a separate thread).
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// we only need a single for the JMX connector
+name|executorService
+operator|=
+name|Executors
+operator|.
+name|newSingleThreadExecutor
+argument_list|(
+operator|new
+name|ThreadFactory
+argument_list|()
+block|{
+specifier|public
 name|Thread
-name|connectorThread
+name|newThread
+parameter_list|(
+name|Runnable
+name|runnable
+parameter_list|)
+block|{
+name|Thread
+name|thread
 init|=
 operator|new
 name|Thread
+argument_list|(
+name|runnable
+argument_list|,
+name|getThreadName
+argument_list|(
+literal|"Camel JMXConnector: "
+operator|+
+name|url
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|thread
+operator|.
+name|setDaemon
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|thread
+return|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|// execute the JMX connector
+name|executorService
+operator|.
+name|execute
+argument_list|(
+operator|new
+name|Runnable
 argument_list|()
 block|{
 specifier|public
@@ -1633,22 +1843,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-decl_stmt|;
-name|connectorThread
-operator|.
-name|setName
-argument_list|(
-literal|"Camel JMX Connector Thread ["
-operator|+
-name|url
-operator|+
-literal|"]"
 argument_list|)
-expr_stmt|;
-name|connectorThread
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
@@ -1658,30 +1853,6 @@ literal|"JMX Connector thread started and listening at: "
 operator|+
 name|url
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getMBeanObjectDomainName ()
-specifier|public
-name|String
-name|getMBeanObjectDomainName
-parameter_list|()
-block|{
-return|return
-name|mBeanObjectDomainName
-return|;
-block|}
-DECL|method|setServer (MBeanServer value)
-specifier|public
-name|void
-name|setServer
-parameter_list|(
-name|MBeanServer
-name|value
-parameter_list|)
-block|{
-name|server
-operator|=
-name|value
 expr_stmt|;
 block|}
 block|}
