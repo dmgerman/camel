@@ -273,6 +273,20 @@ operator|.
 name|clearOutput
 argument_list|()
 expr_stmt|;
+comment|// a list of processors in the route
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
+name|counterList
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|// add the output configure the outputs with the routeType
 for|for
 control|(
@@ -289,7 +303,29 @@ argument_list|(
 name|processorType
 argument_list|)
 expr_stmt|;
+name|counterList
+operator|.
+name|add
+argument_list|(
+name|processorType
+argument_list|)
+expr_stmt|;
 block|}
+comment|// set the error handler strategy containing the list of outputs added
+comment|// TODO: align this code with InstrumentationLifecycleStrategy
+name|routeContext
+operator|.
+name|setErrorHandlerWrappingStrategy
+argument_list|(
+operator|new
+name|DefaultErrorHandlerWrappingStrategy
+argument_list|(
+name|routeContext
+argument_list|,
+name|counterList
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

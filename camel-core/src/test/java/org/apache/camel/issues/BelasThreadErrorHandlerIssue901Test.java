@@ -194,23 +194,6 @@ name|redelivery
 init|=
 literal|1
 decl_stmt|;
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|disableJMX
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|testThreadErrorHandlerLogging ()
 specifier|public
 name|void
@@ -227,11 +210,13 @@ argument_list|(
 literal|"mock:handled"
 argument_list|)
 decl_stmt|;
+comment|// in case of an exception we should receive the original input,
+comment|// so this is message 1
 name|handled
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-name|msg3
+name|msg1
 argument_list|)
 expr_stmt|;
 try|try
@@ -274,6 +259,8 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
+operator|+
+name|redelivery
 argument_list|,
 name|callCounter1
 argument_list|)
@@ -281,6 +268,8 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
+operator|+
+name|redelivery
 argument_list|,
 name|callCounter2
 argument_list|)
@@ -294,7 +283,6 @@ argument_list|,
 name|callCounter3
 argument_list|)
 expr_stmt|;
-comment|// Only this should be more then 1
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected

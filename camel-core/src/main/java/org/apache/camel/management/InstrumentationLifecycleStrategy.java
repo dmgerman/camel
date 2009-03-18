@@ -935,6 +935,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// TODO: align this code with InstrumentationLifecycleStrategy
 name|routeContext
 operator|.
 name|addInterceptStrategy
@@ -1006,7 +1007,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Add InstrumentationProcessor to first input only."
+literal|"Addding InstrumentationProcessor to first input only."
 argument_list|)
 expr_stmt|;
 block|}

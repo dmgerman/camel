@@ -199,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test based on user forum problem.  *  * @version $Revision$  */
+comment|/**  * Unit test based on user forum problem - CAMEL-1463.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -210,6 +210,14 @@ name|ChoiceNoErrorHandlerTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|jmx
+specifier|private
+specifier|static
+name|boolean
+name|jmx
+init|=
+literal|true
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -220,18 +228,60 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: disable JMX and you get the bug
-comment|//disableJMX();
+comment|// we must enable/disable JMX in this setUp
+if|if
+condition|(
+name|jmx
+condition|)
+block|{
+name|enableJMX
+argument_list|()
+expr_stmt|;
+name|jmx
+operator|=
+literal|false
+expr_stmt|;
+block|}
+else|else
+block|{
+name|disableJMX
+argument_list|()
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testNoErrorHandler ()
+DECL|method|testChoiceNoErrorHandler ()
 specifier|public
 name|void
-name|testNoErrorHandler
+name|testChoiceNoErrorHandler
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|doTest
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testChoiceNoErrorHandlerJMXDisabled ()
+specifier|public
+name|void
+name|testChoiceNoErrorHandlerJMXDisabled
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|doTest
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|doTest ()
+specifier|private
+name|void
+name|doTest
 parameter_list|()
 throws|throws
 name|Exception
@@ -392,7 +442,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// TODO: We need a better solution to traverse a route than using reflection
 DECL|method|findProceesorInRoute (Processor route, Class<T> type)
 specifier|private
 parameter_list|<
