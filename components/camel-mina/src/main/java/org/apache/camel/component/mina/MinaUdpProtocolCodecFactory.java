@@ -74,7 +74,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverter
+name|NoTypeConversionAvailableException
 import|;
 end_import
 
@@ -86,7 +86,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoTypeConversionAvailableException
+name|TypeConverter
 import|;
 end_import
 

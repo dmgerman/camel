@@ -26,7 +26,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|FactoryFinderResolver
+name|ClassResolver
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ClassResolver
+name|FactoryFinderResolver
 import|;
 end_import
 

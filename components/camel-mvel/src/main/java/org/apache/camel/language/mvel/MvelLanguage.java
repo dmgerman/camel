@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Predicate
+name|IsSingleton
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|IsSingleton
+name|Predicate
 import|;
 end_import
 
