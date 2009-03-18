@@ -319,6 +319,18 @@ operator|+
 name|routes
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getShortName ()
+specifier|public
+name|String
+name|getShortName
+parameter_list|()
+block|{
+return|return
+literal|"routes"
+return|;
+block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
 DECL|method|getRoutes ()
