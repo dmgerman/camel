@@ -634,6 +634,8 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
+throws|throws
+name|NoTypeConversionAvailableException
 block|{
 return|return
 name|mandatoryConvertTo
@@ -666,6 +668,8 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
+throws|throws
+name|NoTypeConversionAvailableException
 block|{
 name|Object
 name|answer

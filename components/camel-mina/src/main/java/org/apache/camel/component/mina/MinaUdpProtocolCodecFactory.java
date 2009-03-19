@@ -72,6 +72,18 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|mina
 operator|.
 name|common
@@ -409,6 +421,8 @@ name|encoder
 parameter_list|)
 throws|throws
 name|CharacterCodingException
+throws|,
+name|NoTypeConversionAvailableException
 block|{
 name|String
 name|value

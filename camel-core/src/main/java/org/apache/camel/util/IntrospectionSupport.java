@@ -1501,6 +1501,8 @@ name|value
 parameter_list|)
 throws|throws
 name|URISyntaxException
+throws|,
+name|NoTypeConversionAvailableException
 block|{
 if|if
 condition|(

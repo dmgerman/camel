@@ -24,7 +24,7 @@ specifier|public
 class|class
 name|NoTypeConversionAvailableException
 extends|extends
-name|RuntimeCamelException
+name|CamelException
 block|{
 DECL|field|value
 specifier|private

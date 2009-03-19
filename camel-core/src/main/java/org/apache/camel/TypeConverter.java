@@ -80,6 +80,8 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
+throws|throws
+name|NoTypeConversionAvailableException
 function_decl|;
 comment|/**      * Converts the value to the specified type in the context of an exchange      *<p/>      * Used when conversion requires extra information from the current      * exchange (such as encoding).      *      * @param type the requested type      * @param exchange the current exchange      * @param value the value to be converted      * @return the converted value, is never<tt>null</tt>      * @throws NoTypeConversionAvailableException} if conversion not possible      */
 DECL|method|mandatoryConvertTo (Class<T> type, Exchange exchange, Object value)
@@ -101,6 +103,8 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
+throws|throws
+name|NoTypeConversionAvailableException
 function_decl|;
 block|}
 end_interface
