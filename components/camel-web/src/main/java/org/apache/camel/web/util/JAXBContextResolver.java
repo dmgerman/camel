@@ -90,20 +90,6 @@ name|JSONJAXBContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|Constants
-import|;
-end_import
-
 begin_comment
 comment|/**  * A resolver of the JAXB context primed for the Camel XML languages  * which supports JSON as well as XML encoding  *  * @version $Revision$  */
 end_comment
