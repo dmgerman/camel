@@ -88,7 +88,7 @@ name|PropertyEditorTypeConverter
 implements|implements
 name|TypeConverter
 block|{
-DECL|method|convertTo (Class<T> toType, Object value)
+DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
 name|T
@@ -100,7 +100,7 @@ name|Class
 argument_list|<
 name|T
 argument_list|>
-name|toType
+name|type
 parameter_list|,
 name|Object
 name|value
@@ -134,7 +134,7 @@ block|{
 comment|// No conversion needed.
 if|if
 condition|(
-name|toType
+name|type
 operator|==
 name|String
 operator|.
@@ -146,7 +146,7 @@ name|ObjectHelper
 operator|.
 name|cast
 argument_list|(
-name|toType
+name|type
 argument_list|,
 name|value
 argument_list|)
@@ -159,7 +159,7 @@ name|PropertyEditorManager
 operator|.
 name|findEditor
 argument_list|(
-name|toType
+name|type
 argument_list|)
 decl_stmt|;
 if|if
@@ -184,7 +184,7 @@ name|ObjectHelper
 operator|.
 name|cast
 argument_list|(
-name|toType
+name|type
 argument_list|,
 name|editor
 operator|.
@@ -197,7 +197,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|toType
+name|type
 operator|==
 name|String
 operator|.
@@ -236,7 +236,7 @@ name|ObjectHelper
 operator|.
 name|cast
 argument_list|(
-name|toType
+name|type
 argument_list|,
 name|editor
 operator|.
@@ -257,6 +257,63 @@ name|T
 parameter_list|>
 name|T
 name|convertTo
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|convertTo
+argument_list|(
+name|type
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
+DECL|method|mandatoryConvertTo (Class<T> type, Object value)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|mandatoryConvertTo
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|convertTo
+argument_list|(
+name|type
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
+DECL|method|mandatoryConvertTo (Class<T> type, Exchange exchange, Object value)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|mandatoryConvertTo
 parameter_list|(
 name|Class
 argument_list|<

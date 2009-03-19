@@ -479,6 +479,7 @@ block|{
 return|return
 literal|"jpa"
 operator|+
+operator|(
 name|entityType
 operator|!=
 literal|null
@@ -491,6 +492,7 @@ name|getName
 argument_list|()
 else|:
 literal|""
+operator|)
 return|;
 block|}
 comment|// Properties
@@ -953,12 +955,6 @@ block|{
 name|Object
 name|answer
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|answer
-operator|=
 name|exchange
 operator|.
 name|getIn
@@ -968,16 +964,7 @@ name|getBody
 argument_list|(
 name|type
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NoTypeConversionAvailableException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
+decl_stmt|;
 if|if
 condition|(
 name|answer
@@ -1013,8 +1000,7 @@ name|type
 argument_list|)
 throw|;
 block|}
-comment|// if we don't have a body then
-comment|// lets instantiate and inject a new instance
+comment|// if we don't have a body then lets instantiate and inject a new instance
 name|answer
 operator|=
 name|exchange

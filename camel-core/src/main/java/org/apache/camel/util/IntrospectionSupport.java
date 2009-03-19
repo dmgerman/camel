@@ -1512,7 +1512,7 @@ block|{
 return|return
 name|typeConverter
 operator|.
-name|convertTo
+name|mandatoryConvertTo
 argument_list|(
 name|type
 argument_list|,

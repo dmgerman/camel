@@ -78,18 +78,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoTypeConversionAvailableException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultProducer
@@ -253,7 +241,18 @@ name|argNumber
 init|=
 literal|1
 decl_stmt|;
-try|try
+if|if
+condition|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+operator|!=
+literal|null
+condition|)
 block|{
 name|Iterator
 argument_list|<
@@ -299,14 +298,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|NoTypeConversionAvailableException
-name|e
-parameter_list|)
-block|{
-comment|// ignored - assumed no parameters have to be used
 block|}
 comment|// number of parameters must match
 name|int

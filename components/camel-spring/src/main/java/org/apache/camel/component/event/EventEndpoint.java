@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoTypeConversionAvailableException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -540,8 +528,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-try|try
-block|{
 name|ApplicationEvent
 name|event
 init|=
@@ -567,15 +553,6 @@ block|{
 return|return
 name|event
 return|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|NoTypeConversionAvailableException
-name|ex
-parameter_list|)
-block|{
-comment|// ignore, handled below
 block|}
 return|return
 operator|new

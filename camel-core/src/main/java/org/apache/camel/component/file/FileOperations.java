@@ -142,18 +142,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoTypeConversionAvailableException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -726,8 +714,6 @@ name|source
 init|=
 literal|null
 decl_stmt|;
-try|try
-block|{
 if|if
 condition|(
 name|exchange
@@ -765,15 +751,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|NoTypeConversionAvailableException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
 block|}
 if|if
 condition|(

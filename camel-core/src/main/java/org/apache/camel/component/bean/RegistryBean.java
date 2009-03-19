@@ -50,18 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoTypeConversionAvailableException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -347,8 +335,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-try|try
-block|{
 name|processor
 operator|=
 name|CamelContextHelper
@@ -364,15 +350,6 @@ argument_list|,
 name|bean
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NoTypeConversionAvailableException
-name|ex
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 block|}
 return|return
 name|processor

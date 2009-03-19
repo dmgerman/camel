@@ -86,18 +86,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoTypeConversionAvailableException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -447,8 +435,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
 name|BeanInvocation
 name|beanInvoke
 init|=
@@ -478,15 +464,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 return|return;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|NoTypeConversionAvailableException
-name|ex
-parameter_list|)
-block|{
-comment|// ignore, body is not a BeanInvocation
 block|}
 name|boolean
 name|isExplicitMethod

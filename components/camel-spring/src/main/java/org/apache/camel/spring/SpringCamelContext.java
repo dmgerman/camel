@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoTypeConversionAvailableException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|bean
@@ -648,16 +636,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|RuntimeException
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|e
-throw|;
-block|}
-catch|catch
-parameter_list|(
 name|Exception
 name|e
 parameter_list|)
@@ -921,8 +899,6 @@ name|bean
 parameter_list|)
 block|{
 comment|// We will use the type convert to build the endpoint first
-try|try
-block|{
 name|Endpoint
 name|endpoint
 init|=
@@ -955,15 +931,6 @@ expr_stmt|;
 return|return
 name|endpoint
 return|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|NoTypeConversionAvailableException
-name|ex
-parameter_list|)
-block|{
-comment|// ignore, handled below
 block|}
 return|return
 operator|new

@@ -51,34 +51,12 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"No type converter available to convert from type: "
-operator|+
-operator|(
+name|createMessage
+argument_list|(
 name|value
-operator|!=
-literal|null
-condition|?
-name|value
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getCanonicalName
-argument_list|()
-else|:
-literal|null
-operator|)
-operator|+
-literal|" to the required type: "
-operator|+
+argument_list|,
 name|type
-operator|.
-name|getCanonicalName
-argument_list|()
-operator|+
-literal|" with value "
-operator|+
-name|value
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -94,6 +72,33 @@ operator|=
 name|type
 expr_stmt|;
 block|}
+DECL|method|NoTypeConversionAvailableException (Object value, Class type, Throwable cause)
+specifier|public
+name|NoTypeConversionAvailableException
+parameter_list|(
+name|Object
+name|value
+parameter_list|,
+name|Class
+name|type
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|value
+argument_list|,
+name|type
+argument_list|)
+expr_stmt|;
+name|initCause
+argument_list|(
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Returns the value which could not be converted      */
 DECL|method|getValue ()
 specifier|public
@@ -106,10 +111,10 @@ name|value
 return|;
 block|}
 comment|/**      * Returns the required<tt>to</tt> type      */
-DECL|method|getType ()
+DECL|method|getToType ()
 specifier|public
 name|Class
-name|getType
+name|getToType
 parameter_list|()
 block|{
 return|return
@@ -143,6 +148,53 @@ return|return
 literal|null
 return|;
 block|}
+block|}
+comment|/**      * Returns an error message for no type converter available.      */
+DECL|method|createMessage (Object value, Class type)
+specifier|public
+specifier|static
+name|String
+name|createMessage
+parameter_list|(
+name|Object
+name|value
+parameter_list|,
+name|Class
+name|type
+parameter_list|)
+block|{
+return|return
+operator|(
+literal|"No type converter available to convert from type: "
+operator|+
+operator|(
+name|value
+operator|!=
+literal|null
+condition|?
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+else|:
+literal|null
+operator|)
+operator|+
+literal|" to the required type: "
+operator|+
+name|type
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" with value "
+operator|+
+name|value
+operator|)
+return|;
 block|}
 block|}
 end_class

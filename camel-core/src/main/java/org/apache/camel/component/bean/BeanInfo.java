@@ -220,18 +220,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoTypeConversionAvailableException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|OutHeaders
 import|;
 end_import
@@ -1939,11 +1927,7 @@ control|)
 block|{
 name|Object
 name|value
-decl_stmt|;
-try|try
-block|{
-name|value
-operator|=
+init|=
 name|convertToType
 argument_list|(
 name|exchange
@@ -1955,7 +1939,7 @@ argument_list|()
 argument_list|,
 name|body
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|value
@@ -2034,16 +2018,6 @@ operator|=
 name|methodInfo
 expr_stmt|;
 block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|NoTypeConversionAvailableException
-name|e
-parameter_list|)
-block|{
-comment|// we can safely ignore this exception as we want a behaviour similar to
-comment|// that if convertToType return null
 block|}
 block|}
 if|if

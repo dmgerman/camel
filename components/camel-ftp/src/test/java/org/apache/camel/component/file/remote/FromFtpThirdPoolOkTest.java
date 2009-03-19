@@ -80,18 +80,18 @@ name|FromFtpThirdPoolOkTest
 extends|extends
 name|FtpServerTestSupport
 block|{
+DECL|field|counter
+specifier|private
+specifier|static
+name|int
+name|counter
+decl_stmt|;
 DECL|field|body
 specifier|private
 name|String
 name|body
 init|=
 literal|"Hello World this file will be deleted"
-decl_stmt|;
-DECL|field|counter
-specifier|private
-specifier|static
-name|int
-name|counter
 decl_stmt|;
 DECL|method|getFtpUrl ()
 specifier|private

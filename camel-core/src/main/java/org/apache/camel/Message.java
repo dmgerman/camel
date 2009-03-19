@@ -148,13 +148,21 @@ argument_list|>
 name|headers
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the body of the message as a POJO      */
+comment|/**      * Returns the body of the message as a POJO      *<p/>      * The body can be<tt>null</tt> if no body is set      *      * @return the body, can be<tt>null</tt>      */
 DECL|method|getBody ()
 name|Object
 name|getBody
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the body as the specified type      *      * @param type the type that the body      * @return the body of the message as the specified type      */
+comment|/**      * Returns the body of the message as a POJO      *      * @return the body, is never<tt>null</tt>      * @throws InvalidPayloadException Is thrown if the body being<tt>null</tt> or wrong class type      */
+DECL|method|getMandatoryBody ()
+name|Object
+name|getMandatoryBody
+parameter_list|()
+throws|throws
+name|InvalidPayloadException
+function_decl|;
+comment|/**      * Returns the body as the specified type      *      * @param type the type that the body      * @return the body of the message as the specified type, or<tt>null</tt> if not possible to convert      */
 DECL|method|getBody (Class<T> type)
 parameter_list|<
 name|T
@@ -168,6 +176,23 @@ name|T
 argument_list|>
 name|type
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the mandatory body as the specified type      *      * @param type the type that the body      * @return the body of the message as the specified type, is never<tt>null</tt>.      * @throws InvalidPayloadException Is thrown if the body being<tt>null</tt> or wrong class type      */
+DECL|method|getMandatoryBody (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getMandatoryBody
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+throws|throws
+name|InvalidPayloadException
 function_decl|;
 comment|/**      * Sets the body of the message      *      * @param body the body      */
 DECL|method|setBody (Object body)

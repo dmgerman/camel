@@ -886,12 +886,11 @@ return|return
 name|deadLetterUri
 return|;
 block|}
-DECL|method|setDeadLetterUri (final String deadLetterUri)
+DECL|method|setDeadLetterUri (String deadLetterUri)
 specifier|public
 name|void
 name|setDeadLetterUri
 parameter_list|(
-specifier|final
 name|String
 name|deadLetterUri
 parameter_list|)

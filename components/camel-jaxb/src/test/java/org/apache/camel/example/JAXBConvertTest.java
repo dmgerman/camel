@@ -495,7 +495,7 @@ try|try
 block|{
 name|converter
 operator|.
-name|convertTo
+name|mandatoryConvertTo
 argument_list|(
 name|StreamCache
 operator|.

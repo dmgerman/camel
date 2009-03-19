@@ -178,7 +178,7 @@ literal|true
 return|;
 block|}
 block|}
-DECL|method|convertTo (Class<T> toType, Object value)
+DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
 name|T
@@ -190,7 +190,7 @@ name|Class
 argument_list|<
 name|T
 argument_list|>
-name|toType
+name|type
 parameter_list|,
 name|Object
 name|value
@@ -205,7 +205,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|toType
+name|type
 operator|.
 name|equals
 argument_list|(
@@ -223,7 +223,7 @@ name|AsyncProcessor
 condition|)
 block|{
 return|return
-name|toType
+name|type
 operator|.
 name|cast
 argument_list|(
@@ -250,7 +250,7 @@ operator|)
 name|value
 decl_stmt|;
 return|return
-name|toType
+name|type
 operator|.
 name|cast
 argument_list|(
@@ -268,7 +268,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|convertTo (Class<T> toType, Exchange exchange, Object value)
+DECL|method|convertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<
 name|T
@@ -280,7 +280,7 @@ name|Class
 argument_list|<
 name|T
 argument_list|>
-name|toType
+name|type
 parameter_list|,
 name|Exchange
 name|exchange
@@ -292,7 +292,64 @@ block|{
 return|return
 name|convertTo
 argument_list|(
-name|toType
+name|type
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
+DECL|method|mandatoryConvertTo (Class<T> type, Object value)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|mandatoryConvertTo
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|convertTo
+argument_list|(
+name|type
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
+DECL|method|mandatoryConvertTo (Class<T> type, Exchange exchange, Object value)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|mandatoryConvertTo
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|convertTo
+argument_list|(
+name|type
 argument_list|,
 name|value
 argument_list|)

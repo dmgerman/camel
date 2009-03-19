@@ -81,7 +81,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"No in body available of type: "
+literal|"No body available of type: "
 operator|+
 name|type
 operator|.
@@ -103,6 +103,68 @@ operator|+
 name|message
 argument_list|,
 name|exchange
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+block|}
+DECL|method|InvalidPayloadException (Exchange exchange, Class<?> type, Message message, Throwable cause)
+specifier|public
+name|InvalidPayloadException
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
+name|Message
+name|message
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"No body available of type: "
+operator|+
+name|type
+operator|.
+name|getName
+argument_list|()
+operator|+
+name|NoSuchPropertyException
+operator|.
+name|valueDescription
+argument_list|(
+name|message
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+operator|+
+literal|" on: "
+operator|+
+name|message
+operator|+
+literal|". Caused by: "
+operator|+
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|,
+name|cause
 argument_list|)
 expr_stmt|;
 name|this
