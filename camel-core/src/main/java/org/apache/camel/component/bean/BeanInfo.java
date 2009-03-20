@@ -659,9 +659,6 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * @deprecated not used      */
-annotation|@
-name|Deprecated
 DECL|method|createInvocation (Method method, Object pojo, Exchange exchange)
 specifier|public
 name|MethodInvocation

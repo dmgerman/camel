@@ -125,7 +125,6 @@ literal|"Or to take arms against a sea of troubles,\n"
 operator|+
 literal|"And by opposing end them? To die: to sleep;"
 decl_stmt|;
-empty_stmt|;
 annotation|@
 name|Override
 DECL|method|isUseRouteBuilder ()

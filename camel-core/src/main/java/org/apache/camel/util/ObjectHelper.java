@@ -2157,6 +2157,28 @@ return|;
 block|}
 try|try
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Loading class: "
+operator|+
+name|name
+operator|+
+literal|" using classloader: "
+operator|+
+name|loader
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|loader
 operator|.
