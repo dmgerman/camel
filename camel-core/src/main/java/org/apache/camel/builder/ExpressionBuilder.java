@@ -691,7 +691,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the property value with the given name      *      * @see Exchange#getProperty(String)      * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      */
+comment|/**      * Returns an expression for the property value of exchange with the given name      *      * @see Exchange#getProperty(String)      * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      */
 DECL|method|propertyExpression (final String propertyName)
 specifier|public
 specifier|static
@@ -743,7 +743,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the property value with the given name      *      * @see Exchange#getProperties()      * @return an expression object which will return the properties      */
+comment|/**      * Returns an expression for the properties of exchange with the given name      *      * @see Exchange#getProperties()      * @return an expression object which will return the properties      */
 DECL|method|propertiesExpression ()
 specifier|public
 specifier|static
@@ -780,6 +780,109 @@ parameter_list|()
 block|{
 return|return
 literal|"properties"
+return|;
+block|}
+block|}
+return|;
+block|}
+comment|/**      * Returns an expression for the properties of exchange with the given name      *      * @see Exchange#getProperties()      * @return an expression object which will return the properties      */
+DECL|method|camelContextPropertiesExpression ()
+specifier|public
+specifier|static
+name|Expression
+name|camelContextPropertiesExpression
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ExpressionAdapter
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getProperties
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"camelContextProperties"
+return|;
+block|}
+block|}
+return|;
+block|}
+comment|/**      * Returns an expression for the property value of the camel context with the given name      *      * @see Exchange#getProperty(String)      * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      */
+DECL|method|camelContextPropertyExpression (final String propertyName)
+specifier|public
+specifier|static
+name|Expression
+name|camelContextPropertyExpression
+parameter_list|(
+specifier|final
+name|String
+name|propertyName
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ExpressionAdapter
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|propertyName
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"camelContextProperty("
+operator|+
+name|propertyName
+operator|+
+literal|")"
 return|;
 block|}
 block|}
