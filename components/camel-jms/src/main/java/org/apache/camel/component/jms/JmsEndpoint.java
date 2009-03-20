@@ -3159,6 +3159,38 @@ name|jmsMessageType
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getJmsKeyFormatStrategy ()
+specifier|public
+name|JmsKeyFormatStrategy
+name|getJmsKeyFormatStrategy
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getJmsKeyFormatStrategy
+argument_list|()
+return|;
+block|}
+DECL|method|setJmsKeyFormatStrategy (JmsKeyFormatStrategy jmsHeaderStrategy)
+specifier|public
+name|void
+name|setJmsKeyFormatStrategy
+parameter_list|(
+name|JmsKeyFormatStrategy
+name|jmsHeaderStrategy
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setJmsKeyFormatStrategy
+argument_list|(
+name|jmsHeaderStrategy
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 annotation|@

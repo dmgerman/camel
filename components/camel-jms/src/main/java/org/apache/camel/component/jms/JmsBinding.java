@@ -909,9 +909,12 @@ comment|// when storing on this Camel JmsMessage object.
 name|String
 name|key
 init|=
-name|JmsBinding
+name|endpoint
 operator|.
-name|decodeFromSafeJmsHeaderName
+name|getJmsKeyFormatStrategy
+argument_list|()
+operator|.
+name|decodeKey
 argument_list|(
 name|name
 argument_list|)
@@ -1437,10 +1440,9 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-comment|// The following properties are set by the MessageProducer
-comment|// JMSDeliveryMode, JMSDestination, JMSExpiration,
-comment|// JMSPriority,
-comment|// The following are set on the underlying JMS provider
+comment|// The following properties are set by the MessageProducer:
+comment|// JMSDeliveryMode, JMSDestination, JMSExpiration, JMSPriorit
+comment|// The following are set on the underlying JMS provider:
 comment|// JMSMessageID, JMSTimestamp, JMSRedelivered
 name|LOG
 operator|.
@@ -1470,15 +1472,6 @@ name|headerValue
 argument_list|)
 condition|)
 block|{
-comment|// must encode to safe JMS header name before setting property on jmsMessage
-name|String
-name|key
-init|=
-name|encodeToSafeJmsHeaderName
-argument_list|(
-name|headerName
-argument_list|)
-decl_stmt|;
 comment|// only primitive headers and strings is allowed as properties
 comment|// see message properties: http://java.sun.com/j2ee/1.4/docs/api/javax/jms/Message.html
 name|Object
@@ -1498,6 +1491,20 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// must encode to safe JMS header name before setting property on jmsMessage
+name|String
+name|key
+init|=
+name|endpoint
+operator|.
+name|getJmsKeyFormatStrategy
+argument_list|()
+operator|.
+name|encodeKey
+argument_list|(
+name|headerName
+argument_list|)
+decl_stmt|;
 name|jmsMessage
 operator|.
 name|setObjectProperty
@@ -2244,50 +2251,6 @@ argument_list|(
 name|headerName
 argument_list|,
 name|headerValue
-argument_list|)
-return|;
-block|}
-comment|/**      * Encoder to encode JMS header keys that is that can be sent over the JMS transport.      *<p/>      * For example: Sending dots is the key is not allowed. Especially the Bean component has      * this problem if you want to provide the method name to invoke on the bean.      *<p/>      *<b>Note</b>: Currently this encoder is simple as it only supports encoding dots to underscores.      *      * @param headerName the header name      * @return the key to use instead for storing properties and to be for lookup of the same property      */
-DECL|method|encodeToSafeJmsHeaderName (String headerName)
-specifier|public
-specifier|static
-name|String
-name|encodeToSafeJmsHeaderName
-parameter_list|(
-name|String
-name|headerName
-parameter_list|)
-block|{
-return|return
-name|headerName
-operator|.
-name|replace
-argument_list|(
-literal|"."
-argument_list|,
-literal|"_"
-argument_list|)
-return|;
-block|}
-comment|/**      * Decode operation for the {@link #encodeToSafeJmsHeaderName(String)}.      *      * @param headerName the header name      * @return the original key      */
-DECL|method|decodeFromSafeJmsHeaderName (String headerName)
-specifier|public
-specifier|static
-name|String
-name|decodeFromSafeJmsHeaderName
-parameter_list|(
-name|String
-name|headerName
-parameter_list|)
-block|{
-return|return
-name|headerName
-operator|.
-name|replace
-argument_list|(
-literal|"_"
-argument_list|,
-literal|"."
 argument_list|)
 return|;
 block|}
