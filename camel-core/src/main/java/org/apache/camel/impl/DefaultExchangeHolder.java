@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.mina
+DECL|package|org.apache.camel.impl
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|mina
+name|impl
 package|;
 end_package
 
@@ -89,14 +87,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Holder object for sending an exchange over the wire using the MINA ObjectSerializationCodecFactory codec.  * This is configured using the<tt>transferExchange=true</tt> option for the TCP protocol.  *<p/>  * As opposed to normal usage of camel-mina where only the body part of the exchange is transfered, this holder  * object serializes the following fields over the wire:  *<ul>  *<li>in body</li>  *<li>out body</li>  *<li>in headers</li>  *<li>out headers</li>  *<li>fault body</li>  *<li>fault headers</li>  *<li>exchange properties</li>  *<li>exception</li>  *</ul>  * Any object that is not serializable will be skipped and Camel will log this at WARN level.  *  * @version $Revision$  */
+comment|/**  * Holder object for sending an exchange over a remote wire as a serialized object.  * This is usually configured using the<tt>transferExchange=true</tt> option on the endpoint.  *<p/>  * As opposed to normal usage where only the body part of the exchange is transfered over the wire,  * this holder object serializes the following fields over the wire:  *<ul>  *<li>in body</li>  *<li>out body</li>  *<li>in headers</li>  *<li>out headers</li>  *<li>fault body</li>  *<li>fault headers</li>  *<li>exchange properties</li>  *<li>exception</li>  *</ul>  * Any object that is not serializable will be skipped and Camel will log this at WARN level.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|MinaPayloadHolder
+DECL|class|DefaultExchangeHolder
 specifier|public
 class|class
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 implements|implements
 name|Serializable
 block|{
@@ -121,7 +119,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 operator|.
 name|class
 argument_list|)
@@ -222,22 +220,22 @@ specifier|private
 name|Exception
 name|exception
 decl_stmt|;
-comment|/**      * Creates a payload object with the information from the given exchange.      * Only marshal the Serializable object      *      * @param exchange     the exchange      * @return the holder object with information copied form the exchange      */
+comment|/**      * Creates a payload object with the information from the given exchange.      * Only marshal the Serializable object      *      * @param exchange the exchange      * @return the holder object with information copied form the exchange      */
 DECL|method|marshal (Exchange exchange)
 specifier|public
 specifier|static
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 name|marshal
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 name|payload
 init|=
 operator|new
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 argument_list|()
 decl_stmt|;
 name|payload
@@ -407,8 +405,8 @@ return|return
 name|payload
 return|;
 block|}
-comment|/**      * Transfers the information from the payload to the exchange.      *      * @param exchange   the exchange to set values from the payload      * @param payload    the payload with the values      */
-DECL|method|unmarshal (Exchange exchange, MinaPayloadHolder payload)
+comment|/**      * Transfers the information from the payload to the exchange.      *      * @param exchange the exchange to set values from the payload      * @param payload  the payload with the values      */
+DECL|method|unmarshal (Exchange exchange, DefaultExchangeHolder payload)
 specifier|public
 specifier|static
 name|void
@@ -417,7 +415,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 name|payload
 parameter_list|)
 block|{
@@ -559,42 +557,113 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
-literal|"MinaPayloadHolder{"
-operator|+
+name|StringBuilder
+name|sb
+init|=
+operator|new
+name|StringBuilder
+argument_list|(
+literal|"DefaultExchangeHolder["
+argument_list|)
+decl_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
 literal|"inBody="
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|inBody
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|", outBody="
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|outBody
-operator|+
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
 literal|", inHeaders="
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|inHeaders
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|", outHeaders="
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|outHeaders
-operator|+
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
 literal|", faultBody="
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|faultBody
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|", faultHeaders="
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|faultHeaders
-operator|+
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
 literal|", properties="
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|properties
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|", exception="
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|exception
-operator|+
-literal|'}'
+argument_list|)
+expr_stmt|;
+return|return
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|']'
+argument_list|)
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 DECL|method|checkSerializableObject (String type, Object object)
@@ -633,7 +702,7 @@ literal|" containig object "
 operator|+
 name|object
 operator|+
-literal|" cannot be serialized, it will be excluded by the MinaPayloadHolder"
+literal|" cannot be serialized, it will be excluded by the holder"
 argument_list|)
 expr_stmt|;
 return|return
@@ -758,7 +827,7 @@ operator|.
 name|getKey
 argument_list|()
 operator|+
-literal|" cannot be serialized, it will be excluded by the MinaPayloadHolder"
+literal|" cannot be serialized, it will be excluded by the holder"
 argument_list|)
 expr_stmt|;
 block|}

@@ -3191,6 +3191,38 @@ name|jmsHeaderStrategy
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isTransferExchange ()
+specifier|public
+name|boolean
+name|isTransferExchange
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|isTransferExchange
+argument_list|()
+return|;
+block|}
+DECL|method|setTransferExchange (boolean transferExchange)
+specifier|public
+name|void
+name|setTransferExchange
+parameter_list|(
+name|boolean
+name|transferExchange
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setTransferExchange
+argument_list|(
+name|transferExchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 annotation|@

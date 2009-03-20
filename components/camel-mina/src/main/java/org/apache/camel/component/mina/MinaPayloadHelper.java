@@ -30,8 +30,22 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultExchangeHolder
+import|;
+end_import
+
 begin_comment
-comment|/**  * Helper to get and set the correct payload when transfering data using camel-mina.  * Always use this helper instead of direct access on the exchange object.  *<p/>  * This helper ensures that we can also transfer exchange objects over the wire using the  *<tt>exchangePayload=true</tt> option.  *  * @see org.apache.camel.component.mina.MinaPayloadHolder  * @version $Revision$  */
+comment|/**  * Helper to get and set the correct payload when transfering data using camel-mina.  * Always use this helper instead of direct access on the exchange object.  *<p/>  * This helper ensures that we can also transfer exchange objects over the wire using the  *<tt>transferExchange=true</tt> option.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -74,7 +88,7 @@ condition|)
 block|{
 comment|// we should transfer the entire exchange over the wire (includes in/out)
 return|return
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 operator|.
 name|marshal
 argument_list|(
@@ -122,7 +136,7 @@ condition|)
 block|{
 comment|// we should transfer the entire exchange over the wire (includes in/out)
 return|return
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 operator|.
 name|marshal
 argument_list|(
@@ -161,17 +175,17 @@ if|if
 condition|(
 name|payload
 operator|instanceof
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 condition|)
 block|{
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 operator|.
 name|unmarshal
 argument_list|(
 name|exchange
 argument_list|,
 operator|(
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 operator|)
 name|payload
 argument_list|)
@@ -209,17 +223,17 @@ if|if
 condition|(
 name|payload
 operator|instanceof
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 condition|)
 block|{
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 operator|.
 name|unmarshal
 argument_list|(
 name|exchange
 argument_list|,
 operator|(
-name|MinaPayloadHolder
+name|DefaultExchangeHolder
 operator|)
 name|payload
 argument_list|)
