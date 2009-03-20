@@ -186,9 +186,11 @@ throw|throw
 operator|new
 name|RuntimeExchangeException
 argument_list|(
-name|e
+literal|"Error while processing exchange"
 argument_list|,
 name|exchange
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}

@@ -311,7 +311,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the inbound message headers      *      * @see Message#getHeaders()      * @return an expression object which will return the inbound headers      */
+comment|/**      * Returns an expression for the inbound message headers      *      * @return an expression object which will return the inbound headers      */
 DECL|method|headersExpression ()
 specifier|public
 specifier|static
@@ -452,7 +452,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the outbound message headers      *      * @see Message#getHeaders()      * @return an expression object which will return the headers      */
+comment|/**      * Returns an expression for the outbound message headers      *      * @return an expression object which will return the headers      */
 DECL|method|outHeadersExpression ()
 specifier|public
 specifier|static
@@ -691,7 +691,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the property value of exchange with the given name      *      * @see Exchange#getProperty(String)      * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      */
+comment|/**      * Returns an expression for the property value of exchange with the given name      *      * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      */
 DECL|method|propertyExpression (final String propertyName)
 specifier|public
 specifier|static
@@ -743,7 +743,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the properties of exchange with the given name      *      * @see Exchange#getProperties()      * @return an expression object which will return the properties      */
+comment|/**      * Returns an expression for the properties of exchange      *      * @return an expression object which will return the properties      */
 DECL|method|propertiesExpression ()
 specifier|public
 specifier|static
@@ -785,7 +785,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the properties of exchange with the given name      *      * @see Exchange#getProperties()      * @return an expression object which will return the properties      */
+comment|/**      * Returns an expression for the properties of the camel context      *      * @return an expression object which will return the properties      */
 DECL|method|camelContextPropertiesExpression ()
 specifier|public
 specifier|static
@@ -830,7 +830,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the property value of the camel context with the given name      *      * @see Exchange#getProperty(String)      * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      */
+comment|/**      * Returns an expression for the property value of the camel context with the given name      *      * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      */
 DECL|method|camelContextPropertyExpression (final String propertyName)
 specifier|public
 specifier|static

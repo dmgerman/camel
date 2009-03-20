@@ -55,11 +55,12 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|createMessage
+argument_list|(
 name|message
-operator|+
-literal|" on the exchange: "
-operator|+
+argument_list|,
 name|exchange
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -69,25 +70,30 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
-DECL|method|RuntimeExchangeException (Exception e, Exchange exchange)
+DECL|method|RuntimeExchangeException (String message, Exchange exchange, Throwable cause)
 specifier|public
 name|RuntimeExchangeException
 parameter_list|(
-name|Exception
-name|e
+name|String
+name|message
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|Throwable
+name|cause
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
+name|createMessage
+argument_list|(
+name|message
 argument_list|,
-name|e
+name|exchange
+argument_list|)
+argument_list|,
+name|cause
 argument_list|)
 expr_stmt|;
 name|this
@@ -105,6 +111,27 @@ name|getExchange
 parameter_list|()
 block|{
 return|return
+name|exchange
+return|;
+block|}
+DECL|method|createMessage (String message, Exchange exchange)
+specifier|protected
+specifier|static
+name|String
+name|createMessage
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|message
+operator|+
+literal|" on the exchange: "
+operator|+
 name|exchange
 return|;
 block|}

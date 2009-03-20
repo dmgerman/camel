@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Runtime version of the {@link org.apache.camel.InvalidTypeException}.  *  * @version $Revision$  */
+comment|/**  * Runtime version of the {@link InvalidPayloadException}.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -49,9 +49,39 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
+name|this
+argument_list|(
+name|exchange
+argument_list|,
+name|type
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|InvalidPayloadRuntimeException (Exchange exchange, Class<?> type, Message message)
+specifier|public
+name|InvalidPayloadRuntimeException
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
+name|Message
+name|message
+parameter_list|)
+block|{
 name|super
 argument_list|(
-literal|"No in body available of type: "
+literal|"No body available of type: "
 operator|+
 name|type
 operator|.
@@ -62,16 +92,79 @@ name|NoSuchPropertyException
 operator|.
 name|valueDescription
 argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
+name|message
 operator|.
 name|getBody
 argument_list|()
 argument_list|)
+operator|+
+literal|" on: "
+operator|+
+name|message
 argument_list|,
 name|exchange
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+block|}
+DECL|method|InvalidPayloadRuntimeException (Exchange exchange, Class<?> type, Message message, Throwable cause)
+specifier|public
+name|InvalidPayloadRuntimeException
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
+name|Message
+name|message
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"No body available of type: "
+operator|+
+name|type
+operator|.
+name|getName
+argument_list|()
+operator|+
+name|NoSuchPropertyException
+operator|.
+name|valueDescription
+argument_list|(
+name|message
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+operator|+
+literal|" on: "
+operator|+
+name|message
+operator|+
+literal|". Caused by: "
+operator|+
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|,
+name|cause
 argument_list|)
 expr_stmt|;
 name|this
