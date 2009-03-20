@@ -46,7 +46,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|InvalidPayloadException
 import|;
 end_import
 
@@ -58,7 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|InvalidPayloadException
+name|RuntimeCamelException
 import|;
 end_import
 

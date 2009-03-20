@@ -164,7 +164,6 @@ name|type
 parameter_list|)
 block|{
 return|return
-operator|(
 literal|"No type converter available to convert from type: "
 operator|+
 operator|(
@@ -193,7 +192,6 @@ operator|+
 literal|" with value "
 operator|+
 name|value
-operator|)
 return|;
 block|}
 block|}
