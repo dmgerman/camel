@@ -414,12 +414,9 @@ name|camelExchange
 operator|.
 name|setProperty
 argument_list|(
-name|DataFormat
+name|CxfConstants
 operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
+name|DATA_FORMAT_PROPERTY
 argument_list|,
 name|dataFormat
 argument_list|)
