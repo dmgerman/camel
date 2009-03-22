@@ -549,12 +549,6 @@ name|TypeConverterRegistry
 name|getTypeConverterRegistry
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the converter of message from one type to another      *       * @return      */
-DECL|method|getMessageConverter ()
-name|MessageConverter
-name|getMessageConverter
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the registry used to lookup components by name and type such as the Spring ApplicationContext,      * JNDI or the OSGi Service Registry      *      * @return the registry      */
 DECL|method|getRegistry ()
 name|Registry

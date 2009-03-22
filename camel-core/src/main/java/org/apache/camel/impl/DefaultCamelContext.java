@@ -164,18 +164,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|MessageConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|NoFactoryAvailableException
 import|;
 end_import
@@ -3334,16 +3322,6 @@ name|typeConverterRegistry
 operator|=
 name|typeConverterRegistry
 expr_stmt|;
-block|}
-DECL|method|getMessageConverter ()
-specifier|public
-name|MessageConverter
-name|getMessageConverter
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
 block|}
 DECL|method|getInjector ()
 specifier|public
