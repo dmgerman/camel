@@ -34,10 +34,10 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|super
+name|this
 argument_list|(
-literal|"Intended rollback on exchange: "
-operator|+
+literal|"Intended rollback on exchange"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
@@ -53,9 +53,56 @@ name|Throwable
 name|cause
 parameter_list|)
 block|{
+name|this
+argument_list|(
+literal|"Intended rollback on exchange"
+argument_list|,
+name|exchange
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|RollbackExchangeException (String message, Exchange exchange)
+specifier|public
+name|RollbackExchangeException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
 name|super
 argument_list|(
-literal|"Intended rollback on exchange: "
+name|message
+operator|+
+literal|": "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|RollbackExchangeException (String message, Exchange exchange, Throwable cause)
+specifier|public
+name|RollbackExchangeException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+operator|+
+literal|": "
 operator|+
 name|exchange
 argument_list|,

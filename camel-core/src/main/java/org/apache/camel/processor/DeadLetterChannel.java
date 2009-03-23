@@ -2000,13 +2000,41 @@ argument_list|()
 condition|)
 block|{
 comment|// log intented rollback on WARN level
+name|String
+name|msg
+init|=
+literal|"Rollback exchange"
+decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|msg
+operator|=
+name|msg
+operator|+
+literal|" due: "
+operator|+
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+expr_stmt|;
+block|}
 name|logger
 operator|.
 name|log
 argument_list|(
-literal|"Intended rollback on exchange: "
-operator|+
-name|exchange
+name|msg
 argument_list|,
 name|LoggingLevel
 operator|.

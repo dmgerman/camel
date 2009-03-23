@@ -428,7 +428,9 @@ literal|"mock:rollback"
 argument_list|)
 operator|.
 name|rollback
-argument_list|()
+argument_list|(
+literal|"That do not work"
+argument_list|)
 operator|.
 name|otherwise
 argument_list|()

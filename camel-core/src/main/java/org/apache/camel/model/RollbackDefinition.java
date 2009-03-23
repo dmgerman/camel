@@ -201,11 +201,38 @@ argument_list|<
 name|RollbackDefinition
 argument_list|>
 block|{
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|message
+specifier|private
+name|String
+name|message
+decl_stmt|;
 DECL|method|RollbackDefinition ()
 specifier|public
 name|RollbackDefinition
 parameter_list|()
 block|{     }
+DECL|method|RollbackDefinition (String message)
+specifier|public
+name|RollbackDefinition
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|this
+operator|.
+name|message
+operator|=
+name|message
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|getShortName ()
@@ -226,9 +253,27 @@ name|String
 name|toString
 parameter_list|()
 block|{
+if|if
+condition|(
+name|message
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|"Rollback["
+operator|+
+name|message
+operator|+
+literal|"]"
+return|;
+block|}
+else|else
+block|{
 return|return
 literal|"Rollback"
 return|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -244,7 +289,9 @@ block|{
 return|return
 operator|new
 name|RollbackProcessor
-argument_list|()
+argument_list|(
+name|message
+argument_list|)
 return|;
 block|}
 annotation|@

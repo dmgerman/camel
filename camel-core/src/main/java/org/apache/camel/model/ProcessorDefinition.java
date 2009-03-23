@@ -3044,12 +3044,36 @@ name|Type
 name|rollback
 parameter_list|()
 block|{
+return|return
+name|rollback
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Marks the exchange for rollback only.      *<p/>      * This is done by setting a {@link org.apache.camel.RollbackExchangeException} on the Exchange      * and mark it for rollback.      *      * @param message an optional message used for logging purpose why the rollback was triggered      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|rollback (String message)
+specifier|public
+name|Type
+name|rollback
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
 name|RollbackDefinition
 name|answer
 init|=
 operator|new
 name|RollbackDefinition
-argument_list|()
+argument_list|(
+name|message
+argument_list|)
 decl_stmt|;
 name|addOutput
 argument_list|(

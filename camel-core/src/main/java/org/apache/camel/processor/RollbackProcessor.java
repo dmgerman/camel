@@ -64,6 +64,31 @@ name|RollbackProcessor
 implements|implements
 name|Processor
 block|{
+DECL|field|message
+specifier|private
+name|String
+name|message
+decl_stmt|;
+DECL|method|RollbackProcessor ()
+specifier|public
+name|RollbackProcessor
+parameter_list|()
+block|{     }
+DECL|method|RollbackProcessor (String message)
+specifier|public
+name|RollbackProcessor
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|this
+operator|.
+name|message
+operator|=
+name|message
+expr_stmt|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -96,6 +121,8 @@ argument_list|(
 operator|new
 name|RollbackExchangeException
 argument_list|(
+name|message
+argument_list|,
 name|exchange
 argument_list|)
 argument_list|)
