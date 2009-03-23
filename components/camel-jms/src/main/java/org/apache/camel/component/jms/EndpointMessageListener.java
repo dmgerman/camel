@@ -317,13 +317,6 @@ name|Message
 name|message
 parameter_list|)
 block|{
-name|RuntimeCamelException
-name|rce
-init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
 if|if
 condition|(
 name|LOG
@@ -344,6 +337,13 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+name|RuntimeCamelException
+name|rce
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
 name|Destination
 name|replyDestination
 init|=
@@ -391,6 +391,16 @@ name|body
 init|=
 literal|null
 decl_stmt|;
+name|Exception
+name|cause
+init|=
+literal|null
+decl_stmt|;
+name|boolean
+name|sendReply
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|exchange
@@ -410,8 +420,35 @@ literal|null
 condition|)
 block|{
 comment|// an exception occurred while processing
-comment|// TODO: Camel-585 somekind of flag to determine if we should send the exchange back to the client
-comment|// or do as now where we wrap as runtime exception to be thrown back to spring so it can do rollback
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isTransferException
+argument_list|()
+condition|)
+block|{
+comment|// send the exception as reply
+name|body
+operator|=
+literal|null
+expr_stmt|;
+name|cause
+operator|=
+name|exchange
+operator|.
+name|getException
+argument_list|()
+expr_stmt|;
+name|sendReply
+operator|=
+literal|true
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// only throw exception if endpoint is not configured to transfer exceptions
+comment|// back to caller
 name|rce
 operator|=
 name|wrapRuntimeCamelException
@@ -422,6 +459,7 @@ name|getException
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -445,6 +483,10 @@ operator|.
 name|getFault
 argument_list|()
 expr_stmt|;
+name|sendReply
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 else|else
@@ -459,17 +501,15 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|sendReply
+operator|=
+literal|true
+expr_stmt|;
 block|}
 comment|// send the reply if we got a response and the exchange is out capable
 if|if
 condition|(
-name|rce
-operator|==
-literal|null
-operator|&&
-name|body
-operator|!=
-literal|null
+name|sendReply
 operator|&&
 operator|!
 name|disableReplyTo
@@ -492,6 +532,8 @@ argument_list|,
 name|exchange
 argument_list|,
 name|body
+argument_list|,
+name|cause
 argument_list|)
 expr_stmt|;
 block|}
@@ -823,7 +865,7 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-DECL|method|sendReply (Destination replyDestination, final Message message, final JmsExchange exchange, final JmsMessage out)
+DECL|method|sendReply (Destination replyDestination, final Message message, final JmsExchange exchange, final JmsMessage out, final Exception cause)
 specifier|protected
 name|void
 name|sendReply
@@ -842,6 +884,10 @@ parameter_list|,
 specifier|final
 name|JmsMessage
 name|out
+parameter_list|,
+specifier|final
+name|Exception
+name|cause
 parameter_list|)
 block|{
 if|if
@@ -907,6 +953,8 @@ argument_list|,
 name|out
 argument_list|,
 name|session
+argument_list|,
+name|cause
 argument_list|)
 decl_stmt|;
 if|if

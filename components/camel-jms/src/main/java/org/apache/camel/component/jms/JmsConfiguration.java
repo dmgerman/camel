@@ -911,6 +911,11 @@ specifier|private
 name|boolean
 name|transferExchange
 decl_stmt|;
+DECL|field|transferException
+specifier|private
+name|boolean
+name|transferException
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -4669,6 +4674,32 @@ operator|.
 name|transferExchange
 operator|=
 name|transferExchange
+expr_stmt|;
+block|}
+DECL|method|isTransferException ()
+specifier|public
+name|boolean
+name|isTransferException
+parameter_list|()
+block|{
+return|return
+name|transferException
+return|;
+block|}
+DECL|method|setTransferException (boolean transferException)
+specifier|public
+name|void
+name|setTransferException
+parameter_list|(
+name|boolean
+name|transferException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transferException
+operator|=
+name|transferException
 expr_stmt|;
 block|}
 block|}

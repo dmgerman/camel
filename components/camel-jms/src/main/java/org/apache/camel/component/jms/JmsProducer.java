@@ -1092,6 +1092,8 @@ argument_list|,
 name|in
 argument_list|,
 name|session
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|message
@@ -1112,8 +1114,6 @@ argument_list|)
 expr_stmt|;
 name|FutureTask
 name|future
-init|=
-literal|null
 decl_stmt|;
 name|future
 operator|=
@@ -1362,10 +1362,10 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|exchange
-operator|.
-name|setOut
-argument_list|(
+comment|// the response can be an exception
+name|JmsMessage
+name|response
+init|=
 operator|new
 name|JmsMessage
 argument_list|(
@@ -1376,8 +1376,88 @@ operator|.
 name|getBinding
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|Object
+name|body
+init|=
+name|response
+operator|.
+name|getBody
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isTransferException
+argument_list|()
+operator|&&
+name|body
+operator|instanceof
+name|Exception
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Reply recieved. Setting reply as Exception: "
+operator|+
+name|body
 argument_list|)
 expr_stmt|;
+block|}
+comment|// we got an exception back and endpoint was configued to transfer exception
+comment|// therefore set response as exception
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|(
+name|Exception
+operator|)
+name|body
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Reply recieved. Setting reply as OUT message: "
+operator|+
+name|body
+argument_list|)
+expr_stmt|;
+block|}
+comment|// regular response
+name|exchange
+operator|.
+name|setOut
+argument_list|(
+name|response
+argument_list|)
+expr_stmt|;
+block|}
+comment|// correlation
 if|if
 condition|(
 name|correlationId
@@ -1410,7 +1490,7 @@ block|}
 block|}
 else|else
 block|{
-comment|// lets set a timed out exception
+comment|// no response, so lets set a timed out exception
 name|exchange
 operator|.
 name|setException
@@ -1475,6 +1555,8 @@ argument_list|,
 name|in
 argument_list|,
 name|session
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 if|if

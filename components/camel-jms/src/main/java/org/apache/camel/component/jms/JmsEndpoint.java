@@ -3223,6 +3223,38 @@ name|transferExchange
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isTransferException ()
+specifier|public
+name|boolean
+name|isTransferException
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|isTransferException
+argument_list|()
+return|;
+block|}
+DECL|method|setTransferException (boolean transferException)
+specifier|public
+name|void
+name|setTransferException
+parameter_list|(
+name|boolean
+name|transferException
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setTransferException
+argument_list|(
+name|transferException
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 annotation|@

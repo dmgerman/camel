@@ -1077,7 +1077,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Creates a JMS message from the Camel exchange and message      *      * @param session the JMS session used to create the message      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
+comment|/**      * Creates a JMS message from the Camel exchange and message      *      * @param exchange the current exchange      * @param session the JMS session used to create the message      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
 DECL|method|makeJmsMessage (Exchange exchange, Session session)
 specifier|public
 name|Message
@@ -1103,11 +1103,13 @@ name|getIn
 argument_list|()
 argument_list|,
 name|session
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a JMS message from the Camel exchange and message      *      * @param session the JMS session used to create the message      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
-DECL|method|makeJmsMessage (Exchange exchange, org.apache.camel.Message camelMessage, Session session)
+comment|/**      * Creates a JMS message from the Camel exchange and message      *      * @param exchange the current exchange      * @param camelMessage the body to make a javax.jms.Message as      * @param session the JMS session used to create the message      * @param cause optional exception occured that should be sent as reply instead of a regular body      * @return a newly created JMS Message instance containing the      * @throws JMSException if the message could not be created      */
+DECL|method|makeJmsMessage (Exchange exchange, org.apache.camel.Message camelMessage, Session session, Exception cause)
 specifier|public
 name|Message
 name|makeJmsMessage
@@ -1126,6 +1128,9 @@ name|camelMessage
 parameter_list|,
 name|Session
 name|session
+parameter_list|,
+name|Exception
+name|cause
 parameter_list|)
 throws|throws
 name|JMSException
@@ -1195,6 +1200,46 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|cause
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// an exception occured so send it as response
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Will create JmsMessage with caused exception: "
+operator|+
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+comment|// create jms message containg the caused exception
+name|answer
+operator|=
+name|createJmsMessage
+argument_list|(
+name|cause
+argument_list|,
+name|session
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// create regular jms message using the camel message body
 name|answer
 operator|=
 name|createJmsMessage
@@ -1228,6 +1273,7 @@ argument_list|,
 name|camelMessage
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|answer
@@ -1726,6 +1772,47 @@ return|;
 block|}
 return|return
 literal|null
+return|;
+block|}
+DECL|method|createJmsMessage (Exception cause, Session session)
+specifier|protected
+name|Message
+name|createJmsMessage
+parameter_list|(
+name|Exception
+name|cause
+parameter_list|,
+name|Session
+name|session
+parameter_list|)
+throws|throws
+name|JMSException
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using JmsMessageType: "
+operator|+
+name|Object
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|session
+operator|.
+name|createObjectMessage
+argument_list|(
+name|cause
+argument_list|)
 return|;
 block|}
 DECL|method|createJmsMessage (Exchange exchange, Object body, Map<String, Object> headers, Session session, CamelContext context)
