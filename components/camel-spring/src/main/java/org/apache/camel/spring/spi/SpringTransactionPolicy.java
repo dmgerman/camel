@@ -182,7 +182,7 @@ specifier|final
 name|TransactionTemplate
 name|transactionTemplate
 init|=
-name|getTemplate
+name|getTransactionTemplate
 argument_list|()
 decl_stmt|;
 if|if
@@ -223,10 +223,10 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|getTemplate ()
+DECL|method|getTransactionTemplate ()
 specifier|public
 name|TransactionTemplate
-name|getTemplate
+name|getTransactionTemplate
 parameter_list|()
 block|{
 if|if
@@ -264,10 +264,10 @@ return|return
 name|template
 return|;
 block|}
-DECL|method|setTemplate (TransactionTemplate template)
+DECL|method|setTransactionTemplate (TransactionTemplate template)
 specifier|public
 name|void
-name|setTemplate
+name|setTransactionTemplate
 parameter_list|(
 name|TransactionTemplate
 name|template

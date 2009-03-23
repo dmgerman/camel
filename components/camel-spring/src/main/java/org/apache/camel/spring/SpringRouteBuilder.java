@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContextAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -432,7 +420,7 @@ name|setTransactionTemplate
 argument_list|(
 name|policy
 operator|.
-name|getTemplate
+name|getTransactionTemplate
 argument_list|()
 argument_list|)
 expr_stmt|;
