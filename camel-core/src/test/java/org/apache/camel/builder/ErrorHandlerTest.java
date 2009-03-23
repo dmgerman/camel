@@ -1045,11 +1045,6 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
-name|inheritErrorHandler
-argument_list|(
-literal|false
-argument_list|)
-operator|.
 name|to
 argument_list|(
 literal|"seda:b"

@@ -686,11 +686,6 @@ specifier|private
 name|ErrorHandlerBuilder
 name|errorHandlerBuilder
 decl_stmt|;
-DECL|field|inheritErrorHandlerFlag
-specifier|private
-name|Boolean
-name|inheritErrorHandlerFlag
-decl_stmt|;
 DECL|field|nodeFactory
 specifier|private
 name|NodeFactory
@@ -3745,33 +3740,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Configures whether or not the<a href="http://camel.apache.org/error-handler.html">error handler</a>      * is inherited by every processing node (or just the top most one)      *      * @param condition the flag as to whether error handlers should be inherited or not      * @return the current builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|inheritErrorHandler (boolean condition)
-specifier|public
-name|Type
-name|inheritErrorHandler
-parameter_list|(
-name|boolean
-name|condition
-parameter_list|)
-block|{
-name|setInheritErrorHandlerFlag
-argument_list|(
-name|condition
-argument_list|)
-expr_stmt|;
-return|return
-operator|(
-name|Type
-operator|)
-name|this
-return|;
-block|}
 comment|// Transformers
 comment|// -------------------------------------------------------------------------
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param processor  the custom {@link Processor}      * @return the builder      */
@@ -5321,78 +5289,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|XmlTransient
-DECL|method|isInheritErrorHandler ()
-specifier|public
-name|boolean
-name|isInheritErrorHandler
-parameter_list|()
-block|{
-return|return
-name|isInheritErrorHandler
-argument_list|(
-name|getInheritErrorHandlerFlag
-argument_list|()
-argument_list|)
-return|;
-block|}
-comment|/**      * Lets default the inherit value to be true if there is none specified      */
-DECL|method|isInheritErrorHandler (Boolean value)
-specifier|public
-specifier|static
-name|boolean
-name|isInheritErrorHandler
-parameter_list|(
-name|Boolean
-name|value
-parameter_list|)
-block|{
-return|return
-name|value
-operator|==
-literal|null
-operator|||
-name|value
-return|;
-block|}
-annotation|@
-name|XmlAttribute
-argument_list|(
-name|name
-operator|=
-literal|"inheritErrorHandler"
-argument_list|,
-name|required
-operator|=
-literal|false
-argument_list|)
-DECL|method|getInheritErrorHandlerFlag ()
-specifier|public
-name|Boolean
-name|getInheritErrorHandlerFlag
-parameter_list|()
-block|{
-return|return
-name|inheritErrorHandlerFlag
-return|;
-block|}
-DECL|method|setInheritErrorHandlerFlag (Boolean inheritErrorHandlerFlag)
-specifier|public
-name|void
-name|setInheritErrorHandlerFlag
-parameter_list|(
-name|Boolean
-name|inheritErrorHandlerFlag
-parameter_list|)
-block|{
-name|this
-operator|.
-name|inheritErrorHandlerFlag
-operator|=
-name|inheritErrorHandlerFlag
-expr_stmt|;
-block|}
-annotation|@
-name|XmlTransient
 DECL|method|getNodeFactory ()
 specifier|public
 name|NodeFactory
@@ -5801,26 +5697,12 @@ name|errorHandlerRef
 argument_list|)
 return|;
 block|}
-if|if
-condition|(
-name|isInheritErrorHandler
-argument_list|()
-condition|)
-block|{
+comment|// return a new default one
 return|return
 operator|new
 name|DeadLetterChannelBuilder
 argument_list|()
 return|;
-block|}
-else|else
-block|{
-return|return
-operator|new
-name|NoErrorHandlerBuilder
-argument_list|()
-return|;
-block|}
 block|}
 DECL|method|configureChild (ProcessorDefinition output)
 specifier|protected
@@ -5836,6 +5718,14 @@ operator|.
 name|setNodeFactory
 argument_list|(
 name|getNodeFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|output
+operator|.
+name|setErrorHandlerBuilder
+argument_list|(
+name|getErrorHandlerBuilder
 argument_list|()
 argument_list|)
 expr_stmt|;

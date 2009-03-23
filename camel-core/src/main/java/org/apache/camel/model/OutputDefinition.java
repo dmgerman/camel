@@ -242,41 +242,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|configureChild (ProcessorDefinition output)
-specifier|protected
-name|void
-name|configureChild
-parameter_list|(
-name|ProcessorDefinition
-name|output
-parameter_list|)
-block|{
-name|super
-operator|.
-name|configureChild
-argument_list|(
-name|output
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|isInheritErrorHandler
-argument_list|()
-condition|)
-block|{
-name|output
-operator|.
-name|setErrorHandlerBuilder
-argument_list|(
-name|getErrorHandlerBuilder
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|// don't inherit interceptors by default
-block|}
 block|}
 end_class
 

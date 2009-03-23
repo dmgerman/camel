@@ -655,12 +655,6 @@ argument_list|(
 name|output
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|isInheritErrorHandler
-argument_list|()
-condition|)
-block|{
 name|output
 operator|.
 name|setErrorHandlerBuilder
@@ -669,7 +663,6 @@ name|getErrorHandlerBuilder
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// Fluent methods
 comment|// -----------------------------------------------------------------------

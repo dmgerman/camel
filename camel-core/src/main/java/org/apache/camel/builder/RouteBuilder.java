@@ -501,27 +501,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures whether or not the<a href="http://camel.apache.org/error-handler.html">error handler</a>      * is inherited by every processing node (or just the top most one)      *      * @param inherit  whether error handlers should be inherited or not      * @return the current builder      */
-DECL|method|inheritErrorHandler (boolean inherit)
-specifier|public
-name|RouteBuilder
-name|inheritErrorHandler
-parameter_list|(
-name|boolean
-name|inherit
-parameter_list|)
-block|{
-name|routeCollection
-operator|.
-name|setInheritErrorHandlerFlag
-argument_list|(
-name|inherit
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Adds the given interceptor to this route      *      * @param interceptor  the interceptor      * @return the builder      */
 DECL|method|intercept (DelegateProcessor interceptor)
 specifier|public
@@ -709,32 +688,6 @@ expr_stmt|;
 return|return
 name|routes
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|setInheritErrorHandler (boolean inheritErrorHandler)
-specifier|public
-name|void
-name|setInheritErrorHandler
-parameter_list|(
-name|boolean
-name|inheritErrorHandler
-parameter_list|)
-block|{
-name|super
-operator|.
-name|setInheritErrorHandler
-argument_list|(
-name|inheritErrorHandler
-argument_list|)
-expr_stmt|;
-name|routeCollection
-operator|.
-name|setInheritErrorHandlerFlag
-argument_list|(
-name|inheritErrorHandler
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

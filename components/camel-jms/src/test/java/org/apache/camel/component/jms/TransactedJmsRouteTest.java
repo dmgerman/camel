@@ -395,7 +395,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|Policy
+name|SpringTransactionPolicy
 name|requried
 init|=
 operator|new
@@ -411,7 +411,7 @@ literal|"PROPAGATION_REQUIRED"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Policy
+name|SpringTransactionPolicy
 name|notsupported
 init|=
 operator|new
@@ -427,7 +427,7 @@ literal|"PROPAGATION_NOT_SUPPORTED"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Policy
+name|SpringTransactionPolicy
 name|requirenew
 init|=
 operator|new
@@ -579,11 +579,13 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|// NOTE: ErrorHandler has to be disabled since it operates
-comment|// within the failed transaction.
-name|inheritErrorHandler
+comment|// setup transacted error handler
+name|errorHandler
 argument_list|(
-literal|false
+name|transactionErrorHandler
+argument_list|(
+name|requried
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Used to validate messages are sent to the target.
@@ -1277,11 +1279,10 @@ name|mockEndpointA
 argument_list|)
 expr_stmt|;
 block|}
-comment|//TODO should fix this test
-DECL|method|xtestSenarioB ()
+DECL|method|testSenarioB ()
 specifier|public
 name|void
-name|xtestSenarioB
+name|testSenarioB
 parameter_list|()
 throws|throws
 name|Exception
