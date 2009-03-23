@@ -556,15 +556,19 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|// rethrow exception if the exchange failed
+comment|// rollback if exception occured or marked as rollback
 if|if
 condition|(
 name|rce
 operator|!=
 literal|null
+operator|||
+name|exchange
+operator|.
+name|isRollbackOnly
+argument_list|()
 condition|)
 block|{
-comment|// an exception occured so please sleep before we rethrow the exception
 name|delayBeforeRedelivery
 argument_list|()
 expr_stmt|;
@@ -578,6 +582,21 @@ operator|.
 name|setRollbackOnly
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|rce
+operator|!=
+literal|null
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -591,9 +610,30 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Setting transaction to rollbackOnly as Exchange was marked as rollback only"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|// rethrow if an exception occured
+if|if
+condition|(
+name|rce
+operator|!=
+literal|null
+condition|)
+block|{
 throw|throw
 name|rce
 throw|;
+block|}
 block|}
 block|}
 block|}
@@ -686,6 +726,7 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
+comment|// TODO: As DLC we need a timer task, eg something in Util to help us
 name|Thread
 operator|.
 name|currentThread

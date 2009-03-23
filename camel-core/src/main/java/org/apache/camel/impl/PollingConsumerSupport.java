@@ -104,7 +104,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"PullConsumer on "
+literal|"PollingConsumer on "
 operator|+
 name|endpoint
 return|;

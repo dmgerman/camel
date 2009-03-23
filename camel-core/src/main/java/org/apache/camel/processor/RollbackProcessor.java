@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.config
+DECL|package|org.apache.camel.processor
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
-name|config
+name|processor
 package|;
 end_package
 
@@ -26,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Exchange
 import|;
 end_import
 
@@ -34,11 +32,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|context
+name|camel
 operator|.
-name|ApplicationContext
+name|Processor
 import|;
 end_import
 
@@ -46,61 +44,60 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|context
+name|camel
 operator|.
-name|support
-operator|.
-name|ClassPathXmlApplicationContext
+name|RollbackExchangeException
 import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Processor for marking an {@link org.apache.camel.Exchange} to rollback.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|AutoRegisteredRouteBuilderTest
+DECL|class|RollbackProcessor
 specifier|public
 class|class
-name|AutoRegisteredRouteBuilderTest
-extends|extends
-name|XmlConfigTestSupport
+name|RollbackProcessor
+implements|implements
+name|Processor
 block|{
-DECL|method|testUsingAutoRegisteredRouteBuilderUsingXml ()
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
-name|testUsingAutoRegisteredRouteBuilderUsingXml
-parameter_list|()
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ApplicationContext
-name|applicationContext
-init|=
-operator|new
-name|ClassPathXmlApplicationContext
-argument_list|(
-literal|"org/apache/camel/spring/config/autoRegisteredRouteBuilder.xml"
-argument_list|)
-decl_stmt|;
-name|CamelContext
-name|context
-init|=
-operator|(
-name|CamelContext
-operator|)
-name|applicationContext
+comment|// mark the exchange for rollback
+name|exchange
 operator|.
-name|getBean
+name|setProperty
 argument_list|(
-literal|"camel4"
+name|Exchange
+operator|.
+name|ROLLBACK_ONLY
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
 argument_list|)
-decl_stmt|;
-name|assertValidContext
+expr_stmt|;
+name|exchange
+operator|.
+name|setException
 argument_list|(
-name|context
+operator|new
+name|RollbackExchangeException
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

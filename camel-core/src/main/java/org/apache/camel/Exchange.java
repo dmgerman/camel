@@ -210,6 +210,12 @@ name|TRANSACTED
 init|=
 literal|"CamelTransacted"
 decl_stmt|;
+DECL|field|ROLLBACK_ONLY
+name|String
+name|ROLLBACK_ONLY
+init|=
+literal|"CamelRollbackOnly"
+decl_stmt|;
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
 DECL|method|getPattern ()
 name|ExchangePattern
@@ -363,6 +369,12 @@ comment|/**      * Returns true if this exchange is transacted      */
 DECL|method|isTransacted ()
 name|boolean
 name|isTransacted
+parameter_list|()
+function_decl|;
+comment|/**      * Returns true if this exchange is marked for rollback      */
+DECL|method|isRollbackOnly ()
+name|boolean
+name|isRollbackOnly
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the container so that a processor can resolve endpoints from URIs      *      * @return the container which owns this exchange      */

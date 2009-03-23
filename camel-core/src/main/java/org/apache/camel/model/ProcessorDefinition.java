@@ -3032,6 +3032,37 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Marks the exchange for rollback only.      *<p/>      * This is done by setting a {@link org.apache.camel.RollbackExchangeException} on the Exchange      * and mark it for rollback.      *      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|rollback ()
+specifier|public
+name|Type
+name|rollback
+parameter_list|()
+block|{
+name|RollbackDefinition
+name|answer
+init|=
+operator|new
+name|RollbackDefinition
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @return the builder      */
 annotation|@
 name|SuppressWarnings
