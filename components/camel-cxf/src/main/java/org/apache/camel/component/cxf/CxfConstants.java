@@ -40,12 +40,12 @@ name|SERVICE_CLASS
 init|=
 literal|"serviceClass"
 decl_stmt|;
-comment|// org.apache.camel.cxf.dataFormat is used as exchange property key
+comment|// CamelCXFDataFormat is used as exchange property key
 DECL|field|DATA_FORMAT_PROPERTY
 name|String
 name|DATA_FORMAT_PROPERTY
 init|=
-literal|"org.apache.camel.cxf.dataFormat"
+literal|"CamelCXFDataFormat"
 decl_stmt|;
 DECL|field|SET_DEFAULT_BUS
 name|String
