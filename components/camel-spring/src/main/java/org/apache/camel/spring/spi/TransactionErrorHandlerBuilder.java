@@ -167,10 +167,6 @@ DECL|field|delayPolicy
 specifier|private
 name|DelayPolicy
 name|delayPolicy
-init|=
-operator|new
-name|DelayPolicy
-argument_list|()
 decl_stmt|;
 DECL|method|TransactionErrorHandlerBuilder ()
 specifier|public
@@ -319,6 +315,21 @@ name|long
 name|delay
 parameter_list|)
 block|{
+if|if
+condition|(
+name|getDelayPolicy
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|delayPolicy
+operator|=
+operator|new
+name|DelayPolicy
+argument_list|()
+expr_stmt|;
+block|}
 name|getDelayPolicy
 argument_list|()
 operator|.

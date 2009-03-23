@@ -66,6 +66,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// get the required policy
 name|SpringTransactionPolicy
 name|required
 init|=
@@ -78,9 +79,7 @@ argument_list|,
 literal|"PROPAGATION_REQUIRED"
 argument_list|)
 decl_stmt|;
-comment|// useTransactionErrorHandler is only used for unit testing to reuse code
-comment|// for doing a 2nd test without this transaction error handler, so ignore
-comment|// this. For spring based transaction, end users are encouraged to use the
+comment|// For spring based transaction, end users are encouraged to use the
 comment|// transaction error handler instead of the default DeadLetterChannel.
 name|errorHandler
 argument_list|(
@@ -92,7 +91,7 @@ operator|.
 comment|// notice that the builder has builder methods for chained configuration
 name|delay
 argument_list|(
-literal|5
+literal|1
 operator|*
 literal|1000L
 argument_list|)

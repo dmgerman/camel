@@ -457,7 +457,7 @@ operator|.
 comment|// notice that the builder has builder methods for chained configuration
 name|delay
 argument_list|(
-literal|5
+literal|1
 operator|*
 literal|1000L
 argument_list|)
