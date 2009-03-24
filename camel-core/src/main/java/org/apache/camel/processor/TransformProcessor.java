@@ -141,7 +141,7 @@ argument_list|(
 name|newBody
 argument_list|)
 expr_stmt|;
-comment|// propagate headers
+comment|// propagate headers and attachments
 name|exchange
 operator|.
 name|getOut
@@ -158,6 +158,22 @@ name|getIn
 argument_list|()
 operator|.
 name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setAttachments
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getAttachments
 argument_list|()
 argument_list|)
 expr_stmt|;
