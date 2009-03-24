@@ -72,9 +72,9 @@ argument_list|(
 name|registry
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"There should have a fallback converter"
+literal|"There should have at lest one fallback converter"
 argument_list|,
 name|registry
 operator|.
@@ -83,13 +83,13 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-argument_list|,
+operator|>=
 literal|1
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"There should have a coverter"
+literal|"There should have at lest one coverter"
 argument_list|,
 name|registry
 operator|.
@@ -98,7 +98,7 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-argument_list|,
+operator|>=
 literal|1
 argument_list|)
 expr_stmt|;

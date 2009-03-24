@@ -251,6 +251,14 @@ argument_list|(
 name|set
 argument_list|)
 decl_stmt|;
+name|int
+name|classesSize
+init|=
+name|classes
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|osgiClassLoader
@@ -285,7 +293,7 @@ operator|.
 name|size
 argument_list|()
 operator|==
-literal|0
+name|classesSize
 condition|)
 block|{
 comment|// Using the regular classloaders as a fallback
