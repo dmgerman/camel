@@ -334,6 +334,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|logging
@@ -1239,6 +1253,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelMessage
+argument_list|,
+literal|"message body"
+argument_list|)
+expr_stmt|;
 comment|// create regular jms message using the camel message body
 name|answer
 operator|=
@@ -1489,6 +1512,18 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
+operator|.
+name|isOutCapable
+argument_list|()
+condition|)
+block|{
+comment|// only set the JMSReply if the Exchange supports Out
 name|jmsMessage
 operator|.
 name|setJMSReplyTo
@@ -1507,6 +1542,28 @@ name|headerValue
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Exchange is not out capable, Ignoring JMSReplyTo: "
+operator|+
+name|headerValue
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 elseif|else
 if|if

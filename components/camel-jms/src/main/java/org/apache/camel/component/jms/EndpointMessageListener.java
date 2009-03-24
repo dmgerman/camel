@@ -447,8 +447,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// only throw exception if endpoint is not configured to transfer exceptions
-comment|// back to caller
+comment|// only throw exception if endpoint is not configured to transfer exceptions back to caller
+comment|// do not send a reply but wrap and rethrow the exception
 name|rce
 operator|=
 name|wrapRuntimeCamelException
@@ -489,7 +489,18 @@ literal|true
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|exchange
+operator|.
+name|getOut
+argument_list|(
+literal|false
+argument_list|)
+operator|!=
+literal|null
+condition|)
 block|{
 comment|// process OK so get the reply
 name|body
@@ -509,6 +520,10 @@ block|}
 comment|// send the reply if we got a response and the exchange is out capable
 if|if
 condition|(
+name|rce
+operator|==
+literal|null
+operator|&&
 name|sendReply
 operator|&&
 operator|!
