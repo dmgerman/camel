@@ -258,7 +258,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// if we have an osgi bundle loader use this one only
+comment|// if we have an osgi bundle loader use this one first
 name|LOG
 operator|.
 name|debug
@@ -278,8 +278,17 @@ name|classes
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+if|if
+condition|(
+name|classes
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
 block|{
+comment|// Using the regular classloaders as a fallback
 name|LOG
 operator|.
 name|debug
@@ -293,6 +302,18 @@ name|ClassLoader
 name|classLoader
 range|:
 name|set
+operator|.
+name|toArray
+argument_list|(
+operator|new
+name|ClassLoader
+index|[
+name|set
+operator|.
+name|size
+argument_list|()
+index|]
+argument_list|)
 control|)
 block|{
 if|if
