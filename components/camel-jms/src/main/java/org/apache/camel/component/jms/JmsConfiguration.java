@@ -1465,6 +1465,104 @@ argument_list|,
 name|destinationName
 argument_list|)
 decl_stmt|;
+return|return
+name|doSendToDestination
+argument_list|(
+name|destination
+argument_list|,
+name|messageCreator
+argument_list|,
+name|callback
+argument_list|,
+name|session
+argument_list|)
+return|;
+block|}
+block|}
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|send (final Destination destination, final MessageCreator messageCreator, final MessageSentCallback callback)
+specifier|public
+name|void
+name|send
+parameter_list|(
+specifier|final
+name|Destination
+name|destination
+parameter_list|,
+specifier|final
+name|MessageCreator
+name|messageCreator
+parameter_list|,
+specifier|final
+name|MessageSentCallback
+name|callback
+parameter_list|)
+throws|throws
+name|JmsException
+block|{
+name|execute
+argument_list|(
+operator|new
+name|SessionCallback
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|doInJms
+parameter_list|(
+name|Session
+name|session
+parameter_list|)
+throws|throws
+name|JMSException
+block|{
+return|return
+name|doSendToDestination
+argument_list|(
+name|destination
+argument_list|,
+name|messageCreator
+argument_list|,
+name|callback
+argument_list|,
+name|session
+argument_list|)
+return|;
+block|}
+block|}
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doSendToDestination (final Destination destination, final MessageCreator messageCreator, final MessageSentCallback callback, final Session session)
+specifier|private
+name|Object
+name|doSendToDestination
+parameter_list|(
+specifier|final
+name|Destination
+name|destination
+parameter_list|,
+specifier|final
+name|MessageCreator
+name|messageCreator
+parameter_list|,
+specifier|final
+name|MessageSentCallback
+name|callback
+parameter_list|,
+specifier|final
+name|Session
+name|session
+parameter_list|)
+throws|throws
+name|JMSException
+block|{
 name|Assert
 operator|.
 name|notNull
@@ -1525,8 +1623,7 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-comment|// Check commit - avoid commit call within a JTA
-comment|// transaction.
+comment|// Check commit - avoid commit call within a JTA transaction.
 if|if
 condition|(
 name|session
@@ -1540,8 +1637,7 @@ name|session
 argument_list|)
 condition|)
 block|{
-comment|// Transacted session created by this template ->
-comment|// commit.
+comment|// Transacted session created by this template -> commit.
 name|JmsUtils
 operator|.
 name|commitIfNecessary
@@ -1583,12 +1679,6 @@ block|}
 return|return
 literal|null
 return|;
-block|}
-block|}
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**          * Override so we can support preserving the Qos settings that have          * been set on the message.          */
 annotation|@
