@@ -1545,24 +1545,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
+comment|// warn we got a JMSReplyTo but the Exchange is not out capable
 name|LOG
 operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"Exchange is not out capable, Ignoring JMSReplyTo: "
 operator|+
 name|headerValue
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 elseif|else
