@@ -407,6 +407,26 @@ name|SpringTransactionPolicy
 name|policy
 parameter_list|)
 block|{
+return|return
+name|transactionErrorHandler
+argument_list|(
+name|policy
+operator|.
+name|getTransactionTemplate
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a transaction error handler.      *      * @param template the spring transaction template      * @return the created error handler      */
+DECL|method|transactionErrorHandler (TransactionTemplate template)
+specifier|public
+name|TransactionErrorHandlerBuilder
+name|transactionErrorHandler
+parameter_list|(
+name|TransactionTemplate
+name|template
+parameter_list|)
+block|{
 name|TransactionErrorHandlerBuilder
 name|answer
 init|=
@@ -418,10 +438,7 @@ name|answer
 operator|.
 name|setTransactionTemplate
 argument_list|(
-name|policy
-operator|.
-name|getTransactionTemplate
-argument_list|()
+name|template
 argument_list|)
 expr_stmt|;
 return|return

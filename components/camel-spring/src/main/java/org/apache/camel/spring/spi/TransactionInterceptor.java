@@ -255,11 +255,6 @@ specifier|final
 name|TransactionTemplate
 name|transactionTemplate
 decl_stmt|;
-DECL|field|redeliveryPolicy
-specifier|private
-name|RedeliveryPolicy
-name|redeliveryPolicy
-decl_stmt|;
 DECL|field|delayPolicy
 specifier|private
 name|DelayPolicy
@@ -654,22 +649,6 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-name|redeliveryPolicy
-operator|!=
-literal|null
-condition|)
-block|{
-name|delay
-operator|=
-name|redeliveryPolicy
-operator|.
-name|getDelay
-argument_list|()
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
 name|delayPolicy
 operator|!=
 literal|null
@@ -726,7 +705,13 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-comment|// TODO: As DLC we need a timer task, eg something in Util to help us
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Sleep interrupted"
+argument_list|)
+expr_stmt|;
 name|Thread
 operator|.
 name|currentThread
