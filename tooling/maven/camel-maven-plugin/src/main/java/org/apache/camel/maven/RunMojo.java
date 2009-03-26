@@ -947,17 +947,6 @@ literal|"Using the org.apache.camel.spring.javaconfig.Main to initate a camel co
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"The mainClass is "
-operator|+
-name|mainClass
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|getLog
