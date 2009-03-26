@@ -486,7 +486,7 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter expression="-1"      *      */
+comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter expression="${camel.duration}"      *            default-value="-1"      *      */
 DECL|field|duration
 specifier|protected
 name|String
@@ -947,6 +947,17 @@ literal|"Using the org.apache.camel.spring.javaconfig.Main to initate a camel co
 argument_list|)
 expr_stmt|;
 block|}
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"The mainClass is "
+operator|+
+name|mainClass
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|getLog

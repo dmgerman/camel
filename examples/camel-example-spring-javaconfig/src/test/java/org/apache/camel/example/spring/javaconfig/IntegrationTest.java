@@ -4,13 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.javaconfig
+DECL|package|org.apache.camel.example.spring.javaconfig
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|example
 operator|.
 name|spring
 operator|.
@@ -20,21 +22,11 @@ end_package
 
 begin_import
 import|import
-name|java
+name|junit
 operator|.
-name|util
+name|framework
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
+name|TestCase
 import|;
 end_import
 
@@ -46,70 +38,49 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|spring
 operator|.
-name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|javaconfig
 operator|.
-name|springframework
-operator|.
-name|config
-operator|.
-name|java
-operator|.
-name|annotation
-operator|.
-name|Bean
+name|Main
 import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for writing  *<a href="http://www.springsource.org/javaconfig">Spring JavaConfig</a>  * configurations to configure a CamelContext with a single {@link RouteBuilder} instance   * @version $Revision$  */
+comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SingleRouteCamelConfiguration
+DECL|class|IntegrationTest
 specifier|public
-specifier|abstract
 class|class
-name|SingleRouteCamelConfiguration
+name|IntegrationTest
 extends|extends
-name|CamelConfiguration
+name|TestCase
 block|{
-annotation|@
-name|Bean
-DECL|method|routes ()
+DECL|method|testCamelRulesDeployCorrectlyInSpring ()
 specifier|public
-name|List
-argument_list|<
-name|RouteBuilder
-argument_list|>
-name|routes
+name|void
+name|testCamelRulesDeployCorrectlyInSpring
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-return|return
-name|Collections
+comment|// let's boot up the Spring application context for 2 seconds to check that it works OK
+name|Main
 operator|.
-name|singletonList
+name|main
 argument_list|(
-name|route
-argument_list|()
+literal|"-duration"
+argument_list|,
+literal|"2s"
+argument_list|,
+literal|"-bp"
+argument_list|,
+literal|"org.apache.camel.example.spring.javaconfig"
 argument_list|)
-return|;
+expr_stmt|;
 block|}
-comment|/**      * Creates the single {@link RouteBuilder} to use in this configuration      */
-DECL|method|route ()
-specifier|public
-specifier|abstract
-name|RouteBuilder
-name|route
-parameter_list|()
-function_decl|;
 block|}
 end_class
 

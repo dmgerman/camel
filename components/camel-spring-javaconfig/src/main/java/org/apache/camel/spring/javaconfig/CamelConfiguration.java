@@ -214,6 +214,11 @@ operator|new
 name|SpringCamelContext
 argument_list|()
 decl_stmt|;
+name|setupCamelContext
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|RouteBuilder
@@ -243,6 +248,18 @@ return|return
 name|camelContext
 return|;
 block|}
+comment|// maybe register the camel component, language here
+DECL|method|setupCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setupCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+throws|throws
+name|Exception
+block|{              }
 comment|/**      * Returns the list of routes to use in this configuration      */
 DECL|method|routes ()
 specifier|public
