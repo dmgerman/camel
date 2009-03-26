@@ -405,7 +405,6 @@ specifier|final
 name|ParameterMappingStrategy
 name|strategy
 decl_stmt|;
-comment|// TODO: A new key
 DECL|field|operations
 specifier|private
 specifier|final
