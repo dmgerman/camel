@@ -1517,18 +1517,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|exchange
-operator|.
-name|getPattern
-argument_list|()
-operator|.
-name|isOutCapable
-argument_list|()
-condition|)
-block|{
-comment|// only set the JMSReply if the Exchange supports Out
 name|jmsMessage
 operator|.
 name|setJMSReplyTo
@@ -1547,20 +1535,6 @@ name|headerValue
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// warn we got a JMSReplyTo but the Exchange is not out capable
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Exchange is not out capable, Ignoring JMSReplyTo: "
-operator|+
-name|headerValue
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 elseif|else
 if|if
