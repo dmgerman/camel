@@ -231,7 +231,7 @@ extends|extends
 name|MainSupport
 block|{
 DECL|field|instance
-specifier|private
+specifier|protected
 specifier|static
 name|Main
 name|instance
