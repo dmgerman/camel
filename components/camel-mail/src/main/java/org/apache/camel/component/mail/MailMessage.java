@@ -406,6 +406,9 @@ operator|.
 name|extractHeadersFromMail
 argument_list|(
 name|mailMessage
+argument_list|,
+name|getExchange
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

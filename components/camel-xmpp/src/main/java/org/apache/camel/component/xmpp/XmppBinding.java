@@ -264,6 +264,8 @@ argument_list|(
 name|name
 argument_list|,
 name|value
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{
@@ -324,7 +326,7 @@ name|getBody
 argument_list|()
 return|;
 block|}
-DECL|method|extractHeadersFromXmpp (Message xmppMessage)
+DECL|method|extractHeadersFromXmpp (Message xmppMessage, Exchange exchange)
 specifier|public
 name|Map
 argument_list|<
@@ -336,6 +338,9 @@ name|extractHeadersFromXmpp
 parameter_list|(
 name|Message
 name|xmppMessage
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 name|Map
@@ -386,6 +391,8 @@ argument_list|(
 name|name
 argument_list|,
 name|value
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{

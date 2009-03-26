@@ -56,6 +56,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|HeaderFilterStrategy
@@ -63,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default header filtering strategy.  Users can configure filter by   * setting filter set and/or setting a regular expression.  Subclass can   * add extended filter logic in   * {@link #extendedFilter(org.apache.camel.impl.DefaultHeaderFilterStrategy.Direction, String, Object)}  *   * Filters are associated with directions (in or out).  "In" direction is   * referred to propagating headers "to" Camel message.  The "out" direction  * is opposite which is referred to propagating headers from Camel message  * to a native message like JMS and CXF message.  You can see example of  * DefaultHeaderFilterStrategy are being extended and invoked in camel-jms   * and camel-cxf components.  *  * @version $Revision$  */
+comment|/**  * The default header filtering strategy.  Users can configure filter by   * setting filter set and/or setting a regular expression.  Subclass can   * add extended filter logic in   * {@link #extendedFilter(Direction, String, Object, Exchange)}  *   * Filters are associated with directions (in or out).  "In" direction is   * referred to propagating headers "to" Camel message.  The "out" direction  * is opposite which is referred to propagating headers from Camel message  * to a native message like JMS and CXF message.  You can see example of  * DefaultHeaderFilterStrategy are being extended and invoked in camel-jms   * and camel-cxf components.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -74,17 +86,6 @@ name|DefaultHeaderFilterStrategy
 implements|implements
 name|HeaderFilterStrategy
 block|{
-DECL|enum|Direction
-DECL|enumConstant|IN
-DECL|enumConstant|OUT
-specifier|protected
-enum|enum
-name|Direction
-block|{
-name|IN
-block|,
-name|OUT
-block|}
 DECL|field|inFilter
 specifier|private
 name|Set
@@ -121,7 +122,7 @@ specifier|private
 name|boolean
 name|allowNullValues
 decl_stmt|;
-DECL|method|applyFilterToCamelHeaders (String headerName, Object headerValue)
+DECL|method|applyFilterToCamelHeaders (String headerName, Object headerValue, Exchange exchange)
 specifier|public
 name|boolean
 name|applyFilterToCamelHeaders
@@ -131,6 +132,9 @@ name|headerName
 parameter_list|,
 name|Object
 name|headerValue
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 return|return
@@ -143,10 +147,12 @@ argument_list|,
 name|headerName
 argument_list|,
 name|headerValue
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|applyFilterToExternalHeaders (String headerName, Object headerValue)
+DECL|method|applyFilterToExternalHeaders (String headerName, Object headerValue, Exchange exchange)
 specifier|public
 name|boolean
 name|applyFilterToExternalHeaders
@@ -156,6 +162,9 @@ name|headerName
 parameter_list|,
 name|Object
 name|headerValue
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 return|return
@@ -168,6 +177,8 @@ argument_list|,
 name|headerName
 argument_list|,
 name|headerValue
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}
@@ -429,7 +440,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-DECL|method|extendedFilter (Direction direction, String key, Object value)
+DECL|method|extendedFilter (Direction direction, String key, Object value, Exchange exchange)
 specifier|protected
 name|boolean
 name|extendedFilter
@@ -442,13 +453,16 @@ name|key
 parameter_list|,
 name|Object
 name|value
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 return|return
 literal|false
 return|;
 block|}
-DECL|method|doFiltering (Direction direction, String headerName, Object headerValue)
+DECL|method|doFiltering (Direction direction, String headerName, Object headerValue, Exchange exchange)
 specifier|private
 name|boolean
 name|doFiltering
@@ -461,6 +475,9 @@ name|headerName
 parameter_list|,
 name|Object
 name|headerValue
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 if|if
@@ -617,6 +634,8 @@ argument_list|,
 name|headerName
 argument_list|,
 name|headerValue
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{

@@ -710,7 +710,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|extractHeadersFromJms (Message jmsMessage)
+DECL|method|extractHeadersFromJms (Message jmsMessage, Exchange exchange)
 specifier|public
 name|Map
 argument_list|<
@@ -722,6 +722,9 @@ name|extractHeadersFromJms
 parameter_list|(
 name|Message
 name|jmsMessage
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 name|Map
@@ -972,6 +975,8 @@ argument_list|(
 name|name
 argument_list|,
 name|value
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{
@@ -1625,6 +1630,8 @@ argument_list|,
 name|headerName
 argument_list|,
 name|headerValue
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{
@@ -2465,7 +2472,7 @@ name|answer
 return|;
 block|}
 comment|/**      * Strategy to allow filtering of headers which are put on the JMS message      *<p/>      *<b>Note</b>: Currently only supports sending java identifiers as keys      */
-DECL|method|shouldOutputHeader (org.apache.camel.Message camelMessage, String headerName, Object headerValue)
+DECL|method|shouldOutputHeader (org.apache.camel.Message camelMessage, String headerName, Object headerValue, Exchange exchange)
 specifier|protected
 name|boolean
 name|shouldOutputHeader
@@ -2484,6 +2491,9 @@ name|headerName
 parameter_list|,
 name|Object
 name|headerValue
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 return|return
@@ -2499,6 +2509,8 @@ argument_list|(
 name|headerName
 argument_list|,
 name|headerValue
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}

@@ -100,6 +100,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Message
 import|;
 end_import
@@ -250,6 +262,8 @@ argument_list|(
 name|fault
 argument_list|,
 name|response
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -303,6 +317,8 @@ argument_list|(
 name|out
 argument_list|,
 name|response
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -414,7 +430,7 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|doWriteFaultResponse (Message message, HttpServletResponse response)
+DECL|method|doWriteFaultResponse (Message message, HttpServletResponse response, Exchange exchange)
 specifier|public
 name|void
 name|doWriteFaultResponse
@@ -424,6 +440,9 @@ name|message
 parameter_list|,
 name|HttpServletResponse
 name|response
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|IOException
@@ -433,10 +452,12 @@ argument_list|(
 name|message
 argument_list|,
 name|response
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doWriteResponse (Message message, HttpServletResponse response)
+DECL|method|doWriteResponse (Message message, HttpServletResponse response, Exchange exchange)
 specifier|public
 name|void
 name|doWriteResponse
@@ -446,6 +467,9 @@ name|message
 parameter_list|,
 name|HttpServletResponse
 name|response
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|IOException
@@ -567,6 +591,8 @@ argument_list|(
 name|key
 argument_list|,
 name|value
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{

@@ -68,6 +68,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|cxf
@@ -151,8 +163,8 @@ specifier|private
 name|CxfHeaderHelper
 parameter_list|()
 block|{     }
-comment|/**      * Progagates Camel headers to CXF message.      *      * @param strategy header filter strategy      * @param headers Camel header      * @param message CXF meassage      */
-DECL|method|propagateCamelToCxf (HeaderFilterStrategy strategy, Map<String, Object> headers, Message message)
+comment|/**      * Progagates Camel headers to CXF message.      *      * @param strategy header filter strategy      * @param headers Camel header      * @param message CXF meassage      * @param exchange provides context for filtering      */
+DECL|method|propagateCamelToCxf (HeaderFilterStrategy strategy, Map<String, Object> headers, Message message, Exchange exchange)
 specifier|public
 specifier|static
 name|void
@@ -171,6 +183,9 @@ name|headers
 parameter_list|,
 name|Message
 name|message
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 name|Map
@@ -272,6 +287,8 @@ name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{
@@ -405,7 +422,7 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|propagateCxfToCamel (HeaderFilterStrategy strategy, Message message, Map<String, Object> headers)
+DECL|method|propagateCxfToCamel (HeaderFilterStrategy strategy, Message message, Map<String, Object> headers, Exchange exchange)
 specifier|public
 specifier|static
 name|void
@@ -424,6 +441,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|headers
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 if|if
@@ -507,6 +527,8 @@ name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{
@@ -565,6 +587,8 @@ argument_list|(
 name|key
 argument_list|,
 name|value
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{
@@ -610,6 +634,8 @@ argument_list|(
 name|key
 argument_list|,
 name|value
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{
@@ -653,6 +679,8 @@ argument_list|(
 name|key
 argument_list|,
 name|value
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{

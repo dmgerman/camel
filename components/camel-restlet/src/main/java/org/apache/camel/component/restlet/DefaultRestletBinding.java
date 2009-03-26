@@ -370,6 +370,8 @@ name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{
@@ -562,6 +564,8 @@ name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{
@@ -812,6 +816,8 @@ name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{
@@ -1176,6 +1182,8 @@ name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{
@@ -1360,6 +1368,8 @@ name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{

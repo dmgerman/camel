@@ -1339,6 +1339,8 @@ argument_list|()
 operator|.
 name|getHeaders
 argument_list|()
+argument_list|,
+name|camelExchange
 argument_list|)
 expr_stmt|;
 name|CachedOutputStream

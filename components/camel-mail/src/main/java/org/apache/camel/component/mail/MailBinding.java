@@ -701,6 +701,8 @@ argument_list|(
 name|headerName
 argument_list|,
 name|headerValue
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{
@@ -1297,7 +1299,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|extractHeadersFromMail (Message mailMessage)
+DECL|method|extractHeadersFromMail (Message mailMessage, Exchange exchange)
 specifier|protected
 name|Map
 argument_list|<
@@ -1309,6 +1311,9 @@ name|extractHeadersFromMail
 parameter_list|(
 name|Message
 name|mailMessage
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|MessagingException
@@ -1388,6 +1393,8 @@ name|getName
 argument_list|()
 argument_list|,
 name|value
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{

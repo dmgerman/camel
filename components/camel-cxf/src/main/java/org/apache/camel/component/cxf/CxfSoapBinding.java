@@ -281,6 +281,8 @@ name|getHeaders
 argument_list|()
 argument_list|,
 name|answer
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 name|InputStream
@@ -529,6 +531,8 @@ name|getHeaders
 argument_list|()
 argument_list|,
 name|outMessage
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 comment|// send the body back

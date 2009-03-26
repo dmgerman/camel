@@ -262,6 +262,9 @@ operator|.
 name|extractHeadersFromXmpp
 argument_list|(
 name|xmppMessage
+argument_list|,
+name|getExchange
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

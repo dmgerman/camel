@@ -509,18 +509,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// bind the request CXF exchange
-name|binding
-operator|.
-name|populateCxfRequestFromExchange
-argument_list|(
-name|cxfExchange
-argument_list|,
-name|camelExchange
-argument_list|,
-name|requestContext
-argument_list|)
-expr_stmt|;
 comment|// get binding operation info
 name|BindingOperationInfo
 name|boi
@@ -611,6 +599,50 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|camelExchange
+operator|.
+name|setProperty
+argument_list|(
+name|BindingOperationInfo
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|boi
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Set exchange property: BindingOperationInfo: "
+operator|+
+name|boi
+argument_list|)
+expr_stmt|;
+block|}
+comment|// bind the request CXF exchange
+name|binding
+operator|.
+name|populateCxfRequestFromExchange
+argument_list|(
+name|cxfExchange
+argument_list|,
+name|camelExchange
+argument_list|,
+name|requestContext
+argument_list|)
+expr_stmt|;
 comment|// Remove protocol headers from scopes.  Otherwise, response headers can be
 comment|// overwritten by request headers when SOAPHandlerInterceptor tries to create
 comment|// a wrapped message context by the copyScoped() method.

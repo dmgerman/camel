@@ -673,6 +673,9 @@ operator|.
 name|extractHeadersFromJms
 argument_list|(
 name|jmsMessage
+argument_list|,
+name|getExchange
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

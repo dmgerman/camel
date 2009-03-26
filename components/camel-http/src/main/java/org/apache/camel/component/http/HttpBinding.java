@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Message
 import|;
 end_import
@@ -139,8 +151,8 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Strategy method that writes the response to the http response stream for a fault message      *      * @param message  the fault message      * @param response   the http response      * @throws java.io.IOException can be thrown from http response      */
-DECL|method|doWriteFaultResponse (Message message, HttpServletResponse response)
+comment|/**      * Strategy method that writes the response to the http response stream for a fault message      *      * @param message  the fault message      * @param response the http response      * @param exchange the exchange to provide context for header filtering      * @throws java.io.IOException can be thrown from http response      */
+DECL|method|doWriteFaultResponse (Message message, HttpServletResponse response, Exchange exchange)
 name|void
 name|doWriteFaultResponse
 parameter_list|(
@@ -149,12 +161,15 @@ name|message
 parameter_list|,
 name|HttpServletResponse
 name|response
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Strategy method that writes the response to the http response stream for an OUT message      *      * @param message  the OUT message      * @param response   the http response      * @throws java.io.IOException can be thrown from http response      */
-DECL|method|doWriteResponse (Message message, HttpServletResponse response)
+comment|/**      * Strategy method that writes the response to the http response stream for an OUT message      *      * @param message  the OUT message      * @param response the http response      * @param exchange the exchange to provide context for header filtering      * @throws java.io.IOException can be thrown from http response      */
+DECL|method|doWriteResponse (Message message, HttpServletResponse response, Exchange exchange)
 name|void
 name|doWriteResponse
 parameter_list|(
@@ -163,6 +178,9 @@ name|message
 parameter_list|,
 name|HttpServletResponse
 name|response
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|IOException
