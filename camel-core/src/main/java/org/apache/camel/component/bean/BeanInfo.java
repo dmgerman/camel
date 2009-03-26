@@ -2258,6 +2258,11 @@ condition|)
 block|{
 continue|continue;
 block|}
+name|boolean
+name|found
+init|=
+literal|false
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -2311,7 +2316,6 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|type1
 operator|.
 name|equals
@@ -2320,13 +2324,23 @@ name|type2
 argument_list|)
 condition|)
 block|{
-continue|continue;
+name|found
+operator|=
+literal|true
+expr_stmt|;
+break|break;
 block|}
 block|}
+if|if
+condition|(
+name|found
+condition|)
+block|{
 comment|// same name, same parameters, then its overrides an existing class
 return|return
 name|info
 return|;
+block|}
 block|}
 return|return
 literal|null
