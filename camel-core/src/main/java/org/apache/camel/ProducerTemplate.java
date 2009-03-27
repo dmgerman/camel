@@ -551,6 +551,24 @@ name|Object
 name|body
 parameter_list|)
 function_decl|;
+comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param body the payload to send      * @return the result (see class javadoc)      */
+DECL|method|requestBody (Object body, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|requestBody
+parameter_list|(
+name|Object
+name|body
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint the Endpoint to send to      * @param body     the payload      * @return the result (see class javadoc)      */
 DECL|method|requestBody (Endpoint endpoint, Object body)
 name|Object
@@ -563,6 +581,27 @@ name|Object
 name|body
 parameter_list|)
 function_decl|;
+comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint the Endpoint to send to      * @param body     the payload      * @param type     the expected response type      * @return the result (see class javadoc)      */
+DECL|method|requestBody (Endpoint endpoint, Object body, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|requestBody
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @return the result (see class javadoc)      */
 DECL|method|requestBody (String endpointUri, Object body)
 name|Object
@@ -573,6 +612,27 @@ name|endpointUri
 parameter_list|,
 name|Object
 name|body
+parameter_list|)
+function_decl|;
+comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @param type        the expected response type      * @return the result (see class javadoc)      */
+DECL|method|requestBody (String endpointUri, Object body, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|requestBody
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
 parameter_list|)
 function_decl|;
 comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint    the Endpoint to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @return the result (see class javadoc)      */
@@ -593,6 +653,33 @@ name|Object
 name|headerValue
 parameter_list|)
 function_decl|;
+comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint    the Endpoint to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @param type        the expected response type      * @return the result (see class javadoc)      */
+DECL|method|requestBodyAndHeader (Endpoint endpoint, Object body, String header, Object headerValue, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|requestBodyAndHeader
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Object
+name|headerValue
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @return the result (see class javadoc)      */
 DECL|method|requestBodyAndHeader (String endpointUri, Object body, String header, Object headerValue)
 name|Object
@@ -609,6 +696,33 @@ name|header
 parameter_list|,
 name|Object
 name|headerValue
+parameter_list|)
+function_decl|;
+comment|/**      * Send the body to an endpoint returning any result output body.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send to      * @param body        the payload      * @param header      the header name      * @param headerValue the header value      * @param type        the expected response type      * @return the result (see class javadoc)      */
+DECL|method|requestBodyAndHeader (String endpointUri, Object body, String header, Object headerValue, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|requestBodyAndHeader
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Object
+name|headerValue
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
 parameter_list|)
 function_decl|;
 comment|/**      * Sends the body to an endpoint with the specified headers and header      * values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      */
@@ -631,6 +745,35 @@ argument_list|>
 name|headers
 parameter_list|)
 function_decl|;
+comment|/**      * Sends the body to an endpoint with the specified headers and header      * values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @param type the expected response type      * @return the result (see class javadoc)      */
+DECL|method|requestBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|requestBodyAndHeaders
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Sends the body to an endpoint with the specified headers and header      * values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      */
 DECL|method|requestBodyAndHeaders (Endpoint endpoint, Object body, Map<String, Object> headers)
 name|Object
@@ -649,6 +792,35 @@ argument_list|,
 name|Object
 argument_list|>
 name|headers
+parameter_list|)
+function_decl|;
+comment|/**      * Sends the body to an endpoint with the specified headers and header      * values.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpoint the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @param type the expected response type      * @return the result (see class javadoc)      */
+DECL|method|requestBodyAndHeaders (Endpoint endpoint, Object body, Map<String, Object> headers, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|requestBodyAndHeaders
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
 parameter_list|)
 function_decl|;
 block|}
