@@ -252,6 +252,42 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSendMessageToLogMaxChars ()
+specifier|public
+name|void
+name|testSendMessageToLogMaxChars
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"log:org.apache.camel.TEST"
+argument_list|,
+literal|"Hello World this is a very long string that is NOT going to be chopped by maxchars"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"log:org.apache.camel.TEST?maxChars=50"
+argument_list|,
+literal|"Hello World this is a very long string that is going to be chopped by maxchars"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"log:org.apache.camel.TEST?maxChars=50&showAll=true&multiline=true"
+argument_list|,
+literal|"Hello World this is a very long string that is going to be chopped by maxchars"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testSendExchangeWithOut ()
 specifier|public
 name|void
