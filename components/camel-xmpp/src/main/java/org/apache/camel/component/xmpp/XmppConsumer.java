@@ -581,6 +581,13 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|muc
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// must invoke nextMessage to consume the response from the server
 comment|// otherwise the client local queue will fill up (CAMEL-1467)
 name|muc
@@ -588,6 +595,7 @@ operator|.
 name|nextMessage
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
