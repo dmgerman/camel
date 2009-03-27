@@ -1680,10 +1680,7 @@ comment|// must encode to safe JMS header name before setting property on jmsMes
 name|String
 name|key
 init|=
-name|endpoint
-operator|.
-name|getJmsKeyFormatStrategy
-argument_list|()
+name|jmsKeyFormatStrategy
 operator|.
 name|encodeKey
 argument_list|(
