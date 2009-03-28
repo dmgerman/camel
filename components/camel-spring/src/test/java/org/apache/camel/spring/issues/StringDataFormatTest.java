@@ -141,7 +141,7 @@ index|[]
 operator|)
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:marshal"
 argument_list|,
@@ -211,7 +211,7 @@ name|String
 operator|)
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:unmarshal"
 argument_list|,

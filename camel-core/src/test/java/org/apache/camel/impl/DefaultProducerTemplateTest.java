@@ -166,7 +166,7 @@ name|result
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:in"
 argument_list|,
@@ -258,7 +258,7 @@ name|result
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:fault"
 argument_list|,

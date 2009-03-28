@@ -92,7 +92,7 @@ name|value
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"bean:myBean?method=sayHello"
 argument_list|,
@@ -122,7 +122,7 @@ name|value
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"bean:myBean?method=sayGoodbye"
 argument_list|,
@@ -152,7 +152,7 @@ name|value
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"bean:myBean"
 argument_list|,
@@ -184,7 +184,7 @@ name|value
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"bean:myBean"
 argument_list|,

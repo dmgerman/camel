@@ -232,7 +232,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Hello World"
+literal|null
 argument_list|,
 name|out
 argument_list|)

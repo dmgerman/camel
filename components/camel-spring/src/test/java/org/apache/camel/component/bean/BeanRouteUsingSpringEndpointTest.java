@@ -163,7 +163,7 @@ name|value
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 name|helloEndpoint
 argument_list|,
@@ -193,7 +193,7 @@ name|value
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 name|goodbyeEndpoint
 argument_list|,

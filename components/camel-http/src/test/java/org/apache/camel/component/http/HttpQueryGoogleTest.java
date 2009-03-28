@@ -65,7 +65,7 @@ name|out
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"http://www.google.com/search?q=Camel"
 argument_list|,

@@ -54,18 +54,18 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to the default endpoint and returns the result content      *      * @param body the payload to send      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to the default endpoint      *      * @param body the payload to send      */
 DECL|method|sendBody (Object body)
-name|Object
+name|void
 name|sendBody
 parameter_list|(
 name|Object
 name|body
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to the default endpoint with a specified header and header      * value      *      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to the default endpoint with a specified header and header      * value      *      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      */
 DECL|method|sendBodyAndHeader (Object body, String header, Object headerValue)
-name|Object
+name|void
 name|sendBodyAndHeader
 parameter_list|(
 name|Object
@@ -78,9 +78,9 @@ name|Object
 name|headerValue
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to the default endpoint with a specified property and property      * value      *      * @param body          the payload to send      * @param property      the property name      * @param propertyValue the property value      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to the default endpoint with a specified property and property      * value      *      * @param body          the payload to send      * @param property      the property name      * @param propertyValue the property value      */
 DECL|method|sendBodyAndProperty (Object body, String property, Object propertyValue)
-name|Object
+name|void
 name|sendBodyAndProperty
 parameter_list|(
 name|Object
@@ -93,9 +93,9 @@ name|Object
 name|propertyValue
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to the default endpoint with the specified headers and      * header values      *      * @param body the payload to send      * @param headers      the headers      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to the default endpoint with the specified headers and      * header values      *      * @param body the payload to send      * @param headers      the headers      */
 DECL|method|sendBodyAndHeaders (Object body, Map<String, Object> headers)
-name|Object
+name|void
 name|sendBodyAndHeaders
 parameter_list|(
 name|Object
@@ -220,9 +220,9 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpoint   the endpoint to send the exchange to      * @param body       the payload      * @return the result (see class javadoc)      */
+comment|/**      * Send the body to an endpoint      *      * @param endpoint   the endpoint to send the exchange to      * @param body       the payload      */
 DECL|method|sendBody (Endpoint endpoint, Object body)
-name|Object
+name|void
 name|sendBody
 parameter_list|(
 name|Endpoint
@@ -232,9 +232,9 @@ name|Object
 name|body
 parameter_list|)
 function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpointUri   the endpoint URI to send the exchange to      * @param body          the payload      * @return the result (see class javadoc)      */
+comment|/**      * Send the body to an endpoint      *      * @param endpointUri   the endpoint URI to send the exchange to      * @param body          the payload      */
 DECL|method|sendBody (String endpointUri, Object body)
-name|Object
+name|void
 name|sendBody
 parameter_list|(
 name|String
@@ -244,7 +244,7 @@ name|Object
 name|body
 parameter_list|)
 function_decl|;
-comment|/**      * Send the body to an endpoint with the given {@link ExchangePattern}      * returning any result output body      *      * @param endpoint      the endpoint to send the exchange to      * @param body          the payload      * @param pattern       the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @return the result (see class javadoc)      */
+comment|/**      * Send the body to an endpoint with the given {@link ExchangePattern}      * returning any result output body      *      * @param endpoint      the endpoint to send the exchange to      * @param body          the payload      * @param pattern       the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      */
 DECL|method|sendBody (Endpoint endpoint, ExchangePattern pattern, Object body)
 name|Object
 name|sendBody
@@ -259,7 +259,7 @@ name|Object
 name|body
 parameter_list|)
 function_decl|;
-comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpointUri   the endpoint URI to send the exchange to      * @param pattern       the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body          the payload      * @return the result (see class javadoc)      */
+comment|/**      * Send the body to an endpoint returning any result output body      *      * @param endpointUri   the endpoint URI to send the exchange to      * @param pattern       the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body          the payload      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      */
 DECL|method|sendBody (String endpointUri, ExchangePattern pattern, Object body)
 name|Object
 name|sendBody
@@ -274,9 +274,9 @@ name|Object
 name|body
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      */
 DECL|method|sendBodyAndHeader (String endpointUri, Object body, String header, Object headerValue)
-name|Object
+name|void
 name|sendBodyAndHeader
 parameter_list|(
 name|String
@@ -292,9 +292,9 @@ name|Object
 name|headerValue
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpoint the Endpoint to send to      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpoint the Endpoint to send to      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      */
 DECL|method|sendBodyAndHeader (Endpoint endpoint, Object body, String header, Object headerValue)
-name|Object
+name|void
 name|sendBodyAndHeader
 parameter_list|(
 name|Endpoint
@@ -310,7 +310,7 @@ name|Object
 name|headerValue
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpoint the Endpoint to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpoint the Endpoint to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      */
 DECL|method|sendBodyAndHeader (Endpoint endpoint, ExchangePattern pattern, Object body, String header, Object headerValue)
 name|Object
 name|sendBodyAndHeader
@@ -331,7 +331,7 @@ name|Object
 name|headerValue
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpoint the Endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to an endpoint with a specified header and header value      *      * @param endpoint the Endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param header the header name      * @param headerValue the header value      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      */
 DECL|method|sendBodyAndHeader (String endpoint, ExchangePattern pattern, Object body, String header, Object headerValue)
 name|Object
 name|sendBodyAndHeader
@@ -352,9 +352,9 @@ name|Object
 name|headerValue
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified property and property value      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to an endpoint with a specified property and property value      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      */
 DECL|method|sendBodyAndProperty (String endpointUri, Object body, String property, Object propertyValue)
-name|Object
+name|void
 name|sendBodyAndProperty
 parameter_list|(
 name|String
@@ -370,9 +370,9 @@ name|Object
 name|propertyValue
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified property and property value      *      * @param endpoint the Endpoint to send to      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to an endpoint with a specified property and property value      *      * @param endpoint the Endpoint to send to      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      */
 DECL|method|sendBodyAndProperty (Endpoint endpoint, Object body, String property, Object propertyValue)
-name|Object
+name|void
 name|sendBodyAndProperty
 parameter_list|(
 name|Endpoint
@@ -388,7 +388,7 @@ name|Object
 name|propertyValue
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified property and property value      *      * @param endpoint the Endpoint to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to an endpoint with a specified property and property value      *      * @param endpoint the Endpoint to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      */
 DECL|method|sendBodyAndProperty (Endpoint endpoint, ExchangePattern pattern, Object body, String property, Object propertyValue)
 name|Object
 name|sendBodyAndProperty
@@ -409,7 +409,7 @@ name|Object
 name|propertyValue
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to an endpoint with a specified property and property value      *      * @param endpoint the Endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to an endpoint with a specified property and property value      *      * @param endpoint the Endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param property the property name      * @param propertyValue the property value      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      */
 DECL|method|sendBodyAndProperty (String endpoint, ExchangePattern pattern, Object body, String property, Object propertyValue)
 name|Object
 name|sendBodyAndProperty
@@ -430,9 +430,9 @@ name|Object
 name|propertyValue
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to an endpoint with the specified headers and header      * values      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to an endpoint with the specified headers and header      * values      *      * @param endpointUri the endpoint URI to send to      * @param body the payload to send      * @param headers headers      */
 DECL|method|sendBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers)
-name|Object
+name|void
 name|sendBodyAndHeaders
 parameter_list|(
 name|String
@@ -450,9 +450,9 @@ argument_list|>
 name|headers
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to an endpoint with the specified headers and header      * values      *      * @param endpoint the endpoint URI to send to      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to an endpoint with the specified headers and header      * values      *      * @param endpoint the endpoint URI to send to      * @param body the payload to send      * @param headers headers      */
 DECL|method|sendBodyAndHeaders (Endpoint endpoint, Object body, Map<String, Object> headers)
-name|Object
+name|void
 name|sendBodyAndHeaders
 parameter_list|(
 name|Endpoint
@@ -470,7 +470,7 @@ argument_list|>
 name|headers
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to an endpoint with the specified headers and header      * values      *      * @param endpointUri the endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to an endpoint with the specified headers and header      * values      *      * @param endpointUri the endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param headers headers      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      */
 DECL|method|sendBodyAndHeaders (String endpointUri, ExchangePattern pattern, Object body, Map<String, Object> headers)
 name|Object
 name|sendBodyAndHeaders
@@ -493,7 +493,7 @@ argument_list|>
 name|headers
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to an endpoint with the specified headers and header      * values      *      * @param endpoint the endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param headers headers      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to an endpoint with the specified headers and header      * values      *      * @param endpoint the endpoint URI to send to      * @param pattern the message {@link ExchangePattern} such as      *   {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param body the payload to send      * @param headers headers      * @return the result if {@link ExchangePattern} is OUT capable, otherwise<tt>null</tt>      */
 DECL|method|sendBodyAndHeaders (Endpoint endpoint, ExchangePattern pattern, Object body, Map<String, Object> headers)
 name|Object
 name|sendBodyAndHeaders

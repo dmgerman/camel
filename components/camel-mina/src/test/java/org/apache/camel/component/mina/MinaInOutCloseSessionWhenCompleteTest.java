@@ -93,7 +93,7 @@ name|out
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"mina:tcp://localhost:8080?sync=true&textline=true"
 argument_list|,

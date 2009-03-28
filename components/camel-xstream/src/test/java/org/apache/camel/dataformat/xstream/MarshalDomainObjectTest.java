@@ -360,7 +360,7 @@ name|Object
 operator|)
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:marshal"
 argument_list|,

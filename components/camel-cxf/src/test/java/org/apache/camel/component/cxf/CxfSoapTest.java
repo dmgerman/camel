@@ -367,7 +367,7 @@ name|result
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:consumer"
 argument_list|,
@@ -532,7 +532,7 @@ name|result
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:producer"
 argument_list|,

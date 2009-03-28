@@ -230,13 +230,7 @@ operator|new
 name|ProducerCache
 argument_list|()
 decl_stmt|;
-DECL|field|useEndpointCache
-specifier|private
-name|boolean
-name|useEndpointCache
-init|=
-literal|true
-decl_stmt|;
+comment|// TODO: why do we have endpoint cache as camel context also have endpoint cache?
 DECL|field|endpointCache
 specifier|private
 specifier|final
@@ -256,6 +250,13 @@ argument_list|,
 name|Endpoint
 argument_list|>
 argument_list|()
+decl_stmt|;
+DECL|field|useEndpointCache
+specifier|private
+name|boolean
+name|useEndpointCache
+init|=
+literal|true
 decl_stmt|;
 DECL|field|defaultEndpoint
 specifier|private
@@ -606,7 +607,7 @@ return|;
 block|}
 DECL|method|sendBody (Endpoint endpoint, Object body)
 specifier|public
-name|Object
+name|void
 name|sendBody
 parameter_list|(
 name|Endpoint
@@ -629,16 +630,16 @@ name|body
 argument_list|)
 argument_list|)
 decl_stmt|;
-return|return
+comment|// must invoke extract result body in case of exception to be rethrown
 name|extractResultBody
 argument_list|(
 name|result
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 DECL|method|sendBody (String endpointUri, Object body)
 specifier|public
-name|Object
+name|void
 name|sendBody
 parameter_list|(
 name|String
@@ -656,14 +657,13 @@ argument_list|(
 name|endpointUri
 argument_list|)
 decl_stmt|;
-return|return
 name|sendBody
 argument_list|(
 name|endpoint
 argument_list|,
 name|body
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 DECL|method|sendBody (String endpointUri, ExchangePattern pattern, Object body)
 specifier|public
@@ -688,7 +688,9 @@ argument_list|(
 name|endpointUri
 argument_list|)
 decl_stmt|;
-return|return
+name|Object
+name|result
+init|=
 name|sendBody
 argument_list|(
 name|endpoint
@@ -697,11 +699,30 @@ name|pattern
 argument_list|,
 name|body
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|pattern
+operator|.
+name|isOutCapable
+argument_list|()
+condition|)
+block|{
+return|return
+name|result
 return|;
+block|}
+else|else
+block|{
+comment|// return null if not OUT capable
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|sendBodyAndHeader (String endpointUri, final Object body, final String header, final Object headerValue)
 specifier|public
-name|Object
+name|void
 name|sendBodyAndHeader
 parameter_list|(
 name|String
@@ -720,7 +741,6 @@ name|Object
 name|headerValue
 parameter_list|)
 block|{
-return|return
 name|sendBodyAndHeader
 argument_list|(
 name|resolveMandatoryEndpoint
@@ -734,11 +754,11 @@ name|header
 argument_list|,
 name|headerValue
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 DECL|method|sendBodyAndHeader (Endpoint endpoint, final Object body, final String header, final Object headerValue)
 specifier|public
-name|Object
+name|void
 name|sendBodyAndHeader
 parameter_list|(
 name|Endpoint
@@ -774,12 +794,12 @@ name|headerValue
 argument_list|)
 argument_list|)
 decl_stmt|;
-return|return
+comment|// must invoke extract result body in case of exception to be rethrown
 name|extractResultBody
 argument_list|(
 name|result
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 DECL|method|sendBodyAndHeader (Endpoint endpoint, ExchangePattern pattern, final Object body, final String header, final Object headerValue)
 specifier|public
@@ -806,7 +826,7 @@ name|headerValue
 parameter_list|)
 block|{
 name|Exchange
-name|result
+name|exchange
 init|=
 name|send
 argument_list|(
@@ -824,14 +844,35 @@ name|headerValue
 argument_list|)
 argument_list|)
 decl_stmt|;
-return|return
+name|Object
+name|result
+init|=
 name|extractResultBody
 argument_list|(
-name|result
+name|exchange
 argument_list|,
 name|pattern
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|pattern
+operator|.
+name|isOutCapable
+argument_list|()
+condition|)
+block|{
+return|return
+name|result
 return|;
+block|}
+else|else
+block|{
+comment|// return null if not OUT capable
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|sendBodyAndHeader (String endpoint, ExchangePattern pattern, final Object body, final String header, final Object headerValue)
 specifier|public
@@ -858,7 +899,7 @@ name|headerValue
 parameter_list|)
 block|{
 name|Exchange
-name|result
+name|exchange
 init|=
 name|send
 argument_list|(
@@ -876,18 +917,39 @@ name|headerValue
 argument_list|)
 argument_list|)
 decl_stmt|;
-return|return
+name|Object
+name|result
+init|=
 name|extractResultBody
 argument_list|(
-name|result
+name|exchange
 argument_list|,
 name|pattern
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|pattern
+operator|.
+name|isOutCapable
+argument_list|()
+condition|)
+block|{
+return|return
+name|result
 return|;
+block|}
+else|else
+block|{
+comment|// return null if not OUT capable
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|sendBodyAndProperty (String endpointUri, final Object body, final String property, final Object propertyValue)
 specifier|public
-name|Object
+name|void
 name|sendBodyAndProperty
 parameter_list|(
 name|String
@@ -906,7 +968,6 @@ name|Object
 name|propertyValue
 parameter_list|)
 block|{
-return|return
 name|sendBodyAndProperty
 argument_list|(
 name|resolveMandatoryEndpoint
@@ -920,11 +981,11 @@ name|property
 argument_list|,
 name|propertyValue
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 DECL|method|sendBodyAndProperty (Endpoint endpoint, final Object body, final String property, final Object propertyValue)
 specifier|public
-name|Object
+name|void
 name|sendBodyAndProperty
 parameter_list|(
 name|Endpoint
@@ -960,12 +1021,12 @@ name|propertyValue
 argument_list|)
 argument_list|)
 decl_stmt|;
-return|return
+comment|// must invoke extract result body in case of exception to be rethrown
 name|extractResultBody
 argument_list|(
 name|result
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 DECL|method|sendBodyAndProperty (Endpoint endpoint, ExchangePattern pattern, final Object body, final String property, final Object propertyValue)
 specifier|public
@@ -992,7 +1053,7 @@ name|propertyValue
 parameter_list|)
 block|{
 name|Exchange
-name|result
+name|exchange
 init|=
 name|send
 argument_list|(
@@ -1010,14 +1071,35 @@ name|propertyValue
 argument_list|)
 argument_list|)
 decl_stmt|;
-return|return
+name|Object
+name|result
+init|=
 name|extractResultBody
 argument_list|(
-name|result
+name|exchange
 argument_list|,
 name|pattern
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|pattern
+operator|.
+name|isOutCapable
+argument_list|()
+condition|)
+block|{
+return|return
+name|result
 return|;
+block|}
+else|else
+block|{
+comment|// return null if not OUT capable
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|sendBodyAndProperty (String endpoint, ExchangePattern pattern, final Object body, final String property, final Object propertyValue)
 specifier|public
@@ -1044,7 +1126,7 @@ name|propertyValue
 parameter_list|)
 block|{
 name|Exchange
-name|result
+name|exchange
 init|=
 name|send
 argument_list|(
@@ -1062,18 +1144,39 @@ name|propertyValue
 argument_list|)
 argument_list|)
 decl_stmt|;
-return|return
+name|Object
+name|result
+init|=
 name|extractResultBody
 argument_list|(
-name|result
+name|exchange
 argument_list|,
 name|pattern
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|pattern
+operator|.
+name|isOutCapable
+argument_list|()
+condition|)
+block|{
+return|return
+name|result
 return|;
+block|}
+else|else
+block|{
+comment|// return null if not OUT capable
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|sendBodyAndHeaders (String endpointUri, final Object body, final Map<String, Object> headers)
 specifier|public
-name|Object
+name|void
 name|sendBodyAndHeaders
 parameter_list|(
 name|String
@@ -1093,7 +1196,6 @@ argument_list|>
 name|headers
 parameter_list|)
 block|{
-return|return
 name|sendBodyAndHeaders
 argument_list|(
 name|resolveMandatoryEndpoint
@@ -1105,11 +1207,11 @@ name|body
 argument_list|,
 name|headers
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 DECL|method|sendBodyAndHeaders (Endpoint endpoint, final Object body, final Map<String, Object> headers)
 specifier|public
-name|Object
+name|void
 name|sendBodyAndHeaders
 parameter_list|(
 name|Endpoint
@@ -1201,12 +1303,12 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-return|return
+comment|// must invoke extract result body in case of exception to be rethrown
 name|extractResultBody
 argument_list|(
 name|result
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 DECL|method|sendBodyAndHeaders (String endpointUri, ExchangePattern pattern, Object body, Map<String, Object> headers)
 specifier|public
@@ -1273,7 +1375,7 @@ name|headers
 parameter_list|)
 block|{
 name|Exchange
-name|result
+name|exchange
 init|=
 name|send
 argument_list|(
@@ -1348,12 +1450,35 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-return|return
+name|Object
+name|result
+init|=
 name|extractResultBody
 argument_list|(
-name|result
+name|exchange
+argument_list|,
+name|pattern
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|pattern
+operator|.
+name|isOutCapable
+argument_list|()
+condition|)
+block|{
+return|return
+name|result
 return|;
+block|}
+else|else
+block|{
+comment|// return null if not OUT capable
+return|return
+literal|null
+return|;
+block|}
 block|}
 comment|// Methods using an InOut ExchangePattern
 comment|// -----------------------------------------------------------------------
@@ -1975,14 +2100,13 @@ comment|// Methods using the default endpoint
 comment|// -----------------------------------------------------------------------
 DECL|method|sendBody (Object body)
 specifier|public
-name|Object
+name|void
 name|sendBody
 parameter_list|(
 name|Object
 name|body
 parameter_list|)
 block|{
-return|return
 name|sendBody
 argument_list|(
 name|getMandatoryDefaultEndpoint
@@ -1990,7 +2114,7 @@ argument_list|()
 argument_list|,
 name|body
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 DECL|method|send (Exchange exchange)
 specifier|public
@@ -2032,7 +2156,7 @@ return|;
 block|}
 DECL|method|sendBodyAndHeader (Object body, String header, Object headerValue)
 specifier|public
-name|Object
+name|void
 name|sendBodyAndHeader
 parameter_list|(
 name|Object
@@ -2045,7 +2169,6 @@ name|Object
 name|headerValue
 parameter_list|)
 block|{
-return|return
 name|sendBodyAndHeader
 argument_list|(
 name|getMandatoryDefaultEndpoint
@@ -2057,11 +2180,11 @@ name|header
 argument_list|,
 name|headerValue
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 DECL|method|sendBodyAndProperty (Object body, String property, Object propertyValue)
 specifier|public
-name|Object
+name|void
 name|sendBodyAndProperty
 parameter_list|(
 name|Object
@@ -2074,7 +2197,6 @@ name|Object
 name|propertyValue
 parameter_list|)
 block|{
-return|return
 name|sendBodyAndProperty
 argument_list|(
 name|getMandatoryDefaultEndpoint
@@ -2086,11 +2208,11 @@ name|property
 argument_list|,
 name|propertyValue
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 DECL|method|sendBodyAndHeaders (Object body, Map<String, Object> headers)
 specifier|public
-name|Object
+name|void
 name|sendBodyAndHeaders
 parameter_list|(
 name|Object
@@ -2105,7 +2227,6 @@ argument_list|>
 name|headers
 parameter_list|)
 block|{
-return|return
 name|sendBodyAndHeaders
 argument_list|(
 name|getMandatoryDefaultEndpoint
@@ -2115,7 +2236,7 @@ name|body
 argument_list|,
 name|headers
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------

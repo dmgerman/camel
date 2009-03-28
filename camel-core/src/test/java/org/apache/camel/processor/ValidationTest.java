@@ -180,7 +180,7 @@ name|result
 init|=
 name|template
 operator|.
-name|sendBodyAndHeader
+name|requestBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
@@ -303,7 +303,7 @@ name|result
 init|=
 name|template
 operator|.
-name|sendBodyAndHeader
+name|requestBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
@@ -325,7 +325,7 @@ name|result
 operator|=
 name|template
 operator|.
-name|sendBodyAndHeader
+name|requestBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,

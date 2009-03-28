@@ -232,9 +232,12 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
 name|body
-operator|==
-literal|null
+argument_list|)
 condition|)
 block|{
 comment|// must be a poll so lets do a query

@@ -152,7 +152,7 @@ name|result
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 name|uri
 argument_list|,
