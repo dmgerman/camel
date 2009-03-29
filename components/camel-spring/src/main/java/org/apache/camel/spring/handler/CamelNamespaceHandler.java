@@ -196,22 +196,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|config
-operator|.
-name|PropertiesDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|dataformat
 operator|.
 name|ArtixDSDataFormat
@@ -338,6 +322,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|loadbalancer
+operator|.
+name|FailOverLoadBalancer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|NamespaceAware
@@ -368,7 +368,35 @@ name|camel
 operator|.
 name|spring
 operator|.
+name|CamelConsumerTemplateFactoryBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
 name|CamelContextFactoryBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|CamelEndpointFactoryBean
 import|;
 end_import
 
@@ -396,21 +424,7 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|CamelTemplateFactoryBean
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|EndpointFactoryBean
+name|CamelProducerTemplateFactoryBean
 import|;
 end_import
 
@@ -604,7 +618,7 @@ init|=
 operator|new
 name|BeanDefinitionParser
 argument_list|(
-name|EndpointFactoryBean
+name|CamelEndpointFactoryBean
 operator|.
 name|class
 argument_list|)
@@ -706,7 +720,16 @@ name|addBeanDefinitionParser
 argument_list|(
 literal|"template"
 argument_list|,
-name|CamelTemplateFactoryBean
+name|CamelProducerTemplateFactoryBean
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|addBeanDefinitionParser
+argument_list|(
+literal|"consumerTemplate"
+argument_list|,
+name|CamelConsumerTemplateFactoryBean
 operator|.
 name|class
 argument_list|)
@@ -721,6 +744,7 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// data types
+comment|// TODO: why do we have this for data types, and only these 4 out of the 10+ data types we have in total?
 name|addBeanDefinitionParser
 argument_list|(
 literal|"artixDS"
@@ -794,6 +818,15 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|addBeanDefinitionParser
+argument_list|(
+literal|"failover"
+argument_list|,
+name|FailOverLoadBalancer
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 comment|// jmx agent
 name|addBeanDefinitionParser
 argument_list|(
@@ -809,7 +842,7 @@ name|addBeanDefinitionParser
 argument_list|(
 literal|"endpoint"
 argument_list|,
-name|EndpointFactoryBean
+name|CamelEndpointFactoryBean
 operator|.
 name|class
 argument_list|)
@@ -1506,11 +1539,11 @@ name|builder
 operator|.
 name|addPropertyValue
 argument_list|(
-literal|"exceptionClauses"
+literal|"onExceptions"
 argument_list|,
 name|factoryBean
 operator|.
-name|getExceptionClauses
+name|getOnExceptions
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1770,7 +1803,7 @@ block|}
 block|}
 block|}
 comment|// register as endpoint defined indirectly in the routes by from/to types having id explict set
-name|registerEndpointsWithIdsDefinedInFromToTypes
+name|registerEndpointsWithIdsDefinedInFromOrToTypes
 argument_list|(
 name|element
 argument_list|,
@@ -1953,10 +1986,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|registerEndpointsWithIdsDefinedInFromToTypes (Element element, ParserContext parserContext, String contextId)
+comment|/**      * Uses for auto registering endpoints from the<tt>from</tt> or<tt>to</tt> DSL if they have an id attribute set      */
+DECL|method|registerEndpointsWithIdsDefinedInFromOrToTypes (Element element, ParserContext parserContext, String contextId)
 specifier|protected
 name|void
-name|registerEndpointsWithIdsDefinedInFromToTypes
+name|registerEndpointsWithIdsDefinedInFromOrToTypes
 parameter_list|(
 name|Element
 name|element
@@ -2057,7 +2091,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// recursive
-name|registerEndpointsWithIdsDefinedInFromToTypes
+name|registerEndpointsWithIdsDefinedInFromOrToTypes
 argument_list|(
 name|childElement
 argument_list|,

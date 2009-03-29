@@ -591,6 +591,12 @@ name|ProducerTemplate
 name|createProducerTemplate
 parameter_list|()
 function_decl|;
+comment|/**      * Creates a new ConsumerTemplate.      *<p/>      * See this FAQ before use:<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">      * Why does Camel use too many threads with ProducerTemplate?</a> as it also applies for ConsumerTemplate.      *      * @return the template      */
+DECL|method|createConsumerTemplate ()
+name|ConsumerTemplate
+name|createConsumerTemplate
+parameter_list|()
+function_decl|;
 comment|/**      * Adds the given interceptor strategy      *      * @param interceptStrategy the strategy      */
 DECL|method|addInterceptStrategy (InterceptStrategy interceptStrategy)
 name|void

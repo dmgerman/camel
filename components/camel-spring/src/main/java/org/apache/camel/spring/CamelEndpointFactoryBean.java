@@ -197,10 +197,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|EndpointFactoryBean
+DECL|class|CamelEndpointFactoryBean
 specifier|public
 class|class
-name|EndpointFactoryBean
+name|CamelEndpointFactoryBean
 extends|extends
 name|IdentifiedType
 implements|implements

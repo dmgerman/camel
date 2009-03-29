@@ -15,29 +15,29 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A runtime exception thrown if an {@link Endpoint} cannot be resolved via URI  *   * @version $Revision$  */
+comment|/**  * Thrown if Camel failed to create a consumer for a given endpoint.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ResolveEndpointFailedException
+DECL|class|FailedToCreateConsumerException
 specifier|public
 class|class
-name|ResolveEndpointFailedException
+name|FailedToCreateConsumerException
 extends|extends
 name|RuntimeCamelException
 block|{
-DECL|field|uri
+DECL|field|endpoint
 specifier|private
 specifier|final
-name|String
-name|uri
+name|Endpoint
+name|endpoint
 decl_stmt|;
-DECL|method|ResolveEndpointFailedException (String uri, Throwable cause)
+DECL|method|FailedToCreateConsumerException (Endpoint endpoint, Throwable cause)
 specifier|public
-name|ResolveEndpointFailedException
+name|FailedToCreateConsumerException
 parameter_list|(
-name|String
-name|uri
+name|Endpoint
+name|endpoint
 parameter_list|,
 name|Throwable
 name|cause
@@ -45,86 +45,32 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"Failed to resolve endpoint: "
+literal|"Failed to create Consumer for endpoint: "
 operator|+
-name|uri
+name|endpoint
 operator|+
-literal|" due to: "
+literal|". Reason: "
 operator|+
 name|cause
-operator|.
-name|getMessage
-argument_list|()
 argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|uri
+name|endpoint
 operator|=
-name|uri
+name|endpoint
 expr_stmt|;
 block|}
-DECL|method|ResolveEndpointFailedException (String uri, String message)
+DECL|method|getEndpoint ()
 specifier|public
-name|ResolveEndpointFailedException
-parameter_list|(
-name|String
-name|uri
-parameter_list|,
-name|String
-name|message
-parameter_list|)
-block|{
-name|super
-argument_list|(
-literal|"Failed to resolve endpoint: "
-operator|+
-name|uri
-operator|+
-literal|" due to: "
-operator|+
-name|message
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|uri
-operator|=
-name|uri
-expr_stmt|;
-block|}
-DECL|method|ResolveEndpointFailedException (String uri)
-specifier|public
-name|ResolveEndpointFailedException
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-literal|"Failed to resolve endpoint: "
-operator|+
-name|uri
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|uri
-operator|=
-name|uri
-expr_stmt|;
-block|}
-DECL|method|getUri ()
-specifier|public
-name|String
-name|getUri
+name|Endpoint
+name|getEndpoint
 parameter_list|()
 block|{
 return|return
-name|uri
+name|endpoint
 return|;
 block|}
 block|}

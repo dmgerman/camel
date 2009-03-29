@@ -140,6 +140,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ConsumerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -2198,6 +2210,11 @@ expr_stmt|;
 name|Endpoint
 name|answer
 decl_stmt|;
+name|String
+name|scheme
+init|=
+literal|null
+decl_stmt|;
 synchronized|synchronized
 init|(
 name|endpoints
@@ -2247,14 +2264,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|String
 name|scheme
-init|=
+operator|=
 name|splitURI
 index|[
 literal|0
 index|]
-decl_stmt|;
+expr_stmt|;
 name|Component
 name|component
 init|=
@@ -2318,6 +2334,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// no component then try in registry and elsewhere
 name|answer
 operator|=
 name|createEndpoint
@@ -2379,6 +2396,30 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+comment|// unknown scheme
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+operator|&&
+name|scheme
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ResolveEndpointFailedException
+argument_list|(
+name|uri
+argument_list|,
+literal|"No component found with scheme: "
+operator|+
+name|scheme
+argument_list|)
+throw|;
 block|}
 return|return
 name|answer
@@ -3752,6 +3793,20 @@ block|{
 return|return
 operator|new
 name|DefaultProducerTemplate
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
+DECL|method|createConsumerTemplate ()
+specifier|public
+name|ConsumerTemplate
+name|createConsumerTemplate
+parameter_list|()
+block|{
+return|return
+operator|new
+name|DefaultConsumerTemplate
 argument_list|(
 name|this
 argument_list|)
