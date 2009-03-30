@@ -310,6 +310,7 @@ name|dotOutputDir
 decl_stmt|;
 DECL|field|options
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Option
@@ -325,6 +326,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|latch
 specifier|private
+specifier|final
 name|CountDownLatch
 name|latch
 init|=
@@ -336,6 +338,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|completed
 specifier|private
+specifier|final
 name|AtomicBoolean
 name|completed
 init|=
@@ -399,6 +402,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|camelContexts
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|CamelContext

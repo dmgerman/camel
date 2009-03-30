@@ -325,7 +325,7 @@ literal|null
 operator|)
 condition|?
 operator|new
-name|Throwable
+name|IllegalArgumentException
 argument_list|(
 literal|"Handling [null] exception"
 argument_list|)

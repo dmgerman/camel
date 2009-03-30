@@ -451,8 +451,6 @@ name|getIn
 argument_list|()
 argument_list|,
 name|exchange
-argument_list|,
-name|exchange
 operator|.
 name|getIn
 argument_list|()
@@ -482,8 +480,6 @@ argument_list|(
 literal|true
 argument_list|)
 argument_list|,
-name|exchange
-argument_list|,
 name|copyOut
 argument_list|)
 expr_stmt|;
@@ -511,8 +507,6 @@ name|getFault
 argument_list|(
 literal|true
 argument_list|)
-argument_list|,
-name|exchange
 argument_list|,
 name|copyFault
 argument_list|)
@@ -549,7 +543,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|safeCopy (Message message, Exchange exchange, Message that)
+DECL|method|safeCopy (Message message, Message that)
 specifier|private
 specifier|static
 name|void
@@ -557,9 +551,6 @@ name|safeCopy
 parameter_list|(
 name|Message
 name|message
-parameter_list|,
-name|Exchange
-name|exchange
 parameter_list|,
 name|Message
 name|that

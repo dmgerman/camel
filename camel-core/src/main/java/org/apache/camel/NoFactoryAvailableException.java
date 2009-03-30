@@ -64,6 +64,28 @@ operator|=
 name|uri
 expr_stmt|;
 block|}
+DECL|method|NoFactoryAvailableException (String uri, Throwable cause)
+specifier|public
+name|NoFactoryAvailableException
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+name|initCause
+argument_list|(
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getUri ()
 specifier|public
 name|String

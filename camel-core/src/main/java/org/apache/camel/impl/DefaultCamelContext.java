@@ -3155,10 +3155,6 @@ comment|// check if the language is singleton, if so return the shared instance
 if|if
 condition|(
 name|answer
-operator|!=
-literal|null
-operator|&&
-name|answer
 operator|instanceof
 name|IsSingleton
 condition|)

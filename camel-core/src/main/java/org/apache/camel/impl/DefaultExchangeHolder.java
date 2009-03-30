@@ -141,6 +141,7 @@ name|faultBody
 decl_stmt|;
 DECL|field|inHeaders
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -160,6 +161,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|outHeaders
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -179,6 +181,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|properties
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -198,6 +201,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|faultHeaders
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String

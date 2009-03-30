@@ -260,11 +260,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|defaultThreadPoolSize
+DECL|field|DEFAULT_THREADPOOL_SIZE
 specifier|private
+specifier|static
 specifier|final
 name|int
-name|defaultThreadPoolSize
+name|DEFAULT_THREADPOOL_SIZE
 init|=
 literal|5
 decl_stmt|;
@@ -607,8 +608,6 @@ parameter_list|,
 name|Map
 name|parameters
 parameter_list|)
-throws|throws
-name|ResolveEndpointFailedException
 block|{
 comment|// check for uri containing& but no ? marker
 if|if
@@ -741,7 +740,7 @@ return|return
 operator|new
 name|ScheduledThreadPoolExecutor
 argument_list|(
-name|defaultThreadPoolSize
+name|DEFAULT_THREADPOOL_SIZE
 argument_list|,
 operator|new
 name|ThreadFactory

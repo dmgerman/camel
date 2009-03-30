@@ -90,6 +90,7 @@ name|TypeConverterRegistry
 block|{
 DECL|field|errors
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|String
