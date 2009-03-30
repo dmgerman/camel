@@ -1312,7 +1312,7 @@ name|notNull
 argument_list|(
 name|camelMessage
 argument_list|,
-literal|"message body"
+literal|"message"
 argument_list|)
 expr_stmt|;
 comment|// create regular jms message using the camel message body
@@ -2311,7 +2311,15 @@ name|debug
 argument_list|(
 literal|"Could not determine specific JmsMessage type to use from body."
 operator|+
-literal|" Will use generic JmsMessage. Body class: "
+literal|" Will use generic JmsMessage."
+operator|+
+operator|(
+name|body
+operator|!=
+literal|null
+condition|?
+operator|(
+literal|" Body class: "
 operator|+
 name|body
 operator|.
@@ -2320,6 +2328,10 @@ argument_list|()
 operator|.
 name|getCanonicalName
 argument_list|()
+operator|)
+else|:
+literal|""
+operator|)
 argument_list|)
 expr_stmt|;
 block|}
