@@ -429,6 +429,7 @@ name|server
 decl_stmt|;
 DECL|field|connectors
 specifier|protected
+specifier|final
 name|HashMap
 argument_list|<
 name|String
