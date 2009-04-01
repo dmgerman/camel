@@ -34,6 +34,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|StringReader
 import|;
 end_import
@@ -174,6 +184,28 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|writeTo (OutputStream os)
+specifier|public
+name|void
+name|writeTo
+parameter_list|(
+name|OutputStream
+name|os
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|os
+operator|.
+name|write
+argument_list|(
+name|data
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getData ()
 name|String

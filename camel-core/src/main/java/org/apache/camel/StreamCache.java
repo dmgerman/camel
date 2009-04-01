@@ -14,6 +14,26 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
+import|;
+end_import
+
 begin_comment
 comment|/**  * Tagging interface to indicate that a type is capable of caching the underlying data stream.  *<p/>  * This is a useful feature for avoid message re-readability issues.  * This interface is mainly used by the {@link org.apache.camel.processor.interceptor.StreamCachingInterceptor}  * for determining if/how to wrap a stream-based message.  *  * @version $Revision$  */
 end_comment
@@ -29,6 +49,17 @@ DECL|method|reset ()
 name|void
 name|reset
 parameter_list|()
+function_decl|;
+comment|/**      * Writes the stream to the given output      *      * @param os the destination to write to      */
+DECL|method|writeTo (OutputStream os)
+name|void
+name|writeTo
+parameter_list|(
+name|OutputStream
+name|os
+parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_interface

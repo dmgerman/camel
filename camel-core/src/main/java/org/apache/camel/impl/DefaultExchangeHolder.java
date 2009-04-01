@@ -251,6 +251,8 @@ argument_list|(
 literal|"in body"
 argument_list|,
 name|exchange
+argument_list|,
+name|exchange
 operator|.
 name|getIn
 argument_list|()
@@ -268,6 +270,8 @@ argument_list|(
 name|checkMapSerializableObjects
 argument_list|(
 literal|"in headers"
+argument_list|,
+name|exchange
 argument_list|,
 name|exchange
 operator|.
@@ -300,6 +304,8 @@ argument_list|(
 literal|"out body"
 argument_list|,
 name|exchange
+argument_list|,
+name|exchange
 operator|.
 name|getOut
 argument_list|()
@@ -317,6 +323,8 @@ argument_list|(
 name|checkMapSerializableObjects
 argument_list|(
 literal|"out headers"
+argument_list|,
+name|exchange
 argument_list|,
 name|exchange
 operator|.
@@ -350,6 +358,8 @@ argument_list|(
 literal|"fault body"
 argument_list|,
 name|exchange
+argument_list|,
+name|exchange
 operator|.
 name|getFault
 argument_list|()
@@ -367,6 +377,8 @@ argument_list|(
 name|checkMapSerializableObjects
 argument_list|(
 literal|"fault headers"
+argument_list|,
+name|exchange
 argument_list|,
 name|exchange
 operator|.
@@ -388,6 +400,8 @@ argument_list|(
 name|checkMapSerializableObjects
 argument_list|(
 literal|"exchange properties"
+argument_list|,
+name|exchange
 argument_list|,
 name|exchange
 operator|.
@@ -670,7 +684,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|checkSerializableObject (String type, Object object)
+DECL|method|checkSerializableObject (String type, Exchange exchange, Object object)
 specifier|private
 specifier|static
 name|Object
@@ -679,6 +693,9 @@ parameter_list|(
 name|String
 name|type
 parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
 name|Object
 name|object
 parameter_list|)
@@ -686,12 +703,45 @@ block|{
 if|if
 condition|(
 name|object
-operator|instanceof
-name|Serializable
+operator|==
+literal|null
 condition|)
 block|{
 return|return
+literal|null
+return|;
+block|}
+name|Serializable
+name|converted
+init|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|Serializable
+operator|.
+name|class
+argument_list|,
+name|exchange
+argument_list|,
 name|object
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|converted
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|converted
 return|;
 block|}
 else|else
@@ -702,9 +752,19 @@ name|warn
 argument_list|(
 name|type
 operator|+
-literal|" containig object "
+literal|" containig object: "
 operator|+
 name|object
+operator|+
+literal|" of type: "
+operator|+
+name|object
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
 operator|+
 literal|" cannot be serialized, it will be excluded by the holder"
 argument_list|)
@@ -714,7 +774,7 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|checkMapSerializableObjects (String type, Map<String, Object> map)
+DECL|method|checkMapSerializableObjects (String type, Exchange exchange, Map<String, Object> map)
 specifier|private
 specifier|static
 name|Map
@@ -727,6 +787,9 @@ name|checkMapSerializableObjects
 parameter_list|(
 name|String
 name|type
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|,
 name|Map
 argument_list|<
@@ -783,14 +846,36 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-if|if
-condition|(
+name|Serializable
+name|converted
+init|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|Serializable
+operator|.
+name|class
+argument_list|,
+name|exchange
+argument_list|,
 name|entry
 operator|.
 name|getValue
 argument_list|()
-operator|instanceof
-name|Serializable
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|converted
+operator|!=
+literal|null
 condition|)
 block|{
 name|result
@@ -802,10 +887,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|entry
-operator|.
-name|getValue
-argument_list|()
+name|converted
 argument_list|)
 expr_stmt|;
 block|}
@@ -817,14 +899,14 @@ name|warn
 argument_list|(
 name|type
 operator|+
-literal|" containing object "
+literal|" containing object: "
 operator|+
 name|entry
 operator|.
 name|getValue
 argument_list|()
 operator|+
-literal|" of key "
+literal|" with key: "
 operator|+
 name|entry
 operator|.

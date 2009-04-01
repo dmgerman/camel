@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -112,9 +132,6 @@ name|MessageHelper
 operator|.
 name|resetStreamCache
 argument_list|(
-operator|(
-name|Message
-operator|)
 literal|null
 argument_list|)
 expr_stmt|;
@@ -166,6 +183,18 @@ operator|.
 name|TRUE
 argument_list|)
 expr_stmt|;
+block|}
+specifier|public
+name|void
+name|writeTo
+parameter_list|(
+name|OutputStream
+name|os
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// noop
 block|}
 block|}
 argument_list|)

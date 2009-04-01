@@ -60,6 +60,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -97,14 +107,20 @@ class|class
 name|BytesSource
 extends|extends
 name|StreamSource
+implements|implements
+name|Serializable
 block|{
 DECL|field|data
 specifier|private
-specifier|final
 name|byte
 index|[]
 name|data
 decl_stmt|;
+DECL|method|BytesSource ()
+specifier|public
+name|BytesSource
+parameter_list|()
+block|{     }
 DECL|method|BytesSource (byte[] data)
 specifier|public
 name|BytesSource

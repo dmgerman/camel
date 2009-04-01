@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -43,6 +63,20 @@ operator|.
 name|jaxp
 operator|.
 name|StringSource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
 import|;
 end_import
 
@@ -96,6 +130,28 @@ name|reset
 parameter_list|()
 block|{
 comment|// do nothing here
+block|}
+DECL|method|writeTo (OutputStream os)
+specifier|public
+name|void
+name|writeTo
+parameter_list|(
+name|OutputStream
+name|os
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|IOHelper
+operator|.
+name|copy
+argument_list|(
+name|getInputStream
+argument_list|()
+argument_list|,
+name|os
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
