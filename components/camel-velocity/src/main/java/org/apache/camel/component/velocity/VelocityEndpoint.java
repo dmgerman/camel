@@ -202,7 +202,7 @@ name|runtime
 operator|.
 name|log
 operator|.
-name|Log4JLogChute
+name|CommonsLogLogChute
 import|;
 end_import
 
@@ -371,7 +371,7 @@ name|Velocity
 operator|.
 name|RUNTIME_LOG_LOGSYSTEM_CLASS
 argument_list|,
-name|Log4JLogChute
+name|CommonsLogLogChute
 operator|.
 name|class
 operator|.
@@ -383,9 +383,9 @@ name|velocityEngine
 operator|.
 name|setProperty
 argument_list|(
-name|Log4JLogChute
+name|CommonsLogLogChute
 operator|.
-name|RUNTIME_LOG_LOG4J_LOGGER
+name|LOGCHUTE_COMMONS_LOG_NAME
 argument_list|,
 name|VelocityEndpoint
 operator|.
