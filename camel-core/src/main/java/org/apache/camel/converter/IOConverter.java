@@ -278,6 +278,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|CharBuffer
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml

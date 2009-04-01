@@ -31,7 +31,7 @@ block|{
 DECL|enumConstant|Bytes
 DECL|enumConstant|Map
 DECL|enumConstant|Object
-DECL|enumConstant|Strem
+DECL|enumConstant|Stream
 DECL|enumConstant|Text
 name|Bytes
 block|,
@@ -39,7 +39,7 @@ name|Map
 block|,
 name|Object
 block|,
-name|Strem
+name|Stream
 block|,
 name|Text
 block|}

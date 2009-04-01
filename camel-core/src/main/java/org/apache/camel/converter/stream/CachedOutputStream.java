@@ -122,6 +122,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -242,6 +252,22 @@ specifier|protected
 name|OutputStream
 name|currentStream
 decl_stmt|;
+DECL|field|streamList
+specifier|private
+specifier|final
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|streamList
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|field|threshold
 specifier|private
 name|long
@@ -256,10 +282,10 @@ specifier|private
 name|int
 name|totalLength
 decl_stmt|;
-DECL|field|inmem
+DECL|field|inMemory
 specifier|private
 name|boolean
-name|inmem
+name|inMemory
 decl_stmt|;
 DECL|field|tempFile
 specifier|private
@@ -270,21 +296,6 @@ DECL|field|outputDir
 specifier|private
 name|File
 name|outputDir
-decl_stmt|;
-DECL|field|streamList
-specifier|private
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|streamList
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
-argument_list|()
 decl_stmt|;
 DECL|method|CachedOutputStream ()
 specifier|public
@@ -299,7 +310,7 @@ argument_list|(
 literal|2048
 argument_list|)
 expr_stmt|;
-name|inmem
+name|inMemory
 operator|=
 literal|true
 expr_stmt|;
@@ -445,7 +456,7 @@ name|doFlush
 parameter_list|()
 throws|throws
 name|IOException
-block|{              }
+block|{     }
 DECL|method|flush ()
 specifier|public
 name|void
@@ -471,7 +482,7 @@ name|doClose
 parameter_list|()
 throws|throws
 name|IOException
-block|{              }
+block|{     }
 comment|/**      * Perform any actions required after stream closure (close the other related stream etc.)      */
 DECL|method|postClose ()
 specifier|protected
@@ -480,7 +491,7 @@ name|postClose
 parameter_list|()
 throws|throws
 name|IOException
-block|{              }
+block|{     }
 comment|/**      * Locks the output stream to prevent additional writes, but maintains      * a pointer to it so an InputStream can be obtained      * @throws IOException      */
 DECL|method|lockOutputStream ()
 specifier|public
@@ -621,7 +632,7 @@ else|else
 block|{
 if|if
 condition|(
-name|inmem
+name|inMemory
 condition|)
 block|{
 if|if
@@ -666,7 +677,9 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Unknown format of currentStream"
+literal|"Unknown format of currentStream: "
+operator|+
+name|currentStream
 argument_list|)
 throw|;
 block|}
@@ -719,7 +732,7 @@ name|tempFile
 operator|=
 literal|null
 expr_stmt|;
-name|inmem
+name|inMemory
 operator|=
 literal|true
 expr_stmt|;
@@ -788,7 +801,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|inmem
+name|inMemory
 condition|)
 block|{
 if|if
@@ -859,7 +872,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|inmem
+name|inMemory
 condition|)
 block|{
 if|if
@@ -959,7 +972,7 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-name|inmem
+name|inMemory
 condition|)
 block|{
 if|if
@@ -1006,7 +1019,9 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Unknown format of currentStream"
+literal|"Unknown format of currentStream: "
+operator|+
+name|currentStream
 argument_list|)
 throw|;
 block|}
@@ -1138,7 +1153,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|inmem
+name|inMemory
 condition|)
 block|{
 if|if
@@ -1181,7 +1196,9 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Unknown format of currentStream"
+literal|"Unknown format of currentStream: "
+operator|+
+name|currentStream
 argument_list|)
 throw|;
 block|}
@@ -1351,7 +1368,7 @@ name|onWrite
 parameter_list|()
 throws|throws
 name|IOException
-block|{              }
+block|{     }
 DECL|method|write (byte[] b, int off, int len)
 specifier|public
 name|void
@@ -1387,7 +1404,7 @@ name|len
 expr_stmt|;
 if|if
 condition|(
-name|inmem
+name|inMemory
 operator|&&
 name|totalLength
 operator|>
@@ -1446,7 +1463,7 @@ name|length
 expr_stmt|;
 if|if
 condition|(
-name|inmem
+name|inMemory
 operator|&&
 name|totalLength
 operator|>
@@ -1497,7 +1514,7 @@ operator|++
 expr_stmt|;
 if|if
 condition|(
-name|inmem
+name|inMemory
 operator|&&
 name|totalLength
 operator|>
@@ -1593,7 +1610,7 @@ argument_list|(
 name|currentStream
 argument_list|)
 expr_stmt|;
-name|inmem
+name|inMemory
 operator|=
 literal|false
 expr_stmt|;
@@ -1639,7 +1656,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|inmem
+name|inMemory
 condition|)
 block|{
 if|if
@@ -1723,15 +1740,13 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Cached file was deleted, "
-operator|+
-name|e
+name|IOHelper
 operator|.
-name|toString
-argument_list|()
+name|createIOException
+argument_list|(
+literal|"Cached file was already deleted"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1750,7 +1765,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|inmem
+name|inMemory
 condition|)
 block|{
 if|if
@@ -1787,9 +1802,7 @@ else|else
 block|{
 try|try
 block|{
-name|FileInputStreamCache
-name|fileInputStream
-init|=
+return|return
 operator|new
 name|FileInputStreamCache
 argument_list|(
@@ -1797,9 +1810,6 @@ name|tempFile
 argument_list|,
 name|this
 argument_list|)
-decl_stmt|;
-return|return
-name|fileInputStream
 return|;
 block|}
 catch|catch
@@ -1809,15 +1819,13 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Cached file was deleted, "
-operator|+
-name|e
+name|IOHelper
 operator|.
-name|toString
-argument_list|()
+name|createIOException
+argument_list|(
+literal|"Cached file was already deleted"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1842,7 +1850,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|inmem
+name|inMemory
 operator|&&
 name|tempFile
 operator|!=
@@ -1871,7 +1879,7 @@ argument_list|(
 literal|1024
 argument_list|)
 expr_stmt|;
-name|inmem
+name|inMemory
 operator|=
 literal|true
 expr_stmt|;

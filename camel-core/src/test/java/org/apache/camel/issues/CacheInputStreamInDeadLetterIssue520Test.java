@@ -42,16 +42,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Reader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|StringReader
 import|;
 end_import
@@ -346,6 +336,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// 0 delay for faster unit test
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -356,6 +347,11 @@ operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|3
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
