@@ -163,10 +163,15 @@ argument_list|(
 name|body
 argument_list|)
 decl_stmt|;
+comment|// must use a timeout (we use 10s) as in some very high performance scenarious a write can cause thred hanging forever
 name|future
 operator|.
 name|join
-argument_list|()
+argument_list|(
+literal|10
+operator|*
+literal|1000L
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
