@@ -213,7 +213,7 @@ argument_list|()
 operator|.
 name|setAlternateBodyHeader
 argument_list|(
-name|MailConfiguration
+name|MailConstants
 operator|.
 name|DEFAULT_ALTERNATE_BODY_HEADER
 argument_list|)
@@ -246,7 +246,7 @@ name|in
 operator|.
 name|setHeader
 argument_list|(
-literal|"mail_alternateBody"
+literal|"mailAlternateBody"
 argument_list|,
 name|alternativeBody
 argument_list|)
