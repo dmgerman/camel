@@ -114,20 +114,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|SendProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -751,6 +737,19 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Creates a default<a href="http://camel.apache.org/error-handler.html">error handler</a>.      *      * @return the builder      */
+DECL|method|defaultErrorHandler ()
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|defaultErrorHandler
+parameter_list|()
+block|{
+return|return
+operator|new
+name|DefaultErrorHandlerBuilder
+argument_list|()
+return|;
+block|}
 comment|/**      * Creates a disabled<a href="http://camel.apache.org/error-handler.html">error handler</a>      * for removing the default error handler      *      * @return the builder      */
 DECL|method|noErrorHandler ()
 specifier|public
@@ -948,26 +947,11 @@ name|ErrorHandlerBuilder
 name|createErrorHandlerBuilder
 parameter_list|()
 block|{
-if|if
-condition|(
-name|isInheritErrorHandler
-argument_list|()
-condition|)
-block|{
 return|return
 operator|new
-name|DeadLetterChannelBuilder
+name|DefaultErrorHandlerBuilder
 argument_list|()
 return|;
-block|}
-else|else
-block|{
-return|return
-operator|new
-name|NoErrorHandlerBuilder
-argument_list|()
-return|;
-block|}
 block|}
 comment|/**      * Sets the error handler to use with processors created by this builder      */
 DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)

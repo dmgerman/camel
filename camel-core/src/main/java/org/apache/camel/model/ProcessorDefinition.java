@@ -294,7 +294,7 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|DeadLetterChannelBuilder
+name|DefaultErrorHandlerBuilder
 import|;
 end_import
 
@@ -5788,7 +5788,7 @@ block|}
 comment|// return a new default one
 return|return
 operator|new
-name|DeadLetterChannelBuilder
+name|DefaultErrorHandlerBuilder
 argument_list|()
 return|;
 block|}

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.builder
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|builder
 package|;
 end_package
 
@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ValidationException
+name|Processor
 import|;
 end_import
 
@@ -36,77 +36,57 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|processor
 operator|.
-name|RouteBuilder
+name|DefaultErrorHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteContext
 import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * The default error handler builder.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ValidationWithExceptionTest
+DECL|class|DefaultErrorHandlerBuilder
 specifier|public
 class|class
-name|ValidationWithExceptionTest
+name|DefaultErrorHandlerBuilder
 extends|extends
-name|ValidationTest
+name|ErrorHandlerBuilderSupport
 block|{
-DECL|method|createRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
-parameter_list|()
+comment|// TODO: in the future support onException
+DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
+specifier|public
+name|Processor
+name|createErrorHandler
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
 block|{
 return|return
 operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-specifier|public
-name|void
-name|configure
-parameter_list|()
-block|{
-name|errorHandler
+name|DefaultErrorHandler
 argument_list|(
-name|deadLetterChannel
-argument_list|(
-literal|"mock:error"
+name|processor
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|onException
-argument_list|(
-name|ValidationException
-operator|.
-name|class
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:invalid"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"direct:start"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-name|validator
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:valid"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 return|;
 block|}
 block|}

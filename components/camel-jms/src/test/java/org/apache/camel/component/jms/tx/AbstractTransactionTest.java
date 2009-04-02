@@ -144,9 +144,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|log4j
+name|camel
 operator|.
-name|Logger
+name|processor
+operator|.
+name|DefaultErrorHandler
 import|;
 end_import
 
@@ -181,14 +183,6 @@ name|AbstractTransactionTest
 extends|extends
 name|ContextTestSupport
 block|{
-comment|// keep a ref to easily check the count at the end.
-comment|// private ConditionalExceptionProcessor conditionalExceptionProcessor;
-comment|// Policy required = new SpringTransactionPolicy( bean(
-comment|// TransactionTemplate.class, "PROPAGATION_REQUIRED" ) );
-comment|// Policy notSupported = new SpringTransactionPolicy( bean(
-comment|// TransactionTemplate.class, "PROPAGATION_NOT_SUPPORTED" ) );
-comment|// Policy requireNew = new SpringTransactionPolicy( bean(
-comment|// TransactionTemplate.class, "PROPAGATION_REQUIRES_NEW" ) );
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -204,8 +198,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|// setConditionalExceptionProcessor( new ConditionalExceptionProcessor()
-comment|// );
 block|}
 DECL|method|tearDown ()
 specifier|protected
@@ -233,7 +225,6 @@ name|template
 operator|=
 literal|null
 expr_stmt|;
-comment|// setConditionalExceptionProcessor( null );
 block|}
 DECL|method|createCamelContext ()
 specifier|protected
@@ -381,7 +372,7 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * Find the first instance of a Processor of a given class.      *      * @param processor      * @param findClass      * @return      */
+comment|/**      * Find the first instance of a Processor of a given class.      */
 DECL|method|findProcessorByClass (Processor processor, Class findClass)
 specifier|protected
 name|Processor
@@ -537,6 +528,26 @@ operator|=
 operator|(
 operator|(
 name|DeadLetterChannel
+operator|)
+name|processor
+operator|)
+operator|.
+name|getOutput
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|processor
+operator|instanceof
+name|DefaultErrorHandler
+condition|)
+block|{
+name|processor
+operator|=
+operator|(
+operator|(
+name|DefaultErrorHandler
 operator|)
 name|processor
 operator|)

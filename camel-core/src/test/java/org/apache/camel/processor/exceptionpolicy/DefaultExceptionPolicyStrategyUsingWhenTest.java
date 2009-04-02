@@ -266,6 +266,24 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|errorHandler
+argument_list|(
+name|deadLetterChannel
+argument_list|(
+literal|"mock:error"
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|maximumRedeliveries
+argument_list|(
+literal|3
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// here we define our onException to catch MyUserException when
 comment|// there is a header[user] on the exchange that is not null
 name|onException

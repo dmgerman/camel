@@ -239,6 +239,24 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|errorHandler
+argument_list|(
+name|deadLetterChannel
+argument_list|(
+literal|"mock:error"
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|maximumRedeliveries
+argument_list|(
+literal|3
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// must enable tracer to trace the route path taken during runtime
 name|context
 operator|.

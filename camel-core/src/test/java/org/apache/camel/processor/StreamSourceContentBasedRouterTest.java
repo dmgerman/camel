@@ -270,6 +270,26 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// TODO: should also work with default error handler when
+comment|// stream cache is enabled as well
+name|errorHandler
+argument_list|(
+name|deadLetterChannel
+argument_list|(
+literal|"mock:error"
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|maximumRedeliveries
+argument_list|(
+literal|3
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"

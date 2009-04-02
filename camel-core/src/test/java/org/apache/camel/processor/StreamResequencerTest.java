@@ -506,12 +506,12 @@ name|getProcessor
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|DeadLetterChannel
+name|DefaultErrorHandler
 name|deadLetterChannel
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|DeadLetterChannel
+name|DefaultErrorHandler
 operator|.
 name|class
 argument_list|,

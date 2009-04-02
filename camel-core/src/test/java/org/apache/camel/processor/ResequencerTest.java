@@ -426,12 +426,12 @@ name|getProcessor
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|DeadLetterChannel
-name|deadLetterChannel
+name|DefaultErrorHandler
+name|defaultErrorHandler
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|DeadLetterChannel
+name|DefaultErrorHandler
 operator|.
 name|class
 argument_list|,
@@ -441,7 +441,7 @@ decl_stmt|;
 name|Processor
 name|outputProcessor
 init|=
-name|deadLetterChannel
+name|defaultErrorHandler
 operator|.
 name|getOutput
 argument_list|()

@@ -952,6 +952,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|errorHandler
+argument_list|(
+name|deadLetterChannel
+argument_list|(
+literal|"mock:error"
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// no need to convert to String as JMS producer can handle XML streams now
 name|from
 argument_list|(
