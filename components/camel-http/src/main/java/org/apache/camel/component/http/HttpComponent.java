@@ -222,7 +222,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
-comment|/**       * Setting http binding and http client configurer according to the parameters      * Also setting the BasicAuthenticationHttpClientConfigurer if the username       * and password option are not null.      *       * @param parameters the map of parameters       *       */
+comment|/**       * Setting http binding and http client configurer according to the parameters      * Also setting the BasicAuthenticationHttpClientConfigurer if the username       * and password option are not null.      *       * @param parameters the map of parameters       */
 DECL|method|configureParameters (Map parameters)
 specifier|protected
 name|void
@@ -432,6 +432,21 @@ argument_list|(
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// should we use an exception for failed error codes?
+name|Boolean
+name|throwException
+init|=
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"throwException"
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// restructure uri to be based on the parameters left as we dont want to include the Camel internal options
 name|URI
 name|httpUri
@@ -538,6 +553,21 @@ operator|.
 name|setBinding
 argument_list|(
 name|httpBinding
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|throwException
+operator|!=
+literal|null
+condition|)
+block|{
+name|endpoint
+operator|.
+name|setThrowException
+argument_list|(
+name|throwException
 argument_list|)
 expr_stmt|;
 block|}

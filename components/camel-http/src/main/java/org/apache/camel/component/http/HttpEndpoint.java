@@ -261,6 +261,13 @@ specifier|private
 name|HttpConnectionManager
 name|httpConnectionManager
 decl_stmt|;
+DECL|field|throwException
+specifier|private
+name|boolean
+name|throwException
+init|=
+literal|true
+decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
 name|HttpEndpoint
@@ -815,6 +822,32 @@ operator|.
 name|headerFilterStrategy
 operator|=
 name|headerFilterStrategy
+expr_stmt|;
+block|}
+DECL|method|isThrowException ()
+specifier|public
+name|boolean
+name|isThrowException
+parameter_list|()
+block|{
+return|return
+name|throwException
+return|;
+block|}
+DECL|method|setThrowException (boolean throwException)
+specifier|public
+name|void
+name|setThrowException
+parameter_list|(
+name|boolean
+name|throwException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|throwException
+operator|=
+name|throwException
 expr_stmt|;
 block|}
 block|}
