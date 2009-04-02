@@ -191,7 +191,7 @@ name|from
 init|=
 name|MailConstants
 operator|.
-name|DEFAULT_FROM
+name|MAIL_DEFAULT_FROM
 decl_stmt|;
 DECL|field|folderName
 specifier|private
@@ -200,7 +200,7 @@ name|folderName
 init|=
 name|MailConstants
 operator|.
-name|DEFAULT_FOLDER_NAME
+name|MAIL_DEFAULT_FOLDER
 decl_stmt|;
 DECL|field|delete
 specifier|private
@@ -262,7 +262,7 @@ name|connectionTimeout
 init|=
 name|MailConstants
 operator|.
-name|DEFAULT_CONNECTION_TIMEOUT
+name|MAIL_DEFAULT_CONNECTION_TIMEOUT
 decl_stmt|;
 DECL|field|dummyTrustManager
 specifier|private
@@ -283,7 +283,7 @@ name|alternateBodyHeader
 init|=
 name|MailConstants
 operator|.
-name|DEFAULT_ALTERNATE_BODY_HEADER
+name|MAIL_ALTERNATIVE_BODY
 decl_stmt|;
 DECL|field|useInlineAttachments
 specifier|private

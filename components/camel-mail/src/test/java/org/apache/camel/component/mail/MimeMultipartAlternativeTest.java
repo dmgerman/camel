@@ -148,6 +148,24 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mail
+operator|.
+name|MailConstants
+operator|.
+name|MAIL_ALTERNATIVE_BODY
+import|;
+end_import
+
 begin_class
 DECL|class|MimeMultipartAlternativeTest
 specifier|public
@@ -215,7 +233,7 @@ name|setAlternateBodyHeader
 argument_list|(
 name|MailConstants
 operator|.
-name|DEFAULT_ALTERNATE_BODY_HEADER
+name|MAIL_ALTERNATIVE_BODY
 argument_list|)
 expr_stmt|;
 comment|// create the exchange with the mail message that is multipart with a file and a Hello World text/plain message.
@@ -246,7 +264,7 @@ name|in
 operator|.
 name|setHeader
 argument_list|(
-literal|"mailAlternateBody"
+name|MAIL_ALTERNATIVE_BODY
 argument_list|,
 name|alternativeBody
 argument_list|)
