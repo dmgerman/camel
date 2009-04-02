@@ -142,13 +142,17 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 name|serverUri
 operator|+
 literal|"?one=einz&two=twei"
 argument_list|,
 literal|null
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -202,7 +206,7 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBodyAndHeader
+name|requestBodyAndHeader
 argument_list|(
 name|serverUri
 argument_list|,
@@ -255,7 +259,7 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 name|serverUri
 argument_list|,

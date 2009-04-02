@@ -291,7 +291,7 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBodyAndHeader
+name|requestBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,

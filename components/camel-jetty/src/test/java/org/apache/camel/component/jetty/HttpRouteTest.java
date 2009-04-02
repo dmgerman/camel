@@ -396,7 +396,7 @@ name|IOException
 block|{
 name|template
 operator|.
-name|sendBodyAndHeader
+name|requestBodyAndHeader
 argument_list|(
 literal|"http://localhost:9080/test"
 argument_list|,

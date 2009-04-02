@@ -152,11 +152,15 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|null
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|mockEndpoint

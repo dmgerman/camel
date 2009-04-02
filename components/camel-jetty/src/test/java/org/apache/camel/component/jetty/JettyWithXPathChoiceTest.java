@@ -240,6 +240,19 @@ name|void
 name|configure
 parameter_list|()
 block|{
+name|errorHandler
+argument_list|(
+name|deadLetterChannel
+argument_list|(
+literal|"mock:error"
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// Need a convertBodyTo processor here or we may get an error
 comment|// that we are at the end of the stream
 name|from

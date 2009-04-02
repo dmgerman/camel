@@ -197,7 +197,7 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 name|serverUri
 operator|+
@@ -253,7 +253,7 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBodyAndHeader
+name|requestBodyAndHeader
 argument_list|(
 name|serverUri
 argument_list|,
