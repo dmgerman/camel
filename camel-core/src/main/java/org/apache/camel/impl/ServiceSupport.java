@@ -381,6 +381,12 @@ name|started
 operator|.
 name|get
 argument_list|()
+operator|&&
+operator|!
+name|starting
+operator|.
+name|get
+argument_list|()
 return|;
 block|}
 comment|/**      * @return true if this service is      */
