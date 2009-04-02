@@ -207,7 +207,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e1
-comment|// We set throwException to false to let Camel return any response from the remove HTTP server without thrown
+comment|// We set throwExceptionOnFailure to false to let Camel return any response from the remove HTTP server without thrown
 comment|// HttpOperationFailedException in case of failures.
 comment|// This allows us to handle all responses in the aggregation strategy where we can check the HTTP response code
 comment|// and decide what to do. As this is based on an unit test we assert the code is 404
@@ -218,7 +218,7 @@ argument_list|)
 operator|.
 name|enrich
 argument_list|(
-literal|"http://localhost:8123/myserver?throwException=false&user=Camel"
+literal|"http://localhost:8123/myserver?throwExceptionOnFailure=false&user=Camel"
 argument_list|,
 operator|new
 name|AggregationStrategy

@@ -434,13 +434,13 @@ argument_list|)
 expr_stmt|;
 comment|// should we use an exception for failed error codes?
 name|Boolean
-name|throwException
+name|throwExceptionOnFailure
 init|=
 name|getAndRemoveParameter
 argument_list|(
 name|parameters
 argument_list|,
-literal|"throwException"
+literal|"throwExceptionOnFailure"
 argument_list|,
 name|Boolean
 operator|.
@@ -558,16 +558,16 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|throwException
+name|throwExceptionOnFailure
 operator|!=
 literal|null
 condition|)
 block|{
 name|endpoint
 operator|.
-name|setThrowException
+name|setThrowExceptionOnFailure
 argument_list|(
-name|throwException
+name|throwExceptionOnFailure
 argument_list|)
 expr_stmt|;
 block|}

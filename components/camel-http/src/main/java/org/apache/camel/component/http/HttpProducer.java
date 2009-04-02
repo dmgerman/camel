@@ -359,7 +359,7 @@ name|throwException
 operator|=
 name|endpoint
 operator|.
-name|isThrowException
+name|isThrowExceptionOnFailure
 argument_list|()
 expr_stmt|;
 block|}

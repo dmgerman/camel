@@ -261,10 +261,10 @@ specifier|private
 name|HttpConnectionManager
 name|httpConnectionManager
 decl_stmt|;
-DECL|field|throwException
+DECL|field|throwExceptionOnFailure
 specifier|private
 name|boolean
-name|throwException
+name|throwExceptionOnFailure
 init|=
 literal|true
 decl_stmt|;
@@ -824,30 +824,30 @@ operator|=
 name|headerFilterStrategy
 expr_stmt|;
 block|}
-DECL|method|isThrowException ()
+DECL|method|isThrowExceptionOnFailure ()
 specifier|public
 name|boolean
-name|isThrowException
+name|isThrowExceptionOnFailure
 parameter_list|()
 block|{
 return|return
-name|throwException
+name|throwExceptionOnFailure
 return|;
 block|}
-DECL|method|setThrowException (boolean throwException)
+DECL|method|setThrowExceptionOnFailure (boolean throwExceptionOnFailure)
 specifier|public
 name|void
-name|setThrowException
+name|setThrowExceptionOnFailure
 parameter_list|(
 name|boolean
-name|throwException
+name|throwExceptionOnFailure
 parameter_list|)
 block|{
 name|this
 operator|.
-name|throwException
+name|throwExceptionOnFailure
 operator|=
-name|throwException
+name|throwExceptionOnFailure
 expr_stmt|;
 block|}
 block|}
