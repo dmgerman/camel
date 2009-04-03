@@ -56,7 +56,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"atom:file:target/out.atom"
+literal|"atom:file://target/out.atom"
 argument_list|)
 operator|.
 name|createProducer

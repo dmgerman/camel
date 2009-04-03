@@ -599,6 +599,17 @@ return|return
 name|sortEntries
 return|;
 block|}
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
+parameter_list|()
+block|{
+comment|// true to allow dynamic URI options to be configured and passed to external system for eg. the HttpProducer
+return|return
+literal|true
+return|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 block|}

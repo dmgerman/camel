@@ -22,21 +22,19 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|net
 operator|.
-name|Map
+name|URI
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|Endpoint
+name|Map
 import|;
 end_import
 
@@ -80,14 +78,14 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|DefaultComponent
+name|URISupport
 import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/atom.html">Atom Component</a>.  *<p/>  * Camel uses Apache Abdera as the Atom implementation.   *  * @version $Revision$  */
+comment|/**  * An<a href="http://camel.apache.org/atom.html">Atom Component</a>.  *<p/>  * Camel uses Apache Abdera as the Atom implementation.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -117,6 +115,71 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// Parameters should be kept in the remaining path, since they might be needed to get the actual ATOM feed
+name|URI
+name|remainingUri
+init|=
+name|URISupport
+operator|.
+name|createRemainingURI
+argument_list|(
+operator|new
+name|URI
+argument_list|(
+name|remaining
+argument_list|)
+argument_list|,
+name|parameters
+argument_list|)
+decl_stmt|;
+comment|// if http or https then the uri should include the parameters as we can have URI parameters
+comment|// that need to be sent to the remote server when retrieving feeds
+name|String
+name|scheme
+init|=
+name|remainingUri
+operator|.
+name|getScheme
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|scheme
+operator|!=
+literal|null
+operator|&&
+operator|(
+name|scheme
+operator|.
+name|equals
+argument_list|(
+literal|"http"
+argument_list|)
+operator|||
+name|scheme
+operator|.
+name|equals
+argument_list|(
+literal|"https"
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+operator|new
+name|AtomEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|this
+argument_list|,
+name|remainingUri
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+return|;
+block|}
 return|return
 operator|new
 name|AtomEndpoint
