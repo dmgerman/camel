@@ -78,7 +78,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/template/"
+literal|"file://target/template"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -120,7 +120,7 @@ name|consumer
 operator|.
 name|receive
 argument_list|(
-literal|"file://target/template?fileName=hello.txt"
+literal|"file://target/template?sortBy=file:name"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -128,10 +128,24 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|Exchange
+name|out2
+init|=
+name|consumer
+operator|.
+name|receive
 argument_list|(
-literal|"Hello World"
-argument_list|,
+literal|"file://target/template?sortBy=file:name"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|out2
+argument_list|)
+expr_stmt|;
+name|String
+name|body
+init|=
 name|out
 operator|.
 name|getIn
@@ -143,6 +157,34 @@ name|String
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+name|String
+name|body2
+init|=
+name|out2
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye World"
+argument_list|,
+name|body
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello World"
+argument_list|,
+name|body2
 argument_list|)
 expr_stmt|;
 block|}

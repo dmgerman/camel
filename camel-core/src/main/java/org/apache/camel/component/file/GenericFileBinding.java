@@ -18,6 +18,28 @@ name|file
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * Binding between the generic file and the body content.  */
 end_comment
@@ -57,6 +79,23 @@ parameter_list|,
 name|Object
 name|body
 parameter_list|)
+function_decl|;
+comment|/**      * Loads the content from the file into memory      *      * @param exchange the current exchange      * @param file the file      * @throws java.io.IOException is thrown if the content could not be loaded      */
+DECL|method|loadContent (Exchange exchange, GenericFile<T> file)
+name|void
+name|loadContent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|file
+parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_interface

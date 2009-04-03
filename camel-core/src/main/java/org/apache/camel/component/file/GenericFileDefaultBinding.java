@@ -18,6 +18,28 @@ name|file
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * Default binding for generic file.  */
 end_comment
@@ -78,6 +100,25 @@ name|body
 operator|=
 name|body
 expr_stmt|;
+block|}
+DECL|method|loadContent (Exchange exchange, GenericFile<T> file)
+specifier|public
+name|void
+name|loadContent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|file
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// noop as the body is already loaded
 block|}
 block|}
 end_class

@@ -388,24 +388,6 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|createPollingConsumer ()
-specifier|public
-name|PollingConsumer
-name|createPollingConsumer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|EventDrivenPollingConsumer
-argument_list|(
-name|this
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer

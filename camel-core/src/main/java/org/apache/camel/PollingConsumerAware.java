@@ -15,22 +15,22 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An interface to represent an object which wishes to be injected with  * a {@link CamelContext} such as when working with Spring or Guice  *  * @version $Revision$  */
+comment|/**  * A callback for {@link org.apache.camel.Exchange} when they are polled by a {@link org.apache.camel.PollingConsumer}.  *<p/>  * Is used if the {@link org.apache.camel.Exchange} needs to prepare, eg loading content that it otherwisw would have  * loaded lazy on demand.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
-DECL|interface|CamelContextAware
+DECL|interface|PollingConsumerAware
 specifier|public
 interface|interface
-name|CamelContextAware
+name|PollingConsumerAware
 block|{
-comment|/**      * Injects the {@link CamelContext}      *      * @param camelContext the Camel context      */
-DECL|method|setCamelContext (CamelContext camelContext)
+comment|/**      * Callback when an {@link org.apache.camel.Exchange} has been pooled.      *      * @param exchange  the exchange      */
+DECL|method|exchangePolled (Exchange exchange)
 name|void
-name|setCamelContext
+name|exchangePolled
 parameter_list|(
-name|CamelContext
-name|camelContext
+name|Exchange
+name|exchange
 parameter_list|)
 function_decl|;
 block|}
