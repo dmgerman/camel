@@ -139,6 +139,10 @@ import|;
 end_import
 
 begin_comment
+comment|//START SNIPPET: RouteConfig
+end_comment
+
+begin_comment
 comment|/**  * A simple example router from a file system to an ActiveMQ queue and then to a file system  *  * @version $Revision$  */
 end_comment
 
@@ -258,6 +262,7 @@ annotation|@
 name|Bean
 annotation|@
 name|Override
+comment|// you can confige the route rule with Java DSL here
 DECL|method|route ()
 specifier|public
 name|RouteBuilder
@@ -314,6 +319,10 @@ return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: RouteConfig
+end_comment
 
 end_unit
 
