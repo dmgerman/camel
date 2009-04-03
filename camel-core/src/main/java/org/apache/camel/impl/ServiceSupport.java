@@ -369,11 +369,11 @@ operator|.
 name|Created
 return|;
 block|}
-comment|/**      * @return true if this service has been started      */
-DECL|method|isStarted ()
+comment|/**      * @return true if this service is finished starting process      */
+DECL|method|isFinishedStarting ()
 specifier|public
 name|boolean
-name|isStarted
+name|isFinishedStarting
 parameter_list|()
 block|{
 return|return
@@ -384,6 +384,20 @@ argument_list|()
 operator|&&
 operator|!
 name|starting
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
+comment|/**      * @return true if this service has been started      */
+DECL|method|isStarted ()
+specifier|public
+name|boolean
+name|isStarted
+parameter_list|()
+block|{
+return|return
+name|started
 operator|.
 name|get
 argument_list|()
