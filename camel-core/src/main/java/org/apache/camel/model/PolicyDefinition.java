@@ -351,6 +351,8 @@ name|policy
 operator|.
 name|wrap
 argument_list|(
+name|routeContext
+argument_list|,
 name|childProcessor
 argument_list|)
 return|;

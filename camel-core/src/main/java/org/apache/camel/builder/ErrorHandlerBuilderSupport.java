@@ -101,6 +101,18 @@ name|OnExceptionDefinition
 name|exception
 parameter_list|)
 block|{
+comment|// only add if we not already have it
+if|if
+condition|(
+operator|!
+name|exceptions
+operator|.
+name|contains
+argument_list|(
+name|exception
+argument_list|)
+condition|)
+block|{
 name|exceptions
 operator|.
 name|add
@@ -109,8 +121,9 @@ name|exception
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 DECL|method|configure (ErrorHandlerSupport handler)
-specifier|protected
+specifier|public
 name|void
 name|configure
 parameter_list|(

@@ -60,6 +60,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|ErrorHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|ErrorHandlerWrappingStrategy
@@ -150,6 +164,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// dont double wrap error handlers
+if|if
+condition|(
+name|target
+operator|instanceof
+name|ErrorHandler
+condition|)
+block|{
+return|return
+name|target
+return|;
+block|}
 comment|// don't wrap our instrumentation interceptors
 if|if
 condition|(

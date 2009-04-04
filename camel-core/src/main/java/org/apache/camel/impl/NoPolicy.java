@@ -42,6 +42,20 @@ name|Policy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents an {@link Policy} which adds no interceptors.  *  * @version $Revision$  */
 end_comment
@@ -51,20 +65,17 @@ DECL|class|NoPolicy
 specifier|public
 class|class
 name|NoPolicy
-parameter_list|<
-name|E
-parameter_list|>
 implements|implements
 name|Policy
-argument_list|<
-name|E
-argument_list|>
 block|{
-DECL|method|wrap (Processor processor)
+DECL|method|wrap (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor
 name|wrap
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|Processor
 name|processor
 parameter_list|)

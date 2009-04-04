@@ -37,15 +37,15 @@ DECL|interface|Policy
 specifier|public
 interface|interface
 name|Policy
-parameter_list|<
-name|E
-parameter_list|>
 block|{
-comment|/**      * Wraps any applicable interceptors around the given processor      *      * @param processor the processor to be intercepted      * @return either the original processor or a processor wrapped in one or more interceptors      */
-DECL|method|wrap (Processor processor)
+comment|/**      * Wraps any applicable interceptors around the given processor      *      * @param routeContext the route context      * @param processor the processor to be intercepted      * @return either the original processor or a processor wrapped in one or more interceptors      */
+DECL|method|wrap (RouteContext routeContext, Processor processor)
 name|Processor
 name|wrap
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
