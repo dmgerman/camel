@@ -1356,10 +1356,10 @@ name|mockEndpointB
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSenarioC ()
+DECL|method|xxxtestSenarioC ()
 specifier|public
 name|void
-name|testSenarioC
+name|xxxtestSenarioC
 parameter_list|()
 throws|throws
 name|Exception
@@ -1429,10 +1429,10 @@ name|mockEndpointB
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSenarioD ()
+DECL|method|xxxtestSenarioD ()
 specifier|public
 name|void
-name|testSenarioD
+name|xxxtestSenarioD
 parameter_list|()
 throws|throws
 name|Exception

@@ -86,7 +86,7 @@ name|spring
 operator|.
 name|spi
 operator|.
-name|TransactionInterceptor
+name|TransactionErrorHandler
 import|;
 end_import
 
@@ -150,13 +150,13 @@ name|applicationContext
 decl_stmt|;
 DECL|method|transactionInterceptor ()
 specifier|public
-name|TransactionInterceptor
+name|TransactionErrorHandler
 name|transactionInterceptor
 parameter_list|()
 block|{
 return|return
 operator|new
-name|TransactionInterceptor
+name|TransactionErrorHandler
 argument_list|(
 name|bean
 argument_list|(
