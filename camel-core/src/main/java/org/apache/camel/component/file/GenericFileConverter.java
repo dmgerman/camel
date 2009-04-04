@@ -253,6 +253,13 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|exchange
 operator|.
@@ -274,6 +281,14 @@ name|getBody
 argument_list|()
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+comment|// should revert to fallback converter if we dont have an exchange
+return|return
+literal|null
+return|;
+block|}
 block|}
 block|}
 end_class
