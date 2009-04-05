@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -51,18 +63,6 @@ operator|.
 name|camel
 operator|.
 name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Predicate
 import|;
 end_import
 
@@ -134,7 +134,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ServiceHelper
+name|MessageHelper
 import|;
 end_import
 
@@ -148,7 +148,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|MessageHelper
+name|ServiceHelper
 import|;
 end_import
 

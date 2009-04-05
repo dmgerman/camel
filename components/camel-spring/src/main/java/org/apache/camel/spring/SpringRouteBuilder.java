@@ -70,7 +70,7 @@ name|spring
 operator|.
 name|spi
 operator|.
-name|TransactionErrorHandlerBuilder
+name|TransactionErrorHandler
 import|;
 end_import
 
@@ -86,7 +86,7 @@ name|spring
 operator|.
 name|spi
 operator|.
-name|TransactionErrorHandler
+name|TransactionErrorHandlerBuilder
 import|;
 end_import
 

@@ -180,7 +180,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-comment|// setup the ActiveMQ component and regist it into the camel context
+comment|// setup the ActiveMQ component and register it into the camel context
 DECL|method|setupCamelContext (CamelContext camelContext)
 specifier|public
 name|void

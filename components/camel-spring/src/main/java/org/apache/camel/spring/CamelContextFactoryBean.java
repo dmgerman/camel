@@ -504,7 +504,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ProcessorDefinitionHelper
+name|ObjectHelper
 import|;
 end_import
 
@@ -518,7 +518,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|ProcessorDefinitionHelper
 import|;
 end_import
 

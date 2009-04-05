@@ -106,6 +106,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|DefaultErrorHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|DelegateAsyncProcessor
 import|;
 end_import
@@ -146,9 +160,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spring
 operator|.
-name|DefaultErrorHandler
+name|spi
+operator|.
+name|TransactionErrorHandler
 import|;
 end_import
 
@@ -167,22 +183,6 @@ operator|.
 name|SpringTestHelper
 operator|.
 name|createSpringCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|spi
-operator|.
-name|TransactionErrorHandler
 import|;
 end_import
 
