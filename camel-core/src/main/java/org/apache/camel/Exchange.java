@@ -350,6 +350,21 @@ name|Exception
 name|getException
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the exception associated with this exchange.      *<p/>      * Is used to get the caused exception that typically have been wrapped in some sort      * of Camel wrapper exception      *<p/>      * The stategy is to look in the exception hieracy to find the first given cause that matches the type.      * Will start from the bottom (the real cause) and walk upwards.      *      * @param type the exception type      * @return the exception (or null if no faults or if no caused exception matched)      */
+DECL|method|getException (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getException
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Sets the exception associated with this exchange      *      * @param e  the caused exception      */
 DECL|method|setException (Exception e)
 name|void
