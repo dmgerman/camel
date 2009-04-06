@@ -98,16 +98,6 @@ name|DefaultErrorHandlerBuilder
 extends|extends
 name|ErrorHandlerBuilderSupport
 block|{
-DECL|field|exceptionPolicyStrategy
-specifier|private
-name|ExceptionPolicyStrategy
-name|exceptionPolicyStrategy
-init|=
-name|ErrorHandlerSupport
-operator|.
-name|createDefaultExceptionPolicyStrategy
-argument_list|()
-decl_stmt|;
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor
@@ -128,7 +118,8 @@ name|DefaultErrorHandler
 argument_list|(
 name|processor
 argument_list|,
-name|exceptionPolicyStrategy
+name|getExceptionPolicyStrategy
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|configure
@@ -139,52 +130,6 @@ expr_stmt|;
 return|return
 name|answer
 return|;
-block|}
-comment|/**      * Sets the exception policy to use      */
-DECL|method|exceptionPolicyStrategy (ExceptionPolicyStrategy exceptionPolicyStrategy)
-specifier|public
-name|DefaultErrorHandlerBuilder
-name|exceptionPolicyStrategy
-parameter_list|(
-name|ExceptionPolicyStrategy
-name|exceptionPolicyStrategy
-parameter_list|)
-block|{
-name|setExceptionPolicyStrategy
-argument_list|(
-name|exceptionPolicyStrategy
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets the exception policy strategy to use for resolving the {@link org.apache.camel.model.OnExceptionDefinition}      * to use for a given thrown exception      */
-DECL|method|getExceptionPolicyStrategy ()
-specifier|public
-name|ExceptionPolicyStrategy
-name|getExceptionPolicyStrategy
-parameter_list|()
-block|{
-return|return
-name|exceptionPolicyStrategy
-return|;
-block|}
-DECL|method|setExceptionPolicyStrategy (ExceptionPolicyStrategy exceptionPolicyStrategy)
-specifier|public
-name|void
-name|setExceptionPolicyStrategy
-parameter_list|(
-name|ExceptionPolicyStrategy
-name|exceptionPolicyStrategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exceptionPolicyStrategy
-operator|=
-name|exceptionPolicyStrategy
-expr_stmt|;
 block|}
 block|}
 end_class

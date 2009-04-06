@@ -306,6 +306,25 @@ operator|=
 name|ref
 expr_stmt|;
 block|}
+comment|/**      * Sets a reference to use for lookup the policy in the registry.      *      * @param ref the reference      * @return the builder      */
+DECL|method|ref (String ref)
+specifier|public
+name|PolicyDefinition
+name|ref
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|setRef
+argument_list|(
+name|ref
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createProcessor (RouteContext routeContext)

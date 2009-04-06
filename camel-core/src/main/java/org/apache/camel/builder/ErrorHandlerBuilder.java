@@ -60,6 +60,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|exceptionpolicy
+operator|.
+name|ExceptionPolicyStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|RouteContext
@@ -109,6 +125,30 @@ argument_list|<
 name|OnExceptionDefinition
 argument_list|>
 name|exceptions
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the error handlers      */
+DECL|method|getErrorHandlers ()
+name|List
+argument_list|<
+name|OnExceptionDefinition
+argument_list|>
+name|getErrorHandlers
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the exception policy strategy      */
+DECL|method|getExceptionPolicyStrategy ()
+name|ExceptionPolicyStrategy
+name|getExceptionPolicyStrategy
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the exception policy strategy to use for resolving the {@link org.apache.camel.model.OnExceptionDefinition}      * to use for a given thrown exception      *      * @param exceptionPolicyStrategy  the exception policy strategy      */
+DECL|method|setExceptionPolicyStrategy (ExceptionPolicyStrategy exceptionPolicyStrategy)
+name|void
+name|setExceptionPolicyStrategy
+parameter_list|(
+name|ExceptionPolicyStrategy
+name|exceptionPolicyStrategy
 parameter_list|)
 function_decl|;
 block|}

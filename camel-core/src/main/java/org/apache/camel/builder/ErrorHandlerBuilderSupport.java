@@ -64,6 +64,22 @@ name|ErrorHandlerSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|exceptionpolicy
+operator|.
+name|ExceptionPolicyStrategy
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for builders of error handling.  *  * @version $Revision$  */
 end_comment
@@ -90,6 +106,16 @@ name|ArrayList
 argument_list|<
 name|OnExceptionDefinition
 argument_list|>
+argument_list|()
+decl_stmt|;
+DECL|field|exceptionPolicyStrategy
+specifier|private
+name|ExceptionPolicyStrategy
+name|exceptionPolicyStrategy
+init|=
+name|ErrorHandlerSupport
+operator|.
+name|createDefaultExceptionPolicyStrategy
 argument_list|()
 decl_stmt|;
 DECL|method|addErrorHandlers (OnExceptionDefinition exception)
@@ -148,13 +174,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getExceptions ()
+DECL|method|getErrorHandlers ()
 specifier|public
 name|List
 argument_list|<
 name|OnExceptionDefinition
 argument_list|>
-name|getExceptions
+name|getErrorHandlers
 parameter_list|()
 block|{
 return|return
@@ -188,6 +214,51 @@ name|addAll
 argument_list|(
 name|exceptions
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the exception policy to use      */
+DECL|method|exceptionPolicyStrategy (ExceptionPolicyStrategy exceptionPolicyStrategy)
+specifier|public
+name|ErrorHandlerBuilderSupport
+name|exceptionPolicyStrategy
+parameter_list|(
+name|ExceptionPolicyStrategy
+name|exceptionPolicyStrategy
+parameter_list|)
+block|{
+name|setExceptionPolicyStrategy
+argument_list|(
+name|exceptionPolicyStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|getExceptionPolicyStrategy ()
+specifier|public
+name|ExceptionPolicyStrategy
+name|getExceptionPolicyStrategy
+parameter_list|()
+block|{
+return|return
+name|exceptionPolicyStrategy
+return|;
+block|}
+DECL|method|setExceptionPolicyStrategy (ExceptionPolicyStrategy exceptionPolicyStrategy)
+specifier|public
+name|void
+name|setExceptionPolicyStrategy
+parameter_list|(
+name|ExceptionPolicyStrategy
+name|exceptionPolicyStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exceptionPolicyStrategy
+operator|=
+name|exceptionPolicyStrategy
 expr_stmt|;
 block|}
 block|}

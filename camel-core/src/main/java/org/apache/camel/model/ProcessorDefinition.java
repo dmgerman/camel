@@ -3775,6 +3775,39 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Apply a {@link Policy}.      *<p/>      * Policy can be used for transactional policies.      *      * @param ref  reference to lookup a policy in the registry      * @return the policy builder to configure      */
+DECL|method|policy (String ref)
+specifier|public
+name|PolicyDefinition
+name|policy
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|PolicyDefinition
+name|answer
+init|=
+operator|new
+name|PolicyDefinition
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setRef
+argument_list|(
+name|ref
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Forces handling of faults as exceptions      *      * @return the current builder with the fault handler configured      */
 annotation|@
 name|SuppressWarnings

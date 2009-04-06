@@ -240,7 +240,7 @@ name|OnExceptionDefinition
 argument_list|>
 name|list
 init|=
-name|getExceptions
+name|getErrorHandlers
 argument_list|()
 decl_stmt|;
 for|for
