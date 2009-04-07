@@ -1444,6 +1444,9 @@ if|if
 condition|(
 name|isStarted
 argument_list|()
+operator|||
+name|isStarting
+argument_list|()
 condition|)
 block|{
 comment|// If the component is looked up after the context is started,
