@@ -206,6 +206,18 @@ init|=
 literal|"PROPAGATION_REQUIRED"
 decl_stmt|;
 annotation|@
+name|XmlTransient
+DECL|field|type
+specifier|protected
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Policy
+argument_list|>
+name|type
+decl_stmt|;
+annotation|@
 name|XmlAttribute
 argument_list|(
 name|required
@@ -223,18 +235,6 @@ DECL|field|policy
 specifier|private
 name|Policy
 name|policy
-decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|type
-specifier|protected
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Policy
-argument_list|>
-name|type
 decl_stmt|;
 DECL|method|PolicyDefinition ()
 specifier|public
