@@ -104,6 +104,34 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A route for simple performance testing that can be used when we suspect  * something is wrong. Inspired by end user on forum doing this as proof of concept.  */
 end_comment
@@ -116,6 +144,22 @@ name|RoutePerformanceTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|RoutePerformanceTest
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|dataSet
 specifier|protected
 name|SimpleDataSet
@@ -186,11 +230,9 @@ argument_list|()
 operator|-
 name|start
 decl_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Took: "
 operator|+
@@ -199,11 +241,9 @@ operator|+
 literal|" ns"
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
 literal|"Took: "
 operator|+

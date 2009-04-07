@@ -47,12 +47,12 @@ parameter_list|()
 block|{
 return|return
 name|this
-operator|!=
-name|Starting
-operator|&&
+operator|==
+name|Created
+operator|||
 name|this
-operator|!=
-name|Started
+operator|==
+name|Stopped
 return|;
 block|}
 DECL|method|isStoppable ()
@@ -63,12 +63,12 @@ parameter_list|()
 block|{
 return|return
 name|this
-operator|!=
-name|Stopping
-operator|&&
+operator|==
+name|Starting
+operator|||
 name|this
-operator|!=
-name|Stopped
+operator|==
+name|Started
 return|;
 block|}
 block|}

@@ -3835,6 +3835,62 @@ operator|=
 name|errorHandlerBuilder
 expr_stmt|;
 block|}
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+comment|// the context is now considered started (i.e. isStarted() == true))
+comment|// starting routes is done after, not during context startup
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+for|for
+control|(
+name|RouteService
+name|routeService
+range|:
+name|routeServices
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+name|routeService
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Apache Camel "
+operator|+
+name|getVersion
+argument_list|()
+operator|+
+literal|" (CamelContext:"
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|") started"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
 DECL|method|doStart ()
@@ -4055,50 +4111,6 @@ block|}
 name|startRouteDefinitions
 argument_list|(
 name|routeDefinitions
-argument_list|)
-expr_stmt|;
-comment|// lets clear the starting flag as we are now started and we really do start up these services
-name|notStarting
-argument_list|()
-expr_stmt|;
-synchronized|synchronized
-init|(
-name|this
-init|)
-block|{
-for|for
-control|(
-name|RouteService
-name|routeService
-range|:
-name|routeServices
-operator|.
-name|values
-argument_list|()
-control|)
-block|{
-name|routeService
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Apache Camel "
-operator|+
-name|getVersion
-argument_list|()
-operator|+
-literal|" (CamelContext:"
-operator|+
-name|getName
-argument_list|()
-operator|+
-literal|") started"
 argument_list|)
 expr_stmt|;
 block|}
