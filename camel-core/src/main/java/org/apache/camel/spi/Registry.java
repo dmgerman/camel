@@ -16,6 +16,16 @@ name|spi
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a service registry which may be implemented via a Spring ApplicationContext,  * via JNDI, a simple Map or the OSGI Service Registry  *  * @version $Revision$  */
 end_comment
@@ -51,6 +61,26 @@ name|lookup
 parameter_list|(
 name|String
 name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Looks up services in the registry by their type.      *<p/>      *<b>Note:</b> Not all registry implementations support this feature,      * such as the {@link org.apache.camel.impl.JndiRegistry}.      *      * @param type  the type of the registered services      * @return the types found, with their id as the key. Returns an empty Map if none found.      */
+DECL|method|lookupByType (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|T
+argument_list|>
+name|lookupByType
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
 parameter_list|)
 function_decl|;
 block|}

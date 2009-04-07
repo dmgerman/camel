@@ -28,6 +28,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -209,6 +219,26 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * lookup objects by type      *      * @param type the expected type      * @return the found objects with the name as the key in the map. Returns an empty map if none found.      */
+DECL|method|lookupByType (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|T
+argument_list|>
+name|lookupByType
+parameter_list|(
 name|Class
 argument_list|<
 name|T

@@ -22,7 +22,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Hashtable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -205,6 +225,38 @@ return|return
 literal|null
 return|;
 block|}
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|lookupByType (Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|T
+argument_list|>
+name|lookupByType
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+comment|// not implemented so we return an empty map
+return|return
+name|Collections
+operator|.
+name|EMPTY_MAP
+return|;
 block|}
 DECL|method|bind (String s, Object o)
 specifier|public

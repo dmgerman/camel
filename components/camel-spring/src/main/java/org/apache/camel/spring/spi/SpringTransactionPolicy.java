@@ -68,7 +68,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Policy
+name|RouteContext
 import|;
 end_import
 
@@ -82,7 +82,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|RouteContext
+name|TransactedPolicy
 import|;
 end_import
 
@@ -164,7 +164,7 @@ specifier|public
 class|class
 name|SpringTransactionPolicy
 implements|implements
-name|Policy
+name|TransactedPolicy
 block|{
 DECL|field|LOG
 specifier|private
@@ -372,14 +372,17 @@ comment|// the needed information form the configured builder anyway this allow 
 comment|// routes anway even though the error handler is not transactional, eg ease of configuration
 if|if
 condition|(
-name|builder
-operator|!=
-literal|null
-operator|&&
 name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|builder
+operator|!=
+literal|null
 condition|)
 block|{
 name|LOG
@@ -401,6 +404,7 @@ argument_list|(
 literal|"No ErrorHandlerBuilder configured, will use default TransactionErrorHandlerBuilder settings"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|TransactionErrorHandlerBuilder
 name|txBuilder
