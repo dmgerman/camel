@@ -193,6 +193,7 @@ argument_list|<
 name|ProcessorDefinition
 argument_list|>
 block|{
+comment|// TODO: Align this code with TransactedDefinition
 annotation|@
 name|XmlTransient
 DECL|field|PROPAGATION_REQUIRED
@@ -212,7 +213,7 @@ operator|=
 literal|true
 argument_list|)
 DECL|field|ref
-specifier|private
+specifier|protected
 name|String
 name|ref
 decl_stmt|;
