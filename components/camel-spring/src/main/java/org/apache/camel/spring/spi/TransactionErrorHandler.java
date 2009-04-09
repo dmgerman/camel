@@ -311,11 +311,6 @@ specifier|final
 name|TransactionTemplate
 name|transactionTemplate
 decl_stmt|;
-DECL|field|delayPolicy
-specifier|private
-name|DelayPolicy
-name|delayPolicy
-decl_stmt|;
 DECL|field|output
 specifier|private
 name|Processor
@@ -336,7 +331,7 @@ operator|=
 name|transactionTemplate
 expr_stmt|;
 block|}
-DECL|method|TransactionErrorHandler (TransactionTemplate transactionTemplate, Processor output, DelayPolicy delayPolicy, ExceptionPolicyStrategy exceptionPolicy)
+DECL|method|TransactionErrorHandler (TransactionTemplate transactionTemplate, Processor output, ExceptionPolicyStrategy exceptionPolicy)
 specifier|public
 name|TransactionErrorHandler
 parameter_list|(
@@ -345,9 +340,6 @@ name|transactionTemplate
 parameter_list|,
 name|Processor
 name|output
-parameter_list|,
-name|DelayPolicy
-name|delayPolicy
 parameter_list|,
 name|ExceptionPolicyStrategy
 name|exceptionPolicy
@@ -358,12 +350,6 @@ operator|.
 name|transactionTemplate
 operator|=
 name|transactionTemplate
-expr_stmt|;
-name|this
-operator|.
-name|delayPolicy
-operator|=
-name|delayPolicy
 expr_stmt|;
 name|setOutput
 argument_list|(
@@ -691,9 +677,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|delayBeforeRedelivery
-argument_list|()
-expr_stmt|;
 comment|// rethrow if an exception occured
 if|if
 condition|(
@@ -711,87 +694,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Sleeps before the transaction is set as rollback and the caused exception is rethrown to let the      * Spring TransactionManager handle the rollback.      */
-DECL|method|delayBeforeRedelivery ()
-specifier|protected
-name|void
-name|delayBeforeRedelivery
-parameter_list|()
-block|{
-name|long
-name|delay
-init|=
-literal|0
-decl_stmt|;
-if|if
-condition|(
-name|delayPolicy
-operator|!=
-literal|null
-condition|)
-block|{
-name|delay
-operator|=
-name|delayPolicy
-operator|.
-name|getDelay
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|delay
-operator|>
-literal|0
-condition|)
-block|{
-try|try
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Sleeping for: "
-operator|+
-name|delay
-operator|+
-literal|" millis until attempting redelivery"
-argument_list|)
-expr_stmt|;
-block|}
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-name|delay
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|interrupt
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 block|}
 comment|/**      * Handles when an exception occured during processing. Is used to let the exception policy      * deal with it, eg letting an onException handle it.      *      * @param exchange  the current exchange      */
 DECL|method|handleException (Exchange exchange)
@@ -1244,32 +1146,6 @@ operator|.
 name|output
 operator|=
 name|output
-expr_stmt|;
-block|}
-DECL|method|getDelayPolicy ()
-specifier|public
-name|DelayPolicy
-name|getDelayPolicy
-parameter_list|()
-block|{
-return|return
-name|delayPolicy
-return|;
-block|}
-DECL|method|setDelayPolicy (DelayPolicy delayPolicy)
-specifier|public
-name|void
-name|setDelayPolicy
-parameter_list|(
-name|DelayPolicy
-name|delayPolicy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|delayPolicy
-operator|=
-name|delayPolicy
 expr_stmt|;
 block|}
 block|}

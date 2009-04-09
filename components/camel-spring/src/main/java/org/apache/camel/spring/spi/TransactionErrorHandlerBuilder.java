@@ -173,11 +173,6 @@ operator|.
 name|createDefaultExceptionPolicyStrategy
 argument_list|()
 decl_stmt|;
-DECL|field|delayPolicy
-specifier|private
-name|DelayPolicy
-name|delayPolicy
-decl_stmt|;
 DECL|method|TransactionErrorHandlerBuilder ()
 specifier|public
 name|TransactionErrorHandlerBuilder
@@ -216,8 +211,6 @@ argument_list|(
 name|transactionTemplate
 argument_list|,
 name|processor
-argument_list|,
-name|delayPolicy
 argument_list|,
 name|exceptionPolicyStrategy
 argument_list|)
@@ -284,32 +277,6 @@ name|getTransactionTemplate
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getDelayPolicy ()
-specifier|public
-name|DelayPolicy
-name|getDelayPolicy
-parameter_list|()
-block|{
-return|return
-name|delayPolicy
-return|;
-block|}
-DECL|method|setDelayPolicy (DelayPolicy delayPolicy)
-specifier|public
-name|void
-name|setDelayPolicy
-parameter_list|(
-name|DelayPolicy
-name|delayPolicy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|delayPolicy
-operator|=
-name|delayPolicy
-expr_stmt|;
-block|}
 comment|/**      * Sets the exception policy strategy to use for resolving the {@link org.apache.camel.model.OnExceptionDefinition}      * to use for a given thrown exception      */
 DECL|method|getExceptionPolicyStrategy ()
 specifier|public
@@ -339,42 +306,6 @@ expr_stmt|;
 block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
-DECL|method|delay (long delay)
-specifier|public
-name|TransactionErrorHandlerBuilder
-name|delay
-parameter_list|(
-name|long
-name|delay
-parameter_list|)
-block|{
-if|if
-condition|(
-name|getDelayPolicy
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-name|delayPolicy
-operator|=
-operator|new
-name|DelayPolicy
-argument_list|()
-expr_stmt|;
-block|}
-name|getDelayPolicy
-argument_list|()
-operator|.
-name|delay
-argument_list|(
-name|delay
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets the exception policy to use      */
 DECL|method|exceptionPolicyStrategy (ExceptionPolicyStrategy exceptionPolicyStrategy)
 specifier|public

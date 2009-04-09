@@ -191,14 +191,6 @@ argument_list|(
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
-name|long
-name|start
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 name|context
 operator|.
 name|createProducerTemplate
@@ -215,27 +207,6 @@ name|result
 operator|.
 name|assertIsSatisfied
 argument_list|()
-expr_stmt|;
-name|long
-name|delta
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-operator|-
-name|start
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"There should have been redelivery delay: delta="
-operator|+
-name|delta
-argument_list|,
-name|delta
-operator|>
-literal|6000L
-argument_list|)
 expr_stmt|;
 block|}
 DECL|class|MyFailureProcessor
