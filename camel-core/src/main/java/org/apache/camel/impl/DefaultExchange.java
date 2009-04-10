@@ -439,6 +439,30 @@ return|return
 name|exchange
 return|;
 block|}
+DECL|method|newCopy ()
+specifier|public
+name|Exchange
+name|newCopy
+parameter_list|()
+block|{
+name|Exchange
+name|exchange
+init|=
+name|copy
+argument_list|()
+decl_stmt|;
+comment|// do not share the unit of work
+name|exchange
+operator|.
+name|setUnitOfWork
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+return|return
+name|exchange
+return|;
+block|}
 DECL|method|copyFrom (Exchange exchange)
 specifier|public
 name|void

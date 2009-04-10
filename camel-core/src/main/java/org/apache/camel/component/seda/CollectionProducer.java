@@ -150,13 +150,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// use new copy to not share the same unit of work
 name|queue
 operator|.
 name|add
 argument_list|(
 name|exchange
 operator|.
-name|copy
+name|newCopy
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -173,13 +174,14 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
+comment|// use new copy to not share the same unit of work
 name|queue
 operator|.
 name|add
 argument_list|(
 name|exchange
 operator|.
-name|copy
+name|newCopy
 argument_list|()
 argument_list|)
 expr_stmt|;

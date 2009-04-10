@@ -605,7 +605,7 @@ name|copy
 init|=
 name|exchange
 operator|.
-name|copy
+name|newCopy
 argument_list|()
 decl_stmt|;
 comment|// set MEP to InOnly as this wire tap is a fire and forget

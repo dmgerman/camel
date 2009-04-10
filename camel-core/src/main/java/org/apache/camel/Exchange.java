@@ -410,6 +410,12 @@ name|Exchange
 name|copy
 parameter_list|()
 function_decl|;
+comment|/**      * Creates a new instance and copies from the current message exchange so that it can be      * forwarded to another destination as a new instance. Unlike regular copy this operation      * will not share the same {@link org.apache.camel.spi.UnitOfWork} so its should be used      * for async messaging, where the original and copied exchange are independent.      */
+DECL|method|newCopy ()
+name|Exchange
+name|newCopy
+parameter_list|()
+function_decl|;
 comment|/**      * Copies the data into this exchange from the given exchange      *      * @param source is the source from which headers and messages will be copied      */
 DECL|method|copyFrom (Exchange source)
 name|void
