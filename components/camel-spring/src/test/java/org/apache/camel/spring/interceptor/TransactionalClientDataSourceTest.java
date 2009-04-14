@@ -418,22 +418,17 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// setup the transaction policy
+comment|// lookup the transaction policy
 name|SpringTransactionPolicy
 name|required
 init|=
-name|context
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
+name|bean
 argument_list|(
-literal|"PROPAGATION_REQUIRED"
-argument_list|,
 name|SpringTransactionPolicy
 operator|.
 name|class
+argument_list|,
+literal|"PROPAGATION_REQUIRED"
 argument_list|)
 decl_stmt|;
 comment|// use this error handler instead of DeadLetterChannel that is the default
