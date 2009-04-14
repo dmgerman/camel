@@ -28,15 +28,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
+name|HashSet
 import|;
 end_import
 
@@ -66,6 +62,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|inject
+operator|.
+name|internal
+operator|.
+name|Sets
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -73,6 +83,18 @@ operator|.
 name|camel
 operator|.
 name|Routes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Route
 import|;
 end_import
 
@@ -101,7 +123,7 @@ argument_list|>
 argument_list|>
 name|routes
 decl_stmt|;
-DECL|method|CamelModuleWithRouteTypes (Class<? extends Routes>.... routes)
+DECL|method|CamelModuleWithRouteTypes (Class<? extends Routes>.... routeTypes)
 specifier|public
 name|CamelModuleWithRouteTypes
 parameter_list|(
@@ -112,19 +134,46 @@ extends|extends
 name|Routes
 argument_list|>
 modifier|...
-name|routes
+name|routeTypes
 parameter_list|)
 block|{
 name|this
-argument_list|(
-name|Sets
 operator|.
-name|newHashSet
-argument_list|(
 name|routes
-argument_list|)
+operator|=
+operator|new
+name|HashSet
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Routes
+argument_list|>
+argument_list|>
+argument_list|()
+expr_stmt|;
+for|for
+control|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Routes
+argument_list|>
+name|route
+range|:
+name|routeTypes
+control|)
+block|{
+name|routes
+operator|.
+name|add
+argument_list|(
+name|route
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|CamelModuleWithRouteTypes (Set<Class<? extends Routes>> routes)
 specifier|public

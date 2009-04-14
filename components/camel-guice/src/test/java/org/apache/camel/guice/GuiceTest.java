@@ -64,20 +64,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|inject
-operator|.
-name|spi
-operator|.
-name|CloseFailedException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -85,6 +71,16 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|guiceyfruit
+operator|.
+name|Injectors
 import|;
 end_import
 
@@ -100,7 +96,7 @@ name|GuiceTest
 extends|extends
 name|TestCase
 block|{
-comment|/**      * Asserts that the CamelContext is available in the given Injector, that its been started, then close the injector      *      * @param injector      * @throws CloseFailedException      */
+comment|/**      * Asserts that the CamelContext is available in the given Injector, that its been started, then close the injector      *      * @param injector      */
 DECL|method|assertCamelContextRunningThenCloseInjector (Injector injector)
 specifier|public
 specifier|static
@@ -174,10 +170,12 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
-name|injector
+name|Injectors
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|injector
+argument_list|)
 expr_stmt|;
 block|}
 DECL|class|Cheese
