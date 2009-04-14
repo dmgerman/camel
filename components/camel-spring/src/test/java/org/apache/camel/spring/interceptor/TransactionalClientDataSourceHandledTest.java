@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -74,44 +62,18 @@ name|SpringRouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|spi
-operator|.
-name|SpringTransactionPolicy
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test to demonstrate the transactional client pattern.  */
 end_comment
 
 begin_class
-DECL|class|TransactionalClientDataSourceWithOnExceptionTest
+DECL|class|TransactionalClientDataSourceHandledTest
 specifier|public
 class|class
-name|TransactionalClientDataSourceWithOnExceptionTest
+name|TransactionalClientDataSourceHandledTest
 extends|extends
-name|TransactionalClientDataSourceTest
+name|TransactionalClientDataSourceWithOnExceptionTest
 block|{
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
 DECL|method|testTransactionRollback ()
 specifier|public
 name|void
@@ -135,8 +97,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|template
 operator|.
 name|sendBody
@@ -146,38 +106,6 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeCamelException
-name|e
-parameter_list|)
-block|{
-comment|// expeced as we fail
-name|assertTrue
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|IllegalArgumentException
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"We don't have Donkeys, only Camels"
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -191,11 +119,12 @@ argument_list|(
 literal|"select count(*) from books"
 argument_list|)
 decl_stmt|;
+comment|// there should be 2 books as the first insert operation succeded
 name|assertEquals
 argument_list|(
 literal|"Number of books"
 argument_list|,
-literal|1
+literal|2
 argument_list|,
 name|count
 argument_list|)
@@ -221,30 +150,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use required as transaction policy
-name|SpringTransactionPolicy
-name|required
-init|=
-name|bean
-argument_list|(
-name|SpringTransactionPolicy
-operator|.
-name|class
-argument_list|,
-literal|"PROPAGATION_REQUIRED"
-argument_list|)
-decl_stmt|;
-comment|// configure to use transaction error handler and pass on the required as it will fetch
-comment|// the transaction manager from it that it needs
-name|errorHandler
-argument_list|(
-name|transactionErrorHandler
-argument_list|(
-name|required
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// START SNIPPET: e1
 comment|// on exception is also supported
+comment|// so if an IllegalArgumentException is thrown then we route it to the mock:error
+comment|// since we mark it as handled then the exchange will NOT rollback
 name|onException
 argument_list|(
 name|IllegalArgumentException
@@ -254,7 +163,7 @@ argument_list|)
 operator|.
 name|handled
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 operator|.
 name|to
@@ -266,11 +175,10 @@ name|from
 argument_list|(
 literal|"direct:okay"
 argument_list|)
+comment|// mark this route as transacted
 operator|.
-name|policy
-argument_list|(
-name|required
-argument_list|)
+name|transacted
+argument_list|()
 operator|.
 name|setBody
 argument_list|(
@@ -302,11 +210,10 @@ name|from
 argument_list|(
 literal|"direct:fail"
 argument_list|)
+comment|// mark this route as transacted
 operator|.
-name|policy
-argument_list|(
-name|required
-argument_list|)
+name|transacted
+argument_list|()
 operator|.
 name|setBody
 argument_list|(
@@ -334,6 +241,7 @@ argument_list|(
 literal|"bookService"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;

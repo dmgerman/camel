@@ -26,37 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
 import|;
 end_import
 
@@ -74,133 +46,18 @@ name|SpringRouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|spi
-operator|.
-name|SpringTransactionPolicy
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test to demonstrate the transactional client pattern.  */
 end_comment
 
 begin_class
-DECL|class|TransactionalClientDataSourceWithOnExceptionTest
+DECL|class|TransactionalClientDataSourceWithOnExceptionMinimalConfigurationTest
 specifier|public
 class|class
-name|TransactionalClientDataSourceWithOnExceptionTest
+name|TransactionalClientDataSourceWithOnExceptionMinimalConfigurationTest
 extends|extends
-name|TransactionalClientDataSourceTest
+name|TransactionalClientDataSourceWithOnExceptionTest
 block|{
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
-DECL|method|testTransactionRollback ()
-specifier|public
-name|void
-name|testTransactionRollback
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:error"
-argument_list|)
-decl_stmt|;
-name|mock
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-try|try
-block|{
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:fail"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeCamelException
-name|e
-parameter_list|)
-block|{
-comment|// expeced as we fail
-name|assertTrue
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|IllegalArgumentException
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"We don't have Donkeys, only Camels"
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-name|int
-name|count
-init|=
-name|jdbc
-operator|.
-name|queryForInt
-argument_list|(
-literal|"select count(*) from books"
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Number of books"
-argument_list|,
-literal|1
-argument_list|,
-name|count
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -221,30 +78,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use required as transaction policy
-name|SpringTransactionPolicy
-name|required
-init|=
-name|bean
-argument_list|(
-name|SpringTransactionPolicy
-operator|.
-name|class
-argument_list|,
-literal|"PROPAGATION_REQUIRED"
-argument_list|)
-decl_stmt|;
-comment|// configure to use transaction error handler and pass on the required as it will fetch
-comment|// the transaction manager from it that it needs
-name|errorHandler
-argument_list|(
-name|transactionErrorHandler
-argument_list|(
-name|required
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// START SNIPPET: e1
 comment|// on exception is also supported
+comment|// so if an IllegalArgumentException is thrown then we route it to the mock:error
+comment|// since we have handled = false then the exception is not handled and Camel will
+comment|// rollback
 name|onException
 argument_list|(
 name|IllegalArgumentException
@@ -266,11 +104,10 @@ name|from
 argument_list|(
 literal|"direct:okay"
 argument_list|)
+comment|// mark this route as transacted
 operator|.
-name|policy
-argument_list|(
-name|required
-argument_list|)
+name|transacted
+argument_list|()
 operator|.
 name|setBody
 argument_list|(
@@ -302,11 +139,10 @@ name|from
 argument_list|(
 literal|"direct:fail"
 argument_list|)
+comment|// mark this route as transacted
 operator|.
-name|policy
-argument_list|(
-name|required
-argument_list|)
+name|transacted
+argument_list|()
 operator|.
 name|setBody
 argument_list|(
@@ -334,6 +170,7 @@ argument_list|(
 literal|"bookService"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
