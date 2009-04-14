@@ -138,9 +138,7 @@ name|impl
 operator|.
 name|nio
 operator|.
-name|reactor
-operator|.
-name|DefaultListeningIOReactor
+name|SSLServerIOEventDispatch
 import|;
 end_import
 
@@ -158,7 +156,7 @@ name|nio
 operator|.
 name|reactor
 operator|.
-name|SSLServerIOEventDispatch
+name|DefaultListeningIOReactor
 import|;
 end_import
 
