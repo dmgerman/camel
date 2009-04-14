@@ -438,6 +438,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -450,6 +458,7 @@ name|remoteServerInformation
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|client
@@ -525,6 +534,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -532,8 +549,16 @@ argument_list|(
 literal|"Attempting to login user: "
 operator|+
 name|username
+operator|+
+literal|" using password: "
+operator|+
+name|config
+operator|.
+name|getPassword
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|login
 operator|=
 name|client
@@ -555,7 +580,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Attempting to login anonymousl"
+literal|"Attempting to login anonymous"
 argument_list|)
 expr_stmt|;
 name|login
