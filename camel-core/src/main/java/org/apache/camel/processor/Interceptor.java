@@ -152,6 +152,22 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Interceptor["
+operator|+
+name|interceptorLogic
+operator|+
+literal|"]"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void

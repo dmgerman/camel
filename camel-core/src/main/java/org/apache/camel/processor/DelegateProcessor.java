@@ -175,11 +175,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Delegate("
+literal|"Delegate["
 operator|+
 name|processor
 operator|+
-literal|")"
+literal|"]"
 return|;
 block|}
 DECL|method|getProcessor ()

@@ -173,11 +173,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Instrumentation("
+literal|"Instrumentation["
 operator|+
 name|processor
 operator|+
-literal|")"
+literal|"]"
 return|;
 block|}
 DECL|method|setCounter (PerformanceCounter counter)

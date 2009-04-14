@@ -300,9 +300,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// TODO: fix me
-comment|// Class<?> type = endpoint.getExchangeType();
-comment|// assertEquals("exchange type", MyExchange.class, type);
 name|MyExchange
 name|actual
 init|=
@@ -353,8 +350,6 @@ argument_list|(
 name|expected
 argument_list|)
 expr_stmt|;
-comment|// TODO: fix me
-comment|// assertSame("Should not copy an exchange when of the correct type", expected, actual);
 block|}
 block|}
 end_class

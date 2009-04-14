@@ -116,9 +116,19 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Delayer[on: "
+literal|"Delayer["
+operator|+
+operator|(
+name|timeExpression
+operator|!=
+literal|null
+condition|?
+literal|"on: "
 operator|+
 name|timeExpression
+else|:
+literal|""
+operator|)
 operator|+
 literal|" delay: "
 operator|+

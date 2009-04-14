@@ -5647,6 +5647,7 @@ name|getInterceptStrategies
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// TODO: Order the strategies, eg using Comparable so we can have Tracer near the real processor
 for|for
 control|(
 name|InterceptStrategy

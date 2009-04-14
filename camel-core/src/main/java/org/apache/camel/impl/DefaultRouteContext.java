@@ -797,6 +797,8 @@ argument_list|(
 name|processor
 argument_list|)
 decl_stmt|;
+comment|// and wrap it in a unit of work so the UoW is on the top, so the entire route
+comment|// will be in the same UoW
 name|Processor
 name|unitOfWorkProcessor
 init|=

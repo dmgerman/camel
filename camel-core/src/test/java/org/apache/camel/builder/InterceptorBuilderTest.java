@@ -320,7 +320,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|//from("direct:a").intercept(interceptor1).intercept(interceptor2).to("direct:d");
 name|from
 argument_list|(
 literal|"direct:a"
@@ -346,7 +345,6 @@ argument_list|(
 name|toProcessor
 argument_list|)
 expr_stmt|;
-comment|/*                  * TODO keep old DSL? .intercept() .add(interceptor1)                  * .add(interceptor2) .target().to("direct:d");                  */
 block|}
 block|}
 decl_stmt|;

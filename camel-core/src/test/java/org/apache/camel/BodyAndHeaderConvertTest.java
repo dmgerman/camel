@@ -203,7 +203,6 @@ argument_list|,
 name|text
 argument_list|)
 expr_stmt|;
-comment|// TODO better conversion example when the property editor support is added
 block|}
 DECL|method|testConversionOfMessageHeaders ()
 specifier|public
@@ -239,7 +238,6 @@ argument_list|,
 name|text
 argument_list|)
 expr_stmt|;
-comment|// TODO better conversion example when the property editor support is added
 block|}
 DECL|method|testConversionOfMessageAttachments ()
 specifier|public

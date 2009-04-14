@@ -1333,7 +1333,7 @@ argument_list|(
 name|exceptionHandlers
 argument_list|)
 expr_stmt|;
-comment|// add an interceptor
+comment|// add an interceptor to instrument the route
 name|InstrumentationProcessor
 name|processor
 init|=

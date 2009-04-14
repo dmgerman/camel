@@ -109,11 +109,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"HandleFaultProcessor("
+literal|"HandleFault["
 operator|+
 name|processor
 operator|+
-literal|")"
+literal|"]"
 return|;
 block|}
 annotation|@

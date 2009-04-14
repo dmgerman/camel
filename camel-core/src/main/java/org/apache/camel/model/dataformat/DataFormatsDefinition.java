@@ -142,8 +142,7 @@ specifier|public
 class|class
 name|DataFormatsDefinition
 block|{
-comment|// TODO cannot use @XmlElementRef as it doesn't allow optional properties
-comment|// @XmlElementRef
+comment|// cannot use @XmlElementRef as it doesn't allow optional properties
 annotation|@
 name|XmlElements
 argument_list|(

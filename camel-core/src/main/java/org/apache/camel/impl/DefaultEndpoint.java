@@ -562,7 +562,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// TODO we could infer type parameter
 if|if
 condition|(
 name|type
