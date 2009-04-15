@@ -5907,11 +5907,15 @@ name|errorHandlerRef
 argument_list|)
 return|;
 block|}
-comment|// return a new default one
+comment|// return a reference to the default error handler
 return|return
 operator|new
-name|DefaultErrorHandlerBuilder
-argument_list|()
+name|ErrorHandlerBuilderRef
+argument_list|(
+name|ErrorHandlerBuilderRef
+operator|.
+name|DEFAULT_ERROR_HANDLER_BUILDER
+argument_list|)
 return|;
 block|}
 DECL|method|configureChild (ProcessorDefinition output)

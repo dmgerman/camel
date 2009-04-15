@@ -406,18 +406,13 @@ comment|// setup the transaction policy
 name|SpringTransactionPolicy
 name|required
 init|=
-name|context
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
+name|bean
 argument_list|(
-literal|"PROPAGATION_REQUIRED"
-argument_list|,
 name|SpringTransactionPolicy
 operator|.
 name|class
+argument_list|,
+literal|"PROPAGATION_REQUIRED"
 argument_list|)
 decl_stmt|;
 comment|// use transaction error handler
@@ -430,7 +425,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// must setup policy for each route
-comment|// TODO: CAMEL-1475 should fix this
 name|from
 argument_list|(
 literal|"direct:okay"
@@ -468,7 +462,6 @@ literal|"bookService"
 argument_list|)
 expr_stmt|;
 comment|// must setup policy for each route
-comment|// TODO: CAMEL-1475 should fix this
 name|from
 argument_list|(
 literal|"direct:fail"

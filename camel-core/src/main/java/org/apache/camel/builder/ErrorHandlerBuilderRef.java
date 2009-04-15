@@ -92,6 +92,15 @@ name|ErrorHandlerBuilderRef
 extends|extends
 name|ErrorHandlerBuilderSupport
 block|{
+DECL|field|DEFAULT_ERROR_HANDLER_BUILDER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_ERROR_HANDLER_BUILDER
+init|=
+literal|"CamelDefaultErrorHandlerBuilder"
+decl_stmt|;
 DECL|field|ref
 specifier|private
 specifier|final
@@ -192,6 +201,24 @@ name|processor
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns whether a specific error handler builder has been configued or not.      *<p/>      * Can be used to test if none has been configued and then install a custom error handler builder      * replacing the default error handler (that would have been used as fallback).      * This is for instance used by the transacted policy to setup a TransactedErrorHandlerBuilder      * in camel-spring.      */
+DECL|method|isErrorHandlerBuilderConfigued ()
+specifier|public
+name|boolean
+name|isErrorHandlerBuilderConfigued
+parameter_list|()
+block|{
+return|return
+operator|!
+name|DEFAULT_ERROR_HANDLER_BUILDER
+operator|.
+name|equals
+argument_list|(
+name|getRef
+argument_list|()
+argument_list|)
+return|;
+block|}
 DECL|method|lookupErrorHandlerBuilder (RouteContext routeContext)
 specifier|public
 name|ErrorHandlerBuilder
@@ -208,6 +235,108 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// if the ref is the default then the we do not have any explicit error handler configured
+comment|// if that is the case then use error handlers configured on the route, as for instance
+comment|// the transacted error handler could have been configured on the route so we should use that one
+if|if
+condition|(
+operator|!
+name|isErrorHandlerBuilderConfigued
+argument_list|()
+condition|)
+block|{
+comment|// see if there has been configured a route builder on the route
+name|handler
+operator|=
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getErrorHandlerBuilder
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|handler
+operator|==
+literal|null
+condition|)
+block|{
+name|handler
+operator|=
+name|routeContext
+operator|.
+name|lookup
+argument_list|(
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getErrorHandlerRef
+argument_list|()
+argument_list|,
+name|ErrorHandlerBuilder
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|handler
+operator|==
+literal|null
+condition|)
+block|{
+comment|// fallback to the default error handler if none configured on the route
+name|handler
+operator|=
+operator|new
+name|DefaultErrorHandlerBuilder
+argument_list|()
+expr_stmt|;
+block|}
+comment|// check if its also a ref with no error handler configuration like me
+if|if
+condition|(
+name|handler
+operator|instanceof
+name|ErrorHandlerBuilderRef
+condition|)
+block|{
+name|ErrorHandlerBuilderRef
+name|other
+init|=
+operator|(
+name|ErrorHandlerBuilderRef
+operator|)
+name|handler
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|other
+operator|.
+name|isErrorHandlerBuilderConfigued
+argument_list|()
+condition|)
+block|{
+comment|// the other has also no explict error handler configured then fallback to the default error handler
+comment|// otherwise we could recursive loop forever (triggered by createErrorHandler method)
+name|handler
+operator|=
+operator|new
+name|DefaultErrorHandlerBuilder
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+else|else
+block|{
+comment|// use specific configured error handler
 name|handler
 operator|=
 name|routeContext
@@ -221,6 +350,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
 name|ObjectHelper
 operator|.
 name|notNull
@@ -272,6 +402,22 @@ parameter_list|()
 block|{
 return|return
 name|ref
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"ErrorHandlerBuilderRef["
+operator|+
+name|ref
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

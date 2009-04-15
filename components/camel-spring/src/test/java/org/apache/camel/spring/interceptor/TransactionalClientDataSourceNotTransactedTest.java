@@ -26,37 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
 import|;
 end_import
 
@@ -82,36 +54,22 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
-name|spi
-operator|.
-name|SpringTransactionPolicy
+name|RuntimeCamelException
 import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to demonstrate the transactional client pattern.  */
+comment|/**  * Same route but not transacted  */
 end_comment
 
 begin_class
-DECL|class|TransactionalClientDataSourceWithOnExceptionTest
+DECL|class|TransactionalClientDataSourceNotTransactedTest
 specifier|public
 class|class
-name|TransactionalClientDataSourceWithOnExceptionTest
+name|TransactionalClientDataSourceNotTransactedTest
 extends|extends
 name|TransactionalClientDataSourceTest
 block|{
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
 DECL|method|testTransactionRollback ()
 specifier|public
 name|void
@@ -120,21 +78,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:error"
-argument_list|)
-decl_stmt|;
-name|mock
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|template
@@ -178,9 +121,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
 name|int
 name|count
 init|=
@@ -191,11 +131,12 @@ argument_list|(
 literal|"select count(*) from books"
 argument_list|)
 decl_stmt|;
+comment|// should get 2 books as the first operation will succeed and we are not transacted
 name|assertEquals
 argument_list|(
 literal|"Number of books"
 argument_list|,
-literal|1
+literal|2
 argument_list|,
 name|count
 argument_list|)
@@ -221,55 +162,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use required as transaction policy
-name|SpringTransactionPolicy
-name|required
-init|=
-name|bean
-argument_list|(
-name|SpringTransactionPolicy
-operator|.
-name|class
-argument_list|,
-literal|"PROPAGATION_REQUIRED"
-argument_list|)
-decl_stmt|;
-comment|// configure to use transaction error handler and pass on the required as it will fetch
-comment|// the transaction manager from it that it needs
-name|errorHandler
-argument_list|(
-name|transactionErrorHandler
-argument_list|(
-name|required
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// on exception is also supported
-name|onException
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|false
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:error"
-argument_list|)
-expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:okay"
-argument_list|)
-operator|.
-name|policy
-argument_list|(
-name|required
 argument_list|)
 operator|.
 name|setBody
@@ -301,11 +196,6 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:fail"
-argument_list|)
-operator|.
-name|policy
-argument_list|(
-name|required
 argument_list|)
 operator|.
 name|setBody

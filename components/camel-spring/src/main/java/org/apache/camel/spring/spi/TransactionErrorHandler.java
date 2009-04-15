@@ -62,35 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|OnExceptionDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|DelayPolicy
 import|;
 end_import
 
@@ -260,22 +234,6 @@ name|TransactionTemplate
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
-import|;
-end_import
-
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/transactional-client.html">Transactional Client</a>  * EIP pattern.  *  * @version $Revision$  */
 end_comment
@@ -439,7 +397,7 @@ parameter_list|)
 block|{
 comment|// wrapper exception to throw if the exchange failed
 comment|// IMPORTANT: Must be a runtime exception to let Spring regard it as to do "rollback"
-name|RuntimeCamelException
+name|TransactedRuntimeCamelException
 name|rce
 decl_stmt|;
 comment|// find out if there is an actual transaction alive, and thus we are in transacted mode
@@ -595,11 +553,55 @@ literal|null
 condition|)
 block|{
 comment|// handle onException
+comment|// but test beforehand if we have already handled it, if so we should not do it again
+name|boolean
+name|handled
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|instanceof
+name|TransactedRuntimeCamelException
+condition|)
+block|{
+name|TransactedRuntimeCamelException
+name|trce
+init|=
+name|exchange
+operator|.
+name|getException
+argument_list|(
+name|TransactedRuntimeCamelException
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|handled
+operator|=
+name|trce
+operator|.
+name|isHandled
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|handled
+condition|)
+block|{
+comment|// not handled before so handle it once
 name|handleException
 argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// after handling and still an exception or marked as rollback only then rollback
 if|if
@@ -619,7 +621,7 @@ condition|)
 block|{
 name|rce
 operator|=
-name|wrapRuntimeCamelException
+name|wrapTransactedRuntimeException
 argument_list|(
 name|exchange
 operator|.
@@ -694,6 +696,58 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|wrapTransactedRuntimeException (Exception exception)
+specifier|protected
+name|TransactedRuntimeCamelException
+name|wrapTransactedRuntimeException
+parameter_list|(
+name|Exception
+name|exception
+parameter_list|)
+block|{
+if|if
+condition|(
+name|exception
+operator|instanceof
+name|TransactedRuntimeCamelException
+condition|)
+block|{
+return|return
+operator|(
+name|TransactedRuntimeCamelException
+operator|)
+name|exception
+return|;
+block|}
+else|else
+block|{
+name|TransactedRuntimeCamelException
+name|answer
+init|=
+operator|new
+name|TransactedRuntimeCamelException
+argument_list|(
+name|exception
+argument_list|)
+decl_stmt|;
+comment|// Mark as handled so we dont want to handle the same exception twice or more in other
+comment|// wrapped transaction error handlers in this route.
+comment|// We need to mark this information in the exception as we need to propagage
+comment|// the exception back by rehtrowing it. We cannot mark it on the exchange as Camel
+comment|// uses copies of exchanges in its pipeline and the data isnt copied back in case
+comment|// when an exception occured
+name|answer
+operator|.
+name|setHandled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 block|}
 comment|/**      * Handles when an exception occured during processing. Is used to let the exception policy      * deal with it, eg letting an onException handle it.      *      * @param exchange  the current exchange      */
 DECL|method|handleException (Exchange exchange)

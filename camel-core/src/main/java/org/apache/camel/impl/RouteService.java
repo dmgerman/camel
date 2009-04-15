@@ -132,11 +132,11 @@ specifier|final
 name|DefaultCamelContext
 name|camelContext
 decl_stmt|;
-DECL|field|routeType
+DECL|field|routeDefinition
 specifier|private
 specifier|final
 name|RouteDefinition
-name|routeType
+name|routeDefinition
 decl_stmt|;
 DECL|field|routeContexts
 specifier|private
@@ -162,7 +162,7 @@ specifier|final
 name|String
 name|id
 decl_stmt|;
-DECL|method|RouteService (DefaultCamelContext camelContext, RouteDefinition routeType, List<RouteContext> routeContexts, Collection<Route> routes)
+DECL|method|RouteService (DefaultCamelContext camelContext, RouteDefinition routeDefinition, List<RouteContext> routeContexts, Collection<Route> routes)
 specifier|public
 name|RouteService
 parameter_list|(
@@ -170,7 +170,7 @@ name|DefaultCamelContext
 name|camelContext
 parameter_list|,
 name|RouteDefinition
-name|routeType
+name|routeDefinition
 parameter_list|,
 name|List
 argument_list|<
@@ -193,9 +193,9 @@ name|camelContext
 expr_stmt|;
 name|this
 operator|.
-name|routeType
+name|routeDefinition
 operator|=
-name|routeType
+name|routeDefinition
 expr_stmt|;
 name|this
 operator|.
@@ -213,7 +213,7 @@ name|this
 operator|.
 name|id
 operator|=
-name|routeType
+name|routeDefinition
 operator|.
 name|idOrCreate
 argument_list|()
@@ -252,14 +252,14 @@ return|return
 name|routeContexts
 return|;
 block|}
-DECL|method|getRouteType ()
+DECL|method|getRouteDefinition ()
 specifier|public
 name|RouteDefinition
-name|getRouteType
+name|getRouteDefinition
 parameter_list|()
 block|{
 return|return
-name|routeType
+name|routeDefinition
 return|;
 block|}
 DECL|method|getRoutes ()

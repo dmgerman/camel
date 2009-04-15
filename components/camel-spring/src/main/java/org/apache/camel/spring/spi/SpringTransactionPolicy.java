@@ -300,6 +300,15 @@ name|ErrorHandlerBuilderRef
 operator|)
 name|builder
 decl_stmt|;
+comment|// only lookup if there was explicit an error handler builder configured
+if|if
+condition|(
+name|ref
+operator|.
+name|isErrorHandlerBuilderConfigued
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|LOG
@@ -330,6 +339,7 @@ argument_list|(
 name|routeContext
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -462,6 +472,17 @@ operator|.
 name|configure
 argument_list|(
 name|answer
+argument_list|)
+expr_stmt|;
+comment|// set the route to use our transacted error handler builder
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|setErrorHandlerBuilder
+argument_list|(
+name|txBuilder
 argument_list|)
 expr_stmt|;
 block|}

@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|WhenDefinition
+name|SendDefinition
 import|;
 end_import
 
@@ -78,21 +78,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|SendDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|DelegateProcessor
+name|WhenDefinition
 import|;
 end_import
 
