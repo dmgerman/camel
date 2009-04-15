@@ -424,7 +424,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO
+comment|// is tested elsewhere
 block|}
 annotation|@
 name|Override
@@ -436,7 +436,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO
+comment|// is tested elsewhere
 block|}
 DECL|method|getRoutesFromContext (String classpathConfigFile)
 specifier|protected

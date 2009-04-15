@@ -329,16 +329,6 @@ name|getRouteDefinitions
 argument_list|()
 control|)
 block|{
-name|assertNull
-argument_list|(
-literal|"StreamCache should be disabled"
-argument_list|,
-name|route
-operator|.
-name|getStreamCaching
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|ErrorHandler
 name|error
 init|=
@@ -406,9 +396,9 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|assertNull
+name|assertNotNull
 argument_list|(
-literal|"There should be no stream cache found: "
+literal|"There should be stream cache found: "
 operator|+
 name|cache
 argument_list|,

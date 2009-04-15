@@ -184,22 +184,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|StreamCaching
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|RouteContext
@@ -378,13 +362,6 @@ argument_list|)
 decl_stmt|;
 comment|// must enable stream cache as DeadLetterChannel can do redeliveries and
 comment|// thus it needs to be able to read the stream again
-name|StreamCaching
-operator|.
-name|enable
-argument_list|(
-name|routeContext
-argument_list|)
-expr_stmt|;
 name|configure
 argument_list|(
 name|answer

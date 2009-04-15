@@ -120,7 +120,7 @@ DECL|method|PropertyDefinition ()
 specifier|public
 name|PropertyDefinition
 parameter_list|()
-block|{              }
+block|{     }
 DECL|method|setKey (String key)
 specifier|public
 name|void

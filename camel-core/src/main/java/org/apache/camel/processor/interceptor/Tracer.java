@@ -240,13 +240,13 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorType, Processor target)
+DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
 name|ProcessorDefinition
-name|processorType
+name|processorDefinition
 parameter_list|,
 name|Processor
 name|target
@@ -259,7 +259,7 @@ comment|// outputting trace information
 name|String
 name|id
 init|=
-name|processorType
+name|processorDefinition
 operator|.
 name|idOrCreate
 argument_list|()
@@ -268,7 +268,7 @@ return|return
 operator|new
 name|TraceInterceptor
 argument_list|(
-name|processorType
+name|processorDefinition
 argument_list|,
 name|target
 argument_list|,

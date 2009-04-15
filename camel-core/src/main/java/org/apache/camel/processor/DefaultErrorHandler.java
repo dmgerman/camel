@@ -132,6 +132,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|AsyncProcessorHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ExchangeHelper
 import|;
 end_import
@@ -223,11 +237,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|output
-specifier|private
-name|Processor
-name|output
-decl_stmt|;
 DECL|field|outputAsync
 specifier|private
 name|AsyncProcessor
@@ -244,12 +253,6 @@ name|ExceptionPolicyStrategy
 name|exceptionPolicyStrategy
 parameter_list|)
 block|{
-name|this
-operator|.
-name|output
-operator|=
-name|output
-expr_stmt|;
 name|this
 operator|.
 name|outputAsync
@@ -278,7 +281,7 @@ block|{
 return|return
 literal|"DefaultErrorHandler["
 operator|+
-name|output
+name|outputAsync
 operator|+
 literal|"]"
 return|;
@@ -294,10 +297,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|output
+name|AsyncProcessorHelper
 operator|.
 name|process
 argument_list|(
+name|this
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
@@ -675,7 +680,7 @@ name|getOutput
 parameter_list|()
 block|{
 return|return
-name|output
+name|outputAsync
 return|;
 block|}
 DECL|method|doStart ()
@@ -690,7 +695,7 @@ name|ServiceHelper
 operator|.
 name|startServices
 argument_list|(
-name|output
+name|outputAsync
 argument_list|)
 expr_stmt|;
 block|}
@@ -706,7 +711,7 @@ name|ServiceHelper
 operator|.
 name|stopServices
 argument_list|(
-name|output
+name|outputAsync
 argument_list|)
 expr_stmt|;
 block|}

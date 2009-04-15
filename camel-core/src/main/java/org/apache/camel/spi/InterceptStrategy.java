@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * The purpose of this interface is to allow an implementation to wrap   * processors in a route with interceptors.  For example, a possible   * usecase is to gather performance statistics at the processor's level.   *   * @version $Revision$   */
+comment|/**  * The purpose of this interface is to allow an implementation to wrap  * processors in a route with interceptors.  For example, a possible  * usecase is to gather performance statistics at the processor's level.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -52,13 +52,13 @@ specifier|public
 interface|interface
 name|InterceptStrategy
 block|{
-comment|/**      * This method is invoked by      * {@link ProcessorDefinition#wrapProcessor(RouteContext, Processor)}      * to give the implementor an opportunity to wrap the target processor      * in a route.      *      * @param processorType the object that invokes this method      * @param target the processor to be wrapped      * @return processor wrapped with an interceptor or not wrapped      * @throws Exception can be thrown      */
-DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorType, Processor target)
+comment|/**      * This method is invoked by      * {@link ProcessorDefinition#wrapProcessor(RouteContext, Processor)}      * to give the implementor an opportunity to wrap the target processor      * in a route.      *      * @param processorDefinition the object that invokes this method      * @param target        the processor to be wrapped      * @return processor wrapped with an interceptor or not wrapped      * @throws Exception can be thrown      */
+DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target)
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
 name|ProcessorDefinition
-name|processorType
+name|processorDefinition
 parameter_list|,
 name|Processor
 name|target

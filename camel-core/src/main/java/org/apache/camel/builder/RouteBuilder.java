@@ -855,41 +855,6 @@ operator|.
 name|routeCollection
 return|;
 block|}
-comment|/**      * Completely disable stream caching for all routes being defined in the same RouteBuilder after this.      */
-DECL|method|noStreamCaching ()
-specifier|public
-name|void
-name|noStreamCaching
-parameter_list|()
-block|{
-name|StreamCachingInterceptor
-operator|.
-name|noStreamCaching
-argument_list|(
-name|routeCollection
-operator|.
-name|getInterceptors
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Enable stream caching for all routes being defined in the same RouteBuilder after this call.      */
-DECL|method|streamCaching ()
-specifier|public
-name|void
-name|streamCaching
-parameter_list|()
-block|{
-name|routeCollection
-operator|.
-name|intercept
-argument_list|(
-operator|new
-name|StreamCachingInterceptor
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Factory method      */
 DECL|method|createContainer ()
 specifier|protected

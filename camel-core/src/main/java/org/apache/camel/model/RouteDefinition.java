@@ -385,11 +385,6 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
-DECL|field|streamCaching
-specifier|private
-name|Boolean
-name|streamCaching
-decl_stmt|;
 DECL|method|RouteDefinition ()
 specifier|public
 name|RouteDefinition
@@ -844,42 +839,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disable stream caching for this route      *      * @return the builder      */
-DECL|method|noStreamCaching ()
-specifier|public
-name|RouteDefinition
-name|noStreamCaching
-parameter_list|()
-block|{
-name|StreamCachingInterceptor
-operator|.
-name|noStreamCaching
-argument_list|(
-name|interceptors
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Enable stream caching for this route      *      * @return the builder      */
-DECL|method|streamCaching ()
-specifier|public
-name|RouteDefinition
-name|streamCaching
-parameter_list|()
-block|{
-name|addInterceptor
-argument_list|(
-operator|new
-name|StreamCachingInterceptor
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getInterceptors ()
@@ -1063,59 +1022,6 @@ name|group
 operator|=
 name|group
 expr_stmt|;
-block|}
-DECL|method|getStreamCaching ()
-specifier|public
-name|Boolean
-name|getStreamCaching
-parameter_list|()
-block|{
-return|return
-name|streamCaching
-return|;
-block|}
-comment|/**      * Enable stream caching on this route      * @param streamCaching<code>true</code> for enabling stream caching      */
-annotation|@
-name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
-DECL|method|setStreamCaching (Boolean streamCaching)
-specifier|public
-name|void
-name|setStreamCaching
-parameter_list|(
-name|Boolean
-name|streamCaching
-parameter_list|)
-block|{
-name|this
-operator|.
-name|streamCaching
-operator|=
-name|streamCaching
-expr_stmt|;
-if|if
-condition|(
-name|streamCaching
-operator|!=
-literal|null
-operator|&&
-name|streamCaching
-condition|)
-block|{
-name|streamCaching
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-name|noStreamCaching
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------

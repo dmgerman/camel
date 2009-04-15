@@ -471,13 +471,13 @@ operator|=
 name|flag
 expr_stmt|;
 block|}
-DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorType, Processor target)
+DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
 name|ProcessorDefinition
-name|processorType
+name|processorDefinition
 parameter_list|,
 name|Processor
 name|target
@@ -488,7 +488,7 @@ block|{
 name|String
 name|id
 init|=
-name|processorType
+name|processorDefinition
 operator|.
 name|idOrCreate
 argument_list|()
@@ -504,7 +504,7 @@ init|=
 operator|new
 name|TraceInterceptor
 argument_list|(
-name|processorType
+name|processorDefinition
 argument_list|,
 name|target
 argument_list|,
@@ -522,7 +522,7 @@ init|=
 operator|new
 name|DebugInterceptor
 argument_list|(
-name|processorType
+name|processorDefinition
 argument_list|,
 name|target
 argument_list|,

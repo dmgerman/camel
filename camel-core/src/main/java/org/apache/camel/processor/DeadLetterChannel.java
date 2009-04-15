@@ -803,6 +803,7 @@ return|;
 block|}
 comment|// if the exchange is transacted then let the underlying system handle the redelivery etc.
 comment|// this DeadLetterChannel is only for non transacted exchanges
+comment|// TODO: Should be possible to remove with Claus got the TX error handler sorted
 if|if
 condition|(
 name|exchange

@@ -197,13 +197,13 @@ name|MyTracer
 implements|implements
 name|InterceptStrategy
 block|{
-DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorType, Processor target)
+DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
 name|ProcessorDefinition
-name|processorType
+name|processorDefinition
 parameter_list|,
 name|Processor
 name|target

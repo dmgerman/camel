@@ -150,13 +150,13 @@ operator|=
 name|routeContext
 expr_stmt|;
 block|}
-DECL|method|wrapProcessorInErrorHandler (ProcessorDefinition processorType, Processor target)
+DECL|method|wrapProcessorInErrorHandler (ProcessorDefinition processorDefinition, Processor target)
 specifier|public
 name|Processor
 name|wrapProcessorInErrorHandler
 parameter_list|(
 name|ProcessorDefinition
-name|processorType
+name|processorDefinition
 parameter_list|,
 name|Processor
 name|target
@@ -183,12 +183,12 @@ name|counterMap
 operator|.
 name|containsKey
 argument_list|(
-name|processorType
+name|processorDefinition
 argument_list|)
 condition|)
 block|{
 return|return
-name|processorType
+name|processorDefinition
 operator|.
 name|getErrorHandlerBuilder
 argument_list|()

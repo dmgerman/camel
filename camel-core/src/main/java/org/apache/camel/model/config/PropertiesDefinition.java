@@ -151,7 +151,7 @@ DECL|method|PropertiesDefinition ()
 specifier|public
 name|PropertiesDefinition
 parameter_list|()
-block|{              }
+block|{     }
 DECL|method|setProperties (List<PropertyDefinition> properties)
 specifier|public
 name|void

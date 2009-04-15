@@ -231,6 +231,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|streamCache
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createCamelContext ()
 specifier|protected
