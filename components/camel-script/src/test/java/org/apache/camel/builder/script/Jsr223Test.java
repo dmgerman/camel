@@ -78,6 +78,18 @@ name|TestCase
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ScriptTestHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -118,6 +130,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|ScriptTestHelper
+operator|.
+name|canRunTestOnThisPlatform
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|ScriptEngineManager
 name|manager
 init|=

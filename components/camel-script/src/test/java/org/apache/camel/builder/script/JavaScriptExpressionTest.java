@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ScriptTestHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -100,6 +112,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|ScriptTestHelper
+operator|.
+name|canRunTestOnThisPlatform
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 comment|// TODO Currently, this test fails because the JavaScript expression in createRouteBuilder
 comment|// below returns false
 comment|// To fix that, we need to figure out how to get the expression to return the right value
@@ -200,6 +223,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|ScriptTestHelper
+operator|.
+name|canRunTestOnThisPlatform
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"

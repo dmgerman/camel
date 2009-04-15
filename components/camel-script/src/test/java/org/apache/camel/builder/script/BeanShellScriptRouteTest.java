@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ScriptTestHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -82,10 +94,6 @@ name|script
 import|;
 end_import
 
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-
 begin_comment
 comment|/**  * Unit test for a BeanSheel script  */
 end_comment
@@ -106,6 +114,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|ScriptTestHelper
+operator|.
+name|canRunTestOnThisPlatform
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -173,6 +192,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|ScriptTestHelper
+operator|.
+name|canRunTestOnThisPlatform
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
