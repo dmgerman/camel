@@ -193,12 +193,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:queue:test?size=100"
+literal|"seda:queue:test?size=200"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:queue:test?size=100"
+literal|"seda:queue:test?size=200"
 argument_list|)
 operator|.
 name|to

@@ -3066,10 +3066,11 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
+comment|// must catch throwable as AssertionException extends java.lang.Error
 name|failures
 operator|.
 name|add
@@ -3078,6 +3079,9 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+comment|// make sure latch is counted down to avoid test hanging forever
 if|if
 condition|(
 name|latch
@@ -3090,6 +3094,7 @@ operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@

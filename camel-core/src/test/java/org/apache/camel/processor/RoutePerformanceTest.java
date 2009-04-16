@@ -104,34 +104,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A route for simple performance testing that can be used when we suspect  * something is wrong. Inspired by end user on forum doing this as proof of concept.  */
 end_comment
@@ -144,22 +116,6 @@ name|RoutePerformanceTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|RoutePerformanceTest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|dataSet
 specifier|protected
 name|SimpleDataSet
@@ -184,7 +140,7 @@ name|start
 init|=
 name|System
 operator|.
-name|nanoTime
+name|currentTimeMillis
 argument_list|()
 decl_stmt|;
 name|MockEndpoint
@@ -225,33 +181,22 @@ name|delta
 init|=
 name|System
 operator|.
-name|nanoTime
+name|currentTimeMillis
 argument_list|()
 operator|-
 name|start
 decl_stmt|;
-name|LOG
+name|System
 operator|.
-name|info
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Took: "
+literal|"RoutePerformanceTest: Took: "
 operator|+
 name|delta
 operator|+
-literal|" ns"
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Took: "
-operator|+
-name|delta
-operator|/
-literal|1000000
-operator|+
-literal|" millis"
+literal|" ms"
 argument_list|)
 expr_stmt|;
 block|}

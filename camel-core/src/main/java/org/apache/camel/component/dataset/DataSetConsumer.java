@@ -266,14 +266,14 @@ literal|0
 operator|&&
 name|delay
 operator|<
-literal|3
+literal|4
 condition|)
 block|{
-comment|// if no delay set then we must sleep at lest for 3 millis to avoid concurrency
+comment|// if no delay set then we must sleep at lest for 4 millis to avoid concurrency
 comment|// issues with extremely high throughput
 name|delay
 operator|=
-literal|3
+literal|4
 expr_stmt|;
 block|}
 comment|// to allow -1 to force none delay at all
