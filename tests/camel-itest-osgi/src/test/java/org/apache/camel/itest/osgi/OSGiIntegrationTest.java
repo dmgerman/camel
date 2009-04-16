@@ -120,7 +120,39 @@ name|exam
 operator|.
 name|CoreOptions
 operator|.
-name|*
+name|equinox
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|CoreOptions
+operator|.
+name|felix
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|CoreOptions
+operator|.
+name|mavenBundle
 import|;
 end_import
 
@@ -137,6 +169,38 @@ operator|.
 name|CoreOptions
 operator|.
 name|options
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|CoreOptions
+operator|.
+name|systemProperty
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|CoreOptions
+operator|.
+name|wrappedBundle
 import|;
 end_import
 
@@ -165,6 +229,26 @@ operator|.
 name|exam
 operator|.
 name|Option
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|container
+operator|.
+name|def
+operator|.
+name|PaxRunnerOptions
+operator|.
+name|logProfile
 import|;
 end_import
 
@@ -274,11 +358,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"************ Hello from OSGi ************"
 argument_list|)
@@ -294,11 +376,9 @@ name|getBundles
 argument_list|()
 control|)
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Bundle "
 operator|+
@@ -358,6 +438,13 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"CamelContext started"
+argument_list|)
+expr_stmt|;
 name|Thread
 operator|.
 name|sleep
@@ -365,10 +452,24 @@ argument_list|(
 literal|2000
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"CamelContext stopping"
+argument_list|)
+expr_stmt|;
 name|camelContext
 operator|.
 name|stop
 argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"CamelContext stopped"
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -385,9 +486,20 @@ return|return
 name|options
 argument_list|(
 comment|// install log service using pax runners profile abstraction (there are more profiles, like DS)
-comment|//logProfile(),
+name|logProfile
+argument_list|()
+argument_list|,
 comment|// this is how you set the default log level when using pax logging (logProfile)
-comment|//systemProperty("org.ops4j.pax.logging.DefaultServiceLog.level").value("INFO"),
+name|systemProperty
+argument_list|(
+literal|"org.ops4j.pax.logging.DefaultServiceLog.level"
+argument_list|)
+operator|.
+name|value
+argument_list|(
+literal|"INFO"
+argument_list|)
+argument_list|,
 comment|// TODO why can't we find these from the maven pom.xml with transitive dependency?
 name|mavenBundle
 argument_list|()
