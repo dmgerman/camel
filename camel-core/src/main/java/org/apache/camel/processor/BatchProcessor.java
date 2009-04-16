@@ -42,9 +42,71 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Queue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
-name|LinkedBlockingQueue
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|Condition
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|Lock
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|locks
+operator|.
+name|ReentrantLock
 import|;
 end_import
 
@@ -157,7 +219,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for any kind of {@link Processor} which implements some kind of  * batch processing.  *   * @version $Revision$  */
+comment|/**  * A base class for any kind of {@link Processor} which implements some kind of batch processing.  *   * @version $Revision$  */
 end_comment
 
 begin_class
@@ -362,7 +424,7 @@ return|return
 name|batchSize
 return|;
 block|}
-comment|/**      * Sets the<b>in</b> batch size. This is the number of incoming exchanges that this batch processor      * will process before its completed. The default value is {@link #DEFAULT_BATCH_SIZE}.      *      * @param batchSize the size      */
+comment|/**      * Sets the<b>in</b> batch size. This is the number of incoming exchanges that this batch processor will      * process before its completed. The default value is {@link #DEFAULT_BATCH_SIZE}.      *       * @param batchSize the size      */
 DECL|method|setBatchSize (int batchSize)
 specifier|public
 name|void
@@ -389,7 +451,7 @@ return|return
 name|outBatchSize
 return|;
 block|}
-comment|/**      * Sets the<b>out</b> batch size. If the batch processor holds more exchanges than this out size then      * the completion is triggered. Can for instance be used to ensure that this batch is completed when      * a certain number of exchanges has been collected. By default this feature is<b>not</b> enabled.      *      * @param outBatchSize the size      */
+comment|/**      * Sets the<b>out</b> batch size. If the batch processor holds more exchanges than this out size then the      * completion is triggered. Can for instance be used to ensure that this batch is completed when a certain      * number of exchanges has been collected. By default this feature is<b>not</b> enabled.      *       * @param outBatchSize the size      */
 DECL|method|setOutBatchSize (int outBatchSize)
 specifier|public
 name|void
@@ -468,7 +530,7 @@ return|return
 name|processor
 return|;
 block|}
-comment|/**      * A strategy method to decide if the "in" batch is completed.  That is, whether the resulting       * exchanges in the in queue should be drained to the "out" collection.      */
+comment|/**      * A strategy method to decide if the "in" batch is completed. That is, whether the resulting exchanges in      * the in queue should be drained to the "out" collection.      */
 DECL|method|isInBatchCompleted (int num)
 specifier|protected
 name|boolean
@@ -484,7 +546,7 @@ operator|>=
 name|batchSize
 return|;
 block|}
-comment|/**      * A strategy method to decide if the "out" batch is completed. That is, whether the resulting       * exchange in the out collection should be sent.      */
+comment|/**      * A strategy method to decide if the "out" batch is completed. That is, whether the resulting exchange in      * the out collection should be sent.      */
 DECL|method|isOutBatchCompleted ()
 specifier|protected
 name|boolean
@@ -519,7 +581,7 @@ operator|>=
 name|outBatchSize
 return|;
 block|}
-comment|/**      * Strategy Method to process an exchange in the batch. This method allows      * derived classes to perform custom processing before or after an      * individual exchange is processed      */
+comment|/**      * Strategy Method to process an exchange in the batch. This method allows derived classes to perform      * custom processing before or after an individual exchange is processed      */
 DECL|method|processExchange (Exchange exchange)
 specifier|protected
 name|void
@@ -627,19 +689,37 @@ name|BatchSender
 extends|extends
 name|Thread
 block|{
-DECL|field|cancelRequested
-specifier|private
-specifier|volatile
-name|boolean
-name|cancelRequested
-decl_stmt|;
 DECL|field|queue
 specifier|private
-name|LinkedBlockingQueue
+name|Queue
 argument_list|<
 name|Exchange
 argument_list|>
 name|queue
+decl_stmt|;
+DECL|field|queueLock
+specifier|private
+name|Lock
+name|queueLock
+init|=
+operator|new
+name|ReentrantLock
+argument_list|()
+decl_stmt|;
+DECL|field|exchangeEnqueued
+specifier|private
+name|boolean
+name|exchangeEnqueued
+decl_stmt|;
+DECL|field|exchangeEnqueuedCondition
+specifier|private
+name|Condition
+name|exchangeEnqueuedCondition
+init|=
+name|queueLock
+operator|.
+name|newCondition
+argument_list|()
 decl_stmt|;
 DECL|method|BatchSender ()
 specifier|public
@@ -656,7 +736,7 @@ operator|.
 name|queue
 operator|=
 operator|new
-name|LinkedBlockingQueue
+name|LinkedList
 argument_list|<
 name|Exchange
 argument_list|>
@@ -671,23 +751,64 @@ name|void
 name|run
 parameter_list|()
 block|{
-while|while
-condition|(
-literal|true
-condition|)
+comment|// Wait until one of either:
+comment|// * an exchange being queued;
+comment|// * the batch timeout expiring; or
+comment|// * the thread being cancelled.
+comment|//
+comment|// If an exchange is queued then we need to determine whether the
+comment|// batch is complete. If it is complete then we send out the batched
+comment|// exchanges. Otherwise we move back into our wait state.
+comment|//
+comment|// If the batch times out then we send out the batched exchanges
+comment|// collected so far.
+comment|//
+comment|// If we receive an interrupt then all blocking operations are
+comment|// interrupted and our thread terminates.
+comment|//
+comment|// The goal of the following algorithm in terms of synchronisation
+comment|// is to provide fine grained locking i.e. retaining the lock only
+comment|// when required. Special consideration is given to releasing the
+comment|// lock when calling an overloaded method such as isInBatchComplete,
+comment|// isOutBatchComplete and around sendExchanges. The latter is
+comment|// especially important as the process of sending out the exchanges
+comment|// would otherwise block new exchanges from being queued.
+name|queueLock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
+do|do
 block|{
 try|try
 block|{
-name|Thread
+if|if
+condition|(
+operator|!
+name|exchangeEnqueued
+condition|)
+block|{
+name|exchangeEnqueuedCondition
 operator|.
-name|sleep
+name|await
 argument_list|(
 name|batchTimeout
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
 argument_list|)
 expr_stmt|;
-name|queue
-operator|.
-name|drainTo
+block|}
+if|if
+condition|(
+operator|!
+name|exchangeEnqueued
+condition|)
+block|{
+name|drainQueueTo
 argument_list|(
 name|collection
 argument_list|,
@@ -695,19 +816,12 @@ name|batchSize
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
+else|else
 block|{
-if|if
-condition|(
-name|cancelRequested
-condition|)
-block|{
-return|return;
-block|}
+name|exchangeEnqueued
+operator|=
+literal|false
+expr_stmt|;
 while|while
 condition|(
 name|isInBatchCompleted
@@ -719,9 +833,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|queue
-operator|.
-name|drainTo
+name|drainQueueTo
 argument_list|(
 name|collection
 argument_list|,
@@ -729,6 +841,13 @@ name|batchSize
 argument_list|)
 expr_stmt|;
 block|}
+name|queueLock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 if|if
 condition|(
 operator|!
@@ -739,6 +858,22 @@ block|{
 continue|continue;
 block|}
 block|}
+finally|finally
+block|{
+name|queueLock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+name|queueLock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 try|try
 block|{
 name|sendExchanges
@@ -761,6 +896,98 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+finally|finally
+block|{
+name|queueLock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+break|break;
+block|}
+block|}
+do|while
+condition|(
+literal|true
+condition|)
+do|;
+block|}
+finally|finally
+block|{
+name|queueLock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+comment|/**          * This method should be called with queueLock held          */
+DECL|method|drainQueueTo (Collection<Exchange> collection, int batchSize)
+specifier|private
+name|void
+name|drainQueueTo
+parameter_list|(
+name|Collection
+argument_list|<
+name|Exchange
+argument_list|>
+name|collection
+parameter_list|,
+name|int
+name|batchSize
+parameter_list|)
+block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|batchSize
+condition|;
+operator|++
+name|i
+control|)
+block|{
+name|Exchange
+name|e
+init|=
+name|queue
+operator|.
+name|poll
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|e
+operator|!=
+literal|null
+condition|)
+block|{
+name|collection
+operator|.
+name|add
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+break|break;
+block|}
+block|}
 block|}
 DECL|method|cancel ()
 specifier|public
@@ -768,10 +995,6 @@ name|void
 name|cancel
 parameter_list|()
 block|{
-name|cancelRequested
-operator|=
-literal|true
-expr_stmt|;
 name|interrupt
 argument_list|()
 expr_stmt|;
@@ -785,6 +1008,13 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+name|queueLock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 name|queue
 operator|.
 name|add
@@ -792,9 +1022,24 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-name|interrupt
+name|exchangeEnqueued
+operator|=
+literal|true
+expr_stmt|;
+name|exchangeEnqueuedCondition
+operator|.
+name|signal
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|queueLock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|sendExchanges ()
 specifier|private
