@@ -532,7 +532,7 @@ return|;
 block|}
 comment|/**      * A strategy method to decide if the "in" batch is completed. That is, whether the resulting exchanges in      * the in queue should be drained to the "out" collection.      */
 DECL|method|isInBatchCompleted (int num)
-specifier|protected
+specifier|private
 name|boolean
 name|isInBatchCompleted
 parameter_list|(
@@ -548,7 +548,7 @@ return|;
 block|}
 comment|/**      * A strategy method to decide if the "out" batch is completed. That is, whether the resulting exchange in      * the out collection should be sent.      */
 DECL|method|isOutBatchCompleted ()
-specifier|protected
+specifier|private
 name|boolean
 name|isOutBatchCompleted
 parameter_list|()
@@ -647,19 +647,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|getCollection ()
-specifier|protected
-name|Collection
-argument_list|<
-name|Exchange
-argument_list|>
-name|getCollection
-parameter_list|()
-block|{
-return|return
-name|collection
-return|;
 block|}
 comment|/**      * Enqueues an exchange for later batch processing.      */
 DECL|method|process (Exchange exchange)
