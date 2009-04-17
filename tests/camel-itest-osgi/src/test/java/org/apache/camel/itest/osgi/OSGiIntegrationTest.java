@@ -452,7 +452,7 @@ argument_list|(
 literal|"INFO"
 argument_list|)
 argument_list|,
-comment|// TODO why can't we find these from the maven pom.xml with transitive dependency?
+comment|// lets deploy the bundles we need
 name|mavenBundleAsInProject
 argument_list|(
 literal|"org.apache.camel"
