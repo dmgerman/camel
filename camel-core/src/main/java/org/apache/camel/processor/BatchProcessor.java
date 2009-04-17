@@ -756,9 +756,8 @@ comment|//
 comment|// The goal of the following algorithm in terms of synchronisation
 comment|// is to provide fine grained locking i.e. retaining the lock only
 comment|// when required. Special consideration is given to releasing the
-comment|// lock when calling an overloaded method such as isInBatchComplete,
-comment|// isOutBatchComplete and around sendExchanges. The latter is
-comment|// especially important as the process of sending out the exchanges
+comment|// lock when calling an overloaded method i.e. sendExchanges.
+comment|// Unlocking is important as the process of sending out the exchanges
 comment|// would otherwise block new exchanges from being queued.
 name|queueLock
 operator|.
@@ -828,13 +827,6 @@ name|batchSize
 argument_list|)
 expr_stmt|;
 block|}
-name|queueLock
-operator|.
-name|unlock
-argument_list|()
-expr_stmt|;
-try|try
-block|{
 if|if
 condition|(
 operator|!
@@ -843,15 +835,6 @@ argument_list|()
 condition|)
 block|{
 continue|continue;
-block|}
-block|}
-finally|finally
-block|{
-name|queueLock
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 name|queueLock
