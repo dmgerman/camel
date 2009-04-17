@@ -478,7 +478,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds a maven bundle for the given groupId and artifactId while deducing the version to use      * from the<code>target/classes/META-INF/maven/dependencies.properties</code> file that is      * generated via the      *<a href="http://wiki.ops4j.org/display/paxexam/Pax+Exam+-+Tutorial+1">depends-maven-plugin      * from ServiceMix</a>      */
+comment|/**      * TODO we can remove this method when 0.4.1 of Pax Exam comes out!      */
 DECL|method|mavenBundleAsInProject (String groupId, String artifactId)
 specifier|public
 specifier|static
