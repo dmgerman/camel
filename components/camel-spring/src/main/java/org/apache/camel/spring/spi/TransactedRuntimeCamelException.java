@@ -44,6 +44,7 @@ name|RuntimeCamelException
 block|{
 DECL|field|handled
 specifier|private
+specifier|final
 name|boolean
 name|handled
 decl_stmt|;
@@ -51,7 +52,17 @@ DECL|method|TransactedRuntimeCamelException ()
 specifier|public
 name|TransactedRuntimeCamelException
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|handled
+operator|=
+literal|false
+expr_stmt|;
+block|}
 DECL|method|TransactedRuntimeCamelException (String message)
 specifier|public
 name|TransactedRuntimeCamelException
@@ -64,6 +75,12 @@ name|super
 argument_list|(
 name|message
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|handled
+operator|=
+literal|false
 expr_stmt|;
 block|}
 DECL|method|TransactedRuntimeCamelException (String message, Throwable cause)
@@ -84,6 +101,12 @@ argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|handled
+operator|=
+literal|false
+expr_stmt|;
 block|}
 DECL|method|TransactedRuntimeCamelException (Throwable cause)
 specifier|public
@@ -98,6 +121,35 @@ argument_list|(
 name|cause
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|handled
+operator|=
+literal|false
+expr_stmt|;
+block|}
+DECL|method|TransactedRuntimeCamelException (Throwable cause, boolean handled)
+specifier|public
+name|TransactedRuntimeCamelException
+parameter_list|(
+name|Throwable
+name|cause
+parameter_list|,
+name|boolean
+name|handled
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|cause
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|handled
+operator|=
+name|handled
+expr_stmt|;
 block|}
 DECL|method|isHandled ()
 specifier|public
@@ -108,22 +160,6 @@ block|{
 return|return
 name|handled
 return|;
-block|}
-DECL|method|setHandled (boolean handled)
-specifier|public
-name|void
-name|setHandled
-parameter_list|(
-name|boolean
-name|handled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|handled
-operator|=
-name|handled
-expr_stmt|;
 block|}
 block|}
 end_class

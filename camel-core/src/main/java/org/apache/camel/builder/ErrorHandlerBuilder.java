@@ -62,6 +62,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|ErrorHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|exceptionpolicy
 operator|.
 name|ExceptionPolicyStrategy
@@ -149,6 +163,21 @@ name|setExceptionPolicyStrategy
 parameter_list|(
 name|ExceptionPolicyStrategy
 name|exceptionPolicyStrategy
+parameter_list|)
+function_decl|;
+comment|/**      * Whether this error handler supports transacted exchanges.      */
+DECL|method|supportTransacted ()
+name|boolean
+name|supportTransacted
+parameter_list|()
+function_decl|;
+comment|/**      * Configures the other error handler based on this error handler.      *      * @param handler the other error handler      */
+DECL|method|configure (ErrorHandler handler)
+name|void
+name|configure
+parameter_list|(
+name|ErrorHandler
+name|handler
 parameter_list|)
 function_decl|;
 block|}

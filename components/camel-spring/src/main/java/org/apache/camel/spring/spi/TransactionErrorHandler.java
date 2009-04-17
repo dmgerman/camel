@@ -320,6 +320,16 @@ name|exceptionPolicy
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|supportTransacted ()
+specifier|public
+name|boolean
+name|supportTransacted
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -722,30 +732,20 @@ return|;
 block|}
 else|else
 block|{
-name|TransactedRuntimeCamelException
-name|answer
-init|=
-operator|new
-name|TransactedRuntimeCamelException
-argument_list|(
-name|exception
-argument_list|)
-decl_stmt|;
 comment|// Mark as handled so we dont want to handle the same exception twice or more in other
 comment|// wrapped transaction error handlers in this route.
 comment|// We need to mark this information in the exception as we need to propagage
 comment|// the exception back by rehtrowing it. We cannot mark it on the exchange as Camel
 comment|// uses copies of exchanges in its pipeline and the data isnt copied back in case
 comment|// when an exception occured
-name|answer
-operator|.
-name|setHandled
+return|return
+operator|new
+name|TransactedRuntimeCamelException
 argument_list|(
+name|exception
+argument_list|,
 literal|true
 argument_list|)
-expr_stmt|;
-return|return
-name|answer
 return|;
 block|}
 block|}
@@ -813,6 +813,11 @@ operator|.
 name|getErrorHandler
 argument_list|()
 decl_stmt|;
+name|prepareExchangeBeforeOnException
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|processor
@@ -820,11 +825,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|prepareExchangeBeforeOnException
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
 name|deliverToFaultProcessor
 argument_list|(
 name|exchange
@@ -832,6 +832,7 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
+block|}
 name|prepareExchangeAfterOnException
 argument_list|(
 name|exchange
@@ -839,7 +840,6 @@ argument_list|,
 name|handledPredicate
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|deliverToFaultProcessor (Exchange exchange, Processor faultProcessor)

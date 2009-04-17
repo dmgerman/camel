@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -65,6 +55,20 @@ operator|.
 name|builder
 operator|.
 name|ErrorHandlerBuilderRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ErrorHandlerBuilderSupport
 import|;
 end_import
 
@@ -273,6 +277,12 @@ argument_list|(
 name|processor
 argument_list|)
 expr_stmt|;
+comment|// the goal is to configure the error handler builder on the route as a transacted error handler,
+comment|// either its already a transacted or if not we replace it with a transacted one that we configure here
+comment|// and wrap the processor in the transacted error handler as we can have transacted routes that change
+comment|// propagation behavior, eg: from A required -> B -> requiresNew C (advanced use-case)
+comment|// if we should not support this we do not need to wrap the processor as we only need one transacted error handler
+comment|// find the existing error handler builder
 name|ErrorHandlerBuilder
 name|builder
 init|=
@@ -284,6 +294,7 @@ operator|.
 name|getErrorHandlerBuilder
 argument_list|()
 decl_stmt|;
+comment|// check if its a ref if so then do a lookup
 if|if
 condition|(
 name|builder
@@ -301,6 +312,8 @@ operator|)
 name|builder
 decl_stmt|;
 comment|// only lookup if there was explicit an error handler builder configured
+comment|// otherwise its just the "default" that has not explicit been configured
+comment|// and if so then we can safely replace that with our transacted error handler
 if|if
 condition|(
 name|ref
@@ -344,30 +357,46 @@ block|}
 if|if
 condition|(
 name|builder
-operator|instanceof
-name|TransactionErrorHandlerBuilder
+operator|!=
+literal|null
+operator|&&
+name|builder
+operator|.
+name|supportTransacted
+argument_list|()
 condition|)
 block|{
-comment|// use existing transaction error handler builder
-name|TransactionErrorHandlerBuilder
-name|txBuilder
-init|=
-operator|(
-name|TransactionErrorHandlerBuilder
-operator|)
+comment|// already a TX error handler then we are good to go
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"The ErrorHandlerBuilder configured is already a TransactionErrorHandlerBuilder: "
+operator|+
 name|builder
-decl_stmt|;
+argument_list|)
+expr_stmt|;
+block|}
 name|answer
 operator|.
 name|setExceptionPolicy
 argument_list|(
-name|txBuilder
+name|builder
 operator|.
 name|getExceptionPolicyStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|txBuilder
+comment|// configure our answer based on the existing error handler
+name|builder
 operator|.
 name|configure
 argument_list|(
@@ -467,6 +496,7 @@ name|getExceptionPolicyStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// configure our answer based on the existing error handler
 name|txBuilder
 operator|.
 name|configure
@@ -486,6 +516,7 @@ name|txBuilder
 argument_list|)
 expr_stmt|;
 block|}
+comment|// return with wrapped transacted error handler
 return|return
 name|answer
 return|;

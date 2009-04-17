@@ -112,6 +112,11 @@ specifier|private
 name|ErrorHandlerBuilder
 name|handler
 decl_stmt|;
+DECL|field|supportTransacted
+specifier|private
+name|boolean
+name|supportTransacted
+decl_stmt|;
 DECL|method|ErrorHandlerBuilderRef (String ref)
 specifier|public
 name|ErrorHandlerBuilderRef
@@ -217,6 +222,16 @@ argument_list|(
 name|getRef
 argument_list|()
 argument_list|)
+return|;
+block|}
+DECL|method|supportTransacted ()
+specifier|public
+name|boolean
+name|supportTransacted
+parameter_list|()
+block|{
+return|return
+name|supportTransacted
 return|;
 block|}
 DECL|method|lookupErrorHandlerBuilder (RouteContext routeContext)
@@ -363,6 +378,14 @@ name|ref
 operator|+
 literal|"'"
 argument_list|)
+expr_stmt|;
+comment|// configure if the handler support transacted
+name|supportTransacted
+operator|=
+name|handler
+operator|.
+name|supportTransacted
+argument_list|()
 expr_stmt|;
 name|List
 argument_list|<

@@ -146,6 +146,34 @@ name|ExceptionPolicyStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Support class for {@link ErrorHandler} implementations.  *  * @version $Revision$  */
 end_comment
@@ -161,6 +189,21 @@ name|ServiceSupport
 implements|implements
 name|ErrorHandler
 block|{
+DECL|field|log
+specifier|protected
+specifier|final
+specifier|transient
+name|Log
+name|log
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
+decl_stmt|;
 DECL|field|exceptionPolicies
 specifier|private
 specifier|final
@@ -390,6 +433,14 @@ name|DefaultExceptionPolicyStrategy
 argument_list|()
 return|;
 block|}
+comment|/**      * Whether this error handler supports transacted exchanges or not.      */
+DECL|method|supportTransacted ()
+specifier|public
+specifier|abstract
+name|boolean
+name|supportTransacted
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

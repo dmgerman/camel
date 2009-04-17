@@ -603,12 +603,7 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
-name|Policy
-name|answer
-init|=
-literal|null
-decl_stmt|;
-comment|// try ref first
+comment|// explicit ref given so lookup by it
 if|if
 condition|(
 name|ObjectHelper
@@ -619,8 +614,7 @@ name|ref
 argument_list|)
 condition|)
 block|{
-name|answer
-operator|=
+return|return
 name|routeContext
 operator|.
 name|lookup
@@ -631,15 +625,17 @@ name|Policy
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
+return|;
 block|}
+comment|// no explicit reference given from user so we can use some convention over configuration here
 comment|// try to lookup by scoped type
+name|Policy
+name|answer
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
-name|answer
-operator|==
-literal|null
-operator|&&
 name|type
 operator|!=
 literal|null
@@ -705,10 +701,6 @@ block|}
 comment|// for transacted routing try the default REQUIRED name
 if|if
 condition|(
-name|answer
-operator|==
-literal|null
-operator|&&
 name|type
 operator|==
 name|TransactedPolicy
@@ -731,7 +723,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|// no policy then try lookup the platform transaction manager and use it as policy
+comment|// still no policy found then try lookup the platform transaction manager and use it as policy
 if|if
 condition|(
 name|answer

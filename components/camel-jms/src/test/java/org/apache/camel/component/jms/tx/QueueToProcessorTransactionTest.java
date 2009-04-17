@@ -107,11 +107,11 @@ name|required
 init|=
 name|bean
 argument_list|(
+literal|"PROPAGATION_REQUIRED_POLICY"
+argument_list|,
 name|SpringTransactionPolicy
 operator|.
 name|class
-argument_list|,
-literal|"PROPAGATION_REQUIRED_POLICY"
 argument_list|)
 decl_stmt|;
 name|from

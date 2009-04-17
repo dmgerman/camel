@@ -70,6 +70,16 @@ return|return
 name|processor
 return|;
 block|}
+DECL|method|supportTransacted ()
+specifier|public
+name|boolean
+name|supportTransacted
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

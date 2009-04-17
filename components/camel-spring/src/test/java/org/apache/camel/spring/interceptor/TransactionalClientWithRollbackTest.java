@@ -408,11 +408,11 @@ name|required
 init|=
 name|bean
 argument_list|(
+literal|"PROPAGATION_REQUIRED"
+argument_list|,
 name|SpringTransactionPolicy
 operator|.
 name|class
-argument_list|,
-literal|"PROPAGATION_REQUIRED"
 argument_list|)
 decl_stmt|;
 comment|// use transaction error handler

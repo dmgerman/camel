@@ -178,34 +178,6 @@ name|ServiceHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Default error handler  *  * @version $Revision$  */
 end_comment
@@ -220,27 +192,10 @@ name|ErrorHandlerSupport
 implements|implements
 name|AsyncProcessor
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|DefaultErrorHandler
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-DECL|field|outputAsync
+DECL|field|output
 specifier|private
 name|AsyncProcessor
-name|outputAsync
+name|output
 decl_stmt|;
 DECL|method|DefaultErrorHandler (Processor output, ExceptionPolicyStrategy exceptionPolicyStrategy)
 specifier|public
@@ -255,7 +210,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|outputAsync
+name|output
 operator|=
 name|AsyncProcessorTypeConverter
 operator|.
@@ -281,9 +236,19 @@ block|{
 return|return
 literal|"DefaultErrorHandler["
 operator|+
-name|outputAsync
+name|output
 operator|+
 literal|"]"
+return|;
+block|}
+DECL|method|supportTransacted ()
+specifier|public
+name|boolean
+name|supportTransacted
+parameter_list|()
+block|{
+return|return
+literal|false
 return|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -322,7 +287,7 @@ name|callback
 parameter_list|)
 block|{
 return|return
-name|outputAsync
+name|output
 operator|.
 name|process
 argument_list|(
@@ -340,8 +305,60 @@ name|boolean
 name|sync
 parameter_list|)
 block|{
+comment|// do not handle transacted exchanges as this error handler does not support it
+name|boolean
+name|handle
+init|=
+literal|true
+decl_stmt|;
 if|if
 condition|(
+name|exchange
+operator|.
+name|isTransacted
+argument_list|()
+operator|&&
+operator|!
+name|supportTransacted
+argument_list|()
+condition|)
+block|{
+name|handle
+operator|=
+literal|false
+expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"This error handler does not support transacted exchanges."
+operator|+
+literal|" Bypassing this error handler: "
+operator|+
+name|this
+operator|+
+literal|" for exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|handle
+operator|&&
 name|exchange
 operator|.
 name|getException
@@ -439,6 +456,11 @@ operator|.
 name|getErrorHandler
 argument_list|()
 decl_stmt|;
+name|prepareExchangeBeforeOnException
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|processor
@@ -446,11 +468,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|prepareExchangeBeforeOnException
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
 name|deliverToFaultProcessor
 argument_list|(
 name|exchange
@@ -458,6 +475,7 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
+block|}
 name|prepareExchangeAfterOnException
 argument_list|(
 name|exchange
@@ -465,7 +483,6 @@ argument_list|,
 name|handledPredicate
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|prepareExchangeBeforeOnException (Exchange exchange)
@@ -544,9 +561,7 @@ argument_list|(
 name|failureProcessor
 argument_list|)
 decl_stmt|;
-name|boolean
-name|sync
-init|=
+return|return
 name|afp
 operator|.
 name|process
@@ -567,9 +582,6 @@ parameter_list|)
 block|{             }
 block|}
 argument_list|)
-decl_stmt|;
-return|return
-name|sync
 return|;
 block|}
 DECL|method|prepareExchangeAfterOnException (Exchange exchange, Predicate handledPredicate)
@@ -601,13 +613,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -641,13 +653,13 @@ else|else
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -680,7 +692,7 @@ name|getOutput
 parameter_list|()
 block|{
 return|return
-name|outputAsync
+name|output
 return|;
 block|}
 DECL|method|doStart ()
@@ -695,7 +707,7 @@ name|ServiceHelper
 operator|.
 name|startServices
 argument_list|(
-name|outputAsync
+name|output
 argument_list|)
 expr_stmt|;
 block|}
@@ -711,7 +723,7 @@ name|ServiceHelper
 operator|.
 name|stopServices
 argument_list|(
-name|outputAsync
+name|output
 argument_list|)
 expr_stmt|;
 block|}

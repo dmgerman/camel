@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.interceptor.route
+DECL|package|org.apache.camel.spring.interceptor
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|spring
 operator|.
 name|interceptor
-operator|.
-name|route
 package|;
 end_package
 
@@ -28,9 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|builder
 operator|.
-name|SpringRouteBuilder
+name|RouteBuilder
 import|;
 end_import
 
@@ -44,21 +42,35 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|spi
-operator|.
-name|SpringTransactionPolicy
+name|SpringRouteBuilder
 import|;
 end_import
 
+begin_comment
+comment|/**  * Easier transaction configuration as we do not have to setup a transaction error handler  */
+end_comment
+
 begin_class
-DECL|class|DataSourceSpringRouteBuilder
+DECL|class|TransactionalClientDataSourceTransactedWithChoiceTest
 specifier|public
 class|class
-name|DataSourceSpringRouteBuilder
+name|TransactionalClientDataSourceTransactedWithChoiceTest
 extends|extends
-name|SpringRouteBuilder
+name|TransactionalClientDataSourceTest
 block|{
-DECL|method|configure ()
+DECL|method|createRouteBuilder ()
+specifier|protected
+name|RouteBuilder
+name|createRouteBuilder
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|SpringRouteBuilder
+argument_list|()
+block|{
 specifier|public
 name|void
 name|configure
@@ -66,51 +78,47 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// get the required policy
-name|SpringTransactionPolicy
-name|required
-init|=
-name|bean
-argument_list|(
-literal|"PROPAGATION_REQUIRED"
-argument_list|,
-name|SpringTransactionPolicy
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-comment|// For spring based transaction, end users are encouraged to use the
-comment|// transaction error handler instead of the default DeadLetterChannel.
-name|errorHandler
-argument_list|(
-name|transactionErrorHandler
-argument_list|(
-name|required
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// set the required policy for this route
 name|from
 argument_list|(
 literal|"direct:okay"
 argument_list|)
 operator|.
-name|policy
+name|transacted
+argument_list|()
+operator|.
+name|choice
+argument_list|()
+operator|.
+name|when
 argument_list|(
-name|required
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Hello"
+argument_list|)
 argument_list|)
 operator|.
-name|setBody
+name|to
 argument_list|(
-name|constant
-argument_list|(
-literal|"Tiger in Action"
-argument_list|)
+literal|"log:hello"
 argument_list|)
 operator|.
-name|beanRef
+name|otherwise
+argument_list|()
+operator|.
+name|to
 argument_list|(
-literal|"bookService"
+literal|"log:other"
+argument_list|)
+operator|.
+name|end
+argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"direct:tiger"
 argument_list|)
 operator|.
 name|setBody
@@ -126,16 +134,13 @@ argument_list|(
 literal|"bookService"
 argument_list|)
 expr_stmt|;
-comment|// set the required policy for this route
 name|from
 argument_list|(
-literal|"direct:fail"
+literal|"direct:tiger"
 argument_list|)
 operator|.
-name|policy
-argument_list|(
-name|required
-argument_list|)
+name|transacted
+argument_list|()
 operator|.
 name|setBody
 argument_list|(
@@ -149,6 +154,13 @@ name|beanRef
 argument_list|(
 literal|"bookService"
 argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:donkey"
+argument_list|)
+comment|// notice this one is not marked as transacted but since the exchange is transacted
+comment|// the default error handler will not handle it and thus not interfeer
 operator|.
 name|setBody
 argument_list|(
@@ -163,6 +175,36 @@ argument_list|(
 literal|"bookService"
 argument_list|)
 expr_stmt|;
+comment|// marks this route as transacted that will use the single policy defined in the registry
+name|from
+argument_list|(
+literal|"direct:fail"
+argument_list|)
+operator|.
+name|transacted
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"Tiger in Action"
+argument_list|)
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"bookService"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"direct:donkey"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|;
 block|}
 block|}
 end_class

@@ -176,18 +176,14 @@ operator|=
 name|beanName
 expr_stmt|;
 block|}
-DECL|method|copy ()
+DECL|method|supportTransacted ()
 specifier|public
-name|ErrorHandlerBuilder
-name|copy
+name|boolean
+name|supportTransacted
 parameter_list|()
 block|{
 return|return
-operator|new
-name|DummyErrorHandlerBuilder
-argument_list|(
-name|beanName
-argument_list|)
+literal|false
 return|;
 block|}
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)

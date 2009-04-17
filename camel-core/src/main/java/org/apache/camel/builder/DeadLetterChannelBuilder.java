@@ -235,10 +235,22 @@ specifier|private
 name|Logger
 name|logger
 init|=
+operator|new
+name|Logger
+argument_list|(
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
 name|DeadLetterChannel
 operator|.
-name|createDefaultLogger
-argument_list|()
+name|class
+argument_list|)
+argument_list|,
+name|LoggingLevel
+operator|.
+name|ERROR
+argument_list|)
 decl_stmt|;
 DECL|field|exceptionPolicyStrategy
 specifier|private
@@ -369,6 +381,16 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
+return|;
+block|}
+DECL|method|supportTransacted ()
+specifier|public
+name|boolean
+name|supportTransacted
+parameter_list|()
+block|{
+return|return
+literal|false
 return|;
 block|}
 comment|// Builder methods

@@ -491,6 +491,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{         }
+DECL|method|supportTransacted ()
+specifier|public
+name|boolean
+name|supportTransacted
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

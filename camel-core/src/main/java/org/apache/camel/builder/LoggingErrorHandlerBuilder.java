@@ -192,6 +192,16 @@ operator|=
 name|level
 expr_stmt|;
 block|}
+DECL|method|supportTransacted ()
+specifier|public
+name|boolean
+name|supportTransacted
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|createErrorHandler (final RouteContext routeContext, final Processor processor)
 specifier|public
 name|Processor

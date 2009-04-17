@@ -234,34 +234,6 @@ name|ServiceHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Implements a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a> after attempting to redeliver the message using the  * {@link RedeliveryPolicy}  *  * @version $Revision$  */
 end_comment
@@ -276,23 +248,6 @@ name|ErrorHandlerSupport
 implements|implements
 name|AsyncProcessor
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|DeadLetterChannel
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|// we can use a single shared static timer for async redeliveries
 DECL|field|REDELIVER_TIMER
 specifier|private
@@ -622,25 +577,6 @@ name|exceptionPolicyStrategy
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createDefaultLogger ()
-specifier|public
-specifier|static
-name|Logger
-name|createDefaultLogger
-parameter_list|()
-block|{
-return|return
-operator|new
-name|Logger
-argument_list|(
-name|LOG
-argument_list|,
-name|LoggingLevel
-operator|.
-name|ERROR
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -667,6 +603,16 @@ name|deadLetter
 operator|)
 operator|+
 literal|"]"
+return|;
+block|}
+DECL|method|supportTransacted ()
+specifier|public
+name|boolean
+name|supportTransacted
+parameter_list|()
+block|{
+return|return
+literal|false
 return|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -704,7 +650,7 @@ name|callback
 parameter_list|)
 block|{
 return|return
-name|process
+name|processErrorHandler
 argument_list|(
 name|exchange
 argument_list|,
@@ -716,11 +662,11 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Processes the exchange using decorated with this dead letter channel.      */
-DECL|method|process (final Exchange exchange, final AsyncCallback callback, final RedeliveryData data)
+comment|/**      * Processes the exchange decorated with this dead letter channel.      */
+DECL|method|processErrorHandler (final Exchange exchange, final AsyncCallback callback, final RedeliveryData data)
 specifier|protected
 name|boolean
-name|process
+name|processErrorHandler
 parameter_list|(
 specifier|final
 name|Exchange
@@ -750,13 +696,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -801,14 +747,16 @@ operator|.
 name|sync
 return|;
 block|}
-comment|// if the exchange is transacted then let the underlying system handle the redelivery etc.
-comment|// this DeadLetterChannel is only for non transacted exchanges
-comment|// TODO: Should be possible to remove with Claus got the TX error handler sorted
+comment|// do not handle transacted exchanges that failed as this error handler does not support it
 if|if
 condition|(
 name|exchange
 operator|.
 name|isTransacted
+argument_list|()
+operator|&&
+operator|!
+name|supportTransacted
 argument_list|()
 operator|&&
 name|exchange
@@ -821,23 +769,28 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
-literal|"This is a transacted exchange, bypassing this DeadLetterChannel: "
+literal|"This error handler does not support transacted exchanges."
+operator|+
+literal|" Bypassing this error handler: "
 operator|+
 name|this
 operator|+
-literal|" for exchange: "
+literal|" for exchangeId: "
 operator|+
 name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -938,7 +891,7 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1148,13 +1101,16 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// if the exchange is transacted then let the underlying system handle the redelivery etc.
-comment|// this DeadLetterChannel is only for non transacted exchanges
+comment|// do not handle transacted exchanges that failed as this error handler does not support it
 if|if
 condition|(
 name|exchange
 operator|.
 name|isTransacted
+argument_list|()
+operator|&&
+operator|!
+name|supportTransacted
 argument_list|()
 operator|&&
 name|exchange
@@ -1167,23 +1123,28 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
-literal|"This is a transacted exchange, bypassing this DeadLetterChannel: "
+literal|"This error handler does not support transacted exchanges."
+operator|+
+literal|" Bypassing this error handler: "
 operator|+
 name|this
 operator|+
-literal|" for exchange: "
+literal|" for exchangeId: "
 operator|+
 name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1364,7 +1325,7 @@ return|return
 name|logger
 return|;
 block|}
-comment|/**      * Sets the logger strategy; which {@link Log} to use and which      * {@link LoggingLevel} to use      */
+comment|/**      * Sets the logger strategy; which {@link com.sun.tools.javac.util.Log} to use and which      * {@link LoggingLevel} to use      */
 DECL|method|setLogger (Logger logger)
 specifier|public
 name|void
@@ -1644,13 +1605,13 @@ return|return;
 block|}
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1698,7 +1659,7 @@ name|boolean
 name|sync
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1779,7 +1740,7 @@ name|boolean
 name|sync
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1870,13 +1831,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1910,13 +1871,13 @@ else|else
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

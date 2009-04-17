@@ -54,20 +54,6 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DelayPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
 name|ErrorHandlerSupport
 import|;
 end_import
@@ -186,6 +172,16 @@ parameter_list|()
 block|{
 return|return
 name|transactionTemplate
+return|;
+block|}
+DECL|method|supportTransacted ()
+specifier|public
+name|boolean
+name|supportTransacted
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)

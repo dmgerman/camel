@@ -68,6 +68,16 @@ name|DefaultErrorHandlerBuilder
 extends|extends
 name|ErrorHandlerBuilderSupport
 block|{
+DECL|method|supportTransacted ()
+specifier|public
+name|boolean
+name|supportTransacted
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor

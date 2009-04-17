@@ -417,11 +417,11 @@ name|SpringTransactionPolicy
 argument_list|(
 name|bean
 argument_list|(
+literal|"PROPAGATION_REQUIRED"
+argument_list|,
 name|TransactionTemplate
 operator|.
 name|class
-argument_list|,
-literal|"PROPAGATION_REQUIRED"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -433,11 +433,11 @@ name|SpringTransactionPolicy
 argument_list|(
 name|bean
 argument_list|(
+literal|"PROPAGATION_NOT_SUPPORTED"
+argument_list|,
 name|TransactionTemplate
 operator|.
 name|class
-argument_list|,
-literal|"PROPAGATION_NOT_SUPPORTED"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -449,11 +449,11 @@ name|SpringTransactionPolicy
 argument_list|(
 name|bean
 argument_list|(
+literal|"PROPAGATION_REQUIRES_NEW"
+argument_list|,
 name|TransactionTemplate
 operator|.
 name|class
-argument_list|,
-literal|"PROPAGATION_REQUIRES_NEW"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1163,7 +1163,7 @@ literal|2000
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This test seems to be fail every other run.      *      * @throws Exception      */
+comment|/**      * This test seems to be fail every other run.      */
 DECL|method|disabledtestSenarioF ()
 specifier|public
 name|void
@@ -1356,10 +1356,10 @@ name|mockEndpointB
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xxxtestSenarioC ()
+DECL|method|disabledtestSenarioC ()
 specifier|public
 name|void
-name|xxxtestSenarioC
+name|disabledtestSenarioC
 parameter_list|()
 throws|throws
 name|Exception
@@ -1429,10 +1429,10 @@ name|mockEndpointB
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|xxxtestSenarioD ()
+DECL|method|disabledtestSenarioD ()
 specifier|public
 name|void
-name|xxxtestSenarioD
+name|disabledtestSenarioD
 parameter_list|()
 throws|throws
 name|Exception
