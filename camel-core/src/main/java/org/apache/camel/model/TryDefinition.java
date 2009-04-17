@@ -156,7 +156,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"try"
+literal|"doTry"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -218,7 +218,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Try["
+literal|"DoTry["
 operator|+
 name|getOutputs
 argument_list|()
@@ -235,7 +235,7 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"try"
+literal|"doTry"
 return|;
 block|}
 annotation|@
@@ -341,10 +341,10 @@ block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Handles the given exception      *      * @param exceptionType  the exception      * @return the try builder      */
-DECL|method|handle (Class<?> exceptionType)
+DECL|method|doCatch (Class<?> exceptionType)
 specifier|public
 name|TryDefinition
-name|handle
+name|doCatch
 parameter_list|(
 name|Class
 argument_list|<
@@ -380,10 +380,10 @@ name|this
 return|;
 block|}
 comment|/**      * The finally block for a given handle      *      * @return  the try builder      */
-DECL|method|finallyBlock ()
+DECL|method|doFinally ()
 specifier|public
 name|TryDefinition
-name|finallyBlock
+name|doFinally
 parameter_list|()
 block|{
 name|popBlock

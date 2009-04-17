@@ -596,7 +596,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|tryBlock
+name|doTry
 argument_list|()
 operator|.
 name|routingSlip
@@ -609,7 +609,7 @@ argument_list|(
 literal|"mock:noexception"
 argument_list|)
 operator|.
-name|handle
+name|doCatch
 argument_list|(
 name|Exception
 operator|.

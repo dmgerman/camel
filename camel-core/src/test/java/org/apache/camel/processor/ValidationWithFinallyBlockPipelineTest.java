@@ -75,7 +75,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|tryBlock
+name|doTry
 argument_list|()
 operator|.
 name|process
@@ -93,7 +93,7 @@ literal|true
 argument_list|)
 argument_list|)
 operator|.
-name|handle
+name|doCatch
 argument_list|(
 name|ValidationException
 operator|.
@@ -110,7 +110,7 @@ literal|false
 argument_list|)
 argument_list|)
 operator|.
-name|finallyBlock
+name|doFinally
 argument_list|()
 operator|.
 name|setBody

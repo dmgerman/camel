@@ -1510,7 +1510,7 @@ argument_list|(
 literal|"direct:a"
 argument_list|)
 operator|.
-name|tryBlock
+name|doTry
 argument_list|()
 operator|.
 name|process
@@ -1523,7 +1523,7 @@ argument_list|(
 name|toProcessor
 argument_list|)
 operator|.
-name|handle
+name|doCatch
 argument_list|(
 name|ValidationException
 operator|.
@@ -1722,7 +1722,7 @@ argument_list|(
 literal|"direct:a"
 argument_list|)
 operator|.
-name|tryBlock
+name|doTry
 argument_list|()
 operator|.
 name|process
@@ -1735,7 +1735,7 @@ argument_list|(
 name|toProcessor
 argument_list|)
 operator|.
-name|handle
+name|doCatch
 argument_list|(
 name|ValidationException
 operator|.
@@ -1948,7 +1948,7 @@ argument_list|(
 literal|"direct:a"
 argument_list|)
 operator|.
-name|tryBlock
+name|doTry
 argument_list|()
 operator|.
 name|process
@@ -1961,7 +1961,7 @@ argument_list|(
 name|toProcessor
 argument_list|)
 operator|.
-name|handle
+name|doCatch
 argument_list|(
 name|ValidationException
 operator|.
@@ -1973,7 +1973,7 @@ argument_list|(
 name|orderProcessor
 argument_list|)
 operator|.
-name|finallyBlock
+name|doFinally
 argument_list|()
 operator|.
 name|process
@@ -2221,7 +2221,7 @@ argument_list|(
 literal|"direct:a"
 argument_list|)
 operator|.
-name|tryBlock
+name|doTry
 argument_list|()
 operator|.
 name|process
@@ -2234,7 +2234,7 @@ argument_list|(
 name|toProcessor
 argument_list|)
 operator|.
-name|handle
+name|doCatch
 argument_list|(
 name|ValidationException
 operator|.
@@ -2246,7 +2246,7 @@ argument_list|(
 name|orderProcessor
 argument_list|)
 operator|.
-name|finallyBlock
+name|doFinally
 argument_list|()
 operator|.
 name|process

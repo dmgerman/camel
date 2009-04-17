@@ -105,7 +105,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|tryBlock
+name|doTry
 argument_list|()
 operator|.
 name|process
@@ -118,7 +118,7 @@ argument_list|(
 literal|"mock:valid"
 argument_list|)
 operator|.
-name|handle
+name|doCatch
 argument_list|(
 name|ValidationException
 operator|.

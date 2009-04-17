@@ -94,7 +94,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"finally"
+literal|"doFinally"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -124,7 +124,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Finally["
+literal|"DoFinally["
 operator|+
 name|getOutputs
 argument_list|()
@@ -141,19 +141,7 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"finally"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getLabel ()
-specifier|public
-name|String
-name|getLabel
-parameter_list|()
-block|{
-return|return
-literal|""
+literal|"doFinally"
 return|;
 block|}
 annotation|@

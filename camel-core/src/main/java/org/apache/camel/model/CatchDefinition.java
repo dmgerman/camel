@@ -184,7 +184,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"catch"
+literal|"doCatch"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -309,7 +309,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Catch[ "
+literal|"DoCatch[ "
 operator|+
 name|getExceptionClasses
 argument_list|()
@@ -331,7 +331,7 @@ name|getShortName
 parameter_list|()
 block|{
 return|return
-literal|"catch"
+literal|"doCatch"
 return|;
 block|}
 annotation|@

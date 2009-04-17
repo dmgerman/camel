@@ -93,6 +93,11 @@ specifier|protected
 name|MockEndpoint
 name|validEndpoint
 decl_stmt|;
+DECL|field|finallyEndpoint
+specifier|protected
+name|MockEndpoint
+name|finallyEndpoint
+decl_stmt|;
 DECL|field|invalidEndpoint
 specifier|protected
 name|MockEndpoint
@@ -107,6 +112,13 @@ throws|throws
 name|Exception
 block|{
 name|validEndpoint
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|finallyEndpoint
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -129,6 +141,8 @@ argument_list|(
 name|validEndpoint
 argument_list|,
 name|invalidEndpoint
+argument_list|,
+name|finallyEndpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -141,6 +155,13 @@ throws|throws
 name|Exception
 block|{
 name|invalidEndpoint
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|finallyEndpoint
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -163,6 +184,8 @@ argument_list|(
 name|validEndpoint
 argument_list|,
 name|invalidEndpoint
+argument_list|,
+name|finallyEndpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -203,6 +226,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|finallyEndpoint
+operator|=
+name|resolveMandatoryEndpoint
+argument_list|(
+literal|"mock:finally"
+argument_list|,
+name|MockEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getExpectedRouteCount ()
 specifier|protected
@@ -210,7 +244,6 @@ name|int
 name|getExpectedRouteCount
 parameter_list|()
 block|{
-comment|// TODO why zero?
 return|return
 literal|0
 return|;

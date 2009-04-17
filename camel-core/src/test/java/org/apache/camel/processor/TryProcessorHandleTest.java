@@ -99,10 +99,10 @@ specifier|private
 name|boolean
 name|handled
 decl_stmt|;
-DECL|method|test ()
+DECL|method|testTryCatchFinally ()
 specifier|public
 name|void
-name|test
+name|testTryCatchFinally
 parameter_list|()
 throws|throws
 name|Exception
@@ -115,6 +115,23 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
+name|mock
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:finally"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|sendBody
 argument_list|(
 literal|"direct:start"
@@ -129,16 +146,7 @@ argument_list|,
 name|handled
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -163,7 +171,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|tryBlock
+name|doTry
 argument_list|()
 operator|.
 name|process
@@ -178,7 +186,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 operator|.
-name|handle
+name|doCatch
 argument_list|(
 name|Exception
 operator|.
@@ -190,6 +198,14 @@ argument_list|(
 operator|new
 name|ProcessorHandle
 argument_list|()
+argument_list|)
+operator|.
+name|doFinally
+argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"mock:finally"
 argument_list|)
 operator|.
 name|end

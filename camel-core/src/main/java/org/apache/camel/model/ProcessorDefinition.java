@@ -2127,10 +2127,10 @@ name|answer
 return|;
 block|}
 comment|/**      * Creates a try/catch block      *      * @return the builder for a tryBlock expression      */
-DECL|method|tryBlock ()
+DECL|method|doTry ()
 specifier|public
 name|TryDefinition
-name|tryBlock
+name|doTry
 parameter_list|()
 block|{
 name|TryDefinition

@@ -313,7 +313,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|tryBlock
+name|doTry
 argument_list|()
 operator|.
 name|process
@@ -328,7 +328,7 @@ argument_list|)
 decl_stmt|;
 name|tryType
 operator|.
-name|handle
+name|doCatch
 argument_list|(
 name|ValidationException
 operator|.
@@ -342,7 +342,7 @@ argument_list|)
 expr_stmt|;
 name|tryType
 operator|.
-name|finallyBlock
+name|doFinally
 argument_list|()
 operator|.
 name|to

@@ -77,7 +77,7 @@ name|noErrorHandler
 argument_list|()
 argument_list|)
 operator|.
-name|tryBlock
+name|doTry
 argument_list|()
 operator|.
 name|process
@@ -85,7 +85,7 @@ argument_list|(
 name|validator
 argument_list|)
 operator|.
-name|handle
+name|doCatch
 argument_list|(
 name|ValidationException
 operator|.
@@ -97,7 +97,7 @@ argument_list|(
 name|validator
 argument_list|)
 operator|.
-name|finallyBlock
+name|doFinally
 argument_list|()
 operator|.
 name|choice
