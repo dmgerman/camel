@@ -120,87 +120,7 @@ name|exam
 operator|.
 name|CoreOptions
 operator|.
-name|equinox
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|felix
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|mavenBundle
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|options
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|systemProperty
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|wrappedBundle
+name|*
 import|;
 end_import
 
@@ -245,22 +165,6 @@ operator|.
 name|exam
 operator|.
 name|Option
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|options
-operator|.
-name|MavenUrlProvisionOption
 import|;
 end_import
 
@@ -320,6 +224,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|options
+operator|.
+name|MavenUrlProvisionOption
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|osgi
 operator|.
 name|framework
@@ -341,7 +261,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** @version $Revision: 1.1 $ */
+comment|/**  * @version $Revision: 1.1 $  */
 end_comment
 
 begin_class
@@ -558,7 +478,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**    * Adds a maven bundle for the given groupId and artifactId while deducing the version to use    * from the<code>target/classes/META-INF/maven/dependencies.properties</code> file that is    * generated via the    *<a href="http://wiki.ops4j.org/display/paxexam/Pax+Exam+-+Tutorial+1">depends-maven-plugin    * from ServiceMix</a>    */
+comment|/**      * Adds a maven bundle for the given groupId and artifactId while deducing the version to use      * from the<code>target/classes/META-INF/maven/dependencies.properties</code> file that is      * generated via the      *<a href="http://wiki.ops4j.org/display/paxexam/Pax+Exam+-+Tutorial+1">depends-maven-plugin      * from ServiceMix</a>      */
 DECL|method|mavenBundleAsInProject (String groupId, String artifactId)
 specifier|public
 specifier|static
