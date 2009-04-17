@@ -678,6 +678,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -775,6 +779,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;

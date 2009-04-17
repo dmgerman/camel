@@ -189,13 +189,22 @@ operator|+
 name|text
 return|;
 block|}
-DECL|method|evaluate (Exchange exchange)
+DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
-name|Object
+parameter_list|<
+name|T
+parameter_list|>
+name|T
 name|evaluate
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
 parameter_list|)
 block|{
 name|Script
@@ -218,11 +227,29 @@ argument_list|,
 name|script
 argument_list|)
 expr_stmt|;
-return|return
+name|Object
+name|value
+init|=
 name|script
 operator|.
 name|run
 argument_list|()
+decl_stmt|;
+return|return
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|type
+argument_list|,
+name|value
+argument_list|)
 return|;
 block|}
 DECL|method|configure (Exchange exchange, Script script)

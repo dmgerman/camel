@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for developers wishing to implement an {@link org.apache.camel.Expression}  * using Java code with a minimum amount of code to write so that the developer only needs  * to implement one of the {@link #evaluate(Exchange)} or  * {@link #evaluate(org.apache.camel.Exchange, Class)} methods.  *  * @version $Revision$  */
+comment|/**  * A helper class for developers wishing to implement an {@link org.apache.camel.Expression}  * using Java code with a minimum amount of code to write so that the developer only needs  * to implement one of the {@link #evaluate(org.apache.camel.Exchange, Class)} or  * {@link #evaluate(org.apache.camel.Exchange, Class)} methods.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -55,23 +55,46 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|evaluate (Exchange exchange)
+DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
-name|Object
+parameter_list|<
+name|T
+parameter_list|>
+name|T
 name|evaluate
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
 parameter_list|)
 block|{
-return|return
+name|Object
+name|value
+init|=
 name|evaluate
 argument_list|(
 name|exchange
-argument_list|,
-name|Object
+argument_list|)
+decl_stmt|;
+return|return
+name|exchange
 operator|.
-name|class
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|type
+argument_list|,
+name|value
 argument_list|)
 return|;
 block|}

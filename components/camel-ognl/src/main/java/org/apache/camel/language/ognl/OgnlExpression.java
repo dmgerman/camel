@@ -222,13 +222,22 @@ name|class
 argument_list|)
 return|;
 block|}
-DECL|method|evaluate (Exchange exchange)
+DECL|method|evaluate (Exchange exchange, Class<T> tClass)
 specifier|public
-name|Object
+parameter_list|<
+name|T
+parameter_list|>
+name|T
 name|evaluate
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|tClass
 parameter_list|)
 block|{
 comment|// TODO we could use caching here but then we'd have possible
@@ -242,7 +251,9 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-return|return
+name|Object
+name|value
+init|=
 name|Ognl
 operator|.
 name|getValue
@@ -256,6 +267,22 @@ name|RootObject
 argument_list|(
 name|exchange
 argument_list|)
+argument_list|)
+decl_stmt|;
+return|return
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|tClass
+argument_list|,
+name|value
 argument_list|)
 return|;
 block|}

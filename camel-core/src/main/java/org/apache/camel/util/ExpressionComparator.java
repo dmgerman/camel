@@ -106,6 +106,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|e1
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|Object
@@ -116,6 +120,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|e2
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 return|return

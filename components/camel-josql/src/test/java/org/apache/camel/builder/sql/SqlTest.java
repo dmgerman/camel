@@ -176,7 +176,7 @@ argument_list|(
 literal|"SELECT * FROM org.apache.camel.builder.sql.Person where city = 'London'"
 argument_list|)
 decl_stmt|;
-name|Object
+name|List
 name|value
 init|=
 name|expression
@@ -184,17 +184,12 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
-argument_list|)
-decl_stmt|;
-name|assertIsInstanceOf
-argument_list|(
+argument_list|,
 name|List
 operator|.
 name|class
-argument_list|,
-name|value
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|List
 name|list
 init|=
@@ -250,7 +245,7 @@ argument_list|(
 literal|"SELECT * FROM org.apache.camel.builder.sql.Person where name = :fooHeader"
 argument_list|)
 decl_stmt|;
-name|Object
+name|List
 name|value
 init|=
 name|expression
@@ -258,17 +253,12 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
-argument_list|)
-decl_stmt|;
-name|assertIsInstanceOf
-argument_list|(
+argument_list|,
 name|List
 operator|.
 name|class
-argument_list|,
-name|value
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|List
 argument_list|<
 name|Person

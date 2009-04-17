@@ -182,6 +182,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 return|return
@@ -1046,6 +1050,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 return|return
@@ -1151,7 +1159,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|Object
+name|String
 name|value
 init|=
 name|expression
@@ -1159,6 +1167,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -1176,9 +1188,6 @@ operator|.
 name|matcher
 argument_list|(
 name|value
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

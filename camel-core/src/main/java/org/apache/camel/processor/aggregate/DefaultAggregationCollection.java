@@ -237,6 +237,10 @@ operator|.
 name|evaluate
 argument_list|(
 name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if

@@ -322,16 +322,16 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// wait a while for the file creation
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+comment|// wait a little while for the files to settle down
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|200
 argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
 expr_stmt|;
 for|for
 control|(

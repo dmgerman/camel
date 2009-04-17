@@ -225,22 +225,6 @@ operator|=
 name|query
 expr_stmt|;
 block|}
-DECL|method|evaluate (Exchange exchange)
-specifier|public
-name|Object
-name|evaluate
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-return|return
-name|evaluateQuery
-argument_list|(
-name|exchange
-argument_list|)
-return|;
-block|}
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
 parameter_list|<
@@ -262,7 +246,7 @@ block|{
 name|Object
 name|result
 init|=
-name|evaluate
+name|evaluateQuery
 argument_list|(
 name|exchange
 argument_list|)

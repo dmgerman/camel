@@ -173,13 +173,22 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-DECL|method|evaluate (Exchange exchange)
+DECL|method|evaluate (Exchange exchange, Class<T> tClass)
 specifier|public
-name|Object
+parameter_list|<
+name|T
+parameter_list|>
+name|T
 name|evaluate
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|tClass
 parameter_list|)
 block|{
 try|try
@@ -215,7 +224,20 @@ name|result
 argument_list|)
 expr_stmt|;
 return|return
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|tClass
+argument_list|,
 name|result
+argument_list|)
 return|;
 block|}
 catch|catch

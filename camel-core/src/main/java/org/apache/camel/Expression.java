@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/expression.html">expression</a>  * provides a plugin strategy for evaluating expressions on a message exchange to support things like  *<a href="http://camel.apache.org/scripting-languages.html">scripting languages</a>,  *<a href="http://camel.apache.org/xquery.html">XQuery</a>  * or<a href="http://camel.apache.org/sql.html">SQL</a> as well  * as any arbitrary Java expression.  *  *  * @version $Revision$  */
+comment|/**  * An<a href="http://camel.apache.org/expression.html">expression</a>  * provides a plugin strategy for evaluating expressions on a message exchange to support things like  *<a href="http://camel.apache.org/scripting-languages.html">scripting languages</a>,  *<a href="http://camel.apache.org/xquery.html">XQuery</a>  * or<a href="http://camel.apache.org/sql.html">SQL</a> as well  * as any arbitrary Java expression.  *  * @version $Revision$  */
 end_comment
 
 begin_interface
@@ -24,15 +24,6 @@ specifier|public
 interface|interface
 name|Expression
 block|{
-comment|/**      * Returns the value of the expression on the given exchange      *      * @param exchange the message exchange on which to evaluate the expression      * @return the value of the expression      */
-DECL|method|evaluate (Exchange exchange)
-name|Object
-name|evaluate
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-function_decl|;
 comment|/**      * Returns the value of the expression on the given exchange      *      * @param exchange the message exchange on which to evaluate the expression      * @param type the expected type of the evaluation result      * @return the value of the expression      */
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 parameter_list|<
