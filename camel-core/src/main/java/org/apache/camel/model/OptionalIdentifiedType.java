@@ -254,6 +254,13 @@ name|String
 name|id
 decl_stmt|;
 annotation|@
+name|XmlTransient
+DECL|field|customId
+specifier|private
+name|boolean
+name|customId
+decl_stmt|;
+annotation|@
 name|XmlElement
 argument_list|(
 name|required
@@ -291,6 +298,10 @@ operator|.
 name|id
 operator|=
 name|value
+expr_stmt|;
+name|customId
+operator|=
+literal|true
 expr_stmt|;
 block|}
 DECL|method|getDescription ()
@@ -431,6 +442,33 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Sets the id of this node      *      * @param id  the id      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|id (String id)
+specifier|public
+name|T
+name|id
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|setId
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
 comment|/**      * Gets the node id, creating one if not already set.      */
 DECL|method|idOrCreate ()
 specifier|public
@@ -445,16 +483,26 @@ operator|==
 literal|null
 condition|)
 block|{
-name|setId
-argument_list|(
+name|id
+operator|=
 name|createId
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 return|return
 name|getId
 argument_list|()
+return|;
+block|}
+comment|/**      * Returns whether a custom id has been assigned      */
+DECL|method|hasCustomIdAssigned ()
+specifier|public
+name|boolean
+name|hasCustomIdAssigned
+parameter_list|()
+block|{
+return|return
+name|customId
 return|;
 block|}
 comment|// Implementation methods
