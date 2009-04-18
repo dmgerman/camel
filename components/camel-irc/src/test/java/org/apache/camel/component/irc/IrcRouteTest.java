@@ -226,7 +226,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"irc://camel-con@irc.codehaus.org:6667/%23camel-test"
+literal|"irc://camel-con@irc.codehaus.org:6667/#camel-test"
 argument_list|)
 operator|.
 name|choice
@@ -325,7 +325,7 @@ comment|// now the consumer has joined, lets send some messages
 name|String
 name|sendUri
 init|=
-literal|"irc://camel-prd@irc.codehaus.org:6667/%23camel-test"
+literal|"irc://camel-prd@irc.codehaus.org:6667/#camel-test"
 decl_stmt|;
 name|template
 operator|.
