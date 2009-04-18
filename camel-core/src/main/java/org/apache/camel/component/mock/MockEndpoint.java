@@ -1404,7 +1404,7 @@ name|expectedCount
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that the given header name& value are received by this      * endpoint      */
+comment|/**      * Adds an expectation that the given header name& value are received by this endpoint      */
 DECL|method|expectedHeaderReceived (final String name, final Object value)
 specifier|public
 name|void
@@ -1488,7 +1488,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that the given property name& value are received by this      * endpoint      */
+comment|/**      * Adds an expectation that the given property name& value are received by this endpoint      */
 DECL|method|expectedPropertyReceived (final String name, final Object value)
 specifier|public
 name|void
@@ -1708,7 +1708,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that the given body values are received by this      * endpoint      */
+comment|/**      * Adds an expectation that the given body values are received by this endpoint      */
 DECL|method|expectedBodiesReceived (Object... bodies)
 specifier|public
 name|void
@@ -1744,7 +1744,7 @@ name|bodyList
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that the given body values are received by this      * endpoint      */
+comment|/**      * Adds an expectation that the given body value are received by this endpoint      */
 DECL|method|expectedBodyReceived ()
 specifier|public
 name|ExpressionClause
@@ -2817,7 +2817,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Adds the expectation which will be invoked when enough messages are      * received      */
+comment|/**      * Adds the expectation which will be invoked when enough messages are received      */
 DECL|method|expects (Runnable runnable)
 specifier|public
 name|void

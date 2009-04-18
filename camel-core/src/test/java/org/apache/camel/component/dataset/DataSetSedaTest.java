@@ -93,10 +93,17 @@ argument_list|(
 literal|200
 argument_list|)
 decl_stmt|;
-DECL|method|test ()
+DECL|field|uri
+specifier|private
+name|String
+name|uri
+init|=
+literal|"dataset:foo?produceDelay=3"
+decl_stmt|;
+DECL|method|testDataSetWithSeda ()
 specifier|public
 name|void
-name|test
+name|testDataSetWithSeda
 parameter_list|()
 throws|throws
 name|Exception
@@ -106,7 +113,7 @@ name|endpoint
 init|=
 name|getMockEndpoint
 argument_list|(
-literal|"dataset:foo"
+name|uri
 argument_list|)
 decl_stmt|;
 name|endpoint
@@ -179,31 +186,24 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//TODO: remove this once the delegate processor supports async
-name|errorHandler
-argument_list|(
-name|noErrorHandler
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|from
 argument_list|(
-literal|"dataset:foo"
+name|uri
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:queue:test?size=200"
+literal|"seda:test"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:queue:test?size=200"
+literal|"seda:test"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"dataset:foo"
+name|uri
 argument_list|)
 expr_stmt|;
 block|}

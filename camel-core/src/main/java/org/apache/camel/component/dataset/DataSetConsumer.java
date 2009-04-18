@@ -261,25 +261,6 @@ decl_stmt|;
 if|if
 condition|(
 name|delay
-operator|>=
-literal|0
-operator|&&
-name|delay
-operator|<
-literal|4
-condition|)
-block|{
-comment|// if no delay set then we must sleep at lest for 4 millis to avoid concurrency
-comment|// issues with extremely high throughput
-name|delay
-operator|=
-literal|4
-expr_stmt|;
-block|}
-comment|// to allow -1 to force none delay at all
-if|if
-condition|(
-name|delay
 operator|>
 literal|0
 condition|)
