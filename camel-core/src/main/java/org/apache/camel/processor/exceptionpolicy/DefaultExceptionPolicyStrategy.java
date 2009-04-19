@@ -507,14 +507,14 @@ name|exception
 argument_list|)
 return|;
 block|}
-comment|/**      * Strategy method for matching the exception type with the current exchange.      *<p/>      * This default implementation will match as:      *<ul>      *<li>Always true if no when predicate on the exception type      *<li>Otherwise the when predicate is matches against the current exchange      *</ul>      *      * @param type     the exception type      * @param exchange the current {@link Exchange}      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise.      */
-DECL|method|matchesWhen (OnExceptionDefinition type, Exchange exchange)
+comment|/**      * Strategy method for matching the exception type with the current exchange.      *<p/>      * This default implementation will match as:      *<ul>      *<li>Always true if no when predicate on the exception type      *<li>Otherwise the when predicate is matches against the current exchange      *</ul>      *      * @param definition     the exception definition      * @param exchange the current {@link Exchange}      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise.      */
+DECL|method|matchesWhen (OnExceptionDefinition definition, Exchange exchange)
 specifier|protected
 name|boolean
 name|matchesWhen
 parameter_list|(
 name|OnExceptionDefinition
-name|type
+name|definition
 parameter_list|,
 name|Exchange
 name|exchange
@@ -522,14 +522,14 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|type
+name|definition
 operator|.
 name|getOnWhen
 argument_list|()
 operator|==
 literal|null
 operator|||
-name|type
+name|definition
 operator|.
 name|getOnWhen
 argument_list|()
@@ -546,7 +546,7 @@ literal|true
 return|;
 block|}
 return|return
-name|type
+name|definition
 operator|.
 name|getOnWhen
 argument_list|()

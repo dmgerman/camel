@@ -323,24 +323,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Caught exception while processing exchange."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 name|handleException
 argument_list|(
 name|exchange
@@ -429,10 +411,43 @@ name|catchClause
 operator|.
 name|catches
 argument_list|(
+name|exchange
+argument_list|,
 name|e
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"This TryProcessor handles the exception: "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" caused by: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// lets attach the exception to the exchange
 name|Exchange
 name|localExchange
@@ -489,6 +504,37 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"This TryProcessor does not handle the exception: "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" caused by: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|processFinally (Exchange exchange)
