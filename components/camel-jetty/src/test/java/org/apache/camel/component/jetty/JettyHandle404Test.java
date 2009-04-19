@@ -295,7 +295,7 @@ argument_list|(
 literal|"direct:tohttp"
 argument_list|)
 operator|.
-name|tryBlock
+name|doTry
 argument_list|()
 operator|.
 name|to
@@ -303,7 +303,7 @@ argument_list|(
 literal|"http://localhost:8123/myserver?user=Camel"
 argument_list|)
 operator|.
-name|handle
+name|doCatch
 argument_list|(
 name|HttpOperationFailedException
 operator|.
