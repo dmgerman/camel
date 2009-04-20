@@ -98,6 +98,8 @@ operator|.
 name|to
 argument_list|(
 literal|"bean:myBean"
+argument_list|,
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
