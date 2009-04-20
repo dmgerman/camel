@@ -305,7 +305,8 @@ block|}
 return|;
 block|}
 DECL|class|ProcessorFail
-specifier|private
+specifier|public
+specifier|static
 class|class
 name|ProcessorFail
 implements|implements
