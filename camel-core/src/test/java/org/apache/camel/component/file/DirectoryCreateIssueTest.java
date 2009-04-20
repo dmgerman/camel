@@ -209,13 +209,13 @@ index|[
 name|i
 index|]
 operator|=
-literal|"seda:file"
+literal|"direct:file"
 operator|+
 name|i
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:file"
+literal|"direct:file"
 operator|+
 name|i
 argument_list|)
