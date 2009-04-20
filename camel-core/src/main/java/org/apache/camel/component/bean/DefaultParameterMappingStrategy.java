@@ -116,6 +116,7 @@ name|ParameterMappingStrategy
 block|{
 DECL|field|parameterTypeToExpressionMap
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|Class
@@ -151,18 +152,13 @@ name|Class
 name|parameterType
 parameter_list|)
 block|{
-name|Expression
-name|expression
-init|=
+return|return
 name|parameterTypeToExpressionMap
 operator|.
 name|get
 argument_list|(
 name|parameterType
 argument_list|)
-decl_stmt|;
-return|return
-name|expression
 return|;
 block|}
 comment|/**      * Adds a default parameter type mapping to an expression      */

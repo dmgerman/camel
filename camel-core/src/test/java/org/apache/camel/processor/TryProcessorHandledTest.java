@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -60,9 +70,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -74,48 +82,75 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|builder
 operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|RouteBuilder
 import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for try .. handle routing (CAMEL-564).  */
+comment|/**  * Unit test for try .. catch with handled false.  */
 end_comment
 
 begin_class
-DECL|class|TryProcessorHandleTest
+DECL|class|TryProcessorHandledTest
 specifier|public
 class|class
-name|TryProcessorHandleTest
+name|TryProcessorHandledTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|handled
-specifier|private
-name|boolean
-name|handled
-decl_stmt|;
-DECL|method|testTryCatchFinally ()
+DECL|method|testOk ()
 specifier|public
 name|void
-name|testTryCatchFinally
+name|testOk
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockEndpoint
-name|mock
-init|=
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
-decl_stmt|;
-name|mock
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:error"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testIllegalStateException ()
+specifier|public
+name|void
+name|testIllegalStateException
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -124,7 +159,7 @@ argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
-literal|"mock:finally"
+literal|"mock:error"
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -132,20 +167,96 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|template
+operator|.
 name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"<test>Hello World!</test>"
+literal|"Damn State"
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testIOException ()
+specifier|public
+name|void
+name|testIOException
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
 argument_list|(
-literal|"Should have been handled"
-argument_list|,
-name|handled
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
 argument_list|)
 expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:io"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Damn IO"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown a RuntimeCamelException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+name|assertIsInstanceOf
+argument_list|(
+name|IOException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Damn IO"
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -166,10 +277,13 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
+comment|// here is our try where we try processing the exchange in the route below if it fails
+comment|// we can catch it below, just like regular try .. catch .. finally in Java
 operator|.
 name|doTry
 argument_list|()
@@ -185,6 +299,25 @@ name|to
 argument_list|(
 literal|"mock:result"
 argument_list|)
+comment|// catch IOExcption that we do not want to handle, eg the caller should get the error back
+operator|.
+name|doCatch
+argument_list|(
+name|IOException
+operator|.
+name|class
+argument_list|)
+comment|// mark this as NOT handled, eg the caller will also get the exception
+operator|.
+name|handled
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:io"
+argument_list|)
 operator|.
 name|doCatch
 argument_list|(
@@ -192,31 +325,26 @@ name|Exception
 operator|.
 name|class
 argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|ProcessorHandle
-argument_list|()
-argument_list|)
-operator|.
-name|doFinally
-argument_list|()
+comment|// and catch all other exceptions
+comment|// they are handled by default (ie handled = true)
 operator|.
 name|to
 argument_list|(
-literal|"mock:finally"
+literal|"mock:error"
 argument_list|)
+comment|// here the try block ends
 operator|.
 name|end
 argument_list|()
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
 block|}
 DECL|class|ProcessorFail
-specifier|private
+specifier|public
+specifier|static
 class|class
 name|ProcessorFail
 implements|implements
@@ -233,88 +361,58 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|String
+name|body
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+literal|"Damn IO"
+operator|.
+name|equals
+argument_list|(
+name|body
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Damn IO"
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"Damn State"
+operator|.
+name|equals
+argument_list|(
+name|body
+argument_list|)
+condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Force to fail"
+literal|"Damn State"
 argument_list|)
 throw|;
 block|}
-block|}
-DECL|class|ProcessorHandle
-specifier|private
-class|class
-name|ProcessorHandle
-implements|implements
-name|Processor
-block|{
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|handled
-operator|=
-literal|true
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Should not be marked as failed"
-argument_list|,
-literal|false
-argument_list|,
-name|exchange
-operator|.
-name|isFailed
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|Exception
-name|e
-init|=
-operator|(
-name|Exception
-operator|)
-name|exchange
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|EXCEPTION_CAUGHT
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"There should be an exception"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|e
-operator|instanceof
-name|IllegalStateException
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Force to fail"
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}

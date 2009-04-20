@@ -113,7 +113,13 @@ specifier|final
 name|Predicate
 name|onWhen
 decl_stmt|;
-DECL|method|CatchProcessor (List<Class> exceptions, Processor processor, Predicate onWhen)
+DECL|field|handled
+specifier|private
+specifier|final
+name|Predicate
+name|handled
+decl_stmt|;
+DECL|method|CatchProcessor (List<Class> exceptions, Processor processor, Predicate onWhen, Predicate handled)
 specifier|public
 name|CatchProcessor
 parameter_list|(
@@ -128,6 +134,9 @@ name|processor
 parameter_list|,
 name|Predicate
 name|onWhen
+parameter_list|,
+name|Predicate
+name|handled
 parameter_list|)
 block|{
 name|super
@@ -146,6 +155,12 @@ operator|.
 name|onWhen
 operator|=
 name|onWhen
+expr_stmt|;
+name|this
+operator|.
+name|handled
+operator|=
+name|handled
 expr_stmt|;
 block|}
 annotation|@
@@ -169,6 +184,7 @@ operator|+
 literal|"]"
 return|;
 block|}
+comment|/**      * Whether this catch processor catch the given thrown exception      *      * @param exchange  the current exchange      * @param exception the thrown exception      * @return<tt>true</tt> if this processor catches it,<tt>false</tt> otherwise.      */
 DECL|method|catches (Exchange exchange, Throwable exception)
 specifier|public
 name|boolean
@@ -244,6 +260,37 @@ block|}
 comment|// not found
 return|return
 literal|false
+return|;
+block|}
+comment|/**      * Whether this catch processor handles the exception it have caught      *      * @param exchange  the current exchange      * @return<tt>true</tt> if this processor handles it,<tt>false</tt> otherwise.      */
+DECL|method|handles (Exchange exchange)
+specifier|public
+name|boolean
+name|handles
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+if|if
+condition|(
+name|handled
+operator|==
+literal|null
+condition|)
+block|{
+comment|// handle by default
+return|return
+literal|true
+return|;
+block|}
+return|return
+name|handled
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
 return|;
 block|}
 DECL|method|getExceptions ()

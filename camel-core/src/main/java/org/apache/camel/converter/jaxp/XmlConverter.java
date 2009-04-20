@@ -2705,16 +2705,11 @@ name|TransformerFactory
 name|createTransformerFactory
 parameter_list|()
 block|{
-name|TransformerFactory
-name|answer
-init|=
+return|return
 name|TransformerFactory
 operator|.
 name|newInstance
 argument_list|()
-decl_stmt|;
-return|return
-name|answer
 return|;
 block|}
 block|}

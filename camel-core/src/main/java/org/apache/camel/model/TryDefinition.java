@@ -120,6 +120,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Predicate
 import|;
 end_import
@@ -133,6 +145,20 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ExpressionBuilder
 import|;
 end_import
 
@@ -203,6 +229,22 @@ operator|.
 name|util
 operator|.
 name|ProcessorDefinitionHelper
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|PredicateBuilder
+operator|.
+name|toPredicate
 import|;
 end_import
 
@@ -460,6 +502,8 @@ name|Predicate
 name|predicate
 parameter_list|)
 block|{
+comment|// we must use a delegate so we can use the fluent builder based on TryDefinition
+comment|// to configure all with try .. catch .. finally
 comment|// set the onWhen predicate on all the catch definitions
 name|Iterator
 argument_list|<
@@ -521,6 +565,8 @@ argument_list|>
 name|onWhen
 parameter_list|()
 block|{
+comment|// we must use a delegate so we can use the fluent builder based on TryDefinition
+comment|// to configure all with try .. catch .. finally
 name|WhenDefinition
 name|answer
 init|=
@@ -596,6 +642,117 @@ argument_list|)
 expr_stmt|;
 return|return
 name|clause
+return|;
+block|}
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      */
+DECL|method|handled (boolean handled)
+specifier|public
+name|TryDefinition
+name|handled
+parameter_list|(
+name|boolean
+name|handled
+parameter_list|)
+block|{
+name|Expression
+name|expression
+init|=
+name|ExpressionBuilder
+operator|.
+name|constantExpression
+argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+name|handled
+argument_list|)
+argument_list|)
+decl_stmt|;
+return|return
+name|handled
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      */
+DECL|method|handled (Predicate handled)
+specifier|public
+name|TryDefinition
+name|handled
+parameter_list|(
+name|Predicate
+name|handled
+parameter_list|)
+block|{
+comment|// we must use a delegate so we can use the fluent builder based on TryDefinition
+comment|// to configure all with try .. catch .. finally
+comment|// set the handled on all the catch definitions
+name|Iterator
+argument_list|<
+name|CatchDefinition
+argument_list|>
+name|it
+init|=
+name|ProcessorDefinitionHelper
+operator|.
+name|filterTypeInOutputs
+argument_list|(
+name|getOutputs
+argument_list|()
+argument_list|,
+name|CatchDefinition
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+while|while
+condition|(
+name|it
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+name|CatchDefinition
+name|doCatch
+init|=
+name|it
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
+name|doCatch
+operator|.
+name|setHandledPolicy
+argument_list|(
+name|handled
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      */
+DECL|method|handled (Expression handled)
+specifier|public
+name|TryDefinition
+name|handled
+parameter_list|(
+name|Expression
+name|handled
+parameter_list|)
+block|{
+return|return
+name|handled
+argument_list|(
+name|toPredicate
+argument_list|(
+name|handled
+argument_list|)
+argument_list|)
 return|;
 block|}
 comment|/**      * The finally block for a given handle      *      * @return  the try builder      */

@@ -421,15 +421,15 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"This TryProcessor handles the exception: "
+literal|"This TryProcessor catches the exception: "
 operator|+
 name|e
 operator|.
@@ -484,6 +484,56 @@ argument_list|(
 name|localExchange
 argument_list|)
 expr_stmt|;
+name|boolean
+name|handled
+init|=
+name|catchClause
+operator|.
+name|handles
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"The exception is handled: "
+operator|+
+name|handled
+operator|+
+literal|" for the exception: "
+operator|+
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" caused by: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|handled
+condition|)
+block|{
 name|localExchange
 operator|.
 name|removeProperty
@@ -493,6 +543,41 @@ operator|.
 name|EXCEPTION_CAUGHT
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// put exception back as it was not handled
+if|if
+condition|(
+name|localExchange
+operator|.
+name|getException
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|localExchange
+operator|.
+name|setException
+argument_list|(
+name|localExchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|EXCEPTION_CAUGHT
+argument_list|,
+name|Exception
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// copy result back to the original exchange
 name|ExchangeHelper
 operator|.
 name|copyResults
@@ -509,15 +594,15 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"This TryProcessor does not handle the exception: "
+literal|"This TryProcessor does not catch the exception: "
 operator|+
 name|e
 operator|.
