@@ -251,6 +251,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:start"
@@ -298,6 +299,7 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
