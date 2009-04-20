@@ -118,6 +118,12 @@ name|JmsToHttpRoute
 extends|extends
 name|SpringRouteBuilder
 block|{
+DECL|field|counter
+specifier|protected
+specifier|static
+name|int
+name|counter
+decl_stmt|;
 annotation|@
 name|Resource
 argument_list|(
@@ -141,12 +147,6 @@ DECL|field|data
 specifier|protected
 name|Endpoint
 name|data
-decl_stmt|;
-DECL|field|counter
-specifier|protected
-specifier|static
-name|int
-name|counter
 decl_stmt|;
 DECL|field|nok
 specifier|protected
