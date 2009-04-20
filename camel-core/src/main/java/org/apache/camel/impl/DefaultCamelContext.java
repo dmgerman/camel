@@ -786,6 +786,11 @@ specifier|static
 name|int
 name|nameSuffix
 decl_stmt|;
+DECL|field|routeDefinitionInitiated
+specifier|private
+name|boolean
+name|routeDefinitionInitiated
+decl_stmt|;
 DECL|field|name
 specifier|private
 name|String
@@ -4020,7 +4025,7 @@ if|if
 condition|(
 name|StreamCaching
 operator|.
-name|getStreamCache
+name|getStreamCaching
 argument_list|(
 name|this
 argument_list|)
@@ -4248,11 +4253,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// To avoid initiating the routeDefinitions after stopping the camel context
+if|if
+condition|(
+operator|!
+name|routeDefinitionInitiated
+condition|)
+block|{
 name|startRouteDefinitions
 argument_list|(
 name|routeDefinitions
 argument_list|)
 expr_stmt|;
+name|routeDefinitionInitiated
+operator|=
+literal|true
+expr_stmt|;
+block|}
 block|}
 DECL|method|startRouteDefinitions (Collection<RouteDefinition> list)
 specifier|protected
@@ -4403,11 +4420,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|routeServices
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|servicesToClose
 operator|.
 name|clear

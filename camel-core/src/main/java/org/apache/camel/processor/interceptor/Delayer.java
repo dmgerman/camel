@@ -128,7 +128,7 @@ comment|/**      * A helper method to return the Delayer instance for a given {@
 DECL|method|getDelayer (CamelContext context)
 specifier|public
 specifier|static
-name|DelayInterceptor
+name|Delayer
 name|getDelayer
 parameter_list|(
 name|CamelContext
@@ -158,12 +158,12 @@ if|if
 condition|(
 name|interceptStrategy
 operator|instanceof
-name|DelayInterceptor
+name|Delayer
 condition|)
 block|{
 return|return
 operator|(
-name|DelayInterceptor
+name|Delayer
 operator|)
 name|interceptStrategy
 return|;

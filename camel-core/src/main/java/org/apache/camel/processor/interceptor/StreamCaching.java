@@ -120,12 +120,12 @@ name|target
 argument_list|)
 return|;
 block|}
-comment|/**      * A helper method to return the StreamCacheInterceptor instance      * for a given {@link org.apache.camel.CamelContext} if one is enabled      *      * @param context the camel context the stream cache is connected to      * @return the stream cache or null if none can be found      */
-DECL|method|getStreamCache (CamelContext context)
+comment|/**      * A helper method to return the StreamCaching instance      * for a given {@link org.apache.camel.CamelContext} if one is enabled      *      * @param context the camel context the stream cache is connected to      * @return the stream cache or null if none can be found      */
+DECL|method|getStreamCaching (CamelContext context)
 specifier|public
 specifier|static
-name|StreamCachingInterceptor
-name|getStreamCache
+name|StreamCaching
+name|getStreamCaching
 parameter_list|(
 name|CamelContext
 name|context
@@ -154,12 +154,12 @@ if|if
 condition|(
 name|interceptStrategy
 operator|instanceof
-name|StreamCachingInterceptor
+name|StreamCaching
 condition|)
 block|{
 return|return
 operator|(
-name|StreamCachingInterceptor
+name|StreamCaching
 operator|)
 name|interceptStrategy
 return|;
