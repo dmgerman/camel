@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.http
+DECL|package|org.apache.camel.component.jetty
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
+name|jetty
 package|;
 end_package
 
@@ -46,7 +46,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
@@ -82,9 +86,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|ContextTestSupport
 import|;
 end_import
 
@@ -96,11 +98,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|mock
+name|apache
 operator|.
-name|MockEndpoint
+name|camel
+operator|.
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
@@ -123,10 +135,10 @@ name|expectedText
 init|=
 literal|"<html"
 decl_stmt|;
-DECL|method|testHttpGet ()
+DECL|method|testHttpPollingGet ()
 specifier|public
 name|void
-name|testHttpGet
+name|testHttpPollingGet
 parameter_list|()
 throws|throws
 name|Exception
@@ -299,12 +311,47 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"http://www.google.com"
+literal|"http://localhost:5431/myservice?delay=5000"
 argument_list|)
 operator|.
 name|to
 argument_list|(
 literal|"mock:results"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"jetty:http://localhost:5431/myservice"
+argument_list|)
+operator|.
+name|process
+argument_list|(
+operator|new
+name|Processor
+argument_list|()
+block|{
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"<html>Bye World</html>"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
