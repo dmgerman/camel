@@ -78,18 +78,17 @@ name|InstrumentationInterceptStrategy
 implements|implements
 name|InterceptStrategy
 block|{
-DECL|field|counterMap
+DECL|field|registeredCounters
 specifier|private
-specifier|final
 name|Map
 argument_list|<
 name|ProcessorDefinition
 argument_list|,
 name|PerformanceCounter
 argument_list|>
-name|counterMap
+name|registeredCounters
 decl_stmt|;
-DECL|method|InstrumentationInterceptStrategy (Map<ProcessorDefinition, PerformanceCounter> counterMap)
+DECL|method|InstrumentationInterceptStrategy (Map<ProcessorDefinition, PerformanceCounter> registeredCounters)
 specifier|public
 name|InstrumentationInterceptStrategy
 parameter_list|(
@@ -99,14 +98,14 @@ name|ProcessorDefinition
 argument_list|,
 name|PerformanceCounter
 argument_list|>
-name|counterMap
+name|registeredCounters
 parameter_list|)
 block|{
 name|this
 operator|.
-name|counterMap
+name|registeredCounters
 operator|=
-name|counterMap
+name|registeredCounters
 expr_stmt|;
 block|}
 DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target)
@@ -123,10 +122,23 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// dont double wrap it
+if|if
+condition|(
+name|target
+operator|instanceof
+name|InstrumentationProcessor
+condition|)
+block|{
+return|return
+name|target
+return|;
+block|}
+comment|// only wrap a performance counter if we have it registered in JMX by the jmx agent
 name|PerformanceCounter
 name|counter
 init|=
-name|counterMap
+name|registeredCounters
 operator|.
 name|get
 argument_list|(

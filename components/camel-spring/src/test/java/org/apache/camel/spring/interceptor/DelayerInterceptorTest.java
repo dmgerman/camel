@@ -181,7 +181,7 @@ name|delta
 argument_list|,
 name|delta
 operator|>
-literal|4000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|assertTrue

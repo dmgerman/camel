@@ -184,7 +184,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 try|try
@@ -255,7 +255,7 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 name|Exchange

@@ -481,20 +481,6 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"The routes is "
-operator|+
-name|ctx
-operator|.
-name|getRoutes
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|ctx
 operator|.
 name|stop

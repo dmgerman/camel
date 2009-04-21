@@ -1088,10 +1088,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testDisablingInheritenceOfErrorHandlers ()
+DECL|method|testLoggingErrorHandler ()
 specifier|public
 name|void
-name|testDisablingInheritenceOfErrorHandlers
+name|testLoggingErrorHandler
 parameter_list|()
 throws|throws
 name|Exception
@@ -1317,6 +1317,21 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
+name|LoggingErrorHandler
+name|logging
+init|=
+name|assertIsInstanceOf
+argument_list|(
+name|LoggingErrorHandler
+operator|.
+name|class
+argument_list|,
+name|filterProcessor
+operator|.
+name|getProcessor
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|StreamCachingInterceptor
 name|cache
 init|=
@@ -1326,9 +1341,9 @@ name|StreamCachingInterceptor
 operator|.
 name|class
 argument_list|,
-name|filterProcessor
+name|logging
 operator|.
-name|getProcessor
+name|getOutput
 argument_list|()
 argument_list|)
 decl_stmt|;

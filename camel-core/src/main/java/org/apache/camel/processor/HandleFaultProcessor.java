@@ -100,6 +100,7 @@ name|DelegateProcessor
 implements|implements
 name|AsyncProcessor
 block|{
+comment|// TODO: Should be an interceptor to be applied like the stream cache
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -245,6 +246,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|// Reset it since we are handling it.
+comment|// TODO: remove fault message entirely
 if|if
 condition|(
 name|faultBody

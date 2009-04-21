@@ -207,16 +207,15 @@ name|handled
 init|=
 name|getMockEndpoint
 argument_list|(
-literal|"mock:handled"
+literal|"mock:dead"
 argument_list|)
 decl_stmt|;
-comment|// in case of an exception we should receive the original input,
-comment|// so this is message 1
+comment|// we should get the message intentded for the processor that failed
 name|handled
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-name|msg1
+name|msg3
 argument_list|)
 expr_stmt|;
 try|try
@@ -259,8 +258,6 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
-operator|+
-name|redelivery
 argument_list|,
 name|callCounter1
 argument_list|)
@@ -268,8 +265,6 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
-operator|+
-name|redelivery
 argument_list|,
 name|callCounter2
 argument_list|)
@@ -308,7 +303,7 @@ name|errorHandler
 argument_list|(
 name|deadLetterChannel
 argument_list|(
-literal|"mock:handled"
+literal|"mock:dead"
 argument_list|)
 operator|.
 name|maximumRedeliveries

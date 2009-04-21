@@ -388,7 +388,6 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * Find the first instance of a Processor of a given class.      */
 DECL|method|findProcessorByClass (Processor processor, Class findClass)
 specifier|protected
 name|Processor
@@ -532,6 +531,11 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
+while|while
+condition|(
+literal|true
+condition|)
+block|{
 if|if
 condition|(
 name|processor
@@ -552,6 +556,7 @@ name|getOutput
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
 if|if
 condition|(
 name|processor
@@ -572,6 +577,7 @@ name|getOutput
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
 if|if
 condition|(
 name|processor
@@ -592,9 +598,13 @@ name|getOutput
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
 return|return
 name|processor
 return|;
+block|}
+block|}
 block|}
 block|}
 end_class

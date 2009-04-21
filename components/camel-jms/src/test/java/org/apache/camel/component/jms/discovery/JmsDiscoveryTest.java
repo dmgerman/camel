@@ -183,7 +183,7 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|3
 argument_list|)
@@ -213,18 +213,21 @@ name|getServices
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Size of map: "
+literal|"There should be 3 or more, was: "
 operator|+
 name|map
-argument_list|,
-literal|3
+operator|.
+name|size
+argument_list|()
 argument_list|,
 name|map
 operator|.
 name|size
 argument_list|()
+operator|>=
+literal|3
 argument_list|)
 expr_stmt|;
 block|}

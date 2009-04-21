@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.interceptor
+DECL|package|org.apache.camel.processor.aggregator
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|interceptor
+name|aggregator
 package|;
 end_package
 
@@ -84,43 +84,22 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|onexception
-operator|.
-name|MyTechnicalException
-import|;
-end_import
-
 begin_comment
-comment|/**  * Unit test for testing possibility to modify exchange before redelivering  */
+comment|/**  * Based on CAMEL-1546  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|InterceptAlterMessageBeforeRedeliveryTest
+DECL|class|AggregatorExceptionHandleTest
 specifier|public
 class|class
-name|InterceptAlterMessageBeforeRedeliveryTest
+name|AggregatorExceptionHandleTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|counter
-specifier|static
-name|int
-name|counter
-decl_stmt|;
-DECL|method|testInterceptAlterMessageBeforeRedelivery ()
+DECL|method|testOk ()
 specifier|public
 name|void
-name|testInterceptAlterMessageBeforeRedelivery
+name|testOk
 parameter_list|()
 throws|throws
 name|Exception
@@ -137,52 +116,18 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World123"
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|testInterceptAlterMessageWithHeadersBeforeRedelivery ()
-specifier|public
-name|void
-name|testInterceptAlterMessageWithHeadersBeforeRedelivery
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|MockEndpoint
-name|mock
-init|=
+comment|// no error
 name|getMockEndpoint
 argument_list|(
-literal|"mock:result"
+literal|"mock:handled"
 argument_list|)
-decl_stmt|;
-name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Hello World123"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|expectedHeaderReceived
-argument_list|(
-literal|"foo"
-argument_list|,
-literal|"123"
+literal|0
 argument_list|)
 expr_stmt|;
 name|template
@@ -193,33 +138,90 @@ literal|"direct:start"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-literal|"foo"
+literal|"id"
 argument_list|,
-literal|"123"
+literal|1
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hi World"
+argument_list|,
+literal|"id"
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
+DECL|method|testHandled ()
+specifier|public
 name|void
-name|setUp
+name|testHandled
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:handled"
+argument_list|)
+decl_stmt|;
+name|mock
 operator|.
-name|setUp
-argument_list|()
+name|expectedBodiesReceived
+argument_list|(
+literal|"Damn"
+argument_list|)
 expr_stmt|;
-name|counter
-operator|=
+comment|// no result
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
 literal|0
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hi World"
+argument_list|,
+literal|"id"
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Damn"
+argument_list|,
+literal|"id"
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -246,38 +248,33 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// to execute unit test much faster we dont use delay between redeliveries
-name|errorHandler
+name|onException
 argument_list|(
-name|deadLetterChannel
-argument_list|(
-literal|"mock:error"
+name|IllegalArgumentException
+operator|.
+name|class
 argument_list|)
 operator|.
-name|delay
+name|handled
 argument_list|(
-literal|0L
+literal|true
 argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:handled"
 argument_list|)
 expr_stmt|;
-comment|// START SNIPPET: e1
-comment|// we configure an interceptor that is triggered when the redelivery flag
-comment|// has been set TRUE on an exchange
-name|intercept
-argument_list|()
+name|from
+argument_list|(
+literal|"direct:start"
+argument_list|)
 operator|.
-name|when
+name|aggregate
 argument_list|(
 name|header
 argument_list|(
-literal|"CamelRedelivered"
-argument_list|)
-operator|.
-name|isEqualTo
-argument_list|(
-name|Boolean
-operator|.
-name|TRUE
+literal|"id"
 argument_list|)
 argument_list|)
 operator|.
@@ -297,9 +294,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// the message is being redelivered so we can alter it
-comment|// we just append the redelivery counter to the body
-comment|// you can of course do all kind of stuff instead
 name|String
 name|body
 init|=
@@ -315,78 +309,34 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|int
-name|count
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-literal|"CamelRedeliveryCounter"
-argument_list|,
-name|Integer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-name|body
-operator|+
-name|count
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-argument_list|)
-expr_stmt|;
-comment|// END SNIPPET: e1
-name|from
-argument_list|(
-literal|"direct:start"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|Processor
-argument_list|()
-block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// force some error so Camel will do redelivery
 if|if
 condition|(
-operator|++
-name|counter
-operator|<=
-literal|3
+literal|"Damn"
+operator|.
+name|equals
+argument_list|(
+name|body
+argument_list|)
 condition|)
 block|{
 throw|throw
 operator|new
-name|MyTechnicalException
+name|IllegalArgumentException
 argument_list|(
-literal|"Forced by unit test"
+literal|"Damn"
 argument_list|)
 throw|;
 block|}
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)

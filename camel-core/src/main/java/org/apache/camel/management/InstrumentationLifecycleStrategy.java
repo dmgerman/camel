@@ -204,6 +204,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|DefaultErrorHandlerWrappingStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|OnExceptionDefinition
@@ -365,6 +379,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// TODO: This code needs an overhaul. It should *really* not change the route model,
+comment|// only register mbeans with the performance counters
 DECL|field|MANAGED_RESOURCE_CLASSNAME
 specifier|private
 specifier|static
@@ -1040,7 +1056,7 @@ name|ProcessorDefinition
 argument_list|,
 name|PerformanceCounter
 argument_list|>
-name|counterMap
+name|registeredCounters
 init|=
 operator|new
 name|HashMap
@@ -1113,7 +1129,7 @@ name|name
 argument_list|)
 expr_stmt|;
 comment|// add to map now that it has been registered
-name|counterMap
+name|registeredCounters
 operator|.
 name|put
 argument_list|(
@@ -1160,7 +1176,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// TODO: align this code with InstrumentationLifecycleStrategy
+comment|// TODO: align this code with DefaultLifecycleStrategy
 name|routeContext
 operator|.
 name|addInterceptStrategy
@@ -1168,7 +1184,7 @@ argument_list|(
 operator|new
 name|InstrumentationInterceptStrategy
 argument_list|(
-name|counterMap
+name|registeredCounters
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1177,17 +1193,17 @@ operator|.
 name|setErrorHandlerWrappingStrategy
 argument_list|(
 operator|new
-name|InstrumentationErrorHandlerWrappingStrategy
+name|DefaultErrorHandlerWrappingStrategy
 argument_list|(
 name|routeContext
-argument_list|,
-name|counterMap
 argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Add an InstrumentationProcessor at the beginning of each route and
 comment|// set up the interceptorMap for onRoutesAdd() method to register the
 comment|// ManagedRoute MBeans.
+comment|// TODO: Rework the code below it changes the model and it affects the gap with and without JMX!
+comment|// we have enough pain with JAXB vs Java DSL already so we should not also have gaps with JMX!
 name|RouteDefinition
 name|routeType
 init|=

@@ -18,11 +18,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
@@ -34,7 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|model
+operator|.
+name|InterceptorDefinition
 import|;
 end_import
 
@@ -112,27 +116,12 @@ specifier|final
 name|RouteContext
 name|routeContext
 decl_stmt|;
-DECL|field|counterList
-specifier|private
-specifier|final
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|counterList
-decl_stmt|;
-DECL|method|DefaultErrorHandlerWrappingStrategy (RouteContext routeContext, List<ProcessorDefinition> counterList)
+DECL|method|DefaultErrorHandlerWrappingStrategy (RouteContext routeContext)
 specifier|public
 name|DefaultErrorHandlerWrappingStrategy
 parameter_list|(
 name|RouteContext
 name|routeContext
-parameter_list|,
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|counterList
 parameter_list|)
 block|{
 name|this
@@ -140,12 +129,6 @@ operator|.
 name|routeContext
 operator|=
 name|routeContext
-expr_stmt|;
-name|this
-operator|.
-name|counterList
-operator|=
-name|counterList
 expr_stmt|;
 block|}
 DECL|method|wrapProcessorInErrorHandler (ProcessorDefinition processorDefinition, Processor target)
@@ -174,17 +157,18 @@ return|return
 name|target
 return|;
 block|}
-comment|// don't wrap our instrumentation interceptors
+comment|// dont wrap interceptor definitions otherwise we end up wrapping too much
 if|if
 condition|(
-name|counterList
-operator|.
-name|contains
-argument_list|(
 name|processorDefinition
-argument_list|)
+operator|instanceof
+name|InterceptorDefinition
 condition|)
 block|{
+return|return
+name|target
+return|;
+block|}
 return|return
 name|processorDefinition
 operator|.
@@ -197,10 +181,6 @@ name|routeContext
 argument_list|,
 name|target
 argument_list|)
-return|;
-block|}
-return|return
-name|target
 return|;
 block|}
 block|}

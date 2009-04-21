@@ -116,6 +116,13 @@ name|RoutePerformanceTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|size
+specifier|private
+name|int
+name|size
+init|=
+literal|10000
+decl_stmt|;
 DECL|field|dataSet
 specifier|protected
 name|SimpleDataSet
@@ -124,7 +131,7 @@ init|=
 operator|new
 name|SimpleDataSet
 argument_list|(
-literal|1000
+name|size
 argument_list|)
 decl_stmt|;
 DECL|method|testPerformance ()
@@ -192,7 +199,11 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"RoutePerformanceTest: Took: "
+literal|"RoutePerformanceTest: Sent: "
+operator|+
+name|size
+operator|+
+literal|" Took: "
 operator|+
 name|delta
 operator|+
