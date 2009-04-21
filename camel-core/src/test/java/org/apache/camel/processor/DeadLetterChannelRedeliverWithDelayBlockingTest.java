@@ -18,13 +18,25 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
+name|concurrent
 operator|.
-name|ContextTestSupport
+name|Callable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Executors
 import|;
 end_import
 
@@ -36,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|ContextTestSupport
 import|;
 end_import
 
@@ -60,11 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|Processor
 import|;
 end_import
 
@@ -82,15 +90,31 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
 begin_comment
-comment|/**  * Unit test to verify that using DLC with redelivery and delays that we are not blocking  * the caller thread, for instance if we have delays in miniutes.  *  * @version $Revision$  */
+comment|/**  * Unit test to verify that using DLC with redelivery and delays with blocking threads.  * As threads comes cheap these days in the modern JVM its no biggie. And for transactions  * you should use the same thread anyway.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|DeadLetterChannelRedeliverWithDelayNotBlockingTest
+DECL|class|DeadLetterChannelRedeliverWithDelayBlockingTest
 specifier|public
 class|class
-name|DeadLetterChannelRedeliverWithDelayNotBlockingTest
+name|DeadLetterChannelRedeliverWithDelayBlockingTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -116,15 +140,15 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// TODO: when we get the internal API reworked we should be able to receive in this order
-comment|// mock.expectedBodiesReceived("Message 2", "Message 1");
+comment|// we expect message 2 to arrive before 1 as message 1 is in trouble
+comment|// and must be redelivered 2 times before succeed
 name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Message 1"
-argument_list|,
 literal|"Message 2"
+argument_list|,
+literal|"Message 1"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -136,22 +160,130 @@ argument_list|,
 literal|"bar"
 argument_list|)
 expr_stmt|;
+comment|// the first is not redelivered
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|header
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERED
+argument_list|)
+operator|.
+name|isNull
+argument_list|()
+expr_stmt|;
+comment|// but the 2nd is
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|header
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERED
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// use executors to simulate two different clients sending
+comment|// a request to Camel
+name|Callable
+name|task1
+init|=
+name|Executors
+operator|.
+name|callable
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:start"
+literal|"direct:start"
 argument_list|,
 literal|"Message 1"
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+argument_list|)
+decl_stmt|;
+name|Callable
+name|task2
+init|=
+name|Executors
+operator|.
+name|callable
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:start"
+literal|"direct:start"
 argument_list|,
 literal|"Message 2"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+decl_stmt|;
+name|Executors
+operator|.
+name|newCachedThreadPool
+argument_list|()
+operator|.
+name|submit
+argument_list|(
+name|task1
+argument_list|)
+expr_stmt|;
+comment|// give task 1 a head start, even though it comes last
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
+name|Executors
+operator|.
+name|newCachedThreadPool
+argument_list|()
+operator|.
+name|submit
+argument_list|(
+name|task2
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -207,7 +339,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:start"
+literal|"direct:start"
 argument_list|)
 operator|.
 name|process
