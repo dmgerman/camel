@@ -18,6 +18,36 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|google
@@ -82,16 +112,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -123,26 +143,6 @@ operator|.
 name|camel
 operator|.
 name|Routes
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -216,10 +216,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{      }
-DECL|method|DONTtestGuice ()
+DECL|method|xtestGuice ()
 specifier|public
 name|void
-name|DONTtestGuice
+name|xtestGuice
 parameter_list|()
 throws|throws
 name|Exception

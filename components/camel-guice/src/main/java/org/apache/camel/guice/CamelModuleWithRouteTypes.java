@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
+name|HashSet
 import|;
 end_import
 
@@ -32,7 +32,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
+name|Set
 import|;
 end_import
 
@@ -83,18 +83,6 @@ operator|.
 name|camel
 operator|.
 name|Routes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Route
 import|;
 end_import
 
