@@ -344,6 +344,12 @@ name|boolean
 name|lazyCreate
 parameter_list|)
 function_decl|;
+comment|/**      * Removes the fault message.      */
+DECL|method|removeFault ()
+name|void
+name|removeFault
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the exception associated with this exchange      *      * @return the exception (or null if no faults)      */
 DECL|method|getException ()
 name|Exception

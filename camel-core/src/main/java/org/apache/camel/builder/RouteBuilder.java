@@ -208,22 +208,6 @@ name|DelegateProcessor
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|StreamCachingInterceptor
-import|;
-end_import
-
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is  * used to build {@link Route} instances in a {@link CamelContext} for smart routing.  *  * @version $Revision$  */
 end_comment
@@ -495,27 +479,6 @@ block|{
 name|setErrorHandlerBuilder
 argument_list|(
 name|errorHandlerBuilder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Adds the given interceptor to this route      *      * @param interceptor  the interceptor      * @return the builder      */
-DECL|method|intercept (DelegateProcessor interceptor)
-specifier|public
-name|RouteBuilder
-name|intercept
-parameter_list|(
-name|DelegateProcessor
-name|interceptor
-parameter_list|)
-block|{
-name|routeCollection
-operator|.
-name|intercept
-argument_list|(
-name|interceptor
 argument_list|)
 expr_stmt|;
 return|return

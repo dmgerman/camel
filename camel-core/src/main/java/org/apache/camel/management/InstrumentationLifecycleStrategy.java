@@ -34,16 +34,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collection
 import|;
 end_import
@@ -55,16 +45,6 @@ operator|.
 name|util
 operator|.
 name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -192,7 +172,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ServiceSupport
+name|DefaultErrorHandlerWrappingStrategy
 import|;
 end_import
 
@@ -206,21 +186,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultErrorHandlerWrappingStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|OnExceptionDefinition
+name|ServiceSupport
 import|;
 end_import
 
@@ -379,8 +345,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// TODO: This code needs an overhaul. It should *really* not change the route model,
-comment|// only register mbeans with the performance counters
 DECL|field|MANAGED_RESOURCE_CLASSNAME
 specifier|private
 specifier|static
@@ -488,6 +452,7 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
+comment|// register camel context
 if|if
 condition|(
 name|context
@@ -596,6 +561,7 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// see if the spring-jmx is on the classpath
 name|Class
 name|annotationClass
 init|=
@@ -611,6 +577,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// no its not so register the endpoint as a new managed endpoint
 name|registerEndpointAsManagedEndpoint
 argument_list|(
 name|endpoint
@@ -618,6 +585,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// see if the endpoint have been annotation with a spring JMX annotation
 name|Object
 name|annotation
 init|=
@@ -638,13 +606,16 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// no its not so register the endpoint as a new managed endpoint
 name|registerEndpointAsManagedEndpoint
 argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
+else|else
+block|{
+comment|// there is already a spring JMX annotation so attempt to register it
 name|attemptToRegisterManagedResource
 argument_list|(
 name|endpoint
@@ -652,6 +623,7 @@ argument_list|,
 name|annotation
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|resolveManagedAnnotation (Endpoint endpoint)
 specifier|private
@@ -850,102 +822,10 @@ condition|)
 block|{
 return|return;
 block|}
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
-block|{
-try|try
-block|{
-name|ManagedRoute
-name|mr
-init|=
-operator|new
-name|ManagedRoute
-argument_list|(
-name|route
-argument_list|)
-decl_stmt|;
-comment|// retrieve the per-route intercept for this route
-name|InstrumentationProcessor
-name|interceptor
-init|=
-name|interceptorMap
-operator|.
-name|get
-argument_list|(
-name|route
-operator|.
-name|getEndpoint
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|interceptor
-operator|==
-literal|null
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Instrumentation processor not found for route endpoint: "
-operator|+
-name|route
-operator|.
-name|getEndpoint
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|interceptor
-operator|.
-name|setCounter
-argument_list|(
-name|mr
-argument_list|)
-expr_stmt|;
-block|}
-name|agent
-operator|.
-name|register
-argument_list|(
-name|mr
-argument_list|,
-name|getNamingStrategy
-argument_list|()
-operator|.
-name|getObjectName
-argument_list|(
-name|mr
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|JMException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Could not register Route MBean"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|// TODO: Disabled for now until we find a better strategy for registering routes in the JMX
+comment|// without altering the route model. The route model should be much the same as without JMX to avoid
+comment|// a gap that causes pain to get working with and without JMX enabled. We have seen to many issues with this already.
+comment|/*         for (Route route : routes) {             try {                 ManagedRoute mr = new ManagedRoute(route);                 // retrieve the per-route intercept for this route                 InstrumentationProcessor interceptor = interceptorMap.get(route.getEndpoint());                 if (interceptor == null) {                     LOG.warn("Instrumentation processor not found for route endpoint: " + route.getEndpoint());                 } else {                     interceptor.setCounter(mr);                 }                 agent.register(mr, getNamingStrategy().getObjectName(mr));             } catch (JMException e) {                 LOG.warn("Could not register Route MBean", e);             }         } */
 block|}
 DECL|method|onServiceAdd (CamelContext context, Service service)
 specifier|public
@@ -968,6 +848,7 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// register consumer
 if|if
 condition|(
 name|service
@@ -1080,6 +961,7 @@ operator|.
 name|getRoute
 argument_list|()
 decl_stmt|;
+comment|// register all processors
 for|for
 control|(
 name|ProcessorDefinition
@@ -1202,195 +1084,10 @@ expr_stmt|;
 comment|// Add an InstrumentationProcessor at the beginning of each route and
 comment|// set up the interceptorMap for onRoutesAdd() method to register the
 comment|// ManagedRoute MBeans.
-comment|// TODO: Rework the code below it changes the model and it affects the gap with and without JMX!
-comment|// we have enough pain with JAXB vs Java DSL already so we should not also have gaps with JMX!
-name|RouteDefinition
-name|routeType
-init|=
-name|routeContext
-operator|.
-name|getRoute
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|routeType
-operator|.
-name|getInputs
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-operator|!
-name|routeType
-operator|.
-name|getInputs
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
-name|routeType
-operator|.
-name|getInputs
-argument_list|()
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|1
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Addding InstrumentationProcessor to first input only."
-argument_list|)
-expr_stmt|;
-block|}
-name|Endpoint
-name|endpoint
-init|=
-name|routeType
-operator|.
-name|getInputs
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getEndpoint
-argument_list|()
-decl_stmt|;
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|exceptionHandlers
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-argument_list|()
-decl_stmt|;
-name|List
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-name|outputs
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|>
-argument_list|()
-decl_stmt|;
-comment|// separate out the exception handers in the outputs
-for|for
-control|(
-name|ProcessorDefinition
-name|output
-range|:
-name|routeType
-operator|.
-name|getOutputs
-argument_list|()
-control|)
-block|{
-if|if
-condition|(
-name|output
-operator|instanceof
-name|OnExceptionDefinition
-condition|)
-block|{
-name|exceptionHandlers
-operator|.
-name|add
-argument_list|(
-name|output
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|outputs
-operator|.
-name|add
-argument_list|(
-name|output
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|// clearing the outputs
-name|routeType
-operator|.
-name|clearOutput
-argument_list|()
-expr_stmt|;
-comment|// add exception handlers as top children
-name|routeType
-operator|.
-name|getOutputs
-argument_list|()
-operator|.
-name|addAll
-argument_list|(
-name|exceptionHandlers
-argument_list|)
-expr_stmt|;
-comment|// add an interceptor to instrument the route
-name|InstrumentationProcessor
-name|processor
-init|=
-operator|new
-name|InstrumentationProcessor
-argument_list|()
-decl_stmt|;
-name|routeType
-operator|.
-name|intercept
-argument_list|(
-name|processor
-argument_list|)
-expr_stmt|;
-comment|// add the output
-for|for
-control|(
-name|ProcessorDefinition
-name|processorType
-range|:
-name|outputs
-control|)
-block|{
-name|routeType
-operator|.
-name|addOutput
-argument_list|(
-name|processorType
-argument_list|)
-expr_stmt|;
-block|}
-name|interceptorMap
-operator|.
-name|put
-argument_list|(
-name|endpoint
-argument_list|,
-name|processor
-argument_list|)
-expr_stmt|;
-block|}
+comment|// TODO: Disabled for now until we find a better strategy for registering routes in the JMX
+comment|// without altering the route model. The route model should be much the same as without JMX to avoid
+comment|// a gap that causes pain to get working with and without JMX enabled. We have seen to many issues with this already.
+comment|/*        RouteDefinition routeType = routeContext.getRoute();         if (routeType.getInputs() != null&& !routeType.getInputs().isEmpty()) {             if (routeType.getInputs().size()> 1) {                 LOG.warn("Addding InstrumentationProcessor to first input only.");             }              Endpoint endpoint  = routeType.getInputs().get(0).getEndpoint();              List<ProcessorDefinition> exceptionHandlers = new ArrayList<ProcessorDefinition>();             List<ProcessorDefinition> outputs = new ArrayList<ProcessorDefinition>();              // separate out the exception handers in the outputs             for (ProcessorDefinition output : routeType.getOutputs()) {                 if (output instanceof OnExceptionDefinition) {                     exceptionHandlers.add(output);                 } else {                     outputs.add(output);                 }             }              // clearing the outputs             routeType.clearOutput();              // add exception handlers as top children             routeType.getOutputs().addAll(exceptionHandlers);              // add an interceptor to instrument the route             InstrumentationProcessor processor = new InstrumentationProcessor();             routeType.intercept(processor);              // add the output             for (ProcessorDefinition processorType : outputs) {                 routeType.addOutput(processorType);             }              interceptorMap.put(endpoint, processor);         }*/
 block|}
 DECL|method|getNamingStrategy ()
 specifier|public

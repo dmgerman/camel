@@ -673,9 +673,9 @@ return|return
 name|parentPolicy
 return|;
 block|}
-DECL|method|addRoutes (RouteContext routeContext, Collection<Route> routes)
 specifier|public
 name|void
+DECL|method|addRoutes (RouteContext routeContext, Collection<Route> routes)
 name|addRoutes
 parameter_list|(
 name|RouteContext

@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;throwFault/&gt; element  */
+comment|/**  * Represents an XML&lt;throwFault/&gt; element  * @deprecated should be renamed to throwException and not be FAULT based  */
 end_comment
 
 begin_class

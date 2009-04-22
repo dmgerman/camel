@@ -848,7 +848,17 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// there was an exception but it was not handled by the DeadLetterChannel
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// if the failure was an exception then handle it
 name|handleException
 argument_list|(
 name|exchange
@@ -857,6 +867,7 @@ name|getException
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 finally|finally

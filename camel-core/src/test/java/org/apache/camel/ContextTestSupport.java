@@ -328,18 +328,6 @@ block|}
 name|startCamelContext
 argument_list|()
 expr_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Routing Rules are: "
-operator|+
-name|context
-operator|.
-name|getRoutes
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -353,6 +341,18 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Routing Rules are: "
+operator|+
+name|context
+operator|.
+name|getRoutes
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

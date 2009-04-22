@@ -36,9 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|builder
 operator|.
-name|JndiRegistry
+name|RouteBuilder
 import|;
 end_import
 
@@ -66,9 +66,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|impl
 operator|.
-name|RouteBuilder
+name|JndiRegistry
 import|;
 end_import
 

@@ -80,20 +80,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptorDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|MulticastDefinition
 import|;
 end_import
@@ -544,10 +530,6 @@ condition|(
 name|node
 operator|instanceof
 name|MulticastDefinition
-operator|||
-name|node
-operator|instanceof
-name|InterceptorDefinition
 condition|)
 block|{
 comment|// no need for a multicast or interceptor node

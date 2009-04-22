@@ -521,20 +521,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"The routes is "
-operator|+
-name|ctx
-operator|.
-name|getRoutes
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//System.out.println("The routes is " + ctx.getRoutes());
 name|assertEquals
 argument_list|(
 literal|"The Routes should be same"

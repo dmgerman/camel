@@ -124,7 +124,7 @@ init|=
 literal|10000
 decl_stmt|;
 DECL|field|dataSet
-specifier|protected
+specifier|private
 name|SimpleDataSet
 name|dataSet
 init|=

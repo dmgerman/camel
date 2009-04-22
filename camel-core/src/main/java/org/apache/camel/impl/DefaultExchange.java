@@ -1370,6 +1370,19 @@ name|fault
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|removeFault ()
+specifier|public
+name|void
+name|removeFault
+parameter_list|()
+block|{
+name|this
+operator|.
+name|fault
+operator|=
+literal|null
+expr_stmt|;
+block|}
 DECL|method|getExchangeId ()
 specifier|public
 name|String

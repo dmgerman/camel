@@ -404,6 +404,22 @@ name|processor
 operator|.
 name|interceptor
 operator|.
+name|HandleFault
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|interceptor
+operator|.
 name|StreamCaching
 import|;
 end_import
@@ -975,6 +991,15 @@ init|=
 name|Boolean
 operator|.
 name|TRUE
+decl_stmt|;
+DECL|field|handleFault
+specifier|private
+name|Boolean
+name|handleFault
+init|=
+name|Boolean
+operator|.
+name|FALSE
 decl_stmt|;
 DECL|field|delay
 specifier|private
@@ -3672,10 +3697,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns true if tracing has been enabled or disabled via the {@link #setTrace(Boolean)} method      * or it has not been specified then default to the<b>camel.streamCache</b> system property      */
-DECL|method|getStreamCache ()
+DECL|method|isStreamCacheEnabled ()
 specifier|public
 name|boolean
-name|getStreamCache
+name|isStreamCacheEnabled
 parameter_list|()
 block|{
 specifier|final
@@ -3734,18 +3759,81 @@ operator|=
 name|trace
 expr_stmt|;
 block|}
-comment|/**      * Returns true if tracing has been enabled or disabled via the {@link #setTrace(Boolean)} method      * or it has not been specified then default to the<b>camel.trace</b> system property      */
-DECL|method|getTrace ()
+comment|/**      * Returns true if handle fault has been enabled      */
+DECL|method|isHandleFaultEnabled ()
 specifier|public
 name|boolean
-name|getTrace
+name|isHandleFaultEnabled
 parameter_list|()
 block|{
 specifier|final
 name|Boolean
 name|value
 init|=
-name|getTracing
+name|getHandleFault
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|value
+return|;
+block|}
+else|else
+block|{
+return|return
+name|SystemHelper
+operator|.
+name|isSystemProperty
+argument_list|(
+literal|"camel.handleFault"
+argument_list|)
+return|;
+block|}
+block|}
+DECL|method|getHandleFault ()
+specifier|public
+name|Boolean
+name|getHandleFault
+parameter_list|()
+block|{
+return|return
+name|handleFault
+return|;
+block|}
+DECL|method|setHandleFault (Boolean handleFault)
+specifier|public
+name|void
+name|setHandleFault
+parameter_list|(
+name|Boolean
+name|handleFault
+parameter_list|)
+block|{
+name|this
+operator|.
+name|handleFault
+operator|=
+name|handleFault
+expr_stmt|;
+block|}
+comment|/**      * Returns true if tracing has been enabled      */
+DECL|method|isTraceEnabled ()
+specifier|public
+name|boolean
+name|isTraceEnabled
+parameter_list|()
+block|{
+specifier|final
+name|Boolean
+name|value
+init|=
+name|getTrace
 argument_list|()
 decl_stmt|;
 if|if
@@ -3771,10 +3859,10 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|getTracing ()
+DECL|method|getTrace ()
 specifier|public
 name|Boolean
-name|getTracing
+name|getTrace
 parameter_list|()
 block|{
 return|return
@@ -3797,18 +3885,18 @@ operator|=
 name|trace
 expr_stmt|;
 block|}
-comment|/**      * Returns the delay in millis if delaying has been enabled or disabled via the {@link #setDelay(Long)} method      * or it has not been specified then default to the<b>camel.delay</b> system property      */
-DECL|method|getDelay ()
+comment|/**      * Returns the delay in millis if delaying has been enabled. Returns 0 if not enabled.      */
+DECL|method|isDelayEnabled ()
 specifier|public
 name|long
-name|getDelay
+name|isDelayEnabled
 parameter_list|()
 block|{
 specifier|final
 name|Long
 name|value
 init|=
-name|getDelaying
+name|getDelay
 argument_list|()
 decl_stmt|;
 if|if
@@ -3850,10 +3938,10 @@ literal|0
 return|;
 block|}
 block|}
-DECL|method|getDelaying ()
+DECL|method|getDelay ()
 specifier|public
 name|Long
-name|getDelaying
+name|getDelay
 parameter_list|()
 block|{
 return|return
@@ -4016,7 +4104,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|getStreamCache
+name|isStreamCacheEnabled
 argument_list|()
 condition|)
 block|{
@@ -4051,7 +4139,7 @@ block|}
 block|}
 if|if
 condition|(
-name|getTrace
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
@@ -4122,10 +4210,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|long
+name|delayInMillis
+init|=
+name|isDelayEnabled
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
-name|getDelay
-argument_list|()
+name|delayInMillis
 operator|>
 literal|0
 condition|)
@@ -4147,7 +4240,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Delayer is enabled"
+literal|"Delayer is enabled with: "
+operator|+
+name|delayInMillis
+operator|+
+literal|" ms."
 argument_list|)
 expr_stmt|;
 name|addInterceptStrategy
@@ -4155,9 +4252,43 @@ argument_list|(
 operator|new
 name|Delayer
 argument_list|(
-name|getDelay
-argument_list|()
+name|delayInMillis
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|isHandleFaultEnabled
+argument_list|()
+condition|)
+block|{
+comment|// only add a new handle fault if not already configured
+if|if
+condition|(
+name|HandleFault
+operator|.
+name|getHandleFault
+argument_list|(
+name|this
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"HandleFault is enabled"
+argument_list|)
+expr_stmt|;
+name|addInterceptStrategy
+argument_list|(
+operator|new
+name|HandleFault
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
