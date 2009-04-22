@@ -205,7 +205,7 @@ name|assertEquals
 argument_list|(
 literal|"get result "
 argument_list|,
-literal|"<message>out</message>"
+literal|"<response><hello>Willem</hello></response>"
 argument_list|,
 name|exchange
 operator|.

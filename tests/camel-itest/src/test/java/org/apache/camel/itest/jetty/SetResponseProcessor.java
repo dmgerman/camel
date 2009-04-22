@@ -63,7 +63,7 @@ name|Exception
 block|{
 comment|// Convert the input stream into a string
 name|String
-name|result
+name|request
 init|=
 name|exchange
 operator|.
@@ -84,7 +84,11 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|"<message>out</message>"
+literal|"<response>"
+operator|+
+name|request
+operator|+
+literal|"</response>"
 argument_list|)
 expr_stmt|;
 block|}
