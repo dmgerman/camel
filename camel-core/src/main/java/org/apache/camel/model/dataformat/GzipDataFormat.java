@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the GZip {@link DataFormat}  *  * @version $Revision: 750806 $  */
+comment|/**  * Represents the GZip {@link DataFormat}  *  * @version $Revision$  */
 end_comment
 
 begin_class
