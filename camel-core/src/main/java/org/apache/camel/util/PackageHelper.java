@@ -105,6 +105,13 @@ argument_list|(
 name|packageName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|spring
+operator|!=
+literal|null
+condition|)
+block|{
 name|String
 name|value
 init|=
@@ -230,6 +237,7 @@ name|number
 operator|>=
 name|minimumVersion
 return|;
+block|}
 block|}
 block|}
 catch|catch
