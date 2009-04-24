@@ -70,20 +70,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|TryDefinition
-import|;
-end_import
-
 begin_comment
 comment|/**  * No catch blocks but handle all should work  *  * @author<a href="mailto:nsandhu@raleys.com">nsandhu</a>  */
 end_comment
@@ -115,6 +101,11 @@ specifier|protected
 name|MockEndpoint
 name|allEndpoint
 decl_stmt|;
+DECL|field|deadEndpoint
+specifier|protected
+name|MockEndpoint
+name|deadEndpoint
+decl_stmt|;
 DECL|method|testValidMessage ()
 specifier|public
 name|void
@@ -137,8 +128,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -152,15 +141,6 @@ argument_list|,
 literal|"bar"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -180,14 +160,20 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// allEndpoint receives 1 + 5 messages, ordinary (1 attempt) and redelivery (5 attempts) is involved
+comment|// allEndpoint should only receive 1 when the message is being moved to the dead letter queue
 name|allEndpoint
 operator|.
 name|expectedMessageCount
 argument_list|(
 literal|1
-operator|+
-literal|5
+argument_list|)
+expr_stmt|;
+comment|// regular error handler is disbled for try .. catch .. finally
+name|deadEndpoint
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
 argument_list|)
 expr_stmt|;
 try|try
@@ -255,6 +241,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|deadEndpoint
+operator|=
+name|resolveMandatoryEndpoint
+argument_list|(
+literal|"mock:dead"
+argument_list|,
+name|MockEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -272,21 +269,30 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// use little delay to run unit test fast
+comment|// use dead letter channel that supports redeliveries
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
-argument_list|()
+argument_list|(
+literal|"mock:dead"
+argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|25
+literal|0
+argument_list|)
+operator|.
+name|maximumRedeliveries
+argument_list|(
+literal|3
+argument_list|)
+operator|.
+name|logStackTrace
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|TryDefinition
-name|tryType
-init|=
 name|from
 argument_list|(
 literal|"direct:start"
@@ -304,8 +310,6 @@ name|to
 argument_list|(
 literal|"mock:valid"
 argument_list|)
-decl_stmt|;
-name|tryType
 operator|.
 name|doFinally
 argument_list|()

@@ -208,6 +208,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// as its based on a unit test we do not have any delays between and do not log the stack trace
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -217,13 +218,25 @@ argument_list|)
 operator|.
 name|maximumRedeliveries
 argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|delay
+argument_list|(
 literal|0
+argument_list|)
+operator|.
+name|logStackTrace
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e1
 comment|// we want to use a predicate for retries so we can determine in our bean
-comment|// when retry should stop
+comment|// when retry should stop, notice it will overrule the global error handler
+comment|// where we defined at most 1 redelivery attempt. Here we will continue until
+comment|// the predicate false
 name|onException
 argument_list|(
 name|MyFunctionalException

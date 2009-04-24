@@ -248,6 +248,7 @@ name|ErrorHandlerSupport
 implements|implements
 name|AsyncProcessor
 block|{
+comment|// TODO: The code in this class will be much easier when the AsyncProcessor is removed
 comment|// we can use a single shared static timer for async redeliveries
 DECL|field|REDELIVER_TIMER
 specifier|private

@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default error handler wrapping strategy used when JMX is disabled.  *  * @version $Revision$  */
+comment|/**  * The default error handler wrapping strategy used when JMX is disabled.  *  * @version $Revision$  * @deprecated is replaced by {@link org.apache.camel.Channel}  */
 end_comment
 
 begin_class

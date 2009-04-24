@@ -168,6 +168,14 @@ argument_list|(
 name|target
 argument_list|)
 expr_stmt|;
+comment|// remove to not double wrap it
+name|registeredCounters
+operator|.
+name|remove
+argument_list|(
+name|processorDefinition
+argument_list|)
+expr_stmt|;
 return|return
 name|wrapper
 return|;

@@ -347,7 +347,7 @@ name|DefaultErrorHandlerBuilder
 argument_list|()
 expr_stmt|;
 comment|// inherit the error handlers from the other as they are to be shared
-comment|// this is needed by camel-spring when using non error handler configured
+comment|// this is needed by camel-spring when none error handler has been explicit configured
 name|handler
 operator|.
 name|setErrorHandlers

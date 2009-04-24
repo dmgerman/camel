@@ -465,11 +465,22 @@ name|Exception
 block|{
 comment|// START SNIPPET: e1
 comment|// global error handler
+comment|// as its based on a unit test we do not have any delays between and do not log the stack trace
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
 argument_list|(
 literal|"mock:error"
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|logStackTrace
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;

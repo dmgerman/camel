@@ -794,9 +794,7 @@ argument_list|)
 decl_stmt|;
 name|processor
 operator|=
-name|processorType
-operator|.
-name|wrapProcessorInInterceptors
+name|wrapProcessor
 argument_list|(
 name|routeContext
 argument_list|,

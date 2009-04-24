@@ -673,9 +673,9 @@ return|return
 name|parentPolicy
 return|;
 block|}
+DECL|method|addRoutes (RouteContext routeContext, Collection<Route> routes)
 specifier|public
 name|void
-DECL|method|addRoutes (RouteContext routeContext, Collection<Route> routes)
 name|addRoutes
 parameter_list|(
 name|RouteContext
@@ -700,7 +700,33 @@ argument_list|(
 name|routeContext
 argument_list|)
 expr_stmt|;
-comment|// lets attach a processor to an error handler
+comment|// lookup onRedelivery if ref is provided
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|onRedeliveryRef
+argument_list|)
+condition|)
+block|{
+name|setOnRedelivery
+argument_list|(
+name|routeContext
+operator|.
+name|lookup
+argument_list|(
+name|onRedeliveryRef
+argument_list|,
+name|Processor
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// lets attach this on exception to the route error handler
 name|errorHandler
 operator|=
 name|routeContext
@@ -728,31 +754,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|// lookup onRedelivery if ref is provided
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
-name|onRedeliveryRef
-argument_list|)
-condition|)
-block|{
-name|onRedelivery
-operator|=
-name|routeContext
-operator|.
-name|lookup
-argument_list|(
-name|onRedeliveryRef
-argument_list|,
-name|Processor
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
