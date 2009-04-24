@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify unit of work with seda.  *  * @version $Revision$  */
+comment|/**  * Unit test to verify unit of work with seda. That the UnitOfWork is able to route using seda  * but keeping the same UoW.  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -175,14 +175,14 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"onCompleteB"
+literal|"onCompleteA"
 argument_list|,
 name|sync
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"onCompleteB"
+literal|"processor"
 argument_list|,
 name|lastOne
 argument_list|)
@@ -276,15 +276,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|MyUOWProcessor
-argument_list|(
-literal|"B"
-argument_list|)
 argument_list|)
 operator|.
 name|process
