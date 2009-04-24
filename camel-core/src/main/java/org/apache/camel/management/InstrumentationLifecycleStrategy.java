@@ -132,6 +132,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -229,6 +241,20 @@ operator|.
 name|spi
 operator|.
 name|InstrumentationAgent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|InterceptStrategy
 import|;
 end_import
 
@@ -355,9 +381,7 @@ specifier|private
 name|boolean
 name|initialized
 decl_stmt|;
-comment|// A map (Endpoint -> InstrumentationProcessor) to facilitate
-comment|// adding per-route interceptor and registering ManagedRoute MBean
-DECL|field|interceptorMap
+DECL|field|registeredRoutes
 specifier|private
 specifier|final
 name|Map
@@ -366,7 +390,7 @@ name|Endpoint
 argument_list|,
 name|InstrumentationProcessor
 argument_list|>
-name|interceptorMap
+name|registeredRoutes
 init|=
 operator|new
 name|HashMap
@@ -808,10 +832,103 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// TODO: Disabled for now until we find a better strategy for registering routes in the JMX
-comment|// without altering the route model. The route model should be much the same as without JMX to avoid
-comment|// a gap that causes pain to get working with and without JMX enabled. We have seen to many issues with this already.
-comment|/*         for (Route route : routes) {             try {                 ManagedRoute mr = new ManagedRoute(route);                 // retrieve the per-route intercept for this route                 InstrumentationProcessor interceptor = interceptorMap.get(route.getEndpoint());                 if (interceptor == null) {                     LOG.warn("Instrumentation processor not found for route endpoint: " + route.getEndpoint());                 } else {                     interceptor.setCounter(mr);                 }                 agent.register(mr, getNamingStrategy().getObjectName(mr));             } catch (JMException e) {                 LOG.warn("Could not register Route MBean", e);             }         } */
+for|for
+control|(
+name|Route
+name|route
+range|:
+name|routes
+control|)
+block|{
+try|try
+block|{
+name|ManagedRoute
+name|mr
+init|=
+operator|new
+name|ManagedRoute
+argument_list|(
+name|route
+argument_list|)
+decl_stmt|;
+comment|// retrieve the per-route intercept for this route
+name|InstrumentationProcessor
+name|processor
+init|=
+name|registeredRoutes
+operator|.
+name|get
+argument_list|(
+name|route
+operator|.
+name|getEndpoint
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|processor
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Route has not been instrumented for endpoint: "
+operator|+
+name|route
+operator|.
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// let the instrumentation use our route counter
+name|processor
+operator|.
+name|setCounter
+argument_list|(
+name|mr
+argument_list|)
+expr_stmt|;
+block|}
+name|agent
+operator|.
+name|register
+argument_list|(
+name|mr
+argument_list|,
+name|getNamingStrategy
+argument_list|()
+operator|.
+name|getObjectName
+argument_list|(
+name|mr
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|JMException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Could not register Route MBean"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|onServiceAdd (CamelContext context, Service service)
 specifier|public
@@ -947,6 +1064,10 @@ operator|.
 name|getRoute
 argument_list|()
 decl_stmt|;
+comment|// TODO: This only registers counters for the first outputs in the route
+comment|// all the chidren of the outputs is not registered
+comment|// we should leverge the Channel for this to ensure we register all processors
+comment|// in the entire route graph
 comment|// register all processors
 for|for
 control|(
@@ -1045,6 +1166,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// add intercept strategy that executes the JMX instrumentation for performance metrics
+comment|// TODO: We could do as below with an inlined implementation instead of a separate class
 name|routeContext
 operator|.
 name|addInterceptStrategy
@@ -1056,13 +1178,113 @@ name|registeredCounters
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Add an InstrumentationProcessor at the beginning of each route and
-comment|// set up the interceptorMap for onRoutesAdd() method to register the
-comment|// ManagedRoute MBeans.
-comment|// TODO: Disabled for now until we find a better strategy for registering routes in the JMX
-comment|// without altering the route model. The route model should be much the same as without JMX to avoid
-comment|// a gap that causes pain to get working with and without JMX enabled. We have seen to many issues with this already.
-comment|/*        RouteDefinition routeType = routeContext.getRoute();         if (routeType.getInputs() != null&& !routeType.getInputs().isEmpty()) {             if (routeType.getInputs().size()> 1) {                 LOG.warn("Addding InstrumentationProcessor to first input only.");             }              Endpoint endpoint  = routeType.getInputs().get(0).getEndpoint();              List<ProcessorDefinition> exceptionHandlers = new ArrayList<ProcessorDefinition>();             List<ProcessorDefinition> outputs = new ArrayList<ProcessorDefinition>();              // separate out the exception handers in the outputs             for (ProcessorDefinition output : routeType.getOutputs()) {                 if (output instanceof OnExceptionDefinition) {                     exceptionHandlers.add(output);                 } else {                     outputs.add(output);                 }             }              // clearing the outputs             routeType.clearOutput();              // add exception handlers as top children             routeType.getOutputs().addAll(exceptionHandlers);              // add an interceptor to instrument the route             InstrumentationProcessor processor = new InstrumentationProcessor();             routeType.intercept(processor);              // add the output             for (ProcessorDefinition processorType : outputs) {                 routeType.addOutput(processorType);             }              interceptorMap.put(endpoint, processor);         }*/
+comment|// instrument the route endpoint
+specifier|final
+name|Endpoint
+name|endpoint
+init|=
+name|routeContext
+operator|.
+name|getEndpoint
+argument_list|()
+decl_stmt|;
+comment|// only needed to register on the first output as all rotues will pass through this one
+name|ProcessorDefinition
+name|out
+init|=
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getOutputs
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+comment|// add an intercept strategy that counts when the route sends to any of its outputs
+name|out
+operator|.
+name|addInterceptStrategy
+argument_list|(
+operator|new
+name|InterceptStrategy
+argument_list|()
+block|{
+specifier|public
+name|Processor
+name|wrapProcessorInInterceptors
+parameter_list|(
+name|ProcessorDefinition
+name|processorDefinition
+parameter_list|,
+name|Processor
+name|target
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|registeredRoutes
+operator|.
+name|containsKey
+argument_list|(
+name|endpoint
+argument_list|)
+condition|)
+block|{
+comment|// do not double wrap
+return|return
+name|target
+return|;
+block|}
+name|InstrumentationProcessor
+name|wrapper
+init|=
+operator|new
+name|InstrumentationProcessor
+argument_list|(
+literal|null
+argument_list|)
+decl_stmt|;
+name|wrapper
+operator|.
+name|setType
+argument_list|(
+name|processorDefinition
+operator|.
+name|getShortName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|wrapper
+operator|.
+name|setProcessor
+argument_list|(
+name|target
+argument_list|)
+expr_stmt|;
+comment|// register our wrapper
+name|registeredRoutes
+operator|.
+name|put
+argument_list|(
+name|endpoint
+argument_list|,
+name|wrapper
+argument_list|)
+expr_stmt|;
+return|return
+name|wrapper
+return|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getNamingStrategy ()
 specifier|public

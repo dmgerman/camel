@@ -144,6 +144,11 @@ specifier|private
 name|PerformanceCounter
 name|counter
 decl_stmt|;
+DECL|field|type
+specifier|private
+name|String
+name|type
+decl_stmt|;
 DECL|method|InstrumentationProcessor (PerformanceCounter counter)
 specifier|public
 name|InstrumentationProcessor
@@ -173,7 +178,21 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Instrumentation["
+literal|"Instrumention"
+operator|+
+operator|(
+name|type
+operator|!=
+literal|null
+condition|?
+literal|":"
+operator|+
+name|type
+else|:
+literal|""
+operator|)
+operator|+
+literal|"["
 operator|+
 name|processor
 operator|+
@@ -453,6 +472,32 @@ name|failedExchange
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+DECL|method|getType ()
+specifier|public
+name|String
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
+DECL|method|setType (String type)
+specifier|public
+name|void
+name|setType
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
 block|}
 block|}
 end_class

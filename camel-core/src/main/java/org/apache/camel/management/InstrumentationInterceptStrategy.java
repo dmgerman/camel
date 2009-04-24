@@ -168,6 +168,16 @@ argument_list|(
 name|target
 argument_list|)
 expr_stmt|;
+name|wrapper
+operator|.
+name|setType
+argument_list|(
+name|processorDefinition
+operator|.
+name|getShortName
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// remove to not double wrap it
 name|registeredCounters
 operator|.

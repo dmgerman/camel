@@ -264,9 +264,37 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: Routes are temporary disabled until the code in InstrumentationLifecycleStrategy is fixed
-comment|//        s = mbsc.queryNames(new ObjectName(domainName + ":type=routes,*"), null);
-comment|//        assertEquals("Could not find 1 route: " + s, 1, s.size());
+name|s
+operator|=
+name|mbsc
+operator|.
+name|queryNames
+argument_list|(
+operator|new
+name|ObjectName
+argument_list|(
+name|domainName
+operator|+
+literal|":type=routes,*"
+argument_list|)
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Could not find 1 route: "
+operator|+
+name|s
+argument_list|,
+literal|1
+argument_list|,
+name|s
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -311,8 +339,19 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// TODO: see above
-comment|// verifyCounter(mbsc, new ObjectName(domainName + ":type=routes,*"));
+name|verifyCounter
+argument_list|(
+name|mbsc
+argument_list|,
+operator|new
+name|ObjectName
+argument_list|(
+name|domainName
+operator|+
+literal|":type=routes,*"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
