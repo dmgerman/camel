@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The active endpoints in Camel  *  * @version $Revision: 1.1 $  */
+comment|/**  * The active endpoints in Camel  *  * @version $Revision$  */
 end_comment
 
 begin_class
