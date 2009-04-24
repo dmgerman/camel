@@ -172,6 +172,14 @@ name|useIterator
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * Whether allow empty resultset to be routed to the next hop      */
+DECL|field|routeEmptyResultSet
+specifier|private
+name|boolean
+name|routeEmptyResultSet
+init|=
+literal|false
+decl_stmt|;
 DECL|method|IBatisPollingConsumer (IBatisEndpoint endpoint, Processor processor)
 specifier|public
 name|IBatisPollingConsumer
@@ -289,11 +297,23 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+operator|!
+name|data
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
+name|routeEmptyResultSet
+condition|)
+block|{
 name|process
 argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Delivers the content      *      * @param data a single row object if useIterator=true otherwise the entire result set      */
@@ -493,6 +513,34 @@ operator|.
 name|useIterator
 operator|=
 name|useIterator
+expr_stmt|;
+block|}
+comment|/**      * Indicates whether empty resultset should be allowed to be sent to the next hop or not      */
+DECL|method|isRouteEmptyResultSet ()
+specifier|public
+name|boolean
+name|isRouteEmptyResultSet
+parameter_list|()
+block|{
+return|return
+name|routeEmptyResultSet
+return|;
+block|}
+comment|/**      * Sets whether empty resultset should be allowed to be sent to the next hop.      * defaults to false. So the empty resultset will be filtered out.      */
+DECL|method|setRouteEmptyResultSet (boolean routeEmptyResultSet)
+specifier|public
+name|void
+name|setRouteEmptyResultSet
+parameter_list|(
+name|boolean
+name|routeEmptyResultSet
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeEmptyResultSet
+operator|=
+name|routeEmptyResultSet
 expr_stmt|;
 block|}
 block|}
