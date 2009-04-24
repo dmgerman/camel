@@ -329,6 +329,21 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|loadSchema ()
+specifier|public
+name|void
+name|loadSchema
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// force loading of schema
+name|schema
+operator|=
+name|createSchema
+argument_list|()
+expr_stmt|;
+block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getSchema ()

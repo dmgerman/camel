@@ -164,6 +164,13 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// force loading of schema at create time otherwise concurrent processing could
+comment|// cause thread safe issues for the javax.xml.validation.SchemaFactory
+name|validator
+operator|.
+name|loadSchema
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|ProcessorEndpoint
