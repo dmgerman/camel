@@ -396,7 +396,7 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|startServices
+name|stopServices
 argument_list|(
 name|output
 argument_list|,

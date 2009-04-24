@@ -173,19 +173,7 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
-comment|// set the error handler strategy containing the list of outputs added
-comment|// TODO: align this code with InstrumentationLifecycleStrategy
-name|routeContext
-operator|.
-name|setErrorHandlerWrappingStrategy
-argument_list|(
-operator|new
-name|DefaultErrorHandlerWrappingStrategy
-argument_list|(
-name|routeContext
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// do nothing
 block|}
 block|}
 end_class

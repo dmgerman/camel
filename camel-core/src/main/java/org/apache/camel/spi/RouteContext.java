@@ -306,21 +306,6 @@ name|InterceptStrategy
 name|interceptStrategy
 parameter_list|)
 function_decl|;
-comment|/**      * This method retrieves the ErrorHandlerWrappingStrategy.      *      * @return the strategy      */
-DECL|method|getErrorHandlerWrappingStrategy ()
-name|ErrorHandlerWrappingStrategy
-name|getErrorHandlerWrappingStrategy
-parameter_list|()
-function_decl|;
-comment|/**      * This method sets the ErrorHandlerWrappingStrategy.      *      * @param strategy the strategy      */
-DECL|method|setErrorHandlerWrappingStrategy (ErrorHandlerWrappingStrategy strategy)
-name|void
-name|setErrorHandlerWrappingStrategy
-parameter_list|(
-name|ErrorHandlerWrappingStrategy
-name|strategy
-parameter_list|)
-function_decl|;
 comment|/**      * If this flag is true, {@link ProcessorDefinition#addRoutes(RouteContext, java.util.Collection)}      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *      * @param value the flag      */
 DECL|method|setIsRouteAdded (boolean value)
 name|void

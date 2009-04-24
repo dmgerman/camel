@@ -172,20 +172,6 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultErrorHandlerWrappingStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
 name|ServiceSupport
 import|;
 end_import
@@ -1058,7 +1044,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// TODO: align this code with DefaultLifecycleStrategy
+comment|// add intercept strategy that executes the JMX instrumentation for performance metrics
 name|routeContext
 operator|.
 name|addInterceptStrategy
@@ -1067,17 +1053,6 @@ operator|new
 name|InstrumentationInterceptStrategy
 argument_list|(
 name|registeredCounters
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|routeContext
-operator|.
-name|setErrorHandlerWrappingStrategy
-argument_list|(
-operator|new
-name|DefaultErrorHandlerWrappingStrategy
-argument_list|(
-name|routeContext
 argument_list|)
 argument_list|)
 expr_stmt|;
