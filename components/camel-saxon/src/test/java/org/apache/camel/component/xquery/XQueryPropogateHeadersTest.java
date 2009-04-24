@@ -99,7 +99,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<transformed subject=\"Hey\"><mail><subject>Hey</subject>"
+literal|"<transformed sender=\"bar\" subject=\"Hey\"><mail><subject>Hey</subject>"
 operator|+
 literal|"<body>Hello world!</body></mail></transformed>"
 argument_list|)
@@ -269,7 +269,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xquery:org/apache/camel/component/xquery/transform.xquery"
+literal|"xquery:org/apache/camel/component/xquery/transform_with_headers.xquery"
 argument_list|)
 operator|.
 name|to
