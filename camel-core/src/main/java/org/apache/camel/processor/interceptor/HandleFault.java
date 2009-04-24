@@ -120,7 +120,7 @@ name|target
 argument_list|)
 return|;
 block|}
-comment|/**      * A helper method to return the StreamCaching instance      * for a given {@link org.apache.camel.CamelContext} if one is enabled      *      * @param context the camel context the stream cache is connected to      * @return the stream cache or null if none can be found      */
+comment|/**      * A helper method to return the HandleFault instance      * for a given {@link org.apache.camel.CamelContext} if one is enabled      *      * @param context the camel context the handlefault intercept strategy is connected to      * @return the stream cache or null if none can be found      */
 DECL|method|getHandleFault (CamelContext context)
 specifier|public
 specifier|static

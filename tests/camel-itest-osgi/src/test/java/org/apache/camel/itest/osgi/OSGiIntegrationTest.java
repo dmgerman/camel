@@ -328,6 +328,26 @@ name|pax
 operator|.
 name|exam
 operator|.
+name|container
+operator|.
+name|def
+operator|.
+name|PaxRunnerOptions
+operator|.
+name|scanFeatures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
 name|CoreOptions
 operator|.
 name|systemProperty
@@ -566,9 +586,10 @@ literal|"DEBUG"
 argument_list|)
 argument_list|,
 comment|// lets deploy the bundles we need
-name|mavenBundleAsInProject
+comment|//mavenBundleAsInProject("org.apache.camel", "camel-core"),
+name|scanFeatures
 argument_list|(
-literal|"org.apache.camel"
+literal|"file:src/test/resources/features-2.0-SNAPSHOT-features.xml"
 argument_list|,
 literal|"camel-core"
 argument_list|)
