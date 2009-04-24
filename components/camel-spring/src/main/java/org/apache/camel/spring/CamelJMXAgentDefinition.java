@@ -129,6 +129,23 @@ name|Boolean
 operator|.
 name|FALSE
 decl_stmt|;
+comment|/**      * Only register processor if a custom id was defined for it.      */
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|onlyRegisterProcessorWithCustomId
+specifier|private
+name|Boolean
+name|onlyRegisterProcessorWithCustomId
+init|=
+name|Boolean
+operator|.
+name|FALSE
+decl_stmt|;
 comment|/**      * RMI connector registry port (default 1099)      */
 annotation|@
 name|XmlAttribute
@@ -410,6 +427,32 @@ else|:
 name|Boolean
 operator|.
 name|FALSE
+expr_stmt|;
+block|}
+DECL|method|getOnlyRegisterProcessorWithCustomId ()
+specifier|public
+name|Boolean
+name|getOnlyRegisterProcessorWithCustomId
+parameter_list|()
+block|{
+return|return
+name|onlyRegisterProcessorWithCustomId
+return|;
+block|}
+DECL|method|setOnlyRegisterProcessorWithCustomId (Boolean onlyRegisterProcessorWithCustomId)
+specifier|public
+name|void
+name|setOnlyRegisterProcessorWithCustomId
+parameter_list|(
+name|Boolean
+name|onlyRegisterProcessorWithCustomId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onlyRegisterProcessorWithCustomId
+operator|=
+name|onlyRegisterProcessorWithCustomId
 expr_stmt|;
 block|}
 DECL|method|isDisabled ()

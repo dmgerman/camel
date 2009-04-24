@@ -515,6 +515,11 @@ specifier|private
 name|Boolean
 name|createConnector
 decl_stmt|;
+DECL|field|onlyRegisterProcessorWithCustomId
+specifier|private
+name|Boolean
+name|onlyRegisterProcessorWithCustomId
+decl_stmt|;
 DECL|method|finalizeSettings ()
 specifier|protected
 name|void
@@ -669,6 +674,25 @@ argument_list|(
 name|JmxSystemPropertyKeys
 operator|.
 name|USE_PLATFORM_MBS
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|onlyRegisterProcessorWithCustomId
+operator|==
+literal|null
+condition|)
+block|{
+name|onlyRegisterProcessorWithCustomId
+operator|=
+name|Boolean
+operator|.
+name|getBoolean
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|ONLY_REGISTER_PROCESSOR_WITH_CUSTOM_ID
 argument_list|)
 expr_stmt|;
 block|}
@@ -840,6 +864,32 @@ block|{
 return|return
 name|usePlatformMBeanServer
 return|;
+block|}
+DECL|method|getOnlyRegisterProcessorWithCustomId ()
+specifier|public
+name|Boolean
+name|getOnlyRegisterProcessorWithCustomId
+parameter_list|()
+block|{
+return|return
+name|onlyRegisterProcessorWithCustomId
+return|;
+block|}
+DECL|method|setOnlyRegisterProcessorWithCustomId (Boolean onlyRegisterProcessorWithCustomId)
+specifier|public
+name|void
+name|setOnlyRegisterProcessorWithCustomId
+parameter_list|(
+name|Boolean
+name|onlyRegisterProcessorWithCustomId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onlyRegisterProcessorWithCustomId
+operator|=
+name|onlyRegisterProcessorWithCustomId
+expr_stmt|;
 block|}
 DECL|method|setServer (MBeanServer value)
 specifier|public

@@ -2228,7 +2228,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"JMXAgent disabled"
 argument_list|)
@@ -2326,6 +2326,16 @@ argument_list|(
 name|camelJMXAgent
 operator|.
 name|isUsePlatformMBeanServer
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|agent
+operator|.
+name|setOnlyRegisterProcessorWithCustomId
+argument_list|(
+name|camelJMXAgent
+operator|.
+name|getOnlyRegisterProcessorWithCustomId
 argument_list|()
 argument_list|)
 expr_stmt|;

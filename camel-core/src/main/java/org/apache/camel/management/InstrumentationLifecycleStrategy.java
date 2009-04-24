@@ -1080,6 +1080,18 @@ name|getOutputs
 argument_list|()
 control|)
 block|{
+comment|// skip processors that should not be registered
+if|if
+condition|(
+operator|!
+name|registerProcessor
+argument_list|(
+name|processor
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 name|ObjectName
 name|name
 init|=
@@ -1166,7 +1178,6 @@ expr_stmt|;
 block|}
 block|}
 comment|// add intercept strategy that executes the JMX instrumentation for performance metrics
-comment|// TODO: We could do as below with an inlined implementation instead of a separate class
 name|routeContext
 operator|.
 name|addInterceptStrategy
@@ -1285,6 +1296,60 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Should the given processor be registered.      */
+DECL|method|registerProcessor (ProcessorDefinition processor)
+specifier|protected
+name|boolean
+name|registerProcessor
+parameter_list|(
+name|ProcessorDefinition
+name|processor
+parameter_list|)
+block|{
+if|if
+condition|(
+name|agent
+operator|instanceof
+name|DefaultInstrumentationAgent
+condition|)
+block|{
+name|DefaultInstrumentationAgent
+name|dia
+init|=
+operator|(
+name|DefaultInstrumentationAgent
+operator|)
+name|agent
+decl_stmt|;
+if|if
+condition|(
+name|dia
+operator|.
+name|getOnlyRegisterProcessorWithCustomId
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|dia
+operator|.
+name|getOnlyRegisterProcessorWithCustomId
+argument_list|()
+condition|)
+block|{
+comment|// only register if the processor have an explicy id assigned
+return|return
+name|processor
+operator|.
+name|hasCustomIdAssigned
+argument_list|()
+return|;
+block|}
+block|}
+comment|// fallback to always register it
+return|return
+literal|true
+return|;
 block|}
 DECL|method|getNamingStrategy ()
 specifier|public

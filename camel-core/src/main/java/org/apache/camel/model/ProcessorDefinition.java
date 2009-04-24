@@ -2016,6 +2016,67 @@ name|endpoints
 argument_list|)
 return|;
 block|}
+comment|/**      * Sets the id of this node      *      * @param id  the id      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|id (String id)
+specifier|public
+name|Type
+name|id
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+if|if
+condition|(
+name|getOutputs
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// set id on this
+name|setId
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// set it on last output as this is what the user means to do
+name|getOutputs
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|getOutputs
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+operator|.
+name|setId
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/multicast.html">Multicast EIP:</a>      * Multicasts messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other.      *      * @return the builder      */
 DECL|method|multicast ()
 specifier|public

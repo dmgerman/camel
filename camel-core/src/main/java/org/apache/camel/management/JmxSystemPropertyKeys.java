@@ -107,6 +107,16 @@ name|USE_PLATFORM_MBS
 init|=
 literal|"org.apache.camel.jmx.usePlatformMBeanServer"
 decl_stmt|;
+comment|// whether all processors or only processors with a custom id given should be registered
+DECL|field|ONLY_REGISTER_PROCESSOR_WITH_CUSTOM_ID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ONLY_REGISTER_PROCESSOR_WITH_CUSTOM_ID
+init|=
+literal|"org.apache.camel.jmx.onlyRegisterProcessorWithCustomId"
+decl_stmt|;
 DECL|method|JmxSystemPropertyKeys ()
 specifier|private
 name|JmxSystemPropertyKeys
