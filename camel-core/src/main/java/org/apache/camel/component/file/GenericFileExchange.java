@@ -378,7 +378,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"CamelFilePath"
+name|Exchange
+operator|.
+name|FILE_PATH
 argument_list|,
 name|file
 operator|.
@@ -417,7 +419,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"CamelFilePath"
+name|Exchange
+operator|.
+name|FILE_PATH
 argument_list|,
 name|path
 argument_list|)
@@ -441,7 +445,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"CamelFileParent"
+name|Exchange
+operator|.
+name|FILE_PARENT
 argument_list|,
 name|file
 operator|.
