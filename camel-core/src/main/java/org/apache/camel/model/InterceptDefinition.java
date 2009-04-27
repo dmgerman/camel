@@ -190,7 +190,7 @@ block|{
 annotation|@
 name|XmlTransient
 DECL|field|proceed
-specifier|private
+specifier|protected
 name|ProceedDefinition
 name|proceed
 init|=
@@ -201,7 +201,7 @@ decl_stmt|;
 annotation|@
 name|XmlTransient
 DECL|field|stopIntercept
-specifier|private
+specifier|protected
 name|Boolean
 name|stopIntercept
 init|=
@@ -212,7 +212,7 @@ decl_stmt|;
 annotation|@
 name|XmlTransient
 DECL|field|usePredicate
-specifier|private
+specifier|protected
 name|Boolean
 name|usePredicate
 init|=

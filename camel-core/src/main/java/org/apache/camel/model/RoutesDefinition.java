@@ -608,6 +608,42 @@ range|:
 name|intercepts
 control|)
 block|{
+if|if
+condition|(
+name|intercept
+operator|instanceof
+name|InterceptEndpointDefinition
+condition|)
+block|{
+comment|// special intercept for intercepting sending to an endpoint
+name|InterceptEndpointDefinition
+name|ied
+init|=
+operator|(
+name|InterceptEndpointDefinition
+operator|)
+name|intercept
+decl_stmt|;
+comment|// init interceptor by letting it proxy the real endpoint
+name|ied
+operator|.
+name|proxyEndpoint
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|route
+operator|.
+name|addOutput
+argument_list|(
+name|ied
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// regular interceptor
 comment|// need to create a proxy for this one and use the
 comment|// proceed of the proxy which will be local to this route
 name|InterceptDefinition
@@ -635,6 +671,7 @@ name|getProceed
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|route
 operator|.
@@ -717,6 +754,38 @@ name|when
 argument_list|(
 name|predicate
 argument_list|)
+return|;
+block|}
+comment|/**      * Creates and adds an interceptor that is triggered when an exchange is      * routed to the given endpoint      *      * @param uri uri of the endpoint      * @return  the builder      */
+DECL|method|interceptEndpoint (final String uri)
+specifier|public
+name|InterceptEndpointDefinition
+name|interceptEndpoint
+parameter_list|(
+specifier|final
+name|String
+name|uri
+parameter_list|)
+block|{
+name|InterceptEndpointDefinition
+name|answer
+init|=
+operator|new
+name|InterceptEndpointDefinition
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+name|getIntercepts
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 comment|/**      * Adds an on exception      *       * @param exception  the exception      * @return the builder      */

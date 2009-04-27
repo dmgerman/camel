@@ -2402,6 +2402,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// If it's a singleton then auto register it.
+comment|// TODO: Why not test for isSingleton?
 if|if
 condition|(
 name|answer
@@ -2511,6 +2512,26 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|instanceof
+name|InterceptEndpoint
+condition|)
+block|{
+name|endpoint
+operator|=
+operator|(
+operator|(
+name|InterceptEndpoint
+operator|)
+name|endpoint
+operator|)
+operator|.
+name|getDelegate
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|endpointType
