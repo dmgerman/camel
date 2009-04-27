@@ -1353,9 +1353,6 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|streaming
-argument_list|()
-operator|.
 name|process
 argument_list|(
 operator|new
