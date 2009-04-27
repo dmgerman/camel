@@ -408,7 +408,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Pipeline
+name|InterceptEndpointProcessor
 import|;
 end_import
 
@@ -422,7 +422,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|InterceptEndpointProcessor
+name|Pipeline
 import|;
 end_import
 
