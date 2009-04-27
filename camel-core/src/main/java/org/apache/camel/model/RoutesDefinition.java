@@ -612,20 +612,20 @@ if|if
 condition|(
 name|intercept
 operator|instanceof
-name|InterceptEndpointDefinition
+name|InterceptSendToEndpointDefinition
 condition|)
 block|{
 comment|// special intercept for intercepting sending to an endpoint
-name|InterceptEndpointDefinition
-name|ied
+name|InterceptSendToEndpointDefinition
+name|sendTo
 init|=
 operator|(
-name|InterceptEndpointDefinition
+name|InterceptSendToEndpointDefinition
 operator|)
 name|intercept
 decl_stmt|;
 comment|// init interceptor by letting it proxy the real endpoint
-name|ied
+name|sendTo
 operator|.
 name|proxyEndpoint
 argument_list|(
@@ -637,7 +637,7 @@ name|route
 operator|.
 name|addOutput
 argument_list|(
-name|ied
+name|sendTo
 argument_list|)
 expr_stmt|;
 block|}
@@ -756,22 +756,22 @@ name|predicate
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates and adds an interceptor that is triggered when an exchange is      * routed to the given endpoint      *      * @param uri uri of the endpoint      * @return  the builder      */
-DECL|method|interceptEndpoint (final String uri)
+comment|/**      * Creates and adds an interceptor that is triggered when an exchange is      * send to the given endpoint      *      * @param uri uri of the endpoint      * @return  the builder      */
+DECL|method|interceptSendToEndpoint (final String uri)
 specifier|public
-name|InterceptEndpointDefinition
-name|interceptEndpoint
+name|InterceptSendToEndpointDefinition
+name|interceptSendToEndpoint
 parameter_list|(
 specifier|final
 name|String
 name|uri
 parameter_list|)
 block|{
-name|InterceptEndpointDefinition
+name|InterceptSendToEndpointDefinition
 name|answer
 init|=
 operator|new
-name|InterceptEndpointDefinition
+name|InterceptSendToEndpointDefinition
 argument_list|(
 name|uri
 argument_list|)

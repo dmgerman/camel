@@ -32,16 +32,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -388,7 +378,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptEndpointDefinition
+name|InterceptSendToEndpointDefinition
 import|;
 end_import
 
@@ -1175,24 +1165,24 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"interceptEndpoint"
+literal|"interceptSendToEndpoint"
 argument_list|,
 name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|interceptEndpoints
+DECL|field|interceptSendToEndpoints
 specifier|private
 name|List
 argument_list|<
-name|InterceptEndpointDefinition
+name|InterceptSendToEndpointDefinition
 argument_list|>
-name|interceptEndpoints
+name|interceptSendToEndpoints
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|InterceptEndpointDefinition
+name|InterceptSendToEndpointDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -2098,10 +2088,10 @@ block|}
 block|}
 for|for
 control|(
-name|InterceptEndpointDefinition
+name|InterceptSendToEndpointDefinition
 name|intercept
 range|:
-name|interceptEndpoints
+name|interceptSendToEndpoints
 control|)
 block|{
 comment|// special intercept for intercepting sending to an endpoint
@@ -2780,36 +2770,36 @@ operator|=
 name|intercepts
 expr_stmt|;
 block|}
-DECL|method|getInterceptEndpoints ()
+DECL|method|getInterceptSendToEndpoints ()
 specifier|public
 name|List
 argument_list|<
-name|InterceptEndpointDefinition
+name|InterceptSendToEndpointDefinition
 argument_list|>
-name|getInterceptEndpoints
+name|getInterceptSendToEndpoints
 parameter_list|()
 block|{
 return|return
-name|interceptEndpoints
+name|interceptSendToEndpoints
 return|;
 block|}
-DECL|method|setInterceptEndpoints (List<InterceptEndpointDefinition> interceptEndpoints)
+DECL|method|setInterceptSendToEndpoints (List<InterceptSendToEndpointDefinition> interceptSendToEndpoints)
 specifier|public
 name|void
-name|setInterceptEndpoints
+name|setInterceptSendToEndpoints
 parameter_list|(
 name|List
 argument_list|<
-name|InterceptEndpointDefinition
+name|InterceptSendToEndpointDefinition
 argument_list|>
-name|interceptEndpoints
+name|interceptSendToEndpoints
 parameter_list|)
 block|{
 name|this
 operator|.
-name|interceptEndpoints
+name|interceptSendToEndpoints
 operator|=
-name|interceptEndpoints
+name|interceptSendToEndpoints
 expr_stmt|;
 block|}
 DECL|method|getRouteBuilder ()

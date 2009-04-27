@@ -568,11 +568,11 @@ name|predicate
 argument_list|)
 return|;
 block|}
-comment|/**      * Applies a route for an interceptor if an exchange is routed      * to the given endpoint      *      * @param uri  endpoint uri      * @return the builder      */
-DECL|method|interceptEndpoint (String uri)
+comment|/**      * Applies a route for an interceptor if an exchange is send to the given endpoint      *      * @param uri  endpoint uri      * @return the builder      */
+DECL|method|interceptSendToEndpoint (String uri)
 specifier|public
 name|InterceptDefinition
-name|interceptEndpoint
+name|interceptSendToEndpoint
 parameter_list|(
 name|String
 name|uri
@@ -589,7 +589,7 @@ expr_stmt|;
 return|return
 name|routeCollection
 operator|.
-name|interceptEndpoint
+name|interceptSendToEndpoint
 argument_list|(
 name|uri
 argument_list|)

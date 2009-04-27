@@ -1527,11 +1527,11 @@ name|builder
 operator|.
 name|addPropertyValue
 argument_list|(
-literal|"interceptEndpoints"
+literal|"interceptSendToEndpoints"
 argument_list|,
 name|factoryBean
 operator|.
-name|getInterceptEndpoints
+name|getInterceptSendToEndpoints
 argument_list|()
 argument_list|)
 expr_stmt|;

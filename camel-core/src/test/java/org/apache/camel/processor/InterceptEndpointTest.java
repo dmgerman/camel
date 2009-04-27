@@ -96,7 +96,7 @@ comment|// we intercept by endpoint, that means that whenever an exchange is abo
 comment|// this endpoint, its intercepted and routed with this detour route beforehand
 comment|// afterwards its send to the original intended destination. So this is kinda AOP before.
 comment|// That means mock:foo will receive the message (Bye World).
-name|interceptEndpoint
+name|interceptSendToEndpoint
 argument_list|(
 literal|"mock:foo"
 argument_list|)
@@ -225,7 +225,7 @@ block|{
 comment|// START SNIPPET: e2
 comment|// we can also attach a predicate to the endpoint interceptor. So in this example the exchange is
 comment|// only intercepted if the body is Hello World
-name|interceptEndpoint
+name|interceptSendToEndpoint
 argument_list|(
 literal|"mock:foo"
 argument_list|)
@@ -384,7 +384,7 @@ comment|// sending the exchange to the original intended destination.
 comment|// That means that mock:foo will NOT receive the message, but the message
 comment|// is skipped and continued in the original route, so mock:result will receive
 comment|// the message.
-name|interceptEndpoint
+name|interceptSendToEndpoint
 argument_list|(
 literal|"mock:foo"
 argument_list|)
@@ -515,7 +515,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|interceptEndpoint
+name|interceptSendToEndpoint
 argument_list|(
 literal|"direct:start"
 argument_list|)

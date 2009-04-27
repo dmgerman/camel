@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;interceptEndpoint/&gt; element  *  * @version $Revision$  */
+comment|/**  * Represents an XML&lt;interceptToEndpoint/&gt; element  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -198,7 +198,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"interceptEndpoint"
+literal|"interceptToEndpoint"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -207,10 +207,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|InterceptEndpointDefinition
+DECL|class|InterceptSendToEndpointDefinition
 specifier|public
 class|class
-name|InterceptEndpointDefinition
+name|InterceptSendToEndpointDefinition
 extends|extends
 name|InterceptDefinition
 block|{
@@ -228,14 +228,14 @@ specifier|private
 name|String
 name|uri
 decl_stmt|;
-DECL|method|InterceptEndpointDefinition ()
+DECL|method|InterceptSendToEndpointDefinition ()
 specifier|public
-name|InterceptEndpointDefinition
+name|InterceptSendToEndpointDefinition
 parameter_list|()
 block|{     }
-DECL|method|InterceptEndpointDefinition (String uri)
+DECL|method|InterceptSendToEndpointDefinition (String uri)
 specifier|public
-name|InterceptEndpointDefinition
+name|InterceptSendToEndpointDefinition
 parameter_list|(
 name|String
 name|uri
