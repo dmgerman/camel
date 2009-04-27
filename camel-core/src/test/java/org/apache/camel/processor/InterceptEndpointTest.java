@@ -222,7 +222,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// START SNIPPET: e1
+comment|// START SNIPPET: e2
 comment|// we can also attach a predicate to the endpoint interceptor. So in this example the exchange is
 comment|// only intercepted if the body is Hello World
 name|interceptEndpoint
@@ -274,7 +274,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: e1
+comment|// END SNIPPET: e2
 block|}
 block|}
 argument_list|)
@@ -378,7 +378,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// START SNIPPET: e1
+comment|// START SNIPPET: e3
 comment|// since we use the stop() at the end of the detour route we instruct Camel to skip
 comment|// sending the exchange to the original intended destination.
 comment|// That means that mock:foo will NOT receive the message, but the message
@@ -425,7 +425,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: e1
+comment|// END SNIPPET: e3
 block|}
 block|}
 argument_list|)
