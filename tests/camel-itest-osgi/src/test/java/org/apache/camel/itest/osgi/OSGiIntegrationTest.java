@@ -312,13 +312,9 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|container
+name|CoreOptions
 operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|scanFeatures
+name|systemProperty
 import|;
 end_import
 
@@ -332,9 +328,13 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|CoreOptions
+name|container
 operator|.
-name|systemProperty
+name|def
+operator|.
+name|PaxRunnerOptions
+operator|.
+name|scanFeatures
 import|;
 end_import
 
@@ -431,37 +431,6 @@ argument_list|(
 literal|"************ Hello from OSGi ************"
 argument_list|)
 expr_stmt|;
-for|for
-control|(
-name|Bundle
-name|b
-range|:
-name|bundleContext
-operator|.
-name|getBundles
-argument_list|()
-control|)
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Bundle "
-operator|+
-name|b
-operator|.
-name|getBundleId
-argument_list|()
-operator|+
-literal|" : "
-operator|+
-name|b
-operator|.
-name|getSymbolicName
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 comment|// TODO we should be using Camel OSGi really to deal with class loader issues
 name|CamelContext
 name|camelContext
@@ -566,28 +535,36 @@ argument_list|)
 operator|.
 name|value
 argument_list|(
-literal|"DEBUG"
+literal|"INFO"
 argument_list|)
 argument_list|,
-comment|// lets deploy the bundles we need
+comment|// using the features to install the camel components
+name|scanFeatures
+argument_list|(
 name|mavenBundle
 argument_list|()
 operator|.
 name|groupId
 argument_list|(
-literal|"org.apache.camel"
+literal|"org.apache.camel.karaf"
 argument_list|)
 operator|.
 name|artifactId
 argument_list|(
-literal|"camel-core"
+literal|"features"
 argument_list|)
 operator|.
 name|versionAsInProject
 argument_list|()
+operator|.
+name|type
+argument_list|(
+literal|"xml/features"
+argument_list|)
 argument_list|,
-comment|//scanFeatures("mvn:org.apache.camel.karaf/features/2.0-SNAPSHOT/xml/features",
-comment|//              "camel-core"),
+literal|"camel-core"
+argument_list|)
+argument_list|,
 name|knopflerfish
 argument_list|()
 argument_list|,
