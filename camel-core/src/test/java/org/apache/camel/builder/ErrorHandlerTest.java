@@ -533,10 +533,10 @@ argument_list|,
 name|route
 argument_list|)
 decl_stmt|;
-name|Processor
-name|processor
+name|Channel
+name|channel
 init|=
-name|unwrap
+name|unwrapChannel
 argument_list|(
 name|consumerRoute
 operator|.
@@ -550,7 +550,10 @@ name|SendProcessor
 operator|.
 name|class
 argument_list|,
-name|processor
+name|channel
+operator|.
+name|getNextProcessor
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

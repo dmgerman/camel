@@ -2677,7 +2677,7 @@ name|unwrapChannel
 argument_list|(
 name|idempotentConsumer
 operator|.
-name|getNextProcessor
+name|getProcessor
 argument_list|()
 argument_list|)
 operator|.

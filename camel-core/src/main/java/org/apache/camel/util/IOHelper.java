@@ -111,7 +111,7 @@ parameter_list|()
 block|{
 comment|//Utility Class
 block|}
-comment|/**      * Use this function instead of new String(byte[]) to avoid surprises from non-standard default encodings.      * @param bytes      * @return      */
+comment|/**      * Use this function instead of new String(byte[]) to avoid surprises from non-standard default encodings.      */
 DECL|method|newStringFromBytes (byte[] bytes)
 specifier|public
 specifier|static
@@ -149,11 +149,13 @@ operator|new
 name|RuntimeException
 argument_list|(
 literal|"Impossible failure: Charset.forName(\"utf-8\") returns invalid name."
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Use this function instead of new String(byte[], int, int)       * to avoid surprises from non-standard default encodings.      * @param bytes      * @param start      * @param length      * @return      */
+comment|/**      * Use this function instead of new String(byte[], int, int)       * to avoid surprises from non-standard default encodings.      */
 DECL|method|newStringFromBytes (byte[] bytes, int start, int length)
 specifier|public
 specifier|static
@@ -201,6 +203,8 @@ operator|new
 name|RuntimeException
 argument_list|(
 literal|"Impossible failure: Charset.forName(\"utf-8\") returns invalid name."
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}

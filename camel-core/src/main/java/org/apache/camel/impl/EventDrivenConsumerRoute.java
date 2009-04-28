@@ -58,7 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|Navigate
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
+name|Processor
 import|;
 end_import
 
@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Route} which starts with an  *<a href="http://camel.apache.org/event-driven-consumer.html">Event Driven Consumer</a>  *  * @version $Revision$  */
+comment|/**  * A {@link DefaultRoute} which starts with an  *<a href="http://camel.apache.org/event-driven-consumer.html">Event Driven Consumer</a>  *  * @version $Revision$  */
 end_comment
 
 begin_class
@@ -96,10 +96,11 @@ specifier|public
 class|class
 name|EventDrivenConsumerRoute
 extends|extends
-name|Route
+name|DefaultRoute
 block|{
 DECL|field|processor
 specifier|private
+specifier|final
 name|Processor
 name|processor
 decl_stmt|;
@@ -156,22 +157,6 @@ block|{
 return|return
 name|processor
 return|;
-block|}
-DECL|method|setProcessor (Processor processor)
-specifier|public
-name|void
-name|setProcessor
-parameter_list|(
-name|Processor
-name|processor
-parameter_list|)
-block|{
-name|this
-operator|.
-name|processor
-operator|=
-name|processor
-expr_stmt|;
 block|}
 comment|/**      * Factory method to lazily create the complete list of services required for this route      * such as adding the processor or consumer      */
 annotation|@
@@ -245,6 +230,38 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|navigate ()
+specifier|public
+name|Navigate
+argument_list|<
+name|Processor
+argument_list|>
+name|navigate
+parameter_list|()
+block|{
+if|if
+condition|(
+name|processor
+operator|instanceof
+name|Navigate
+condition|)
+block|{
+return|return
+operator|(
+name|Navigate
+operator|)
+name|processor
+return|;
+block|}
+return|return
+literal|null
+return|;
 block|}
 block|}
 end_class

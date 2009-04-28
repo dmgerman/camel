@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -39,6 +59,18 @@ operator|.
 name|camel
 operator|.
 name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Navigate
 import|;
 end_import
 
@@ -137,6 +169,11 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|Processor
+implements|,
+name|Navigate
+argument_list|<
+name|Processor
+argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
@@ -161,11 +198,11 @@ specifier|final
 name|Expression
 name|messageIdExpression
 decl_stmt|;
-DECL|field|nextProcessor
+DECL|field|processor
 specifier|private
 specifier|final
 name|Processor
-name|nextProcessor
+name|processor
 decl_stmt|;
 DECL|field|idempotentRepository
 specifier|private
@@ -173,7 +210,7 @@ specifier|final
 name|IdempotentRepository
 name|idempotentRepository
 decl_stmt|;
-DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository idempotentRepository, Processor nextProcessor)
+DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository idempotentRepository, Processor processor)
 specifier|public
 name|IdempotentConsumer
 parameter_list|(
@@ -184,7 +221,7 @@ name|IdempotentRepository
 name|idempotentRepository
 parameter_list|,
 name|Processor
-name|nextProcessor
+name|processor
 parameter_list|)
 block|{
 name|this
@@ -201,9 +238,9 @@ name|idempotentRepository
 expr_stmt|;
 name|this
 operator|.
-name|nextProcessor
+name|processor
 operator|=
-name|nextProcessor
+name|processor
 expr_stmt|;
 block|}
 annotation|@
@@ -225,7 +262,7 @@ name|idempotentRepository
 operator|+
 literal|", processor="
 operator|+
-name|nextProcessor
+name|processor
 operator|+
 literal|"]"
 return|;
@@ -298,7 +335,7 @@ block|}
 else|else
 block|{
 comment|// process it first
-name|nextProcessor
+name|processor
 operator|.
 name|process
 argument_list|(
@@ -335,6 +372,64 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|next ()
+specifier|public
+name|List
+argument_list|<
+name|Processor
+argument_list|>
+name|next
+parameter_list|()
+block|{
+if|if
+condition|(
+operator|!
+name|hasNext
+argument_list|()
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+name|List
+argument_list|<
+name|Processor
+argument_list|>
+name|answer
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Processor
+argument_list|>
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|add
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+DECL|method|hasNext ()
+specifier|public
+name|boolean
+name|hasNext
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|!=
+literal|null
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getMessageIdExpression ()
@@ -357,14 +452,14 @@ return|return
 name|idempotentRepository
 return|;
 block|}
-DECL|method|getNextProcessor ()
+DECL|method|getProcessor ()
 specifier|public
 name|Processor
-name|getNextProcessor
+name|getProcessor
 parameter_list|()
 block|{
 return|return
-name|nextProcessor
+name|processor
 return|;
 block|}
 comment|// Implementation methods
@@ -381,7 +476,7 @@ name|ServiceHelper
 operator|.
 name|startServices
 argument_list|(
-name|nextProcessor
+name|processor
 argument_list|)
 expr_stmt|;
 block|}
@@ -397,7 +492,7 @@ name|ServiceHelper
 operator|.
 name|stopServices
 argument_list|(
-name|nextProcessor
+name|processor
 argument_list|)
 expr_stmt|;
 block|}

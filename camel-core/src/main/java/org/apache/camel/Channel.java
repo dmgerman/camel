@@ -77,21 +77,30 @@ interface|interface
 name|Channel
 extends|extends
 name|Processor
+extends|,
+name|Navigate
+argument_list|<
+name|Processor
+argument_list|>
 block|{
-comment|// TODO: This interface method names are not 100% settled yet
-comment|// some methods should many be moved to DefaultChannel only as they are more used for testing purpose
-comment|// and we should add methods to traverse the channels
-comment|// and maybe a channel registry
-comment|/**      * Sets the processor that the channel should route the {@link Exchange} to.      *      * @param output  the next output      */
-DECL|method|setNextProcessor (Processor output)
+DECL|method|next ()
+name|List
+argument_list|<
+name|Processor
+argument_list|>
+name|next
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the processor that the channel should route the {@link Exchange} to.      *      * @param next  the next processor      */
+DECL|method|setNextProcessor (Processor next)
 name|void
 name|setNextProcessor
 parameter_list|(
 name|Processor
-name|output
+name|next
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the {@link org.apache.camel.processor.ErrorHandler} that the Channel uses.       * @param errorHandler the error handler      */
+comment|/**      * Sets the {@link org.apache.camel.processor.ErrorHandler} this Channel uses.      *      * @param errorHandler the error handler      */
 DECL|method|setErrorHandler (Processor errorHandler)
 name|void
 name|setErrorHandler
@@ -100,6 +109,7 @@ name|Processor
 name|errorHandler
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the {@link org.apache.camel.processor.ErrorHandler} this Channel uses.      *      * @return the error handler, or<tt>null</tt> if no error handler is used.      */
 DECL|method|getErrorHandler ()
 name|Processor
 name|getErrorHandler
@@ -126,6 +136,15 @@ argument_list|>
 name|strategy
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the list of {@link org.apache.camel.spi.InterceptStrategy} registered to this Channel.      *      * @return list of strategies, returns an empty list if no strategies is registered.      */
+DECL|method|getInterceptStrategies ()
+name|List
+argument_list|<
+name|InterceptStrategy
+argument_list|>
+name|getInterceptStrategies
+parameter_list|()
+function_decl|;
 comment|/**      * Initializes the channel.      *      * @param outputDefinition  the route defintion the {@link Channel} represents      * @param routeContext      the route context      * @throws Exception is thrown if some error occured      */
 DECL|method|initChannel (ProcessorDefinition outputDefinition, RouteContext routeContext)
 name|void
@@ -140,25 +159,32 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Gets the wrapped output that at runtime should be delegated to.      *      * @return the output delegated to      */
+comment|/**      * Gets the wrapped output that at runtime should be delegated to.      *      * @return the output to route the {@link Exchange} to      */
 DECL|method|getOutput ()
 name|Processor
 name|getOutput
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the original next {@link Processor} that is not wrapped.      *      * @return  the next processor      */
+comment|/**      * Sets the wrapped output that at runtime should be delegated to.      *      * @param output the output to route the {@link Exchange} to      */
+DECL|method|setOutput (Processor output)
+name|void
+name|setOutput
+parameter_list|(
+name|Processor
+name|output
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the next {@link Processor} to route to (not wrapped)      *      * @return  the next processor      */
 DECL|method|getNextProcessor ()
 name|Processor
 name|getNextProcessor
 parameter_list|()
 function_decl|;
-DECL|method|hasInterceptorStrategy (Class type)
-name|boolean
-name|hasInterceptorStrategy
-parameter_list|(
-name|Class
-name|type
-parameter_list|)
+comment|/**      * Gets the defintion of the next processor      */
+DECL|method|getProcessorDefinition ()
+name|ProcessorDefinition
+name|getProcessorDefinition
+parameter_list|()
 function_decl|;
 block|}
 end_interface

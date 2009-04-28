@@ -60,18 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -192,12 +180,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Integer
-name|value
+name|int
+name|count
 init|=
 name|ExchangeHelper
 operator|.
-name|convertToType
+name|convertToMandatoryType
 argument_list|(
 name|exchange
 argument_list|,
@@ -207,31 +195,6 @@ name|class
 argument_list|,
 name|text
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|value
-operator|==
-literal|null
-condition|)
-block|{
-comment|// TODO: we should probably catch evaluate/convert exception an set is as fault (after fix for CAMEL-316)
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-literal|"Expression \""
-operator|+
-name|expression
-operator|+
-literal|"\" is not convertable to an Integer."
-argument_list|)
-throw|;
-block|}
-name|int
-name|count
-init|=
-name|value
 decl_stmt|;
 name|exchange
 operator|.

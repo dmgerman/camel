@@ -745,8 +745,7 @@ name|void
 name|commit
 parameter_list|()
 block|{
-comment|// now lets turn all of the event driven consumer processors into a
-comment|// single route
+comment|// now lets turn all of the event driven consumer processors into a single route
 if|if
 condition|(
 operator|!
@@ -778,8 +777,7 @@ argument_list|(
 name|processor
 argument_list|)
 decl_stmt|;
-comment|// and wrap it in a unit of work so the UoW is on the top, so the entire route
-comment|// will be in the same UoW
+comment|// and wrap it in a unit of work so the UoW is on the top, so the entire route will be in the same UoW
 name|Processor
 name|unitOfWorkProcessor
 init|=
@@ -789,7 +787,7 @@ argument_list|(
 name|asyncProcessor
 argument_list|)
 decl_stmt|;
-comment|// TODO: hz: move all this into the lifecycle strategy! (used by jmx naming strategy)
+comment|// and create the route that wraps the UoW
 name|Route
 name|edcr
 init|=

@@ -86,6 +86,25 @@ name|type
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"convertBodyTo["
+operator|+
+name|type
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -163,6 +182,16 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getType ()
+specifier|public
+name|Class
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
 block|}
 block|}
 end_class

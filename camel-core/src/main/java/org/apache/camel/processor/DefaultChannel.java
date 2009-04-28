@@ -104,6 +104,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|ProcessorDefinition
@@ -176,7 +190,7 @@ specifier|public
 class|class
 name|DefaultChannel
 extends|extends
-name|DelegateProcessor
+name|ServiceSupport
 implements|implements
 name|AsyncProcessor
 implements|,
@@ -203,32 +217,84 @@ specifier|private
 name|Processor
 name|errorHandler
 decl_stmt|;
-comment|// target is the original output
+comment|// the next processor (non wrapped)
 DECL|field|nextProcessor
 specifier|private
 name|Processor
 name|nextProcessor
 decl_stmt|;
-comment|// output is the real output used as its wrapped by error handler and interceptors
+comment|// the real output to invoke that has been wrapped
 DECL|field|output
 specifier|private
 name|Processor
 name|output
 decl_stmt|;
-DECL|method|setNextProcessor (Processor output)
+DECL|field|definition
+specifier|private
+name|ProcessorDefinition
+name|definition
+decl_stmt|;
+DECL|method|next ()
+specifier|public
+name|List
+argument_list|<
+name|Processor
+argument_list|>
+name|next
+parameter_list|()
+block|{
+name|List
+argument_list|<
+name|Processor
+argument_list|>
+name|answer
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Processor
+argument_list|>
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|add
+argument_list|(
+name|nextProcessor
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+DECL|method|hasNext ()
+specifier|public
+name|boolean
+name|hasNext
+parameter_list|()
+block|{
+return|return
+name|nextProcessor
+operator|!=
+literal|null
+return|;
+block|}
+DECL|method|setNextProcessor (Processor next)
 specifier|public
 name|void
 name|setNextProcessor
 parameter_list|(
 name|Processor
-name|output
+name|next
 parameter_list|)
 block|{
 name|this
 operator|.
 name|nextProcessor
 operator|=
-name|output
+name|next
 expr_stmt|;
 block|}
 DECL|method|getOutput ()
@@ -249,6 +315,22 @@ name|errorHandler
 else|:
 name|output
 return|;
+block|}
+DECL|method|setOutput (Processor output)
+specifier|public
+name|void
+name|setOutput
+parameter_list|(
+name|Processor
+name|output
+parameter_list|)
+block|{
+name|this
+operator|.
+name|output
+operator|=
+name|output
+expr_stmt|;
 block|}
 DECL|method|getNextProcessor ()
 specifier|public
@@ -359,6 +441,29 @@ name|strategies
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getInterceptStrategies ()
+specifier|public
+name|List
+argument_list|<
+name|InterceptStrategy
+argument_list|>
+name|getInterceptStrategies
+parameter_list|()
+block|{
+return|return
+name|interceptors
+return|;
+block|}
+DECL|method|getProcessorDefinition ()
+specifier|public
+name|ProcessorDefinition
+name|getProcessorDefinition
+parameter_list|()
+block|{
+return|return
+name|definition
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -369,11 +474,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
 name|ServiceHelper
 operator|.
 name|startServices
@@ -403,11 +503,6 @@ argument_list|,
 name|errorHandler
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|initChannel (ProcessorDefinition outputDefinition, RouteContext routeContext)
 specifier|public
@@ -423,6 +518,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|this
+operator|.
+name|definition
+operator|=
+name|outputDefinition
+expr_stmt|;
 comment|// TODO: Support ordering of interceptors
 comment|// wrap the output with the interceptors
 name|Processor
@@ -455,14 +556,7 @@ name|output
 operator|=
 name|target
 expr_stmt|;
-name|setProcessor
-argument_list|(
-name|target
-argument_list|)
-expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
