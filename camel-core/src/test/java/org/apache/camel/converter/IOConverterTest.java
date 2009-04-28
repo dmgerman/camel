@@ -177,6 +177,24 @@ name|data
 operator|.
 name|length
 operator|-
+literal|2
+index|]
+argument_list|)
+expr_stmt|;
+comment|// should end with a new line
+name|assertEquals
+argument_list|(
+literal|'\n'
+argument_list|,
+operator|(
+name|char
+operator|)
+name|data
+index|[
+name|data
+operator|.
+name|length
+operator|-
 literal|1
 index|]
 argument_list|)
