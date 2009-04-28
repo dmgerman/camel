@@ -1156,13 +1156,26 @@ block|{
 name|int
 name|len
 init|=
+literal|0
+decl_stmt|;
+comment|// read until we reach then end which is the -1 marker
+while|while
+condition|(
+name|len
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+name|len
+operator|=
 name|reader
 operator|.
 name|read
 argument_list|(
 name|buf
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|len
@@ -1182,6 +1195,7 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 finally|finally
