@@ -244,6 +244,19 @@ name|getFault
 argument_list|()
 return|;
 block|}
+DECL|method|hasFault ()
+specifier|public
+name|boolean
+name|hasFault
+parameter_list|()
+block|{
+return|return
+name|exchange
+operator|.
+name|hasFault
+argument_list|()
+return|;
+block|}
 DECL|method|getFromEndpoint ()
 specifier|public
 name|Endpoint
@@ -280,9 +293,20 @@ return|return
 name|exchange
 operator|.
 name|getOut
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
+return|;
+block|}
+DECL|method|hasOut ()
+specifier|public
+name|boolean
+name|hasOut
+parameter_list|()
+block|{
+return|return
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
 return|;
 block|}
 DECL|method|getProperties ()

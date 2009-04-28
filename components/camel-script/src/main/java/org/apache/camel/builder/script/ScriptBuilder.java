@@ -1849,6 +1849,14 @@ argument_list|,
 name|scope
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
 name|context
 operator|.
 name|setAttribute
@@ -1858,13 +1866,12 @@ argument_list|,
 name|exchange
 operator|.
 name|getOut
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 argument_list|,
 name|scope
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|createScriptReader ()
 specifier|protected

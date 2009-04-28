@@ -494,12 +494,8 @@ if|if
 condition|(
 name|exchange
 operator|.
-name|getOut
-argument_list|(
-literal|false
-argument_list|)
-operator|!=
-literal|null
+name|hasOut
+argument_list|()
 condition|)
 block|{
 comment|// process OK so get the reply
@@ -508,9 +504,7 @@ operator|=
 name|exchange
 operator|.
 name|getOut
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|sendReply
 operator|=

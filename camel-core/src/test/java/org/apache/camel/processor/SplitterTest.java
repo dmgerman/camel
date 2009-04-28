@@ -478,14 +478,14 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-name|assertNull
+name|assertFalse
 argument_list|(
+literal|"Should not have out"
+argument_list|,
 name|result
 operator|.
-name|getOut
-argument_list|(
-literal|false
-argument_list|)
+name|hasOut
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

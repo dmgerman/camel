@@ -764,21 +764,12 @@ argument_list|()
 return|;
 block|}
 comment|// okay no fault then return the response
-name|boolean
-name|hasOut
-init|=
-name|result
-operator|.
-name|getOut
-argument_list|(
-literal|false
-argument_list|)
-operator|!=
-literal|null
-decl_stmt|;
 if|if
 condition|(
+name|result
+operator|.
 name|hasOut
+argument_list|()
 condition|)
 block|{
 comment|// use OUT as the response
@@ -821,15 +812,21 @@ name|Exchange
 name|result
 parameter_list|)
 block|{
+if|if
+condition|(
+name|result
+operator|.
+name|hasFault
+argument_list|()
+condition|)
+block|{
 name|Message
 name|faultMessage
 init|=
 name|result
 operator|.
 name|getFault
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -856,6 +853,7 @@ block|{
 return|return
 literal|true
 return|;
+block|}
 block|}
 block|}
 return|return

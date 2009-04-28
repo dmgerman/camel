@@ -384,12 +384,19 @@ argument_list|()
 operator|+
 literal|" fault: "
 operator|+
+operator|(
+name|nextExchange
+operator|.
+name|hasFault
+argument_list|()
+condition|?
 name|nextExchange
 operator|.
 name|getFault
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
+else|:
+literal|null
+operator|)
 operator|+
 operator|(
 name|exceptionHandled
@@ -681,12 +688,19 @@ argument_list|()
 operator|+
 literal|" fault: "
 operator|+
+operator|(
+name|nextExchange
+operator|.
+name|hasFault
+argument_list|()
+condition|?
 name|nextExchange
 operator|.
 name|getFault
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
+else|:
+literal|null
+operator|)
 operator|+
 operator|(
 name|exceptionHandled
@@ -834,16 +848,6 @@ expr_stmt|;
 comment|// now lets set the input of the next exchange to the output of the
 comment|// previous message if it is not null
 name|Message
-name|previousOut
-init|=
-name|previousExchange
-operator|.
-name|getOut
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
-name|Message
 name|in
 init|=
 name|answer
@@ -853,16 +857,20 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|previousOut
-operator|!=
-literal|null
+name|previousExchange
+operator|.
+name|hasOut
+argument_list|()
 condition|)
 block|{
 name|in
 operator|.
 name|copyFrom
 argument_list|(
-name|previousOut
+name|previousExchange
+operator|.
+name|getOut
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

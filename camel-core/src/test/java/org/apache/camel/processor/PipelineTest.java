@@ -129,9 +129,7 @@ block|{
 name|exchange
 operator|.
 name|getOut
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 operator|.
 name|copyFrom
 argument_list|(
@@ -209,9 +207,7 @@ block|{
 name|exchange
 operator|.
 name|getFault
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 operator|.
 name|setBody
 argument_list|(

@@ -295,16 +295,14 @@ decl_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|assertNull
+name|assertFalse
 argument_list|(
 literal|"Fault should be removed"
 argument_list|,
 name|response
 operator|.
-name|getFault
-argument_list|(
-literal|false
-argument_list|)
+name|hasFault
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertNotNull

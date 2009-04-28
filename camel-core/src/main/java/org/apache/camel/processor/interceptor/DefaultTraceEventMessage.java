@@ -220,17 +220,6 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-comment|// false because we don't want to introduce side effects
-name|Message
-name|out
-init|=
-name|exchange
-operator|.
-name|getOut
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
 comment|// need to use defensive copies to avoid Exchange altering after the point of interception
 name|this
 operator|.
@@ -375,11 +364,20 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|out
-operator|!=
-literal|null
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
 condition|)
 block|{
+name|Message
+name|out
+init|=
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+decl_stmt|;
 name|this
 operator|.
 name|outHeaders

@@ -429,9 +429,7 @@ init|=
 name|exchange
 operator|.
 name|getOut
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|out
 operator|.

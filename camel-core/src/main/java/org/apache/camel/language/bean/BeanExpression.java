@@ -387,9 +387,7 @@ return|return
 name|newExchange
 operator|.
 name|getOut
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 operator|.
 name|getBody
 argument_list|()

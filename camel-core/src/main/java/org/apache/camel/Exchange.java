@@ -317,13 +317,19 @@ name|Message
 name|in
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the outbound message, lazily creating one if one has not already      * been associated with this exchange. If you want to inspect this property      * but not force lazy creation then invoke the {@link #getOut(boolean)}      * method passing in<tt>false</tt>      *      * @return the response      */
+comment|/**      * Returns the outbound message, lazily creating one if one has not already      * been associated with this exchange. If you want to inspect this property      * but not force lazy creation then invoke the {@link #getOut(boolean)}      * method passing in<tt>false</tt>      *<p/>      * If you want to test whether an OUT message have been set or not, use the {@link #hasOut()} method.      *      * @return the response      */
 DECL|method|getOut ()
 name|Message
 name|getOut
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the outbound message; optionally lazily creating one if one has      * not been associated with this exchange      *      * @param lazyCreate<tt>true</tt> will lazy create the out message      * @return the response      */
+comment|/**      * Returns whether an OUT message has been set or not.      *      * @return<tt>true</tt> if an OUT message exists,<tt>false</tt> otherwise.      */
+DECL|method|hasOut ()
+name|boolean
+name|hasOut
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the outbound message; optionally lazily creating one if one has      * not been associated with this exchange      *      * @param lazyCreate<tt>true</tt> will lazy create the out message      * @return the response      * @deprecated use {@link #hasOut()} or {@link #getOut()}. Will be remove in Camel 2.0 GA.      */
 DECL|method|getOut (boolean lazyCreate)
 name|Message
 name|getOut
@@ -347,7 +353,13 @@ name|Message
 name|getFault
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the fault message; optionally lazily creating one if one has      * not been associated with this exchange      *      * @param lazyCreate<tt>true</tt> will lazy create the fault message      * @return the fault      */
+comment|/**      * Returns whether a FAULT message has been set or not.      *      * @return<tt>true</tt> if a FAULT message exists,<tt>false</tt> otherwise.      */
+DECL|method|hasFault ()
+name|boolean
+name|hasFault
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the fault message; optionally lazily creating one if one has      * not been associated with this exchange      *      * @param lazyCreate<tt>true</tt> will lazy create the fault message      * @return the fault      * @deprecated use {@link #hasFault()} or {@link #getFault()}. Will be remove in Camel 2.0 GA.      */
 DECL|method|getFault (boolean lazyCreate)
 name|Message
 name|getFault

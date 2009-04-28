@@ -626,9 +626,7 @@ init|=
 name|exchange
 operator|.
 name|getOut
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|answer
 operator|.
@@ -909,11 +907,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|CachedOutputStream
-name|cos
-init|=
-literal|null
-decl_stmt|;
 name|InputStream
 name|is
 init|=
@@ -921,8 +914,9 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+name|CachedOutputStream
 name|cos
-operator|=
+init|=
 operator|new
 name|CachedOutputStream
 argument_list|(
@@ -934,7 +928,7 @@ operator|.
 name|getProperties
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|is
 operator|=
 name|GZIPHelper

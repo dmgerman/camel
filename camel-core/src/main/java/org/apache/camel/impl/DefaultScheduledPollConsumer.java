@@ -180,21 +180,12 @@ break|break;
 block|}
 comment|// if the result of the polled exchange has output we should create a new exchange and
 comment|// use the output as input to the next processor
-name|Message
-name|out
-init|=
-name|exchange
-operator|.
-name|getOut
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
-name|out
-operator|!=
-literal|null
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
 condition|)
 block|{
 comment|// lets create a new exchange
@@ -214,7 +205,10 @@ argument_list|()
 operator|.
 name|copyFrom
 argument_list|(
-name|out
+name|exchange
+operator|.
+name|getOut
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|exchange

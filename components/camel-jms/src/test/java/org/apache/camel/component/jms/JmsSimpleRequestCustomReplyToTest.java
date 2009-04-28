@@ -349,14 +349,12 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertFalse
 argument_list|(
 name|out
 operator|.
-name|getOut
-argument_list|(
-literal|false
-argument_list|)
+name|hasOut
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// get the reply from the special reply queue

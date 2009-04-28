@@ -469,12 +469,8 @@ if|if
 condition|(
 name|exchange
 operator|.
-name|getOut
-argument_list|(
-literal|false
-argument_list|)
-operator|!=
-literal|null
+name|hasOut
+argument_list|()
 condition|)
 block|{
 comment|// replace OUT with IN as detour changed something

@@ -578,21 +578,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// only copy the out if its defined
-name|Message
-name|previousOut
-init|=
-name|previousExchange
-operator|.
-name|getOut
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
-name|previousOut
-operator|!=
-literal|null
+name|previousExchange
+operator|.
+name|hasOut
+argument_list|()
 condition|)
 block|{
 name|answer
@@ -602,7 +593,10 @@ argument_list|()
 operator|.
 name|copyFrom
 argument_list|(
-name|previousOut
+name|previousExchange
+operator|.
+name|getOut
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

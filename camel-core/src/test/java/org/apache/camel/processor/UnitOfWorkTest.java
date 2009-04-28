@@ -502,9 +502,7 @@ expr_stmt|;
 name|exchange
 operator|.
 name|getFault
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 operator|.
 name|setBody
 argument_list|(
