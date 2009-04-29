@@ -252,7 +252,7 @@ name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|70008
+literal|70010
 argument_list|,
 name|exchange
 operator|.
@@ -429,7 +429,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|70008
+literal|70010
 argument_list|,
 name|message
 operator|.
