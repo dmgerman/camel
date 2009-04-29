@@ -226,6 +226,32 @@ name|JpaTemplate
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|orm
+operator|.
+name|jpa
+operator|.
+name|JpaTransactionManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|transaction
+operator|.
+name|PlatformTransactionManager
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -242,6 +268,11 @@ DECL|field|entityManagerFactory
 specifier|private
 name|EntityManagerFactory
 name|entityManagerFactory
+decl_stmt|;
+DECL|field|transactionManager
+specifier|private
+name|PlatformTransactionManager
+name|transactionManager
 decl_stmt|;
 DECL|field|persistenceUnit
 specifier|private
@@ -307,6 +338,20 @@ specifier|public
 name|JpaEndpoint
 parameter_list|()
 block|{     }
+DECL|method|JpaEndpoint (String endpointUri)
+specifier|public
+name|JpaEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|JpaEndpoint (String uri, JpaComponent component)
 specifier|public
 name|JpaEndpoint
@@ -330,6 +375,13 @@ operator|=
 name|component
 operator|.
 name|getEntityManagerFactory
+argument_list|()
+expr_stmt|;
+name|transactionManager
+operator|=
+name|component
+operator|.
+name|getTransactionManager
 argument_list|()
 expr_stmt|;
 block|}
@@ -356,18 +408,36 @@ operator|=
 name|entityManagerFactory
 expr_stmt|;
 block|}
-DECL|method|JpaEndpoint (String endpointUri)
+DECL|method|JpaEndpoint (String endpointUri, EntityManagerFactory entityManagerFactory, PlatformTransactionManager transactionManager)
 specifier|public
 name|JpaEndpoint
 parameter_list|(
 name|String
 name|endpointUri
+parameter_list|,
+name|EntityManagerFactory
+name|entityManagerFactory
+parameter_list|,
+name|PlatformTransactionManager
+name|transactionManager
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|endpointUri
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|entityManagerFactory
+operator|=
+name|entityManagerFactory
+expr_stmt|;
+name|this
+operator|.
+name|transactionManager
+operator|=
+name|transactionManager
 expr_stmt|;
 block|}
 DECL|method|createProducer ()
@@ -684,6 +754,45 @@ operator|=
 name|entityManagerFactory
 expr_stmt|;
 block|}
+DECL|method|getTransactionManager ()
+specifier|public
+name|PlatformTransactionManager
+name|getTransactionManager
+parameter_list|()
+block|{
+if|if
+condition|(
+name|transactionManager
+operator|==
+literal|null
+condition|)
+block|{
+name|transactionManager
+operator|=
+name|createTransactionManager
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|transactionManager
+return|;
+block|}
+DECL|method|setTransactionManager (PlatformTransactionManager transactionManager)
+specifier|public
+name|void
+name|setTransactionManager
+parameter_list|(
+name|PlatformTransactionManager
+name|transactionManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactionManager
+operator|=
+name|transactionManager
+expr_stmt|;
+block|}
 DECL|method|getEntityManagerProperties ()
 specifier|public
 name|Map
@@ -881,6 +990,31 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+DECL|method|createTransactionManager ()
+specifier|protected
+name|PlatformTransactionManager
+name|createTransactionManager
+parameter_list|()
+block|{
+name|JpaTransactionManager
+name|tm
+init|=
+operator|new
+name|JpaTransactionManager
+argument_list|(
+name|getEntityManagerFactory
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|tm
+operator|.
+name|afterPropertiesSet
+argument_list|()
+expr_stmt|;
+return|return
+name|tm
+return|;
+block|}
 DECL|method|createEntityManager ()
 specifier|protected
 name|EntityManager
@@ -901,18 +1035,13 @@ name|TransactionStrategy
 name|createTransactionStrategy
 parameter_list|()
 block|{
-name|EntityManagerFactory
-name|emf
-init|=
-name|getEntityManagerFactory
-argument_list|()
-decl_stmt|;
 return|return
 name|JpaTemplateTransactionStrategy
 operator|.
 name|newInstance
 argument_list|(
-name|emf
+name|getTransactionManager
+argument_list|()
 argument_list|,
 name|getTemplate
 argument_list|()

@@ -259,7 +259,7 @@ argument_list|()
 decl_stmt|;
 name|entityManager
 operator|.
-name|persist
+name|merge
 argument_list|(
 name|value
 argument_list|)

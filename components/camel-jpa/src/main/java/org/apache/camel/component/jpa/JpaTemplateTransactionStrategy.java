@@ -112,6 +112,18 @@ name|springframework
 operator|.
 name|transaction
 operator|.
+name|PlatformTransactionManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|transaction
+operator|.
 name|TransactionStatus
 import|;
 end_import
@@ -223,6 +235,7 @@ name|template
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a new implementation from the given JPA factory and JPA template      */
 DECL|method|newInstance (EntityManagerFactory emf, JpaTemplate template)
 specifier|public
 specifier|static
@@ -250,6 +263,44 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
+name|TransactionTemplate
+name|tranasctionTemplate
+init|=
+operator|new
+name|TransactionTemplate
+argument_list|(
+name|transactionManager
+argument_list|)
+decl_stmt|;
+name|tranasctionTemplate
+operator|.
+name|afterPropertiesSet
+argument_list|()
+expr_stmt|;
+return|return
+operator|new
+name|JpaTemplateTransactionStrategy
+argument_list|(
+name|template
+argument_list|,
+name|tranasctionTemplate
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a new implementation from the given Transaction Manager and JPA template      */
+DECL|method|newInstance (PlatformTransactionManager transactionManager, JpaTemplate template)
+specifier|public
+specifier|static
+name|JpaTemplateTransactionStrategy
+name|newInstance
+parameter_list|(
+name|PlatformTransactionManager
+name|transactionManager
+parameter_list|,
+name|JpaTemplate
+name|template
+parameter_list|)
+block|{
 name|TransactionTemplate
 name|tranasctionTemplate
 init|=

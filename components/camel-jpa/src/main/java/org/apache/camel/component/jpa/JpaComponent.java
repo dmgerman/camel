@@ -46,30 +46,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Component
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -85,6 +61,18 @@ operator|.
 name|impl
 operator|.
 name|DefaultComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|transaction
+operator|.
+name|PlatformTransactionManager
 import|;
 end_import
 
@@ -105,24 +93,11 @@ specifier|private
 name|EntityManagerFactory
 name|entityManagerFactory
 decl_stmt|;
-DECL|method|resolveComponent (CamelContext container, String uri)
-specifier|public
-name|Component
-name|resolveComponent
-parameter_list|(
-name|CamelContext
-name|container
-parameter_list|,
-name|String
-name|uri
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-literal|null
-return|;
-block|}
+DECL|field|transactionManager
+specifier|private
+name|PlatformTransactionManager
+name|transactionManager
+decl_stmt|;
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getEntityManagerFactory ()
@@ -149,6 +124,32 @@ operator|.
 name|entityManagerFactory
 operator|=
 name|entityManagerFactory
+expr_stmt|;
+block|}
+DECL|method|getTransactionManager ()
+specifier|public
+name|PlatformTransactionManager
+name|getTransactionManager
+parameter_list|()
+block|{
+return|return
+name|transactionManager
+return|;
+block|}
+DECL|method|setTransactionManager (PlatformTransactionManager transactionManager)
+specifier|public
+name|void
+name|setTransactionManager
+parameter_list|(
+name|PlatformTransactionManager
+name|transactionManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactionManager
+operator|=
+name|transactionManager
 expr_stmt|;
 block|}
 comment|// Implementation methods
