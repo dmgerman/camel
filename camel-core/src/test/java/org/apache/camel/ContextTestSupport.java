@@ -427,11 +427,19 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|context
+operator|!=
+literal|null
+condition|)
+block|{
 name|context
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|startCamelContext ()
