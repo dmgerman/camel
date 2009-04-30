@@ -177,8 +177,6 @@ DECL|field|routeEmptyResultSet
 specifier|private
 name|boolean
 name|routeEmptyResultSet
-init|=
-literal|false
 decl_stmt|;
 DECL|method|IBatisPollingConsumer (IBatisEndpoint endpoint, Processor processor)
 specifier|public
