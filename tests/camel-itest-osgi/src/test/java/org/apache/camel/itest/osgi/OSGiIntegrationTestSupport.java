@@ -598,24 +598,9 @@ argument_list|,
 literal|"camel-osgi"
 argument_list|,
 literal|"camel-spring"
-argument_list|)
 argument_list|,
-comment|// Install the camel-test bundle,
-name|mavenBundle
-argument_list|()
-operator|.
-name|groupId
-argument_list|(
-literal|"org.apache.camel"
-argument_list|)
-operator|.
-name|artifactId
-argument_list|(
 literal|"camel-test"
 argument_list|)
-operator|.
-name|versionAsInProject
-argument_list|()
 argument_list|,
 name|knopflerfish
 argument_list|()
