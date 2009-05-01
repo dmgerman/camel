@@ -237,7 +237,7 @@ operator|=
 literal|false
 argument_list|)
 DECL|field|skipSendToOriginalEndpoint
-specifier|protected
+specifier|private
 name|Boolean
 name|skipSendToOriginalEndpoint
 init|=
