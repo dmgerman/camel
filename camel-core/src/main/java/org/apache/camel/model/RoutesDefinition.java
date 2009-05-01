@@ -228,13 +228,13 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlTransient
-DECL|field|exceptions
+DECL|field|onExceptions
 specifier|private
 name|List
 argument_list|<
 name|OnExceptionDefinition
 argument_list|>
-name|exceptions
+name|onExceptions
 init|=
 operator|new
 name|ArrayList
@@ -381,36 +381,36 @@ operator|=
 name|interceptSendTos
 expr_stmt|;
 block|}
-DECL|method|getExceptions ()
+DECL|method|getOnExceptions ()
 specifier|public
 name|List
 argument_list|<
 name|OnExceptionDefinition
 argument_list|>
-name|getExceptions
+name|getOnExceptions
 parameter_list|()
 block|{
 return|return
-name|exceptions
+name|onExceptions
 return|;
 block|}
-DECL|method|setExceptions (List<OnExceptionDefinition> exceptions)
+DECL|method|setOnExceptions (List<OnExceptionDefinition> onExceptions)
 specifier|public
 name|void
-name|setExceptions
+name|setOnExceptions
 parameter_list|(
 name|List
 argument_list|<
 name|OnExceptionDefinition
 argument_list|>
-name|exceptions
+name|onExceptions
 parameter_list|)
 block|{
 name|this
 operator|.
-name|exceptions
+name|onExceptions
 operator|=
-name|exceptions
+name|onExceptions
 expr_stmt|;
 block|}
 DECL|method|getCamelContext ()
@@ -628,22 +628,75 @@ name|getCamelContext
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|List
-argument_list|<
-name|InterceptFromDefinition
-argument_list|>
-name|intercepts
-init|=
-name|getInterceptFroms
-argument_list|()
-decl_stmt|;
+comment|// configure intercept from
 for|for
 control|(
 name|InterceptFromDefinition
 name|intercept
 range|:
-name|intercepts
+name|getInterceptFroms
+argument_list|()
 control|)
+block|{
+comment|// should we only apply interceptor for a given endpoint uri
+name|boolean
+name|match
+init|=
+literal|true
+decl_stmt|;
+if|if
+condition|(
+name|intercept
+operator|.
+name|getUri
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|match
+operator|=
+literal|false
+expr_stmt|;
+for|for
+control|(
+name|FromDefinition
+name|input
+range|:
+name|route
+operator|.
+name|getInputs
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|input
+operator|.
+name|getUri
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|intercept
+operator|.
+name|getUri
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|match
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+block|}
+block|}
+block|}
+if|if
+condition|(
+name|match
+condition|)
 block|{
 comment|// need to create a proxy for this one and use the
 comment|// proceed of the proxy which will be local to this route
@@ -673,6 +726,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|// configure intercept send to endpoint
 name|List
 argument_list|<
 name|InterceptSendToEndpointDefinition
@@ -707,6 +762,7 @@ name|sendTo
 argument_list|)
 expr_stmt|;
 block|}
+comment|// add on exceptions
 name|route
 operator|.
 name|getOutputs
@@ -714,7 +770,7 @@ argument_list|()
 operator|.
 name|addAll
 argument_list|(
-name|getExceptions
+name|getOnExceptions
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -839,7 +895,7 @@ argument_list|(
 name|exception
 argument_list|)
 decl_stmt|;
-name|getExceptions
+name|getOnExceptions
 argument_list|()
 operator|.
 name|add

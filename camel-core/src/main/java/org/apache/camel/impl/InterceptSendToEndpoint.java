@@ -169,10 +169,10 @@ comment|/**  * This is an endpoint when sending to it, is intercepted and is rou
 end_comment
 
 begin_class
-DECL|class|InterceptEndpoint
+DECL|class|InterceptSendToEndpoint
 specifier|public
 class|class
-name|InterceptEndpoint
+name|InterceptSendToEndpoint
 implements|implements
 name|Endpoint
 block|{
@@ -188,7 +188,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|InterceptEndpoint
+name|InterceptSendToEndpoint
 operator|.
 name|class
 argument_list|)
@@ -215,9 +215,9 @@ name|boolean
 name|skip
 decl_stmt|;
 comment|/**      * Intercepts sending to the given endpoint      *      * @param destination  the original endpoint      * @param skip<tt>true</tt> to skip sending after the detour to the original endpoint      */
-DECL|method|InterceptEndpoint (final Endpoint destination, boolean skip)
+DECL|method|InterceptSendToEndpoint (final Endpoint destination, boolean skip)
 specifier|public
-name|InterceptEndpoint
+name|InterceptSendToEndpoint
 parameter_list|(
 specifier|final
 name|Endpoint

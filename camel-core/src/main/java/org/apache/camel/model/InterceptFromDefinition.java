@@ -189,7 +189,6 @@ argument_list|>
 block|{
 comment|// TODO: we need a new interceptDefinition to uses the InterceptStrategy so its applied for each route step
 comment|// and a more intelligent Channel so we can stop or proceed on-the-fly
-comment|// TODO: Filter by from endpoint uri
 comment|// TODO: Support lookup endpoint by ref (requires a bit more work)
 comment|// TODO: Support wildcards for endpoints so you can match by scheme, eg jms:*
 annotation|@

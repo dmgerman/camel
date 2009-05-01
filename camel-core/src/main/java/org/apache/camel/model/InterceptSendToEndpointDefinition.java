@@ -140,7 +140,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|InterceptEndpoint
+name|InterceptSendToEndpoint
 import|;
 end_import
 
@@ -274,7 +274,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"InterceptEndpoint["
+literal|"InterceptSendToEndpoint["
 operator|+
 name|uri
 operator|+
@@ -340,7 +340,7 @@ block|{
 comment|// we have to reuse the createProcessor method to build the detour route
 comment|// afterwards we remove this interceptor from the route so the route will
 comment|// not use regular intercptor. The interception by endpoint is triggered
-comment|// by the InterceptEndpoint that handles the intercept routing logic
+comment|// by the InterceptSendToEndpoint that handles the intercept routing logic
 name|Endpoint
 name|endpoint
 init|=
@@ -364,7 +364,7 @@ name|this
 argument_list|)
 decl_stmt|;
 comment|// set the detour on the endpoint proxy
-name|InterceptEndpoint
+name|InterceptSendToEndpoint
 name|proxy
 init|=
 name|routeContext
@@ -377,7 +377,7 @@ argument_list|()
 operator|.
 name|mandatoryConvertTo
 argument_list|(
-name|InterceptEndpoint
+name|InterceptSendToEndpoint
 operator|.
 name|class
 argument_list|,
@@ -393,7 +393,7 @@ argument_list|)
 expr_stmt|;
 comment|// remove the original intercepted route from the outputs as we do not intercept as the regular interceptor
 comment|// instead we use the proxy endpoints producer do the triggering. That is we trigger when someone sends
-comment|// an exchange to the endpoint, see InterceptEndpoint for details.
+comment|// an exchange to the endpoint, see InterceptSendToEndpoint for details.
 name|RouteDefinition
 name|route
 init|=
@@ -439,7 +439,7 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
-comment|// proxy the endpoint by using the InterceptEndpoint that will proxy
+comment|// proxy the endpoint by using the InterceptSendToEndpoint that will proxy
 comment|// the producer so it processes the detour first
 name|Endpoint
 name|endpoint
@@ -461,11 +461,11 @@ name|skipSendToOriginalEndpoint
 else|:
 literal|false
 decl_stmt|;
-name|InterceptEndpoint
+name|InterceptSendToEndpoint
 name|proxy
 init|=
 operator|new
-name|InterceptEndpoint
+name|InterceptSendToEndpoint
 argument_list|(
 name|endpoint
 argument_list|,

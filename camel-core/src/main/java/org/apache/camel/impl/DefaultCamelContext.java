@@ -2514,14 +2514,14 @@ if|if
 condition|(
 name|endpoint
 operator|instanceof
-name|InterceptEndpoint
+name|InterceptSendToEndpoint
 condition|)
 block|{
 name|endpoint
 operator|=
 operator|(
 operator|(
-name|InterceptEndpoint
+name|InterceptSendToEndpoint
 operator|)
 name|endpoint
 operator|)
