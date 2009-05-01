@@ -853,55 +853,6 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|intercept (Intercept interceptor)
-specifier|public
-name|void
-name|intercept
-parameter_list|(
-name|Intercept
-name|interceptor
-parameter_list|)
-block|{
-name|lastInterceptor
-operator|=
-operator|(
-name|Interceptor
-operator|)
-name|interceptor
-expr_stmt|;
-block|}
-DECL|method|createProceedProcessor ()
-specifier|public
-name|Processor
-name|createProceedProcessor
-parameter_list|()
-block|{
-if|if
-condition|(
-name|lastInterceptor
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Cannot proceed() from outside of an interceptor!"
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
-return|return
-operator|new
-name|ProceedProcessor
-argument_list|(
-name|lastInterceptor
-argument_list|)
-return|;
-block|}
-block|}
 DECL|method|getInterceptStrategies ()
 specifier|public
 name|List

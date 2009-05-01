@@ -261,21 +261,6 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
-comment|/**      * Intercepts with the given interceptor      *      * @param interceptor the interceptor      */
-DECL|method|intercept (Intercept interceptor)
-name|void
-name|intercept
-parameter_list|(
-name|Intercept
-name|interceptor
-parameter_list|)
-function_decl|;
-comment|/**      * Creates a proceed processor      *      * @return the created proceed processor      */
-DECL|method|createProceedProcessor ()
-name|Processor
-name|createProceedProcessor
-parameter_list|()
-function_decl|;
 comment|/**      * This method retrieves the InterceptStrategy instances this route context.      *      * @return the strategy      */
 DECL|method|getInterceptStrategies ()
 name|List

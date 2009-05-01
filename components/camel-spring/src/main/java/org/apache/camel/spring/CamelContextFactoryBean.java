@@ -252,7 +252,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptDefinition
+name|InterceptFromDefinition
 import|;
 end_import
 
@@ -1139,24 +1139,24 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"intercept"
+literal|"interceptFrom"
 argument_list|,
 name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|intercepts
+DECL|field|interceptFroms
 specifier|private
 name|List
 argument_list|<
-name|InterceptDefinition
+name|InterceptFromDefinition
 argument_list|>
-name|intercepts
+name|interceptFroms
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|InterceptDefinition
+name|InterceptFromDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1919,10 +1919,10 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|InterceptDefinition
+name|InterceptFromDefinition
 name|intercept
 range|:
-name|intercepts
+name|interceptFroms
 control|)
 block|{
 name|List
@@ -2023,7 +2023,7 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
-name|InterceptDefinition
+name|InterceptFromDefinition
 name|proxy
 init|=
 name|intercept
@@ -2738,36 +2738,36 @@ operator|=
 name|routes
 expr_stmt|;
 block|}
-DECL|method|getIntercepts ()
+DECL|method|getInterceptFroms ()
 specifier|public
 name|List
 argument_list|<
-name|InterceptDefinition
+name|InterceptFromDefinition
 argument_list|>
-name|getIntercepts
+name|getInterceptFroms
 parameter_list|()
 block|{
 return|return
-name|intercepts
+name|interceptFroms
 return|;
 block|}
-DECL|method|setIntercepts (List<InterceptDefinition> intercepts)
+DECL|method|setInterceptFroms (List<InterceptFromDefinition> interceptFroms)
 specifier|public
 name|void
-name|setIntercepts
+name|setInterceptFroms
 parameter_list|(
 name|List
 argument_list|<
-name|InterceptDefinition
+name|InterceptFromDefinition
 argument_list|>
-name|intercepts
+name|interceptFroms
 parameter_list|)
 block|{
 name|this
 operator|.
-name|intercepts
+name|interceptFroms
 operator|=
-name|intercepts
+name|interceptFroms
 expr_stmt|;
 block|}
 DECL|method|getInterceptSendToEndpoints ()

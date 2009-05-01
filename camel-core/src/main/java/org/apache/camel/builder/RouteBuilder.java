@@ -148,7 +148,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|InterceptDefinition
+name|InterceptFromDefinition
 import|;
 end_import
 
@@ -533,11 +533,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a route for an interceptor; use the {@link org.apache.camel.model.ProcessorDefinition#proceed()} method      * to continue processing the underlying route being intercepted.      * @return the builder      */
-DECL|method|intercept ()
+comment|/**      * Adds a route for an interceptor; use the {@link org.apache.camel.model.ProcessorDefinition#proceed()} method      * to continue processing the underlying route being intercepted.      *      * @return the builder      */
+DECL|method|interceptFrom ()
 specifier|public
-name|InterceptDefinition
-name|intercept
+name|InterceptFromDefinition
+name|interceptFrom
 parameter_list|()
 block|{
 name|routeCollection
@@ -551,18 +551,18 @@ expr_stmt|;
 return|return
 name|routeCollection
 operator|.
-name|intercept
+name|interceptFrom
 argument_list|()
 return|;
 block|}
-comment|/**      * Applies a route for an interceptor if the given predicate is true      * otherwise the interceptor route is not applied      *      * @param predicate  the predicate      * @return the builder      */
-DECL|method|intercept (Predicate predicate)
+comment|/**      * Adds a route for an interceptor; use the {@link org.apache.camel.model.ProcessorDefinition#proceed()} method      * to continue processing the underlying route being intercepted.      *      * @param uri  endpoint uri      * @return the builder      */
+DECL|method|interceptFrom (String uri)
 specifier|public
-name|ChoiceDefinition
-name|intercept
+name|InterceptFromDefinition
+name|interceptFrom
 parameter_list|(
-name|Predicate
-name|predicate
+name|String
+name|uri
 parameter_list|)
 block|{
 name|routeCollection
@@ -576,9 +576,9 @@ expr_stmt|;
 return|return
 name|routeCollection
 operator|.
-name|intercept
+name|interceptFrom
 argument_list|(
-name|predicate
+name|uri
 argument_list|)
 return|;
 block|}

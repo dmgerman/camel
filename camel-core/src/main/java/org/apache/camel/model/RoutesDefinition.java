@@ -138,18 +138,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|ErrorHandlerBuilder
@@ -206,18 +194,18 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlTransient
-DECL|field|intercepts
+DECL|field|interceptFroms
 specifier|private
 name|List
 argument_list|<
-name|InterceptDefinition
+name|InterceptFromDefinition
 argument_list|>
-name|intercepts
+name|interceptFroms
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|InterceptDefinition
+name|InterceptFromDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -329,36 +317,36 @@ operator|=
 name|routes
 expr_stmt|;
 block|}
-DECL|method|getIntercepts ()
+DECL|method|getInterceptFroms ()
 specifier|public
 name|List
 argument_list|<
-name|InterceptDefinition
+name|InterceptFromDefinition
 argument_list|>
-name|getIntercepts
+name|getInterceptFroms
 parameter_list|()
 block|{
 return|return
-name|intercepts
+name|interceptFroms
 return|;
 block|}
-DECL|method|setIntercepts (List<InterceptDefinition> intercepts)
+DECL|method|setInterceptFroms (List<InterceptFromDefinition> interceptFroms)
 specifier|public
 name|void
-name|setIntercepts
+name|setInterceptFroms
 parameter_list|(
 name|List
 argument_list|<
-name|InterceptDefinition
+name|InterceptFromDefinition
 argument_list|>
-name|intercepts
+name|interceptFroms
 parameter_list|)
 block|{
 name|this
 operator|.
-name|intercepts
+name|interceptFroms
 operator|=
-name|intercepts
+name|interceptFroms
 expr_stmt|;
 block|}
 DECL|method|getInterceptSendTos ()
@@ -642,16 +630,16 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|InterceptDefinition
+name|InterceptFromDefinition
 argument_list|>
 name|intercepts
 init|=
-name|getIntercepts
+name|getInterceptFroms
 argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|InterceptDefinition
+name|InterceptFromDefinition
 name|intercept
 range|:
 name|intercepts
@@ -659,7 +647,7 @@ control|)
 block|{
 comment|// need to create a proxy for this one and use the
 comment|// proceed of the proxy which will be local to this route
-name|InterceptDefinition
+name|InterceptFromDefinition
 name|proxy
 init|=
 name|intercept
@@ -697,20 +685,11 @@ decl_stmt|;
 for|for
 control|(
 name|InterceptSendToEndpointDefinition
-name|intercept
+name|sendTo
 range|:
 name|sendTos
 control|)
 block|{
-comment|// special intercept for intercepting sending to an endpoint
-name|InterceptSendToEndpointDefinition
-name|sendTo
-init|=
-operator|(
-name|InterceptSendToEndpointDefinition
-operator|)
-name|intercept
-decl_stmt|;
 comment|// init interceptor by letting it proxy the real endpoint
 name|sendTo
 operator|.
@@ -751,21 +730,21 @@ return|return
 name|route
 return|;
 block|}
-comment|/**      * Creates and adds an interceptor      *      * @return the interceptor builder to configure      */
-DECL|method|intercept ()
+comment|/**      * Creates and adds an interceptor that is triggered when an exchange      * is received as input to any routes (eg from all the<tt>from</tt>)      *      * @return the interceptor builder to configure      */
+DECL|method|interceptFrom ()
 specifier|public
-name|InterceptDefinition
-name|intercept
+name|InterceptFromDefinition
+name|interceptFrom
 parameter_list|()
 block|{
-name|InterceptDefinition
+name|InterceptFromDefinition
 name|answer
 init|=
 operator|new
-name|InterceptDefinition
+name|InterceptFromDefinition
 argument_list|()
 decl_stmt|;
-name|getIntercepts
+name|getInterceptFroms
 argument_list|()
 operator|.
 name|add
@@ -777,24 +756,27 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates and adds an interceptor that is attached with a predicate      *      * @param predicate  the predicate      * @return the builder      */
-DECL|method|intercept (Predicate predicate)
+comment|/**      * Creates and adds an interceptor that is triggered when an exchange is received      * as input to the route defined with the given endpoint (eg from the<tt>from</tt>)      *      * @param uri uri of the endpoint      * @return the interceptor builder to configure      */
+DECL|method|interceptFrom (final String uri)
 specifier|public
-name|ChoiceDefinition
-name|intercept
+name|InterceptFromDefinition
+name|interceptFrom
 parameter_list|(
-name|Predicate
-name|predicate
+specifier|final
+name|String
+name|uri
 parameter_list|)
 block|{
-name|InterceptDefinition
+name|InterceptFromDefinition
 name|answer
 init|=
 operator|new
-name|InterceptDefinition
-argument_list|()
+name|InterceptFromDefinition
+argument_list|(
+name|uri
+argument_list|)
 decl_stmt|;
-name|getIntercepts
+name|getInterceptFroms
 argument_list|()
 operator|.
 name|add
@@ -804,11 +786,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
-operator|.
-name|when
-argument_list|(
-name|predicate
-argument_list|)
 return|;
 block|}
 comment|/**      * Creates and adds an interceptor that is triggered when an exchange is      * send to the given endpoint      *      * @param uri uri of the endpoint      * @return  the builder      */

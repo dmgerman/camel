@@ -1515,11 +1515,11 @@ name|builder
 operator|.
 name|addPropertyValue
 argument_list|(
-literal|"intercepts"
+literal|"interceptFroms"
 argument_list|,
 name|factoryBean
 operator|.
-name|getIntercepts
+name|getInterceptFroms
 argument_list|()
 argument_list|)
 expr_stmt|;
