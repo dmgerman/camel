@@ -209,6 +209,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// TODO: Cleanup this when AsyncProcessor/AsyncCallback is replaced with new async API
 DECL|method|Pipeline (Collection<Processor> processors)
 specifier|public
 name|Pipeline

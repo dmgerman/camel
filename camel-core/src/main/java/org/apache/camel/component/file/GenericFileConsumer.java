@@ -56,18 +56,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -109,20 +97,6 @@ operator|.
 name|impl
 operator|.
 name|ScheduledPollConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|DeadLetterChannel
 import|;
 end_import
 
@@ -636,8 +610,9 @@ operator|.
 name|getGenericFileProcessStrategy
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
+name|boolean
+name|begin
+init|=
 name|processStrategy
 operator|.
 name|begin
@@ -653,8 +628,29 @@ operator|.
 name|getGenericFile
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|begin
 condition|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+name|endpoint
+operator|+
+literal|" cannot process remote file: "
+operator|+
+name|exchange
+operator|.
+name|getGenericFile
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// must use file from exchange as it can be updated due the
 comment|// preMoveNamePrefix/preMoveNamePostfix options
 specifier|final
@@ -757,25 +753,32 @@ expr_stmt|;
 block|}
 comment|// Use the async processor interface so that processing of
 comment|// the exchange can happen asynchronously
-name|getAsyncProcessor
+try|try
+block|{
+name|getProcessor
 argument_list|()
 operator|.
 name|process
 argument_list|(
 name|exchange
-argument_list|,
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-specifier|public
-name|void
-name|done
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
 parameter_list|(
-name|boolean
-name|sync
+name|Exception
+name|e
 parameter_list|)
 block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+comment|// after processing
 specifier|final
 name|GenericFile
 argument_list|<
@@ -818,6 +821,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+comment|// commit or rollback
 name|boolean
 name|committed
 init|=
@@ -888,28 +892,6 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-block|}
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-name|endpoint
-operator|+
-literal|" cannot process remote file: "
-operator|+
-name|exchange
-operator|.
-name|getGenericFile
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 catch|catch

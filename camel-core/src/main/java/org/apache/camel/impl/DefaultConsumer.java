@@ -202,7 +202,7 @@ return|return
 name|processor
 return|;
 block|}
-comment|/**      * Provides an {@link AsyncProcessor} interface to the configured      * processor on the consumer.  If the processor does not implement      * the interface, it will be adapted so that it does.        */
+comment|/**      * Provides an {@link AsyncProcessor} interface to the configured      * processor on the consumer.  If the processor does not implement      * the interface, it will be adapted so that it does.      * @deprecated      */
 DECL|method|getAsyncProcessor ()
 specifier|public
 name|AsyncProcessor

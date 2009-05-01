@@ -378,7 +378,7 @@ name|void
 name|done
 parameter_list|(
 name|boolean
-name|arg0
+name|sync
 parameter_list|)
 block|{
 comment|// Do nothing here

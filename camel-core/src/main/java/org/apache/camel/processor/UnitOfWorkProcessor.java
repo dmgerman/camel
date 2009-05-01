@@ -24,31 +24,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|AsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
@@ -93,13 +81,13 @@ specifier|final
 class|class
 name|UnitOfWorkProcessor
 extends|extends
-name|DelegateAsyncProcessor
+name|DelegateProcessor
 block|{
-DECL|method|UnitOfWorkProcessor (AsyncProcessor processor)
+DECL|method|UnitOfWorkProcessor (Processor processor)
 specifier|public
 name|UnitOfWorkProcessor
 parameter_list|(
-name|AsyncProcessor
+name|Processor
 name|processor
 parameter_list|)
 block|{
@@ -125,19 +113,18 @@ operator|+
 literal|")"
 return|;
 block|}
-DECL|method|process (final Exchange exchange, final AsyncCallback callback)
-specifier|public
-name|boolean
-name|process
+annotation|@
+name|Override
+DECL|method|processNext (Exchange exchange)
+specifier|protected
+name|void
+name|processNext
 parameter_list|(
-specifier|final
 name|Exchange
 name|exchange
-parameter_list|,
-specifier|final
-name|AsyncCallback
-name|callback
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -187,36 +174,32 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// return the process code where we do stop and cleanup
-return|return
+comment|// process the exchange
+try|try
+block|{
 name|processor
 operator|.
 name|process
 argument_list|(
 name|exchange
-argument_list|,
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
-name|sync
-parameter_list|)
-block|{
-comment|// Order here matters. We need to complete the callbacks
-comment|// since they will likely update the exchange with
-comment|// some final results.
-name|callback
-operator|.
-name|done
-argument_list|(
-name|sync
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+comment|// unit of work is done
 name|exchange
 operator|.
 name|getUnitOfWork
@@ -256,24 +239,17 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-argument_list|)
-return|;
-block|}
 else|else
 block|{
 comment|// There was an existing UoW, so we should just pass through..
 comment|// so that the guy the initiated the UoW can terminate it.
-return|return
 name|processor
 operator|.
 name|process
 argument_list|(
 name|exchange
-argument_list|,
-name|callback
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 block|}
 block|}

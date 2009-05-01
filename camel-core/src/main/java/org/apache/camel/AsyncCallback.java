@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * The callback interface for an {@link AsyncProcessor} so that it can  * notify you when an {@link Exchange} has completed.   */
+comment|/**  * The callback interface for an {@link AsyncProcessor} so that it can  * notify you when an {@link Exchange} has completed.  *  * @deprecated a new async API is planned for Camel 2.0  */
 end_comment
 
 begin_interface
@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|AsyncCallback
 block|{
-comment|/**      * This method is invoked once the Exchange is completed.  If an error       * occurred while processing the exchange, the exception field of the       * {@link Exchange} being processed will hold the error.       *        * @param doneSynchronously set to true if the processing of the exchange was completed synchronously thread.      */
+comment|/**      * This method is invoked once the Exchange is completed.  If an error       * occurred while processing the exchange, the exception field of the       * {@link Exchange} being processed will hold the error.      *<p/>      * This callback reports back twice:      * - first time when the caller thread is done, that is the synchronously done.      * - second time when the asynchronously thread is done and thus the {@link Exchange} is really complete.       *        * @param doneSynchronously set to<tt>true</tt> if the processing of the exchange was completed in the      * synchronously thread. Is set to<tt>false</tt> when the asynchronously thread is complete.      */
 DECL|method|done (boolean doneSynchronously)
 name|void
 name|done

@@ -380,20 +380,6 @@ operator|.
 name|process
 argument_list|(
 name|exchange
-argument_list|,
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
-name|sync
-parameter_list|)
-block|{                             }
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -412,6 +398,38 @@ operator|+
 name|e
 argument_list|,
 name|e
+argument_list|)
+expr_stmt|;
+block|}
+comment|// TODO: It ought to be UnitOfWork that did the callback notification but we are planning
+comment|// to replace it with a brand new Async API so we leave it as is
+name|AsyncCallback
+name|callback
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+literal|"CamelAsyncCallback"
+argument_list|,
+name|AsyncCallback
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|callback
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// seda consumer is async so invoke the async done on the callback if its provided
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

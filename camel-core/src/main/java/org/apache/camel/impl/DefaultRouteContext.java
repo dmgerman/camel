@@ -64,18 +64,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|CamelContext
 import|;
 end_import
@@ -137,22 +125,6 @@ operator|.
 name|camel
 operator|.
 name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|converter
-operator|.
-name|AsyncProcessorTypeConverter
 import|;
 end_import
 
@@ -765,18 +737,6 @@ argument_list|(
 name|eventDrivenProcessors
 argument_list|)
 decl_stmt|;
-comment|// lets create the async processor
-specifier|final
-name|AsyncProcessor
-name|asyncProcessor
-init|=
-name|AsyncProcessorTypeConverter
-operator|.
-name|convert
-argument_list|(
-name|processor
-argument_list|)
-decl_stmt|;
 comment|// and wrap it in a unit of work so the UoW is on the top, so the entire route will be in the same UoW
 name|Processor
 name|unitOfWorkProcessor
@@ -784,7 +744,7 @@ init|=
 operator|new
 name|UnitOfWorkProcessor
 argument_list|(
-name|asyncProcessor
+name|processor
 argument_list|)
 decl_stmt|;
 comment|// and create the route that wraps the UoW

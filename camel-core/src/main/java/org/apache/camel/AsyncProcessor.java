@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A more complex version of {@link Processor} which supports asynchronous  * processing of the {@link Exchange}.  Any processor can be coerced to  * have an {@link AsyncProcessor} interface by using the  * {@link org.apache.camel.impl.converter.AsyncProcessorTypeConverter#convert AsyncProcessorTypeConverter.covert}  * method.  *   * @version $Revision$  */
+comment|/**  * A more complex version of {@link Processor} which supports asynchronous  * processing of the {@link Exchange}.  Any processor can be coerced to  * have an {@link AsyncProcessor} interface by using the  * {@link org.apache.camel.impl.converter.AsyncProcessorTypeConverter#convert AsyncProcessorTypeConverter.covert}  * method.  *   * @version $Revision$  * @deprecated a new async API is planned for Camel 2.0  */
 end_comment
 
 begin_interface

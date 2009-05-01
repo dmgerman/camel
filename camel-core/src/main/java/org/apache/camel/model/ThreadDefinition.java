@@ -594,8 +594,7 @@ argument_list|(
 name|threadGroup
 argument_list|)
 expr_stmt|;
-comment|// TODO: see if we can avoid creating so many nested pipelines
-name|ArrayList
+name|List
 argument_list|<
 name|Processor
 argument_list|>

@@ -324,6 +324,7 @@ name|Processor
 implements|,
 name|Navigate
 block|{
+comment|// TODO: Cleanup this when AsyncProcessor/AsyncCallback is replaced with new async API
 DECL|class|ProcessorExchangePair
 specifier|static
 class|class
@@ -947,7 +948,7 @@ name|void
 name|done
 parameter_list|(
 name|boolean
-name|doneSynchronously
+name|sync
 parameter_list|)
 block|{
 if|if

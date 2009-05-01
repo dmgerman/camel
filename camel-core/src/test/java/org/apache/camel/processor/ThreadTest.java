@@ -375,12 +375,6 @@ name|i
 operator|++
 control|)
 block|{
-specifier|final
-name|int
-name|index
-init|=
-name|i
-decl_stmt|;
 comment|// Send the exchange using the async completion interface.
 comment|// This call returns before the exchange is completed.
 name|exchanges
@@ -437,25 +431,6 @@ name|boolean
 name|doneSynchronously
 parameter_list|)
 block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Completed: "
-operator|+
-name|index
-operator|+
-literal|", exception: "
-operator|+
-name|exchanges
-index|[
-name|index
-index|]
-operator|.
-name|getException
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|completedExchanges
 operator|.
 name|countDown
@@ -600,6 +575,16 @@ argument_list|(
 literal|"direct:a"
 argument_list|)
 operator|.
+name|to
+argument_list|(
+literal|"seda:async"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"seda:async"
+argument_list|)
+operator|.
 name|thread
 argument_list|(
 literal|1
@@ -624,7 +609,13 @@ block|{
 name|continueProcessing
 operator|.
 name|await
-argument_list|()
+argument_list|(
+literal|10
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 expr_stmt|;
 block|}
 block|}

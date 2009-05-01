@@ -54,18 +54,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -176,14 +164,6 @@ name|Synchronization
 argument_list|>
 name|synchronizations
 decl_stmt|;
-DECL|field|asyncCallbacks
-specifier|private
-name|List
-argument_list|<
-name|AsyncCallback
-argument_list|>
-name|asyncCallbacks
-decl_stmt|;
 DECL|field|routeList
 specifier|private
 name|List
@@ -227,19 +207,6 @@ literal|null
 condition|)
 block|{
 name|synchronizations
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|asyncCallbacks
-operator|!=
-literal|null
-condition|)
-block|{
-name|asyncCallbacks
 operator|.
 name|clear
 argument_list|()
@@ -378,23 +345,6 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|isSynchronous ()
-specifier|public
-name|boolean
-name|isSynchronous
-parameter_list|()
-block|{
-return|return
-name|asyncCallbacks
-operator|==
-literal|null
-operator|||
-name|asyncCallbacks
-operator|.
-name|isEmpty
-argument_list|()
-return|;
-block|}
 DECL|method|getId ()
 specifier|public
 name|String
@@ -510,8 +460,6 @@ name|routeList
 argument_list|)
 return|;
 block|}
-comment|/**      * Register some asynchronous processing step      */
-comment|/*     public synchronized AsyncCallback addAsyncStep() {         AsyncCallback answer = new AsyncCallback() {             public void done(boolean doneSynchronously) {                 latch.countDown();             }         };         if (latch == null) {             latch = new CountDownLatch(1);         }         else {             // TODO increment latch!         }         if (asyncCallbacks == null) {             asyncCallbacks = new ArrayList<AsyncCallback>();         }         asyncCallbacks.add(answer);         return answer;     }     */
 block|}
 end_class
 

@@ -2401,8 +2401,6 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
-comment|// If it's a singleton then auto register it.
-comment|// TODO: Why not test for isSingleton?
 if|if
 condition|(
 name|answer

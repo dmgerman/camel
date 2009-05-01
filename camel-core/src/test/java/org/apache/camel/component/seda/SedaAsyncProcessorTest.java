@@ -308,12 +308,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|// and the async should occur when the mock endpoint is done
-if|if
-condition|(
-operator|!
-name|sync
-condition|)
+else|else
 block|{
 name|latchAsync
 operator|.
@@ -351,7 +346,6 @@ argument_list|,
 name|doneSync
 argument_list|)
 expr_stmt|;
-comment|// TODO: The AsyncProcessor does not work as expected
 comment|// wait at most 2 seconds
 name|boolean
 name|zero
@@ -367,7 +361,13 @@ operator|.
 name|SECONDS
 argument_list|)
 decl_stmt|;
-comment|// assertTrue("Async done should have occured", zero);
+name|assertTrue
+argument_list|(
+literal|"Async done should have occured"
+argument_list|,
+name|zero
+argument_list|)
+expr_stmt|;
 comment|// how to get the response?
 name|String
 name|response
@@ -384,7 +384,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// assertEquals("Bye World", response);
+comment|// TODO: we need a new API for getting the result
+comment|//assertEquals("Bye World", response);
 block|}
 annotation|@
 name|Override
