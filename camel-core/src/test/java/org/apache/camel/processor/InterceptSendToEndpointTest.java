@@ -43,14 +43,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for intercepting endpoint  *   * @version $Revision$  */
+comment|/**  * Unit test for intercepting sending to endpoint  *   * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|InterceptEndpointTest
+DECL|class|InterceptSendToEndpointTest
 specifier|public
 class|class
-name|InterceptEndpointTest
+name|InterceptSendToEndpointTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -379,7 +379,7 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e3
-comment|// since we use the stop() at the end of the detour route we instruct Camel to skip
+comment|// since we use the skip() at the end of the detour route we instruct Camel to skip
 comment|// sending the exchange to the original intended destination.
 comment|// That means that mock:foo will NOT receive the message, but the message
 comment|// is skipped and continued in the original route, so mock:result will receive
@@ -402,7 +402,7 @@ argument_list|(
 literal|"mock:detour"
 argument_list|)
 operator|.
-name|stop
+name|skip
 argument_list|()
 expr_stmt|;
 name|from

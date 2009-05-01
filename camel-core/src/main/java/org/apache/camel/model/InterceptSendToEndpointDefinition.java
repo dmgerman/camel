@@ -114,6 +114,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -174,20 +186,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ProcessorDefinitionHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents an XML&lt;interceptToEndpoint/&gt; element  *  * @version $Revision$  */
 end_comment
@@ -212,7 +210,10 @@ specifier|public
 class|class
 name|InterceptSendToEndpointDefinition
 extends|extends
-name|InterceptDefinition
+name|OutputDefinition
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
 block|{
 comment|// TODO: Support lookup endpoint by ref (requires a bit more work)
 comment|// TODO: Support wildcards for endpoints so you can match by scheme, eg jms:*
@@ -227,6 +228,22 @@ DECL|field|uri
 specifier|private
 name|String
 name|uri
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|skipSendToOriginalEndpoint
+specifier|protected
+name|Boolean
+name|skipSendToOriginalEndpoint
+init|=
+name|Boolean
+operator|.
+name|FALSE
 decl_stmt|;
 DECL|method|InterceptSendToEndpointDefinition ()
 specifier|public
@@ -292,6 +309,20 @@ block|{
 return|return
 literal|"interceptEndpoint"
 return|;
+block|}
+DECL|method|skipSendToOriginalEndpoint ()
+specifier|public
+name|void
+name|skipSendToOriginalEndpoint
+parameter_list|()
+block|{
+name|setSkipSendToOriginalEndpoint
+argument_list|(
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -422,11 +453,11 @@ comment|// decorate endpoint with our proxy
 name|boolean
 name|skip
 init|=
-name|stopIntercept
+name|skipSendToOriginalEndpoint
 operator|!=
 literal|null
 condition|?
-name|stopIntercept
+name|skipSendToOriginalEndpoint
 else|:
 literal|false
 decl_stmt|;
@@ -473,6 +504,26 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Applies this interceptor only if the given predicate is true      *      * @param predicate  the predicate      * @return the builder      */
+DECL|method|when (Predicate predicate)
+specifier|public
+name|ChoiceDefinition
+name|when
+parameter_list|(
+name|Predicate
+name|predicate
+parameter_list|)
+block|{
+return|return
+name|choice
+argument_list|()
+operator|.
+name|when
+argument_list|(
+name|predicate
+argument_list|)
+return|;
+block|}
 comment|/**      * This method is<b>only</b> for handling some post configuration      * that is needed from the Spring DSL side as JAXB does not invoke the fluent      * builders, so we need to manually handle this afterwards, and since this is      * an interceptor it has to do a bit of magic logic to fixup to handle predicates      * with or without proceed/stop set as well.      */
 DECL|method|afterPropertiesSet ()
 specifier|public
@@ -480,54 +531,49 @@ name|void
 name|afterPropertiesSet
 parameter_list|()
 block|{
-name|super
-operator|.
-name|afterPropertiesSet
-argument_list|()
-expr_stmt|;
 comment|// okay the intercept endpoint works a bit differently than the regular interceptors
 comment|// so we must fix the route definiton yet again
-comment|// we need to fix if the interceptor should only trigger based on a predicate
-comment|// as the regular interceptor will prepare the route "reverse" we gotta move
-comment|// from this output to the otherwise output
 if|if
 condition|(
-name|usePredicate
-operator|!=
-literal|null
-operator|&&
-name|usePredicate
+name|getOutputs
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
 condition|)
 block|{
-name|ChoiceDefinition
-name|choice
+comment|// no outputs
+return|return;
+block|}
+name|ProcessorDefinition
+name|first
 init|=
-name|ProcessorDefinitionHelper
+name|getOutputs
+argument_list|()
 operator|.
-name|findFirstTypeInOutputs
+name|get
 argument_list|(
-name|outputs
-argument_list|,
-name|ChoiceDefinition
-operator|.
-name|class
+literal|0
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|choice
-operator|!=
-literal|null
-operator|&&
-name|outputs
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|1
+name|first
+operator|instanceof
+name|WhenDefinition
 condition|)
 block|{
-comment|// move this outputs to the otherwise, expect the first one
+name|WhenDefinition
+name|when
+init|=
+operator|(
+name|WhenDefinition
+operator|)
+name|first
+decl_stmt|;
+comment|// move this outputs to the when, expect the first one
 comment|// as the first one is the interceptor itself
 for|for
 control|(
@@ -557,10 +603,7 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|choice
-operator|.
-name|getOtherwise
-argument_list|()
+name|when
 operator|.
 name|addOutput
 argument_list|(
@@ -591,7 +634,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 DECL|method|lookupEndpoint (CamelContext context)
 specifier|private
 name|Endpoint
@@ -620,6 +662,32 @@ argument_list|(
 name|uri
 argument_list|)
 return|;
+block|}
+DECL|method|getSkipSendToOriginalEndpoint ()
+specifier|public
+name|Boolean
+name|getSkipSendToOriginalEndpoint
+parameter_list|()
+block|{
+return|return
+name|skipSendToOriginalEndpoint
+return|;
+block|}
+DECL|method|setSkipSendToOriginalEndpoint (Boolean skipSendToOriginalEndpoint)
+specifier|public
+name|void
+name|setSkipSendToOriginalEndpoint
+parameter_list|(
+name|Boolean
+name|skipSendToOriginalEndpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipSendToOriginalEndpoint
+operator|=
+name|skipSendToOriginalEndpoint
+expr_stmt|;
 block|}
 block|}
 end_class

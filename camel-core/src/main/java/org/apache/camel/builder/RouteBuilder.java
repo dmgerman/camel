@@ -194,6 +194,20 @@ name|RoutesDefinition
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|InterceptSendToEndpointDefinition
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is  * used to build {@link org.apache.camel.impl.DefaultRoute} instances in a {@link CamelContext} for smart routing.  *  * @version $Revision$  */
 end_comment
@@ -571,7 +585,7 @@ block|}
 comment|/**      * Applies a route for an interceptor if an exchange is send to the given endpoint      *      * @param uri  endpoint uri      * @return the builder      */
 DECL|method|interceptSendToEndpoint (String uri)
 specifier|public
-name|InterceptDefinition
+name|InterceptSendToEndpointDefinition
 name|interceptSendToEndpoint
 parameter_list|(
 name|String
