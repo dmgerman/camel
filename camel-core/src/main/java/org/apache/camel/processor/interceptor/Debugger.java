@@ -471,7 +471,7 @@ operator|=
 name|flag
 expr_stmt|;
 block|}
-DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target)
+DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
@@ -481,6 +481,9 @@ name|processorDefinition
 parameter_list|,
 name|Processor
 name|target
+parameter_list|,
+name|Processor
+name|nextTarget
 parameter_list|)
 throws|throws
 name|Exception

@@ -82,18 +82,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Route
 import|;
 end_import
@@ -134,7 +122,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ChoiceDefinition
+name|InterceptDefinition
 import|;
 end_import
 
@@ -531,6 +519,28 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Adds a route for an interceptor; use the {@link org.apache.camel.model.ProcessorDefinition#proceed()} method      * to continue processing the underlying route being intercepted.      *      * @return the builder      */
+DECL|method|intercept ()
+specifier|public
+name|InterceptDefinition
+name|intercept
+parameter_list|()
+block|{
+name|routeCollection
+operator|.
+name|setCamelContext
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|routeCollection
+operator|.
+name|intercept
+argument_list|()
 return|;
 block|}
 comment|/**      * Adds a route for an interceptor; use the {@link org.apache.camel.model.ProcessorDefinition#proceed()} method      * to continue processing the underlying route being intercepted.      *      * @return the builder      */

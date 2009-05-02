@@ -510,6 +510,8 @@ argument_list|(
 name|outputDefinition
 argument_list|,
 name|target
+argument_list|,
+name|nextProcessor
 argument_list|)
 expr_stmt|;
 block|}

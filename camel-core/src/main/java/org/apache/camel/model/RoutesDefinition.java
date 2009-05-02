@@ -194,6 +194,23 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlTransient
+DECL|field|intercepts
+specifier|private
+name|List
+argument_list|<
+name|InterceptDefinition
+argument_list|>
+name|intercepts
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|InterceptDefinition
+argument_list|>
+argument_list|()
+decl_stmt|;
+annotation|@
+name|XmlTransient
 DECL|field|interceptFroms
 specifier|private
 name|List
@@ -379,6 +396,38 @@ operator|.
 name|interceptSendTos
 operator|=
 name|interceptSendTos
+expr_stmt|;
+block|}
+DECL|method|getIntercepts ()
+specifier|public
+name|List
+argument_list|<
+name|InterceptDefinition
+argument_list|>
+name|getIntercepts
+parameter_list|()
+block|{
+return|return
+name|intercepts
+return|;
+block|}
+DECL|method|setIntercepts (List<InterceptDefinition> intercepts)
+specifier|public
+name|void
+name|setIntercepts
+parameter_list|(
+name|List
+argument_list|<
+name|InterceptDefinition
+argument_list|>
+name|intercepts
+parameter_list|)
+block|{
+name|this
+operator|.
+name|intercepts
+operator|=
+name|intercepts
 expr_stmt|;
 block|}
 DECL|method|getOnExceptions ()
@@ -628,6 +677,24 @@ name|getCamelContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// configure intercepts
+for|for
+control|(
+name|InterceptDefinition
+name|intercept
+range|:
+name|getIntercepts
+argument_list|()
+control|)
+block|{
+name|route
+operator|.
+name|addOutput
+argument_list|(
+name|intercept
+argument_list|)
+expr_stmt|;
+block|}
 comment|// configure intercept from
 for|for
 control|(
@@ -728,21 +795,13 @@ expr_stmt|;
 block|}
 block|}
 comment|// configure intercept send to endpoint
-name|List
-argument_list|<
-name|InterceptSendToEndpointDefinition
-argument_list|>
-name|sendTos
-init|=
-name|getInterceptSendTos
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|InterceptSendToEndpointDefinition
 name|sendTo
 range|:
-name|sendTos
+name|getInterceptSendTos
+argument_list|()
 control|)
 block|{
 comment|// init interceptor by letting it proxy the real endpoint
@@ -784,6 +843,32 @@ argument_list|)
 expr_stmt|;
 return|return
 name|route
+return|;
+block|}
+comment|/**      * Creates and adds an interceptor that is triggered on every step in the route      * processing.      *      * @return the interceptor builder to configure      */
+DECL|method|intercept ()
+specifier|public
+name|InterceptDefinition
+name|intercept
+parameter_list|()
+block|{
+name|InterceptDefinition
+name|answer
+init|=
+operator|new
+name|InterceptDefinition
+argument_list|()
+decl_stmt|;
+name|getIntercepts
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 comment|/**      * Creates and adds an interceptor that is triggered when an exchange      * is received as input to any routes (eg from all the<tt>from</tt>)      *      * @return the interceptor builder to configure      */

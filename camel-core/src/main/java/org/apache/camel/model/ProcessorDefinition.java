@@ -857,6 +857,16 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|processor
+operator|==
+literal|null
+condition|)
+block|{
+comment|// no processor to add
+return|return;
+block|}
+if|if
+condition|(
 operator|!
 name|routeContext
 operator|.
@@ -1326,6 +1336,18 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|processor
+operator|==
+literal|null
+condition|)
+block|{
+comment|// no processor to make
+return|return
+literal|null
+return|;
+block|}
 return|return
 name|wrapProcessor
 argument_list|(

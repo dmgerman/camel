@@ -1234,6 +1234,9 @@ name|processorDefinition
 parameter_list|,
 name|Processor
 name|target
+parameter_list|,
+name|Processor
+name|nextTarget
 parameter_list|)
 throws|throws
 name|Exception

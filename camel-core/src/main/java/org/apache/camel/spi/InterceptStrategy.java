@@ -52,8 +52,8 @@ specifier|public
 interface|interface
 name|InterceptStrategy
 block|{
-comment|/**      * This method is invoked by      * {@link ProcessorDefinition#wrapProcessor(RouteContext, Processor)}      * to give the implementor an opportunity to wrap the target processor      * in a route.      *      * @param processorDefinition the object that invokes this method      * @param target        the processor to be wrapped      * @return processor wrapped with an interceptor or not wrapped      * @throws Exception can be thrown      */
-DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target)
+comment|/**      * This method is invoked by      * {@link ProcessorDefinition#wrapProcessor(RouteContext, Processor)}      * to give the implementor an opportunity to wrap the target processor      * in a route.      *      * @param processorDefinition the object that invokes this method      * @param target        the processor to be wrapped      * @param nextTarget    the next processor to be routed to      * @return processor wrapped with an interceptor or not wrapped      * @throws Exception can be thrown      */
+DECL|method|wrapProcessorInInterceptors (ProcessorDefinition processorDefinition, Processor target, Processor nextTarget)
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
@@ -62,6 +62,9 @@ name|processorDefinition
 parameter_list|,
 name|Processor
 name|target
+parameter_list|,
+name|Processor
+name|nextTarget
 parameter_list|)
 throws|throws
 name|Exception
