@@ -259,6 +259,22 @@ operator|=
 name|delay
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Delayer["
+operator|+
+name|delay
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 

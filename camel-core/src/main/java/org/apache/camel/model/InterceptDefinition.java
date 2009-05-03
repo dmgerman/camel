@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|ArrayList
 import|;
 end_import
 
@@ -32,7 +32,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -89,18 +89,6 @@ operator|.
 name|annotation
 operator|.
 name|XmlTransient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
 import|;
 end_import
 
@@ -200,7 +188,6 @@ name|ProcessorDefinition
 argument_list|>
 block|{
 comment|// TODO: support stop later (its a bit hard as it needs to break entire processing of route)
-comment|// TODO: add support for when predicate
 annotation|@
 name|XmlTransient
 DECL|field|output
@@ -356,6 +343,21 @@ name|output
 return|;
 block|}
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"intercept["
+operator|+
+name|output
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -378,6 +380,26 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Applies this interceptor only if the given predicate is true      *      * @param predicate  the predicate      * @return the builder      */
+DECL|method|when (Predicate predicate)
+specifier|public
+name|ChoiceDefinition
+name|when
+parameter_list|(
+name|Predicate
+name|predicate
+parameter_list|)
+block|{
+return|return
+name|choice
+argument_list|()
+operator|.
+name|when
+argument_list|(
+name|predicate
+argument_list|)
+return|;
+block|}
 comment|/**      * This method is<b>only</b> for handling some post configuration      * that is needed from the Spring DSL side as JAXB does not invoke the fluent      * builders, so we need to manually handle this afterwards, and since this is      * an interceptor it has to do a bit of magic logic to fixup to handle predicates      * with or without proceed/stop set as well.      */
 DECL|method|afterPropertiesSet ()
 specifier|public
@@ -385,7 +407,106 @@ name|void
 name|afterPropertiesSet
 parameter_list|()
 block|{
-comment|// TODO: is needed when we add support for when predicate
+if|if
+condition|(
+name|getOutputs
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+comment|// no outputs
+return|return;
+block|}
+name|ProcessorDefinition
+name|first
+init|=
+name|getOutputs
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|first
+operator|instanceof
+name|WhenDefinition
+condition|)
+block|{
+name|WhenDefinition
+name|when
+init|=
+operator|(
+name|WhenDefinition
+operator|)
+name|first
+decl_stmt|;
+comment|// move this outputs to the when, expect the first one
+comment|// as the first one is the interceptor itself
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|1
+init|;
+name|i
+operator|<
+name|outputs
+operator|.
+name|size
+argument_list|()
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|ProcessorDefinition
+name|out
+init|=
+name|outputs
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+name|when
+operator|.
+name|addOutput
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
+block|}
+comment|// remove the moved from the original output, by just keeping the first one
+name|ProcessorDefinition
+name|keep
+init|=
+name|outputs
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+name|clearOutput
+argument_list|()
+expr_stmt|;
+name|outputs
+operator|.
+name|add
+argument_list|(
+name|keep
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
