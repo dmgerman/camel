@@ -160,6 +160,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
 name|intercept
 argument_list|()
 operator|.
@@ -193,6 +194,7 @@ argument_list|,
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
