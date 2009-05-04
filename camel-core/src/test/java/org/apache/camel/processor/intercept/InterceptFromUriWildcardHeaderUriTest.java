@@ -61,10 +61,10 @@ comment|/**  * Testing http://camel.apache.org/dsl.html  */
 end_comment
 
 begin_class
-DECL|class|InterceptFromUriWildcardTest
+DECL|class|InterceptFromUriWildcardHeaderUriTest
 specifier|public
 class|class
-name|InterceptFromUriWildcardTest
+name|InterceptFromUriWildcardHeaderUriTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -184,6 +184,20 @@ argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
+literal|"mock:intercept"
+argument_list|)
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+name|Exchange
+operator|.
+name|INTERCEPTED_ENDPOINT
+argument_list|,
+literal|"seda:bar"
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
 literal|"mock:result"
 argument_list|)
 operator|.
@@ -225,8 +239,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// START SNIPPET: e1
-comment|// only trigger when incoming from any seda endpoint as we use the * wildcard
 name|interceptFrom
 argument_list|(
 literal|"seda*"
@@ -267,7 +279,6 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: e1
 block|}
 block|}
 return|;

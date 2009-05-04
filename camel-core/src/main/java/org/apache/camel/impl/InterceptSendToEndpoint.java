@@ -457,6 +457,24 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+comment|// add header with the real endpoint uri
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|INTERCEPTED_ENDPOINT
+argument_list|,
+name|delegate
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|detour
 operator|.
 name|process

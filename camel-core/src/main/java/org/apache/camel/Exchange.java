@@ -235,6 +235,12 @@ name|ROLLBACK_ONLY
 init|=
 literal|"CamelRollbackOnly"
 decl_stmt|;
+DECL|field|INTERCEPTED_ENDPOINT
+name|String
+name|INTERCEPTED_ENDPOINT
+init|=
+literal|"CamelInterceptedEndpoint"
+decl_stmt|;
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
 DECL|method|getPattern ()
 name|ExchangePattern

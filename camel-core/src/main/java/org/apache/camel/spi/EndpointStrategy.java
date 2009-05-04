@@ -38,6 +38,9 @@ specifier|public
 interface|interface
 name|EndpointStrategy
 block|{
+comment|// TODO: Add more strategy methods for other endpoint related methods, such as lookup, remove etc.
+comment|// and add a base class EndpointStrategySupport that has noop impl of all methods so you can extend it
+comment|// if you only want to do custom behavior in one of the methods
 comment|/**      * Register the endpoint.      *      * @param uri  uri of endpoint      * @param endpoint the current endpoint to register      * @return the real endpoint to register, for instance a wrapped/enhanced endpoint.      */
 DECL|method|registerEndpoint (String uri, Endpoint endpoint)
 name|Endpoint
