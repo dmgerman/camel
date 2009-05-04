@@ -521,7 +521,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a route for an interceptor; use the {@link org.apache.camel.model.ProcessorDefinition#proceed()} method      * to continue processing the underlying route being intercepted.      *      * @return the builder      */
+comment|/**      * Adds a route for an interceptor that intercepts every processing step.      *      * @return the builder      */
 DECL|method|intercept ()
 specifier|public
 name|InterceptDefinition
@@ -543,7 +543,7 @@ name|intercept
 argument_list|()
 return|;
 block|}
-comment|/**      * Adds a route for an interceptor; use the {@link org.apache.camel.model.ProcessorDefinition#proceed()} method      * to continue processing the underlying route being intercepted.      *      * @return the builder      */
+comment|/**      * Adds a route for an interceptor that intercepts incoming messages on any inputs in this route      *      * @return the builder      */
 DECL|method|interceptFrom ()
 specifier|public
 name|InterceptFromDefinition
@@ -565,7 +565,7 @@ name|interceptFrom
 argument_list|()
 return|;
 block|}
-comment|/**      * Adds a route for an interceptor; use the {@link org.apache.camel.model.ProcessorDefinition#proceed()} method      * to continue processing the underlying route being intercepted.      *      * @param uri  endpoint uri      * @return the builder      */
+comment|/**      * Adds a route for an interceptor that intercepts incoming messages on the given endpoint.      *      * @param uri  endpoint uri      * @return the builder      */
 DECL|method|interceptFrom (String uri)
 specifier|public
 name|InterceptFromDefinition

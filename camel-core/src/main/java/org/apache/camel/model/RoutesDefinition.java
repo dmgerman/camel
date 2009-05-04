@@ -144,6 +144,20 @@ name|ErrorHandlerBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|EndpointHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a collection of routes  *  * @version $Revision$  */
 end_comment
@@ -738,13 +752,15 @@ control|)
 block|{
 if|if
 condition|(
+name|EndpointHelper
+operator|.
+name|matchEndpoint
+argument_list|(
 name|input
 operator|.
 name|getUri
 argument_list|()
-operator|.
-name|equals
-argument_list|(
+argument_list|,
 name|intercept
 operator|.
 name|getUri

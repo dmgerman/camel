@@ -425,6 +425,8 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
+comment|// TODO: Add dyanmic proxy support in that sence it should be some callback hooks in CamelContext to
+comment|// you can register to do custom endpoint lookup or add to registry
 comment|// proxy the endpoint by using the InterceptSendToEndpoint that will proxy
 comment|// the producer so it processes the detour first
 name|Endpoint

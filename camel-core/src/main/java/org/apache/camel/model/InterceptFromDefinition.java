@@ -125,7 +125,6 @@ extends|extends
 name|InterceptDefinition
 block|{
 comment|// TODO: Support lookup endpoint by ref (requires a bit more work)
-comment|// TODO: Support wildcards for endpoints so you can match by scheme, eg jms:*
 annotation|@
 name|XmlAttribute
 argument_list|(

@@ -588,6 +588,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|EndpointHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -2015,13 +2029,15 @@ control|)
 block|{
 if|if
 condition|(
+name|EndpointHelper
+operator|.
+name|matchEndpoint
+argument_list|(
 name|input
 operator|.
 name|getUri
 argument_list|()
-operator|.
-name|equals
-argument_list|(
+argument_list|,
 name|intercept
 operator|.
 name|getUri
@@ -2042,6 +2058,11 @@ condition|(
 name|match
 condition|)
 block|{
+name|intercept
+operator|.
+name|afterPropertiesSet
+argument_list|()
+expr_stmt|;
 comment|// add as first output so intercept is handled before the acutal route and that gives
 comment|// us the needed head start to init and be able to intercept all the remaining processing steps
 name|route
@@ -2069,7 +2090,6 @@ argument_list|()
 control|)
 block|{
 comment|// special intercept for intercepting sending to an endpoint
-comment|// init interceptor by letting it proxy the real endpoint
 comment|// add the interceptor but we must do some pre configuration beforehand
 name|intercept
 operator|.
@@ -2079,6 +2099,7 @@ expr_stmt|;
 comment|// replace proceed with the rest of the route
 try|try
 block|{
+comment|// init interceptor by letting it proxy the real endpoint
 name|intercept
 operator|.
 name|proxyEndpoint
