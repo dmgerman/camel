@@ -381,8 +381,9 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e3
-comment|// since we use the skip() at the end of the detour route we instruct Camel to skip
-comment|// sending the exchange to the original intended destination.
+comment|// since we use the skipSendToOriginalEndpoint() we instruct Camel to skip
+comment|// sending the exchange to the original intended destination after the intercept
+comment|// route is complete.
 comment|// That means that mock:foo will NOT receive the message, but the message
 comment|// is skipped and continued in the original route, so mock:result will receive
 comment|// the message.
@@ -390,6 +391,9 @@ name|interceptSendToEndpoint
 argument_list|(
 literal|"mock:foo"
 argument_list|)
+operator|.
+name|skipSendToOriginalEndpoint
+argument_list|()
 operator|.
 name|transform
 argument_list|(
@@ -403,9 +407,6 @@ name|to
 argument_list|(
 literal|"mock:detour"
 argument_list|)
-operator|.
-name|skip
-argument_list|()
 expr_stmt|;
 name|from
 argument_list|(
@@ -587,6 +588,111 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testInterceptEndpointWithStop ()
+specifier|public
+name|void
+name|testInterceptEndpointWithStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|context
+operator|.
+name|addRoutes
+argument_list|(
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|interceptSendToEndpoint
+argument_list|(
+literal|"direct:start"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:detour"
+argument_list|)
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:start"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:foo"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:detour"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:foo"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
 argument_list|)
 expr_stmt|;
 name|template

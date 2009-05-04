@@ -310,20 +310,6 @@ return|return
 literal|"interceptEndpoint"
 return|;
 block|}
-DECL|method|skipSendToOriginalEndpoint ()
-specifier|public
-name|void
-name|skipSendToOriginalEndpoint
-parameter_list|()
-block|{
-name|setSkipSendToOriginalEndpoint
-argument_list|(
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|createProcessor (RouteContext routeContext)
@@ -522,6 +508,24 @@ name|when
 argument_list|(
 name|predicate
 argument_list|)
+return|;
+block|}
+comment|/**      * Skip sending the {@link org.apache.camel.Exchange} to the original intended endpoint      *      * @return the builder      */
+DECL|method|skipSendToOriginalEndpoint ()
+specifier|public
+name|InterceptSendToEndpointDefinition
+name|skipSendToOriginalEndpoint
+parameter_list|()
+block|{
+name|setSkipSendToOriginalEndpoint
+argument_list|(
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 comment|/**      * This method is<b>only</b> for handling some post configuration      * that is needed from the Spring DSL side as JAXB does not invoke the fluent      * builders, so we need to manually handle this afterwards, and since this is      * an interceptor it has to do a bit of magic logic to fixup to handle predicates      * with or without proceed/stop set as well.      */
