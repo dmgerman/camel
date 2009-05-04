@@ -172,10 +172,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|ldapContext
+DECL|field|remaining
 specifier|private
-name|DirContext
-name|ldapContext
+name|String
+name|remaining
 decl_stmt|;
 DECL|field|controls
 specifier|private
@@ -211,24 +211,11 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
-name|ldapContext
-operator|=
-operator|(
-name|DirContext
-operator|)
-name|getEndpoint
-argument_list|()
+name|this
 operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
-argument_list|(
 name|remaining
-argument_list|)
+operator|=
+name|remaining
 expr_stmt|;
 name|searchBase
 operator|=
@@ -274,6 +261,35 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// Obtain our ldap context. We do this by looking up the context in our registry.
+comment|// Note though that a new context is expected each time. Therefore if spring is
+comment|// being used then use prototype="scope". If you do not then you might experience
+comment|// concurrency issues as InitialContext is not required to support concurrency.
+comment|// On the other hand if you have a DirContext that is able to support concurrency
+comment|// then using the default singleton scope is entirely sufficient. Most DirContext
+comment|// classes will require prototype scope though.
+name|DirContext
+name|ldapContext
+init|=
+operator|(
+name|DirContext
+operator|)
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|lookup
+argument_list|(
+name|remaining
+argument_list|)
+decl_stmt|;
+try|try
+block|{
 comment|// could throw NamingException
 name|List
 argument_list|<
@@ -336,15 +352,14 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getDirContext ()
-specifier|public
-name|DirContext
-name|getDirContext
-parameter_list|()
+finally|finally
 block|{
-return|return
 name|ldapContext
-return|;
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|getControls ()
 specifier|protected
