@@ -5063,19 +5063,22 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Converts the IN message body to the specified class type      *      * @param typeString the type to convert to as a fully qualified classname      * @return the builder      */
+comment|/**      * Converts the IN message body to the specified type      *      * @param type the type to convert to      * @param charset the charset to use by type converters (not all converters support specifc charset)      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|convertBodyTo (String typeString)
+DECL|method|convertBodyTo (Class type, String charset)
 specifier|public
 name|Type
 name|convertBodyTo
 parameter_list|(
+name|Class
+name|type
+parameter_list|,
 name|String
-name|typeString
+name|charset
 parameter_list|)
 block|{
 name|addOutput
@@ -5083,7 +5086,9 @@ argument_list|(
 operator|new
 name|ConvertBodyDefinition
 argument_list|(
-name|typeString
+name|type
+argument_list|,
+name|charset
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -209,6 +209,18 @@ name|String
 name|type
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|charset
+specifier|private
+name|String
+name|charset
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|typeClass
 specifier|private
@@ -253,6 +265,36 @@ name|typeClass
 operator|.
 name|getName
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|ConvertBodyDefinition (Class typeClass, String charset)
+specifier|public
+name|ConvertBodyDefinition
+parameter_list|(
+name|Class
+name|typeClass
+parameter_list|,
+name|String
+name|charset
+parameter_list|)
+block|{
+name|setTypeClass
+argument_list|(
+name|typeClass
+argument_list|)
+expr_stmt|;
+name|setType
+argument_list|(
+name|typeClass
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|setCharset
+argument_list|(
+name|charset
 argument_list|)
 expr_stmt|;
 block|}
@@ -303,6 +345,9 @@ operator|new
 name|ConvertBodyProcessor
 argument_list|(
 name|getTypeClass
+argument_list|()
+argument_list|,
+name|getCharset
 argument_list|()
 argument_list|)
 return|;
@@ -393,6 +438,32 @@ operator|=
 name|typeClass
 expr_stmt|;
 block|}
+DECL|method|getCharset ()
+specifier|public
+name|String
+name|getCharset
+parameter_list|()
+block|{
+return|return
+name|charset
+return|;
+block|}
+DECL|method|setCharset (String charset)
+specifier|public
+name|void
+name|setCharset
+parameter_list|(
+name|String
+name|charset
+parameter_list|)
+block|{
+name|this
+operator|.
+name|charset
+operator|=
+name|charset
+expr_stmt|;
+block|}
 DECL|method|getTypeClass ()
 specifier|public
 name|Class
@@ -438,46 +509,6 @@ expr_stmt|;
 block|}
 return|return
 name|typeClass
-return|;
-block|}
-comment|// Fluent API
-comment|//-------------------------------------------------------------------------
-comment|/**      * Sets the type class that you want ConvertBodyType to covert      *      * @param typeClass  the type class that you want to covert body instance to      * @return the builder      */
-DECL|method|typeClass (Class typeClass)
-specifier|public
-name|ConvertBodyDefinition
-name|typeClass
-parameter_list|(
-name|Class
-name|typeClass
-parameter_list|)
-block|{
-name|setTypeClass
-argument_list|(
-name|typeClass
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets the type class name that you want to covert body instance to      *      * @param type  the type class name      * @return the builder      */
-DECL|method|type (String type)
-specifier|public
-name|ConvertBodyDefinition
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setType
-argument_list|(
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
 return|;
 block|}
 block|}

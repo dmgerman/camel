@@ -2039,6 +2039,31 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+comment|// special for byte[] as its common to use
+if|if
+condition|(
+literal|"java.lang.byte[]"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+operator|||
+literal|"byte[]"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+name|byte
+index|[]
+operator|.
+name|class
+return|;
+block|}
 comment|// try context class loader first
 name|Class
 name|clazz
@@ -3571,6 +3596,14 @@ condition|(
 name|ch
 operator|==
 literal|'.'
+operator|||
+name|ch
+operator|==
+literal|'['
+operator|||
+name|ch
+operator|==
+literal|']'
 operator|||
 name|Character
 operator|.
