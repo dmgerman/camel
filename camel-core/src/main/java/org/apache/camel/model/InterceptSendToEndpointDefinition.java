@@ -90,18 +90,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -168,6 +156,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|EndpointStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteContext
 import|;
 end_import
@@ -182,7 +184,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|EndpointHelper
 import|;
 end_import
 
@@ -216,7 +218,6 @@ name|ProcessorDefinition
 argument_list|>
 block|{
 comment|// TODO: Support lookup endpoint by ref (requires a bit more work)
-comment|// TODO: Support wildcards for endpoints so you can match by scheme, eg jms:*
 annotation|@
 name|XmlAttribute
 argument_list|(
@@ -323,22 +324,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// we have to reuse the createProcessor method to build the detour route
-comment|// afterwards we remove this interceptor from the route so the route will
-comment|// not use regular intercptor. The interception by endpoint is triggered
-comment|// by the InterceptSendToEndpoint that handles the intercept routing logic
-name|Endpoint
-name|endpoint
-init|=
-name|lookupEndpoint
-argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
-argument_list|)
-decl_stmt|;
 comment|// create the detour
+specifier|final
 name|Processor
 name|detour
 init|=
@@ -349,25 +336,74 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-comment|// set the detour on the endpoint proxy
-name|InterceptSendToEndpoint
-name|proxy
-init|=
+comment|// register endpoint callback so we can proxy the endpoint
 name|routeContext
 operator|.
 name|getCamelContext
 argument_list|()
 operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|mandatoryConvertTo
+name|addRegisterEndpointCallback
 argument_list|(
-name|InterceptSendToEndpoint
-operator|.
-name|class
-argument_list|,
+operator|new
+name|EndpointStrategy
+argument_list|()
+block|{
+specifier|public
+name|Endpoint
+name|registerEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Endpoint
 name|endpoint
+parameter_list|)
+block|{
+comment|// only proxy if the uri is matched
+name|boolean
+name|match
+init|=
+name|getUri
+argument_list|()
+operator|==
+literal|null
+operator|||
+name|EndpointHelper
+operator|.
+name|matchEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|getUri
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|match
+condition|)
+block|{
+comment|// decorate endpoint with our proxy
+name|boolean
+name|skip
+init|=
+name|skipSendToOriginalEndpoint
+operator|!=
+literal|null
+condition|?
+name|skipSendToOriginalEndpoint
+else|:
+literal|false
+decl_stmt|;
+name|InterceptSendToEndpoint
+name|proxy
+init|=
+operator|new
+name|InterceptSendToEndpoint
+argument_list|(
+name|endpoint
+argument_list|,
+name|skip
 argument_list|)
 decl_stmt|;
 name|proxy
@@ -375,6 +411,21 @@ operator|.
 name|setDetour
 argument_list|(
 name|detour
+argument_list|)
+expr_stmt|;
+return|return
+name|proxy
+return|;
+block|}
+else|else
+block|{
+comment|// no proxy so return regular endpoint
+return|return
+name|endpoint
+return|;
+block|}
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 comment|// remove the original intercepted route from the outputs as we do not intercept as the regular interceptor
@@ -415,82 +466,6 @@ argument_list|,
 name|detour
 argument_list|)
 return|;
-block|}
-DECL|method|proxyEndpoint (CamelContext context)
-specifier|public
-name|void
-name|proxyEndpoint
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-comment|// TODO: Add dyanmic proxy support in that sence it should be some callback hooks in CamelContext to
-comment|// you can register to do custom endpoint lookup or add to registry
-comment|// proxy the endpoint by using the InterceptSendToEndpoint that will proxy
-comment|// the producer so it processes the detour first
-name|Endpoint
-name|endpoint
-init|=
-name|lookupEndpoint
-argument_list|(
-name|context
-argument_list|)
-decl_stmt|;
-comment|// decorate endpoint with our proxy
-name|boolean
-name|skip
-init|=
-name|skipSendToOriginalEndpoint
-operator|!=
-literal|null
-condition|?
-name|skipSendToOriginalEndpoint
-else|:
-literal|false
-decl_stmt|;
-name|InterceptSendToEndpoint
-name|proxy
-init|=
-operator|new
-name|InterceptSendToEndpoint
-argument_list|(
-name|endpoint
-argument_list|,
-name|skip
-argument_list|)
-decl_stmt|;
-try|try
-block|{
-comment|// add will replace the old one
-name|context
-operator|.
-name|addEndpoint
-argument_list|(
-name|proxy
-operator|.
-name|getEndpointUri
-argument_list|()
-argument_list|,
-name|proxy
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * Applies this interceptor only if the given predicate is true      *      * @param predicate  the predicate      * @return the builder      */
 DECL|method|when (Predicate predicate)
@@ -640,35 +615,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|lookupEndpoint (CamelContext context)
-specifier|private
-name|Endpoint
-name|lookupEndpoint
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|uri
-argument_list|,
-literal|"uri"
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-return|return
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-name|uri
-argument_list|)
-return|;
-block|}
 DECL|method|getSkipSendToOriginalEndpoint ()
 specifier|public
 name|Boolean
@@ -693,6 +639,32 @@ operator|.
 name|skipSendToOriginalEndpoint
 operator|=
 name|skipSendToOriginalEndpoint
+expr_stmt|;
+block|}
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
+block|}
+DECL|method|setUri (String uri)
+specifier|public
+name|void
+name|setUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
 expr_stmt|;
 block|}
 block|}

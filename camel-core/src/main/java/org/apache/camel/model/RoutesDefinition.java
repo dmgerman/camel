@@ -701,10 +701,17 @@ name|getIntercepts
 argument_list|()
 control|)
 block|{
+comment|// add as first output so intercept is handled before the acutal route and that gives
+comment|// us the needed head start to init and be able to intercept all the remaining processing steps
 name|route
 operator|.
-name|addOutput
+name|getOutputs
+argument_list|()
+operator|.
+name|add
 argument_list|(
+literal|0
+argument_list|,
 name|intercept
 argument_list|)
 expr_stmt|;
@@ -781,10 +788,17 @@ condition|(
 name|match
 condition|)
 block|{
+comment|// add as first output so intercept is handled before the acutal route and that gives
+comment|// us the needed head start to init and be able to intercept all the remaining processing steps
 name|route
 operator|.
-name|addOutput
+name|getOutputs
+argument_list|()
+operator|.
+name|add
 argument_list|(
+literal|0
+argument_list|,
 name|intercept
 argument_list|)
 expr_stmt|;
@@ -800,19 +814,17 @@ name|getInterceptSendTos
 argument_list|()
 control|)
 block|{
-comment|// init interceptor by letting it proxy the real endpoint
-name|sendTo
-operator|.
-name|proxyEndpoint
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// add as first output so intercept is handled before the acutal route and that gives
+comment|// us the needed head start to init and be able to intercept all the remaining processing steps
 name|route
 operator|.
-name|addOutput
+name|getOutputs
+argument_list|()
+operator|.
+name|add
 argument_list|(
+literal|0
+argument_list|,
 name|sendTo
 argument_list|)
 expr_stmt|;

@@ -1730,12 +1730,12 @@ range|:
 name|routes
 control|)
 block|{
-name|initOnExceptions
+name|initInterceptors
 argument_list|(
 name|route
 argument_list|)
 expr_stmt|;
-name|initInterceptors
+name|initOnExceptions
 argument_list|(
 name|route
 argument_list|)
@@ -2089,45 +2089,22 @@ name|getInterceptSendToEndpoints
 argument_list|()
 control|)
 block|{
-comment|// special intercept for intercepting sending to an endpoint
-comment|// add the interceptor but we must do some pre configuration beforehand
 name|intercept
 operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
-comment|// replace proceed with the rest of the route
-try|try
-block|{
-comment|// init interceptor by letting it proxy the real endpoint
-name|intercept
-operator|.
-name|proxyEndpoint
-argument_list|(
-name|getContext
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
+comment|// add as first output so intercept is handled before the acutal route and that gives
+comment|// us the needed head start to init and be able to intercept all the remaining processing steps
 name|route
 operator|.
-name|addOutput
+name|getOutputs
+argument_list|()
+operator|.
+name|add
 argument_list|(
+literal|0
+argument_list|,
 name|intercept
 argument_list|)
 expr_stmt|;

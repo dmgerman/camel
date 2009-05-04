@@ -254,6 +254,20 @@ name|TypeConverterRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|EndpointStrategy
+import|;
+end_import
+
 begin_comment
 comment|/**  * Interface used to represent the context used to configure routes and the  * policies to use during message exchanges between endpoints.  *  * @version $Revision$  */
 end_comment
@@ -447,6 +461,15 @@ name|uri
 parameter_list|)
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * Registers a {@link org.apache.camel.spi.EndpointStrategy callback} to allow you to do custom      * logic when an {@link Endpoint} is about to be registered to the {@link CamelContext} endpoint registry.      *<p/>      * When a callback is added it will be executed on the already registered endpoints allowing you to catch-up      *      * @param strategy  callback to be invoked      */
+DECL|method|addRegisterEndpointCallback (EndpointStrategy strategy)
+name|void
+name|addRegisterEndpointCallback
+parameter_list|(
+name|EndpointStrategy
+name|strategy
+parameter_list|)
 function_decl|;
 comment|// Route Management Methods
 comment|//-----------------------------------------------------------------------
