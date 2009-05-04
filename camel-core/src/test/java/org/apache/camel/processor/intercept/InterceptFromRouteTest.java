@@ -86,10 +86,10 @@ argument_list|(
 literal|"mock:b"
 argument_list|)
 operator|.
-name|otherwise
+name|stop
 argument_list|()
 operator|.
-name|proceed
+name|end
 argument_list|()
 expr_stmt|;
 name|from

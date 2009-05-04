@@ -64,13 +64,58 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: stop is not yet supported
-comment|//getMockEndpoint("mock:foo").expectedMessageCount(0);
-comment|//getMockEndpoint("mock:bar").expectedMessageCount(0);
-comment|//getMockEndpoint("mock:result").expectedMessageCount(0);
-comment|//getMockEndpoint("mock:intercepted").expectedMessageCount(1);
-comment|//template.sendBody("direct:start", "Hello World");
-comment|//assertMockEndpointsSatisfied();
+name|getMockEndpoint
+argument_list|(
+literal|"mock:foo"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:bar"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:intercepted"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -96,7 +141,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//                intercept().to("mock:intercepted").stop();
+comment|// START SNIPPET: e1
 name|intercept
 argument_list|()
 operator|.
@@ -104,6 +149,9 @@ name|to
 argument_list|(
 literal|"mock:intercepted"
 argument_list|)
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 name|from
 argument_list|(
@@ -119,6 +167,7 @@ argument_list|,
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;

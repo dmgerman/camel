@@ -82,9 +82,6 @@ name|to
 argument_list|(
 literal|"mock:b"
 argument_list|)
-operator|.
-name|proceed
-argument_list|()
 expr_stmt|;
 name|from
 argument_list|(

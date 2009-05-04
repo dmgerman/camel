@@ -765,31 +765,11 @@ condition|(
 name|match
 condition|)
 block|{
-comment|// need to create a proxy for this one and use the
-comment|// proceed of the proxy which will be local to this route
-name|InterceptFromDefinition
-name|proxy
-init|=
-name|intercept
-operator|.
-name|createProxy
-argument_list|()
-decl_stmt|;
 name|route
 operator|.
 name|addOutput
 argument_list|(
-name|proxy
-argument_list|)
-expr_stmt|;
-name|route
-operator|.
-name|pushBlock
-argument_list|(
-name|proxy
-operator|.
-name|getProceed
-argument_list|()
+name|intercept
 argument_list|)
 expr_stmt|;
 block|}

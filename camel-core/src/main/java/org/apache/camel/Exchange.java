@@ -162,6 +162,13 @@ name|LOOP_SIZE
 init|=
 literal|"CamelLoopSize"
 decl_stmt|;
+DECL|field|ROUTE_STOP
+name|String
+name|ROUTE_STOP
+init|=
+literal|"CamelRouteStop"
+decl_stmt|;
+comment|/**      * @deprecated a new Async API is planned for Camel 2.0      */
 DECL|field|PROCESSED_SYNC
 name|String
 name|PROCESSED_SYNC

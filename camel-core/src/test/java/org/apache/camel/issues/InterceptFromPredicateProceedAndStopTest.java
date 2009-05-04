@@ -199,9 +199,6 @@ name|to
 argument_list|(
 literal|"mock:test"
 argument_list|)
-operator|.
-name|proceed
-argument_list|()
 expr_stmt|;
 name|from
 argument_list|(
@@ -528,9 +525,6 @@ name|to
 argument_list|(
 literal|"mock:test"
 argument_list|)
-operator|.
-name|proceed
-argument_list|()
 expr_stmt|;
 name|from
 argument_list|(
