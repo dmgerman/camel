@@ -243,7 +243,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|connectors
 specifier|private
-name|HashMap
+specifier|final
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -387,9 +388,7 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-name|CometdEndpoint
-name|endpoint
-init|=
+return|return
 operator|new
 name|CometdEndpoint
 argument_list|(
@@ -401,9 +400,6 @@ name|remaining
 argument_list|,
 name|parameters
 argument_list|)
-decl_stmt|;
-return|return
-name|endpoint
 return|;
 block|}
 comment|/**      * Connects the URL specified on the endpoint to the specified processor.      */
