@@ -22,50 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|AsyncCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|AsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -85,6 +41,18 @@ operator|.
 name|camel
 operator|.
 name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
@@ -125,20 +93,6 @@ operator|.
 name|spring
 operator|.
 name|SpringCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|AsyncProcessorHelper
 import|;
 end_import
 
@@ -294,7 +248,7 @@ name|SpringIntegrationProducer
 extends|extends
 name|DefaultProducer
 implements|implements
-name|AsyncProcessor
+name|Processor
 block|{
 DECL|field|LOG
 specifier|private
@@ -436,9 +390,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Can't find the right outputChannelName, "
-operator|+
-literal|"please check the endpoint uri outputChannel part!"
+literal|"Cannot find outputChannelName, please check the endpoint uri outputChannel part!"
 argument_list|)
 throw|;
 block|}
@@ -481,7 +433,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Can't find the right message channel, please check your configuration."
+literal|"Cannot find message channel, please check your configuration."
 argument_list|)
 throw|;
 block|}
@@ -521,9 +473,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Can't find the right inputChannel, "
-operator|+
-literal|"please check the endpoint uri inputChannel part!"
+literal|"Cannot find inputChannel, please check the endpoint uri inputChannel part!"
 argument_list|)
 throw|;
 block|}
@@ -559,58 +509,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|process (Exchange exchange)
+DECL|method|process (final Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|AsyncProcessorHelper
-operator|.
-name|process
-argument_list|(
-name|this
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|process (final Exchange exchange, final AsyncCallback callback)
-specifier|public
-name|boolean
-name|process
-parameter_list|(
-specifier|final
-name|Exchange
-name|exchange
-parameter_list|,
-specifier|final
-name|AsyncCallback
-name|callback
-parameter_list|)
-block|{
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|headers
-init|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|exchange
@@ -622,7 +532,13 @@ name|isOutCapable
 argument_list|()
 condition|)
 block|{
-name|headers
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
 operator|.
 name|put
 argument_list|(
@@ -664,13 +580,6 @@ name|getOut
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|callback
-operator|.
-name|done
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 argument_list|)
@@ -692,8 +601,6 @@ operator|.
 name|createSpringIntegrationMessage
 argument_list|(
 name|exchange
-argument_list|,
-name|headers
 argument_list|)
 decl_stmt|;
 name|outputChannel
@@ -703,29 +610,6 @@ argument_list|(
 name|siOutmessage
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|exchange
-operator|.
-name|getPattern
-argument_list|()
-operator|.
-name|isOutCapable
-argument_list|()
-condition|)
-block|{
-name|callback
-operator|.
-name|done
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-literal|true
-return|;
 block|}
 block|}
 end_class

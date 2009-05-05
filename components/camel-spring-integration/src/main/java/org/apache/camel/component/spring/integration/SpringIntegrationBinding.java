@@ -97,7 +97,13 @@ name|createSpringIntegrationMessage
 argument_list|(
 name|exchange
 argument_list|,
-literal|null
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -146,9 +152,7 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|GenericMessage
-name|siMessage
-init|=
+return|return
 operator|new
 name|GenericMessage
 argument_list|(
@@ -159,9 +163,6 @@ argument_list|()
 argument_list|,
 name|headers
 argument_list|)
-decl_stmt|;
-return|return
-name|siMessage
 return|;
 block|}
 annotation|@
@@ -193,9 +194,7 @@ name|Message
 name|message
 parameter_list|)
 block|{
-name|GenericMessage
-name|siMessage
-init|=
+return|return
 operator|new
 name|GenericMessage
 argument_list|(
@@ -204,9 +203,6 @@ operator|.
 name|getBody
 argument_list|()
 argument_list|)
-decl_stmt|;
-return|return
-name|siMessage
 return|;
 block|}
 DECL|method|storeToCamelMessage (org.springframework.integration.core.Message siMessage, org.apache.camel.Message cMessage)
