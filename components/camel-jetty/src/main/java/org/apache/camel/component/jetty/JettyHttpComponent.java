@@ -1239,7 +1239,7 @@ name|CamelServlet
 name|camelServlet
 init|=
 operator|new
-name|CamelContinuationServlet
+name|CamelServlet
 argument_list|(
 name|isMatchOnUriPrefix
 argument_list|()

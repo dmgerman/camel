@@ -162,6 +162,7 @@ name|CamelContinuationServlet
 extends|extends
 name|CamelServlet
 block|{
+comment|// TODO: should use the new Async API and allow end users to define if they want Jetty continuation support or not
 DECL|field|serialVersionUID
 specifier|private
 specifier|static
