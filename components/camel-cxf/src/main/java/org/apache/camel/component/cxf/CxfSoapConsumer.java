@@ -357,7 +357,7 @@ name|Processor
 name|soapProcessor
 init|=
 operator|new
-name|AsyncProcessorDecorator
+name|CxfAroundProcessor
 argument_list|(
 name|processor
 argument_list|,
@@ -586,12 +586,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|server
+name|consumer
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|consumer
+name|server
 operator|.
 name|stop
 argument_list|()
@@ -621,15 +621,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"processSoapConsumerIn: "
 operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 name|org
 operator|.
 name|apache
@@ -762,15 +771,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"processSoapConsumerOut: "
 operator|+
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 comment|// TODO check if the message is one-way message
 comment|// Get the method name from the soap endpoint
 name|org
