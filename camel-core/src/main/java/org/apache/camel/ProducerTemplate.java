@@ -151,7 +151,7 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
-comment|/**      * Sends an exchange to an endpoint using a supplied processor      *      * @param endpointUri the endpoint URI to send the exchange to      * @param processor   the transformer used to populate the new exchange      * {@link Processor} to populate the exchange.      * @param callback    the callback will be called when the exchange is completed.      * @return the returned exchange      */
+comment|/**      * Sends an exchange to an endpoint using a supplied processor      *      * @param endpointUri the endpoint URI to send the exchange to      * @param processor   the transformer used to populate the new exchange      * {@link Processor} to populate the exchange.      * @param callback    the callback will be called when the exchange is completed.      * @return the returned exchange      * @deprecated a new async API is planned for Camel 2.0      */
 DECL|method|send (String endpointUri, Processor processor, AsyncCallback callback)
 name|Exchange
 name|send
@@ -205,7 +205,7 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
-comment|/**      * Sends an exchange to an endpoint using a supplied processor      *      * @param endpoint  the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange.      * @param callback  the callback will be called when the exchange is completed.      * @return the returned exchange      */
+comment|/**      * Sends an exchange to an endpoint using a supplied processor      *      * @param endpoint  the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange.      * @param callback  the callback will be called when the exchange is completed.      * @return the returned exchange      * @deprecated a new async API is planned for Camel 2.0      */
 DECL|method|send (Endpoint endpoint, Processor processor, AsyncCallback callback)
 name|Exchange
 name|send
