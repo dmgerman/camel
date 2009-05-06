@@ -345,8 +345,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// TODO: Add more logging
-comment|// TODO: Add option to stop if an exception was thrown during processing to break asap
+comment|// TODO: Add option to stop if an exception was thrown during processing to break asap (future task cancel)
 comment|/**      * Class that represent each step in the multicast route to do      */
 DECL|class|ProcessorExchangePair
 specifier|static
@@ -634,7 +633,7 @@ name|isStreaming
 argument_list|()
 condition|)
 block|{
-name|doProcessNewParallelStreaming
+name|doProcessParallelStreaming
 argument_list|(
 name|result
 argument_list|,
@@ -649,7 +648,7 @@ name|isParallelProcessing
 argument_list|()
 condition|)
 block|{
-name|doProcessNewParallel
+name|doProcessParallel
 argument_list|(
 name|result
 argument_list|,
@@ -691,10 +690,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|doProcessNewParallelStreaming (final AtomicExchange result, Iterable<ProcessorExchangePair> pairs)
+DECL|method|doProcessParallelStreaming (final AtomicExchange result, Iterable<ProcessorExchangePair> pairs)
 specifier|protected
 name|void
-name|doProcessNewParallelStreaming
+name|doProcessParallelStreaming
 parameter_list|(
 specifier|final
 name|AtomicExchange
@@ -809,6 +808,24 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parallel streaming processing complete for exchange: "
+operator|+
+name|subExchange
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|subExchange
 return|;
@@ -874,13 +891,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isTraceEnabled
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"Done parallel streaming processing "
 operator|+
@@ -891,10 +908,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|doProcessNewParallel (final AtomicExchange result, Iterable<ProcessorExchangePair> pairs)
+DECL|method|doProcessParallel (final AtomicExchange result, Iterable<ProcessorExchangePair> pairs)
 specifier|protected
 name|void
-name|doProcessNewParallel
+name|doProcessParallel
 parameter_list|(
 specifier|final
 name|AtomicExchange
@@ -910,9 +927,6 @@ throws|throws
 name|InterruptedException
 block|{
 comment|// execute tasks in parallel but aggregate in the same order as the tasks was submitted (in order sequence)
-comment|// TODO I wonder if there is a completion servce that can order the take in the same order as the tasks
-comment|// was submitted, if so we can do aggregate to catch-up while still processing for more performance
-comment|// this one completes all tasks before doing aggregation
 specifier|final
 name|List
 argument_list|<
@@ -1023,6 +1037,24 @@ operator|.
 name|setException
 argument_list|(
 name|e
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parallel processing complete for exchange: "
+operator|+
+name|subExchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -1200,13 +1232,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isTraceEnabled
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"Done sequientel processing "
 operator|+
@@ -1278,7 +1310,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|updateNewExchange (Exchange exchange, int i, Iterable<ProcessorExchangePair> allPairs)
+DECL|method|updateNewExchange (Exchange exchange, int index, Iterable<ProcessorExchangePair> allPairs)
 specifier|protected
 name|void
 name|updateNewExchange
@@ -1287,7 +1319,7 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|int
-name|i
+name|index
 parameter_list|,
 name|Iterable
 argument_list|<
@@ -1296,7 +1328,20 @@ argument_list|>
 name|allPairs
 parameter_list|)
 block|{
-comment|// No updates needed
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|MULTICAST_INDEX
+argument_list|,
+name|index
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createProcessorExchangePairs (Exchange exchange)
 specifier|protected
@@ -1462,6 +1507,32 @@ block|{
 return|return
 name|isParallelProcessing
 return|;
+block|}
+DECL|method|getExecutorService ()
+specifier|public
+name|ExecutorService
+name|getExecutorService
+parameter_list|()
+block|{
+return|return
+name|executorService
+return|;
+block|}
+DECL|method|setExecutorService (ExecutorService executorService)
+specifier|public
+name|void
+name|setExecutorService
+parameter_list|(
+name|ExecutorService
+name|executorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
+expr_stmt|;
 block|}
 DECL|method|next ()
 specifier|public

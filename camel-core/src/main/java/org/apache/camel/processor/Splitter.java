@@ -672,6 +672,17 @@ argument_list|>
 name|allPairs
 parameter_list|)
 block|{
+name|super
+operator|.
+name|updateNewExchange
+argument_list|(
+name|exchange
+argument_list|,
+name|index
+argument_list|,
+name|allPairs
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|getIn

@@ -60,18 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Service
 import|;
 end_import
@@ -129,12 +117,6 @@ name|ServiceSupport
 implements|implements
 name|Service
 block|{
-DECL|field|threadCounter
-specifier|private
-specifier|static
-name|int
-name|threadCounter
-decl_stmt|;
 DECL|field|started
 specifier|private
 specifier|final
@@ -577,38 +559,11 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Creates a new thread name with the given prefix      */
-DECL|method|getThreadName (String prefix)
-specifier|protected
-name|String
-name|getThreadName
-parameter_list|(
-name|String
-name|prefix
-parameter_list|)
-block|{
-return|return
-name|prefix
-operator|+
-literal|" thread:"
-operator|+
-name|nextThreadCounter
-argument_list|()
-return|;
-block|}
-DECL|method|nextThreadCounter ()
-specifier|protected
-specifier|static
-specifier|synchronized
-name|int
-name|nextThreadCounter
-parameter_list|()
-block|{
-return|return
-operator|++
-name|threadCounter
-return|;
-block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|addChildService (Object childService)
 specifier|protected
 name|void
@@ -659,15 +614,13 @@ return|return
 name|childServices
 operator|!=
 literal|null
-condition|?
+operator|&&
 name|childServices
 operator|.
 name|remove
 argument_list|(
 name|childService
 argument_list|)
-else|:
-literal|false
 return|;
 block|}
 comment|/**      * Returns the version of this service      */

@@ -168,13 +168,6 @@ name|ROUTE_STOP
 init|=
 literal|"CamelRouteStop"
 decl_stmt|;
-comment|/**      * @deprecated a new Async API is planned for Camel 2.0      */
-DECL|field|PROCESSED_SYNC
-name|String
-name|PROCESSED_SYNC
-init|=
-literal|"CamelProcessedSync"
-decl_stmt|;
 DECL|field|REDELIVERED
 name|String
 name|REDELIVERED
@@ -186,6 +179,12 @@ name|String
 name|REDELIVERY_COUNTER
 init|=
 literal|"CamelRedeliveryCounter"
+decl_stmt|;
+DECL|field|MULTICAST_INDEX
+name|String
+name|MULTICAST_INDEX
+init|=
+literal|"CamelMulticastIndex"
 decl_stmt|;
 DECL|field|SPLIT_INDEX
 name|String
