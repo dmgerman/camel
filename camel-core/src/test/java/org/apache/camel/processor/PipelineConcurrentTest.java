@@ -118,6 +118,13 @@ name|PipelineConcurrentTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|uri
+specifier|private
+name|String
+name|uri
+init|=
+literal|"seda:in?size=10000&concurrentConsumers=10"
+decl_stmt|;
 DECL|method|testConcurrentPipeline ()
 specifier|public
 name|void
@@ -259,7 +266,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:in?size=10000"
+name|uri
 argument_list|,
 literal|""
 operator|+
@@ -319,12 +326,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:in?size=10000"
-argument_list|)
-operator|.
-name|thread
-argument_list|(
-literal|10
+name|uri
 argument_list|)
 operator|.
 name|pipeline

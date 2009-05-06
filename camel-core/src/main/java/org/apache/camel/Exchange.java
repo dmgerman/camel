@@ -330,7 +330,7 @@ name|Message
 name|in
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the outbound message, lazily creating one if one has not already      * been associated with this exchange. If you want to inspect this property      * but not force lazy creation then invoke the {@link #getOut(boolean)}      * method passing in<tt>false</tt>      *<p/>      * If you want to test whether an OUT message have been set or not, use the {@link #hasOut()} method.      *      * @return the response      */
+comment|/**      * Returns the outbound message, lazily creating one if one has not already      * been associated with this exchange.      *<p/>      * If you want to test whether an OUT message have been set or not, use the {@link #hasOut()} method.      *      * @return the response      */
 DECL|method|getOut ()
 name|Message
 name|getOut

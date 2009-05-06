@@ -24,6 +24,54 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Future
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeoutException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
 begin_comment
 comment|/**  * Template (named like Spring's TransactionTemplate& JmsTemplate  * et al) for working with Camel and sending {@link Message} instances in an  * {@link Exchange} to an {@link Endpoint}.  *<p/>  *<b>All</b> methods throws {@link RuntimeCamelException} if processing of  * the {@link Exchange} failed and an Exception occured. The<tt>getCause</tt>  * method on {@link RuntimeCamelException} returns the wrapper original caused  * exception.  *<p/>  * All the send<b>Body</b> methods will return the content according to this strategy  *<ul>  *<li>throws {@link RuntimeCamelException} as stated above</li>  *<li>The<tt>fault.body</tt> if there is a fault message set and its not<tt>null</tt></li>  *<li>Either<tt>IN</tt> or<tt>OUT</tt> body according to the message exchange pattern. If the pattern is  *   Out capable then the<tt>OUT</tt> body is returned, otherwise<tt>IN</tt>.  *</ul>  *<p/>  *<b>Important note on usage:</b> See this  *<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">FAQ entry</a>  * before using.  *  * @version $Revision$  */
 end_comment
@@ -36,6 +84,8 @@ name|ProducerTemplate
 extends|extends
 name|Service
 block|{
+comment|// Synchronous methods
+comment|// -----------------------------------------------------------------------
 comment|/**      * Sends the exchange to the default endpoint      *      * @param exchange the exchange to send      * @return the returned exchange      */
 DECL|method|send (Exchange exchange)
 name|Exchange
@@ -151,21 +201,6 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
-comment|/**      * Sends an exchange to an endpoint using a supplied processor      *      * @param endpointUri the endpoint URI to send the exchange to      * @param processor   the transformer used to populate the new exchange      * {@link Processor} to populate the exchange.      * @param callback    the callback will be called when the exchange is completed.      * @return the returned exchange      * @deprecated a new async API is planned for Camel 2.0      */
-DECL|method|send (String endpointUri, Processor processor, AsyncCallback callback)
-name|Exchange
-name|send
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|Processor
-name|processor
-parameter_list|,
-name|AsyncCallback
-name|callback
-parameter_list|)
-function_decl|;
 comment|/**      * Sends the exchange to the given endpoint      *      * @param endpoint the endpoint to send the exchange to      * @param exchange the exchange to send      * @return the returned exchange      */
 DECL|method|send (Endpoint endpoint, Exchange exchange)
 name|Exchange
@@ -203,21 +238,6 @@ name|pattern
 parameter_list|,
 name|Processor
 name|processor
-parameter_list|)
-function_decl|;
-comment|/**      * Sends an exchange to an endpoint using a supplied processor      *      * @param endpoint  the endpoint to send the exchange to      * @param processor the transformer used to populate the new exchange      * {@link Processor} to populate the exchange.      * @param callback  the callback will be called when the exchange is completed.      * @return the returned exchange      * @deprecated a new async API is planned for Camel 2.0      */
-DECL|method|send (Endpoint endpoint, Processor processor, AsyncCallback callback)
-name|Exchange
-name|send
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|,
-name|Processor
-name|processor
-parameter_list|,
-name|AsyncCallback
-name|callback
 parameter_list|)
 function_decl|;
 comment|/**      * Send the body to an endpoint      *      * @param endpoint   the endpoint to send the exchange to      * @param body       the payload      */
@@ -551,7 +571,7 @@ name|Object
 name|body
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param body the payload to send      * @return the result (see class javadoc)      */
+comment|/**      * Sends the body to the default endpoint and returns the result content      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param body the payload to send      * @param type the expected response type      * @return the result (see class javadoc)      */
 DECL|method|requestBody (Object body, Class<T> type)
 parameter_list|<
 name|T
@@ -822,6 +842,251 @@ name|T
 argument_list|>
 name|type
 parameter_list|)
+function_decl|;
+comment|// Asynchronous methods
+comment|// -----------------------------------------------------------------------
+comment|/**      * Sets the executor service to use for async messaging.      *<p/>      * If none provided Camel will default use a {@link java.util.concurrent.ScheduledExecutorService}      * with a pool of 5 threads.      *      * @param executorService  the executor service.      */
+DECL|method|setExecutorService (ExecutorService executorService)
+name|void
+name|setExecutorService
+parameter_list|(
+name|ExecutorService
+name|executorService
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous exchange to the given endpoint.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param exchange    the exchange to send      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncSend (String endpointUri, Exchange exchange)
+name|Future
+argument_list|<
+name|Exchange
+argument_list|>
+name|asyncSend
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous exchange to the given endpoint.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param processor   the transformer used to populate the new exchange      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncSend (String endpointUri, Processor processor)
+name|Future
+argument_list|<
+name|Exchange
+argument_list|>
+name|asyncSend
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOnly} message exchange pattern.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param body        the body to send      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncSendBody (String endpointUri, Object body)
+name|Future
+argument_list|<
+name|Object
+argument_list|>
+name|asyncSendBody
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param body        the body to send      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncRequestBody (String endpointUri, Object body)
+name|Future
+argument_list|<
+name|Object
+argument_list|>
+name|asyncRequestBody
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param body        the body to send      * @param header      the header name      * @param headerValue the header value      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncRequestBodyAndHeader (String endpointUri, Object body, String header, Object headerValue)
+name|Future
+argument_list|<
+name|Object
+argument_list|>
+name|asyncRequestBodyAndHeader
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Object
+name|headerValue
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param body        the body to send      * @param headers     headers      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncRequestBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers)
+name|Future
+argument_list|<
+name|Object
+argument_list|>
+name|asyncRequestBodyAndHeaders
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param body        the body to send      * @param type        the expected response type      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncRequestBody (String endpointUri, Object body, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Future
+argument_list|<
+name|T
+argument_list|>
+name|asyncRequestBody
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param body        the body to send      * @param header      the header name      * @param headerValue the header value      * @param type        the expected response type      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncRequestBodyAndHeader (String endpointUri, Object body, String header, Object headerValue, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Future
+argument_list|<
+name|T
+argument_list|>
+name|asyncRequestBodyAndHeader
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|header
+parameter_list|,
+name|Object
+name|headerValue
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Sends an asynchronous body to the given endpoint.      * Uses an {@link ExchangePattern#InOut} message exchange pattern.      *      * @param endpointUri the endpoint URI to send the exchange to      * @param body        the body to send      * @param headers     headers      * @param type        the expected response type      * @return a handle to be used to get the response in the future      */
+DECL|method|asyncRequestBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Future
+argument_list|<
+name|T
+argument_list|>
+name|asyncRequestBodyAndHeaders
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the response body from the future handle, will wait until the response is ready.      *      * @param future      the handle to get the response      * @param type        the expected response type      * @return the result (see class javadoc)      */
+DECL|method|asyncExtractBody (Future future, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|asyncExtractBody
+parameter_list|(
+name|Future
+name|future
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the response body from the future handle, will wait at most the given time for the response to be ready.      *      * @param future      the handle to get the response      * @param timeout     the maximum time to wait      * @param unit        the time unit of the timeout argument      * @param type        the expected response type      * @return the result (see class javadoc)      * @throws java.util.concurrent.TimeoutException if the wait timed out      */
+DECL|method|asyncExtractBody (Future future, long timeout, TimeUnit unit, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|asyncExtractBody
+parameter_list|(
+name|Future
+name|future
+parameter_list|,
+name|long
+name|timeout
+parameter_list|,
+name|TimeUnit
+name|unit
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+throws|throws
+name|TimeoutException
 function_decl|;
 block|}
 end_interface

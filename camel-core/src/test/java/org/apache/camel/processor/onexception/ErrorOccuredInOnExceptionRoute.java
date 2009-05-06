@@ -156,8 +156,6 @@ throws|throws
 name|Exception
 block|{
 comment|// TODO: Should also work with DLC
-comment|// will be possible when we remove the AsyncProcessor so the processing logic
-comment|// is much easier to deal with
 comment|// errorHandler(deadLetterChannel("mock:dead").disableRedelivery());
 name|onException
 argument_list|(

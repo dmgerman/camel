@@ -24,18 +24,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Consumer
 import|;
 end_import
@@ -61,22 +49,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|converter
-operator|.
-name|AsyncProcessorTypeConverter
 import|;
 end_import
 
@@ -134,11 +106,6 @@ specifier|final
 name|Processor
 name|processor
 decl_stmt|;
-DECL|field|asyncProcessor
-specifier|private
-name|AsyncProcessor
-name|asyncProcessor
-decl_stmt|;
 DECL|field|exceptionHandler
 specifier|private
 name|ExceptionHandler
@@ -177,9 +144,14 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Consumer on "
+literal|"Consumer["
 operator|+
 name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|"]"
 return|;
 block|}
 DECL|method|getEndpoint ()
@@ -200,34 +172,6 @@ parameter_list|()
 block|{
 return|return
 name|processor
-return|;
-block|}
-comment|/**      * Provides an {@link AsyncProcessor} interface to the configured      * processor on the consumer.  If the processor does not implement      * the interface, it will be adapted so that it does.      * @deprecated      */
-DECL|method|getAsyncProcessor ()
-specifier|public
-name|AsyncProcessor
-name|getAsyncProcessor
-parameter_list|()
-block|{
-if|if
-condition|(
-name|asyncProcessor
-operator|==
-literal|null
-condition|)
-block|{
-name|asyncProcessor
-operator|=
-name|AsyncProcessorTypeConverter
-operator|.
-name|convert
-argument_list|(
-name|processor
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|asyncProcessor
 return|;
 block|}
 DECL|method|getExceptionHandler ()

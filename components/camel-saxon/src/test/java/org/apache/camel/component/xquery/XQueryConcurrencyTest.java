@@ -50,20 +50,6 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|DeadLetterChannelBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
 name|RouteBuilder
 import|;
 end_import
@@ -110,6 +96,13 @@ name|XQueryConcurrencyTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|uri
+specifier|private
+name|String
+name|uri
+init|=
+literal|"seda:in?concurrentConsumers=5"
+decl_stmt|;
 DECL|method|testConcurrency ()
 specifier|public
 name|void
@@ -244,7 +237,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:in"
+name|uri
 argument_list|,
 literal|"<person><id>"
 operator|+
@@ -306,12 +299,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:in"
-argument_list|)
-operator|.
-name|thread
-argument_list|(
-literal|5
+name|uri
 argument_list|)
 operator|.
 name|transform

@@ -40,7 +40,7 @@ name|Exception
 block|{
 name|uri
 operator|=
-literal|"direct:async"
+literal|"seda:async"
 expr_stmt|;
 name|super
 operator|.

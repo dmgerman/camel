@@ -146,7 +146,7 @@ comment|// the associated connection is released automatically.
 name|String
 name|endpointName
 init|=
-literal|"seda:withConversion"
+literal|"seda:withConversion?concurrentConsumers=5"
 decl_stmt|;
 name|sendMessagesTo
 argument_list|(
@@ -192,7 +192,7 @@ expr_stmt|;
 name|String
 name|endpointName
 init|=
-literal|"seda:withoutConversion"
+literal|"seda:withoutConversion?concurrentConsumers=5"
 decl_stmt|;
 name|sendMessagesTo
 argument_list|(
@@ -250,7 +250,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:withoutConversion"
+literal|"seda:withoutConversion?concurrentConsumers=5"
 argument_list|,
 literal|null
 argument_list|)
@@ -452,12 +452,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"seda:withConversion"
-argument_list|)
-operator|.
-name|thread
-argument_list|(
-literal|5
+literal|"seda:withConversion?concurrentConsumers=5"
 argument_list|)
 operator|.
 name|to
@@ -479,12 +474,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:withoutConversion"
-argument_list|)
-operator|.
-name|thread
-argument_list|(
-literal|5
+literal|"seda:withoutConversion?concurrentConsumers=5"
 argument_list|)
 operator|.
 name|to

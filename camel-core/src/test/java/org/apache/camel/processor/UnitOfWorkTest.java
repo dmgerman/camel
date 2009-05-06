@@ -423,12 +423,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"direct:async"
-argument_list|)
-operator|.
-name|thread
-argument_list|(
-literal|1
+literal|"seda:async"
 argument_list|)
 operator|.
 name|to

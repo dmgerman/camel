@@ -462,13 +462,6 @@ name|PropertyEditorTypeConverter
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|addFallbackTypeConverter
-argument_list|(
-operator|new
-name|AsyncProcessorTypeConverter
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|getTypeConverterLoaders ()
 specifier|public

@@ -327,9 +327,14 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|thread
+name|to
 argument_list|(
-literal|5
+literal|"seda:foo?concurrentConsumers=5"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"seda:foo?concurrentConsumers=5"
 argument_list|)
 operator|.
 name|to

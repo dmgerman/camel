@@ -38,6 +38,7 @@ specifier|public
 interface|interface
 name|HeaderFilterStrategyAware
 block|{
+comment|// TODO move this to SPI package
 DECL|method|getHeaderFilterStrategy ()
 name|HeaderFilterStrategy
 name|getHeaderFilterStrategy

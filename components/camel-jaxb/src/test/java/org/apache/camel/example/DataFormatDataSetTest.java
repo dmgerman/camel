@@ -233,11 +233,6 @@ argument_list|(
 literal|"dataset:beer"
 argument_list|)
 operator|.
-name|thread
-argument_list|(
-literal|5
-argument_list|)
-operator|.
 name|marshal
 argument_list|(
 name|jaxb

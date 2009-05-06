@@ -70,18 +70,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|http
@@ -255,103 +243,27 @@ argument_list|()
 condition|)
 block|{
 comment|// Have the camel process the HTTP exchange.
-specifier|final
-name|HttpExchange
-name|exchange
-init|=
-operator|new
-name|HttpExchange
-argument_list|(
-name|consumer
-operator|.
-name|getEndpoint
-argument_list|()
-argument_list|,
-name|request
-argument_list|,
-name|response
-argument_list|)
-decl_stmt|;
-name|boolean
-name|sync
-init|=
-name|consumer
-operator|.
-name|getAsyncProcessor
-argument_list|()
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|,
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
-name|sync
-parameter_list|)
-block|{
-if|if
-condition|(
-name|sync
-condition|)
-block|{
-return|return;
-block|}
-name|continuation
-operator|.
-name|setObject
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-name|continuation
-operator|.
-name|resume
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|sync
-condition|)
-block|{
+comment|// final HttpExchange exchange = new HttpExchange(consumer.getEndpoint(), request, response);
+comment|// boolean sync = consumer.getAsyncProcessor().process(exchange, new AsyncCallback() {
+comment|//     public void done(boolean sync) {
+comment|//        if (sync) {
+comment|//            return;
+comment|//        }
+comment|//        continuation.setObject(exchange);
+comment|//        continuation.resume();
+comment|//    }
+comment|//});
+comment|//if (!sync) {
 comment|// Wait for the exchange to get processed.
 comment|// This might block until it completes or it might return via an exception and
 comment|// then this method is re-invoked once the the exchange has finished processing
-name|continuation
-operator|.
-name|suspend
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
+comment|//    continuation.suspend(0);
+comment|//}
 comment|// HC: The getBinding() is interesting because it illustrates the
 comment|// impedance miss-match between HTTP's stream oriented protocol, and
 comment|// Camels more message oriented protocol exchanges.
 comment|// now lets output to the response
-name|consumer
-operator|.
-name|getBinding
-argument_list|()
-operator|.
-name|writeResponse
-argument_list|(
-name|exchange
-argument_list|,
-name|response
-argument_list|)
-expr_stmt|;
+comment|//consumer.getBinding().writeResponse(exchange, response);
 return|return;
 block|}
 if|if

@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * The callback interface for an {@link AsyncProcessor} so that it can  * notify you when an {@link Exchange} has completed.  *  * @deprecated a new async API is planned for Camel 2.0  */
+comment|/**  * The callback interface for an {@link AsyncProcessor} so that it can  * notify you when an {@link Exchange} has completed.  *  * @deprecated a new async API is planned for Camel 2.0, will be removed in Camel 2.0 GA  */
 end_comment
 
 begin_interface

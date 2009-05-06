@@ -324,7 +324,7 @@ name|Processor
 implements|,
 name|Navigate
 block|{
-comment|// TODO: Cleanup this when AsyncProcessor/AsyncCallback is replaced with new async API
+comment|// TODO: Use JDK CompletionService to get rid of the AsyncProcessor/AsyncCallback
 DECL|class|ProcessorExchangePair
 specifier|static
 class|class

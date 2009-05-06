@@ -2397,65 +2397,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Causes subsequent processors to be called asynchronously      *      * @param coreSize the number of threads that will be used to process      *                 messages in subsequent processors.      * @return a ThreadType builder that can be used to further configure the      *         the thread pool.      */
-DECL|method|thread (int coreSize)
-specifier|public
-name|ThreadDefinition
-name|thread
-parameter_list|(
-name|int
-name|coreSize
-parameter_list|)
-block|{
-name|ThreadDefinition
-name|answer
-init|=
-operator|new
-name|ThreadDefinition
-argument_list|(
-name|coreSize
-argument_list|)
-decl_stmt|;
-name|addOutput
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-name|answer
-return|;
-block|}
-comment|/**      * Causes subsequent processors to be called asynchronously      *      * @param executor the executor that will be used to process      *                 messages in subsequent processors.      * @return a ThreadType builder that can be used to further configure the      *         the thread pool.      */
-DECL|method|thread (Executor executor)
-specifier|public
-name|ProcessorDefinition
-argument_list|<
-name|Type
-argument_list|>
-name|thread
-parameter_list|(
-name|Executor
-name|executor
-parameter_list|)
-block|{
-name|ThreadDefinition
-name|answer
-init|=
-operator|new
-name|ThreadDefinition
-argument_list|(
-name|executor
-argument_list|)
-decl_stmt|;
-name|addOutput
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *            * @return the builder      */
 DECL|method|idempotentConsumer ()
 specifier|public

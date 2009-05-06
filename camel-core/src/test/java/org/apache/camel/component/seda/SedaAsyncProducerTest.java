@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.issues
+DECL|package|org.apache.camel.component.seda
 package|package
 name|org
 operator|.
@@ -12,9 +12,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|issues
+name|component
+operator|.
+name|seda
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Future
+import|;
+end_import
 
 begin_import
 import|import
@@ -83,21 +97,28 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that error handling using thread() pool also works as expected.  */
+comment|/**  * The new Async API version of doing async routing based on the old AsyncProcessor API  * In the old SedaAsyncProcessorTest a seda endpoint was needed to really turn it into async. This is not  * needed by the new API so we send it using direct instead.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|ThreadErrorHandlerTest
+DECL|class|SedaAsyncProducerTest
 specifier|public
 class|class
-name|ThreadErrorHandlerTest
+name|SedaAsyncProducerTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testThreadErrorHandler ()
+DECL|field|route
+specifier|private
+name|String
+name|route
+init|=
+literal|""
+decl_stmt|;
+DECL|method|testAsyncProducer ()
 specifier|public
 name|void
-name|testThreadErrorHandler
+name|testAsyncProducer
 parameter_list|()
 throws|throws
 name|Exception
@@ -117,64 +138,60 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|message
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|header
-argument_list|(
-literal|"CamelRedelivered"
-argument_list|)
-operator|.
-name|isEqualTo
-argument_list|(
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|message
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|header
-argument_list|(
-literal|"CamelRedeliveryCounter"
-argument_list|)
-operator|.
-name|isEqualTo
-argument_list|(
-literal|2
-argument_list|)
-expr_stmt|;
-try|try
-block|{
+comment|// using the new async API we can fire a real async message
+name|Future
+argument_list|<
+name|String
+argument_list|>
+name|future
+init|=
 name|template
 operator|.
-name|sendBody
+name|asyncRequestBody
 argument_list|(
-literal|"direct:in"
+literal|"direct:start"
 argument_list|,
 literal|"Hello World"
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
+decl_stmt|;
+comment|// I should happen before mock
+name|route
+operator|=
+name|route
+operator|+
+literal|"send"
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Send should occur before processor"
+argument_list|,
+literal|"sendprocess"
+argument_list|,
+name|route
+argument_list|)
+expr_stmt|;
+comment|// and get the response with the future handle
+name|String
+name|response
+init|=
+name|future
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye World"
+argument_list|,
+name|response
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -192,6 +209,8 @@ operator|new
 name|RouteBuilder
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|configure
@@ -201,25 +220,18 @@ name|Exception
 block|{
 name|errorHandler
 argument_list|(
-name|deadLetterChannel
-argument_list|(
-literal|"mock:result"
-argument_list|)
-operator|.
-name|maximumRedeliveries
-argument_list|(
-literal|2
-argument_list|)
+name|noErrorHandler
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:in"
+literal|"direct:start"
 argument_list|)
 operator|.
-name|thread
+name|delay
 argument_list|(
-literal|2
+literal|100
 argument_list|)
 operator|.
 name|process
@@ -238,15 +250,30 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-throw|throw
-operator|new
-name|Exception
+name|route
+operator|=
+name|route
+operator|+
+literal|"process"
+expr_stmt|;
+comment|// set the response
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
 argument_list|(
-literal|"Forced exception by unit test"
+literal|"Bye World"
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
