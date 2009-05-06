@@ -54,6 +54,18 @@ name|ThreadFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
 begin_comment
 comment|/**  * Helper for {@link java.util.concurrent.ExecutorService} to construct executors using a thread factory that  * create thread names with Camel prefix.  *  * @version $Revision$  */
 end_comment
@@ -114,7 +126,7 @@ block|}
 DECL|method|newScheduledThreadPool (final int poolSize, final String name, final boolean daemon)
 specifier|public
 specifier|static
-name|ExecutorService
+name|ScheduledExecutorService
 name|newScheduledThreadPool
 parameter_list|(
 specifier|final

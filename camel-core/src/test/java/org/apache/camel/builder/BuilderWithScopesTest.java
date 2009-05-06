@@ -582,7 +582,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Interceptor invocation order:"
+literal|"Invocation order:"
 operator|+
 name|order
 argument_list|)

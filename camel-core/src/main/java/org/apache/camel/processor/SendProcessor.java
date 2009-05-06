@@ -384,6 +384,12 @@ operator|.
 name|producer
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|producer
+operator|=
+literal|null
+expr_stmt|;
 block|}
 DECL|method|configureExchange (Exchange exchange)
 specifier|protected

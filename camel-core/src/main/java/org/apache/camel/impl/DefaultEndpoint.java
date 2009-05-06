@@ -58,7 +58,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ScheduledExecutorService
+name|ExecutorService
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ScheduledThreadPoolExecutor
+name|ScheduledExecutorService
 import|;
 end_import
 
@@ -172,6 +172,22 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A default endpoint useful for implementation inheritance  *  * @version $Revision$  */
 end_comment
@@ -187,6 +203,15 @@ name|Endpoint
 implements|,
 name|CamelContextAware
 block|{
+DECL|field|DEFAULT_THREADPOOL_SIZE
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_THREADPOOL_SIZE
+init|=
+literal|5
+decl_stmt|;
 DECL|field|endpointUri
 specifier|private
 name|String
@@ -204,7 +229,7 @@ name|component
 decl_stmt|;
 DECL|field|executorService
 specifier|private
-name|ScheduledExecutorService
+name|ExecutorService
 name|executorService
 decl_stmt|;
 DECL|field|exchangePattern
@@ -455,7 +480,7 @@ block|}
 DECL|method|getExecutorService ()
 specifier|public
 specifier|synchronized
-name|ScheduledExecutorService
+name|ExecutorService
 name|getExecutorService
 parameter_list|()
 block|{
@@ -807,15 +832,21 @@ expr_stmt|;
 block|}
 DECL|method|createExecutorService ()
 specifier|protected
-name|ScheduledThreadPoolExecutor
+name|ExecutorService
 name|createExecutorService
 parameter_list|()
 block|{
 return|return
-operator|new
-name|ScheduledThreadPoolExecutor
+name|ExecutorServiceHelper
+operator|.
+name|newScheduledThreadPool
 argument_list|(
-literal|10
+name|DEFAULT_THREADPOOL_SIZE
+argument_list|,
+name|getEndpointUri
+argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
