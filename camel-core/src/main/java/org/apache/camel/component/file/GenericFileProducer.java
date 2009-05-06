@@ -243,6 +243,36 @@ operator|=
 name|operations
 expr_stmt|;
 block|}
+DECL|method|getFileSeparator ()
+specifier|protected
+name|String
+name|getFileSeparator
+parameter_list|()
+block|{
+return|return
+name|File
+operator|.
+name|separator
+return|;
+block|}
+DECL|method|normalizePath (String name)
+specifier|protected
+name|String
+name|normalizePath
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|FileUtil
+operator|.
+name|normalizePath
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -565,9 +595,8 @@ name|fileName
 operator|.
 name|lastIndexOf
 argument_list|(
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -896,9 +925,8 @@ name|name
 operator|.
 name|lastIndexOf
 argument_list|(
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -978,16 +1006,14 @@ name|endpointPath
 operator|.
 name|endsWith
 argument_list|(
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 argument_list|)
 condition|?
 literal|""
 else|:
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 operator|)
 expr_stmt|;
 block|}
@@ -1026,8 +1052,6 @@ block|}
 comment|// must normalize path to cater for Windows and other OS
 name|answer
 operator|=
-name|FileUtil
-operator|.
 name|normalizePath
 argument_list|(
 name|answer
@@ -1049,8 +1073,6 @@ block|{
 comment|// must normalize path to cater for Windows and other OS
 name|fileName
 operator|=
-name|FileUtil
-operator|.
 name|normalizePath
 argument_list|(
 name|fileName
@@ -1063,9 +1085,8 @@ name|fileName
 operator|.
 name|lastIndexOf
 argument_list|(
-name|File
-operator|.
-name|separator
+name|getFileSeparator
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
