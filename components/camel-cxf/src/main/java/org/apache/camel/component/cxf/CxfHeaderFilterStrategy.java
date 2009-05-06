@@ -318,6 +318,24 @@ operator|.
 name|PROTOCOL_HEADERS
 argument_list|)
 expr_stmt|;
+comment|// Since the DefaultCxfBinding deal with the content-type separately.
+comment|// We need to filter this header
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"content-type"
+argument_list|)
+expr_stmt|;
+name|getInFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"content-type"
+argument_list|)
+expr_stmt|;
 comment|// initialize message header filter map with default SOAP filter
 name|messageHeaderFiltersMap
 operator|=
