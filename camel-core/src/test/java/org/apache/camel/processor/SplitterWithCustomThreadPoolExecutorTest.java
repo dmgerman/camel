@@ -178,7 +178,7 @@ operator|)
 name|getSplitter
 argument_list|()
 operator|.
-name|getExecutor
+name|getExecutorService
 argument_list|()
 decl_stmt|;
 comment|// this should be sufficient as core pool size is the only thing I changed from the default
@@ -367,7 +367,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|executor
+name|executorService
 argument_list|(
 name|customThreadPoolExecutor
 argument_list|)

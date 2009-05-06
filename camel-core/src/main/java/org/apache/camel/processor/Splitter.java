@@ -74,7 +74,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executor
+name|ExecutorService
 import|;
 end_import
 
@@ -236,7 +236,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Splitter (Expression expression, Processor destination, AggregationStrategy aggregationStrategy, boolean parallelProcessing, Executor executor, boolean streaming)
+DECL|method|Splitter (Expression expression, Processor destination, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming)
 specifier|public
 name|Splitter
 parameter_list|(
@@ -252,8 +252,8 @@ parameter_list|,
 name|boolean
 name|parallelProcessing
 parameter_list|,
-name|Executor
-name|executor
+name|ExecutorService
+name|executorService
 parameter_list|,
 name|boolean
 name|streaming
@@ -272,7 +272,7 @@ name|aggregationStrategy
 argument_list|,
 name|parallelProcessing
 argument_list|,
-name|executor
+name|executorService
 argument_list|,
 name|streaming
 argument_list|)

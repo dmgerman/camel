@@ -429,9 +429,7 @@ argument_list|)
 comment|// Send out the request to three different banks in parallel
 operator|.
 name|parallelProcessing
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 operator|.
 name|to
 argument_list|(

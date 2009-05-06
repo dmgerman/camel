@@ -34,7 +34,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executor
+name|ExecutorService
 import|;
 end_import
 
@@ -163,22 +163,6 @@ operator|.
 name|aggregate
 operator|.
 name|UseLatestAggregationStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|StreamCachingInterceptor
 import|;
 end_import
 
@@ -250,16 +234,35 @@ name|String
 name|strategyRef
 decl_stmt|;
 annotation|@
+name|XmlTransient
+DECL|field|executorService
+specifier|private
+name|ExecutorService
+name|executorService
+decl_stmt|;
+annotation|@
 name|XmlAttribute
 argument_list|(
 name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|threadPoolRef
+DECL|field|executorServiceRef
 specifier|private
 name|String
-name|threadPoolRef
+name|executorServiceRef
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|streaming
+specifier|private
+name|Boolean
+name|streaming
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -267,13 +270,6 @@ DECL|field|aggregationStrategy
 specifier|private
 name|AggregationStrategy
 name|aggregationStrategy
-decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|executor
-specifier|private
-name|Executor
-name|executor
 decl_stmt|;
 annotation|@
 name|Override
@@ -345,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * use a thread pool to do the multicasting work      *           * @return the builder      */
+comment|/**      * Uses the {@link java.util.concurrent.ExecutorService} to do the multicasting work      *           * @return the builder      */
 DECL|method|parallelProcessing ()
 specifier|public
 name|MulticastDefinition
@@ -361,38 +357,35 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the multicasting action's thread model      *      * @param parallelProcessing<tt>true</tt> to use a thread pool, if<tt>false</tt> then work is done in the      * calling thread.      *      * @return the builder      */
-DECL|method|parallelProcessing (boolean parallelProcessing)
+comment|/**      * Aggregates the responses as the are done (e.g. out of order sequence)      *      * @return the builder      */
+DECL|method|streaming ()
 specifier|public
 name|MulticastDefinition
-name|parallelProcessing
-parameter_list|(
-name|boolean
-name|parallelProcessing
-parameter_list|)
+name|streaming
+parameter_list|()
 block|{
-name|setParallelProcessing
+name|setStreaming
 argument_list|(
-name|parallelProcessing
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor for executing the multicasting action.       *      * @return the builder      */
-DECL|method|executor (Executor executor)
+comment|/**      * Setting the executor service for executing the multicasting action.      *      * @return the builder      */
+DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|MulticastDefinition
-name|executor
+name|executorService
 parameter_list|(
-name|Executor
-name|executor
+name|ExecutorService
+name|executorService
 parameter_list|)
 block|{
-name|setExecutor
+name|setExecutorService
 argument_list|(
-name|executor
+name|executorService
 argument_list|)
 expr_stmt|;
 return|return
@@ -416,10 +409,6 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|aggregationStrategy
-operator|==
-literal|null
-operator|&&
 name|strategyRef
 operator|!=
 literal|null
@@ -446,6 +435,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// default to use latest aggregation strategy
 name|aggregationStrategy
 operator|=
 operator|new
@@ -455,20 +445,20 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|threadPoolRef
+name|executorServiceRef
 operator|!=
 literal|null
 condition|)
 block|{
-name|executor
+name|executorService
 operator|=
 name|routeContext
 operator|.
 name|lookup
 argument_list|(
-name|threadPoolRef
+name|executorServiceRef
 argument_list|,
-name|Executor
+name|ExecutorService
 operator|.
 name|class
 argument_list|)
@@ -485,7 +475,10 @@ argument_list|,
 name|isParallelProcessing
 argument_list|()
 argument_list|,
-name|executor
+name|executorService
+argument_list|,
+name|isStreaming
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -550,30 +543,62 @@ operator|=
 name|parallelProcessing
 expr_stmt|;
 block|}
-DECL|method|getExecutor ()
+DECL|method|isStreaming ()
 specifier|public
-name|Executor
-name|getExecutor
+name|boolean
+name|isStreaming
 parameter_list|()
 block|{
 return|return
-name|executor
+name|streaming
+operator|!=
+literal|null
+condition|?
+name|streaming
+else|:
+literal|false
 return|;
 block|}
-DECL|method|setExecutor (Executor executor)
+DECL|method|setStreaming (boolean streaming)
 specifier|public
 name|void
-name|setExecutor
+name|setStreaming
 parameter_list|(
-name|Executor
-name|executor
+name|boolean
+name|streaming
 parameter_list|)
 block|{
 name|this
 operator|.
-name|executor
+name|streaming
 operator|=
-name|executor
+name|streaming
+expr_stmt|;
+block|}
+DECL|method|getExecutorService ()
+specifier|public
+name|ExecutorService
+name|getExecutorService
+parameter_list|()
+block|{
+return|return
+name|executorService
+return|;
+block|}
+DECL|method|setExecutorService (ExecutorService executorService)
+specifier|public
+name|void
+name|setExecutorService
+parameter_list|(
+name|ExecutorService
+name|executorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
 expr_stmt|;
 block|}
 block|}

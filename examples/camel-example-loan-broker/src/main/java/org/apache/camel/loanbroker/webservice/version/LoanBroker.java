@@ -506,9 +506,7 @@ comment|// Camel will create a thread pool with the size of the send to endpoint
 comment|// for sending the message in parallel
 operator|.
 name|parallelProcessing
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 operator|.
 name|to
 argument_list|(

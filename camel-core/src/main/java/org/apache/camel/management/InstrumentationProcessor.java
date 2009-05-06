@@ -193,7 +193,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO: why not use millis instead of nano?
 name|long
 name|startTime
 init|=

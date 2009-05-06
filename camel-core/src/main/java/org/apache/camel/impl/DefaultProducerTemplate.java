@@ -2780,11 +2780,19 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|executor
+operator|!=
+literal|null
+condition|)
+block|{
 name|executor
 operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|extractResultBody (Exchange result)
 specifier|protected

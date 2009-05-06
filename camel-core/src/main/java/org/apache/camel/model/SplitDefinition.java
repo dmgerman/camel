@@ -24,7 +24,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executor
+name|ExecutorService
 import|;
 end_import
 
@@ -36,31 +36,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|LinkedBlockingQueue
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadPoolExecutor
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
+name|Executors
 import|;
 end_import
 
@@ -282,6 +258,13 @@ name|AggregationStrategy
 name|aggregationStrategy
 decl_stmt|;
 annotation|@
+name|XmlTransient
+DECL|field|executorService
+specifier|private
+name|ExecutorService
+name|executorService
+decl_stmt|;
+annotation|@
 name|XmlAttribute
 argument_list|(
 name|required
@@ -292,13 +275,6 @@ DECL|field|parallelProcessing
 specifier|private
 name|Boolean
 name|parallelProcessing
-decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|executor
-specifier|private
-name|Executor
-name|executor
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -319,10 +295,10 @@ name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|threadPoolExecutorRef
+DECL|field|executorServiceRef
 specifier|private
 name|String
-name|threadPoolExecutorRef
+name|executorServiceRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -435,9 +411,9 @@ argument_list|(
 name|routeContext
 argument_list|)
 expr_stmt|;
-name|executor
+name|executorService
 operator|=
-name|createThreadPoolExecutor
+name|createExecutorService
 argument_list|(
 name|routeContext
 argument_list|)
@@ -461,7 +437,7 @@ argument_list|,
 name|isParallelProcessing
 argument_list|()
 argument_list|,
-name|executor
+name|executorService
 argument_list|,
 name|streaming
 argument_list|)
@@ -526,41 +502,31 @@ return|return
 name|strategy
 return|;
 block|}
-DECL|method|createThreadPoolExecutor (RouteContext routeContext)
+DECL|method|createExecutorService (RouteContext routeContext)
 specifier|private
-name|Executor
-name|createThreadPoolExecutor
+name|ExecutorService
+name|createExecutorService
 parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
-name|Executor
-name|executor
-init|=
-name|getExecutor
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|executor
-operator|==
-literal|null
-operator|&&
-name|threadPoolExecutorRef
+name|executorServiceRef
 operator|!=
 literal|null
 condition|)
 block|{
-name|executor
+name|executorService
 operator|=
 name|routeContext
 operator|.
 name|lookup
 argument_list|(
-name|threadPoolExecutorRef
+name|executorServiceRef
 argument_list|,
-name|ThreadPoolExecutor
+name|ExecutorService
 operator|.
 name|class
 argument_list|)
@@ -568,38 +534,24 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|executor
+name|executorService
 operator|==
 literal|null
 condition|)
 block|{
 comment|// fall back and use default
-name|executor
+name|executorService
 operator|=
-operator|new
-name|ThreadPoolExecutor
-argument_list|(
-literal|4
-argument_list|,
-literal|16
-argument_list|,
-literal|0L
-argument_list|,
-name|TimeUnit
+name|Executors
 operator|.
-name|MILLISECONDS
-argument_list|,
-operator|new
-name|LinkedBlockingQueue
-argument_list|<
-name|Runnable
-argument_list|>
-argument_list|()
+name|newScheduledThreadPool
+argument_list|(
+literal|5
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|executor
+name|executorService
 return|;
 block|}
 comment|// Fluent API
@@ -693,19 +645,19 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting the executor for executing the splitting action.       *      * @param executor the executor      * @return the builder      */
-DECL|method|executor (Executor executor)
+comment|/**      * Setting the executor service for executing the splitting action.      *      * @param executorService the executor service      * @return the builder      */
+DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|SplitDefinition
-name|executor
+name|executorService
 parameter_list|(
-name|Executor
-name|executor
+name|ExecutorService
+name|executorService
 parameter_list|)
 block|{
-name|setExecutor
+name|setExecutorService
 argument_list|(
-name|executor
+name|executorService
 argument_list|)
 expr_stmt|;
 return|return
@@ -770,7 +722,7 @@ operator|=
 name|parallelProcessing
 expr_stmt|;
 block|}
-comment|/**      * The splitter should use streaming -- exchanges are being sent as the data for them becomes available.      * This improves throughput and memory usage, but it has a drawback:       * - the sent exchanges will no longer contain the {@link Splitter#SPLIT_SIZE} header property       *       * @return whether or not streaming should be used      */
+comment|/**      * The splitter should use streaming -- exchanges are being sent as the data for them becomes available.      * This improves throughput and memory usage, but it has a drawback:       * - the sent exchanges will no longer contain the {@link org.apache.camel.Exchange#SPLIT_SIZE} header property      *       * @return whether or not streaming should be used      */
 DECL|method|isStreaming ()
 specifier|public
 name|boolean
@@ -803,30 +755,30 @@ operator|=
 name|streaming
 expr_stmt|;
 block|}
-DECL|method|getExecutor ()
+DECL|method|getExecutorService ()
 specifier|public
-name|Executor
-name|getExecutor
+name|ExecutorService
+name|getExecutorService
 parameter_list|()
 block|{
 return|return
-name|executor
+name|executorService
 return|;
 block|}
-DECL|method|setExecutor (Executor executor)
+DECL|method|setExecutorService (ExecutorService executorService)
 specifier|public
 name|void
-name|setExecutor
+name|setExecutorService
 parameter_list|(
-name|Executor
-name|executor
+name|ExecutorService
+name|executorService
 parameter_list|)
 block|{
 name|this
 operator|.
-name|executor
+name|executorService
 operator|=
-name|executor
+name|executorService
 expr_stmt|;
 block|}
 block|}

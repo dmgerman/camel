@@ -84,6 +84,18 @@ name|ExchangePattern
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+import|;
+end_import
+
 begin_comment
 comment|/**  * A grouped exchange that groups together other exchanges, as a holder object.  *<p/>  * This grouped exchange is useable for the aggregator so multiple exchanges can be grouped  * into this single exchange and thus only one exchange is sent for further processing.  */
 end_comment
