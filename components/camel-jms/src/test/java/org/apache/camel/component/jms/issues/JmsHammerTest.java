@@ -151,6 +151,7 @@ block|{
 DECL|field|LOG
 specifier|private
 specifier|static
+specifier|final
 name|Log
 name|LOG
 init|=
@@ -245,7 +246,11 @@ name|activemq
 init|=
 name|activeMQComponent
 argument_list|(
-literal|"vm://localhost?broker.persistent=false&broker.useJmx=false&jms.redeliveryPolicy.maximumRedeliveries=0&jms.redeliveryPolicy.initialRedeliveryDelay=500&jms.useAsyncSend=false&jms.sendTimeout=10000&jms.maxReconnectAttempts=1&jms.timeout=3000"
+literal|"vm://localhost?broker.persistent=false&broker.useJmx=false&jms.redeliveryPolicy.maximumRedeliveries=0"
+operator|+
+literal|"&jms.redeliveryPolicy.initialRedeliveryDelay=500&jms.useAsyncSend=false&jms.sendTimeout=10000"
+operator|+
+literal|"&jms.maxReconnectAttempts=1&jms.timeout=3000"
 argument_list|)
 decl_stmt|;
 name|camelContext

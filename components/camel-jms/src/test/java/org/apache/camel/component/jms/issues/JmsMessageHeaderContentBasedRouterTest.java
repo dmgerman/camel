@@ -287,7 +287,6 @@ name|MyPreProcessorBean
 block|{
 DECL|method|determineRouting (Exchange exchange)
 specifier|public
-specifier|static
 name|void
 name|determineRouting
 parameter_list|(
