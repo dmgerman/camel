@@ -303,7 +303,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"content.type"
+literal|"content-type"
 argument_list|)
 argument_list|,
 literal|"text/xml; charset=utf-8"
@@ -363,7 +363,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"We should get the content type here"
+literal|"We should get the Content-Type here"
 argument_list|,
 name|exchange
 operator|.
@@ -390,6 +390,21 @@ operator|.
 name|getHeader
 argument_list|(
 literal|"Content-Type"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+literal|"We should not get the content-type here"
+argument_list|,
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"content-type"
 argument_list|)
 argument_list|)
 expr_stmt|;

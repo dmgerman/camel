@@ -318,17 +318,9 @@ operator|.
 name|PROTOCOL_HEADERS
 argument_list|)
 expr_stmt|;
-comment|// Since the DefaultCxfBinding deal with the content-type separately.
-comment|// We need to filter this header
+comment|// Since CXF can take the content-type from the protocol header
+comment|// we need to filter this header of this name.
 name|getOutFilter
-argument_list|()
-operator|.
-name|add
-argument_list|(
-literal|"content-type"
-argument_list|)
-expr_stmt|;
-name|getInFilter
 argument_list|()
 operator|.
 name|add
