@@ -707,6 +707,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Properties
+name|properties
+init|=
+operator|new
+name|Properties
+argument_list|()
+decl_stmt|;
+comment|// jndi.properties is optional
 name|InputStream
 name|in
 init|=
@@ -721,20 +729,20 @@ argument_list|(
 literal|"jndi.properties"
 argument_list|)
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"Cannot find jndi.properties on the classpath!"
-argument_list|,
+if|if
+condition|(
 name|in
+operator|!=
+literal|null
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Using jndi.properties from classpath root"
 argument_list|)
 expr_stmt|;
-name|Properties
-name|properties
-init|=
-operator|new
-name|Properties
-argument_list|()
-decl_stmt|;
 name|properties
 operator|.
 name|load
@@ -742,6 +750,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 operator|new
 name|InitialContext
