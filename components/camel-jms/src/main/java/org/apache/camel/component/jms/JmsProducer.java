@@ -680,7 +680,7 @@ argument_list|()
 argument_list|,
 name|endpoint
 operator|.
-name|getExecutorService
+name|getScheduledExecutorService
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -713,7 +713,7 @@ argument_list|()
 argument_list|,
 name|endpoint
 operator|.
-name|getExecutorService
+name|getScheduledExecutorService
 argument_list|()
 argument_list|)
 expr_stmt|;

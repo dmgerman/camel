@@ -299,6 +299,29 @@ name|getFault
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getFault (boolean lazyCreate)
+specifier|public
+name|JmsMessage
+name|getFault
+parameter_list|(
+name|boolean
+name|lazyCreate
+parameter_list|)
+block|{
+return|return
+operator|(
+name|JmsMessage
+operator|)
+name|super
+operator|.
+name|getFault
+argument_list|(
+name|lazyCreate
+argument_list|)
+return|;
+block|}
 DECL|method|getBinding ()
 specifier|public
 name|JmsBinding

@@ -1486,7 +1486,7 @@ argument_list|(
 name|getConfiguration
 argument_list|()
 argument_list|,
-name|getExecutorService
+name|getScheduledExecutorService
 argument_list|()
 argument_list|)
 expr_stmt|;
