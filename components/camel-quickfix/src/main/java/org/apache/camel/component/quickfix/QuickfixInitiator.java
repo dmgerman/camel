@@ -56,6 +56,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
 name|quickfix
 operator|.
 name|Application
@@ -122,6 +136,30 @@ name|QuickfixInitiator
 extends|extends
 name|DefaultComponent
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|QuickfixInitiatorEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|method|createEndpoint (String uri, String remaining, Map parameters)
 specifier|protected
 name|QuickfixEndpoint
@@ -208,6 +246,8 @@ parameter_list|)
 throws|throws
 name|ConfigError
 block|{
+comment|// To avoid this exception in OSGi platform
+comment|// java.lang.NoClassDefFoundError: quickfix/fix41/MessageFactory
 name|ClassLoader
 name|ccl
 init|=
@@ -258,6 +298,22 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Start the initiator endpoint"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
@@ -298,6 +354,22 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Stop the accetpor endpoint"
+argument_list|)
+expr_stmt|;
+block|}
 name|initiator
 operator|=
 literal|null

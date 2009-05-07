@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Anton Arhipov  *<p/>  *         To use this example, start Banzai and Executor applications from  *         Quickfix distribution. The PassiveFixGateway example is intended to  *         receive the messages from Banzai, forward 'em to Executor, and  *         respond back to the Banzai with the execution report.  */
+comment|/**  * @author Anton Arhipov  *<p/>  *         To use this example, start Banzai and Executor applications from  *         Quickfix distribution. The PassiveFixGateway example is intended to  *         receive the messages from Banzai, forward them to Executor, and  *         respond back to the Banzai with the execution report.  */
 end_comment
 
 begin_class
