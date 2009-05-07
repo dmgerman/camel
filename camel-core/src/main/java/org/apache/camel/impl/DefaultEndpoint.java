@@ -529,7 +529,7 @@ condition|)
 block|{
 name|executorService
 operator|=
-name|createExecutorService
+name|createScheduledExecutorService
 argument_list|()
 expr_stmt|;
 block|}
@@ -538,13 +538,48 @@ return|return
 name|executorService
 return|;
 block|}
-DECL|method|setExecutorService (ScheduledExecutorService executorService)
+DECL|method|getScheduledExecutorService ()
+specifier|public
+specifier|synchronized
+name|ScheduledExecutorService
+name|getScheduledExecutorService
+parameter_list|()
+block|{
+name|ExecutorService
+name|executor
+init|=
+name|getExecutorService
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|executor
+operator|instanceof
+name|ScheduledExecutorService
+condition|)
+block|{
+return|return
+operator|(
+name|ScheduledExecutorService
+operator|)
+name|executor
+return|;
+block|}
+else|else
+block|{
+return|return
+name|createScheduledExecutorService
+argument_list|()
+return|;
+block|}
+block|}
+DECL|method|setExecutorService (ExecutorService executorService)
 specifier|public
 specifier|synchronized
 name|void
 name|setExecutorService
 parameter_list|(
-name|ScheduledExecutorService
+name|ExecutorService
 name|executorService
 parameter_list|)
 block|{
@@ -830,10 +865,10 @@ operator|=
 name|exchangePattern
 expr_stmt|;
 block|}
-DECL|method|createExecutorService ()
+DECL|method|createScheduledExecutorService ()
 specifier|protected
-name|ExecutorService
-name|createExecutorService
+name|ScheduledExecutorService
+name|createScheduledExecutorService
 parameter_list|()
 block|{
 return|return
