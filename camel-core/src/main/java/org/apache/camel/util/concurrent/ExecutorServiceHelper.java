@@ -50,7 +50,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ThreadFactory
+name|ScheduledExecutorService
 import|;
 end_import
 
@@ -62,7 +62,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ScheduledExecutorService
+name|ThreadFactory
 import|;
 end_import
 
@@ -100,14 +100,14 @@ name|name
 parameter_list|)
 block|{
 return|return
-literal|"Camel "
-operator|+
-name|name
-operator|+
-literal|" thread:"
+literal|"Camel thread "
 operator|+
 name|nextThreadCounter
 argument_list|()
+operator|+
+literal|": "
+operator|+
+name|name
 return|;
 block|}
 DECL|method|nextThreadCounter ()

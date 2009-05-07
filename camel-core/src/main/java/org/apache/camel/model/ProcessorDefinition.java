@@ -2334,6 +2334,56 @@ name|endpoints
 argument_list|)
 return|;
 block|}
+comment|/**      * Breaks the route into asynchronous. The caller thread will end and the OUT message will      * contain a {@link java.util.concurrent.Future} handle so you can get the real response      * later using this handle.      *      * @return the builder      */
+DECL|method|async ()
+specifier|public
+name|AsyncDefinition
+name|async
+parameter_list|()
+block|{
+name|AsyncDefinition
+name|answer
+init|=
+operator|new
+name|AsyncDefinition
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * Breaks the route into asynchronous. The caller thread will end and the OUT message will      * contain a {@link java.util.concurrent.Future} handle so you can get the real response      * later using this handle.      *      * @param poolSize the core pool size      * @return the builder      */
+DECL|method|async (int poolSize)
+specifier|public
+name|AsyncDefinition
+name|async
+parameter_list|(
+name|int
+name|poolSize
+parameter_list|)
+block|{
+name|AsyncDefinition
+name|answer
+init|=
+name|async
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setPoolSize
+argument_list|(
+name|poolSize
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Ends the current block      *      * @return the builder      */
 annotation|@
 name|SuppressWarnings

@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -462,6 +474,15 @@ name|PropertyEditorTypeConverter
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|addFallbackTypeConverter
+argument_list|(
+operator|new
+name|FutureTypeConverter
+argument_list|(
+name|this
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getTypeConverterLoaders ()
 specifier|public
@@ -542,6 +563,17 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CamelExecutionException
+name|e
+parameter_list|)
+block|{
+comment|// rethrow exception exception as its not due to failed convertion
+throw|throw
+name|e
+throw|;
 block|}
 catch|catch
 parameter_list|(

@@ -85,7 +85,7 @@ literal|"No body available of type: "
 operator|+
 name|type
 operator|.
-name|getName
+name|getCanonicalName
 argument_list|()
 operator|+
 name|NoSuchPropertyException
@@ -138,7 +138,7 @@ literal|"No body available of type: "
 operator|+
 name|type
 operator|.
-name|getName
+name|getCanonicalName
 argument_list|()
 operator|+
 name|NoSuchPropertyException

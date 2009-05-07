@@ -15,57 +15,20 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Exception used for forcing an Exchange to be rolled back.  *  * @version $Revision$  */
+comment|/**  * Exception occured during execution/processing of an {@link Exchange}.  *<p/>  * Is usually thrown to the caller when using the {@link org.apache.camel.ProducerTemplate}  * to send messages to Camel.  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|RollbackExchangeException
+DECL|class|CamelExecutionException
 specifier|public
 class|class
-name|RollbackExchangeException
+name|CamelExecutionException
 extends|extends
-name|CamelExchangeException
+name|RuntimeExchangeException
 block|{
-DECL|method|RollbackExchangeException (Exchange exchange)
+DECL|method|CamelExecutionException (String message, Exchange exchange)
 specifier|public
-name|RollbackExchangeException
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-name|this
-argument_list|(
-literal|"Intended rollback"
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|RollbackExchangeException (Exchange exchange, Throwable cause)
-specifier|public
-name|RollbackExchangeException
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|this
-argument_list|(
-literal|"Intended rollback"
-argument_list|,
-name|exchange
-argument_list|,
-name|cause
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|RollbackExchangeException (String message, Exchange exchange)
-specifier|public
-name|RollbackExchangeException
+name|CamelExecutionException
 parameter_list|(
 name|String
 name|message
@@ -82,9 +45,9 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|RollbackExchangeException (String message, Exchange exchange, Throwable cause)
+DECL|method|CamelExecutionException (String message, Exchange exchange, Throwable cause)
 specifier|public
-name|RollbackExchangeException
+name|CamelExecutionException
 parameter_list|(
 name|String
 name|message

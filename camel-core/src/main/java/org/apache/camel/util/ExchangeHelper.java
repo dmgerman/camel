@@ -56,6 +56,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -177,22 +189,6 @@ operator|.
 name|camel
 operator|.
 name|TypeConverter
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
 import|;
 end_import
 
@@ -1598,7 +1594,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Extracts the body from the given result.      *<p/>      * If the exchange pattern is provided it will try to honor it and retrive the body      * from either IN or OUT according to the pattern.      *      * @param exchange   the result      * @param pattern  exchange pattern if given, can be<tt>null</tt>      * @return  the result, can be<tt>null</tt>.      */
+comment|/**      * Extracts the body from the given exchange.      *<p/>      * If the exchange pattern is provided it will try to honor it and retrive the body      * from either IN or OUT according to the pattern.      *      * @param exchange   the exchange      * @param pattern    exchange pattern if given, can be<tt>null</tt>      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|extractResultBody (Exchange exchange, ExchangePattern pattern)
 specifier|public
 specifier|static
@@ -1636,8 +1632,13 @@ literal|null
 condition|)
 block|{
 throw|throw
-name|wrapRuntimeCamelException
+operator|new
+name|CamelExecutionException
 argument_list|(
+literal|"Exception occured during execution "
+argument_list|,
+name|exchange
+argument_list|,
 name|exchange
 operator|.
 name|getException

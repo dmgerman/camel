@@ -54,7 +54,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ScheduledExecutorService
+name|ExecutorService
 import|;
 end_import
 
@@ -66,7 +66,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ExecutorService
+name|ScheduledExecutorService
 import|;
 end_import
 

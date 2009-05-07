@@ -98,11 +98,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|impl
 operator|.
-name|concurrent
-operator|.
-name|ExecutorServiceHelper
+name|ServiceSupport
 import|;
 end_import
 
@@ -114,9 +112,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|ServiceSupport
+name|concurrent
+operator|.
+name|ExecutorServiceHelper
 import|;
 end_import
 
