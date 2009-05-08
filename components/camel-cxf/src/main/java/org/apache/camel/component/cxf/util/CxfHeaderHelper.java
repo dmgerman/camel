@@ -163,7 +163,7 @@ specifier|private
 name|CxfHeaderHelper
 parameter_list|()
 block|{     }
-comment|/**      * Propagates Camel headers to CXF message.      *      * @param strategy header filter strategy      * @param headers Camel header      * @param message CXF message      * @param exchange provides context for filtering      */
+comment|/**      * Progagates Camel headers to CXF message.      *      * @param strategy header filter strategy      * @param headers Camel header      * @param message CXF meassage      * @param exchange provides context for filtering      */
 DECL|method|propagateCamelToCxf (HeaderFilterStrategy strategy, Map<String, Object> headers, Message message, Exchange exchange)
 specifier|public
 specifier|static
@@ -292,6 +292,37 @@ name|exchange
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|CamelTransportConstants
+operator|.
+name|CAMEL_CONTENT_TYPE
+operator|.
+name|equals
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|message
+operator|.
+name|put
+argument_list|(
+name|Message
+operator|.
+name|CONTENT_TYPE
+argument_list|,
+name|entry
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|Client
@@ -524,13 +555,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// propagate request context
+comment|// propagate content type
 name|String
 name|key
 init|=
-name|Client
+name|Message
 operator|.
-name|REQUEST_CONTEXT
+name|CONTENT_TYPE
 decl_stmt|;
 name|Object
 name|value
@@ -542,6 +573,53 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|strategy
+operator|.
+name|applyFilterToExternalHeaders
+argument_list|(
+name|key
+argument_list|,
+name|value
+argument_list|,
+name|exchange
+argument_list|)
+condition|)
+block|{
+name|headers
+operator|.
+name|put
+argument_list|(
+name|CamelTransportConstants
+operator|.
+name|CAMEL_CONTENT_TYPE
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+comment|// propagate request context
+name|key
+operator|=
+name|Client
+operator|.
+name|REQUEST_CONTEXT
+expr_stmt|;
+name|value
+operator|=
+name|message
+operator|.
+name|get
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|value
