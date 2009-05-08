@@ -384,6 +384,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Calling to inputStream"
+argument_list|)
+expr_stmt|;
 return|return
 name|IOConverter
 operator|.
@@ -413,6 +422,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Calling to string"
+argument_list|)
+expr_stmt|;
 return|return
 name|message
 operator|.

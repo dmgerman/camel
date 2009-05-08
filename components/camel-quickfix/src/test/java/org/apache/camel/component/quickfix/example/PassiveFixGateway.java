@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -71,6 +81,13 @@ block|{
 name|from
 argument_list|(
 literal|"quickfix-server:examples/server.cfg"
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|InputStream
+operator|.
+name|class
 argument_list|)
 operator|.
 name|to
