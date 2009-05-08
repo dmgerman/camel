@@ -342,6 +342,7 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
 if|if
 condition|(
 name|wait
