@@ -76,8 +76,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
 name|assertExpression
 argument_list|(
 literal|"Hello World"
@@ -85,20 +83,6 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown an Exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ExpressionIllegalSyntaxException
-name|e
-parameter_list|)
-block|{
-comment|// constants is not supported
-block|}
 block|}
 DECL|method|testSimpleExpressions ()
 specifier|public
@@ -360,6 +344,79 @@ argument_list|,
 literal|"Hello Just testing World"
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testIllegalSyntax ()
+specifier|public
+name|void
+name|testIllegalSyntax
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"hey ${xxx} how are you?"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ExpressionIllegalSyntaxException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"Illegal syntax: xxx"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"${xxx}"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ExpressionIllegalSyntaxException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"Illegal syntax: xxx"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getLanguageName ()
 specifier|protected

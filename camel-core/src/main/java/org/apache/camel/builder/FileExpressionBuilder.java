@@ -970,8 +970,6 @@ parameter_list|)
 block|{
 comment|// must call evaluate to return the nested language evaluate when evaluating
 comment|// stacked expressions
-try|try
-block|{
 name|Language
 name|simple
 init|=
@@ -1002,45 +1000,6 @@ operator|.
 name|class
 argument_list|)
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|ExpressionIllegalSyntaxException
-name|e
-parameter_list|)
-block|{
-comment|// fallback to constant so end users can enter a fixed filename
-name|Language
-name|constant
-init|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|resolveLanguage
-argument_list|(
-literal|"constant"
-argument_list|)
-decl_stmt|;
-return|return
-name|constant
-operator|.
-name|createExpression
-argument_list|(
-name|expression
-argument_list|)
-operator|.
-name|evaluate
-argument_list|(
-name|exchange
-argument_list|,
-name|Object
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
 block|}
 annotation|@
 name|Override

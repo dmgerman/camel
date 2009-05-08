@@ -339,7 +339,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Expression is evaluated as operator expression: "
+literal|"Expression is evaluated as simple expression wiht operator: "
 operator|+
 name|expression
 argument_list|)
@@ -379,7 +379,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Expression is evaluated as complex expression: "
+literal|"Expression is evaluated as simple (strict) expression: "
 operator|+
 name|expression
 argument_list|)
@@ -406,7 +406,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Expression is evaluated as simple expression: "
+literal|"Expression is evaluated as simple (non strict) expression: "
 operator|+
 name|expression
 argument_list|)
@@ -416,6 +416,8 @@ return|return
 name|createSimpleExpression
 argument_list|(
 name|expression
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -446,6 +448,8 @@ name|group
 argument_list|(
 literal|1
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -558,6 +562,8 @@ condition|?
 name|createSimpleExpression
 argument_list|(
 name|simple
+argument_list|,
+literal|true
 argument_list|)
 else|:
 name|createConstantExpression
@@ -1147,6 +1153,8 @@ init|=
 name|createSimpleExpression
 argument_list|(
 name|simpleText
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|results
@@ -1224,8 +1232,8 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates the simple expression based on the extracted content from the ${ } place holders      *      * @param expression  the content between ${ and }      * @return the expression      */
-DECL|method|createSimpleExpression (String expression)
+comment|/**      * Creates the simple expression based on the extracted content from the ${ } place holders      *      * @param expression  the content between ${ and }      * @param strict whether it is strict mode or not, if strict it will throw a      * {@link org.apache.camel.ExpressionIllegalSyntaxException} if the expression was not known.      * Set to<tt>false</tt> to support constant expressions      * @return the expression      */
+DECL|method|createSimpleExpression (String expression, boolean strict)
 specifier|protected
 specifier|abstract
 name|Expression
@@ -1233,6 +1241,9 @@ name|createSimpleExpression
 parameter_list|(
 name|String
 name|expression
+parameter_list|,
+name|boolean
+name|strict
 parameter_list|)
 function_decl|;
 DECL|method|ifStartsWithReturnRemainder (String prefix, String text)

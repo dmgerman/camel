@@ -82,6 +82,17 @@ name|FileLanguage
 extends|extends
 name|SimpleLanguageSupport
 block|{
+DECL|field|SIMPLE
+specifier|private
+specifier|static
+specifier|final
+name|SimpleLanguage
+name|SIMPLE
+init|=
+operator|new
+name|SimpleLanguage
+argument_list|()
+decl_stmt|;
 DECL|method|file (String expression)
 specifier|public
 specifier|static
@@ -108,13 +119,16 @@ name|expression
 argument_list|)
 return|;
 block|}
-DECL|method|createSimpleExpression (String expression)
+DECL|method|createSimpleExpression (String expression, boolean strict)
 specifier|protected
 name|Expression
 name|createSimpleExpression
 parameter_list|(
 name|String
 name|expression
+parameter_list|,
+name|boolean
+name|strict
 parameter_list|)
 block|{
 comment|// file: prefix
@@ -431,11 +445,13 @@ return|;
 block|}
 comment|// fallback to simple language if not file specific
 return|return
-name|FileExpressionBuilder
+name|SIMPLE
 operator|.
-name|simpleExpression
+name|createSimpleExpression
 argument_list|(
 name|expression
+argument_list|,
+name|strict
 argument_list|)
 return|;
 block|}

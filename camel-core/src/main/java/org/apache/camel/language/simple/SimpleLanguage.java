@@ -108,13 +108,16 @@ name|expression
 argument_list|)
 return|;
 block|}
-DECL|method|createSimpleExpression (String expression)
+DECL|method|createSimpleExpression (String expression, boolean strict)
 specifier|protected
 name|Expression
 name|createSimpleExpression
 parameter_list|(
 name|String
 name|expression
+parameter_list|,
+name|boolean
+name|strict
 parameter_list|)
 block|{
 if|if
@@ -471,6 +474,11 @@ name|remainder
 argument_list|)
 return|;
 block|}
+if|if
+condition|(
+name|strict
+condition|)
+block|{
 throw|throw
 operator|new
 name|ExpressionIllegalSyntaxException
@@ -478,6 +486,18 @@ argument_list|(
 name|expression
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+return|return
+name|ExpressionBuilder
+operator|.
+name|constantExpression
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
 block|}
 DECL|method|isSingleton ()
 specifier|public
