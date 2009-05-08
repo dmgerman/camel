@@ -64,6 +64,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|URL
 import|;
 end_import
@@ -271,6 +281,9 @@ argument_list|(
 literal|"javax.net.ssl.trustStore"
 argument_list|,
 name|trustStoreUrl
+operator|.
+name|toURI
+argument_list|()
 operator|.
 name|getPath
 argument_list|()
@@ -726,6 +739,8 @@ specifier|public
 name|void
 name|configure
 parameter_list|()
+throws|throws
+name|URISyntaxException
 block|{
 name|JettyHttpComponent
 name|componentJetty
@@ -775,6 +790,9 @@ operator|.
 name|setKeystore
 argument_list|(
 name|keyStoreUrl
+operator|.
+name|toURI
+argument_list|()
 operator|.
 name|getPath
 argument_list|()

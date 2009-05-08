@@ -24,6 +24,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|URL
 import|;
 end_import
@@ -107,6 +117,8 @@ specifier|public
 name|void
 name|configure
 parameter_list|()
+throws|throws
+name|URISyntaxException
 block|{
 name|SslSocketConnector
 name|sslSocketConnector
@@ -150,6 +162,9 @@ operator|.
 name|setKeystore
 argument_list|(
 name|keyStoreUrl
+operator|.
+name|toURI
+argument_list|()
 operator|.
 name|getPath
 argument_list|()

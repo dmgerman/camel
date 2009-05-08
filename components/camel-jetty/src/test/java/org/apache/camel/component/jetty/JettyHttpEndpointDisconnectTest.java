@@ -61,7 +61,7 @@ specifier|private
 name|String
 name|serverUri
 init|=
-literal|"http://localhost:5432/myservice"
+literal|"http://localhost:9080/myservice"
 decl_stmt|;
 DECL|method|testContextShutdownRemovesHttpConnector ()
 specifier|public

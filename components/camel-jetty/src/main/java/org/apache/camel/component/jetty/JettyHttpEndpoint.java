@@ -40,6 +40,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -192,6 +202,18 @@ name|HttpClientParams
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|mortbay
+operator|.
+name|jetty
+operator|.
+name|Handler
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -213,6 +235,14 @@ DECL|field|sessionSupport
 specifier|private
 name|boolean
 name|sessionSupport
+decl_stmt|;
+DECL|field|handlers
+specifier|private
+name|List
+argument_list|<
+name|Handler
+argument_list|>
+name|handlers
 decl_stmt|;
 DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL, HttpClientParams clientParams, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|public
@@ -354,6 +384,38 @@ block|{
 return|return
 name|sessionSupport
 return|;
+block|}
+DECL|method|getHandlers ()
+specifier|public
+name|List
+argument_list|<
+name|Handler
+argument_list|>
+name|getHandlers
+parameter_list|()
+block|{
+return|return
+name|handlers
+return|;
+block|}
+DECL|method|setHandlers (List<Handler> handlers)
+specifier|public
+name|void
+name|setHandlers
+parameter_list|(
+name|List
+argument_list|<
+name|Handler
+argument_list|>
+name|handlers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|handlers
+operator|=
+name|handlers
+expr_stmt|;
 block|}
 block|}
 end_class
