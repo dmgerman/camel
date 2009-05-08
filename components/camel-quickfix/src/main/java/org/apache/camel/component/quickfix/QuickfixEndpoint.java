@@ -428,16 +428,6 @@ argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
-name|answer
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
 return|return
 name|answer
 return|;
