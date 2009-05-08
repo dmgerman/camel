@@ -146,25 +146,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|HeaderFilterStrategyAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|spi
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|cxf
-operator|.
-name|transport
-operator|.
-name|CamelTransportConstants
+name|HeaderFilterStrategy
 import|;
 end_import
 
@@ -178,7 +162,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|HeaderFilterStrategy
+name|HeaderFilterStrategyAware
 import|;
 end_import
 

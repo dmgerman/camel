@@ -4,18 +4,8 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel
+DECL|package|org.apache.camel.spi
 package|package
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-package|;
-end_package
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -23,10 +13,8 @@ operator|.
 name|camel
 operator|.
 name|spi
-operator|.
-name|HeaderFilterStrategy
-import|;
-end_import
+package|;
+end_package
 
 begin_comment
 comment|/**  * An interface to represent an object which can make use of  * injected {@link HeaderFilterStrategy}.  *   * @since 1.5  * @version $Revision$  */
@@ -38,12 +26,13 @@ specifier|public
 interface|interface
 name|HeaderFilterStrategyAware
 block|{
-comment|// TODO move this to SPI package
+comment|/**      * Gets the header filter strategy used      *      * @return the strategy      */
 DECL|method|getHeaderFilterStrategy ()
 name|HeaderFilterStrategy
 name|getHeaderFilterStrategy
 parameter_list|()
 function_decl|;
+comment|/**      * Sets the header filter strategy to use      *      * @param strategy the strategy      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 name|void
 name|setHeaderFilterStrategy
