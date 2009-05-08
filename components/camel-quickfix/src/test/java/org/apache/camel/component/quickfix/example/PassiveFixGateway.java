@@ -83,13 +83,6 @@ argument_list|(
 literal|"quickfix-server:examples/server.cfg"
 argument_list|)
 operator|.
-name|convertBodyTo
-argument_list|(
-name|InputStream
-operator|.
-name|class
-argument_list|)
-operator|.
 name|to
 argument_list|(
 literal|"quickfix-client:examples/client.cfg"
