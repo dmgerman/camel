@@ -709,7 +709,7 @@ condition|)
 block|{
 comment|// if the logFactory is still not set and we are fine to use
 comment|// non-strict logging,
-comment|// then the screen logging factory will be used by default
+comment|// then the SLF4JLogFactory logging factory will be used by default
 name|logFactory
 operator|=
 operator|new
