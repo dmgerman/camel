@@ -2055,6 +2055,17 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|result
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+if|if
+condition|(
 name|type
 operator|.
 name|isAssignableFrom
