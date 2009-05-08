@@ -86,6 +86,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|spi
+operator|.
+name|TransactedRuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -489,9 +505,24 @@ name|e
 parameter_list|)
 block|{
 comment|// expeced as we fail
+name|assertIsInstanceOf
+argument_list|(
+name|TransactedRuntimeCamelException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getCause
 argument_list|()
@@ -504,6 +535,9 @@ argument_list|(
 literal|"We don't have Donkeys, only Camels"
 argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getCause
 argument_list|()
@@ -574,9 +608,24 @@ name|e
 parameter_list|)
 block|{
 comment|// expeced as we fail
+name|assertIsInstanceOf
+argument_list|(
+name|TransactedRuntimeCamelException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getCause
 argument_list|()
@@ -589,6 +638,9 @@ argument_list|(
 literal|"We don't have Donkeys, only Camels"
 argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getCause
 argument_list|()
@@ -659,9 +711,24 @@ name|e
 parameter_list|)
 block|{
 comment|// expeced as we fail
+name|assertIsInstanceOf
+argument_list|(
+name|TransactedRuntimeCamelException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getCause
 argument_list|()
@@ -674,6 +741,9 @@ argument_list|(
 literal|"We don't have Donkeys, only Camels"
 argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getCause
 argument_list|()

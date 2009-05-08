@@ -2334,7 +2334,7 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      * Breaks the route into asynchronous. The caller thread will end and the OUT message will      * contain a {@link java.util.concurrent.Future} handle so you can get the real response      * later using this handle.      *      * @return the builder      */
+comment|/**      * Breaks the route into asynchronous. The caller thread will either wait for the async route      * to complete or imeddiately comntinue. If continue the OUT message will      * contain a {@link java.util.concurrent.Future} handle so you can get the real response      * later using this handle.      *<p/>      * Will default wait for the async route to complete, but this behavior can be overriden by:      *<ul>      *<li>configuring the {@link org.apache.camel.model.AsyncDefinition#waitForTaskToComplete(boolean)}      * method to<tt>false</tt></li>      *<li>or setting a IN message header with the key {@link org.apache.camel.Exchange#ASYNC_WAIT}      * to<tt>false</tt>.</li>      *</ul>      * The header will take precedence, also if its<tt>true</tt>      *      * @return the builder      */
 DECL|method|async ()
 specifier|public
 name|AsyncDefinition
@@ -2357,7 +2357,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Breaks the route into asynchronous. The caller thread will end and the OUT message will      * contain a {@link java.util.concurrent.Future} handle so you can get the real response      * later using this handle.      *      * @param poolSize the core pool size      * @return the builder      */
+comment|/**      * Breaks the route into asynchronous. The caller thread will either wait for the async route      * to complete or imeddiately comntinue. If continue the OUT message will      * contain a {@link java.util.concurrent.Future} handle so you can get the real response      * later using this handle.      *<p/>      * Will default wait for the async route to complete, but this behavior can be overriden by:      *<ul>      *<li>configuring the {@link org.apache.camel.model.AsyncDefinition#waitForTaskToComplete(boolean)}      * method to<tt>false</tt></li>      *</ul>      * The header will take precedence, also if its<tt>true</tt>      *      * @param poolSize the core pool size      * @return the builder      */
 DECL|method|async (int poolSize)
 specifier|public
 name|AsyncDefinition

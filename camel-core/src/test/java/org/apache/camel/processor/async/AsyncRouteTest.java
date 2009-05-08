@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Future
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -94,6 +82,7 @@ name|ContextTestSupport
 block|{
 DECL|field|route
 specifier|private
+specifier|static
 name|String
 name|route
 init|=
@@ -161,7 +150,7 @@ argument_list|,
 literal|"Hello"
 argument_list|)
 decl_stmt|;
-comment|// we should run before the async processor that sets B
+comment|// we should not run before the async processor that sets B
 name|route
 operator|+=
 literal|"A"
@@ -345,9 +334,34 @@ operator|.
 name|process
 argument_list|(
 operator|new
-name|Processor
+name|MyProcessor
 argument_list|()
+argument_list|)
+comment|// and we use mocks for unit testing
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|;
+block|}
+DECL|class|MyProcessor
+specifier|public
+specifier|static
+class|class
+name|MyProcessor
+implements|implements
+name|Processor
 block|{
+DECL|method|MyProcessor ()
+specifier|public
+name|MyProcessor
+parameter_list|()
+block|{         }
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
@@ -386,18 +400,6 @@ literal|"Bye World"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// and we use mocks for unit testing
-block|}
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|;
 block|}
 block|}
 end_class

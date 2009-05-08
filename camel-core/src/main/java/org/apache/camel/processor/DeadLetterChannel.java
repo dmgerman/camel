@@ -181,6 +181,7 @@ comment|// exchange to this channel with the computed delay time
 comment|// we need to provide option so end users can deside if they would like to spawn an async thread
 comment|// or not. Also consider MEP as InOut does not work with async then as the original caller thread
 comment|// is expecting a reply in the sync thread.
+comment|// TODO: DLQ should handle by default, so added option to set global predicate on DLC
 comment|// we can use a single shared static timer for async redeliveries
 DECL|field|deadLetter
 specifier|private
@@ -250,9 +251,9 @@ name|currentRedeliveryPolicy
 init|=
 name|redeliveryPolicy
 decl_stmt|;
-DECL|field|failureProcessor
+DECL|field|deadLetterQueue
 name|Processor
-name|failureProcessor
+name|deadLetterQueue
 init|=
 name|deadLetter
 decl_stmt|;
@@ -456,6 +457,7 @@ name|RejectedExecutionException
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 comment|// do not handle transacted exchanges that failed as this error handler does not support it
@@ -543,14 +545,15 @@ operator|!
 name|shouldRedeliver
 condition|)
 block|{
-name|deliverToFaultProcessor
+comment|// no then move it to the dead letter queue
+name|deliverToDeadLetterQueue
 argument_list|(
 name|exchange
 argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-comment|// we should not try redeliver so we are finished
+comment|// and we are finished since the exchanged was moved to the dead letter queue
 return|return;
 block|}
 comment|// if we are redelivering then sleep before trying again
@@ -914,7 +917,7 @@ condition|)
 block|{
 name|data
 operator|.
-name|failureProcessor
+name|deadLetterQueue
 operator|=
 name|processor
 expr_stmt|;
@@ -1073,11 +1076,11 @@ literal|"Redelivery processor done"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * All redelivery attempts failed so move the exchange to the fault processor (eg the dead letter queue)      */
-DECL|method|deliverToFaultProcessor (final Exchange exchange, final RedeliveryData data)
+comment|/**      * All redelivery attempts failed so move the exchange to the dead letter queue      */
+DECL|method|deliverToDeadLetterQueue (final Exchange exchange, final RedeliveryData data)
 specifier|private
 name|void
-name|deliverToFaultProcessor
+name|deliverToDeadLetterQueue
 parameter_list|(
 specifier|final
 name|Exchange
@@ -1092,7 +1095,7 @@ if|if
 condition|(
 name|data
 operator|.
-name|failureProcessor
+name|deadLetterQueue
 operator|==
 literal|null
 condition|)
@@ -1114,11 +1117,22 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// reset cached streams so they can be read again
+name|MessageHelper
+operator|.
+name|resetStreamCache
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|data
 operator|.
-name|failureProcessor
+name|deadLetterQueue
 operator|.
 name|process
 argument_list|(
@@ -1144,10 +1158,10 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Fault processor done"
+literal|"DedLetterQueue processor done"
 argument_list|)
 expr_stmt|;
-name|prepareExchangeForFailure
+name|prepareExchangeAfterMovedToDeadLetterQueue
 argument_list|(
 name|exchange
 argument_list|,
@@ -1166,11 +1180,11 @@ operator|.
 name|getExchangeId
 argument_list|()
 operator|+
-literal|". Handled by the failure processor: "
+literal|". Moved to the dead letter queue: "
 operator|+
 name|data
 operator|.
-name|failureProcessor
+name|deadLetterQueue
 decl_stmt|;
 name|logFailedDelivery
 argument_list|(
@@ -1186,10 +1200,10 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|prepareExchangeForFailure (Exchange exchange, Predicate handledPredicate)
+DECL|method|prepareExchangeAfterMovedToDeadLetterQueue (Exchange exchange, Predicate handledPredicate)
 specifier|private
 name|void
-name|prepareExchangeForFailure
+name|prepareExchangeAfterMovedToDeadLetterQueue
 parameter_list|(
 name|Exchange
 name|exchange
@@ -1232,6 +1246,19 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// exception not handled, put exception back in the exchange
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|EXCEPTION_HANDLED
+argument_list|,
+name|Boolean
+operator|.
+name|FALSE
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|setException

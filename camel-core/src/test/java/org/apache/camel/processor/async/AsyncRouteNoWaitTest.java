@@ -97,15 +97,16 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|AsyncNoWaitRouteTest
+DECL|class|AsyncRouteNoWaitTest
 specifier|public
 class|class
-name|AsyncNoWaitRouteTest
+name|AsyncRouteNoWaitTest
 extends|extends
 name|ContextTestSupport
 block|{
 DECL|field|route
 specifier|private
+specifier|static
 name|String
 name|route
 init|=
@@ -540,9 +541,34 @@ operator|.
 name|process
 argument_list|(
 operator|new
-name|Processor
+name|MyProcessor
 argument_list|()
+argument_list|)
+comment|// and we use mocks for unit testing
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|;
+block|}
+DECL|class|MyProcessor
+specifier|public
+specifier|static
+class|class
+name|MyProcessor
+implements|implements
+name|Processor
 block|{
+DECL|method|MyProcessor ()
+specifier|public
+name|MyProcessor
+parameter_list|()
+block|{         }
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
@@ -581,18 +607,6 @@ literal|"Bye World"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// and we use mocks for unit testing
-block|}
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|;
 block|}
 block|}
 end_class

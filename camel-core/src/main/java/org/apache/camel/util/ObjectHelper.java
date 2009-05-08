@@ -208,6 +208,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -3538,7 +3562,7 @@ operator|instanceof
 name|RuntimeCamelException
 condition|)
 block|{
-comment|// don't double wrap if already a RuntimeCamelException
+comment|// don't double wrap
 return|return
 operator|(
 name|RuntimeCamelException
@@ -3552,6 +3576,50 @@ return|return
 operator|new
 name|RuntimeCamelException
 argument_list|(
+name|e
+argument_list|)
+return|;
+block|}
+block|}
+comment|/**      * Wraps the caused exception in a {@link CamelExecutionException} if its not      * already such an exception.      *      * @param e the caused exception      * @return the wrapper exception      */
+DECL|method|wrapCamelExecutionException (Exchange exchange, Throwable e)
+specifier|public
+specifier|static
+name|CamelExecutionException
+name|wrapCamelExecutionException
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Throwable
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|e
+operator|instanceof
+name|CamelExecutionException
+condition|)
+block|{
+comment|// don't double wrap
+return|return
+operator|(
+name|CamelExecutionException
+operator|)
+name|e
+return|;
+block|}
+else|else
+block|{
+return|return
+operator|new
+name|CamelExecutionException
+argument_list|(
+literal|"Exception occured during execution"
+argument_list|,
+name|exchange
+argument_list|,
 name|e
 argument_list|)
 return|;

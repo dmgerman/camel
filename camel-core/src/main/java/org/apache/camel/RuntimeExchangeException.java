@@ -127,6 +127,13 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|message
 operator|+
@@ -134,6 +141,13 @@ literal|" on the exchange: "
 operator|+
 name|exchange
 return|;
+block|}
+else|else
+block|{
+return|return
+name|message
+return|;
+block|}
 block|}
 block|}
 end_class

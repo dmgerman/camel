@@ -106,6 +106,7 @@ name|ContextTestSupport
 block|{
 DECL|field|route
 specifier|private
+specifier|static
 name|String
 name|route
 init|=
@@ -424,9 +425,34 @@ operator|.
 name|process
 argument_list|(
 operator|new
-name|Processor
+name|MyProcessor
 argument_list|()
+argument_list|)
+comment|// and we use mocks for unit testing
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|;
+block|}
+DECL|class|MyProcessor
+specifier|public
+specifier|static
+class|class
+name|MyProcessor
+implements|implements
+name|Processor
 block|{
+DECL|method|MyProcessor ()
+specifier|public
+name|MyProcessor
+parameter_list|()
+block|{         }
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
@@ -462,18 +488,6 @@ literal|"Damn forced by unit test"
 argument_list|)
 throw|;
 block|}
-comment|// and we use mocks for unit testing
-block|}
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|;
 block|}
 block|}
 end_class
