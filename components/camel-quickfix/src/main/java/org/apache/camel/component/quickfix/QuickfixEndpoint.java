@@ -234,7 +234,7 @@ begin_import
 import|import
 name|quickfix
 operator|.
-name|ScreenLogFactory
+name|SLF4JLogFactory
 import|;
 end_import
 
@@ -713,7 +713,7 @@ comment|// then the screen logging factory will be used by default
 name|logFactory
 operator|=
 operator|new
-name|ScreenLogFactory
+name|SLF4JLogFactory
 argument_list|(
 name|settings
 argument_list|)
