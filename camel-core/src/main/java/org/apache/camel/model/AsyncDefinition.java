@@ -118,6 +118,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|WaitForTaskToComplete
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|AsyncProcessor
@@ -223,12 +235,12 @@ literal|false
 argument_list|)
 DECL|field|waitForTaskToComplete
 specifier|private
-name|Boolean
+name|WaitForTaskToComplete
 name|waitForTaskToComplete
 init|=
-name|Boolean
+name|WaitForTaskToComplete
 operator|.
-name|TRUE
+name|Always
 decl_stmt|;
 annotation|@
 name|Override
@@ -390,19 +402,19 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting to whether to wait for async tasks to be complete before continuing original route.      *<p/>      * Is default<tt>true</tt>      *      * @param complete whether to wait or not      * @return the builder      */
-DECL|method|waitForTaskToComplete (boolean complete)
+comment|/**      * Setting to whether to wait for async tasks to be complete before continuing original route.      *<p/>      * Is default<tt>true</tt>      *      * @param wait the wait option      * @return the builder      */
+DECL|method|waitForTaskToComplete (WaitForTaskToComplete wait)
 specifier|public
 name|AsyncDefinition
 name|waitForTaskToComplete
 parameter_list|(
-name|boolean
-name|complete
+name|WaitForTaskToComplete
+name|wait
 parameter_list|)
 block|{
 name|setWaitForTaskToComplete
 argument_list|(
-name|complete
+name|wait
 argument_list|)
 expr_stmt|;
 return|return
@@ -463,7 +475,7 @@ expr_stmt|;
 block|}
 DECL|method|getWaitForTaskToComplete ()
 specifier|public
-name|Boolean
+name|WaitForTaskToComplete
 name|getWaitForTaskToComplete
 parameter_list|()
 block|{
@@ -471,12 +483,12 @@ return|return
 name|waitForTaskToComplete
 return|;
 block|}
-DECL|method|setWaitForTaskToComplete (Boolean waitForTaskToComplete)
+DECL|method|setWaitForTaskToComplete (WaitForTaskToComplete waitForTaskToComplete)
 specifier|public
 name|void
 name|setWaitForTaskToComplete
 parameter_list|(
-name|Boolean
+name|WaitForTaskToComplete
 name|waitForTaskToComplete
 parameter_list|)
 block|{

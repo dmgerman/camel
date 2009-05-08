@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|WaitForTaskToComplete
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -406,7 +418,9 @@ argument_list|()
 operator|.
 name|waitForTaskToComplete
 argument_list|(
-literal|false
+name|WaitForTaskToComplete
+operator|.
+name|Newer
 argument_list|)
 comment|// from this point forward this is the async route doing its work
 comment|// so we do a bit of delay to simulate heavy work that takes time

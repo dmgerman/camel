@@ -84,6 +84,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|WaitForTaskToComplete
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -136,10 +148,10 @@ name|executorService
 decl_stmt|;
 DECL|field|waitTaskComplete
 specifier|private
-name|boolean
+name|WaitForTaskToComplete
 name|waitTaskComplete
 decl_stmt|;
-DECL|method|AsyncProcessor (Processor output, ExecutorService executorService, boolean waitTaskComplete)
+DECL|method|AsyncProcessor (Processor output, ExecutorService executorService, WaitForTaskToComplete waitTaskComplete)
 specifier|public
 name|AsyncProcessor
 parameter_list|(
@@ -149,7 +161,7 @@ parameter_list|,
 name|ExecutorService
 name|executorService
 parameter_list|,
-name|boolean
+name|WaitForTaskToComplete
 name|waitTaskComplete
 parameter_list|)
 block|{
@@ -261,7 +273,7 @@ name|task
 argument_list|)
 decl_stmt|;
 comment|// compute if we should wait for task to complete or not
-name|boolean
+name|WaitForTaskToComplete
 name|wait
 init|=
 name|waitTaskComplete
@@ -296,7 +308,7 @@ name|Exchange
 operator|.
 name|ASYNC_WAIT
 argument_list|,
-name|Boolean
+name|WaitForTaskToComplete
 operator|.
 name|class
 argument_list|)
@@ -305,6 +317,10 @@ block|}
 if|if
 condition|(
 name|wait
+operator|!=
+name|WaitForTaskToComplete
+operator|.
+name|Newer
 condition|)
 block|{
 comment|// wait for task to complete
