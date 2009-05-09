@@ -1844,14 +1844,14 @@ literal|false
 return|;
 block|}
 comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait until the future task is complete.      *      * @param context the camel context      * @param future the future handle      * @param type the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException if the processing of the exchange failed      */
-DECL|method|asyncExtractBody (CamelContext context, Future future, Class<T> type)
+DECL|method|extractFutureBody (CamelContext context, Future future, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|asyncExtractBody
+name|extractFutureBody
 parameter_list|(
 name|CamelContext
 name|context
@@ -1869,7 +1869,7 @@ block|{
 try|try
 block|{
 return|return
-name|doExtractBody
+name|doExtractFutureBody
 argument_list|(
 name|context
 argument_list|,
@@ -1920,14 +1920,14 @@ throw|;
 block|}
 block|}
 comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait for the future task to complete, but waiting at most the timeout value.      *      * @param context the camel context      * @param future the future handle      * @param timeout timeout value      * @param unit    timeout unit      * @param type the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException if the processing of the exchange failed      * @throws java.util.concurrent.TimeoutException is thrown if a timeout triggered      */
-DECL|method|asyncExtractBody (CamelContext context, Future future, long timeout, TimeUnit unit, Class<T> type)
+DECL|method|extractFutureBody (CamelContext context, Future future, long timeout, TimeUnit unit, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|asyncExtractBody
+name|extractFutureBody
 parameter_list|(
 name|CamelContext
 name|context
@@ -1960,7 +1960,7 @@ literal|0
 condition|)
 block|{
 return|return
-name|doExtractBody
+name|doExtractFutureBody
 argument_list|(
 name|context
 argument_list|,
@@ -1980,7 +1980,7 @@ block|}
 else|else
 block|{
 return|return
-name|doExtractBody
+name|doExtractFutureBody
 argument_list|(
 name|context
 argument_list|,
@@ -2031,14 +2031,14 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|doExtractBody (CamelContext context, Object result, Class<T> type)
+DECL|method|doExtractFutureBody (CamelContext context, Object result, Class<T> type)
 specifier|private
 specifier|static
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|doExtractBody
+name|doExtractFutureBody
 parameter_list|(
 name|CamelContext
 name|context

@@ -504,7 +504,7 @@ name|result
 init|=
 name|template
 operator|.
-name|asyncExtractBody
+name|extractFutureBody
 argument_list|(
 name|future
 argument_list|,
@@ -728,7 +728,7 @@ name|result
 init|=
 name|template
 operator|.
-name|asyncExtractBody
+name|extractFutureBody
 argument_list|(
 name|future
 argument_list|,
@@ -1028,7 +1028,7 @@ name|result
 init|=
 name|template
 operator|.
-name|asyncExtractBody
+name|extractFutureBody
 argument_list|(
 name|future
 argument_list|,
@@ -1320,7 +1320,7 @@ name|result
 init|=
 name|template
 operator|.
-name|asyncExtractBody
+name|extractFutureBody
 argument_list|(
 name|future
 argument_list|,
@@ -1439,7 +1439,7 @@ name|result
 init|=
 name|template
 operator|.
-name|asyncExtractBody
+name|extractFutureBody
 argument_list|(
 name|future
 argument_list|,
@@ -1605,7 +1605,7 @@ name|result
 init|=
 name|template
 operator|.
-name|asyncExtractBody
+name|extractFutureBody
 argument_list|(
 name|future
 argument_list|,

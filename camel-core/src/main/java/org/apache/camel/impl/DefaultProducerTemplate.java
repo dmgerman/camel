@@ -3455,13 +3455,13 @@ name|task
 argument_list|)
 return|;
 block|}
-DECL|method|asyncExtractBody (Future future, Class<T> type)
+DECL|method|extractFutureBody (Future future, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|asyncExtractBody
+name|extractFutureBody
 parameter_list|(
 name|Future
 name|future
@@ -3476,7 +3476,7 @@ block|{
 return|return
 name|ExchangeHelper
 operator|.
-name|asyncExtractBody
+name|extractFutureBody
 argument_list|(
 name|context
 argument_list|,
@@ -3486,13 +3486,13 @@ name|type
 argument_list|)
 return|;
 block|}
-DECL|method|asyncExtractBody (Future future, long timeout, TimeUnit unit, Class<T> type)
+DECL|method|extractFutureBody (Future future, long timeout, TimeUnit unit, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|asyncExtractBody
+name|extractFutureBody
 parameter_list|(
 name|Future
 name|future
@@ -3515,7 +3515,7 @@ block|{
 return|return
 name|ExchangeHelper
 operator|.
-name|asyncExtractBody
+name|extractFutureBody
 argument_list|(
 name|context
 argument_list|,

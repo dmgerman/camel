@@ -101,7 +101,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// we expect the name job to be faster than the async job even though the async job
+comment|// We expect the name job to be faster than the async job even though the async job
 comment|// was started first
 name|mock
 operator|.
@@ -112,7 +112,7 @@ argument_list|,
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
-comment|// send a async request/reply message to the http endpoint
+comment|// Send a async request/reply message to the http endpoint
 name|Future
 name|future
 init|=
@@ -125,7 +125,7 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 decl_stmt|;
-comment|// we got the future so in the meantime we can do other stuff, as this is Camel
+comment|// We got the future so in the meantime we can do other stuff, as this is Camel
 comment|// so lets invoke another request/reply route but this time is synchronous
 name|String
 name|name
@@ -150,18 +150,19 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-comment|// okay we got a name and we have done some other work at the same time
+comment|// Okay we got a name and we have done some other work at the same time
 comment|// the async route is running, but now its about time to wait and get
 comment|// get the response from the async task
-comment|// so we use the async extract body to return a string body response
-comment|// this allows us to do this in a single code line instead of using the
+comment|// We use the extract future body to get the response from the future
+comment|// (waiting if needed) and then return a string body response.
+comment|// This allows us to do this in a single code line instead of using the
 comment|// JDK Future API to get hold of it, but you can also use that if you want
 name|String
 name|response
 init|=
 name|template
 operator|.
-name|asyncExtractBody
+name|extractFutureBody
 argument_list|(
 name|future
 argument_list|,
@@ -207,9 +208,8 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// the mocks are here for unit test
-comment|// some other service to return a name, this is invoked
-comment|// synhronously
+comment|// The mocks are here for unit test
+comment|// Some other service to return a name, this is invoked synhronously
 name|from
 argument_list|(
 literal|"direct:name"
@@ -228,7 +228,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// simulate a slow http service we want to invoke async
+comment|// Simulate a slow http service (delaying 1 sec) we want to invoke async
 name|from
 argument_list|(
 literal|"jetty:http://0.0.0.0:9080/myservice"
