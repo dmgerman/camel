@@ -178,7 +178,7 @@ comment|// TODO: Introduce option to allow async redelivery, eg to not block thr
 comment|// (eg the Timer task code). However we should consider using Channels that has internal
 comment|// producer/consumer queues with "delayed" support so a redelivery is just to move an
 comment|// exchange to this channel with the computed delay time
-comment|// we need to provide option so end users can deside if they would like to spawn an async thread
+comment|// we need to provide option so end users can decide if they would like to spawn an async thread
 comment|// or not. Also consider MEP as InOut does not work with async then as the original caller thread
 comment|// is expecting a reply in the sync thread.
 comment|// TODO: DLQ should handle by default, so added option to set global predicate on DLC
