@@ -207,6 +207,22 @@ name|TestSupport
 extends|extends
 name|TestCase
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|TestSupport
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|log
 specifier|protected
 specifier|transient
@@ -226,6 +242,7 @@ comment|// ---------------------------------------------------------------------
 comment|/**      * Returns a value builder for the given header      */
 DECL|method|header (String name)
 specifier|public
+specifier|static
 name|ValueBuilder
 name|header
 parameter_list|(
@@ -245,6 +262,7 @@ block|}
 comment|/**      * Returns a value builder for the given property      */
 DECL|method|property (String name)
 specifier|public
+specifier|static
 name|ValueBuilder
 name|property
 parameter_list|(
@@ -264,6 +282,7 @@ block|}
 comment|/**      * Returns a predicate and value builder for the inbound body on an exchange      */
 DECL|method|body ()
 specifier|public
+specifier|static
 name|ValueBuilder
 name|body
 parameter_list|()
@@ -278,6 +297,7 @@ block|}
 comment|/**      * Returns a predicate and value builder for the inbound message body as a      * specific type      */
 DECL|method|bodyAs (Class<T> type)
 specifier|public
+specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -303,6 +323,7 @@ block|}
 comment|/**      * Returns a predicate and value builder for the outbound body on an      * exchange      */
 DECL|method|outBody ()
 specifier|public
+specifier|static
 name|ValueBuilder
 name|outBody
 parameter_list|()
@@ -317,6 +338,7 @@ block|}
 comment|/**      * Returns a predicate and value builder for the outbound message body as a      * specific type      */
 DECL|method|outBodyAs (Class<T> type)
 specifier|public
+specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -342,6 +364,7 @@ block|}
 comment|/**      * Returns a predicate and value builder for the fault body on an      * exchange      */
 DECL|method|faultBody ()
 specifier|public
+specifier|static
 name|ValueBuilder
 name|faultBody
 parameter_list|()
@@ -356,6 +379,7 @@ block|}
 comment|/**      * Returns a predicate and value builder for the fault message body as a      * specific type      */
 DECL|method|faultBodyAs (Class<T> type)
 specifier|public
+specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -381,6 +405,7 @@ block|}
 comment|/**      * Returns a value builder for the given system property      */
 DECL|method|systemProperty (String name)
 specifier|public
+specifier|static
 name|ValueBuilder
 name|systemProperty
 parameter_list|(
@@ -400,6 +425,7 @@ block|}
 comment|/**      * Returns a value builder for the given system property      */
 DECL|method|systemProperty (String name, String defaultValue)
 specifier|public
+specifier|static
 name|ValueBuilder
 name|systemProperty
 parameter_list|(
@@ -424,7 +450,8 @@ block|}
 comment|// Assertions
 comment|// -----------------------------------------------------------------------
 DECL|method|assertIsInstanceOf (Class<T> expectedType, Object value)
-specifier|protected
+specifier|public
+specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -496,7 +523,8 @@ argument_list|)
 return|;
 block|}
 DECL|method|assertEndpointUri (Endpoint endpoint, String uri)
-specifier|protected
+specifier|public
+specifier|static
 name|void
 name|assertEndpointUri
 parameter_list|(
@@ -533,7 +561,8 @@ expr_stmt|;
 block|}
 comment|/**      * Asserts the In message on the exchange contains the expected value      */
 DECL|method|assertInMessageHeader (Exchange exchange, String name, Object expected)
-specifier|protected
+specifier|public
+specifier|static
 name|Object
 name|assertInMessageHeader
 parameter_list|(
@@ -563,7 +592,8 @@ return|;
 block|}
 comment|/**      * Asserts the Out message on the exchange contains the expected value      */
 DECL|method|assertOutMessageHeader (Exchange exchange, String name, Object expected)
-specifier|protected
+specifier|public
+specifier|static
 name|Object
 name|assertOutMessageHeader
 parameter_list|(
@@ -593,7 +623,8 @@ return|;
 block|}
 comment|/**      * Asserts that the given exchange has an OUT message of the given body value      *      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException is thrown if the payload is not the expected class type      */
 DECL|method|assertInMessageBodyEquals (Exchange exchange, Object expected)
-specifier|protected
+specifier|public
+specifier|static
 name|void
 name|assertInMessageBodyEquals
 parameter_list|(
@@ -672,7 +703,7 @@ argument_list|,
 name|actual
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -691,7 +722,8 @@ expr_stmt|;
 block|}
 comment|/**      * Asserts that the given exchange has an OUT message of the given body value      *      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException is thrown if the payload is not the expected class type      */
 DECL|method|assertOutMessageBodyEquals (Exchange exchange, Object expected)
-specifier|protected
+specifier|public
+specifier|static
 name|void
 name|assertOutMessageBodyEquals
 parameter_list|(
@@ -770,7 +802,7 @@ argument_list|,
 name|actual
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -788,7 +820,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|assertMessageHeader (Message message, String name, Object expected)
-specifier|protected
+specifier|public
+specifier|static
 name|Object
 name|assertMessageHeader
 parameter_list|(
@@ -833,7 +866,8 @@ return|;
 block|}
 comment|/**      * Asserts that the given expression when evaluated returns the given answer      */
 DECL|method|assertExpression (Expression expression, Exchange exchange, Object expected)
-specifier|protected
+specifier|public
+specifier|static
 name|Object
 name|assertExpression
 parameter_list|(
@@ -888,7 +922,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -926,7 +960,8 @@ return|;
 block|}
 comment|/**      * Asserts that the predicate returns the expected value on the exchange      */
 DECL|method|assertPredicateMatches (Predicate predicate, Exchange exchange)
-specifier|protected
+specifier|public
+specifier|static
 name|void
 name|assertPredicateMatches
 parameter_list|(
@@ -949,7 +984,8 @@ expr_stmt|;
 block|}
 comment|/**      * Asserts that the predicate returns the expected value on the exchange      */
 DECL|method|assertPredicateDoesNotMatch (Predicate predicate, Exchange exchange)
-specifier|protected
+specifier|public
+specifier|static
 name|void
 name|assertPredicateDoesNotMatch
 parameter_list|(
@@ -980,7 +1016,7 @@ name|AssertionError
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -1002,7 +1038,8 @@ expr_stmt|;
 block|}
 comment|/**      * Asserts that the predicate returns the expected value on the exchange      */
 DECL|method|assertPredicate (final Predicate predicate, Exchange exchange, boolean expected)
-specifier|protected
+specifier|public
+specifier|static
 name|boolean
 name|assertPredicate
 parameter_list|(
@@ -1044,7 +1081,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -1082,7 +1119,8 @@ return|;
 block|}
 comment|/**      * Resolves an endpoint and asserts that it is found      */
 DECL|method|resolveMandatoryEndpoint (CamelContext context, String uri)
-specifier|protected
+specifier|public
+specifier|static
 name|Endpoint
 name|resolveMandatoryEndpoint
 parameter_list|(
@@ -1118,7 +1156,8 @@ return|;
 block|}
 comment|/**      * Resolves an endpoint and asserts that it is found      */
 DECL|method|resolveMandatoryEndpoint (CamelContext context, String uri, Class<T> endpointType)
-specifier|protected
+specifier|public
+specifier|static
 parameter_list|<
 name|T
 extends|extends
@@ -1230,7 +1269,8 @@ name|exchange
 return|;
 block|}
 DECL|method|assertOneElement (List<T> list)
-specifier|protected
+specifier|public
+specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -1269,7 +1309,8 @@ return|;
 block|}
 comment|/**      * Asserts that a list is of the given size      */
 DECL|method|assertListSize (List<T> list, int size)
-specifier|protected
+specifier|public
+specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -1302,7 +1343,8 @@ return|;
 block|}
 comment|/**      * Asserts that a list is of the given size      */
 DECL|method|assertListSize (String message, List<T> list, int size)
-specifier|protected
+specifier|public
+specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -1351,7 +1393,8 @@ return|;
 block|}
 comment|/**      * Asserts that a list is of the given size      */
 DECL|method|assertCollectionSize (Collection<T> list, int size)
-specifier|protected
+specifier|public
+specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -1384,7 +1427,8 @@ return|;
 block|}
 comment|/**      * Asserts that a list is of the given size      */
 DECL|method|assertCollectionSize (String message, Collection<T> list, int size)
-specifier|protected
+specifier|public
+specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -1433,7 +1477,8 @@ return|;
 block|}
 comment|/**      * A helper method to create a list of Route objects for a given route builder      */
 DECL|method|getRouteList (RouteBuilder builder)
-specifier|protected
+specifier|public
+specifier|static
 name|List
 argument_list|<
 name|Route
@@ -1487,7 +1532,8 @@ return|;
 block|}
 comment|/**      * Asserts that the text contains the given string      *      * @param text the text to compare      * @param containedText the text which must be contained inside the other text parameter      */
 DECL|method|assertStringContains (String text, String containedText)
-specifier|protected
+specifier|public
+specifier|static
 name|void
 name|assertStringContains
 parameter_list|(
@@ -1526,7 +1572,8 @@ expr_stmt|;
 block|}
 comment|/**      * If a processor is wrapped with a bunch of DelegateProcessor or DelegateAsyncProcessor objects      * this call will drill through them and return the wrapped Processor.      */
 DECL|method|unwrap (Processor processor)
-specifier|protected
+specifier|public
+specifier|static
 name|Processor
 name|unwrap
 parameter_list|(
@@ -1569,7 +1616,8 @@ block|}
 block|}
 comment|/**      * If a processor is wrapped with a bunch of DelegateProcessor or DelegateAsyncProcessor objects      * this call will drill through them and return the Channel.      *<p/>      * Returns null if no channel is found.      */
 DECL|method|unwrapChannel (Processor processor)
-specifier|protected
+specifier|public
+specifier|static
 name|Channel
 name|unwrapChannel
 parameter_list|(

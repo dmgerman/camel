@@ -86,7 +86,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|LanguageTestSupport
+name|ExpressionIllegalSyntaxException
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExpressionIllegalSyntaxException
+name|LanguageTestSupport
 import|;
 end_import
 

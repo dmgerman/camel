@@ -245,13 +245,13 @@ name|Exception
 block|{
 comment|// do nothing here
 block|}
-DECL|method|getRouteList (RouteBuilder builder)
+DECL|method|getRouteListWithCurrentContext (RouteBuilder builder)
 specifier|protected
 name|List
 argument_list|<
 name|Route
 argument_list|>
-name|getRouteList
+name|getRouteListWithCurrentContext
 parameter_list|(
 name|RouteBuilder
 name|builder
@@ -338,7 +338,7 @@ name|Route
 argument_list|>
 name|list
 init|=
-name|getRouteList
+name|getRouteListWithCurrentContext
 argument_list|(
 name|builder
 argument_list|)
@@ -500,7 +500,7 @@ name|Route
 argument_list|>
 name|list
 init|=
-name|getRouteList
+name|getRouteListWithCurrentContext
 argument_list|(
 name|builder
 argument_list|)

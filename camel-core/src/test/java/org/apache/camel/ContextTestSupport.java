@@ -160,6 +160,34 @@ name|JndiTest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A useful base class which creates a {@link CamelContext} with some routes  * along with a {@link ProducerTemplate} for use in the test case  *  * @version $Revision$  */
 end_comment

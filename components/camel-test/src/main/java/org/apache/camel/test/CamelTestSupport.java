@@ -308,6 +308,34 @@ name|CamelContextHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A useful base class which creates a {@link org.apache.camel.CamelContext} with some routes  * along with a {@link org.apache.camel.ProducerTemplate} for use in the test case  *  * @version $Revision$  */
 end_comment
