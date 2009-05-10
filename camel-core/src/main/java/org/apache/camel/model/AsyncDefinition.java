@@ -240,7 +240,7 @@ name|waitForTaskToComplete
 init|=
 name|WaitForTaskToComplete
 operator|.
-name|Always
+name|IfReplyExpected
 decl_stmt|;
 annotation|@
 name|Override

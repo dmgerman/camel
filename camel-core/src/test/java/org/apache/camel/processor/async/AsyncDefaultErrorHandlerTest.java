@@ -206,7 +206,7 @@ try|try
 block|{
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:in"
 argument_list|,
@@ -340,7 +340,7 @@ comment|// as it turns into async and we do not wait for the task to complete
 comment|// we will not get notified of the exception
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:in"
 argument_list|,

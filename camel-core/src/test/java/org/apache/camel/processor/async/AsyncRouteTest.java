@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Future
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -51,6 +63,18 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExchangePattern
 import|;
 end_import
 
@@ -108,10 +132,10 @@ operator|=
 literal|""
 expr_stmt|;
 block|}
-DECL|method|testAsyncRoute ()
+DECL|method|testAsyncRequestReplyRoute ()
 specifier|public
 name|void
-name|testAsyncRoute
+name|testAsyncRequestReplyRoute
 parameter_list|()
 throws|throws
 name|Exception
@@ -201,10 +225,10 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testAsyncRouteWithTypeConverted ()
+DECL|method|testAsyncRequestReplyRouteWithTypeConverted ()
 specifier|public
 name|void
-name|testAsyncRouteWithTypeConverted
+name|testAsyncRequestReplyRouteWithTypeConverted
 parameter_list|()
 throws|throws
 name|Exception
@@ -265,6 +289,188 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"BA"
+argument_list|,
+name|route
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testAsyncRequestOnlyRoute ()
+specifier|public
+name|void
+name|testAsyncRequestOnlyRoute
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:foo"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+comment|// send a request only to the direct start endpoint
+comment|// it will NOT wait for the async response so we get the full response
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hello"
+argument_list|)
+expr_stmt|;
+comment|// we should run before the async processor that sets B
+name|route
+operator|+=
+literal|"A"
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"AB"
+argument_list|,
+name|route
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testAsyncRequestOnlyRouteWithExchange ()
+specifier|public
+name|void
+name|testAsyncRequestOnlyRouteWithExchange
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:foo"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+comment|// send a request only to the direct start endpoint
+comment|// it will NOT wait for the async response so we get the full response
+name|Exchange
+name|out
+init|=
+name|template
+operator|.
+name|send
+argument_list|(
+literal|"direct:start"
+argument_list|,
+operator|new
+name|Processor
+argument_list|()
+block|{
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|setPattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Hello"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+decl_stmt|;
+comment|// we should run before the async processor that sets B
+name|route
+operator|+=
+literal|"A"
+expr_stmt|;
+comment|// as it turns into a async route later we get a Future as response
+name|assertIsInstanceOf
+argument_list|(
+name|Exchange
+operator|.
+name|class
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+name|Future
+name|future
+init|=
+name|out
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|Future
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should be done"
+argument_list|,
+name|future
+operator|.
+name|isDone
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"AB"
 argument_list|,
 name|route
 argument_list|)

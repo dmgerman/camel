@@ -300,7 +300,7 @@ try|try
 block|{
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:in"
 argument_list|,
@@ -511,7 +511,7 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:in"
 argument_list|,
