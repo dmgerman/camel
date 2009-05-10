@@ -143,6 +143,15 @@ specifier|private
 name|String
 name|statement
 decl_stmt|;
+DECL|field|statementType
+specifier|private
+name|StatementType
+name|statementType
+init|=
+name|StatementType
+operator|.
+name|Default
+decl_stmt|;
 DECL|method|IBatisEndpoint ()
 specifier|public
 name|IBatisEndpoint
@@ -376,6 +385,32 @@ operator|.
 name|useTransactions
 operator|=
 name|useTransactions
+expr_stmt|;
+block|}
+DECL|method|getStatementType ()
+specifier|public
+name|StatementType
+name|getStatementType
+parameter_list|()
+block|{
+return|return
+name|statementType
+return|;
+block|}
+DECL|method|setStatementType (StatementType statementType)
+specifier|public
+name|void
+name|setStatementType
+parameter_list|(
+name|StatementType
+name|statementType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|statementType
+operator|=
+name|statementType
 expr_stmt|;
 block|}
 block|}

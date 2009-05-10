@@ -402,7 +402,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Setting to whether to wait for async tasks to be complete before continuing original route.      *<p/>      * Is default<tt>true</tt>      *      * @param wait the wait option      * @return the builder      */
+comment|/**      * Setting to whether to wait for async tasks to be complete before continuing original route.      *<p/>      * Is default<tt>IfReplyExpected</tt>      *      * @param wait the wait option      * @return the builder      */
 DECL|method|waitForTaskToComplete (WaitForTaskToComplete wait)
 specifier|public
 name|AsyncDefinition
