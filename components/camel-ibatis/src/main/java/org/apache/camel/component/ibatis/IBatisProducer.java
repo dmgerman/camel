@@ -189,7 +189,6 @@ name|getStatement
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Calls insert on the SqlMapClient.      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -267,55 +266,6 @@ name|getStatementType
 argument_list|()
 argument_list|)
 throw|;
-block|}
-block|}
-DECL|method|doDefault (Exchange exchange)
-specifier|private
-name|void
-name|doDefault
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|Object
-name|body
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|isEmpty
-argument_list|(
-name|body
-argument_list|)
-condition|)
-block|{
-comment|// must be a poll so lets do a query
-name|doQueryForList
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// otherwise we insert
-name|doInsert
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|doQueryForObject (Exchange exchange)
