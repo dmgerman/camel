@@ -1918,6 +1918,19 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+finally|finally
+block|{
+comment|// its harmless to cancel if task is already completed
+comment|// and in any case we do not want to get hold of the task a 2nd time
+comment|// and its recommended to cancel according to Brian Goetz in his Java Concurrency in Practice book
+name|future
+operator|.
+name|cancel
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait for the future task to complete, but waiting at most the timeout value.      *      * @param context the camel context      * @param future the future handle      * @param timeout timeout value      * @param unit    timeout unit      * @param type the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException if the processing of the exchange failed      * @throws java.util.concurrent.TimeoutException is thrown if a timeout triggered      */
 DECL|method|extractFutureBody (CamelContext context, Future future, long timeout, TimeUnit unit, Class<T> type)
@@ -2029,6 +2042,19 @@ name|getCause
 argument_list|()
 argument_list|)
 throw|;
+block|}
+finally|finally
+block|{
+comment|// its harmless to cancel if task is already completed
+comment|// and in any case we do not want to get hold of the task a 2nd time
+comment|// and its recommended to cancel according to Brian Goetz in his Java Concurrency in Practice book
+name|future
+operator|.
+name|cancel
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|doExtractFutureBody (CamelContext context, Object result, Class<T> type)

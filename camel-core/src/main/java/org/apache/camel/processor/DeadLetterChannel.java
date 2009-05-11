@@ -181,7 +181,6 @@ comment|// exchange to this channel with the computed delay time
 comment|// we need to provide option so end users can decide if they would like to spawn an async thread
 comment|// or not. Also consider MEP as InOut does not work with async then as the original caller thread
 comment|// is expecting a reply in the sync thread.
-comment|// TODO: DLQ should handle by default, so added option to set global predicate on DLC
 comment|// we can use a single shared static timer for async redeliveries
 DECL|field|deadLetter
 specifier|private
@@ -209,8 +208,15 @@ name|redeliveryProcessor
 decl_stmt|;
 DECL|field|redeliveryPolicy
 specifier|private
+specifier|final
 name|RedeliveryPolicy
 name|redeliveryPolicy
+decl_stmt|;
+DECL|field|handledPolicy
+specifier|private
+specifier|final
+name|Predicate
+name|handledPolicy
 decl_stmt|;
 DECL|field|logger
 specifier|private
@@ -236,10 +242,6 @@ name|sync
 init|=
 literal|true
 decl_stmt|;
-DECL|field|handledPredicate
-name|Predicate
-name|handledPredicate
-decl_stmt|;
 DECL|field|retryUntilPredicate
 name|Predicate
 name|retryUntilPredicate
@@ -263,9 +265,15 @@ name|onRedeliveryProcessor
 init|=
 name|redeliveryProcessor
 decl_stmt|;
+DECL|field|handledPredicate
+name|Predicate
+name|handledPredicate
+init|=
+name|handledPolicy
+decl_stmt|;
 block|}
-comment|/**      * Creates the dead letter channel.      *      * @param output                    outer processor that should use this dead letter channel      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param redeliveryProcessor       an optional processor to run before redelivert attempt      * @param redeliveryPolicy          policy for redelivery      * @param logger                    logger to use for logging failures and redelivery attempts      * @param exceptionPolicyStrategy   strategy for onException handling      */
-DECL|method|DeadLetterChannel (Processor output, Processor deadLetter, String deadLetterUri, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Logger logger, ExceptionPolicyStrategy exceptionPolicyStrategy)
+comment|/**      * Creates the dead letter channel.      *      * @param output                    outer processor that should use this dead letter channel      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param redeliveryProcessor       an optional processor to run before redelivert attempt      * @param redeliveryPolicy          policy for redelivery      * @param logger                    logger to use for logging failures and redelivery attempts      * @param exceptionPolicyStrategy   strategy for onException handling      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      */
+DECL|method|DeadLetterChannel (Processor output, Processor deadLetter, String deadLetterUri, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Logger logger, ExceptionPolicyStrategy exceptionPolicyStrategy, Predicate handledPolicy)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
@@ -289,6 +297,9 @@ name|logger
 parameter_list|,
 name|ExceptionPolicyStrategy
 name|exceptionPolicyStrategy
+parameter_list|,
+name|Predicate
+name|handledPolicy
 parameter_list|)
 block|{
 name|this
@@ -326,6 +337,12 @@ operator|.
 name|logger
 operator|=
 name|logger
+expr_stmt|;
+name|this
+operator|.
+name|handledPolicy
+operator|=
+name|handledPolicy
 expr_stmt|;
 name|setExceptionPolicy
 argument_list|(
@@ -714,23 +731,6 @@ block|{
 return|return
 name|redeliveryPolicy
 return|;
-block|}
-comment|/**      * Sets the redelivery policy      */
-DECL|method|setRedeliveryPolicy (RedeliveryPolicy redeliveryPolicy)
-specifier|public
-name|void
-name|setRedeliveryPolicy
-parameter_list|(
-name|RedeliveryPolicy
-name|redeliveryPolicy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|redeliveryPolicy
-operator|=
-name|redeliveryPolicy
-expr_stmt|;
 block|}
 DECL|method|getLogger ()
 specifier|public

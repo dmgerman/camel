@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -218,6 +230,22 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|PredicateBuilder
+operator|.
+name|toPredicate
+import|;
+end_import
+
 begin_comment
 comment|/**  * A builder of a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *  * @version $Revision$  */
 end_comment
@@ -290,6 +318,11 @@ DECL|field|deadLetterUri
 specifier|private
 name|String
 name|deadLetterUri
+decl_stmt|;
+DECL|field|handledPolicy
+specifier|private
+name|Predicate
+name|handledPolicy
 decl_stmt|;
 comment|/**      * Creates a default DeadLetterChannel with a default endpoint      */
 DECL|method|DeadLetterChannelBuilder ()
@@ -369,6 +402,9 @@ name|getLogger
 argument_list|()
 argument_list|,
 name|getExceptionPolicyStrategy
+argument_list|()
+argument_list|,
+name|getHandledPolicy
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -634,6 +670,83 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  handled or not      * @return the builder      */
+DECL|method|handled (boolean handled)
+specifier|public
+name|DeadLetterChannelBuilder
+name|handled
+parameter_list|(
+name|boolean
+name|handled
+parameter_list|)
+block|{
+name|Expression
+name|expression
+init|=
+name|ExpressionBuilder
+operator|.
+name|constantExpression
+argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+name|handled
+argument_list|)
+argument_list|)
+decl_stmt|;
+return|return
+name|handled
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      */
+DECL|method|handled (Predicate handled)
+specifier|public
+name|DeadLetterChannelBuilder
+name|handled
+parameter_list|(
+name|Predicate
+name|handled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|setHandledPolicy
+argument_list|(
+name|handled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      */
+DECL|method|handled (Expression handled)
+specifier|public
+name|DeadLetterChannelBuilder
+name|handled
+parameter_list|(
+name|Expression
+name|handled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|setHandledPolicy
+argument_list|(
+name|toPredicate
+argument_list|(
+name|handled
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the logger used for caught exceptions      */
 DECL|method|logger (Logger logger)
 specifier|public
@@ -877,6 +990,22 @@ return|return
 name|failureProcessor
 return|;
 block|}
+DECL|method|setFailureProcessor (Processor failureProcessor)
+specifier|public
+name|void
+name|setFailureProcessor
+parameter_list|(
+name|Processor
+name|failureProcessor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|failureProcessor
+operator|=
+name|failureProcessor
+expr_stmt|;
+block|}
 DECL|method|getDeadLetterUri ()
 specifier|public
 name|String
@@ -1048,6 +1177,48 @@ operator|.
 name|onRedelivery
 operator|=
 name|onRedelivery
+expr_stmt|;
+block|}
+DECL|method|getHandledPolicy ()
+specifier|public
+name|Predicate
+name|getHandledPolicy
+parameter_list|()
+block|{
+return|return
+name|handledPolicy
+return|;
+block|}
+DECL|method|setHandledPolicy (Predicate handled)
+specifier|public
+name|void
+name|setHandledPolicy
+parameter_list|(
+name|Predicate
+name|handled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|handledPolicy
+operator|=
+name|handled
+expr_stmt|;
+block|}
+comment|/**      * Sets the handled using a boolean and thus easier to use for Spring XML configuration as well      */
+DECL|method|setHandled (boolean handled)
+specifier|public
+name|void
+name|setHandled
+parameter_list|(
+name|boolean
+name|handled
+parameter_list|)
+block|{
+name|handled
+argument_list|(
+name|handled
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
