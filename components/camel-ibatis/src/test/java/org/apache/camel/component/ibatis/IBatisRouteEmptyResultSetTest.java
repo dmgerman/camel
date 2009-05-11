@@ -199,7 +199,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"ibatis:insertAccount"
+literal|"ibatis:insertAccount?statementType=Insert"
 argument_list|)
 expr_stmt|;
 block|}

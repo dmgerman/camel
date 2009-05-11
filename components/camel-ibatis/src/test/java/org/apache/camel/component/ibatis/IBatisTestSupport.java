@@ -139,7 +139,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"ibatis:insertAccount"
+literal|"ibatis:insertAccount?statementType=Insert"
 argument_list|,
 name|account
 argument_list|)
@@ -182,7 +182,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"ibatis:insertAccount"
+literal|"ibatis:insertAccount?statementType=Insert"
 argument_list|,
 name|account
 argument_list|)

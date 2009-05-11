@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Statement types to instruct which iBatis operation to use.  *<p/>  * Default will use the default Behavior in Camel: No body then<tt>QueryForList</tt> is used, otherwise  *<tt>Insert</tt> is used.  *  * @version $Revision$  */
+comment|/**  * Statement types to instruct which iBatis operation to use.  *  * @version $Revision$  */
 end_comment
 
 begin_enum
@@ -33,7 +33,6 @@ DECL|enumConstant|QueryForList
 DECL|enumConstant|Insert
 DECL|enumConstant|Update
 DECL|enumConstant|Delete
-DECL|enumConstant|Default
 name|QueryForObject
 block|,
 name|QueryForList
@@ -43,8 +42,6 @@ block|,
 name|Update
 block|,
 name|Delete
-block|,
-name|Default
 block|}
 end_enum
 

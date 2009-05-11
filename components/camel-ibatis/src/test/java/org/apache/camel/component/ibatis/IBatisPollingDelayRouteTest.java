@@ -234,7 +234,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"ibatis:selectAllAccounts"
+literal|"ibatis:selectAllAccounts?statementType=QueryForList"
 argument_list|)
 operator|.
 name|to
@@ -250,7 +250,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"ibatis:insertAccount"
+literal|"ibatis:insertAccount?statementType=Insert"
 argument_list|)
 expr_stmt|;
 block|}

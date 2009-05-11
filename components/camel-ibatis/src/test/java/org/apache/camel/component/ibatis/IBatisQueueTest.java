@@ -219,7 +219,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ibatis:selectProcessedAccounts"
+literal|"ibatis:selectProcessedAccounts?statementType=QueryForList"
 argument_list|,
 literal|null
 argument_list|,
@@ -289,7 +289,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ibatis:selectUnprocessedAccounts"
+literal|"ibatis:selectUnprocessedAccounts?statementType=QueryForList"
 argument_list|,
 literal|null
 argument_list|,
@@ -354,7 +354,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"ibatis:insertAccount"
+literal|"ibatis:insertAccount?statementType=Insert"
 argument_list|)
 expr_stmt|;
 block|}

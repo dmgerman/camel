@@ -254,22 +254,19 @@ name|exchange
 argument_list|)
 expr_stmt|;
 break|break;
-case|case
-name|Default
-case|:
-name|doDefault
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-break|break;
 default|default:
-name|doDefault
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
-name|exchange
+literal|"Unsupported statementType: "
+operator|+
+name|endpoint
+operator|.
+name|getStatementType
+argument_list|()
 argument_list|)
-expr_stmt|;
-break|break;
+throw|;
 block|}
 block|}
 DECL|method|doDefault (Exchange exchange)

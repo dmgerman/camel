@@ -116,6 +116,20 @@ name|DefaultPollingEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * An<a href="http://camel.apache.org/ibatis.html>iBatis Endpoint</a>  * for performing SQL operations using an XML mapping file to abstract away the SQL  *  * @version $Revision$  */
 end_comment
@@ -147,10 +161,6 @@ DECL|field|statementType
 specifier|private
 name|StatementType
 name|statementType
-init|=
-name|StatementType
-operator|.
-name|Default
 decl_stmt|;
 DECL|method|IBatisEndpoint ()
 specifier|public
@@ -230,6 +240,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|statementType
+argument_list|,
+literal|"statementType"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|IBatisProducer
