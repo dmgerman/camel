@@ -26,9 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|WaitForTaskToComplete
 import|;
 end_import
 
@@ -40,7 +38,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|WaitForTaskToComplete
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
