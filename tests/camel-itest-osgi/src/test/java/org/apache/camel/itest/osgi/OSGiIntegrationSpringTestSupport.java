@@ -377,11 +377,21 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// Try to fix the test error on Hudson
+if|if
+condition|(
+name|applicationContext
+operator|.
+name|isActive
+argument_list|()
+condition|)
+block|{
 name|applicationContext
 operator|.
 name|destroy
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
