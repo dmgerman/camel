@@ -18,6 +18,10 @@ name|xslt
 package|;
 end_package
 
+begin_comment
+comment|//START SNIPPET: example
+end_comment
+
 begin_import
 import|import
 name|java
@@ -158,6 +162,7 @@ name|String
 name|value
 parameter_list|()
 function_decl|;
+comment|// You can add the namespaces as the default value of the annotation
 DECL|method|namespaces ()
 name|NamespacePrefix
 index|[]
@@ -190,6 +195,10 @@ block|}
 expr_stmt|;
 block|}
 end_annotation_defn
+
+begin_comment
+comment|//END SNIPPET: example
+end_comment
 
 end_unit
 
