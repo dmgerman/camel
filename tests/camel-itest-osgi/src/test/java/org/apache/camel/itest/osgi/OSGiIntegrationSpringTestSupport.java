@@ -362,8 +362,8 @@ specifier|public
 name|void
 name|tearDown
 parameter_list|()
-throws|throws
-name|Exception
+block|{
+try|try
 block|{
 name|super
 operator|.
@@ -377,7 +377,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Try to fix the test error on Hudson
 if|if
 condition|(
 name|applicationContext
@@ -392,6 +391,19 @@ name|destroy
 argument_list|()
 expr_stmt|;
 block|}
+name|applicationContext
+operator|=
+literal|null
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|exception
+parameter_list|)
+block|{
+comment|// Don't throw the exception in the tearDown method
 block|}
 block|}
 annotation|@
