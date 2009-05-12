@@ -462,6 +462,26 @@ name|String
 name|onRedeliveryRef
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+argument_list|(
+name|name
+operator|=
+literal|"useOriginalExchange"
+argument_list|,
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|useOriginalExchangePolicy
+specifier|private
+name|Boolean
+name|useOriginalExchangePolicy
+init|=
+name|Boolean
+operator|.
+name|FALSE
+decl_stmt|;
+annotation|@
 name|XmlElementRef
 DECL|field|outputs
 specifier|private
@@ -1254,6 +1274,24 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Will use the original input {@link org.apache.camel.Exchange} when an {@link org.apache.camel.Exchange} is moved to the dead letter queue.      *<p/>      *<b>Notice:</b> this only applies when all redeliveries attempt have failed and the {@link org.apache.camel.Exchange} is doomed for failure.      *<br/>      * Instead of using the current inprogress {@link org.apache.camel.Exchange} IN body we use the original IN body instead. This allows      * you to store the original input in the dead letter queue instead of the inprogress snapshot of the IN body.      * For instance if you route transform the IN body during routing and then failed. With the original exchange      * store in the dead letter queue it might be easier to manually re submit the {@link org.apache.camel.Exchange} again as the IN body      * is the same as when Camel received it. So you should be able to send the {@link org.apache.camel.Exchange} to the same input.      *<p/>      * By default this feature is off.      *      * @return the builder      */
+DECL|method|useOriginalExchange ()
+specifier|public
+name|OnExceptionDefinition
+name|useOriginalExchange
+parameter_list|()
+block|{
+name|setUseOriginalExchangePolicy
+argument_list|(
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets a processor that should be processed<b>before</b> a redelivey attempt.      *<p/>      * Can be used to change the {@link org.apache.camel.Exchange}<b>before</b> its being redelivered.      */
 DECL|method|onRedelivery (Processor processor)
 specifier|public
@@ -1600,6 +1638,32 @@ operator|.
 name|onRedeliveryRef
 operator|=
 name|onRedeliveryRef
+expr_stmt|;
+block|}
+DECL|method|getUseOriginalExchangePolicy ()
+specifier|public
+name|Boolean
+name|getUseOriginalExchangePolicy
+parameter_list|()
+block|{
+return|return
+name|useOriginalExchangePolicy
+return|;
+block|}
+DECL|method|setUseOriginalExchangePolicy (Boolean useOriginalExchangePolicy)
+specifier|public
+name|void
+name|setUseOriginalExchangePolicy
+parameter_list|(
+name|Boolean
+name|useOriginalExchangePolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useOriginalExchangePolicy
+operator|=
+name|useOriginalExchangePolicy
 expr_stmt|;
 block|}
 comment|// Implementation methods

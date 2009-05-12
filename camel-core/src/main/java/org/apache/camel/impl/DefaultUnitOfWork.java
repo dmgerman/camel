@@ -172,11 +172,29 @@ name|ProcessorDefinition
 argument_list|>
 name|routeList
 decl_stmt|;
-DECL|method|DefaultUnitOfWork ()
+DECL|field|originalExchange
+specifier|private
+name|Exchange
+name|originalExchange
+decl_stmt|;
+DECL|method|DefaultUnitOfWork (Exchange exchange)
 specifier|public
 name|DefaultUnitOfWork
-parameter_list|()
-block|{     }
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|originalExchange
+operator|=
+name|exchange
+operator|.
+name|copy
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|start ()
 specifier|public
 name|void
@@ -225,6 +243,10 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+name|originalExchange
+operator|=
+literal|null
+expr_stmt|;
 block|}
 DECL|method|addSynchronization (Synchronization synchronization)
 specifier|public
@@ -458,6 +480,16 @@ name|unmodifiableList
 argument_list|(
 name|routeList
 argument_list|)
+return|;
+block|}
+DECL|method|getOriginalExchange ()
+specifier|public
+name|Exchange
+name|getOriginalExchange
+parameter_list|()
+block|{
+return|return
+name|originalExchange
 return|;
 block|}
 block|}

@@ -220,8 +220,15 @@ name|handledPolicy
 decl_stmt|;
 DECL|field|logger
 specifier|private
+specifier|final
 name|Logger
 name|logger
+decl_stmt|;
+DECL|field|useOriginalExchangePolicy
+specifier|private
+specifier|final
+name|boolean
+name|useOriginalExchangePolicy
 decl_stmt|;
 DECL|class|RedeliveryData
 specifier|private
@@ -235,12 +242,6 @@ decl_stmt|;
 DECL|field|redeliveryDelay
 name|long
 name|redeliveryDelay
-decl_stmt|;
-DECL|field|sync
-name|boolean
-name|sync
-init|=
-literal|true
 decl_stmt|;
 DECL|field|retryUntilPredicate
 name|Predicate
@@ -271,9 +272,15 @@ name|handledPredicate
 init|=
 name|handledPolicy
 decl_stmt|;
+DECL|field|useOriginalExchange
+name|boolean
+name|useOriginalExchange
+init|=
+name|useOriginalExchangePolicy
+decl_stmt|;
 block|}
-comment|/**      * Creates the dead letter channel.      *      * @param output                    outer processor that should use this dead letter channel      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param redeliveryProcessor       an optional processor to run before redelivert attempt      * @param redeliveryPolicy          policy for redelivery      * @param logger                    logger to use for logging failures and redelivery attempts      * @param exceptionPolicyStrategy   strategy for onException handling      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      */
-DECL|method|DeadLetterChannel (Processor output, Processor deadLetter, String deadLetterUri, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Logger logger, ExceptionPolicyStrategy exceptionPolicyStrategy, Predicate handledPolicy)
+comment|/**      * Creates the dead letter channel.      *      * @param output                    outer processor that should use this dead letter channel      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param redeliveryProcessor       an optional processor to run before redelivert attempt      * @param redeliveryPolicy          policy for redelivery      * @param logger                    logger to use for logging failures and redelivery attempts      * @param exceptionPolicyStrategy   strategy for onException handling      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      * @param useOriginalExchangePolicy should the original exchange be moved to the dead letter queue or the most recent exchange?      */
+DECL|method|DeadLetterChannel (Processor output, Processor deadLetter, String deadLetterUri, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Logger logger, ExceptionPolicyStrategy exceptionPolicyStrategy, Predicate handledPolicy, boolean useOriginalExchangePolicy)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
@@ -300,6 +307,9 @@ name|exceptionPolicyStrategy
 parameter_list|,
 name|Predicate
 name|handledPolicy
+parameter_list|,
+name|boolean
+name|useOriginalExchangePolicy
 parameter_list|)
 block|{
 name|this
@@ -343,6 +353,12 @@ operator|.
 name|handledPolicy
 operator|=
 name|handledPolicy
+expr_stmt|;
+name|this
+operator|.
+name|useOriginalExchangePolicy
+operator|=
+name|useOriginalExchangePolicy
 expr_stmt|;
 name|setExceptionPolicy
 argument_list|(
@@ -742,23 +758,6 @@ return|return
 name|logger
 return|;
 block|}
-comment|/**      * Sets the logger strategy; which {@link com.sun.tools.javac.util.Log} to use and which      * {@link LoggingLevel} to use      */
-DECL|method|setLogger (Logger logger)
-specifier|public
-name|void
-name|setLogger
-parameter_list|(
-name|Logger
-name|logger
-parameter_list|)
-block|{
-name|this
-operator|.
-name|logger
-operator|=
-name|logger
-expr_stmt|;
-block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|prepareExchangeForRedelivery (Exchange exchange)
@@ -897,6 +896,15 @@ operator|=
 name|exceptionPolicy
 operator|.
 name|getRetryUntilPolicy
+argument_list|()
+expr_stmt|;
+name|data
+operator|.
+name|useOriginalExchange
+operator|=
+name|exceptionPolicy
+operator|.
+name|getUseOriginalExchangePolicy
 argument_list|()
 expr_stmt|;
 comment|// route specific failure handler?
@@ -1128,6 +1136,106 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// prepare original exchange if it should be moved instead of most recent
+if|if
+condition|(
+name|data
+operator|.
+name|useOriginalExchange
+condition|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Using the original exchange bodies in the DedLetterQueue instead of the current exchange bodies"
+argument_list|)
+expr_stmt|;
+block|}
+name|Exchange
+name|original
+init|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|getOriginalExchange
+argument_list|()
+decl_stmt|;
+comment|// replace exchange IN/OUT with from original
+name|exchange
+operator|.
+name|setIn
+argument_list|(
+name|original
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|original
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|setOut
+argument_list|(
+name|original
+operator|.
+name|getOut
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|exchange
+operator|.
+name|setOut
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"DeadLetterQueue "
+operator|+
+name|data
+operator|.
+name|deadLetterQueue
+operator|+
+literal|" is processing Exchange: "
+operator|+
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|data
@@ -1372,7 +1480,6 @@ name|isRollbackOnly
 argument_list|()
 condition|)
 block|{
-comment|// log intented rollback on WARN level
 name|String
 name|msg
 init|=
@@ -1403,6 +1510,22 @@ name|getMessage
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|newLogLevel
+operator|==
+name|LoggingLevel
+operator|.
+name|ERROR
+operator|||
+name|newLogLevel
+operator|==
+name|LoggingLevel
+operator|.
+name|FATAL
+condition|)
+block|{
+comment|// log intented rollback on maximum WARN level (no ERROR or FATAL)
 name|logger
 operator|.
 name|log
@@ -1414,6 +1537,20 @@ operator|.
 name|WARN
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// otherwise use the desired logging level
+name|logger
+operator|.
+name|log
+argument_list|(
+name|msg
+argument_list|,
+name|newLogLevel
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if

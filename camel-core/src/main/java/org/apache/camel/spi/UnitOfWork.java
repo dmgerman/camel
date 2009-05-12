@@ -71,6 +71,12 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the original {@link org.apache.camel.Exchange} this Unit of Work was started with.      *      * @return the original exchange      */
+DECL|method|getOriginalExchange ()
+name|Exchange
+name|getOriginalExchange
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

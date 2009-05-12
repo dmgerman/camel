@@ -324,6 +324,11 @@ specifier|private
 name|Predicate
 name|handledPolicy
 decl_stmt|;
+DECL|field|useOriginalExchange
+specifier|private
+name|boolean
+name|useOriginalExchange
+decl_stmt|;
 comment|/**      * Creates a default DeadLetterChannel with a default endpoint      */
 DECL|method|DeadLetterChannelBuilder ()
 specifier|public
@@ -405,6 +410,9 @@ name|getExceptionPolicyStrategy
 argument_list|()
 argument_list|,
 name|getHandledPolicy
+argument_list|()
+argument_list|,
+name|isUseOriginalExchange
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -747,7 +755,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the logger used for caught exceptions      */
+comment|/**      * Sets the logger used for caught exceptions      *      * @param logger the logger      * @return the builder      */
 DECL|method|logger (Logger logger)
 specifier|public
 name|DeadLetterChannelBuilder
@@ -766,7 +774,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the logging level of exceptions caught      */
+comment|/**      * Sets the logging level of exceptions caught      *      * @param level the logging level      * @return the builder      */
 DECL|method|loggingLevel (LoggingLevel level)
 specifier|public
 name|DeadLetterChannelBuilder
@@ -788,7 +796,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the log used for caught exceptions      */
+comment|/**      * Sets the log used for caught exceptions      *      * @param log the logger      * @return the builder      */
 DECL|method|log (Log log)
 specifier|public
 name|DeadLetterChannelBuilder
@@ -810,7 +818,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the log used for caught exceptions      */
+comment|/**      * Sets the log used for caught exceptions      *      * @param log the log name      * @return the builder      */
 DECL|method|log (String log)
 specifier|public
 name|DeadLetterChannelBuilder
@@ -832,7 +840,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the log used for caught exceptions      */
+comment|/**      * Sets the log used for caught exceptions      *      * @param log the log class      * @return the builder      */
 DECL|method|log (Class log)
 specifier|public
 name|DeadLetterChannelBuilder
@@ -854,7 +862,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the exception policy to use      */
+comment|/**      * Sets the exception policy to use      *      * @return the builder      */
 DECL|method|exceptionPolicyStrategy (ExceptionPolicyStrategy exceptionPolicyStrategy)
 specifier|public
 name|DeadLetterChannelBuilder
@@ -873,7 +881,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a processor that should be processed<b>before</b> a redelivey attempt.      *<p/>      * Can be used to change the {@link org.apache.camel.Exchange}<b>before</b> its being redelivered.      */
+comment|/**      * Sets a processor that should be processed<b>before</b> a redelivey attempt.      *<p/>      * Can be used to change the {@link org.apache.camel.Exchange}<b>before</b> its being redelivered.      *      * @return the builder      */
 DECL|method|onRedelivery (Processor processor)
 specifier|public
 name|DeadLetterChannelBuilder
@@ -886,6 +894,22 @@ block|{
 name|setOnRedelivery
 argument_list|(
 name|processor
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Will use the original input {@link Exchange} when an {@link Exchange} is moved to the dead letter queue.      *<p/>      *<b>Notice:</b> this only applies when all redeliveries attempt have failed and the {@link Exchange} is doomed for failure.      *<br/>      * Instead of using the current inprogress {@link Exchange} IN body we use the original IN body instead. This allows      * you to store the original input in the dead letter queue instead of the inprogress snapshot of the IN body.      * For instance if you route transform the IN body during routing and then failed. With the original exchange      * store in the dead letter queue it might be easier to manually re submit the {@link Exchange} again as the IN body      * is the same as when Camel received it. So you should be able to send the {@link Exchange} to the same input.      *<p/>      * By default this feature is off.      *      * @return the builder      */
+DECL|method|useOriginalExchange ()
+specifier|public
+name|DeadLetterChannelBuilder
+name|useOriginalExchange
+parameter_list|()
+block|{
+name|setUseOriginalExchange
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
@@ -1219,6 +1243,32 @@ name|handled
 argument_list|(
 name|handled
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isUseOriginalExchange ()
+specifier|public
+name|boolean
+name|isUseOriginalExchange
+parameter_list|()
+block|{
+return|return
+name|useOriginalExchange
+return|;
+block|}
+DECL|method|setUseOriginalExchange (boolean useOriginalExchange)
+specifier|public
+name|void
+name|setUseOriginalExchange
+parameter_list|(
+name|boolean
+name|useOriginalExchange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useOriginalExchange
+operator|=
+name|useOriginalExchange
 expr_stmt|;
 block|}
 annotation|@
