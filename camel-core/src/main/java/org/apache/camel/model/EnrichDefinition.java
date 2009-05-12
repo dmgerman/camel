@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @see Enricher  */
+comment|/**  * Represents an XML&lt;enrich/&gt; element  *  * @see Enricher  */
 end_comment
 
 begin_class

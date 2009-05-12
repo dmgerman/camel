@@ -259,7 +259,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/originalexchange"
+literal|"file://target/originalexchange?noop=true"
 argument_list|)
 operator|.
 name|transform

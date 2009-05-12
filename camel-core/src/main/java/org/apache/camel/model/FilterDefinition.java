@@ -153,8 +153,6 @@ class|class
 name|FilterDefinition
 extends|extends
 name|ExpressionNode
-implements|implements
-name|Block
 block|{
 DECL|method|FilterDefinition ()
 specifier|public

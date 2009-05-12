@@ -374,7 +374,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Type is not a Language implementation. Found: "
+literal|"Resolving language: "
+operator|+
+name|name
+operator|+
+literal|" detected type conflict: Not a Language implementation. Found: "
 operator|+
 name|type
 operator|.
@@ -449,7 +453,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid URI, no Language registered for scheme: "
+literal|"Invalid URI, no LanguageResolver registered for scheme: "
 operator|+
 name|name
 argument_list|,
@@ -509,7 +513,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Type is not a LanguageResolver implementation. Found: "
+literal|"Resolving language: "
+operator|+
+name|name
+operator|+
+literal|" detected type conflict: Not a LanguageResolver implementation. Found: "
 operator|+
 name|type
 operator|.

@@ -317,7 +317,6 @@ block|}
 block|}
 else|else
 block|{
-specifier|final
 name|Exchange
 name|wireTapExchange
 init|=
@@ -326,6 +325,24 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+name|procesWireTap
+argument_list|(
+name|wireTapExchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Wiretaps the exchange.      *      * @param exchange  the exchange to wire tap      */
+DECL|method|procesWireTap (final Exchange exchange)
+specifier|protected
+name|void
+name|procesWireTap
+parameter_list|(
+specifier|final
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
 comment|// use submit instead of execute to force it to use a new thread, execute might
 comment|// decide to use current thread, so we must submit a new task
 comment|// as we dont care for the response we dont hold the future object and wait for the result
@@ -337,12 +354,12 @@ argument_list|(
 operator|new
 name|Callable
 argument_list|<
-name|Object
+name|Exchange
 argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|Object
+name|Exchange
 name|call
 parameter_list|()
 throws|throws
@@ -362,7 +379,7 @@ name|debug
 argument_list|(
 literal|"Processing wiretap: "
 operator|+
-name|wireTapExchange
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -370,17 +387,16 @@ name|producer
 operator|.
 name|process
 argument_list|(
-name|wireTapExchange
+name|exchange
 argument_list|)
 expr_stmt|;
 return|return
-literal|null
+name|exchange
 return|;
 block|}
 block|}
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
