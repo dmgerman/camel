@@ -18,20 +18,6 @@ name|xslt
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|language
-operator|.
-name|XPath
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version $Revision$  */
 end_comment
@@ -47,13 +33,13 @@ specifier|private
 name|String
 name|subject
 decl_stmt|;
-DECL|method|onMethod (@PathR)String subject)
+DECL|method|onMethod (@yXPathR)String subject)
 specifier|public
 name|void
 name|onMethod
 parameter_list|(
 annotation|@
-name|XPath
+name|MyXPath
 argument_list|(
 literal|"/*/@subject"
 argument_list|)

@@ -515,6 +515,7 @@ comment|// http://camel.apache.org/parameter-binding-annotations.html
 comment|// to access the message header and body at same time,
 comment|// then create the message that we want, splitter will
 comment|// take care rest of them.
+comment|// *NOTE* this feature requires Camel version>= 1.6.1
 name|List
 argument_list|<
 name|Message
