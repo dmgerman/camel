@@ -247,7 +247,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"mina:tcp://0.0.0.0:8888?sync=true&codec=#hl7codec"
+literal|"mina:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
 argument_list|)
 operator|.
 name|process
@@ -408,7 +408,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina:tcp://0.0.0.0:8888?sync=true&codec=#hl7codec"
+literal|"mina:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
 argument_list|,
 name|in
 operator|.
