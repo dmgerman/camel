@@ -171,6 +171,16 @@ specifier|protected
 name|long
 name|sleepForConnection
 decl_stmt|;
+DECL|method|canRunOnThisPlatform ()
+specifier|protected
+name|boolean
+name|canRunOnThisPlatform
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|testMBeansRegistered ()
 specifier|public
 name|void
@@ -179,6 +189,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canRunOnThisPlatform
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 if|if
 condition|(
 name|System
@@ -357,6 +376,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canRunOnThisPlatform
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|MockEndpoint
 name|resultEndpoint
 init|=

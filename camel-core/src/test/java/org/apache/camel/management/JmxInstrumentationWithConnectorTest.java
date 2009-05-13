@@ -88,6 +88,37 @@ specifier|protected
 name|JMXConnector
 name|clientConnector
 decl_stmt|;
+DECL|method|canRunOnThisPlatform ()
+specifier|protected
+name|boolean
+name|canRunOnThisPlatform
+parameter_list|()
+block|{
+name|String
+name|os
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"os.name"
+argument_list|)
+decl_stmt|;
+comment|// Does not work on AIX and the problem is hard to identify, could be issues not allowing to use a custom port
+comment|// java.io.IOException: Failed to retrieve RMIServer stub: javax.naming.NameNotFoundException: jmxrmi/camel
+return|return
+operator|!
+name|os
+operator|.
+name|toLowerCase
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"aix"
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|setUp ()
