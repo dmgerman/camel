@@ -103,17 +103,17 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|DeadLetterChannelUseOriginalExchangeWithFileTest
+DECL|class|DeadLetterChannelUseOriginalInBodyWithFileTest
 specifier|public
 class|class
-name|DeadLetterChannelUseOriginalExchangeWithFileTest
+name|DeadLetterChannelUseOriginalInBodyWithFileTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testOriginalExchangeIsFile ()
+DECL|method|testOriginalInBodyIsFile ()
 specifier|public
 name|void
-name|testOriginalExchangeIsFile
+name|testOriginalInBodyIsFile
 parameter_list|()
 throws|throws
 name|Exception
@@ -248,7 +248,7 @@ argument_list|(
 literal|false
 argument_list|)
 operator|.
-name|useOriginalExchange
+name|useOriginalInBody
 argument_list|()
 operator|.
 name|handled

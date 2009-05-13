@@ -172,10 +172,10 @@ name|ProcessorDefinition
 argument_list|>
 name|routeList
 decl_stmt|;
-DECL|field|originalExchange
+DECL|field|originalInBody
 specifier|private
-name|Exchange
-name|originalExchange
+name|Object
+name|originalInBody
 decl_stmt|;
 DECL|method|DefaultUnitOfWork (Exchange exchange)
 specifier|public
@@ -187,11 +187,14 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|originalExchange
+name|originalInBody
 operator|=
 name|exchange
 operator|.
-name|copy
+name|getIn
+argument_list|()
+operator|.
+name|getBody
 argument_list|()
 expr_stmt|;
 block|}
@@ -243,7 +246,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-name|originalExchange
+name|originalInBody
 operator|=
 literal|null
 expr_stmt|;
@@ -482,14 +485,14 @@ name|routeList
 argument_list|)
 return|;
 block|}
-DECL|method|getOriginalExchange ()
+DECL|method|getOriginalInBody ()
 specifier|public
-name|Exchange
-name|getOriginalExchange
+name|Object
+name|getOriginalInBody
 parameter_list|()
 block|{
 return|return
-name|originalExchange
+name|originalInBody
 return|;
 block|}
 block|}

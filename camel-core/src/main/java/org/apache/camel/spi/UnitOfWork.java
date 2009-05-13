@@ -71,10 +71,10 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the original {@link org.apache.camel.Exchange} this Unit of Work was started with.      *      * @return the original exchange      */
-DECL|method|getOriginalExchange ()
-name|Exchange
-name|getOriginalExchange
+comment|/**      * Gets the original IN body this Unit of Work was started with.      *      * @return the original IN body      */
+DECL|method|getOriginalInBody ()
+name|Object
+name|getOriginalInBody
 parameter_list|()
 function_decl|;
 block|}

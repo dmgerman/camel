@@ -224,11 +224,11 @@ specifier|final
 name|Logger
 name|logger
 decl_stmt|;
-DECL|field|useOriginalExchangePolicy
+DECL|field|useOriginalInBodyPolicy
 specifier|private
 specifier|final
 name|boolean
-name|useOriginalExchangePolicy
+name|useOriginalInBodyPolicy
 decl_stmt|;
 DECL|class|RedeliveryData
 specifier|private
@@ -272,15 +272,15 @@ name|handledPredicate
 init|=
 name|handledPolicy
 decl_stmt|;
-DECL|field|useOriginalExchange
+DECL|field|useOriginalInBody
 name|boolean
-name|useOriginalExchange
+name|useOriginalInBody
 init|=
-name|useOriginalExchangePolicy
+name|useOriginalInBodyPolicy
 decl_stmt|;
 block|}
-comment|/**      * Creates the dead letter channel.      *      * @param output                    outer processor that should use this dead letter channel      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param redeliveryProcessor       an optional processor to run before redelivert attempt      * @param redeliveryPolicy          policy for redelivery      * @param logger                    logger to use for logging failures and redelivery attempts      * @param exceptionPolicyStrategy   strategy for onException handling      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      * @param useOriginalExchangePolicy should the original exchange be moved to the dead letter queue or the most recent exchange?      */
-DECL|method|DeadLetterChannel (Processor output, Processor deadLetter, String deadLetterUri, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Logger logger, ExceptionPolicyStrategy exceptionPolicyStrategy, Predicate handledPolicy, boolean useOriginalExchangePolicy)
+comment|/**      * Creates the dead letter channel.      *      * @param output                    outer processor that should use this dead letter channel      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param redeliveryProcessor       an optional processor to run before redelivert attempt      * @param redeliveryPolicy          policy for redelivery      * @param logger                    logger to use for logging failures and redelivery attempts      * @param exceptionPolicyStrategy   strategy for onException handling      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      * @param useOriginalInBodyPolicy   should the original IN body be moved to the dead letter queue or the current exchange IN body?      */
+DECL|method|DeadLetterChannel (Processor output, Processor deadLetter, String deadLetterUri, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Logger logger, ExceptionPolicyStrategy exceptionPolicyStrategy, Predicate handledPolicy, boolean useOriginalInBodyPolicy)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
@@ -309,7 +309,7 @@ name|Predicate
 name|handledPolicy
 parameter_list|,
 name|boolean
-name|useOriginalExchangePolicy
+name|useOriginalInBodyPolicy
 parameter_list|)
 block|{
 name|this
@@ -356,9 +356,9 @@ name|handledPolicy
 expr_stmt|;
 name|this
 operator|.
-name|useOriginalExchangePolicy
+name|useOriginalInBodyPolicy
 operator|=
-name|useOriginalExchangePolicy
+name|useOriginalInBodyPolicy
 expr_stmt|;
 name|setExceptionPolicy
 argument_list|(
@@ -900,7 +900,7 @@ argument_list|()
 expr_stmt|;
 name|data
 operator|.
-name|useOriginalExchange
+name|useOriginalInBody
 operator|=
 name|exceptionPolicy
 operator|.
@@ -1136,12 +1136,12 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// prepare original exchange if it should be moved instead of most recent
+comment|// prepare original IN body if it should be moved instead of current body
 if|if
 condition|(
 name|data
 operator|.
-name|useOriginalExchange
+name|useOriginalInBody
 condition|)
 block|{
 if|if
@@ -1156,11 +1156,11 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Using the original exchange bodies in the DedLetterQueue instead of the current exchange bodies"
+literal|"Using the original IN body in the DedLetterQueue instead of the current IN body"
 argument_list|)
 expr_stmt|;
 block|}
-name|Exchange
+name|Object
 name|original
 init|=
 name|exchange
@@ -1168,49 +1168,19 @@ operator|.
 name|getUnitOfWork
 argument_list|()
 operator|.
-name|getOriginalExchange
+name|getOriginalInBody
 argument_list|()
 decl_stmt|;
-comment|// replace exchange IN/OUT with from original
 name|exchange
-operator|.
-name|setIn
-argument_list|(
-name|original
 operator|.
 name|getIn
 argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|original
 operator|.
-name|hasOut
-argument_list|()
-condition|)
-block|{
-name|exchange
-operator|.
-name|setOut
+name|setBody
 argument_list|(
 name|original
-operator|.
-name|getOut
-argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|exchange
-operator|.
-name|setOut
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
