@@ -79,10 +79,10 @@ comment|/**  * Unit test for CAMEL-1188  */
 end_comment
 
 begin_class
-DECL|class|OnExceptionFromChoiceUseOriginalExchangeTest
+DECL|class|OnExceptionFromChoiceUseOriginalBodyTest
 specifier|public
 class|class
-name|OnExceptionFromChoiceUseOriginalExchangeTest
+name|OnExceptionFromChoiceUseOriginalBodyTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -411,7 +411,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|useOriginalExchange
+name|useOriginalBody
 argument_list|()
 operator|.
 name|maximumRedeliveries
@@ -436,7 +436,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|useOriginalExchange
+name|useOriginalBody
 argument_list|()
 operator|.
 name|maximumRedeliveries

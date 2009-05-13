@@ -224,11 +224,11 @@ specifier|final
 name|Logger
 name|logger
 decl_stmt|;
-DECL|field|useOriginalInBodyPolicy
+DECL|field|useOriginalBodyPolicy
 specifier|private
 specifier|final
 name|boolean
-name|useOriginalInBodyPolicy
+name|useOriginalBodyPolicy
 decl_stmt|;
 DECL|class|RedeliveryData
 specifier|private
@@ -276,11 +276,11 @@ DECL|field|useOriginalInBody
 name|boolean
 name|useOriginalInBody
 init|=
-name|useOriginalInBodyPolicy
+name|useOriginalBodyPolicy
 decl_stmt|;
 block|}
-comment|/**      * Creates the dead letter channel.      *      * @param output                    outer processor that should use this dead letter channel      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param redeliveryProcessor       an optional processor to run before redelivert attempt      * @param redeliveryPolicy          policy for redelivery      * @param logger                    logger to use for logging failures and redelivery attempts      * @param exceptionPolicyStrategy   strategy for onException handling      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      * @param useOriginalInBodyPolicy   should the original IN body be moved to the dead letter queue or the current exchange IN body?      */
-DECL|method|DeadLetterChannel (Processor output, Processor deadLetter, String deadLetterUri, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Logger logger, ExceptionPolicyStrategy exceptionPolicyStrategy, Predicate handledPolicy, boolean useOriginalInBodyPolicy)
+comment|/**      * Creates the dead letter channel.      *      * @param output                    outer processor that should use this dead letter channel      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param redeliveryProcessor       an optional processor to run before redelivert attempt      * @param redeliveryPolicy          policy for redelivery      * @param logger                    logger to use for logging failures and redelivery attempts      * @param exceptionPolicyStrategy   strategy for onException handling      * @param handledPolicy             policy for handling failed exception that are moved to the dead letter queue      * @param useOriginalBodyPolicy   should the original IN body be moved to the dead letter queue or the current exchange IN body?      */
+DECL|method|DeadLetterChannel (Processor output, Processor deadLetter, String deadLetterUri, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Logger logger, ExceptionPolicyStrategy exceptionPolicyStrategy, Predicate handledPolicy, boolean useOriginalBodyPolicy)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
@@ -309,7 +309,7 @@ name|Predicate
 name|handledPolicy
 parameter_list|,
 name|boolean
-name|useOriginalInBodyPolicy
+name|useOriginalBodyPolicy
 parameter_list|)
 block|{
 name|this
@@ -356,9 +356,9 @@ name|handledPolicy
 expr_stmt|;
 name|this
 operator|.
-name|useOriginalInBodyPolicy
+name|useOriginalBodyPolicy
 operator|=
-name|useOriginalInBodyPolicy
+name|useOriginalBodyPolicy
 expr_stmt|;
 name|setExceptionPolicy
 argument_list|(
@@ -904,7 +904,7 @@ name|useOriginalInBody
 operator|=
 name|exceptionPolicy
 operator|.
-name|getUseOriginalExchangePolicy
+name|getUseOriginalBodyPolicy
 argument_list|()
 expr_stmt|;
 comment|// route specific failure handler?

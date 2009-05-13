@@ -109,21 +109,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for useOriginalExchange option on DeadLetterChannel  *  * @version $Revision$  */
+comment|/**  * Unit test for useOriginalBody option on DeadLetterChannel  *  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|OnExceptionUseOriginalExchangeTest
+DECL|class|OnExceptionUseOriginalBodyTest
 specifier|public
 class|class
-name|OnExceptionUseOriginalExchangeTest
+name|OnExceptionUseOriginalBodyTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testUseOriginalExchange ()
+DECL|method|testUseOriginalBody ()
 specifier|public
 name|void
-name|testUseOriginalExchange
+name|testUseOriginalBody
 parameter_list|()
 throws|throws
 name|Exception
@@ -156,10 +156,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testDoNotUseOriginalExchange ()
+DECL|method|testDoNotUseOriginalBody ()
 specifier|public
 name|void
-name|testDoNotUseOriginalExchange
+name|testDoNotUseOriginalBody
 parameter_list|()
 throws|throws
 name|Exception
@@ -282,7 +282,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|useOriginalExchange
+name|useOriginalBody
 argument_list|()
 operator|.
 name|handled
