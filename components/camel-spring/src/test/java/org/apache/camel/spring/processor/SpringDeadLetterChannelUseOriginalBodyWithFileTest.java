@@ -40,7 +40,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DeadLetterChannelUseOriginalExchangeWithFileTest
+name|DeadLetterChannelUseOriginalInBodyWithFileTest
 import|;
 end_import
 
@@ -67,12 +67,12 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SpringDeadLetterChannelUseOriginalExchangeWithFileTest
+DECL|class|SpringDeadLetterChannelUseOriginalBodyWithFileTest
 specifier|public
 class|class
-name|SpringDeadLetterChannelUseOriginalExchangeWithFileTest
+name|SpringDeadLetterChannelUseOriginalBodyWithFileTest
 extends|extends
-name|DeadLetterChannelUseOriginalExchangeWithFileTest
+name|DeadLetterChannelUseOriginalInBodyWithFileTest
 block|{
 DECL|method|createCamelContext ()
 specifier|protected

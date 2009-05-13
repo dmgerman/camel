@@ -28,7 +28,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|processor
+operator|.
+name|onexception
+operator|.
+name|OnExceptionFromChoiceUseOriginalBodyTest
 import|;
 end_import
 
@@ -40,11 +44,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|onexception
-operator|.
-name|OnExceptionUseOriginalExchangeTest
+name|CamelContext
 import|;
 end_import
 
@@ -71,12 +71,12 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SpringOnExceptionUseOriginalExchangeTest
+DECL|class|SpringOnExceptionFromChoiceUseOriginalBodyTest
 specifier|public
 class|class
-name|SpringOnExceptionUseOriginalExchangeTest
+name|SpringOnExceptionFromChoiceUseOriginalBodyTest
 extends|extends
-name|OnExceptionUseOriginalExchangeTest
+name|OnExceptionFromChoiceUseOriginalBodyTest
 block|{
 DECL|method|createCamelContext ()
 specifier|protected
@@ -91,7 +91,7 @@ name|createSpringCamelContext
 argument_list|(
 name|this
 argument_list|,
-literal|"org/apache/camel/spring/processor/onexception/SpringOnExceptionUseOriginalExchangeTest.xml"
+literal|"org/apache/camel/spring/processor/onexception/SpringOnExceptionFromChoiceUseOriginalBodyTest.xml"
 argument_list|)
 return|;
 block|}

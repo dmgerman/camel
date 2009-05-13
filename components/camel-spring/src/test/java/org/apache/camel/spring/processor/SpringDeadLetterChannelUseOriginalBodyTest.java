@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.processor.onexception
+DECL|package|org.apache.camel.spring.processor
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|spring
 operator|.
 name|processor
-operator|.
-name|onexception
 package|;
 end_package
 
@@ -28,11 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|onexception
-operator|.
-name|OnExceptionFromChoiceUseOriginalExchangeTest
+name|CamelContext
 import|;
 end_import
 
@@ -44,7 +38,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|processor
+operator|.
+name|DeadLetterChannelUseOriginalInBodyTest
 import|;
 end_import
 
@@ -71,12 +67,12 @@ comment|/**  * @version $Revision$  */
 end_comment
 
 begin_class
-DECL|class|SpringOnExceptionFromChoiceUseOriginalExchangeTest
+DECL|class|SpringDeadLetterChannelUseOriginalBodyTest
 specifier|public
 class|class
-name|SpringOnExceptionFromChoiceUseOriginalExchangeTest
+name|SpringDeadLetterChannelUseOriginalBodyTest
 extends|extends
-name|OnExceptionFromChoiceUseOriginalExchangeTest
+name|DeadLetterChannelUseOriginalInBodyTest
 block|{
 DECL|method|createCamelContext ()
 specifier|protected
@@ -91,7 +87,7 @@ name|createSpringCamelContext
 argument_list|(
 name|this
 argument_list|,
-literal|"org/apache/camel/spring/processor/onexception/SpringOnExceptionFromChoiceUseOriginalExchangeTest.xml"
+literal|"org/apache/camel/spring/processor/SpringDeadLetterChannelUseOriginalBodyTest.xml"
 argument_list|)
 return|;
 block|}

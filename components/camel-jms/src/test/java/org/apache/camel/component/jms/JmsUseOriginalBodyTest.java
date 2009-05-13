@@ -151,21 +151,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for useOriginalInBody unit test  */
+comment|/**  * Unit test for useOriginalBody unit test  */
 end_comment
 
 begin_class
-DECL|class|JmsUseOriginalInBodyTest
+DECL|class|JmsUseOriginalBodyTest
 specifier|public
 class|class
-name|JmsUseOriginalInBodyTest
+name|JmsUseOriginalBodyTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testUseOriginalnBody ()
+DECL|method|testUseOriginalBody ()
 specifier|public
 name|void
-name|testUseOriginalnBody
+name|testUseOriginalBody
 parameter_list|()
 throws|throws
 name|Exception
@@ -198,10 +198,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testDoNotUseOriginalInBody ()
+DECL|method|testDoNotUseOriginalBody ()
 specifier|public
 name|void
-name|testDoNotUseOriginalInBody
+name|testDoNotUseOriginalBody
 parameter_list|()
 throws|throws
 name|Exception
@@ -282,7 +282,7 @@ argument_list|(
 literal|false
 argument_list|)
 operator|.
-name|useOriginalInBody
+name|useOriginalBody
 argument_list|()
 operator|.
 name|handled
