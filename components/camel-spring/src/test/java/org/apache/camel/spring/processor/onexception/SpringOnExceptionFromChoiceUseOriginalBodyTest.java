@@ -28,11 +28,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|onexception
-operator|.
-name|OnExceptionFromChoiceUseOriginalBodyTest
+name|CamelContext
 import|;
 end_import
 
@@ -44,7 +40,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|processor
+operator|.
+name|onexception
+operator|.
+name|OnExceptionFromChoiceUseOriginalBodyTest
 import|;
 end_import
 

@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|CamelExecutionException
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|ContextTestSupport
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExecutionException
+name|Processor
 import|;
 end_import
 

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.component.jms
 package|package
 name|org
 operator|.
@@ -12,9 +12,33 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|component
+operator|.
+name|jms
 package|;
 end_package
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|ConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|activemq
+operator|.
+name|ActiveMQConnectionFactory
+import|;
+end_import
 
 begin_import
 import|import
@@ -24,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExecutionException
+name|CamelContext
 import|;
 end_import
 
@@ -79,6 +103,24 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsComponent
+operator|.
+name|jmsComponentClientAcknowledge
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -95,14 +137,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version $Revision$  */
+comment|/**  * Unit test for useOriginalBody unit test  */
 end_comment
 
 begin_class
-DECL|class|OnCompletionTest
+DECL|class|JmsOnCompletionTest
 specifier|public
 class|class
-name|OnCompletionTest
+name|JmsOnCompletionTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -157,7 +199,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:start"
+literal|"activemq:queue:start"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -213,43 +255,15 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:start"
+literal|"activemq:queue:start"
 argument_list|,
 literal|"Kabom"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should throw exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CamelExecutionException
-name|e
-parameter_list|)
-block|{
-name|assertEquals
-argument_list|(
-literal|"Kabom"
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -281,7 +295,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"activemq:queue:start"
 argument_list|)
 operator|.
 name|onCompletion
@@ -380,6 +394,47 @@ literal|"Bye World"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|createCamelContext ()
+specifier|protected
+name|CamelContext
+name|createCamelContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|CamelContext
+name|camelContext
+init|=
+name|super
+operator|.
+name|createCamelContext
+argument_list|()
+decl_stmt|;
+name|ConnectionFactory
+name|connectionFactory
+init|=
+operator|new
+name|ActiveMQConnectionFactory
+argument_list|(
+literal|"vm://localhost?broker.persistent=false"
+argument_list|)
+decl_stmt|;
+name|camelContext
+operator|.
+name|addComponent
+argument_list|(
+literal|"activemq"
+argument_list|,
+name|jmsComponentClientAcknowledge
+argument_list|(
+name|connectionFactory
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|camelContext
+return|;
 block|}
 block|}
 end_class
