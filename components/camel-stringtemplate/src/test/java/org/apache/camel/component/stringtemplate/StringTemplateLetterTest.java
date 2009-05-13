@@ -189,7 +189,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Dear Ibsen, Claus\n\nThanks for the order of Camel in Action.\n\nRegards Camel Riders Bookstore\nPS: Next beer is on me, James"
+literal|"Dear Ibsen, Claus! Thanks for the order of Camel in Action. Regards Camel Riders Bookstore PS: Next beer is on me, James"
 argument_list|)
 expr_stmt|;
 name|template
