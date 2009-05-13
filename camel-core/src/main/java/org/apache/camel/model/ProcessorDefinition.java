@@ -5181,7 +5181,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Enriches an exchange with additional data obtained from a      *<code>resourceUri</code>.      *       * @param resourceUri      *            URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy      *            aggregation strategy to aggregate input data and additional      *            data.      * @return this processor type      * @see org.apache.camel.processor.Enricher      */
+comment|/**      * Enriches an exchange with additional data obtained from a      *<code>resourceUri</code>.      *       * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy   aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.Enricher      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -5215,6 +5215,42 @@ operator|(
 name|Type
 operator|)
 name|this
+return|;
+block|}
+comment|/**      * Adds a onComplection {@link org.apache.camel.spi.Synchronization} hook that invoke this route as      * a callback when the {@link org.apache.camel.Exchange} has finished being processed.      * The hook invoke callbacks for either onComplete or onFailure.      *<p/>      * Will by default always trigger when the {@link org.apache.camel.Exchange} is complete      * (either with success or failed).      *<br/>      * You can limit the callback to either onComplete or onFailure but invoking the nested      * builder method.      *<p/>      * For onFailure the caused exception is stored as a property on the {@link org.apache.camel.Exchange}      * with the key {@link org.apache.camel.Exchange#EXCEPTION_CAUGHT}.      *      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|onCompletion ()
+specifier|public
+name|OnCompletionDefinition
+name|onCompletion
+parameter_list|()
+block|{
+name|OnCompletionDefinition
+name|answer
+init|=
+operator|new
+name|OnCompletionDefinition
+argument_list|()
+decl_stmt|;
+name|popBlock
+argument_list|()
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+name|pushBlock
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 comment|// DataFormat support

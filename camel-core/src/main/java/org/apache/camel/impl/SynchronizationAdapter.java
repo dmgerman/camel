@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel.impl
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|impl
 package|;
 end_package
 
@@ -28,36 +28,56 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Synchronization
+import|;
+end_import
+
 begin_comment
-comment|/**  * Provides a hook for custom {@link org.apache.camel.Processor} or {@link org.apache.camel.Component}  * instances to respond to completed or failed processing of an {@link Exchange} rather like Spring's  *<a href="http://static.springframework.org/spring/docs/2.5.x/api/org/springframework/transaction/  * support/TransactionSynchronization.html">TransactionSynchronization</a>  *  * @version $Revision$  */
+comment|/**  * Simple {@link Synchronization} adapter with empty methods for easier overriding  * of single methods.  *  * @version $Revision$  */
 end_comment
 
-begin_interface
-DECL|interface|Synchronization
+begin_class
+DECL|class|SynchronizationAdapter
 specifier|public
-interface|interface
+class|class
+name|SynchronizationAdapter
+implements|implements
 name|Synchronization
 block|{
-comment|/**      * Called when the processing of the message exchange is complete      *      * @param exchange the exchange being processed      */
 DECL|method|onComplete (Exchange exchange)
+specifier|public
 name|void
 name|onComplete
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
-function_decl|;
-comment|/**      * Called when the processing of the message exchange has failed for some reason.      * The exception which caused the problem is in {@link Exchange#getException()} and      * there could be a fault message via {@link Exchange#getFault()}      *      * @param exchange the exchange being processed      */
+block|{
+comment|// noop
+block|}
 DECL|method|onFailure (Exchange exchange)
+specifier|public
 name|void
 name|onFailure
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
-function_decl|;
+block|{
+comment|// noop
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

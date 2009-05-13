@@ -156,6 +156,12 @@ name|FILE_PARENT
 init|=
 literal|"CamelFileParent"
 decl_stmt|;
+DECL|field|INTERCEPTED_ENDPOINT
+name|String
+name|INTERCEPTED_ENDPOINT
+init|=
+literal|"CamelInterceptedEndpoint"
+decl_stmt|;
 DECL|field|LOOP_INDEX
 name|String
 name|LOOP_INDEX
@@ -167,6 +173,18 @@ name|String
 name|LOOP_SIZE
 init|=
 literal|"CamelLoopSize"
+decl_stmt|;
+DECL|field|MULTICAST_INDEX
+name|String
+name|MULTICAST_INDEX
+init|=
+literal|"CamelMulticastIndex"
+decl_stmt|;
+DECL|field|ON_COMPLETION
+name|String
+name|ON_COMPLETION
+init|=
+literal|"CamelOnCompletion"
 decl_stmt|;
 DECL|field|ROUTE_STOP
 name|String
@@ -185,12 +203,6 @@ name|String
 name|REDELIVERY_COUNTER
 init|=
 literal|"CamelRedeliveryCounter"
-decl_stmt|;
-DECL|field|MULTICAST_INDEX
-name|String
-name|MULTICAST_INDEX
-init|=
-literal|"CamelMulticastIndex"
 decl_stmt|;
 DECL|field|SPLIT_INDEX
 name|String
@@ -239,12 +251,6 @@ name|String
 name|ROLLBACK_ONLY
 init|=
 literal|"CamelRollbackOnly"
-decl_stmt|;
-DECL|field|INTERCEPTED_ENDPOINT
-name|String
-name|INTERCEPTED_ENDPOINT
-init|=
-literal|"CamelInterceptedEndpoint"
 decl_stmt|;
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
 DECL|method|getPattern ()
