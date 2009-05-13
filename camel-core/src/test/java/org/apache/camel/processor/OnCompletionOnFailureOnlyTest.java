@@ -129,10 +129,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
+comment|// here we qualify onCompletion to only invoke when the exchange failed (exception or FAULT body)
 operator|.
 name|onCompletion
 argument_list|()
@@ -149,9 +151,11 @@ name|to
 argument_list|(
 literal|"mock:sync"
 argument_list|)
+comment|// must use end to denote the end of the onCompletion route
 operator|.
 name|end
 argument_list|()
+comment|// here the original route contiues
 operator|.
 name|process
 argument_list|(
@@ -165,6 +169,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
