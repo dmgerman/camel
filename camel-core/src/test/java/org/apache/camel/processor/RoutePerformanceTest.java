@@ -142,6 +142,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canRunOnThisPlatform
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|long
 name|start
 init|=
@@ -210,6 +219,36 @@ operator|+
 literal|" ms"
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|canRunOnThisPlatform ()
+specifier|private
+name|boolean
+name|canRunOnThisPlatform
+parameter_list|()
+block|{
+name|String
+name|os
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"os.name"
+argument_list|)
+decl_stmt|;
+comment|// HP-UX is just to slow to run this test
+return|return
+operator|!
+name|os
+operator|.
+name|toLowerCase
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"hp-ux"
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override
