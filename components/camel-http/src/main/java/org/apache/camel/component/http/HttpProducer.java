@@ -1324,7 +1324,13 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Missing the ContentType in the request entity!"
+literal|"Missing the ContentType in the request entity for the URI "
+operator|+
+name|uri
+operator|+
+literal|". The method is "
+operator|+
+name|method
 argument_list|)
 expr_stmt|;
 block|}
