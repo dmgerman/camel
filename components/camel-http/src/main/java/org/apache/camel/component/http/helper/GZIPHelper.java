@@ -572,7 +572,7 @@ name|compressed
 return|;
 block|}
 DECL|method|containsGzip (String str)
-specifier|private
+specifier|public
 specifier|static
 name|boolean
 name|containsGzip
