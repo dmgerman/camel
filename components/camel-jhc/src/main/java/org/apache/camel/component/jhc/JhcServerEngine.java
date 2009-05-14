@@ -538,6 +538,17 @@ parameter_list|()
 throws|throws
 name|IOReactorException
 block|{
+if|if
+condition|(
+operator|!
+name|isStarted
+operator|.
+name|getAndSet
+argument_list|(
+literal|true
+argument_list|)
+condition|)
+block|{
 specifier|final
 name|SocketAddress
 name|addr
@@ -613,17 +624,6 @@ parameter_list|()
 block|{
 try|try
 block|{
-if|if
-condition|(
-operator|!
-name|isStarted
-operator|.
-name|getAndSet
-argument_list|(
-literal|true
-argument_list|)
-condition|)
-block|{
 name|ioReactor
 operator|.
 name|listen
@@ -638,7 +638,6 @@ argument_list|(
 name|ioEventDispatch
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -688,6 +687,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|stop ()
 specifier|public

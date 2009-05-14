@@ -120,10 +120,6 @@ name|HttpParams
 import|;
 end_import
 
-begin_comment
-comment|/**  * Created by IntelliJ IDEA.  * User: gnodet  * Date: Sep 7, 2007  * Time: 8:06:42 PM  * To change this template use File | Settings | File Templates.  */
-end_comment
-
 begin_class
 DECL|class|JhcEndpoint
 specifier|public

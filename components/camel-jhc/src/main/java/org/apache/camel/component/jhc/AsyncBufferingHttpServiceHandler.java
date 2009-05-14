@@ -322,10 +322,6 @@ name|ResponseServer
 import|;
 end_import
 
-begin_comment
-comment|/**  * Created by IntelliJ IDEA.  * User: gnodet  * Date: Sep 11, 2007  * Time: 6:57:34 PM  * To change this template use File | Settings | File Templates.  */
-end_comment
-
 begin_class
 DECL|class|AsyncBufferingHttpServiceHandler
 specifier|public
