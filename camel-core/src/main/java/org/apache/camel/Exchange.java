@@ -54,6 +54,12 @@ name|ASYNC_WAIT
 init|=
 literal|"CamelAsyncWait"
 decl_stmt|;
+DECL|field|CAMEL_CONTENT_TYPE
+name|String
+name|CAMEL_CONTENT_TYPE
+init|=
+literal|"CamelConentType"
+decl_stmt|;
 DECL|field|BEAN_METHOD_NAME
 name|String
 name|BEAN_METHOD_NAME

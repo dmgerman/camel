@@ -108,6 +108,20 @@ name|GZIPHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|MessageHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for exposing a http server that returns images  */
 end_comment
@@ -185,11 +199,19 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertOutMessageHeader
+name|assertEquals
+argument_list|(
+literal|"Get a wrong content-type "
+argument_list|,
+name|MessageHelper
+operator|.
+name|getContentType
 argument_list|(
 name|exchange
-argument_list|,
-literal|"Content-Type"
+operator|.
+name|getOut
+argument_list|()
+argument_list|)
 argument_list|,
 literal|"image/jpeg"
 argument_list|)
