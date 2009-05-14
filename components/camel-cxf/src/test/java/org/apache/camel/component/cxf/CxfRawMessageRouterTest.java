@@ -94,6 +94,20 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|MessageHelper
+import|;
+end_import
+
 begin_class
 DECL|class|CxfRawMessageRouterTest
 specifier|public
@@ -365,14 +379,14 @@ name|assertNotNull
 argument_list|(
 literal|"We should get the Content-Type here"
 argument_list|,
+name|MessageHelper
+operator|.
+name|getContentType
+argument_list|(
 name|exchange
 operator|.
 name|getOut
 argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-literal|"Content-Type"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -382,14 +396,14 @@ literal|"Get wrong content type"
 argument_list|,
 literal|"text/xml; charset=utf-8"
 argument_list|,
+name|MessageHelper
+operator|.
+name|getContentType
+argument_list|(
 name|exchange
 operator|.
 name|getOut
 argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-literal|"Content-Type"
 argument_list|)
 argument_list|)
 expr_stmt|;

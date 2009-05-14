@@ -535,7 +535,7 @@ argument_list|)
 operator|.
 name|setHeader
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_METHOD
 argument_list|,
@@ -554,7 +554,7 @@ argument_list|)
 operator|.
 name|setHeader
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_METHOD
 argument_list|,
@@ -591,7 +591,7 @@ argument_list|)
 operator|.
 name|setHeader
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_METHOD
 argument_list|,

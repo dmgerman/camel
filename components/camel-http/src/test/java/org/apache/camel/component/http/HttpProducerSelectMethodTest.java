@@ -46,6 +46,18 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|httpclient
@@ -392,7 +404,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_METHOD
 argument_list|,
@@ -513,7 +525,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_METHOD
 argument_list|,
@@ -741,7 +753,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_QUERY
 argument_list|,
@@ -862,7 +874,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_QUERY
 argument_list|,

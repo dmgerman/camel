@@ -1046,7 +1046,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_QUERY
 argument_list|,
@@ -1101,7 +1101,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_METHOD
 argument_list|,
@@ -1211,7 +1211,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_PATH
 argument_list|,

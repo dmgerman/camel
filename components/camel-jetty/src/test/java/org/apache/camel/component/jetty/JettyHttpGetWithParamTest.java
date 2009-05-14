@@ -259,7 +259,7 @@ name|serverUri
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_QUERY
 argument_list|,

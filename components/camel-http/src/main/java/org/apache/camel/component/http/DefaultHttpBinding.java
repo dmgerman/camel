@@ -441,7 +441,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_METHOD
 argument_list|,
@@ -455,7 +455,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_QUERY
 argument_list|,
@@ -469,7 +469,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_PATH
 argument_list|,
@@ -497,7 +497,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_CHARACTER_ENCODING
 argument_list|,

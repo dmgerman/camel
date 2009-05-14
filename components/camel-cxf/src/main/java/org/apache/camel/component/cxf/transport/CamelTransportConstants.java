@@ -202,15 +202,6 @@ name|CAMEL_CORRELATION_ID
 init|=
 literal|"org.apache.cxf.camel.correlationId"
 decl_stmt|;
-DECL|field|CAMEL_CONTENT_TYPE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|CAMEL_CONTENT_TYPE
-init|=
-literal|"CamelConentType"
-decl_stmt|;
 DECL|method|CamelTransportConstants ()
 specifier|private
 name|CamelTransportConstants

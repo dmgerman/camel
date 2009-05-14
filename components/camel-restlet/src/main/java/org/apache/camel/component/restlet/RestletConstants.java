@@ -18,6 +18,18 @@ name|restlet
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * Constants for Restlet component  *   * @version $Revision$  */
 end_comment
@@ -54,7 +66,9 @@ specifier|final
 name|String
 name|RESTLET_MEDIA_TYPE
 init|=
-literal|"CamelRestletMediaType"
+name|Exchange
+operator|.
+name|CONTENT_TYPE
 decl_stmt|;
 DECL|field|RESTLET_RESPONSE_CODE
 specifier|public
@@ -63,7 +77,9 @@ specifier|final
 name|String
 name|RESTLET_RESPONSE_CODE
 init|=
-literal|"CamelRestletResponseCode"
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_CODE
 decl_stmt|;
 DECL|field|RESTLET_QUERY_STRING
 specifier|public
@@ -72,7 +88,9 @@ specifier|final
 name|String
 name|RESTLET_QUERY_STRING
 init|=
-literal|"CamelRestletQueryString"
+name|Exchange
+operator|.
+name|HTTP_QUERY
 decl_stmt|;
 DECL|method|RestletConstants ()
 specifier|private

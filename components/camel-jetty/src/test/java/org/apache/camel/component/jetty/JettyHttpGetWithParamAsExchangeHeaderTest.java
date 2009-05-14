@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -133,7 +145,7 @@ name|mock
 operator|.
 name|expectedHeaderReceived
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_METHOD
 argument_list|,
@@ -197,7 +209,7 @@ name|mock
 operator|.
 name|expectedHeaderReceived
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_METHOD
 argument_list|,
@@ -212,7 +224,7 @@ name|serverUri
 argument_list|,
 literal|null
 argument_list|,
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_QUERY
 argument_list|,
@@ -250,7 +262,7 @@ name|mock
 operator|.
 name|expectedHeaderReceived
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_METHOD
 argument_list|,

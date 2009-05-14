@@ -294,9 +294,9 @@ condition|)
 block|{
 if|if
 condition|(
-name|CamelTransportConstants
+name|Exchange
 operator|.
-name|CAMEL_CONTENT_TYPE
+name|CONTENT_TYPE
 operator|.
 name|equals
 argument_list|(
@@ -596,9 +596,9 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|CamelTransportConstants
+name|Exchange
 operator|.
-name|CAMEL_CONTENT_TYPE
+name|CONTENT_TYPE
 argument_list|,
 name|value
 argument_list|)
