@@ -77,16 +77,6 @@ argument_list|(
 literal|"content-type"
 argument_list|)
 expr_stmt|;
-name|getOutFilter
-argument_list|()
-operator|.
-name|add
-argument_list|(
-name|JhcProducer
-operator|.
-name|HTTP_RESPONSE_CODE
-argument_list|)
-expr_stmt|;
 name|setLowerCase
 argument_list|(
 literal|true

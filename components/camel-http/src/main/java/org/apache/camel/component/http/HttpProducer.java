@@ -661,7 +661,7 @@ name|answer
 operator|.
 name|setHeader
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_RESPONSE_CODE
 argument_list|,
@@ -731,7 +731,7 @@ name|name
 operator|=
 name|Exchange
 operator|.
-name|CAMEL_CONTENT_TYPE
+name|CONTENT_TYPE
 expr_stmt|;
 block|}
 if|if
@@ -1167,7 +1167,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|HttpConstants
+name|Exchange
 operator|.
 name|HTTP_URI
 argument_list|,

@@ -110,6 +110,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Message
 import|;
 end_import
@@ -287,15 +299,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Body: "
-operator|+
-name|body
-argument_list|)
-expr_stmt|;
 name|assertNotNull
 argument_list|(
 literal|"Should have a body!"
@@ -412,11 +415,9 @@ operator|.
 name|connect
 argument_list|()
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Message: "
 operator|+
@@ -496,11 +497,9 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Response: "
 operator|+
@@ -557,21 +556,6 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:start"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"jhc:http://localhost:8192/test1/pom.xml"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:results"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
 literal|"jhc:http://localhost:8192/test2"
 argument_list|)
 operator|.
@@ -581,6 +565,22 @@ name|constant
 argument_list|(
 literal|"<response> Test2<response/>"
 argument_list|)
+argument_list|)
+expr_stmt|;
+comment|//TODO we need revisit this test when the call back Done API is finished in Camel 2.0
+name|from
+argument_list|(
+literal|"direct:start"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"http://localhost:8192/test1/pom.xml"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:results"
 argument_list|)
 expr_stmt|;
 block|}

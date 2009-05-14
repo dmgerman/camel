@@ -550,7 +550,7 @@ name|setHeader
 argument_list|(
 name|Exchange
 operator|.
-name|CAMEL_CONTENT_TYPE
+name|CONTENT_TYPE
 argument_list|,
 literal|"text/plain"
 argument_list|)
