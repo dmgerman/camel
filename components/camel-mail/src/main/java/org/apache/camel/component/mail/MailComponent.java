@@ -127,6 +127,11 @@ specifier|private
 name|MailConfiguration
 name|configuration
 decl_stmt|;
+DECL|field|contentTypeResolver
+specifier|private
+name|ContentTypeResolver
+name|contentTypeResolver
+decl_stmt|;
 DECL|method|MailComponent ()
 specifier|public
 name|MailComponent
@@ -273,6 +278,13 @@ argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
+name|endpoint
+operator|.
+name|setContentTypeResolver
+argument_list|(
+name|contentTypeResolver
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|endpoint
@@ -457,6 +469,32 @@ block|{
 return|return
 name|path
 return|;
+block|}
+DECL|method|getContentTypeResolver ()
+specifier|public
+name|ContentTypeResolver
+name|getContentTypeResolver
+parameter_list|()
+block|{
+return|return
+name|contentTypeResolver
+return|;
+block|}
+DECL|method|setContentTypeResolver (ContentTypeResolver contentTypeResolver)
+specifier|public
+name|void
+name|setContentTypeResolver
+parameter_list|(
+name|ContentTypeResolver
+name|contentTypeResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contentTypeResolver
+operator|=
+name|contentTypeResolver
+expr_stmt|;
 block|}
 block|}
 end_class

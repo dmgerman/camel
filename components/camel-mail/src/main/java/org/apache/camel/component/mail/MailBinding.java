@@ -302,6 +302,34 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Strategy used to convert between a Camel {@link Exchange} and {@link Message} to and  * from a Mail {@link MimeMessage}  *  * @version $Revision$  */
 end_comment
@@ -312,10 +340,32 @@ specifier|public
 class|class
 name|MailBinding
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|MailBinding
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
+decl_stmt|;
+DECL|field|contentTypeResolver
+specifier|private
+name|ContentTypeResolver
+name|contentTypeResolver
 decl_stmt|;
 DECL|method|MailBinding ()
 specifier|public
@@ -329,12 +379,15 @@ name|DefaultHeaderFilterStrategy
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|MailBinding (HeaderFilterStrategy headerFilterStrategy)
+DECL|method|MailBinding (HeaderFilterStrategy headerFilterStrategy, ContentTypeResolver contentTypeResolver)
 specifier|public
 name|MailBinding
 parameter_list|(
 name|HeaderFilterStrategy
 name|headerFilterStrategy
+parameter_list|,
+name|ContentTypeResolver
+name|contentTypeResolver
 parameter_list|)
 block|{
 name|this
@@ -342,6 +395,12 @@ operator|.
 name|headerFilterStrategy
 operator|=
 name|headerFilterStrategy
+expr_stmt|;
+name|this
+operator|.
+name|contentTypeResolver
+operator|=
+name|contentTypeResolver
 expr_stmt|;
 block|}
 DECL|method|populateMailMessage (MailEndpoint endpoint, MimeMessage mimeMessage, Exchange exchange)
@@ -1224,6 +1283,14 @@ name|Part
 operator|.
 name|ATTACHMENT
 decl_stmt|;
+if|if
+condition|(
+name|camelMessage
+operator|.
+name|hasAttachments
+argument_list|()
+condition|)
+block|{
 name|addAttachmentsToMultipart
 argument_list|(
 name|camelMessage
@@ -1233,6 +1300,7 @@ argument_list|,
 name|partDisposition
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|multipart
 return|;
@@ -1260,6 +1328,18 @@ parameter_list|)
 throws|throws
 name|MessagingException
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Adding attachments +++ start +++"
+argument_list|)
+expr_stmt|;
+name|int
+name|i
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|Map
@@ -1299,6 +1379,54 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Attachment #"
+operator|+
+name|i
+operator|+
+literal|": Disposition: "
+operator|+
+name|partDisposition
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Attachment #"
+operator|+
+name|i
+operator|+
+literal|": DataHandler: "
+operator|+
+name|handler
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Attachment #"
+operator|+
+name|i
+operator|+
+literal|": FileName: "
+operator|+
+name|attachmentFilename
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|handler
 operator|!=
 literal|null
@@ -1306,7 +1434,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|shouldOutputAttachment
+name|shouldAddAttachment
 argument_list|(
 name|camelMessage
 argument_list|,
@@ -1369,6 +1497,99 @@ argument_list|(
 name|attachmentFilename
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Attachment #"
+operator|+
+name|i
+operator|+
+literal|": ContentType: "
+operator|+
+name|messageBodyPart
+operator|.
+name|getContentType
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|contentTypeResolver
+operator|!=
+literal|null
+condition|)
+block|{
+name|String
+name|contentType
+init|=
+name|contentTypeResolver
+operator|.
+name|resolveContentType
+argument_list|(
+name|attachmentFilename
+argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Attachment #"
+operator|+
+name|i
+operator|+
+literal|": Using content type resolver: "
+operator|+
+name|contentTypeResolver
+operator|+
+literal|" resolved content type as: "
+operator|+
+name|contentType
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|contentType
+operator|!=
+literal|null
+condition|)
+block|{
+name|String
+name|value
+init|=
+name|contentType
+operator|+
+literal|"; name="
+operator|+
+name|attachmentFilename
+decl_stmt|;
+name|messageBodyPart
+operator|.
+name|setHeader
+argument_list|(
+literal|"Content-Type"
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Attachment #"
+operator|+
+name|i
+operator|+
+literal|": ContentType: "
+operator|+
+name|messageBodyPart
+operator|.
+name|getContentType
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// Set Disposition
 name|messageBodyPart
 operator|.
@@ -1386,8 +1607,42 @@ name|messageBodyPart
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"shouldAddAttachment: false"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot add attachment: "
+operator|+
+name|attachmentFilename
+operator|+
+literal|" as DataHandler is null"
+argument_list|)
+expr_stmt|;
+block|}
+name|i
+operator|++
+expr_stmt|;
+block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Adding attachments +++ done +++"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createMultipartAlternativeMessage (MimeMessage mimeMessage, org.apache.camel.Message camelMessage, MailConfiguration configuration)
 specifier|protected
@@ -1629,11 +1884,11 @@ name|bodyMessage
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Strategy to allow filtering of attachments which are put on the Mail message      */
-DECL|method|shouldOutputAttachment (org.apache.camel.Message camelMessage, String attachmentFilename, DataHandler handler)
+comment|/**      * Strategy to allow filtering of attachments which are added on the Mail message      */
+DECL|method|shouldAddAttachment (org.apache.camel.Message camelMessage, String attachmentFilename, DataHandler handler)
 specifier|protected
 name|boolean
-name|shouldOutputAttachment
+name|shouldAddAttachment
 parameter_list|(
 name|org
 operator|.

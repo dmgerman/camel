@@ -128,6 +128,34 @@ name|CollectionHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a {@link org.apache.camel.Message} for working with Mail  *  * @version $Revision:520964 $  */
 end_comment
@@ -140,6 +168,23 @@ name|MailMessage
 extends|extends
 name|DefaultMessage
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|MailMessage
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|mailMessage
 specifier|private
 name|Message
@@ -561,6 +606,13 @@ name|MessagingException
 throws|,
 name|IOException
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Extracting attachments +++ start +++"
+argument_list|)
+expr_stmt|;
 name|Object
 name|content
 init|=
@@ -587,6 +639,37 @@ name|map
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|content
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"No attachments to extract as content is not Multipart: "
+operator|+
+name|content
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Extracting attachments +++ done +++"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|extractFromMultipart (Multipart mp, Map<String, DataHandler> map)
 specifier|protected
@@ -642,6 +725,19 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Part #"
+operator|+
+name|i
+operator|+
+literal|": "
+operator|+
+name|part
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|part
@@ -652,6 +748,17 @@ literal|"multipart/*"
 argument_list|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Part #"
+operator|+
+name|i
+operator|+
+literal|": is mimetype: multipart/*"
+argument_list|)
+expr_stmt|;
 name|extractFromMultipart
 argument_list|(
 operator|(
@@ -678,13 +785,116 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Part #"
+operator|+
+name|i
+operator|+
+literal|": Disposition: "
+operator|+
+name|part
+operator|.
+name|getDisposition
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Part #"
+operator|+
+name|i
+operator|+
+literal|": Description: "
+operator|+
+name|part
+operator|.
+name|getDescription
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Part #"
+operator|+
+name|i
+operator|+
+literal|": ContentType: "
+operator|+
+name|part
+operator|.
+name|getContentType
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Part #"
+operator|+
+name|i
+operator|+
+literal|": FileName: "
+operator|+
+name|part
+operator|.
+name|getFileName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Part #"
+operator|+
+name|i
+operator|+
+literal|": Size: "
+operator|+
+name|part
+operator|.
+name|getSize
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Part #"
+operator|+
+name|i
+operator|+
+literal|": LineCount: "
+operator|+
+name|part
+operator|.
+name|getLineCount
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|disposition
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
+operator|(
 name|disposition
 operator|.
 name|equalsIgnoreCase
@@ -702,31 +912,42 @@ name|Part
 operator|.
 name|INLINE
 argument_list|)
+operator|)
 condition|)
 block|{
 comment|// only add named attachments
-if|if
-condition|(
+name|String
+name|fileName
+init|=
 name|part
 operator|.
 name|getFileName
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|fileName
 operator|!=
 literal|null
 condition|)
 block|{
-comment|// Parts marked with a disposition of Part.ATTACHMENT
-comment|// are clearly attachments
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Mail contains file attachment: "
+operator|+
+name|fileName
+argument_list|)
+expr_stmt|;
+comment|// Parts marked with a disposition of Part.ATTACHMENT are clearly attachments
 name|CollectionHelper
 operator|.
 name|appendValue
 argument_list|(
 name|map
 argument_list|,
-name|part
-operator|.
-name|getFileName
-argument_list|()
+name|fileName
 argument_list|,
 name|part
 operator|.
@@ -734,7 +955,6 @@ name|getDataHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

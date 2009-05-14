@@ -154,6 +154,27 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+name|assertFalse
+argument_list|(
+literal|"Should not have attachements"
+argument_list|,
+name|mock
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|hasAttachments
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected

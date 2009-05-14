@@ -189,6 +189,11 @@ operator|new
 name|DefaultHeaderFilterStrategy
 argument_list|()
 decl_stmt|;
+DECL|field|contentTypeResolver
+specifier|private
+name|ContentTypeResolver
+name|contentTypeResolver
+decl_stmt|;
 DECL|method|MailEndpoint ()
 specifier|public
 name|MailEndpoint
@@ -492,6 +497,8 @@ operator|new
 name|MailBinding
 argument_list|(
 name|headerFilterStrategy
+argument_list|,
+name|contentTypeResolver
 argument_list|)
 expr_stmt|;
 block|}
@@ -566,6 +573,32 @@ operator|.
 name|headerFilterStrategy
 operator|=
 name|headerFilterStrategy
+expr_stmt|;
+block|}
+DECL|method|getContentTypeResolver ()
+specifier|public
+name|ContentTypeResolver
+name|getContentTypeResolver
+parameter_list|()
+block|{
+return|return
+name|contentTypeResolver
+return|;
+block|}
+DECL|method|setContentTypeResolver (ContentTypeResolver contentTypeResolver)
+specifier|public
+name|void
+name|setContentTypeResolver
+parameter_list|(
+name|ContentTypeResolver
+name|contentTypeResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contentTypeResolver
+operator|=
+name|contentTypeResolver
 expr_stmt|;
 block|}
 block|}
