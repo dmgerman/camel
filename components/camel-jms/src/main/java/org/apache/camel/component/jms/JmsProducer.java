@@ -1652,23 +1652,30 @@ name|endpoint
 operator|.
 name|isExplicitQosEnabled
 argument_list|()
-operator|&&
+condition|)
+block|{
+name|Object
+name|replyTo
+init|=
 name|exchange
 operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getHeaders
-argument_list|()
-operator|.
-name|containsKey
+name|getHeader
 argument_list|(
 literal|"JMSReplyTo"
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|replyTo
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// we are routing an existing JmsMessage, origin from another JMS endpoint
-comment|// then we need to remove the existing JMSReplyTo, JMSCorrelationID.
+comment|// then we need to remove the existing JMSReplyTo
 comment|// as we are not out capable and thus do not expect a reply, and therefore
 comment|// the consumer of this message we send should not return a reply
 name|String
@@ -1688,13 +1695,17 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Disabling JMSReplyTo as this Exchange is not OUT capable: "
+literal|"Disabling JMSReplyTo as this Exchange is not OUT capable with JMSReplyTo: "
 operator|+
-name|exchange
+name|replyTo
 operator|+
-literal|" with destination: "
+literal|" to destination: "
 operator|+
 name|to
+operator|+
+literal|" for Exchange: "
+operator|+
+name|exchange
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -1709,6 +1720,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|MessageCreator
 name|messageCreator
