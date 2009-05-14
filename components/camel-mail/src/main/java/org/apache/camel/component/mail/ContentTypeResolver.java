@@ -30,7 +30,6 @@ name|ContentTypeResolver
 block|{
 comment|/**      * Resolves the mime content-type based on the attachment file name.      *<p/>      * Return<tt>null</tt> if you cannot resolve a content type or want to rely on the mail provider      * to resolve it for you.      *<p/>      * The returned value should only be the mime part of the ContentType header, for example:      *<tt>image/jpeg</tt> should be returned. Camel will add the remaining<tt>; name=FILENAME</tt>.      *      * @param fileName  the attachment file nane      * @return the Content-Type or<tt>null</tt> to rely on the mail provider      */
 DECL|method|resolveContentType (String fileName)
-specifier|public
 name|String
 name|resolveContentType
 parameter_list|(
