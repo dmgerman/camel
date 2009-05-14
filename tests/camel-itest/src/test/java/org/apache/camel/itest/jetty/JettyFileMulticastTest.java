@@ -313,9 +313,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Should get the header"
+literal|"Should get the responise code"
 argument_list|,
-literal|"greetMe"
+literal|200
 argument_list|,
 name|resultExchanges
 operator|.
@@ -329,7 +329,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-literal|"Operation"
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_CODE
 argument_list|)
 argument_list|)
 expr_stmt|;
