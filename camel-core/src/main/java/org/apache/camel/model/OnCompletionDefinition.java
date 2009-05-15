@@ -561,7 +561,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Creates an expression to configure an additional predicate that should be true before the      * onException is triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should be intercepted      * by this exception type or not.      *      * @return the expression clause to configure      */
+comment|/**      * Creates an expression to configure an additional predicate that should be true before the      * onCompletion is triggered.      *<p/>      * To be used for fine grained controlling whether a completion callback should be invoked or not      *      * @return the expression clause to configure      */
 DECL|method|onWhen ()
 specifier|public
 name|ExpressionClause
