@@ -108,6 +108,40 @@ name|expression
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanType the bean class which will be invoked      * @param method   name of method to invoke      * @return the builder      */
+DECL|method|bean (Class beanType, String method)
+specifier|public
+specifier|static
+name|ValueBuilder
+name|bean
+parameter_list|(
+name|Class
+name|beanType
+parameter_list|,
+name|String
+name|method
+parameter_list|)
+block|{
+name|Expression
+name|expression
+init|=
+name|ExpressionBuilder
+operator|.
+name|beanExpression
+argument_list|(
+name|beanType
+argument_list|,
+name|method
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a constant expression      */
 DECL|method|constant (Object value)
 specifier|public

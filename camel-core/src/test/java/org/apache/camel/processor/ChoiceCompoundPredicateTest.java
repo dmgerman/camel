@@ -519,9 +519,9 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// As you can see with the predicates above we can stack them to build compound predicates
-comment|// In our route below we can create a nice content based rotuer based on the predicates we
+comment|// In our route below we can create a nice content based router based on the predicates we
 comment|// have defined. Then the route is easy to read and understand.
-comment|// We encourge you to define complex predicates outside the fluent router bulder as
+comment|// We encourage you to define complex predicates outside the fluent router builder as
 comment|// it will just get a bit complex for humans to read
 name|from
 argument_list|(

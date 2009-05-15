@@ -431,6 +431,33 @@ literal|null
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanType  the bean's class      * @param methodName  the method name that will be invoked      * @return the builder      */
+DECL|method|bean (Class<?> beanType, String methodName)
+specifier|public
+name|ValueBuilder
+name|bean
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|beanType
+parameter_list|,
+name|String
+name|methodName
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|bean
+argument_list|(
+name|beanType
+argument_list|,
+name|methodName
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns an expression value builder that replaces all occurrences of the       * regular expression with the given replacement      */
 DECL|method|regexReplaceAll (Expression content, String regex, String replacement)
 specifier|public

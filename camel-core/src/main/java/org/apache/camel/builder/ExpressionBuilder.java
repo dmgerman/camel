@@ -210,6 +210,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|language
+operator|.
+name|bean
+operator|.
+name|BeanLanguage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Language
@@ -2777,7 +2793,7 @@ name|exchange
 parameter_list|)
 block|{
 comment|// resolve language using context to have a clear separation of packages
-comment|// must call evalute to return the nested langauge evaluate when evaluating
+comment|// must call evaluate to return the nested language evaluate when evaluating
 comment|// stacked expressions
 name|Language
 name|language
@@ -2826,6 +2842,32 @@ literal|")"
 return|;
 block|}
 block|}
+return|;
+block|}
+DECL|method|beanExpression (final Class beanType, final String methodName)
+specifier|public
+specifier|static
+name|Expression
+name|beanExpression
+parameter_list|(
+specifier|final
+name|Class
+name|beanType
+parameter_list|,
+specifier|final
+name|String
+name|methodName
+parameter_list|)
+block|{
+return|return
+name|BeanLanguage
+operator|.
+name|bean
+argument_list|(
+name|beanType
+argument_list|,
+name|methodName
+argument_list|)
 return|;
 block|}
 DECL|method|beanExpression (final String beanRef, final String methodName)
