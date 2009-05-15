@@ -276,6 +276,23 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlTransient
+DECL|field|onCompletions
+specifier|private
+name|List
+argument_list|<
+name|OnCompletionDefinition
+argument_list|>
+name|onCompletions
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|OnCompletionDefinition
+argument_list|>
+argument_list|()
+decl_stmt|;
+annotation|@
+name|XmlTransient
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -474,6 +491,38 @@ operator|.
 name|onExceptions
 operator|=
 name|onExceptions
+expr_stmt|;
+block|}
+DECL|method|getOnCompletions ()
+specifier|public
+name|List
+argument_list|<
+name|OnCompletionDefinition
+argument_list|>
+name|getOnCompletions
+parameter_list|()
+block|{
+return|return
+name|onCompletions
+return|;
+block|}
+DECL|method|setOnCompletions (List<OnCompletionDefinition> onCompletions)
+specifier|public
+name|void
+name|setOnCompletions
+parameter_list|(
+name|List
+argument_list|<
+name|OnCompletionDefinition
+argument_list|>
+name|onCompletions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onCompletions
+operator|=
+name|onCompletions
 expr_stmt|;
 block|}
 DECL|method|getCamelContext ()
@@ -829,7 +878,7 @@ name|sendTo
 argument_list|)
 expr_stmt|;
 block|}
-comment|// add on exceptions
+comment|// add on completions after the interceptors
 name|route
 operator|.
 name|getOutputs
@@ -837,6 +886,20 @@ argument_list|()
 operator|.
 name|addAll
 argument_list|(
+name|getOnCompletions
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// add on exceptions at top since we need to inject this by the error handlers
+name|route
+operator|.
+name|getOutputs
+argument_list|()
+operator|.
+name|addAll
+argument_list|(
+literal|0
+argument_list|,
 name|getOnExceptions
 argument_list|()
 argument_list|)
@@ -989,6 +1052,32 @@ name|exception
 argument_list|)
 decl_stmt|;
 name|getOnExceptions
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * Adds an on completion      *      * @return the builder      */
+DECL|method|onCompletion ()
+specifier|public
+name|OnCompletionDefinition
+name|onCompletion
+parameter_list|()
+block|{
+name|OnCompletionDefinition
+name|answer
+init|=
+operator|new
+name|OnCompletionDefinition
+argument_list|()
+decl_stmt|;
+name|getOnCompletions
 argument_list|()
 operator|.
 name|add

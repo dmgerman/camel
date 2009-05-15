@@ -196,6 +196,20 @@ name|RoutesDefinition
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|OnCompletionDefinition
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is  * used to build {@link org.apache.camel.impl.DefaultRoute} instances in a {@link CamelContext} for smart routing.  *  * @version $Revision$  */
 end_comment
@@ -702,6 +716,28 @@ name|Exception
 operator|.
 name|class
 argument_list|)
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/oncompletion.html">On completion</a>      * callback for doing custom routing when the {@link org.apache.camel.Exchange} is complete.      *      * @return the builder      */
+DECL|method|onCompletion ()
+specifier|public
+name|OnCompletionDefinition
+name|onCompletion
+parameter_list|()
+block|{
+name|routeCollection
+operator|.
+name|setCamelContext
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|routeCollection
+operator|.
+name|onCompletion
+argument_list|()
 return|;
 block|}
 comment|// Properties

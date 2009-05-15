@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A callback for {@link org.apache.camel.Exchange} when they are polled by a {@link org.apache.camel.PollingConsumer}.  *<p/>  * Is used if the {@link org.apache.camel.Exchange} needs to prepare, eg loading content that it otherwisw would have  * loaded lazy on demand.  *  * @version $Revision$  */
+comment|/**  * A callback for {@link org.apache.camel.Exchange} when they are polled by a {@link org.apache.camel.PollingConsumer}.  *<p/>  * Is used if the {@link org.apache.camel.Exchange} needs to prepare, eg loading content that it otherwise would have  * loaded lazy on demand.  *  * @version $Revision$  */
 end_comment
 
 begin_interface

@@ -5236,6 +5236,15 @@ operator|new
 name|OnCompletionDefinition
 argument_list|()
 decl_stmt|;
+comment|// we must remove all existing on completion definition (as they are global)
+comment|// and thus we are the only one as route scoped should override any global scoped
+name|answer
+operator|.
+name|removeAllOnCompletionDefinition
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|popBlock
 argument_list|()
 expr_stmt|;

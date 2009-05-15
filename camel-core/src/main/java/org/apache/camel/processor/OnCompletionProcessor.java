@@ -420,7 +420,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing onCompleteOnly: "
+literal|"Processing onComplete: "
 operator|+
 name|copy
 argument_list|)
@@ -531,7 +531,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing onFailureOnly: "
+literal|"Processing onFailure: "
 operator|+
 name|copy
 argument_list|)
