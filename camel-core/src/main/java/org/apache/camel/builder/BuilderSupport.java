@@ -431,7 +431,31 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanType  the bean's class      * @param methodName  the method name that will be invoked      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @return the builder      */
+DECL|method|bean (Class<?> beanType)
+specifier|public
+name|ValueBuilder
+name|bean
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|beanType
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|bean
+argument_list|(
+name|beanType
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @param methodName  the method name that will be invoked      * @return the builder      */
 DECL|method|bean (Class<?> beanType, String methodName)
 specifier|public
 name|ValueBuilder
