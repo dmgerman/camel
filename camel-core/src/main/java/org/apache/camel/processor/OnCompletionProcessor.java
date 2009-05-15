@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -213,7 +225,12 @@ specifier|private
 name|boolean
 name|onFailure
 decl_stmt|;
-DECL|method|OnCompletionProcessor (Processor processor, boolean onComplete, boolean onFailure)
+DECL|field|onWhen
+specifier|private
+name|Predicate
+name|onWhen
+decl_stmt|;
+DECL|method|OnCompletionProcessor (Processor processor, boolean onComplete, boolean onFailure, Predicate onWhen)
 specifier|public
 name|OnCompletionProcessor
 parameter_list|(
@@ -225,6 +242,9 @@ name|onComplete
 parameter_list|,
 name|boolean
 name|onFailure
+parameter_list|,
+name|Predicate
+name|onWhen
 parameter_list|)
 block|{
 name|this
@@ -244,6 +264,12 @@ operator|.
 name|onFailure
 operator|=
 name|onFailure
+expr_stmt|;
+name|this
+operator|.
+name|onWhen
+operator|=
+name|onWhen
 expr_stmt|;
 block|}
 DECL|method|doStart ()
@@ -355,40 +381,34 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|onWhen
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|onWhen
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+comment|// predicate did not match so do not route the onComplete
+return|return;
+block|}
 comment|// must use a copy as we dont want it to cause side effects of the original exchange
 specifier|final
 name|Exchange
 name|copy
 init|=
+name|prepareExchange
+argument_list|(
 name|exchange
-operator|.
-name|newCopy
-argument_list|()
+argument_list|)
 decl_stmt|;
-comment|// set MEP to InOnly as this wire tap is a fire and forget
-name|copy
-operator|.
-name|setPattern
-argument_list|(
-name|ExchangePattern
-operator|.
-name|InOnly
-argument_list|)
-expr_stmt|;
-comment|// add a header flag to indicate its a on completion exchange
-name|copy
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|ON_COMPLETION
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
 name|getExecutorService
 argument_list|()
 operator|.
@@ -457,40 +477,34 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|onWhen
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|onWhen
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+comment|// predicate did not match so do not route the onComplete
+return|return;
+block|}
 comment|// must use a copy as we dont want it to cause side effects of the original exchange
 specifier|final
 name|Exchange
 name|copy
 init|=
+name|prepareExchange
+argument_list|(
 name|exchange
-operator|.
-name|newCopy
-argument_list|()
+argument_list|)
 decl_stmt|;
-comment|// set MEP to InOnly as this wire tap is a fire and forget
-name|copy
-operator|.
-name|setPattern
-argument_list|(
-name|ExchangePattern
-operator|.
-name|InOnly
-argument_list|)
-expr_stmt|;
-comment|// add a header flag to indicate its a on completion exchange
-name|copy
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|ON_COMPLETION
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
 comment|// must remove exception otherwise onFaulure routing will fail as well
 comment|// the caused exception is stored as a property (Exchange.EXCEPTION_CAUGHT) on the exchange
 name|copy
@@ -590,6 +604,54 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Prepares the {@link Exchange} to send as onCompletion.      *      * @param exchange the current exchange      * @return the exchange to be routed in onComplete      */
+DECL|method|prepareExchange (Exchange exchange)
+specifier|protected
+name|Exchange
+name|prepareExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// must use a copy as we dont want it to cause side effects of the original exchange
+specifier|final
+name|Exchange
+name|copy
+init|=
+name|exchange
+operator|.
+name|newCopy
+argument_list|()
+decl_stmt|;
+comment|// set MEP to InOnly as this wire tap is a fire and forget
+name|copy
+operator|.
+name|setPattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
+expr_stmt|;
+comment|// add a header flag to indicate its a on completion exchange
+name|copy
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ON_COMPLETION
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+return|return
+name|copy
+return|;
 block|}
 DECL|method|getExecutorService ()
 specifier|public
