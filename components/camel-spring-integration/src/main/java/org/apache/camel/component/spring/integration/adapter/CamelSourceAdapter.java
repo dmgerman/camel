@@ -411,6 +411,22 @@ argument_list|>
 name|message
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"set the out message with the SI response message"
+argument_list|)
+expr_stmt|;
+block|}
 comment|//TODO set the corralationID
 name|SpringIntegrationBinding
 operator|.
