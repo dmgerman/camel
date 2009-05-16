@@ -26,11 +26,11 @@ name|FailedToCreateProducerException
 extends|extends
 name|RuntimeCamelException
 block|{
-DECL|field|endpoint
+DECL|field|uri
 specifier|private
 specifier|final
-name|Endpoint
-name|endpoint
+name|String
+name|uri
 decl_stmt|;
 DECL|method|FailedToCreateProducerException (Endpoint endpoint, Throwable cause)
 specifier|public
@@ -58,19 +58,22 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|endpoint
+name|uri
 operator|=
 name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getEndpoint ()
+DECL|method|getUri ()
 specifier|public
-name|Endpoint
-name|getEndpoint
+name|String
+name|getUri
 parameter_list|()
 block|{
 return|return
-name|endpoint
+name|uri
 return|;
 block|}
 block|}

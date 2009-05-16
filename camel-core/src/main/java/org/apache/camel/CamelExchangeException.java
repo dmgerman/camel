@@ -36,9 +36,11 @@ init|=
 operator|-
 literal|8721487431101572630L
 decl_stmt|;
+comment|// exchange is not guaranted to be serializable so we set it as transient
 DECL|field|exchange
 specifier|private
 specifier|final
+specifier|transient
 name|Exchange
 name|exchange
 decl_stmt|;

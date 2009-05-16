@@ -38,12 +38,14 @@ decl_stmt|;
 DECL|field|expression
 specifier|private
 specifier|final
+specifier|transient
 name|Expression
 name|expression
 decl_stmt|;
 DECL|field|exchange
 specifier|private
 specifier|final
+specifier|transient
 name|Exchange
 name|exchange
 decl_stmt|;

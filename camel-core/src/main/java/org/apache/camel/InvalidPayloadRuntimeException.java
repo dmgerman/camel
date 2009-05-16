@@ -29,6 +29,7 @@ block|{
 DECL|field|type
 specifier|private
 specifier|final
+specifier|transient
 name|Class
 argument_list|<
 name|?

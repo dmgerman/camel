@@ -29,12 +29,14 @@ block|{
 DECL|field|exchange
 specifier|private
 specifier|final
+specifier|transient
 name|Exchange
 name|exchange
 decl_stmt|;
 DECL|field|expectedBodyType
 specifier|private
 specifier|final
+specifier|transient
 name|Class
 name|expectedBodyType
 decl_stmt|;

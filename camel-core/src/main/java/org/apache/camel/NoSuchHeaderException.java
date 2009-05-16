@@ -45,6 +45,7 @@ decl_stmt|;
 DECL|field|type
 specifier|private
 specifier|final
+specifier|transient
 name|Class
 argument_list|<
 name|?
@@ -189,7 +190,7 @@ operator|.
 name|getClass
 argument_list|()
 operator|.
-name|getName
+name|getCanonicalName
 argument_list|()
 return|;
 block|}

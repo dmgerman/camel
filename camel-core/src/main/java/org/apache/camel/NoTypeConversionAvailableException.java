@@ -29,12 +29,14 @@ block|{
 DECL|field|value
 specifier|private
 specifier|final
+specifier|transient
 name|Object
 name|value
 decl_stmt|;
 DECL|field|type
 specifier|private
 specifier|final
+specifier|transient
 name|Class
 name|type
 decl_stmt|;
