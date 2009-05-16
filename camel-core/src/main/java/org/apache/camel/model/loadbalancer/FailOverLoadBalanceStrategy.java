@@ -82,18 +82,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|loadbalancer
@@ -170,6 +158,15 @@ name|LoadBalancerDefinition
 block|{
 annotation|@
 name|XmlAttribute
+argument_list|(
+name|name
+operator|=
+literal|"exception"
+argument_list|,
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|field|failedException
 specifier|private
 name|String
@@ -197,31 +194,37 @@ argument_list|)
 condition|)
 block|{
 name|Class
-name|failExceptionClazz
+name|type
 init|=
-name|ObjectHelper
+name|routeContext
 operator|.
-name|loadClass
+name|getCamelContext
+argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
 argument_list|(
 name|failedException
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|failExceptionClazz
+name|type
 operator|==
 literal|null
 condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|IllegalArgumentException
 argument_list|(
-literal|"Cannot find failException: "
+literal|"Cannot find class: "
 operator|+
 name|failedException
 operator|+
-literal|" to be used with this FailOverLoadBalancer"
+literal|" in the classpath"
 argument_list|)
 throw|;
 block|}
@@ -229,7 +232,7 @@ return|return
 operator|new
 name|FailOverLoadBalancer
 argument_list|(
-name|failExceptionClazz
+name|type
 argument_list|)
 return|;
 block|}
@@ -264,6 +267,18 @@ parameter_list|()
 block|{
 return|return
 name|failedException
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"FailOverLoadBalancer"
 return|;
 block|}
 block|}

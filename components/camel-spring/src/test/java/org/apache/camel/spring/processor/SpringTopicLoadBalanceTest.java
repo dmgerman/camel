@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.model.loadbalancer
+DECL|package|org.apache.camel.spring.processor
 package|package
 name|org
 operator|.
@@ -12,23 +12,21 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|spring
 operator|.
-name|loadbalancer
+name|processor
 package|;
 end_package
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|bind
+name|camel
 operator|.
-name|annotation
-operator|.
-name|XmlRootElement
+name|CamelContext
 import|;
 end_import
 
@@ -42,9 +40,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|loadbalancer
-operator|.
-name|LoadBalancer
+name|RandomLoadBalanceTest
 import|;
 end_import
 
@@ -56,68 +52,53 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|processor
 operator|.
-name|RouteContext
+name|TopicLoadBalanceTest
 import|;
 end_import
 
-begin_comment
-comment|/**  * Represents an XML&lt;topic/&gt; element  *   */
-end_comment
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|processor
+operator|.
+name|SpringTestHelper
+operator|.
+name|createSpringCamelContext
+import|;
+end_import
 
 begin_class
-annotation|@
-name|XmlRootElement
-argument_list|(
-name|name
-operator|=
-literal|"topic"
-argument_list|)
-DECL|class|TopicLoadBalanceStrategy
+DECL|class|SpringTopicLoadBalanceTest
 specifier|public
 class|class
-name|TopicLoadBalanceStrategy
+name|SpringTopicLoadBalanceTest
 extends|extends
-name|LoadBalancerDefinition
+name|TopicLoadBalanceTest
 block|{
-annotation|@
-name|Override
-DECL|method|createLoadBalancer (RouteContext routeContext)
+DECL|method|createCamelContext ()
 specifier|protected
-name|LoadBalancer
-name|createLoadBalancer
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|)
-block|{
-return|return
-operator|new
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|loadbalancer
-operator|.
-name|TopicLoadBalancer
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
+name|CamelContext
+name|createCamelContext
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 return|return
-literal|"TopicLoadBalancer"
+name|createSpringCamelContext
+argument_list|(
+name|this
+argument_list|,
+literal|"org/apache/camel/spring/processor/topicLoadBalance.xml"
+argument_list|)
 return|;
 block|}
 block|}

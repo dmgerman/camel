@@ -815,11 +815,11 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the load balancer to use      *      * @param loadBalancer  the load balancer      * @return the builder      */
-DECL|method|setLoadBalancer (LoadBalancer loadBalancer)
+comment|/**      * Uses a custom load balancer      *      * @param loadBalancer  the load balancer      * @return the builder      */
+DECL|method|loadBalance (LoadBalancer loadBalancer)
 specifier|public
 name|LoadBalanceDefinition
-name|setLoadBalancer
+name|loadBalance
 parameter_list|(
 name|LoadBalancer
 name|loadBalancer

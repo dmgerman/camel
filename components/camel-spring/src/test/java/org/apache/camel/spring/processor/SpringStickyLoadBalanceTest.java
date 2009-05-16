@@ -40,7 +40,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|LoadBalanceTest
+name|StickyLoadBalanceTest
 import|;
 end_import
 
@@ -63,12 +63,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|SpringLoadBalanceTest
+DECL|class|SpringStickyLoadBalanceTest
 specifier|public
 class|class
-name|SpringLoadBalanceTest
+name|SpringStickyLoadBalanceTest
 extends|extends
-name|LoadBalanceTest
+name|StickyLoadBalanceTest
 block|{
 DECL|method|createCamelContext ()
 specifier|protected
@@ -83,7 +83,7 @@ name|createSpringCamelContext
 argument_list|(
 name|this
 argument_list|,
-literal|"org/apache/camel/spring/processor/loadBalance.xml"
+literal|"org/apache/camel/spring/processor/stickyLoadBalance.xml"
 argument_list|)
 return|;
 block|}

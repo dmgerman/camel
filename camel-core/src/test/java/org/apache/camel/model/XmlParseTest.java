@@ -1386,7 +1386,7 @@ literal|"the expression should not be null "
 argument_list|,
 name|strategy
 operator|.
-name|getExpressionType
+name|getCorrelationExpression
 argument_list|()
 argument_list|)
 expr_stmt|;

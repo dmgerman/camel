@@ -108,6 +108,18 @@ name|RandomLoadBalancer
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"RandomLoadBalancer"
+return|;
+block|}
 block|}
 end_class
 
