@@ -217,7 +217,7 @@ block|{
 name|Policy
 name|required
 init|=
-name|bean
+name|lookup
 argument_list|(
 literal|"PROPAGATION_REQUIRED_POLICY"
 argument_list|,

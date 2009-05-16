@@ -170,7 +170,7 @@ return|return
 operator|new
 name|TransactionErrorHandler
 argument_list|(
-name|bean
+name|lookup
 argument_list|(
 name|TransactionTemplate
 operator|.
@@ -185,13 +185,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|bean (String beanName, Class<T> type)
+DECL|method|lookup (String beanName, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|bean
+name|lookup
 parameter_list|(
 name|String
 name|beanName
@@ -229,13 +229,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|bean (Class<T> type)
+DECL|method|lookup (Class<T> type)
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|bean
+name|lookup
 parameter_list|(
 name|Class
 argument_list|<

@@ -352,7 +352,7 @@ argument_list|)
 argument_list|,
 name|jpaMessageIdRepository
 argument_list|(
-name|bean
+name|lookup
 argument_list|(
 name|JpaTemplate
 operator|.

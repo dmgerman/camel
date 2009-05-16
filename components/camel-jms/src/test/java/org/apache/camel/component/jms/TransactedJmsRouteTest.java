@@ -415,7 +415,7 @@ init|=
 operator|new
 name|SpringTransactionPolicy
 argument_list|(
-name|bean
+name|lookup
 argument_list|(
 literal|"PROPAGATION_REQUIRED"
 argument_list|,
@@ -431,7 +431,7 @@ init|=
 operator|new
 name|SpringTransactionPolicy
 argument_list|(
-name|bean
+name|lookup
 argument_list|(
 literal|"PROPAGATION_NOT_SUPPORTED"
 argument_list|,
@@ -447,7 +447,7 @@ init|=
 operator|new
 name|SpringTransactionPolicy
 argument_list|(
-name|bean
+name|lookup
 argument_list|(
 literal|"PROPAGATION_REQUIRES_NEW"
 argument_list|,

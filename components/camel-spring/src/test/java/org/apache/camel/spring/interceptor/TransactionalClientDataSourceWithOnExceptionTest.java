@@ -259,7 +259,7 @@ comment|// use required as transaction policy
 name|SpringTransactionPolicy
 name|required
 init|=
-name|bean
+name|lookup
 argument_list|(
 literal|"PROPAGATION_REQUIRED"
 argument_list|,

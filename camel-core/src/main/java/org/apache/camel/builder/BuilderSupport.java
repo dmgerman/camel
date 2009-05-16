@@ -169,13 +169,6 @@ specifier|private
 name|ErrorHandlerBuilder
 name|errorHandlerBuilder
 decl_stmt|;
-DECL|field|inheritErrorHandler
-specifier|private
-name|boolean
-name|inheritErrorHandler
-init|=
-literal|true
-decl_stmt|;
 DECL|method|BuilderSupport (CamelContext context)
 specifier|protected
 name|BuilderSupport
@@ -431,16 +424,37 @@ literal|null
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
+DECL|method|bean (String beanRef, String method)
+specifier|public
+name|ValueBuilder
+name|bean
+parameter_list|(
+name|String
+name|beanRef
+parameter_list|,
+name|String
+name|method
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|bean
+argument_list|(
+name|beanRef
+argument_list|,
+name|method
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @return the builder      */
-DECL|method|bean (Class<?> beanType)
+DECL|method|bean (Class beanType)
 specifier|public
 name|ValueBuilder
 name|bean
 parameter_list|(
 name|Class
-argument_list|<
-name|?
-argument_list|>
 name|beanType
 parameter_list|)
 block|{
@@ -455,20 +469,17 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @param methodName  the method name that will be invoked      * @return the builder      */
-DECL|method|bean (Class<?> beanType, String methodName)
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @param method   name of method to invoke      * @return the builder      */
+DECL|method|bean (Class beanType, String method)
 specifier|public
 name|ValueBuilder
 name|bean
 parameter_list|(
 name|Class
-argument_list|<
-name|?
-argument_list|>
 name|beanType
 parameter_list|,
 name|String
-name|methodName
+name|method
 parameter_list|)
 block|{
 return|return
@@ -478,7 +489,7 @@ name|bean
 argument_list|(
 name|beanType
 argument_list|,
-name|methodName
+name|method
 argument_list|)
 return|;
 block|}
@@ -537,30 +548,6 @@ argument_list|,
 name|regex
 argument_list|,
 name|replacement
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanRef  reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
-DECL|method|bean (String beanRef, String method)
-specifier|public
-name|ValueBuilder
-name|bean
-parameter_list|(
-name|String
-name|beanRef
-parameter_list|,
-name|String
-name|method
-parameter_list|)
-block|{
-return|return
-name|Builder
-operator|.
-name|bean
-argument_list|(
-name|beanRef
-argument_list|,
-name|method
 argument_list|)
 return|;
 block|}
@@ -1019,32 +1006,6 @@ operator|.
 name|errorHandlerBuilder
 operator|=
 name|errorHandlerBuilder
-expr_stmt|;
-block|}
-DECL|method|isInheritErrorHandler ()
-specifier|public
-name|boolean
-name|isInheritErrorHandler
-parameter_list|()
-block|{
-return|return
-name|inheritErrorHandler
-return|;
-block|}
-DECL|method|setInheritErrorHandler (boolean inheritErrorHandler)
-specifier|public
-name|void
-name|setInheritErrorHandler
-parameter_list|(
-name|boolean
-name|inheritErrorHandler
-parameter_list|)
-block|{
-name|this
-operator|.
-name|inheritErrorHandler
-operator|=
-name|inheritErrorHandler
 expr_stmt|;
 block|}
 block|}
