@@ -262,7 +262,7 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
-name|RandomLoadBalanceStrategy
+name|FailoverLoadBalancerDefinition
 import|;
 end_import
 
@@ -278,7 +278,7 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
-name|RoundRobinLoadBalanceStrategy
+name|RandomLoadBalancerDefinition
 import|;
 end_import
 
@@ -294,7 +294,7 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
-name|StickyLoadBalanceStrategy
+name|RoundRobinLoadBalancerDefinition
 import|;
 end_import
 
@@ -310,7 +310,7 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
-name|TopicLoadBalanceStrategy
+name|StickyLoadBalancerDefinition
 import|;
 end_import
 
@@ -322,11 +322,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|model
 operator|.
 name|loadbalancer
 operator|.
-name|FailOverLoadBalancer
+name|TopicLoadBalancerDefinition
 import|;
 end_import
 
@@ -786,7 +786,7 @@ name|addBeanDefinitionParser
 argument_list|(
 literal|"roundRobin"
 argument_list|,
-name|RoundRobinLoadBalanceStrategy
+name|RoundRobinLoadBalancerDefinition
 operator|.
 name|class
 argument_list|)
@@ -795,7 +795,7 @@ name|addBeanDefinitionParser
 argument_list|(
 literal|"random"
 argument_list|,
-name|RandomLoadBalanceStrategy
+name|RandomLoadBalancerDefinition
 operator|.
 name|class
 argument_list|)
@@ -804,7 +804,7 @@ name|addBeanDefinitionParser
 argument_list|(
 literal|"sticky"
 argument_list|,
-name|StickyLoadBalanceStrategy
+name|StickyLoadBalancerDefinition
 operator|.
 name|class
 argument_list|)
@@ -813,7 +813,7 @@ name|addBeanDefinitionParser
 argument_list|(
 literal|"topic"
 argument_list|,
-name|TopicLoadBalanceStrategy
+name|TopicLoadBalancerDefinition
 operator|.
 name|class
 argument_list|)
@@ -822,7 +822,7 @@ name|addBeanDefinitionParser
 argument_list|(
 literal|"failover"
 argument_list|,
-name|FailOverLoadBalancer
+name|FailoverLoadBalancerDefinition
 operator|.
 name|class
 argument_list|)

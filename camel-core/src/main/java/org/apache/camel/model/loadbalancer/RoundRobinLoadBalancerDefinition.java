@@ -74,10 +74,10 @@ name|name
 operator|=
 literal|"roundRobin"
 argument_list|)
-DECL|class|RoundRobinLoadBalanceStrategy
+DECL|class|RoundRobinLoadBalancerDefinition
 specifier|public
 class|class
-name|RoundRobinLoadBalanceStrategy
+name|RoundRobinLoadBalancerDefinition
 extends|extends
 name|LoadBalancerDefinition
 block|{

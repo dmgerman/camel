@@ -254,16 +254,6 @@ name|Future
 operator|)
 name|out
 decl_stmt|;
-name|assertFalse
-argument_list|(
-literal|"Should not be done"
-argument_list|,
-name|future
-operator|.
-name|isDone
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -365,16 +355,6 @@ name|Future
 operator|)
 name|out
 decl_stmt|;
-name|assertFalse
-argument_list|(
-literal|"Should not be done"
-argument_list|,
-name|future
-operator|.
-name|isDone
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

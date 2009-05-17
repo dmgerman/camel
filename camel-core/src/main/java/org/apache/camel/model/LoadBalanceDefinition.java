@@ -48,6 +48,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -180,7 +190,7 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
-name|FailOverLoadBalanceStrategy
+name|FailoverLoadBalancerDefinition
 import|;
 end_import
 
@@ -212,7 +222,7 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
-name|RandomLoadBalanceStrategy
+name|RandomLoadBalancerDefinition
 import|;
 end_import
 
@@ -228,7 +238,7 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
-name|RoundRobinLoadBalanceStrategy
+name|RoundRobinLoadBalancerDefinition
 import|;
 end_import
 
@@ -244,7 +254,7 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
-name|StickyLoadBalanceStrategy
+name|StickyLoadBalancerDefinition
 import|;
 end_import
 
@@ -260,7 +270,7 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
-name|TopicLoadBalanceStrategy
+name|TopicLoadBalancerDefinition
 import|;
 end_import
 
@@ -460,7 +470,7 @@ literal|"failOver"
 argument_list|,
 name|type
 operator|=
-name|FailOverLoadBalanceStrategy
+name|FailoverLoadBalancerDefinition
 operator|.
 name|class
 argument_list|)
@@ -478,7 +488,7 @@ literal|"roundRobin"
 argument_list|,
 name|type
 operator|=
-name|RoundRobinLoadBalanceStrategy
+name|RoundRobinLoadBalancerDefinition
 operator|.
 name|class
 argument_list|)
@@ -496,7 +506,7 @@ literal|"random"
 argument_list|,
 name|type
 operator|=
-name|RandomLoadBalanceStrategy
+name|RandomLoadBalancerDefinition
 operator|.
 name|class
 argument_list|)
@@ -514,7 +524,7 @@ literal|"sticky"
 argument_list|,
 name|type
 operator|=
-name|StickyLoadBalanceStrategy
+name|StickyLoadBalancerDefinition
 operator|.
 name|class
 argument_list|)
@@ -532,7 +542,7 @@ literal|"topic"
 argument_list|,
 name|type
 operator|=
-name|TopicLoadBalanceStrategy
+name|TopicLoadBalancerDefinition
 operator|.
 name|class
 argument_list|)
@@ -858,14 +868,15 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Uses fail over load balancer      *       * @param throwable exception Class which we want to catch      * @return the builder      */
-DECL|method|failOver (Class throwable)
+comment|/**      * Uses fail over load balancer      *       * @param exceptions exception classes which we want to failover if one of them was thrown      * @return the builder      */
+DECL|method|failOver (Class... exceptions)
 specifier|public
 name|LoadBalanceDefinition
 name|failOver
 parameter_list|(
 name|Class
-name|throwable
+modifier|...
+name|exceptions
 parameter_list|)
 block|{
 name|loadBalancerType
@@ -876,7 +887,12 @@ argument_list|(
 operator|new
 name|FailOverLoadBalancer
 argument_list|(
-name|throwable
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|exceptions
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

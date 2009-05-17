@@ -74,10 +74,10 @@ name|name
 operator|=
 literal|"random"
 argument_list|)
-DECL|class|RandomLoadBalanceStrategy
+DECL|class|RandomLoadBalancerDefinition
 specifier|public
 class|class
-name|RandomLoadBalanceStrategy
+name|RandomLoadBalancerDefinition
 extends|extends
 name|LoadBalancerDefinition
 block|{

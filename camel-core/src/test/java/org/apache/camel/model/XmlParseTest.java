@@ -66,7 +66,7 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
-name|RoundRobinLoadBalanceStrategy
+name|RoundRobinLoadBalancerDefinition
 import|;
 end_import
 
@@ -82,7 +82,7 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
-name|StickyLoadBalanceStrategy
+name|StickyLoadBalancerDefinition
 import|;
 end_import
 
@@ -1296,14 +1296,14 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The loadBalancer shoud be RoundRobinLoadBalanceStrategy"
+literal|"The loadBalancer shoud be RoundRobinLoadBalancerDefinition"
 argument_list|,
 name|loadBalance
 operator|.
 name|getLoadBalancerType
 argument_list|()
 operator|instanceof
-name|RoundRobinLoadBalanceStrategy
+name|RoundRobinLoadBalancerDefinition
 argument_list|)
 expr_stmt|;
 block|}
@@ -1359,21 +1359,21 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The loadBalancer shoud be StickyLoadBalanceStrategy"
+literal|"The loadBalancer shoud be StickyLoadBalancerDefinition"
 argument_list|,
 name|loadBalance
 operator|.
 name|getLoadBalancerType
 argument_list|()
 operator|instanceof
-name|StickyLoadBalanceStrategy
+name|StickyLoadBalancerDefinition
 argument_list|)
 expr_stmt|;
-name|StickyLoadBalanceStrategy
+name|StickyLoadBalancerDefinition
 name|strategy
 init|=
 operator|(
-name|StickyLoadBalanceStrategy
+name|StickyLoadBalancerDefinition
 operator|)
 name|loadBalance
 operator|.

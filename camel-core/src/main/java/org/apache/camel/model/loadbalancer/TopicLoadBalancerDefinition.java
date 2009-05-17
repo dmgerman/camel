@@ -74,10 +74,10 @@ name|name
 operator|=
 literal|"topic"
 argument_list|)
-DECL|class|TopicLoadBalanceStrategy
+DECL|class|TopicLoadBalancerDefinition
 specifier|public
 class|class
-name|TopicLoadBalanceStrategy
+name|TopicLoadBalancerDefinition
 extends|extends
 name|LoadBalancerDefinition
 block|{

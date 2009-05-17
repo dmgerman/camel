@@ -153,10 +153,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|StickyLoadBalanceStrategy
+DECL|class|StickyLoadBalancerDefinition
 specifier|public
 class|class
-name|StickyLoadBalanceStrategy
+name|StickyLoadBalancerDefinition
 extends|extends
 name|LoadBalancerDefinition
 block|{
