@@ -74,20 +74,6 @@ name|camel
 operator|.
 name|builder
 operator|.
-name|NoErrorHandlerBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
 name|RouteBuilder
 import|;
 end_import
@@ -193,7 +179,7 @@ class|class
 name|MyException
 extends|extends
 name|Exception
-block|{              }
+block|{     }
 DECL|class|MyAnotherException
 specifier|public
 specifier|static
@@ -201,7 +187,7 @@ class|class
 name|MyAnotherException
 extends|extends
 name|Exception
-block|{              }
+block|{     }
 DECL|class|MyExceptionProcessor
 specifier|public
 specifier|static
@@ -270,14 +256,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// First we need to turn off the default error handler
-name|errorHandler
-argument_list|(
-operator|new
-name|NoErrorHandlerBuilder
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:exception"
@@ -287,7 +265,7 @@ name|loadBalance
 argument_list|()
 comment|// catch all the exception here
 operator|.
-name|failOver
+name|failover
 argument_list|()
 operator|.
 name|to
@@ -307,7 +285,7 @@ operator|.
 name|loadBalance
 argument_list|()
 operator|.
-name|failOver
+name|failover
 argument_list|(
 name|MyException
 operator|.

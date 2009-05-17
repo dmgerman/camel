@@ -200,7 +200,7 @@ operator|.
 name|loadBalance
 argument_list|()
 operator|.
-name|failOver
+name|failover
 argument_list|(
 name|IllegalArgumentException
 operator|.

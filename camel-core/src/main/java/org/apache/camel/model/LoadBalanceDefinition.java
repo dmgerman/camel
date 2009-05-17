@@ -848,10 +848,10 @@ name|this
 return|;
 block|}
 comment|/**      * Uses fail over load balancer      *       * @return the builder      */
-DECL|method|failOver ()
+DECL|method|failover ()
 specifier|public
 name|LoadBalanceDefinition
-name|failOver
+name|failover
 parameter_list|()
 block|{
 name|loadBalancerType
@@ -869,10 +869,10 @@ name|this
 return|;
 block|}
 comment|/**      * Uses fail over load balancer      *       * @param exceptions exception classes which we want to failover if one of them was thrown      * @return the builder      */
-DECL|method|failOver (Class... exceptions)
+DECL|method|failover (Class... exceptions)
 specifier|public
 name|LoadBalanceDefinition
-name|failOver
+name|failover
 parameter_list|(
 name|Class
 modifier|...
