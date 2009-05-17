@@ -246,8 +246,8 @@ name|DisposableBean
 block|{
 DECL|field|LOG
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Log
 name|LOG
 init|=
