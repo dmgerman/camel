@@ -90,35 +90,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategyAware
+name|HeaderFilterStrategyComponent
 import|;
 end_import
 
@@ -146,15 +118,8 @@ specifier|public
 class|class
 name|CxfComponent
 extends|extends
-name|DefaultComponent
-implements|implements
-name|HeaderFilterStrategyAware
+name|HeaderFilterStrategyComponent
 block|{
-DECL|field|headerFilterStrategy
-specifier|private
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-decl_stmt|;
 DECL|method|CxfComponent ()
 specifier|public
 name|CxfComponent
@@ -274,22 +239,11 @@ argument_list|,
 name|bean
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|getHeaderFilterStrategy
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|result
-operator|.
-name|setHeaderFilterStrategy
+name|setEndpointHeaderFilterStrategy
 argument_list|(
-name|headerFilterStrategy
+name|result
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Apply Spring bean properties (including # notation referenced bean).  Note that the
 comment|// Spring bean properties values can be overridden by property defined in URI query.
 comment|// The super class (DefaultComponent) will invoke "setProperties" after this method
@@ -357,30 +311,6 @@ block|}
 return|return
 name|result
 return|;
-block|}
-DECL|method|getHeaderFilterStrategy ()
-specifier|public
-name|HeaderFilterStrategy
-name|getHeaderFilterStrategy
-parameter_list|()
-block|{
-return|return
-name|headerFilterStrategy
-return|;
-block|}
-DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
-specifier|public
-name|void
-name|setHeaderFilterStrategy
-parameter_list|(
-name|HeaderFilterStrategy
-name|strategy
-parameter_list|)
-block|{
-name|headerFilterStrategy
-operator|=
-name|strategy
-expr_stmt|;
 block|}
 block|}
 end_class

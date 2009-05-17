@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|HeaderFilterStrategyComponent
 import|;
 end_import
 
@@ -80,20 +80,6 @@ name|HeaderFilterStrategy
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategyAware
-import|;
-end_import
-
 begin_comment
 comment|/**  * CXF Bean component creates {@link CxfBeanEndpoint} which represents a  * bean.<b>Currently, only JAXRS annotated beans are supported.  In the  * future, JAXwS annotated beans and POJO can be supported</b>.  *   * @version $Revision$  */
 end_comment
@@ -104,9 +90,7 @@ specifier|public
 class|class
 name|CxfBeanComponent
 extends|extends
-name|DefaultComponent
-implements|implements
-name|HeaderFilterStrategyAware
+name|HeaderFilterStrategyComponent
 block|{
 DECL|field|endpoints
 specifier|private
@@ -126,11 +110,6 @@ argument_list|,
 name|CxfBeanEndpoint
 argument_list|>
 argument_list|()
-decl_stmt|;
-DECL|field|headerFilterStrategy
-specifier|private
-name|HeaderFilterStrategy
-name|headerFilterStrategy
 decl_stmt|;
 annotation|@
 name|SuppressWarnings
@@ -167,23 +146,11 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|getHeaderFilterStrategy
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|answer
-operator|.
-name|setHeaderFilterStrategy
+name|setEndpointHeaderFilterStrategy
 argument_list|(
-name|getHeaderFilterStrategy
-argument_list|()
+name|answer
 argument_list|)
 expr_stmt|;
-block|}
 name|setProperties
 argument_list|(
 name|answer
@@ -311,30 +278,6 @@ argument_list|(
 name|endpointUri
 argument_list|)
 return|;
-block|}
-DECL|method|getHeaderFilterStrategy ()
-specifier|public
-name|HeaderFilterStrategy
-name|getHeaderFilterStrategy
-parameter_list|()
-block|{
-return|return
-name|headerFilterStrategy
-return|;
-block|}
-DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
-specifier|public
-name|void
-name|setHeaderFilterStrategy
-parameter_list|(
-name|HeaderFilterStrategy
-name|strategy
-parameter_list|)
-block|{
-name|headerFilterStrategy
-operator|=
-name|strategy
-expr_stmt|;
 block|}
 block|}
 end_class
