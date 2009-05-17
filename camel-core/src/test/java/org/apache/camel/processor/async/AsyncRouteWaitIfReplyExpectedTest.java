@@ -293,8 +293,8 @@ argument_list|)
 argument_list|)
 comment|// now turn the route into async from this point forward
 comment|// the caller will have a Future<Exchange> returned as response in OUT
-comment|// to be used to grap the async response when he fell like it
-comment|// we only want to wait for tasks to compelte if we expect a reply
+comment|// to be used to grape the async response when he fell like it
+comment|// we only want to wait for tasks to complete if we expect a reply
 comment|// otherwise not
 operator|.
 name|async
@@ -313,10 +313,11 @@ name|to
 argument_list|(
 literal|"mock:foo"
 argument_list|)
+comment|// wait a litter longer for the slow box
 operator|.
 name|delay
 argument_list|(
-literal|100
+literal|500
 argument_list|)
 comment|// and we also work with the message so we can prepare a response
 operator|.

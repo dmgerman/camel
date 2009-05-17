@@ -557,7 +557,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|100
+literal|500
 argument_list|)
 comment|// and we also work with the message so we can prepare a response
 operator|.

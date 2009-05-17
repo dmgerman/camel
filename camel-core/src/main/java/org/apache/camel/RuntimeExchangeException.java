@@ -38,8 +38,8 @@ literal|8721487431101572630L
 decl_stmt|;
 DECL|field|exchange
 specifier|private
-specifier|transient
 specifier|final
+specifier|transient
 name|Exchange
 name|exchange
 decl_stmt|;
