@@ -893,18 +893,6 @@ name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-name|Integer
-operator|.
-name|class
-argument_list|,
-name|node
-operator|.
-name|getTypeClass
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testParseRoutingSlipXml ()
 specifier|public

@@ -36,56 +36,44 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
 
 begin_comment
-comment|/**  * The processor which implements the ThrowFault DSL  */
+comment|/**  * The processor which implements the ThrowException DSL  */
 end_comment
 
 begin_class
-DECL|class|ThrowFaultProcessor
+DECL|class|ThrowExceptionProcessor
 specifier|public
 class|class
-name|ThrowFaultProcessor
+name|ThrowExceptionProcessor
 implements|implements
 name|Processor
 block|{
-DECL|field|fault
+DECL|field|exception
 specifier|private
 specifier|final
-name|Throwable
-name|fault
+name|Exception
+name|exception
 decl_stmt|;
-DECL|method|ThrowFaultProcessor (Throwable fault)
+DECL|method|ThrowExceptionProcessor (Exception exception)
 specifier|public
-name|ThrowFaultProcessor
+name|ThrowExceptionProcessor
 parameter_list|(
-name|Throwable
-name|fault
+name|Exception
+name|exception
 parameter_list|)
 block|{
 name|this
 operator|.
-name|fault
+name|exception
 operator|=
-name|fault
+name|exception
 expr_stmt|;
 block|}
-comment|/**      * Set the fault message in the exchange      * @see org.apache.camel.Processor#process(org.apache.camel.Exchange)      */
+comment|/**      * Set the exception in the exchange      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -97,19 +85,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Message
-name|message
-init|=
 name|exchange
 operator|.
-name|getFault
-argument_list|()
-decl_stmt|;
-name|message
-operator|.
-name|setBody
+name|setException
 argument_list|(
-name|fault
+name|exception
 argument_list|)
 expr_stmt|;
 block|}

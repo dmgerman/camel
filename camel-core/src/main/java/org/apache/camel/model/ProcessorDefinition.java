@@ -3584,33 +3584,33 @@ return|return
 name|loop
 return|;
 block|}
-comment|/**      * Creates a fault message based on the given throwable.      *      * @param fault   the fault      * @return the builder      * @deprecated should be renamed to throw Exception      */
+comment|/**      * Sets the exception on the {@link org.apache.camel.Exchange}      *      * @param exception the exception to throw      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|throwFault (Throwable fault)
+DECL|method|throwException (Exception exception)
 specifier|public
 name|Type
-name|throwFault
+name|throwException
 parameter_list|(
-name|Throwable
-name|fault
+name|Exception
+name|exception
 parameter_list|)
 block|{
-name|ThrowFaultDefinition
+name|ThrowExceptionDefinition
 name|answer
 init|=
 operator|new
-name|ThrowFaultDefinition
+name|ThrowExceptionDefinition
 argument_list|()
 decl_stmt|;
 name|answer
 operator|.
-name|setFault
+name|setException
 argument_list|(
-name|fault
+name|exception
 argument_list|)
 expr_stmt|;
 name|addOutput
@@ -3623,27 +3623,6 @@ operator|(
 name|Type
 operator|)
 name|this
-return|;
-block|}
-comment|/**      * Creates a fault message based on the given message.      *      * @param message  the fault message      * @return the builder      * @deprecated should be renamed to throw Exception      */
-DECL|method|throwFault (String message)
-specifier|public
-name|Type
-name|throwFault
-parameter_list|(
-name|String
-name|message
-parameter_list|)
-block|{
-return|return
-name|throwFault
-argument_list|(
-operator|new
-name|CamelException
-argument_list|(
-name|message
-argument_list|)
-argument_list|)
 return|;
 block|}
 comment|/**      * Marks the exchange for rollback only.      *<p/>      * This is done by setting a {@link org.apache.camel.RollbackExchangeException} on the Exchange      * and mark it for rollback.      *      * @return the builder      */
