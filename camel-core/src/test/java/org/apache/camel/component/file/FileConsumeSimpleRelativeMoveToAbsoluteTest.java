@@ -209,7 +209,7 @@ argument_list|(
 literal|3
 argument_list|)
 expr_stmt|;
-comment|// will flattern when using absolute path in move
+comment|// will flatten when using absolute path in move
 name|mock
 operator|.
 name|expectedFileExists

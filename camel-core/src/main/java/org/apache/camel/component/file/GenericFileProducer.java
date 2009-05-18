@@ -905,7 +905,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|// flattern name
+comment|// flatten name
 if|if
 condition|(
 name|name
@@ -914,7 +914,7 @@ literal|null
 operator|&&
 name|endpoint
 operator|.
-name|isFlattern
+name|isFlatten
 argument_list|()
 condition|)
 block|{

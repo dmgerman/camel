@@ -393,10 +393,10 @@ specifier|protected
 name|boolean
 name|delete
 decl_stmt|;
-DECL|field|flattern
+DECL|field|flatten
 specifier|protected
 name|boolean
-name|flattern
+name|flatten
 decl_stmt|;
 DECL|field|tempPrefix
 specifier|protected
@@ -987,30 +987,30 @@ operator|=
 name|delete
 expr_stmt|;
 block|}
-DECL|method|isFlattern ()
+DECL|method|isFlatten ()
 specifier|public
 name|boolean
-name|isFlattern
+name|isFlatten
 parameter_list|()
 block|{
 return|return
-name|flattern
+name|flatten
 return|;
 block|}
-DECL|method|setFlattern (boolean flattern)
+DECL|method|setFlatten (boolean flatten)
 specifier|public
 name|void
-name|setFlattern
+name|setFlatten
 parameter_list|(
 name|boolean
-name|flattern
+name|flatten
 parameter_list|)
 block|{
 name|this
 operator|.
-name|flattern
+name|flatten
 operator|=
-name|flattern
+name|flatten
 expr_stmt|;
 block|}
 DECL|method|getMove ()
@@ -1704,10 +1704,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|flattern
+name|flatten
 condition|)
 block|{
-comment|// when flattern the file name should not contain any paths
+comment|// when flatten the file name should not contain any paths
 name|message
 operator|.
 name|setHeader
