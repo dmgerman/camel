@@ -2084,7 +2084,7 @@ parameter_list|)
 throws|throws
 name|MessagingException
 block|{
-comment|// we support that multi recipient can be given as a string seperated by comma or semi colon
+comment|// we support that multi recipient can be given as a string separated by comma or semicolon
 name|String
 index|[]
 name|lines

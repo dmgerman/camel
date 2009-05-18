@@ -26,7 +26,7 @@ specifier|public
 interface|interface
 name|FactoryFinderResolver
 block|{
-comment|/**      * Creates a new defaut factory finder using a default resource path.      *      * @param classResolver the class resolcer to use      * @return a factory finder.      */
+comment|/**      * Creates a new default factory finder using a default resource path.      *      * @param classResolver the class resolver to use      * @return a factory finder.      */
 DECL|method|resolveDefaultFactoryFinder (ClassResolver classResolver)
 name|FactoryFinder
 name|resolveDefaultFactoryFinder
@@ -35,7 +35,7 @@ name|ClassResolver
 name|classResolver
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new factory finder.      *      * @param classResolver the class resolcer to use      * @param resourcePath the resource path as base to lookup files within      * @return a factory finder.      */
+comment|/**      * Creates a new factory finder.      *      * @param classResolver the class resolver to use      * @param resourcePath the resource path as base to lookup files within      * @return a factory finder.      */
 DECL|method|resolveFactoryFinder (ClassResolver classResolver, String resourcePath)
 name|FactoryFinder
 name|resolveFactoryFinder
