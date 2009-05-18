@@ -308,10 +308,10 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testNoMatch ()
+DECL|method|testAmbigious ()
 specifier|public
 name|void
-name|testNoMatch
+name|testAmbigious
 parameter_list|()
 throws|throws
 name|Exception
@@ -359,6 +359,8 @@ argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|MethodInvocation
 name|methodInvocation
 init|=
@@ -373,13 +375,32 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-name|assertNull
+name|fail
 argument_list|(
-literal|"Should not find a suitable method"
-argument_list|,
-name|methodInvocation
+literal|"Should have thrown an exception"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|AmbiguousMethodCallException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|e
+operator|.
+name|getMethods
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|class|Bean
 class|class

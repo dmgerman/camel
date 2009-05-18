@@ -303,6 +303,12 @@ specifier|final
 name|boolean
 name|hasCustomAnnotation
 decl_stmt|;
+DECL|field|hasHandlerAnnotation
+specifier|private
+specifier|final
+name|boolean
+name|hasHandlerAnnotation
+decl_stmt|;
 DECL|field|parametersExpression
 specifier|private
 name|Expression
@@ -322,7 +328,7 @@ specifier|private
 name|RecipientList
 name|recipientList
 decl_stmt|;
-DECL|method|MethodInfo (Class type, Method method, List<ParameterInfo> parameters, List<ParameterInfo> bodyParameters, boolean hasCustomAnnotation)
+DECL|method|MethodInfo (Class type, Method method, List<ParameterInfo> parameters, List<ParameterInfo> bodyParameters, boolean hasCustomAnnotation, boolean hasHandlerAnnotation)
 specifier|public
 name|MethodInfo
 parameter_list|(
@@ -346,6 +352,9 @@ name|bodyParameters
 parameter_list|,
 name|boolean
 name|hasCustomAnnotation
+parameter_list|,
+name|boolean
+name|hasHandlerAnnotation
 parameter_list|)
 block|{
 name|this
@@ -377,6 +386,12 @@ operator|.
 name|hasCustomAnnotation
 operator|=
 name|hasCustomAnnotation
+expr_stmt|;
+name|this
+operator|.
+name|hasHandlerAnnotation
+operator|=
+name|hasHandlerAnnotation
 expr_stmt|;
 name|this
 operator|.
@@ -660,6 +675,18 @@ name|Class
 name|getBodyParameterType
 parameter_list|()
 block|{
+if|if
+condition|(
+name|bodyParameters
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|ParameterInfo
 name|parameterInfo
 init|=
@@ -734,14 +761,24 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
-DECL|method|isHasCustomAnnotation ()
+DECL|method|hasCustomAnnotation ()
 specifier|public
 name|boolean
-name|isHasCustomAnnotation
+name|hasCustomAnnotation
 parameter_list|()
 block|{
 return|return
 name|hasCustomAnnotation
+return|;
+block|}
+DECL|method|hasHandlerAnnotation ()
+specifier|public
+name|boolean
+name|hasHandlerAnnotation
+parameter_list|()
+block|{
+return|return
+name|hasHandlerAnnotation
 return|;
 block|}
 DECL|method|isReturnTypeVoid ()

@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Body
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ContextTestSupport
 import|;
 end_import
@@ -39,6 +51,18 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExchangeException
 import|;
 end_import
 
@@ -259,8 +283,10 @@ argument_list|(
 literal|false
 argument_list|)
 operator|.
-name|disableRedelivery
-argument_list|()
+name|maximumRedeliveries
+argument_list|(
+literal|3
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|onException
@@ -278,6 +304,8 @@ operator|.
 name|beanRef
 argument_list|(
 literal|"foo"
+argument_list|,
+literal|"handleFailure"
 argument_list|)
 operator|.
 name|to
@@ -338,15 +366,19 @@ return|return
 literal|"Exception"
 return|;
 block|}
-DECL|method|handleFailure (String order, Exception e)
+DECL|method|handleFailure (@ody String order, @ExchangeException IllegalArgumentException e)
 specifier|public
 name|String
 name|handleFailure
 parameter_list|(
+annotation|@
+name|Body
 name|String
 name|order
 parameter_list|,
-name|Exception
+annotation|@
+name|ExchangeException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -354,11 +386,13 @@ return|return
 literal|"Failure"
 return|;
 block|}
-DECL|method|handleOrder (String order)
+DECL|method|handleOrder (@ody String order)
 specifier|public
 name|String
 name|handleOrder
 parameter_list|(
+annotation|@
+name|Body
 name|String
 name|order
 parameter_list|)
