@@ -435,9 +435,12 @@ argument_list|(
 name|routerEndpointURI
 argument_list|)
 operator|.
-name|throwFault
+name|setFaultBody
+argument_list|(
+name|constant
 argument_list|(
 name|SOAP_FAULT
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: ThrowFault
