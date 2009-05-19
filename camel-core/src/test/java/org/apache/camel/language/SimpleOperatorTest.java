@@ -1116,6 +1116,41 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} is com.mycompany.DoesNotExist"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Syntax error"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testIsNot ()
 specifier|public
@@ -1167,6 +1202,41 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} is not com.mycompany.DoesNotExist"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Syntax error"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testRange ()
 specifier|public
@@ -1225,6 +1295,146 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} range abc..200"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Syntax error"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} range abc.."
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Syntax error"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} range 100 200"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Syntax error"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} range 100.200"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Syntax error"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testNotRange ()
 specifier|public
@@ -1283,6 +1493,146 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not range abc..200"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Syntax error"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not range abc.."
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Syntax error"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not range 100 200"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Syntax error"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not range 100.200"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Syntax error"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getLanguageName ()
 specifier|protected
