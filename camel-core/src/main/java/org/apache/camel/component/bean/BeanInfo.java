@@ -2872,7 +2872,9 @@ return|return
 name|ExpressionBuilder
 operator|.
 name|exchangeExceptionExpression
-argument_list|()
+argument_list|(
+name|parameterType
+argument_list|)
 return|;
 block|}
 else|else
