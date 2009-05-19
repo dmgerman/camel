@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Operators supported by simple language  *<ul>  *<li>EQ : ==</li>  *<li>GT :></li>  *<li>GTE :>=</li>  *<li>LT :<</li>  *<li>LTE :<=</li>  *<li>NOT : !=</li>  *<li>contains : tested for if it contains the value</li>  *<li>not contains : tested for if it does not contain the value</li>  *<li>regex : matching a regular expression</li>  *<li>not regex : not matching a regular expression</li>  *<li>in : tested for in a list of values separated by comma</li>  *<li>not in : tested for not in a list of values separated by comma</li>  *</ul>  */
+comment|/**  * Operators supported by simple language  *<ul>  *<li>== : equlas</li>  *<li>> : greather than</li>  *<li>>= : greather than or equals</li>  *<li>< : less than</li>  *<li><= : less than or equals</li>  *<li>!= : not</li>  *<li>contains : tested for if it contains the value</li>  *<li>not contains : tested for if it does not contain the value</li>  *<li>regex : matching a regular expression</li>  *<li>not regex : not matching a regular expression</li>  *<li>in : tested for in a list of values separated by comma</li>  *<li>not in : tested for not in a list of values separated by comma</li>  *<li>is : tested for if type is an instanceof the given type</li>  *<li>not is: tested for not if type is an instanceof the given type</li>  *<li>range : tested for if it is within the provided range</li>  *<li>not range : tested for not if it is within the provided range</li>  *</ul>  */
 end_comment
 
 begin_enum
@@ -40,6 +40,10 @@ DECL|enumConstant|REGEX
 DECL|enumConstant|NOT_REGEX
 DECL|enumConstant|IN
 DECL|enumConstant|NOT_IN
+DECL|enumConstant|IS
+DECL|enumConstant|NOT_IS
+DECL|enumConstant|RANGE
+DECL|enumConstant|NOT_RANGE
 name|EQ
 block|,
 name|GT
@@ -63,6 +67,14 @@ block|,
 name|IN
 block|,
 name|NOT_IN
+block|,
+name|IS
+block|,
+name|NOT_IS
+block|,
+name|RANGE
+block|,
+name|NOT_RANGE
 block|;
 DECL|method|asOperator (String text)
 specifier|public
@@ -253,6 +265,66 @@ return|return
 name|NOT_IN
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+literal|"is"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|IS
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"not is"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|NOT_IS
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"range"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|RANGE
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"not range"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|NOT_RANGE
+return|;
+block|}
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -413,6 +485,54 @@ condition|)
 block|{
 return|return
 literal|"not in"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
+name|IS
+condition|)
+block|{
+return|return
+literal|"is"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
+name|NOT_IS
+condition|)
+block|{
+return|return
+literal|"not is"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
+name|RANGE
+condition|)
+block|{
+return|return
+literal|"range"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
+name|NOT_RANGE
+condition|)
+block|{
+return|return
+literal|"not range"
 return|;
 block|}
 return|return

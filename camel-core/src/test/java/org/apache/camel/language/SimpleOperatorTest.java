@@ -1066,6 +1066,224 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testIs ()
+specifier|public
+name|void
+name|testIs
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} is 'java.lang.String'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} is 'java.lang.Integer'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} is 'String'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} is 'Integer'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} is String"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} is Integer"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testIsNot ()
+specifier|public
+name|void
+name|testIsNot
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not is 'java.lang.String'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not is 'java.lang.Integer'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not is 'String'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not is 'Integer'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not is String"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not is Integer"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testRange ()
+specifier|public
+name|void
+name|testRange
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} range 100..200"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} range 200..300"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} range 200..300"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${bean:generator.generateId} range 123..130"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${bean:generator.generateId} range 120..123"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${bean:generator.generateId} range 120..122"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${bean:generator.generateId} range 124..130"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNotRange ()
+specifier|public
+name|void
+name|testNotRange
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} not range 100..200"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} not range 200..300"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} not range 200..300"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${bean:generator.generateId} not range 123..130"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${bean:generator.generateId} not range 120..123"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${bean:generator.generateId} not range 120..122"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${bean:generator.generateId} not range 124..130"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getLanguageName ()
 specifier|protected
 name|String
