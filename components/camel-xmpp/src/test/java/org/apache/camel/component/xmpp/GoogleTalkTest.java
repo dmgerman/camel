@@ -100,6 +100,41 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|xtestSendToGTalkWithSubject ()
+specifier|public
+name|void
+name|xtestSendToGTalkWithSubject
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|result
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hi!"
+argument_list|,
+literal|"Subject"
+argument_list|,
+literal|"From Camel"
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
 comment|// get around junit warning
 DECL|method|testNothing ()
 specifier|public
