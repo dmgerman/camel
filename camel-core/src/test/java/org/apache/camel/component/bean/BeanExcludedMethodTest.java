@@ -221,6 +221,21 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|hashCode ()
+specifier|public
+name|int
+name|hashCode
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|hashCode
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -256,6 +271,21 @@ argument_list|)
 expr_stmt|;
 return|return
 literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|hashCode ()
+specifier|public
+name|int
+name|hashCode
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|hashCode
+argument_list|()
 return|;
 block|}
 annotation|@

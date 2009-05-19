@@ -166,26 +166,26 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// it should be safe to assume that they should at least each get> 10 messages
+comment|// it should be safe to assume that they should at least each get> 5 messages
 name|x
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|10
+literal|5
 argument_list|)
 expr_stmt|;
 name|y
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|10
+literal|5
 argument_list|)
 expr_stmt|;
 name|z
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|10
+literal|5
 argument_list|)
 expr_stmt|;
 for|for

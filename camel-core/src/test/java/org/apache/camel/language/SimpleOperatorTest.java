@@ -593,6 +593,20 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == 'null'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.none} == 'null'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testIsNotNull ()
 specifier|public
@@ -612,6 +626,20 @@ expr_stmt|;
 name|assertExpression
 argument_list|(
 literal|"${in.header.none} != null"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} != 'null'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.none} != 'null'"
 argument_list|,
 literal|false
 argument_list|)

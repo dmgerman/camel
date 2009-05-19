@@ -467,30 +467,18 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-comment|// for slower computers we invoke the get with a timeout
-name|future
-operator|.
-name|get
+name|assertFalse
 argument_list|(
-literal|1
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should be done"
+literal|"Should not be done"
 argument_list|,
 name|future
 operator|.
 name|isDone
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(

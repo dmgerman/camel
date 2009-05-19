@@ -307,7 +307,9 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"No producer, this processor has not been started!"
+literal|"No producer, this processor has not been started: "
+operator|+
+name|this
 argument_list|)
 throw|;
 block|}
