@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -350,6 +362,41 @@ argument_list|,
 literal|"<order foo='1'/>"
 argument_list|)
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"received [<order foo='1'/>] as an order id = "
+operator|+
+name|ID
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
+name|response
+operator|=
+literal|""
+expr_stmt|;
+name|response
+operator|=
+operator|(
+name|String
+operator|)
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"restlet:http://localhost:9080/orders?restletMethod=post&foo=bar"
+argument_list|,
+name|ExchangePattern
+operator|.
+name|InOut
+argument_list|,
+literal|"<order foo='1'/>"
+argument_list|,
+literal|"id"
+argument_list|,
+literal|"89531"
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"received [<order foo='1'/>] as an order id = "
