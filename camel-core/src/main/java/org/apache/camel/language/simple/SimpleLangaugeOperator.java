@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Operators supported by simple language  *<ul>  *<li>== : equlas</li>  *<li>> : greather than</li>  *<li>>= : greather than or equals</li>  *<li>< : less than</li>  *<li><= : less than or equals</li>  *<li>!= : not</li>  *<li>contains : tested for if it contains the value</li>  *<li>not contains : tested for if it does not contain the value</li>  *<li>regex : matching a regular expression</li>  *<li>not regex : not matching a regular expression</li>  *<li>in : tested for in a list of values separated by comma</li>  *<li>not in : tested for not in a list of values separated by comma</li>  *<li>is : tested for if type is an instanceof the given type</li>  *<li>not is: tested for not if type is an instanceof the given type</li>  *<li>range : tested for if it is within the provided range</li>  *<li>not range : tested for not if it is within the provided range</li>  *</ul>  */
+comment|/**  * Operators supported by simple language  *<ul>  *<li>== : equlas</li>  *<li>> : greather than</li>  *<li>>= : greather than or equals</li>  *<li>< : less than</li>  *<li><= : less than or equals</li>  *<li>!= : not</li>  *<li>contains : tested for if it contains the value</li>  *<li>not contains : tested for if it does not contain the value</li>  *<li>regex : matching a regular expression</li>  *<li>not regex : not matching a regular expression</li>  *<li>in : tested for in a list of values separated by comma</li>  *<li>not in : tested for not in a list of values separated by comma</li>  *<li>is : tested for if type is an instanceof the given type</li>  *<li>not is: tested for not if type is an instanceof the given type</li>  *<li>range : tested for if it is within the provided range</li>  *<li>not range : tested for not if it is within the provided range</li>  *<li>and : and operator to combine two groups of expressions</li>  *<li>or : or operator to combine two groups of expressions</li>  *</ul>  *<p/>  * The<tt>and</tt> and<tt>or</tt> operator is special as they are used as optional operator to combine two expressions.  * This allows you to build combiled expressions. Currently only one and/or operator is supported, but this might change  * in the future.  *<br/>  * For example we can create this compound expression that has two groups that is combined with the and operator:  *<tt>${in.header.action} == 'login' and ${in.header.password} != null</tt>  *<br/>  */
 end_comment
 
 begin_enum
@@ -38,12 +38,6 @@ DECL|enumConstant|CONTAINS
 DECL|enumConstant|NOT_CONTAINS
 DECL|enumConstant|REGEX
 DECL|enumConstant|NOT_REGEX
-DECL|enumConstant|IN
-DECL|enumConstant|NOT_IN
-DECL|enumConstant|IS
-DECL|enumConstant|NOT_IS
-DECL|enumConstant|RANGE
-DECL|enumConstant|NOT_RANGE
 name|EQ
 block|,
 name|GT
@@ -64,6 +58,14 @@ name|REGEX
 block|,
 name|NOT_REGEX
 block|,
+DECL|enumConstant|IN
+DECL|enumConstant|NOT_IN
+DECL|enumConstant|IS
+DECL|enumConstant|NOT_IS
+DECL|enumConstant|RANGE
+DECL|enumConstant|NOT_RANGE
+DECL|enumConstant|AND
+DECL|enumConstant|OR
 name|IN
 block|,
 name|NOT_IN
@@ -75,6 +77,10 @@ block|,
 name|RANGE
 block|,
 name|NOT_RANGE
+block|,
+name|AND
+block|,
+name|OR
 block|;
 DECL|method|asOperator (String text)
 specifier|public
@@ -325,6 +331,36 @@ return|return
 name|NOT_RANGE
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+literal|"and"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|AND
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"or"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|OR
+return|;
+block|}
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -533,6 +569,30 @@ condition|)
 block|{
 return|return
 literal|"not range"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
+name|AND
+condition|)
+block|{
+return|return
+literal|"and"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
+name|OR
+condition|)
+block|{
+return|return
+literal|"or"
 return|;
 block|}
 return|return

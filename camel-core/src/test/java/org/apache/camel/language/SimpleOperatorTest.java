@@ -99,6 +99,148 @@ return|return
 name|jndi
 return|;
 block|}
+DECL|method|tesValueWithSpace ()
+specifier|public
+name|void
+name|tesValueWithSpace
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Hello Big World"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.body} == 'Hello Big World'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testAnd ()
+specifier|public
+name|void
+name|testAnd
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == abc and ${in.header.bar} == 123"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == abc and ${in.header.bar} == 444"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == def and ${in.header.bar} == 123"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == def and ${in.header.bar} == 444"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == abc and ${in.header.bar}> 100"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == abc and ${in.header.bar}< 200"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testOr ()
+specifier|public
+name|void
+name|testOr
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == abc or ${in.header.bar} == 123"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == abc or ${in.header.bar} == 444"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == def or ${in.header.bar} == 123"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == def or ${in.header.bar} == 444"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == abc or ${in.header.bar}< 100"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == abc or ${in.header.bar}< 200"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == def or ${in.header.bar}< 200"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.foo} == def or ${in.header.bar}< 100"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testEqualOperator ()
 specifier|public
 name|void
@@ -1206,7 +1348,7 @@ try|try
 block|{
 name|assertExpression
 argument_list|(
-literal|"${in.header.foo} is not com.mycompany.DoesNotExist"
+literal|"${in.header.foo} not is com.mycompany.DoesNotExist"
 argument_list|,
 literal|false
 argument_list|)
@@ -1369,41 +1511,6 @@ try|try
 block|{
 name|assertExpression
 argument_list|(
-literal|"${in.header.foo} range 100 200"
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown an exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-name|assertTrue
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"Syntax error"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-try|try
-block|{
-name|assertExpression
-argument_list|(
 literal|"${in.header.foo} range 100.200"
 argument_list|,
 literal|false
@@ -1435,6 +1542,34 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} range 100..200 and ${in.header.foo} == abc"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} range 200..300 and ${in.header.foo} == abc"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} range 200..300 or ${in.header.foo} == abc"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar} range 200..300 or ${in.header.foo} == def"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testNotRange ()
 specifier|public
@@ -1533,41 +1668,6 @@ block|{
 name|assertExpression
 argument_list|(
 literal|"${in.header.foo} not range abc.."
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown an exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-name|assertTrue
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"Syntax error"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-try|try
-block|{
-name|assertExpression
-argument_list|(
-literal|"${in.header.foo} not range 100 200"
 argument_list|,
 literal|false
 argument_list|)
