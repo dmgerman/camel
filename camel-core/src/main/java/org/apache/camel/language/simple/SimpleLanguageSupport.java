@@ -253,7 +253,7 @@ name|IsSingleton
 block|{
 comment|// this is a regex for a given group in a simple expression that uses operators
 DECL|field|GROUP_PATTERN
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
