@@ -160,7 +160,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|mandatoryConvertTo
 argument_list|(
 name|InputStream
 operator|.
@@ -169,21 +169,6 @@ argument_list|,
 name|graph
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|is
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Cannot get the inputstream for GzipDataFormat mashalling"
-argument_list|)
-throw|;
-block|}
 name|GZIPOutputStream
 name|zipOutput
 init|=
